@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { 
-    ArrowLeft, Play, Lightbulb, PenTool, Layers, Settings, Save, Trash2, Plus, X, 
+import {
+    ArrowLeft, Play, Lightbulb, PenTool, Layers, Settings, Save, Trash2, Plus, X,
     Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Sparkles, Clock, CheckCircle
 } from 'lucide-react';
 import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints } from '../../utils/grammarService';
@@ -98,6 +98,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             setEditForm({
                 pattern: gp.pattern || '',
                 meaningShort: gp.meaningShort || '',
+                meaning: gp.meaning || '',
                 meaningFull: gp.meaningFull || '',
                 structureRaw: gp.structure ? gp.structure.map(s => s.type === 'highlight' ? `*${s.text}` : s.text).join(' + ') : '',
                 tips: gp.tips ? [...gp.tips] : [],
@@ -200,6 +201,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             ...gp,
             pattern: editForm.pattern.trim(),
             meaningShort: editForm.meaningShort.trim(),
+            meaning: editForm.meaning.trim(),
             meaningFull: editForm.meaningFull.trim(),
             structure: parseStructure(editForm.structureRaw),
             tips: editForm.tips.map(t => ({ ...t, text: t.text.trim() })).filter(t => t.text),
@@ -282,7 +284,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         const navRegex = /(Aい|Aな|A|V|N)/g;
         const parts = text.split(navRegex);
         if (parts.length <= 1) return text;
-        
+
         return (
             <>
                 {parts.map((part, index) => {
@@ -318,7 +320,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     // Helper to highlight targeted patterns in sentences automatically
     const renderHighlightedText = (text, highlight, isStructure = false) => {
         if (!highlight || !text) return isStructure ? highlightNAV(text) : text;
-        
+
         // Clean the pattern: remove leading tildes
         let basePattern = highlight.replace(/^[~〜]/, '').trim();
         if (!basePattern) return isStructure ? highlightNAV(text) : text;
@@ -369,7 +371,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
 
     // Get the visual illustration details
     const hasVisualData = gp.visual && (gp.visual.active || gp.visual.image || gp.visual.leftImage || gp.visual.sentenceJa);
-    const visualData = hasVisualData 
+    const visualData = hasVisualData
         ? {
             title: gp.visual.title,
             imageLabel: gp.visual.imageLabel || gp.visual.themeRight || gp.visual.themeLeft || '',
@@ -377,15 +379,15 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             descriptionVi: gp.visual.descriptionVi,
             sentenceJa: gp.visual.sentenceJa,
             sentenceJaUnderline: gp.visual.sentenceJaUnderline
-          }
+        }
         : ((gp.pattern?.includes('あげく') || gp.pattern?.includes('あげk')) ? FALLBACK_VISUAL : null);
 
-    const displayTips = gp.tips?.length > 0 
-        ? gp.tips 
+    const displayTips = gp.tips?.length > 0
+        ? gp.tips
         : ((gp.pattern?.includes('あげk') || gp.pattern?.includes('あげく')) ? FALLBACK_TIPS : []);
 
-    const displayExamples = gp.examples?.length > 0 
-        ? gp.examples 
+    const displayExamples = gp.examples?.length > 0
+        ? gp.examples
         : ((gp.pattern?.includes('あげk') || gp.pattern?.includes('あげく')) ? FALLBACK_EXAMPLES : []);
 
     // Reconstruct the full structure formula string from the database
@@ -416,103 +418,98 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
 
     return (
         <div className="max-w-4xl mx-auto pb-16 animate-fade-in space-y-6 w-full px-4 md:px-0">
-            
-            {/* Breadcrumbs & Header controls */}
-            <div className="flex items-center justify-between w-full">
-                <div className="space-y-1">
-                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest break-all">
-                        NGỮ PHÁP {gp.textbook?.levels?.[0] || 'N2'} &gt; {gp.lesson?.sectionLabel || 'BÀI 1'}: {gp.lesson?.title || '~ あげく'}
-                    </p>
-                    <button 
-                        onClick={() => navigate(backUrl)} 
-                        className="flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 transition-colors shadow-sm"
-                    >
-                        <ChevronLeft className="w-5 h-5" />
-                    </button>
-                </div>
 
-                {isAdmin && (
+            {/* Header controls when editing */}
+            {isEditing && (
+                <div className="flex items-center justify-between w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 shadow-sm">
+                    <div className="text-slate-500 text-xs font-bold uppercase tracking-wider">Chế độ chỉnh sửa</div>
                     <div className="flex gap-2 shrink-0">
-                        {isEditing ? (
-                            <>
-                                <button onClick={handleSaveDetail} disabled={saving}
-                                    className="px-4 py-2 bg-indigo-650 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm disabled:opacity-50 transition-all">
-                                    <Save className="w-3.5 h-3.5" /> Lưu ngữ pháp
-                                </button>
-                                <button onClick={() => setIsEditing(false)}
-                                    className="px-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 text-xs font-bold rounded-xl flex items-center gap-1 transition-all">
-                                    <X className="w-3.5 h-3.5" /> Huỷ
-                                </button>
-                            </>
-                        ) : (
-                            <button onClick={() => setIsEditing(true)}
-                                className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-indigo-200 dark:border-indigo-900/40 shadow-sm transition-all">
-                                <Settings className="w-3.5 h-3.5" /> Sửa ngữ pháp
-                            </button>
-                        )}
+                        <button onClick={handleSaveDetail} disabled={saving}
+                            className="px-4 py-2 bg-indigo-650 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm disabled:opacity-50 transition-all">
+                            <Save className="w-3.5 h-3.5" /> Lưu ngữ pháp
+                        </button>
+                        <button onClick={() => setIsEditing(false)}
+                            className="px-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-600 dark:text-slate-300 text-xs font-bold rounded-xl flex items-center gap-1 transition-all">
+                            <X className="w-3.5 h-3.5" /> Huỷ
+                        </button>
                     </div>
-                )}
-            </div>
-
+                </div>
+            )}
             {/* Editing mode layout */}
             {isEditing ? (
-                <div className="bg-white dark:bg-slate-800 border border-slate-250 dark:border-slate-700 rounded-3xl p-6 space-y-4 shadow-sm w-full">
+                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-6 space-y-4 shadow-sm w-full">
                     <h3 className="font-bold text-slate-800 dark:text-white text-lg">Chỉnh sửa thông tin</h3>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                         <div>
                             <label className="text-xs font-bold text-slate-500 mb-1 block">Mẫu ngữ pháp</label>
                             <input value={editForm.pattern} onChange={e => setEditForm(f => ({ ...f, pattern: e.target.value }))}
                                 placeholder="Mẫu (VD: 〜際(に))"
-                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold" />
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold" />
                         </div>
                         <div>
-                            <label className="text-xs font-bold text-slate-500 mb-1 block">Nghĩa ngắn</label>
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Dịch ngữ pháp (Nghĩa ngắn)</label>
                             <input value={editForm.meaningShort} onChange={e => setEditForm(f => ({ ...f, meaningShort: e.target.value }))}
-                                placeholder="Nghĩa ngắn (VD: Nhân dịp / Khi)"
-                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none" />
+                                placeholder="Dịch ngữ pháp (VD: Nhân dịp / Khi)"
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none" />
+                        </div>
+                        <div>
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Ý nghĩa ngữ pháp</label>
+                            <input value={editForm.meaning} onChange={e => setEditForm(f => ({ ...f, meaning: e.target.value }))}
+                                placeholder="Ý nghĩa ngữ pháp"
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold" />
                         </div>
                     </div>
 
-                    <div>
-                        <label className="text-xs font-bold text-slate-500 mb-1 block">Giải thích chi tiết (GIẢI THÍCH)</label>
-                        <textarea value={editForm.meaningFull} onChange={e => setEditForm(f => ({ ...f, meaningFull: e.target.value }))} rows={3}
-                            placeholder="Ý nghĩa chi tiết..."
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none resize-none" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                        <div>
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Câu ví dụ đại diện (Tiếng Nhật)</label>
+                            <input value={editForm.visual.sentenceJa} onChange={e => setEditForm(f => ({ ...f, visual: { ...f.visual, sentenceJa: e.target.value } }))}
+                                placeholder="Câu ví dụ đại diện (VD: 必死で走ったあげく、バスに乗り遅れてしまった。)"
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold font-japanese" />
+                        </div>
+                        <div>
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Ý nghĩa ngữ pháp / Dịch câu ví dụ (Tiếng Việt)</label>
+                            <input value={editForm.visual.descriptionVi} onChange={e => setEditForm(f => ({ ...f, visual: { ...f.visual, descriptionVi: e.target.value } }))}
+                                placeholder="Ý nghĩa / Bản dịch của ví dụ đại diện"
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold" />
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                        <div>
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Đường dẫn ảnh minh hoạ</label>
+                            <input value={editForm.visual.image} onChange={e => setEditForm(f => ({ ...f, visual: { ...f.visual, image: e.target.value } }))}
+                                placeholder="VD: /images/grammar/ageku_miss.png hoặc URL"
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none" />
+                        </div>
+                        <div onPaste={handleImagePasteOrDrop} onDrop={handleImagePasteOrDrop} onDragOver={e => e.preventDefault()}
+                            className="border border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-3 text-center cursor-pointer hover:bg-slate-100/50 dark:hover:bg-slate-800/40 transition-colors relative flex items-center justify-center min-h-[42px]">
+                            {uploadingState ? (
+                                <p className="text-xs text-indigo-500 font-bold animate-pulse">Đang tải ảnh lên...</p>
+                            ) : (
+                                <div className="flex items-center gap-2">
+                                    <p className="text-[11px] text-slate-500 font-semibold">Ctrl+V / thả ảnh vào đây để upload</p>
+                                    {editForm.visual.image && (
+                                        <img src={editForm.visual.image} alt="preview" className="h-6 object-contain rounded border border-slate-200 shadow-xs" />
+                                    )}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div>
                         <label className="text-xs font-bold text-slate-500 mb-1 block">Cấu trúc (dùng + ngăn cách, *đọc highlight): VD: V-た + *際(ni) + N-no</label>
                         <input value={editForm.structureRaw} onChange={e => setEditForm(f => ({ ...f, structureRaw: e.target.value }))}
                             placeholder="Cấu trúc..."
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-mono" />
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-mono" />
                     </div>
 
-                    {/* Tips Editor */}
-                    <div className="space-y-2 w-full">
-                        <div className="flex items-center justify-between">
-                            <label className="text-xs font-bold text-slate-500">Lưu ý sử dụng (mỗi dòng 1 lưu ý)</label>
-                            <button onClick={handleAddTip} className="text-xs text-indigo-600 font-bold hover:underline flex items-center gap-1">
-                                <Plus className="w-3.5 h-3.5" /> Thêm lưu ý
-                            </button>
-                        </div>
-                        {editForm.tips.map((tip, idx) => (
-                            <div key={idx} className="flex items-center gap-2 w-full">
-                                <input value={tip.icon || '💡'} onChange={e => {
-                                    const newTips = [...editForm.tips];
-                                    newTips[idx].icon = e.target.value;
-                                    setEditForm(f => ({ ...f, tips: newTips }));
-                                }} className="w-10 px-2 py-1 text-center bg-slate-50 border rounded-lg text-sm shrink-0" placeholder="💡" />
-                                <input value={tip.text} onChange={e => {
-                                    const newTips = [...editForm.tips];
-                                    newTips[idx].text = e.target.value;
-                                    setEditForm(f => ({ ...f, tips: newTips }));
-                                }} className="flex-1 px-3 py-1 bg-slate-50 border rounded-lg text-sm outline-none" placeholder="Nhập nội dung lưu ý..." />
-                                <button onClick={() => handleRemoveTip(idx)} className="text-slate-405 hover:text-red-500 shrink-0">
-                                    <Trash2 className="w-4 h-4" />
-                                </button>
-                            </div>
-                        ))}
+                    <div>
+                        <label className="text-xs font-bold text-slate-500 mb-1 block">Giải thích chi tiết (GIẢI THÍCH)</label>
+                        <textarea value={editForm.meaningFull} onChange={e => setEditForm(f => ({ ...f, meaningFull: e.target.value }))} rows={3}
+                            placeholder="Ý nghĩa chi tiết..."
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none resize-none" />
                     </div>
 
                     {/* Examples Editor */}
@@ -549,180 +546,143 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             </div>
                         ))}
                     </div>
+                </div>
+            ) : (
 
-                    {/* Visual Editor integrated directly */}
-                    <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-6 space-y-4 w-full">
-                        <h3 className="text-base font-bold text-slate-855 dark:text-white flex items-center gap-2">
-                            <Sparkles className="w-5 h-5 text-indigo-500" /> Giao diện trực quan (Zen Visual Grammar)
-                        </h3>
-                        
-                        <div className="grid grid-cols-1 gap-4 bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 w-full">
-
-                            <div>
-                                <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Đường dẫn ảnh minh hoạ</label>
-                                <input 
-                                    value={editForm.visual.image} 
-                                    onChange={e => setEditForm(f => ({ ...f, visual: { ...f.visual, image: e.target.value } }))}
-                                    placeholder="VD: /images/grammar/ageku_miss.png hoặc URL"
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none"
-                                />
-                            </div>
-
-                            {/* Image Paste/Drop zone */}
-                            <div 
-                                onPaste={handleImagePasteOrDrop}
-                                onDrop={handleImagePasteOrDrop}
-                                onDragOver={e => e.preventDefault()}
-                                className="border border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-4 text-center cursor-pointer hover:bg-slate-100/50 dark:hover:bg-slate-800/40 transition-colors relative"
+                /* Reading/Study Layout */
+                <>
+                    {/* Header: Back button on the far left, badge & title next to it, Admin on the far right */}
+                    <div className="flex items-start justify-between gap-4 w-full">
+                        <div className="flex items-start gap-4 flex-1 min-w-0">
+                            {/* Back Button */}
+                            <button
+                                onClick={() => navigate(backUrl)}
+                                className="flex items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 transition-colors shadow-sm shrink-0 mt-1"
                             >
-                                {uploadingState ? (
-                                    <p className="text-xs text-indigo-500 font-bold animate-pulse py-4">Đang tải ảnh lên...</p>
-                                ) : (
-                                    <div className="space-y-2">
-                                        <p className="text-xs text-slate-500 font-bold">Bấm vào đây rồi dán ảnh (Ctrl+V) hoặc kéo thả file để tải lên</p>
-                                        {editForm.visual.image && (
-                                            <img src={editForm.visual.image} alt="preview" className="max-h-24 mx-auto object-contain rounded border border-slate-200 shadow-sm" />
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+
+                            {/* Badge & Pattern Title */}
+                            <div className="flex flex-col gap-2 flex-1 min-w-0">
+
+                                <div className="flex flex-wrap items-center gap-3.5 w-full">
+                                    <div className="w-9 h-9 rounded-full bg-[#3b6070] dark:bg-slate-700 text-white flex items-center justify-center font-bold text-lg shrink-0">
+                                        {hasProgress ? currentIndex + 1 : 1}
+                                    </div>
+                                    <h1 className="text-3xl font-bold text-slate-800 dark:text-white break-all">
+                                        {gp.pattern}
+                                    </h1>
+                                    <span className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900/40 px-3.5 py-1 rounded-xl text-sm font-bold tracking-wide break-all">
+                                        {gp.meaningShort}
+                                    </span>
+                                </div>
+
+                                {/* Representative Example Sentence (without outer box card) */}
+                                {(jpText || viText) && (
+                                    <div className="mt-3 md:pl-[50px] space-y-2 animate-fade-in w-full">
+                                        {jpText && (
+                                            <div
+                                                className="bg-[#f1f5f9] dark:bg-slate-700/50 hover:bg-[#e2e8f0] dark:hover:bg-slate-700/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-6 py-2.5 flex items-center w-fit cursor-pointer transition-all active:scale-[0.98] shadow-sm"
+                                                onClick={() => speakText(jpText)}
+                                            >
+                                                <p className="text-base md:text-lg font-bold text-slate-855 dark:text-slate-200 tracking-wide font-japanese">
+                                                    {renderHighlightedText(jpText, gp.pattern)}
+                                                </p>
+                                            </div>
+                                        )}
+
+                                        {viText && (
+                                            <p className="text-slate-500 dark:text-slate-400 italic text-xs md:text-sm pl-2 leading-relaxed break-words w-full">
+                                                "{viText}"
+                                            </p>
                                         )}
                                     </div>
                                 )}
                             </div>
-
-                            <div>
-                                <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Nghĩa tiếng Việt giải thích cho ảnh</label>
-                                <textarea 
-                                    value={editForm.visual.descriptionVi} 
-                                    onChange={e => setEditForm(f => ({ ...f, visual: { ...f.visual, descriptionVi: e.target.value } }))}
-                                    placeholder="VD: Sau một hồi chạy thục mạng, cuối cùng tôi lại bị lỡ chuyến xe buýt."
-                                    rows={2}
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-700 rounded-xl text-xs outline-none resize-none"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Câu tiếng Nhật minh hoạ</label>
-                                <input 
-                                    value={editForm.visual.sentenceJa} 
-                                    onChange={e => setEditForm(f => ({ ...f, visual: { ...f.visual, sentenceJa: e.target.value } }))}
-                                    placeholder="VD: 必死で走ったあげく、バスに乗り遅れてしまった。"
-                                    className="w-full px-3 py-2 bg-white dark:bg-slate-855 border border-slate-200 dark:border-slate-700 rounded-xl text-xs outline-none font-bold"
-                                />
-                            </div>
                         </div>
+
+                        {isAdmin && (
+                            <div className="shrink-0 pt-1">
+                                <button onClick={() => setIsEditing(true)}
+                                    className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-indigo-200 dark:border-indigo-900/40 shadow-sm transition-all">
+                                    <Settings className="w-3.5 h-3.5" /> Sửa ngữ pháp
+                                </button>
+                            </div>
+                        )}
                     </div>
-                </div>
-            ) : (
-                
-                /* Reading/Study Layout */
-                <>
-                    {/* Badge & Pattern Title */}
-                    <div className="flex flex-col gap-2 mt-4 w-full">
-                        <span className="w-fit px-3 py-1 text-[11px] font-bold rounded-lg bg-purple-100 text-purple-750 dark:bg-purple-950/40 dark:text-purple-300">
-                            {gp.lesson?.sectionLabel ? (gp.lesson.sectionLabel.includes('課') || gp.lesson.sectionLabel.includes('部') || gp.lesson.sectionLabel.includes('BÀI') ? gp.lesson.sectionLabel : `BÀI ${gp.lesson.sectionLabel}`) : 'BÀI 1'}
-                        </span>
-                        <div className="flex flex-wrap items-center gap-3.5 w-full">
-                            <div className="w-9 h-9 rounded-full bg-[#3b6070] dark:bg-slate-700 text-white flex items-center justify-center font-bold text-lg shrink-0">
-                                {hasProgress ? currentIndex + 1 : 1}
-                            </div>
-                            <h1 className="text-3xl font-bold text-slate-800 dark:text-white break-all">
-                                {gp.pattern}
-                            </h1>
-                            <span className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900/40 px-3.5 py-1 rounded-xl text-sm font-bold tracking-wide break-all">
-                                {gp.meaningShort}
-                            </span>
+
+                    {/* Zen Visual Image Card (Khung hình - only if image exists) */}
+                    {visualData && visualData.image && (
+                        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-4 shadow-sm w-fit mx-auto flex justify-center">
+                            <img
+                                src={visualData.image}
+                                alt={visualData.imageLabel || "Visual illustration"}
+                                className="max-h-[480px] max-w-full object-contain rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/10 dark:bg-slate-900/20 shadow-sm p-2"
+                            />
                         </div>
-                        {/* Structure formula under the title */}
+                    )}
+
+                    {/* Explanations & Warnings Grid (Now with Ý nghĩa, Cấu trúc, and Giải thích) */}
+                    <div className="w-full space-y-6">
+                        {/* Ý NGHĨA Box */}
+                        {gp.meaning && (
+                            <div className="flex items-start gap-4 md:gap-6 w-full min-w-0">
+                                {/* Left boxed label */}
+                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
+                                    Ý nghĩa
+                                </div>
+                                {/* Right Content */}
+                                <div className="flex-1 min-w-0 pt-1">
+                                    <p className="text-base font-bold text-slate-800 dark:text-white leading-relaxed break-words w-full whitespace-pre-wrap">
+                                        {gp.meaning}
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* CẤU TRÚC KẾT HỢP Box */}
                         {fullStructure && (
-                            <div className="mt-2.5 pl-[50px] w-fit">
-                                <div className="bg-sky-50 dark:bg-sky-950/35 border border-sky-100 dark:border-sky-900/30 px-3 py-1 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-350 font-japanese tracking-wide shadow-sm flex items-center gap-1.5 w-fit">
-                                    {renderHighlightedText(fullStructure, gp.pattern, true)}
-                                    <span className="text-slate-400 dark:text-slate-500 font-normal mx-0.5">+</span>
-                                    <span className="inline-flex items-center justify-center bg-indigo-50 text-indigo-750 dark:bg-indigo-950/40 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/40 px-2 py-0.5 rounded-md text-sm font-black align-middle leading-none">
-                                        {gp.pattern}
-                                    </span>
+                            <div className="flex items-center gap-4 md:gap-6 w-full min-w-0">
+                                {/* Left boxed label */}
+                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm">
+                                    Cấu trúc
+                                </div>
+                                {/* Right Content */}
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex items-center gap-1.5 flex-wrap">
+                                        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-xl text-base font-bold text-slate-700 dark:text-slate-300 font-japanese tracking-wide shadow-sm flex items-center gap-1.5 w-fit">
+                                            {renderHighlightedText(fullStructure, gp.pattern, true)}
+                                            <span className="text-slate-400 dark:text-slate-500 font-normal mx-0.5">+</span>
+                                            <span className="inline-flex items-center justify-center bg-indigo-50 text-indigo-750 dark:bg-indigo-950/40 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/40 px-2 py-0.5 rounded-md text-base font-black align-middle leading-none">
+                                                {gp.pattern}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* GIẢI THÍCH Box */}
+                        {gp.meaningFull && (
+                            <div className="flex items-start gap-4 md:gap-6 w-full min-w-0">
+                                {/* Left boxed label */}
+                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
+                                    Giải thích
+                                </div>
+                                {/* Right Content */}
+                                <div className="flex-1 min-w-0 pt-1">
+                                    <p className="text-base font-semibold text-slate-700 dark:text-slate-300 leading-relaxed break-words w-full whitespace-pre-wrap">
+                                        {gp.meaningFull}
+                                    </p>
                                 </div>
                             </div>
                         )}
                     </div>
 
-                    {/* Zen Visual Grammar Card */}
-                    {visualData && (
-                        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-6 shadow-sm space-y-6 w-full">
-
-                            {/* Centered Single Column Layout */}
-                            <div className="space-y-4 flex flex-col items-center justify-center min-w-0 w-full">
-                                {visualData.image && (
-                                    <div className="flex justify-center w-full">
-                                        <img 
-                                            src={visualData.image} 
-                                            alt={visualData.imageLabel || "Visual illustration"}
-                                            className="max-h-[480px] max-w-full object-contain rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/10 dark:bg-slate-900/20 shadow-sm p-2"
-                                        />
-                                    </div>
-                                )}
-
-                                {jpText && (
-                                    <div 
-                                        className="bg-[#f1f5f9] dark:bg-slate-700/50 hover:bg-[#e2e8f0] dark:hover:bg-slate-700/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-6 py-3 flex items-center w-fit mx-auto cursor-pointer transition-all active:scale-[0.98] shadow-sm"
-                                        onClick={() => speakText(jpText)}
-                                    >
-                                        <p className="text-base md:text-lg font-bold text-slate-855 dark:text-slate-200 tracking-wide break-words w-full font-japanese text-center">
-                                            {renderHighlightedText(jpText, gp.pattern)}
-                                        </p>
-                                    </div>
-                                )}
-
-                                {viText && (
-                                    <p className="text-center text-slate-500 dark:text-slate-400 italic text-xs md:text-sm px-6 max-w-2xl leading-relaxed break-words w-full mt-2">
-                                        "{viText}"
-                                    </p>
-                                )}
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Explanations & Warnings Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-                        {/* GIẢI THÍCH Box */}
-                        <div className="bg-[#f5ebff] dark:bg-purple-950/20 border border-purple-200/40 dark:border-purple-900/30 rounded-2xl p-5 relative pl-16 shadow-sm min-w-0 w-full">
-                            <div className="absolute left-4 top-5 w-9 h-9 rounded-xl bg-[#c084fc] text-white flex items-center justify-center shrink-0">
-                                <Lightbulb className="w-5 h-5" />
-                            </div>
-                            <div className="space-y-1 min-w-0 w-full">
-                                <h4 className="text-[10px] font-bold text-purple-650 dark:text-purple-400 uppercase tracking-widest">
-                                    GIẢI THÍCH
-                                </h4>
-                                <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 leading-relaxed break-words w-full">
-                                    {gp.meaningFull || gp.meaningShort}
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* LƯU Ý SỬ DỤNG Box */}
-                        <div className="bg-[#fff1f2] dark:bg-rose-950/20 border border-rose-200/40 dark:border-rose-900/30 rounded-2xl p-5 relative pl-16 shadow-sm min-w-0 w-full">
-                            <div className="absolute left-4 top-5 w-9 h-9 rounded-xl bg-[#f43f5e] text-white flex items-center justify-center shrink-0">
-                                <AlertCircle className="w-5 h-5" />
-                            </div>
-                            <div className="space-y-1 min-w-0 w-full">
-                                <h4 className="text-[10px] font-bold text-rose-650 dark:text-rose-455 uppercase tracking-widest">
-                                    LƯU Ý SỬ DỤNG
-                                </h4>
-                                <div className="space-y-1 text-sm font-semibold text-slate-700 dark:text-slate-300 leading-relaxed break-words w-full">
-                                    {displayTips.length > 0 ? (
-                                        displayTips.map((t, idx) => (
-                                            <p key={idx} className="break-words w-full">{t.text || t}</p>
-                                        ))
-                                    ) : (
-                                        <p className="break-words w-full">Chưa có lưu ý đặc biệt cho cấu trúc này.</p>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     {/* Other Examples Section */}
                     {displayExamples.length > 0 && (
                         <div className="w-full">
-                            <div className="flex items-center gap-3 mt-10 mb-5">
+                            <div className="flex items-center gap-3 mt-4 mb-5">
                                 <div className="w-1.5 h-6 bg-[#3b6070] dark:bg-teal-600 rounded-full"></div>
                                 <h2 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
                                     CÁC VÍ DỤ KHÁC (EXAMPLES)
@@ -740,8 +700,8 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     const style = circleStyles[i % circleStyles.length];
 
                                     return (
-                                        <div 
-                                            key={i} 
+                                        <div
+                                            key={i}
                                             className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 flex items-start shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer w-full min-w-0"
                                             onClick={() => speakText(ex.ja)}
                                         >
@@ -767,7 +727,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                     {hasProgress && (
                         <div className="flex flex-col items-center gap-5 pt-8 w-full">
                             {/* Finish & Next button */}
-                            <button 
+                            <button
                                 onClick={handleNextClick}
                                 className="bg-[#3b6070] hover:bg-[#2c4956] text-white font-bold rounded-2xl px-10 py-3.5 shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
                             >
@@ -786,7 +746,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-950/40 rounded-full flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-455 shadow-sm">
                             <CheckCircle className="w-12 h-12" />
                         </div>
-                        
+
                         <div className="space-y-2">
                             <h2 className="text-2xl font-bold text-slate-800 dark:text-white">Tuyệt vời! 🎉</h2>
                             <p className="text-sm text-slate-500 dark:text-slate-400">
@@ -804,7 +764,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
 
                         <div className="flex flex-col gap-3 pt-2">
                             {totalExercises > 0 ? (
-                                <button 
+                                <button
                                     onClick={() => {
                                         setShowCompletionModal(false);
                                         navigate(`/grammar/practice/${grammarId}?tb=${tb || gp.textbookId}&ls=${ls || gp.lessonId}`);
@@ -814,7 +774,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     <PenTool className="w-4 h-4" /> Luyện tập bài tập ({totalExercises} câu)
                                 </button>
                             ) : (
-                                <button 
+                                <button
                                     onClick={() => {
                                         setShowCompletionModal(false);
                                         navigate(`/grammar/practice/${grammarId}?tb=${tb || gp.textbookId}&ls=${ls || gp.lessonId}`);
@@ -824,8 +784,8 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     <PenTool className="w-4 h-4" /> Luyện tập bài tập ngay
                                 </button>
                             )}
-                            
-                            <button 
+
+                            <button
                                 onClick={() => {
                                     setShowCompletionModal(false);
                                     navigate(backUrl);

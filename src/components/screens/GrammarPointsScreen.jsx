@@ -19,9 +19,9 @@ const SAMPLE_POINTS_JSON = `[
   {
     "pattern": "〜際(に)",
     "meaningShort": "Nhân dịp / Khi",
-    "meaningFull": "Cấu trúc trang trọng tương tự とき, dùng khi hướng dẫn, thông báo công cộng.",
+    "meaning": "Khi, lúc (dùng trong văn phong trang trọng, thông báo công cộng)",
+    "meaningFull": "Cấu trúc trang trọng tương tự とき, dùng khi hướng dẫn, thông báo công cộng.\\nChú ý: Không dùng cho các hoạt động sinh hoạt thường ngày.",
     "structureRaw": "Vた / Nの",
-    "tipsRaw": "Dùng trong văn viết hoặc chỉ dẫn trang trọng.\\nKhông dùng cho các hoạt động sinh hoạt thường ngày.",
     "examplesRaw": "お降りの際は、足元にご注意ください。\\nKhi xuống xe, xin hãy chú ý dưới chân.\\n緊急の際は、このボタンを押してください。\\nTrong trường hợp khẩn cấp, hãy ấn nút này.",
     "visual": {
       "image": "",
@@ -34,6 +34,7 @@ const SAMPLE_POINTS_JSON = `[
 const EMPTY_FORM = {
     pattern: '',
     meaningShort: '',
+    meaning: '',
     meaningFull: '',
     structureRaw: '',
     tipsRaw: '',
@@ -482,6 +483,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
         const data = {
             pattern: form.pattern.trim(), 
             meaningShort: form.meaningShort.trim(), 
+            meaning: form.meaning.trim(),
             meaningFull: form.meaningFull.trim(),
             structure: parseStructure(form.structureRaw), 
             tips: parseTips(form.tipsRaw),
@@ -546,6 +548,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
         setForm({
             pattern: gp.pattern || '', 
             meaningShort: gp.meaningShort || '', 
+            meaning: gp.meaning || '',
             meaningFull: gp.meaningFull || '',
             structureRaw: toStructureRaw(gp.structure), 
             tipsRaw: toTipsRaw(gp.tips),
@@ -1039,16 +1042,21 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                 <div className="bg-white dark:bg-slate-800 border border-slate-250 dark:border-slate-700 rounded-3xl p-6 space-y-4 shadow-sm w-full">
                     <h3 className="font-bold text-slate-800 dark:text-white text-lg">{editId ? 'Sửa ngữ pháp' : 'Thêm ngữ pháp'}</h3>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                         <div>
                             <label className="text-xs font-bold text-slate-500 mb-1 block">Mẫu ngữ pháp</label>
                             <input placeholder="Mẫu (VD: 〜際(に))" value={form.pattern} onChange={e => setForm(f => ({ ...f, pattern: e.target.value }))}
                                 className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold" />
                         </div>
                         <div>
-                            <label className="text-xs font-bold text-slate-500 mb-1 block">Nghĩa ngắn</label>
-                            <input placeholder="Nghĩa ngắn (VD: Nhân dịp / Khi)" value={form.meaningShort} onChange={e => setForm(f => ({ ...f, meaningShort: e.target.value }))}
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Dịch ngữ pháp (Nghĩa ngắn)</label>
+                            <input placeholder="Dịch ngữ pháp (VD: Nhân dịp / Khi)" value={form.meaningShort} onChange={e => setForm(f => ({ ...f, meaningShort: e.target.value }))}
                                 className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none" />
+                        </div>
+                        <div>
+                            <label className="text-xs font-bold text-slate-500 mb-1 block">Ý nghĩa ngữ pháp</label>
+                            <input placeholder="Ý nghĩa ngữ pháp" value={form.meaning} onChange={e => setForm(f => ({ ...f, meaning: e.target.value }))}
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold" />
                         </div>
                     </div>
 

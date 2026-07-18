@@ -1221,42 +1221,71 @@ export const callWhisperSTT = async (audioBlob) => {
     return data.text || '';
 };
 
-// ============== OPENAI TTS CALL ==============
+// ============== OPENAI / AZURE TTS CALL ==============
 export const callOpenAITTS = async (text, gender = 'female') => {
+    const azureProxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
-    if (!openaiKey) {
-        return null;
-    }
 
-    // OpenAI voices: alloy, echo, fable, onyx, nova, shimmer
-    // Female options: nova, shimmer
-    // Male options: onyx, echo
-    const voice = gender === 'female' ? 'shimmer' : 'onyx';
+    // 1. Try Azure Speech Proxy first if configured (premium native Japanese voices)
+    if (azureProxyUrl) {
+        try {
+            const baseProxy = azureProxyUrl.replace(/\/+$/, '');
+            const azureVoiceName = gender === 'female' ? 'ja-JP-NanamiNeural' : 'ja-JP-KeitaNeural';
+            const response = await fetch(baseProxy, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text: text,
+                    voiceName: azureVoiceName
+                })
+            });
 
-    try {
-        const response = await fetch('https://api.openai.com/v1/audio/speech', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${openaiKey}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                model: 'tts-1',
-                input: text,
-                voice: voice
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error(`TTS API error: ${response.status}`);
+            if (response.ok) {
+                const blob = await response.blob();
+                return URL.createObjectURL(blob);
+            } else {
+                console.warn(`Azure TTS Proxy error status: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('Azure TTS via Proxy failed, trying fallback:', error);
         }
-
-        const blob = await response.blob();
-        return URL.createObjectURL(blob);
-    } catch (error) {
-        console.error('OpenAI TTS failed:', error);
-        return null;
     }
+
+    // 2. Fallback to OpenAI TTS if key is configured
+    if (openaiKey) {
+        // OpenAI voices: alloy, echo, fable, onyx, nova, shimmer
+        // Female options: nova, shimmer
+        // Male options: onyx, echo
+        const voice = gender === 'female' ? 'shimmer' : 'onyx';
+
+        try {
+            const response = await fetch('https://api.openai.com/v1/audio/speech', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${openaiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    model: 'tts-1',
+                    input: text,
+                    voice: voice
+                })
+            });
+
+            if (response.ok) {
+                const blob = await response.blob();
+                return URL.createObjectURL(blob);
+            } else {
+                throw new Error(`TTS API error: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('OpenAI TTS failed:', error);
+        }
+    }
+
+    return null;
 };
 
 // ============== AI VERB NORMALIZATION TOOL ==============

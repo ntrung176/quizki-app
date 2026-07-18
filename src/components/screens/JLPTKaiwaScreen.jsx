@@ -64,6 +64,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     const [showFurigana, setShowFurigana] = useState(true);
     const [ttsRate, setTtsRate] = useState(1.0); // 0.8 | 1.0 | 1.2
     const [isMuted, setIsMuted] = useState(false);
+    const [pendingCorrection, setPendingCorrection] = useState(null);
     
     // Audio/Speech states
     const [isRecording, setIsRecording] = useState(false);
@@ -315,6 +316,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         setStep('chat');
         setIsGenerating(true);
         setConversation([]);
+        setPendingCorrection(null);
 
         const selectedTeacher = TEACHERS.find(t => t.id === teacher);
         const selectedTopic = TOPICS.find(t => t.id === topic);
@@ -326,7 +328,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         1. Cấp độ JLPT hội thoại của học viên: ${level}. Chỉ sử dụng từ vựng và ngữ pháp phù hợp với cấp độ này.
         2. Tông giọng và vai trò của bạn: Là một giáo viên tiếng Nhật bản xứ thân thiện, lịch sự (sử dụng kính ngữ desu/masu thích hợp), kiên nhẫn.
         3. Chủ đề hội thoại: ${selectedTopic.name} - ${selectedTopic.desc}.
-        4. Đối với tin nhắn đầu tiên này, hãy gửi một lời chào ấm áp, giới thiệu bản thân bạn là ${selectedTeacher.name}, nhắc đến chủ đề cuộc hội thoại hôm nay và hỏi một câu hỏi mở phù hợp với chủ đề để học viên trả lời.
+        4. Yêu cầu về độ dài: Câu nói của giáo viên ("replyJa") phải cực kỳ ngắn gọn, súc tích (1-2 câu ngắn, tối đa 20-30 ký tự), tự nhiên như đang trò chuyện đời thường, tránh viết dài dòng.
+        5. Đối với tin nhắn đầu tiên này, hãy gửi một lời chào ấm áp ngắn gọn, giới thiệu bản thân bạn là ${selectedTeacher.name}, nhắc đến chủ đề cuộc hội thoại hôm nay và hỏi một câu hỏi mở thật ngắn phù hợp với chủ đề để học viên trả lời.
         
         Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không chứa markdown backticks, không chứa bất kỳ văn bản nào khác ngoài JSON):
         {
@@ -370,7 +373,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             setIsGenerating(false);
         }
     };
-
+    
     // Helper to send message to AI
     const handleSendUserMessage = async (textToSend) => {
         unlockAudio();
@@ -394,35 +397,87 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         const selectedTeacher = TEACHERS.find(t => t.id === teacher);
         const selectedTopic = TOPICS.find(t => t.id === topic);
 
-        // System prompt design
-        const systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
-        Bạn đang thực hiện hội thoại 1:1 với người học.
-        Nhiệm vụ của bạn:
-        1. Nhận tin nhắn mới nhất của học viên bằng tiếng Nhật.
-        2. Phân tích tin nhắn của học viên:
-           - Kiểm tra xem câu nói có lỗi sai ngữ pháp, dùng từ sai, hoặc câu nói không tự nhiên đối với người Nhật hay không.
-           - Nếu có lỗi hoặc chưa tự nhiên, hãy đặt "feedback.hasError" là true, đưa ra câu sửa lại tự nhiên hơn tại "correctedJa", và giải thích chi tiết lỗi bằng tiếng Việt tại "explanationVi".
-           - Nếu câu nói hoàn toàn chính xác và tự nhiên, đặt "feedback.hasError" là false.
-        3. Tạo ra câu trả lời tiếp theo của giáo viên:
-           - Trả lời phù hợp với nội dung của học viên để giữ mạch hội thoại trôi chảy.
-           - Cấp độ JLPT phù hợp: ${level}.
-           - Đóng vai: ${selectedTeacher.name} thân thiện.
-        4. Gợi ý 2-3 cách trả lời tiếp theo bằng tiếng Nhật (dạng chữ[Furigana]) để học viên có thể dùng.
-
-        Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không chứa markdown backticks, không chứa văn bản thừa):
-        {
-          "replyJa": "Nội dung câu trả lời tiếp theo của giáo viên bằng tiếng Nhật. Bắt buộc có Furigana theo định dạng: Chữ[Furigana]. Ví dụ: 今日[きょう]は",
-          "replyVi": "Bản dịch câu trả lời trên sang tiếng Việt",
-          "feedback": {
-            "hasError": true hoặc false,
-            "userOriginal": "nội dung gốc của học viên",
-            "correctedJa": "câu sửa lỗi tiếng Nhật (nếu có, kèm Furigana dạng Chữ[Furigana])",
-            "explanationVi": "lời khuyên giải thích lỗi sai bằng tiếng Việt (nếu có)"
-          },
-          "suggestions": [
-            "2 đến 3 câu gợi ý phản xạ tiếp theo bằng tiếng Nhật (kèm Furigana dạng Chữ[Furigana])"
-          ]
-        }`;
+        // System prompt design based on pendingCorrection state
+        let systemPrompt = '';
+        if (pendingCorrection) {
+            systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
+            Học viên đang thực hiện sửa lỗi cho câu sai trước đó.
+            
+            Bối cảnh:
+            - Câu sai gốc của học viên: "${pendingCorrection.original}"
+            - Câu sửa đúng mong đợi: "${pendingCorrection.corrected}"
+            
+            Nhiệm vụ của bạn:
+            1. Nhận tin nhắn mới nhất học viên vừa nhập/nói: "${messageText}".
+            2. Đánh giá xem câu này đã chính xác với câu sửa đúng "${pendingCorrection.corrected}" chưa (chấp nhận viết hoa viết thường, dấu câu khác biệt nhỏ, hoặc cách viết bằng Hiragana thay cho Kanji hoặc ngược lại miễn là đọc lên hoàn toàn giống nhau hoặc đúng ngữ pháp).
+            3. Trả về kết quả đánh giá bằng JSON:
+               - Nếu SỬA ĐÚNG:
+                 + Đặt "feedback.hasError" là false.
+                 + "replyJa" phải là 1 câu khen ngợi ngắn gọn bằng tiếng Nhật (ví dụ: "素晴らしい！正しく言えましたね。") tiếp theo đó là 1 câu tiếp diễn mạch hội thoại thông thường (hỏi câu tiếp theo phù hợp chủ đề hội thoại để tiếp tục).
+                 + Trả về mảng "suggestions" gồm 2-3 câu gợi ý phản xạ ngắn để học viên chọn trả lời tiếp.
+               - Nếu SỬA VẪN SAI:
+                 + Đặt "feedback.hasError" là true.
+                 + "feedback.userOriginal" là "${messageText}".
+                 + "feedback.correctedJa" giữ nguyên câu sửa đúng: "${pendingCorrection.corrected}".
+                 + "feedback.explanationVi" là lời khuyên bằng tiếng Việt giải thích tại sao câu họ vừa viết/nói vẫn chưa đúng và yêu cầu họ thử lại.
+                 + "replyJa" bắt buộc phải là lời yêu cầu học viên nói/nhập lại chính xác câu sửa đó để sửa lỗi. Tuyệt đối KHÔNG được chứa bất kỳ câu hỏi mới nào, không được hỏi câu tiếp theo, không chuyển chủ đề. Ví dụ: "まだ少し違いますね。もう一度言って（入力して）みてください：「${pendingCorrection.corrected}」".
+                 + "suggestions" chỉ chứa 1 phần tử duy nhất chính là câu sửa đúng.
+            
+            Yêu cầu về độ dài: Câu trả lời của giáo viên ("replyJa") phải cực kỳ ngắn gọn, súc tích (1-2 câu ngắn, tối đa 20-30 ký tự), tự nhiên như đang trò chuyện thông thường.
+            
+            Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không chứa markdown backticks, không chứa bất kỳ văn bản nào khác ngoài JSON):
+            {
+              "replyJa": "nội dung câu trả lời của giáo viên bằng tiếng Nhật kèm Furigana dạng Chữ[Furigana]",
+              "replyVi": "bản dịch tiếng Việt tương ứng",
+              "feedback": {
+                "hasError": true hoặc false,
+                "userOriginal": "...",
+                "correctedJa": "...",
+                "explanationVi": "..."
+              },
+              "suggestions": [
+                "..."
+              ]
+            }`;
+        } else {
+            systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
+            Bạn đang thực hiện hội thoại 1:1 với người học.
+            Yêu cầu bắt buộc:
+            1. Cấp độ JLPT hội thoại của học viên: ${level}. Chỉ sử dụng từ vựng và ngữ pháp phù hợp với cấp độ này.
+            2. Tông giọng và vai trò của bạn: Là một giáo viên tiếng Nhật bản xứ thân thiện, lịch sự (sử dụng kính ngữ desu/masu thích hợp), kiên nhẫn.
+            3. Chủ đề hội thoại: ${selectedTopic.name} - ${selectedTopic.desc}.
+            4. Yêu cầu về độ dài: Câu nói của giáo viên ("replyJa") phải cực kỳ ngắn gọn, súc tích (1-2 câu ngắn, tối đa 20-30 ký tự), tự nhiên như đang trò chuyện đời thường, tránh viết dài dòng.
+            
+            Nhiệm vụ của bạn:
+            1. Nhận tin nhắn mới nhất của học viên bằng tiếng Nhật.
+            2. Phân nhắn của học viên:
+               - Kiểm tra xem câu nói có lỗi sai ngữ pháp, dùng từ sai, hoặc câu nói không tự nhiên đối với người Nhật hay không.
+               - Nếu có lỗi hoặc chưa tự nhiên:
+                 + Đặt "feedback.hasError" là true.
+                 + Đưa ra câu sửa lại tự nhiên hơn tại "correctedJa" (kèm Furigana dạng Chữ[Furigana]).
+                 + Giải thích chi tiết lỗi bằng tiếng Việt tại "explanationVi".
+                 + Lúc này, "replyJa" bắt buộc phải là lời yêu cầu học viên nói/nhập lại chính xác câu sửa đó để sửa lỗi. Tuyệt đối KHÔNG được chứa bất kỳ câu hỏi mới nào, không được hỏi câu tiếp theo, không chuyển chủ đề, không thêm bất kỳ câu nào khác ngoài lời yêu cầu học viên sửa lỗi. Ví dụ: "ちょっと不自然ですね。練習しましょう。この文をもう一度言って（入力して）みてください：「{câu sửa lỗi}」".
+                 + "suggestions" chỉ chứa 1 phần tử duy nhất chính là câu sửa đúng.
+               - Nếu câu nói hoàn toàn chính xác và tự nhiên:
+                 + Đặt "feedback.hasError" là false.
+                 + "replyJa" là phản hồi tự nhiên ngắn gọn cho câu nói của học sinh + câu hỏi tiếp theo để tiếp tục mạch hội thoại.
+                 + "suggestions" gồm 2-3 câu phản xạ ngắn để học viên lựa chọn.
+                 
+            Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không chứa markdown backticks, không chứa văn bản thừa):
+            {
+              "replyJa": "Nội dung câu nói của giáo viên bằng tiếng Nhật kèm Furigana dạng Chữ[Furigana]",
+              "replyVi": "Bản dịch tiếng Việt tương ứng",
+              "feedback": {
+                "hasError": true hoặc false,
+                "userOriginal": "câu gốc học viên",
+                "correctedJa": "câu sửa lỗi tiếng Nhật nếu hasError là true, ngược lại để trống",
+                "explanationVi": "lời khuyên giải thích lỗi sai bằng tiếng Việt nếu hasError là true, ngược lại để trống"
+              },
+              "suggestions": [
+                "..."
+              ]
+            }`;
+        }
 
         // Map conversation history to OpenRouter structure
         const historyForAI = conversation.map(msg => ({
@@ -445,6 +500,13 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                         }
                         return next;
                     });
+                    setPendingCorrection({
+                        original: parsed.feedback.userOriginal || messageText,
+                        corrected: parsed.feedback.correctedJa,
+                        explanation: parsed.feedback.explanationVi
+                    });
+                } else {
+                    setPendingCorrection(null);
                 }
 
                 // Add AI reply message
@@ -477,6 +539,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             window.speechSynthesis.cancel();
             setStep('setup');
             setConversation([]);
+            setPendingCorrection(null);
         }
     };
 
@@ -800,6 +863,20 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
                     {/* Chat Footer panel: Suggestions + Microphone controls */}
                     <div className="p-4 border-t border-slate-100 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-800/40 relative z-10">
+                        {/* Correction Alert Banner */}
+                        {pendingCorrection && (
+                            <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/40 rounded-2xl flex items-start gap-2.5 animate-fade-in shadow-sm">
+                                <AlertCircle className="w-5 h-5 text-amber-500 dark:text-amber-400 mt-0.5 flex-shrink-0" />
+                                <div className="space-y-1">
+                                    <p className="text-xs font-semibold text-amber-800 dark:text-amber-300">
+                                        Hãy đọc hoặc nhập lại câu đúng dưới đây để tiếp tục hội thoại:
+                                    </p>
+                                    <p className="text-sm font-bold text-slate-800 dark:text-slate-200 font-japanese animate-pulse" dangerouslySetInnerHTML={{ __html: formatFurigana(pendingCorrection.corrected) }}>
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
                         {/* 1. Quick suggestion response buttons */}
                         {conversation.length > 0 && conversation[conversation.length - 1].sender === 'ai' && conversation[conversation.length - 1].suggestions?.length > 0 && (
                             <div className="mb-4 space-y-1.5">
