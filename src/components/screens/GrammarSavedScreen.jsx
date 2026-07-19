@@ -5,7 +5,7 @@ import { Search, Trash2, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, E
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs } from '../../utils/grammarService';
+import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { ROUTES } from '../../router';
 import { showToast, showConfirm } from '../../utils/toast';
 import { TopTabBar } from '../ui';
@@ -161,6 +161,15 @@ const GrammarSavedScreen = () => {
             }
         };
         load();
+
+        // Real-time listener for cross-device sync
+        let unsubSrs = () => {};
+        if (userId) {
+            unsubSrs = subscribeGrammarSrs(userId, (freshSrs) => {
+                setSrsData(freshSrs);
+            });
+        }
+        return () => unsubSrs();
     }, [userId]);
 
     const savedItems = useMemo(() => {

@@ -1,5 +1,5 @@
 import { db, storage, appId } from '../config/firebase';
-import { collection, getDocs, query, where, doc, setDoc } from 'firebase/firestore';
+import { collection, getDocs, query, where, doc, setDoc, onSnapshot } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getCacheConfig } from './cacheConfigService';
 
@@ -303,6 +303,7 @@ export const getCachedVocabCategories = () => cachedVocabCategories;
 let cachedUserSrsData = null;
 let cachedUserIdForSrs = null;
 let userSrsPromise = null;
+let kanjiSrsUnsubscribe = null;
 
 export const getCachedUserSrsData = () => cachedUserSrsData;
 
@@ -335,6 +336,36 @@ export const getSharedKanjiSrs = async (userId) => {
     return userSrsPromise;
 };
 
+/**
+ * Subscribe to real-time Kanji SRS data updates via onSnapshot.
+ * Returns an unsubscribe function. The callback receives the full SRS map.
+ */
+export const subscribeKanjiSrs = (userId, callback) => {
+    if (!userId) return () => {};
+    // Clean up any previous subscription
+    if (kanjiSrsUnsubscribe) {
+        kanjiSrsUnsubscribe();
+        kanjiSrsUnsubscribe = null;
+    }
+    const colRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`);
+    kanjiSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
+        const srs = {};
+        snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
+        cachedUserSrsData = srs;
+        cachedUserIdForSrs = userId;
+        userSrsPromise = null;
+        callback(srs);
+    }, (error) => {
+        console.error('Kanji SRS onSnapshot error:', error);
+    });
+    return () => {
+        if (kanjiSrsUnsubscribe) {
+            kanjiSrsUnsubscribe();
+            kanjiSrsUnsubscribe = null;
+        }
+    };
+};
+
 export const updateCachedUserSrs = (userId, kanjiId, newSrs) => {
     if (cachedUserIdForSrs === userId && cachedUserSrsData) {
         if (newSrs === null) {
@@ -346,6 +377,10 @@ export const updateCachedUserSrs = (userId, kanjiId, newSrs) => {
 };
 
 export const clearUserSrsCache = () => {
+    if (kanjiSrsUnsubscribe) {
+        kanjiSrsUnsubscribe();
+        kanjiSrsUnsubscribe = null;
+    }
     cachedUserSrsData = null;
     cachedUserIdForSrs = null;
     userSrsPromise = null;

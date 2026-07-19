@@ -5,7 +5,7 @@ import { Search, Filter, Bookmark, BookOpen, ExternalLink } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { doc, setDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs } from '../../utils/grammarService';
+import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { showToast } from '../../utils/toast';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
@@ -61,6 +61,16 @@ const GrammarListScreen = () => {
             }
         };
         load();
+
+        // Real-time listener for cross-device sync
+        let unsubSrs = () => {};
+        if (userId) {
+            unsubSrs = subscribeGrammarSrs(userId, (freshSrs) => {
+                setSrsData(freshSrs);
+                setUserGrammarSRS(new Set(Object.keys(freshSrs)));
+            });
+        }
+        return () => unsubSrs();
     }, [userId]);
 
     // Update query params in URL

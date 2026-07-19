@@ -6,7 +6,7 @@ import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, getDoc, doc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { ROUTES } from '../../router';
 import { showToast, showConfirm } from '../../utils/toast';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
@@ -223,6 +223,15 @@ const KanjiSRSListScreen = () => {
             }
         };
         load();
+
+        // Real-time listener for cross-device sync
+        let unsubSrs = () => {};
+        if (userId) {
+            unsubSrs = subscribeKanjiSrs(userId, (freshSrs) => {
+                setSrsData(freshSrs);
+            });
+        }
+        return () => unsubSrs();
     }, [userId]);
 
     // Listen to cache updates and sync state across all screens

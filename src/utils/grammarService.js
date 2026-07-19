@@ -692,6 +692,7 @@ export const getSharedGrammarPointsList = async () => {
 let cachedUserGrammarSrsData = null;
 let cachedUserIdForGrammarSrs = null;
 let userGrammarSrsPromise = null;
+let grammarSrsUnsubscribe = null;
 
 export const getCachedUserGrammarSrsData = () => cachedUserGrammarSrsData;
 
@@ -724,6 +725,36 @@ export const getSharedGrammarSrs = async (userId) => {
     return userGrammarSrsPromise;
 };
 
+/**
+ * Subscribe to real-time Grammar SRS data updates via onSnapshot.
+ * Returns an unsubscribe function. The callback receives the full SRS map.
+ */
+export const subscribeGrammarSrs = (userId, callback) => {
+    if (!userId) return () => {};
+    // Clean up any previous subscription
+    if (grammarSrsUnsubscribe) {
+        grammarSrsUnsubscribe();
+        grammarSrsUnsubscribe = null;
+    }
+    const colRef = collection(db, `artifacts/${appId}/users/${userId}/grammarSRS`);
+    grammarSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
+        const srs = {};
+        snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
+        cachedUserGrammarSrsData = srs;
+        cachedUserIdForGrammarSrs = userId;
+        userGrammarSrsPromise = null;
+        callback(srs);
+    }, (error) => {
+        console.error('Grammar SRS onSnapshot error:', error);
+    });
+    return () => {
+        if (grammarSrsUnsubscribe) {
+            grammarSrsUnsubscribe();
+            grammarSrsUnsubscribe = null;
+        }
+    };
+};
+
 export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
     if (cachedUserIdForGrammarSrs === userId && cachedUserGrammarSrsData) {
         if (newSrs === null) {
@@ -735,9 +766,12 @@ export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
 };
 
 export const clearUserGrammarSrsCache = () => {
+    if (grammarSrsUnsubscribe) {
+        grammarSrsUnsubscribe();
+        grammarSrsUnsubscribe = null;
+    }
     cachedUserGrammarSrsData = null;
     cachedUserIdForGrammarSrs = null;
     userGrammarSrsPromise = null;
 };
-
 

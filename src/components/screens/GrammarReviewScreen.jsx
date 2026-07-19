@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs } from '../../utils/grammarService';
+import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
@@ -66,6 +66,12 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return () => clearInterval(interval);
     }, []);
 
+    const reviewModeRef = useRef(false);
+
+    useEffect(() => {
+        reviewModeRef.current = reviewMode;
+    }, [reviewMode]);
+
     useEffect(() => {
         const load = async () => {
             try {
@@ -84,6 +90,18 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
         };
         load();
+
+        // Set up real-time listener for SRS data (cross-device sync)
+        let unsubSrs = () => {};
+        if (userId) {
+            unsubSrs = subscribeGrammarSrs(userId, (freshSrs) => {
+                // Only update dashboard state when NOT in active review mode
+                if (!reviewModeRef.current) {
+                    setSrsData(freshSrs);
+                }
+            });
+        }
+        return () => unsubSrs();
     }, [userId]);
 
     const dueGrammar = useMemo(() => {

@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs } from '../../utils/kanjiService';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
@@ -72,6 +72,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return () => clearInterval(interval);
     }, []);
 
+    const reviewModeRef = useRef(false);
+
+    useEffect(() => {
+        reviewModeRef.current = reviewMode;
+    }, [reviewMode]);
+
     useEffect(() => {
         const load = async () => {
             try {
@@ -90,6 +96,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
         };
         load();
+
+        // Set up real-time listener for SRS data (cross-device sync)
+        let unsubSrs = () => {};
+        if (userId) {
+            unsubSrs = subscribeKanjiSrs(userId, (freshSrs) => {
+                // Only update dashboard state when NOT in active review mode
+                // to avoid disrupting the review session
+                if (!reviewModeRef.current) {
+                    setSrsData(freshSrs);
+                }
+            });
+        }
+        return () => unsubSrs();
     }, [userId]);
 
     const dueKanji = useMemo(() => {
