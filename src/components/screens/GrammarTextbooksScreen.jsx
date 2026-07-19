@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Search, Plus, Trash2, Edit2, Save, X, FileJson, Clipboard, Check, AlertCircle } from 'lucide-react'
 import { GRAMMAR_CATEGORIES } from '../../data/grammarData';
 import { subscribeTextbooks, addTextbook, updateTextbook, deleteTextbook, importTextbooksFromJson } from '../../utils/grammarService';
+import { TopTabBar } from '../ui';
+import { GRAMMAR_TABS } from '../../config/tabs';
 
 const SAMPLE_TEXTBOOKS_JSON = `[
   {
@@ -174,7 +176,9 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     };
 
     return (
-        <div className="max-w-5xl mx-auto space-y-6 animate-fade-in">
+        <div className="w-full pb-8">
+            <TopTabBar tabs={GRAMMAR_TABS} />
+            <div className="max-w-5xl mx-auto space-y-6 mt-6 animate-fade-in">
             <style>{`
                 @keyframes shimmer-effect {
                     0% { transform: translateX(-100%) skewX(-15deg); }
@@ -189,7 +193,6 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
                 }
             `}</style>
             <div>
-                <p className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Curriculum / Grammar</p>
                 <h1 className="text-2xl font-extrabold text-slate-800 dark:text-white">Chọn giáo trình Ngữ pháp</h1>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-xl">Khám phá các lộ trình học tập từ cơ bản đến nâng cao hoặc quản lý tài liệu.</p>
             </div>
@@ -362,6 +365,7 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
                     </div>
                 ))}
             </div>
+        </div>
         </div>
     );
 };

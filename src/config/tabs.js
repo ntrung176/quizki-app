@@ -15,3 +15,11 @@ export const KANJI_TABS = [
     { id: 'kanji-list', label: 'Tra cứu', icon: List, route: ROUTES.KANJI_LIST, exact: false },
 ];
 
+export const GRAMMAR_TABS = [
+    { id: 'grammar-review', label: 'Ôn tập', icon: BookOpen, route: ROUTES.GRAMMAR_REVIEW, exact: true },
+    { id: 'grammar-study', label: 'Bài học', icon: Languages, route: ROUTES.GRAMMAR_STUDY, exact: false },
+    { id: 'grammar-saved', label: 'Đã lưu', icon: Star, route: ROUTES.GRAMMAR_SAVED, exact: true },
+    { id: 'grammar-list', label: 'Tra cứu', icon: List, route: ROUTES.GRAMMAR_LIST, exact: false },
+];
+
+

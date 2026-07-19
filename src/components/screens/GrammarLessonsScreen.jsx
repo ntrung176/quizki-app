@@ -105,7 +105,7 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
     return (
         <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
             <div>
-                <button onClick={() => navigate('/grammar')} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-3">
+                <button onClick={() => navigate('/grammar/study')} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-3">
                     <ArrowLeft className="w-3.5 h-3.5" /> Ngữ pháp
                 </button>
                 <div className="flex flex-wrap gap-1.5 mb-2">

@@ -45,7 +45,10 @@ import {
     GrammarLessonsScreen,
     GrammarPointsScreen,
     GrammarDetailScreen,
-    GrammarPracticeScreen
+    GrammarPracticeScreen,
+    GrammarReviewScreen,
+    GrammarSavedScreen,
+    GrammarListScreen
 } from './screens';
 
 // Import card components
@@ -466,6 +469,12 @@ const AppRoutes = ({
             title = 'Quản trị JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/grammar') {
             title = 'Ngữ pháp Tiếng Nhật | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/grammar/review') {
+            title = 'Ôn tập Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/grammar/saved') {
+            title = 'Thư viện Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        } else if (path === '/grammar/list') {
+            title = 'Tra cứu Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path.startsWith('/grammar/textbook/')) {
             if (path.includes('/lesson/')) {
                 title = 'Bài học Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
@@ -1175,7 +1184,7 @@ const AppRoutes = ({
                     path={ROUTES.GRAMMAR}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarTextbooksScreen isAdmin={isAdmin} /></GrammarProtectedRoute>
+                            <Navigate to={ROUTES.GRAMMAR_REVIEW} replace />
                         </ProtectedRoute>
                     }
                 />
@@ -1208,6 +1217,44 @@ const AppRoutes = ({
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <GrammarProtectedRoute isAdmin={isAdmin}><GrammarPracticeScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_REVIEW}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}>
+                                <GrammarReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} />
+                            </GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_SAVED}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}>
+                                <GrammarSavedScreen />
+                            </GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_LIST}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}>
+                                <GrammarListScreen />
+                            </GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_STUDY}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarTextbooksScreen isAdmin={isAdmin} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
                 />

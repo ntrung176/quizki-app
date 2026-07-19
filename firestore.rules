@@ -112,6 +112,13 @@ service cloud.firestore {
       allow update: if isOwner(userId);
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
+
+    match /artifacts/{appId}/users/{userId}/grammarSRS/{grammarId} {
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
     
     match /artifacts/{appId}/users/{userId}/kanjiProgress/{progressId} {
       allow read: if isOwner(userId) || hasAdminPrivileges(appId);

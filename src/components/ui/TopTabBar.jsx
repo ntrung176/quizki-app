@@ -1,6 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+const isTabActive = (tab, pathname, search) => {
+    const searchParams = new URLSearchParams(search);
+    const from = searchParams.get('from');
+
+    if (pathname.startsWith('/grammar/detail') || pathname.startsWith('/grammar/practice')) {
+        if (from === 'list') {
+            return tab.id === 'grammar-list';
+        }
+        if (from === 'saved') {
+            return tab.id === 'grammar-saved';
+        }
+        return tab.id === 'grammar-study';
+    }
+
+    if (tab.id === 'grammar-study') {
+        return pathname === '/grammar' || 
+               pathname === '/grammar/study' || 
+               pathname.startsWith('/grammar/textbook');
+    }
+    return pathname === tab.route || (tab.exact === false && pathname.startsWith(tab.route));
+};
+
 const TopTabBar = ({ tabs }) => {
     const location = useLocation();
     const containerRef = useRef(null);
@@ -9,9 +31,7 @@ const TopTabBar = ({ tabs }) => {
     useEffect(() => {
         if (!containerRef.current) return;
 
-        const activeIndex = tabs.findIndex(tab => 
-            location.pathname === tab.route || (tab.exact === false && location.pathname.startsWith(tab.route))
-        );
+        const activeIndex = tabs.findIndex(tab => isTabActive(tab, location.pathname, location.search));
 
         if (activeIndex >= 0) {
             const tabsElements = containerRef.current.querySelectorAll('.tab-item');
@@ -27,7 +47,7 @@ const TopTabBar = ({ tabs }) => {
         } else {
             setIndicatorStyle({ left: 0, width: 0, opacity: 0 });
         }
-    }, [location.pathname, tabs]);
+    }, [location.pathname, location.search, tabs]);
 
     return (
         <div className="w-full border-b border-gray-200 dark:border-slate-700/50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-14 lg:top-0 z-30">
@@ -35,7 +55,7 @@ const TopTabBar = ({ tabs }) => {
                 <div className="relative flex overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth" ref={containerRef}>
                     <div className="flex space-x-1 sm:space-x-2 relative w-full">
                         {tabs.map((tab) => {
-                            const isActive = location.pathname === tab.route || (tab.exact === false && location.pathname.startsWith(tab.route));
+                            const isActive = isTabActive(tab, location.pathname, location.search);
                             
                             let destination = tab.route;
                             if (tab.id === 'kanji-study') {

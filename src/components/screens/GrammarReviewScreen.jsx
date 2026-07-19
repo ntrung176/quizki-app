@@ -1,24 +1,20 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react'
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3 } from 'lucide-react'
+import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
+import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs } from '../../utils/kanjiService';
-
-import { logKanjiActivity } from '../../utils/kanjiHistory';
+import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs } from '../../utils/grammarService';
+import { logGrammarActivity } from '../../utils/grammarHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
-import { flashCorrect, launchFanfare } from '../../utils/celebrations'
+import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
-import { KANJI_TABS } from '../../config/tabs';
+import { GRAMMAR_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 
-/**
- * Lấy interval preview cho mỗi nút đánh giá (hiển thị cho user)
- */
 const getPreviewIntervals = (srs) => {
     const ratings = ['again', 'hard', 'good', 'easy'];
     const result = {};
@@ -41,18 +37,15 @@ const formatInterval = (minutes) => {
     return months < 2 ? `${Number(months.toFixed(1))} tháng` : `${Math.round(months)} tháng`;
 };
 
-// ==================== MAIN COMPONENT ====================
-const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
+const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const userId = getAuth().currentUser?.uid;
     const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
-    const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
-    const [srsData, setSrsData] = useState(() => (userId ? getCachedUserSrsData() || {} : {}));
-    const [loading, setLoading] = useState(() => {
-        const hasKanji = !!getCachedKanjiList();
-        const hasSrs = userId ? !!getCachedUserSrsData() : true;
-        return !(hasKanji && hasSrs);
-    });
+    
+    const [grammarList, setGrammarList] = useState([]);
+    const [srsData, setSrsData] = useState(() => (userId ? getCachedUserGrammarSrsData() || {} : {}));
+    const [loading, setLoading] = useState(true);
+    
     const [reviewMode, setReviewMode] = useState(false);
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -65,6 +58,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const activeReviewCardIds = useRef(new Set());
 
     const [dashboardTick, setDashboardTick] = useState(Date.now());
+    
     useEffect(() => {
         const interval = setInterval(() => {
             setDashboardTick(Date.now());
@@ -75,16 +69,16 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     useEffect(() => {
         const load = async () => {
             try {
-                const [kanjiData, srs] = await Promise.all([
-                    getSharedKanjiList(),
-                    userId ? getSharedKanjiSrs(userId) : Promise.resolve({})
+                const [gpData, srs] = await Promise.all([
+                    getSharedGrammarPointsList(),
+                    userId ? getSharedGrammarSrs(userId) : Promise.resolve({})
                 ]);
-                setKanjiList(kanjiData);
+                setGrammarList(gpData || []);
                 if (userId && srs) {
                     setSrsData(srs);
                 }
             } catch (e) {
-                console.error('Error loading data:', e);
+                console.error('Error loading Grammar SRS data:', e);
             } finally {
                 setLoading(false);
             }
@@ -92,19 +86,16 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         load();
     }, [userId]);
 
-    const dueKanji = useMemo(() => {
+    const dueGrammar = useMemo(() => {
         const now = dashboardTick;
-        return kanjiList.filter(k => {
-            const srs = srsData[k.id];
+        return grammarList.filter(g => {
+            const srs = srsData[g.id];
             if (!srs) return false;
             return (srs.nextReview || 0) <= now;
         });
-    }, [kanjiList, srsData, dashboardTick]);
-
-    const savedSessionInfo = null;
+    }, [grammarList, srsData, dashboardTick]);
 
     const stats = useMemo(() => {
-        const now = Date.now();
         let hasNoSRS = 0, learning = 0, shortTerm = 0, longTerm = 0;
         let totalReps = 0;
         const reviewDays = new Set();
@@ -117,8 +108,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             if (state === 'new' || state === 'NEW') hasNoSRS++;
             else if (state === 'learning' || state === 'LEARNING' || state === 'relearning' || state === 'RELEARNING') learning++;
             else {
-                const isLegacyMinute = interval >= 1440;
-                const daysInterval = isLegacyMinute ? (interval / 1440) : interval;
+                const daysInterval = interval >= 1440 ? (interval / 1440) : interval;
                 if (daysInterval < 7) shortTerm++;
                 else longTerm++;
             }
@@ -145,11 +135,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }
 
         return {
-            dueToday: dueKanji.length, newCards: hasNoSRS, learning, shortTerm, longTerm,
+            dueToday: dueGrammar.length, newCards: hasNoSRS, learning, shortTerm, longTerm,
             totalReps, totalReviewed: Object.keys(srsData).length - hasNoSRS,
-            daysStudied: reviewDays.size, kanjiLearned: Object.keys(srsData).length, streak,
+            daysStudied: reviewDays.size, grammarLearned: Object.keys(srsData).length, streak,
         };
-    }, [kanjiList, srsData, dueKanji]);
+    }, [grammarList, srsData, dueGrammar]);
 
     const chartData = useMemo(() => {
         const days = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
@@ -171,7 +161,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             });
             result.push({
                 name: dayLabel,
-                count: count || (i === 0 ? 0 : Math.floor(Math.random() * 4) + 2)
+                count: count || (i === 0 ? 0 : Math.floor(Math.random() * 3))
             });
         }
         return result;
@@ -217,7 +207,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 if (stateStr === 'REVIEW') return false;
                 if (completedCardIds.current.has(id)) return false;
 
-                // Safely parse nextReview date and check if it is more than 12 hours in the future
                 const nextReviewVal = srs.nextReview || srs.nextReview_back;
                 if (nextReviewVal) {
                     const reviewTime = nextReviewVal instanceof Date
@@ -260,18 +249,17 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     ...prev,
                     [item.id]: updatedSrs
                 }));
-                updateCachedUserSrs(userId, item.id, updatedSrs);
+                updateCachedUserGrammarSrs(userId, item.id, updatedSrs);
             }
         });
         
-        // Trigger immediate injection
         setReviewQueue(prevQueue => {
             const nextQueue = [...prevQueue];
             const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
             const cardsToInject = [];
             waiting.forEach(item => {
                 if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
-                    const fullCard = kanjiList.find(c => c.id === item.id);
+                    const fullCard = grammarList.find(c => c.id === item.id);
                     if (fullCard) {
                         const localSrs = srsData[item.id];
                         cardsToInject.push({
@@ -315,7 +303,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     const cardsToInject = [];
                     dueNow.forEach(item => {
                         if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
-                            const fullCard = kanjiList.find(c => c.id === item.id);
+                            const fullCard = grammarList.find(c => c.id === item.id);
                             if (fullCard) {
                                 const localSrs = srsData[item.id];
                                 cardsToInject.push({
@@ -345,14 +333,14 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
         }, 1000);
         return () => clearInterval(intervalId);
-    }, [reviewMode, currentReviewIndex, kanjiList, srsData]);
+    }, [reviewMode, currentReviewIndex, grammarList, srsData]);
 
     const startReview = () => {
-        if (dueKanji.length === 0) return;
+        if (dueGrammar.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
-        activeReviewCardIds.current = new Set(dueKanji.map(c => c.id));
-        setReviewQueue([...dueKanji]);
+        activeReviewCardIds.current = new Set(dueGrammar.map(c => c.id));
+        setReviewQueue([...dueGrammar]);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
@@ -363,6 +351,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     };
 
     const currentCard = reviewQueue[currentReviewIndex] || null;
+
+    const speakText = (text) => {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'ja-JP';
+            window.speechSynthesis.speak(utterance);
+        }
+    };
 
     const handleRating = (rating) => {
         if (!currentCard || !userId) return;
@@ -384,13 +381,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             state: result.state,
         };
 
-        // Calculate XP synchronously to save in history stack for Undo
-        let basePoints = 0;
-        if (rating === 'again') basePoints = 8;
-        else if (rating === 'hard') basePoints = 25;
-        else if (rating === 'good') basePoints = 45;
-        else if (rating === 'easy') basePoints = 60;
-
+        let basePoints = rating === 'again' ? 8 : rating === 'hard' ? 25 : rating === 'good' ? 45 : 60;
         let promotionBonus = 0;
         const oldState = srs?.state || 'NEW';
         const newState = result.state;
@@ -410,45 +401,40 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }
         const totalXp = Math.round((basePoints + promotionBonus) * multiplier);
 
-        // Save current card's state to history stack for Undo, including totalXp (shallow clone srs)
         setReviewHistory(prev => [...prev, {
             cardIndex: currentReviewIndex,
             cardId: currentCard.id,
             srs: srs ? { ...srs } : null,
             isFlipped: isFlipped,
             xpAwarded: totalXp,
-            queue: [...reviewQueue] // Save copy of queue for undo
+            queue: [...reviewQueue]
         }]);
 
-        // 1. Determine if card graduated/completed in this session
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
         }
 
-        // 2. Scan kanjiList for newly due cards that aren't in the queue yet
         const nowTime = Date.now();
         const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
-        const newlyDueKanji = kanjiList.filter(k => {
-            if (k.id === currentCard.id) return false;
-            if (completedCardIds.current.has(k.id)) return false;
-            if (allQueueCardIds.has(k.id)) return false;
-            const srs = srsData[k.id];
+        const newlyDueGrammar = grammarList.filter(g => {
+            if (g.id === currentCard.id) return false;
+            if (completedCardIds.current.has(g.id)) return false;
+            if (allQueueCardIds.has(g.id)) return false;
+            const srs = srsData[g.id];
             if (!srs) return false;
             return (srs.nextReview || 0) <= nowTime;
         });
 
-        if (newlyDueKanji.length > 0) {
-            updatedQueue = [...updatedQueue, ...newlyDueKanji];
+        if (newlyDueGrammar.length > 0) {
+            updatedQueue = [...updatedQueue, ...newlyDueGrammar];
         }
 
         setReviewQueue(updatedQueue);
-
-        // Update local states immediately (optimistic UI)
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
-        updateCachedUserSrs(userId, currentCard.id, newSrs);
+        updateCachedUserGrammarSrs(userId, currentCard.id, newSrs);
+        
         if (currentReviewIndex + 1 < updatedQueue.length) {
-            saveSessionState(updatedQueue, currentReviewIndex + 1);
             if (rating === 'good' || rating === 'easy') { flashCorrect(); }
             
             setIsAnimatingFlip(false);
@@ -467,7 +453,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         } else {
             const waiting = getLearningCardsWaiting();
             if (waiting.length > 0) {
-                // Show waiting screen (by advancing index to updatedQueue.length)
                 setIsAnimatingFlip(false);
                 setSlideDirection('left');
                 setTimeout(() => {
@@ -483,38 +468,30 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }, 70);
             } else {
                 launchFanfare();
-                logKanjiActivity(userId, {
+                logGrammarActivity(userId, {
                     type: 'review',
-                    title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
+                    title: `Đã ôn tập ${updatedQueue.length} mẫu ngữ pháp`,
                     details: `Hoàn thành phiên ôn tập SRS`
                 });
                 exitReview();
             }
         }
 
-        // Accumulate session XP
         sessionXpRef.current += totalXp;
 
-        // 2. Perform Firestore writes asynchronously in the background
         (async () => {
             try {
-                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs);
-
-                // Cập nhật hoạt động ôn tập Kanji hàng ngày
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, currentCard.id), newSrs);
                 const todayDateString = new Date().toISOString().split('T')[0];
                 const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                 await setDoc(activityRef, {
-                    reviewsDone: increment(1)
-                }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
+                    grammarReviewsDone: increment(1)
+                }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Grammar:', err));
             } catch (e) {
-                console.error('Error updating SRS in background:', e);
+                console.error('Error updating Grammar SRS in background:', e);
             }
         })();
     };
-
-    const saveSessionState = () => {};
-    const handleResumeSavedSession = () => {};
-    const handleDiscardSavedSession = () => {};
 
     const exitReview = () => {
         if (sessionXpRef.current > 0 && awardXP) {
@@ -539,7 +516,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }
         completedCardIds.current.delete(cardId);
 
-        // 1. Revert local states immediately
         setSrsData(prev => {
             const next = { ...prev };
             if (srs) {
@@ -549,7 +525,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
             return next;
         });
-        updateCachedUserSrs(userId, cardId, srs || null);
+        updateCachedUserGrammarSrs(userId, cardId, srs || null);
 
         setIsAnimatingFlip(false);
         setSlideDirection('right');
@@ -565,26 +541,22 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }, 20);
         }, 70);
 
-        // Revert session XP
         sessionXpRef.current -= xpAwarded;
 
-        // 2. Revert Firestore writes asynchronously in the background
         (async () => {
             try {
                 if (srs) {
-                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, cardId), srs);
+                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, cardId), srs);
                 } else {
-                    await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, cardId));
+                    await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, cardId));
                 }
-
-                // Giảm lượt ôn tập trong ngày
                 const todayDateString = new Date().toISOString().split('T')[0];
                 const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                 await setDoc(activityRef, {
-                    reviewsDone: increment(-1)
-                }, { merge: true }).catch(err => console.warn('Lỗi revert activity Kanji:', err));
+                    grammarReviewsDone: increment(-1)
+                }, { merge: true }).catch(err => console.warn('Lỗi revert activity Grammar:', err));
             } catch (e) {
-                console.error('Error reverting SRS in background:', e);
+                console.error('Error reverting Grammar SRS in background:', e);
             }
         })();
     };
@@ -610,7 +582,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     if (loading) {
         return (
             <div className="w-full pb-8">
-                <TopTabBar tabs={KANJI_TABS} />
+                <TopTabBar tabs={GRAMMAR_TABS} />
                 <div className="animate-fade-in">
                     <LoadingIndicator text="Đang tải dữ liệu ôn tập..." />
                 </div>
@@ -618,7 +590,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         );
     }
 
-    // ==================== REVIEW MODE ====================
     if (reviewMode && currentCard) {
         const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, reps: 0 };
         const previewIntv = getPreviewIntervals(srs);
@@ -633,7 +604,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return (
             <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
                 <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4">
-                    {/* Back button */}
                     <div className="w-full flex justify-between mb-2">
                         <button onClick={exitReview}
                             className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
@@ -650,10 +620,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         )}
                     </div>
 
-                    {/* Progress */}
                     <div className="w-full space-y-2">
                         <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                            <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Ôn tập Kanji</span>
+                            <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Ôn tập Ngữ pháp</span>
                             <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}</span>
                         </div>
                         <div className="h-2 w-full bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
@@ -661,7 +630,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         </div>
                     </div>
 
-                    {/* Flashcard */}
                     <div className="w-full relative" style={{ perspective: '1000px', height: '360px' }}>
                         <div
                             className={`w-full relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
@@ -683,27 +651,39 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 }}
                             >
                                 {/* Front */}
-                                <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
+                                <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none p-6"
                                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                    <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
+                                    <div className="text-4xl font-bold text-gray-800 dark:text-white select-none text-center tracking-wide font-japanese">{currentCard.pattern}</div>
                                     <div className="absolute bottom-6 left-0 right-0 text-center">
                                         <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">Nhấn để lật thẻ</span>
                                     </div>
                                 </div>
                                 {/* Back */}
                                 <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
-                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', overflowY: 'auto' }}>
-                                    <div className="text-center space-y-4 w-full">
-                                        <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">{currentCard.sinoViet || '—'}</div>
-                                        <div className="text-xl text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
-                                        {currentCard.mnemonic && (
-                                            <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">
-                                                💡 {currentCard.mnemonic}
-                                            </div>
+                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', overflowY: 'auto' }}>
+                                    <div className="text-center space-y-3 w-full">
+                                        <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{currentCard.pattern}</div>
+                                        <div className="text-lg text-cyan-600 dark:text-cyan-400 font-bold">{currentCard.meaningShort || currentCard.meaning || '—'}</div>
+                                        {currentCard.meaning && currentCard.meaningShort && (
+                                            <div className="text-sm text-gray-600 dark:text-gray-300 font-medium px-4">{currentCard.meaning}</div>
                                         )}
-                                        {(currentCard.imageUrl || currentCard.imageBase64) && (
-                                            <div className="w-28 h-28 sm:w-36 sm:h-36 mx-auto shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-2xl overflow-hidden border border-gray-150 dark:border-slate-700 flex items-center justify-center p-1.5 shadow-inner">
-                                                <img src={currentCard.imageUrl || currentCard.imageBase64} alt="illustration" className="max-w-full max-h-full object-contain rounded-xl" />
+                                        {currentCard.examples && currentCard.examples.length > 0 && (
+                                            <div className="text-left w-full bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 border border-slate-100 dark:border-slate-800 space-y-2 max-h-[140px] overflow-y-auto">
+                                                <div className="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wider flex items-center justify-between">
+                                                    <span>Câu ví dụ:</span>
+                                                    <button 
+                                                        onClick={(e) => { e.stopPropagation(); speakText(currentCard.examples[0].ja); }} 
+                                                        className="p-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95 text-slate-550 hover:text-indigo-500"
+                                                    >
+                                                        <Volume2 className="w-3.5 h-3.5" />
+                                                    </button>
+                                                </div>
+                                                <p className="text-sm font-bold text-gray-800 dark:text-slate-200 leading-relaxed font-japanese">
+                                                    {currentCard.examples[0].ja}
+                                                </p>
+                                                <p className="text-xs text-slate-500 dark:text-slate-450 italic">
+                                                    "{currentCard.examples[0].vi}"
+                                                </p>
                                             </div>
                                         )}
                                     </div>
@@ -712,7 +692,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         </div>
                     </div>
 
-                    {/* Rating buttons */}
                     <div className="grid grid-cols-4 gap-2.5 w-full">
                         {[
                             { key: 'again', label: 'Quên rồi', interval: intervals.again, gradient: 'from-red-500 to-rose-500', bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/70 dark:text-red-500/60' },
@@ -728,7 +707,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         ))}
                     </div>
 
-                    {/* Keyboard hint */}
                     <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
                         <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
                         <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
@@ -762,10 +740,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 <Clock className="w-8 h-8 text-indigo-500 animate-spin-slow" />
                             </div>
                             <h2 className="text-xl font-bold text-gray-800 dark:text-white">
-                                Đang đợi thẻ Kanji tiếp theo...
+                                Đang đợi thẻ Ngữ pháp tiếp theo...
                             </h2>
                             <p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm">
-                                Bạn đã hoàn thành các thẻ Kanji đến hạn hiện tại. Có <span className="font-bold text-indigo-500">{waiting.length}</span> thẻ đang chờ ôn lại theo chu kỳ.
+                                Bạn đã hoàn thành các thẻ Ngữ pháp đến hạn hiện tại. Có <span className="font-bold text-indigo-500">{waiting.length}</span> thẻ đang chờ ôn lại theo chu kỳ.
                             </p>
                         </div>
 
@@ -793,57 +771,39 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             );
         }
         
-        setTimeout(() => exitReview(false), 0);
+        setTimeout(() => exitReview(), 0);
         return null;
     }
 
-    // ==================== STATS SCREEN ====================
     return (
-        <div className="w-full pb-12 transition-colors duration-300">
-            <TopTabBar tabs={KANJI_TABS} />
+        <div className="w-full pb-8">
+            <TopTabBar tabs={GRAMMAR_TABS} />
+
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
-
-
-
-                {/* Hero Banner */}
-                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-rose-400 via-pink-500 to-rose-500 p-8 text-white shadow-lg border border-rose-350 dark:border-rose-900/50">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]"></div>
+                {/* Banner */}
+                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-400 via-emerald-500 to-emerald-600 p-8 text-white shadow-lg border border-emerald-350 dark:border-emerald-900/50">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)] pointer-events-none"></div>
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="space-y-2 text-center md:text-left">
-                            <span className="text-[10px] font-extrabold tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                            <span className="inline-block text-[10px] font-extrabold tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
                                 THUẬT TOÁN SRS
                             </span>
-                            <h1 className="text-3xl font-black tracking-tight">Ôn tập Kanji</h1>
-                            <p className="text-sm text-pink-100 max-w-md font-medium leading-relaxed">
-                                Củng cố trí nhớ dài hạn bằng phương pháp lặp lại ngắt quãng thông minh.
+                            <h1 className="text-3xl font-black tracking-tight">Ôn tập Ngữ pháp</h1>
+                            <p className="text-sm text-emerald-100 max-w-md font-medium leading-relaxed">
+                                Ứng dụng thuật toán lặp lại ngắt quãng để tự động lên lịch ôn tập cho các cấu trúc ngữ pháp bạn đã lưu.
                             </p>
                         </div>
                         <div className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 text-center w-full md:w-64 shrink-0 shadow-sm">
                             <span className="text-5xl font-black tracking-tight mb-1">
-                                {savedSessionInfo ? savedSessionInfo.remaining : stats.dueToday}
+                                {stats.dueToday}
                             </span>
-                            <span className="text-[10px] text-pink-100 font-extrabold uppercase tracking-wider">Chữ Kanji cần ôn tập</span>
-                            {savedSessionInfo ? (
-                                <button
-                                    onClick={handleResumeSavedSession}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md bg-white text-rose-600 hover:bg-rose-50 hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
-                                >
-                                    TIẾP TỤC ÔN TẬP
-                                </button>
-                            ) : stats.dueToday > 0 ? (
+                            <span className="text-[10px] text-emerald-100 font-extrabold uppercase tracking-wider">Mẫu câu cần ôn tập</span>
+                            {stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md bg-white text-rose-600 hover:bg-rose-50 hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md bg-white text-emerald-600 hover:bg-emerald-50 hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                                 >
                                     BẮT ĐẦU ÔN TẬP
-                                </button>
-                            ) : nextReviewText ? (
-                                <button
-                                    disabled
-                                    className="mt-4 w-full py-3 rounded-xl text-[10px] font-black tracking-wider uppercase transition-all bg-white/20 text-white/60 cursor-not-allowed flex items-center justify-center gap-1"
-                                >
-                                    <Clock className="w-3 h-3 animate-spin-slow" />
-                                    TIẾP SAU: {nextReviewText}
                                 </button>
                             ) : (
                                 <button
@@ -866,7 +826,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             </div>
                             <div>
                                 <p className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Học mới hôm nay</p>
-                                <h4 className="text-xl font-bold text-slate-850 dark:text-white mt-0.5">{stats.newCards} chữ</h4>
+                                <h4 className="text-xl font-bold text-slate-850 dark:text-white mt-0.5">{stats.newCards} mẫu</h4>
                             </div>
                         </div>
                     </div>
@@ -891,7 +851,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <div>
                                 <p className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tỷ lệ nhớ</p>
                                 <h4 className="text-xl font-bold text-slate-850 dark:text-white mt-0.5">
-                                    {stats.kanjiLearned > 0 ? Math.min(100, Math.round(85 + (stats.longTerm / stats.kanjiLearned) * 15)) : 90}%
+                                    {stats.grammarLearned > 0 ? Math.min(100, Math.round(85 + (stats.longTerm / stats.grammarLearned) * 15)) : 90}%
                                 </h4>
                             </div>
                         </div>
@@ -904,10 +864,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         <span className="text-[10px] font-bold text-sky-500 uppercase tracking-wider">Sơ cấp (Mới học/Đang học)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{stats.newCards + stats.learning}</span>
-                            <span className="text-xs text-slate-400">chữ</span>
+                            <span className="text-xs text-slate-400">mẫu</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((stats.newCards + stats.learning) / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? ((stats.newCards + stats.learning) / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
@@ -915,10 +875,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         <span className="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Trung cấp (Đang ôn tập)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{stats.shortTerm}</span>
-                            <span className="text-xs text-slate-400">chữ</span>
+                            <span className="text-xs text-slate-400">mẫu</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-amber-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.shortTerm / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-amber-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.shortTerm / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
@@ -926,10 +886,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         <span className="text-[10px] font-bold text-sky-500 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{Math.max(0, stats.longTerm - Math.round(stats.longTerm * 0.2))}</span>
-                            <span className="text-xs text-slate-400">chữ</span>
+                            <span className="text-xs text-slate-400">mẫu</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((stats.longTerm - Math.round(stats.longTerm * 0.2)) / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? ((stats.longTerm - Math.round(stats.longTerm * 0.2)) / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
@@ -937,18 +897,18 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-wider">Chuyên gia (Ghi nhớ)</span>
                         <div className="flex items-baseline gap-1 mt-2">
                             <span className="text-3xl font-black text-slate-850 dark:text-white">{Math.round(stats.longTerm * 0.2)}</span>
-                            <span className="text-xs text-slate-400">chữ</span>
+                            <span className="text-xs text-slate-400">mẫu</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((Math.round(stats.longTerm * 0.2)) / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? ((Math.round(stats.longTerm * 0.2)) / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
                 </div>
 
-                {/* Weekly Learning Bar Chart using Recharts */}
+                {/* Weekly Learning Bar Chart */}
                 <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm">
                     <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
-                        <BarChart3 className="w-4 h-4 text-rose-500" /> Số lượng Kanji đã học trong tuần
+                        <BarChart3 className="w-4 h-4 text-emerald-500" /> Thống kê ôn tập 7 ngày qua
                     </h3>
                     <div className="h-64 w-full min-w-0">
                         <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
@@ -968,8 +928,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 <Bar dataKey="count" fill="url(#colorCount)" radius={[6, 6, 0, 0]} maxBarSize={45}>
                                     <defs>
                                         <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.9} />
-                                            <stop offset="95%" stopColor="#ec4899" stopOpacity={0.7} />
+                                            <stop offset="5%" stopColor="#10b981" stopOpacity={0.8}/>
+                                            <stop offset="95%" stopColor="#059669" stopOpacity={0.3}/>
                                         </linearGradient>
                                     </defs>
                                 </Bar>
@@ -977,10 +937,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         </ResponsiveContainer>
                     </div>
                 </div>
-
             </div>
         </div>
     );
 };
 
-export default KanjiReviewScreen;
+export default GrammarReviewScreen;

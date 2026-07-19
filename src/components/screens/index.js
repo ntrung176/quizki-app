@@ -40,4 +40,7 @@ export { default as GrammarLessonsScreen } from './GrammarLessonsScreen';
 export { default as GrammarPointsScreen } from './GrammarPointsScreen';
 export { default as GrammarDetailScreen } from './GrammarDetailScreen';
 export { default as GrammarPracticeScreen } from './GrammarPracticeScreen';
+export { default as GrammarReviewScreen } from './GrammarReviewScreen';
+export { default as GrammarSavedScreen } from './GrammarSavedScreen';
+export { default as GrammarListScreen } from './GrammarListScreen';
 export { default as JLPTKaiwaScreen } from './JLPTKaiwaScreen';

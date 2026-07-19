@@ -7,6 +7,10 @@ import {
 import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints } from '../../utils/grammarService';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../config/firebase';
+import { getAuth } from 'firebase/auth';
+import { recordRecentGrammar } from '../../utils/grammarHistory';
+import { TopTabBar } from '../ui';
+import { GRAMMAR_TABS } from '../../config/tabs';
 
 // Fallback illustration data for ~あげく
 const FALLBACK_VISUAL = {
@@ -69,6 +73,12 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             const data = await fetchGrammarPointById(grammarId, tb, ls);
             setGp(data);
             setLoading(false);
+            if (data?.id) {
+                const uid = getAuth().currentUser?.uid;
+                if (uid) {
+                    recordRecentGrammar(uid, data.id);
+                }
+            }
         })();
     }, [grammarId, tb, ls]);
 
@@ -80,7 +90,22 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }
     }, [tb, ls, isAdmin]);
 
-    const backUrl = (tb && ls) ? `/grammar/textbook/${tb}/lesson/${ls}` : '/grammar';
+    const from = searchParams.get('from');
+    let backUrl = '/grammar';
+    if (from === 'list') {
+        const listParams = new URLSearchParams();
+        searchParams.forEach((value, key) => {
+            if (key !== 'tb' && key !== 'ls' && key !== 'from') {
+                listParams.set(key, value);
+            }
+        });
+        const queryStr = listParams.toString();
+        backUrl = `/grammar/list${queryStr ? `?${queryStr}` : ''}`;
+    } else if (from === 'saved') {
+        backUrl = '/grammar/saved';
+    } else if (tb && ls) {
+        backUrl = `/grammar/textbook/${tb}/lesson/${ls}`;
+    }
 
     useEffect(() => {
         if (gp && profile) {
@@ -122,8 +147,22 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }
     }, [gp, isEditing]);
 
-    if (loading) return <div className="p-8 text-center text-slate-500">Đang tải...</div>;
-    if (!gp) return <div className="p-8 text-center text-slate-500">Không tìm thấy ngữ pháp.</div>;
+    if (loading) {
+        return (
+            <div className="w-full pb-8">
+                <TopTabBar tabs={GRAMMAR_TABS} />
+                <div className="animate-fade-in text-center p-8 text-slate-500">Đang tải...</div>
+            </div>
+        );
+    }
+    if (!gp) {
+        return (
+            <div className="w-full pb-8">
+                <TopTabBar tabs={GRAMMAR_TABS} />
+                <div className="animate-fade-in text-center p-8 text-slate-500">Không tìm thấy ngữ pháp.</div>
+            </div>
+        );
+    }
 
     const totalExercises = (gp.exercises?.length || 0) + (gp.quizzes?.length || 0);
 
@@ -311,7 +350,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             );
                         }
                     }
-                    return part;
+                    return <React.Fragment key={index}>{part}</React.Fragment>;
                 })}
             </>
         );
@@ -342,7 +381,11 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     </span>
                                 );
                             }
-                            return isStructure ? highlightNAV(part) : part;
+                            return (
+                                <React.Fragment key={index}>
+                                    {isStructure ? highlightNAV(part) : part}
+                                </React.Fragment>
+                            );
                         })}
                     </>
                 );
@@ -417,7 +460,9 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto pb-16 animate-fade-in space-y-6 w-full px-4 md:px-0">
+        <div className="w-full pb-8">
+            <TopTabBar tabs={GRAMMAR_TABS} />
+            <div className="max-w-4xl mx-auto pb-16 animate-fade-in space-y-6 w-full px-4 md:px-0 mt-6">
 
             {/* Header controls when editing */}
             {isEditing && (
@@ -677,6 +722,25 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                 </div>
                             </div>
                         )}
+
+                        {/* CHÚ Ý / MẸO HỌC Box */}
+                        {displayTips && displayTips.length > 0 && (
+                            <div className="flex items-start gap-4 md:gap-6 w-full min-w-0 animate-fade-in">
+                                {/* Left boxed label */}
+                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
+                                    Chú ý
+                                </div>
+                                {/* Right Content */}
+                                <div className="flex-1 min-w-0 pt-1 space-y-2">
+                                    {displayTips.map((tip, idx) => (
+                                        <div key={idx} className="flex items-start gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 leading-relaxed bg-amber-50/40 dark:bg-amber-950/10 border border-amber-100/60 dark:border-amber-900/20 px-4 py-3 rounded-2xl shadow-sm">
+                                            <span className="shrink-0">{tip.icon || '💡'}</span>
+                                            <p className="break-words w-full">{tip.text}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* Other Examples Section */}
@@ -798,6 +862,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                     </div>
                 </div>
             )}
+            </div>
         </div>
     );
 };

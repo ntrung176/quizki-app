@@ -13,6 +13,14 @@ let cachedGrammarData = null;
 let grammarPromise = null;
 let lastLoadedExportedAt = null;
 
+let cachedSharedGrammarPointsList = null;
+let grammarPointsListPromise = null;
+
+export const clearSharedGrammarPointsListCache = () => {
+    cachedSharedGrammarPointsList = null;
+    grammarPointsListPromise = null;
+};
+
 // SWR / Firestore fallback caches
 let textbooksCache = null;
 let textbooksListeners = new Set();
@@ -34,6 +42,7 @@ export const getSharedGrammarData = async () => {
     if (needsRefresh) {
         cachedGrammarData = null;
         grammarPromise = null;
+        clearSharedGrammarPointsListCache();
     }
 
     if (cachedGrammarData && !needsRefresh) return cachedGrammarData;
@@ -124,6 +133,7 @@ export const subscribeTextbooks = (callback, isAdmin = false) => {
 
 export const addTextbook = async (data, adminUserId) => {
     try {
+        clearSharedGrammarPointsListCache();
         const colRef = collection(db, textbooksPath());
         const snap = await getDocs(colRef);
         const docRef = await addDoc(colRef, {
@@ -141,6 +151,7 @@ export const addTextbook = async (data, adminUserId) => {
 
 export const updateTextbook = async (textbookId, data) => {
     try {
+        clearSharedGrammarPointsListCache();
         await updateDoc(doc(db, textbooksPath(), textbookId), { ...data, updatedAt: serverTimestamp() });
         return true;
     } catch (e) {
@@ -151,6 +162,7 @@ export const updateTextbook = async (textbookId, data) => {
 
 export const deleteTextbook = async (textbookId) => {
     try {
+        clearSharedGrammarPointsListCache();
         // Delete all lessons + grammar points first
         const lessonsSnap = await getDocs(collection(db, lessonsPath(textbookId)));
         const deleteRefs = [];
@@ -244,6 +256,7 @@ export const subscribeLessons = (textbookId, callback, isAdmin = false) => {
 
 export const addLesson = async (textbookId, data, adminUserId) => {
     try {
+        clearSharedGrammarPointsListCache();
         const colRef = collection(db, lessonsPath(textbookId));
         const snap = await getDocs(colRef);
         const docRef = await addDoc(colRef, {
@@ -261,6 +274,7 @@ export const addLesson = async (textbookId, data, adminUserId) => {
 
 export const updateLesson = async (textbookId, lessonId, data) => {
     try {
+        clearSharedGrammarPointsListCache();
         await updateDoc(doc(db, lessonsPath(textbookId), lessonId), { ...data, updatedAt: serverTimestamp() });
         return true;
     } catch (e) {
@@ -271,6 +285,7 @@ export const updateLesson = async (textbookId, lessonId, data) => {
 
 export const deleteLesson = async (textbookId, lessonId) => {
     try {
+        clearSharedGrammarPointsListCache();
         const gpSnap = await getDocs(collection(db, grammarPointsPath(textbookId, lessonId)));
         const batch = writeBatch(db);
         gpSnap.docs.forEach(gpDoc => {
@@ -359,6 +374,7 @@ export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin =
 
 export const addGrammarPoint = async (textbookId, lessonId, data, adminUserId) => {
     try {
+        clearSharedGrammarPointsListCache();
         const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
         const snap = await getDocs(colRef);
         const docRef = await addDoc(colRef, {
@@ -378,6 +394,7 @@ export const addGrammarPoint = async (textbookId, lessonId, data, adminUserId) =
 
 export const updateGrammarPoint = async (textbookId, lessonId, grammarId, data) => {
     try {
+        clearSharedGrammarPointsListCache();
         await updateDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId), { ...data, updatedAt: serverTimestamp() });
         return true;
     } catch (e) {
@@ -388,6 +405,7 @@ export const updateGrammarPoint = async (textbookId, lessonId, grammarId, data) 
 
 export const deleteGrammarPoint = async (textbookId, lessonId, grammarId) => {
     try {
+        clearSharedGrammarPointsListCache();
         await deleteDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId));
         return true;
     } catch (e) {
@@ -543,6 +561,7 @@ export const importLessonsFromJson = async (textbookId, jsonArray, adminUserId) 
 
 export const importGrammarPointsFromJson = async (textbookId, lessonId, jsonArray, adminUserId) => {
     try {
+        clearSharedGrammarPointsListCache();
         let count = 0;
         for (const gp of jsonArray) {
             // Helper parsing logic
@@ -607,4 +626,118 @@ export const importGrammarPointsFromJson = async (textbookId, lessonId, jsonArra
         return { success: false, error: e.message };
     }
 };
+
+export const getSharedGrammarPointsList = async () => {
+    try {
+        const data = await getSharedGrammarData();
+        const allPoints = [];
+        if (data) {
+            for (const textbook of data) {
+                for (const lesson of textbook.lessons || []) {
+                    for (const point of lesson.points || []) {
+                        allPoints.push({
+                            ...point,
+                            textbookId: textbook.id,
+                            lessonId: lesson.id,
+                            textbookTitle: textbook.title || textbook.titleVi || '',
+                            lessonTitle: lesson.title || '',
+                        });
+                    }
+                }
+            }
+            return allPoints;
+        }
+    } catch (e) {
+        console.warn("CDN getSharedGrammarPointsList failed:", e);
+    }
+    
+    // Firestore fallback
+    if (cachedSharedGrammarPointsList) return cachedSharedGrammarPointsList;
+    if (grammarPointsListPromise) return grammarPointsListPromise;
+
+    grammarPointsListPromise = (async () => {
+        try {
+            console.log("Fetching shared grammar list from Firestore fallback (slow query)...");
+            const allPoints = [];
+            const textbooksSnap = await getDocs(collection(db, textbooksPath()));
+            for (const tbDoc of textbooksSnap.docs) {
+                const lessonsSnap = await getDocs(collection(db, lessonsPath(tbDoc.id)));
+                for (const lessonDoc of lessonsSnap.docs) {
+                    const pointsSnap = await getDocs(collection(db, grammarPointsPath(tbDoc.id, lessonDoc.id)));
+                    pointsSnap.docs.forEach(pDoc => {
+                        allPoints.push({
+                            id: pDoc.id,
+                            ...pDoc.data(),
+                            textbookId: tbDoc.id,
+                            lessonId: lessonDoc.id,
+                            textbookTitle: tbDoc.data().title || tbDoc.data().titleVi || '',
+                            lessonTitle: lessonDoc.data().title || '',
+                        });
+                    });
+                }
+            }
+            cachedSharedGrammarPointsList = allPoints;
+            return cachedSharedGrammarPointsList;
+        } catch (e) {
+            console.error("Firestore fallback getSharedGrammarPointsList failed:", e);
+            grammarPointsListPromise = null;
+            return [];
+        }
+    })();
+
+    return grammarPointsListPromise;
+};
+
+// ============== GRAMMAR SRS SYSTEM ==============
+let cachedUserGrammarSrsData = null;
+let cachedUserIdForGrammarSrs = null;
+let userGrammarSrsPromise = null;
+
+export const getCachedUserGrammarSrsData = () => cachedUserGrammarSrsData;
+
+export const getSharedGrammarSrs = async (userId) => {
+    if (!userId) return {};
+    if (cachedUserIdForGrammarSrs !== userId) {
+        clearUserGrammarSrsCache();
+    }
+    if (cachedUserIdForGrammarSrs === userId && cachedUserGrammarSrsData) {
+        return cachedUserGrammarSrsData;
+    }
+    if (userGrammarSrsPromise) return userGrammarSrsPromise;
+
+    userGrammarSrsPromise = (async () => {
+        try {
+            console.log('Fetching user Grammar SRS data from Firestore...');
+            const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/grammarSRS`));
+            const srs = {};
+            srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
+            cachedUserGrammarSrsData = srs;
+            cachedUserIdForGrammarSrs = userId;
+            return cachedUserGrammarSrsData;
+        } catch (e) {
+            console.error('Error fetching user Grammar SRS data:', e);
+            userGrammarSrsPromise = null;
+            return {};
+        }
+    })();
+
+    return userGrammarSrsPromise;
+};
+
+export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
+    if (cachedUserIdForGrammarSrs === userId && cachedUserGrammarSrsData) {
+        if (newSrs === null) {
+            delete cachedUserGrammarSrsData[grammarId];
+        } else {
+            cachedUserGrammarSrsData[grammarId] = newSrs;
+        }
+    }
+};
+
+export const clearUserGrammarSrsCache = () => {
+    cachedUserGrammarSrsData = null;
+    cachedUserIdForGrammarSrs = null;
+    userGrammarSrsPromise = null;
+};
+
 

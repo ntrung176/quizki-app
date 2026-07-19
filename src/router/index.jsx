@@ -42,6 +42,10 @@ export const ROUTES = {
 
     // Grammar: /grammar/*
     GRAMMAR: '/grammar',
+    GRAMMAR_REVIEW: '/grammar/review',
+    GRAMMAR_STUDY: '/grammar/study',
+    GRAMMAR_SAVED: '/grammar/saved',
+    GRAMMAR_LIST: '/grammar/list',
     GRAMMAR_TEXTBOOK: '/grammar/textbook/:textbookId',
     GRAMMAR_LESSON: '/grammar/textbook/:textbookId/lesson/:lessonId',
     GRAMMAR_DETAIL: '/grammar/detail/:grammarId',
