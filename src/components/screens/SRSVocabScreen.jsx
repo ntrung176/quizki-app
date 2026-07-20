@@ -770,8 +770,10 @@ const SRSVocabScreen = ({
         }
         sessionXpRef.current = 0;
 
+        let exitAttempts = 0;
         const checkPendingAndExit = () => {
-            if (pendingWriteIds.current.size > 0) {
+            if (pendingWriteIds.current.size > 0 && exitAttempts < 30) {
+                exitAttempts++;
                 setTimeout(checkPendingAndExit, 100);
                 return;
             }

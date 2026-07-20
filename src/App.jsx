@@ -2887,103 +2887,65 @@ const App = () => {
         }
     };
 
-    const handleUpdateVocabSrsRating = (cardId, rating, isSessionMode = false) => {
-        if (!vocabCollectionPath) return 0;
+    const handleUpdateVocabSrsRating = (cardId, rating, arg3 = false, arg4 = null) => {
+        if (!vocabCollectionPath || !cardId) {
+            const cb = typeof arg3 === 'function' ? arg3 : (typeof arg4 === 'function' ? arg4 : null);
+            if (cb) cb(false);
+            return 0;
+        }
+
+        let isSessionMode = false;
+        let onComplete = null;
+        if (typeof arg3 === 'function') {
+            onComplete = arg3;
+            isSessionMode = true;
+        } else {
+            isSessionMode = !!arg3;
+            onComplete = typeof arg4 === 'function' ? arg4 : null;
+        }
+
         const cardRef = doc(db, vocabCollectionPath, cardId);
 
         // Find the card synchronously in allCards to calculate XP and update state
         const cardData = allCards.find(c => c.id === cardId);
-        let totalXp = 0;
-
-        if (cardData) {
-            const srsState = {
-                interval: cardData.srsInterval || 0,
-                ease: cardData.srsEase || 2.5,
-                learningStep: cardData.srsLearningStep !== undefined ? cardData.srsLearningStep : null,
-                isLapsed: cardData.srsIsLapsed || false,
-                reps: cardData.srsReps || 0,
-                lapseCount: cardData.srsLapseCount || 0,
-                prelapseInterval: cardData.srsPrelapseInterval || null,
-                state: cardData.srsState || null,
-                intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1,
-                masteryState: cardData.masteryState || 'not_learned',
-                seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount : 0,
-                lastReviewed: cardData.lastReviewed || null
-            };
-
-            const result = calculateAnkiSRS(srsState, rating);
-
-            // Award XP synchronously
-            let basePoints = 0;
-            if (rating === 'again') basePoints = 8;
-            else if (rating === 'hard') basePoints = 25;
-            else if (rating === 'good') basePoints = 45;
-            else if (rating === 'easy') basePoints = 60;
-
-            let promotionBonus = 0;
-            const oldState = srsState.state || 'NEW';
-            const newState = result.state;
-            if (oldState === 'NEW' && newState === 'LEARNING') {
-                promotionBonus = 10;
-            } else if ((oldState === 'LEARNING' || oldState === 'RELEARNING') && newState === 'REVIEW') {
-                promotionBonus = 100;
-            }
-
-            let multiplier = 1.0;
-            const cardLevel = cardData.level || 'N5';
-            if (cardLevel) {
-                const lvlUpper = String(cardLevel).toUpperCase();
-                if (lvlUpper.includes('N3')) multiplier = 1.2;
-                else if (lvlUpper.includes('N2')) multiplier = 1.4;
-                else if (lvlUpper.includes('N1')) multiplier = 1.6;
-            }
-            totalXp = Math.round((basePoints + promotionBonus) * multiplier);
-            if (totalXp > 0) {
-                if (!isSessionMode) {
-                    awardXP(totalXp);
-                }
-                if (!vocabXpLogRef.current) {
-                    vocabXpLogRef.current = {};
-                }
-                vocabXpLogRef.current[cardId] = totalXp;
-            }
+        if (!cardData) {
+            console.warn("Card not found in allCards for SRS update:", cardId);
+            if (onComplete) onComplete(false);
+            return 0;
         }
 
-        let updatesToSave = null;
+        const srsState = {
+            interval: cardData.srsInterval || 0,
+            ease: cardData.srsEase || 2.5,
+            learningStep: cardData.srsLearningStep !== undefined ? cardData.srsLearningStep : null,
+            isLapsed: cardData.srsIsLapsed || false,
+            reps: cardData.srsReps || 0,
+            lapseCount: cardData.srsLapseCount || 0,
+            prelapseInterval: cardData.srsPrelapseInterval || null,
+            state: cardData.srsState || null,
+            intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1,
+            masteryState: cardData.masteryState || 'not_learned',
+            seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount : 0,
+            lastReviewed: cardData.lastReviewed || null
+        };
+
+        const result = calculateAnkiSRS(srsState, rating);
+        const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
+        const nextReviewDate = new Date(Date.now() + nextReviewOffset);
+
+        const isCorrect = rating !== 'again';
+        const currentMastery = cardData.masteryState || 'not_learned';
+        const newMastery = isCorrect
+            ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
+            : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
+
+        const computedIntervalIdx = result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? (result.interval >= 21 ? 4 : (result.interval >= 3 ? 3 : 2)) : 0);
 
         // 1. Optimistically update allCards state immediately
         setAllCards(prevCards => {
             const nextCards = [...prevCards];
             const cardIdx = nextCards.findIndex(c => c.id === cardId);
             if (cardIdx !== -1) {
-                const cardData = nextCards[cardIdx];
-                const srsState = {
-                    interval: cardData.srsInterval || 0,
-                    ease: cardData.srsEase || 2.5,
-                    learningStep: cardData.srsLearningStep !== undefined ? cardData.srsLearningStep : null,
-                    isLapsed: cardData.srsIsLapsed || false,
-                    reps: cardData.srsReps || 0,
-                    lapseCount: cardData.srsLapseCount || 0,
-                    prelapseInterval: cardData.srsPrelapseInterval || null,
-                    state: cardData.srsState || null,
-                    intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1,
-                    masteryState: cardData.masteryState || 'not_learned',
-                    seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount : 0,
-                    lastReviewed: cardData.lastReviewed || null
-                };
-
-                const result = calculateAnkiSRS(srsState, rating);
-                const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
-                const nextReviewDate = new Date(Date.now() + nextReviewOffset);
-
-                const isCorrect = rating !== 'again';
-                const currentMastery = cardData.masteryState || 'not_learned';
-                const newMastery = isCorrect
-                    ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
-                    : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
-
-                const computedIntervalIdx = result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? (result.interval >= 21 ? 4 : (result.interval >= 3 ? 3 : 2)) : 0);
-
                 nextCards[cardIdx] = {
                     ...cardData,
                     srsInterval: result.interval,
@@ -3000,51 +2962,82 @@ const App = () => {
                     needsMistakeReview: rating === 'again',
                     masteryState: newMastery
                 };
-
-                updatesToSave = {
-                    srsInterval: result.interval,
-                    srsEase: result.ease,
-                    srsLearningStep: result.learningStep,
-                    srsIsLapsed: result.isLapsed,
-                    srsReps: result.reps,
-                    srsLapseCount: result.lapseCount,
-                    srsPrelapseInterval: result.prelapseInterval,
-                    srsState: result.state,
-                    intervalIndex_back: computedIntervalIdx,
-                    nextReview_back: nextReviewDate,
-                    lastReviewed: serverTimestamp(),
-                    needsMistakeReview: rating === 'again',
-                    masteryState: newMastery
-                };
             }
             return nextCards;
         });
 
+        // Award XP
+        let basePoints = 0;
+        if (rating === 'again') basePoints = 8;
+        else if (rating === 'hard') basePoints = 25;
+        else if (rating === 'good') basePoints = 45;
+        else if (rating === 'easy') basePoints = 60;
+
+        let promotionBonus = 0;
+        const oldState = srsState.state || 'NEW';
+        const newState = result.state;
+        if (oldState === 'NEW' && newState === 'LEARNING') {
+            promotionBonus = 10;
+        } else if ((oldState === 'LEARNING' || oldState === 'RELEARNING') && newState === 'REVIEW') {
+            promotionBonus = 100;
+        }
+
+        let multiplier = 1.0;
+        const cardLevel = cardData.level || 'N5';
+        if (cardLevel) {
+            const lvlUpper = String(cardLevel).toUpperCase();
+            if (lvlUpper.includes('N3')) multiplier = 1.2;
+            else if (lvlUpper.includes('N2')) multiplier = 1.4;
+            else if (lvlUpper.includes('N1')) multiplier = 1.6;
+        }
+        let totalXp = Math.round((basePoints + promotionBonus) * multiplier);
+        if (totalXp > 0) {
+            if (!isSessionMode) {
+                awardXP(totalXp);
+            }
+            if (!vocabXpLogRef.current) {
+                vocabXpLogRef.current = {};
+            }
+            vocabXpLogRef.current[cardId] = totalXp;
+        }
+
+        const updatesToSave = {
+            srsInterval: result.interval,
+            srsEase: result.ease,
+            srsLearningStep: result.learningStep,
+            srsIsLapsed: result.isLapsed,
+            srsReps: result.reps,
+            srsLapseCount: result.lapseCount,
+            srsPrelapseInterval: result.prelapseInterval,
+            srsState: result.state,
+            intervalIndex_back: computedIntervalIdx,
+            nextReview_back: nextReviewDate,
+            lastReviewed: serverTimestamp(),
+            needsMistakeReview: rating === 'again',
+            masteryState: newMastery
+        };
+
         // 2. Perform Firestore update asynchronously in background with retry logic
-        if (updatesToSave) {
-            (async () => {
-                let attempts = 0;
-                let success = false;
-                while (attempts < 3 && !success) {
-                    try {
-                        await setDoc(cardRef, updatesToSave, { merge: true });
-                        updateDailyActivity(1, 'reviewsDone');
-                        success = true;
-                    } catch (e) {
-                        attempts++;
-                        console.error(`Lỗi cập nhật SRS từ vựng (lần ${attempts}):`, e);
-                        if (attempts < 3) {
-                            await new Promise(r => setTimeout(r, 400 * attempts));
-                        }
+        (async () => {
+            let attempts = 0;
+            let success = false;
+            while (attempts < 3 && !success) {
+                try {
+                    await setDoc(cardRef, updatesToSave, { merge: true });
+                    updateDailyActivity(1, 'reviewsDone');
+                    success = true;
+                } catch (e) {
+                    attempts++;
+                    console.error(`Lỗi cập nhật SRS từ vựng (lần ${attempts}):`, e);
+                    if (attempts < 3) {
+                        await new Promise(r => setTimeout(r, 400 * attempts));
                     }
                 }
-                if (typeof isSessionMode === 'function') {
-                    isSessionMode(success);
-                }
-            })();
-        } else if (typeof isSessionMode === 'function') {
-            isSessionMode(false);
-        }
+            }
+            if (onComplete) {
+                onComplete(success);
+            }
+        })();
 
         return totalXp;
     };

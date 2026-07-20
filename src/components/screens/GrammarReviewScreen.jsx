@@ -511,17 +511,28 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         pendingWriteIds.current.add(currentCard.id);
         (async () => {
-            try {
-                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, currentCard.id), newSrs);
-                const todayDateString = new Date().toISOString().split('T')[0];
-                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
-                await setDoc(activityRef, {
-                    grammarReviewsDone: increment(1)
-                }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Grammar:', err));
-            } catch (e) {
-                console.error('Error updating Grammar SRS in background:', e);
-            } finally {
-                pendingWriteIds.current.delete(currentCard.id);
+            let attempts = 0;
+            let success = false;
+            while (attempts < 3 && !success) {
+                try {
+                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, currentCard.id), newSrs, { merge: true });
+                    const todayDateString = new Date().toISOString().split('T')[0];
+                    const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
+                    await setDoc(activityRef, {
+                        grammarReviewsDone: increment(1)
+                    }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Grammar:', err));
+                    success = true;
+                } catch (e) {
+                    attempts++;
+                    console.error(`Error updating Grammar SRS in background (attempt ${attempts}):`, e);
+                    if (attempts < 3) {
+                        await new Promise(r => setTimeout(r, 400 * attempts));
+                    }
+                } finally {
+                    if (success || attempts >= 3) {
+                        pendingWriteIds.current.delete(currentCard.id);
+                    }
+                }
             }
         })();
     };
