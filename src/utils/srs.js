@@ -134,9 +134,51 @@ export const getSrsProgressText = (intervalIndex, ease, currentInterval, state) 
     return `${days} ngày`;
 };
 
-// Check if card is due for review
-const isCardDue = (nextReviewTimestamp) => {
-    return nextReviewTimestamp <= Date.now();
+// Safely parse nextReview timestamp to milliseconds since epoch
+export const parseNextReviewMs = (val) => {
+    if (val === null || val === undefined) return 0;
+    if (typeof val === 'number') {
+        if (val <= 0) return 0;
+        // If stored in seconds (< 10000000000), convert to ms
+        if (val < 10000000000) return val * 1000;
+        return val;
+    }
+    if (val && typeof val.toDate === 'function') {
+        return val.toDate().getTime();
+    }
+    if (val && typeof val.seconds === 'number') {
+        return val.seconds * 1000;
+    }
+    if (val instanceof Date) {
+        const time = val.getTime();
+        return isNaN(time) ? 0 : time;
+    }
+    if (typeof val === 'string') {
+        const num = Number(val);
+        if (!isNaN(num) && num > 0) {
+            return num < 10000000000 ? num * 1000 : num;
+        }
+        const parsed = new Date(val).getTime();
+        return isNaN(parsed) ? 0 : parsed;
+    }
+    return 0;
+};
+
+// Check if card or SRS item is due for review
+export const isSrsCardDue = (srsOrCard, now = Date.now()) => {
+    if (!srsOrCard) return false;
+    const nextReviewVal = srsOrCard.nextReview !== undefined 
+        ? srsOrCard.nextReview 
+        : (srsOrCard.nextReview_back !== undefined ? srsOrCard.nextReview_back : null);
+    
+    if (!nextReviewVal && nextReviewVal !== 0) return true;
+    const reviewMs = parseNextReviewMs(nextReviewVal);
+    if (reviewMs === 0) return true;
+    return reviewMs <= now;
+};
+
+export const isCardDue = (nextReviewTimestamp) => {
+    return parseNextReviewMs(nextReviewTimestamp) <= Date.now();
 };
 
 // Calculate correct interval based on timestamp (retained for backward compatibility)

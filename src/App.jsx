@@ -17,7 +17,7 @@ import { normalizePosKey } from './config/constants'
 import { getSharedBookGroups, getCachedBookGroups } from './utils/bookService';
 
 import { playAudio, generateAudioSilent } from './utils/audio'
-import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS, isKanjiMastered } from './utils/srs'
+import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS, isKanjiMastered, parseNextReviewMs } from './utils/srs'
 import { shuffleArray, getSpeechText } from './utils/textProcessing'
 import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpenRouterKeys, getSinoVietnamese } from './utils/aiProvider';
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
@@ -1012,7 +1012,8 @@ const App = () => {
                 let srsPrelapseInterval = typeof data.srsPrelapseInterval === 'number' ? data.srsPrelapseInterval : null;
                 let srsState = data.srsState || null;
 
-                let nextReviewBack = data.nextReview_back?.toDate ? data.nextReview_back.toDate() : (data.nextReview_back ? new Date(data.nextReview_back) : today);
+                const reviewMs = parseNextReviewMs(data.nextReview_back);
+                let nextReviewBack = reviewMs > 0 ? new Date(reviewMs) : today;
 
                 // 1. Migration for legacy Leitner cards that were reviewed but have no new SRS progress
                 if (srsEnabled && srsReps === 0 && srsState === null) {
@@ -1081,13 +1082,13 @@ const App = () => {
                     nextReview_back: nextReviewBack,
                     intervalIndex_synonym: typeof data.intervalIndex_synonym === 'number' ? data.intervalIndex_synonym : -1,
                     correctStreak_synonym: typeof data.correctStreak_synonym === 'number' ? data.correctStreak_synonym : 0,
-                    nextReview_synonym: data.nextReview_synonym?.toDate ? data.nextReview_synonym.toDate() : (data.nextReview_synonym ? new Date(data.nextReview_synonym) : today),
+                    nextReview_synonym: parseNextReviewMs(data.nextReview_synonym) > 0 ? new Date(parseNextReviewMs(data.nextReview_synonym)) : today,
                     intervalIndex_example: typeof data.intervalIndex_example === 'number' ? data.intervalIndex_example : -1,
                     correctStreak_example: typeof data.correctStreak_example === 'number' ? data.correctStreak_example : 0,
-                    nextReview_example: data.nextReview_example?.toDate ? data.nextReview_example.toDate() : (data.nextReview_example ? new Date(data.nextReview_example) : today),
+                    nextReview_example: parseNextReviewMs(data.nextReview_example) > 0 ? new Date(parseNextReviewMs(data.nextReview_example)) : today,
                     intervalIndex_dictation: typeof data.intervalIndex_dictation === 'number' ? data.intervalIndex_dictation : -1,
                     correctStreak_dictation: typeof data.correctStreak_dictation === 'number' ? data.correctStreak_dictation : 0,
-                    nextReview_dictation: data.nextReview_dictation?.toDate ? data.nextReview_dictation.toDate() : (data.nextReview_dictation ? new Date(data.nextReview_dictation) : today),
+                    nextReview_dictation: parseNextReviewMs(data.nextReview_dictation) > 0 ? new Date(parseNextReviewMs(data.nextReview_dictation)) : today,
                     easeFactor: typeof data.easeFactor === 'number' ? data.easeFactor : DEFAULT_EASE,
                     totalReps: typeof data.totalReps === 'number' ? data.totalReps : 0,
                     currentInterval_back: typeof data.currentInterval_back === 'number' ? data.currentInterval_back : 0,

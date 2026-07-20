@@ -10,6 +10,7 @@ import { ROUTES } from '../../router';
 import { showToast, showConfirm } from '../../utils/toast';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
+import { parseNextReviewMs } from '../../utils/srs';
 
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
@@ -26,7 +27,8 @@ const getSrsStatus = (srs) => {
     const interval = srs.interval || 0;
     const reps = srs.reps || 0;
     const now = Date.now();
-    const isDue = (srs.nextReview || 0) <= now;
+    const reviewMs = parseNextReviewMs(srs.nextReview);
+    const isDue = reviewMs > 0 && reviewMs <= now;
 
     if (reps === 0 && interval === 0) return { label: 'Mới', color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/30', icon: BookOpen };
     if (isDue) return { label: 'Cần ôn', color: 'text-orange-500', bg: 'bg-orange-50 dark:bg-orange-900/30', icon: Clock };
@@ -36,9 +38,10 @@ const getSrsStatus = (srs) => {
 };
 
 const formatNextReview = (nextReview) => {
-    if (!nextReview) return '';
+    const reviewMs = parseNextReviewMs(nextReview);
+    if (!reviewMs) return '';
     const now = Date.now();
-    const diff = nextReview - now;
+    const diff = reviewMs - now;
     if (diff <= 0) return 'Ngay bây giờ';
     const minutes = Math.floor(diff / 60000);
     if (minutes < 60) return `${minutes} phút`;

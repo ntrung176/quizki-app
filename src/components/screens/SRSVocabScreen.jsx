@@ -8,7 +8,7 @@ import useMenuTransition from '../../hooks/useMenuTransition';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
-import { calculateAnkiSRS } from '../../utils/srs';
+import { calculateAnkiSRS, parseNextReviewMs } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare } from '../../utils/soundEffects';
 
@@ -292,17 +292,14 @@ const SRSVocabScreen = ({
     const isDue = (card) => {
         // Merge with local session SRS data if available
         const localSrs = sessionSrsData.current[card.id];
-        const srsEnabled = card.srsEnabled === true;
+        const srsEnabled = card.srsEnabled !== false;
         if (!srsEnabled) return false;
 
-        const nextReviewVal = localSrs ? localSrs.nextReview_back : card.nextReview_back;
+        const nextReviewVal = localSrs ? (localSrs.nextReview_back || localSrs.nextReview) : card.nextReview_back;
         if (!nextReviewVal) return true;
 
-        const reviewTime = nextReviewVal instanceof Date
-            ? nextReviewVal.getTime()
-            : (nextReviewVal.seconds
-                ? nextReviewVal.seconds * 1000
-                : new Date(nextReviewVal).getTime());
+        const reviewTime = parseNextReviewMs(nextReviewVal);
+        if (reviewTime === 0) return true;
 
         return reviewTime <= dashboardTick;
     };
@@ -494,12 +491,8 @@ const SRSVocabScreen = ({
                 // Safely parse nextReview date and check if it is more than 12 hours in the future
                 const nextReviewVal = srs.nextReview_back || srs.nextReview;
                 if (nextReviewVal) {
-                    const reviewTime = nextReviewVal instanceof Date
-                        ? nextReviewVal.getTime()
-                        : (nextReviewVal.seconds
-                            ? nextReviewVal.seconds * 1000
-                            : new Date(nextReviewVal).getTime());
-                    if (!isNaN(reviewTime) && reviewTime - Date.now() > 12 * 60 * 60 * 1000) {
+                    const reviewTime = parseNextReviewMs(nextReviewVal);
+                    if (reviewTime > 0 && reviewTime - Date.now() > 12 * 60 * 60 * 1000) {
                         return false;
                     }
                 }
@@ -508,14 +501,10 @@ const SRSVocabScreen = ({
             })
             .map(([id, srs]) => {
                 const nextReviewVal = srs.nextReview_back || srs.nextReview;
-                const reviewTime = nextReviewVal instanceof Date
-                    ? nextReviewVal.getTime()
-                    : (nextReviewVal.seconds
-                        ? nextReviewVal.seconds * 1000
-                        : new Date(nextReviewVal).getTime());
+                const reviewTime = parseNextReviewMs(nextReviewVal);
                 return {
                     id,
-                    nextReview: isNaN(reviewTime) ? Date.now() : reviewTime
+                    nextReview: reviewTime === 0 ? Date.now() : reviewTime
                 };
             });
     };

@@ -8,7 +8,7 @@ import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase
 import { getAuth } from 'firebase/auth';
 import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
-import { formatCountdown, getCardState, calculateAnkiSRS } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
@@ -67,6 +67,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     }, []);
 
     const reviewModeRef = useRef(false);
+    const pendingWriteIds = useRef(new Set());
 
     useEffect(() => {
         reviewModeRef.current = reviewMode;
@@ -95,8 +96,18 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         let unsubSrs = () => {};
         if (userId) {
             unsubSrs = subscribeGrammarSrs(userId, (freshSrs) => {
-                // Only update dashboard state when NOT in active review mode
-                if (!reviewModeRef.current) {
+                if (reviewModeRef.current) {
+                    // During review: merge fresh data but PRESERVE optimistic updates
+                    setSrsData(prev => {
+                        const merged = { ...freshSrs };
+                        pendingWriteIds.current.forEach(id => {
+                            if (prev[id]) {
+                                merged[id] = prev[id];
+                            }
+                        });
+                        return merged;
+                    });
+                } else {
                     setSrsData(freshSrs);
                 }
             });
@@ -109,7 +120,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return grammarList.filter(g => {
             const srs = srsData[g.id];
             if (!srs) return false;
-            return (srs.nextReview || 0) <= now;
+            const reviewMs = parseNextReviewMs(srs.nextReview);
+            return reviewMs > 0 && reviewMs <= now;
         });
     }, [grammarList, srsData, dashboardTick]);
 
@@ -195,7 +207,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             let earliest = Infinity;
             const futureEntries = [];
             Object.values(srsData).forEach(srs => {
-                const next = srs.nextReview || 0;
+                const next = parseNextReviewMs(srs.nextReview);
                 if (next > now) { futureEntries.push(next); if (next < earliest) earliest = next; }
             });
             if (earliest === Infinity) return null;
@@ -497,6 +509,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         sessionXpRef.current += totalXp;
 
+        pendingWriteIds.current.add(currentCard.id);
         (async () => {
             try {
                 await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, currentCard.id), newSrs);
@@ -507,6 +520,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Grammar:', err));
             } catch (e) {
                 console.error('Error updating Grammar SRS in background:', e);
+            } finally {
+                pendingWriteIds.current.delete(currentCard.id);
             }
         })();
     };
@@ -516,10 +531,17 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             awardXP(sessionXpRef.current);
         }
         sessionXpRef.current = 0;
-        setReviewMode(false);
-        if (setIsReviewActive) {
-            setIsReviewActive(false);
-        }
+        const waitForWrites = () => {
+            if (pendingWriteIds.current.size > 0) {
+                setTimeout(waitForWrites, 100);
+            } else {
+                setReviewMode(false);
+                if (setIsReviewActive) {
+                    setIsReviewActive(false);
+                }
+            }
+        };
+        setTimeout(waitForWrites, 200);
     };
 
     const handleUndo = () => {
