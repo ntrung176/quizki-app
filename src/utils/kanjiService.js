@@ -387,6 +387,8 @@ export const subscribeKanjiSrs = (userId, callback) => {
         if (kanjiSrsListeners.size === 0 && kanjiSrsUnsubscribe) {
             kanjiSrsUnsubscribe();
             kanjiSrsUnsubscribe = null;
+            cachedUserSrsData = null;
+            userSrsPromise = null;
         }
     };
 };

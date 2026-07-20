@@ -2949,6 +2949,8 @@ const App = () => {
             }
         }
 
+        let updatesToSave = null;
+
         // 1. Optimistically update allCards state immediately
         setAllCards(prevCards => {
             const nextCards = [...prevCards];
@@ -2980,6 +2982,8 @@ const App = () => {
                     ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
                     : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
 
+                const computedIntervalIdx = result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? (result.interval >= 21 ? 4 : (result.interval >= 3 ? 3 : 2)) : 0);
+
                 nextCards[cardIdx] = {
                     ...cardData,
                     srsInterval: result.interval,
@@ -2990,49 +2994,14 @@ const App = () => {
                     srsLapseCount: result.lapseCount,
                     srsPrelapseInterval: result.prelapseInterval,
                     srsState: result.state,
-                    intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? (result.interval >= 21 ? 4 : (result.interval >= 3 ? 3 : 2)) : 0),
+                    intervalIndex_back: computedIntervalIdx,
                     nextReview_back: nextReviewDate,
                     lastReviewed: new Date(),
                     needsMistakeReview: rating === 'again',
                     masteryState: newMastery
                 };
-            }
-            return nextCards;
-        });
 
-        // 2. Perform Firestore update asynchronously in background
-        (async () => {
-            try {
-                const cardSnap = await getDoc(cardRef);
-                if (!cardSnap.exists()) return;
-                const cardData = cardSnap.data();
-
-                const srsState = {
-                    interval: cardData.srsInterval || 0,
-                    ease: cardData.srsEase || 2.5,
-                    learningStep: cardData.srsLearningStep !== undefined ? cardData.srsLearningStep : null,
-                    isLapsed: cardData.srsIsLapsed || false,
-                    reps: cardData.srsReps || 0,
-                    lapseCount: cardData.srsLapseCount || 0,
-                    prelapseInterval: cardData.srsPrelapseInterval || null,
-                    state: cardData.srsState || null,
-                    intervalIndex_back: typeof cardData.intervalIndex_back === 'number' ? cardData.intervalIndex_back : -1,
-                    masteryState: cardData.masteryState || 'not_learned',
-                    seenCount: typeof cardData.seenCount === 'number' ? cardData.seenCount : 0,
-                    lastReviewed: cardData.lastReviewed || null
-                };
-
-                const result = calculateAnkiSRS(srsState, rating);
-                const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
-                const nextReviewDate = new Date(Date.now() + nextReviewOffset);
-
-                const isCorrect = rating !== 'again';
-                const currentMastery = cardData.masteryState || 'not_learned';
-                const newMastery = isCorrect
-                    ? (currentMastery === 'not_learned' ? 'learning' : 'memorized')
-                    : (currentMastery === 'memorized' ? 'learning' : 'not_learned');
-
-                await updateDoc(cardRef, {
+                updatesToSave = {
                     srsInterval: result.interval,
                     srsEase: result.ease,
                     srsLearningStep: result.learningStep,
@@ -3041,18 +3010,41 @@ const App = () => {
                     srsLapseCount: result.lapseCount,
                     srsPrelapseInterval: result.prelapseInterval,
                     srsState: result.state,
-                    intervalIndex_back: result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? (result.interval >= 21 ? 4 : (result.interval >= 3 ? 3 : 2)) : 0),
+                    intervalIndex_back: computedIntervalIdx,
                     nextReview_back: nextReviewDate,
                     lastReviewed: serverTimestamp(),
                     needsMistakeReview: rating === 'again',
                     masteryState: newMastery
-                });
-
-                await updateDailyActivity(1, 'reviewsDone');
-            } catch (e) {
-                console.error("Lỗi cập nhật đánh giá SRS từ vựng:", e);
+                };
             }
-        })();
+            return nextCards;
+        });
+
+        // 2. Perform Firestore update asynchronously in background with retry logic
+        if (updatesToSave) {
+            (async () => {
+                let attempts = 0;
+                let success = false;
+                while (attempts < 3 && !success) {
+                    try {
+                        await setDoc(cardRef, updatesToSave, { merge: true });
+                        updateDailyActivity(1, 'reviewsDone');
+                        success = true;
+                    } catch (e) {
+                        attempts++;
+                        console.error(`Lỗi cập nhật SRS từ vựng (lần ${attempts}):`, e);
+                        if (attempts < 3) {
+                            await new Promise(r => setTimeout(r, 400 * attempts));
+                        }
+                    }
+                }
+                if (typeof isSessionMode === 'function') {
+                    isSessionMode(success);
+                }
+            })();
+        } else if (typeof isSessionMode === 'function') {
+            isSessionMode(false);
+        }
 
         return totalXp;
     };
@@ -3091,7 +3083,7 @@ const App = () => {
         }
         updateDailyActivity(-1, 'reviewsDone');
 
-        // 2. Revert in Firestore doc in background
+        // 2. Revert in Firestore doc in background using setDoc merge
         (async () => {
             try {
                 const updatePayload = {
@@ -3109,7 +3101,7 @@ const App = () => {
                     needsMistakeReview: rawFields.needsMistakeReview,
                     masteryState: rawFields.masteryState
                 };
-                await updateDoc(cardRef, updatePayload);
+                await setDoc(cardRef, updatePayload, { merge: true });
             } catch (e) {
                 console.error("Lỗi khi khôi phục SRS từ vựng:", e);
             }

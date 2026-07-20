@@ -265,6 +265,7 @@ const SRSVocabScreen = ({
     const completedCardIds = useRef(new Set());
     const activeReviewCardIds = useRef(new Set());
     const sessionSrsData = useRef({});
+    const pendingWriteIds = useRef(new Set());
 
     useEffect(() => {
         setShowNuancePopup(false);
@@ -672,9 +673,12 @@ const SRSVocabScreen = ({
 
         sessionSrsData.current[card.id] = newSrs;
 
-        // Call parent update vocab srs rating on Firestore asynchronously (no await!)
+        // Call parent update vocab srs rating on Firestore asynchronously
         if (onUpdateVocabSrsRating) {
-            const xp = onUpdateVocabSrsRating(card.id, rating, true);
+            pendingWriteIds.current.add(card.id);
+            const xp = onUpdateVocabSrsRating(card.id, rating, (success) => {
+                pendingWriteIds.current.delete(card.id);
+            });
             sessionXpRef.current += (xp || 0);
         }
 
@@ -765,10 +769,18 @@ const SRSVocabScreen = ({
             awardXP(sessionXpRef.current);
         }
         sessionXpRef.current = 0;
-        setReviewModeState(false);
-        if (setIsReviewActive) {
-            setIsReviewActive(false);
-        }
+
+        const checkPendingAndExit = () => {
+            if (pendingWriteIds.current.size > 0) {
+                setTimeout(checkPendingAndExit, 100);
+                return;
+            }
+            setReviewModeState(false);
+            if (setIsReviewActive) {
+                setIsReviewActive(false);
+            }
+        };
+        checkPendingAndExit();
     };
 
     const handleUndo = () => {

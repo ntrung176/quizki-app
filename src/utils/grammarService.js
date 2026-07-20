@@ -776,6 +776,8 @@ export const subscribeGrammarSrs = (userId, callback) => {
         if (grammarSrsListeners.size === 0 && grammarSrsUnsubscribe) {
             grammarSrsUnsubscribe();
             grammarSrsUnsubscribe = null;
+            cachedUserGrammarSrsData = null;
+            userGrammarSrsPromise = null;
         }
     };
 };
