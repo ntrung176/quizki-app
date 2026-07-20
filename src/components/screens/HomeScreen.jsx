@@ -9,7 +9,8 @@ import {
 import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
-import { isVocabCardDue, parseNextReviewMs } from '../../utils/srs';
+import { isVocabCardDue, isSrsCardDue, isKanjiMastered, isVocabCardMastered, parseNextReviewMs } from '../../utils/srs';
+import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 
 const HomeScreen = ({
     displayName,
@@ -18,50 +19,64 @@ const HomeScreen = ({
     userId,
     vocabCollectionPath,
     dailyActivityLogs = [],
+    isReviewActive = false,
     calculatedStreak = 0,
-    isActivityLogsLoaded = false,
 }) => {
     const navigate = useNavigate();
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
     const [showAddOptions, setShowAddOptions] = useState(false);
 
-    // Fetch kanji SRS stats + activity dates
+    // Fetch kanji SRS stats + activity dates synchronized with Kanji module
     useEffect(() => {
-        if (!userId || !db) return;
-        const q = query(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-        const unsub = onSnapshot(q, (snap) => {
-            let total = 0, learning = 0, mastered = 0, dueCount = 0;
-            const now = Date.now();
-            const actDates = [];
-            const toDateStr = (ts) => {
-                if (!ts) return null;
-                const d = new Date(ts);
-                if (isNaN(d.getTime())) return null;
-                return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-            };
-            snap.docs.forEach(d => {
-                total++;
-                const data = d.data();
-                if (data.reps >= 5) mastered++;
-                else learning++;
-                const reviewMs = parseNextReviewMs(data.nextReview);
-                if (reviewMs > 0 && reviewMs <= now) dueCount++;
-                // Collect kanji review dates for streak calculation
-                const dateStr = toDateStr(data.lastReview);
-                if (dateStr) actDates.push(dateStr);
+        if (!userId) return;
+        let isMounted = true;
+        let unsub = () => {};
+
+        getSharedKanjiList().then(kList => {
+            if (!isMounted) return;
+            const validKanjiIds = new Set((kList || []).map(k => k.id));
+
+            unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+                if (!isMounted) return;
+                let total = 0, learning = 0, mastered = 0, dueCount = 0;
+                const now = Date.now();
+                const actDates = [];
+                const toDateStr = (ts) => {
+                    if (!ts) return null;
+                    const d = new Date(ts);
+                    if (isNaN(d.getTime())) return null;
+                    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+                };
+
+                Object.entries(freshSrs || {}).forEach(([id, data]) => {
+                    if (validKanjiIds.size > 0 && !validKanjiIds.has(id)) return;
+                    total++;
+                    if (isKanjiMastered(data)) mastered++;
+                    else learning++;
+                    if (isSrsCardDue(data, now)) dueCount++;
+                    const dateStr = toDateStr(data.lastReview);
+                    if (dateStr) actDates.push(dateStr);
+                });
+
+                setKanjiSrsStats({ total, learning, mastered, dueCount });
+                setKanjiActivityDates(actDates);
             });
-            setKanjiSrsStats({ total, learning, mastered, dueCount });
-            setKanjiActivityDates(actDates);
-        }, () => { });
-        return () => unsub();
+        }).catch(err => {
+            console.error('Error fetching kanji list in HomeScreen:', err);
+        });
+
+        return () => {
+            isMounted = false;
+            unsub();
+        };
     }, [userId]);
 
     // Calculate stats
     const stats = useMemo(() => {
         const dueCards = allCards.filter(card => isVocabCardDue(card)).length;
         const newCards = allCards.filter(card => !card.srsEnabled).length;
-        const masteredCards = allCards.filter(card => card.srsEnabled === true && card.srsReps >= 5).length;
+        const masteredCards = allCards.filter(card => isVocabCardMastered(card)).length;
         return { dueCards, newCards, masteredCards, streak: calculatedStreak, totalCards };
     }, [allCards, totalCards, calculatedStreak]);
     // Quick action cards - using softer pastel colors and clean styling properties

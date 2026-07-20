@@ -4,7 +4,8 @@ import { collection, query, onSnapshot } from 'firebase/firestore';
 import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { SafeAvatarImage } from '../ui';
-import { isKanjiMastered } from '../../utils/srs';
+import { isKanjiMastered, isSrsCardDue, isVocabCardMastered } from '../../utils/srs';
+import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getLevelFromXp, getLevelTitle, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
 
 // Avatar emoji lookup
@@ -130,23 +131,37 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         return () => clearInterval(interval);
     }, []);
 
-    // Fetch kanji SRS stats
+    // Fetch kanji SRS stats synchronized with Kanji module
     useEffect(() => {
-        if (!userId || !db) return;
-        const q = query(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-        const unsub = onSnapshot(q, (snap) => {
-            let total = 0, learning = 0, mastered = 0, dueToday = 0;
-            const now = Date.now();
-            snap.docs.forEach(d => {
-                total++;
-                const data = d.data();
-                if (isKanjiMastered(data)) mastered++;
-                else learning++;
-                if (data.nextReview && data.nextReview <= now) dueToday++;
+        if (!userId) return;
+        let isMounted = true;
+        let unsub = () => {};
+
+        getSharedKanjiList().then(kList => {
+            if (!isMounted) return;
+            const validKanjiIds = new Set((kList || []).map(k => k.id));
+
+            unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+                if (!isMounted) return;
+                let total = 0, learning = 0, mastered = 0, dueToday = 0;
+                const now = Date.now();
+                Object.entries(freshSrs || {}).forEach(([id, data]) => {
+                    if (validKanjiIds.size > 0 && !validKanjiIds.has(id)) return;
+                    total++;
+                    if (isKanjiMastered(data)) mastered++;
+                    else learning++;
+                    if (isSrsCardDue(data, now)) dueToday++;
+                });
+                setKanjiSrsStats({ total, learning, mastered, dueToday });
             });
-            setKanjiSrsStats({ total, learning, mastered, dueToday });
-        }, () => { });
-        return () => unsub();
+        }).catch(err => {
+            console.error('Error fetching kanji list in StatsScreen:', err);
+        });
+
+        return () => {
+            isMounted = false;
+            unsub();
+        };
     }, [userId]);
 
     // Fetch leaderboard data
@@ -201,7 +216,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     }, [dailyActivityLogs]);
 
     const vocabMastery = useMemo(() => {
-        const mastered = allCards.filter(c => c.intervalIndex_back >= 4).length;
+        const mastered = allCards.filter(c => isVocabCardMastered(c)).length;
         return { mastered };
     }, [allCards]);
 

@@ -180,6 +180,7 @@ export const isSrsCardDue = (srsOrCard, now = Date.now()) => {
 // Check if vocab card is due for review (including new cards with intervalIndex_back === -1)
 export const isVocabCardDue = (card, now = Date.now()) => {
     if (!card) return false;
+    if (card.srsEnabled === false) return false;
     // Thẻ mới (chưa có SRS / intervalIndex_back === -1)
     if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined || card.intervalIndex_back < 0) {
         return true;
@@ -498,5 +499,14 @@ export const isKanjiMastered = (srs) => {
     const interval = srs.interval || 0;
     const isLegacyMinute = interval >= 1440;
     const daysInterval = isLegacyMinute ? (interval / 1440) : interval;
-    return daysInterval >= 7;
+    return daysInterval >= 7 || (typeof srs.reps === 'number' && srs.reps >= 5);
+};
+
+export const isVocabCardMastered = (card) => {
+    if (!card) return false;
+    if (card.srsEnabled === false) return false;
+    if (typeof card.intervalIndex_back === 'number' && card.intervalIndex_back >= 4) return true;
+    if (typeof card.srsReps === 'number' && card.srsReps >= 5) return true;
+    if (typeof card.srsInterval === 'number' && (card.srsInterval >= 21 || card.srsInterval >= 10080)) return true;
+    return false;
 };

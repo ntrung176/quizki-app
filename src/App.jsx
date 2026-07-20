@@ -17,7 +17,7 @@ import { normalizePosKey } from './config/constants'
 import { getSharedBookGroups, getCachedBookGroups } from './utils/bookService';
 
 import { playAudio, generateAudioSilent } from './utils/audio'
-import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS, isKanjiMastered, parseNextReviewMs, isVocabCardDue } from './utils/srs'
+import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS, isKanjiMastered, isVocabCardMastered, parseNextReviewMs, isVocabCardDue } from './utils/srs'
 import { shuffleArray, getSpeechText } from './utils/textProcessing'
 import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpenRouterKeys, getSinoVietnamese } from './utils/aiProvider';
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
@@ -26,7 +26,7 @@ import { ensureFuriganaFormat } from './utils/furiganaHelper';
 import { getLevelFromXp, getLevelTitle, getWeekId, generateSimulatedLeague, LEAGUES, getLeagueTierRules } from './utils/scoring';
 import { playCompletionFanfare } from './utils/soundEffects';
 import { initConsoleProtection, aiRateLimiter } from './utils/security';
-import { getSharedKanjiList, getSharedKanjiSrs, clearUserSrsCache, getSharedKanjiProgress, clearKanjiProgressCache } from './utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, subscribeKanjiSrs, clearUserSrsCache, getSharedKanjiProgress, clearKanjiProgressCache } from './utils/kanjiService';
 
 // Import screens
 import { HomeScreen, LoginScreen, AccountScreen, HelpScreen, ImportScreen, StatsScreen, ListView, ReviewScreen, ReviewCompleteScreen, KanjiScreen, StudyScreen, TestScreen, AdminScreen, FlashcardScreen } from './components/screens'
@@ -4131,21 +4131,36 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
     }, [allCards]);
 
     // Fetch kanji SRS counts for public stats
+    // Fetch kanji SRS counts for public stats synchronized with Kanji module
     useEffect(() => {
-        if (!authReady || !userId || !db) return;
-        const q = query(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-        const unsub = onSnapshot(q, (snap) => {
-            let total = 0, mastered = 0;
-            snap.docs.forEach(d => {
-                total++;
-                const data = d.data();
-                if (isKanjiMastered(data)) mastered++;
+        if (!authReady || !userId) return;
+        let isMounted = true;
+        let unsub = () => {};
+
+        getSharedKanjiList().then(kList => {
+            if (!isMounted) return;
+            const validKanjiIds = new Set((kList || []).map(k => k.id));
+
+            unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+                if (!isMounted) return;
+                let total = 0, mastered = 0;
+                Object.entries(freshSrs || {}).forEach(([id, data]) => {
+                    if (validKanjiIds.size > 0 && !validKanjiIds.has(id)) return;
+                    total++;
+                    if (isKanjiMastered(data)) mastered++;
+                });
+                console.log("[Quizki Debug] Kanji SRS snapshot loaded for user:", userId);
+                console.log("[Quizki Debug] Kanji SRS Total:", total, "Mastered:", mastered);
+                setKanjiSrsPublicCount({ total, mastered });
             });
-            console.log("[Quizki Debug] Kanji SRS snapshot loaded for user:", userId);
-            console.log("[Quizki Debug] Kanji SRS Total:", total, "Mastered:", mastered);
-            setKanjiSrsPublicCount({ total, mastered });
-        }, () => { });
-        return () => unsub();
+        }).catch(err => {
+            console.error('Error fetching kanji list in App.jsx:', err);
+        });
+
+        return () => {
+            isMounted = false;
+            unsub();
+        };
     }, [authReady, userId]);
 
     useEffect(() => {
@@ -4154,11 +4169,11 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
         const updatePublicStats = async () => {
             try {
                 const statsDocRef = doc(db, publicStatsCollectionPath, userId);
-                const vocabMastered = allCards.filter(c => c.intervalIndex_back >= 4).length;
+                const vocabMastered = allCards.filter(c => isVocabCardMastered(c)).length;
 
                 console.log("[Quizki Debug] updatePublicStats triggered for user:", userId);
                 console.log("[Quizki Debug] Total Vocabulary Cards:", allCards.length);
-                console.log("[Quizki Debug] Vocabulary Mastered (intervalIndex_back >= 4):", vocabMastered);
+                console.log("[Quizki Debug] Vocabulary Mastered:", vocabMastered);
                 console.log("[Quizki Debug] Kanji Mastered:", kanjiSrsPublicCount.mastered);
 
                 const currentStreak = calculatedStreak;

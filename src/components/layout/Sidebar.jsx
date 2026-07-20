@@ -7,7 +7,8 @@ import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare, HelpCircle } from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
-import { isVocabCardDue, parseNextReviewMs } from '../../utils/srs';
+import { isVocabCardDue, isSrsCardDue, parseNextReviewMs } from '../../utils/srs';
+import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 
 // Sidebar Component - Navigation with submenu support
 const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar, profile }) => {
@@ -94,21 +95,34 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
-    // Listen to Kanji SRS due count
+    // Listen to Kanji SRS due count synchronized with Kanji module
     useEffect(() => {
-        if (!userId || !db) return;
-        const q = query(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-        const unsub = onSnapshot(q, (snap) => {
-            let dueCount = 0;
-            const now = Date.now();
-            snap.docs.forEach(d => {
-                const data = d.data();
-                const reviewMs = parseNextReviewMs(data.nextReview);
-                if (reviewMs > 0 && reviewMs <= now) dueCount++;
+        if (!userId) return;
+        let isMounted = true;
+        let unsub = () => {};
+
+        getSharedKanjiList().then(kList => {
+            if (!isMounted) return;
+            const validKanjiIds = new Set((kList || []).map(k => k.id));
+
+            unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+                if (!isMounted) return;
+                let dueCount = 0;
+                const now = Date.now();
+                Object.entries(freshSrs || {}).forEach(([id, data]) => {
+                    if (validKanjiIds.size > 0 && !validKanjiIds.has(id)) return;
+                    if (isSrsCardDue(data, now)) dueCount++;
+                });
+                setKanjiDueCount(dueCount);
             });
-            setKanjiDueCount(dueCount);
-        }, () => { });
-        return () => unsub();
+        }).catch(err => {
+            console.error('Error fetching kanji list in Sidebar:', err);
+        });
+
+        return () => {
+            isMounted = false;
+            unsub();
+        };
     }, [userId]);
     // Listen to Support Chat unread status for current user
     const [hasUnreadSupport, setHasUnreadSupport] = useState(false);
