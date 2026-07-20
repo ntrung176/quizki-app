@@ -177,6 +177,19 @@ export const isSrsCardDue = (srsOrCard, now = Date.now()) => {
     return reviewMs <= now;
 };
 
+// Check if vocab card is due for review (including new cards with intervalIndex_back === -1)
+export const isVocabCardDue = (card, now = Date.now()) => {
+    if (!card) return false;
+    // Thẻ mới (chưa có SRS / intervalIndex_back === -1)
+    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined || card.intervalIndex_back < 0) {
+        return true;
+    }
+    const nextReviewVal = card.nextReview_back !== undefined ? card.nextReview_back : card.nextReview;
+    const reviewMs = parseNextReviewMs(nextReviewVal);
+    if (reviewMs === 0) return true;
+    return reviewMs <= now;
+};
+
 export const isCardDue = (nextReviewTimestamp) => {
     return parseNextReviewMs(nextReviewTimestamp) <= Date.now();
 };

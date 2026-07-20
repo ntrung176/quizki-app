@@ -6,7 +6,7 @@ import { collection, query, onSnapshot, doc } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare, HelpCircle } from 'lucide-react'
-import { SafeAvatarImage } from '../ui';
+import { isVocabCardDue, parseNextReviewMs } from '../../utils/srs';
 
 // Sidebar Component - Navigation with submenu support
 const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar, profile }) => {
@@ -102,7 +102,8 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             const now = Date.now();
             snap.docs.forEach(d => {
                 const data = d.data();
-                if (data.nextReview && data.nextReview <= now) dueCount++;
+                const reviewMs = parseNextReviewMs(data.nextReview);
+                if (reviewMs > 0 && reviewMs <= now) dueCount++;
             });
             setKanjiDueCount(dueCount);
         }, () => { });
@@ -139,17 +140,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         return () => unsub();
     }, [userId]);
     // Calculate due vocab count
-    const dueVocabCount = allCards.filter(card =>
-        card.srsEnabled === true && (
-            !card.nextReview_back ||
-            card.intervalIndex_back === -1 ||
-            card.intervalIndex_back === undefined ||
-            card.intervalIndex_back < 0 ||
-            card.srsState === 'LEARNING' ||
-            card.srsState === 'RELEARNING' ||
-            (card.nextReview_back instanceof Date ? card.nextReview_back.getTime() : new Date(card.nextReview_back).getTime()) <= Date.now()
-        )
-    ).length;
+    const dueVocabCount = allCards.filter(card => isVocabCardDue(card)).length;
     const [lastSeenDueCount, setLastSeenDueCount] = useState(() => {
         try {
             return parseInt(localStorage.getItem('quizki_last_seen_due_count') || '0');

@@ -17,7 +17,7 @@ import { normalizePosKey } from './config/constants'
 import { getSharedBookGroups, getCachedBookGroups } from './utils/bookService';
 
 import { playAudio, generateAudioSilent } from './utils/audio'
-import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS, isKanjiMastered, parseNextReviewMs } from './utils/srs'
+import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS, isKanjiMastered, parseNextReviewMs, isVocabCardDue } from './utils/srs'
 import { shuffleArray, getSpeechText } from './utils/textProcessing'
 import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpenRouterKeys, getSinoVietnamese } from './utils/aiProvider';
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
@@ -1245,17 +1245,15 @@ const App = () => {
     }, [dailyActivityLogs]);
 
     const dueCounts = useMemo(() => {
-        const now = new Date();
+        const now = Date.now();
 
         const isDue = (card) => {
-            if (card.srsState === 'LEARNING' || card.srsState === 'RELEARNING') return true;
-            return card.nextReview_back <= now;
+            return isVocabCardDue(card, now);
         };
 
         // Logic mới: bao gồm cả thẻ mới (intervalIndex_back === -1) VÀ thẻ đến hạn
         const isCardAvailable = (card) => {
-            if (card.intervalIndex_back === -1) return true; // Thẻ mới luôn sẵn sàng
-            return isDue(card);
+            return isVocabCardDue(card, now);
         };
 
         const mixed = allCards.filter(card => {
@@ -1410,8 +1408,7 @@ const App = () => {
         const isNewCategory = category === 'new';
 
         const isDue = (card) => {
-            if (card.srsState === 'LEARNING' || card.srsState === 'RELEARNING') return true;
-            return card.nextReview_back <= today;
+            return isVocabCardDue(card, today.getTime());
         };
 
         // Flashcard mode: Chỉ dành cho từ vựng chưa có SRS

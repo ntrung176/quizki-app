@@ -9,6 +9,8 @@ import {
 import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
+import { isVocabCardDue, parseNextReviewMs } from '../../utils/srs';
+
 const HomeScreen = ({
     displayName,
     totalCards,
@@ -43,7 +45,8 @@ const HomeScreen = ({
                 const data = d.data();
                 if (data.reps >= 5) mastered++;
                 else learning++;
-                if (data.nextReview && data.nextReview <= now) dueCount++;
+                const reviewMs = parseNextReviewMs(data.nextReview);
+                if (reviewMs > 0 && reviewMs <= now) dueCount++;
                 // Collect kanji review dates for streak calculation
                 const dateStr = toDateStr(data.lastReview);
                 if (dateStr) actDates.push(dateStr);
@@ -56,17 +59,7 @@ const HomeScreen = ({
 
     // Calculate stats
     const stats = useMemo(() => {
-        const dueCards = allCards.filter(card =>
-            card.srsEnabled === true && (
-                !card.nextReview_back ||
-                card.intervalIndex_back === -1 ||
-                card.intervalIndex_back === undefined ||
-                card.intervalIndex_back < 0 ||
-                card.srsState === 'LEARNING' ||
-                card.srsState === 'RELEARNING' ||
-                (card.nextReview_back instanceof Date ? card.nextReview_back.getTime() : new Date(card.nextReview_back).getTime()) <= Date.now()
-            )
-        ).length;
+        const dueCards = allCards.filter(card => isVocabCardDue(card)).length;
         const newCards = allCards.filter(card => !card.srsEnabled).length;
         const masteredCards = allCards.filter(card => card.srsEnabled === true && card.srsReps >= 5).length;
         return { dueCards, newCards, masteredCards, streak: calculatedStreak, totalCards };
