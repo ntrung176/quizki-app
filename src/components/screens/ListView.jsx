@@ -10,6 +10,7 @@ import { showToast } from '../../utils/toast';
 import FuriganaText from '../ui/FuriganaText';
 import { VOCAB_TABS } from '../../config/tabs';
 import EditCardModal from '../cards/EditCardModal';
+import { isVocabCardDue } from '../../utils/srs';
 // ==================== Folder Management Modal ====================
 const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, onDeleteFolder }) => {
     const [newFolderName, setNewFolderName] = useState('');
@@ -520,19 +521,9 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     // Stats
     const stats = useMemo(() => {
         const total = allCards.length;
-        const now = new Date();
-        const dueCards = allCards.filter(c =>
-            c.srsEnabled === true && (
-                !c.nextReview_back ||
-                c.intervalIndex_back === -1 ||
-                c.intervalIndex_back === undefined ||
-                c.intervalIndex_back < 0 ||
-                c.srsState === 'LEARNING' ||
-                c.srsState === 'RELEARNING' ||
-                (c.nextReview_back instanceof Date ? c.nextReview_back.getTime() : new Date(c.nextReview_back).getTime()) <= now.getTime()
-            )
-        ).length;
-        const newCards = allCards.filter(c => c.intervalIndex_back === -1).length;
+        const now = Date.now();
+        const dueCards = allCards.filter(c => isVocabCardDue(c, now)).length;
+        const newCards = allCards.filter(c => c.intervalIndex_back === -1 || c.intervalIndex_back === undefined).length;
         return { total, dueCards, newCards };
     }, [allCards]);
     // Get folder name for a card

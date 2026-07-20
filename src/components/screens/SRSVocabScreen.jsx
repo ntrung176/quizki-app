@@ -8,7 +8,7 @@ import useMenuTransition from '../../hooks/useMenuTransition';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
-import { calculateAnkiSRS, parseNextReviewMs } from '../../utils/srs';
+import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare } from '../../utils/soundEffects';
 
@@ -293,16 +293,13 @@ const SRSVocabScreen = ({
     const isDue = (card) => {
         // Merge with local session SRS data if available
         const localSrs = sessionSrsData.current[card.id];
-        const srsEnabled = card.srsEnabled !== false;
-        if (!srsEnabled) return false;
-
-        const nextReviewVal = localSrs ? (localSrs.nextReview_back || localSrs.nextReview) : card.nextReview_back;
-        if (!nextReviewVal) return true;
-
-        const reviewTime = parseNextReviewMs(nextReviewVal);
-        if (reviewTime === 0) return true;
-
-        return reviewTime <= dashboardTick;
+        if (localSrs) {
+            const nextReviewVal = localSrs.nextReview_back || localSrs.nextReview;
+            const reviewTime = parseNextReviewMs(nextReviewVal);
+            if (reviewTime === 0) return true;
+            return reviewTime <= dashboardTick;
+        }
+        return isVocabCardDue(card, dashboardTick);
     };
 
     // Calculate comprehensive stats for each folder (including completed ones)
@@ -334,7 +331,7 @@ const SRSVocabScreen = ({
                 stats[fId].dueCards.push(card);
             }
             // Check if New (not yet added to spaced repetition)
-            else if (!card.srsEnabled) {
+            else if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) {
                 stats[fId].newCards.push(card);
             }
         });

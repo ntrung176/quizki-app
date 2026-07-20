@@ -8,7 +8,7 @@ import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase
 import { getAuth } from 'firebase/auth';
 import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
-import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
@@ -120,8 +120,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return grammarList.filter(g => {
             const srs = srsData[g.id];
             if (!srs) return false;
-            const reviewMs = parseNextReviewMs(srs.nextReview);
-            return reviewMs > 0 && reviewMs <= now;
+            return isSrsCardDue(srs, now);
         });
     }, [grammarList, srsData, dashboardTick]);
 

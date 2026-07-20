@@ -9,7 +9,7 @@ import { getAuth } from 'firebase/auth';
 import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs } from '../../utils/kanjiService';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
-import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue } from '../../utils/srs';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
@@ -128,8 +128,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return kanjiList.filter(k => {
             const srs = srsData[k.id];
             if (!srs) return false;
-            const reviewMs = parseNextReviewMs(srs.nextReview);
-            return reviewMs > 0 && reviewMs <= now;
+            return isSrsCardDue(srs, now);
         });
     }, [kanjiList, srsData, dashboardTick]);
 

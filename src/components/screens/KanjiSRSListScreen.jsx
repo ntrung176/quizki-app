@@ -12,7 +12,7 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
-import { parseNextReviewMs } from '../../utils/srs';
+import { parseNextReviewMs, isSrsCardDue } from '../../utils/srs';
 
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
@@ -561,7 +561,8 @@ const KanjiSRSListScreen = () => {
     // Stats
     const stats = useMemo(() => {
         const total = kanjiWithSRS.length;
-        const due = kanjiWithSRS.filter(k => parseNextReviewMs(k.nextReview) > 0 && parseNextReviewMs(k.nextReview) <= Date.now() && k.reps > 0).length;
+        const now = Date.now();
+        const due = kanjiWithSRS.filter(k => isSrsCardDue(k.srs, now)).length;
         const newCards = kanjiWithSRS.filter(k => k.reps === 0).length;
         const mastered = kanjiWithSRS.filter(k => k.interval >= 1440 * 7).length;
         return { total, due, newCards, mastered };
@@ -589,7 +590,8 @@ const KanjiSRSListScreen = () => {
     // Dynamic study recommendation
     const recommendation = useMemo(() => {
         // 1. Check due cards
-        const dueCount = kanjiWithSRS.filter(k => parseNextReviewMs(k.nextReview) > 0 && parseNextReviewMs(k.nextReview) <= Date.now() && k.reps > 0).length;
+        const now = Date.now();
+        const dueCount = kanjiWithSRS.filter(k => isSrsCardDue(k.srs, now)).length;
         if (dueCount > 0) {
             return {
                 tag: 'Cần ôn tập',
