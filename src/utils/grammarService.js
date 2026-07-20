@@ -692,7 +692,9 @@ export const getSharedGrammarPointsList = async () => {
 let cachedUserGrammarSrsData = null;
 let cachedUserIdForGrammarSrs = null;
 let userGrammarSrsPromise = null;
+// Multi-subscriber pattern — one Firestore listener shared by all components
 let grammarSrsUnsubscribe = null;
+let grammarSrsListeners = new Set();
 
 export const getCachedUserGrammarSrsData = () => cachedUserGrammarSrsData;
 
@@ -727,28 +729,51 @@ export const getSharedGrammarSrs = async (userId) => {
 
 /**
  * Subscribe to real-time Grammar SRS data updates via onSnapshot.
- * Returns an unsubscribe function. The callback receives the full SRS map.
+ * Uses a multi-subscriber pattern: one shared Firestore listener, many callbacks.
+ * Returns an unsubscribe function for the caller's callback only.
  */
 export const subscribeGrammarSrs = (userId, callback) => {
     if (!userId) return () => {};
-    // Clean up any previous subscription
-    if (grammarSrsUnsubscribe) {
-        grammarSrsUnsubscribe();
-        grammarSrsUnsubscribe = null;
-    }
-    const colRef = collection(db, `artifacts/${appId}/users/${userId}/grammarSRS`);
-    grammarSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
-        const srs = {};
-        snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
-        cachedUserGrammarSrsData = srs;
-        cachedUserIdForGrammarSrs = userId;
-        userGrammarSrsPromise = null;
-        callback(srs);
-    }, (error) => {
-        console.error('Grammar SRS onSnapshot error:', error);
-    });
-    return () => {
+
+    // If user changed, tear down the old listener entirely
+    if (cachedUserIdForGrammarSrs && cachedUserIdForGrammarSrs !== userId) {
         if (grammarSrsUnsubscribe) {
+            grammarSrsUnsubscribe();
+            grammarSrsUnsubscribe = null;
+        }
+        grammarSrsListeners.clear();
+        cachedUserGrammarSrsData = null;
+        cachedUserIdForGrammarSrs = null;
+        userGrammarSrsPromise = null;
+    }
+
+    // Register this callback
+    grammarSrsListeners.add(callback);
+
+    // If no active Firestore listener yet, create one
+    if (!grammarSrsUnsubscribe) {
+        const colRef = collection(db, `artifacts/${appId}/users/${userId}/grammarSRS`);
+        grammarSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
+            const srs = {};
+            snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
+            cachedUserGrammarSrsData = srs;
+            cachedUserIdForGrammarSrs = userId;
+            userGrammarSrsPromise = null;
+            // Notify all registered subscribers
+            grammarSrsListeners.forEach(cb => cb(srs));
+        }, (error) => {
+            console.error('Grammar SRS onSnapshot error:', error);
+        });
+    } else if (cachedUserGrammarSrsData) {
+        // Immediately deliver cached data to the new subscriber
+        callback(cachedUserGrammarSrsData);
+    }
+
+    // Return an unsubscribe function that only removes THIS callback
+    return () => {
+        grammarSrsListeners.delete(callback);
+        // If nobody is listening anymore, tear down the Firestore connection
+        if (grammarSrsListeners.size === 0 && grammarSrsUnsubscribe) {
             grammarSrsUnsubscribe();
             grammarSrsUnsubscribe = null;
         }
@@ -770,6 +795,7 @@ export const clearUserGrammarSrsCache = () => {
         grammarSrsUnsubscribe();
         grammarSrsUnsubscribe = null;
     }
+    grammarSrsListeners.clear();
     cachedUserGrammarSrsData = null;
     cachedUserIdForGrammarSrs = null;
     userGrammarSrsPromise = null;

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { 
-    ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, PenTool, FileJson, 
+import {
+    ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, PenTool, FileJson,
     Clipboard, Check, AlertCircle, Sparkles, Clock, X,
     Loader2, Award, ClipboardCheck, Lightbulb, Sparkle, Eye, CheckCircle
 } from 'lucide-react';
-import { 
-    subscribeTextbooks, subscribeLessons, subscribeGrammarPoints, 
+import {
+    subscribeTextbooks, subscribeLessons, subscribeGrammarPoints,
     addGrammarPoint, updateGrammarPoint, deleteGrammarPoint, importGrammarPointsFromJson,
     updateLesson
 } from '../../utils/grammarService';
@@ -64,7 +64,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const [editId, setEditId] = useState(null);
     const [form, setForm] = useState(EMPTY_FORM);
     const [saving, setSaving] = useState(false);
-    
+
     // Image uploading state for single visual
     const [uploadingState, setUploadingState] = useState(false);
 
@@ -77,7 +77,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const [aiResults, setAiResults] = useState({});
     const [aiLoading, setAiLoading] = useState({});
     const [quizAnswers, setQuizAnswers] = useState({});
-    
+
     // Admin Review Lesson States
     const [showReviewImportPanel, setShowReviewImportPanel] = useState(false);
     const [showAddQuizPanel, setShowAddQuizPanel] = useState(false);
@@ -481,11 +481,11 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const handleSave = async () => {
         setSaving(true);
         const data = {
-            pattern: form.pattern.trim(), 
-            meaningShort: form.meaningShort.trim(), 
+            pattern: form.pattern.trim(),
+            meaningShort: form.meaningShort.trim(),
             meaning: form.meaning.trim(),
             meaningFull: form.meaningFull.trim(),
-            structure: parseStructure(form.structureRaw), 
+            structure: parseStructure(form.structureRaw),
             tips: parseTips(form.tipsRaw),
             examples: parseExamples(form.examplesRaw),
             visual: {
@@ -509,7 +509,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             data.quizzes = [];
             await addGrammarPoint(textbookId, lessonId, data, 'admin');
         }
-        setShowAdd(false); 
+        setShowAdd(false);
         setEditId(null);
         setForm(EMPTY_FORM);
         setSaving(false);
@@ -546,11 +546,11 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
     const handleEdit = (gp) => {
         setForm({
-            pattern: gp.pattern || '', 
-            meaningShort: gp.meaningShort || '', 
+            pattern: gp.pattern || '',
+            meaningShort: gp.meaningShort || '',
             meaning: gp.meaning || '',
             meaningFull: gp.meaningFull || '',
-            structureRaw: toStructureRaw(gp.structure), 
+            structureRaw: toStructureRaw(gp.structure),
             tipsRaw: toTipsRaw(gp.tips),
             examplesRaw: toExamplesRaw(gp.examples),
             visual: gp.visual ? {
@@ -562,8 +562,8 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                 descriptionVi: gp.visual.descriptionVi || ''
             } : EMPTY_FORM.visual
         });
-        setEditId(gp.id); 
-        setShowAdd(true); 
+        setEditId(gp.id);
+        setShowAdd(true);
         setShowJsonImport(false);
     };
 
@@ -572,7 +572,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     if (lesson.isReview) {
         const exercises = lesson.exercises || [];
         const quizzes = lesson.quizzes || [];
-        
+
         let pct = 0;
         let completedCount = 0;
         let totalInTab = 0;
@@ -1041,7 +1041,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             {showAdd && isAdmin && (
                 <div className="bg-white dark:bg-slate-800 border border-slate-250 dark:border-slate-700 rounded-3xl p-6 space-y-4 shadow-sm w-full">
                     <h3 className="font-bold text-slate-800 dark:text-white text-lg">{editId ? 'Sửa ngữ pháp' : 'Thêm ngữ pháp'}</h3>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                         <div>
                             <label className="text-xs font-bold text-slate-500 mb-1 block">Mẫu ngữ pháp</label>
@@ -1089,13 +1089,13 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                         <h3 className="text-base font-bold text-slate-855 dark:text-white flex items-center gap-2">
                             <Sparkles className="w-5 h-5 text-indigo-500" /> Giao diện trực quan (Zen Visual Grammar)
                         </h3>
-                        
+
                         <div className="grid grid-cols-1 gap-4 bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 w-full">
 
                             <div>
                                 <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Đường dẫn ảnh minh hoạ</label>
-                                <input 
-                                    value={form.visual.image} 
+                                <input
+                                    value={form.visual.image}
                                     onChange={e => setForm(f => ({ ...f, visual: { ...f.visual, image: e.target.value } }))}
                                     placeholder="VD: /images/grammar/ageku_miss.png hoặc URL"
                                     className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none"
@@ -1103,7 +1103,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                             </div>
 
                             {/* Image Paste/Drop zone */}
-                            <div 
+                            <div
                                 onPaste={handleImagePasteOrDrop}
                                 onDrop={handleImagePasteOrDrop}
                                 onDragOver={e => e.preventDefault()}
@@ -1123,8 +1123,8 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
                             <div>
                                 <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Nghĩa tiếng Việt giải thích cho ảnh</label>
-                                <textarea 
-                                    value={form.visual.descriptionVi} 
+                                <textarea
+                                    value={form.visual.descriptionVi}
                                     onChange={e => setForm(f => ({ ...f, visual: { ...f.visual, descriptionVi: e.target.value } }))}
                                     placeholder="VD: Sau một hồi chạy thục mạng, cuối cùng tôi lại bị lỡ chuyến xe buýt."
                                     rows={2}
@@ -1134,8 +1134,8 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
                             <div>
                                 <label className="text-xs font-bold text-slate-500 uppercase block mb-1">Câu tiếng Nhật minh hoạ</label>
-                                <input 
-                                    value={form.visual.sentenceJa} 
+                                <input
+                                    value={form.visual.sentenceJa}
                                     onChange={e => setForm(f => ({ ...f, visual: { ...f.visual, sentenceJa: e.target.value } }))}
                                     placeholder="VD: 必死で走ったあげく、バスに乗り遅れてしまった。"
                                     className="w-full px-3 py-2 bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-700 rounded-xl text-xs outline-none font-bold"
@@ -1234,3 +1234,4 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 };
 
 export default GrammarPointsScreen;
+

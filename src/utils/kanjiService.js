@@ -303,7 +303,9 @@ export const getCachedVocabCategories = () => cachedVocabCategories;
 let cachedUserSrsData = null;
 let cachedUserIdForSrs = null;
 let userSrsPromise = null;
+// Multi-subscriber pattern — one Firestore listener shared by all components
 let kanjiSrsUnsubscribe = null;
+let kanjiSrsListeners = new Set();
 
 export const getCachedUserSrsData = () => cachedUserSrsData;
 
@@ -338,28 +340,51 @@ export const getSharedKanjiSrs = async (userId) => {
 
 /**
  * Subscribe to real-time Kanji SRS data updates via onSnapshot.
- * Returns an unsubscribe function. The callback receives the full SRS map.
+ * Uses a multi-subscriber pattern: one shared Firestore listener, many callbacks.
+ * Returns an unsubscribe function for the caller's callback only.
  */
 export const subscribeKanjiSrs = (userId, callback) => {
     if (!userId) return () => {};
-    // Clean up any previous subscription
-    if (kanjiSrsUnsubscribe) {
-        kanjiSrsUnsubscribe();
-        kanjiSrsUnsubscribe = null;
-    }
-    const colRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`);
-    kanjiSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
-        const srs = {};
-        snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
-        cachedUserSrsData = srs;
-        cachedUserIdForSrs = userId;
-        userSrsPromise = null;
-        callback(srs);
-    }, (error) => {
-        console.error('Kanji SRS onSnapshot error:', error);
-    });
-    return () => {
+
+    // If user changed, tear down the old listener entirely
+    if (cachedUserIdForSrs && cachedUserIdForSrs !== userId) {
         if (kanjiSrsUnsubscribe) {
+            kanjiSrsUnsubscribe();
+            kanjiSrsUnsubscribe = null;
+        }
+        kanjiSrsListeners.clear();
+        cachedUserSrsData = null;
+        cachedUserIdForSrs = null;
+        userSrsPromise = null;
+    }
+
+    // Register this callback
+    kanjiSrsListeners.add(callback);
+
+    // If no active Firestore listener yet, create one
+    if (!kanjiSrsUnsubscribe) {
+        const colRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`);
+        kanjiSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
+            const srs = {};
+            snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
+            cachedUserSrsData = srs;
+            cachedUserIdForSrs = userId;
+            userSrsPromise = null;
+            // Notify all registered subscribers
+            kanjiSrsListeners.forEach(cb => cb(srs));
+        }, (error) => {
+            console.error('Kanji SRS onSnapshot error:', error);
+        });
+    } else if (cachedUserSrsData) {
+        // Immediately deliver cached data to the new subscriber
+        callback(cachedUserSrsData);
+    }
+
+    // Return an unsubscribe function that only removes THIS callback
+    return () => {
+        kanjiSrsListeners.delete(callback);
+        // If nobody is listening anymore, tear down the Firestore connection
+        if (kanjiSrsListeners.size === 0 && kanjiSrsUnsubscribe) {
             kanjiSrsUnsubscribe();
             kanjiSrsUnsubscribe = null;
         }
@@ -381,6 +406,7 @@ export const clearUserSrsCache = () => {
         kanjiSrsUnsubscribe();
         kanjiSrsUnsubscribe = null;
     }
+    kanjiSrsListeners.clear();
     cachedUserSrsData = null;
     cachedUserIdForSrs = null;
     userSrsPromise = null;
