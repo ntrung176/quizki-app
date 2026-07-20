@@ -214,42 +214,37 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             try {
                 const profileRef = doc(db, `artifacts/${appId}/users/${selectedUser.userId}/settings/profile`);
                 const snap = await getDoc(profileRef);
+                let mergedUser = {
+                    ...selectedUser,
+                    ...(localUserUpdates[selectedUser.userId] || {})
+                };
+
                 if (snap.exists()) {
                     const data = snap.data();
                     setSelectedUserProfile(data);
-                    const unlocked = data.unlockedSpecializedPackages || [];
-                    if (unlocked.includes('premium_3y')) {
-                        setSelectedUserPackageState('premium_3y');
-                    } else if (unlocked.includes('premium_1y')) {
-                        setSelectedUserPackageState('premium_1y');
-                    } else if (unlocked.includes('premium_1m')) {
-                        setSelectedUserPackageState('premium_1m');
-                    } else {
-                        setSelectedUserPackageState('free');
-                    }
-                    // Đồng bộ thông tin thực tế từ profile của user sang danh sách bên trái
-                    setLocalUserUpdates(prev => ({
-                        ...prev,
-                        [selectedUser.userId]: {
-                            unlockedSpecializedPackages: data.unlockedSpecializedPackages || [],
-                            isPremiumUnlocked: data.isPremiumUnlocked || false,
-                            isPremium: data.isPremiumUnlocked || false,
-                            premiumExpiresAt: data.premiumExpiresAt || null
-                        }
-                    }));
+                    mergedUser = {
+                        ...mergedUser,
+                        ...data,
+                        ...(localUserUpdates[selectedUser.userId] || {})
+                    };
                 } else {
                     setSelectedUserProfile({ aiCreditsRemaining: 0, unlockedSpecializedPackages: [] });
-                    setSelectedUserPackageState('free');
-                    setLocalUserUpdates(prev => ({
-                        ...prev,
-                        [selectedUser.userId]: {
-                            unlockedSpecializedPackages: [],
-                            isPremiumUnlocked: false,
-                            isPremium: false,
-                            premiumExpiresAt: null
-                        }
-                    }));
                 }
+
+                // Determine active plan based on expiry check
+                const activePlan = getUserActivePlan(mergedUser);
+                setSelectedUserPackageState(activePlan);
+
+                // Đồng bộ thông tin thực tế từ profile của user sang danh sách bên trái
+                setLocalUserUpdates(prev => ({
+                    ...prev,
+                    [selectedUser.userId]: {
+                        unlockedSpecializedPackages: mergedUser.unlockedSpecializedPackages || [],
+                        isPremiumUnlocked: mergedUser.isPremiumUnlocked || false,
+                        isPremium: mergedUser.isPremium || false,
+                        premiumExpiresAt: mergedUser.premiumExpiresAt || null
+                    }
+                }));
             } catch (e) {
                 console.error('Error loading user profile:', e);
             } finally {
@@ -651,143 +646,73 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     const fetchAllBooksData = async () => {
         const COLLECTION = 'bookGroups';
-        
-        // Fetch all 4 levels in parallel with only 4 Firestore requests!
-        const [groupsSnap, booksSnap, chaptersSnap, lessonsSnap] = await Promise.all([
-            getDocs(collection(db, COLLECTION)),
-            getDocs(collectionGroup(db, 'books')),
-            getDocs(collectionGroup(db, 'chapters')),
-            getDocs(collectionGroup(db, 'lessons'))
-        ]);
+        const groupsSnap = await getDocs(collection(db, COLLECTION));
 
-        // Map groups
-        const groupsMap = {};
-        groupsSnap.docs.forEach(docSnap => {
-            groupsMap[docSnap.id] = { id: docSnap.id, ...docSnap.data(), books: [] };
-        });
-
-        // Map books to groups
-        const booksMap = {};
-        booksSnap.docs.forEach(docSnap => {
-            const pathParts = docSnap.ref.path.split('/');
-            // bookGroups/{groupId}/books/{bookId}
-            if (pathParts[0] === COLLECTION) {
-                const groupId = pathParts[1];
-                const bookId = docSnap.id;
-                const book = { id: bookId, ...docSnap.data(), chapters: [] };
-                booksMap[bookId] = book;
-                if (groupsMap[groupId]) {
-                    groupsMap[groupId].books.push(book);
-                }
-            }
-        });
-
-        // Map chapters to books
-        const chaptersMap = {};
-        chaptersSnap.docs.forEach(docSnap => {
-            const pathParts = docSnap.ref.path.split('/');
-            // bookGroups/{groupId}/books/{bookId}/chapters/{chapterId}
-            if (pathParts[0] === COLLECTION) {
-                const bookId = pathParts[3];
-                const chapterId = docSnap.id;
-                const chapter = { id: chapterId, ...docSnap.data(), lessons: [] };
-                chaptersMap[chapterId] = chapter;
-                if (booksMap[bookId]) {
-                    booksMap[bookId].chapters.push(chapter);
-                }
-            }
-        });
-
-        // Map lessons to chapters
-        lessonsSnap.docs.forEach(docSnap => {
-            const pathParts = docSnap.ref.path.split('/');
-            // bookGroups/{groupId}/books/{bookId}/chapters/{chapterId}/lessons/{lessonId}
-            if (pathParts[0] === COLLECTION) {
-                const chapterId = pathParts[5];
-                const lessonId = docSnap.id;
-                const lesson = {
-                    id: lessonId,
-                    _docPath: docSnap.ref.path,
-                    ...docSnap.data()
-                };
-                if (chaptersMap[chapterId]) {
-                    chaptersMap[chapterId].lessons.push(lesson);
-                }
-            }
-        });
-
-        // Sort everything
-        const groups = Object.values(groupsMap);
-        groups.forEach(group => {
-            group.books.sort((a, b) => (a.order || 0) - (b.order || 0));
-            group.books.forEach(book => {
+        const groups = await Promise.all(groupsSnap.docs.map(async (groupDoc) => {
+            const group = { id: groupDoc.id, ...groupDoc.data(), books: [] };
+            
+            const booksSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books'));
+            
+            group.books = await Promise.all(booksSnap.docs.map(async (bookDoc) => {
+                const book = { id: bookDoc.id, ...bookDoc.data(), chapters: [] };
+                
+                const chaptersSnap = await getDocs(collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters'));
+                
+                book.chapters = await Promise.all(chaptersSnap.docs.map(async (chapterDoc) => {
+                    const chapter = { id: chapterDoc.id, ...chapterDoc.data(), lessons: [] };
+                    
+                    const lessonsSnap = await getDocs(
+                        collection(db, COLLECTION, groupDoc.id, 'books', bookDoc.id, 'chapters', chapterDoc.id, 'lessons')
+                    );
+                    
+                    chapter.lessons = lessonsSnap.docs.map(lessonDoc => ({
+                        id: lessonDoc.id,
+                        _docPath: lessonDoc.ref.path,
+                        ...lessonDoc.data()
+                    })).sort((a, b) => (a.order || 0) - (b.order || 0));
+                    
+                    return chapter;
+                }));
+                
                 book.chapters.sort((a, b) => (a.order || 0) - (b.order || 0));
-                book.chapters.forEach(chapter => {
-                    chapter.lessons.sort((a, b) => (a.order || 0) - (b.order || 0));
-                });
-            });
-        });
-        groups.sort((a, b) => (a.order || 0) - (b.order || 0));
+                return book;
+            }));
+            
+            group.books.sort((a, b) => (a.order || 0) - (b.order || 0));
+            return group;
+        }));
 
+        groups.sort((a, b) => (a.order || 0) - (b.order || 0));
         return groups;
     };
 
     const fetchAllGrammarData = async () => {
         const textbooksPath = `artifacts/${appId}/grammarTextbooks`;
-        
-        // Parallelized fetch of all 3 levels of Grammar hierarchy!
-        const [textbooksSnap, lessonsSnap, pointsSnap] = await Promise.all([
-            getDocs(collection(db, textbooksPath)),
-            getDocs(collectionGroup(db, 'lessons')),
-            getDocs(collectionGroup(db, 'points'))
-        ]);
+        const textbooksSnap = await getDocs(collection(db, textbooksPath));
 
-        // Map textbooks
-        const textbooksMap = {};
-        textbooksSnap.docs.forEach(docSnap => {
-            textbooksMap[docSnap.id] = { id: docSnap.id, ...docSnap.data(), lessons: [] };
-        });
+        const textbooks = await Promise.all(textbooksSnap.docs.map(async (tbDoc) => {
+            const tb = { id: tbDoc.id, ...tbDoc.data(), lessons: [] };
 
-        // Map lessons to textbooks
-        const lessonsMap = {};
-        lessonsSnap.docs.forEach(docSnap => {
-            const pathParts = docSnap.ref.path.split('/');
-            // artifacts/{appId}/grammarTextbooks/{textbookId}/lessons/{lessonId}
-            if (pathParts[0] === 'artifacts' && pathParts[2] === 'grammarTextbooks') {
-                const textbookId = pathParts[3];
-                const lessonId = docSnap.id;
-                const lesson = { id: lessonId, ...docSnap.data(), points: [] };
-                lessonsMap[lessonId] = lesson;
-                if (textbooksMap[textbookId]) {
-                    textbooksMap[textbookId].lessons.push(lesson);
-                }
-            }
-        });
+            const lessonsSnap = await getDocs(collection(db, `${textbooksPath}/${tbDoc.id}/lessons`));
 
-        // Map points to lessons
-        pointsSnap.docs.forEach(docSnap => {
-            const pathParts = docSnap.ref.path.split('/');
-            // artifacts/{appId}/grammarTextbooks/{textbookId}/lessons/{lessonId}/points/{pointId}
-            if (pathParts[0] === 'artifacts' && pathParts[2] === 'grammarTextbooks') {
-                const lessonId = pathParts[5];
-                const pointId = docSnap.id;
-                const point = { id: pointId, ...docSnap.data() };
-                if (lessonsMap[lessonId]) {
-                    lessonsMap[lessonId].points.push(point);
-                }
-            }
-        });
+            tb.lessons = await Promise.all(lessonsSnap.docs.map(async (lessonDoc) => {
+                const lesson = { id: lessonDoc.id, ...lessonDoc.data(), points: [] };
 
-        // Sort everything
-        const textbooks = Object.values(textbooksMap);
-        textbooks.forEach(tb => {
+                const pointsSnap = await getDocs(collection(db, `${textbooksPath}/${tbDoc.id}/lessons/${lessonDoc.id}/points`));
+
+                lesson.points = pointsSnap.docs.map(pDoc => ({
+                    id: pDoc.id,
+                    ...pDoc.data()
+                })).sort((a, b) => (a.order || 0) - (b.order || 0));
+
+                return lesson;
+            }));
+
             tb.lessons.sort((a, b) => (a.order || 0) - (b.order || 0));
-            tb.lessons.forEach(lesson => {
-                lesson.points.sort((a, b) => (a.order || 0) - (b.order || 0));
-            });
-        });
-        textbooks.sort((a, b) => (a.order || 0) - (b.order || 0));
+            return tb;
+        }));
 
+        textbooks.sort((a, b) => (a.order || 0) - (b.order || 0));
         return textbooks;
     };
 
@@ -1629,6 +1554,18 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                                                     selectedUserPackageState === 'premium_1m' ? '👑 Premium 1 Tháng' :
                                                                         'Gói Miễn Phí'}
                                                         </p>
+                                                        {(() => {
+                                                            const exp = selectedUserProfile?.premiumExpiresAt || selectedUser?.premiumExpiresAt;
+                                                            if (!exp) return null;
+                                                            const expiryTime = exp.toDate ? exp.toDate().getTime() : Number(exp || 0);
+                                                            if (!expiryTime) return null;
+                                                            const dateStr = new Date(expiryTime).toLocaleDateString('vi-VN');
+                                                            const isExpired = expiryTime < Date.now();
+                                                            if (isExpired) {
+                                                                return <p className="text-[11px] text-red-500 font-semibold mt-0.5">Đã hết hạn ngày {dateStr}</p>;
+                                                            }
+                                                            return <p className="text-[11px] text-amber-600 dark:text-amber-400 font-semibold mt-0.5">Hạn dùng đến {dateStr}</p>;
+                                                        })()}
                                                     </div>
                                                     <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${selectedUserPackageState !== 'free'
                                                             ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-450'

@@ -58,6 +58,26 @@ const formatLastActive = (lastUpdated) => {
     return `${diffDays} ngày trước`;
 };
 
+// Helper checking if a user has an active, unexpired Premium status
+const isUserPremiumActive = (u) => {
+    if (!u) return false;
+    const hasPremiumFlag = !!(
+        u.isPremium || 
+        u.isPremiumUnlocked || 
+        (Array.isArray(u.unlockedSpecializedPackages) && u.unlockedSpecializedPackages.some(p => typeof p === 'string' && p.startsWith('premium')))
+    );
+    if (!hasPremiumFlag) return false;
+
+    if (u.premiumExpiresAt) {
+        const expiryTime = u.premiumExpiresAt.toDate ? u.premiumExpiresAt.toDate().getTime() : Number(u.premiumExpiresAt || 0);
+        if (expiryTime && expiryTime < Date.now()) {
+            return false;
+        }
+    }
+
+    return true;
+};
+
 // ==================== MAIN HONOR ROLL / LEADERBOARD SCREEN ====================
 const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId, publicStatsPath }) => {
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueToday: 0 });
@@ -521,7 +541,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                     {user.title}
                                 </span>
                             )}
-                            {(user.isPremium || user.isPremiumUnlocked) && (
+                            {isUserPremiumActive(user) && (
                                 <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
                                     <Crown className="w-2.5 h-2.5 fill-white text-white" />
                                     PREMIUM
@@ -719,7 +739,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                                     {podiumList[1].title}
                                                 </span>
                                             )}
-                                            {(podiumList[1].isPremium || podiumList[1].isPremiumUnlocked) && (
+                                            {isUserPremiumActive(podiumList[1]) && (
                                                 <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
                                                     <Crown className="w-2 h-2 fill-white text-white" />
                                                     PREMIUM
@@ -766,7 +786,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                                     {podiumList[0].title}
                                                 </span>
                                             )}
-                                            {(podiumList[0].isPremium || podiumList[0].isPremiumUnlocked) && (
+                                            {isUserPremiumActive(podiumList[0]) && (
                                                 <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1.5 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
                                                     <Crown className="w-2.5 h-2.5 fill-white text-white" />
                                                     PREMIUM
@@ -810,7 +830,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                                     {podiumList[2].title}
                                                 </span>
                                             )}
-                                            {(podiumList[2].isPremium || podiumList[2].isPremiumUnlocked) && (
+                                            {isUserPremiumActive(podiumList[2]) && (
                                                 <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1 rounded uppercase tracking-wider flex items-center gap-0.5 shadow-sm">
                                                     <Crown className="w-2 h-2 fill-white text-white" />
                                                     PREMIUM
