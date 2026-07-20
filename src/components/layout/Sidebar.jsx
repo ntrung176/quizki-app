@@ -6,6 +6,7 @@ import { collection, query, onSnapshot, doc } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare, HelpCircle } from 'lucide-react'
+import { SafeAvatarImage } from '../ui';
 import { isVocabCardDue, parseNextReviewMs } from '../../utils/srs';
 
 // Sidebar Component - Navigation with submenu support
