@@ -206,32 +206,39 @@ export const parseJsonFromAI = (text) => {
     if (jsonStr.endsWith('```')) jsonStr = jsonStr.slice(0, -3);
     jsonStr = jsonStr.trim();
 
-    // Determine if it is an array or object based on the first character
+    let candidate = jsonStr;
     const firstChar = jsonStr.charAt(0);
     if (firstChar === '[') {
         const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
-        if (arrayMatch) jsonStr = arrayMatch[0];
+        if (arrayMatch) candidate = arrayMatch[0];
     } else if (firstChar === '{') {
         const objectMatch = jsonStr.match(/\{[\s\S]*\}/);
-        if (objectMatch) jsonStr = objectMatch[0];
+        if (objectMatch) candidate = objectMatch[0];
     } else {
-        // Fallback to previous logic if first char is neither (e.g. some prepended text)
         const firstBrace = jsonStr.indexOf('{');
         const firstBracket = jsonStr.indexOf('[');
         if (firstBracket !== -1 && (firstBrace === -1 || firstBracket < firstBrace)) {
             const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
-            if (arrayMatch) jsonStr = arrayMatch[0];
-        } else {
+            if (arrayMatch) candidate = arrayMatch[0];
+        } else if (firstBrace !== -1) {
             const objectMatch = jsonStr.match(/\{[\s\S]*\}/);
-            if (objectMatch) jsonStr = objectMatch[0];
+            if (objectMatch) candidate = objectMatch[0];
         }
     }
 
     try {
-        return JSON.parse(jsonStr);
-    } catch (e) {
-        console.error('Error parsing AI response JSON:', e, 'Raw text:', text);
-        return null;
+        return JSON.parse(candidate);
+    } catch (e1) {
+        // Try repairing truncated JSON
+        try {
+            const repaired = repairTruncatedJson(jsonStr);
+            const parsed = JSON.parse(repaired);
+            console.warn('⚠️ Repaired truncated AI JSON response successfully:', parsed);
+            return parsed;
+        } catch (e2) {
+            console.error('Error parsing AI response JSON:', e2, 'Raw text:', text);
+            return null;
+        }
     }
 };
 
