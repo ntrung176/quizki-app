@@ -13,6 +13,7 @@ import {
 import { SafeAvatarImage } from '../ui';
 import { isVocabCardDue, isSrsCardDue } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
+import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/grammarService';
 
 // Sidebar Component - Restored Exact Original Menus with Chatbox & Help Buttons Integrated at Bottom
 const Sidebar = ({ 
@@ -87,6 +88,7 @@ const Sidebar = ({
     // Notifications state
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
     const [kanjiDueCount, setKanjiDueCount] = useState(0);
+    const [grammarDueCount, setGrammarDueCount] = useState(0);
     const [globalNotifications, setGlobalNotifications] = useState([]);
     const [readNotificationIds, setReadNotificationIds] = useState(() => {
         try {
@@ -143,6 +145,36 @@ const Sidebar = ({
         };
     }, [userId]);
 
+    // Listen to Grammar SRS due count synchronized with Grammar module
+    useEffect(() => {
+        if (!userId) return;
+        let isMounted = true;
+        let unsub = () => {};
+
+        getSharedGrammarPointsList().then(gList => {
+            if (!isMounted) return;
+            const validGrammarIds = new Set((gList || []).map(g => g.id));
+
+            unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+                if (!isMounted) return;
+                let dueCount = 0;
+                const now = Date.now();
+                Object.entries(freshSrs || {}).forEach(([id, data]) => {
+                    if (validGrammarIds.size > 0 && !validGrammarIds.has(id)) return;
+                    if (isSrsCardDue(data, now)) dueCount++;
+                });
+                setGrammarDueCount(dueCount);
+            });
+        }).catch(err => {
+            console.error('Error fetching grammar list in Sidebar:', err);
+        });
+
+        return () => {
+            isMounted = false;
+            unsub();
+        };
+    }, [userId]);
+
     // Listen to Global Notifications
     useEffect(() => {
         if (!userId || !db) return;
@@ -172,13 +204,13 @@ const Sidebar = ({
     // Sync lastSeenDueCount when notifications popover is opened
     useEffect(() => {
         if (isNotificationsOpen) {
-            const currentDue = dueVocabCount + kanjiDueCount;
+            const currentDue = dueVocabCount + kanjiDueCount + grammarDueCount;
             setLastSeenDueCount(currentDue);
             localStorage.setItem('quizki_last_seen_due_count', String(currentDue));
         }
-    }, [isNotificationsOpen, dueVocabCount, kanjiDueCount]);
+    }, [isNotificationsOpen, dueVocabCount, kanjiDueCount, grammarDueCount]);
 
-    const hasUnread = (dueVocabCount + kanjiDueCount) > lastSeenDueCount || globalNotifications.some(n => !readNotificationIds.includes(n.id));
+    const hasUnread = (dueVocabCount + kanjiDueCount + grammarDueCount) > lastSeenDueCount || globalNotifications.some(n => !readNotificationIds.includes(n.id));
 
     const markAllAsRead = () => {
         const allIds = globalNotifications.map(n => n.id);
@@ -200,7 +232,7 @@ const Sidebar = ({
         { id: 'HOME', icon: Home, label: 'Trang chủ', route: ROUTES.HOME },
         { id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_REVIEW, badge: dueVocabCount },
         { id: 'KANJI_STUDY', icon: Languages, label: 'Thư viện Kanji', route: ROUTES.KANJI_REVIEW, badge: kanjiDueCount },
-        { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR_REVIEW },
+        { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR_REVIEW, badge: grammarDueCount },
         { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện đề JLPT', route: ROUTES.JLPT_TEST },
         { id: 'JLPT_KAIWA', icon: MessageSquare, label: 'Luyện KAIWA 1:1', route: ROUTES.JLPT_KAIWA },
         { id: 'HUB', icon: Trophy, label: 'Bảng vinh danh', route: ROUTES.HUB },
@@ -286,7 +318,26 @@ const Sidebar = ({
                             </div>
                         </button>
                     )}
-                    {globalNotifications.length === 0 && dueVocabCount === 0 && kanjiDueCount === 0 && (
+                    {/* Due Grammar */}
+                    {grammarDueCount > 0 && (
+                        <button
+                            onClick={() => {
+                                setIsNotificationsOpen(false);
+                                setIsMobileMenuOpen(false);
+                                navigate(ROUTES.GRAMMAR_REVIEW);
+                            }}
+                            className="w-full p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-start gap-3 hover:scale-[1.01] transition-transform text-left cursor-pointer"
+                        >
+                            <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/60 flex items-center justify-center flex-shrink-0">
+                                <Repeat2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-xs text-emerald-800 dark:text-emerald-300">Ngữ pháp đến hạn ôn tập</h4>
+                                <p className="text-[11px] text-emerald-700/80 dark:text-emerald-400/80 mt-0.5 font-mono">Bạn có {grammarDueCount} mẫu ngữ pháp cần ôn tập.</p>
+                            </div>
+                        </button>
+                    )}
+                    {globalNotifications.length === 0 && dueVocabCount === 0 && kanjiDueCount === 0 && grammarDueCount === 0 && (
                         <p className="text-xs text-slate-400 text-center py-4 font-mono">Không có thông báo mới</p>
                     )}
                 </div>

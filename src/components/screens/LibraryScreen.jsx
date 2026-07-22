@@ -261,66 +261,57 @@ const LibraryScreen = ({
             <TopTabBar tabs={VOCAB_TABS} />
 
             <div className="max-w-6xl mx-auto px-4 md:px-8 mt-6 space-y-8 animate-fade-in">
-                {/* Cyber-AI Header Banner */}
-                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 dark:bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
-
-                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <div className="space-y-2">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
-                                <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
-                                <span>[NEURAL LIBRARY HUD]</span>
-                            </div>
-                            <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Thư viện Từ vựng</h1>
-                            <p className="text-slate-600 dark:text-slate-300 text-sm max-w-xl font-medium">
-                                Quản lý các thư mục, học phần học tập cá nhân và kéo thả để phân loại dễ dàng.
-                            </p>
-                        </div>
-                        <div className="flex flex-wrap items-center gap-3">
-                            {/* Search Bar */}
-                            <div className="relative w-full sm:w-60">
-                                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                                <input
-                                    type="text"
-                                    placeholder="Tìm kiếm học phần, thư mục..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full pl-9 pr-8 py-2.5 text-xs font-medium rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 font-mono shadow-inner"
-                                />
-                                {searchQuery && (
-                                    <button 
-                                        onClick={() => setSearchQuery('')}
-                                        className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-                                    >
-                                        <X className="w-3.5 h-3.5" />
-                                    </button>
-                                )}
-                            </div>
-                            {onAddParentFolder && (
-                                <button
-                                    onClick={() => setShowCreateFolderModal(true)}
-                                    className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-xs font-mono font-bold transition-all flex items-center gap-1.5 shrink-0 border border-slate-200 dark:border-slate-700 cursor-pointer shadow-sm"
+                {/* Header Row */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div className="space-y-1">
+                        <h1 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">Thư viện Từ vựng</h1>
+                        <p className="text-slate-500 dark:text-slate-400 text-xs md:text-sm font-medium">
+                            Quản lý các thư mục, học phần học tập cá nhân và kéo thả để phân loại dễ dàng.
+                        </p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-3">
+                        {/* Search Bar */}
+                        <div className="relative w-full sm:w-60">
+                            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                            <input
+                                type="text"
+                                placeholder="Tìm kiếm học phần, thư mục..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full pl-9 pr-8 py-2.5 text-xs font-medium rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm"
+                            />
+                            {searchQuery && (
+                                <button 
+                                    onClick={() => setSearchQuery('')}
+                                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
                                 >
-                                    <FolderPlus className="w-4 h-4 text-cyan-500" />
-                                    Thư mục mới
+                                    <X className="w-3.5 h-3.5" />
                                 </button>
                             )}
-                            <button 
-                                onClick={onNavigateToAdd}
-                                className="px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-600 hover:to-indigo-700 text-white rounded-xl text-xs font-mono font-bold shadow-md transition-all flex items-center gap-1.5 shrink-0 hover:scale-105 active:scale-95 cursor-pointer"
-                            >
-                                <Plus className="w-4 h-4" />
-                                Tạo học phần mới
-                            </button>
                         </div>
+                        {onAddParentFolder && (
+                            <button
+                                onClick={() => setShowCreateFolderModal(true)}
+                                className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 border border-slate-200 dark:border-slate-700 cursor-pointer shadow-sm"
+                            >
+                                <FolderPlus className="w-4 h-4 text-indigo-500" />
+                                Thư mục mới
+                            </button>
+                        )}
+                        <button 
+                            onClick={onNavigateToAdd}
+                            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center gap-1.5 shrink-0 hover:scale-105 active:scale-95 cursor-pointer"
+                        >
+                            <Plus className="w-4 h-4" />
+                            Tạo học phần mới
+                        </button>
                     </div>
                 </div>
 
                 {/* Breadcrumb Navigation when inside a Folder */}
                 {activeParentFolderId && (
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-200/60 dark:border-gray-700 shadow-sm">
-                        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 font-medium">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
                             <button 
                                 onClick={() => setActiveParentFolderId(null)}
                                 className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-1 font-bold"
@@ -328,7 +319,7 @@ const LibraryScreen = ({
                                 <Library className="w-4 h-4" />
                                 Thư viện
                             </button>
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                            <ChevronRight className="w-4 h-4 text-slate-400" />
                             <div className="flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/40 px-3 py-1 rounded-lg text-indigo-600 dark:text-indigo-400 font-bold">
                                 <FolderOpen className="w-4 h-4" />
                                 <span>{activeFolderName}</span>
@@ -344,7 +335,7 @@ const LibraryScreen = ({
                                 className={`px-6 py-2.5 rounded-xl border-2 border-dashed text-xs font-bold transition-all flex items-center gap-2 ${
                                     dragOverRoot 
                                         ? 'bg-amber-50 dark:bg-amber-950/20 border-amber-500 text-amber-600 dark:text-amber-400 scale-102' 
-                                        : 'bg-gray-50 dark:bg-gray-900/40 border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400'
+                                        : 'bg-slate-50 dark:bg-slate-900 border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400'
                                 }`}
                             >
                                 <Move className="w-4 h-4 animate-bounce" />
@@ -354,48 +345,11 @@ const LibraryScreen = ({
 
                         <button
                             onClick={() => setActiveParentFolderId(null)}
-                            className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-650 text-gray-700 dark:text-gray-200 font-bold text-xs rounded-xl transition-all flex items-center gap-1 self-start sm:self-auto"
+                            className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition-all flex items-center gap-1 self-start sm:self-auto"
                         >
                             <ArrowLeft className="w-3.5 h-3.5" />
                             Quay lại Thư viện
                         </button>
-                    </div>
-                )}
-
-                {/* Top Featured Banner (Matches Screenshot 3) - Only show at root level */}
-                {!activeParentFolderId && !searchQuery && featuredFolder && (
-                    <div className="bg-slate-900 dark:bg-slate-950 rounded-3xl p-6 md:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800 shadow-xl overflow-hidden relative">
-                        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-indigo-500/10 to-sky-500/10 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-
-                        <div className="space-y-4 max-w-xl z-10 flex-1">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 border border-indigo-500/30 rounded-full text-[10px] font-bold text-indigo-300 tracking-wider uppercase">
-                                Học phần đang học
-                            </div>
-                            <h2 className="text-2xl md:text-3xl font-black tracking-tight">{featuredFolder.name}</h2>
-                            <p className="text-slate-400 text-xs md:text-sm font-medium">
-                                {featuredFolder.count} Từ • Đã thuộc {featuredFolder.masteredPct}%
-                            </p>
-                            {/* Mastery Bar */}
-                            <div className="w-full max-w-md h-2 bg-slate-800 rounded-full overflow-hidden">
-                                <div 
-                                    className="h-full bg-gradient-to-r from-indigo-400 to-sky-400 rounded-full transition-all duration-500"
-                                    style={{ width: `${featuredFolder.masteredPct}%` }}
-                                />
-                            </div>
-                            <button
-                                onClick={() => onOpenStudySet(featuredFolder.id)}
-                                className="px-6 py-2.5 bg-white hover:bg-slate-100 text-slate-900 rounded-xl text-xs font-black shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
-                            >
-                                <Play className="w-3.5 h-3.5 fill-current" />
-                                TIẾP TỤC HỌC
-                            </button>
-                        </div>
-
-                        {/* Visual Right graphic */}
-                        <div className="shrink-0 w-28 h-28 rounded-2xl bg-slate-800/40 border border-slate-700/60 flex flex-col items-center justify-center shadow-[0_0_40px_rgba(99,102,241,0.1)] z-10">
-                            <GraduationCap className="w-12 h-12 text-indigo-400 animate-pulse" />
-                            <span className="text-[9px] tracking-[0.2em] text-slate-500 font-bold mt-2">ĐANG HỌC</span>
-                        </div>
                     </div>
                 )}
 
