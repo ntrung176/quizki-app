@@ -108,21 +108,18 @@ ruby rp {
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Override Tailwind preflight background */
+/* Override Tailwind preflight background for Cyber Tech Theme */
 @layer base {
   html {
-    background-color: #e8f4fc !important;
+    background-color: #f0f7ff !important;
   }
 
   html.dark {
-    background-color: #1e293b !important;
+    background-color: #090d16 !important;
   }
 
   #root,
-  main,
-  main>div,
-  main>div>div,
-  main>div>div>div {
+  main {
     background-color: transparent !important;
     background: transparent !important;
   }
@@ -130,21 +127,21 @@ ruby rp {
 
 /* Fix JLPT Screen Background in Light and Dark Modes */
 .jlpt-screen {
-  background-color: #FAFBFD !important;
-  background: #FAFBFD !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
 html.dark .jlpt-screen {
-  background-color: #0f172a !important;
-  background: #0f172a !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
 body {
-  background-color: #e8f4fc;
+  background-color: #f0f7ff;
 }
 
 html.dark body {
-  background-color: #1e293b;
+  background-color: #090d16;
 }
 
 /* Ensure main has visible pattern area */
@@ -162,12 +159,12 @@ html {
   height: -webkit-fill-available;
   overflow-x: hidden;
   color-scheme: light;
-  background-color: #e8f4fc !important;
+  background-color: #f0f7ff !important;
 }
 
 html.dark {
   color-scheme: dark;
-  background-color: #1e293b !important;
+  background-color: #090d16 !important;
 }
 
 /* Exclude background-color and color from transitions for instant dark mode switch */

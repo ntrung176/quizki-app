@@ -499,14 +499,14 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
 
     return (
         <div className="max-w-3xl mx-auto space-y-5 animate-fade-in">
-            <div className="flex items-start justify-between">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex items-start justify-between gap-4">
                 <div>
-                    <button onClick={() => navigate(`/grammar/detail/${grammarId}?tb=${tb}&ls=${ls}`)} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-2">
+                    <button onClick={() => navigate(`/grammar/detail/${grammarId}?tb=${tb}&ls=${ls}`)} className="flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline mb-2 font-mono">
                         <ArrowLeft className="w-3.5 h-3.5" /> Quay lại mẫu ngữ pháp
                     </button>
-                    {gp.textbook && <p className="text-xs text-slate-400 mb-1">{gp.textbook.title || gp.textbook.titleVi} • {gp.lesson?.sectionLabel} {gp.lesson?.title}</p>}
-                    <h1 className="text-2xl font-black text-slate-800 dark:text-white">{gp.pattern}</h1>
-                    <p className="text-sm text-slate-500">{gp.meaningShort}</p>
+                    {gp.textbook && <p className="text-xs font-mono font-bold text-slate-400 mb-1">{gp.textbook.title || gp.textbook.titleVi} • {gp.lesson?.sectionLabel} {gp.lesson?.title}</p>}
+                    <h1 className="text-2xl font-black text-slate-900 dark:text-white">{gp.pattern}</h1>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">{gp.meaningShort}</p>
                 </div>
                 {isAdmin && (
                     <div className="flex gap-2 shrink-0">

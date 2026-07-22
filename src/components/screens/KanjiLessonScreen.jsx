@@ -1422,7 +1422,7 @@ const KanjiFlashcard = ({
                     </div>
                 </div>
                 {/* Bottom Action buttons */}
-                <div className="order-6 lg:order-none lg:static fixed bottom-0 left-0 right-0 lg:p-0 p-4 lg:bg-transparent bg-white/95 dark:bg-slate-900/95 backdrop-blur-md lg:border-0 border-t border-gray-100 dark:border-slate-800/80 lg:shadow-none shadow-[0_-8px_25px_rgba(0,0,0,0.08)] flex gap-4 z-40">
+                <div className="order-6 lg:order-none lg:static fixed bottom-0 left-0 right-0 lg:p-0 p-4 lg:bg-transparent bg-white dark:bg-slate-900 lg:border-0 border-t border-slate-200 dark:border-slate-800 lg:shadow-none shadow-[0_-8px_25px_rgba(0,0,0,0.15)] flex gap-4 z-40">
                     <button
                         onClick={onPrev}
                         disabled={currentIndex === 0}

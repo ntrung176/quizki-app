@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, BookOpen, CheckCircle, Zap } from 'lucide-react'
+import { ChevronLeft, ChevronRight, BookOpen, CheckCircle, Zap, Cpu } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -200,27 +200,32 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
         <div className="w-full pb-12 transition-colors duration-300">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
-                {/* 1. Header Banner with Circular Progress Gauge */}
-                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 to-indigo-700 p-8 text-white shadow-lg border border-indigo-500/20 dark:border-indigo-900/50">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)]"></div>
+                {/* 1. Cyber-AI Futuristic Header Banner with HUD Telemetry */}
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
+                    
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="space-y-4 text-center md:text-left flex-1">
-                            <div>
-                                <span className="text-[10px] font-extrabold tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
-                                    LỘ TRÌNH JLPT {selectedLevel}
-                                </span>
-                                <h1 className="text-3xl font-black tracking-tight mt-2.5">
-                                    Thêm Kanji mới
-                                </h1>
+                        <div className="space-y-3 text-center md:text-left flex-1">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                <Cpu className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-spin-slow" />
+                                <span>[NEURAL KANJI ENGINE] • LỘ TRÌNH JLPT {selectedLevel}</span>
                             </div>
-                            <p className="text-sm text-indigo-100 max-w-md font-medium leading-relaxed">
-                                {config.sublabel} • 10 chữ mỗi ngày • Tổng {levelKanji.length} chữ chia đều trong {totalDays} ngày.
+
+                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                                Chinh Phục Chữ Hán Kanji
+                            </h1>
+
+                            <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
+                                {config.sublabel} • 10 chữ mỗi ngày • Tổng {levelKanji.length} chữ chia đều trong {totalDays} ngày học tập.
                             </p>
+
                             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
                                 <button
                                     onClick={handleStartStudy}
-                                    className="px-6 py-2.5 bg-white text-indigo-600 hover:bg-indigo-50 font-bold text-xs tracking-wider rounded-xl transition-all shadow-md hover:scale-105 active:scale-95"
+                                    className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs font-mono tracking-wider rounded-xl transition-all shadow-md shadow-emerald-500/25 hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
                                 >
+                                    <Zap className="w-4 h-4" />
                                     TIẾP TỤC HỌC
                                 </button>
                                 <button
@@ -228,29 +233,30 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                         const el = document.getElementById('lesson-panel');
                                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="px-6 py-2.5 border border-white/30 hover:bg-white/10 font-bold text-xs tracking-wider rounded-xl transition-all"
+                                    className="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold text-xs font-mono tracking-wider rounded-xl transition-all cursor-pointer"
                                 >
                                     XEM CHI TIẾT
                                 </button>
                             </div>
                         </div>
+
                         {/* Circular Progress Gauge */}
-                        <div className="relative w-36 h-36 flex-shrink-0 bg-white/5 backdrop-blur-md rounded-full p-2 border border-white/10 flex items-center justify-center">
+                        <div className="relative w-36 h-36 flex-shrink-0 bg-slate-50 dark:bg-slate-950 rounded-full p-2 border border-slate-200 dark:border-cyan-500/30 flex items-center justify-center shadow-inner">
                             <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
-                                <circle cx="60" cy="60" r={progressRadius} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="7" />
-                                <circle cx="60" cy="60" r={progressRadius} fill="none" stroke="white" strokeWidth="7" strokeLinecap="round"
+                                <circle cx="60" cy="60" r={progressRadius} fill="none" stroke="rgba(148, 163, 184, 0.2)" strokeWidth="8" />
+                                <circle cx="60" cy="60" r={progressRadius} fill="none" stroke="#10b981" strokeWidth="8" strokeLinecap="round"
                                     strokeDasharray={progressCircumference} strokeDashoffset={progressOffset}
                                     className="transition-all duration-1000 ease-out" />
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                <span className="text-2xl font-black text-white">{stats.progressPercent}%</span>
-                                <span className="text-[9px] text-indigo-200 font-extrabold uppercase tracking-widest mt-0.5">Hoàn thành</span>
+                                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white">{stats.progressPercent}%</span>
+                                <span className="text-[9px] text-emerald-600 dark:text-emerald-400 font-mono font-black uppercase tracking-widest mt-0.5">Hoàn thành</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 {/* 2. Horizontal Level Progression Tabs */}
-                <div className="bg-slate-50 dark:bg-slate-900/50 p-1.5 rounded-2xl flex gap-1.5 overflow-x-auto select-none border border-slate-100 dark:border-slate-800/40">
+                <div className="bg-white dark:bg-slate-900 p-2 rounded-2xl flex gap-1.5 overflow-x-auto select-none border border-slate-200 dark:border-slate-800 shadow-md">
                     {Object.entries(JLPT_CONFIG).map(([level, cfg]) => {
                         const isSelected = selectedLevel === level;
                         const isCompleted = isLevelCompleted(level);
@@ -279,8 +285,8 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                     }
                                 }}
                                 className={`flex-1 min-w-[90px] py-3.5 rounded-xl text-center transition-all flex flex-col items-center justify-center gap-1.5 ${isSelected
-                                        ? `bg-white dark:bg-slate-800 shadow-sm border border-slate-200/50 dark:border-slate-700/60 scale-[1.01]`
-                                        : 'hover:bg-slate-100/70 dark:hover:bg-slate-800/50'
+                                        ? `bg-slate-100 dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 scale-[1.01]`
+                                        : 'hover:bg-slate-50 dark:hover:bg-slate-800/60'
                                     }`}
                             >
                                 <div className="flex items-center gap-1">
@@ -305,7 +311,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                 {/* 3. Day Navigation & Progress Card */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     {/* Left 2 Cols: Progress / Stats Card */}
-                    <div className="md:col-span-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm flex flex-col justify-between space-y-4">
+                    <div className="md:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex flex-col justify-between space-y-4">
                         <div className="space-y-2">
                             <div className="flex items-center justify-between">
                                 <span className="text-[10px] font-extrabold text-indigo-600 dark:text-cyan-400 uppercase tracking-widest">
@@ -336,7 +342,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                         </div>
                     </div>
                     {/* Right 1 Col: Day Selector Card */}
-                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex flex-col justify-between">
                         <div className="flex items-center justify-between mb-4">
                             <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                                 CHỌN NGÀY HỌC
@@ -372,7 +378,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                     </div>
                 </div>
                 {/* 4. "Kanji Hôm Nay" Daily Lesson Panel */}
-                <div id="lesson-panel" className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm space-y-6">
+                <div id="lesson-panel" className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md space-y-6">
                     <div className="flex items-center justify-between border-b border-slate-50 dark:border-slate-700/40 pb-4">
                         <div className="flex items-center gap-3">
                             <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${config.gradient} flex items-center justify-center shadow-md shadow-${config.color}-500/25`}>

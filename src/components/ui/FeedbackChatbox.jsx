@@ -47,6 +47,14 @@ const compressImage = (file, maxWidth = 1200, maxHeight = 1200, quality = 0.7) =
 
 const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    // Listen to global event from Sidebar to open Chatbox with Admin
+    useEffect(() => {
+        const handleOpenAdminChat = () => setIsOpen(true);
+        window.addEventListener('open-admin-chat', handleOpenAdminChat);
+        return () => window.removeEventListener('open-admin-chat', handleOpenAdminChat);
+    }, []);
+
     const [messages, setMessages] = useState([]);
     const [inputText, setInputText] = useState('');
     const [selectedImage, setSelectedImage] = useState(null); // base64 string
@@ -369,28 +377,9 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
 
     return (
         <>
-            {/* Floating Bubble Button */}
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={`hidden lg:flex fixed bottom-6 right-6 z-55 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer bg-[#2E5B70] shadow-[#2E5B70]/30 ${isOpen ? 'opacity-100' : 'opacity-50 hover:opacity-100 focus:opacity-100 active:opacity-100'}`}
-            >
-                {isOpen ? (
-                    <X className="w-6 h-6 animate-fade-in" />
-                ) : (
-                    <div className="relative">
-                        <MessageSquare className="w-6 h-6 animate-fade-in" />
-                        {hasNewMessage && (
-                            <span className="absolute -top-2.5 -right-2.5 min-w-5 h-5 px-1 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900 flex items-center justify-center text-[9px] font-black text-white shadow-lg animate-pulse">
-                                {getUnreadCount() || 1}
-                            </span>
-                        )}
-                    </div>
-                )}
-            </button>
-
-            {/* Chatbox Container */}
+            {/* Chatbox Container - Anchored beside Sidebar menu */}
             {isOpen && (
-                <div className="fixed bottom-24 right-6 z-55 w-[330px] sm:w-[380px] h-[480px] sm:h-[520px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-100 dark:border-slate-800 flex flex-col overflow-hidden animate-fade-in font-sans">
+                <div className="fixed bottom-4 left-4 lg:left-68 z-55 w-[330px] sm:w-[380px] h-[490px] sm:h-[530px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-cyan-500/30 flex flex-col overflow-hidden animate-fade-in font-sans">
                     {/* Header */}
                     <div className="bg-[#2E5B70] p-4 flex items-center justify-between text-white">
                         <div className="flex items-center gap-2.5">

@@ -857,9 +857,9 @@ const KanjiSRSListScreen = () => {
                                         <button
                                             key={f.id}
                                             onClick={() => openFolder(f.id)}
-                                            className="text-left bg-white dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700 rounded-2xl p-4 hover:shadow-md transition-all shadow-sm flex items-center gap-3 group cursor-pointer"
+                                            className="text-left bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 hover:shadow-md transition-all shadow-sm flex items-center gap-3 group cursor-pointer"
                                         >
-                                            <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/30 flex items-center justify-center text-amber-500">
+                                            <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800/40 flex items-center justify-center text-amber-500">
                                                 <Folder className="w-5 h-5 fill-amber-400/20" />
                                             </div>
                                             <div className="min-w-0 flex-1">
@@ -898,7 +898,7 @@ const KanjiSRSListScreen = () => {
                                                 <div 
                                                     key={kanji.id}
                                                     onClick={() => openKanjiDetail(kanji.character)}
-                                                    className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 rounded-2xl p-4 flex items-center justify-between hover:shadow-md transition-all cursor-pointer group"
+                                                    className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 flex items-center justify-between hover:shadow-md transition-all cursor-pointer group"
                                                 >
                                                     <div className="flex items-center gap-3.5">
                                                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-bold font-japanese ${levelColor.light} ${levelColor.text}`}>
@@ -926,7 +926,7 @@ const KanjiSRSListScreen = () => {
                                             );
                                         })
                                     ) : (
-                                        <div className="bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 rounded-2xl p-8 text-center text-slate-400 text-xs font-semibold">
+                                        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 text-center text-slate-400 text-xs font-semibold">
                                             Chưa có hoạt động học gần đây.
                                         </div>
                                     )}
@@ -941,9 +941,9 @@ const KanjiSRSListScreen = () => {
                                         Gợi ý ôn tập
                                     </h3>
 
-                                    <div className="bg-sky-50/50 dark:bg-sky-950/20 border border-sky-100/50 dark:border-sky-900/30 rounded-2xl p-5 space-y-3">
+                                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-3 shadow-md">
                                         <div className="flex items-center gap-2">
-                                            <span className="bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-300 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                                            <span className="bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider font-mono">
                                                 {recommendation.tag}
                                             </span>
                                         </div>
@@ -967,7 +967,7 @@ const KanjiSRSListScreen = () => {
                                         Lịch sử học tập
                                     </h3>
 
-                                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 rounded-2xl p-5 space-y-4">
+                                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-4 shadow-md">
                                         <div className="relative border-l border-slate-100 dark:border-slate-700 pl-4 ml-1.5 space-y-4">
                                             {studyHistory.length > 0 ? (
                                                 studyHistory.slice(0, 5).map((item) => {

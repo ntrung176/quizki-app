@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, GraduationCap, Play, FolderPlus, Edit3, FolderOpen, ArrowLeft, Move } from 'lucide-react'
+import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, GraduationCap, Play, FolderPlus, Edit3, FolderOpen, ArrowLeft, Move, Cpu } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -257,54 +257,63 @@ const LibraryScreen = ({
     }, [activeParentFolderId, parentFolders]);
 
     return (
-        <div className="w-full pb-16 min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="w-full pb-16 min-h-screen bg-transparent">
             <TopTabBar tabs={VOCAB_TABS} />
 
             <div className="max-w-6xl mx-auto px-4 md:px-8 mt-6 space-y-8 animate-fade-in">
-                {/* Modern Premium Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-1">
-                        <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Thư viện Từ vựng</h1>
-                        <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl">
-                            Quản lý các thư mục, học phần học tập cá nhân và kéo thả để phân loại dễ dàng.
-                        </p>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-3">
-                        {/* Search Bar */}
-                        <div className="relative w-full sm:w-60">
-                            <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                            <input
-                                type="text"
-                                placeholder="Tìm kiếm học phần, thư mục..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-9 pr-8 py-2 text-xs rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
-                            />
-                            {searchQuery && (
-                                <button 
-                                    onClick={() => setSearchQuery('')}
-                                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                {/* Cyber-AI Header Banner */}
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 dark:bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div className="space-y-2">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
+                                <span>[NEURAL LIBRARY HUD]</span>
+                            </div>
+                            <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Thư viện Từ vựng</h1>
+                            <p className="text-slate-600 dark:text-slate-300 text-sm max-w-xl font-medium">
+                                Quản lý các thư mục, học phần học tập cá nhân và kéo thả để phân loại dễ dàng.
+                            </p>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-3">
+                            {/* Search Bar */}
+                            <div className="relative w-full sm:w-60">
+                                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                                <input
+                                    type="text"
+                                    placeholder="Tìm kiếm học phần, thư mục..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="w-full pl-9 pr-8 py-2.5 text-xs font-medium rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 font-mono shadow-inner"
+                                />
+                                {searchQuery && (
+                                    <button 
+                                        onClick={() => setSearchQuery('')}
+                                        className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                                    >
+                                        <X className="w-3.5 h-3.5" />
+                                    </button>
+                                )}
+                            </div>
+                            {onAddParentFolder && (
+                                <button
+                                    onClick={() => setShowCreateFolderModal(true)}
+                                    className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-xs font-mono font-bold transition-all flex items-center gap-1.5 shrink-0 border border-slate-200 dark:border-slate-700 cursor-pointer shadow-sm"
                                 >
-                                    <X className="w-3.5 h-3.5" />
+                                    <FolderPlus className="w-4 h-4 text-cyan-500" />
+                                    Thư mục mới
                                 </button>
                             )}
-                        </div>
-                        {onAddParentFolder && (
-                            <button
-                                onClick={() => setShowCreateFolderModal(true)}
-                                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 shrink-0 border border-gray-200 dark:border-gray-700"
+                            <button 
+                                onClick={onNavigateToAdd}
+                                className="px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-600 hover:to-indigo-700 text-white rounded-xl text-xs font-mono font-bold shadow-md transition-all flex items-center gap-1.5 shrink-0 hover:scale-105 active:scale-95 cursor-pointer"
                             >
-                                <FolderPlus className="w-4 h-4 text-indigo-500" />
-                                Thư mục mới
+                                <Plus className="w-4 h-4" />
+                                Tạo học phần mới
                             </button>
-                        )}
-                        <button 
-                            onClick={onNavigateToAdd}
-                            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black shadow-md shadow-indigo-100 dark:shadow-none transition-all flex items-center gap-1.5 shrink-0"
-                        >
-                            <Plus className="w-4 h-4" />
-                            Tạo học phần mới
-                        </button>
+                        </div>
                     </div>
                 </div>
 
@@ -401,7 +410,7 @@ const LibraryScreen = ({
                         </div>
 
                         {parentFoldersWithCounts.length === 0 ? (
-                            <div className="p-8 text-center bg-white dark:bg-gray-800 rounded-3xl border border-gray-200/60 dark:border-gray-700 text-gray-400 dark:text-gray-500 text-xs italic">
+                            <div className="p-8 text-center bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md text-slate-400 dark:text-slate-500 text-xs italic">
                                 {searchQuery ? 'Không tìm thấy thư mục nào phù hợp.' : 'Chưa có thư mục nào. Bạn có thể nhấn "Thư mục mới" ở trên để phân loại học phần.'}
                             </div>
                         ) : (
@@ -415,23 +424,23 @@ const LibraryScreen = ({
                                             onDragOver={(e) => { e.preventDefault(); setDragOverFolderId(folder.id); }}
                                             onDragLeave={() => setDragOverFolderId(null)}
                                             onDrop={(e) => handleDropOnFolder(e, folder.id)}
-                                            className={`bg-slate-50/80 dark:bg-slate-900/40 border-l-4 border-l-indigo-500 dark:border-l-indigo-400 border-y border-r border-gray-200/80 dark:border-gray-700/80 hover:bg-white dark:hover:bg-slate-800 p-5 rounded-r-2xl rounded-l-md cursor-pointer transition-all duration-200 hover:shadow-md flex flex-col justify-between group relative overflow-hidden h-36 ${
+                                            className={`bg-white dark:bg-slate-900 border-l-4 border-l-cyan-500 border-y border-r border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/50 p-5 rounded-r-2xl rounded-l-md cursor-pointer transition-all duration-200 hover:shadow-xl shadow-md flex flex-col justify-between group relative overflow-hidden h-36 ${
                                                 isDragOver 
-                                                    ? 'border-indigo-500 bg-indigo-50/30 dark:bg-indigo-950/20 scale-102 ring-2 ring-indigo-500/20' 
+                                                    ? 'border-cyan-500 bg-cyan-50 dark:bg-slate-850 scale-102 ring-2 ring-cyan-500/20' 
                                                     : ''
                                             }`}
                                         >
                                             {/* Folder icon decoration background */}
                                             <div className="absolute right-0 bottom-0 translate-x-4 translate-y-4 opacity-5 group-hover:scale-110 transition-transform">
-                                                <Folder className="w-24 h-24 text-indigo-500" />
+                                                <Folder className="w-24 h-24 text-cyan-500" />
                                             </div>
 
                                             <div className="space-y-3 relative z-10 w-full">
                                                 <div className="flex items-start justify-between">
                                                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
                                                         isDragOver 
-                                                            ? 'bg-indigo-500 text-white' 
-                                                            : 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-500'
+                                                            ? 'bg-cyan-500 text-white' 
+                                                            : 'bg-cyan-50 dark:bg-cyan-950/40 text-cyan-500 border border-cyan-200 dark:border-cyan-800/60'
                                                     }`}>
                                                         <FolderOpen className="w-5 h-5" />
                                                     </div>
@@ -441,7 +450,7 @@ const LibraryScreen = ({
                                                                 e.stopPropagation();
                                                                 setEditingParentFolder({ id: folder.id, name: folder.name });
                                                             }}
-                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-gray-700 rounded text-gray-400 hover:text-indigo-500"
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded text-slate-400 hover:text-cyan-500"
                                                             title="Sửa tên thư mục"
                                                         >
                                                             <Edit3 className="w-3.5 h-3.5" />
@@ -451,7 +460,7 @@ const LibraryScreen = ({
                                                                 e.stopPropagation();
                                                                 setDeletingParentFolder(folder);
                                                             }}
-                                                            className="p-1 hover:bg-red-50 dark:hover:bg-red-950/30 rounded text-gray-400 hover:text-red-500"
+                                                            className="p-1 hover:bg-red-50 dark:hover:bg-red-950/30 rounded text-slate-400 hover:text-red-500"
                                                             title="Xóa thư mục"
                                                         >
                                                             <Trash2 className="w-3.5 h-3.5" />
@@ -460,10 +469,10 @@ const LibraryScreen = ({
                                                 </div>
 
                                                 <div>
-                                                    <h3 className="font-bold text-gray-800 dark:text-white leading-snug group-hover:text-indigo-500 transition-colors line-clamp-1">
+                                                    <h3 className="font-bold text-slate-900 dark:text-white leading-snug group-hover:text-cyan-500 transition-colors line-clamp-1">
                                                         {folder.name}
                                                     </h3>
-                                                    <p className="text-[10px] text-gray-400 mt-0.5">
+                                                    <p className="text-[10px] font-mono text-slate-400 mt-0.5">
                                                         {folder.setsCount} Học phần • {folder.totalCards} Từ
                                                     </p>
                                                     {searchQuery && (() => {
@@ -480,7 +489,7 @@ const LibraryScreen = ({
                                                         }, 0);
                                                         if (matchedCount > 0) {
                                                             return (
-                                                                <span className="inline-block mt-1 text-[9px] font-extrabold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/45 px-2 py-0.5 rounded-lg border border-indigo-100 dark:border-indigo-900/30">
+                                                                <span className="inline-block mt-1 text-[9px] font-mono font-bold text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/45 px-2 py-0.5 rounded-lg border border-cyan-200 dark:border-cyan-800/40">
                                                                     Khớp {matchedCount} từ vựng
                                                                 </span>
                                                             );
@@ -499,18 +508,18 @@ const LibraryScreen = ({
 
                 {/* 2. STUDY SETS LIST GRID */}
                 <div className="space-y-4">
-                    <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2 flex-wrap">
-                        <Layers className="w-5 h-5 text-indigo-500" />
+                    <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
+                        <Layers className="w-5 h-5 text-cyan-500" />
                         {searchQuery ? 'Kết quả tìm kiếm học phần' : (activeParentFolderId ? 'Học phần trong thư mục này' : 'Học phần')} ({filteredStudySets.length})
                         {draggedStudySetId && (
-                            <span className="text-xs bg-indigo-100 dark:bg-indigo-900/40 text-indigo-650 dark:text-indigo-400 font-extrabold px-3 py-1 rounded-full animate-pulse">
+                            <span className="text-xs bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400 font-mono font-bold px-3 py-1 rounded-full animate-pulse">
                                 Kéo học phần thả vào các thư mục để sắp xếp
                             </span>
                         )}
                     </h2>
 
-                    <p className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100/60 dark:bg-gray-800/40 px-4 py-2.5 rounded-xl border border-gray-200/60 dark:border-gray-700/60 flex items-center gap-2">
-                        <span className="text-indigo-500 font-bold">💡 Mẹo:</span>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-2">
+                        <span className="text-cyan-500 font-bold">💡 Mẹo:</span>
                         <span>Bạn có thể nhấn giữ và kéo thả các học phần vào các thư mục để sắp xếp và phân loại chúng dễ dàng hơn.</span>
                     </p>
 
@@ -519,22 +528,22 @@ const LibraryScreen = ({
                         {!activeParentFolderId && !searchQuery && unfiledCount > 0 && (
                             <div 
                                 onClick={() => onOpenStudySet('unfiled')}
-                                className="bg-white dark:bg-gray-800 rounded-3xl p-6 border border-gray-200 dark:border-gray-700/60 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                                className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md hover:border-cyan-400 dark:hover:border-cyan-500/50 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
                             >
                                 <div className="space-y-3">
-                                    <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center">
+                                    <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center">
                                         <Layers className="w-5 h-5 text-amber-500" />
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-bold text-gray-800 dark:text-white leading-tight group-hover:text-indigo-500 transition-colors">
+                                        <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight group-hover:text-cyan-500 transition-colors">
                                             Từ vựng lẻ
                                         </h3>
-                                        <p className="text-xs text-gray-400 mt-1 font-medium">Các từ vựng chưa phân loại</p>
+                                        <p className="text-xs text-slate-400 mt-1 font-medium">Các từ vựng chưa phân loại</p>
                                     </div>
                                 </div>
-                                <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700/60 flex items-center justify-between text-xs font-bold text-gray-500">
+                                <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono font-bold text-slate-500">
                                     <span>{unfiledCount} Từ</span>
-                                    <ChevronRight className="w-4 h-4 text-gray-300 group-hover:translate-x-0.5 transition-transform" />
+                                    <ChevronRight className="w-4 h-4 text-slate-300 group-hover:translate-x-0.5 transition-transform" />
                                 </div>
                             </div>
                         )}
@@ -546,12 +555,12 @@ const LibraryScreen = ({
                                 draggable="true"
                                 onDragStart={(e) => handleDragStart(e, folder.id)}
                                 onDragEnd={handleDragEnd}
-                                className="bg-white dark:bg-gray-800 rounded-3xl p-6 pt-5 border-t-4 border-t-emerald-500 dark:border-t-emerald-450 border-x border-b border-gray-250/70 dark:border-gray-750/70 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-350 flex flex-col justify-between group relative overflow-hidden active:scale-98 cursor-grab"
+                                className="bg-white dark:bg-slate-900 rounded-3xl p-6 pt-5 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-md hover:border-cyan-400 dark:hover:border-cyan-500/50 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-350 flex flex-col justify-between group relative overflow-hidden active:scale-98 cursor-grab"
                             >
                                 <div className="space-y-4">
                                     <div className="flex items-start justify-between gap-3 w-full">
                                         <div className="flex-1 min-w-0">
-                                            <h3 className="text-base font-extrabold text-gray-800 dark:text-white leading-snug group-hover:text-emerald-500 transition-colors line-clamp-2">
+                                            <h3 className="text-base font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-emerald-500 transition-colors line-clamp-2">
                                                 {folder.name}
                                             </h3>
                                         </div>
@@ -563,7 +572,7 @@ const LibraryScreen = ({
                                                         e.stopPropagation();
                                                         setEditingStudySet({ id: folder.id, name: folder.name });
                                                     }}
-                                                    className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-gray-700 text-gray-400 hover:text-emerald-500 transition-colors"
+                                                    className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors"
                                                     title="Sửa tên học phần"
                                                 >
                                                     <Edit3 className="w-3.5 h-3.5" />
@@ -575,7 +584,7 @@ const LibraryScreen = ({
                                                     e.stopPropagation();
                                                     navigate(`/vocab/edit-set/${folder.id}`);
                                                 }}
-                                                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-gray-700 text-gray-400 hover:text-emerald-500 transition-colors"
+                                                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors"
                                                 title="Thêm từ vựng nhanh vào học phần này"
                                             >
                                                 <Plus className="w-3.5 h-3.5" />
@@ -584,7 +593,7 @@ const LibraryScreen = ({
                                             {onDeleteFolder && (
                                                 <button
                                                     onClick={(e) => handleDeleteFolder(e, folder)}
-                                                    className="p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 text-gray-400 hover:text-red-500 transition-colors"
+                                                    className="p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 text-slate-400 hover:text-red-500 transition-colors"
                                                     title="Xoá học phần"
                                                 >
                                                     <Trash2 className="w-3.5 h-3.5" />
@@ -601,7 +610,7 @@ const LibraryScreen = ({
                                                 </div>
                                             )}
                                             {folder.description && (
-                                                <p className="text-xs text-gray-400 dark:text-gray-500 line-clamp-2 leading-relaxed font-medium flex-1">
+                                                <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed font-medium flex-1">
                                                     {folder.description}
                                                 </p>
                                             )}
@@ -617,7 +626,7 @@ const LibraryScreen = ({
                                         if (matchedCards.length > 0) {
                                             return (
                                                 <div className="mt-2 flex flex-wrap gap-1 bg-emerald-50/50 dark:bg-emerald-950/20 p-2 rounded-xl border border-emerald-100 dark:border-emerald-900/30">
-                                                    <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-450 block w-full mb-0.5">
+                                                    <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 block w-full mb-0.5">
                                                         Từ vựng khớp ({matchedCards.length}):
                                                     </span>
                                                     {matchedCards.slice(0, 2).map((c, idx) => (
@@ -626,7 +635,7 @@ const LibraryScreen = ({
                                                         </span>
                                                     ))}
                                                     {matchedCards.length > 2 && (
-                                                        <span className="text-[9px] text-gray-400 font-medium self-center ml-1">
+                                                        <span className="text-[9px] text-slate-400 font-medium self-center ml-1 font-mono">
                                                             +{matchedCards.length - 2} khác
                                                         </span>
                                                     )}
@@ -638,11 +647,11 @@ const LibraryScreen = ({
                                 </div>
 
                                 <div className="mt-5 space-y-2">
-                                    <div className="flex items-center justify-between text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">
+                                    <div className="flex items-center justify-between text-[10px] font-mono font-extrabold text-slate-500 uppercase tracking-wider">
                                         <span>{folder.count} Từ vựng</span>
                                         <span className="text-emerald-500">{folder.masteredPct}% Đã thuộc</span>
                                     </div>
-                                    <div className="w-full h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                         <div 
                                             className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
                                             style={{ width: `${folder.masteredPct}%` }}
@@ -655,13 +664,13 @@ const LibraryScreen = ({
                         {/* Add Collection dashed card */}
                         <div
                             onClick={onNavigateToAdd}
-                            className="bg-transparent dark:bg-transparent rounded-3xl border-2 border-dashed border-gray-300 dark:border-gray-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-gray-400 dark:hover:border-gray-600 transition-all h-full min-h-[140px] group"
+                            className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-cyan-400 dark:hover:border-cyan-500 transition-all h-full min-h-[140px] group shadow-md"
                         >
-                            <div className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                                <Plus className="w-5 h-5 text-gray-500" />
+                            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <Plus className="w-5 h-5 text-cyan-500" />
                             </div>
-                            <h3 className="font-bold text-gray-700 dark:text-gray-300 text-sm mb-0.5">Tạo học phần</h3>
-                            <p className="text-[11px] text-gray-400 dark:text-gray-500 max-w-[150px] leading-relaxed font-medium">
+                            <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-0.5">Tạo học phần</h3>
+                            <p className="text-[11px] text-slate-400 dark:text-slate-500 max-w-[150px] leading-relaxed font-medium">
                                 Xây dựng một bộ từ vựng tùy chỉnh mới.
                             </p>
                         </div>

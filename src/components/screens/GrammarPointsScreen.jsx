@@ -590,14 +590,14 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
         return (
             <div className="max-w-3xl mx-auto space-y-5 animate-fade-in px-4 md:px-0">
-                <div className="flex items-start justify-between">
+                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex items-start justify-between gap-4">
                     <div>
-                        <button onClick={() => navigate(`/grammar/textbook/${textbookId}`)} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-2">
+                        <button onClick={() => navigate(`/grammar/textbook/${textbookId}`)} className="flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline mb-2 font-mono">
                             <ArrowLeft className="w-3.5 h-3.5" /> Quay lại
                         </button>
-                        <p className="text-xs text-slate-400 mb-1">{textbook.title || textbook.titleVi} • {lesson.sectionLabel}</p>
-                        <h1 className="text-2xl font-black text-slate-800 dark:text-white">{lesson.title}</h1>
-                        <p className="text-sm text-slate-500">{lesson.meaning || 'Bài ôn tập tổng hợp'}</p>
+                        <p className="text-xs font-mono font-bold text-slate-400 mb-1">{textbook.title || textbook.titleVi} • {lesson.sectionLabel}</p>
+                        <h1 className="text-2xl font-black text-slate-900 dark:text-white">{lesson.title}</h1>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">{lesson.meaning || 'Bài ôn tập tổng hợp'}</p>
                     </div>
                     {isAdmin && (
                         <div className="flex gap-2 shrink-0">
@@ -720,22 +720,22 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                 )}
 
                 {exercises.length === 0 && quizzes.length === 0 ? (
-                    <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-8 text-center">
-                        <p className="text-slate-500">Không có bài tập ôn tập cho bài học này. {isAdmin ? 'Sử dụng các nút thêm ở trên để bắt đầu nhập câu hỏi.' : ''}</p>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 text-center shadow-md">
+                        <p className="text-slate-500 dark:text-slate-400">Không có bài tập ôn tập cho bài học này. {isAdmin ? 'Sử dụng các nút thêm ở trên để bắt đầu nhập câu hỏi.' : ''}</p>
                     </div>
                 ) : (
                     <>
                         {/* TAB SELECTOR */}
-                        <div className="flex gap-2 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl">
+                        <div className="flex gap-2 p-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-md">
                             {exercises.length > 0 && (
                                 <button onClick={() => setActiveTab('translate')}
-                                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${currentTab === 'translate' ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-sm' : 'text-slate-500 hover:text-slate-850 dark:hover:text-slate-200'}`}>
+                                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${currentTab === 'translate' ? 'bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-850 dark:hover:text-slate-200'}`}>
                                     <ClipboardCheck className="w-4 h-4" /> Đặt câu ({exercises.length})
                                 </button>
                             )}
                             {quizzes.length > 0 && (
                                 <button onClick={() => setActiveTab('quiz')}
-                                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${currentTab === 'quiz' ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-sm' : 'text-slate-500 hover:text-slate-850 dark:hover:text-slate-200'}`}>
+                                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${currentTab === 'quiz' ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-850 dark:hover:text-slate-200'}`}>
                                     <Award className="w-4 h-4" /> Trắc nghiệm ({quizzes.length})
                                 </button>
                             )}
@@ -744,7 +744,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                         {/* ĐẶT CÂU LAYOUT */}
                         {currentTab === 'translate' && exercises.length > 0 && (
                             <div className="space-y-5">
-                                <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
+                                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm">
                                     <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                                         Đọc câu tiếng Việt, dịch sang tiếng Nhật bằng cấu trúc ngữ pháp đã học. Nhấp "AI đánh giá" để xem điểm số và phân tích chi tiết.
                                     </p>
@@ -999,7 +999,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                         )}
 
                         {/* PROGRESS BAR */}
-                        <div className="sticky bottom-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3 shadow-lg flex items-center justify-between z-10 animate-fade-in">
+                        <div className="sticky bottom-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-3 shadow-xl flex items-center justify-between z-10 animate-fade-in">
                             <div className="flex items-center gap-3 flex-1 min-w-0">
                                 <span className="text-xs font-bold text-slate-500 shrink-0">Tiến độ</span>
                                 <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-750 rounded-full overflow-hidden">

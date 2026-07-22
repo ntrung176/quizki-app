@@ -44,6 +44,7 @@ import UpdateNotification from './components/ui/UpdateNotification';
 import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
 import AdminFloatingSupportChatbox from './components/ui/AdminFloatingSupportChatbox';
+import CyberTechBackground from './components/ui/CyberTechBackground';
 
 // Import hooks
 import useVersionCheck from './hooks/useVersionCheck';
@@ -4567,7 +4568,10 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-50 to-indigo-50 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200">
+        <div className="min-h-screen bg-transparent font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-800 dark:selection:text-indigo-200 relative">
+            {/* Global Cyber Tech Grid Background & Ambient Light Orbs */}
+            <CyberTechBackground />
+
             {/* Sidebar for navigation */}
             {!isFullscreen && (
                 <Sidebar
@@ -4580,6 +4584,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     isPremium={userHasAdminPrivileges || hasPremium}
                     avatar={profile?.avatar}
                     profile={profile}
+                    onTriggerTour={() => setTourTrigger(prev => prev + 1)}
                 />
             )}
 
@@ -4601,17 +4606,6 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                     section={getSectionFromPath(location.pathname)}
                     forceTrigger={tourTrigger}
                 />
-            )}
-
-            {/* Restart onboarding guide button */}
-            {userId && location.pathname !== ROUTES.LOGIN && location.pathname !== '/login' && location.pathname !== '/privacy' && location.pathname !== '/terms' && (
-                <button
-                    onClick={() => setTourTrigger(prev => prev + 1)}
-                    className="hidden lg:flex fixed bottom-6 left-6 lg:left-[18rem] z-55 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-2xl transition-all hover:scale-110 active:scale-95 opacity-50 hover:opacity-100 focus:opacity-100 active:opacity-100 cursor-pointer bg-[#2E5B70] shadow-[#2E5B70]/30 border border-slate-100/10"
-                    title="Xem hướng dẫn trang này"
-                >
-                    <HelpCircle className="w-6 h-6" />
-                </button>
             )}
 
             {/* Update notification when new version is deployed */}

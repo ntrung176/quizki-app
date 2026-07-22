@@ -5,19 +5,36 @@ import { auth, db, appId } from '../../config/firebase';
 import { collection, query, onSnapshot, doc } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
-import { Home, BookOpen, Plus, LogOut, Sun, Moon, Sparkle, ChevronRight, X, List, Repeat2, FileCheck, Languages, Shield, ChevronDown, Trophy, Crown, User, Bell, MessageSquare, HelpCircle } from 'lucide-react'
+import { 
+    Home, BookOpen, LogOut, Sun, Moon, Sparkle, ChevronRight, X, 
+    List, Repeat2, FileCheck, Languages, Shield, Crown, Bell, 
+    MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot
+} from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
-import { isVocabCardDue, isSrsCardDue, parseNextReviewMs } from '../../utils/srs';
+import { isVocabCardDue, isSrsCardDue } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 
-// Sidebar Component - Navigation with submenu support
-const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allCards = [], isPremium = false, avatar, profile }) => {
+// Sidebar Component - Restored Exact Original Menus with Chatbox & Help Buttons Integrated at Bottom
+const Sidebar = ({ 
+    isDarkMode, 
+    setIsDarkMode, 
+    displayName, 
+    isAdmin, 
+    userId, 
+    allCards = [], 
+    isPremium = false, 
+    avatar, 
+    profile,
+    onTriggerTour
+}) => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const xpDetails = React.useMemo(() => {
         const xp = profile?.xp || 0;
         return getLevelFromXp(xp);
     }, [profile?.xp]);
+
     // Avatar display helper
     const renderAvatar = () => {
         const isPhotoUrl = (v) => typeof v === 'string' && (v.startsWith('data:image/') || v.startsWith('http://') || v.startsWith('https://'));
@@ -64,11 +81,9 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         return fallbackChar;
     };
 
-    const location = useLocation();
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [expandedMenus, setExpandedMenus] = useState([]); // Start collapsed for cleaner look
-    const [flyoutMenu, setFlyoutMenu] = useState(null);
+    
     // Notifications state
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
     const [kanjiDueCount, setKanjiDueCount] = useState(0);
@@ -81,10 +96,12 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         }
     });
     const popoverRef = useRef(null);
+
     // Save read notifications to localStorage
     useEffect(() => {
         localStorage.setItem('quizki_read_notifications', JSON.stringify(readNotificationIds));
     }, [readNotificationIds]);
+
     // Close notifications popover when clicking outside
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -95,6 +112,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
+
     // Listen to Kanji SRS due count synchronized with Kanji module
     useEffect(() => {
         if (!userId) return;
@@ -124,21 +142,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             unsub();
         };
     }, [userId]);
-    // Listen to Support Chat unread status for current user
-    const [hasUnreadSupport, setHasUnreadSupport] = useState(false);
-    useEffect(() => {
-        if (!userId || !db) return;
-        const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${userId}`);
-        const unsubscribe = onSnapshot(statusDocRef, (docSnap) => {
-            if (docSnap.exists()) {
-                const data = docSnap.data();
-                setHasUnreadSupport(!!data.hasUnreadUser);
-            }
-        }, (error) => {
-            // Ignore offline/permission errors silently
-        });
-        return () => unsubscribe();
-    }, [userId]);
+
     // Listen to Global Notifications
     useEffect(() => {
         if (!userId || !db) return;
@@ -154,6 +158,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         }, () => { });
         return () => unsub();
     }, [userId]);
+
     // Calculate due vocab count
     const dueVocabCount = allCards.filter(card => isVocabCardDue(card)).length;
     const [lastSeenDueCount, setLastSeenDueCount] = useState(() => {
@@ -163,6 +168,7 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             return 0;
         }
     });
+
     // Sync lastSeenDueCount when notifications popover is opened
     useEffect(() => {
         if (isNotificationsOpen) {
@@ -171,31 +177,71 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
             localStorage.setItem('quizki_last_seen_due_count', String(currentDue));
         }
     }, [isNotificationsOpen, dueVocabCount, kanjiDueCount]);
-    // Check if there are any unread notifications (due counts increased OR unread global notifications)
+
     const hasUnread = (dueVocabCount + kanjiDueCount) > lastSeenDueCount || globalNotifications.some(n => !readNotificationIds.includes(n.id));
+
     const markAllAsRead = () => {
         const allIds = globalNotifications.map(n => n.id);
         setReadNotificationIds(allIds);
     };
+
+    // Logout handler
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            navigate(ROUTES.LOGIN);
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
+    };
+
+    // Exact Original Menu Items List Restored
+    const menuItems = [
+        { id: 'HOME', icon: Home, label: 'Trang chủ', route: ROUTES.HOME },
+        { id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_REVIEW, badge: dueVocabCount },
+        { id: 'KANJI_STUDY', icon: Languages, label: 'Thư viện Kanji', route: ROUTES.KANJI_REVIEW, badge: kanjiDueCount },
+        { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR_REVIEW },
+        { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện đề JLPT', route: ROUTES.JLPT_TEST },
+        { id: 'JLPT_KAIWA', icon: MessageSquare, label: 'Luyện KAIWA 1:1', route: ROUTES.JLPT_KAIWA },
+        { id: 'HUB', icon: Trophy, label: 'Bảng vinh danh', route: ROUTES.HUB },
+    ];
+
+    if (isAdmin) {
+        menuItems.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
+    }
+
+    const isMenuActive = (item) => {
+        const path = location.pathname;
+        if (item.id === 'HOME') return path === '/' || path === '/home';
+        if (item.id === 'VOCAB_LIST') return path.includes('/vocab');
+        if (item.id === 'KANJI_STUDY') return path.includes('/kanji');
+        if (item.id === 'GRAMMAR') return path.includes('/grammar');
+        if (item.id === 'JLPT_TEST') return path.includes('/jlpt/test') || path.includes('/jlpt/admin');
+        if (item.id === 'JLPT_KAIWA') return path.includes('/jlpt/kaiwa') || path.includes('/kaiwa');
+        if (item.id === 'HUB') return path.includes('/hub') || path.includes('/stats');
+        if (item.id === 'ADMIN') return path.includes('/admin');
+        return path.startsWith(item.route);
+    };
+
     const NotificationsPopover = ({ isMobile = false }) => {
         if (!isNotificationsOpen) return null;
         return (
             <div
                 ref={popoverRef}
-                className={`absolute z-50 w-80 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl shadow-xl p-4 text-left ${isMobile
+                className={`absolute z-50 w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/40 rounded-2xl shadow-2xl p-4 text-left ${isMobile
                         ? 'right-0 top-12 max-h-[80vh] overflow-y-auto'
                         : 'left-4 top-16 max-h-[70vh] overflow-y-auto'
                     }`}
             >
-                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/60 pb-2 mb-3">
-                    <span className="font-bold text-sm text-slate-800 dark:text-white flex items-center gap-1.5">
-                        <Bell className="w-4 h-4 text-[#2E5B70] dark:text-sky-400 font-bold" />
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2 mb-3">
+                    <span className="font-bold text-sm text-slate-800 dark:text-white flex items-center gap-1.5 font-mono">
+                        <Bell className="w-4 h-4 text-cyan-600 dark:text-cyan-400 font-bold" />
                         Thông báo của bạn
                     </span>
                     {globalNotifications.some(n => !readNotificationIds.includes(n.id)) && (
                         <button
                             onClick={markAllAsRead}
-                            className="text-xs font-semibold text-[#2E5B70] dark:text-sky-400 hover:underline cursor-pointer"
+                            className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline cursor-pointer"
                         >
                             Đọc tất cả
                         </button>
@@ -210,14 +256,14 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                 setIsMobileMenuOpen(false);
                                 navigate(ROUTES.VOCAB_REVIEW);
                             }}
-                            className="w-full p-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 border border-rose-100/50 dark:border-rose-900/30 flex items-start gap-3 hover:scale-[1.01] transition-transform text-left cursor-pointer"
+                            className="w-full p-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/50 flex items-start gap-3 hover:scale-[1.01] transition-transform text-left cursor-pointer"
                         >
-                            <div className="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-900/40 flex items-center justify-center flex-shrink-0">
+                            <div className="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-900/60 flex items-center justify-center flex-shrink-0">
                                 <BookOpen className="w-4 h-4 text-rose-600 dark:text-rose-400" />
                             </div>
                             <div>
                                 <h4 className="font-bold text-xs text-rose-800 dark:text-rose-300">Từ vựng đến hạn ôn tập</h4>
-                                <p className="text-[11px] text-rose-700/80 dark:text-rose-400/80 mt-0.5">Bạn có {dueVocabCount} từ vựng cần ôn tập ngay hôm nay.</p>
+                                <p className="text-[11px] text-rose-700/80 dark:text-rose-400/80 mt-0.5 font-mono">Bạn có {dueVocabCount} từ vựng cần ôn tập ngay.</p>
                             </div>
                         </button>
                     )}
@@ -229,365 +275,162 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                                 setIsMobileMenuOpen(false);
                                 navigate(ROUTES.KANJI_REVIEW);
                             }}
-                            className="w-full p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-100/50 dark:border-amber-900/30 flex items-start gap-3 hover:scale-[1.01] transition-transform text-left cursor-pointer"
+                            className="w-full p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50 flex items-start gap-3 hover:scale-[1.01] transition-transform text-left cursor-pointer"
                         >
-                            <div className="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center flex-shrink-0">
+                            <div className="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/60 flex items-center justify-center flex-shrink-0">
                                 <Languages className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                             </div>
                             <div>
                                 <h4 className="font-bold text-xs text-amber-800 dark:text-amber-300">Kanji đến hạn ôn tập</h4>
-                                <p className="text-[11px] text-amber-700/80 dark:text-amber-400/80 mt-0.5">Bạn có {kanjiDueCount} chữ Kanji cần ôn tập.</p>
+                                <p className="text-[11px] text-amber-700/80 dark:text-amber-400/80 mt-0.5 font-mono">Bạn có {kanjiDueCount} chữ Kanji cần ôn tập.</p>
                             </div>
                         </button>
                     )}
-                    {/* Global Admin Notifications */}
-                    {globalNotifications.map(notif => {
-                        const isRead = readNotificationIds.includes(notif.id);
-                        return (
-                            <div
-                                key={notif.id}
-                                onClick={() => {
-                                    if (!isRead) {
-                                        setReadNotificationIds(prev => [...prev, notif.id]);
-                                    }
-                                }}
-                                className={`p-2.5 rounded-xl border transition-all text-left relative ${isRead
-                                        ? 'bg-slate-50 dark:bg-slate-800/40 border-slate-100 dark:border-slate-700/40'
-                                        : 'bg-indigo-50/50 dark:bg-indigo-950/20 border-indigo-100/50 dark:border-indigo-900/30 cursor-pointer hover:border-indigo-200'
-                                    }`}
-                            >
-                                {!isRead && (
-                                    <span className="absolute top-3 right-3 w-1.5 h-1.5 bg-indigo-600 dark:bg-sky-400 rounded-full"></span>
-                                )}
-                                <div className="flex items-start gap-3">
-                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${isRead ? 'bg-slate-200/50 dark:bg-slate-700' : 'bg-indigo-100 dark:bg-indigo-900/40'
-                                        }`}>
-                                        <Sparkle className={`w-4 h-4 ${isRead ? 'text-slate-500' : 'text-indigo-600 dark:text-indigo-400'}`} />
-                                    </div>
-                                    <div className="overflow-hidden">
-                                        <h4 className={`font-bold text-xs truncate ${isRead ? 'text-slate-600 dark:text-slate-400' : 'text-slate-800 dark:text-white'}`}>
-                                            {notif.title}
-                                        </h4>
-                                        <p className={`text-[11px] mt-0.5 whitespace-pre-wrap leading-relaxed ${isRead ? 'text-slate-500 dark:text-slate-500' : 'text-slate-600 dark:text-slate-300'}`}>
-                                            {notif.message}
-                                        </p>
-                                        <span className="text-[9px] text-slate-400 dark:text-slate-500 mt-1.5 block">
-                                            {new Date(notif.createdAt).toLocaleDateString('vi-VN')}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
-                    {dueVocabCount === 0 && kanjiDueCount === 0 && globalNotifications.length === 0 && (
-                        <div className="py-6 text-center text-xs text-slate-400 dark:text-slate-500 italic">
-                            Chưa có thông báo nào mới.
-                        </div>
+                    {globalNotifications.length === 0 && dueVocabCount === 0 && kanjiDueCount === 0 && (
+                        <p className="text-xs text-slate-400 text-center py-4 font-mono">Không có thông báo mới</p>
                     )}
                 </div>
             </div>
         );
     };
-    // Hide sidebar completely on login page or when not logged in
-    if (!userId || location.pathname === ROUTES.LOGIN || location.pathname === '/login' || location.pathname === '/privacy' || location.pathname === '/terms') {
-        return null;
-    }
-    // Get current view from URL path
-    const getCurrentView = () => {
-        const path = location.pathname;
-        if (path === '/' || path === ROUTES.HOME) return 'HOME';
-        if (path === ROUTES.VOCAB_REVIEW || path.startsWith('/vocab/review/')) return 'VOCAB_REVIEW';
-        if (path === ROUTES.VOCAB_LIST || path.startsWith('/vocab/list') || path.startsWith('/vocab/edit')) return 'VOCAB_LIST';
-        if (path === ROUTES.VOCAB_ADD) return 'VOCAB_ADD';
-        if (path === ROUTES.KANJI_STUDY || path.startsWith('/kanji/study/')) return 'KANJI_STUDY';
-        if (path === ROUTES.KANJI_REVIEW || path.startsWith('/kanji/review/')) return 'KANJI_REVIEW';
-        if (path === ROUTES.KANJI_SAVED) return 'KANJI_SAVED';
-        if (path === ROUTES.KANJI_LIST || path.startsWith('/kanji/list/')) return 'KANJI_LIST';
-        if (path === ROUTES.TEST) return 'TEST';
-        if (path === ROUTES.JLPT_TEST) return 'JLPT_TEST';
-        if (path === ROUTES.JLPT_KAIWA) return 'JLPT_KAIWA';
-        if (path === ROUTES.JLPT_ADMIN) return 'JLPT_ADMIN';
-        if (path === ROUTES.HUB || path.startsWith('/hub')) return 'HUB';
-        if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
-        if (path === ROUTES.SETTINGS) return 'SETTINGS';
-        if (path === ROUTES.FEEDBACK) return 'FEEDBACK';
-        if (path === ROUTES.FORUM) return 'FORUM';
-        if (path.startsWith('/profile')) return 'PROFILE';
-        if (path === ROUTES.BOOKS) return 'BOOKS_LIST';
-        if (path === ROUTES.UPGRADE) return 'UPGRADE';
-        if (path === ROUTES.ADMIN) return 'ADMIN';
-        if (path === ROUTES.GRAMMAR || path.startsWith('/grammar')) return 'GRAMMAR';
-        return 'HOME';
-    };
-    const currentView = getCurrentView();
-    const handleLogout = async () => {
-        try {
-            if (auth) {
-                await signOut(auth);
-                navigate(ROUTES.LOGIN);
-            }
-        } catch (e) {
-            console.error('Lỗi đăng xuất:', e);
-        }
-    };
-    const toggleMenu = (menuId) => {
-        setExpandedMenus(prev =>
-            prev.includes(menuId)
-                ? [] // Close if already open
-                : [menuId] // Open only this one (accordion)
-        );
-    };
-    // Menu structure matching the new requirements
-    const menuItems = [
-        { id: 'HOME', icon: Home, label: 'Trang chủ', route: ROUTES.HOME },
-        { id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_REVIEW },
-        { id: 'KANJI_STUDY', icon: Languages, label: 'Thư viện Kanji', route: ROUTES.KANJI_REVIEW },
-        { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR_REVIEW },
-        { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện đề JLPT', route: ROUTES.JLPT_TEST },
-        { id: 'JLPT_KAIWA', icon: MessageSquare, label: 'Luyện KAIWA 1:1', route: ROUTES.JLPT_KAIWA },
-        { id: 'HUB', icon: Trophy, label: 'Bảng vinh danh', route: ROUTES.HUB },
-    ].filter(Boolean);
-    if (isAdmin) {
-        menuItems.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
-    }
-    const mobileMenuItems = [
-        ...menuItems,
-        { id: 'UPGRADE', icon: Crown, label: 'Nâng cấp tài khoản', route: ROUTES.UPGRADE }
-    ];
-    // Check if a menu or any of its children is active
-    const isMenuActive = (item) => {
-        if (item.hasSubmenu) {
-            return item.children.some(child => currentView === child.id);
-        }
-        if (item.id === 'KANJI_STUDY') {
-            return currentView.startsWith('KANJI_');
-        }
-        if (item.id === 'VOCAB_LIST') {
-            return currentView.startsWith('VOCAB_');
-        }
-        if (item.id === 'HUB') {
-            return currentView === 'HUB';
-        }
-        if (item.id === 'JLPT_TEST') {
-            return currentView === 'JLPT_TEST' || currentView === 'JLPT_ADMIN';
-        }
-        return currentView === item.id;
-    };
-    // Mobile header for small screens
+
+    // Mobile Header
     const MobileHeader = () => (
-        <header className="lg:hidden fixed top-0 left-0 right-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 z-50 h-14 shadow-sm dark:shadow-none">
-            <div className="h-full px-4 flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                    <Link to={ROUTES.VOCAB_REVIEW} className="flex items-center space-x-3.5">
-                        <div className="w-9 h-9 bg-[#2E5B70] rounded-xl flex items-center justify-center text-white shadow-md shadow-[#2E5B70]/20">
-                            <BookOpen className="w-5 h-5" />
-                        </div>
-                        <span className="text-lg font-bold text-slate-800 dark:text-white tracking-tight">QuizKi</span>
-                    </Link>
-                    <div className="flex items-center space-x-1 ml-1">
-                        <button
-                            onClick={() => {
-                                window.dispatchEvent(new CustomEvent('trigger-tour'));
-                            }}
-                            className="p-1.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer"
-                            title="Xem hướng dẫn trang này"
+        <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
+            <Link to={ROUTES.HOME} className="flex items-center space-x-2.5">
+                <div className="w-9 h-9 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/20 border border-cyan-400/30">
+                    <BookOpen className="w-5 h-5" />
+                </div>
+                <span className="text-lg font-black text-slate-800 dark:text-white tracking-wide">QuizKi <span className="text-cyan-500 font-mono text-xs">AI</span></span>
+            </Link>
+
+            <div className="flex items-center space-x-2">
+                <div className="relative">
+                    <button
+                        onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                        className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                    >
+                        <Bell className="w-4 h-4" />
+                        {hasUnread && (
+                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
+                        )}
+                    </button>
+                    <NotificationsPopover isMobile={true} />
+                </div>
+
+                <button
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                >
+                    {isMobileMenuOpen ? <X className="w-5 h-5" /> : <List className="w-5 h-5" />}
+                </button>
+            </div>
+
+            {/* Mobile menu drawer */}
+            {isMobileMenuOpen && (
+                <div className="fixed inset-0 top-[60px] z-50 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex flex-col overflow-y-auto">
+                    <nav className="p-4 space-y-1.5 flex-1">
+                        {menuItems.map((item) => (
+                            <Link
+                                key={item.id}
+                                to={item.route}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
+                                    isMenuActive(item)
+                                        ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
+                                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                }`}
+                            >
+                                <div className="flex items-center space-x-3">
+                                    <item.icon className="w-5 h-5 text-indigo-600 dark:text-cyan-400" />
+                                    <span className="text-sm font-semibold">{item.label}</span>
+                                </div>
+                                {item.badge > 0 && (
+                                    <span className="px-2 py-0.5 rounded-full text-xs font-bold font-mono bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-400 border border-rose-200 dark:border-rose-800/60">
+                                        {item.badge}
+                                    </span>
+                                )}
+                            </Link>
+                        ))}
+                    </nav>
+
+                    <div className="p-4 border-t border-slate-200 dark:border-slate-800 space-y-3 bg-white dark:bg-slate-900">
+                        <Link
+                            to={ROUTES.UPGRADE}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-sm shadow-md"
                         >
-                            <HelpCircle className="w-5 h-5" />
-                        </button>
-                        {!isAdmin && (
+                            <Crown className="w-4 h-4 fill-white" />
+                            <span>Nâng cấp tài khoản</span>
+                        </Link>
+
+                        <div className="grid grid-cols-2 gap-2">
                             <button
                                 onClick={() => {
-                                    window.dispatchEvent(new CustomEvent('toggle-support-chat'));
+                                    setIsMobileMenuOpen(false);
+                                    window.dispatchEvent(new CustomEvent('open-admin-chat'));
                                 }}
-                                className="p-1.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer relative"
-                                title="Hỗ trợ & Báo lỗi"
+                                className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 text-xs font-bold cursor-pointer"
                             >
-                                <MessageSquare className="w-5 h-5" />
-                                {hasUnreadSupport && (
-                                    <span className="absolute top-1 right-1 w-2 h-2 bg-rose-500 rounded-full animate-pulse" />
-                                )}
+                                <MessageSquare className="w-4 h-4" />
+                                <span>Chat Admin</span>
                             </button>
-                        )}
-                    </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                    {/* Bell Notification Button */}
-                    <div className="relative">
-                        <button
-                            onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                            className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-150/40 dark:hover:bg-slate-800 rounded-lg transition-colors relative cursor-pointer"
-                            title="Thông báo"
-                        >
-                            <Bell className="w-5 h-5" />
-                            {hasUnread && (
-                                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
-                            )}
-                        </button>
-                        <NotificationsPopover isMobile={true} />
-                    </div>
-                    <Link
-                        to={ROUTES.VOCAB_ADD}
-                        className="p-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg transition-colors"
-                    >
-                        <Plus className="w-5 h-5" />
-                    </Link>
-                    <button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
-                    >
-                        {isMobileMenuOpen ? <X className="w-5 h-5" /> : <List className="w-5 h-5" />}
-                    </button>
-                </div>
-            </div>
-            {/* Mobile menu dropdown */}
-            {isMobileMenuOpen && (
-                <div className="absolute top-14 left-0 right-0 bg-white/98 dark:bg-slate-900/98 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/50 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto">
-                    <nav className="p-3 space-y-1">
-                        {/* User info on mobile with avatar capsule */}
-                        {displayName && (
-                            <div className="px-3 py-2 mb-3 bg-gray-50/50 dark:bg-slate-800/20 rounded-2xl border border-gray-150 dark:border-slate-750/30">
-                                {/* Profile Capsule */}
-                                <Link
-                                    to={ROUTES.SETTINGS}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-3 shadow-sm w-full cursor-pointer hover:border-slate-300 dark:hover:border-slate-600 transition-all min-w-0"
-                                >
-                                    {/* Left column: Avatar & Level */}
-                                    <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
-                                        <div className="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300 overflow-hidden border border-white dark:border-slate-800 shadow-md">
-                                            {renderAvatar()}
-                                        </div>
-                                        <span className="bg-sky-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center justify-center shrink-0 shadow-sm">
-                                            LV {xpDetails.level}
-                                        </span>
-                                    </div>
-                                    {/* Right column: Name, Account type, and Level title */}
-                                    <div className="flex flex-col min-w-0 flex-1 justify-center">
-                                        {isPremium ? (
-                                            <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
-                                                <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
-                                            </span>
-                                        ) : (
-                                            <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                                FREE Account
-                                            </span>
-                                        )}
-                                        <span className="text-xs font-black text-slate-850 dark:text-white truncate mt-0.5">
-                                            {displayName}
-                                        </span>
-                                        <span className="text-[10px] text-slate-450 dark:text-slate-400 font-bold truncate mt-1" title={getLevelTitle(xpDetails.level)}>
-                                            {getLevelTitle(xpDetails.level)}
-                                        </span>
-                                    </div>
-                                </Link>
-                            </div>
-                        )}
-                        {mobileMenuItems.map((item) => (
-                            <div key={item.id}>
-                                {item.hasSubmenu ? (
-                                    <>
-                                        <button
-                                            onClick={() => toggleMenu(item.id)}
-                                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${isMenuActive(item)
-                                                ? 'bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400'
-                                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
-                                                }`}
-                                        >
-                                            <div className="flex items-center space-x-3">
-                                                <item.icon className="w-5 h-5" />
-                                                <span className="font-medium">{item.label}</span>
-                                            </div>
-                                            <ChevronDown className={`w-4 h-4 transition-transform ${expandedMenus.includes(item.id) ? 'rotate-180' : ''}`} />
-                                        </button>
-                                        {expandedMenus.includes(item.id) && (
-                                            <div className="ml-8 mt-1 space-y-1">
-                                                {item.children.map((child) => (
-                                                    <Link
-                                                        key={child.id}
-                                                        to={child.route}
-                                                        onClick={() => setIsMobileMenuOpen(false)}
-                                                        className={`block px-4 py-2 rounded-lg text-sm transition-all ${currentView === child.id
-                                                            ? 'bg-indigo-500 text-white'
-                                                            : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
-                                                            }`}
-                                                    >
-                                                        {child.label}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </>
-                                ) : (
-                                    <Link
-                                        to={item.disabled ? '#' : item.route}
-                                        onClick={(e) => {
-                                            if (item.disabled) e.preventDefault();
-                                            else setIsMobileMenuOpen(false);
-                                        }}
-                                        className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${item.disabled
-                                            ? 'cursor-not-allowed opacity-50 text-gray-400'
-                                            : item.id === 'UPGRADE'
-                                                ? isMenuActive(item)
-                                                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold border border-amber-600/30 shadow-sm'
-                                                    : 'bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/30 font-semibold'
-                                                : isMenuActive(item)
-                                                    ? 'bg-indigo-100 dark:bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 border border-indigo-300 dark:border-indigo-500/30'
-                                                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/50'
-                                            }`}
-                                    >
-                                        <item.icon className={`w-5 h-5 ${
-                                            item.id === 'UPGRADE'
-                                                ? isMenuActive(item)
-                                                    ? 'text-white'
-                                                    : 'text-amber-600 dark:text-amber-400'
-                                                : ''
-                                        }`} />
-                                        <span className="font-medium">{item.label}</span>
-                                    </Link>
-                                )}
-                            </div>
-                        ))}
-                        <div className="border-t border-gray-200 dark:border-slate-700/50 my-2" />
-                        <div className="flex items-center justify-between px-4 py-2">
+
                             <button
-                                onClick={() => setIsDarkMode(prev => !prev)}
-                                className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    if (onTriggerTour) onTriggerTour();
+                                    else navigate(ROUTES.HELP);
+                                }}
+                                className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/30 text-xs font-bold"
                             >
-                                {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                                <span>{isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}</span>
-                            </button>
-                            <button
-                                onClick={handleLogout}
-                                className="flex items-center space-x-2 text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300 transition-colors"
-                            >
-                                <LogOut className="w-5 h-5" />
-                                <span>Đăng xuất</span>
+                                <HelpCircle className="w-4 h-4" />
+                                <span>Hướng dẫn</span>
                             </button>
                         </div>
-                    </nav>
+
+                        <button
+                            onClick={() => setIsDarkMode(prev => !prev)}
+                            className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium cursor-pointer"
+                        >
+                            <span className="flex items-center gap-2">
+                                {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
+                                {isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
+                            </span>
+                        </button>
+
+                        <button
+                            onClick={handleLogout}
+                            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200 dark:border-rose-800 text-sm font-bold cursor-pointer"
+                        >
+                            <LogOut className="w-4 h-4" />
+                            <span>Đăng xuất</span>
+                        </button>
+                    </div>
                 </div>
             )}
         </header>
     );
-    // Desktop sidebar
+
+    // Desktop Cyber-AI Futuristic Sidebar
     const DesktopSidebar = () => (
-        <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-[#F8F9FA] dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800/40 shadow-sm`}>
-            {/* Logo */}
-            <div className="p-4 border-b border-slate-100 dark:border-slate-800/40 flex items-center justify-between">
+        <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
+            {/* Cyber Brand Logo */}
+            <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
                 <Link
                     to={ROUTES.HOME}
                     className="flex items-center space-x-3"
                 >
-                    <div className="w-10 h-10 bg-[#2E5B70] rounded-xl flex items-center justify-center text-white shadow-md shadow-[#2E5B70]/20 shrink-0">
+                    <div className="w-10 h-10 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 shrink-0">
                         <BookOpen className="w-5 h-5" />
                     </div>
                     {!isCollapsed && (
                         <div className="flex flex-col">
-                            <span className="text-xl font-bold text-slate-800 dark:text-white leading-none">
-                                QuizKi
+                            <span className="text-xl font-black text-slate-800 dark:text-white leading-none tracking-tight">
+                                QuizKi <span className="text-cyan-500 font-mono text-xs font-black">AI</span>
                             </span>
-                            <span className="text-[11px] text-slate-400 dark:text-slate-500 font-medium tracking-wide mt-1.5">
-                                Học tập hiện đại
+                            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono font-bold tracking-widest uppercase mt-1">
+                                NEURAL PLATFORM
                             </span>
                         </div>
                     )}
@@ -596,133 +439,167 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
                     <div className="relative">
                         <button
                             onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                            className="p-2 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-full text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:shadow-sm transition-all relative cursor-pointer"
+                            className="p-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-300 hover:border-cyan-400 transition-all relative cursor-pointer"
                             title="Thông báo"
                         >
                             <Bell className="w-4.5 h-4.5" />
                             {hasUnread && (
-                                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
+                                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
                             )}
                         </button>
                         <NotificationsPopover isMobile={false} />
                     </div>
                 )}
             </div>
-            {/* User info */}
+
+            {/* Cyber Profile Telemetry Capsule */}
             {!isCollapsed && displayName && (
-                <div className="px-4 py-4 border-b border-slate-100 dark:border-slate-800/40 relative">
-                    {/* Profile Capsule */}
+                <div className="px-4 py-4 border-b border-slate-200 dark:border-slate-800">
                     <Link
                         to={ROUTES.SETTINGS}
-                        data-tour-id="SETTINGS"
-                        className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-3 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-600 transition-all w-full cursor-pointer group min-w-0"
+                        className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-3 shadow-inner hover:border-cyan-400 transition-all w-full cursor-pointer group min-w-0"
                         title="Trang cá nhân"
                     >
-                        {/* Left column: Avatar & Level */}
-                        <div className="flex flex-col items-center gap-1.5 flex-shrink-0">
-                            <div className="w-11 h-11 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-350 overflow-hidden border border-white dark:border-slate-800 shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <div className="flex flex-col items-center gap-1 flex-shrink-0">
+                            <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-cyan-500/40 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
                                 {renderAvatar()}
                             </div>
-                            <span className="bg-sky-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider flex items-center justify-center shrink-0 shadow-sm">
+                            <span className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded font-mono uppercase">
                                 LV {xpDetails.level}
                             </span>
                         </div>
-                        {/* Right column: Name, Account type, and Level title */}
+
                         <div className="flex flex-col min-w-0 flex-1 justify-center">
                             {isPremium ? (
-                                <span className="text-[9px] font-extrabold uppercase tracking-widest bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent flex items-center gap-0.5">
-                                    <Crown className="w-2.5 h-2.5 text-amber-500 fill-amber-500 inline" /> Premium
+                                <span className="text-[9px] font-mono font-black uppercase tracking-widest text-amber-500 flex items-center gap-0.5">
+                                    <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> PREMIUM
                                 </span>
                             ) : (
-                                <span className="text-[9px] font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                    FREE Account
+                                <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                    FREE ACCOUNT
                                 </span>
                             )}
-                            <span className="text-xs font-black text-slate-850 dark:text-white truncate mt-0.5">
+                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">
                                 {displayName}
                             </span>
-                            <span className="text-[10px] text-slate-450 dark:text-slate-400 font-bold truncate mt-1" title={getLevelTitle(xpDetails.level)}>
+                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono truncate mt-0.5">
                                 {getLevelTitle(xpDetails.level)}
                             </span>
                         </div>
                     </Link>
                 </div>
             )}
-            {/* Navigation */}
-            <nav className="flex-1 p-3 space-y-1 overflow-y-auto sidebar-scroll">
+
+            {/* Navigation Menu */}
+            <nav className="flex-1 p-3 space-y-1.5 overflow-y-auto custom-scrollbar">
                 {menuItems.map((item) => (
-                    <div
-                        key={item.id}
-                        data-tour-id={item.id}
-                        className="relative group"
-                    >
+                    <div key={item.id} className="relative group">
                         <Link
                             to={item.disabled ? '#' : item.route}
                             onClick={(e) => {
                                 if (item.disabled) e.preventDefault();
                             }}
-                            className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-4 py-3 rounded-xl transition-all duration-200 group relative ${item.disabled
-                                ? 'cursor-not-allowed opacity-50 text-slate-300 dark:text-slate-600'
-                                : isMenuActive(item)
-                                    ? 'bg-slate-100/70 dark:bg-slate-800/50 text-[#2E5B70] dark:text-sky-400 font-semibold shadow-sm'
-                                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/30'
-                                }`}
+                            className={`w-full flex items-center justify-between ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 relative ${
+                                item.disabled
+                                    ? 'cursor-not-allowed opacity-40 text-slate-400'
+                                    : isMenuActive(item)
+                                    ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
+                                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                            }`}
                             title={isCollapsed ? item.label : undefined}
                         >
                             {isMenuActive(item) && !item.disabled && (
-                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#2E5B70] dark:bg-sky-400 rounded-l-full" />
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-cyan-500 dark:bg-cyan-400 rounded-l-full shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
                             )}
-                            <item.icon className={`w-5 h-5 ${isMenuActive(item) && !item.disabled ? 'text-[#2E5B70] dark:text-sky-400' : item.disabled ? 'text-slate-300 dark:text-slate-600' : 'text-slate-400 dark:text-slate-500 group-hover:text-[#2E5B70] dark:group-hover:text-white'} transition-colors`} />
-                            {!isCollapsed && (
-                                <span className="text-sm font-medium">{item.label}</span>
+                            
+                            <div className="flex items-center space-x-3 min-w-0">
+                                <item.icon className={`w-4.5 h-4.5 ${isMenuActive(item) ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-500 dark:text-slate-400 group-hover:text-cyan-500'}`} />
+                                {!isCollapsed && (
+                                    <span className="text-xs font-semibold truncate">{item.label}</span>
+                                )}
+                            </div>
+                            
+                            {!isCollapsed && item.badge > 0 && (
+                                <span className="px-2 py-0.5 rounded-full text-[10px] font-black font-mono bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-400 border border-rose-200 dark:border-rose-800/60 shadow-sm">
+                                    {item.badge}
+                                </span>
                             )}
                         </Link>
                     </div>
                 ))}
             </nav>
-            {/* Bottom section */}
-            <div className="p-3 border-t border-slate-100 dark:border-slate-800/40 space-y-2">
-                {/* Upgrade Account Link */}
+
+            {/* Bottom Cyber Controls with Chatbox & Help Integrated */}
+            <div className="p-3 border-t border-slate-200 dark:border-slate-800 space-y-2 bg-slate-50/50 dark:bg-slate-950/50">
                 <Link
                     to={ROUTES.UPGRADE}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-4 py-3 rounded-xl transition-all duration-200 group relative ${currentView === 'UPGRADE'
-                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold shadow-md shadow-amber-500/20 dark:shadow-none'
-                            : 'bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 border border-amber-200/50 dark:border-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/30'
-                        }`}
+                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 font-mono text-xs font-bold ${
+                        location.pathname === ROUTES.UPGRADE
+                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
+                            : 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-300/60 dark:border-amber-700/50 hover:bg-amber-500/20'
+                    }`}
                     title={isCollapsed ? 'Nâng cấp tài khoản' : undefined}
                 >
-                    <Crown className={`w-5 h-5 ${currentView === 'UPGRADE' ? 'text-white' : 'text-amber-600 dark:text-amber-400'}`} />
-                    {!isCollapsed && <span className="text-sm font-semibold">Nâng cấp tài khoản</span>}
+                    <Crown className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
+                    {!isCollapsed && <span>Nâng cấp tài khoản</span>}
                 </Link>
-                {/* Collapse toggle */}
-                <button
-                    onClick={() => setIsCollapsed(!isCollapsed)}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer`}
-                >
-                    <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${isCollapsed ? '' : 'rotate-180'}`} />
-                    {!isCollapsed && <span className="text-sm font-medium">Thu gọn</span>}
-                </button>
-                {/* Dark mode toggle */}
-                <button
-                    onClick={() => setIsDarkMode(prev => !prev)}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer`}
-                    title={isCollapsed ? (isDarkMode ? 'Giao diện sáng' : 'Giao diện tối') : undefined}
-                >
-                    {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                    {!isCollapsed && <span className="text-sm font-medium">{isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}</span>}
-                </button>
-                {/* Logout */}
-                <button
-                    onClick={handleLogout}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3 py-2 rounded-lg text-slate-400 hover:text-red-500 dark:text-slate-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all cursor-pointer`}
-                    title={isCollapsed ? 'Đăng xuất' : undefined}
-                >
-                    <LogOut className="w-5 h-5" />
-                    {!isCollapsed && <span className="text-sm font-medium">Đăng xuất</span>}
-                </button>
+
+                {/* Integrated Cyber Quick Control Chips (Chatbox with Admin, Help, Theme, Collapse, Logout) */}
+                <div className="flex items-center justify-between gap-1 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
+                    {/* Chatbox with Admin Button */}
+                    <button
+                        onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
+                        className={`p-2 rounded-xl text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer ${isCollapsed ? 'w-full flex justify-center' : ''}`}
+                        title="Chatbox hỗ trợ với Admin"
+                    >
+                        <MessageSquare className="w-4.5 h-4.5" />
+                    </button>
+
+                    {/* Help / Page Guide '?' Button */}
+                    <button
+                        onClick={() => {
+                            if (onTriggerTour) onTriggerTour();
+                            else navigate(ROUTES.HELP);
+                        }}
+                        className={`p-2 rounded-xl text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer ${isCollapsed ? 'w-full flex justify-center' : ''}`}
+                        title="Xem hướng dẫn trang này"
+                    >
+                        <HelpCircle className="w-4.5 h-4.5" />
+                    </button>
+
+                    {/* Dark Mode Toggle */}
+                    <button
+                        onClick={() => setIsDarkMode(prev => !prev)}
+                        className={`p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer ${isCollapsed ? 'w-full flex justify-center' : ''}`}
+                        title={isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
+                    >
+                        {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
+                    </button>
+
+                    {/* Collapse Sidebar Toggle */}
+                    {!isCollapsed && (
+                        <button
+                            onClick={() => setIsCollapsed(!isCollapsed)}
+                            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                            title="Thu gọn Sidebar"
+                        >
+                            <ChevronRight className="w-4.5 h-4.5 rotate-180" />
+                        </button>
+                    )}
+
+                    {/* Logout Button */}
+                    <button
+                        onClick={handleLogout}
+                        className={`p-2 rounded-xl text-slate-400 hover:text-rose-600 dark:text-slate-500 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer ${isCollapsed ? 'w-full flex justify-center' : ''}`}
+                        title="Đăng xuất"
+                    >
+                        <LogOut className="w-4.5 h-4.5" />
+                    </button>
+                </div>
             </div>
         </aside>
     );
+
     return (
         <>
             <MobileHeader />
@@ -730,4 +607,5 @@ const Sidebar = ({ isDarkMode, setIsDarkMode, displayName, isAdmin, userId, allC
         </>
     );
 };
+
 export default Sidebar;

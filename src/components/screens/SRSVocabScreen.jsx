@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock } from 'lucide-react'
+import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate } from 'react-router-dom';
@@ -1116,20 +1116,20 @@ const SRSVocabScreen = ({
 
             return (
                 <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8 animate-fade-in">
-                    <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-gray-150 dark:border-slate-700/85">
+                    <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-200 dark:border-cyan-500/30">
                         <div className="flex flex-col items-center space-y-4 text-center">
-                            <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center animate-bounce">
-                                <Clock className="w-8 h-8 text-indigo-500 animate-spin-slow" />
+                            <div className="w-16 h-16 bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-200 dark:border-cyan-800/60 rounded-2xl flex items-center justify-center animate-bounce">
+                                <Clock className="w-8 h-8 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
                             </div>
-                            <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+                            <h2 className="text-xl font-black text-slate-900 dark:text-white">
                                 Đang đợi thẻ từ vựng tiếp theo...
                             </h2>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm">
-                                Bạn đã hoàn thành các thẻ từ vựng đến hạn hiện tại. Có <span className="font-bold text-indigo-500">{waiting.length}</span> thẻ đang chờ ôn lại theo chu kỳ.
+                            <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
+                                Bạn đã hoàn thành các thẻ từ vựng đến hạn hiện tại. Có <span className="font-bold text-cyan-600 dark:text-cyan-400 font-mono">{waiting.length}</span> thẻ đang chờ ôn lại theo chu kỳ.
                             </p>
                         </div>
 
-                        <div className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-sky-500 text-white rounded-2xl shadow-md flex items-center gap-2">
+                        <div className="px-6 py-3 bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white rounded-2xl shadow-lg flex items-center gap-2 font-mono">
                             <span className="text-xs font-semibold uppercase tracking-wider">Thẻ tiếp theo sau:</span>
                             <span className="text-lg font-black tracking-widest">{countdownText}</span>
                         </div>
@@ -1137,13 +1137,13 @@ const SRSVocabScreen = ({
                         <div className="flex flex-col sm:flex-row gap-3 w-full">
                             <button
                                 onClick={handleReviewNow}
-                                className="flex-1 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold text-sm rounded-xl transition-all shadow-md cursor-pointer text-center"
+                                className="flex-1 py-3 px-4 bg-cyan-600 hover:bg-cyan-700 active:scale-95 text-white font-bold text-sm rounded-xl transition-all shadow-md cursor-pointer text-center"
                             >
                                 Ôn ngay lập tức (Không đợi)
                             </button>
                             <button
                                 onClick={exitReview}
-                                className="flex-1 py-3 px-4 bg-gray-100 hover:bg-gray-250 dark:bg-slate-700 dark:hover:bg-slate-650 active:scale-95 text-gray-700 dark:text-gray-200 font-bold text-sm rounded-xl transition-all border border-gray-200 dark:border-slate-600 cursor-pointer text-center"
+                                className="flex-1 py-3 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-xl transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center"
                             >
                                 Kết thúc phiên ôn tập
                             </button>
@@ -1164,42 +1164,48 @@ const SRSVocabScreen = ({
 
 
 
-                {/* Today's Focus Overview Banner */}
-                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-650 to-indigo-700 p-8 text-white shadow-lg border border-indigo-400 dark:border-indigo-900/50">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)] pointer-events-none"></div>
+                {/* Today's Focus Overview Banner - Cyber-AI HUD Header */}
+                <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="space-y-2 text-center md:text-left">
-                            <span className="text-[10px] font-extrabold tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
-                                THUẬT TOÁN SRS
-                            </span>
-                            <h1 className="text-3xl font-black tracking-tight">Ôn tập Từ vựng</h1>
-                            <p className="text-sm text-indigo-100 max-w-md font-medium leading-relaxed">
-                                Củng cố vốn từ vựng bằng phương pháp lặp lại ngắt quãng thông minh.
+                        <div className="space-y-3 text-center md:text-left max-w-lg">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
+                                <span>[NEURAL SRS ENGINE] ÔN TẬP NGẮT QUÃNG</span>
+                            </div>
+                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                                Ôn tập Từ vựng
+                            </h1>
+                            <p className="text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
+                                Củng cố vốn từ vựng bằng thuật toán lặp lại ngắt quãng thông minh Anki SM-2.
                             </p>
                         </div>
-                        <div className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 text-center w-full md:w-64 shrink-0 shadow-sm">
-                            <span className="text-5xl font-black tracking-tight mb-1">
+
+                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950/90 rounded-2xl p-5 border border-slate-200 dark:border-cyan-500/30 text-center w-full md:w-64 shrink-0 shadow-md">
+                            <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-1 font-mono">
                                 {savedSessionInfo ? savedSessionInfo.remaining : globalStats.due}
                             </span>
-                            <span className="text-[10px] text-indigo-100 font-extrabold uppercase tracking-wider">Từ vựng cần ôn tập</span>
+                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono font-extrabold uppercase tracking-wider">Từ vựng đến hạn ôn</span>
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md bg-white text-indigo-650 hover:bg-indigo-50 hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
                                 >
                                     TIẾP TỤC ÔN TẬP
                                 </button>
                             ) : globalStats.due > 0 ? (
                                 <button
                                     onClick={handleResumeGlobal}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md bg-white text-indigo-650 hover:bg-indigo-50 hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                                 >
                                     BẮT ĐẦU ÔN TẬP
                                 </button>
                             ) : countdownText ? (
                                 <button
                                     disabled
-                                    className="mt-4 w-full py-3 rounded-xl text-[10px] font-black tracking-wider uppercase transition-all bg-white/20 text-white/60 cursor-not-allowed flex items-center justify-center gap-1"
+                                    className="mt-4 w-full py-3 rounded-xl text-[10px] font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 cursor-not-allowed flex items-center justify-center gap-1"
                                 >
                                     <Clock className="w-3 h-3 animate-spin-slow" />
                                     TIẾP SAU: {countdownText}
@@ -1207,7 +1213,7 @@ const SRSVocabScreen = ({
                             ) : (
                                 <button
                                     disabled
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all bg-white/15 text-white/50 cursor-not-allowed"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed"
                                 >
                                     HẾT THẺ ÔN TẬP
                                 </button>
@@ -1220,13 +1226,13 @@ const SRSVocabScreen = ({
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
                         <div>
-                            <h2 className="text-2xl font-extrabold text-gray-800 dark:text-white tracking-tight">Học phần cần ôn</h2>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Các học phần có từ vựng đã đến hạn ôn tập.</p>
+                            <h2 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white tracking-tight">Học phần cần ôn</h2>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">Các học phần có từ vựng đã đến hạn ôn tập.</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <button
                                 onClick={() => navigate(ROUTES.VOCAB_LIST)}
-                                className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer"
+                                className="text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1 cursor-pointer font-mono"
                             >
                                 Xem tất cả <ArrowRight className="w-3.5 h-3.5" />
                             </button>
@@ -1234,18 +1240,18 @@ const SRSVocabScreen = ({
                     </div>
 
                     {folderStats.length === 0 ? (
-                        <div className="bg-white dark:bg-slate-800 rounded-3xl p-10 text-center border border-gray-100 dark:border-slate-700/50 shadow-sm">
-                            <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="bg-white dark:bg-slate-900 rounded-3xl p-10 text-center border border-slate-200 dark:border-slate-800 shadow-md">
+                            <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <CheckCircle2 className="w-8 h-8 text-emerald-500" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">Tuyệt vời!</h3>
-                            <p className="text-gray-500 dark:text-gray-400">
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Tuyệt vời!</h3>
+                            <p className="text-slate-500 dark:text-slate-400 text-sm">
                                 {allCards.length > 0 
                                     ? "Bạn đã ôn tập hết các từ vựng cần học hôm nay. Hãy học thêm bài mới nhé!" 
                                     : "Bạn chưa có thẻ từ vựng nào trong thư viện."}
                             </p>
                             {allCards.length === 0 && (
-                                <button onClick={() => navigate(ROUTES.BOOKS)} className="mt-6 px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-75 transition-colors text-xs cursor-pointer">
+                                <button onClick={() => navigate(ROUTES.BOOKS)} className="mt-6 px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-bold rounded-xl hover:opacity-95 transition-all text-xs cursor-pointer shadow-md">
                                     Đến Thư viện Sách
                                 </button>
                             )}
@@ -1274,7 +1280,7 @@ const SRSVocabScreen = ({
                                 <button
                                     disabled={vocabSetStartIndex === 0}
                                     onClick={handlePrev}
-                                    className="absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-gray-200/60 dark:border-slate-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:scale-105 transition-all disabled:opacity-30 disabled:pointer-events-none active:scale-95 cursor-pointer z-30"
+                                    className="absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:scale-105 transition-all disabled:opacity-30 disabled:pointer-events-none active:scale-95 cursor-pointer z-30 shadow-md"
                                     title="Trang trước"
                                 >
                                     <ChevronLeft className="w-5 h-5" />
@@ -1290,17 +1296,17 @@ const SRSVocabScreen = ({
                                     <div
                                         key={folder.id}
                                         onClick={() => navigate(`/vocab/set/${folder.id}`)}
-                                        className="bg-white dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl p-6 border border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-305 flex flex-col justify-between space-y-4 cursor-pointer hover:border-indigo-500/50 dark:hover:border-indigo-400/50"
+                                        className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer hover:border-cyan-400 dark:hover:border-cyan-500/50"
                                     >
                                         <div className="space-y-3">
                                             <div className="flex justify-between items-start gap-3 w-full">
                                                 <div className="flex-1 min-w-0">
-                                                    <h3 className="font-extrabold text-lg text-gray-800 dark:text-white leading-tight line-clamp-1">{folder.name}</h3>
-                                                    <p className="text-[11px] text-gray-400 dark:text-gray-500 font-bold mt-1 uppercase tracking-wide">
+                                                    <h3 className="font-bold text-lg text-slate-900 dark:text-white leading-tight line-clamp-1">{folder.name}</h3>
+                                                    <p className="text-[11px] text-slate-400 dark:text-slate-500 font-mono font-bold mt-1 uppercase tracking-wide">
                                                         {folder.masteredPct === 0 ? "CHƯA HỌC" : `Đã thuộc ${folder.masteredPct}%`}
                                                     </p>
                                                 </div>
-                                                <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold shrink-0 mt-1">{folder.total} Thẻ</span>
+                                                <span className="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-full font-bold shrink-0 mt-1">{folder.total} Thẻ</span>
                                             </div>
                                         </div>
 
@@ -1309,31 +1315,31 @@ const SRSVocabScreen = ({
                                             {folder.newCards.length > 0 && (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); navigate(`/vocab/set/${folder.id}`); }}
-                                                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-cyan-50 dark:bg-cyan-950/20 hover:bg-cyan-100 dark:hover:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400 transition-colors border border-cyan-100 dark:border-cyan-900/50 group cursor-pointer"
+                                                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 text-cyan-700 dark:text-cyan-400 transition-colors border border-cyan-200 dark:border-cyan-800/50 group cursor-pointer"
                                                 >
                                                     <div className="flex items-center gap-2">
                                                         <Layers className="w-4 h-4" />
                                                         <span className="font-bold text-xs">Thêm vào ngắt quãng</span>
                                                     </div>
-                                                    <span className="bg-cyan-200/60 dark:bg-cyan-900/80 px-2 py-0.5 rounded-full text-[10px] font-black">{folder.newCards.length}</span>
+                                                    <span className="bg-cyan-200 dark:bg-cyan-900 px-2 py-0.5 rounded-full text-[10px] font-black font-mono">{folder.newCards.length}</span>
                                                 </button>
                                             )}
 
                                             {folder.dueCards.length > 0 && (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); startFolderReview(folder.dueCards, folder.id); }}
-                                                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/20 hover:bg-orange-100 dark:hover:bg-orange-900/30 text-orange-700 dark:text-orange-400 transition-colors border border-orange-100 dark:border-orange-900/50 group cursor-pointer"
+                                                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/40 hover:bg-orange-100 dark:hover:bg-orange-900/60 text-orange-700 dark:text-orange-400 transition-colors border border-orange-200 dark:border-orange-800/50 group cursor-pointer"
                                                 >
                                                     <div className="flex items-center gap-2">
                                                         <RotateCw className="w-4 h-4" />
                                                         <span className="font-bold text-xs">Ôn tập ngắt quãng</span>
                                                     </div>
-                                                    <span className="bg-orange-200/60 dark:bg-orange-900/80 px-2 py-0.5 rounded-full text-[10px] font-black">{folder.dueCards.length}</span>
+                                                    <span className="bg-orange-200 dark:bg-orange-900 px-2 py-0.5 rounded-full text-[10px] font-black font-mono">{folder.dueCards.length}</span>
                                                 </button>
                                             )}
 
                                             {!folder.hasAction && (
-                                                <div className="w-full text-center py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-bold text-xs border border-dashed border-slate-200 dark:border-slate-700/60">
+                                                <div className="w-full text-center py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-400 dark:text-slate-500 font-bold text-xs border border-dashed border-slate-200 dark:border-slate-800">
                                                     ✓ Không có thẻ cần ôn tập hôm nay
                                                 </div>
                                             )}
@@ -1361,18 +1367,18 @@ const SRSVocabScreen = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <button
                         onClick={() => navigate(ROUTES.VOCAB_ADD)}
-                        className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
+                        className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-all flex items-center justify-between group cursor-pointer"
                     >
                         <div className="flex items-center gap-4 text-left">
-                            <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center">
-                                <Plus className="w-5 h-5 text-indigo-500" />
+                            <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-200 dark:border-cyan-800/60 flex items-center justify-center">
+                                <Plus className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-gray-800 dark:text-white">Thêm từ vựng mới</h3>
-                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Học danh sách từ vựng mới hoặc nhập từ các bộ sách.</p>
+                                <h3 className="font-bold text-slate-900 dark:text-white">Thêm từ vựng mới</h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Học danh sách từ vựng mới hoặc nhập từ các bộ sách.</p>
                             </div>
                         </div>
-                        <ArrowRight className="w-5 h-5 text-gray-300 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
                     </button>
 
                     <button
@@ -1385,37 +1391,37 @@ const SRSVocabScreen = ({
                                 }
                             }
                         }}
-                        className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200/60 dark:border-slate-700/60 shadow-sm hover:shadow-md transition-all flex items-center justify-between group cursor-pointer"
+                        className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-red-400 dark:hover:border-red-500/50 transition-all flex items-center justify-between group cursor-pointer"
                     >
                         <div className="flex items-center gap-4 text-left">
-                            <div className="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-950/40 flex items-center justify-center">
-                                <RotateCw className="w-5 h-5 text-red-500" />
+                            <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800/60 flex items-center justify-center">
+                                <RotateCw className="w-5 h-5 text-rose-600 dark:text-rose-400" />
                             </div>
                             <div>
                                 <div className="flex items-center gap-2">
-                                    <h3 className="font-bold text-gray-800 dark:text-white">Ôn tập lỗi sai</h3>
+                                    <h3 className="font-bold text-slate-900 dark:text-white">Ôn tập lỗi sai</h3>
                                     {mistakeCards.length > 0 && (
-                                        <span className="bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 px-2 py-0.5 rounded-full text-[10px] font-black">
+                                        <span className="bg-rose-100 dark:bg-rose-900/60 text-rose-600 dark:text-rose-400 px-2 py-0.5 rounded-full text-[10px] font-black font-mono">
                                             {mistakeCards.length}
                                         </span>
                                     )}
                                 </div>
-                                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Tập trung ôn tập những thẻ cần lặp lại.</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Tập trung ôn tập những thẻ cần lặp lại.</p>
                             </div>
                         </div>
-                        <ArrowRight className="w-5 h-5 text-gray-300 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
                     </button>
                 </div>
 
                 {/* Last Studied Section */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200/60 dark:border-slate-700/60 shadow-sm space-y-4">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
                     <div className="flex items-center gap-2">
-                        <Calendar className="w-5 h-5 text-indigo-500" />
-                        <h3 className="font-bold text-gray-800 dark:text-white text-base">Học gần đây</h3>
+                        <Calendar className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+                        <h3 className="font-bold text-slate-900 dark:text-white text-base">Học gần đây</h3>
                     </div>
-                    <div className="divide-y divide-gray-100 dark:divide-slate-700/60">
+                    <div className="divide-y divide-slate-100 dark:divide-slate-800">
                         {recentSets.length === 0 ? (
-                            <p className="text-xs text-gray-400 dark:text-gray-500 py-2 italic">
+                            <p className="text-xs text-slate-400 dark:text-slate-500 py-2 italic">
                                 Chưa có học phần nào được học gần đây.
                             </p>
                         ) : (
@@ -1423,17 +1429,17 @@ const SRSVocabScreen = ({
                                 <div
                                     key={set.id}
                                     onClick={() => navigate(`/vocab/set/${set.id}`)}
-                                    className="flex items-center justify-between py-3.5 hover:bg-slate-50 dark:hover:bg-slate-700/30 px-2 rounded-xl transition-colors cursor-pointer group"
+                                    className="flex items-center justify-between py-3.5 hover:bg-slate-50 dark:hover:bg-slate-800/50 px-2 rounded-xl transition-colors cursor-pointer group"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center text-indigo-500 group-hover:scale-105 transition-transform">
+                                        <div className="w-9 h-9 rounded-xl bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-200 dark:border-cyan-800/40 flex items-center justify-center text-cyan-600 dark:text-cyan-400 group-hover:scale-105 transition-transform">
                                             <BookOpen className="w-4 h-4" />
                                         </div>
                                         <div>
-                                            <p className="font-bold text-sm text-gray-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                            <p className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                                                 {set.name}
                                             </p>
-                                            <p className="text-xs text-gray-400 dark:text-gray-500">
+                                            <p className="text-xs text-slate-500 dark:text-slate-400">
                                                 Học phần • {set.count} từ vựng
                                             </p>
                                         </div>
@@ -1445,16 +1451,16 @@ const SRSVocabScreen = ({
                                                     e.stopPropagation();
                                                     navigate(`/vocab/edit-set/${set.id}`);
                                                 }}
-                                                className="p-1.5 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-gray-400 hover:text-indigo-500 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 shrink-0"
+                                                className="p-1.5 rounded-lg hover:bg-cyan-50 dark:hover:bg-cyan-950/50 text-slate-400 hover:text-cyan-600 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 shrink-0"
                                                 title="Thêm từ vựng nhanh vào học phần này"
                                             >
                                                 <Plus className="w-4 h-4" />
                                             </button>
                                         )}
-                                        <span className="text-xs font-bold text-gray-400 dark:text-gray-500">
+                                        <span className="text-xs font-bold font-mono text-slate-400 dark:text-slate-500">
                                             {formatTimeAgo(set.timestamp)}
                                         </span>
-                                        <ArrowRight className="w-4 h-4 text-gray-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                                        <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
                                     </div>
                                 </div>
                             ))

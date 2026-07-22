@@ -287,7 +287,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                             Bạn đã hoàn thành trò chơi đồng nghĩa.
                         </p>
                     </div>
-                    <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-indigo-200/60 dark:border-indigo-800/60 shadow-lg">
+                    <div className="w-full max-w-xs bg-slate-50 dark:bg-slate-950 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-md">
                         <div className="flex flex-col items-center justify-center gap-1">
                             <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-lg">
                                 <Zap className="w-5 h-5" />

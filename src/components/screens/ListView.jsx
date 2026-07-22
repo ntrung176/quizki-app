@@ -715,25 +715,25 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                 </div>
                 {/* Stats Cards */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                        <div className="text-2xl font-bold text-indigo-500">{stats.total}</div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">Tổng từ vựng</div>
+                    <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md">
+                        <div className="text-2xl font-bold font-mono text-cyan-600 dark:text-cyan-400">{stats.total}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">Tổng từ vựng</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                        <div className="text-2xl font-bold text-orange-500">{stats.dueCards}</div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">Cần ôn</div>
+                    <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md">
+                        <div className="text-2xl font-bold font-mono text-orange-500">{stats.dueCards}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">Cần ôn</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                        <div className="text-2xl font-bold text-blue-500">{stats.newCards}</div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">Chưa học</div>
+                    <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md">
+                        <div className="text-2xl font-bold font-mono text-blue-500">{stats.newCards}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">Chưa học</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm">
-                        <div className="text-2xl font-bold text-emerald-500">{stats.total > 0 ? Math.round(((stats.total - stats.newCards) / stats.total) * 100) : 0}%</div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">Đã học</div>
+                    <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md">
+                        <div className="text-2xl font-bold font-mono text-emerald-500">{stats.total > 0 ? Math.round(((stats.total - stats.newCards) / stats.total) * 100) : 0}%</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">Đã học</div>
                     </div>
                 </div>
                 {/* Search & Filter Bar */}
-                <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-sm space-y-3">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md space-y-3">
                     {/* Search */}
                     <div className="relative">
                         <input
@@ -1047,8 +1047,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                             data-card-id={card.id}
                                             onClick={() => toggleCardExpanded(card.id)}
                                             className={`group relative flex flex-col items-stretch p-3 rounded-xl border transition-all cursor-pointer ${isSelected
-                                                ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700 ring-1 ring-red-300'
-                                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md'
+                                                ? 'bg-red-50 dark:bg-red-950/40 border-red-300 dark:border-red-800 ring-1 ring-red-300'
+                                                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/50 shadow-sm hover:shadow-md'
                                                 }`}
                                         >
                                             {/* Main row */}
@@ -1153,7 +1153,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                             {/* Hover action buttons */}
                                             <div 
                                                 onClick={(e) => e.stopPropagation()}
-                                                className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white/80 dark:bg-slate-800/80 rounded-lg p-0.5 backdrop-blur-sm"
+                                                className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-0.5 shadow-sm"
                                             >
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); setShowMoveModal(card.id); }}

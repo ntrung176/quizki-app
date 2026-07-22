@@ -908,9 +908,9 @@ const StudySetDetail = ({
 
     return (
         <>
-            <div className="w-full pb-20 min-h-screen bg-gray-50 dark:bg-gray-900 animate-fade-in">
+            <div className="w-full pb-20 min-h-screen bg-transparent animate-fade-in">
                 {/* Header */}
-                <div className="sticky top-0 z-30 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+                <div className="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-md">
                     <div className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
                         <button onClick={onBack} className="flex items-center gap-1 text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 font-medium transition-colors">
                             <ChevronLeft className="w-5 h-5" /> Trở về Thư viện
@@ -955,7 +955,7 @@ const StudySetDetail = ({
                                 onSaveCardAudio={onSaveCardAudio}
                             />
                             {/* Bảng trạng thái ghi nhớ (Mastery Status) */}
-                            <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-gray-200 dark:border-slate-700/80 shadow-sm space-y-6">
+                            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-6">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                                     <div>
                                         <h3 className="text-lg font-bold text-gray-800 dark:text-white">Trạng thái từ vựng</h3>
@@ -1297,7 +1297,7 @@ const StudySetDetail = ({
                                                 <div
                                                     key={card.id}
                                                     onClick={() => toggleCardExpanded(card.id)}
-                                                    className="flex flex-col bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 gap-3 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md transition-all cursor-pointer"
+                                                    className="flex flex-col bg-white dark:bg-slate-900 p-4 md:p-5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 gap-3 hover:border-cyan-400 dark:hover:border-cyan-500/50 hover:shadow-md transition-all cursor-pointer"
                                                 >
                                                     <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
                                                         <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">

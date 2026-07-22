@@ -13,7 +13,7 @@ const ProfileScreen = ({ onSave }) => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-sky-50 flex items-center justify-center p-4">
-            <div className="w-full max-w-md bg-white/90 backdrop-blur-xl shadow-2xl rounded-3xl p-10 space-y-8 border border-white/50">
+            <div className="w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl rounded-3xl p-10 space-y-8 border border-slate-200 dark:border-slate-800">
                 <div className="text-center space-y-2">
                     <div className="w-16 h-16 bg-indigo-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-indigo-200">
                         <Sparkle className="w-8 h-8 text-white" />

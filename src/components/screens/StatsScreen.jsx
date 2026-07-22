@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkle } from 'lucide-react'
+import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkle, Cpu } from 'lucide-react'
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
@@ -600,81 +600,90 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     return (
         <div className="space-y-6 max-w-4xl mx-auto pb-24 animate-fade-in">
-            {/* Indigo Header Stats Card */}
-            <div className="bg-gradient-to-r from-indigo-500 to-indigo-700 p-6 rounded-3xl text-white shadow-xl">
-                <div className="flex items-center gap-4 mb-5">
-                    <div className={`w-14 h-14 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 bg-white/20 border-2 border-white/40 shadow-inner text-2xl`}>
-                        {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U', true)}
-                    </div>
-                    <div>
-                        <div className="flex items-center gap-2 flex-wrap">
-                            <h2 className="text-xl font-bold tracking-tight">{profile.displayName || 'Bạn'}</h2>
-                            <span className="bg-amber-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm flex items-center justify-center">
-                                LV {xpDetails.level}
-                            </span>
-                            <span className="bg-white/20 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full backdrop-blur-sm flex items-center justify-center">
-                                {getLevelTitle(xpDetails.level)}
-                            </span>
-                        </div>
-                        <p className="text-xs text-indigo-100/80 font-medium mt-0.5">Thống kê của bạn</p>
-                    </div>
-                </div>
+            {/* Sci-Fi Cyber HUD Header Card */}
+            <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 dark:bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-60 h-60 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-                {/* XP Progress Bar */}
-                <div className="mb-5 bg-white/5 p-3 rounded-2xl border border-white/10 space-y-1.5">
-                    <div className="flex justify-between items-center text-xs font-bold text-indigo-100">
-                        <span className="flex items-center gap-1">
-                            <Sparkle className="w-3.5 h-3.5 text-amber-300" /> Tiến trình cấp độ {xpDetails.level}
-                        </span>
-                        <span>{xpDetails.remainingXp} / {xpDetails.nextLevelXp} XP</span>
+                <div className="relative z-10 space-y-5">
+                    <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 bg-slate-100 dark:bg-slate-800 border-2 border-amber-400 shadow-md text-2xl">
+                            {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U', true)}
+                        </div>
+                        <div>
+                            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
+                                <Cpu className="w-3 h-3 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
+                                <span>[NEURAL LEADERBOARD HUD]</span>
+                            </div>
+                            <div className="flex items-center gap-2 flex-wrap">
+                                <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">{profile.displayName || 'Bạn'}</h2>
+                                <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[11px] font-black font-mono px-2.5 py-0.5 rounded-lg shadow-sm">
+                                    LV {xpDetails.level}
+                                </span>
+                                <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] font-bold font-mono px-2.5 py-0.5 rounded-lg">
+                                    {getLevelTitle(xpDetails.level)}
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <div className="w-full h-2.5 bg-white/20 rounded-full overflow-hidden p-0.5 backdrop-blur-sm">
-                        <div 
-                            className="h-full bg-gradient-to-r from-amber-400 via-yellow-300 to-emerald-400 rounded-full transition-all duration-500 ease-out shadow-inner"
-                            style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
-                        />
-                    </div>
-                </div>
 
-                <div className="grid grid-cols-5 gap-3 bg-white/10 p-3 rounded-2xl border border-white/10">
-                    <div className="text-center">
-                        <div className="text-xl md:text-2xl font-bold">{totalCards}</div>
-                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Từ vựng</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-xl md:text-2xl font-bold">{kanjiSrsStats.total}</div>
-                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Kanji</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-xl md:text-2xl font-bold">{vocabMastery.mastered}</div>
-                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Thành thạo</div>
-                    </div>
-                    <div className="text-center">
-                        <div className="text-xl md:text-2xl font-bold flex items-center justify-center gap-0.5">
-                            <Flame className="w-4 h-4 fill-orange-400 text-orange-400" />
-                            {streak}
+                    {/* XP Progress Bar */}
+                    <div className="bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
+                        <div className="flex justify-between items-center text-xs font-bold font-mono text-slate-700 dark:text-slate-300">
+                            <span className="flex items-center gap-1.5">
+                                <Sparkle className="w-4 h-4 text-amber-500" /> Tiến trình cấp độ {xpDetails.level}
+                            </span>
+                            <span className="text-cyan-600 dark:text-cyan-400 font-extrabold">{xpDetails.remainingXp} / {xpDetails.nextLevelXp} XP</span>
                         </div>
-                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Chuỗi ngày</div>
-                    </div>
-                    <div className="text-center border-l border-white/20 pl-2">
-                        <div className="text-xl md:text-2xl font-bold flex items-center justify-center gap-0.5 text-yellow-300">
-                            <Star className="w-4 h-4 fill-yellow-300 text-yellow-300" />
-                            {myScore}
+                        <div className="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5">
+                            <div 
+                                className="h-full bg-gradient-to-r from-amber-400 via-orange-400 to-emerald-400 rounded-full transition-all duration-500 ease-out shadow-sm"
+                                style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
+                            />
                         </div>
-                        <div className="text-[10px] md:text-xs text-indigo-100 font-medium opacity-90 mt-1">Điểm</div>
+                    </div>
+
+                    {/* Telemetry Stats Grid */}
+                    <div className="grid grid-cols-5 gap-3 bg-slate-50 dark:bg-slate-950 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 font-mono">
+                        <div className="text-center">
+                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{totalCards}</div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Từ vựng</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{kanjiSrsStats.total}</div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Kanji</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{vocabMastery.mastered}</div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Thành thạo</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight flex items-center justify-center gap-0.5">
+                                <Flame className="w-4 h-4 fill-orange-500 text-orange-500" />
+                                {streak}
+                            </div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Chuỗi ngày</div>
+                        </div>
+                        <div className="text-center border-l border-slate-200 dark:border-slate-800 pl-2">
+                            <div className="text-xl md:text-2xl font-black text-amber-500 flex items-center justify-center gap-0.5">
+                                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                                {myScore}
+                            </div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Điểm</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             {/* Leagues Selection Header */}
-            <div className="bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm p-5 space-y-4">
+            <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md p-5 space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
-                        <h3 className="font-bold text-gray-855 dark:text-white flex items-center gap-2 text-base">
+                        <h3 className="font-bold text-slate-800 dark:text-white flex items-center gap-2 text-base">
                             <Trophy className="w-5 h-5 text-yellow-500 fill-yellow-100 dark:fill-yellow-900/30" />
                             Đấu trường Giải đấu (Leagues)
                         </h3>
-                        <p className="text-xs text-gray-400 dark:text-gray-550 mt-1">
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                             Thi đấu cùng 30 học viên có hoạt động tương đồng. Top 5 thăng hạng, Bottom 5 xuống hạng.
                         </p>
                     </div>
@@ -702,7 +711,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                 className={`relative flex flex-col items-center justify-center p-2.5 sm:p-3.5 rounded-2xl border transition-all duration-305 ${
                                     isSelected 
                                         ? `bg-gradient-to-br ${colors} shadow-md scale-102 border-transparent font-black` 
-                                        : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-705 border-gray-205/60 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold'
+                                        : 'bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold'
                                 }`}
                             >
                                 <img src={icon} alt={lg} className="w-12 h-12 sm:w-14 sm:h-14 object-contain mb-1 drop-shadow-md" />
@@ -740,7 +749,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                         2
                                     </div>
                                 </div>
-                                <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-3 border border-slate-200 dark:border-gray-700 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
+                                <div className="text-center bg-white dark:bg-slate-900 rounded-2xl p-3 border border-slate-200 dark:border-slate-800 w-full shadow-md group-hover:shadow-lg transition-all duration-300">
                                     <div className="flex flex-col items-center gap-0.5 justify-center mb-1">
                                         <p className="font-bold text-xs truncate text-gray-700 dark:text-gray-200 max-w-full">{podiumList[1].displayName || 'Ẩn danh'}</p>
                                         <div className="flex flex-wrap gap-1 items-center justify-center scale-90">
@@ -977,7 +986,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
             {/* Sticky bottom bar for my rank if not in the current view count */}
             {myRankInfo.rank > displayCount && (
-                <div className="fixed bottom-0 left-0 right-0 lg:left-64 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-t border-indigo-100 dark:border-indigo-950/50 p-4 shadow-[0_-8px_30px_rgba(0,0,0,0.1)] z-30 transition-all flex items-center justify-between max-w-4xl mx-auto rounded-t-3xl border-x">
+                <div className="fixed bottom-0 left-0 right-0 lg:left-64 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-4 shadow-[0_-8px_30px_rgba(0,0,0,0.1)] z-30 transition-all flex items-center justify-between max-w-4xl mx-auto rounded-t-3xl border-x">
                     <div className="flex items-center gap-3">
                         <div className="bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 font-bold text-sm px-3 py-1.5 rounded-xl border border-indigo-100 dark:border-indigo-900/40">
                             Hạng {myRankInfo.rank}
@@ -1015,26 +1024,26 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     Hệ thống xếp hạng ưu tiên những người học năng động và chăm chỉ. Điểm số được tính toán dựa trên hoạt động trong <strong>7 ngày gần nhất</strong> và chuỗi ngày học liên tục (Streak):
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-indigo-600 dark:text-indigo-300">
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-indigo-100/50 dark:border-indigo-900/30 flex flex-col justify-between">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
                         <div>
                             <p className="font-bold mb-1">📚 Học từ/Kanji mới</p>
                             <p className="opacity-80">Từ vựng: <strong className="font-bold text-indigo-700 dark:text-indigo-400">+10 điểm</strong></p>
                             <p className="opacity-80">Kanji: <strong className="font-bold text-indigo-700 dark:text-indigo-400">+15 điểm</strong></p>
                         </div>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-indigo-100/50 dark:border-indigo-900/30 flex flex-col justify-between">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
                         <div>
                             <p className="font-bold mb-1">🔄 Lượt ôn tập</p>
                             <p className="opacity-80">Từ vựng & Kanji (SRS): <strong className="font-bold text-indigo-700 dark:text-indigo-400">+20 điểm/lượt</strong></p>
                         </div>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-indigo-100/50 dark:border-indigo-900/30 flex flex-col justify-between">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
                         <div>
                             <p className="font-bold mb-1">📅 Ngày năng động</p>
                             <p className="opacity-80">Trong 7 ngày qua: <strong className="font-bold text-indigo-700 dark:text-indigo-400">+50 điểm/ngày</strong></p>
                         </div>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-indigo-100/50 dark:border-indigo-900/30 flex flex-col justify-between">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
                         <div>
                             <p className="font-bold mb-1">🔥 Chuỗi học</p>
                             <p className="opacity-80">Ngày học liên tiếp (Streak): <strong className="font-bold text-indigo-700 dark:text-indigo-400">+20 điểm/ngày</strong></p>
@@ -1056,19 +1065,19 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     Hệ thống phân hạng giải đấu giúp người học có môi trường cạnh tranh sôi nổi và vừa sức. Bảng đấu được làm mới hàng tuần:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-emerald-100/50 dark:border-emerald-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-emerald-700 dark:text-emerald-400">🛡️ Cấp hạng Giải đấu (10 Ranks)</p>
                         <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                             Có 10 cấp hạng tăng dần: <strong>Sắt 🔘 → Đồng 🥉 → Bạc 🥈 → Vàng 🥇 → Bạch Kim 💎 → Lục Bảo 🟢 → Kim Cương 💠 → Cao Thủ 🟣 → Đại Cao Thủ 🔴 → Thách Đấu 👑</strong>
                         </p>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-emerald-100/50 dark:border-emerald-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-emerald-700 dark:text-emerald-400">📈 Thăng / Xuống hạng</p>
                         <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                             Quy chế động theo số người tham gia: Sắt/Đồng lấy <strong>Top 5</strong> (tối thiểu 100đ). Bạc trở lên lấy <strong>Top 1-5</strong> tùy quy mô giải đấu (tối thiểu 200đ). Tự động xuống hạng nếu không tích cực học tập (dưới 30đ).
                         </p>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-emerald-100/50 dark:border-emerald-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-emerald-700 dark:text-emerald-400">🔥 Đấu trường thực tế</p>
                         <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                             Từ giải <strong>Bạc trở lên</strong>, hệ thống loại bỏ hoàn toàn các tài khoản bot. Bạn sẽ cạnh tranh trực tiếp với những người học thực tế.
@@ -1087,42 +1096,42 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     Điểm kinh nghiệm (XP) giúp bạn tăng Cấp độ (Level) và mở khóa các Danh hiệu độc quyền. XP được tính theo từng hành động cụ thể và được nhân thêm theo độ khó JLPT của bài học:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-amber-100/50 dark:border-amber-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">📖 Luyện tập lần đầu</p>
                         <ul className="list-disc list-inside space-y-0.5 text-gray-600 dark:text-gray-400">
                             <li>Thẻ nhớ & Chế độ học chính: <strong className="text-slate-700 dark:text-slate-350">+10 XP</strong></li>
                             <li>Đồng nghĩa, Ví dụ, Chính tả, Mặt sau...: <strong className="text-slate-700 dark:text-slate-350">+6 XP</strong></li>
                         </ul>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-amber-100/50 dark:border-amber-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">🔄 Ôn tập từ vựng (SRS)</p>
                         <ul className="list-disc list-inside space-y-0.5 text-gray-600 dark:text-gray-400">
                             <li>Quên rồi: <strong className="text-slate-700 dark:text-slate-350">+5 XP</strong> | Khó: <strong className="text-slate-700 dark:text-slate-350">+15 XP</strong></li>
                             <li>Tốt: <strong className="text-slate-700 dark:text-slate-350">+30 XP</strong> | Dễ: <strong className="text-slate-700 dark:text-slate-350">+45 XP</strong></li>
                         </ul>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-amber-100/50 dark:border-amber-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">🏮 Ôn tập Kanji (SRS)</p>
                         <ul className="list-disc list-inside space-y-0.5 text-gray-600 dark:text-gray-400">
                             <li>Quên rồi: <strong className="text-slate-700 dark:text-slate-350">+8 XP</strong> | Khó: <strong className="text-slate-700 dark:text-slate-350">+25 XP</strong></li>
                             <li>Tốt: <strong className="text-slate-700 dark:text-slate-350">+45 XP</strong> | Dễ: <strong className="text-slate-700 dark:text-slate-350">+60 XP</strong></li>
                         </ul>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-amber-100/50 dark:border-amber-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">🚀 Thăng hạng trạng thái SRS</p>
                         <ul className="list-disc list-inside space-y-0.5 text-gray-600 dark:text-gray-400">
                             <li>Lên Đang học (Learning): <strong className="text-slate-700 dark:text-slate-350">+10 XP</strong></li>
                             <li>Lên Thành thạo (Review): <strong className="text-slate-700 dark:text-slate-350">+100 XP</strong></li>
                         </ul>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-amber-100/50 dark:border-amber-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">📈 Hệ số cấp độ JLPT</p>
                         <ul className="list-disc list-inside space-y-0.5 text-gray-600 dark:text-gray-400">
                             <li>N5 / N4: <strong className="text-slate-700 dark:text-slate-350">x1.0</strong></li>
                             <li>N3: <strong className="text-slate-700 dark:text-slate-350">x1.2</strong> | N2: <strong className="text-slate-700 dark:text-slate-350">x1.4</strong> | N1: <strong className="text-slate-700 dark:text-slate-350">x1.6</strong></li>
                         </ul>
                     </div>
-                    <div className="p-3 bg-white/50 dark:bg-gray-800/30 rounded-xl border border-amber-100/50 dark:border-amber-950/20 space-y-1">
+                    <div className="p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm space-y-1">
                         <p className="font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1">🛡️ Bảo mật & Chống spam</p>
                         <p className="text-gray-600 dark:text-gray-400 leading-normal">
                             Giới hạn tối đa <strong className="text-slate-700 dark:text-slate-350">1500 XP/ngày</strong>. Hệ thống tự động từ chối các lượt học nhanh bất thường để đảm bảo tính công bằng.

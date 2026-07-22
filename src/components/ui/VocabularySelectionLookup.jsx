@@ -685,7 +685,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
             {showDetails && (
                 <div
                     ref={cardRef}
-                    className={`bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border border-slate-200/80 dark:border-slate-800/80 rounded-2xl shadow-2xl p-5 w-80 md:w-96 absolute -translate-x-1/2 animate-fade-in text-slate-800 dark:text-slate-200 ${placeBelow ? 'translate-y-0 mt-2' : '-translate-y-full mb-4'}`}
+                    className={`bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-5 w-80 md:w-96 absolute -translate-x-1/2 animate-fade-in text-slate-800 dark:text-slate-200 ${placeBelow ? 'translate-y-0 mt-2' : '-translate-y-full mb-4'}`}
                     style={{
                         left: `${horizontalOffset}px`,
                         top: placeBelow ? `${(popupPosition.height || 0) + 8}px` : undefined,

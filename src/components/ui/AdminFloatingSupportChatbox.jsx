@@ -45,6 +45,14 @@ const compressImage = (file, maxWidth = 1200, maxHeight = 1200, quality = 0.7) =
 
 const AdminFloatingSupportChatbox = ({ currentUserId }) => {
     const [isOpen, setIsOpen] = useState(false);
+
+    // Listen to global event from Sidebar to open Chatbox with Admin
+    useEffect(() => {
+        const handleOpenAdminChat = () => setIsOpen(true);
+        window.addEventListener('open-admin-chat', handleOpenAdminChat);
+        return () => window.removeEventListener('open-admin-chat', handleOpenAdminChat);
+    }, []);
+
     const [threads, setThreads] = useState([]);
     const [selectedUserId, setSelectedUserId] = useState(null);
     const [messages, setMessages] = useState([]);
@@ -372,26 +380,7 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
 
     return (
         <>
-            {/* Floating Bubble Button */}
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={`hidden lg:flex fixed bottom-6 right-6 z-55 w-14 h-14 rounded-full items-center justify-center text-white shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer bg-[#2E5B70] shadow-[#2E5B70]/30 ${isOpen ? 'opacity-100' : 'opacity-50 hover:opacity-100 focus:opacity-100 active:opacity-100'}`}
-            >
-                {isOpen ? (
-                    <X className="w-6 h-6 animate-fade-in" />
-                ) : (
-                    <div className="relative">
-                        <MessageSquare className="w-6 h-6 animate-fade-in" />
-                        {unreadCount > 0 && (
-                            <span className="absolute -top-2.5 -right-2.5 min-w-5 h-5 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900 flex items-center justify-center text-[9px] font-black text-white px-1.5 animate-pulse">
-                                {unreadCount}
-                            </span>
-                        )}
-                    </div>
-                )}
-            </button>
-
-            {/* Chatbox Container */}
+            {/* Admin Chatbox Container - Anchored beside Sidebar menu */}
             {isOpen && (() => {
                 const isUserOnline = (lastActive) => {
                     if (!lastActive) return false;
@@ -399,7 +388,7 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
                     return (Date.now() - date.getTime()) < 3 * 60 * 1000;
                 };
                 return (
-                    <div className="fixed bottom-24 right-6 z-55 w-[340px] sm:w-[390px] h-[500px] sm:h-[540px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-100 dark:border-slate-800 flex flex-col overflow-hidden animate-fade-in font-sans">
+                    <div className="fixed bottom-4 left-4 lg:left-68 z-55 w-[340px] sm:w-[390px] h-[500px] sm:h-[540px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-cyan-500/30 flex flex-col overflow-hidden animate-fade-in font-sans">
                         
                         {/* Header */}
                         <div className="bg-[#2E5B70] p-4 flex items-center justify-between text-white">

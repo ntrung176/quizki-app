@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw, AlertTriangle } from 'lucide-react'
+import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw, AlertTriangle, Cpu } from 'lucide-react'
 import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 
@@ -113,20 +113,20 @@ export const CardEditorItem = ({
     if (!isActive) {
         return (
             <div 
-                className="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-sm border border-slate-100 dark:border-slate-800/80 hover:shadow-md cursor-pointer transition-all group flex items-start gap-4"
+                className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-lg cursor-pointer transition-all group flex items-start gap-4"
                 onClick={() => onActivate(card.id)}
             >
-                <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 font-bold text-sm shrink-0">
+                <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold text-sm shrink-0">
                     {index + 1}
                 </div>
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="border-b border-slate-100 dark:border-slate-700 pb-2">
+                    <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
                         <p className={`text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'}`}>
                             {card.front || 'Thuật ngữ (Tiếng Nhật)'}
                         </p>
                         <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">THUẬT NGỮ</p>
                     </div>
-                    <div className="border-b border-slate-100 dark:border-slate-700 pb-2">
+                    <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
                         <p className={`text-lg font-bold ${card.back ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'}`}>
                             {card.back || 'Định nghĩa (Tiếng Việt)'}
                         </p>
@@ -145,7 +145,7 @@ export const CardEditorItem = ({
     }
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 shadow-md border border-slate-100 dark:border-slate-700/60 transition-all relative space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-md border border-slate-200 dark:border-slate-800 transition-all relative space-y-6">
             {/* Card Header Info */}
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/65 pb-4">
                 <div className="flex items-center gap-3">
@@ -994,44 +994,53 @@ const AddCardForm = ({
     };
 
     return (
-        <div className="w-full pb-32 bg-slate-50 dark:bg-gray-900 min-h-screen">
+        <div className="w-full pb-32 bg-transparent min-h-screen">
             <TopTabBar tabs={VOCAB_TABS} />
 
             <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-6 space-y-8 animate-fade-in">
 
-                {/* Header Section */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="space-y-1">
-                        <h2 className="text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
-                            Thêm học phần mới
-                        </h2>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm">
-                            Tạo lộ trình học tập của bạn với bộ sưu tập từ vựng tập trung.
-                        </p>
-                    </div>
-                    <div className="flex items-center gap-3 shrink-0">
-                        <button
-                            type="button"
-                            onClick={onBack}
-                            className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
-                        >
-                            Hủy
-                        </button>
-                        <button
-                            type="button"
-                            onClick={handleSaveSet}
-                            disabled={isSaving}
-                            data-tour-id="SAVE_SET_BTN"
-                            className="px-6 py-2.5 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#1a3543] dark:bg-indigo-600 dark:hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2"
-                        >
-                            {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
-                            Tạo học phần
-                        </button>
+                {/* Cyber-AI Hero Header */}
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 dark:bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div className="space-y-2">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
+                                <span>[NEURAL CREATOR HUD]</span>
+                            </div>
+                            <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                                Thêm học phần mới
+                            </h2>
+                            <p className="text-slate-600 dark:text-slate-300 text-sm font-medium">
+                                Tạo lộ trình học tập của bạn với bộ sưu tập từ vựng tập trung.
+                            </p>
+                        </div>
+                        <div className="flex items-center gap-3 shrink-0">
+                            <button
+                                type="button"
+                                onClick={onBack}
+                                className="px-6 py-2.5 text-xs font-mono font-bold rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 transition-colors shadow-sm cursor-pointer"
+                            >
+                                Hủy
+                            </button>
+                            <button
+                                type="button"
+                                onClick={handleSaveSet}
+                                disabled={isSaving}
+                                data-tour-id="SAVE_SET_BTN"
+                                className="px-6 py-2.5 text-xs font-mono font-bold rounded-xl text-white bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-600 hover:to-indigo-700 shadow-md transition-all disabled:opacity-50 flex items-center gap-2 hover:scale-105 active:scale-95 cursor-pointer"
+                            >
+                                {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
+                                Tạo học phần
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 {/* Metadata Card */}
-                <div className="bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100 dark:border-slate-800/80 flex flex-col md:flex-row gap-6 items-stretch">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-md border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row gap-6 items-stretch">
                     <div className="flex-1 space-y-5">
                         <div>
                             <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">TIÊU ĐỀ HỌC PHẦN</label>

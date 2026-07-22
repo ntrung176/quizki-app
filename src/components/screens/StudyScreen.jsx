@@ -128,7 +128,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
     return (
         <div className="space-y-5 animate-fade-in">
             {/* Prompt: show Vietnamese meaning */}
-            <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 text-center border border-white/60 dark:border-slate-700/60 shadow-lg min-h-[140px] flex flex-col items-center justify-center">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-8 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[140px] flex flex-col items-center justify-center">
                 <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Nghĩa tiếng Việt</p>
                 <p className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">{card.back}</p>
             </div>
@@ -140,13 +140,13 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
                     const isSelected = selected === opt;
                     let cls = 'w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all flex items-center gap-3 shadow-sm ';
                     if (!answered) {
-                        cls += 'bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-gray-200/80 dark:border-slate-600/80 hover:border-indigo-400 dark:hover:border-indigo-500 hover:bg-indigo-50/80 dark:hover:bg-indigo-900/30 text-gray-800 dark:text-gray-200 cursor-pointer';
+                        cls += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500 hover:bg-cyan-50/50 dark:hover:bg-cyan-950/30 text-slate-800 dark:text-slate-200 cursor-pointer';
                     } else if (isCorrectOpt) {
-                        cls += 'bg-emerald-50 dark:bg-emerald-900/30 border-emerald-400 text-emerald-800 dark:text-emerald-300 cursor-default';
+                        cls += 'bg-emerald-50 dark:bg-emerald-950 border-emerald-400 text-emerald-800 dark:text-emerald-300 cursor-default';
                     } else if (isSelected && !isCorrectOpt) {
-                        cls += 'bg-red-50 dark:bg-red-900/30 border-red-400 text-red-800 dark:text-red-300 cursor-default';
+                        cls += 'bg-red-50 dark:bg-red-950 border-red-400 text-red-800 dark:text-red-300 cursor-default';
                     } else {
-                        cls += 'bg-gray-50 dark:bg-slate-800/60 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60 cursor-default';
+                        cls += 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 opacity-60 cursor-default';
                     }
                     return (
                         <div key={i} onClick={() => { if (!answered) handleSelect(opt); }} className={cls}>
@@ -257,7 +257,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
     return (
         <div className="space-y-5 animate-fade-in">
             {/* Prompt */}
-            <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 text-center border border-white/60 dark:border-slate-700/60 shadow-lg min-h-[140px] flex flex-col items-center justify-center">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-8 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[140px] flex flex-col items-center justify-center">
                 <p className="text-xs font-bold text-emerald-500 uppercase tracking-widest mb-3">Nhập từ tiếng Nhật</p>
                 <p className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">{card.back}</p>
                 {card.sinoVietnamese && (
@@ -284,9 +284,9 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                 disabled={feedback === 'correct'}
                 placeholder={needsRetype ? "Nhập lại đáp án đúng để tiếp tục..." : "Nhập từ vựng tiếng Nhật..."}
                 className={`w-full px-5 py-4 text-xl font-japanese font-bold rounded-xl border-2 outline-none transition-all shadow-sm
-                    ${feedback === 'correct' ? 'border-emerald-400 bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300'
-                        : needsRetype ? 'border-red-400 bg-red-50/80 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                            : 'border-gray-200/80 dark:border-slate-600/80 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-gray-900 dark:text-white focus:border-emerald-500 focus:bg-white dark:focus:bg-slate-800'}`}
+                    ${feedback === 'correct' ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
+                        : needsRetype ? 'border-red-400 bg-red-50 dark:bg-red-950 text-red-800 dark:text-red-300'
+                            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-cyan-500 focus:bg-white dark:focus:bg-slate-900'}`}
             />
 
             {!feedback && !needsRetype && (
@@ -372,7 +372,7 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
                     Bạn đã thuần thục <span className="font-black text-emerald-600 dark:text-emerald-400">{totalCards}</span> từ vựng
                 </p>
             </div>
-            <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-emerald-200/60 dark:border-emerald-800/60 shadow-lg">
+            <div className="w-full max-w-xs bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-md">
                 <div className="flex items-center justify-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-lg">
                     <Zap className="w-5 h-5" />
                     <span>100% Thuần thục</span>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useSearchParams, useParams, useNavigate, useLocation } from 'react-router-dom';
-import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkle, Bookmark, Wifi } from 'lucide-react'
+import { Search, Grid, PenTool, BookOpen, Folder, Layers, X, Plus, Save, Trash2, Volume2, ArrowLeft, Upload, FileJson, Edit, Check, Copy, Tag, FolderPlus, RotateCcw, RefreshCw, ChevronUp, ChevronDown, Sparkle, Bookmark, Wifi, Cpu } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { getAuth } from 'firebase/auth';
 import { recordRecentKanji } from '../../utils/kanjiHistory';
@@ -1983,31 +1983,42 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         );
     }
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/20 text-gray-900 dark:text-white pb-12 transition-colors duration-300">
+        <div className="min-h-screen bg-transparent text-slate-900 dark:text-white pb-12 transition-colors duration-300">
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-6xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
                 {/* Header Section */}
                 <div className="flex flex-col gap-4">
-                    <div>
-                        <h1 className="text-3xl font-black text-slate-800 dark:text-white tracking-tight">
-                            Tra cứu Kanji
-                        </h1>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                            Khám phá và tra cứu hệ thống Kanji, nghĩa và âm Hán-Việt.
-                        </p>
+                    {/* Cyber-AI Header Banner */}
+                    <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                        <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                        <div className="absolute bottom-0 left-0 w-60 h-60 bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div className="relative z-10 space-y-2">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
+                                <span>[NEURAL KANJI DICTIONARY]</span>
+                            </div>
+                            <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                                Tra cứu Kanji
+                            </h1>
+                            <p className="text-sm text-slate-600 dark:text-slate-300 font-medium max-w-2xl">
+                                Khám phá và tra cứu hệ thống Kanji, nghĩa và âm Hán-Việt với bộ công cụ HUD hiện đại.
+                            </p>
+                        </div>
                     </div>
+
                     {/* Search & Filters Row */}
                     <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center">
-                        {/* Search Input */}
-                        <div className="relative flex-1" ref={searchInputRef}>
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={(e) => { setSearchQuery(e.target.value); setShowSearchResults(true); }}
-                                onFocus={() => setShowSearchResults(true)}
-                                placeholder="Tìm kiếm Kanji, nghĩa hoặc âm Hán-Việt..."
-                                className="w-full bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl px-5 py-3.5 pr-20 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-sky-500 dark:focus:ring-sky-400/50 focus:border-transparent shadow-sm transition-all text-sm"
-                            />
+                    {/* Search Input */}
+                    <div className="relative flex-1" ref={searchInputRef}>
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => { setSearchQuery(e.target.value); setShowSearchResults(true); }}
+                            onFocus={() => setShowSearchResults(true)}
+                            placeholder="Tìm kiếm Kanji, nghĩa hoặc âm Hán-Việt..."
+                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-3.5 pr-20 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400/50 focus:border-cyan-400 shadow-md transition-all text-sm font-medium"
+                        />
                             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
                                 <button
                                     onClick={() => setShowHandwritingPopup(!showHandwritingPopup)}
@@ -2165,19 +2176,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 )}
                 {/* Progress Overview Bar Section */}
                 {selectedLevel !== 'Bộ thủ' && (
-                    <div className="flex flex-col md:flex-row md:items-center justify-between bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-100 dark:border-slate-700/50 shadow-sm gap-4">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md gap-4">
                         <div>
                             <h3 className="text-base font-bold text-slate-800 dark:text-slate-100">Danh sách Kanji {selectedLevel}</h3>
                             <p className="text-xs text-slate-400 mt-1.5 font-medium">
-                                Bạn đã hoàn thành <span className="text-slate-700 dark:text-slate-200 font-bold bg-slate-100 dark:bg-slate-700/50 px-2 py-0.5 rounded-md">{completedCount}</span> / {currentKanjiList.length} chữ Kanji
+                                Bạn đã hoàn thành <span className="text-slate-700 dark:text-slate-200 font-bold bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md font-mono">{completedCount}</span> / {currentKanjiList.length} chữ Kanji
                             </p>
                         </div>
                         <div className="flex-1 max-w-md w-full">
-                            <div className="flex justify-between items-center text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider mb-1.5">
+                            <div className="flex justify-between items-center text-[10px] font-mono font-bold text-slate-400 dark:text-slate-500 tracking-wider mb-1.5">
                                 <span>TIẾN ĐỘ TỔNG THỂ</span>
                                 <span>{currentKanjiList.length > 0 ? Math.round((completedCount / currentKanjiList.length) * 100) : 0}%</span>
                             </div>
-                            <div className="h-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
                                     className={`h-full rounded-full transition-all duration-700 ease-out bg-gradient-to-r ${selectedLevel === 'N5' ? 'from-emerald-400 to-teal-500' :
                                         selectedLevel === 'N4' ? 'from-sky-400 to-cyan-500' :
@@ -2195,8 +2206,8 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 )}
                 {/* Admin Tools Section */}
                 {isAdmin && (
-                    <div className="bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/50 rounded-3xl p-5 shadow-sm space-y-3">
-                        <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Admin Control Panel</p>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md space-y-3">
+                        <p className="text-[10px] font-mono font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Admin Control Panel</p>
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                             <button onClick={() => setShowAddKanjiModal(true)} className="py-2.5 bg-slate-50 dark:bg-slate-700/40 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl font-bold text-xs text-slate-700 dark:text-slate-300 border border-slate-250 dark:border-slate-650 transition-all flex items-center justify-center gap-1.5 shadow-sm">
                                 <Plus className="w-4 h-4 text-sky-500" /> Thêm Hán tự
@@ -2391,7 +2402,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                                         <div
                                             key={`${kanji}-${i}`}
                                             onClick={() => openKanjiDetail(kanji)}
-                                            className={`group relative aspect-[4/5] flex flex-col items-center justify-between text-center bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-100 dark:border-slate-700/60 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5 select-none cursor-pointer ${selectedKanji === kanji ? 'ring-2 ring-sky-500 dark:ring-sky-400' : ''
+                                            className={`group relative aspect-[4/5] flex flex-col items-center justify-between text-center bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-md hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-xl select-none cursor-pointer ${selectedKanji === kanji ? 'ring-2 ring-cyan-500 dark:ring-cyan-400' : ''
                                                 }`}
                                         >
                                             {/* Left Corner: Indicators */}

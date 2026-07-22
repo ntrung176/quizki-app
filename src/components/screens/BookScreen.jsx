@@ -1594,7 +1594,7 @@ const BookScreen = ({
                     </p>
                 </div>
                 {/* Filters & Search Row */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50 dark:bg-slate-800/40 p-3 rounded-2xl border border-slate-100 dark:border-slate-800">
+                <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
                     {/* Tabs / Filters */}
                     <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
                         {[
@@ -1624,12 +1624,12 @@ const BookScreen = ({
                             placeholder="Tìm kiếm sách..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2 rounded-xl text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
+                            className="w-full pl-10 pr-4 py-2 rounded-xl text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
                         />
                     </div>
                 </div>
                 {filteredGroups.length === 0 && !loading && (
-                    <div className="text-center py-16 text-slate-400 dark:text-slate-500 bg-slate-50/50 dark:bg-slate-800/20 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
+                    <div className="text-center py-16 text-slate-400 dark:text-slate-500 bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800 shadow-sm">
                         <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-30 text-slate-400" />
                         <p className="text-lg font-semibold">Không tìm thấy sách nào</p>
                         <p className="text-sm mt-1">Thử điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.</p>
@@ -1651,7 +1651,7 @@ const BookScreen = ({
                         return (
                             <div
                                 key={group.id}
-                                className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/60 dark:border-slate-700 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col group"
+                                className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-all duration-300 cursor-pointer flex flex-col group"
                                 onClick={() => navigateTo({ group: group.id })}
                             >
                                 {group.imageUrl ? (

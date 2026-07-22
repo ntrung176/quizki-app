@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
-import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2 } from 'lucide-react';
+import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2, Cpu } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
@@ -830,35 +830,38 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             <TopTabBar tabs={GRAMMAR_TABS} />
 
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
-                {/* Banner */}
-                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-400 via-emerald-500 to-emerald-600 p-8 text-white shadow-lg border border-emerald-350 dark:border-emerald-900/50">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_60%)] pointer-events-none"></div>
+                {/* Cyber-AI Hero Banner */}
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 dark:bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
+                    
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="space-y-2 text-center md:text-left">
-                            <span className="inline-block text-[10px] font-extrabold tracking-widest uppercase bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
-                                THUẬT TOÁN SRS
-                            </span>
-                            <h1 className="text-3xl font-black tracking-tight">Ôn tập Ngữ pháp</h1>
-                            <p className="text-sm text-emerald-100 max-w-md font-medium leading-relaxed">
-                                Ứng dụng thuật toán lặp lại ngắt quãng để tự động lên lịch ôn tập cho các cấu trúc ngữ pháp bạn đã lưu.
+                        <div className="space-y-3 text-center md:text-left">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                <Cpu className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-spin-slow" />
+                                <span>[GRAMMAR SRS ENGINE]</span>
+                            </div>
+                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Ôn tập Ngữ pháp</h1>
+                            <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
+                                Ứng dụng thuật toán lặp lại ngắt quãng để tự động lên lịch ôn tập cho các cấu trúc ngữ pháp bạn đã học.
                             </p>
                         </div>
-                        <div className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 text-center w-full md:w-64 shrink-0 shadow-sm">
-                            <span className="text-5xl font-black tracking-tight mb-1">
+                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 shadow-inner">
+                            <span className="text-5xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-1">
                                 {stats.dueToday}
                             </span>
-                            <span className="text-[10px] text-emerald-100 font-extrabold uppercase tracking-wider">Mẫu câu cần ôn tập</span>
+                            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-black uppercase tracking-wider">Mẫu câu cần ôn tập</span>
                             {stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-md bg-white text-emerald-600 hover:bg-emerald-50 hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-emerald-600 hover:bg-emerald-700 text-white hover:scale-105 active:scale-95 cursor-pointer"
                                 >
                                     BẮT ĐẦU ÔN TẬP
                                 </button>
                             ) : (
                                 <button
                                     disabled
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-bold tracking-wider uppercase transition-all bg-white/15 text-white/50 cursor-not-allowed"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed"
                                 >
                                     HẾT THẺ ÔN TẬP
                                 </button>
@@ -869,38 +872,38 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                 {/* 3 Stats Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 shadow-sm hover:scale-[1.02] transition-all duration-300">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-sky-600 dark:text-sky-450">
+                            <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/60 flex items-center justify-center text-sky-600 dark:text-sky-400">
                                 <Calendar className="w-5 h-5" />
                             </div>
                             <div>
-                                <p className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Học mới hôm nay</p>
-                                <h4 className="text-xl font-bold text-slate-850 dark:text-white mt-0.5">{stats.newCards} mẫu</h4>
+                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Học mới hôm nay</p>
+                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.newCards} mẫu</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 shadow-sm hover:scale-[1.02] transition-all duration-300">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950 flex items-center justify-center text-amber-600 dark:text-amber-450">
+                            <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
                                 <Clock className="w-5 h-5" />
                             </div>
                             <div>
-                                <p className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Thời gian học</p>
-                                <h4 className="text-xl font-bold text-slate-850 dark:text-white mt-0.5">{stats.totalReps > 0 ? Math.round(stats.totalReps * 0.5) : 15} phút</h4>
+                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Thời gian học</p>
+                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.totalReps > 0 ? Math.round(stats.totalReps * 0.5) : 15} phút</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 shadow-sm hover:scale-[1.02] transition-all duration-300">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 dark:text-emerald-450">
+                            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                                 <Target className="w-5 h-5" />
                             </div>
                             <div>
-                                <p className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tỷ lệ nhớ</p>
-                                <h4 className="text-xl font-bold text-slate-850 dark:text-white mt-0.5">
+                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tỷ lệ nhớ</p>
+                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">
                                     {stats.grammarLearned > 0 ? Math.min(100, Math.round(85 + (stats.longTerm / stats.grammarLearned) * 15)) : 90}%
                                 </h4>
                             </div>
@@ -910,44 +913,44 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                 {/* 4 SRS Stage Cards */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-sky-500 uppercase tracking-wider">Sơ cấp (Mới học/Đang học)</span>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
+                        <span className="text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Sơ cấp (Mới học/Đang học)</span>
                         <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black text-slate-850 dark:text-white">{stats.newCards + stats.learning}</span>
-                            <span className="text-xs text-slate-400">mẫu</span>
+                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.newCards + stats.learning}</span>
+                            <span className="text-xs text-slate-400 font-mono">mẫu</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
                             <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? ((stats.newCards + stats.learning) / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-amber-500 uppercase tracking-wider">Trung cấp (Đang ôn tập)</span>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
+                        <span className="text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Trung cấp (Đang ôn tập)</span>
                         <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black text-slate-850 dark:text-white">{stats.shortTerm}</span>
-                            <span className="text-xs text-slate-400">mẫu</span>
+                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.shortTerm}</span>
+                            <span className="text-xs text-slate-400 font-mono">mẫu</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
                             <div className="h-full bg-amber-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.shortTerm / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-sky-500 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
+                        <span className="text-[10px] font-mono font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
                         <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black text-slate-850 dark:text-white">{Math.max(0, stats.longTerm - Math.round(stats.longTerm * 0.2))}</span>
-                            <span className="text-xs text-slate-400">mẫu</span>
+                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{Math.max(0, stats.longTerm - Math.round(stats.longTerm * 0.2))}</span>
+                            <span className="text-xs text-slate-400 font-mono">mẫu</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? ((stats.longTerm - Math.round(stats.longTerm * 0.2)) / stats.grammarLearned) * 100 : 0}%` }} />
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
+                            <div className="h-full bg-cyan-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? ((stats.longTerm - Math.round(stats.longTerm * 0.2)) / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-sm">
-                        <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-wider">Chuyên gia (Ghi nhớ)</span>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
+                        <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Chuyên gia (Ghi nhớ)</span>
                         <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black text-slate-850 dark:text-white">{Math.round(stats.longTerm * 0.2)}</span>
-                            <span className="text-xs text-slate-400">mẫu</span>
+                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{Math.round(stats.longTerm * 0.2)}</span>
+                            <span className="text-xs text-slate-400 font-mono">mẫu</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
                             <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? ((Math.round(stats.longTerm * 0.2)) / stats.grammarLearned) * 100 : 0}%` }} />

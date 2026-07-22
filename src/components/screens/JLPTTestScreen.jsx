@@ -4121,7 +4121,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
             .slice(0, 3);
         const lvlGradient = LEVEL_GRADIENTS[level] || 'from-slate-500 to-slate-600';
         return (
-            <div className="min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">
+            <div className="min-h-screen bg-transparent p-4 md:p-8 font-sans animate-fade-in">
                 {/* Header breadcrumb */}
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-3">
@@ -4150,8 +4150,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     {/* Left main area: Filters + Cards */}
                     <div className="lg:col-span-3 space-y-6">
                         {/* Filters row */}
-                        <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50 shadow-sm">
-                            <div className="text-xs font-bold text-slate-500 dark:text-slate-400 pl-2">
+                        <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
+                            <div className="text-xs font-bold text-slate-700 dark:text-slate-200 pl-2">
                                 Danh sách đề thi chính thức
                             </div>
                             {/* Dropdowns */}
@@ -4161,7 +4161,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                     <select
                                         value={statusFilter}
                                         onChange={(e) => setStatusFilter(e.target.value)}
-                                        className="appearance-none bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-700 dark:text-slate-350 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                                        className="appearance-none bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-700 dark:text-slate-350 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                                     >
                                         <option value="all">Trạng thái: Tất cả</option>
                                         <option value="completed">Đã hoàn thành</option>
@@ -4178,7 +4178,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                     <select
                                         value={sortBy}
                                         onChange={(e) => setSortBy(e.target.value)}
-                                        className="appearance-none bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700/50 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-700 dark:text-slate-350 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                                        className="appearance-none bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 pr-8 text-xs font-semibold text-slate-700 dark:text-slate-350 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                                     >
                                         <option value="newest">Sắp xếp: Mới nhất</option>
                                         <option value="questions">Số câu hỏi</option>
@@ -4193,7 +4193,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                         {/* Cards Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                             {sortedLvlTests.length === 0 ? (
-                                <div className="col-span-full bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-12 flex flex-col items-center justify-center text-center h-64 shadow-sm">
+                                <div className="col-span-full bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-12 flex flex-col items-center justify-center text-center h-64 shadow-md">
                                     <FileCheck className="w-12 h-12 text-slate-300 dark:text-slate-600 mb-3" />
                                     <h4 className="text-sm font-bold text-slate-700 dark:text-slate-300">Chưa có đề thi nào phù hợp bộ lọc</h4>
                                     <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1 max-w-[250px]">
@@ -4208,7 +4208,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                     return (
                                         <div
                                             key={test.id}
-                                            className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group shadow-sm"
+                                            className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 hover:border-cyan-400 dark:hover:border-cyan-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[250px] relative overflow-hidden group shadow-md"
                                         >
                                             {canEdit && (
                                                 <div className="absolute top-4 right-4 flex items-center gap-1.5 z-25">
@@ -4431,12 +4431,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                                 })
                             )}
                             {/* Coming Soon Card */}
-                            <div className="bg-slate-50/50 dark:bg-slate-800/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700/50 p-6 flex flex-col items-center justify-center text-center min-h-[250px] shadow-sm">
-                                <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800/80 text-slate-400 dark:text-slate-500 flex items-center justify-center mb-4">
+                            <div className="bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800 p-6 flex flex-col items-center justify-center text-center min-h-[250px] shadow-md">
+                                <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 flex items-center justify-center mb-4">
                                     <Lock className="w-6 h-6" />
                                 </div>
                                 <h4 className="text-sm font-bold text-slate-800 dark:text-white">Coming Soon</h4>
-                                <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-2 max-w-[180px] leading-relaxed">
+                                <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-2 max-w-[180px] leading-relaxed font-medium">
                                     Bộ đề tiếp theo sẽ được cập nhật vào tuần tới.
                                 </p>
                             </div>
@@ -4445,65 +4445,65 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     {/* Right side panel: Statistics and Recent Activity */}
                     <div className="space-y-6">
                         {/* Statistics Card */}
-                        <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 shadow-sm">
+                        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 shadow-md">
                             <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2 mb-4">
                                 <Award className="w-4 h-4 text-amber-500" />
                                 Thống kê cá nhân
                             </h3>
                             {/* Accuracy progress */}
                             <div className="space-y-2 mb-6">
-                                <div className="flex justify-between text-xs font-bold text-slate-600 dark:text-slate-400">
+                                <div className="flex justify-between text-xs font-mono font-bold text-slate-600 dark:text-slate-400">
                                     <span>ĐỘ CHÍNH XÁC TRUNG BÌNH</span>
-                                    <span className="text-indigo-650 dark:text-indigo-400">{avgAccuracy}%</span>
+                                    <span className="text-cyan-600 dark:text-cyan-400">{avgAccuracy}%</span>
                                 </div>
-                                <div className="bg-slate-100 dark:bg-slate-700 rounded-full h-2">
-                                    <div className="bg-indigo-600 dark:bg-indigo-400 h-2 rounded-full transition-all duration-500" style={{ width: `${avgAccuracy}%` }} />
+                                <div className="bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+                                    <div className="bg-gradient-to-r from-cyan-500 to-indigo-600 h-2 rounded-full transition-all duration-500" style={{ width: `${avgAccuracy}%` }} />
                                 </div>
                             </div>
                             {/* Sub stats grid */}
                             <div className="grid grid-cols-2 gap-4 mb-6">
-                                <div className="bg-slate-50/50 dark:bg-slate-900/30 p-3.5 rounded-2xl border border-slate-100 dark:border-slate-800/80">
-                                    <span className="text-[9px] font-bold text-slate-400 dark:text-slate-550 block uppercase">Đã làm</span>
-                                    <span className="text-xl font-extrabold text-slate-800 dark:text-white block mt-1">{completedCount}</span>
-                                    <span className="text-[9px] text-emerald-500 font-semibold block mt-0.5">đã xong</span>
+                                <div className="bg-slate-50 dark:bg-slate-950 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800">
+                                    <span className="text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 block uppercase">Đã làm</span>
+                                    <span className="text-xl font-black font-mono text-slate-800 dark:text-white block mt-1">{completedCount}</span>
+                                    <span className="text-[9px] text-emerald-500 font-bold block mt-0.5">đã xong</span>
                                 </div>
-                                <div className="bg-slate-50/50 dark:bg-slate-900/30 p-3.5 rounded-2xl border border-slate-100 dark:border-slate-800/80">
-                                    <span className="text-[9px] font-bold text-slate-400 dark:text-slate-550 block uppercase">Thời gian</span>
-                                    <span className="text-xl font-extrabold text-slate-800 dark:text-white block mt-1">{totalTimeHours}h</span>
-                                    <span className="text-[9px] text-slate-400 dark:text-slate-500 font-semibold block mt-0.5">{avgTimePerTest} phút/bộ</span>
+                                <div className="bg-slate-50 dark:bg-slate-950 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800">
+                                    <span className="text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 block uppercase">Thời gian</span>
+                                    <span className="text-xl font-black font-mono text-slate-800 dark:text-white block mt-1">{totalTimeHours}h</span>
+                                    <span className="text-[9px] text-slate-400 dark:text-slate-500 font-mono font-semibold block mt-0.5">{avgTimePerTest} phút/bộ</span>
                                 </div>
                             </div>
                             {/* Advice */}
-                            <div className="bg-indigo-50/30 dark:bg-indigo-950/10 p-4 rounded-2xl border border-indigo-500/10 text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                                <span className="font-extrabold text-indigo-600 dark:text-indigo-400 block mb-1">Lời khuyên:</span>
+                            <div className="bg-cyan-50/50 dark:bg-cyan-950/20 p-4 rounded-2xl border border-cyan-200 dark:border-cyan-800/40 text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                                <span className="font-bold text-cyan-600 dark:text-cyan-400 block mb-1">Lời khuyên:</span>
                                 {adviceText}
                             </div>
                         </div>
                         {/* Recent Activity Card */}
-                        <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 shadow-sm">
+                        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 shadow-md">
                             <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2 mb-4">
-                                <Calendar className="w-4 h-4 text-blue-500" />
+                                <Calendar className="w-4 h-4 text-cyan-500" />
                                 Hoạt động gần đây
                             </h3>
                             <div className="space-y-3">
                                 {recentActivities.length === 0 ? (
-                                    <p className="text-xs text-slate-400 dark:text-slate-500 text-center py-4">
+                                    <p className="text-xs text-slate-400 dark:text-slate-500 text-center py-4 font-medium">
                                         Chưa có hoạt động nào gần đây
                                     </p>
                                 ) : (
                                     recentActivities.map((act) => (
                                         <div
                                             key={act.id}
-                                            className="flex items-start gap-3 p-3 bg-slate-50/50 dark:bg-slate-900/30 rounded-2xl border border-slate-100 dark:border-slate-800/80"
+                                            className="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800"
                                         >
-                                            <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/20 text-emerald-500 flex items-center justify-center shrink-0">
+                                            <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-emerald-500 flex items-center justify-center shrink-0">
                                                 <CheckCircle className="w-4 h-4" />
                                             </div>
                                             <div>
                                                 <h5 className="text-[11px] font-bold text-slate-800 dark:text-white leading-snug">
                                                     Hoàn thành {act.title}
                                                 </h5>
-                                                <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 block">
+                                                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 mt-1 block">
                                                     {getRelativeTimeString(act.date)}
                                                 </span>
                                             </div>
@@ -4685,7 +4685,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
         );
     }
     return (
-        <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-900 p-4 md:p-8 font-sans animate-fade-in">
+        <div className="jlpt-screen min-h-screen bg-transparent p-4 md:p-8 font-sans animate-fade-in">
             {/* Toast Notification */}
             {notification && (
                 <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-slate-700/50 flex items-center gap-2 animate-bounce text-xs font-bold">
