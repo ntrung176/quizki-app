@@ -1520,7 +1520,7 @@ const ReviewScreen = ({
                     {/* Interaction Area */}
                     <div className="w-full space-y-2 flex-shrink-0">
                         {/* Multiple Choice */}
-                        {isMultipleChoice && !isRevealed && multipleChoiceOptions.length > 0 && (
+                        {isMultipleChoice && (!isRevealed || feedback === 'incorrect') && multipleChoiceOptions.length > 0 && (
                             <div className="space-y-3">
                                 <p className="text-base md:text-lg font-bold text-gray-600 dark:text-gray-300 text-center mb-1">
                                     {cardReviewType === 'synonym'
@@ -1859,17 +1859,17 @@ const ReviewScreen = ({
                                             )}
                                         </div>
                                     </div>
-
-                                    {feedback === 'incorrect' && !needsRetype && (
-                                        <button
-                                            onClick={handleNext}
-                                            disabled={isProcessing}
-                                            className="w-full mt-3 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95"
-                                        >
-                                            Bỏ qua → Câu tiếp theo
-                                        </button>
-                                    )}
                                 </div>
+
+                                {feedback === 'incorrect' && !needsRetype && (
+                                    <button
+                                        onClick={handleNext}
+                                        disabled={isProcessing}
+                                        className="w-full mt-3 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95"
+                                    >
+                                        Tiếp tục
+                                    </button>
+                                )}
 
                             </div>
                         )}
