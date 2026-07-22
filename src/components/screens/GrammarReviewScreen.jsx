@@ -41,11 +41,11 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const userId = getAuth().currentUser?.uid;
     const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
-    
+
     const [grammarList, setGrammarList] = useState([]);
     const [srsData, setSrsData] = useState(() => (userId ? getCachedUserGrammarSrsData() || {} : {}));
     const [loading, setLoading] = useState(true);
-    
+
     const [reviewMode, setReviewMode] = useState(false);
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -58,7 +58,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const activeReviewCardIds = useRef(new Set());
 
     const [dashboardTick, setDashboardTick] = useState(Date.now());
-    
+
     useEffect(() => {
         const interval = setInterval(() => {
             setDashboardTick(Date.now());
@@ -93,7 +93,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         load();
 
         // Set up real-time listener for SRS data (cross-device sync)
-        let unsubSrs = () => {};
+        let unsubSrs = () => { };
         if (userId) {
             unsubSrs = subscribeGrammarSrs(userId, (freshSrs) => {
                 if (reviewModeRef.current) {
@@ -231,7 +231,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return Object.entries(srsData)
             .filter(([id, srs]) => {
                 if (!activeReviewCardIds.current.has(id)) return false;
-                
+
                 const stateStr = (srs.state || srs.srsState || '').toUpperCase();
                 if (stateStr === 'REVIEW') return false;
                 if (completedCardIds.current.has(id)) return false;
@@ -267,7 +267,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const handleReviewNow = () => {
         const waiting = getLearningCardsWaiting();
         if (waiting.length === 0) return;
-        
+
         waiting.forEach(item => {
             if (srsData[item.id]) {
                 const updatedSrs = {
@@ -281,7 +281,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 updateCachedUserGrammarSrs(userId, item.id, updatedSrs);
             }
         });
-        
+
         setReviewQueue(prevQueue => {
             const nextQueue = [...prevQueue];
             const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
@@ -307,7 +307,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     }
                 }
             });
-            
+
             if (cardsToInject.length > 0) {
                 const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
                 nextQueue.splice(insertIndex, 0, ...cardsToInject);
@@ -321,7 +321,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (!reviewMode) return;
         const intervalId = setInterval(() => {
             setLastTick(Date.now());
-            
+
             const now = Date.now();
             const waiting = getLearningCardsWaiting();
             const dueNow = waiting.filter(w => w.nextReview <= now);
@@ -351,7 +351,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             }
                         }
                     });
-                    
+
                     if (cardsToInject.length > 0) {
                         const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
                         nextQueue.splice(insertIndex, 0, ...cardsToInject);
@@ -462,10 +462,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setReviewQueue(updatedQueue);
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
         updateCachedUserGrammarSrs(userId, currentCard.id, newSrs);
-        
+
         if (currentReviewIndex + 1 < updatedQueue.length) {
             if (rating === 'good' || rating === 'easy') { flashCorrect(); }
-            
+
             setIsAnimatingFlip(false);
             setSlideDirection('left');
             setTimeout(() => {
@@ -689,15 +689,15 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
                             }}
                         >
-                            <div 
+                            <div
                                 onClick={() => { setIsFlipped(f => !f); playFlipSound(); }}
-                                style={{ 
-                                    position: 'relative', 
-                                    width: '100%', 
-                                    height: '100%', 
-                                    transformStyle: 'preserve-3d', 
-                                    transition: isAnimatingFlip ? 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' : 'none', 
-                                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' 
+                                style={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '100%',
+                                    transformStyle: 'preserve-3d',
+                                    transition: isAnimatingFlip ? 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' : 'none',
+                                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
                                 }}
                             >
                                 {/* Front */}
@@ -721,8 +721,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                             <div className="text-left w-full bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 border border-slate-100 dark:border-slate-800 space-y-2 max-h-[140px] overflow-y-auto">
                                                 <div className="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wider flex items-center justify-between">
                                                     <span>Câu ví dụ:</span>
-                                                    <button 
-                                                        onClick={(e) => { e.stopPropagation(); speakText(currentCard.examples[0].ja); }} 
+                                                    <button
+                                                        onClick={(e) => { e.stopPropagation(); speakText(currentCard.examples[0].ja); }}
                                                         className="p-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95 text-slate-550 hover:text-indigo-500"
                                                     >
                                                         <Volume2 className="w-3.5 h-3.5" />
@@ -772,7 +772,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             const now = Date.now();
             const earliestNextReview = Math.min(...waiting.map(w => w.nextReview));
             const secondsLeft = Math.max(0, Math.ceil((earliestNextReview - now) / 1000));
-            
+
             let countdownText = "";
             if (secondsLeft < 60) {
                 countdownText = `${secondsLeft} giây`;
@@ -820,7 +820,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 </div>
             );
         }
-        
+
         setTimeout(() => exitReview(), 0);
         return null;
     }
@@ -834,7 +834,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
                     <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 dark:bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
                     <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
-                    
+
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="space-y-3 text-center md:text-left">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
@@ -854,7 +854,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             {stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-emerald-600 hover:bg-emerald-700 text-white hover:scale-105 active:scale-95 cursor-pointer"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-lime-400 via-emerald-600 to-green-700 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                                 >
                                     BẮT ĐẦU ÔN TẬP
                                 </button>
@@ -981,8 +981,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 <Bar dataKey="count" fill="url(#colorCount)" radius={[6, 6, 0, 0]} maxBarSize={45}>
                                     <defs>
                                         <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="5%" stopColor="#10b981" stopOpacity={0.8}/>
-                                            <stop offset="95%" stopColor="#059669" stopOpacity={0.3}/>
+                                            <stop offset="5%" stopColor="#10b981" stopOpacity={0.8} />
+                                            <stop offset="95%" stopColor="#059669" stopOpacity={0.3} />
                                         </linearGradient>
                                     </defs>
                                 </Bar>

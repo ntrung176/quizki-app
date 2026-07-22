@@ -100,7 +100,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         load();
 
         // Set up real-time listener for SRS data (cross-device sync)
-        let unsubSrs = () => {};
+        let unsubSrs = () => { };
         if (userId) {
             unsubSrs = subscribeKanjiSrs(userId, (freshSrs) => {
                 if (reviewModeRef.current) {
@@ -243,7 +243,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return Object.entries(srsData)
             .filter(([id, srs]) => {
                 if (!activeReviewCardIds.current.has(id)) return false;
-                
+
                 const stateStr = (srs.state || srs.srsState || '').toUpperCase();
                 if (stateStr === 'REVIEW') return false;
                 if (completedCardIds.current.has(id)) return false;
@@ -280,7 +280,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const handleReviewNow = () => {
         const waiting = getLearningCardsWaiting();
         if (waiting.length === 0) return;
-        
+
         waiting.forEach(item => {
             if (srsData[item.id]) {
                 const updatedSrs = {
@@ -294,7 +294,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 updateCachedUserSrs(userId, item.id, updatedSrs);
             }
         });
-        
+
         // Trigger immediate injection
         setReviewQueue(prevQueue => {
             const nextQueue = [...prevQueue];
@@ -321,7 +321,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     }
                 }
             });
-            
+
             if (cardsToInject.length > 0) {
                 const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
                 nextQueue.splice(insertIndex, 0, ...cardsToInject);
@@ -335,7 +335,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (!reviewMode) return;
         const intervalId = setInterval(() => {
             setLastTick(Date.now());
-            
+
             const now = Date.now();
             const waiting = getLearningCardsWaiting();
             const dueNow = waiting.filter(w => w.nextReview <= now);
@@ -365,7 +365,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             }
                         }
                     });
-                    
+
                     if (cardsToInject.length > 0) {
                         const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
                         nextQueue.splice(insertIndex, 0, ...cardsToInject);
@@ -481,7 +481,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (currentReviewIndex + 1 < updatedQueue.length) {
             saveSessionState(updatedQueue, currentReviewIndex + 1);
             if (rating === 'good' || rating === 'easy') { flashCorrect(); }
-            
+
             setIsAnimatingFlip(false);
             setSlideDirection('left');
             setTimeout(() => {
@@ -555,9 +555,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         })();
     };
 
-    const saveSessionState = () => {};
-    const handleResumeSavedSession = () => {};
-    const handleDiscardSavedSession = () => {};
+    const saveSessionState = () => { };
+    const handleResumeSavedSession = () => { };
+    const handleDiscardSavedSession = () => { };
 
     const exitReview = () => {
         if (sessionXpRef.current > 0 && awardXP) {
@@ -724,15 +724,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
                             }}
                         >
-                            <div 
+                            <div
                                 onClick={() => { setIsFlipped(f => !f); playFlipSound(); }}
-                                style={{ 
-                                    position: 'relative', 
-                                    width: '100%', 
-                                    height: '100%', 
-                                    transformStyle: 'preserve-3d', 
-                                    transition: isAnimatingFlip ? 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' : 'none', 
-                                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' 
+                                style={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '100%',
+                                    transformStyle: 'preserve-3d',
+                                    transition: isAnimatingFlip ? 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' : 'none',
+                                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
                                 }}
                             >
                                 {/* Front */}
@@ -797,7 +797,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             const now = Date.now();
             const earliestNextReview = Math.min(...waiting.map(w => w.nextReview));
             const secondsLeft = Math.max(0, Math.ceil((earliestNextReview - now) / 1000));
-            
+
             let countdownText = "";
             if (secondsLeft < 60) {
                 countdownText = `${secondsLeft} giây`;
@@ -845,7 +845,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 </div>
             );
         }
-        
+
         setTimeout(() => exitReview(false), 0);
         return null;
     }
@@ -862,7 +862,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
                     <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 dark:bg-rose-500/15 rounded-full blur-3xl pointer-events-none"></div>
                     <div className="absolute bottom-0 left-0 w-60 h-60 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
-                    
+
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="space-y-3 text-center md:text-left">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 text-xs font-mono font-bold uppercase tracking-wider">
@@ -882,14 +882,14 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-rose-600 hover:bg-rose-700 text-white hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
                                 >
                                     TIẾP TỤC ÔN TẬP
                                 </button>
                             ) : stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-rose-600 hover:bg-rose-700 text-white hover:scale-105 active:scale-95 cursor-pointer"
+                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                                 >
                                     BẮT ĐẦU ÔN TẬP
                                 </button>
