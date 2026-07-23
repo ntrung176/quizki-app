@@ -1255,16 +1255,14 @@ const ReviewScreen = ({
                     {/* Flashcard Area */}
                     <div className="w-full relative group perspective flex-shrink-0">
                         {reviewMode === 'flashcard' ? (
-                            <div className="perspective-1000 w-full max-w-[700px] mx-auto relative" style={{ minHeight: '480px' }}>
+                            <div className="perspective-1000 w-full mx-auto relative">
                                 <div
-                                    className={`relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                                    className={`cursor-pointer relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
                                     onTouchStart={onTouchStart}
                                     onTouchMove={onTouchMove}
                                     onTouchEnd={onTouchEnd}
                                     style={{
-                                        width: '105%',
-                                        minHeight: '480px',
-                                        height: 'auto',
+                                        width: '100%',
                                         transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
                                         transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)'),
                                         touchAction: 'pan-y',
@@ -1287,27 +1285,50 @@ const ReviewScreen = ({
                                     />
                                 </div>
 
-                                {/* Nuance Button - OUTSIDE the flipping container */}
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setShowNuancePopup(prev => !prev);
-                                    }}
-                                    className={`absolute top-6 right-[120px] p-2 backdrop-blur-sm rounded-full transition-all hover:scale-110 z-30 shadow-md border ${
-                                        currentCard.nuance 
-                                            ? 'bg-amber-500/30 hover:bg-amber-500/40 text-amber-300 border-amber-500/40' 
-                                            : 'bg-white/20 hover:bg-white/35 text-white border-white/20'
-                                    }`}
-                                    title="Sắc thái từ vựng"
-                                >
-                                    <Lightbulb className="w-4 h-4" />
-                                </button>
+                                {/* Top Right Action Buttons Header (Nuance, Speaker, Settings) */}
+                                <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 z-30">
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setShowNuancePopup(prev => !prev);
+                                        }}
+                                        className={`p-2 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border ${
+                                            currentCard.nuance 
+                                                ? 'bg-amber-500/30 hover:bg-amber-500/40 text-amber-300 border-amber-500/40' 
+                                                : 'bg-white/20 hover:bg-white/35 text-white border-white/20'
+                                        }`}
+                                        title="Sắc thái từ vựng"
+                                    >
+                                        <Lightbulb className="w-4 h-4" />
+                                    </button>
+                                    {cardSettings.audioEnabled !== false && (
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                if (currentCard) {
+                                                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                                                }
+                                            }}
+                                            className="p-2 bg-white/20 hover:bg-white/35 text-white rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-white/20"
+                                            title="Phát âm"
+                                        >
+                                            <Volume2 className="w-4 h-4" />
+                                        </button>
+                                    )}
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                        className="p-2 bg-white/20 hover:bg-white/35 text-white rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-white/20"
+                                        title="Cấu hình hiển thị"
+                                    >
+                                        <Settings className="w-4 h-4" />
+                                    </button>
+                                </div>
 
                                 {/* Nuance Text Box */}
                                 {showNuancePopup && (
                                     <div 
                                         onClick={(e) => e.stopPropagation()} 
-                                        className="absolute top-20 right-6 left-6 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
+                                        className="absolute top-16 right-4 left-4 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
                                     >
                                         <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
                                             <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
@@ -1326,29 +1347,6 @@ const ReviewScreen = ({
                                         </p>
                                     </div>
                                 )}
-
-                                {/* Speaker Button - OUTSIDE the flipping container */}
-                                {cardSettings.audioEnabled !== false && (
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
-                                        }}
-                                        className="absolute top-6 right-18 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
-                                        title="Phát âm"
-                                    >
-                                        <Volume2 className="w-4 h-4" />
-                                    </button>
-                                )}
-
-                                {/* Settings Button - OUTSIDE the flipping container */}
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                    className="absolute top-6 right-6 p-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white rounded-full transition-all hover:scale-110 z-30 shadow-md border border-white/20"
-                                    title="Cấu hình hiển thị"
-                                >
-                                    <Settings className="w-4 h-4" />
-                                </button>
                             </div>
                         ) : (
                             <div className="w-full bg-slate-800 dark:bg-slate-900 rounded-2xl shadow-xl p-5 flex flex-col text-center relative border-2 border-indigo-500/50">

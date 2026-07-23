@@ -914,98 +914,96 @@ const SRSVocabScreen = ({
                         </div>
 
                         {/* Flashcard Container Wrapper */}
-                        <div className="w-full relative" data-tour-id="FLASHCARD_CONTAINER">
-                            {/* Flashcard Container */}
-                            <div
-                                className={`w-full relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
-                                style={{
-                                    width: '100%',
-                                    height: '460px',
-                                    transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
-                                }}
-                            >
-                                <Flashcard
-                                    card={currentCard}
-                                    cardSettings={cardSettings}
-                                    isFlipped={isFlipped}
-                                    onFlip={() => {
-                                        setIsAnimatingFlip(true);
-                                        setIsFlipped(!isFlipped);
+                        <div className="w-full relative group perspective flex-shrink-0" data-tour-id="FLASHCARD_CONTAINER">
+                            <div className="perspective-1000 w-full mx-auto relative">
+                                <div
+                                    className={`cursor-pointer relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                                    style={{
+                                        width: '100%',
+                                        transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
                                     }}
-                                    variant="emerald"
-                                    transitionEnabled={isAnimatingFlip}
-                                />
-                            </div>
-
-                            {/* Nuance Button - OUTSIDE the flipping container */}
-                            <button
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setShowNuancePopup(prev => !prev);
-                                }}
-                                className={`absolute top-6 right-[120px] p-2.5 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border ${
-                                    currentCard.nuance 
-                                        ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-200 dark:border-amber-900/50 text-amber-600 dark:text-amber-400 hover:bg-amber-100/80 dark:hover:bg-amber-900/60' 
-                                        : 'bg-slate-50 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-550 hover:bg-slate-100 dark:hover:bg-slate-700/90'
-                                }`}
-                                title="Sắc thái từ vựng"
-                            >
-                                <Lightbulb className="w-4 h-4" />
-                            </button>
-
-                            {/* Nuance Text Box */}
-                            {showNuancePopup && (
-                                <div 
-                                    onClick={(e) => e.stopPropagation()} 
-                                    className="absolute top-20 right-6 left-6 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
                                 >
-                                    <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
-                                        <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
-                                            <Lightbulb className="w-4 h-4 fill-amber-300 animate-pulse" />
-                                            <span>Sắc thái từ vựng</span>
-                                        </div>
-                                        <button 
-                                            onClick={(e) => { e.stopPropagation(); setShowNuancePopup(false); }}
-                                            className="text-amber-600 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 text-xs font-bold px-2 py-1 hover:bg-amber-100/50 dark:hover:bg-amber-900/30 rounded-lg transition-colors"
-                                        >
-                                            Đóng
-                                        </button>
-                                    </div>
-                                    <p className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-semibold">
-                                        {currentCard.nuance || "Chưa có thông tin sắc thái cho từ vựng này."}
-                                    </p>
+                                    <Flashcard
+                                        card={currentCard}
+                                        cardSettings={cardSettings}
+                                        isFlipped={isFlipped}
+                                        onFlip={() => {
+                                            setIsAnimatingFlip(true);
+                                            setIsFlipped(!isFlipped);
+                                        }}
+                                        variant="emerald"
+                                        transitionEnabled={isAnimatingFlip}
+                                    />
                                 </div>
-                            )}
 
-                            {/* Speaker Button - OUTSIDE the flipping container */}
-                             {cardSettings.audioEnabled !== false && (
-                                 <button
-                                     onClick={(e) => {
-                                         e.stopPropagation();
-                                         if (currentCard) {
-                                             playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
-                                         }
-                                     }}
-                                     data-tour-id="FLASHCARD_SPEAKER"
-                                     className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
-                                     title="Phát âm"
-                                 >
-                                     <Volume2 className="w-4 h-4" />
-                                 </button>
-                             )}
+                                {/* Top Right Action Buttons Header (Nuance, Speaker, Settings) */}
+                                <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 z-30">
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setShowNuancePopup(prev => !prev);
+                                        }}
+                                        className={`p-2 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border ${
+                                            currentCard.nuance 
+                                                ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300' 
+                                                : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                        }`}
+                                        title="Sắc thái từ vựng"
+                                    >
+                                        <Lightbulb className="w-4 h-4" />
+                                    </button>
+                                    {cardSettings.audioEnabled !== false && (
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                if (currentCard) {
+                                                    playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                                }
+                                            }}
+                                            data-tour-id="FLASHCARD_SPEAKER"
+                                            className="p-2 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
+                                            title="Phát âm"
+                                        >
+                                            <Volume2 className="w-4 h-4" />
+                                        </button>
+                                    )}
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                        className="p-2 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
+                                        title="Cấu hình hiển thị"
+                                    >
+                                        <Settings className="w-4 h-4" />
+                                    </button>
+                                </div>
 
-                            {/* Settings Button - OUTSIDE the flipping container */}
-                            <button
-                                onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                className="absolute top-6 right-6 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
-                                title="Cấu hình hiển thị"
-                            >
-                                <Settings className="w-4 h-4" />
-                            </button>
+                                {/* Nuance Text Box */}
+                                {showNuancePopup && (
+                                    <div 
+                                        onClick={(e) => e.stopPropagation()} 
+                                        className="absolute top-16 right-4 left-4 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
+                                    >
+                                        <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
+                                            <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
+                                                <Lightbulb className="w-4 h-4 fill-amber-300 animate-pulse" />
+                                                <span>Sắc thái từ vựng</span>
+                                            </div>
+                                            <button 
+                                                onClick={(e) => { e.stopPropagation(); setShowNuancePopup(false); }}
+                                                className="text-amber-600 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 text-xs font-bold px-2 py-1 hover:bg-amber-100/50 dark:hover:bg-amber-900/30 rounded-lg transition-colors"
+                                            >
+                                                Đóng
+                                            </button>
+                                        </div>
+                                        <p className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-semibold">
+                                            {currentCard.nuance || "Chưa có thông tin sắc thái cho từ vựng này."}
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                         {/* Rating Buttons */}
-                        <div className="grid grid-cols-4 gap-3 w-full animate-fade-in" data-tour-id="RATING_PANEL">
+                        <div className="grid grid-cols-4 gap-3 w-full animate-fade-in mt-3" data-tour-id="RATING_PANEL">
                             {[
                                 { key: 'again', label: 'Quên rồi', interval: intervals.again, bg: 'bg-red-50 dark:bg-red-950/20', border: 'border-red-200 dark:border-red-900/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/80 dark:text-red-500/60' },
                                 { key: 'hard', label: 'Khó', interval: intervals.hard, bg: 'bg-orange-50 dark:bg-orange-950/20', border: 'border-orange-200 dark:border-orange-900/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/80 dark:text-orange-500/60' },

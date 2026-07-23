@@ -228,7 +228,6 @@ const FlashcardPlayerSection = ({
                 onTouchEnd={onTouchEnd}
                 style={{
                     width: '100%',
-                    height: '460px',
                     transform: swipeOffset ? `translateX(${swipeOffset}px)` : undefined,
                     transition: swipeOffset ? 'none' : (slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)'),
                     touchAction: 'pan-y',
@@ -251,33 +250,33 @@ const FlashcardPlayerSection = ({
                     onSaveCardAudio={onSaveCardAudio}
                     transitionEnabled={isAnimatingFlip}
                 />
+
+                {/* Top Right Action Buttons Header (Speaker, Settings) */}
+                <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 z-30">
+                    {cardSettings.audioEnabled !== false && activeCard && (
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null, activeCard.audioVoiceId);
+                            }}
+                            className="p-2 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
+                            title="Phát âm"
+                        >
+                            <Volume2 className="w-4 h-4" />
+                        </button>
+                    )}
+                    <button
+                        onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                        className="p-2 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
+                        title="Cấu hình hiển thị"
+                    >
+                        <Settings className="w-4 h-4" />
+                    </button>
+                </div>
             </div>
 
-            {/* Speaker Button - OUTSIDE the flipping container */}
-            {cardSettings.audioEnabled !== false && activeCard && (
-                <button
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        speakJapanese(activeCard.front, activeCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null, activeCard.audioVoiceId);
-                    }}
-                    className="absolute top-6 right-18 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
-                    title="Phát âm"
-                >
-                    <Volume2 className="w-4 h-4" />
-                </button>
-            )}
-
-            {/* Settings Button - OUTSIDE the flipping container */}
-            <button
-                onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                className="absolute top-6 right-6 p-2.5 bg-slate-50 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700/90 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-110 active:scale-95 z-30 shadow-md border border-slate-200 dark:border-slate-700"
-                title="Cấu hình hiển thị"
-            >
-                <Settings className="w-4 h-4" />
-            </button>
-
             {/* Navigation */}
-            <div className="flex items-center justify-center gap-6 mt-5">
+            <div className="flex items-center justify-center gap-6 mt-3">
                 <button onClick={prevCard} disabled={currentCardIndex === 0} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
                     <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                 </button>

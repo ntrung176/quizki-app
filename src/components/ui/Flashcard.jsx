@@ -179,6 +179,11 @@ const Flashcard = ({
                         <FuriganaText text={card.frontWithFurigana || card.front} forceHide={!cardSettings.front.furigana} />
                     </div>
                 )}
+                {!cardSettings.front.word && cardSettings.front.furigana && (
+                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed break-words max-w-full px-2`}>
+                        <FuriganaText text={card.frontWithFurigana || card.front} showReadingOnly={true} />
+                    </div>
+                )}
                 {cardSettings.front.hanviet && card.sinoVietnamese && (
                     <p className={`${hanvietColorClass} text-[15px] md:text-base font-bold`}>
                         <span className={variant === 'review' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
@@ -320,18 +325,18 @@ const Flashcard = ({
                         </div>
                     )}
                     {((cardSettings.back.hanviet && card.sinoVietnamese) || (cardSettings.back.synonym && card.synonym)) && (
-                        <div className="flex items-center justify-center gap-3 text-[13px] md:text-[14px] font-bold mt-0.5 flex-wrap">
+                        <div className="flex items-baseline justify-center gap-3 text-[13px] md:text-[14px] font-bold mt-0.5 flex-wrap">
                             {cardSettings.back.hanviet && card.sinoVietnamese && (
-                                <span className={variant === 'review' ? 'text-yellow-300' : 'text-slate-700 dark:text-slate-300'}>
-                                    <span className={variant === 'review' ? "text-emerald-100 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
+                                <span className={`inline-flex items-baseline ${variant === 'review' ? 'text-yellow-300' : 'text-slate-700 dark:text-slate-300'}`}>
+                                    <span className={variant === 'review' ? "text-emerald-100 font-normal mr-1" : "text-slate-400 dark:text-slate-500 font-normal mr-1"}>Hán Việt: </span>{card.sinoVietnamese}
                                 </span>
                             )}
                             {cardSettings.back.hanviet && card.sinoVietnamese && cardSettings.back.synonym && card.synonym && (
-                                <span className={variant === 'review' ? 'text-white/25' : 'text-slate-200 dark:text-slate-700'}>|</span>
+                                <span className={`inline-block ${variant === 'review' ? 'text-white/25' : 'text-slate-200 dark:text-slate-700'}`}>|</span>
                             )}
                             {cardSettings.back.synonym && card.synonym && (
-                                <span className={variant === 'review' ? 'text-emerald-105' : 'text-slate-800 dark:text-slate-300'}>
-                                    <span className={variant === 'review' ? "text-emerald-100 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Đồng nghĩa: </span>
+                                <span className={`inline-flex items-baseline gap-1 ${variant === 'review' ? 'text-emerald-105' : 'text-slate-800 dark:text-slate-300'}`}>
+                                    <span className={variant === 'review' ? "text-emerald-100 font-normal shrink-0" : "text-slate-400 dark:text-slate-500 font-normal shrink-0"}>Đồng nghĩa: </span>
                                     <FuriganaText text={card.synonym} forceHide={cardSettings.back.synonymFurigana === false} className={`font-japanese font-semibold ${variant === 'review' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`} />
                                 </span>
                             )}
@@ -387,7 +392,7 @@ const Flashcard = ({
                 }}
                 style={{
                     width: '100%',
-                    height: '395px',
+                    height: '390px',
                     transition: transitionEnabled ? 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)' : 'none',
                 }}
             >
@@ -408,7 +413,7 @@ const Flashcard = ({
 
             {/* Hint text OUTSIDE flashcard - Evenly spaced between flashcard and bottom buttons */}
             {showFlipHint && (
-                <div className="w-full text-center py-2.5 pointer-events-none z-20 flex justify-center">
+                <div className="w-full text-center py-2 pointer-events-none z-20 flex justify-center">
                     <span className={`px-3.5 py-1 rounded-full text-xs font-semibold shadow-sm tracking-wide ${
                         variant === 'review' 
                             ? 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40 dark:border-indigo-800/40 backdrop-blur-sm' 

@@ -608,7 +608,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                     </div>
 
                     {/* Action buttons - Know / Don't Know / Undo */}
-                    <div className="flex items-center justify-center gap-3 w-full mt-2.5">
+                    <div className="flex items-center justify-center gap-3 w-full mt-3">
                         {/* Don't know button */}
                         <button
                             onClick={handleUnknown}
