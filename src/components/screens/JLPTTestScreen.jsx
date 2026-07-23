@@ -1602,38 +1602,67 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
         let unsub = null;
 
         (async () => {
+            // 0. Use in-memory or localStorage cache first for 0ms instant loading
             try {
-                const cacheConfig = await getCacheConfig();
-                let res;
+                const savedCache = localStorage.getItem('quizki_cached_jlpt_tests');
+                if (savedCache && active) {
+                    const parsed = JSON.parse(savedCache);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        setTests(parsed);
+                        setLoading(false);
+                    }
+                }
+            } catch (e) {}
+
+            // 1. Try CDN URL if available (non-blocking cacheConfig timeout)
+            try {
+                const cacheConfig = await Promise.race([
+                    getCacheConfig(),
+                    new Promise(r => setTimeout(() => r(null), 800))
+                ]);
+
                 if (cacheConfig && cacheConfig.jlptUrl) {
                     console.log('Fetching JLPT tests from Storage CDN...');
                     const urlWithBuster = `${cacheConfig.jlptUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
-                    res = await fetch(urlWithBuster);
-                } else {
-                    console.log('Fetching JLPT tests from local JSON cache...');
-                    res = await fetch('/data/jlpt_data.json');
-                }
-                if (res && res.ok && active) {
-                    const contentType = res.headers.get('content-type');
-                    if (contentType && contentType.includes('application/json')) {
+                    const res = await fetch(urlWithBuster);
+                    if (res && res.ok && active) {
                         const data = await res.json();
-                        setTests(data);
-                        setLoading(false);
-                        return;
-                    } else {
-                        throw new Error('Response is not JSON (got: ' + contentType + ')');
+                        if (Array.isArray(data) && data.length > 0) {
+                            setTests(data);
+                            setLoading(false);
+                            try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(data)); } catch (e) {}
+                            return;
+                        }
                     }
                 }
             } catch (e) {
-                console.log('CDN JLPT tests load failed (expected if not synced), falling back to Firestore: ' + e.message);
+                console.log('CDN JLPT tests load failed:', e.message);
             }
 
+            // 2. Try Local /data/jlpt_data.json
+            try {
+                const res = await fetch('/data/jlpt_data.json');
+                if (res && res.ok && active) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        setTests(data);
+                        setLoading(false);
+                        try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(data)); } catch (e) {}
+                        return;
+                    }
+                }
+            } catch (e) {}
+
+            // 3. Fallback to Firestore listener if no CDN or local cache
             if (!active) return;
+            console.log('Fallback to Firestore for JLPT tests...');
             const q = query(collection(db, testsPath), orderBy('createdAt', 'desc'));
             unsub = onSnapshot(q, (snap) => {
                 if (active) {
-                    setTests(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+                    const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                    setTests(data);
                     setLoading(false);
+                    try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(data)); } catch (e) {}
                 }
             });
         })();

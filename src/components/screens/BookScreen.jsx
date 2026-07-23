@@ -296,7 +296,7 @@ const BookScreen = ({
     const loadAllData = async (silent = false, forceRefresh = false) => {
         if (!silent) setLoading(true);
         try {
-            const groups = await getSharedBookGroups(forceRefresh, isAdmin);
+            const groups = await getSharedBookGroups(forceRefresh, false);
             setBookGroups(groups);
         } catch (e) {
             console.error('Error loading book data:', e);

@@ -82,7 +82,20 @@ const Sidebar = ({
         return fallbackChar;
     };
 
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(() => {
+        try {
+            return localStorage.getItem('quizki_sidebar_collapsed') === 'true';
+        } catch (e) {
+            return false;
+        }
+    });
+
+    useEffect(() => {
+        try {
+            localStorage.setItem('quizki_sidebar_collapsed', String(isCollapsed));
+            window.dispatchEvent(new CustomEvent('sidebar-collapse-toggle', { detail: isCollapsed }));
+        } catch (e) {}
+    }, [isCollapsed]);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     
     // Notifications state
@@ -467,7 +480,7 @@ const Sidebar = ({
     const DesktopSidebar = () => (
         <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
             {/* Cyber Brand Logo */}
-            <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <div className={`p-4 border-b border-slate-200 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
                 <Link
                     to={ROUTES.HOME}
                     className="flex items-center space-x-3"
@@ -596,57 +609,67 @@ const Sidebar = ({
                 </Link>
 
                 {/* Integrated Cyber Quick Control Chips (Chatbox with Admin, Help, Theme, Collapse, Logout) */}
-                <div className="flex items-center justify-between gap-1 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
-                    {/* Chatbox with Admin Button */}
-                    <button
-                        onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
-                        className={`p-2 rounded-xl text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer ${isCollapsed ? 'w-full flex justify-center' : ''}`}
-                        title="Chatbox hỗ trợ với Admin"
-                    >
-                        <MessageSquare className="w-4.5 h-4.5" />
-                    </button>
-
-                    {/* Help / Page Guide '?' Button */}
-                    <button
-                        onClick={() => {
-                            if (onTriggerTour) onTriggerTour();
-                            else navigate(ROUTES.HELP);
-                        }}
-                        className={`p-2 rounded-xl text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer ${isCollapsed ? 'w-full flex justify-center' : ''}`}
-                        title="Xem hướng dẫn trang này"
-                    >
-                        <HelpCircle className="w-4.5 h-4.5" />
-                    </button>
-
-                    {/* Dark Mode Toggle */}
-                    <button
-                        onClick={() => setIsDarkMode(prev => !prev)}
-                        className={`p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer ${isCollapsed ? 'w-full flex justify-center' : ''}`}
-                        title={isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
-                    >
-                        {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
-                    </button>
-
-                    {/* Collapse Sidebar Toggle */}
-                    {!isCollapsed && (
+                {isCollapsed ? (
+                    <div className="flex items-center justify-center pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
                         <button
-                            onClick={() => setIsCollapsed(!isCollapsed)}
+                            onClick={() => setIsCollapsed(false)}
+                            className="w-full py-2 rounded-xl text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer"
+                            title="Mở rộng Sidebar"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </button>
+                    </div>
+                ) : (
+                    <div className="flex items-center justify-between gap-1 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
+                        {/* Chatbox with Admin Button */}
+                        <button
+                            onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
+                            className="p-2 rounded-xl text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer"
+                            title="Chatbox hỗ trợ với Admin"
+                        >
+                            <MessageSquare className="w-4.5 h-4.5" />
+                        </button>
+
+                        {/* Help / Page Guide '?' Button */}
+                        <button
+                            onClick={() => {
+                                if (onTriggerTour) onTriggerTour();
+                                else navigate(ROUTES.HELP);
+                            }}
+                            className="p-2 rounded-xl text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer"
+                            title="Xem hướng dẫn trang này"
+                        >
+                            <HelpCircle className="w-4.5 h-4.5" />
+                        </button>
+
+                        {/* Dark Mode Toggle */}
+                        <button
+                            onClick={() => setIsDarkMode(prev => !prev)}
+                            className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                            title={isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
+                        >
+                            {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
+                        </button>
+
+                        {/* Collapse Sidebar Toggle */}
+                        <button
+                            onClick={() => setIsCollapsed(true)}
                             className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                             title="Thu gọn Sidebar"
                         >
                             <ChevronRight className="w-4.5 h-4.5 rotate-180" />
                         </button>
-                    )}
 
-                    {/* Logout Button */}
-                    <button
-                        onClick={handleLogout}
-                        className={`p-2 rounded-xl text-slate-400 hover:text-rose-600 dark:text-slate-500 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer ${isCollapsed ? 'w-full flex justify-center' : ''}`}
-                        title="Đăng xuất"
-                    >
-                        <LogOut className="w-4.5 h-4.5" />
-                    </button>
-                </div>
+                        {/* Logout Button */}
+                        <button
+                            onClick={handleLogout}
+                            className="p-2 rounded-xl text-slate-400 hover:text-rose-600 dark:text-slate-500 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer"
+                            title="Đăng xuất"
+                        >
+                            <LogOut className="w-4.5 h-4.5" />
+                        </button>
+                    </div>
+                )}
             </div>
         </aside>
     );

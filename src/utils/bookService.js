@@ -15,7 +15,16 @@ let bookGroupsPromise = null;
  * @param {boolean} forceRefresh - If true, bypasses cache and forces a fresh query.
  */
 export const getSharedBookGroups = async (forceRefresh = false, forceLiveFirestore = false) => {
-    const cacheConfig = await getCacheConfig();
+    let cacheConfig = null;
+    try {
+        cacheConfig = await Promise.race([
+            getCacheConfig(),
+            new Promise(r => setTimeout(() => r(null), 800))
+        ]);
+    } catch (e) {
+        console.warn('Cache config fetch timeout/error in bookService:', e);
+    }
+
     const currentExport = cacheConfig?.exportedAt || 0;
     const needsRefresh = forceRefresh || (currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt);
 
@@ -86,34 +95,46 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
             return fetchFromFirestoreFallback();
         }
 
-        try {
-            console.log('Fetching shared book groups from CDN...');
-            const cacheConfig = await getCacheConfig();
-            
-            let dataRes;
-            if (cacheConfig && cacheConfig.booksUrl) {
-                console.log('Using Firebase Storage CDN for Books cache');
+        // 1. Try Firebase Storage CDN if available
+        if (cacheConfig && cacheConfig.booksUrl) {
+            try {
+                console.log('Fetching shared book groups from Firebase Storage CDN...');
                 const urlWithBuster = cacheConfig.booksUrl.includes('?') 
                     ? `${cacheConfig.booksUrl}&t=${cacheConfig.exportedAt || Date.now()}`
                     : `${cacheConfig.booksUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
-                dataRes = await fetch(urlWithBuster);
-            } else {
-                console.log('Falling back to local bundle files for Books cache');
-                dataRes = await fetch('/data/books_data.json');
+                const dataRes = await fetch(urlWithBuster);
+                if (dataRes && dataRes.ok) {
+                    const data = await dataRes.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        cachedBookGroups = data;
+                        lastLoadedExportedAt = currentExport || Date.now();
+                        return cachedBookGroups;
+                    }
+                }
+            } catch (cdnErr) {
+                console.warn('CDN fetch for books failed, falling back to local bundle file...', cdnErr);
             }
-
-            if (!dataRes || !dataRes.ok) throw new Error('CDN fetch failed');
-            const contentType = dataRes.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Response is not JSON (got: ' + contentType + ')');
-            }
-            cachedBookGroups = await dataRes.json();
-            lastLoadedExportedAt = currentExport || Date.now();
-            return cachedBookGroups;
-        } catch (e) {
-            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
-            return fetchFromFirestoreFallback();
         }
+
+        // 2. Try Local Bundle file /data/books_data.json
+        try {
+            console.log('Fetching shared book groups from local bundle (/data/books_data.json)...');
+            const dataRes = await fetch('/data/books_data.json');
+            if (dataRes && dataRes.ok) {
+                const data = await dataRes.json();
+                if (Array.isArray(data) && data.length > 0) {
+                    cachedBookGroups = data;
+                    lastLoadedExportedAt = currentExport || Date.now();
+                    return cachedBookGroups;
+                }
+            }
+        } catch (localErr) {
+            console.warn('Local bundle fetch for books failed:', localErr);
+        }
+
+        // 3. Last Resort Fallback: Firestore live query
+        console.log('CDN & Local bundle unavailable, falling back to Firestore queries...');
+        return fetchFromFirestoreFallback();
     })();
 
     return bookGroupsPromise;

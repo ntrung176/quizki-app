@@ -177,7 +177,6 @@ const App = () => {
         const saved = localStorage.getItem('darkMode');
         const result = saved === 'true';
 
-        // Force remove dark class ngay lập tức nếu không phải dark mode
         if (!result) {
             document.documentElement.classList.remove('dark');
             document.body.classList.remove('dark');
@@ -188,6 +187,21 @@ const App = () => {
         return result;
     });
 
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => {
+        try {
+            return localStorage.getItem('quizki_sidebar_collapsed') === 'true';
+        } catch (e) {
+            return false;
+        }
+    });
+
+    useEffect(() => {
+        const handleCollapseChange = (e) => {
+            setIsSidebarCollapsed(!!e.detail);
+        };
+        window.addEventListener('sidebar-collapse-toggle', handleCollapseChange);
+        return () => window.removeEventListener('sidebar-collapse-toggle', handleCollapseChange);
+    }, []);
 
     const [rawProfile, setProfile] = useState(null);
     const profile = useMemo(() => {
@@ -4717,7 +4731,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 </div>
             )}
 
-            <main className={`${isFullscreen ? 'ml-0 lg:ml-0 pt-0' : 'lg:ml-64 pt-14 lg:pt-0'} min-h-screen flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'bg-transparent' : ''}`}>
+            <main className={`${isFullscreen ? 'ml-0 lg:ml-0 pt-0' : isSidebarCollapsed ? 'lg:ml-20 pt-14 lg:pt-0' : 'lg:ml-64 pt-14 lg:pt-0'} transition-all duration-300 min-h-screen flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'bg-transparent' : ''}`}>
                 {profile?.trialPricingTier && (
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
                         <div className="flex items-center gap-2">

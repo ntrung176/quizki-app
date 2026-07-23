@@ -479,18 +479,36 @@ export const syncKanjiAndVocabToCDN = async (forceFull = false) => {
 
     const cacheConfig = await getCacheConfig();
 
-    if (!forceFull && cacheConfig && cacheConfig.kanjiUrl && cacheConfig.vocabUrl && cacheConfig.vocabCategoriesUrl && cacheConfig.exportedAt) {
+    if (!forceFull && cacheConfig && cacheConfig.exportedAt) {
         try {
-            console.log('Attempting incremental sync using existing CDN files...');
+            console.log('Attempting incremental sync using existing CDN / Local bundle files...');
             const lastExport = cacheConfig.exportedAt;
-
-            // Fetch current CDN files in parallel (bypass CDN cache using timestamp query parameter)
             const buster = Date.now();
-            const [kanjiRes, vocabRes, catsRes] = await Promise.all([
-                fetch(`${cacheConfig.kanjiUrl}&t=${buster}`).then(r => r.ok ? r.json() : null),
-                fetch(`${cacheConfig.vocabUrl}&t=${buster}`).then(r => r.ok ? r.json() : null),
-                fetch(`${cacheConfig.vocabCategoriesUrl}&t=${buster}`).then(r => r.ok ? r.json() : null)
+
+            const appendBuster = (url) => {
+                if (!url) return '';
+                return url.includes('?') ? `${url}&t=${buster}` : `${url}?t=${buster}`;
+            };
+
+            // 1. Try fetching current CDN files in parallel
+            let [kanjiRes, vocabRes, catsRes] = await Promise.all([
+                cacheConfig.kanjiUrl ? fetch(appendBuster(cacheConfig.kanjiUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null,
+                cacheConfig.vocabUrl ? fetch(appendBuster(cacheConfig.vocabUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null,
+                cacheConfig.vocabCategoriesUrl ? fetch(appendBuster(cacheConfig.vocabCategoriesUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null
             ]);
+
+            // 2. Fallback to local bundle files as base if CDN files not found
+            if (!kanjiRes || !vocabRes || !catsRes) {
+                console.log('CDN files unavailable for incremental sync, loading local bundle files as base...');
+                const [localKanji, localVocab, localCats] = await Promise.all([
+                    fetch('/data/kanji_data.json').then(r => r.ok ? r.json() : null).catch(() => null),
+                    fetch('/data/vocab_data.json').then(r => r.ok ? r.json() : null).catch(() => null),
+                    fetch('/data/vocab_categories.json').then(r => r.ok ? r.json() : null).catch(() => null)
+                ]);
+                if (!kanjiRes) kanjiRes = localKanji;
+                if (!vocabRes) vocabRes = localVocab;
+                if (!catsRes) catsRes = localCats;
+            }
 
             if (kanjiRes && vocabRes && catsRes) {
                 // Fetch only modified docs since lastExport
