@@ -234,7 +234,7 @@ export const AI_FEATURES = [
     { id: 'more_examples', label: 'Tạo thêm ví dụ', description: 'Tạo thêm câu ví dụ tiếng Nhật tự nhiên kèm nghĩa tiếng Việt theo ngữ cảnh.' },
     { id: 'ocr_image', label: 'Quét chữ từ ảnh (OCR)', description: 'Trích xuất danh sách từ vựng tiếng Nhật từ hình ảnh tải lên.' },
     { id: 'grammar_check', label: 'Chấm điểm/Phân tích Ngữ pháp', description: 'Chấm điểm câu dịch, phân tích lỗi sai và đối chiếu ngữ pháp.' },
-    { id: 'kaiwa_agent', label: 'Luyện KAIWA 1:1 (AI Agent)', description: 'Mô hình AI đóng vai giáo viên bản xứ tương tác hội thoại và sửa lỗi phát âm.' },
+    { id: 'kaiwa_agent', label: 'Phòng Kaiwa AI (AI Agent)', description: 'Mô hình AI đóng vai giáo viên bản xứ tương tác hội thoại và sửa lỗi phát âm.' },
 ];
 // ============== AI CREDIT REQUESTS ==============
 const getCreditRequestsPath = () => `artifacts/${appId}/creditRequests`;

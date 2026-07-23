@@ -5,7 +5,7 @@ export const VOCAB_TABS = [
     { id: 'vocab-review', label: 'Ôn tập', icon: BookOpen, route: ROUTES.VOCAB_REVIEW, exact: true },
     { id: 'vocab-list', label: 'Thư viện', icon: List, route: ROUTES.VOCAB_LIST, exact: true },
     { id: 'vocab-add', label: 'Thêm học phần', icon: Plus, route: ROUTES.VOCAB_ADD, exact: true },
-    { id: 'vocab-books', label: 'Học theo sách', icon: Library, route: ROUTES.BOOKS, exact: true },
+    { id: 'vocab-books', label: 'Bài học', icon: Library, route: ROUTES.BOOKS, exact: true },
 ];
 
 export const KANJI_TABS = [

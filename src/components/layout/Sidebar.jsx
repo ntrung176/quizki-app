@@ -247,7 +247,7 @@ const Sidebar = ({
         { id: 'KANJI_STUDY', icon: Languages, label: 'Thư viện Kanji', route: ROUTES.KANJI_REVIEW, badge: kanjiDueCount },
         { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR_REVIEW, badge: grammarDueCount },
         { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện đề JLPT', route: ROUTES.JLPT_TEST },
-        { id: 'JLPT_KAIWA', icon: MessageSquare, label: 'Luyện KAIWA 1:1', route: ROUTES.JLPT_KAIWA },
+        { id: 'JLPT_KAIWA', icon: MessageSquare, label: 'Phòng Kaiwa AI', route: ROUTES.JLPT_KAIWA },
         { id: 'HUB', icon: Trophy, label: 'Bảng vinh danh', route: ROUTES.HUB },
     ];
 

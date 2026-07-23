@@ -122,6 +122,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     }, [conversation, isGenerating]);
 
     // Setup Web Audio API Context and Mic Analyser for VAD & Waveform
+    // Setup Web Audio API Context and Mic Analyser for VAD & Waveform
     const initAudioContextAndMic = async () => {
         try {
             if (!audioContextRef.current) {
@@ -133,13 +134,20 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             }
 
             if (!micStreamRef.current) {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    audio: {
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true,
+                        channelCount: 1
+                    }
+                });
                 micStreamRef.current = stream;
                 
                 const source = audioContextRef.current.createMediaStreamSource(stream);
                 const analyser = audioContextRef.current.createAnalyser();
                 analyser.fftSize = 256;
-                analyser.smoothingTimeConstant = 0.8;
+                analyser.smoothingTimeConstant = 0.35; // Fast decay for immediate silence response
                 source.connect(analyser);
                 micAnalyserRef.current = analyser;
             }
@@ -196,14 +204,17 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     const dataArray = new Uint8Array(analyser.frequencyBinCount);
                     analyser.getByteFrequencyData(dataArray);
 
-                    let sum = 0;
-                    for (let i = 0; i < dataArray.length; i++) {
-                        sum += dataArray[i] * dataArray[i];
+                    // Focus on human vocal frequencies (~150Hz to ~4000Hz) to ignore ambient noise
+                    const startBin = 1;
+                    const endBin = Math.min(25, dataArray.length);
+                    let vocalSum = 0;
+                    for (let i = startBin; i < endBin; i++) {
+                        vocalSum += dataArray[i] * dataArray[i];
                     }
-                    const rms = Math.sqrt(sum / dataArray.length);
+                    const rms = Math.sqrt(vocalSum / (endBin - startBin));
 
-                    const SILENCE_THRESHOLD = 20; 
-                    const MAX_SILENCE_DURATION = 1400; 
+                    const SILENCE_THRESHOLD = 14; 
+                    const MAX_SILENCE_DURATION = 750; // Cutoff recording in 0.75s after user stops speaking
                     const MAX_RECORDING_DURATION = 12000; 
 
                     if (rms > SILENCE_THRESHOLD) {
@@ -261,7 +272,14 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
             let stream = micStreamRef.current;
             if (!stream || !stream.active) {
-                stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                stream = await navigator.mediaDevices.getUserMedia({
+                    audio: {
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true,
+                        channelCount: 1
+                    }
+                });
                 micStreamRef.current = stream;
             }
 
@@ -384,7 +402,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         if (isMuted) return;
         setIsAiSpeaking(true);
         
-        const cleanText = text.replace(/([\u4e00-\u9faf\u3005\u3400-\u4dbf]+)\[([^\]]+)\]/g, '$1');
+        // Strip out furigana reading brackets completely for TTS (handles Katakana, Kanji, Romaji)
+        const cleanText = text.replace(/([^\s\[\]]+)\[([^\]]+)\]/g, '$1').replace(/\[[^\]]+\]/g, '');
         const selectedTeacher = TEACHERS.find(t => t.id === teacher);
         const gender = selectedTeacher ? selectedTeacher.gender : 'female';
 
@@ -436,9 +455,9 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     const formatFurigana = (text) => {
         if (!text) return '';
         if (!showFurigana) {
-            return text.replace(/([\u4e00-\u9faf\u3005\u3400-\u4dbf]+)\[([^\]]+)\]/g, '$1');
+            return text.replace(/([^\s\[\]]+)\[([^\]]+)\]/g, '$1').replace(/\[[^\]]+\]/g, '');
         }
-        return text.replace(/([\u4e00-\u9faf\u3005\u3400-\u4dbf]+)\[([^\]]+)\]/g, '<ruby>$1<rt class="text-[10px] font-bold select-none text-rose-600 dark:text-rose-400">$2</rt></ruby>');
+        return text.replace(/([^\s\[\]]+)\[([^\]]+)\]/g, '<ruby>$1<rt class="text-[10px] font-bold select-none text-rose-600 dark:text-rose-400">$2</rt></ruby>');
     };
 
     // Helper to start the Kaiwa session
@@ -547,44 +566,53 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         let systemPrompt = '';
         if (pendingCorrection) {
             systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
-            Học viên đang thực hiện sửa lỗi cho câu sai trước đó.
-            - Câu sai gốc của học viên: "${pendingCorrection.original}"
-            - Câu sửa đúng mong đợi: "${pendingCorrection.corrected}"
+            Học viên vừa đọc/phát âm lại câu để sửa lỗi.
+            - Câu sai trước đó: "${pendingCorrection.original}"
+            - Câu sửa đúng yêu cầu học viên phải đọc lại: "${pendingCorrection.corrected}"
+            - Câu học viên vừa đọc/gửi: "${messageText}"
             
-            Nhiệm vụ:
-            1. Đánh giá câu học viên vừa gửi: "${messageText}".
-            2. Nếu SỬA ĐÚNG:
+            Quy trình bắt buộc:
+            1. Kiểm tra câu học viên vừa đọc "${messageText}" đã sửa đúng theo câu chuẩn "${pendingCorrection.corrected}" chưa.
+            2. NẾU HỌC VIÊN ĐÃ ĐỌC/SỬA ĐÚNG:
                - "feedback.hasError" là false.
-               - "replyJa": 1 câu khen ngợi ngắn gọn + 1 câu tiếp diễn hội thoại.
-               - "speechAnalytics": { "fluencyScore": 92, "fluencyLabel": "Sửa lỗi xuất sắc", "pronunciationTips": "Đã phát âm và dùng câu chuẩn xác!" }
-            3. Nếu SỬA VẪN SAI:
+               - "replyJa": 1 câu ngắn khen học viên đã đọc đúng (ví dụ: "素晴らしい！正しく言えましたね。") KÈM THEO 1 câu hỏi ngắn tiếp theo để TIẾP TỤC cuộc hội thoại chủ đề ${selectedTopic.name}.
+               - "speechAnalytics": { "fluencyScore": 92, "fluencyLabel": "Sửa lỗi xuất sắc", "pronunciationTips": "Đã phát âm và sửa câu chuẩn xác!" }
+            3. NẾU HỌC VIÊN ĐỌC VẪN SAI / CHƯA ĐÚNG:
                - "feedback.hasError" là true.
                - "feedback.userOriginal" là "${messageText}".
                - "feedback.correctedJa" là "${pendingCorrection.corrected}".
-               - "feedback.explanationVi" là lời khuyên giải thích bằng tiếng Việt.
-               - "replyJa" bắt buộc yêu cầu học viên thử lại câu đúng "${pendingCorrection.corrected}".
+               - "feedback.explanationVi" giải thích lỗi phát âm/dùng từ bằng tiếng Việt.
+               - "replyJa": Yêu cầu học viên thử đọc lại câu đúng "${pendingCorrection.corrected}". TUYỆT ĐỐI KHÔNG hỏi câu mới.
             
             Định dạng phản hồi: Bắt buộc trả về cấu trúc JSON:
             {
-              "replyJa": "...",
-              "replyVi": "...",
+              "replyJa": "Nội dung câu nói của giáo viên kèm Furigana dạng Chữ[Furigana]",
+              "replyVi": "Bản dịch tiếng Việt",
               "feedback": { "hasError": true/false, "userOriginal": "...", "correctedJa": "...", "explanationVi": "..." },
-              "suggestions": ["..."],
+              "suggestions": ["${pendingCorrection.corrected}"],
               "speechAnalytics": { "fluencyScore": 85, "fluencyLabel": "...", "pronunciationTips": "..." }
             }`;
         } else {
             systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
             Hội thoại 1:1 cấp độ JLPT: ${level}. Chủ đề: ${selectedTopic.name}.
             
-            Nhiệm vụ:
+            Quy trình xử lý phản hồi:
             1. Phân tích câu nói của học viên: "${messageText}" (thời gian nói: ${durationSec} giây).
-            2. Kiểm tra xem có lỗi ngữ pháp, dùng từ sai hoặc phát âm/diễn đạt chưa tự nhiên không.
-               - Nếu có lỗi: "feedback.hasError" là true, "correctedJa" chứa câu sửa (kèm Furigana dạng Chữ[Furigana]), "explanationVi" giải thích bằng tiếng Việt, "replyJa" yêu cầu học viên lặp lại câu sửa đó.
-               - Nếu đúng: "feedback.hasError" là false, "replyJa" phản hồi tự nhiên + hỏi câu tiếp theo ngắn gọn (1-2 câu).
+            2. Kiểm tra xem học viên có mắc lỗi ngữ pháp, dùng từ sai hoặc phát âm/diễn đạt chưa tự nhiên không:
+               - QUAN TRỌNG - NẾU HỌC VIÊN CÓ LỖI SAI:
+                 + "feedback.hasError" là true.
+                 + "correctedJa": chứa câu tiếng Nhật chuẩn (kèm Furigana dạng Chữ[Furigana]).
+                 + "explanationVi": giải thích lỗi bằng tiếng Việt ngắn gọn.
+                 + "replyJa": BẮT BUỘC chỉ yêu cầu học viên đọc/phát âm lại câu đúng "${messageText}" -> [correctedJa]. TUYỆT ĐỐI KHÔNG HỎI CÂU MỚI, KHÔNG CHUYỂN CHỦ ĐỀ. Bắt buộc để học viên phát âm sửa lỗi trước.
+                 + "suggestions": [ [correctedJa] ]
+               - NẾU HỌC VIÊN NÓI CHUẨN (KHÔNG CÓ LỖI):
+                 + "feedback.hasError" là false.
+                 + "replyJa": Phản hồi tự nhiên + hỏi câu tiếp theo ngắn gọn (1-2 câu).
+                 + "suggestions": [ 2 đến 3 câu gợi ý phản xạ ngắn ]
             3. Đánh giá độ trôi chảy và nhận xét phát âm trong "speechAnalytics":
-               - "fluencyScore": Điểm 0-100 dựa trên độ chính xác ngữ pháp và độ tự nhiên của câu.
-               - "fluencyLabel": Nhãn tiếng Việt ngắn ("Xuất sắc" | "Trôi chảy" | "Tự nhiên" | "Cần chú ý").
-               - "pronunciationTips": Nhận xét 1 câu ngắn bằng tiếng Việt về phát âm hoặc ngữ điệu của học viên (ví dụ: "Chú ý nối âm giữa các từ", "Ngữ điệu tự nhiên").
+               - "fluencyScore": Điểm 0-100.
+               - "fluencyLabel": Nhãn ngắn ("Xuất sắc" | "Trôi chảy" | "Tự nhiên" | "Cần chú ý").
+               - "pronunciationTips": Nhận xét 1 câu ngắn bằng tiếng Việt.
             
             Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON:
             {
@@ -597,7 +625,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 "explanationVi": "lời khuyên nếu error"
               },
               "suggestions": [
-                "2-3 câu gợi ý phản xạ ngắn kèm Furigana"
+                "câu gợi ý phản xạ hoặc câu cần đọc lại"
               ],
               "speechAnalytics": {
                 "fluencyScore": 88,
@@ -705,7 +733,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                         </div>
 
                         <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-white dark:via-cyan-200 dark:to-indigo-300 tracking-tight drop-shadow-sm">
-                            Luyện Kaiwa AI 1:1 Thế Hệ Mới
+                            Phòng Kaiwa AI Thế Hệ Mới
                         </h1>
 
                         <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-normal leading-relaxed">

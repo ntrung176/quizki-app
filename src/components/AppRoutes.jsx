@@ -1330,7 +1330,7 @@ const AppRoutes = ({
                                         <div className="space-y-2">
                                             <h2 className="text-xl font-bold text-gray-900 dark:text-white">Tính năng đang phát triển</h2>
                                             <p className="text-sm text-gray-500 dark:text-slate-400">
-                                                Tính năng <strong>Luyện hội thoại KAIWA 1:1</strong> hiện đang trong quá trình thử nghiệm và phát triển. Chỉ tài khoản Quản trị viên (Admin) mới có quyền truy cập thử nghiệm.
+                                                Tính năng <strong>Phòng Kaiwa AI</strong> hiện đang trong quá trình thử nghiệm và phát triển. Chỉ tài khoản Quản trị viên (Admin) mới có quyền truy cập thử nghiệm.
                                             </p>
                                         </div>
                                         <div className="flex flex-col gap-3">
