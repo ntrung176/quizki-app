@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
 
 const isTabActive = (tab, pathname, search) => {
     const searchParams = new URLSearchParams(search);
@@ -54,10 +55,25 @@ const getThemeClasses = (pathname, tabs, themeProp) => {
 
 const TopTabBar = ({ tabs, theme }) => {
     const location = useLocation();
+    const { t } = useLanguage();
     const containerRef = useRef(null);
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
 
     const themeClasses = getThemeClasses(location.pathname, tabs, theme);
+
+    const getTabLabel = (tab) => {
+        if (tab.id === 'vocab-review' || tab.id === 'kanji-review' || tab.id === 'grammar-review') {
+            return t('tabs.review', 'Ôn tập');
+        }
+        if (tab.id === 'vocab-list') return t('tabs.library', 'Thư viện');
+        if (tab.id === 'vocab-add') return t('tabs.addSet', 'Thêm học phần');
+        if (tab.id === 'vocab-books' || tab.id === 'kanji-study' || tab.id === 'grammar-study') {
+            return t('tabs.lessons', 'Bài học');
+        }
+        if (tab.id === 'kanji-saved' || tab.id === 'grammar-saved') return t('tabs.saved', 'Đã lưu');
+        if (tab.id === 'kanji-list' || tab.id === 'grammar-list') return t('tabs.search', 'Tra cứu');
+        return tab.label;
+    };
 
     useEffect(() => {
         if (!containerRef.current) return;
@@ -123,7 +139,7 @@ const TopTabBar = ({ tabs, theme }) => {
                                             : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300'
                                     }`} />
                                 )}
-                                <span>{tab.label}</span>
+                                <span>{getTabLabel(tab)}</span>
                             </Link>
                         );
                     })}

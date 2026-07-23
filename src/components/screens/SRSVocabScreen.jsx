@@ -13,6 +13,7 @@ import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Helper to shuffle array
 const shuffleArray = (array) => {
@@ -90,6 +91,7 @@ const SRSVocabScreen = ({
 }) => {
     const navigate = useNavigate();
     const fadeWholePage = useMenuTransition();
+    const { t } = useLanguage();
     const [dashboardTick, setDashboardTick] = useState(Date.now());
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -1199,7 +1201,7 @@ const SRSVocabScreen = ({
                             <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
                                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
                                     <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
-                                    <span>[NEURAL SRS ENGINE] ÔN TẬP NGẮT QUÃNG</span>
+                                    <span>[NEURAL SRS ENGINE] {t('vocab.srsEngine', 'ÔN TẬP NGẮT QUÃNG')}</span>
                                 </div>
                                 <button
                                     onClick={() => setShowLeechManager(true)}
@@ -1209,14 +1211,14 @@ const SRSVocabScreen = ({
                                             : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
                                     }`}
                                 >
-                                    <span>🩸 Thẻ Khó ({leechVocabCards.length})</span>
+                                    <span>🩸 {t('vocab.leechCards', 'Thẻ Khó')} ({leechVocabCards.length})</span>
                                 </button>
                             </div>
                             <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                                Ôn tập Từ vựng
+                                {t('vocab.title', 'Ôn tập Từ vựng')}
                             </h1>
                             <p className="text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
-                                Củng cố vốn từ vựng bằng thuật toán lặp lại ngắt quãng thông minh Anki SM-2.
+                                {t('vocab.subtitle', 'Củng cố trí nhớ dài hạn bằng phương pháp lặp lại ngắt quãng thông minh.')}
                             </p>
                         </div>
 
@@ -1224,20 +1226,20 @@ const SRSVocabScreen = ({
                             <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-1 font-mono">
                                 {savedSessionInfo ? savedSessionInfo.remaining : globalStats.due}
                             </span>
-                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono font-extrabold uppercase tracking-wider">Từ vựng đến hạn ôn</span>
+                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono font-extrabold uppercase tracking-wider">{t('vocab.dueWordsLabel', 'TỪ VỰNG ĐẾN HẠN ÔN')}</span>
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
                                 >
-                                    TIẾP TỤC ÔN TẬP
+                                    {t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}
                                 </button>
                             ) : globalStats.due > 0 ? (
                                 <button
                                     onClick={handleResumeGlobal}
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                                 >
-                                    BẮT ĐẦU ÔN TẬP
+                                    {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
                             ) : countdownText ? (
                                 <button
@@ -1252,7 +1254,7 @@ const SRSVocabScreen = ({
                                     disabled
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed"
                                 >
-                                    HẾT THẺ ÔN TẬP
+                                    {t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}
                                 </button>
                             )}
                         </div>
@@ -1264,7 +1266,6 @@ const SRSVocabScreen = ({
                     <SRSForecastChart 
                         items={allCards} 
                         daysCount={14} 
-                        title="Dự Báo Thẻ Từ Vựng Đến Hạn (14 Ngày Tới)" 
                     />
                 )}
 
@@ -1272,15 +1273,15 @@ const SRSVocabScreen = ({
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
                         <div>
-                            <h2 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white tracking-tight">Học phần cần ôn</h2>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">Các học phần có từ vựng đã đến hạn ôn tập.</p>
+                            <h2 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white tracking-tight">{t('vocab.dueSetsTitle', 'Học phần cần ôn')}</h2>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">{t('vocab.dueSetsSub', 'Các học phần có từ vựng đã đến hạn ôn tập.')}</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <button
                                 onClick={() => navigate(ROUTES.VOCAB_LIST)}
                                 className="text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1 cursor-pointer font-mono"
                             >
-                                Xem tất cả <ArrowRight className="w-3.5 h-3.5" />
+                                {t('common.viewAll', 'Xem tất cả')} <ArrowRight className="w-3.5 h-3.5" />
                             </button>
                         </div>
                     </div>
@@ -1349,10 +1350,10 @@ const SRSVocabScreen = ({
                                                 <div className="flex-1 min-w-0">
                                                     <h3 className="font-bold text-lg text-slate-900 dark:text-white leading-tight line-clamp-1">{folder.name}</h3>
                                                     <p className="text-[11px] text-slate-400 dark:text-slate-500 font-mono font-bold mt-1 uppercase tracking-wide">
-                                                        {folder.masteredPct === 0 ? "CHƯA HỌC" : `Đã thuộc ${folder.masteredPct}%`}
+                                                        {folder.masteredPct === 0 ? t('vocab.notLearned', 'CHƯA HỌC') : `${t('vocab.masteredPrefix', 'Đã thuộc')} ${folder.masteredPct}%`}
                                                     </p>
                                                 </div>
-                                                <span className="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-full font-bold shrink-0 mt-1">{folder.total} Thẻ</span>
+                                                <span className="text-[10px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-2 py-0.5 rounded-full font-bold shrink-0 mt-1">{folder.total} {t('vocab.cardsUnit', 'Thẻ')}</span>
                                             </div>
                                         </div>
 
@@ -1365,7 +1366,7 @@ const SRSVocabScreen = ({
                                                 >
                                                     <div className="flex items-center gap-2">
                                                         <Layers className="w-4 h-4" />
-                                                        <span className="font-bold text-xs">Thêm vào ngắt quãng</span>
+                                                        <span className="font-bold text-xs">{t('vocab.addToSrs', 'Thêm vào ngắt quãng')}</span>
                                                     </div>
                                                     <span className="bg-cyan-200 dark:bg-cyan-900 px-2 py-0.5 rounded-full text-[10px] font-black font-mono">{folder.newCards.length}</span>
                                                 </button>
@@ -1378,7 +1379,7 @@ const SRSVocabScreen = ({
                                                 >
                                                     <div className="flex items-center gap-2">
                                                         <RotateCw className="w-4 h-4" />
-                                                        <span className="font-bold text-xs">Ôn tập ngắt quãng</span>
+                                                        <span className="font-bold text-xs">{t('vocab.srsReviewBtn', 'Ôn tập ngắt quãng')}</span>
                                                     </div>
                                                     <span className="bg-orange-200 dark:bg-orange-900 px-2 py-0.5 rounded-full text-[10px] font-black font-mono">{folder.dueCards.length}</span>
                                                 </button>
@@ -1386,7 +1387,7 @@ const SRSVocabScreen = ({
 
                                             {!folder.hasAction && (
                                                 <div className="w-full text-center py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-400 dark:text-slate-500 font-bold text-xs border border-dashed border-slate-200 dark:border-slate-800">
-                                                    ✓ Không có thẻ cần ôn tập hôm nay
+                                                    {t('vocab.noDueCardsToday', '✓ Không có thẻ cần ôn tập hôm nay')}
                                                 </div>
                                             )}
                                         </div>
@@ -1415,7 +1416,7 @@ const SRSVocabScreen = ({
                 <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
                     <div className="flex items-center gap-2">
                         <Calendar className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
-                        <h3 className="font-bold text-slate-900 dark:text-white text-base">Học gần đây</h3>
+                        <h3 className="font-bold text-slate-900 dark:text-white text-base">{t('vocab.recentLearningTitle', 'Học gần đây')}</h3>
                     </div>
                     <div className="divide-y divide-slate-100 dark:divide-slate-800">
                         {recentSets.length === 0 ? (

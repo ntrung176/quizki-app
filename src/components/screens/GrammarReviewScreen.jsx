@@ -16,6 +16,7 @@ import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
+import { useLanguage } from '../../context/LanguageContext';
 
 const getPreviewIntervals = (srs) => {
     const ratings = ['again', 'hard', 'good', 'easy'];
@@ -48,6 +49,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const userId = getAuth().currentUser?.uid;
     const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
+    const { t } = useLanguage();
 
     const [grammarList, setGrammarList] = useState([]);
     const [srsData, setSrsData] = useState(() => (userId ? getCachedUserGrammarSrsData() || {} : {}));
@@ -873,12 +875,14 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                             : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
                                     }`}
                                 >
-                                    <span>🩸 Thẻ Khó ({leechGrammarItems.length})</span>
+                                    <span>🩸 {t('grammar.leechCards', 'Thẻ Khó')} ({leechGrammarItems.length})</span>
                                 </button>
                             </div>
-                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Ôn tập Ngữ pháp</h1>
+                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                                {t('grammar.title', 'Ôn tập Ngữ pháp')}
+                            </h1>
                             <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
-                                Ứng dụng thuật toán lặp lại ngắt quãng để tự động lên lịch ôn tập cho các cấu trúc ngữ pháp bạn đã học.
+                                {t('grammar.subtitle', 'Ứng dụng thuật toán lặp lại ngắt quãng để tự động lên lịch ôn tập cho các cấu trúc ngữ pháp bạn đã học.')}
                             </p>
                         </div>
                         <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 shadow-inner">

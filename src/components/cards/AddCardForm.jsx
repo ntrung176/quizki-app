@@ -8,6 +8,7 @@ import { VOCAB_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 import BatchAiModal from './BatchAiModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
+import { useLanguage } from '../../context/LanguageContext';
 
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -26,6 +27,7 @@ export const CardEditorItem = ({
     isAiLoading,
     frontInputRef
 }) => {
+    const { t } = useLanguage();
     const [showAdvanced, setShowAdvanced] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const [showHandwriting, setShowHandwriting] = useState(false);
@@ -170,7 +172,7 @@ export const CardEditorItem = ({
                 {/* Thuật ngữ & Định nghĩa */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">THUẬT NGỮ (TIẾNG NHẬT) *</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{t('forms.japaneseTerm', 'THUẬT NGỮ (TIẾNG NHẬT)')} *</label>
                         <div className="flex gap-2">
                             <input
                                 type="text"
@@ -394,7 +396,7 @@ export const CardEditorItem = ({
                     </div>
 
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">ĐỊNH NGHĨA (TIẾNG VIỆT) *</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{t('forms.definition', 'ĐỊNH NGHĨA')} *</label>
                         <input
                             type="text"
                             value={card.back}
@@ -409,7 +411,7 @@ export const CardEditorItem = ({
                 {/* Từ loại & Hán Việt */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">TỪ LOẠI</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.partOfSpeech', 'TỪ LOẠI')}</label>
                         <div className="relative">
                             {/* Trigger Button */}
                             <button
@@ -505,7 +507,7 @@ export const CardEditorItem = ({
                         </div>
                     </div>
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">HÁN VIỆT</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.kanjiReading', 'HÁN VIỆT')}</label>
                         <input
                             type="text"
                             value={card.sinoVietnamese}
@@ -530,7 +532,7 @@ export const CardEditorItem = ({
                             }}
                             className="flex items-center gap-1.5 px-2.5 py-1.5 text-[10px] font-bold rounded-lg text-indigo-650 bg-indigo-50 hover:bg-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:hover:bg-slate-700/60 transition-colors shadow-sm"
                         >
-                            <Plus className="w-3.5 h-3.5" /> Thêm câu ví dụ
+                            <Plus className="w-3.5 h-3.5" /> {t('forms.addExample', '+ Thêm câu ví dụ')}
                         </button>
                     </div>
 
@@ -710,6 +712,7 @@ const AddCardForm = ({
     parentFolders = [],
     canUserUseAI
 }) => {
+    const { t } = useLanguage();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [coverImage, setCoverImage] = useState(null);
@@ -1001,20 +1004,17 @@ const AddCardForm = ({
 
                 {/* Cyber-AI Hero Header */}
                 <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 dark:bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
-
                     <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <div className="space-y-2">
+                        <div className="space-y-1">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
                                 <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
                                 <span>[NEURAL CREATOR HUD]</span>
                             </div>
                             <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                                Thêm học phần mới
+                                {t('forms.addSetTitle', 'Thêm học phần mới')}
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 text-sm font-medium">
-                                Tạo lộ trình học tập của bạn với bộ sưu tập từ vựng tập trung.
+                                {t('forms.addSetSub', 'Tạo lộ trình học tập của bạn với bộ sưu tập từ vựng tập trung.')}
                             </p>
                         </div>
                         <div className="flex items-center gap-3 shrink-0">
@@ -1023,7 +1023,7 @@ const AddCardForm = ({
                                 onClick={onBack}
                                 className="px-6 py-2.5 text-xs font-mono font-bold rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 transition-colors shadow-sm cursor-pointer"
                             >
-                                Hủy
+                                {t('common.cancel', 'Hủy')}
                             </button>
                             <button
                                 type="button"
@@ -1033,7 +1033,7 @@ const AddCardForm = ({
                                 className="px-6 py-2.5 text-xs font-mono font-bold rounded-xl text-white bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-600 hover:to-indigo-700 shadow-md transition-all disabled:opacity-50 flex items-center gap-2 hover:scale-105 active:scale-95 cursor-pointer"
                             >
                                 {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
-                                Tạo học phần
+                                {t('forms.createSetBtn', 'Tạo học phần')}
                             </button>
                         </div>
                     </div>
@@ -1043,23 +1043,23 @@ const AddCardForm = ({
                 <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-md border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row gap-6 items-stretch">
                     <div className="flex-1 space-y-5">
                         <div>
-                            <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">TIÊU ĐỀ HỌC PHẦN</label>
+                            <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.setTitleLabel', 'TIÊU ĐỀ HỌC PHẦN')}</label>
                             <input
                                 type="text"
                                 value={title}
                                 data-tour-id="STUDY_SET_TITLE"
                                 onChange={(e) => setTitle(e.target.value)}
-                                placeholder="VD: Từ vựng N3 bài 1..."
+                                placeholder={t('forms.setTitlePlaceholder', 'VD: Từ vựng N3 bài 1...')}
                                 className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
                         <div>
-                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">THÊM MÔ TẢ</label>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.setDescriptionLabel', 'THÊM MÔ TẢ')}</label>
                             <input
                                 type="text"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                placeholder="Mô tả mục tiêu của bộ từ vựng này..."
+                                placeholder={t('forms.setDescriptionPlaceholder', 'Mô tả mục tiêu của bộ từ vựng này...')}
                                 className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-base text-slate-650 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
@@ -1080,7 +1080,7 @@ const AddCardForm = ({
                         ) : (
                             <label className="flex flex-col items-center justify-center w-full h-full border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-indigo-400 rounded-2xl cursor-pointer transition-all bg-slate-50/50 dark:bg-slate-900/20 group/label">
                                 <ImageIcon className="w-6 h-6 text-slate-450 group-hover/label:text-indigo-500 transition-colors mb-2" />
-                                <span className="text-xs font-semibold text-slate-400 group-hover/label:text-indigo-500 transition-colors">Thêm ảnh bìa</span>
+                                <span className="text-xs font-semibold text-slate-400 group-hover/label:text-indigo-500 transition-colors">{t('forms.addCover', 'Thêm ảnh bìa')}</span>
                                 <input type="file" accept="image/*" onChange={handleCoverImageChange} className="hidden" />
                             </label>
                         )}
@@ -1095,7 +1095,7 @@ const AddCardForm = ({
                         className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 dark:text-slate-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700/60 transition-all shadow-sm"
                     >
                         <Plus className="w-4 h-4" />
-                        Thêm dòng mới
+                        {t('forms.addRow', '+ Thêm dòng mới')}
                     </button>
                     {onGeminiAssist && (
                         <div className="flex flex-wrap gap-2.5">
@@ -1113,7 +1113,7 @@ const AddCardForm = ({
                                 className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
                                 <span className="text-[9px] font-black bg-indigo-200/60 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 rounded-md">AI</span>
-                                Tạo bằng AI hàng loạt
+                                {t('forms.aiBatch', 'Tạo bằng AI hàng loạt')}
                             </button>
                             <button
                                 type="button"
@@ -1128,7 +1128,7 @@ const AddCardForm = ({
                                 className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-sky-650 bg-sky-50 hover:bg-sky-100 border border-sky-100 dark:text-sky-400 dark:bg-slate-800 dark:border-sky-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
                             >
                                 <ImageIcon className="w-4 h-4 text-sky-500" />
-                                Thêm từ vựng theo ảnh
+                                {t('forms.ocrAdd', 'Thêm từ vựng theo ảnh')}
                             </button>
                         </div>
                     )}

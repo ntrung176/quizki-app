@@ -13,6 +13,7 @@ window.alert = (message) => {
   showToast(message, 'info');
 };
 import { QueryProvider } from './providers/QueryProvider.jsx'
+import { LanguageProvider } from './context/LanguageContext.jsx'
 
 // Setup web-vitals for performance monitoring
 import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals';
@@ -39,9 +40,11 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AppErrorBoundary>
       <QueryProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <LanguageProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </LanguageProvider>
       </QueryProvider>
     </AppErrorBoundary>
   </StrictMode>,

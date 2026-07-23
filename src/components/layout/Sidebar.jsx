@@ -11,9 +11,12 @@ import {
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot
 } from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
+import LanguageSelector from '../ui/LanguageSelector';
 import { isVocabCardDue, isSrsCardDue } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/grammarService';
+
+import { useLanguage } from '../../context/LanguageContext';
 
 // Sidebar Component - Restored Exact Original Menus with Chatbox & Help Buttons Integrated at Bottom
 const Sidebar = ({ 
@@ -30,6 +33,7 @@ const Sidebar = ({
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { t } = useLanguage();
 
     const xpDetails = React.useMemo(() => {
         const xp = profile?.xp || 0;
@@ -240,20 +244,23 @@ const Sidebar = ({
         }
     };
 
-    // Exact Original Menu Items List Restored
-    const menuItems = [
-        { id: 'HOME', icon: Home, label: 'Trang chủ', route: ROUTES.HOME },
-        { id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_REVIEW, badge: dueVocabCount },
-        { id: 'KANJI_STUDY', icon: Languages, label: 'Thư viện Kanji', route: ROUTES.KANJI_REVIEW, badge: kanjiDueCount },
-        { id: 'GRAMMAR', icon: Repeat2, label: 'Ngữ pháp', route: ROUTES.GRAMMAR_REVIEW, badge: grammarDueCount },
-        { id: 'JLPT_TEST', icon: FileCheck, label: 'Luyện đề JLPT', route: ROUTES.JLPT_TEST },
-        { id: 'JLPT_KAIWA', icon: MessageSquare, label: 'Phòng Kaiwa AI', route: ROUTES.JLPT_KAIWA },
-        { id: 'HUB', icon: Trophy, label: 'Bảng vinh danh', route: ROUTES.HUB },
-    ];
+    // Dynamic Menu Items with i18n Translation Support
+    const menuItems = React.useMemo(() => {
+        const items = [
+            { id: 'HOME', icon: Home, label: t('nav.home', 'Trang chủ'), route: ROUTES.HOME },
+            { id: 'VOCAB_LIST', icon: BookOpen, label: t('nav.vocab', 'Từ vựng'), route: ROUTES.VOCAB_REVIEW, badge: dueVocabCount },
+            { id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, badge: kanjiDueCount },
+            { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, badge: grammarDueCount },
+            { id: 'JLPT_TEST', icon: FileCheck, label: t('nav.jlptTest', 'Luyện đề JLPT'), route: ROUTES.JLPT_TEST },
+            { id: 'JLPT_KAIWA', icon: MessageSquare, label: t('nav.kaiwa', 'Phòng Kaiwa AI'), route: ROUTES.JLPT_KAIWA },
+            { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB },
+        ];
 
-    if (isAdmin) {
-        menuItems.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
-    }
+        if (isAdmin) {
+            items.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
+        }
+        return items;
+    }, [t, dueVocabCount, kanjiDueCount, grammarDueCount, isAdmin]);
 
     const isMenuActive = (item) => {
         const path = location.pathname;
@@ -419,13 +426,20 @@ const Sidebar = ({
                     </nav>
 
                     <div className="p-4 border-t border-slate-200 dark:border-slate-800 space-y-3 bg-white dark:bg-slate-900">
+                        <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-800/60 p-2 rounded-2xl border border-slate-200/80 dark:border-slate-700/80">
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
+                                🌐 {t('common.language', 'Ngôn ngữ')}
+                            </span>
+                            <LanguageSelector compact={true} />
+                        </div>
+
                         <Link
                             to={ROUTES.UPGRADE}
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-sm shadow-md"
                         >
                             <Crown className="w-4 h-4 fill-white" />
-                            <span>Nâng cấp tài khoản</span>
+                            <span>{t('common.upgrade', 'Nâng cấp tài khoản')}</span>
                         </Link>
 
                         <div className="grid grid-cols-2 gap-2">
@@ -595,6 +609,19 @@ const Sidebar = ({
 
             {/* Bottom Cyber Controls with Chatbox & Help Integrated */}
             <div className="p-3 border-t border-slate-200 dark:border-slate-800 space-y-2 bg-slate-50/50 dark:bg-slate-950/50">
+                {!isCollapsed ? (
+                    <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 pl-1">
+                            🌐 {t('common.language', 'Ngôn ngữ')}
+                        </span>
+                        <LanguageSelector compact={true} />
+                    </div>
+                ) : (
+                    <div className="flex justify-center">
+                        <LanguageSelector compact={true} />
+                    </div>
+                )}
+
                 <Link
                     to={ROUTES.UPGRADE}
                     className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 font-mono text-xs font-bold ${
@@ -602,10 +629,10 @@ const Sidebar = ({
                             ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
                             : 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-300/60 dark:border-amber-700/50 hover:bg-amber-500/20'
                     }`}
-                    title={isCollapsed ? 'Nâng cấp tài khoản' : undefined}
+                    title={isCollapsed ? t('common.upgrade', 'Nâng cấp tài khoản') : undefined}
                 >
                     <Crown className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
-                    {!isCollapsed && <span>Nâng cấp tài khoản</span>}
+                    {!isCollapsed && <span>{t('common.upgrade', 'Nâng cấp tài khoản')}</span>}
                 </Link>
 
                 {/* Integrated Cyber Quick Control Chips (Chatbox with Admin, Help, Theme, Collapse, Logout) */}

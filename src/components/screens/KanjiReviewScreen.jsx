@@ -17,6 +17,7 @@ import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
+import { useLanguage } from '../../context/LanguageContext';
 
 /**
  * Lấy interval preview cho mỗi nút đánh giá (hiển thị cho user)
@@ -52,6 +53,7 @@ const formatInterval = (minutes) => {
 const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const userId = getAuth().currentUser?.uid;
     const fadeWholePage = useMenuTransition();
+    const { t } = useLanguage();
     const navigate = useNavigate();
     const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
     const [srsData, setSrsData] = useState(() => (userId ? getCachedUserSrsData() || {} : {}));
@@ -901,12 +903,14 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                             : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
                                     }`}
                                 >
-                                    <span>🩸 Thẻ Khó ({leechKanjiItems.length})</span>
+                                    <span>🩸 {t('kanji.leechCards', 'Thẻ Khó')} ({leechKanjiItems.length})</span>
                                 </button>
                             </div>
-                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Ôn tập Kanji</h1>
+                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                                {t('kanji.title', 'Ôn tập Kanji')}
+                            </h1>
                             <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
-                                Củng cố trí nhớ dài hạn bằng phương pháp lặp lại ngắt quãng thông minh.
+                                {t('kanji.subtitle', 'Củng cố trí nhớ dài hạn bằng phương pháp lặp lại ngắt quãng thông minh.')}
                             </p>
                         </div>
                         <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 shadow-inner">

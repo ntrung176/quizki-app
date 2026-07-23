@@ -1,8 +1,12 @@
 import React, { useMemo } from 'react';
 import { calculateSrsForecast } from '../../utils/srs';
 import { Calendar, BarChart3, TrendingUp, AlertCircle } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
-const SRSForecastChart = ({ items = [], daysCount = 14, title = "Dự Báo Thẻ Đến Hạn SRS (14 Ngày Tới)" }) => {
+const SRSForecastChart = ({ items = [], daysCount = 14, title }) => {
+    const { t } = useLanguage();
+    const chartTitle = title || t('vocab.forecastTitle', 'Dự Báo Thẻ Đến Hạn SRS (14 Ngày Tới)');
+
     const forecast = useMemo(() => {
         return calculateSrsForecast(items, daysCount);
     }, [items, daysCount]);
@@ -36,10 +40,10 @@ const SRSForecastChart = ({ items = [], daysCount = 14, title = "Dự Báo Thẻ
                     </div>
                     <div>
                         <h3 className="text-sm sm:text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                            {title}
+                            {chartTitle}
                         </h3>
                         <p className="text-xs text-slate-500 dark:text-slate-400">
-                            Tổng số thẻ cần ôn trong {daysCount} ngày: <span className="font-bold text-indigo-600 dark:text-indigo-400">{totalDueInPeriod} thẻ</span>
+                            {t('vocab.totalForecastSub', 'Tổng số thẻ cần ôn trong 14 ngày:')} <span className="font-bold text-indigo-600 dark:text-indigo-400">{totalDueInPeriod} {t('vocab.cardsUnit', 'thẻ')}</span>
                         </p>
                     </div>
                 </div>
@@ -47,7 +51,7 @@ const SRSForecastChart = ({ items = [], daysCount = 14, title = "Dự Báo Thẻ
                 {peakDay && peakDay.count > 0 && (
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-medium self-start sm:self-auto">
                         <TrendingUp className="w-3.5 h-3.5" />
-                        <span>Cao điểm: <strong>{peakDay.dayLabel} ({peakDay.count} thẻ)</strong></span>
+                        <span>{t('vocab.peakToday', 'Cao điểm:')} <strong>{peakDay.dayLabel === 'Hôm nay' ? t('vocab.today', 'Hôm nay') : peakDay.dayLabel} ({peakDay.count} {t('vocab.cardsUnit', 'thẻ')})</strong></span>
                     </div>
                 )}
             </div>

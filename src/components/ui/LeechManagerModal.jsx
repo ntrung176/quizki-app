@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { X, Flame, RotateCcw, Play, CheckCircle2, BookOpen, AlertTriangle, Sparkles, Filter } from 'lucide-react';
 import { isLeechCard } from '../../utils/srs';
 import FuriganaText from './FuriganaText';
+import { useLanguage } from '../../context/LanguageContext';
 
 const LeechManagerModal = ({ 
     isOpen, 
@@ -14,6 +15,7 @@ const LeechManagerModal = ({
     onStartLeechReview,
     onResetLeechCount 
 }) => {
+    const { t } = useLanguage();
     const [selectedTab, setSelectedTab] = useState(scopeType);
 
     // Sync tab if scopeType changes
@@ -32,11 +34,11 @@ const LeechManagerModal = ({
     }, [scopeType, leechVocab, leechKanji, leechGrammar]);
 
     const titleText = useMemo(() => {
-        if (scopeType === 'vocab') return 'Quản Lý Thẻ Từ Vựng Khó Thuộc';
-        if (scopeType === 'kanji') return 'Quản Lý Thẻ Kanji Khó Thuộc';
-        if (scopeType === 'grammar') return 'Quản Lý Thẻ Ngữ Pháp Khó Thuộc';
-        return 'Quản Lý Thẻ Khó Thuộc (Leech Manager)';
-    }, [scopeType]);
+        if (scopeType === 'vocab') return `${t('modals.leechTitle', 'Quản Lý Thẻ Khó Thuộc')} (${t('nav.vocab', 'Từ vựng')})`;
+        if (scopeType === 'kanji') return `${t('modals.leechTitle', 'Quản Lý Thẻ Khó Thuộc')} (${t('nav.kanji', 'Kanji')})`;
+        if (scopeType === 'grammar') return `${t('modals.leechTitle', 'Quản Lý Thẻ Khó Thuộc')} (${t('nav.grammar', 'Ngữ pháp')})`;
+        return t('modals.leechTitle', 'Quản Lý Thẻ Khó Thuộc (Leech Manager)');
+    }, [scopeType, t]);
 
     const displayedItems = useMemo(() => {
         if (activeTab === 'vocab') return leechVocab.map(item => ({ ...item, leechType: 'vocab' }));

@@ -15,6 +15,8 @@ import { ensureFuriganaFormat } from '../../utils/furiganaHelper';
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
+import { useLanguage } from '../../context/LanguageContext';
+
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
     if (!show) return null;
@@ -58,6 +60,7 @@ const BookScreen = ({
 }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
+    const { t } = useLanguage();
     const fadeWholePage = useMenuTransition();
     // Premium Locked states
     const [showPremiumModal, setShowPremiumModal] = useState(false);
@@ -1586,11 +1589,11 @@ const BookScreen = ({
     const GroupsView = () => {
         return (
             <div className="space-y-8">
-                {/* Modern Premium Header */}
+                {/* Banner Header */}
                 <div className="flex flex-col gap-2">
-                    <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 dark:text-white">Sách từ vựng</h1>
+                    <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 dark:text-white">{t('books.vocabBooksTitle', 'Sách từ vựng')}</h1>
                     <p className="text-slate-500 dark:text-slate-400 text-sm max-w-2xl leading-relaxed">
-                        Tuyển tập các bộ sách cho hành trình học tiếng Nhật. Theo dõi tiến độ qua các giáo trình nền tảng và bộ từ vựng chuyên biệt.
+                        {t('books.vocabBooksSub', 'Tuyển tập các bộ sách cho hành trình học tiếng Nhật. Theo dõi tiến độ qua các giáo trình nền tảng và bộ từ vựng chuyên biệt.')}
                     </p>
                 </div>
                 {/* Filters & Search Row */}
@@ -1598,10 +1601,10 @@ const BookScreen = ({
                     {/* Tabs / Filters */}
                     <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
                         {[
-                            { id: 'ALL', label: 'TẤT CẢ' },
+                            { id: 'ALL', label: t('common.all', 'TẤT CẢ') },
                             { id: 'JLPT', label: 'JLPT' },
-                            { id: 'TEXTBOOK', label: 'GIÁO TRÌNH' },
-                            { id: 'CUSTOM', label: 'TÙY CHỈNH' }
+                            { id: 'TEXTBOOK', label: t('books.curriculum', 'GIÁO TRÌNH') },
+                            { id: 'CUSTOM', label: t('books.custom', 'TÙY CHỈNH') }
                         ].map(tab => (
                             <button
                                 key={tab.id}
@@ -1621,7 +1624,7 @@ const BookScreen = ({
                         <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                         <input
                             type="text"
-                            placeholder="Tìm kiếm sách..."
+                            placeholder={t('books.searchBooks', 'Tìm kiếm sách...')}
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full pl-10 pr-4 py-2 rounded-xl text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
@@ -1642,7 +1645,7 @@ const BookScreen = ({
                         const category = getGroupCategory(group);
                         const isTextbook = category === 'TEXTBOOK';
                         const isJLPT = category === 'JLPT';
-                        const badgeText = isTextbook ? 'GIÁO TRÌNH' : isJLPT ? 'JLPT' : 'TÙY CHỈNH';
+                        const badgeText = isTextbook ? t('books.curriculum', 'GIÁO TRÌNH') : isJLPT ? 'JLPT' : t('books.custom', 'TÙY CHỈNH');
                         // Badge levels
                         let levelBadge = '';
                         if (group.name.includes('Daichi')) levelBadge = 'SƠ CẤP';
@@ -1711,7 +1714,7 @@ const BookScreen = ({
                                     </div>
                                     <div className="space-y-2 pt-2">
                                         <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
-                                            <span>Tiến độ</span>
+                                            <span>{t('books.progress', 'Tiến độ')}</span>
                                             <span className="text-sky-500 font-extrabold">{progress}%</span>
                                         </div>
                                         <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
@@ -1734,9 +1737,9 @@ const BookScreen = ({
                             <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                 <Plus className="w-6 h-6 text-slate-500 dark:text-slate-400" />
                             </div>
-                            <h3 className="font-bold text-slate-700 dark:text-slate-300 text-lg mb-1">Thêm nhóm sách mới</h3>
+                            <h3 className="font-bold text-slate-700 dark:text-slate-300 text-lg mb-1">{t('books.addBookGroup', 'Thêm nhóm sách mới')}</h3>
                             <p className="text-xs text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
-                                Tạo bộ sưu tập tùy chỉnh cho mục tiêu học tập của bạn.
+                                {t('books.addBookGroupSub', 'Tạo bộ sưu tập tùy chỉnh cho mục tiêu học tập của bạn.')}
                             </p>
                         </div>
                     )}

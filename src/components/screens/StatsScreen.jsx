@@ -8,6 +8,7 @@ import { isKanjiMastered, isSrsCardDue, isVocabCardMastered } from '../../utils/
 import SRSForecastChart from '../ui/SRSForecastChart';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getLevelFromXp, getLevelTitle, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Avatar emoji lookup
 const AVATAR_EMOJIS = {
@@ -82,6 +83,7 @@ const isUserPremiumActive = (u) => {
 
 // ==================== MAIN HONOR ROLL / LEADERBOARD SCREEN ====================
 const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId, publicStatsPath }) => {
+    const { t } = useLanguage();
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueToday: 0 });
     const [leaderboardData, setLeaderboardData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -89,15 +91,19 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     const [displayCount, setDisplayCount] = useState(15);
     const [expandedUser, setExpandedUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [selectedLeague, setSelectedLeague] = useState(profile?.league || 'Sắt');
+    const [activeLeaderboardTab, setActiveLeaderboardTab] = useState('weekly'); // 'weekly' | 'allTime'
+    const [selectedLeague, setSelectedLeague] = useState(() => {
+        if (!profile?.league || profile.league === 'Sắt') return 'Đồng';
+        return profile.league;
+    });
     const [timeLeft, setTimeLeft] = useState('');
     const [showRules, setShowRules] = useState(false);
-
 
     // Sync selected league when profile updates
     useEffect(() => {
         if (profile?.league) {
-            setSelectedLeague(profile.league);
+            const resolved = profile.league === 'Sắt' ? 'Đồng' : profile.league;
+            setSelectedLeague(resolved);
         }
     }, [profile?.league]);
 
@@ -294,8 +300,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     // Filter real users and fill with bots to form exactly 30 participants (only for Sắt and Đồng)
     const leagueParticipants = useMemo(() => {
         let realUsersInLeague = leaderboardData.map(u => {
-            // Self-heal: users who have not studied anything (0 vocabulary and 0 kanji) must belong to 'Sắt'
-            const resolvedLeague = ((u.totalCards || 0) === 0 && (u.kanjiTotal || 0) === 0) ? 'Sắt' : (u.league || 'Sắt');
+            const resolvedLeague = (!u.league || u.league === 'Sắt') ? 'Đồng' : u.league;
             return {
                 ...u,
                 league: resolvedLeague,
@@ -308,7 +313,8 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         realUsersInLeague = realUsersInLeague.filter(u => u.id !== currentUserId);
 
         // Include current user with their latest computed score if they are in this league
-        const userBelongsToThisLeague = (profile?.league || 'Sắt') === selectedLeague;
+        const userLeague = (!profile?.league || profile.league === 'Sắt') ? 'Đồng' : profile.league;
+        const userBelongsToThisLeague = userLeague === selectedLeague;
         let finalParticipants = [...realUsersInLeague];
         if (userBelongsToThisLeague) {
             const me = leaderboardData.find(u => u.id === currentUserId) || {};
@@ -376,29 +382,69 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         return finalParticipants;
     }, [leaderboardData, selectedLeague, profile, userId, myScore, streak, totalCards, vocabMastery.mastered, kanjiSrsStats.total, kanjiSrsStats.mastered, myWeeklyStats, currentWeekId, searchTerm, sortBy, computeScore]);
 
+    const allTimeParticipants = useMemo(() => {
+        let list = leaderboardData.map(u => ({
+            ...u,
+            computedScore: computeScore(u),
+            totalScore: u.xp || u.score || computeScore(u)
+        }));
+
+        const currentUserId = userId;
+        const hasMe = list.some(u => u.id === currentUserId);
+        if (!hasMe) {
+            list.push({
+                id: currentUserId,
+                displayName: profile?.displayName || 'Bạn',
+                avatar: profile?.avatar || 'default',
+                level: profile?.level || 1,
+                title: profile?.title || getLevelTitle(1),
+                streak: streak,
+                totalCards: totalCards,
+                mastered: vocabMastery.mastered,
+                kanjiTotal: kanjiSrsStats.total,
+                kanjiMastered: kanjiSrsStats.mastered,
+                computedScore: myScore,
+                totalScore: profile?.xp || myScore
+            });
+        }
+
+        if (searchTerm.trim()) {
+            const term = searchTerm.toLowerCase();
+            list = list.filter(u => (u.displayName || '').toLowerCase().includes(term));
+        }
+
+        list.sort((a, b) => (b.totalScore || 0) - (a.totalScore || 0));
+        return list;
+    }, [leaderboardData, userId, profile, streak, totalCards, vocabMastery.mastered, kanjiSrsStats.total, myScore, searchTerm, computeScore]);
+
+    const activeParticipants = useMemo(() => {
+        return activeLeaderboardTab === 'weekly' ? leagueParticipants : allTimeParticipants;
+    }, [activeLeaderboardTab, leagueParticipants, allTimeParticipants]);
+
     // Find current user's rank
     const myRankInfo = useMemo(() => {
-        const userBelongsToThisLeague = (profile?.league || 'Sắt') === selectedLeague;
+        const userLeague = (!profile?.league || profile.league === 'Sắt') ? 'Đồng' : profile.league;
+        const userBelongsToThisLeague = activeLeaderboardTab === 'weekly' ? userLeague === selectedLeague : true;
         if (!userBelongsToThisLeague) {
-            return { rank: -1, total: leagueParticipants.length };
+            return { rank: -1, total: activeParticipants.length };
         }
-        const index = leagueParticipants.findIndex(u => u.id === userId);
+        const index = activeParticipants.findIndex(u => u.id === userId);
         return {
             rank: index !== -1 ? index + 1 : -1,
-            total: leagueParticipants.length
+            total: activeParticipants.length
         };
-    }, [leagueParticipants, userId, selectedLeague, profile?.league]);
+    }, [activeParticipants, userId, selectedLeague, profile?.league, activeLeaderboardTab]);
 
     // Top 3 Podium
     const podiumList = useMemo(() => {
         if (searchTerm.trim()) return [];
-        return leagueParticipants.slice(0, 3);
-    }, [leagueParticipants, searchTerm]);
+        return activeParticipants.slice(0, 3);
+    }, [activeParticipants, searchTerm]);
 
     const remainingList = useMemo(() => {
-        if (searchTerm.trim()) return leagueParticipants;
-        return leagueParticipants.slice(3);
-    }, [leagueParticipants, searchTerm]);
+        if (searchTerm.trim()) return activeParticipants;
+        return activeParticipants.slice(3);
+    }, [activeParticipants, searchTerm]);
 
     const handleToggleExpandUser = (id) => {
         setExpandedUser(prev => prev === id ? null : id);
@@ -676,72 +722,104 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     </div>
                 </div>
 
-                {/* SRS Forecast Chart */}
-                {allCards.length > 0 && (
-                    <SRSForecastChart 
-                        items={allCards} 
-                        daysCount={14} 
-                        title="Dự Báo Thẻ SRS Đến Hạn Tổng Thể (14 Ngày Tới)" 
-                    />
-                )}
             </div>
 
-            {/* Leagues Selection Header */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md p-5 space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <h3 className="font-bold text-slate-800 dark:text-white flex items-center gap-2 text-base">
-                            <Trophy className="w-5 h-5 text-yellow-500 fill-yellow-100 dark:fill-yellow-900/30" />
-                            Đấu trường Giải đấu (Leagues)
-                        </h3>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                            Thi đấu cùng 30 học viên có hoạt động tương đồng. Top 5 thăng hạng, Bottom 5 xuống hạng.
-                        </p>
-                    </div>
-                    {/* Countdown Timer */}
-                    {timeLeft && (
-                        <div className="flex items-center gap-2 px-3 py-1.5 bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 rounded-xl border border-rose-100 dark:border-rose-900/30 font-mono text-xs font-bold w-fit">
-                            <Flame className="w-4 h-4 fill-rose-500 text-rose-500 animate-pulse" />
-                            Kết thúc: {timeLeft}
+            {/* Leaderboard Mode Switcher Tabs */}
+            <div className="flex items-center justify-center p-1.5 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 max-w-md mx-auto shadow-md">
+                <button
+                    onClick={() => setActiveLeaderboardTab('weekly')}
+                    className={`flex-1 py-2.5 px-4 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                        activeLeaderboardTab === 'weekly'
+                            ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white shadow-lg scale-102 font-black'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                >
+                    <Trophy className="w-4 h-4 text-yellow-300 fill-yellow-300" />
+                    <span>{t('leaderboard.weeklyTab', '🏆 Đua Top Tuần này')}</span>
+                </button>
+
+                <button
+                    onClick={() => setActiveLeaderboardTab('allTime')}
+                    className={`flex-1 py-2.5 px-4 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                        activeLeaderboardTab === 'allTime'
+                            ? 'bg-gradient-to-r from-indigo-600 via-sky-500 to-cyan-500 text-white shadow-lg scale-102 font-black'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                >
+                    <Crown className="w-4 h-4 text-amber-300 fill-amber-300" />
+                    <span>{t('leaderboard.allTimeTab', '🎖️ Bảng Vàng Cao Thủ')}</span>
+                </button>
+            </div>
+
+            {/* Leagues Selection Header (Weekly Mode Only) */}
+            {activeLeaderboardTab === 'weekly' ? (
+                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md p-5 space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div>
+                            <h3 className="font-bold text-slate-800 dark:text-white flex items-center gap-2 text-base">
+                                <Trophy className="w-5 h-5 text-yellow-500 fill-yellow-100 dark:fill-yellow-900/30" />
+                                {t('leaderboard.leaguesHeader', 'Đấu trường Hạng đấu (5 Cấp độ)')}
+                            </h3>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                                {t('leaderboard.leaguesSubtitle', 'Cạnh tranh cùng các học viên trong cùng Hạng đấu. Top 5 thăng hạng 🟢, Bottom 5 nguy cơ rớt hạng 🔴.')}
+                            </p>
                         </div>
-                    )}
-                </div>
+                        {/* Countdown Timer */}
+                        {timeLeft && (
+                            <div className="flex items-center gap-2 px-3 py-1.5 bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 rounded-xl border border-rose-100 dark:border-rose-900/30 font-mono text-xs font-bold w-fit">
+                                <Flame className="w-4 h-4 fill-rose-500 text-rose-500 animate-pulse" />
+                                {timeLeft}
+                            </div>
+                        )}
+                    </div>
 
-                {/* Leagues Tab Buttons */}
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-                    {LEAGUES.map(lg => {
-                        const icon = LEAGUE_ICONS[lg];
-                        const colors = LEAGUE_COLORS[lg];
-                        const isSelected = selectedLeague === lg;
-                        const isUserLeague = (profile?.league || 'Sắt') === lg;
-                        
-                        return (
-                            <button
-                                key={lg}
-                                onClick={() => { setSelectedLeague(lg); setDisplayCount(15); }}
-                                className={`relative flex flex-col items-center justify-center p-2.5 sm:p-3.5 rounded-2xl border transition-all duration-305 ${
-                                    isSelected 
-                                        ? `bg-gradient-to-br ${colors} shadow-md scale-102 border-transparent font-black` 
-                                        : 'bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold'
-                                }`}
-                            >
-                                <img src={icon} alt={lg} className="w-12 h-12 sm:w-14 sm:h-14 object-contain mb-1 drop-shadow-md" />
-                                <span className="text-[10px] sm:text-xs uppercase tracking-wider truncate max-w-full px-0.5">{lg}</span>
-                                
-                                {isUserLeague && (
-                                    <span className={`absolute -top-1 -right-1 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider border shadow-sm ${
+                    {/* Leagues Tab Buttons */}
+                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                        {LEAGUES.map(lg => {
+                            const icon = LEAGUE_ICONS[lg];
+                            const colors = LEAGUE_COLORS[lg];
+                            const isSelected = selectedLeague === lg;
+                            const userLeague = (!profile?.league || profile.league === 'Sắt') ? 'Đồng' : profile.league;
+                            const isUserLeague = userLeague === lg;
+                            
+                            return (
+                                <button
+                                    key={lg}
+                                    onClick={() => { setSelectedLeague(lg); setDisplayCount(15); }}
+                                    className={`relative flex flex-col items-center justify-center p-2.5 sm:p-3.5 rounded-2xl border transition-all duration-300 ${
                                         isSelected 
-                                            ? 'bg-white text-indigo-650 border-white' 
-                                            : 'bg-indigo-600 text-white border-indigo-500'
-                                    }`}>
-                                        Bạn
-                                    </span>
-                                )}
-                            </button>
-                        );
-                    })}
+                                            ? `bg-gradient-to-br ${colors} shadow-md scale-102 border-transparent font-black` 
+                                            : 'bg-slate-50 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-750 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold'
+                                    }`}
+                                >
+                                    <img src={icon} alt={lg} className="w-12 h-12 sm:w-14 sm:h-14 object-contain mb-1 drop-shadow-md" />
+                                    <span className="text-[10px] sm:text-xs uppercase tracking-wider truncate max-w-full px-0.5">{lg}</span>
+                                    
+                                    {isUserLeague && (
+                                        <span className={`absolute -top-1 -right-1 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider border shadow-sm ${
+                                            isSelected 
+                                                ? 'bg-white text-indigo-650 border-white' 
+                                                : 'bg-indigo-600 text-white border-indigo-500'
+                                        }`}>
+                                            YOU
+                                        </span>
+                                    )}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md p-5 text-center space-y-1">
+                    <h3 className="font-black text-slate-900 dark:text-white flex items-center justify-center gap-2 text-base">
+                        <Crown className="w-5 h-5 text-amber-500 fill-amber-400" />
+                        {t('leaderboard.allTimeHeader', 'Bảng Vàng Danh Dự Cao Thủ QuizKi')}
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                        {t('leaderboard.allTimeSubtitle', 'Tôn vinh các học viên có tổng điểm tích luỹ, trình độ và kỷ lục chuỗi ngày học tập xuất sắc nhất toàn hệ thống.')}
+                    </p>
+                </div>
+            )}
 
             {/* Top 3 Podium Displays */}
             {!searchTerm.trim() && podiumList.length > 0 && (

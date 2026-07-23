@@ -61,44 +61,29 @@ export const POINTS = {
     MIN_TIME_THRESHOLD_MS: 1500
 };
 
-// Leagues configuration
+// Leagues configuration (5 streamlined competitive leagues)
 export const LEAGUES = [
-    'Sắt',
     'Đồng',
     'Bạc',
     'Vàng',
-    'Bạch Kim',
-    'Lục Bảo',
     'Kim Cương',
-    'Cao Thủ',
-    'Đại Cao Thủ',
-    'Thách Đấu'
+    'Huyền Thoại'
 ];
 
 export const LEAGUE_ICONS = {
-    'Sắt': '/ranks/iron.svg',
     'Đồng': '/ranks/bronze.svg',
     'Bạc': '/ranks/silver.svg',
     'Vàng': '/ranks/gold.svg',
-    'Bạch Kim': '/ranks/platinum.svg',
-    'Lục Bảo': '/ranks/emerald.svg',
     'Kim Cương': '/ranks/diamond.svg',
-    'Cao Thủ': '/ranks/master.svg',
-    'Đại Cao Thủ': '/ranks/grandmaster.svg',
-    'Thách Đấu': '/ranks/challenger.svg'
+    'Huyền Thoại': '/ranks/challenger.svg'
 };
 
 export const LEAGUE_COLORS = {
-    'Sắt': 'from-zinc-550 to-zinc-700 text-zinc-100 border-zinc-600',
-    'Đồng': 'from-amber-600 to-amber-800 text-amber-100 border-amber-700',
-    'Bạc': 'from-slate-400 to-slate-600 text-slate-100 border-slate-500',
-    'Vàng': 'from-yellow-450 to-amber-500 text-amber-950 border-yellow-500',
-    'Bạch Kim': 'from-teal-400 to-emerald-600 text-teal-50 border-teal-500',
-    'Lục Bảo': 'from-emerald-500 to-green-700 text-emerald-50 border-emerald-600',
-    'Kim Cương': 'from-sky-400 to-indigo-500 text-indigo-50 border-sky-400',
-    'Cao Thủ': 'from-cyan-500 to-indigo-650 text-cyan-50 border-cyan-500',
-    'Đại Cao Thủ': 'from-red-500 to-rose-700 text-rose-50 border-red-600',
-    'Thách Đấu': 'from-indigo-600 via-sky-500 to-amber-500 text-amber-100 border-amber-400'
+    'Đồng': 'from-amber-700 to-amber-900 text-amber-100 border-amber-600',
+    'Bạc': 'from-slate-400 to-slate-600 text-slate-100 border-slate-400',
+    'Vàng': 'from-amber-400 via-yellow-500 to-amber-600 text-amber-950 border-amber-300',
+    'Kim Cương': 'from-sky-400 via-indigo-500 to-cyan-500 text-cyan-50 border-cyan-400',
+    'Huyền Thoại': 'from-indigo-600 via-rose-500 to-amber-500 text-amber-100 border-amber-400'
 };
 
 // Returns a stable Sunday-based week identifier string (e.g. "2026-06-14")

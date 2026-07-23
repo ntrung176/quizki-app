@@ -11,6 +11,7 @@ import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
 import { isVocabCardDue, isSrsCardDue, isKanjiMastered, isVocabCardMastered, parseNextReviewMs } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
+import { useLanguage } from '../../context/LanguageContext';
 
 // HomeScreen Component - Cyber-AI Futuristic Edition
 const HomeScreen = ({
@@ -23,6 +24,7 @@ const HomeScreen = ({
     isReviewActive = false,
     calculatedStreak = 0,
 }) => {
+    const { t } = useLanguage();
     const navigate = useNavigate();
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
@@ -82,12 +84,12 @@ const HomeScreen = ({
     }, [allCards, totalCards, calculatedStreak]);
 
     // 6 Cyber Quick action cards arranged 3 top, 3 bottom
-    const quickActions = [
+    const quickActions = useMemo(() => [
         // Row 1: Học & Thêm mới
         {
             id: 'add',
-            title: 'Thêm Từ Vựng',
-            subtitle: 'Mở rộng bộ từ vựng mới',
+            title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
+            subtitle: t('home.addVocabSub', 'Mở rộng bộ từ vựng mới'),
             icon: FolderPlus,
             gradient: 'from-teal-600 via-teal-500 to-cyan-500',
             glow: 'shadow-teal-500/25 border border-teal-400/40',
@@ -95,8 +97,8 @@ const HomeScreen = ({
         },
         {
             id: 'kanji-study',
-            title: 'Học Kanji',
-            subtitle: 'Chinh phục lộ trình chữ Hán',
+            title: t('home.learnKanjiTitle', 'Học Kanji'),
+            subtitle: t('home.learnKanjiSub', 'Chinh phục lộ trình chữ Hán'),
             icon: Languages,
             gradient: 'from-emerald-600 via-emerald-500 to-teal-500',
             glow: 'shadow-emerald-500/25 border border-emerald-400/40',
@@ -104,8 +106,8 @@ const HomeScreen = ({
         },
         {
             id: 'grammar-study',
-            title: 'Học Ngữ Pháp',
-            subtitle: 'Sách giáo trình & bài học',
+            title: t('home.learnGrammarTitle', 'Học Ngữ Pháp'),
+            subtitle: t('home.learnGrammarSub', 'Sách giáo trình & bài học'),
             icon: BookOpen,
             gradient: 'from-sky-600 via-sky-500 to-blue-500',
             glow: 'shadow-sky-500/25 border border-sky-400/40',
@@ -114,8 +116,8 @@ const HomeScreen = ({
         // Row 2: Ôn tập
         {
             id: 'vocab-review',
-            title: 'Ôn Tập Từ Vựng',
-            subtitle: `${stats.dueCards} thẻ đang đến hạn ôn`,
+            title: t('home.reviewVocabTitle', 'Ôn Tập Từ Vựng'),
+            subtitle: `${stats.dueCards} ${t('home.cardsDueSubtitle', 'thẻ đang đến hạn ôn')}`,
             icon: Clock,
             gradient: 'from-indigo-600 via-indigo-500 to-violet-500',
             glow: 'shadow-indigo-500/25 border border-indigo-400/40',
@@ -123,8 +125,8 @@ const HomeScreen = ({
         },
         {
             id: 'kanji-review',
-            title: 'Ôn Tập Kanji',
-            subtitle: `${kanjiSrsStats.dueCount} chữ kanji cần ôn tập`,
+            title: t('home.reviewKanjiTitle', 'Ôn Tập Kanji'),
+            subtitle: `${kanjiSrsStats.dueCount} ${t('home.kanjiDueSubtitle', 'chữ kanji cần ôn tập')}`,
             icon: Target,
             gradient: 'from-amber-600 via-amber-500 to-orange-500',
             glow: 'shadow-amber-500/25 border border-amber-400/40',
@@ -132,21 +134,21 @@ const HomeScreen = ({
         },
         {
             id: 'grammar-review',
-            title: 'Ôn Tập Ngữ Pháp',
-            subtitle: 'Luyện tập bài tập mẫu câu',
+            title: t('home.reviewGrammarTitle', 'Ôn Tập Ngữ Pháp'),
+            subtitle: t('home.reviewGrammarSub', 'Luyện tập bài tập mẫu câu'),
             icon: Repeat2,
             gradient: 'from-purple-600 via-purple-500 to-pink-500',
             glow: 'shadow-purple-500/25 border border-purple-400/40',
             route: ROUTES.GRAMMAR_REVIEW,
         },
-    ];
+    ], [t, stats.dueCards, kanjiSrsStats.dueCount]);
 
     // Greeting based on time
     const getGreeting = () => {
         const hour = new Date().getHours();
-        if (hour < 12) return 'Chào buổi sáng';
-        if (hour < 18) return 'Chào buổi chiều';
-        return 'Chào buổi tối';
+        if (hour < 12) return t('home.goodMorning', 'Chào buổi sáng');
+        if (hour < 18) return t('home.goodAfternoon', 'Chào buổi chiều');
+        return t('home.goodEvening', 'Chào buổi tối');
     };
 
     // Motivational quotes
@@ -197,7 +199,7 @@ const HomeScreen = ({
                         </div>
 
                         <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                            {displayName ? `${displayName}!` : 'Chào bạn!'}
+                            {displayName ? `${displayName}!` : t('home.helloUser', 'Chào bạn!')}
                         </h1>
 
                         <div className="p-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-2xl">
@@ -211,15 +213,15 @@ const HomeScreen = ({
                     <div className="flex flex-wrap lg:flex-col gap-2.5 items-start lg:items-end justify-start font-mono">
                         <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 shadow-sm">
                             <Flame className="w-4 h-4 text-orange-500" />
-                            <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{stats.streak} ngày streak</span>
+                            <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{stats.streak} {t('home.dayStreak', 'ngày streak')}</span>
                         </div>
                         <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 shadow-sm">
                             <Trophy className="w-4 h-4 text-amber-500" />
-                            <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{stats.masteredCards} từ thuộc</span>
+                            <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{stats.masteredCards} {t('home.vocabMastered', 'từ thuộc')}</span>
                         </div>
                         <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 shadow-sm">
                             <Languages className="w-4 h-4 text-emerald-500" />
-                            <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{kanjiSrsStats.mastered} kanji thuộc</span>
+                            <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{kanjiSrsStats.mastered} {t('home.kanjiMastered', 'kanji thuộc')}</span>
                         </div>
                     </div>
                 </div>
@@ -234,7 +236,7 @@ const HomeScreen = ({
                     </div>
                     <div>
                         <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{stats.dueCards}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Từ vựng cần ôn</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('home.dueVocab', 'Từ vựng cần ôn')}</div>
                     </div>
                 </div>
 
@@ -245,7 +247,7 @@ const HomeScreen = ({
                     </div>
                     <div>
                         <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{kanjiSrsStats.dueCount}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Kanji cần ôn</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('home.dueKanji', 'Kanji cần ôn')}</div>
                     </div>
                 </div>
 
@@ -256,7 +258,7 @@ const HomeScreen = ({
                     </div>
                     <div>
                         <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{stats.totalCards}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Tổng từ vựng</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('home.totalVocab', 'Tổng từ vựng')}</div>
                     </div>
                 </div>
 
@@ -267,7 +269,7 @@ const HomeScreen = ({
                     </div>
                     <div>
                         <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{kanjiSrsStats.total}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Tổng Kanji</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('home.totalKanji', 'Tổng Kanji')}</div>
                     </div>
                 </div>
             </div>
@@ -276,7 +278,7 @@ const HomeScreen = ({
             <div className="space-y-3">
                 <h2 className="text-sm md:text-base font-bold text-slate-800 dark:text-white flex items-center gap-2 font-mono uppercase tracking-wider">
                     <Zap className="w-4 h-4 text-amber-500 animate-pulse" />
-                    [NEURAL LAUNCHPAD] Bắt đầu nhanh
+                    [NEURAL LAUNCHPAD] {t('home.quickLaunchpad', 'Bắt đầu nhanh')}
                 </h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -314,7 +316,7 @@ const HomeScreen = ({
                     <div className="space-y-1.5 min-w-0 flex-1">
                         <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400 text-[11px] font-mono font-bold uppercase tracking-wider">
                             <Sparkle className="w-3.5 h-3.5" />
-                            <span>[NEURAL TIP ADVISOR] Mẹo học tập hôm nay</span>
+                            <span>[NEURAL TIP ADVISOR] {t('home.dailyTipBadge', 'Mẹo học tập hôm nay')}</span>
                         </div>
                         <p className="text-slate-700 dark:text-slate-200 text-xs md:text-sm font-medium leading-relaxed font-sans">
                             {todayTip}
@@ -336,10 +338,10 @@ const HomeScreen = ({
                         </button>
 
                         <h3 className="text-xl font-black text-slate-900 dark:text-white mb-1 pr-8">
-                            Thêm từ vựng mới
+                            {t('home.addModalTitle', 'Thêm từ vựng mới')}
                         </h3>
                         <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
-                            Chọn phương thức thêm từ vựng phù hợp
+                            {t('home.addModalSub', 'Chọn phương thức thêm từ vựng phù hợp')}
                         </p>
 
                         <div className="space-y-3">
@@ -356,10 +358,10 @@ const HomeScreen = ({
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                                        Tạo học phần mới
+                                        {t('home.createFolderTitle', 'Tạo học phần mới')}
                                     </h4>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">
-                                        Tạo học phần hoàn chỉnh với tên và từ vựng.
+                                        {t('home.createFolderSub', 'Tạo học phần hoàn chỉnh với tên và từ vựng.')}
                                     </p>
                                 </div>
                             </button>
@@ -377,10 +379,10 @@ const HomeScreen = ({
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                                        Thêm nhanh từ vựng
+                                        {t('home.quickAddTitle', 'Thêm nhanh từ vựng')}
                                     </h4>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">
-                                        Nhập nhanh danh sách từ vựng từ bất kỳ đâu.
+                                        {t('home.quickAddSub', 'Nhập nhanh danh sách từ vựng từ bất kỳ đâu.')}
                                     </p>
                                 </div>
                             </button>

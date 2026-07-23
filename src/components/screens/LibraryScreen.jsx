@@ -4,6 +4,7 @@ import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, Graduat
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
+import { useLanguage } from '../../context/LanguageContext';
 
 const LibraryScreen = ({ 
     allCards = [], 
@@ -20,6 +21,7 @@ const LibraryScreen = ({
     onMoveStudySetToParentFolder
 }) => {
     const navigate = useNavigate();
+    const { t } = useLanguage();
     const fadeWholePage = useMenuTransition();
     const [deletingFolder, setDeletingFolder] = useState(null); // Study Set deletion
     const [searchQuery, setSearchQuery] = useState('');
@@ -264,9 +266,9 @@ const LibraryScreen = ({
                 {/* Header Row */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-1">
-                        <h1 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">Thư viện Từ vựng</h1>
+                        <h1 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">{t('library.vocabTitle', 'Thư viện Từ vựng')}</h1>
                         <p className="text-slate-500 dark:text-slate-400 text-xs md:text-sm font-medium">
-                            Quản lý các thư mục, học phần học tập cá nhân và kéo thả để phân loại dễ dàng.
+                            {t('library.vocabSub', 'Quản lý các thư mục, học phần học tập cá nhân và kéo thả để phân loại dễ dàng.')}
                         </p>
                     </div>
                     <div className="flex flex-wrap items-center gap-3">
@@ -275,7 +277,7 @@ const LibraryScreen = ({
                             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                             <input
                                 type="text"
-                                placeholder="Tìm kiếm học phần, thư mục..."
+                                placeholder={t('common.searchPlaceholder', 'Tìm kiếm học phần, thư mục...')}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className="w-full pl-9 pr-8 py-2.5 text-xs font-medium rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm"
@@ -295,7 +297,7 @@ const LibraryScreen = ({
                                 className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 border border-slate-200 dark:border-slate-700 cursor-pointer shadow-sm"
                             >
                                 <FolderPlus className="w-4 h-4 text-indigo-500" />
-                                Thư mục mới
+                                {t('library.newFolder', '+ Thư mục mới')}
                             </button>
                         )}
                         <button 
@@ -303,7 +305,7 @@ const LibraryScreen = ({
                             className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center gap-1.5 shrink-0 hover:scale-105 active:scale-95 cursor-pointer"
                         >
                             <Plus className="w-4 h-4" />
-                            Tạo học phần mới
+                            {t('library.newSet', '+ Tạo học phần mới')}
                         </button>
                     </div>
                 </div>
@@ -317,7 +319,7 @@ const LibraryScreen = ({
                                 className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-1 font-bold"
                             >
                                 <Library className="w-4 h-4" />
-                                Thư viện
+                                {t('tabs.library', 'Thư viện')}
                             </button>
                             <ChevronRight className="w-4 h-4 text-slate-400" />
                             <div className="flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/40 px-3 py-1 rounded-lg text-indigo-600 dark:text-indigo-400 font-bold">
@@ -348,7 +350,7 @@ const LibraryScreen = ({
                             className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition-all flex items-center gap-1 self-start sm:self-auto"
                         >
                             <ArrowLeft className="w-3.5 h-3.5" />
-                            Quay lại Thư viện
+                            {t('common.back', 'Quay lại')}
                         </button>
                     </div>
                 )}
@@ -359,7 +361,7 @@ const LibraryScreen = ({
                         <div className="flex items-center justify-between">
                             <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
                                 <Folder className="w-5 h-5 text-indigo-500" />
-                                Thư mục quản lý ({parentFoldersWithCounts.length})
+                                {t('library.managedFolders', 'Thư mục quản lý')} ({parentFoldersWithCounts.length})
                             </h2>
                         </div>
 
@@ -427,7 +429,7 @@ const LibraryScreen = ({
                                                         {folder.name}
                                                     </h3>
                                                     <p className="text-[10px] font-mono text-slate-400 mt-0.5">
-                                                        {folder.setsCount} Học phần • {folder.totalCards} Từ
+                                                        {folder.setsCount} {t('library.setsUnit', 'Học phần')} • {folder.totalCards} {t('library.wordsUnit', 'Từ')}
                                                     </p>
                                                     {searchQuery && (() => {
                                                         const setsInside = folders.filter(f => f.parentId === folder.id);
@@ -464,7 +466,7 @@ const LibraryScreen = ({
                 <div className="space-y-4">
                     <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
                         <Layers className="w-5 h-5 text-cyan-500" />
-                        {searchQuery ? 'Kết quả tìm kiếm học phần' : (activeParentFolderId ? 'Học phần trong thư mục này' : 'Học phần')} ({filteredStudySets.length})
+                        {searchQuery ? 'Kết quả tìm kiếm học phần' : (activeParentFolderId ? 'Học phần trong thư mục này' : t('library.studySets', 'Học phần'))} ({filteredStudySets.length})
                         {draggedStudySetId && (
                             <span className="text-xs bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400 font-mono font-bold px-3 py-1 rounded-full animate-pulse">
                                 Kéo học phần thả vào các thư mục để sắp xếp
@@ -473,8 +475,7 @@ const LibraryScreen = ({
                     </h2>
 
                     <p className="text-xs text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-2">
-                        <span className="text-cyan-500 font-bold">💡 Mẹo:</span>
-                        <span>Bạn có thể nhấn giữ và kéo thả các học phần vào các thư mục để sắp xếp và phân loại chúng dễ dàng hơn.</span>
+                        {t('library.dragTip', '💡 Mẹo: Bạn có thể nhấn giữ và kéo thả các học phần vào các thư mục để sắp xếp và phân loại chúng dễ dàng hơn.')}
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -496,7 +497,7 @@ const LibraryScreen = ({
                                     </div>
                                 </div>
                                 <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono font-bold text-slate-500">
-                                    <span>{unfiledCount} Từ</span>
+                                    <span>{unfiledCount} {t('library.wordsUnit', 'Từ')}</span>
                                     <ChevronRight className="w-4 h-4 text-slate-300 group-hover:translate-x-0.5 transition-transform" />
                                 </div>
                             </div>
@@ -602,8 +603,8 @@ const LibraryScreen = ({
 
                                 <div className="mt-5 space-y-2">
                                     <div className="flex items-center justify-between text-[10px] font-mono font-extrabold text-slate-500 uppercase tracking-wider">
-                                        <span>{folder.count} Từ vựng</span>
-                                        <span className="text-emerald-500">{folder.masteredPct}% Đã thuộc</span>
+                                        <span>{folder.count} {t('library.wordsUnit', 'Từ')}</span>
+                                        <span className="text-emerald-500">{folder.masteredPct}% {t('common.mastered', 'Đã thuộc')}</span>
                                     </div>
                                     <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                         <div 
@@ -623,9 +624,9 @@ const LibraryScreen = ({
                             <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                                 <Plus className="w-5 h-5 text-cyan-500" />
                             </div>
-                            <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-0.5">Tạo học phần</h3>
+                            <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-0.5">{t('library.createSetCard', 'Tạo học phần')}</h3>
                             <p className="text-[11px] text-slate-400 dark:text-slate-500 max-w-[150px] leading-relaxed font-medium">
-                                Xây dựng một bộ từ vựng tùy chỉnh mới.
+                                {t('library.createSetCardSub', 'Xây dựng một bộ từ vựng tùy chỉnh mới.')}
                             </p>
                         </div>
                     </div>
