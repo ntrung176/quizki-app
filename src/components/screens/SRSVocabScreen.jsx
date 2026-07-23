@@ -8,8 +8,9 @@ import useMenuTransition from '../../hooks/useMenuTransition';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
-import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue } from '../../utils/srs';
+import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue, isLeechCard } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
+import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 
@@ -122,6 +123,24 @@ const SRSVocabScreen = ({
 
     const [showMistakeModal, setShowMistakeModal] = useState(false);
     const [selectedMistakeMode, setSelectedMistakeMode] = useState('flashcard');
+    const [showLeechManager, setShowLeechManager] = useState(false);
+
+    const leechVocabCards = useMemo(() => allCards.filter(c => isLeechCard(c) || isLeechCard(c.srsData)), [allCards]);
+
+    const handleStartLeechReview = (items) => {
+        if (!items || items.length === 0) return;
+        setReviewQueue(shuffleArray(items));
+        setCurrentReviewIndex(0);
+        setReviewHistory([]);
+        setReviewMode(true);
+    };
+
+    const handleResetLeech = (item) => {
+        if (!item) return;
+        item.srsLapseCount = 0;
+        item.lapseCount = 0;
+        setDashboardTick(Date.now());
+    };
 
     // Calculate streak from dailyActivityLogs
     const streak = useMemo(() => {
@@ -1177,9 +1196,21 @@ const SRSVocabScreen = ({
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="space-y-3 text-center md:text-left max-w-lg">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
-                                <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
-                                <span>[NEURAL SRS ENGINE] ÔN TẬP NGẮT QUÃNG</span>
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                    <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
+                                    <span>[NEURAL SRS ENGINE] ÔN TẬP NGẮT QUÃNG</span>
+                                </div>
+                                <button
+                                    onClick={() => setShowLeechManager(true)}
+                                    className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${
+                                        leechVocabCards.length > 0
+                                            ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
+                                            : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
+                                    }`}
+                                >
+                                    <span>🩸 Thẻ Khó ({leechVocabCards.length})</span>
+                                </button>
                             </div>
                             <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                                 Ôn tập Từ vựng
@@ -1378,55 +1409,7 @@ const SRSVocabScreen = ({
                     )}
                 </div>
 
-                {/* Quick Actions */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <button
-                        onClick={() => navigate(ROUTES.VOCAB_ADD)}
-                        className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-all flex items-center justify-between group cursor-pointer"
-                    >
-                        <div className="flex items-center gap-4 text-left">
-                            <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-200 dark:border-cyan-800/60 flex items-center justify-center">
-                                <Plus className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
-                            </div>
-                            <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white">Thêm từ vựng mới</h3>
-                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Học danh sách từ vựng mới hoặc nhập từ các bộ sách.</p>
-                            </div>
-                        </div>
-                        <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
-                    </button>
 
-                    <button
-                        onClick={() => {
-                            if (mistakeCards.length > 0) {
-                                setShowMistakeModal(true);
-                            } else {
-                                if (setNotification) {
-                                    setNotification("Tuyệt vời! Bạn không có lỗi sai nào cần ôn tập.");
-                                }
-                            }
-                        }}
-                        className="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-red-400 dark:hover:border-red-500/50 transition-all flex items-center justify-between group cursor-pointer"
-                    >
-                        <div className="flex items-center gap-4 text-left">
-                            <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800/60 flex items-center justify-center">
-                                <RotateCw className="w-5 h-5 text-rose-600 dark:text-rose-400" />
-                            </div>
-                            <div>
-                                <div className="flex items-center gap-2">
-                                    <h3 className="font-bold text-slate-900 dark:text-white">Ôn tập lỗi sai</h3>
-                                    {mistakeCards.length > 0 && (
-                                        <span className="bg-rose-100 dark:bg-rose-900/60 text-rose-600 dark:text-rose-400 px-2 py-0.5 rounded-full text-[10px] font-black font-mono">
-                                            {mistakeCards.length}
-                                        </span>
-                                    )}
-                                </div>
-                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Tập trung ôn tập những thẻ cần lặp lại.</p>
-                            </div>
-                        </div>
-                        <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                </div>
 
                 {/* Last Studied Section */}
                 <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-4">
@@ -1601,6 +1584,16 @@ const SRSVocabScreen = ({
                 </div>,
                 document.body
             )}
+
+            {/* Leech Manager Modal */}
+            <LeechManagerModal 
+                isOpen={showLeechManager}
+                onClose={() => setShowLeechManager(false)}
+                vocabCards={allCards}
+                scopeType="vocab"
+                onStartLeechReview={handleStartLeechReview}
+                onResetLeechCount={handleResetLeech}
+            />
         </div>
     );
 };

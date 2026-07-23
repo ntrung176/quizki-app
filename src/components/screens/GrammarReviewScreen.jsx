@@ -8,8 +8,9 @@ import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase
 import { getAuth } from 'firebase/auth';
 import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
-import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
+import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
@@ -79,6 +80,21 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         reviewModeRef.current = reviewMode;
     }, [reviewMode]);
 
+    const [showLeechManager, setShowLeechManager] = useState(false);
+    const leechGrammarItems = useMemo(() => grammarList.filter(g => isLeechCard(srsData[g.id]) || isLeechCard(g)), [grammarList, srsData]);
+
+    const handleResetGrammarLeech = (item) => {
+        if (!item || !item.id) return;
+        setSrsData(prev => ({
+            ...prev,
+            [item.id]: {
+                ...(prev[item.id] || {}),
+                lapseCount: 0,
+                srsLapseCount: 0
+            }
+        }));
+    };
+
     useEffect(() => {
         const load = async () => {
             try {
@@ -96,6 +112,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 setLoading(false);
             }
         };
+
         load();
 
         // Set up real-time listener for SRS data (cross-device sync)
@@ -843,9 +860,21 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="space-y-3 text-center md:text-left">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
-                                <Cpu className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-spin-slow" />
-                                <span>[GRAMMAR SRS ENGINE]</span>
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                    <Cpu className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-spin-slow" />
+                                    <span>[GRAMMAR SRS ENGINE]</span>
+                                </div>
+                                <button
+                                    onClick={() => setShowLeechManager(true)}
+                                    className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${
+                                        leechGrammarItems.length > 0
+                                            ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
+                                            : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
+                                    }`}
+                                >
+                                    <span>🩸 Thẻ Khó ({leechGrammarItems.length})</span>
+                                </button>
                             </div>
                             <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Ôn tập Ngữ pháp</h1>
                             <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
@@ -978,6 +1007,18 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     </div>
                 </div>
             </div>
+
+            {/* Leech Manager Modal */}
+            <LeechManagerModal 
+                isOpen={showLeechManager}
+                onClose={() => setShowLeechManager(false)}
+                grammarItems={grammarList.map(g => ({
+                    ...g,
+                    lapseCount: srsData[g.id]?.lapseCount || 0
+                }))}
+                scopeType="grammar"
+                onResetLeechCount={handleResetGrammarLeech}
+            />
         </div>
     );
 };

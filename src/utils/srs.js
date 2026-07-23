@@ -570,10 +570,16 @@ export const LEECH_THRESHOLD = 4; // Card lapsed 4 or more times
 
 export const isLeechCard = (srsOrCard) => {
     if (!srsOrCard) return false;
-    const lapseCount = typeof srsOrCard.lapseCount === 'number'
+    const count = typeof srsOrCard.lapseCount === 'number'
         ? srsOrCard.lapseCount
-        : (typeof srsOrCard.srsLapseCount === 'number' ? srsOrCard.srsLapseCount : 0);
-    return lapseCount >= LEECH_THRESHOLD;
+        : (typeof srsOrCard.srsLapseCount === 'number'
+            ? srsOrCard.srsLapseCount
+            : (typeof srsOrCard.lapses === 'number'
+                ? srsOrCard.lapses
+                : (typeof srsOrCard.srsData?.lapseCount === 'number'
+                    ? srsOrCard.srsData.lapseCount
+                    : 0)));
+    return count >= LEECH_THRESHOLD;
 };
 
 // ==================== SRS FORECAST CALCULATION ====================

@@ -9,8 +9,9 @@ import { getAuth } from 'firebase/auth';
 import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs } from '../../utils/kanjiService';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
-import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
+import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
@@ -86,6 +87,21 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         reviewModeRef.current = reviewMode;
     }, [reviewMode]);
 
+    const [showLeechManager, setShowLeechManager] = useState(false);
+    const leechKanjiItems = useMemo(() => kanjiList.filter(k => isLeechCard(srsData[k.id]) || isLeechCard(k)), [kanjiList, srsData]);
+
+    const handleResetKanjiLeech = (item) => {
+        if (!item || !item.id) return;
+        setSrsData(prev => ({
+            ...prev,
+            [item.id]: {
+                ...(prev[item.id] || {}),
+                lapseCount: 0,
+                srsLapseCount: 0
+            }
+        }));
+    };
+
     useEffect(() => {
         const load = async () => {
             try {
@@ -103,6 +119,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 setLoading(false);
             }
         };
+
         load();
 
         // Set up real-time listener for SRS data (cross-device sync)
@@ -871,9 +888,21 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="space-y-3 text-center md:text-left">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 text-xs font-mono font-bold uppercase tracking-wider">
-                                <Cpu className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 animate-spin-slow" />
-                                <span>[KANJI SRS ENGINE]</span>
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                    <Cpu className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 animate-spin-slow" />
+                                    <span>[KANJI SRS ENGINE]</span>
+                                </div>
+                                <button
+                                    onClick={() => setShowLeechManager(true)}
+                                    className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${
+                                        leechKanjiItems.length > 0
+                                            ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
+                                            : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
+                                    }`}
+                                >
+                                    <span>🩸 Thẻ Khó ({leechKanjiItems.length})</span>
+                                </button>
                             </div>
                             <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Ôn tập Kanji</h1>
                             <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
@@ -1022,6 +1051,18 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 </div>
 
             </div>
+
+            {/* Leech Manager Modal */}
+            <LeechManagerModal 
+                isOpen={showLeechManager}
+                onClose={() => setShowLeechManager(false)}
+                kanjiItems={kanjiList.map(k => ({
+                    ...k,
+                    lapseCount: srsData[k.id]?.lapseCount || 0
+                }))}
+                scopeType="kanji"
+                onResetLeechCount={handleResetKanjiLeech}
+            />
         </div>
     );
 };
