@@ -114,36 +114,50 @@ function playClickSound() {
 }
 
 // ==================== CARD FLIP SOUND ====================
+let flipAudioCtx = null;
+
 export function playFlipSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        const filter = ctx.createBiquadFilter();
+        if (!flipAudioCtx || flipAudioCtx.state === 'closed') {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+                flipAudioCtx = new AudioContextClass();
+            }
+        }
+        if (!flipAudioCtx) return;
+
+        if (flipAudioCtx.state === 'suspended') {
+            flipAudioCtx.resume().catch(() => {});
+        }
+
+        const osc = flipAudioCtx.createOscillator();
+        const gain = flipAudioCtx.createGain();
+        const filter = flipAudioCtx.createBiquadFilter();
 
         osc.type = 'triangle';
         // A soft sweeping sound simulating card paper friction
-        osc.frequency.setValueAtTime(320, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.16);
+        osc.frequency.setValueAtTime(320, flipAudioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(120, flipAudioCtx.currentTime + 0.16);
 
         filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(1200, ctx.currentTime);
-        filter.frequency.exponentialRampToValueAtTime(350, ctx.currentTime + 0.16);
+        filter.frequency.setValueAtTime(1200, flipAudioCtx.currentTime);
+        filter.frequency.exponentialRampToValueAtTime(350, flipAudioCtx.currentTime + 0.16);
 
-        gain.gain.setValueAtTime(0, ctx.currentTime);
-        gain.gain.linearRampToValueAtTime(volume * 0.18, ctx.currentTime + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.16);
+        gain.gain.setValueAtTime(0, flipAudioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(volume * 0.18, flipAudioCtx.currentTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, flipAudioCtx.currentTime + 0.16);
 
         osc.connect(filter);
         filter.connect(gain);
-        gain.connect(ctx.destination);
+        gain.connect(flipAudioCtx.destination);
 
-        osc.start(ctx.currentTime);
-        osc.stop(ctx.currentTime + 0.16);
-        setTimeout(() => ctx.close(), 250);
-    } catch (e) { }
+        osc.start(flipAudioCtx.currentTime);
+        osc.stop(flipAudioCtx.currentTime + 0.16);
+    } catch (e) {
+        console.warn('Flip sound error:', e);
+    }
 }
 
 let lastPlayedCompletionTime = 0;

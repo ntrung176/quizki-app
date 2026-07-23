@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { RotateCcw, Check, X, Undo2, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers, Settings, Lightbulb } from 'lucide-react'
 import { speakJapanese } from '../../utils/audio'
-import { playCompletionFanfare } from '../../utils/soundEffects';
+import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { getAuth } from 'firebase/auth';
 import { saveStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
@@ -177,6 +177,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     const handleFlip = useCallback(() => {
         const newFlippedState = !isFlipped;
         setIsFlipped(newFlippedState);
+        playFlipSound();
         if (currentCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
             // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (newFlippedState === true)
             if (newFlippedState) {
@@ -188,12 +189,13 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     const handleKnown = useCallback(() => {
         if (!isFlipped || !currentCard || buttonPressed) return;
         setButtonPressed('known');
-        // Save to history for undo
+        // Save to history for undo (including previous masteryState)
         setHistory(prev => [...prev, {
             card: currentCard,
             action: 'known',
             index: currentIndex,
             round,
+            previousMasteryState: currentCard.masteryState || 'not_learned',
         }]);
         setKnownCards(prev => [...prev, currentCard]);
         // Cập nhật SRS: flashcard_known (nhớ) - chỉ khi chưa từng trả lời sai trong phiên học này
@@ -227,12 +229,13 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         setButtonPressed('unknown');
         // Thêm vào danh sách sai trong phiên học
         sessionWrongCardIdsRef.current.add(currentCard.id);
-        // Save to history for undo
+        // Save to history for undo (including previous masteryState)
         setHistory(prev => [...prev, {
             card: currentCard,
             action: 'unknown',
             index: currentIndex,
             round,
+            previousMasteryState: currentCard.masteryState || 'not_learned',
         }]);
         setUnknownCards(prev => [...prev, currentCard]);
         // Cập nhật SRS: flashcard_unknown (chưa nhớ)
@@ -293,7 +296,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             resetStudyProgress(userId, setId, 'flashcard');
         }
     }, [initialCards, setId]);
-    // Undo last action
+    // Undo last action and revert card's mastery state
     const handleUndo = useCallback(() => {
         if (history.length === 0) return;
         const lastAction = history[history.length - 1];
@@ -303,7 +306,16 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             setKnownCards(prev => prev.filter(c => c.id !== lastAction.card.id));
         } else {
             setUnknownCards(prev => prev.filter(c => c.id !== lastAction.card.id));
+            if (sessionWrongCardIdsRef.current) {
+                sessionWrongCardIdsRef.current.delete(lastAction.card.id);
+            }
         }
+
+        // Revert card's mastery state back to original state
+        if (onUpdateCard && lastAction.card?.id && lastAction.previousMasteryState !== undefined) {
+            onUpdateCard(lastAction.card.id, 'all', { masteryState: lastAction.previousMasteryState });
+        }
+
         // If we were in completion screen, go back
         if (isComplete) {
             setIsComplete(false);
@@ -323,7 +335,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                 }, 110);
             }, 20);
         }, 70);
-    }, [history, isComplete]);
+    }, [history, isComplete, onUpdateCard]);
     // Keyboard controls
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -509,9 +521,48 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                         <div className="h-2 w-full bg-gray-200/60 dark:bg-gray-700/60 rounded-full overflow-hidden">
                             <div className="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
                         </div>
-                        <div className="flex justify-between text-[11px] font-semibold mt-1">
-                            <span className="px-2.5 py-0.5 bg-green-50 text-green-600 dark:bg-green-950/20 dark:text-green-400 rounded-full">{knownCards.length} đã thuộc</span>
-                            <span className="px-2.5 py-0.5 bg-red-50 text-red-500 dark:bg-red-950/20 dark:text-red-400 rounded-full">{unknownCards.length} chưa thuộc</span>
+                        <div className="flex justify-between items-center text-[11px] font-semibold mt-1">
+                            <div className="flex gap-1.5">
+                                <span className="px-2.5 py-0.5 bg-green-50 text-green-600 dark:bg-green-950/20 dark:text-green-400 rounded-full">{knownCards.length} đã thuộc</span>
+                                <span className="px-2.5 py-0.5 bg-red-50 text-red-500 dark:bg-red-950/20 dark:text-red-400 rounded-full">{unknownCards.length} chưa thuộc</span>
+                            </div>
+
+                            {/* Top Right Action Buttons Header OUTSIDE Flashcard (Nuance, Speaker, Settings) */}
+                            <div className="flex items-center gap-1.5 z-30">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        setShowNuancePopup(prev => !prev);
+                                    }}
+                                    className={`p-1.5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border ${
+                                        currentCard.nuance 
+                                            ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300' 
+                                            : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                    }`}
+                                    title="Sắc thái từ vựng"
+                                >
+                                    <Lightbulb className="w-4 h-4" />
+                                </button>
+                                {cardSettings.audioEnabled !== false && (
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                                        }}
+                                        className="p-1.5 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
+                                        title="Phát âm"
+                                    >
+                                        <Volume2 className="w-4 h-4" />
+                                    </button>
+                                )}
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                    className="p-1.5 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
+                                    title="Cấu hình hiển thị"
+                                >
+                                    <Settings className="w-4 h-4" />
+                                </button>
+                            </div>
                         </div>
                     </div>
                     {/* Flashcard Area */}
@@ -542,43 +593,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     onSaveCardAudio={onSaveCardAudio}
                                     transitionEnabled={isAnimatingFlip}
                                 />
-                            </div>
-
-                            {/* Top Right Action Buttons Header (Nuance, Speaker, Settings) */}
-                            <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 z-30">
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setShowNuancePopup(prev => !prev);
-                                    }}
-                                    className={`p-2 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border ${
-                                        currentCard.nuance 
-                                            ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300' 
-                                            : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
-                                    }`}
-                                    title="Sắc thái từ vựng"
-                                >
-                                    <Lightbulb className="w-4 h-4" />
-                                </button>
-                                {cardSettings.audioEnabled !== false && (
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
-                                        }}
-                                        className="p-2 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
-                                        title="Phát âm"
-                                    >
-                                        <Volume2 className="w-4 h-4" />
-                                    </button>
-                                )}
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                    className="p-2 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
-                                    title="Cấu hình hiển thị"
-                                >
-                                    <Settings className="w-4 h-4" />
-                                </button>
                             </div>
 
                             {/* Nuance Text Box */}

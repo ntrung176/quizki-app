@@ -23,50 +23,54 @@ const getCardScaleStyles = (card, settings) => {
     const showExamples = settings?.back?.example;
 
     // Default sizes (no examples or large mode)
-    let wordSize = "text-3xl md:text-4xl font-extrabold leading-snug";
-    let meaningSize = "text-2xl md:text-3xl font-bold mt-2";
-    let exampleBoxPadding = "p-5";
-    let exampleItemGap = "space-y-2.5";
-    let exampleTitleSize = "text-[13px]";
-    let exampleTextSize = "text-[18px] md:text-[20px] leading-relaxed font-bold";
-    let exampleMeaningSize = "text-[15px] md:text-[16px] font-sans mt-1.5 leading-relaxed";
-    let cardPadding = "p-5 pt-12 pb-5 md:p-6 md:pt-12 md:pb-6";
-    let titleSize = "text-xl font-bold";
+    let wordSize = (card.front?.length || 0) > 6 || (card.reading?.length || 0) > 6 
+        ? "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug" 
+        : "text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug";
+    let meaningSize = (card.back?.length || 0) > 15 
+        ? "text-lg sm:text-xl md:text-2xl font-bold mt-1" 
+        : "text-xl sm:text-2xl md:text-3xl font-bold mt-1.5";
+    let exampleBoxPadding = "p-3 sm:p-4.5";
+    let exampleItemGap = "space-y-2";
+    let exampleTitleSize = "text-[12px]";
+    let exampleTextSize = "text-[15px] sm:text-[17px] md:text-[19px] leading-relaxed font-bold";
+    let exampleMeaningSize = "text-[13px] sm:text-[14px] md:text-[15px] font-sans mt-1 leading-relaxed";
+    let cardPadding = "p-4 sm:p-5 md:p-6";
+    let titleSize = "text-lg sm:text-xl font-bold";
 
     if (showExamples && exampleLines > 0) {
         if (exampleLines >= 3 || (card.back?.length || 0) > 240) {
             // Small scale: 3 or more example sentences
-            wordSize = "text-xl md:text-2xl font-semibold leading-normal";
-            meaningSize = "text-lg md:text-xl font-semibold mt-1";
-            titleSize = "text-base font-bold";
-            exampleBoxPadding = "p-3";
+            wordSize = "text-lg sm:text-xl md:text-2xl font-semibold leading-normal";
+            meaningSize = "text-base sm:text-lg md:text-xl font-semibold mt-0.5";
+            titleSize = "text-sm sm:text-base font-bold";
+            exampleBoxPadding = "p-2.5 sm:p-3";
             exampleItemGap = "space-y-1.5";
             exampleTitleSize = "text-[9.5px]";
-            exampleTextSize = "text-[13px] md:text-[14px] leading-normal font-medium";
-            exampleMeaningSize = "text-[11px] md:text-[12px] font-sans mt-0.5 leading-normal";
-            cardPadding = "p-4 pt-12 pb-4";
+            exampleTextSize = "text-[12px] sm:text-[13px] md:text-[14px] leading-normal font-medium";
+            exampleMeaningSize = "text-[10.5px] sm:text-[11px] md:text-[12px] font-sans mt-0.5 leading-normal";
+            cardPadding = "p-3.5 sm:p-4";
         } else if (exampleLines === 2 || (card.back?.length || 0) > 150) {
             // Medium scale: 2 example sentences
-            wordSize = "text-2xl md:text-3xl font-bold leading-normal";
-            meaningSize = "text-xl md:text-2xl font-bold mt-1.5";
-            titleSize = "text-lg font-bold";
-            exampleBoxPadding = "p-3.5";
-            exampleItemGap = "space-y-2";
-            exampleTitleSize = "text-[11.5px]";
-            exampleTextSize = "text-[15px] md:text-[16.5px] leading-relaxed font-semibold";
-            exampleMeaningSize = "text-[13px] md:text-[14px] font-sans mt-1 leading-snug";
-            cardPadding = "p-5 pt-12 pb-5";
+            wordSize = "text-xl sm:text-2xl md:text-3xl font-bold leading-normal";
+            meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-1";
+            titleSize = "text-base sm:text-lg font-bold";
+            exampleBoxPadding = "p-3 sm:p-3.5";
+            exampleItemGap = "space-y-1.5";
+            exampleTitleSize = "text-[11px]";
+            exampleTextSize = "text-[14px] sm:text-[15px] md:text-[16.5px] leading-relaxed font-semibold";
+            exampleMeaningSize = "text-[12px] sm:text-[13px] md:text-[14px] font-sans mt-1 leading-snug";
+            cardPadding = "p-4 sm:p-5";
         } else {
             // 1 example sentence: Large scale
-            wordSize = "text-3xl md:text-4xl font-extrabold leading-snug";
-            meaningSize = "text-2xl md:text-3xl font-bold mt-2";
-            titleSize = "text-xl font-bold";
-            exampleBoxPadding = "p-4.5";
-            exampleItemGap = "space-y-2.5";
-            exampleTitleSize = "text-[13px]";
-            exampleTextSize = "text-[17px] md:text-[19px] leading-relaxed font-bold";
-            exampleMeaningSize = "text-[14px] md:text-[15px] font-sans mt-1.5 leading-relaxed";
-            cardPadding = "p-5 pt-12 pb-5 md:p-6 md:pt-12 md:pb-6";
+            wordSize = "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug";
+            meaningSize = "text-xl sm:text-2xl md:text-3xl font-bold mt-1.5";
+            titleSize = "text-lg sm:text-xl font-bold";
+            exampleBoxPadding = "p-3.5 sm:p-4.5";
+            exampleItemGap = "space-y-2";
+            exampleTitleSize = "text-[12px]";
+            exampleTextSize = "text-[15px] sm:text-[17px] md:text-[19px] leading-relaxed font-bold";
+            exampleMeaningSize = "text-[13px] sm:text-[14px] md:text-[15px] font-sans mt-1 leading-relaxed";
+            cardPadding = "p-4 sm:p-5 md:p-6";
         }
     } else {
         // If there are no examples, let's keep word and meaning sizes large (default)
@@ -295,7 +299,7 @@ const Flashcard = ({
                         />
                     </div>
                 )}
-                <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-2.5 w-full my-auto py-1 ${(card.imageUrl || card.imageBase64) && variant === 'review' ? 'text-left min-w-0 flex-1' : ''}`}>
+                <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-2 sm:space-y-2.5 w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full ${(card.imageUrl || card.imageBase64) && variant === 'review' ? 'text-left min-w-0 flex-1' : ''}`}>
                     {cardSettings.back.reading && (
                         <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full px-2`}>
                             {renderReadingWithPitchAccent()}
@@ -344,7 +348,7 @@ const Flashcard = ({
                     )}
                     {cardSettings.back.example && card.example && (
                         <div 
-                            className={`mt-2 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[80px] max-h-[220px] no-scrollbar cursor-pointer`}
+                            className={`mt-1.5 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[60px] max-h-[150px] sm:max-h-[220px] no-scrollbar cursor-pointer`}
                             onTouchStart={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                             onTouchEnd={(e) => e.stopPropagation()}
@@ -373,11 +377,11 @@ const Flashcard = ({
     let backCardClass = "";
 
     if (variant === 'review') {
-        frontCardClass = `absolute inset-0 backface-hidden bg-gradient-to-br from-indigo-500 to-sky-500 rounded-[32px] border-4 border-white shadow-2xl p-6 flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`;
-        backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[32px] border-4 border-white shadow-2xl p-6 flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`;
+        frontCardClass = `absolute inset-0 backface-hidden bg-gradient-to-br from-indigo-500 to-sky-500 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`;
+        backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow relative overflow-hidden`;
     } else {
-        frontCardClass = `absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none p-6 flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;
-        backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none p-6 flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;
+        frontCardClass = `absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;
+        backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;
     }
 
     return (
