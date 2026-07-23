@@ -235,7 +235,7 @@ const FuriganaText = ({ text, className = '', forceHide = false, showReadingOnly
     const [processedText, setProcessedText] = useState(text || '');
     const [settingEnabled, setSettingEnabled] = useState(true);
     const [furiganaColor, setFuriganaColor] = useState('#8b5cf6');
-    const [furiganaFontSize, setFuriganaFontSize] = useState('0.6em');
+    const [furiganaFontSize, setFuriganaFontSize] = useState('0.42em');
 
     const furiganaEnabled = !forceHide && settingEnabled;
 
@@ -247,7 +247,8 @@ const FuriganaText = ({ text, className = '', forceHide = false, showReadingOnly
                     const parsed = JSON.parse(savedObj);
                     setSettingEnabled(parsed.furiganaEnabled !== false);
                     setFuriganaColor(parsed.furiganaColor || '#8b5cf6');
-                    setFuriganaFontSize(parsed.furiganaFontSize || '0.6em');
+                    const size = parsed.furiganaFontSize;
+                    setFuriganaFontSize(size && size !== '0.6em' ? size : '0.42em');
                 }
             } catch (e) { }
         };

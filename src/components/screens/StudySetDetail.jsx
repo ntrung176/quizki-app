@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Edit, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText, RotateCcw, Settings, Shuffle } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
@@ -143,13 +143,19 @@ const FlashcardPlayerSection = ({
         setSwipeOffset(0);
     };
 
-    // Reset shuffle state when setCards changes
+    // Reset shuffle state ONLY when the list of card IDs actually changes (e.g. switching sets or adding/deleting cards)
+    const cardIdsKey = useMemo(() => (setCards || []).map(c => c.id || c.front).join('|'), [setCards]);
+    const prevCardIdsKeyRef = useRef(cardIdsKey);
+
     useEffect(() => {
-        setIsShuffled(false);
-        setShuffledCards([]);
-        setCurrentCardIndex(0);
-        setIsCardFlipped(false);
-    }, [setCards]);
+        if (prevCardIdsKeyRef.current !== cardIdsKey) {
+            prevCardIdsKeyRef.current = cardIdsKey;
+            setIsShuffled(false);
+            setShuffledCards([]);
+            setCurrentCardIndex(0);
+            setIsCardFlipped(false);
+        }
+    }, [cardIdsKey]);
 
     const activeCardsList = useMemo(() => {
         return isShuffled ? shuffledCards : setCards;
