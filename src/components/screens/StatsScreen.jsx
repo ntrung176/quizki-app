@@ -5,6 +5,7 @@ import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { SafeAvatarImage } from '../ui';
 import { isKanjiMastered, isSrsCardDue, isVocabCardMastered } from '../../utils/srs';
+import SRSForecastChart from '../ui/SRSForecastChart';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getLevelFromXp, getLevelTitle, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
 
@@ -674,6 +675,15 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         </div>
                     </div>
                 </div>
+
+                {/* SRS Forecast Chart */}
+                {allCards.length > 0 && (
+                    <SRSForecastChart 
+                        items={allCards} 
+                        daysCount={14} 
+                        title="Dự Báo Thẻ SRS Đến Hạn Tổng Thể (14 Ngày Tới)" 
+                    />
+                )}
             </div>
 
             {/* Leagues Selection Header */}

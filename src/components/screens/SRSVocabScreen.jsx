@@ -9,6 +9,7 @@ import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue } from '../../utils/srs';
+import SRSForecastChart from '../ui/SRSForecastChart';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 
@@ -56,8 +57,12 @@ const getPreviewIntervals = (card) => {
     const result = {};
     for (const r of ratings) {
         const preview = calculateAnkiSRS(srsState, r);
-        // Convert offset ms to minutes so formatInterval works seamlessly
-        result[r] = Math.round((preview.nextReviewOffsetMs || 0) / 60000);
+        if (preview.state === 'REVIEW') {
+            const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
+            result[r] = days * 1440;
+        } else {
+            result[r] = preview.interval || 1;
+        }
     }
     return result;
 };
@@ -1222,6 +1227,15 @@ const SRSVocabScreen = ({
                         </div>
                     </div>
                 </div>
+
+                {/* SRS Forecast Chart */}
+                {allCards.length > 0 && (
+                    <SRSForecastChart 
+                        items={allCards} 
+                        daysCount={14} 
+                        title="Dự Báo Thẻ Từ Vựng Đến Hạn (14 Ngày Tới)" 
+                    />
+                )}
 
                 {/* Vocabulary Sets Section */}
                 <div className="space-y-4">

@@ -10,6 +10,7 @@ import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUse
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue } from '../../utils/srs';
+import SRSForecastChart from '../ui/SRSForecastChart';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
@@ -24,7 +25,12 @@ const getPreviewIntervals = (srs) => {
     const result = {};
     for (const r of ratings) {
         const preview = calculateAnkiSRS(srs, r);
-        result[r] = Math.round((preview.nextReviewOffsetMs || 0) / 60000);
+        if (preview.state === 'REVIEW') {
+            const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
+            result[r] = days * 1440;
+        } else {
+            result[r] = preview.interval || 1;
+        }
     }
     return result;
 };
@@ -954,6 +960,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     </div>
                 </div>
 
+                {/* SRS Forecast Chart */}
+                {kanjiList.length > 0 && (
+                    <SRSForecastChart 
+                        items={kanjiList.map(k => ({
+                            id: k.id,
+                            state: srsData[k.id]?.state,
+                            nextReview: srsData[k.id]?.nextReview || 0,
+                            reps: srsData[k.id]?.reps || 0
+                        }))} 
+                        daysCount={14} 
+                        title="Dự Báo Kanji Đến Hạn (14 Ngày Tới)" 
+                    />
+                )}
+
                 {/* 4 SRS Stage Cards */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
@@ -998,39 +1018,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
                             <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((Math.round(stats.longTerm * 0.2)) / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
-                    </div>
-                </div>
-
-                {/* Weekly Learning Bar Chart using Recharts */}
-                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md">
-                    <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
-                        <BarChart3 className="w-4 h-4 text-rose-500" /> Số lượng Kanji đã học trong tuần
-                    </h3>
-                    <div className="h-64 w-full min-w-0">
-                        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-                            <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={document.documentElement.classList.contains('dark') ? '#334155' : '#f1f5f9'} />
-                                <XAxis dataKey="name" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
-                                <YAxis stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
-                                <Tooltip
-                                    cursor={{ fill: 'transparent' }}
-                                    contentStyle={{
-                                        backgroundColor: document.documentElement.classList.contains('dark') ? '#1e293b' : '#ffffff',
-                                        borderColor: document.documentElement.classList.contains('dark') ? '#475569' : '#e2e8f0',
-                                        borderRadius: '12px',
-                                        fontSize: '12px'
-                                    }}
-                                />
-                                <Bar dataKey="count" fill="url(#colorCount)" radius={[6, 6, 0, 0]} maxBarSize={45}>
-                                    <defs>
-                                        <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.9} />
-                                            <stop offset="95%" stopColor="#ec4899" stopOpacity={0.7} />
-                                        </linearGradient>
-                                    </defs>
-                                </Bar>
-                            </BarChart>
-                        </ResponsiveContainer>
                     </div>
                 </div>
 

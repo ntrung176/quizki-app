@@ -1,4 +1,4 @@
-import { SRS_INTERVALS } from '../config/constants'
+import { SRS_INTERVALS } from '../config/constants.js';
 
 // ==================== CONSTANTS ====================
 export const DEFAULT_EASE = 2.5;
@@ -461,22 +461,29 @@ export const calculateAnkiSRS = (srs, rating) => {
     }
 
     // Reps: chỉ tăng khi thẻ ở trạng thái REVIEW hoặc khi tốt nghiệp vào REVIEW
-    // Anki theo dõi reps là số lần ôn tập thực sự (graduated reviews), không phải tổng số lần bấm nút
     let newReps = currentReps;
     if (nextState === 'REVIEW') {
         newReps = currentReps + 1;
     }
 
-    // Calculate milliseconds offset for scheduleNext
+    // Calculate milliseconds offset with Anki Day Cutoff (4:00 AM) & Fuzz Factor
     let nextReviewOffsetMs = 0;
+    let fuzzedInterval = newInterval;
+
     if (nextState === 'REVIEW') {
-        nextReviewOffsetMs = newInterval * 24 * 60 * 60 * 1000; // day-based
+        // Apply Fuzz Factor for intervals >= 3 days to smooth daily card distribution
+        fuzzedInterval = applyFuzzFactor(newInterval);
+        // Calculate target timestamp anchored to 4:00 AM cutoff on scheduled day
+        const targetTimestamp = calculateDayCutoffTimestamp(fuzzedInterval);
+        nextReviewOffsetMs = Math.max(60000, targetTimestamp - Date.now());
     } else {
-        nextReviewOffsetMs = newInterval * 60 * 1000; // minute-based
+        // Minute-based scheduling for LEARNING / RELEARNING states
+        nextReviewOffsetMs = newInterval * 60 * 1000;
     }
 
     return {
         interval: newInterval,
+        fuzzedInterval: fuzzedInterval,
         ease: newEase,
         learningStep: newLearningStep,
         isLapsed: newIsLapsed,
@@ -486,6 +493,53 @@ export const calculateAnkiSRS = (srs, rating) => {
         state: nextState,
         nextReviewOffsetMs: nextReviewOffsetMs
     };
+};
+
+// Default Cutoff Hour (4:00 AM local time, same as Anki)
+export const DAY_CUTOFF_HOUR = 4;
+
+/**
+ * Calculates the Target Day Cutoff Timestamp (4:00 AM on scheduled target day).
+ * All day-based REVIEW cards scheduled for the same day become due together at 4:00 AM.
+ * @param {number} intervalDays - Scheduled interval in days
+ * @param {number} nowMs - Current timestamp in ms
+ * @param {number} cutoffHour - Cutoff hour (default 4 AM)
+ * @returns {number} Timestamp in ms representing 4:00 AM on target day
+ */
+export const calculateDayCutoffTimestamp = (intervalDays, nowMs = Date.now(), cutoffHour = DAY_CUTOFF_HOUR) => {
+    const d = new Date(nowMs);
+    // If current time is before cutoff hour (e.g. 2:30 AM), we are still in "yesterday's" study block
+    if (d.getHours() < cutoffHour) {
+        d.setDate(d.getDate() - 1);
+    }
+    // Target day = Current study day + intervalDays
+    d.setDate(d.getDate() + intervalDays);
+    d.setHours(cutoffHour, 0, 0, 0);
+    return d.getTime();
+};
+
+/**
+ * Applies Anki Fuzz Factor (±5% - 10% random variation) to intervals >= 3 days.
+ * Prevents artificial card spikes on the exact same day in the future.
+ * @param {number} intervalDays - Raw scheduled interval in days
+ * @returns {number} Fuzzed interval in days
+ */
+export const applyFuzzFactor = (intervalDays) => {
+    if (intervalDays < 3) return intervalDays;
+    
+    let fuzzRange = 1;
+    if (intervalDays >= 30) {
+        fuzzRange = Math.max(2, Math.round(intervalDays * 0.08));
+    } else if (intervalDays >= 7) {
+        fuzzRange = Math.max(1, Math.round(intervalDays * 0.10));
+    } else { // 3 <= intervalDays < 7
+        fuzzRange = 1;
+    }
+
+    // Random integer between -fuzzRange and +fuzzRange
+    const randomOffset = Math.floor(Math.random() * (fuzzRange * 2 + 1)) - fuzzRange;
+    const fuzzed = intervalDays + randomOffset;
+    return Math.max(2, fuzzed); // Ensure interval stays at least 2 days
 };
 
 export const isKanjiMastered = (srs) => {
@@ -509,4 +563,75 @@ export const isVocabCardMastered = (card) => {
     if (typeof card.srsReps === 'number' && card.srsReps >= 5) return true;
     if (typeof card.srsInterval === 'number' && (card.srsInterval >= 21 || card.srsInterval >= 10080)) return true;
     return false;
+};
+
+// ==================== LEECH CARD DETECTION ====================
+export const LEECH_THRESHOLD = 4; // Card lapsed 4 or more times
+
+export const isLeechCard = (srsOrCard) => {
+    if (!srsOrCard) return false;
+    const lapseCount = typeof srsOrCard.lapseCount === 'number'
+        ? srsOrCard.lapseCount
+        : (typeof srsOrCard.srsLapseCount === 'number' ? srsOrCard.srsLapseCount : 0);
+    return lapseCount >= LEECH_THRESHOLD;
+};
+
+// ==================== SRS FORECAST CALCULATION ====================
+export const calculateSrsForecast = (itemsList = [], daysCount = 14, nowMs = Date.now()) => {
+    const todayCutoff = calculateDayCutoffTimestamp(0, nowMs);
+    const nextDayCutoff = todayCutoff + 86400000;
+    const msPerDay = 86400000;
+    
+    // Day names array
+    const dayNames = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+
+    const forecast = Array.from({ length: daysCount }, (_, i) => {
+        const targetDate = new Date(todayCutoff + i * msPerDay);
+        const dayLabel = i === 0 ? 'Hôm nay' : (i === 1 ? 'Ngày mai' : dayNames[targetDate.getDay()]);
+        const dateString = `${targetDate.getDate()}/${targetDate.getMonth() + 1}`;
+        return {
+            dayOffset: i,
+            dayLabel,
+            dateString,
+            count: 0,
+            timestamp: targetDate.getTime()
+        };
+    });
+
+    itemsList.forEach(item => {
+        if (!item || item.srsEnabled === false) return;
+
+        const nextReviewVal = item.nextReview !== undefined 
+            ? item.nextReview 
+            : (item.nextReview_back !== undefined ? item.nextReview_back : null);
+        
+        const reviewMs = parseNextReviewMs(nextReviewVal);
+        const state = item.state || item.srsState || null;
+        const interval = item.interval !== undefined ? item.interval : item.srsInterval;
+        const reps = item.reps !== undefined ? item.reps : item.srsReps;
+        const intervalIndex = item.intervalIndex_back;
+
+        // Determine if item has active SRS history
+        const hasActiveSrs = (reviewMs > 0) || 
+            (state && state !== 'NEW' && state !== 'new') || 
+            (typeof intervalIndex === 'number' && intervalIndex >= 0) ||
+            (typeof interval === 'number' && interval > 0) ||
+            (typeof reps === 'number' && reps > 0);
+
+        // Exclude unstudied/new cards that have never been introduced in SRS
+        if (!hasActiveSrs) return;
+
+        if (reviewMs === 0 || reviewMs <= nowMs || reviewMs < nextDayCutoff) {
+            // Due today (or overdue)
+            forecast[0].count++;
+        } else {
+            const diffMs = reviewMs - todayCutoff;
+            const dayOffset = Math.floor(diffMs / msPerDay);
+            if (dayOffset >= 0 && dayOffset < daysCount) {
+                forecast[dayOffset].count++;
+            }
+        }
+    });
+
+    return forecast;
 };

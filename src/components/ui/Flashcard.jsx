@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FuriganaText from './FuriganaText';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { POS_TYPES, getPosLabel } from '../../config/constants';
+import { isLeechCard } from '../../utils/srs';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
@@ -177,7 +178,12 @@ const Flashcard = ({
         }
 
         return (
-            <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 w-full my-auto px-2 py-2 overflow-y-auto no-scrollbar">
+            <div className="flex-1 flex flex-col items-center justify-center text-center space-y-3 sm:space-y-4 w-full my-auto px-2 py-2 overflow-y-auto no-scrollbar">
+                {isLeechCard(card) && (
+                    <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-[11px] font-bold shadow-sm animate-pulse mb-1">
+                        <span>🩸 Thẻ khó thuộc (Lapsed {card.lapseCount || card.srsLapseCount} lần)</span>
+                    </div>
+                )}
                 {cardSettings.front.word && (
                     <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed break-words max-w-full px-2`}>
                         <FuriganaText text={card.frontWithFurigana || card.front} forceHide={!cardSettings.front.furigana} />

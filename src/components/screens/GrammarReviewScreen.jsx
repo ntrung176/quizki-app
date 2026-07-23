@@ -9,6 +9,7 @@ import { getAuth } from 'firebase/auth';
 import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue } from '../../utils/srs';
+import SRSForecastChart from '../ui/SRSForecastChart';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar } from '../ui';
@@ -20,7 +21,12 @@ const getPreviewIntervals = (srs) => {
     const result = {};
     for (const r of ratings) {
         const preview = calculateAnkiSRS(srs, r);
-        result[r] = Math.round((preview.nextReviewOffsetMs || 0) / 60000);
+        if (preview.state === 'REVIEW') {
+            const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
+            result[r] = days * 1440;
+        } else {
+            result[r] = preview.interval || 1;
+        }
     }
     return result;
 };
@@ -911,6 +917,20 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     </div>
                 </div>
 
+                {/* SRS Forecast Chart */}
+                {grammarList.length > 0 && (
+                    <SRSForecastChart 
+                        items={grammarList.map(g => ({
+                            id: g.id,
+                            state: srsData[g.id]?.state,
+                            nextReview: srsData[g.id]?.nextReview || 0,
+                            reps: srsData[g.id]?.reps || 0
+                        }))} 
+                        daysCount={14} 
+                        title="Dự Báo Ngữ Pháp Đến Hạn (14 Ngày Tới)" 
+                    />
+                )}
+
                 {/* 4 SRS Stage Cards */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
@@ -955,39 +975,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
                             <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? ((Math.round(stats.longTerm * 0.2)) / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
-                    </div>
-                </div>
-
-                {/* Weekly Learning Bar Chart */}
-                <div className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 rounded-3xl p-6 shadow-sm">
-                    <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
-                        <BarChart3 className="w-4 h-4 text-emerald-500" /> Thống kê ôn tập 7 ngày qua
-                    </h3>
-                    <div className="h-64 w-full min-w-0">
-                        <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-                            <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={document.documentElement.classList.contains('dark') ? '#334155' : '#f1f5f9'} />
-                                <XAxis dataKey="name" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
-                                <YAxis stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
-                                <Tooltip
-                                    cursor={{ fill: 'transparent' }}
-                                    contentStyle={{
-                                        backgroundColor: document.documentElement.classList.contains('dark') ? '#1e293b' : '#ffffff',
-                                        borderColor: document.documentElement.classList.contains('dark') ? '#475569' : '#e2e8f0',
-                                        borderRadius: '12px',
-                                        fontSize: '12px'
-                                    }}
-                                />
-                                <Bar dataKey="count" fill="url(#colorCount)" radius={[6, 6, 0, 0]} maxBarSize={45}>
-                                    <defs>
-                                        <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="5%" stopColor="#10b981" stopOpacity={0.8} />
-                                            <stop offset="95%" stopColor="#059669" stopOpacity={0.3} />
-                                        </linearGradient>
-                                    </defs>
-                                </Bar>
-                            </BarChart>
-                        </ResponsiveContainer>
                     </div>
                 </div>
             </div>
