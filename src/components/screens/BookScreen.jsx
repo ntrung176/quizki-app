@@ -16,6 +16,7 @@ import { TopTabBar, PremiumLockedModal } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 // ==================== REUSABLE COMPONENTS (outside BookScreen to prevent re-mount) ====================
 const FormModal = ({ show, onClose, title, onSave, children }) => {
@@ -43,6 +44,102 @@ const InputField = ({ label, value, onChange, placeholder, type = 'text' }) => (
             placeholder={placeholder} className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-sky-500 outline-none" />
     </div>
 );
+const ENGLISH_SAMPLE_BOOK_GROUPS = [
+    {
+        id: 'oxford_3000',
+        targetLanguage: 'en',
+        name: '📘 Oxford 3000 Core Vocabulary',
+        subtitle: '3000 từ vựng tiếng Anh giao tiếp thông dụng nhất theo chuẩn Oxford',
+        color: '#3B82F6',
+        books: [
+            {
+                id: 'oxford_a1_a2',
+                name: 'Oxford A1 - A2 (Sơ cấp & Trung cấp)',
+                chapters: [
+                    {
+                        id: 'oxford_ch1',
+                        name: 'Bài 1: Giao tiếp & Cuộc sống hàng ngày',
+                        lessons: [
+                            {
+                                id: 'oxford_l1',
+                                name: 'Chủ đề: Hello & Daily Greetings',
+                                vocabularies: [
+                                    { id: 'en_ox_1', front: 'ability', back: 'khả năng, năng lực', ipa: '/əˈbɪləti/', pos: 'noun', example: 'She has the ability to pass the exam.' },
+                                    { id: 'en_ox_2', front: 'abroad', back: 'ở nước ngoài', ipa: '/əˈbrɔːd/', pos: 'adverb', example: 'He is studying abroad in London.' },
+                                    { id: 'en_ox_3', front: 'absolute', back: 'tuyệt đối, hoàn toàn', ipa: '/ˈæbsəluːt/', pos: 'adjective', example: 'There is absolute silence in the library.' },
+                                    { id: 'en_ox_4', front: 'accept', back: 'chấp nhận, đồng ý', ipa: '/əkˈsept/', pos: 'verb', example: 'They accepted our offer.' },
+                                    { id: 'en_ox_5', front: 'achieve', back: 'đạt được, hoàn thành', ipa: '/əˈtʃiːv/', pos: 'verb', example: 'She achieved her goal.' }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'ielts_master',
+        targetLanguage: 'en',
+        name: '🎓 IELTS Master Vocabulary (Band 6.5 - 8.0)',
+        subtitle: 'Bộ từ vựng ăn điểm cho 4 kỹ năng Listening, Reading, Writing, Speaking',
+        color: '#8B5CF6',
+        books: [
+            {
+                id: 'ielts_academic',
+                name: 'IELTS Academic & Topic Vocabulary',
+                chapters: [
+                    {
+                        id: 'ielts_ch1',
+                        name: 'Topic: Environment & Climate Change',
+                        lessons: [
+                            {
+                                id: 'ielts_l1',
+                                name: 'Lesson 1: Biodiversity & Preservation',
+                                vocabularies: [
+                                    { id: 'en_ie_1', front: 'biodiversity', back: 'đa dạng sinh học', ipa: '/ˌbaɪəʊdaɪˈvɜːsəti/', pos: 'noun', example: 'Rainforests are rich in biodiversity.' },
+                                    { id: 'en_ie_2', front: 'catastrophic', back: 'thảm khốc, gây thiệt hại nặng', ipa: '/ˌkætəˈstrɒfɪk/', pos: 'adj', example: 'The flood had catastrophic effects.' },
+                                    { id: 'en_ie_3', front: 'sustainable', back: 'bền vững, thân thiện môi trường', ipa: '/səˈsteɪnəbl/', pos: 'adj', example: 'We need sustainable energy sources.' },
+                                    { id: 'en_ie_4', front: 'deforestation', back: 'nạn phá rừng', ipa: '/ˌdiːˌfɒrɪˈsteɪʃn/', pos: 'noun', example: 'Deforestation is harming wild habitats.' }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'toeic_600',
+        targetLanguage: 'en',
+        name: '💼 TOEIC 600 Essential Words',
+        subtitle: '600 từ vựng thiết yếu luyện thi TOEIC & môi trường công sở quốc tế',
+        color: '#F59E0B',
+        books: [
+            {
+                id: 'toeic_office',
+                name: 'TOEIC Business & Workplace',
+                chapters: [
+                    {
+                        id: 'toeic_ch1',
+                        name: 'Contract & Negotiation',
+                        lessons: [
+                            {
+                                id: 'toeic_l1',
+                                name: 'Lesson 1: Signing Contracts',
+                                vocabularies: [
+                                    { id: 'en_to_1', front: 'agreement', back: 'hợp đồng, thỏa thuận', ipa: '/əˈɡriːmənt/', pos: 'noun', example: 'Both parties signed the agreement.' },
+                                    { id: 'en_to_2', front: 'obligation', back: 'nghĩa vụ, trách nhiệm', ipa: '/ˌɒblɪˈɡeɪʃn/', pos: 'noun', example: 'You have a legal obligation.' },
+                                    { id: 'en_to_3', front: 'negotiate', back: 'đàm phán, thương lượng', ipa: '/nɪˈɡəʊʃieɪt/', pos: 'verb', example: 'We negotiated the contract terms.' }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+];
+
 // ==================== BOOK SCREEN ====================
 const BookScreen = ({ 
     isAdmin = false, 
@@ -61,6 +158,7 @@ const BookScreen = ({
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
     const { t } = useLanguage();
+    const { targetLanguage, isEnglishMode } = useTargetLanguage();
     const fadeWholePage = useMenuTransition();
     // Premium Locked states
     const [showPremiumModal, setShowPremiumModal] = useState(false);
@@ -139,8 +237,16 @@ const BookScreen = ({
         }
         return 'CUSTOM';
     };
+    const activeBookGroups = useMemo(() => {
+        if (isEnglishMode) {
+            const userEnGroups = (bookGroups || []).filter(g => g.targetLanguage === 'en');
+            return [...ENGLISH_SAMPLE_BOOK_GROUPS, ...userEnGroups];
+        }
+        return (bookGroups || []).filter(g => !g.targetLanguage || g.targetLanguage === 'ja');
+    }, [bookGroups, isEnglishMode]);
+
     const filteredGroups = useMemo(() => {
-        return bookGroups.filter(group => {
+        return activeBookGroups.filter(group => {
             const name = (group.name || '').toLowerCase();
             const subtitle = (group.subtitle || '').toLowerCase();
             const matchesSearch = name.includes(searchQuery.toLowerCase()) || subtitle.includes(searchQuery.toLowerCase());
@@ -149,10 +255,13 @@ const BookScreen = ({
             const cat = getGroupCategory(group);
             if (activeFilter === 'JLPT') return cat === 'JLPT';
             if (activeFilter === 'TEXTBOOK') return cat === 'TEXTBOOK';
+            if (activeFilter === 'OXFORD') return name.includes('oxford');
+            if (activeFilter === 'IELTS') return name.includes('ielts');
+            if (activeFilter === 'TOEIC') return name.includes('toeic');
             if (activeFilter === 'CUSTOM') return cat === 'CUSTOM';
             return true;
         });
-    }, [bookGroups, searchQuery, activeFilter]);
+    }, [activeBookGroups, searchQuery, activeFilter]);
     // Audio stored separately to avoid Firestore 1MB document limit
     const [lessonAudioMap, setLessonAudioMap] = useState({});
     const bgAudioAbortRef = useRef(false);
@@ -308,7 +417,7 @@ const BookScreen = ({
         }
     };
     // ==================== NAVIGATION HELPERS ====================
-    const currentGroup = useMemo(() => bookGroups.find(g => g.id === groupId), [bookGroups, groupId]);
+    const currentGroup = useMemo(() => activeBookGroups.find(g => g.id === groupId), [activeBookGroups, groupId]);
     const currentBook = useMemo(() => currentGroup?.books?.find(b => b.id === bookId), [currentGroup, bookId]);
     const currentChapter = useMemo(() => currentBook?.chapters?.find(c => c.id === chapterId), [currentBook, chapterId]);
     const currentLesson = useMemo(() => currentChapter?.lessons?.find(l => l.id === lessonId), [currentChapter, lessonId]);
@@ -1600,12 +1709,18 @@ const BookScreen = ({
                 <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md">
                     {/* Tabs / Filters */}
                     <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
-                        {[
+                        {(isEnglishMode ? [
+                            { id: 'ALL', label: t('common.all', 'TẤT CẢ') },
+                            { id: 'OXFORD', label: 'OXFORD 3000' },
+                            { id: 'IELTS', label: 'IELTS' },
+                            { id: 'TOEIC', label: 'TOEIC' },
+                            { id: 'CUSTOM', label: t('books.custom', 'TÙY CHỈNH') }
+                        ] : [
                             { id: 'ALL', label: t('common.all', 'TẤT CẢ') },
                             { id: 'JLPT', label: 'JLPT' },
                             { id: 'TEXTBOOK', label: t('books.curriculum', 'GIÁO TRÌNH') },
                             { id: 'CUSTOM', label: t('books.custom', 'TÙY CHỈNH') }
-                        ].map(tab => (
+                        ]).map(tab => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveFilter(tab.id)}

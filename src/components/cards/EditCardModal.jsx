@@ -8,10 +8,13 @@ import { db } from '../../config/firebase';
 import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 
 import PremiumLockedModal from '../ui/PremiumLockedModal';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], canUserUseAI }) => {
+    const { isEnglishMode } = useTargetLanguage();
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
+    const [ipa, setIpa] = useState(card?.ipa || '');
     const [synonym, setSynonym] = useState(card?.synonym || '');
     const [example, setExample] = useState(card?.example || '');
     const [exampleMeaning, setExampleMeaning] = useState(card?.exampleMeaning || '');
@@ -105,10 +108,11 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         setIsSaving(true);
         await onSave({
             cardId: card.id,
-            front, back, synonym, example, exampleMeaning, nuance, pos, level,
-            sinoVietnamese, synonymSinoVietnamese,
-            reading: reading.trim(),
-            accent: accent.trim(),
+            front, back, ipa: isEnglishMode ? ipa : '', synonym, example, exampleMeaning, nuance, pos, level,
+            sinoVietnamese: isEnglishMode ? '' : sinoVietnamese, synonymSinoVietnamese: isEnglishMode ? '' : synonymSinoVietnamese,
+            reading: isEnglishMode ? '' : reading.trim(),
+            accent: isEnglishMode ? '' : accent.trim(),
+            targetLanguage: isEnglishMode ? 'en' : 'ja',
             imageBase64: imagePreview,
             audioBase64: card?.audioBase64 || null
         });
@@ -140,18 +144,26 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level, back);
         if (aiData) {
-            if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
+            if (isEnglishMode) {
+                setFront(aiData.front || front);
+                setIpa(aiData.ipa || '');
+                setSinoVietnamese('');
+                setReading('');
+                setAccent('');
+            } else {
+                if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
+                if (aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese);
+                if (aiData.reading) setReading(aiData.reading);
+                if (aiData.accent !== undefined) setAccent(String(aiData.accent));
+            }
             if (aiData.meaning) setBack(aiData.meaning);
-            if (aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese);
             if (aiData.synonym) setSynonym(aiData.synonym);
-            if (aiData.synonymSinoVietnamese) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
+            if (aiData.synonymSinoVietnamese && !isEnglishMode) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
             if (aiData.example) setExample(aiData.example);
             if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning);
             if (aiData.nuance) setNuance(aiData.nuance);
             if (aiData.pos) setPos(aiData.pos);
             if (aiData.level) setLevel(aiData.level);
-            if (aiData.reading) setReading(aiData.reading);
-            if (aiData.accent !== undefined) setAccent(String(aiData.accent));
         }
         setIsAiLoading(false);
     };
@@ -285,8 +297,17 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                 <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
                             </div>
                             <div className="grid grid-cols-2 gap-2">
-                                <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
-                                <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                {isEnglishMode ? (
+                                    <>
+                                        <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder="Phiên âm (IPA)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                    </>
+                                ) : (
+                                    <>
+                                        <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                    </>
+                                )}
                             </div>
                         </div>
                         <div className="space-y-4">

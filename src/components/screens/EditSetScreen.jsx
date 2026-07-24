@@ -8,6 +8,7 @@ import { showToast } from '../../utils/toast';
 import { CardEditorItem } from '../cards/AddCardForm';
 import BatchAiModal from '../cards/BatchAiModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const isCardModified = (card, originalCard) => {
     if (!originalCard) return true;
@@ -48,6 +49,7 @@ const EditSetScreen = ({
     parentFolders = [],
     canUserUseAI
 }) => {
+    const { isEnglishMode } = useTargetLanguage();
     const folder = folderId === 'unfiled' ? { name: 'Từ vựng lẻ', description: 'Các từ vựng không thuộc học phần nào', coverImage: null } : (folders.find(f => f.id === folderId) || { name: 'Học phần', description: '', coverImage: null });
     const [title, setTitle] = useState(folder.name || '');
     const [description, setDescription] = useState(folder.description || '');
@@ -158,18 +160,20 @@ const EditSetScreen = ({
                 if (c.id === id) {
                     return {
                         ...c,
-                        front: aiData.frontWithFurigana || c.front,
+                        front: isEnglishMode ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
                         back: aiData.meaning || c.back,
-                        sinoVietnamese: aiData.sinoVietnamese || c.sinoVietnamese,
+                        ipa: isEnglishMode ? (aiData.ipa || '') : '',
+                        sinoVietnamese: isEnglishMode ? '' : (aiData.sinoVietnamese || c.sinoVietnamese),
                         synonym: aiData.synonym || c.synonym,
-                        synonymSinoVietnamese: aiData.synonymSinoVietnamese || c.synonymSinoVietnamese,
+                        synonymSinoVietnamese: isEnglishMode ? '' : (aiData.synonymSinoVietnamese || c.synonymSinoVietnamese),
                         example: aiData.example || c.example,
                         exampleMeaning: aiData.exampleMeaning || c.exampleMeaning,
                         nuance: aiData.nuance || c.nuance,
                         pos: aiData.pos || c.pos,
                         level: aiData.level || c.level,
-                        reading: aiData.reading || c.reading || '',
-                        accent: aiData.accent !== undefined ? String(aiData.accent) : (c.accent || '')
+                        reading: isEnglishMode ? '' : (aiData.reading || c.reading || ''),
+                        accent: isEnglishMode ? '' : (aiData.accent !== undefined ? String(aiData.accent) : (c.accent || '')),
+                        targetLanguage: isEnglishMode ? 'en' : 'ja'
                     };
                 }
                 return c;

@@ -3,6 +3,7 @@ import FuriganaText from './FuriganaText';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { POS_TYPES, getPosLabel } from '../../config/constants';
 import { isLeechCard } from '../../utils/srs';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
@@ -168,6 +169,9 @@ const Flashcard = ({
 
     const scale = getCardScaleStyles(card, cardSettings);
 
+    const { isEnglishMode } = useTargetLanguage();
+    const isEnglishCard = card?.targetLanguage === 'en' || (isEnglishMode && card?.targetLanguage !== 'ja');
+
     const renderFrontContent = () => {
         let wordColorClass = "text-slate-800 dark:text-white";
         let hanvietColorClass = "text-slate-600 dark:text-slate-400";
@@ -185,16 +189,27 @@ const Flashcard = ({
                     </div>
                 )}
                 {cardSettings.front.word && (
-                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed break-words max-w-full px-2`}>
-                        <FuriganaText text={card.frontWithFurigana || card.front} forceHide={!cardSettings.front.furigana} />
+                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} select-none leading-relaxed break-words max-w-full px-2 flex flex-col items-center justify-center gap-2`}>
+                        {isEnglishCard ? (
+                            <>
+                                <span>{card.front}</span>
+                                {card.ipa && (
+                                    <span className="text-sm sm:text-base font-mono font-medium text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
+                                        {card.ipa.startsWith('/') ? card.ipa : `/${card.ipa}/`}
+                                    </span>
+                                )}
+                            </>
+                        ) : (
+                            <FuriganaText text={card.frontWithFurigana || card.front} forceHide={!cardSettings.front.furigana} />
+                        )}
                     </div>
                 )}
-                {!cardSettings.front.word && cardSettings.front.furigana && (
+                {!isEnglishCard && !cardSettings.front.word && cardSettings.front.furigana && (
                     <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed break-words max-w-full px-2`}>
                         <FuriganaText text={card.frontWithFurigana || card.front} showReadingOnly={true} />
                     </div>
                 )}
-                {cardSettings.front.hanviet && card.sinoVietnamese && (
+                {!isEnglishCard && cardSettings.front.hanviet && card.sinoVietnamese && (
                     <p className={`${hanvietColorClass} text-[15px] md:text-base font-bold`}>
                         <span className={variant === 'review' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
                     </p>
@@ -334,11 +349,14 @@ const Flashcard = ({
                             {card.back}
                         </div>
                     )}
-                    {((cardSettings.back.hanviet && card.sinoVietnamese) || (cardSettings.back.synonym && card.synonym)) && (
+                    {((cardSettings.back.hanviet && (card.sinoVietnamese || card.ipa)) || (cardSettings.back.synonym && card.synonym)) && (
                         <div className="flex items-baseline justify-center gap-3 text-[13px] md:text-[14px] font-bold mt-0.5 flex-wrap">
-                            {cardSettings.back.hanviet && card.sinoVietnamese && (
+                            {cardSettings.back.hanviet && (card.sinoVietnamese || card.ipa) && (
                                 <span className={`inline-flex items-baseline ${variant === 'review' ? 'text-yellow-300' : 'text-slate-700 dark:text-slate-300'}`}>
-                                    <span className={variant === 'review' ? "text-emerald-100 font-normal mr-1" : "text-slate-400 dark:text-slate-500 font-normal mr-1"}>Hán Việt: </span>{card.sinoVietnamese}
+                                    <span className={variant === 'review' ? "text-emerald-100 font-normal mr-1" : "text-slate-400 dark:text-slate-500 font-normal mr-1"}>
+                                        {card.ipa ? 'IPA:' : 'Hán Việt:'}
+                                    </span>
+                                    {card.ipa || card.sinoVietnamese}
                                 </span>
                             )}
                             {cardSettings.back.hanviet && card.sinoVietnamese && cardSettings.back.synonym && card.synonym && (

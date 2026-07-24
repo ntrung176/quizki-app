@@ -12,11 +12,13 @@ import {
 } from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
 import LanguageSelector from '../ui/LanguageSelector';
+import TargetLanguageSelector from '../ui/TargetLanguageSelector';
 import { isVocabCardDue, isSrsCardDue } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/grammarService';
 
 import { useLanguage } from '../../context/LanguageContext';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 // Sidebar Component - Restored Exact Original Menus with Chatbox & Help Buttons Integrated at Bottom
 const Sidebar = ({ 
@@ -34,6 +36,7 @@ const Sidebar = ({
     const navigate = useNavigate();
     const location = useLocation();
     const { t } = useLanguage();
+    const { isEnglishMode } = useTargetLanguage();
 
     const xpDetails = React.useMemo(() => {
         const xp = profile?.xp || 0;
@@ -249,18 +252,25 @@ const Sidebar = ({
         const items = [
             { id: 'HOME', icon: Home, label: t('nav.home', 'Trang chủ'), route: ROUTES.HOME },
             { id: 'VOCAB_LIST', icon: BookOpen, label: t('nav.vocab', 'Từ vựng'), route: ROUTES.VOCAB_REVIEW, badge: dueVocabCount },
-            { id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, badge: kanjiDueCount },
+        ];
+
+        // Kanji / Phonetics menu is only relevant for Japanese learning
+        if (!isEnglishMode) {
+            items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, badge: kanjiDueCount });
+        }
+
+        items.push(
             { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, badge: grammarDueCount },
-            { id: 'JLPT_TEST', icon: FileCheck, label: t('nav.jlptTest', 'Luyện đề JLPT'), route: ROUTES.JLPT_TEST },
+            { id: 'JLPT_TEST', icon: FileCheck, label: isEnglishMode ? 'Luyện thi IELTS/TOEIC' : t('nav.jlptTest', 'Luyện đề JLPT'), route: ROUTES.JLPT_TEST },
             { id: 'JLPT_KAIWA', icon: MessageSquare, label: t('nav.kaiwa', 'Phòng Kaiwa AI'), route: ROUTES.JLPT_KAIWA },
             { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB },
-        ];
+        );
 
         if (isAdmin) {
             items.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN });
         }
         return items;
-    }, [t, dueVocabCount, kanjiDueCount, grammarDueCount, isAdmin]);
+    }, [t, dueVocabCount, kanjiDueCount, grammarDueCount, isAdmin, isEnglishMode]);
 
     const isMenuActive = (item) => {
         const path = location.pathname;
@@ -426,6 +436,13 @@ const Sidebar = ({
                     </nav>
 
                     <div className="p-4 border-t border-slate-200 dark:border-slate-800 space-y-3 bg-white dark:bg-slate-900">
+                        <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-800/60 p-2 rounded-2xl border border-slate-200/80 dark:border-slate-700/80">
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
+                                🎯 NGÔN NGỮ MUỐN HỌC
+                            </span>
+                            <TargetLanguageSelector isAdmin={isAdmin} />
+                        </div>
+
                         <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-800/60 p-2 rounded-2xl border border-slate-200/80 dark:border-slate-700/80">
                             <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
                                 🌐 {t('common.language', 'Ngôn ngữ')}
@@ -610,14 +627,24 @@ const Sidebar = ({
             {/* Bottom Cyber Controls with Chatbox & Help Integrated */}
             <div className="p-3 border-t border-slate-200 dark:border-slate-800 space-y-2 bg-slate-50/50 dark:bg-slate-950/50">
                 {!isCollapsed ? (
-                    <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 pl-1">
-                            🌐 {t('common.language', 'Ngôn ngữ')}
-                        </span>
-                        <LanguageSelector compact={true} />
+                    <div className="space-y-2">
+                        <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 pl-1">
+                                🎯 NGÔN NGỮ MUỐN HỌC
+                            </span>
+                            <TargetLanguageSelector isAdmin={isAdmin} />
+                        </div>
+
+                        <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 pl-1">
+                                🌐 {t('common.language', 'Ngôn ngữ')}
+                            </span>
+                            <LanguageSelector compact={true} />
+                        </div>
                     </div>
                 ) : (
-                    <div className="flex justify-center">
+                    <div className="flex flex-col items-center justify-center gap-2">
+                        <TargetLanguageSelector minimal={true} isAdmin={isAdmin} />
                         <LanguageSelector compact={true} minimal={true} direction="up" />
                     </div>
                 )}

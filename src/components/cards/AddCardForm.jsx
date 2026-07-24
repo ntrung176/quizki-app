@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw, AlertTriangle, Cpu } from 'lucide-react'
-import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
+import { POS_TYPES, ENGLISH_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 
 import { TopTabBar } from '../ui';
@@ -9,6 +9,7 @@ import { showToast } from '../../utils/toast';
 import BatchAiModal from './BatchAiModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -28,6 +29,7 @@ export const CardEditorItem = ({
     frontInputRef
 }) => {
     const { t } = useLanguage();
+    const { isEnglishMode } = useTargetLanguage();
     const [showAdvanced, setShowAdvanced] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const [showHandwriting, setShowHandwriting] = useState(false);
@@ -124,7 +126,7 @@ export const CardEditorItem = ({
                 <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
                         <p className={`text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'}`}>
-                            {card.front || 'Thuật ngữ (Tiếng Nhật)'}
+                            {card.front || (isEnglishMode ? 'Thuật ngữ (Tiếng Anh)' : 'Thuật ngữ (Tiếng Nhật)')}
                         </p>
                         <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">THUẬT NGỮ</p>
                     </div>
@@ -156,7 +158,7 @@ export const CardEditorItem = ({
                     </div>
                     <div className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-50 dark:bg-slate-900/65 rounded-lg border border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 text-xs font-bold">
                         <Languages className="w-3.5 h-3.5" />
-                        <span>JA-VI</span>
+                        <span>{isEnglishMode ? 'EN-VI' : 'JA-VI'}</span>
                     </div>
                 </div>
                 <button 
@@ -172,7 +174,7 @@ export const CardEditorItem = ({
                 {/* Thuật ngữ & Định nghĩa */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{t('forms.japaneseTerm', 'THUẬT NGỮ (TIẾNG NHẬT)')} *</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{isEnglishMode ? 'THUẬT NGỮ (TIẾNG ANH)' : t('forms.japaneseTerm', 'THUẬT NGỮ (TIẾNG NHẬT)')} *</label>
                         <div className="flex gap-2">
                             <input
                                 type="text"
@@ -181,29 +183,31 @@ export const CardEditorItem = ({
                                 onKeyDown={handleKeyDown}
                                 ref={frontInputRef}
                                 required
-                                placeholder="Ví dụ: 食べる"
+                                placeholder={isEnglishMode ? 'Ví dụ: Intelligence' : 'Ví dụ: 食べる'}
                                 className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2.5 text-2xl font-bold text-slate-800 dark:text-white outline-none transition-colors"
                             />
                             
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setShowHandwriting(!showHandwriting);
-                                    if (!showHandwriting) {
-                                        setHandwritingSuggestions([]);
-                                        handwritingStrokesRef.current = [];
-                                        currentStrokeRef.current = { xs: [], ys: [] };
-                                    }
-                                }}
-                                className={`flex items-center justify-center px-3.5 py-2 rounded-xl border font-bold text-sm shadow hover:shadow-md transition-all flex-shrink-0 min-w-[38px] ${
-                                    showHandwriting
-                                        ? 'bg-sky-100 dark:bg-sky-950 border-sky-200 dark:border-sky-855 text-sky-600 dark:text-sky-400'
-                                        : 'bg-white hover:bg-slate-50 dark:bg-gray-800 dark:border-gray-700 text-slate-500 dark:text-slate-300'
-                                }`}
-                                title="Vẽ để chọn Kanji"
-                            >
-                                <span className="font-japanese font-bold text-base">あ</span>
-                            </button>
+                            {!isEnglishMode && (
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setShowHandwriting(!showHandwriting);
+                                        if (!showHandwriting) {
+                                            setHandwritingSuggestions([]);
+                                            handwritingStrokesRef.current = [];
+                                            currentStrokeRef.current = { xs: [], ys: [] };
+                                        }
+                                    }}
+                                    className={`flex items-center justify-center px-3.5 py-2 rounded-xl border font-bold text-sm shadow hover:shadow-md transition-all flex-shrink-0 min-w-[38px] ${
+                                        showHandwriting
+                                            ? 'bg-sky-100 dark:bg-sky-950 border-sky-200 dark:border-sky-855 text-sky-600 dark:text-sky-400'
+                                            : 'bg-white hover:bg-slate-50 dark:bg-gray-800 dark:border-gray-700 text-slate-500 dark:text-slate-300'
+                                    }`}
+                                    title="Vẽ để chọn Kanji"
+                                >
+                                    <span className="font-japanese font-bold text-base">あ</span>
+                                </button>
+                            )}
 
                             {onAiAssist && (
                                 <button
@@ -402,7 +406,7 @@ export const CardEditorItem = ({
                             value={card.back}
                             onChange={(e) => onUpdate(card.id, 'back', e.target.value)}
                             required
-                            placeholder="Ví dụ: Ăn"
+                            placeholder={isEnglishMode ? 'Ví dụ: Trí thông minh' : 'Ví dụ: Ăn'}
                             className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2.5 text-2xl font-bold text-slate-800 dark:text-white outline-none transition-colors"
                         />
                     </div>
@@ -441,8 +445,8 @@ export const CardEditorItem = ({
                                         onClick={() => setPosDropdownOpen(false)} 
                                     />
                                     
-                                    <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200">
-                                        {Object.entries(POS_TYPES).map(([key, value]) => {
+                                    <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
+                                        {Object.entries(isEnglishMode ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
                                             if (key === 'grammar') {
                                                 return (
                                                     <div key={key} className="relative group/grammar">
@@ -507,12 +511,19 @@ export const CardEditorItem = ({
                         </div>
                     </div>
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.kanjiReading', 'HÁN VIỆT')}</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{isEnglishMode ? 'PHIÊN ÂM (IPA)' : t('forms.kanjiReading', 'HÁN VIỆT')}</label>
                         <input
                             type="text"
-                            value={card.sinoVietnamese}
-                            onChange={(e) => onUpdate(card.id, 'sinoVietnamese', e.target.value)}
-                            placeholder="Âm Hán Việt..."
+                            value={isEnglishMode ? (card.ipa || '') : (card.sinoVietnamese || '')}
+                            onChange={(e) => {
+                                if (isEnglishMode) {
+                                    onUpdate(card.id, 'ipa', e.target.value);
+                                    onUpdate(card.id, 'sinoVietnamese', '');
+                                } else {
+                                    onUpdate(card.id, 'sinoVietnamese', e.target.value);
+                                }
+                            }}
+                            placeholder={isEnglishMode ? '/ɪnˈtɛlɪdʒəns/...' : 'Âm Hán Việt...'}
                             className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
                         />
                     </div>
@@ -576,7 +587,7 @@ export const CardEditorItem = ({
                                                         updated[idx] = e.target.value;
                                                         onUpdate(card.id, 'example', updated.join('\n'));
                                                     }}
-                                                    placeholder="Câu ví dụ tiếng Nhật"
+                                                    placeholder={isEnglishMode ? 'Câu ví dụ tiếng Anh' : 'Câu ví dụ tiếng Nhật'}
                                                     className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-1.5 text-sm text-slate-750 dark:text-slate-250 outline-none"
                                                 />
                                             </div>
@@ -644,7 +655,7 @@ export const CardEditorItem = ({
                                         type="text"
                                         value={card.synonym}
                                         onChange={(e) => onUpdate(card.id, 'synonym', e.target.value)}
-                                        placeholder="食事する"
+                                        placeholder={isEnglishMode ? 'Ví dụ: Smart, Clever' : 'Ví dụ: 食事する'}
                                         className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
                                     />
                                 </div>
@@ -713,6 +724,7 @@ const AddCardForm = ({
     canUserUseAI
 }) => {
     const { t } = useLanguage();
+    const { isEnglishMode } = useTargetLanguage();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [coverImage, setCoverImage] = useState(null);
@@ -851,18 +863,20 @@ const AddCardForm = ({
                 if (c.id === id) {
                     return {
                         ...c,
-                        front: aiData.frontWithFurigana || c.front,
+                        front: isEnglishMode ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
                         back: aiData.meaning || '',
-                        sinoVietnamese: aiData.sinoVietnamese || '',
+                        ipa: aiData.ipa || '',
+                        sinoVietnamese: isEnglishMode ? '' : (aiData.sinoVietnamese || ''),
                         synonym: aiData.synonym || '',
-                        synonymSinoVietnamese: aiData.synonymSinoVietnamese || '',
+                        synonymSinoVietnamese: isEnglishMode ? '' : (aiData.synonymSinoVietnamese || ''),
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
                         pos: aiData.pos || selectedPos || '',
                         level: aiData.level || selectedLevel || '',
-                        reading: aiData.reading || '',
-                        accent: aiData.accent !== undefined ? String(aiData.accent) : ''
+                        reading: isEnglishMode ? '' : (aiData.reading || ''),
+                        accent: isEnglishMode ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                        targetLanguage: isEnglishMode ? 'en' : 'ja'
                     };
                 }
                 return c;
@@ -1049,7 +1063,7 @@ const AddCardForm = ({
                                 value={title}
                                 data-tour-id="STUDY_SET_TITLE"
                                 onChange={(e) => setTitle(e.target.value)}
-                                placeholder={t('forms.setTitlePlaceholder', 'VD: Từ vựng N3 bài 1...')}
+                                placeholder={isEnglishMode ? 'VD: Oxford 3000 Bài 1...' : t('forms.setTitlePlaceholder', 'VD: Từ vựng N3 bài 1...')}
                                 className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>

@@ -4,11 +4,14 @@ import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [], canUserUseAI }) => {
+    const { isEnglishMode } = useTargetLanguage();
     // All hooks must be called before any conditional return
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
+    const [ipa, setIpa] = useState(card?.ipa || '');
     const [synonym, setSynonym] = useState(card?.synonym || '');
     const [example, setExample] = useState(card?.example || '');
     const [exampleMeaning, setExampleMeaning] = useState(card?.exampleMeaning || '');
@@ -59,8 +62,9 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         setIsSaving(true);
         await onSave({
             cardId: card.id,
-            front, back, synonym, example, exampleMeaning, nuance, pos, level,
-            sinoVietnamese, synonymSinoVietnamese,
+            front, back, ipa: isEnglishMode ? ipa : '', synonym, example, exampleMeaning, nuance, pos, level,
+            sinoVietnamese: isEnglishMode ? '' : sinoVietnamese, synonymSinoVietnamese: isEnglishMode ? '' : synonymSinoVietnamese,
+            targetLanguage: isEnglishMode ? 'en' : 'ja',
             imageBase64: imagePreview,
             audioBase64: null
         });
@@ -90,11 +94,17 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level, back);
         if (aiData) {
-            if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
+            if (isEnglishMode) {
+                setFront(aiData.front || front);
+                setIpa(aiData.ipa || '');
+                setSinoVietnamese('');
+            } else {
+                if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
+                if (aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese);
+            }
             if (aiData.meaning) setBack(aiData.meaning);
-            if (aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese);
             if (aiData.synonym) setSynonym(aiData.synonym);
-            if (aiData.synonymSinoVietnamese) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
+            if (aiData.synonymSinoVietnamese && !isEnglishMode) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
             if (aiData.example) setExample(aiData.example);
             if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning);
             if (aiData.nuance) setNuance(aiData.nuance);
@@ -250,8 +260,17 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                         <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Ý nghĩa</label>
                         <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-sm md:text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <div className="grid grid-cols-2 gap-2 md:gap-4">
-                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
-                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                            {isEnglishMode ? (
+                                <>
+                                    <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder="Phiên âm (IPA)" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                    <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                </>
+                            ) : (
+                                <>
+                                    <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                    <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

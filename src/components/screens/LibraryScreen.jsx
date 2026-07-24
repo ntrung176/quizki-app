@@ -5,6 +5,7 @@ import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const LibraryScreen = ({ 
     allCards = [], 
@@ -22,6 +23,12 @@ const LibraryScreen = ({
 }) => {
     const navigate = useNavigate();
     const { t } = useLanguage();
+    const { targetLanguage } = useTargetLanguage();
+
+    const filteredAllCards = useMemo(() => {
+        return (allCards || []).filter(c => (c.targetLanguage || 'ja') === targetLanguage);
+    }, [allCards, targetLanguage]);
+
     const fadeWholePage = useMenuTransition();
     const [deletingFolder, setDeletingFolder] = useState(null); // Study Set deletion
     const [searchQuery, setSearchQuery] = useState('');
@@ -51,12 +58,12 @@ const LibraryScreen = ({
 
     // Calculate counts and stats for Study Sets
     const unfiledCount = useMemo(() => {
-        return allCards.filter(c => !cardFolders[c.id]).length;
-    }, [allCards, cardFolders]);
+        return filteredAllCards.filter(c => !cardFolders[c.id]).length;
+    }, [filteredAllCards, cardFolders]);
 
     const foldersWithCounts = useMemo(() => {
         return folders.map(f => {
-            const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
+            const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id);
             const count = folderCards.length;
 
             // Calculate progress/mastery (cards with seenCount > 0)

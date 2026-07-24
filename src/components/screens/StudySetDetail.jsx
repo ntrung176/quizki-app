@@ -14,6 +14,7 @@ import { showToast } from '../../utils/toast';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { getSharedKanjiList } from '../../utils/kanjiService';
 import EditCardModal from '../cards/EditCardModal';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const parseWordAndReading = (text) => {
     if (!text) return { word: '', reading: '' };
@@ -321,6 +322,7 @@ const StudySetDetail = ({
     onNavigateToAdd, onDeleteFolder, onSaveChanges, onSaveCardAudio,
     onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist, canUserUseAI
 }) => {
+    const { isEnglishMode } = useTargetLanguage();
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
     const [isAddingKanji, setIsAddingKanji] = useState(false);
     const [editingCard, setEditingCard] = useState(null);
@@ -1305,25 +1307,40 @@ const StudySetDetail = ({
                                                     className="flex flex-col bg-white dark:bg-slate-900 p-4 md:p-5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 gap-3 hover:border-cyan-400 dark:hover:border-cyan-500/50 hover:shadow-md transition-all cursor-pointer"
                                                 >
                                                     <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
-                                                        <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
-                                                            <div className="font-bold text-lg text-gray-900 dark:text-white flex items-baseline gap-1.5 flex-wrap">
-                                                                <InlineEditCell
-                                                                    value={card.frontWithFurigana || card.front}
-                                                                    isJapanese={true}
-                                                                    onSave={(v) => handleInlineSave(card, 'front', v)}
-                                                                    className="text-lg font-bold inline-block"
-                                                                />
-                                                                {renderPitchAccent(card)}
-                                                            </div>
-                                                            <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
-                                                                <InlineEditCell
-                                                                    value={card.sinoVietnamese || ''}
-                                                                    placeholder="[Thêm Hán Việt]"
-                                                                    onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
-                                                                    className="text-sm font-medium inline-block min-w-[100px]"
-                                                                />
-                                                            </div>
-                                                        </div>
+                                                        {(() => {
+                                                            const isEnglishCard = card.targetLanguage === 'en' || (isEnglishMode && card.targetLanguage !== 'ja');
+                                                            return (
+                                                                <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
+                                                                    <div className="font-bold text-lg text-gray-900 dark:text-white flex items-center gap-2 flex-wrap">
+                                                                        <InlineEditCell
+                                                                            value={isEnglishCard ? card.front : (card.frontWithFurigana || card.front)}
+                                                                            isJapanese={!isEnglishCard}
+                                                                            onSave={(v) => handleInlineSave(card, 'front', v)}
+                                                                            className="text-lg font-bold inline-block"
+                                                                        />
+                                                                        {isEnglishCard ? (
+                                                                            card.ipa ? (
+                                                                                <span className="text-xs font-mono text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-md border border-indigo-200/60 dark:border-indigo-800/60">
+                                                                                    {card.ipa.startsWith('/') ? card.ipa : `/${card.ipa}/`}
+                                                                                </span>
+                                                                            ) : null
+                                                                        ) : (
+                                                                            renderPitchAccent(card)
+                                                                        )}
+                                                                    </div>
+                                                                    {!isEnglishCard && (
+                                                                        <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
+                                                                            <InlineEditCell
+                                                                                value={card.sinoVietnamese || ''}
+                                                                                placeholder="[Thêm Hán Việt]"
+                                                                                onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
+                                                                                className="text-sm font-medium inline-block min-w-[100px]"
+                                                                            />
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            );
+                                                        })()}
                                                         <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
                                                             <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
                                                                 <InlineEditCell

@@ -14,6 +14,7 @@ import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 // Helper to shuffle array
 const shuffleArray = (array) => {
@@ -92,6 +93,15 @@ const SRSVocabScreen = ({
     const navigate = useNavigate();
     const fadeWholePage = useMenuTransition();
     const { t } = useLanguage();
+    const { targetLanguage } = useTargetLanguage();
+
+    const filteredCards = useMemo(() => {
+        return (allCards || []).filter(c => {
+            const lang = c.targetLanguage || 'ja';
+            return lang === targetLanguage;
+        });
+    }, [allCards, targetLanguage]);
+
     const [dashboardTick, setDashboardTick] = useState(Date.now());
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -127,7 +137,7 @@ const SRSVocabScreen = ({
     const [selectedMistakeMode, setSelectedMistakeMode] = useState('flashcard');
     const [showLeechManager, setShowLeechManager] = useState(false);
 
-    const leechVocabCards = useMemo(() => allCards.filter(c => isLeechCard(c) || isLeechCard(c.srsData)), [allCards]);
+    const leechVocabCards = useMemo(() => filteredCards.filter(c => isLeechCard(c) || isLeechCard(c.srsData)), [filteredCards]);
 
     const handleStartLeechReview = (items) => {
         if (!items || items.length === 0) return;
@@ -276,8 +286,8 @@ const SRSVocabScreen = ({
     };
 
     const mistakeCards = useMemo(() => {
-        return allCards.filter(card => card.needsMistakeReview === true);
-    }, [allCards]);
+        return filteredCards.filter(card => card.needsMistakeReview === true);
+    }, [filteredCards]);
 
     // Local review queue state
     const [reviewQueue, setReviewQueue] = useState([]);
@@ -340,7 +350,7 @@ const SRSVocabScreen = ({
         // Unfiled folder
         stats['unfiled'] = { id: 'unfiled', name: 'Từ vựng lẻ', newCards: [], dueCards: [], total: 0, masteredCount: 0, createdAt: null };
 
-        allCards.forEach(card => {
+        filteredCards.forEach(card => {
             const fId = cardFolders[card.id] || 'unfiled';
             if (!stats[fId]) {
                 stats[fId] = { id: fId, name: 'Học phần ẩn', newCards: [], dueCards: [], total: 0, masteredCount: 0 };

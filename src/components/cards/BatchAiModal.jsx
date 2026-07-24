@@ -172,8 +172,9 @@ const BatchAiModal = ({
                     generatedCards.push({
                         id: `new_${Date.now()}_${i}_${Math.random()}`,
                         isNew: true,
-                        front: aiData.frontWithFurigana || word,
+                        front: aiData.frontWithFurigana || aiData.front || word,
                         back: aiData.meaning || '',
+                        ipa: aiData.ipa || '',
                         sinoVietnamese: aiData.sinoVietnamese || '',
                         synonym: aiData.synonym || '',
                         synonymSinoVietnamese: aiData.synonymSinoVietnamese || '',

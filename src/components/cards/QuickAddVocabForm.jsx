@@ -11,6 +11,7 @@ import { VOCAB_TABS } from '../../config/tabs';
 import { CardEditorItem } from './AddCardForm';
 
 import PremiumLockedModal from '../ui/PremiumLockedModal';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const QuickAddVocabForm = ({
     folders = [], // These are the study sets (type !== 'folder')
@@ -25,6 +26,7 @@ const QuickAddVocabForm = ({
     canUserUseAI
 }) => {
     const navigate = useNavigate();
+    const { isEnglishMode } = useTargetLanguage();
     const [showPremiumModal, setShowPremiumModal] = useState(false);
     
     // Initialize cards with all fields to match CardEditorItem structure
@@ -130,18 +132,20 @@ const QuickAddVocabForm = ({
                 if (c.id === id) {
                     return {
                         ...c,
-                        front: aiData.frontWithFurigana || c.front,
+                        front: isEnglishMode ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
                         back: aiData.meaning || '',
-                        sinoVietnamese: aiData.sinoVietnamese || '',
+                        ipa: aiData.ipa || '',
+                        sinoVietnamese: isEnglishMode ? '' : (aiData.sinoVietnamese || ''),
                         pos: aiData.pos || '',
                         level: aiData.level || '',
                         synonym: aiData.synonym || '',
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
-                        synonymSinoVietnamese: aiData.synonymSinoVietnamese || '',
-                        reading: aiData.reading || '',
-                        accent: aiData.accent !== undefined ? String(aiData.accent) : ''
+                        synonymSinoVietnamese: isEnglishMode ? '' : (aiData.synonymSinoVietnamese || ''),
+                        reading: isEnglishMode ? '' : (aiData.reading || ''),
+                        accent: isEnglishMode ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                        targetLanguage: isEnglishMode ? 'en' : 'ja'
                     };
                 }
                 return c;

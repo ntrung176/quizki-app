@@ -10,6 +10,7 @@ import { callKaiwaAI, parseJsonFromAI, callWhisperSTT, callOpenAITTS } from '../
 import { ROUTES } from '../../router';
 import AudioWaveformVisualizer from './AudioWaveformVisualizer';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 // Level configurations with futuristic Cyber gradients & HUD tags
 const LEVELS = [
@@ -42,7 +43,7 @@ const TEACHERS = [
     }
 ];
 
-// Predefined Cyber Kaiwa Topics
+// Predefined Cyber Kaiwa Topics (Japanese)
 const TOPICS = [
     { id: 'free_talk', name: '💬 Trò chuyện tự do (Free Talk)', desc: 'Tự do trao đổi về bất kỳ chủ đề đời sống, sở thích hay quan điểm nào.' },
     { id: 'convenience_store', name: '🏪 Mua sắm Konbini (🏪)', desc: 'Thanh toán, yêu cầu quay nóng đồ ăn, mua vé, giao tiếp nhanh tại Konbini.' },
@@ -52,14 +53,55 @@ const TOPICS = [
     { id: 'school_life', name: '🏫 Học đường & Du học sinh', desc: 'Trò chuyện sinh hoạt trường lớp, câu lạc bộ, bài tập & bạn bè.' }
 ];
 
+// English Kaiwa Configurations
+const ENGLISH_LEVELS = [
+    { value: 'A1_A2', label: 'CEFR A1 - A2', tag: 'ELEMENTARY', desc: 'Sơ cấp (Chào hỏi, giao tiếp cơ bản hàng ngày & mua sắm)', gradient: 'from-emerald-500 via-teal-500 to-cyan-500' },
+    { value: 'B1_B2', label: 'IELTS 5.5 - 6.5 / B1-B2', tag: 'INTERMEDIATE', desc: 'Trung cấp (Thảo luận chủ đề công việc, du lịch & quan điểm)', gradient: 'from-blue-500 via-indigo-500 to-violet-500' },
+    { value: 'C1_C2', label: 'IELTS 7.0 - 8.5 / C1-C2', tag: 'ADVANCED', desc: 'Cao cấp (Hội thoại chuyên sâu, phỏng vấn quốc tế & học thuật)', gradient: 'from-rose-500 via-pink-500 to-red-500' },
+];
+
+const ENGLISH_TEACHERS = [
+    {
+        id: 'alex',
+        name: 'Teacher Alex (US)',
+        gender: 'male',
+        avatar: '🗽',
+        role: 'American Voice Accent',
+        desc: 'Giọng Anh-Mỹ chuẩn New York, phong cách hiện đại, năng động & tự nhiên.',
+        systemName: 'Alex'
+    },
+    {
+        id: 'emma',
+        name: 'Teacher Emma (UK)',
+        gender: 'female',
+        avatar: '👑',
+        role: 'British Voice Accent',
+        desc: 'Giọng Anh-Anh thanh lịch, phát âm chuẩn London, rõ ràng & trang trọng.',
+        systemName: 'Emma'
+    }
+];
+
+const ENGLISH_TOPICS = [
+    { id: 'free_talk', name: '💬 Free Conversation', desc: 'Trao đổi tự do về cuộc sống, sở thích, âm nhạc và sở trường.' },
+    { id: 'job_interview', name: '💼 Global Job Interview', desc: 'Luyện tập trả lời câu hỏi phỏng vấn công ty đa quốc gia & startup.' },
+    { id: 'coffee_order', name: '☕ Coffee Shop & Restaurant', desc: 'Gọi đồ uống tại Starbucks, đặt bàn nhà hàng & yêu cầu thanh toán.' },
+    { id: 'airport_travel', name: '✈️ Airport & Hotel Check-in', desc: 'Giao tiếp khi đi du lịch, thủ tục tại sân bay & khách sạn.' },
+    { id: 'business_meeting', name: '📊 Business Presentation', desc: 'Thuyết trình ý tưởng, đàm phán hợp đồng & làm việc nhóm bằng Tiếng Anh.' },
+];
+
 const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     const navigate = useNavigate();
     const { t } = useLanguage();
+    const { isEnglishMode } = useTargetLanguage();
+
+    const currentLevels = isEnglishMode ? ENGLISH_LEVELS : LEVELS;
+    const currentTeachers = isEnglishMode ? ENGLISH_TEACHERS : TEACHERS;
+    const currentTopics = isEnglishMode ? ENGLISH_TOPICS : TOPICS;
     
     // Core setup states
     const [step, setStep] = useState('setup'); // 'setup' | 'chat'
-    const [level, setLevel] = useState('N3');
-    const [teacher, setTeacher] = useState('sakura');
+    const [level, setLevel] = useState(isEnglishMode ? 'B1_B2' : 'N3');
+    const [teacher, setTeacher] = useState(isEnglishMode ? 'alex' : 'sakura');
     const [topic, setTopic] = useState('free_talk');
     
     // Chat states
@@ -755,35 +797,35 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-                                {LEVELS.map((lvl) => {
-                                    const isSelected = level === lvl.value;
-                                    return (
-                                        <button
-                                            key={lvl.value}
-                                            onClick={() => setLevel(lvl.value)}
-                                            className={`p-4 rounded-2xl text-left border transition-all duration-300 relative overflow-hidden group cursor-pointer ${
-                                                isSelected 
-                                                    ? 'border-indigo-600 bg-indigo-50/80 dark:border-cyan-400 dark:bg-cyan-950/60 shadow-md scale-[1.02]' 
-                                                    : 'border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/80 hover:border-slate-300 dark:hover:border-slate-700'
-                                            }`}
-                                        >
-                                            <div className="flex items-center justify-between">
-                                                <span className={`text-xs font-black px-2.5 py-1 rounded-md text-white bg-gradient-to-r ${lvl.gradient} tracking-wider font-mono shadow-sm`}>
-                                                    {lvl.label}
-                                                </span>
-                                                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500">
-                                                    {lvl.tag}
-                                                </span>
-                                            </div>
-                                            <p className="mt-3 font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center justify-between">
-                                                <span>Cấp độ {lvl.value}</span>
-                                                {isSelected && <span className="w-2 h-2 rounded-full bg-indigo-600 dark:bg-cyan-400 animate-ping"></span>}
-                                            </p>
-                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
-                                                {lvl.desc}
-                                            </p>
-                                        </button>
-                                    );
+                                {currentLevels.map((lvl) => {
+                                     const isSelected = level === lvl.value;
+                                     return (
+                                         <button
+                                             key={lvl.value}
+                                             onClick={() => setLevel(lvl.value)}
+                                             className={`p-4 rounded-2xl text-left border transition-all duration-300 relative overflow-hidden group cursor-pointer ${
+                                                 isSelected 
+                                                     ? 'border-indigo-600 bg-indigo-50/80 dark:border-cyan-400 dark:bg-cyan-950/60 shadow-md scale-[1.02]' 
+                                                     : 'border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/80 hover:border-slate-300 dark:hover:border-slate-700'
+                                             }`}
+                                         >
+                                             <div className="flex items-center justify-between">
+                                                 <span className={`text-xs font-black px-2.5 py-1 rounded-md text-white bg-gradient-to-r ${lvl.gradient} tracking-wider font-mono shadow-sm`}>
+                                                     {lvl.label}
+                                                 </span>
+                                                 <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500">
+                                                     {lvl.tag}
+                                                 </span>
+                                             </div>
+                                             <p className="mt-3 font-bold text-slate-800 dark:text-slate-100 text-sm flex items-center justify-between">
+                                                 <span>{lvl.label}</span>
+                                                 {isSelected && <span className="w-2 h-2 rounded-full bg-indigo-600 dark:bg-cyan-400 animate-ping"></span>}
+                                             </p>
+                                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
+                                                 {lvl.desc}
+                                             </p>
+                                         </button>
+                                     );
                                 })}
                             </div>
                         </div>
@@ -799,7 +841,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             </div>
 
                             <div className="flex flex-col gap-3.5 pt-1">
-                                {TEACHERS.map((tc) => {
+                                {currentTeachers.map((tc) => {
                                     const isSelected = teacher === tc.id;
                                     return (
                                         <button
@@ -852,11 +894,11 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                 <MessageSquare className="w-4 h-4 text-indigo-600 dark:text-cyan-400" />
                                 [03] CHỌN NGỮ CẢNH HỘI THOẠI REAL-WORLD
                             </h3>
-                            <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">6 SCENARIOS</span>
+                            <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">{currentTopics.length} SCENARIOS</span>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 pt-1">
-                            {TOPICS.map((tpc) => {
+                            {currentTopics.map((tpc) => {
                                 const isSelected = topic === tpc.id;
                                 return (
                                     <button

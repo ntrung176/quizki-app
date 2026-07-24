@@ -14,6 +14,7 @@ window.alert = (message) => {
 };
 import { QueryProvider } from './providers/QueryProvider.jsx'
 import { LanguageProvider } from './context/LanguageContext.jsx'
+import { TargetLanguageProvider } from './context/TargetLanguageContext.jsx'
 
 // Setup web-vitals for performance monitoring
 import { onCLS, onINP, onFCP, onLCP, onTTFB } from 'web-vitals';
@@ -41,9 +42,11 @@ createRoot(document.getElementById('root')).render(
     <AppErrorBoundary>
       <QueryProvider>
         <LanguageProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <TargetLanguageProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </TargetLanguageProvider>
         </LanguageProvider>
       </QueryProvider>
     </AppErrorBoundary>

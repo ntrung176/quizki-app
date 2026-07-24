@@ -71,7 +71,7 @@ const buildOpenRouterRequest = (prompt, model, apiKey) => ({
         body: JSON.stringify({
             model: model,
             messages: [
-                { role: 'system', content: 'You are a Japanese-Vietnamese dictionary assistant. Always respond with valid JSON only, no markdown, no explanation.' },
+                { role: 'system', content: 'You are a professional dictionary and language assistant. Always respond with valid JSON only, no markdown, no explanation.' },
                 { role: 'user', content: prompt }
             ],
             temperature: 0.3,
@@ -309,6 +309,40 @@ ${exampleMeaningRule}
 11. accent: Bắt buộc điền số biểu thị cao độ từ vựng (Pitch Accent), ví dụ: '0', '1', '2', '3' (0=bình bình Heiban, 1=đầu cao Atamadaka, v.v.). Nếu không có hoặc không rõ, điền "0".
 
 Không trả lời gì ngoài JSON.`;
+};
+
+export const generateEnglishVocabPrompt = (frontText, contextPos = '', contextLevel = '', contextMeaning = '') => {
+    const hasMeaning = contextMeaning && contextMeaning.trim() !== '';
+
+    return `You are an expert English-Vietnamese dictionary assistant. Output data ONLY for the English word/phrase: "${frontText}"${contextPos ? ` (Part of speech: ${contextPos})` : ''}${contextLevel ? ` [Level: ${contextLevel}]` : ''}${hasMeaning ? ` [Requested Meaning: ${contextMeaning}]` : ''}.
+DO NOT convert or translate the English word "${frontText}" into Japanese, Hiragana, or Kanji under any circumstances.
+JSON ONLY, NO MARKDOWN, NO BACKTICKS:
+{"front":"${frontText}","meaning":"trí thông minh, sự hiểu biết","ipa":"/ɪnˈtɛlɪdʒəns/","pos":"noun","level":"B2","synonym":"intellect, wisdom","example":"Artificial ＿＿＿＿ is transforming modern medicine.","exampleMeaning":"Trí tuệ nhân tạo đang biến đổi ngành y học hiện đại.","nuance":"Thường đi theo cụm: emotional intelligence (EQ), artificial intelligence (AI), high/superior intelligence."}
+
+MANDATORY RULES FOR ENGLISH VOCABULARY:
+1. front: ALWAYS KEEP EXACTLY the original English word/phrase "${frontText}". Do NOT translate it into Japanese, Hiragana, or Kanji.
+2. meaning: ${hasMeaning ? `Keep exact meaning "${contextMeaning}".` : 'Provide concise, accurate Vietnamese translation. Separate different meanings with ";".'}
+3. ipa: MANDATORY! Provide valid International Phonetic Alphabet (IPA) for "${frontText}" enclosed in slashes (e.g. "/ɪnˈtɛlɪdʒəns/"). NEVER leave ipa blank!
+4. pos: Choose one of: "noun", "verb", "adjective", "adverb", "preposition", "conjunction", "pronoun", "phrasal_verb", "idiom", "other".
+5. level: CEFR level (A1, A2, B1, B2, C1, C2) or test score (IELTS, TOEIC).
+6. synonym: 2-3 common English synonyms (e.g. "intellect, wisdom").
+7. example: Exactly 1 natural English example sentence. Replace "${frontText}" with ＿＿＿＿ (4 underscores).
+8. exampleMeaning: Natural Vietnamese translation for the example sentence.
+9. nuance: Usage notes, collocations, or grammar context.
+
+DO NOT OUTPUT ANY JAPANESE CHARACTERS (KANJI, HIRAGANA, KATAKANA). OUTPUT VALID JSON ONLY.`;
+};
+
+export const generateEnglishMoreExamplePrompt = (frontText, targetMeaning) => {
+    return `You are an expert English teacher. Create 1 short, natural, and clear example sentence for the English vocabulary "${frontText}" with the specific Vietnamese meaning "${targetMeaning}".
+
+REQUIREMENTS:
+1. Concise & Natural: The example sentence must be natural, concise (max 10-14 words), with clear context showing the meaning "${targetMeaning}".
+2. Target word replacement: In the English sentence, replace the word "${frontText}" (or its inflected forms) with ＿＿＿＿ (4 underscores).
+3. "exampleMeaning": Natural Vietnamese translation for the example sentence.
+
+JSON ONLY (no markdown, no backticks):
+{"example":"[short English sentence containing ＿＿＿＿]","exampleMeaning":"[Vietnamese translation]"}`;
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
@@ -563,72 +597,6 @@ const lookupSharedVocabInAI = async (key) => {
                 };
             }
         }
-
-        // 3. Tìm theo ID nguyên bản đầy đủ (chứa cả ngoặc đọc nếu có)
-        const originalTrimmed = key.trim();
-        if (originalTrimmed !== normalized) {
-            docRef = doc(db, 'sharedVocabulary', originalTrimmed);
-            docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                console.log(`📚 aiAssistVocab: Found "${key}" in sharedVocabulary (original ID)!`);
-                const data = docSnap.data();
-                const formattedFront = await ensureFuriganaFormat(data.front || data.frontWithFurigana || key);
-                const formattedSynonym = data.synonym ? await ensureFuriganaFormat(data.synonym) : '';
-                return {
-                    front: formattedFront,
-                    frontWithFurigana: formattedFront,
-                    meaning: data.back || data.meaning || '',
-                    synonym: formattedSynonym,
-                    example: data.example || '',
-                    exampleMeaning: data.exampleMeaning || '',
-                    nuance: data.nuance || '',
-                    pos: data.pos || '',
-                    level: data.level || '',
-                    sinoVietnamese: data.sinoVietnamese || '',
-                    synonymSinoVietnamese: data.synonymSinoVietnamese || '',
-                    reading: data.reading || '',
-                    accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
-                    _fromShared: true
-                };
-            }
-        }
-
-        // 4. Tìm bằng câu lệnh truy vấn range (prefix) để khớp các từ có ngoặc cách đọc (ví dụ: "段目" khớp "段目（だんめ）")
-        const q = query(
-            collection(db, 'sharedVocabulary'),
-            where('front', '>=', normalized),
-            where('front', '<=', normalized + '\uf8ff')
-        );
-        const querySnap = await getDocs(q);
-        if (!querySnap.empty) {
-            const matchedDoc = querySnap.docs.find(doc => {
-                const dbFront = doc.data().front || doc.data().frontWithFurigana || '';
-                const dbNormalized = dbFront.split('（')[0].split('(')[0].trim().toLowerCase();
-                return dbNormalized === normalizedLower;
-            });
-            if (matchedDoc) {
-                console.log(`📚 aiAssistVocab: Found "${key}" in sharedVocabulary via query!`);
-                const data = matchedDoc.data();
-                const formattedFront = await ensureFuriganaFormat(data.front || data.frontWithFurigana || key);
-                const formattedSynonym = data.synonym ? await ensureFuriganaFormat(data.synonym) : '';
-                return {
-                    front: formattedFront,
-                    frontWithFurigana: formattedFront,
-                    meaning: data.back || data.meaning || '',
-                    synonym: formattedSynonym,
-                    example: data.example || '',
-                    exampleMeaning: data.exampleMeaning || '',
-                    nuance: data.nuance || '',
-                    pos: data.pos || '',
-                    level: data.level || '',
-                    sinoVietnamese: data.sinoVietnamese || '',
-                    synonymSinoVietnamese: data.synonymSinoVietnamese || '',
-                    reading: data.reading || '',
-                    accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
-                    _fromShared: true
-                };
-            }
-        }
     } catch (e) {
         console.warn('Error in lookupSharedVocabInAI:', e);
     }
@@ -639,7 +607,7 @@ const lookupSharedVocabInAI = async (key) => {
 let lastAssistedWordInAI = { word: '', timestamp: 0 };
 
 // Hàm chính để tạo vocab với AI
-export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '', contextMeaning = '') => {
+export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '', contextMeaning = '', targetLanguage = 'ja') => {
     if (!frontText || frontText.trim() === '') return null;
 
     const now = Date.now();
@@ -664,101 +632,7 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
             if (posMatch && levelMatch) {
                 const result = { ...bookMatch };
                 if (result.pos) result.pos = normalizePosKey(result.pos);
-
-            let isBookVocabUpdated = false;
-
-            // Điền từ loại nếu thiếu
-            if (!result.pos || result.pos.trim() === '') {
-                try {
-                    const posPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật.
-Hãy xác định từ loại (Part of Speech - POS) cho từ vựng tiếng Nhật dưới đây.
-Từ gốc: "${result.front || frontText}"
-Nghĩa: "${result.meaning}"
-Ví dụ: "${result.example || ''}"
-
-Lưu ý: Từ loại (pos) BẮT BUỘC phải là một trong các chuỗi sau:
-- "noun"
-- "verb"
-- "suru_verb"
-- "adj-i"
-- "adj-na"
-- "noun/adj-na"
-- "adverb"
-- "conjunction"
-- "particle"
-- "grammar"
-- "phrase"
-- "other"
-
-Chỉ trả về JSON định dạng sau (không giải thích, không markdown):
-{"pos": "..."}`;
-                    const responseText = await callAI(posPrompt, 'google/gemini-2.5-flash');
-                    const parsedJson = parseJsonFromAI(responseText);
-                    if (parsedJson && parsedJson.pos) {
-                        result.pos = normalizePosKey(parsedJson.pos);
-                        isBookVocabUpdated = true;
-                    }
-                } catch (e) {
-                    console.warn('AI POS generation in aiAssistVocab (Book) failed:', e);
-                }
-            }
-
-            // Điền Hán Việt nếu thiếu
-            if (!result.sinoVietnamese || result.sinoVietnamese.trim() === '') {
-                const lookupHV = getSinoVietnamese(result.front || frontText);
-                if (lookupHV) {
-                    result.sinoVietnamese = lookupHV;
-                    isBookVocabUpdated = true;
-                } else {
-                    try {
-                        const hvPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật và Hán Việt.
-Hãy tìm chữ Hán (Kanji) tương ứng và dịch sang âm Hán Việt (IN HOA) cho từ vựng tiếng Nhật dưới đây.
-Từ gốc: "${result.front || frontText}"
-Nghĩa: "${result.meaning}"
-Từ loại: "${result.pos || ''}"
-Ví dụ: "${result.example || ''}"
-
-Lưu ý:
-1. Trả về âm Hán Việt IN HOA, cách nhau bởi dấu cách.
-2. Nếu không có chữ Hán, trả về chuỗi rỗng "".
-
-Chỉ trả về JSON định dạng sau:
-{"sinoVietnamese": "..."}`;
-                        const responseText = await callAI(hvPrompt, 'google/gemini-3.1-flash-lite');
-                        const parsedJson = parseJsonFromAI(responseText);
-                        if (parsedJson && parsedJson.sinoVietnamese) {
-                            result.sinoVietnamese = parsedJson.sinoVietnamese;
-                            isBookVocabUpdated = true;
-                        }
-                    } catch (e) {
-                        console.warn('AI Sino-Vietnamese generation in aiAssistVocab (Book) failed:', e);
-                    }
-                }
-            }
-
-            // Ghi đè lại nếu thay đổi
-            if (isBookVocabUpdated || result.front !== bookMatch.front || result.synonym !== bookMatch.synonym) {
-                const updatedFields = {
-                    front: result.front,
-                    synonym: result.synonym,
-                    pos: result.pos,
-                    sinoVietnamese: result.sinoVietnamese,
-                    meaning: result.meaning,
-                    example: result.example,
-                    exampleMeaning: result.exampleMeaning,
-                    nuance: result.nuance,
-                };
-                if (bookMatch._docPath && bookMatch._originalWord) {
-                    updateBookVocabInFirestore(bookMatch._docPath, bookMatch._originalWord, updatedFields)
-                        .catch(e => console.warn('Error updating book vocab back in aiAssistVocab:', e));
-                }
-            }
-
-            // Đồng bộ sang shared vocab
-            saveSharedVocab(frontText, result, true)
-                .catch(e => console.warn('Error syncing book vocab to shared in aiAssistVocab:', e));
-
-            return result;
+                return result;
             }
         }
     } catch (e) {
@@ -777,85 +651,7 @@ Chỉ trả về JSON định dạng sau:
             if (posMatch && levelMatch) {
                 const result = { ...sharedMatch };
                 if (result.pos) result.pos = normalizePosKey(result.pos);
-
-            let isSharedVocabUpdated = false;
-
-            // Điền từ loại nếu thiếu
-            if (!result.pos || result.pos.trim() === '') {
-                try {
-                    const posPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật.
-Hãy xác định từ loại (Part of Speech - POS) cho từ vựng tiếng Nhật dưới đây.
-Từ gốc: "${result.front || frontText}"
-Nghĩa: "${result.meaning}"
-Ví dụ: "${result.example || ''}"
-
-Lưu ý: Từ loại (pos) BẮT BUỘC phải là một trong các chuỗi sau:
-- "noun"
-- "verb"
-- "suru_verb"
-- "adj-i"
-- "adj-na"
-- "noun/adj-na"
-- "adverb"
-- "conjunction"
-- "particle"
-- "grammar"
-- "phrase"
-- "other"
-
-Chỉ trả về JSON định dạng sau:
-{"pos": "..."}`;
-                    const responseText = await callAI(posPrompt, 'google/gemini-2.5-flash');
-                    const parsedJson = parseJsonFromAI(responseText);
-                    if (parsedJson && parsedJson.pos) {
-                        result.pos = normalizePosKey(parsedJson.pos);
-                        isSharedVocabUpdated = true;
-                    }
-                } catch (e) {
-                    console.warn('AI POS generation in aiAssistVocab (Shared) failed:', e);
-                }
-            }
-
-            // Điền Hán Việt nếu thiếu
-            if (!result.sinoVietnamese || result.sinoVietnamese.trim() === '') {
-                const lookupHV = getSinoVietnamese(result.front || frontText);
-                if (lookupHV) {
-                    result.sinoVietnamese = lookupHV;
-                    isSharedVocabUpdated = true;
-                } else {
-                    try {
-                        const hvPrompt = `Bạn là một chuyên gia ngôn ngữ tiếng Nhật và Hán Việt.
-Hãy tìm chữ Hán (Kanji) tương ứng và dịch sang âm Hán Việt (IN HOA) cho từ vựng tiếng Nhật dưới đây.
-Từ gốc: "${result.front || frontText}"
-Nghĩa: "${result.meaning}"
-Từ loại: "${result.pos || ''}"
-Ví dụ: "${result.example || ''}"
-
-Lưu ý:
-1. Trả về âm Hán Việt IN HOA, cách nhau bởi dấu cách.
-2. Nếu không có chữ Hán, trả về chuỗi rỗng "".
-
-Chỉ trả về JSON định dạng sau:
-{"sinoVietnamese": "..."}`;
-                        const responseText = await callAI(hvPrompt, 'google/gemini-3.1-flash-lite');
-                        const parsedJson = parseJsonFromAI(responseText);
-                        if (parsedJson && parsedJson.sinoVietnamese) {
-                            result.sinoVietnamese = parsedJson.sinoVietnamese;
-                            isSharedVocabUpdated = true;
-                        }
-                    } catch (e) {
-                        console.warn('AI Sino-Vietnamese generation in aiAssistVocab (Shared) failed:', e);
-                    }
-                }
-            }
-
-            // Ghi đè lại nếu thay đổi
-            if (isSharedVocabUpdated || result.front !== sharedMatch.front || result.synonym !== sharedMatch.synonym) {
-                saveSharedVocab(frontText, result, true)
-                    .catch(e => console.warn('Error updating shared vocab back in aiAssistVocab:', e));
-            }
-
-            return result;
+                return result;
             }
         }
     } catch (e) {
@@ -863,8 +659,12 @@ Chỉ trả về JSON định dạng sau:
     }
     }
 
-    // 3. Không tìm thấy ở cả 2 kho -> Gọi AI để tạo mới
-    const prompt = generateVocabPrompt(frontText, contextPos, contextLevel, contextMeaning);
+    // 3. Không tìm thấy ở cả 2 kho -> Gọi AI để tạo mới theo ngôn ngữ mục tiêu
+    const isEnglish = targetLanguage === 'en';
+    const prompt = isEnglish
+        ? generateEnglishVocabPrompt(frontText, contextPos, contextLevel, contextMeaning)
+        : generateVocabPrompt(frontText, contextPos, contextLevel, contextMeaning);
+
     const featureId = contextPos === 'grammar' ? 'grammar_gen' : 'vocab_gen';
     const responseText = await callAI(prompt, null, featureId);
     const result = parseJsonFromAI(responseText);
@@ -872,32 +672,37 @@ Chỉ trả về JSON định dạng sau:
     if (result) {
         if (result.pos) result.pos = normalizePosKey(result.pos);
 
-        // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (ưu tiên hơn AI)
-        const lookupHV = getSinoVietnamese(frontText);
-        if (lookupHV) {
-            console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${result.sinoVietnamese || ''}")`);
-            result.sinoVietnamese = lookupHV;
-        }
-
-        try {
-            if (!result.frontWithFurigana) {
-                result.frontWithFurigana = result.frontText || frontText;
+        if (!isEnglish) {
+            // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (chỉ cho tiếng Nhật)
+            const lookupHV = getSinoVietnamese(frontText);
+            if (lookupHV) {
+                console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${result.sinoVietnamese || ''}")`);
+                result.sinoVietnamese = lookupHV;
             }
 
-            // Định dạng ngoặc Hiragana
-            if (result.frontWithFurigana) {
-                result.frontWithFurigana = await ensureFuriganaFormat(result.frontWithFurigana);
-            }
-            if (result.synonym) {
-                result.synonym = await ensureFuriganaFormat(result.synonym);
-            }
+            try {
+                if (!result.frontWithFurigana) {
+                    result.frontWithFurigana = result.frontText || frontText;
+                }
 
-            // Xử lý câu ví dụ
-            if (result.example) {
-                result.example = await generateFuriganaText(result.example);
+                // Định dạng ngoặc Hiragana
+                if (result.frontWithFurigana) {
+                    result.frontWithFurigana = await ensureFuriganaFormat(result.frontWithFurigana);
+                }
+                if (result.synonym) {
+                    result.synonym = await ensureFuriganaFormat(result.synonym);
+                }
+
+                // Xử lý câu ví dụ
+                if (result.example) {
+                    result.example = await generateFuriganaText(result.example);
+                }
+            } catch (e) {
+                console.error("Kuroshiro conversion failed:", e);
             }
-        } catch (e) {
-            console.error("Kuroshiro conversion failed:", e);
+        } else {
+            result.targetLanguage = 'en';
+            if (!result.front) result.front = frontText;
         }
 
         // Lưu vào shared vocab để lưu trữ chung
@@ -956,12 +761,17 @@ JSON only, không markdown/backtick. Trả về MẢNG JSON:
 
 // ============== OCR IMAGE EXTRACTION ==============
 
-export const extractVocabFromImage = async (imageBase64) => {
+export const extractVocabFromImage = async (imageBase64, targetLanguage = 'ja') => {
     if (!imageBase64) return null;
 
     const imageUrl = imageBase64.startsWith('data:') ? imageBase64 : `data:image/jpeg;base64,${imageBase64}`;
 
-    const promptText = `Hãy trích xuất tất cả các từ vựng tiếng Nhật (Kanji, Hiragana, Katakana hoặc chữ Hán đơn) xuất hiện trong ảnh này.
+    const isEnglish = targetLanguage === 'en';
+    const promptText = isEnglish
+        ? `Hãy trích xuất tất cả các từ vựng và cụm từ tiếng Anh (English words, key vocabulary terms, phrases) xuất hiện trong ảnh này.
+Yêu cầu trả về duy nhất một mảng JSON các chuỗi chứa các từ được tìm thấy (array of strings), ví dụ: ["intelligence", "sustainable", "take into account"].
+Không trả về bất kỳ văn bản giải thích nào khác ngoài mảng JSON này.`
+        : `Hãy trích xuất tất cả các từ vựng tiếng Nhật (Kanji, Hiragana, Katakana hoặc chữ Hán đơn) xuất hiện trong ảnh này.
 Yêu cầu trả về duy nhất một mảng JSON các chuỗi chứa các từ được tìm thấy (array of strings), ví dụ: ["単語1", "単語2"].
 Không trả về bất kỳ văn bản giải thích nào khác ngoài mảng JSON này.`;
 

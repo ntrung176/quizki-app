@@ -19,7 +19,7 @@ import { getSharedBookGroups, getCachedBookGroups } from './utils/bookService';
 import { playAudio, generateAudioSilent } from './utils/audio'
 import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnkiSRS, isKanjiMastered, isVocabCardMastered, parseNextReviewMs, isVocabCardDue } from './utils/srs'
 import { shuffleArray, getSpeechText } from './utils/textProcessing'
-import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, getOpenRouterKeys, getSinoVietnamese } from './utils/aiProvider';
+import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, generateEnglishVocabPrompt, getOpenRouterKeys, getSinoVietnamese } from './utils/aiProvider';
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
 import { ensureFuriganaFormat } from './utils/furiganaHelper';
 
@@ -3745,7 +3745,8 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             // === BƯỚC 1.5: Kiểm tra sharedVocabulary trước khi gọi AI ===
             try {
                 const shared = await findSharedVocab(frontText);
-                if (shared) {
+                const isLanguageMatch = shared && (shared.targetLanguage ? shared.targetLanguage === (isEnglishTarget ? 'en' : 'ja') : !isEnglishTarget);
+                if (shared && isLanguageMatch) {
                     const cachedPosNormalized = shared.pos ? normalizePosKey(shared.pos) : '';
                     const contextPosNormalized = contextPos ? normalizePosKey(contextPos) : '';
                     const posMatch = !contextPosNormalized || cachedPosNormalized === contextPosNormalized;
@@ -3884,8 +3885,13 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             }
         }
 
-        // === BƯỚC 2: Tạo prompt thống nhất từ aiProvider ===
-        const prompt = generateVocabPrompt(frontText, contextPos, contextLevel, actualBack);
+        // === BƯỚC 2: Tạo prompt thống nhất từ aiProvider theo ngôn ngữ mục tiêu ===
+        const currentTargetLanguage = localStorage.getItem('quizki_target_language') || 'ja';
+        const isEnglishTarget = currentTargetLanguage === 'en';
+
+        const prompt = isEnglishTarget
+            ? generateEnglishVocabPrompt(frontText, contextPos, contextLevel, actualBack)
+            : generateVocabPrompt(frontText, contextPos, contextLevel, actualBack);
 
         try {
             // SECURITY: Rate limiting — max 10 AI calls per minute
@@ -3902,7 +3908,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             }
 
             const providerInfo = getAIProviderInfo();
-            console.log(`🤖 AI Provider: ${providerInfo.summary}`);
+            console.log(`🤖 AI Provider (${isEnglishTarget ? 'English' : 'Japanese'} Mode): ${providerInfo.summary}`);
 
             const featureId = contextPos === 'grammar' ? 'grammar_gen' : 'vocab_gen';
             const forcedModel = adminConfig?.aiFeatureModels?.[featureId] || (featureId === 'grammar_gen' ? 'google/gemini-2.5-flash' : 'openai/gpt-4o-mini');
@@ -3912,30 +3918,49 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             if (parsedJson) {
                 if (parsedJson.pos) parsedJson.pos = normalizePosKey(parsedJson.pos);
 
-                // Đảm bảo có frontWithFurigana
-                if (!parsedJson.frontWithFurigana) {
-                    parsedJson.frontWithFurigana = parsedJson.frontText || parsedJson.front || frontText;
-                }
+                if (!isEnglishTarget) {
+                    // Đảm bảo có frontWithFurigana
+                    if (!parsedJson.frontWithFurigana) {
+                        parsedJson.frontWithFurigana = parsedJson.frontText || parsedJson.front || frontText;
+                    }
 
-                // Định dạng chuẩn hiragana brackets cho từ vựng và từ đồng nghĩa
-                try {
-                    if (parsedJson.frontWithFurigana) {
-                        parsedJson.frontWithFurigana = await ensureFuriganaFormat(parsedJson.frontWithFurigana);
+                    // Định dạng chuẩn hiragana brackets cho từ vựng và từ đồng nghĩa tiếng Nhật
+                    try {
+                        if (parsedJson.frontWithFurigana) {
+                            parsedJson.frontWithFurigana = await ensureFuriganaFormat(parsedJson.frontWithFurigana);
+                        }
+                        if (parsedJson.synonym) {
+                            parsedJson.synonym = await ensureFuriganaFormat(parsedJson.synonym);
+                        }
+                    } catch (e) {
+                        console.error("Failed to ensure furigana format:", e);
                     }
-                    if (parsedJson.synonym) {
-                        parsedJson.synonym = await ensureFuriganaFormat(parsedJson.synonym);
-                    }
-                } catch (e) {
-                    console.error("Failed to ensure furigana format:", e);
-                }
 
-                // Ghi đè âm Hán Việt bằng bảng tra cứu cứng
-                try {
-                    const lookupHV = getSinoVietnamese(frontText);
-                    if (lookupHV) {
-                        console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${parsedJson.sinoVietnamese || ''}")`); parsedJson.sinoVietnamese = lookupHV;
+                    // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (chỉ cho tiếng Nhật)
+                    try {
+                        const lookupHV = getSinoVietnamese(frontText);
+                        if (lookupHV) {
+                            console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${parsedJson.sinoVietnamese || ''}")`);
+                            parsedJson.sinoVietnamese = lookupHV;
+                        }
+                    } catch (e) { console.warn('Lookup Hán Việt error:', e); }
+                } else {
+                    parsedJson.targetLanguage = 'en';
+                    parsedJson.front = frontText;
+                    parsedJson.frontWithFurigana = frontText;
+                    parsedJson.sinoVietnamese = '';
+                    parsedJson.reading = '';
+                    parsedJson.accent = '';
+
+                    // Chuẩn hóa phiên âm IPA
+                    let rawIpa = parsedJson.ipa || '';
+                    if (!rawIpa || rawIpa.trim() === '') {
+                        rawIpa = `/${frontText.toLowerCase().trim()}/`;
+                    } else if (!rawIpa.startsWith('/')) {
+                        rawIpa = `/${rawIpa.replace(/^\/+|\/+$/g, '')}/`;
                     }
-                } catch (e) { console.warn('Lookup Hán Việt error:', e); }
+                    parsedJson.ipa = rawIpa;
+                }
 
                 // Trừ 1 credit: CHỈ trừ khi lần đầu (không phải retry), trừ cho TẤT CẢ (gồm cả admin) để hiển thị số đúng
                 if (!isRetry && settingsDocPath) {
@@ -3978,8 +4003,11 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 setNotification('Bạn chưa được cấp quyền sử dụng AI. Liên hệ admin để được cấp quyền.');
                 return null;
             }
-            const { generateMoreExamplePrompt } = await import('./utils/aiProvider');
-            const prompt = generateMoreExamplePrompt(frontText, targetMeaning);
+            const currentTargetLanguage = localStorage.getItem('quizki_target_language') || 'ja';
+            const { generateMoreExamplePrompt, generateEnglishMoreExamplePrompt } = await import('./utils/aiProvider');
+            const prompt = currentTargetLanguage === 'en'
+                ? generateEnglishMoreExamplePrompt(frontText, targetMeaning)
+                : generateMoreExamplePrompt(frontText, targetMeaning);
 
             const forcedModel = adminConfig?.aiFeatureModels?.more_examples || 'openai/gpt-4o-mini';
             const responseText = await callAI(prompt, forcedModel);
@@ -4012,8 +4040,9 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             }
 
             // Call extractVocabFromImage
+            const currentTargetLanguage = localStorage.getItem('quizki_target_language') || 'ja';
             const { extractVocabFromImage } = await import('./utils/aiProvider');
-            const result = await extractVocabFromImage(imageBase64);
+            const result = await extractVocabFromImage(imageBase64, currentTargetLanguage);
 
             if (result && Array.isArray(result)) {
                 return result;
