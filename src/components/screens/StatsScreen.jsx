@@ -7,7 +7,7 @@ import { SafeAvatarImage } from '../ui';
 import { isKanjiMastered, isSrsCardDue, isVocabCardMastered } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
-import { getLevelFromXp, getLevelTitle, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
+import { getLevelFromXp, getLevelTitle, getTranslatedLeagueName, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
 import { useLanguage } from '../../context/LanguageContext';
 
 // Avatar emoji lookup
@@ -523,13 +523,13 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 if (user.computedScore >= tierRules.minScoreForPromotion) {
                     zoneBadge = (
                         <span className="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-emerald-100/30 dark:border-emerald-900/30 shadow-sm animate-pulse">
-                            ▲ THĂNG HẠNG
+                            {t('leaderboard.rankPromote', '▲ THĂNG HẠNG')}
                         </span>
                     );
                 } else {
                     zoneBadge = (
                         <span className="bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-amber-100/30 dark:border-amber-900/30 shadow-sm" title={`Cần tối thiểu ${tierRules.minScoreForPromotion} điểm vinh danh để thăng hạng`}>
-                            🔒 THIẾU ĐIỂM ({user.computedScore}/{tierRules.minScoreForPromotion})
+                            {t('leaderboard.rankScoreLocked', '🔒 THIẾU ĐIỂM')} ({user.computedScore}/{tierRules.minScoreForPromotion})
                         </span>
                     );
                 }
@@ -540,13 +540,13 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 if (isUnderSafetyScore) {
                     zoneBadge = (
                         <span className="bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-rose-100/30 dark:border-rose-900/30 shadow-sm" title={`Điểm vinh danh dưới ${tierRules.minScoreForSafety} sẽ bị tự động xuống hạng`}>
-                            ▼ XUỐNG HẠNG (ÍT HỌC)
+                            {t('leaderboard.rankDemoteInactive', '▼ XUỐNG HẠNG (ÍT HỌC)')}
                         </span>
                     );
                 } else if (isInDemotionRank) {
                     zoneBadge = (
                         <span className="bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-rose-100/30 dark:border-rose-900/30 shadow-sm">
-                            ▼ XUỐNG HẠNG
+                            {t('leaderboard.rankDemote', '▼ XUỐNG HẠNG')}
                         </span>
                     );
                 }
@@ -669,7 +669,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                     LV {xpDetails.level}
                                 </span>
                                 <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] font-bold font-mono px-2.5 py-0.5 rounded-lg">
-                                    {getLevelTitle(xpDetails.level)}
+                                    {getLevelTitle(xpDetails.level, t)}
                                 </span>
                             </div>
                         </div>
@@ -679,7 +679,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     <div className="bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
                         <div className="flex justify-between items-center text-xs font-bold font-mono text-slate-700 dark:text-slate-300">
                             <span className="flex items-center gap-1.5">
-                                <Sparkle className="w-4 h-4 text-amber-500" /> Tiến trình cấp độ {xpDetails.level}
+                                <Sparkle className="w-4 h-4 text-amber-500" /> {t('leaderboard.levelProgress', 'Tiến trình cấp độ')} {xpDetails.level}
                             </span>
                             <span className="text-cyan-600 dark:text-cyan-400 font-extrabold">{xpDetails.remainingXp} / {xpDetails.nextLevelXp} XP</span>
                         </div>
@@ -695,7 +695,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     <div className="grid grid-cols-5 gap-3 bg-slate-50 dark:bg-slate-950 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 font-mono">
                         <div className="text-center">
                             <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{totalCards}</div>
-                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Từ vựng</div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">{t('nav.vocab', 'Từ vựng')}</div>
                         </div>
                         <div className="text-center">
                             <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{kanjiSrsStats.total}</div>
@@ -703,21 +703,21 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         </div>
                         <div className="text-center">
                             <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{vocabMastery.mastered}</div>
-                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Thành thạo</div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">{t('common.mastered', 'Thành thạo')}</div>
                         </div>
                         <div className="text-center">
                             <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight flex items-center justify-center gap-0.5">
                                 <Flame className="w-4 h-4 fill-orange-500 text-orange-500" />
                                 {streak}
                             </div>
-                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Chuỗi ngày</div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">{t('common.streak', 'Chuỗi ngày')}</div>
                         </div>
                         <div className="text-center border-l border-slate-200 dark:border-slate-800 pl-2">
                             <div className="text-xl md:text-2xl font-black text-amber-500 flex items-center justify-center gap-0.5">
                                 <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
                                 {myScore}
                             </div>
-                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Điểm</div>
+                            <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">{t('common.points', 'Điểm')}</div>
                         </div>
                     </div>
                 </div>
@@ -793,7 +793,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                     }`}
                                 >
                                     <img src={icon} alt={lg} className="w-12 h-12 sm:w-14 sm:h-14 object-contain mb-1 drop-shadow-md" />
-                                    <span className="text-[10px] sm:text-xs uppercase tracking-wider truncate max-w-full px-0.5">{lg}</span>
+                                    <span className="text-[10px] sm:text-xs uppercase tracking-wider truncate max-w-full px-0.5">{getTranslatedLeagueName(lg, t)}</span>
                                     
                                     {isUserLeague && (
                                         <span className={`absolute -top-1 -right-1 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider border shadow-sm ${
@@ -860,7 +860,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             )}
                                         </div>
                                     </div>
-                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[1].totalCards || 0} từ · {podiumList[1].kanjiTotal || 0} kanji</p>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[1].totalCards || 0} {t('leaderboard.unitWords', 'từ')} · {podiumList[1].kanjiTotal || 0} {t('leaderboard.unitKanji', 'kanji')}</p>
                                     <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
                                         <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
                                         {podiumList[1].computedScore}
@@ -895,8 +895,8 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                                 </span>
                                             )}
                                             {podiumList[0].title && (
-                                                <span className="bg-indigo-500 text-white text-[8px] font-medium px-1.5 rounded truncate max-w-[70px]" title={podiumList[0].title}>
-                                                    {podiumList[0].title}
+                                                <span className="bg-indigo-500 text-white text-[8px] font-medium px-1.5 rounded truncate max-w-[70px]" title={getLevelTitle(podiumList[0].level, t)}>
+                                                    {getLevelTitle(podiumList[0].level, t)}
                                                 </span>
                                             )}
                                             {isUserPremiumActive(podiumList[0]) && (
@@ -907,7 +907,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             )}
                                         </div>
                                     </div>
-                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[0].totalCards || 0} từ · {podiumList[0].kanjiTotal || 0} kanji</p>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[0].totalCards || 0} {t('leaderboard.unitWords', 'từ')} · {podiumList[0].kanjiTotal || 0} {t('leaderboard.unitKanji', 'kanji')}</p>
                                     <div className="mt-2 text-yellow-600 dark:text-yellow-400 font-bold text-sm flex items-center justify-center gap-0.5">
                                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                                         {podiumList[0].computedScore}
@@ -939,8 +939,8 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                                 </span>
                                             )}
                                             {podiumList[2].title && (
-                                                <span className="bg-indigo-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={podiumList[2].title}>
-                                                    {podiumList[2].title}
+                                                <span className="bg-indigo-500 text-white text-[8px] font-medium px-1 rounded truncate max-w-[60px]" title={getLevelTitle(podiumList[2].level, t)}>
+                                                    {getLevelTitle(podiumList[2].level, t)}
                                                 </span>
                                             )}
                                             {isUserPremiumActive(podiumList[2]) && (
@@ -951,7 +951,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             )}
                                         </div>
                                     </div>
-                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[2].totalCards || 0} từ · {podiumList[2].kanjiTotal || 0} kanji</p>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[2].totalCards || 0} {t('leaderboard.unitWords', 'từ')} · {podiumList[2].kanjiTotal || 0} {t('leaderboard.unitKanji', 'kanji')}</p>
                                     <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
                                         <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
                                         {podiumList[2].computedScore}
@@ -989,16 +989,16 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                         <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2 text-base">
                             <Trophy className="w-5 h-5 text-indigo-500 fill-indigo-100 dark:fill-indigo-900/30" />
-                            Bảng xếp hạng Giải đấu: League {selectedLeague}
+                            {t('leaderboard.tableTitle', 'Bảng xếp hạng Giải đấu:')} League {getTranslatedLeagueName(selectedLeague, t)}
                             <img src={LEAGUE_ICONS[selectedLeague]} alt={selectedLeague} className="w-9 h-9 object-contain inline-block ml-2 align-middle drop-shadow-sm" />
                         </h3>
 
                         {/* Sort options */}
                         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
-                            <span className="text-[11px] font-bold text-gray-400 dark:text-gray-500 whitespace-nowrap">Sắp xếp:</span>
+                            <span className="text-[11px] font-bold text-gray-400 dark:text-gray-500 whitespace-nowrap">{t('leaderboard.sortBy', 'Sắp xếp:')}</span>
                             {[
-                                { id: 'score', label: 'Điểm', icon: Star },
-                                { id: 'vocab', label: 'Từ vựng', icon: BookOpen },
+                                { id: 'score', label: t('common.points', 'Điểm'), icon: Star },
+                                { id: 'vocab', label: t('nav.vocab', 'Từ vựng'), icon: BookOpen },
                                 { id: 'kanji', label: 'Kanji', icon: Languages },
                                 { id: 'streak', label: 'Streak', icon: Flame },
                             ].map(opt => {
@@ -1029,7 +1029,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         </span>
                         <input
                             type="text"
-                            placeholder="Tìm kiếm người học..."
+                            placeholder={t('leaderboard.searchPlaceholder', 'Tìm kiếm người học...')}
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="block w-full pl-9 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-900/50 placeholder-gray-400 text-gray-700 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
@@ -1116,13 +1116,13 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         </div>
                         <div>
                             <h4 className="text-sm md:text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                                <span>Quy chế & Thể lệ Xếp hạng</span>
+                                <span>{t('leaderboard.rulebookTitle', 'Quy chế & Thể lệ Xếp hạng')}</span>
                                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-700 dark:bg-cyan-950 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800/50">
                                     RULEBOOK
                                 </span>
                             </h4>
                             <p className="text-xs text-slate-500 dark:text-slate-400">
-                                Bấm để xem chi tiết cách tính Điểm Chăm chỉ, Thăng hạng Giải đấu và tích lũy XP.
+                                {t('leaderboard.rulebookSub', 'Bấm để xem chi tiết cách tính Điểm Chăm chỉ, Thăng hạng Giải đấu và tích lũy XP.')}
                             </p>
                         </div>
                     </div>

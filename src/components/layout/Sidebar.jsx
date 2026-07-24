@@ -618,7 +618,7 @@ const Sidebar = ({
                     </div>
                 ) : (
                     <div className="flex justify-center">
-                        <LanguageSelector compact={true} />
+                        <LanguageSelector compact={true} minimal={true} direction="up" />
                     </div>
                 )}
 

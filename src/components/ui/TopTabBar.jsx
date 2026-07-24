@@ -55,7 +55,7 @@ const getThemeClasses = (pathname, tabs, themeProp) => {
 
 const TopTabBar = ({ tabs, theme }) => {
     const location = useLocation();
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const containerRef = useRef(null);
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
 
@@ -78,23 +78,34 @@ const TopTabBar = ({ tabs, theme }) => {
     useEffect(() => {
         if (!containerRef.current) return;
 
-        const activeIndex = tabs.findIndex(tab => isTabActive(tab, location.pathname, location.search));
+        const updateIndicator = () => {
+            if (!containerRef.current) return;
+            const activeIndex = tabs.findIndex(tab => isTabActive(tab, location.pathname, location.search));
 
-        if (activeIndex >= 0) {
-            const tabsElements = containerRef.current.querySelectorAll('.tab-item');
-            const activeElement = tabsElements[activeIndex];
-            
-            if (activeElement) {
-                setIndicatorStyle({
-                    left: activeElement.offsetLeft,
-                    width: activeElement.offsetWidth,
-                    opacity: 1
-                });
+            if (activeIndex >= 0) {
+                const tabsElements = containerRef.current.querySelectorAll('.tab-item');
+                const activeElement = tabsElements[activeIndex];
+                
+                if (activeElement) {
+                    setIndicatorStyle({
+                        left: activeElement.offsetLeft,
+                        width: activeElement.offsetWidth,
+                        opacity: 1
+                    });
+                }
+            } else {
+                setIndicatorStyle({ left: 0, width: 0, opacity: 0 });
             }
-        } else {
-            setIndicatorStyle({ left: 0, width: 0, opacity: 0 });
-        }
-    }, [location.pathname, location.search, tabs]);
+        };
+
+        updateIndicator();
+        const animFrame = requestAnimationFrame(updateIndicator);
+        const timer = setTimeout(updateIndicator, 50);
+        return () => {
+            cancelAnimationFrame(animFrame);
+            clearTimeout(timer);
+        };
+    }, [location.pathname, location.search, tabs, language]);
 
     return (
         <div className="w-full sticky top-14 lg:top-3 z-30 pt-3 pb-2 px-4 pointer-events-none flex justify-center">

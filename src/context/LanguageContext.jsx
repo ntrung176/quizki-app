@@ -5,6 +5,7 @@ import zh from '../locales/zh.json';
 import ko from '../locales/ko.json';
 import id from '../locales/id.json';
 import th from '../locales/th.json';
+import my from '../locales/my.json';
 
 export const SUPPORTED_LANGUAGES = [
     { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', country: 'Việt Nam' },
@@ -13,9 +14,10 @@ export const SUPPORTED_LANGUAGES = [
     { code: 'ko', name: '한국어', flag: '🇰🇷', country: 'Korea' },
     { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩', country: 'Indonesia' },
     { code: 'th', name: 'ไทย', flag: '🇹🇭', country: 'Thailand' },
+    { code: 'my', name: 'မြန်မာစာ', flag: '🇲🇲', country: 'Myanmar' },
 ];
 
-const dictionaries = { vi, en, zh, ko, id, th };
+const dictionaries = { vi, en, zh, ko, id, th, my };
 
 const LanguageContext = createContext();
 

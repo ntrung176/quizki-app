@@ -273,8 +273,9 @@ const getDifficultyLabel = (ease) => {
 };
 
 // --- ANKI SM-2 SCHEDULER ENGINE FOR VOCABULARY & KANJI ---
-export const calculateAnkiSRS = (srs, rating) => {
+export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
     const norm = normalizeSRSState(srs);
+    const cardSeed = customSeed || (srs ? (srs.id || srs.cardId || srs.front || srs.kanji || srs.character || srs.grammarId || `${norm.reps}_${norm.interval}_${norm.ease}`) : null);
     const currentEase = norm.ease;
     const currentInterval = norm.interval;
     const currentReps = norm.reps;
@@ -472,7 +473,7 @@ export const calculateAnkiSRS = (srs, rating) => {
 
     if (nextState === 'REVIEW') {
         // Apply Fuzz Factor for intervals >= 3 days to smooth daily card distribution
-        fuzzedInterval = applyFuzzFactor(newInterval);
+        fuzzedInterval = applyFuzzFactor(newInterval, cardSeed);
         // Calculate target timestamp anchored to 4:00 AM cutoff on scheduled day
         const targetTimestamp = calculateDayCutoffTimestamp(fuzzedInterval);
         nextReviewOffsetMs = Math.max(60000, targetTimestamp - Date.now());
@@ -522,9 +523,10 @@ export const calculateDayCutoffTimestamp = (intervalDays, nowMs = Date.now(), cu
  * Applies Anki Fuzz Factor (±5% - 10% random variation) to intervals >= 3 days.
  * Prevents artificial card spikes on the exact same day in the future.
  * @param {number} intervalDays - Raw scheduled interval in days
+ * @param {string|number|null} seed - Deterministic seed (card ID/front) to keep preview intervals stable across re-renders
  * @returns {number} Fuzzed interval in days
  */
-export const applyFuzzFactor = (intervalDays) => {
+export const applyFuzzFactor = (intervalDays, seed = null) => {
     if (intervalDays < 3) return intervalDays;
     
     let fuzzRange = 1;
@@ -536,8 +538,21 @@ export const applyFuzzFactor = (intervalDays) => {
         fuzzRange = 1;
     }
 
+    let randomVal;
+    if (seed !== null && seed !== undefined && seed !== '') {
+        let hash = 0;
+        const str = String(seed) + '_' + String(intervalDays);
+        for (let i = 0; i < str.length; i++) {
+            hash = (hash << 5) - hash + str.charCodeAt(i);
+            hash |= 0;
+        }
+        randomVal = (Math.abs(hash) % 10000) / 10000;
+    } else {
+        randomVal = Math.random();
+    }
+
     // Random integer between -fuzzRange and +fuzzRange
-    const randomOffset = Math.floor(Math.random() * (fuzzRange * 2 + 1)) - fuzzRange;
+    const randomOffset = Math.floor(randomVal * (fuzzRange * 2 + 1)) - fuzzRange;
     const fuzzed = intervalDays + randomOffset;
     return Math.max(2, fuzzed); // Ensure interval stays at least 2 days
 };

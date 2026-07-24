@@ -917,20 +917,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <span className="text-5xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-1">
                                 {savedSessionInfo ? savedSessionInfo.remaining : stats.dueToday}
                             </span>
-                            <span className="text-[10px] text-rose-600 dark:text-rose-400 font-mono font-black uppercase tracking-wider">Chữ Kanji cần ôn tập</span>
+                            <span className="text-[10px] text-rose-600 dark:text-rose-400 font-mono font-black uppercase tracking-wider">{t('kanji.dueKanjiLabel', 'Chữ Kanji cần ôn tập')}</span>
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
                                 >
-                                    TIẾP TỤC ÔN TẬP
+                                    {t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}
                                 </button>
                             ) : stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                                 >
-                                    BẮT ĐẦU ÔN TẬP
+                                    {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
                             ) : nextReviewText ? (
                                 <button
@@ -938,14 +938,14 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                     className="mt-4 w-full py-3 rounded-xl text-[10px] font-mono font-black tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-1"
                                 >
                                     <Clock className="w-3 h-3 animate-spin-slow" />
-                                    TIẾP SAU: {nextReviewText}
+                                    {t('kanji.nextReviewIn', 'TIẾP SAU')}: {nextReviewText}
                                 </button>
                             ) : (
                                 <button
                                     disabled
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed"
                                 >
-                                    HẾT THẺ ÔN TẬP
+                                    {t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}
                                 </button>
                             )}
                         </div>

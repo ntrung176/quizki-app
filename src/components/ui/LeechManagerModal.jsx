@@ -144,7 +144,7 @@ const LeechManagerModal = ({
                             className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 text-white text-xs font-bold shadow-md hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer ml-auto"
                         >
                             <Play className="w-3.5 h-3.5 fill-white" />
-                            Ôn Tập Riêng Thẻ Khó
+                            {t('modals.reviewLeechOnly', 'Ôn Tập Riêng Thẻ Khó')}
                         </button>
                     )}
                 </div>
@@ -157,10 +157,10 @@ const LeechManagerModal = ({
                                 ✨
                             </div>
                             <h3 className="text-base font-bold text-slate-800 dark:text-white">
-                                Không có thẻ khó thuộc nào!
+                                {t('modals.noLeechTitle', 'Không có thẻ khó thuộc nào!')}
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
-                                Tuyệt vời! Bạn đang ghi nhớ bài học rất tốt và chưa bị lặp lại lỗi sai nào quá 4 lần.
+                                {t('modals.noLeechSub', 'Tuyệt vời! Bạn đang ghi nhớ bài học rất tốt và chưa bị lặp lại lỗi sai nào quá 4 lần.')}
                             </p>
                         </div>
                     ) : (
@@ -168,7 +168,7 @@ const LeechManagerModal = ({
                             const lapseCount = item.lapseCount || item.srsLapseCount || 4;
                             const wordText = item.frontWithFurigana || item.front || item.kanji || item.title || item.pattern || '';
                             const meaningText = item.meaning || item.back || item.meaningVi || item.meaning_vi || '';
-                            const typeLabel = item.leechType === 'vocab' ? 'Từ vựng' : item.leechType === 'kanji' ? 'Kanji' : 'Ngữ pháp';
+                            const typeLabel = item.leechType === 'vocab' ? t('nav.vocab', 'Từ vựng') : item.leechType === 'kanji' ? 'Kanji' : t('nav.grammar', 'Ngữ pháp');
                             const badgeColor = item.leechType === 'vocab' ? 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : item.leechType === 'kanji' ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400' : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400';
 
                             return (
@@ -182,7 +182,7 @@ const LeechManagerModal = ({
                                                 {typeLabel}
                                             </span>
                                             <span className="text-xs font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1">
-                                                🩸 Lapsed {lapseCount} lần
+                                                🩸 Lapsed {lapseCount} {t('modals.times', 'lần')}
                                             </span>
                                         </div>
                                         <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-japanese">
@@ -200,10 +200,10 @@ const LeechManagerModal = ({
                                         <button
                                             onClick={() => onResetLeechCount(item)}
                                             className="px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 self-end sm:self-center"
-                                            title="Đặt lại số lần quên nếu bạn đã ghi nhớ từ này"
+                                            title={t('modals.resetLeechTitle', 'Đặt lại số lần quên nếu bạn đã ghi nhớ từ này')}
                                         >
                                             <RotateCcw className="w-3.5 h-3.5" />
-                                            Đã Thuộc (Reset)
+                                            {t('modals.masteredReset', 'Đã Thuộc (Reset)')}
                                         </button>
                                     )}
                                 </div>
@@ -214,12 +214,12 @@ const LeechManagerModal = ({
 
                 {/* Footer */}
                 <div className="px-6 py-4 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 flex justify-between items-center text-xs text-slate-500 dark:text-slate-400">
-                    <span>Mẹo: Hãy thêm câu ví dụ hoặc phân tích Hán Việt để thuộc thẻ lâu hơn.</span>
+                    <span>{t('modals.leechTip', 'Mẹo: Hãy thêm câu ví dụ hoặc phân tích Hán Việt để thuộc thẻ lâu hơn.')}</span>
                     <button 
                         onClick={onClose}
                         className="px-4 py-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-xl transition-all cursor-pointer"
                     >
-                        Đóng
+                        {t('common.close', 'Đóng')}
                     </button>
                 </div>
 

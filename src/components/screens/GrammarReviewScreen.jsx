@@ -889,20 +889,20 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <span className="text-5xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-1">
                                 {stats.dueToday}
                             </span>
-                            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-black uppercase tracking-wider">Mẫu câu cần ôn tập</span>
+                            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-black uppercase tracking-wider">{t('grammar.dueGrammarLabel', 'Mẫu câu cần ôn tập')}</span>
                             {stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-lime-400 via-emerald-600 to-green-700 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                                 >
-                                    BẮT ĐẦU ÔN TẬP
+                                    {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
                             ) : (
                                 <button
                                     disabled
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed"
                                 >
-                                    HẾT THẺ ÔN TẬP
+                                    {t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}
                                 </button>
                             )}
                         </div>

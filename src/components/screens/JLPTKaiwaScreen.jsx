@@ -9,6 +9,7 @@ import {
 import { callKaiwaAI, parseJsonFromAI, callWhisperSTT, callOpenAITTS } from '../../utils/aiProvider';
 import { ROUTES } from '../../router';
 import AudioWaveformVisualizer from './AudioWaveformVisualizer';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Level configurations with futuristic Cyber gradients & HUD tags
 const LEVELS = [
@@ -53,6 +54,7 @@ const TOPICS = [
 
 const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     const navigate = useNavigate();
+    const { t } = useLanguage();
     
     // Core setup states
     const [step, setStep] = useState('setup'); // 'setup' | 'chat'

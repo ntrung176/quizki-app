@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage, SUPPORTED_LANGUAGES } from '../../context/LanguageContext';
 import { Globe, ChevronDown, Check } from 'lucide-react';
 
-const LanguageSelector = ({ compact = false, direction = 'up' }) => {
+const LanguageSelector = ({ compact = false, minimal = false, direction = 'up' }) => {
     const { language, setLanguage, currentLangObj, t } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -18,7 +18,7 @@ const LanguageSelector = ({ compact = false, direction = 'up' }) => {
     }, []);
 
     const menuPositionClass = direction === 'up' 
-        ? 'bottom-full mb-2 right-0' 
+        ? 'bottom-full mb-2 left-0' 
         : 'top-full mt-2 right-0';
 
     return (
@@ -26,16 +26,18 @@ const LanguageSelector = ({ compact = false, direction = 'up' }) => {
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className={`inline-flex items-center gap-2 rounded-xl transition-all cursor-pointer border shadow-sm ${
-                    compact
-                        ? 'px-2.5 py-1.5 bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700'
-                        : 'px-3 py-2 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-white text-xs font-bold hover:border-cyan-500/50'
+                className={`inline-flex items-center justify-center transition-all cursor-pointer border shadow-sm ${
+                    minimal
+                        ? 'w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 text-base'
+                        : compact
+                            ? 'px-2.5 py-1.5 rounded-xl gap-1.5 bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-700'
+                            : 'px-3 py-2 rounded-xl gap-2 bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-white text-xs font-bold hover:border-cyan-500/50'
                 }`}
-                title={t('common.selectLanguage')}
+                title={t('common.selectLanguage', 'Chọn ngôn ngữ')}
             >
-                <span className="text-base select-none">{currentLangObj.flag}</span>
-                <span className="font-mono uppercase font-black">{currentLangObj.code}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                <span className="text-base select-none leading-none">{currentLangObj.flag}</span>
+                {!minimal && <span className="font-mono uppercase font-black">{currentLangObj.code}</span>}
+                {!minimal && <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />}
             </button>
 
             {isOpen && (

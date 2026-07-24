@@ -13,13 +13,31 @@ export const getLevelFromXp = (xp) => {
     return { level, remainingXp, nextLevelXp: Math.round(100 * Math.pow(level, 1.5)) };
 };
 
-export const getLevelTitle = (level) => {
-    if (level < 10) return '🌱 Người mới bắt đầu';
-    if (level < 25) return '📖 Học giả tập sự';
-    if (level < 50) return '⚔️ Chiến binh ngôn ngữ';
-    if (level < 75) return '🧙‍♂️ Bậc thầy từ vựng';
-    if (level < 100) return '👑 Huyền thoại tiếng Nhật';
-    return '🪐 Vô song';
+export const getLevelTitle = (level, t) => {
+    if (!t) {
+        if (level < 10) return '🌱 Người mới bắt đầu';
+        if (level < 25) return '📖 Học giả tập sự';
+        if (level < 50) return '⚔️ Chiến binh ngôn ngữ';
+        if (level < 75) return '🧙‍♂️ Bậc thầy từ vựng';
+        if (level < 100) return '👑 Huyền thoại tiếng Nhật';
+        return '🪐 Vô song';
+    }
+    if (level < 10) return t('leaderboard.levelTitles.beginner', '🌱 Người mới bắt đầu');
+    if (level < 25) return t('leaderboard.levelTitles.apprentice', '📖 Học giả tập sự');
+    if (level < 50) return t('leaderboard.levelTitles.warrior', '⚔️ Chiến binh ngôn ngữ');
+    if (level < 75) return t('leaderboard.levelTitles.master', '🧙‍♂️ Bậc thầy từ vựng');
+    if (level < 100) return t('leaderboard.levelTitles.legend', '👑 Huyền thoại tiếng Nhật');
+    return t('leaderboard.levelTitles.unrivaled', '🪐 Vô song');
+};
+
+export const getTranslatedLeagueName = (league, t) => {
+    if (!t) return league;
+    if (league === 'Đồng') return t('leaderboard.leagueBronze', 'Đồng');
+    if (league === 'Bạc') return t('leaderboard.leagueSilver', 'Bạc');
+    if (league === 'Vàng') return t('leaderboard.leagueGold', 'Vàng');
+    if (league === 'Kim Cương') return t('leaderboard.leagueDiamond', 'Kim Cương');
+    if (league === 'Huyền Thoại') return t('leaderboard.leagueLegend', 'Huyền Thoại');
+    return league;
 };
 
 // Points configuration
