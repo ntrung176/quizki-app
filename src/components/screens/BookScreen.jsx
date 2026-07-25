@@ -1294,12 +1294,13 @@ const BookScreen = ({
         }
         setCreationLoading(true);
         try {
-            // 1. Create parent folder if user requested new one
+            const currentTargetLang = localStorage.getItem('quizki_target_language') || 'ja';
             let targetParentId = selectedParentFolderId;
             if (isCreatingNewParentFolder && newParentFolderName.trim()) {
                 const pfRef = await addDoc(collection(db, `artifacts/${appId}/users/${userId}/studySets`), {
                     name: newParentFolderName.trim(),
                     type: 'folder',
+                    targetLanguage: currentTargetLang,
                     createdAt: serverTimestamp()
                 });
                 targetParentId = pfRef.id;
@@ -1309,6 +1310,7 @@ const BookScreen = ({
                 name: studySetName.trim(),
                 description: studySetDesc.trim(),
                 parentId: targetParentId || null,
+                targetLanguage: currentTargetLang,
                 sourceLesson: {
                     groupId,
                     bookId,
@@ -1341,6 +1343,8 @@ const BookScreen = ({
                     const newCardData = {
                         front: word.trim(),
                         back: (v.meaning || v.back || '').trim(),
+                        ipa: (v.ipa || '').trim(),
+                        targetLanguage: currentTargetLang,
                         synonym: (v.synonym || '').trim(),
                         sinoVietnamese: (v.sinoVietnamese || '').trim(),
                         synonymSinoVietnamese: '',
@@ -1434,6 +1438,8 @@ const BookScreen = ({
                     const newCardData = {
                         front: word.trim(),
                         back: (v.meaning || v.back || '').trim(),
+                        ipa: (v.ipa || '').trim(),
+                        targetLanguage: currentTargetLang,
                         synonym: (v.synonym || '').trim(),
                         sinoVietnamese: (v.sinoVietnamese || '').trim(),
                         synonymSinoVietnamese: '',
@@ -1512,6 +1518,8 @@ const BookScreen = ({
                     const newCardData = {
                         front: word.trim(),
                         back: (v.meaning || v.back || '').trim(),
+                        ipa: (v.ipa || '').trim(),
+                        targetLanguage: currentTargetLang,
                         synonym: (v.synonym || '').trim(),
                         sinoVietnamese: (v.sinoVietnamese || '').trim(),
                         synonymSinoVietnamese: '',

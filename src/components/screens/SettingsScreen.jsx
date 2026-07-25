@@ -12,6 +12,7 @@ import { linkWithPopup, GoogleAuthProvider, unlink } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 import { showToast } from '../../utils/toast';
 import { TTS_VOICES, getTTSVoice, setTTSVoice, speakJapanese } from '../../utils/audio';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 const SETTINGS_KEY = 'quizki-settings';
 const getSettings = () => {
     try {
@@ -23,28 +24,32 @@ const saveSettings = (settings) => {
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
 };
 // ==================== Settings Screen ====================
-const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdateProfileName, onUpdateAvatar, onChangePassword, isAdmin }) => {
+const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = () => {}, userId = null, onUpdateProfileName = null, onUpdateAvatar = null, onChangePassword = null, isAdmin = false, userProfile = null, onBack = null }) => {
     const navigate = useNavigate();
+    const { isEnglishMode } = useTargetLanguage();
     const [activeTab, setActiveTab] = useState('account');
 
-    const isPremiumUser = (profile?.unlockedSpecializedPackages && (
-        profile.unlockedSpecializedPackages.includes('premium') ||
-        profile.unlockedSpecializedPackages.includes('premium_1m') ||
-        profile.unlockedSpecializedPackages.includes('premium_1y') ||
-        profile.unlockedSpecializedPackages.includes('premium_3y') ||
-        profile.unlockedSpecializedPackages.includes('vocab_zen') ||
-        profile.unlockedSpecializedPackages.includes('grammar_zen') ||
-        profile.unlockedSpecializedPackages.includes('kanji_zen') ||
-        profile.unlockedSpecializedPackages.includes('jlpt_prep')
+    const effectiveProfile = profile || userProfile;
+    const effectiveUserId = userId || effectiveProfile?.uid;
+
+    const isPremiumUser = (effectiveProfile?.unlockedSpecializedPackages && (
+        effectiveProfile.unlockedSpecializedPackages.includes('premium') ||
+        effectiveProfile.unlockedSpecializedPackages.includes('premium_1m') ||
+        effectiveProfile.unlockedSpecializedPackages.includes('premium_1y') ||
+        effectiveProfile.unlockedSpecializedPackages.includes('premium_3y') ||
+        effectiveProfile.unlockedSpecializedPackages.includes('vocab_zen') ||
+        effectiveProfile.unlockedSpecializedPackages.includes('grammar_zen') ||
+        effectiveProfile.unlockedSpecializedPackages.includes('kanji_zen') ||
+        effectiveProfile.unlockedSpecializedPackages.includes('jlpt_prep')
     )) || false;
 
     const hasPremium = (
-        profile?.isPremiumUnlocked === true ||
-        profile?.isPremium === true ||
+        effectiveProfile?.isPremiumUnlocked === true ||
+        effectiveProfile?.isPremium === true ||
         isPremiumUser ||
-        (profile?.premiumExpiresAt && (() => {
+        (effectiveProfile?.premiumExpiresAt && (() => {
             try {
-                const exp = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
+                const exp = effectiveProfile.premiumExpiresAt.toDate ? effectiveProfile.premiumExpiresAt.toDate() : new Date(effectiveProfile.premiumExpiresAt);
                 return exp > new Date();
             } catch (e) {
                 return false;
@@ -1242,10 +1247,10 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                     {/* TTS Voice Selector */}
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                         <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <Mic className="w-4 h-4" /> Giọng đọc tiếng Nhật
+                            <Mic className="w-4 h-4" /> Giọng đọc phát âm AI
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400">
-                            Chọn giọng AI đọc từ vựng tiếng Nhật (Microsoft Azure Speech)
+                            Chọn giọng AI đọc phát âm (Tự động chuyển giữa Tiếng Anh chuẩn IPA & Tiếng Nhật)
                         </p>
                         <div className="grid grid-cols-2 gap-3">
                              {/* Giọng đọc buttons are here */}
@@ -1268,7 +1273,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                                          <span className="text-xl text-white">{voice.gender === 'Female' ? '👩' : '👨'}</span>
                                      </div>
                                      <span className={`text-sm font-bold ${ttsVoice === voice.id ? 'text-cyan-700 dark:text-cyan-400' : 'text-gray-500 dark:text-gray-400'}`}>
-                                         {voice.label}
+                                         Giọng {voice.label}
                                      </span>
                                      {ttsVoice === voice.id && <Check className="w-4 h-4 text-cyan-500" />}
                                  </button>
@@ -1278,7 +1283,7 @@ const SettingsScreen = ({ profile, isDarkMode, setIsDarkMode, userId, onUpdatePr
                         <button
                             onClick={() => {
                                 setIsPreviewingVoice(true);
-                                speakJapanese('こんにちは、私はあなたの日本語の先生です。');
+                                speakJapanese(isEnglishMode ? 'Hello, I am your English pronunciation assistant.' : 'こんにちは、私はあなたの日本語の先生です。');
                                 setTimeout(() => setIsPreviewingVoice(false), 3000);
                             }}
                             disabled={isPreviewingVoice}

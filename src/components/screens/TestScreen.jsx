@@ -127,10 +127,16 @@ const TestScreen = ({ allCards, onBack }) => {
         const match = word.match(/（(.+?)）/);
         return match ? match[1] : word;
     };
+    const getSameLangCards = (correctCard, cards) => {
+        const targetLang = correctCard?.targetLanguage || 'ja';
+        return cards.filter(c => (c.targetLanguage || 'ja') === targetLang);
+    };
     const generateWrongHiragana = (correctWord, allCards, count) => {
+        const correctCard = allCards.find(card => card.front === correctWord);
+        const pool = correctCard ? getSameLangCards(correctCard, allCards) : allCards;
         const correctHira = extractHiragana(correctWord);
-        const samePosCards = allCards.filter(c =>
-            c.pos === allCards.find(card => card.front === correctWord)?.pos &&
+        const samePosCards = pool.filter(c =>
+            c.pos === correctCard?.pos &&
             c.front !== correctWord &&
             extractHiragana(c.front) !== correctHira
         );
@@ -138,8 +144,8 @@ const TestScreen = ({ allCards, onBack }) => {
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => extractHiragana(c.front));
-        while (options.length < count) {
-            const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
+        while (options.length < count && pool.length > 0) {
+            const randomCard = pool[Math.floor(Math.random() * pool.length)];
             const hira = extractHiragana(randomCard.front);
             if (hira !== correctHira && !options.includes(hira)) {
                 options.push(hira);
@@ -148,8 +154,9 @@ const TestScreen = ({ allCards, onBack }) => {
         return options;
     };
     const generateWrongKanji = (correctCard, allCards, count) => {
+        const pool = getSameLangCards(correctCard, allCards);
         const correctKanji = correctCard.front.split('（')[0];
-        const samePosCards = allCards.filter(c =>
+        const samePosCards = pool.filter(c =>
             c.pos === correctCard.pos &&
             c.front !== correctCard.front &&
             c.front.split('（')[0] !== correctKanji
@@ -158,8 +165,8 @@ const TestScreen = ({ allCards, onBack }) => {
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => c.front.split('（')[0]);
-        while (options.length < count) {
-            const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
+        while (options.length < count && pool.length > 0) {
+            const randomCard = pool[Math.floor(Math.random() * pool.length)];
             const kanji = randomCard.front.split('（')[0];
             if (kanji !== correctKanji && !options.includes(kanji)) {
                 options.push(kanji);
@@ -168,8 +175,9 @@ const TestScreen = ({ allCards, onBack }) => {
         return options;
     };
     const generateSimilarVocab = (correctCard, allCards, count) => {
+        const pool = getSameLangCards(correctCard, allCards);
         const correctWord = correctCard.front;
-        const samePosCards = allCards.filter(c =>
+        const samePosCards = pool.filter(c =>
             c.pos === correctCard.pos &&
             c.front !== correctWord &&
             c.example && c.example.trim() !== ''
@@ -180,7 +188,7 @@ const TestScreen = ({ allCards, onBack }) => {
             .map(c => c.front);
         if (options.length < count) {
             const correctLength = correctWord.length;
-            const similarLengthCards = allCards.filter(c =>
+            const similarLengthCards = pool.filter(c =>
                 Math.abs(c.front.length - correctLength) <= 2 &&
                 c.front !== correctWord &&
                 !options.includes(c.front) &&
@@ -193,8 +201,8 @@ const TestScreen = ({ allCards, onBack }) => {
                     .map(c => c.front)
             );
         }
-        while (options.length < count) {
-            const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
+        while (options.length < count && pool.length > 0) {
+            const randomCard = pool[Math.floor(Math.random() * pool.length)];
             if (randomCard.front !== correctWord && !options.includes(randomCard.front)) {
                 options.push(randomCard.front);
             }
@@ -202,8 +210,9 @@ const TestScreen = ({ allCards, onBack }) => {
         return options;
     };
     const generateWrongSynonyms = (correctCard, allCards, count) => {
+        const pool = getSameLangCards(correctCard, allCards);
         const correctSynonym = correctCard.synonym?.split(',')[0].trim();
-        const samePosCards = allCards.filter(c =>
+        const samePosCards = pool.filter(c =>
             c.pos === correctCard.pos &&
             c.front !== correctCard.front &&
             c.synonym && c.synonym.trim() !== ''
@@ -212,8 +221,8 @@ const TestScreen = ({ allCards, onBack }) => {
             .sort(() => Math.random() - 0.5)
             .slice(0, count)
             .map(c => c.synonym.split(',')[0].trim());
-        while (options.length < count) {
-            const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
+        while (options.length < count && pool.length > 0) {
+            const randomCard = pool[Math.floor(Math.random() * pool.length)];
             const syn = randomCard.synonym?.split(',')[0].trim();
             if (syn && syn !== correctSynonym && !options.includes(syn)) {
                 options.push(syn);

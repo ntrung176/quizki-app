@@ -12,6 +12,8 @@ import StreakCelebration from '../ui/StreakCelebration';
 import { isVocabCardDue, isSrsCardDue, isKanjiMastered, isVocabCardMastered, parseNextReviewMs } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { useLanguage } from '../../context/LanguageContext';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { isEnglishCard } from '../../utils/englishVocab';
 
 // HomeScreen Component - Cyber-AI Futuristic Edition
 const HomeScreen = ({
@@ -25,6 +27,7 @@ const HomeScreen = ({
     calculatedStreak = 0,
 }) => {
     const { t } = useLanguage();
+    const { isEnglishMode } = useTargetLanguage();
     const navigate = useNavigate();
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
@@ -77,71 +80,106 @@ const HomeScreen = ({
 
     // Calculate stats
     const stats = useMemo(() => {
-        const dueCards = allCards.filter(card => isVocabCardDue(card)).length;
-        const newCards = allCards.filter(card => !card.srsEnabled).length;
-        const masteredCards = allCards.filter(card => isVocabCardMastered(card)).length;
-        return { dueCards, newCards, masteredCards, streak: calculatedStreak, totalCards };
-    }, [allCards, totalCards, calculatedStreak]);
+        const langCards = allCards.filter(card => isEnglishCard(card, isEnglishMode) === isEnglishMode);
+        const dueCards = langCards.filter(card => isVocabCardDue(card)).length;
+        const newCards = langCards.filter(card => !card.srsEnabled).length;
+        const masteredCards = langCards.filter(card => isVocabCardMastered(card)).length;
+        return { dueCards, newCards, masteredCards, streak: calculatedStreak, totalCards: langCards.length };
+    }, [allCards, calculatedStreak, isEnglishMode]);
 
-    // 6 Cyber Quick action cards arranged 3 top, 3 bottom
-    const quickActions = useMemo(() => [
-        // Row 1: Học & Thêm mới
-        {
-            id: 'add',
-            title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
-            subtitle: t('home.addVocabSub', 'Mở rộng bộ từ vựng mới'),
-            icon: FolderPlus,
-            gradient: 'from-teal-600 via-teal-500 to-cyan-500',
-            glow: 'shadow-teal-500/25 border border-teal-400/40',
-            route: ROUTES.VOCAB_ADD,
-        },
-        {
-            id: 'kanji-study',
-            title: t('home.learnKanjiTitle', 'Học Kanji'),
-            subtitle: t('home.learnKanjiSub', 'Chinh phục lộ trình chữ Hán'),
-            icon: Languages,
-            gradient: 'from-emerald-600 via-emerald-500 to-teal-500',
-            glow: 'shadow-emerald-500/25 border border-emerald-400/40',
-            route: ROUTES.KANJI_STUDY,
-        },
-        {
-            id: 'grammar-study',
-            title: t('home.learnGrammarTitle', 'Học Ngữ Pháp'),
-            subtitle: t('home.learnGrammarSub', 'Sách giáo trình & bài học'),
-            icon: BookOpen,
-            gradient: 'from-sky-600 via-sky-500 to-blue-500',
-            glow: 'shadow-sky-500/25 border border-sky-400/40',
-            route: ROUTES.BOOKS || ROUTES.GRAMMAR_REVIEW,
-        },
-        // Row 2: Ôn tập
-        {
-            id: 'vocab-review',
-            title: t('home.reviewVocabTitle', 'Ôn Tập Từ Vựng'),
-            subtitle: `${stats.dueCards} ${t('home.cardsDueSubtitle', 'thẻ đang đến hạn ôn')}`,
-            icon: Clock,
-            gradient: 'from-indigo-600 via-indigo-500 to-violet-500',
-            glow: 'shadow-indigo-500/25 border border-indigo-400/40',
-            route: ROUTES.VOCAB_REVIEW,
-        },
-        {
-            id: 'kanji-review',
-            title: t('home.reviewKanjiTitle', 'Ôn Tập Kanji'),
-            subtitle: `${kanjiSrsStats.dueCount} ${t('home.kanjiDueSubtitle', 'chữ kanji cần ôn tập')}`,
-            icon: Target,
-            gradient: 'from-amber-600 via-amber-500 to-orange-500',
-            glow: 'shadow-amber-500/25 border border-amber-400/40',
-            route: ROUTES.KANJI_REVIEW,
-        },
-        {
-            id: 'grammar-review',
-            title: t('home.reviewGrammarTitle', 'Ôn Tập Ngữ Pháp'),
-            subtitle: t('home.reviewGrammarSub', 'Luyện tập bài tập mẫu câu'),
-            icon: Repeat2,
-            gradient: 'from-purple-600 via-purple-500 to-pink-500',
-            glow: 'shadow-purple-500/25 border border-purple-400/40',
-            route: ROUTES.GRAMMAR_REVIEW,
-        },
-    ], [t, stats.dueCards, kanjiSrsStats.dueCount]);
+    // Quick action cards adjusted for English vs Japanese mode
+    const quickActions = useMemo(() => {
+        if (isEnglishMode) {
+            return [
+                {
+                    id: 'add',
+                    title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
+                    subtitle: 'Mở rộng bộ từ vựng Tiếng Anh mới',
+                    icon: FolderPlus,
+                    gradient: 'from-teal-600 via-teal-500 to-cyan-500',
+                    glow: 'shadow-teal-500/25 border border-teal-400/40',
+                    route: ROUTES.VOCAB_ADD,
+                },
+                {
+                    id: 'vocab-review',
+                    title: t('home.reviewVocabTitle', 'Ôn Tập Từ Vựng'),
+                    subtitle: `${stats.dueCards} ${t('home.cardsDueSubtitle', 'thẻ đang đến hạn ôn')}`,
+                    icon: Clock,
+                    gradient: 'from-indigo-600 via-indigo-500 to-violet-500',
+                    glow: 'shadow-indigo-500/25 border border-indigo-400/40',
+                    route: ROUTES.VOCAB_REVIEW,
+                },
+                {
+                    id: 'ielts-test',
+                    title: 'Luyện Thi IELTS / TOEIC',
+                    subtitle: 'Luyện tập bộ đề & kiểm tra trình độ',
+                    icon: Trophy,
+                    gradient: 'from-amber-600 via-amber-500 to-orange-500',
+                    glow: 'shadow-amber-500/25 border border-amber-400/40',
+                    route: ROUTES.JLPT_TEST,
+                },
+            ];
+        }
+
+        return [
+            // Row 1: Học & Thêm mới (Tiếng Nhật)
+            {
+                id: 'add',
+                title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
+                subtitle: t('home.addVocabSub', 'Mở rộng bộ từ vựng mới'),
+                icon: FolderPlus,
+                gradient: 'from-teal-600 via-teal-500 to-cyan-500',
+                glow: 'shadow-teal-500/25 border border-teal-400/40',
+                route: ROUTES.VOCAB_ADD,
+            },
+            {
+                id: 'kanji-study',
+                title: t('home.learnKanjiTitle', 'Học Kanji'),
+                subtitle: t('home.learnKanjiSub', 'Chinh phục lộ trình chữ Hán'),
+                icon: Languages,
+                gradient: 'from-emerald-600 via-emerald-500 to-teal-500',
+                glow: 'shadow-emerald-500/25 border border-emerald-400/40',
+                route: ROUTES.KANJI_STUDY,
+            },
+            {
+                id: 'grammar-study',
+                title: t('home.learnGrammarTitle', 'Học Ngữ Pháp'),
+                subtitle: t('home.learnGrammarSub', 'Sách giáo trình & bài học'),
+                icon: BookOpen,
+                gradient: 'from-sky-600 via-sky-500 to-blue-500',
+                glow: 'shadow-sky-500/25 border border-sky-400/40',
+                route: ROUTES.BOOKS || ROUTES.GRAMMAR_REVIEW,
+            },
+            // Row 2: Ôn tập (Tiếng Nhật)
+            {
+                id: 'vocab-review',
+                title: t('home.reviewVocabTitle', 'Ôn Tập Từ Vựng'),
+                subtitle: `${stats.dueCards} ${t('home.cardsDueSubtitle', 'thẻ đang đến hạn ôn')}`,
+                icon: Clock,
+                gradient: 'from-indigo-600 via-indigo-500 to-violet-500',
+                glow: 'shadow-indigo-500/25 border border-indigo-400/40',
+                route: ROUTES.VOCAB_REVIEW,
+            },
+            {
+                id: 'kanji-review',
+                title: t('home.reviewKanjiTitle', 'Ôn Tập Kanji'),
+                subtitle: `${kanjiSrsStats.dueCount} ${t('home.kanjiDueSubtitle', 'chữ kanji cần ôn tập')}`,
+                icon: Target,
+                gradient: 'from-amber-600 via-amber-500 to-orange-500',
+                glow: 'shadow-amber-500/25 border border-amber-400/40',
+                route: ROUTES.KANJI_REVIEW,
+            },
+            {
+                id: 'grammar-review',
+                title: t('home.reviewGrammarTitle', 'Ôn Tập Ngữ Pháp'),
+                subtitle: t('home.reviewGrammarSub', 'Luyện tập bài tập mẫu câu'),
+                icon: Repeat2,
+                gradient: 'from-purple-600 via-purple-500 to-pink-500',
+                glow: 'shadow-purple-500/25 border border-purple-400/40',
+                route: ROUTES.GRAMMAR_REVIEW,
+            },
+        ];
+    }, [t, stats.dueCards, kanjiSrsStats.dueCount, isEnglishMode]);
 
     // Greeting based on time
     const getGreeting = () => {
@@ -151,8 +189,16 @@ const HomeScreen = ({
         return t('home.goodEvening', 'Chào buổi tối');
     };
 
-    // Motivational quotes
-    const quotes = [
+    // Motivational quotes (English vs Japanese)
+    const quotes = isEnglishMode ? [
+        'Every day is a new step forward.',
+        'Consistency is the key to mastery.',
+        'Learn something new every day.',
+        'Practice makes perfect.',
+        'Small daily improvements lead to long term results.',
+        'Believe in yourself and keep pushing forward.',
+        'Success is the sum of small efforts repeated day in and day out.',
+    ] : [
         '継続は力なり — Kế Tục Thị Lực Dã — Kiên trì là sức mạnh',
         '千里の道も一歩から — Đường dài vạn dẫm khởi đầu từ một bước',
         '七転び八起き — Bảy lần vấp ngã, tám lần đứng lên',
@@ -167,7 +213,13 @@ const HomeScreen = ({
     const todayQuote = quotes[new Date().getDate() % quotes.length];
 
     // Learning tips
-    const learningTips = [
+    const learningTips = isEnglishMode ? [
+        'Study 15-30 minutes every day for best retention. Review cards as soon as they are due!',
+        'Using Spaced Repetition (SRS) helps you remember words 90% longer than cramming.',
+        'Listen to English podcasts or songs during your free time to get used to English intonation.',
+        'Writing down vocabulary helps your brain memorize deeper than just reading.',
+        'Learn vocabulary in context or topics to easily remember and use them in conversation.',
+    ] : [
         'Học đều đặn mỗi ngày 15-30 phút hiệu quả hơn học dồn một lần. Hãy ôn tập ngay khi có thẻ đến hạn!',
         'Sử dụng phương pháp lặp lại ngắt quãng (SRS) giúp ghi nhớ lâu dài hơn 90% so với học thuộc lòng.',
         'Nghe nhạc hoặc podcast tiếng Nhật khi rảnh giúp làm quen với ngữ điệu và từ vựng mới.',
@@ -221,16 +273,18 @@ const HomeScreen = ({
                             <Trophy className="w-4 h-4 text-amber-500" />
                             <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{stats.masteredCards} {t('home.vocabMastered', 'từ thuộc')}</span>
                         </div>
-                        <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 shadow-sm">
-                            <Languages className="w-4 h-4 text-emerald-500" />
-                            <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{kanjiSrsStats.mastered} {t('home.kanjiMastered', 'kanji thuộc')}</span>
-                        </div>
+                        {!isEnglishMode && (
+                            <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 shadow-sm">
+                                <Languages className="w-4 h-4 text-emerald-500" />
+                                <span className="text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200">{kanjiSrsStats.mastered} {t('home.kanjiMastered', 'kanji thuộc')}</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
 
             {/* Today's Summary Telemetry Counters */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className={`grid grid-cols-2 ${isEnglishMode ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-4`}>
                 {/* Card 1: Vocab Review */}
                 <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
                     <div className="w-12 h-12 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
@@ -242,16 +296,28 @@ const HomeScreen = ({
                     </div>
                 </div>
 
-                {/* Card 2: Kanji Review */}
-                <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
-                    <div className="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <Target className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                {/* Card 2: Kanji Review (Japanese mode only) or New Cards (English mode) */}
+                {!isEnglishMode ? (
+                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
+                        <div className="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <Target className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                        </div>
+                        <div>
+                            <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{kanjiSrsStats.dueCount}</div>
+                            <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('home.dueKanji', 'Kanji cần ôn')}</div>
+                        </div>
                     </div>
-                    <div>
-                        <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{kanjiSrsStats.dueCount}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('home.dueKanji', 'Kanji cần ôn')}</div>
+                ) : (
+                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
+                        <div className="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <Sparkle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                        </div>
+                        <div>
+                            <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{stats.newCards}</div>
+                            <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Từ vựng mới</div>
+                        </div>
                     </div>
-                </div>
+                )}
 
                 {/* Card 3: Total Cards */}
                 <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
@@ -264,16 +330,18 @@ const HomeScreen = ({
                     </div>
                 </div>
 
-                {/* Card 4: Total Kanji */}
-                <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
-                    <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <Languages className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                {/* Card 4: Total Kanji (Japanese mode only) */}
+                {!isEnglishMode && (
+                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
+                        <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <Languages className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                        </div>
+                        <div>
+                            <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{kanjiSrsStats.total}</div>
+                            <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('home.totalKanji', 'Tổng Kanji')}</div>
+                        </div>
                     </div>
-                    <div>
-                        <div className="text-2xl font-black text-slate-900 dark:text-white leading-tight font-mono">{kanjiSrsStats.total}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('home.totalKanji', 'Tổng Kanji')}</div>
-                    </div>
-                </div>
+                )}
             </div>
 
             {/* Quick Actions - 6 Buttons (3 top, 3 bottom) */}

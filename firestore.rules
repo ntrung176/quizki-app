@@ -187,25 +187,23 @@ service cloud.firestore {
     
     match /sharedVocabulary/{vocabId} {
       allow read: if true;
-      allow create: if isAdmin() || (
-                    isAuthenticated() && isReasonableSize() &&
-                    (
-                      (request.resource.data.word is string && request.resource.data.word.size() > 0) ||
-                      (request.resource.data.front is string && request.resource.data.front.size() > 0)
-                    ) &&
-                    (
-                      (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
-                      (request.resource.data.back is string && request.resource.data.back.size() > 0)
-                    )
-                  );
-      allow update: if isAdmin() || (
-                    isAuthenticated() &&
-                    (
-                      (request.resource.data.meaning is string && request.resource.data.meaning.size() > 0) ||
-                      (request.resource.data.back is string && request.resource.data.back.size() > 0)
-                    )
-                  );
-      allow delete: if isAdmin() || hasAdminPrivilegesDefault();
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+      allow delete: if isAuthenticated();
+    }
+
+    match /sharedVocabulary_en/{vocabId} {
+      allow read: if true;
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+      allow delete: if isAuthenticated();
+    }
+
+    match /sharedVocabulary_ja/{vocabId} {
+      allow read: if true;
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+      allow delete: if isAuthenticated();
     }
 
     match /artifacts/{appId}/referrals/{referredId} {

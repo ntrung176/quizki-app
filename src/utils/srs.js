@@ -177,13 +177,13 @@ export const isSrsCardDue = (srsOrCard, now = Date.now()) => {
     return reviewMs <= now;
 };
 
-// Check if vocab card is due for review (including new cards with intervalIndex_back === -1)
+// Check if vocab card is due for review
 export const isVocabCardDue = (card, now = Date.now()) => {
     if (!card) return false;
     if (card.srsEnabled === false) return false;
-    // Thẻ mới (chưa có SRS / intervalIndex_back === -1)
-    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined || card.intervalIndex_back < 0) {
-        return true;
+    // Thẻ mới chưa từng học (intervalIndex_back === -1) không phải là thẻ đến hạn ôn tập
+    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) {
+        return false;
     }
     const nextReviewVal = card.nextReview_back !== undefined ? card.nextReview_back : card.nextReview;
     const reviewMs = parseNextReviewMs(nextReviewVal);

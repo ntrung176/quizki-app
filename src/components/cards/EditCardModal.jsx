@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Loader2, X, Image as ImageIcon, Music, Volume2, Trash2, Check, ChevronDown, AlertTriangle } from 'lucide-react';
-import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants';
+import { POS_TYPES, ENGLISH_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import { playAudio } from '../../utils/audio';
@@ -9,6 +9,7 @@ import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { getLanguageService, isEnglishCard } from '../../languages';
 
 const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], canUserUseAI }) => {
     const { isEnglishMode } = useTargetLanguage();
@@ -103,16 +104,24 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         }
     };
 
+    const langService = getLanguageService({ front, targetLanguage: card?.targetLanguage }, isEnglishMode);
+    const cardIsEnglish = langService.code === 'en' || isEnglishCard({ front }, isEnglishMode);
+
     const handleSave = async () => {
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
+        const isEng = cardIsEnglish || isEnglishCard({ front }, isEnglishMode);
         await onSave({
             cardId: card.id,
-            front, back, ipa: isEnglishMode ? ipa : '', synonym, example, exampleMeaning, nuance, pos, level,
-            sinoVietnamese: isEnglishMode ? '' : sinoVietnamese, synonymSinoVietnamese: isEnglishMode ? '' : synonymSinoVietnamese,
-            reading: isEnglishMode ? '' : reading.trim(),
-            accent: isEnglishMode ? '' : accent.trim(),
-            targetLanguage: isEnglishMode ? 'en' : 'ja',
+            front: front.trim(),
+            back: back.trim(),
+            ipa: isEng ? ipa.trim() : '',
+            synonym, example, exampleMeaning, nuance, pos, level,
+            sinoVietnamese: isEng ? '' : sinoVietnamese,
+            synonymSinoVietnamese: isEng ? '' : synonymSinoVietnamese,
+            reading: isEng ? '' : reading.trim(),
+            accent: isEng ? '' : accent.trim(),
+            targetLanguage: isEng ? 'en' : 'ja',
             imageBase64: imagePreview,
             audioBase64: card?.audioBase64 || null
         });
@@ -144,9 +153,10 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level, back);
         if (aiData) {
-            if (isEnglishMode) {
+            const isEng = cardIsEnglish || aiData.targetLanguage === 'en';
+            if (isEng) {
                 setFront(aiData.front || front);
-                setIpa(aiData.ipa || '');
+                setIpa(aiData.ipa || formatIPA('', aiData.front || front));
                 setSinoVietnamese('');
                 setReading('');
                 setAccent('');
@@ -158,7 +168,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
             }
             if (aiData.meaning) setBack(aiData.meaning);
             if (aiData.synonym) setSynonym(aiData.synonym);
-            if (aiData.synonymSinoVietnamese && !isEnglishMode) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
+            if (aiData.synonymSinoVietnamese && !isEng) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
             if (aiData.example) setExample(aiData.example);
             if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning);
             if (aiData.nuance) setNuance(aiData.nuance);
@@ -187,7 +197,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Từ vựng (Nhật)</label>
+                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Từ vựng ({cardIsEnglish ? 'Anh' : 'Nhật'})</label>
                                 <div className="flex gap-2">
                                     <input type="text" value={front} onChange={(e) => setFront(e.target.value)}
                                         className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-gray-900 dark:text-gray-100" />
@@ -228,8 +238,8 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                             onClick={() => setPosDropdownOpen(false)} 
                                         />
                                         
-                                        <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200">
-                                            {Object.entries(POS_TYPES).map(([key, value]) => {
+                                        <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
+                                        {Object.entries(cardIsEnglish ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
                                                 if (key === 'grammar') {
                                                     return (
                                                         <div key={key} className="relative group/grammar">
@@ -297,7 +307,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                 <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
                             </div>
                             <div className="grid grid-cols-2 gap-2">
-                                {isEnglishMode ? (
+                                {cardIsEnglish ? (
                                     <>
                                         <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder="Phiên âm (IPA)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
                                         <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />

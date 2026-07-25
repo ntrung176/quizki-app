@@ -5,3 +5,4 @@ export { default as TopTabBar } from './TopTabBar';
 export { default as PremiumLockedModal } from './PremiumLockedModal';
 export { default as SafeAvatarImage } from './SafeAvatarImage';
 export { default as TargetLanguageSelector } from './TargetLanguageSelector';
+export { default as FlagIcon } from './FlagIcon';

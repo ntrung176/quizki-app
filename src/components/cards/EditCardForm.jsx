@@ -5,9 +5,12 @@ import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { getLanguageService, isEnglishCard, formatIPA } from '../../languages';
 
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [], canUserUseAI }) => {
     const { isEnglishMode } = useTargetLanguage();
+    const langService = getLanguageService({ front: card?.front, targetLanguage: card?.targetLanguage }, isEnglishMode);
+    const cardIsEnglish = langService.code === 'en' || isEnglishCard({ front: card?.front }, isEnglishMode);
     // All hooks must be called before any conditional return
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
@@ -60,11 +63,16 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const handleSave = async () => {
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
+        const isEng = cardIsEnglish || isEnglishCard({ front }, isEnglishMode);
         await onSave({
             cardId: card.id,
-            front, back, ipa: isEnglishMode ? ipa : '', synonym, example, exampleMeaning, nuance, pos, level,
-            sinoVietnamese: isEnglishMode ? '' : sinoVietnamese, synonymSinoVietnamese: isEnglishMode ? '' : synonymSinoVietnamese,
-            targetLanguage: isEnglishMode ? 'en' : 'ja',
+            front: front.trim(),
+            back: back.trim(),
+            ipa: isEng ? ipa.trim() : '',
+            synonym, example, exampleMeaning, nuance, pos, level,
+            sinoVietnamese: isEng ? '' : sinoVietnamese,
+            synonymSinoVietnamese: isEng ? '' : synonymSinoVietnamese,
+            targetLanguage: isEng ? 'en' : 'ja',
             imageBase64: imagePreview,
             audioBase64: null
         });
@@ -94,9 +102,9 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level, back);
         if (aiData) {
-            if (isEnglishMode) {
+            if (cardIsEnglish || aiData.targetLanguage === 'en') {
                 setFront(aiData.front || front);
-                setIpa(aiData.ipa || '');
+                setIpa(aiData.ipa || formatIPA(card?.ipa));
                 setSinoVietnamese('');
             } else {
                 if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
@@ -104,7 +112,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             }
             if (aiData.meaning) setBack(aiData.meaning);
             if (aiData.synonym) setSynonym(aiData.synonym);
-            if (aiData.synonymSinoVietnamese && !isEnglishMode) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
+            if (aiData.synonymSinoVietnamese && !cardIsEnglish) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
             if (aiData.example) setExample(aiData.example);
             if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning);
             if (aiData.nuance) setNuance(aiData.nuance);

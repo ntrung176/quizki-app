@@ -12,6 +12,7 @@ import { CardEditorItem } from './AddCardForm';
 
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { getLanguageService } from '../../languages';
 
 const QuickAddVocabForm = ({
     folders = [], // These are the study sets (type !== 'folder')
@@ -128,24 +129,27 @@ const QuickAddVocabForm = ({
         const aiData = await onGeminiAssist(card.front, card.pos || '', card.level || '', card.back || '', false);
 
         if (aiData) {
+            const langService = getLanguageService(card.front || card, isEnglishMode);
+            const cardIsEng = langService.code === 'en';
+
             setCards(prev => prev.map(c => {
                 if (c.id === id) {
                     return {
                         ...c,
-                        front: isEnglishMode ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
+                        front: cardIsEng ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
                         back: aiData.meaning || '',
-                        ipa: aiData.ipa || '',
-                        sinoVietnamese: isEnglishMode ? '' : (aiData.sinoVietnamese || ''),
+                        ipa: cardIsEng ? (aiData.ipa || '') : '',
+                        sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
                         pos: aiData.pos || '',
                         level: aiData.level || '',
                         synonym: aiData.synonym || '',
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
-                        synonymSinoVietnamese: isEnglishMode ? '' : (aiData.synonymSinoVietnamese || ''),
-                        reading: isEnglishMode ? '' : (aiData.reading || ''),
-                        accent: isEnglishMode ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
-                        targetLanguage: isEnglishMode ? 'en' : 'ja'
+                        synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
+                        reading: cardIsEng ? '' : (aiData.reading || ''),
+                        accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                        targetLanguage: cardIsEng ? 'en' : 'ja'
                     };
                 }
                 return c;
@@ -207,6 +211,8 @@ const QuickAddVocabForm = ({
                 const success = await onSave({
                     front: card.front,
                     back: card.back,
+                    ipa: card.ipa || '',
+                    targetLanguage: card.targetLanguage || (isEnglishMode ? 'en' : 'ja'),
                     synonym: card.synonym || '',
                     example: card.example || '',
                     exampleMeaning: card.exampleMeaning || '',

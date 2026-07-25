@@ -8,6 +8,8 @@ import { generateFuriganaText, ensureFuriganaFormat } from './furiganaHelper';
 import { db } from '../config/firebase';
 import { doc, getDoc, getDocs, collection, query, collectionGroup, setDoc, updateDoc, where } from 'firebase/firestore';
 import { normalizePosKey } from '../config/constants';
+import { isEnglishText } from './englishVocab';
+import { getLanguageService } from '../languages';
 // ============== KEY MANAGEMENT ==============
 
 // Lấy tất cả OpenRouter keys
@@ -402,20 +404,23 @@ const updateBookVocabInFirestore = async (docPath, originalWord, updatedFields) 
 
 const saveSharedVocab = async (word, data) => {
     try {
+        if (!word) return;
+        const isEng = data?.targetLanguage === 'en' || isEnglishText(word);
+        const collectionName = isEng ? 'sharedVocabulary_en' : 'sharedVocabulary';
         const normalized = word.split('（')[0].split('(')[0].trim();
         const normalizedLower = normalized.toLowerCase();
         
         let matchedId = null;
         
         // 1. Kiểm tra ID normalized chính xác
-        let docRef = doc(db, 'sharedVocabulary', normalized);
+        let docRef = doc(db, collectionName, normalized);
         let docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             matchedId = normalized;
         } else {
             // 2. Kiểm tra ID normalized chữ thường
             if (normalized !== normalizedLower) {
-                docRef = doc(db, 'sharedVocabulary', normalizedLower);
+                docRef = doc(db, collectionName, normalizedLower);
                 docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
                     matchedId = normalizedLower;
@@ -425,7 +430,7 @@ const saveSharedVocab = async (word, data) => {
             if (!matchedId) {
                 const originalTrimmed = word.trim();
                 if (originalTrimmed !== normalized) {
-                    docRef = doc(db, 'sharedVocabulary', originalTrimmed);
+                    docRef = doc(db, collectionName, originalTrimmed);
                     docSnap = await getDoc(docRef);
                     if (docSnap.exists()) {
                         matchedId = originalTrimmed;
@@ -435,7 +440,7 @@ const saveSharedVocab = async (word, data) => {
             // 4. Tìm qua query range (prefix)
             if (!matchedId) {
                 const q = query(
-                    collection(db, 'sharedVocabulary'),
+                    collection(db, collectionName),
                     where('front', '>=', normalized),
                     where('front', '<=', normalized + '\uf8ff')
                 );
@@ -453,13 +458,22 @@ const saveSharedVocab = async (word, data) => {
             }
         }
 
-        if (!matchedId) {
-            console.log(`⚠️ [aiAssistVocab] saveSharedVocab: "${word}" không tồn tại trong sharedVocabulary. Bỏ qua không lưu.`);
-            return;
-        }
+        const targetId = matchedId || normalized;
+        const finalDocRef = doc(db, collectionName, targetId);
 
-        const finalDocRef = doc(db, 'sharedVocabulary', matchedId);
-        await setDoc(finalDocRef, {
+        const payload = isEng ? {
+            front: data.front || word,
+            back: data.back || data.meaning || '',
+            ipa: data.ipa || '',
+            synonym: data.synonym || '',
+            example: data.example || '',
+            exampleMeaning: data.exampleMeaning || '',
+            nuance: data.nuance || '',
+            pos: data.pos || '',
+            level: data.level || '',
+            targetLanguage: 'en',
+            updatedAt: Date.now(),
+        } : {
             front: data.front || data.frontWithFurigana || word,
             back: data.back || data.meaning || '',
             synonym: data.synonym || '',
@@ -472,11 +486,16 @@ const saveSharedVocab = async (word, data) => {
             level: data.level || '',
             reading: data.reading || '',
             accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
+            targetLanguage: 'ja',
             updatedAt: Date.now(),
-        }, { merge: true });
-        console.log(`✅ [aiAssistVocab] Saved/Updated sharedVocabulary: ${matchedId}`);
+        };
+
+        await setDoc(finalDocRef, payload, { merge: true });
+        console.log(`✅ [aiAssistVocab] Saved/Updated ${collectionName}: ${targetId}`);
     } catch (e) {
-        console.warn('[aiAssistVocab] Error saving shared vocab:', e);
+        if (e?.code !== 'permission-denied' && !e?.message?.includes('permission')) {
+            console.warn('[aiAssistVocab] Error saving shared vocab:', e);
+        }
     }
 };
 
@@ -655,15 +674,16 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
             }
         }
     } catch (e) {
-        console.warn('aiAssistVocab: Shared lookup error:', e);
+        if (e?.code !== 'permission-denied' && !e?.message?.includes('permission')) {
+            console.warn('aiAssistVocab: Shared lookup error:', e);
+        }
     }
     }
 
     // 3. Không tìm thấy ở cả 2 kho -> Gọi AI để tạo mới theo ngôn ngữ mục tiêu
-    const isEnglish = targetLanguage === 'en';
-    const prompt = isEnglish
-        ? generateEnglishVocabPrompt(frontText, contextPos, contextLevel, contextMeaning)
-        : generateVocabPrompt(frontText, contextPos, contextLevel, contextMeaning);
+    const langService = getLanguageService(targetLanguage || frontText);
+    const isEnglish = langService.code === 'en';
+    const prompt = langService.generateVocabPrompt(frontText, contextPos, contextLevel, contextMeaning);
 
     const featureId = contextPos === 'grammar' ? 'grammar_gen' : 'vocab_gen';
     const responseText = await callAI(prompt, null, featureId);
@@ -705,9 +725,7 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
             if (!result.front) result.front = frontText;
         }
 
-        // Lưu vào shared vocab để lưu trữ chung
-        saveSharedVocab(frontText, result, forceRefresh)
-            .catch(e => console.warn('Error saving newly generated vocab in aiAssistVocab:', e));
+        // Đã tắt tự động lưu vào shared vocab theo yêu cầu admin
     }
 
     return result;

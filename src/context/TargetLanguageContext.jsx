@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db, appId, auth } from '../config/firebase';
 
 export const SUPPORTED_TARGET_LANGUAGES = [
-    { code: 'ja', name: 'Tiếng Nhật', nativeName: '日本語', flag: '🇯🇵', testName: 'JLPT', characterSystem: 'Kanji & Kana' },
-    { code: 'en', name: 'Tiếng Anh', nativeName: 'English', flag: '🇬🇧', testName: 'IELTS / TOEIC', characterSystem: 'Alphabet & IPA' },
+    { code: 'ja', name: 'Tiếng Nhật', nativeName: '日本語', flag: '🇯🇵', countryCode: 'jp', testName: 'JLPT', characterSystem: 'Kanji & Kana' },
+    { code: 'en', name: 'Tiếng Anh', nativeName: 'English', flag: '🇬🇧', countryCode: 'gb', testName: 'IELTS / TOEIC', characterSystem: 'Alphabet & IPA' },
 ];
 
 const TargetLanguageContext = createContext();
@@ -19,11 +19,11 @@ export const TargetLanguageProvider = ({ children }) => {
         setTargetLanguageState(newLang);
         localStorage.setItem('quizki_target_language', newLang);
 
-        // Sync with user profile in Firebase if logged in
+        // Sync with user profile in Firebase if logged in (use setDoc with merge: true so it creates doc if missing)
         if (auth?.currentUser?.uid && db) {
             try {
                 const userRef = doc(db, `artifacts/${appId}/users`, auth.currentUser.uid);
-                await updateDoc(userRef, { targetLanguage: newLang });
+                await setDoc(userRef, { targetLanguage: newLang }, { merge: true });
             } catch (err) {
                 console.warn('Could not sync targetLanguage to Firestore:', err);
             }

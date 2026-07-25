@@ -131,6 +131,11 @@ export const fetchJotobaWordData = async (word) => {
     const cleanWord = word.split('（')[0].split('(')[0].trim();
     if (!cleanWord) return null;
 
+    // Do NOT fetch Japanese Jotoba pitch accent for non-Japanese (English) words
+    if (!/[\u3040-\u309F\u30A0-\u30FF\u4e00-\u9faf]/.test(cleanWord)) {
+        return null;
+    }
+
     // Check cache first
     if (jotobaCache.has(cleanWord)) {
         const cached = jotobaCache.get(cleanWord);

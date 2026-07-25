@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Sparkle, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera } from 'lucide-react'
+import PremiumLockedModal from '../ui/PremiumLockedModal';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { getLanguageService } from '../../languages';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 
@@ -169,22 +172,26 @@ const BatchAiModal = ({
             try {
                 const aiData = await onGeminiAssist(word, '', '', false);
                 if (aiData) {
+                    const langService = getLanguageService(word, isEnglishMode);
+                    const cardIsEng = langService.code === 'en';
+
                     generatedCards.push({
                         id: `new_${Date.now()}_${i}_${Math.random()}`,
                         isNew: true,
-                        front: aiData.frontWithFurigana || aiData.front || word,
+                        front: cardIsEng ? (aiData.front || word) : (aiData.frontWithFurigana || aiData.front || word),
                         back: aiData.meaning || '',
-                        ipa: aiData.ipa || '',
-                        sinoVietnamese: aiData.sinoVietnamese || '',
+                        ipa: cardIsEng ? (aiData.ipa || '') : '',
+                        sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
                         synonym: aiData.synonym || '',
-                        synonymSinoVietnamese: aiData.synonymSinoVietnamese || '',
+                        synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
                         pos: aiData.pos || '',
                         level: aiData.level || '',
-                        reading: aiData.reading || '',
-                        accent: aiData.accent !== undefined ? String(aiData.accent) : '',
+                        reading: cardIsEng ? '' : (aiData.reading || ''),
+                        accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                        targetLanguage: cardIsEng ? 'en' : 'ja',
                         imageBase64: null,
                         audioBase64: null
                     });
@@ -196,6 +203,7 @@ const BatchAiModal = ({
                         isNew: true,
                         front: word,
                         back: '',
+                        ipa: '',
                         sinoVietnamese: '',
                         synonym: '',
                         synonymSinoVietnamese: '',

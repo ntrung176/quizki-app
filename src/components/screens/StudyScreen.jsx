@@ -8,6 +8,7 @@ import { getAuth } from 'firebase/auth';
 import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
 import { shuffleArray } from '../../utils/textProcessing';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -59,11 +60,13 @@ const checkJapaneseAnswer = (userInput, cardFront, pos) => {
     return isCorrect;
 };
 
-// Build 4 MC options: 1 correct + 3 distractors from pool
+// Build 4 MC options: 1 correct + 3 distractors from same language pool
 const buildOptions = (correctCard, allCards) => {
+    const targetLang = correctCard.targetLanguage || 'ja';
     const correct = correctCard.frontWithFurigana || correctCard.front;
+    const sameLangCards = (allCards || []).filter(c => (c.targetLanguage || 'ja') === targetLang);
     const distractors = shuffleArray(
-        allCards
+        sameLangCards
             .filter(c => c.id !== correctCard.id)
             .map(c => c.frontWithFurigana || c.front)
             .filter((v, i, arr) => arr.indexOf(v) === i && normalize(v) !== normalize(correct))
@@ -392,6 +395,7 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
 
 // ─── Main StudyScreen ──────────────────────────────────────────────────────
 const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack }) => {
+    const { isEnglishMode } = useTargetLanguage();
     const originalCards = useMemo(() => studySessionData?.cards || [], [studySessionData]);
     const [furiganaEnabled, setFuriganaEnabled] = useState(() => localStorage.getItem('study_furigana_enabled') !== 'false');
     const [audioEnabled, setAudioEnabled] = useState(() => localStorage.getItem('study_audio_enabled') !== 'false');
@@ -867,7 +871,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         </div>
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <span className="text-sm font-bold text-gray-700 dark:text-gray-350">Hiển thị Furigana</span>
+                                <span className="text-sm font-bold text-gray-700 dark:text-gray-350">{isEnglishMode ? 'Hiện phiên âm IPA' : 'Hiển thị Furigana'}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"

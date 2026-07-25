@@ -4,6 +4,7 @@ import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitch
 import { POS_TYPES, getPosLabel } from '../../config/constants';
 import { isLeechCard } from '../../utils/srs';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { formatIPA, isEnglishCard as checkIsEnglishCard } from '../../utils/englishVocab';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
@@ -137,7 +138,7 @@ const Flashcard = ({
         }
 
         const cleanWord = frontText.split('（')[0].split('(')[0].replace(/\s*[（(][^）)]*[）)]/g, '').trim();
-        if (!cleanWord) {
+        if (isEnglishCard || !cleanWord) {
             setPitchData(null);
             return;
         }
@@ -169,8 +170,8 @@ const Flashcard = ({
 
     const scale = getCardScaleStyles(card, cardSettings);
 
-    const { isEnglishMode } = useTargetLanguage();
-    const isEnglishCard = card?.targetLanguage === 'en' || (isEnglishMode && card?.targetLanguage !== 'ja');
+    const { targetLanguage, isEnglishMode } = useTargetLanguage();
+    const isEnglishCard = checkIsEnglishCard(card, isEnglishMode);
 
     const renderFrontContent = () => {
         let wordColorClass = "text-slate-800 dark:text-white";
@@ -193,9 +194,9 @@ const Flashcard = ({
                         {isEnglishCard ? (
                             <>
                                 <span>{card.front}</span>
-                                {card.ipa && (
+                                {formatIPA(card.ipa, card.front) && (
                                     <span className="text-sm sm:text-base font-mono font-medium text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
-                                        {card.ipa.startsWith('/') ? card.ipa : `/${card.ipa}/`}
+                                        {formatIPA(card.ipa, card.front)}
                                     </span>
                                 )}
                             </>
@@ -321,28 +322,38 @@ const Flashcard = ({
                     </div>
                 )}
                 <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-2 sm:space-y-2.5 w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full ${(card.imageUrl || card.imageBase64) && variant === 'review' ? 'text-left min-w-0 flex-1' : ''}`}>
-                    {cardSettings.back.reading && (
-                        <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full px-2`}>
-                            {renderReadingWithPitchAccent()}
-                            {card.pos && (
-                                <span className={variant === 'review' ? 
-                                    "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" : 
-                                    "inline-block px-2 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-[10px] font-semibold text-slate-500 dark:text-slate-400 font-sans"
-                                }>
-                                    {getPosLabel(card.pos)}
-                                </span>
-                            )}
-                        </div>
-                    )}
-                    {!cardSettings.back.reading && card.pos && (
-                        <div className="text-center mb-0.5">
-                            <span className={variant === 'review' ? 
-                                "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" : 
-                                "inline-block px-2 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-[10px] font-semibold text-slate-500 dark:text-slate-400 font-sans"
-                            }>
-                                {getPosLabel(card.pos)}
-                            </span>
-                        </div>
+                    {isEnglishCard ? (
+                        (formatIPA(card.ipa, card.front) || card.pos) && (
+                            <div className="flex items-center justify-center gap-2 flex-wrap mb-1">
+                                {formatIPA(card.ipa, card.front) && cardSettings.back.ipa !== false && (
+                                    <span className="text-base sm:text-lg font-mono font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
+                                        {formatIPA(card.ipa, card.front)}
+                                    </span>
+                                )}
+                                {card.pos && cardSettings.back.pos !== false && (
+                                    <span className={variant === 'review' ? 
+                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" : 
+                                        "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
+                                    }>
+                                        {getPosLabel(card.pos)}
+                                    </span>
+                                )}
+                            </div>
+                        )
+                    ) : (
+                        cardSettings.back.reading && (
+                            <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full px-2`}>
+                                {renderReadingWithPitchAccent()}
+                                {card.pos && (
+                                    <span className={variant === 'review' ? 
+                                        "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" : 
+                                        "inline-block px-2 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-[10px] font-semibold text-slate-500 dark:text-slate-400 font-sans"
+                                    }>
+                                        {getPosLabel(card.pos)}
+                                    </span>
+                                )}
+                            </div>
+                        )
                     )}
                     {cardSettings.back.meaning && (
                         <div className={`${scale.meaningSize} font-bold ${meaningColorClass} break-words whitespace-pre-line leading-relaxed max-w-full px-2`}>
@@ -365,9 +376,18 @@ const Flashcard = ({
                             {cardSettings.back.synonym && card.synonym && (
                                 <span className={`inline-flex items-baseline gap-1 ${variant === 'review' ? 'text-emerald-105' : 'text-slate-800 dark:text-slate-300'}`}>
                                     <span className={variant === 'review' ? "text-emerald-100 font-normal shrink-0" : "text-slate-400 dark:text-slate-500 font-normal shrink-0"}>Đồng nghĩa: </span>
-                                    <FuriganaText text={card.synonym} forceHide={cardSettings.back.synonymFurigana === false} className={`font-japanese font-semibold ${variant === 'review' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`} />
+                                    {isEnglishCard ? (
+                                        <span className={`font-semibold ${variant === 'review' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>{card.synonym}</span>
+                                    ) : (
+                                        <FuriganaText text={card.synonym} forceHide={cardSettings.back.synonymFurigana === false} className={`font-japanese font-semibold ${variant === 'review' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`} />
+                                    )}
                                 </span>
                             )}
+                        </div>
+                    )}
+                    {cardSettings.back.nuance !== false && card.nuance && (
+                        <div className="text-xs text-amber-700 dark:text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-xl p-2 max-w-full text-left font-medium mt-1">
+                            💡 <span className="font-bold">Sắc thái:</span> {card.nuance}
                         </div>
                     )}
                     {cardSettings.back.example && card.example && (
@@ -381,8 +401,8 @@ const Flashcard = ({
                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                 return (
                                     <div key={idx} className={`border-l-2 ${variant === 'review' ? 'border-white/30' : 'border-indigo-500/30'} pl-3`}>
-                                        <div className={`${scale.exampleTextSize} ${exampleTextClass} font-japanese leading-relaxed`}>
-                                            <FuriganaText text={ex} forceHide={cardSettings.back.exampleFurigana === false} />
+                                        <div className={`${scale.exampleTextSize} ${exampleTextClass} ${isEnglishCard ? 'font-sans' : 'font-japanese'} leading-relaxed`}>
+                                            {isEnglishCard ? ex : <FuriganaText text={ex} forceHide={cardSettings.back.exampleFurigana === false} />}
                                         </div>
                                         {meaning && cardSettings.back.exampleMeaning !== false && (
                                             <p className={exampleMeaningClass}>{meaning}</p>

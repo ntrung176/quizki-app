@@ -6,6 +6,7 @@ import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgress
 import FuriganaText from '../ui/FuriganaText';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const shuffleArr = (arr) => {
     const a = [...arr];
@@ -14,6 +15,7 @@ const shuffleArr = (arr) => {
 };
 
 const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) => {
+    const { isEnglishMode } = useTargetLanguage();
     // Load saved progress from localStorage
     const getSavedProgress = () => {
         try {
@@ -440,7 +442,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
 
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Bật Furigana</span>
+                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isEnglishMode ? 'Hiện phiên âm IPA' : 'Bật Furigana'}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"

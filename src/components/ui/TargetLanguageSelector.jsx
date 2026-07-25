@@ -1,12 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTargetLanguage, SUPPORTED_TARGET_LANGUAGES } from '../../context/TargetLanguageContext';
 import { ChevronDown, Check, Globe } from 'lucide-react';
 import { showToast } from '../../utils/toast';
+import FlagIcon from './FlagIcon';
 
 const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
     const { targetLanguage, setTargetLanguage, activeTargetConfig } = useTargetLanguage();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -19,14 +23,27 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
     }, []);
 
     const handleSelectLanguage = (langCode) => {
-        if (langCode === 'en' && !isAdmin) {
+        if (targetLanguage === langCode) {
             setIsOpen(false);
-            showToast('Tính năng đang phát triển', 'info');
             return;
         }
 
         setTargetLanguage(langCode);
         setIsOpen(false);
+        showToast(`Đã chuyển sang ${langCode === 'en' ? 'Tiếng Anh' : 'Tiếng Nhật'}!`, 'success');
+
+        const path = location.pathname.toLowerCase();
+        // Nếu đang ở bất kỳ học phần, màn hình sửa, ôn tập, hoặc trang đặc thù:
+        // Chuyển hướng an toàn về Thư viện từ vựng (/vocab/sets) để load dữ liệu mới sạch vẽ 100%
+        if (path.includes('/set') || path.includes('/study') || path.includes('/flashcard') || path.includes('/review') || path.includes('/kanji') || path.includes('/grammar') || path.includes('/kaiwa')) {
+            setTimeout(() => {
+                navigate('/vocab/sets');
+            }, 150);
+        } else {
+            setTimeout(() => {
+                window.location.reload();
+            }, 200);
+        }
     };
 
     if (minimal) {
@@ -37,11 +54,11 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
                     title={`Ngôn ngữ muốn học: ${activeTargetConfig.name}`}
                     className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lg hover:scale-105 active:scale-95 transition-all shadow-sm cursor-pointer"
                 >
-                    <span>{activeTargetConfig.flag}</span>
+                    <FlagIcon countryCode={activeTargetConfig?.countryCode} fallbackFlag={activeTargetConfig?.flag} className="w-5 h-3.5 object-cover rounded-xs shadow-xs" />
                 </button>
 
                 {isOpen && (
-                    <div className="absolute left-0 bottom-full mb-2 w-48 rounded-2xl bg-white dark:bg-slate-800 shadow-2xl border border-slate-200 dark:border-slate-700 p-1.5 z-[9999] animate-in fade-in zoom-in-95 duration-150">
+                    <div className="absolute right-0 bottom-full mb-2 w-48 rounded-2xl bg-white dark:bg-slate-800 shadow-2xl border border-slate-200 dark:border-slate-700 p-1.5 z-[9999] animate-in fade-in zoom-in-95 duration-150">
                         <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase px-2 py-1 tracking-wider">
                             NGÔN NGỮ MUỐN HỌC
                         </div>
@@ -58,7 +75,7 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
                                     }`}
                                 >
                                     <span className="flex items-center gap-2">
-                                        <span className="text-sm">{lang.flag}</span>
+                                        <FlagIcon countryCode={lang.countryCode} fallbackFlag={lang.flag} className="w-5 h-3.5 object-cover rounded-xs shadow-xs" />
                                         <span>{lang.name}</span>
                                     </span>
                                     {isSelected && <Check className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />}
@@ -77,8 +94,8 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-850 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 text-slate-800 dark:text-slate-100 text-xs font-bold transition-all shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
-                <span className="text-base">{activeTargetConfig.flag}</span>
-                <span className="hidden sm:inline font-mono">Target: <strong className="text-indigo-600 dark:text-indigo-400">{activeTargetConfig.name}</strong></span>
+                <FlagIcon countryCode={activeTargetConfig?.countryCode} fallbackFlag={activeTargetConfig?.flag} className="w-5 h-3.5 object-cover rounded-xs shadow-xs" />
+                <span className="hidden sm:inline font-bold text-indigo-600 dark:text-indigo-400">{activeTargetConfig.name}</span>
                 <span className="sm:hidden font-mono">{activeTargetConfig.code.toUpperCase()}</span>
                 <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
@@ -104,7 +121,7 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
                                     }`}
                                 >
                                     <div className="flex items-center gap-2.5">
-                                        <span className="text-xl drop-shadow-sm">{lang.flag}</span>
+                                        <FlagIcon countryCode={lang.countryCode} fallbackFlag={lang.flag} className="w-5 h-3.5 object-cover rounded-xs shadow-xs" />
                                         <div className="text-left">
                                             <div className="leading-tight">{lang.name}</div>
                                             <div className="text-[9px] font-normal text-slate-400 font-mono mt-0.5">{lang.testName} • {lang.characterSystem}</div>

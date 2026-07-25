@@ -373,7 +373,7 @@ const SRSVocabScreen = ({
         });
 
         return Object.values(stats)
-            .filter(f => f.total > 0 && f.dueCards.length > 0) // only folders that have due cards for spaced repetition
+            .filter(f => f.total > 0 && (f.dueCards.length > 0 || f.newCards.length > 0)) // include folders that have due cards or new cards
             .map(f => {
                 const masteredPct = f.total > 0 ? Math.round((f.masteredCount / f.total) * 100) : 0;
 
@@ -464,7 +464,7 @@ const SRSVocabScreen = ({
     const globalStats = useMemo(() => {
         return folderStats.reduce((acc, curr) => ({
             new: acc.new + curr.newCards.length,
-            due: acc.due + curr.dueCards.length,
+            due: acc.due + curr.dueCards.length + curr.newCards.length,
         }), { new: 0, due: 0 });
     }, [folderStats]);
 
@@ -499,14 +499,14 @@ const SRSVocabScreen = ({
         }
     };
 
-    // "Ôn tập" top banner button — only launches SRS-enabled due cards
+    // "Ôn tập" top banner button — launches review queue for due cards or new cards available for study
     const handleResumeGlobal = () => {
-        const allDue = allCards.filter(isDue);
-        if (allDue.length > 0) {
-            startFolderReview(allDue, 'global');
+        const allAvailable = folderStats.flatMap(f => [...f.dueCards, ...f.newCards]);
+        if (allAvailable.length > 0) {
+            startFolderReview(allAvailable, 'global');
         } else {
             if (setNotification) {
-                setNotification("Không có thẻ nào cần ôn tập ngắt quãng lúc này. Hãy mở học phần và bấm \"Thêm vào ngắt quãng\"!");
+                setNotification("Không có thẻ nào cần ôn tập ngắt quãng lúc này.");
             }
         }
     };

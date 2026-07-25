@@ -14,6 +14,7 @@ import { SafeAvatarImage } from '../ui';
 import LanguageSelector from '../ui/LanguageSelector';
 import TargetLanguageSelector from '../ui/TargetLanguageSelector';
 import { isVocabCardDue, isSrsCardDue } from '../../utils/srs';
+import { isEnglishCard } from '../../utils/englishVocab';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/grammarService';
 
@@ -211,8 +212,12 @@ const Sidebar = ({
         return () => unsub();
     }, [userId]);
 
-    // Calculate due vocab count
-    const dueVocabCount = allCards.filter(card => isVocabCardDue(card)).length;
+    // Calculate due & new vocab count filtered by active target language
+    const dueVocabCount = allCards.filter(card => {
+        const cardIsEng = isEnglishCard(card, isEnglishMode);
+        if (cardIsEng !== isEnglishMode) return false;
+        return isVocabCardDue(card) || card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
+    }).length;
     const [lastSeenDueCount, setLastSeenDueCount] = useState(() => {
         try {
             return parseInt(localStorage.getItem('quizki_last_seen_due_count') || '0');

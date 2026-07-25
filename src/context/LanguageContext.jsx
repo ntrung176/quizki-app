@@ -8,13 +8,13 @@ import th from '../locales/th.json';
 import my from '../locales/my.json';
 
 export const SUPPORTED_LANGUAGES = [
-    { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', country: 'Việt Nam' },
-    { code: 'en', name: 'English', flag: '🇺🇸', country: 'Global / US' },
-    { code: 'zh', name: '中文', flag: '🇨🇳', country: 'China' },
-    { code: 'ko', name: '한국어', flag: '🇰🇷', country: 'Korea' },
-    { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩', country: 'Indonesia' },
-    { code: 'th', name: 'ไทย', flag: '🇹🇭', country: 'Thailand' },
-    { code: 'my', name: 'မြန်မာစာ', flag: '🇲🇲', country: 'Myanmar' },
+    { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', countryCode: 'vn', country: 'Việt Nam' },
+    { code: 'en', name: 'English', flag: '🇺🇸', countryCode: 'us', country: 'Global / US' },
+    { code: 'zh', name: '中文', flag: '🇨🇳', countryCode: 'cn', country: 'China' },
+    { code: 'ko', name: '한국어', flag: '🇰🇷', countryCode: 'kr', country: 'Korea' },
+    { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩', countryCode: 'id', country: 'Indonesia' },
+    { code: 'th', name: 'ไทย', flag: '🇹🇭', countryCode: 'th', country: 'Thailand' },
+    { code: 'my', name: 'မြန်မာစာ', flag: '🇲🇲', countryCode: 'mm', country: 'Myanmar' },
 ];
 
 const dictionaries = { vi, en, zh, ko, id, th, my };

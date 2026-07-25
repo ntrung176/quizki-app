@@ -9,13 +9,14 @@ import { CardEditorItem } from '../cards/AddCardForm';
 import BatchAiModal from '../cards/BatchAiModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { getLanguageService, isEnglishCard } from '../../languages';
 
 const isCardModified = (card, originalCard) => {
     if (!originalCard) return true;
     const fields = [
-        'front', 'back', 'synonym', 'example', 'exampleMeaning', 
+        'front', 'back', 'ipa', 'synonym', 'example', 'exampleMeaning', 
         'nuance', 'pos', 'level', 'sinoVietnamese', 'synonymSinoVietnamese', 
-        'reading', 'accent', 'imageBase64', 'audioBase64'
+        'reading', 'accent', 'imageBase64', 'audioBase64', 'targetLanguage'
     ];
     for (const f of fields) {
         const val1 = card[f] !== undefined && card[f] !== null ? card[f] : '';
@@ -104,7 +105,7 @@ const EditSetScreen = ({
     };
 
     const handleAddCardRow = () => {
-        const newCard = { id: `new_${Date.now()}`, isNew: true, front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null };
+        const newCard = { id: `new_${Date.now()}`, isNew: true, front: '', back: '', ipa: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null };
         setCards(prev => [...prev, newCard]);
         setActiveCardId(newCard.id);
         setTimeout(() => {
@@ -156,24 +157,27 @@ const EditSetScreen = ({
         const aiData = await onGeminiAssist(card.front, card.pos, card.level, card.back, false);
 
         if (aiData) {
+            const langService = getLanguageService(card.front || card, isEnglishMode);
+            const cardIsEng = langService.code === 'en';
+
             setCards(prev => prev.map(c => {
                 if (c.id === id) {
                     return {
                         ...c,
-                        front: isEnglishMode ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
+                        front: cardIsEng ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
                         back: aiData.meaning || c.back,
-                        ipa: isEnglishMode ? (aiData.ipa || '') : '',
-                        sinoVietnamese: isEnglishMode ? '' : (aiData.sinoVietnamese || c.sinoVietnamese),
+                        ipa: cardIsEng ? (aiData.ipa || c.ipa || '') : '',
+                        sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || c.sinoVietnamese),
                         synonym: aiData.synonym || c.synonym,
-                        synonymSinoVietnamese: isEnglishMode ? '' : (aiData.synonymSinoVietnamese || c.synonymSinoVietnamese),
+                        synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || c.synonymSinoVietnamese),
                         example: aiData.example || c.example,
                         exampleMeaning: aiData.exampleMeaning || c.exampleMeaning,
                         nuance: aiData.nuance || c.nuance,
                         pos: aiData.pos || c.pos,
                         level: aiData.level || c.level,
-                        reading: isEnglishMode ? '' : (aiData.reading || c.reading || ''),
-                        accent: isEnglishMode ? '' : (aiData.accent !== undefined ? String(aiData.accent) : (c.accent || '')),
-                        targetLanguage: isEnglishMode ? 'en' : 'ja'
+                        reading: cardIsEng ? '' : (aiData.reading || c.reading || ''),
+                        accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : (c.accent || '')),
+                        targetLanguage: cardIsEng ? 'en' : 'ja'
                     };
                 }
                 return c;
@@ -366,12 +370,19 @@ const EditSetScreen = ({
                     const needsFolderUpdate = activeFolderId !== folderId;
 
                     if (isModified || needsFolderUpdate) {
+                        const cardIsEng = isEnglishCard(card, isEnglishMode);
+
                         const updates = {
-                            front: card.front, back: card.back, synonym: card.synonym, 
+                            front: card.front, back: card.back, 
+                            ipa: cardIsEng ? (card.ipa || '') : (card.ipa || ''), 
+                            synonym: card.synonym, 
                             example: card.example, exampleMeaning: card.exampleMeaning, 
                             nuance: card.nuance, pos: card.pos, level: card.level, 
-                            sinoVietnamese: card.sinoVietnamese, synonymSinoVietnamese: card.synonymSinoVietnamese, 
-                            reading: card.reading || '', accent: card.accent || '',
+                            sinoVietnamese: cardIsEng ? '' : card.sinoVietnamese, 
+                            synonymSinoVietnamese: cardIsEng ? '' : card.synonymSinoVietnamese, 
+                            reading: cardIsEng ? '' : (card.reading || ''), 
+                            accent: cardIsEng ? '' : (card.accent || ''),
+                            targetLanguage: cardIsEng ? 'en' : (card.targetLanguage || 'ja'),
                             imageBase64: card.imageBase64, audioBase64: card.audioBase64
                         };
                         if (needsFolderUpdate) {

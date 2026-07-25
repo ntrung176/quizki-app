@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage, SUPPORTED_LANGUAGES } from '../../context/LanguageContext';
 import { Globe, ChevronDown, Check } from 'lucide-react';
+import FlagIcon from './FlagIcon';
 
 const LanguageSelector = ({ compact = false, minimal = false, direction = 'up' }) => {
     const { language, setLanguage, currentLangObj, t } = useLanguage();
@@ -18,7 +19,7 @@ const LanguageSelector = ({ compact = false, minimal = false, direction = 'up' }
     }, []);
 
     const menuPositionClass = direction === 'up' 
-        ? 'bottom-full mb-2 left-0' 
+        ? 'bottom-full mb-2 right-0' 
         : 'top-full mt-2 right-0';
 
     return (
@@ -35,13 +36,13 @@ const LanguageSelector = ({ compact = false, minimal = false, direction = 'up' }
                 }`}
                 title={t('common.selectLanguage', 'Chọn ngôn ngữ')}
             >
-                <span className="text-base select-none leading-none">{currentLangObj.flag}</span>
-                {!minimal && <span className="font-mono uppercase font-black">{currentLangObj.code}</span>}
+                <FlagIcon countryCode={currentLangObj?.countryCode} fallbackFlag={currentLangObj?.flag} className="w-5 h-3.5 object-cover rounded-xs shadow-xs" />
+                {!minimal && <span className="font-mono uppercase font-black ml-0.5">{currentLangObj.code}</span>}
                 {!minimal && <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />}
             </button>
 
             {isOpen && (
-                <div className={`absolute ${menuPositionClass} w-48 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl z-50 py-1.5 overflow-hidden animate-in fade-in zoom-in-95 duration-150`}>
+                <div className={`absolute ${menuPositionClass} w-48 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl z-[9999] py-1.5 overflow-hidden animate-in fade-in zoom-in-95 duration-150`}>
                     <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
                         <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1">
                             <Globe className="w-3 h-3 text-cyan-500" />
@@ -66,7 +67,7 @@ const LanguageSelector = ({ compact = false, minimal = false, direction = 'up' }
                                     }`}
                                 >
                                     <div className="flex items-center gap-2.5">
-                                        <span className="text-lg select-none">{lang.flag}</span>
+                                        <FlagIcon countryCode={lang.countryCode} fallbackFlag={lang.flag} className="w-5 h-3.5 object-cover rounded-xs shadow-xs" />
                                         <div>
                                             <p className="font-semibold leading-none">{lang.name}</p>
                                             <p className="text-[9px] text-slate-400 font-mono mt-0.5">{lang.country}</p>

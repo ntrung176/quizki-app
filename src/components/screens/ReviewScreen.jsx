@@ -17,6 +17,7 @@ import { getAuth } from 'firebase/auth';
 import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const ReviewScreen = ({
     cards: initialCards,
@@ -29,6 +30,7 @@ const ReviewScreen = ({
     onSaveCardAudio,
     onBack
 }) => {
+    const { isEnglishMode } = useTargetLanguage();
     // Load saved progress from localStorage
     const getSavedProgress = () => {
         if (!setId || !reviewMode) return null;
@@ -1915,7 +1917,7 @@ const ReviewScreen = ({
                                         <button
                                             onClick={() => {
                                                 setInputMode('reading');
-                                                localStorage.setItem('meaning_input_lang', 'ja');
+                                                localStorage.setItem('meaning_input_lang', isEnglishMode ? 'en' : 'ja');
                                                 setInputValue('');
                                                 setHintCount(0);
                                             }}
@@ -1924,13 +1926,13 @@ const ReviewScreen = ({
                                                 : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                                 }`}
                                         >
-                                            🇯🇵 Tiếng Nhật
+                                            {isEnglishMode ? '🇺🇸 Tiếng Anh' : '🇯🇵 Tiếng Nhật'}
                                         </button>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Bật Furigana</span>
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isEnglishMode ? 'Hiện phiên âm IPA' : 'Bật Furigana'}</span>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
@@ -1946,7 +1948,7 @@ const ReviewScreen = ({
                                 </div>
 
                                 <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Hiện âm Hán Việt</span>
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isEnglishMode ? 'Hiện từ loại (POS)' : 'Hiện âm Hán Việt'}</span>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"

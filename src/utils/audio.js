@@ -2,6 +2,7 @@
 // Hỗ trợ Microsoft Azure Speech TTS với fallback Web Speech API
 
 // Convert base64 to ArrayBuffer
+import { isEnglishText } from '../languages/en/ipa';
 const base64ToArrayBuffer = (base64) => {
     const binaryString = atob(base64);
     const len = binaryString.length;
@@ -56,25 +57,29 @@ let currentAudioObj = null;
 
 const VOICE_STORAGE_KEY = 'quizki-tts-voice';
 
-// Available voices (Microsoft Azure Japanese voices)
+// Available voices (Microsoft Azure & WebSpeech voices)
 export const TTS_VOICES = {
-    mayu: { id: 'mayu', label: 'Mayu (Nữ)', gender: 'Female' },
-    ryota: { id: 'ryota', label: 'Ryota (Nam)', gender: 'Male' },
+    female: { id: 'female', label: 'Nữ', gender: 'Female' },
+    male: { id: 'male', label: 'Nam', gender: 'Male' },
 };
 
 // Get current voice preference
 export const getTTSVoice = () => {
     try {
-        return localStorage.getItem(VOICE_STORAGE_KEY) || 'mayu';
+        const saved = localStorage.getItem(VOICE_STORAGE_KEY) || 'female';
+        if (saved === 'mayu') return 'female';
+        if (saved === 'ryota') return 'male';
+        return saved === 'male' ? 'male' : 'female';
     } catch {
-        return 'mayu';
+        return 'female';
     }
 };
 
 // Set voice preference
 export const setTTSVoice = (voiceId) => {
     try {
-        localStorage.setItem(VOICE_STORAGE_KEY, voiceId);
+        const normalized = voiceId === 'mayu' ? 'female' : (voiceId === 'ryota' ? 'male' : voiceId);
+        localStorage.setItem(VOICE_STORAGE_KEY, normalized);
     } catch { /* ignore */ }
 };
 
@@ -107,15 +112,19 @@ const lookupSharedAudio = async (text, gender) => {
     try {
         const { db, sharedVocabPath, getDoc, doc, disabled } = _sharedAudioDeps;
         if (disabled?.current) return null;
+        const isEng = isEnglishText(text);
         const key = text.trim().replace(/\s+/g, ' ');
         const encodedKey = encodeURIComponent(key);
-        const vocabRef = doc(db, sharedVocabPath, encodedKey);
+        const targetPath = isEng ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_en') : sharedVocabPath;
+        const vocabRef = doc(db, targetPath, encodedKey);
         const snap = await getDoc(vocabRef);
         if (snap.exists()) {
             const data = snap.data();
-            const audioField = gender === 'male' ? 'audioBase64_male' : 'audioBase64_female';
+            const audioField = isEng 
+                ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
+                : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female');
             if (data[audioField]) {
-                console.log(`🔊 Shared audio HIT (${gender}): "${text}"`);
+                console.log(`🔊 Shared audio HIT (${isEng ? 'EN' : 'JA'} ${gender}): "${text}"`);
                 return data[audioField];
             }
         }
@@ -130,7 +139,7 @@ const lookupSharedAudio = async (text, gender) => {
 
 /**
  * Lưu audio vào shared vocab (theo giọng nam/nữ)
- * @param {string} text - Text tiếng Nhật
+ * @param {string} text - Text tiếng Nhật / Tiếng Anh
  * @param {string} base64 - Audio base64
  * @param {string} gender - 'male' hoặc 'female'
  */
@@ -139,12 +148,16 @@ const saveSharedAudio = async (text, base64, gender) => {
     try {
         const { db, sharedVocabPath, setDoc, doc, disabled } = _sharedAudioDeps;
         if (disabled?.current) return;
+        const isEng = isEnglishText(text);
         const key = text.trim().replace(/\s+/g, ' ');
         const encodedKey = encodeURIComponent(key);
-        const vocabRef = doc(db, sharedVocabPath, encodedKey);
-        const audioField = gender === 'male' ? 'audioBase64_male' : 'audioBase64_female';
+        const targetPath = isEng ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_en') : sharedVocabPath;
+        const vocabRef = doc(db, targetPath, encodedKey);
+        const audioField = isEng 
+            ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
+            : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female');
         await setDoc(vocabRef, { [audioField]: base64 }, { merge: true });
-        console.log(`💾 Saved shared audio (${gender}): "${text}"`);
+        console.log(`💾 Saved shared audio (${isEng ? 'EN' : 'JA'} ${gender}): "${text}"`);
     } catch (e) {
         if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
             if (_sharedAudioDeps?.disabled) _sharedAudioDeps.disabled.current = true;
@@ -170,18 +183,27 @@ const azureTTS = async (text) => {
     const voiceId = getTTSVoice();
     const speed = 0.8;
     const volume = 'default';
+    const isEng = isEnglishText(text);
 
-    const cacheKey = `azure:${voiceId}:${speed}:${volume}:${text}`;
+    const cacheKey = `azure:${voiceId}:${isEng ? 'en' : 'ja'}:${speed}:${volume}:${text}`;
     if (ttsCache.has(cacheKey)) {
         return ttsCache.get(cacheKey);
     }
 
     const voiceMap = {
-        mayu: 'ja-JP-MayuNeural',
-        ryota: 'ja-JP-KeitaNeural'
+        ja: {
+            female: 'ja-JP-MayuNeural',
+            male: 'ja-JP-KeitaNeural'
+        },
+        en: {
+            female: 'en-US-JennyNeural',
+            male: 'en-US-GuyNeural'
+        }
     };
-    const azureVoiceName = voiceMap[voiceId] || 'ja-JP-MayuNeural';
-    const gender = voiceId === 'ryota' ? 'male' : 'female';
+
+    const langKey = isEng ? 'en' : 'ja';
+    const azureVoiceName = (voiceMap[langKey] && voiceMap[langKey][voiceId]) || (isEng ? 'en-US-JennyNeural' : 'ja-JP-MayuNeural');
+    const gender = voiceId === 'male' ? 'male' : 'female';
 
     let cachedAudio = null;
     if (volume === 'default') {
@@ -227,7 +249,8 @@ const azureTTS = async (text) => {
             });
         } else {
             const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
-            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ja-JP"><voice xml:lang="ja-JP" name="${azureVoiceName}">${ssmlText}</voice></speak>`;
+            const xmlLang = isEng ? 'en-US' : 'ja-JP';
+            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${azureVoiceName}">${ssmlText}</voice></speak>`;
 
             response = await fetch(url, {
                 method: 'POST',
@@ -321,29 +344,22 @@ const extractReadingText = (text) => {
     return mainText;
 };
 
-let cachedJapaneseVoice = null;
-let voicesLoaded = false;
-
-const loadJapaneseVoice = () => {
-    if (voicesLoaded) return cachedJapaneseVoice;
-
+const loadWebVoice = (isEng, voiceId) => {
+    const langPrefix = isEng ? 'en' : 'ja';
+    const langCode = isEng ? 'en-US' : 'ja-JP';
     const voices = window.speechSynthesis?.getVoices() || [];
-    cachedJapaneseVoice = voices.find(v => v.lang === 'ja-JP' && v.name.includes('Google'))
-        || voices.find(v => v.lang === 'ja-JP' && v.name.includes('Microsoft'))
-        || voices.find(v => v.lang === 'ja-JP')
-        || voices.find(v => v.lang.startsWith('ja'));
 
-    if (voices.length > 0) voicesLoaded = true;
-    return cachedJapaneseVoice;
+    let matchedVoice = voices.find(v => (v.lang === langCode || v.lang.startsWith(langPrefix)) && (
+        voiceId === 'male'
+            ? (v.name.includes('Male') || v.name.includes('Guy') || v.name.includes('David') || v.name.includes('George') || v.name.includes('Keita'))
+            : (v.name.includes('Female') || v.name.includes('Jenny') || v.name.includes('Zira') || v.name.includes('Mayu') || v.name.includes('Google US English'))
+    ));
+
+    if (!matchedVoice) {
+        matchedVoice = voices.find(v => v.lang === langCode || v.lang.startsWith(langPrefix));
+    }
+    return matchedVoice;
 };
-
-if (window.speechSynthesis) {
-    window.speechSynthesis.onvoiceschanged = () => {
-        voicesLoaded = false;
-        loadJapaneseVoice();
-    };
-    loadJapaneseVoice();
-}
 
 const speakWithWebSpeech = (text) => {
     return new Promise((resolve) => {
@@ -369,14 +385,16 @@ const speakWithWebSpeech = (text) => {
             if (match) cleanText = match[1];
         }
 
+        const isEng = isEnglishText(cleanText);
+        const voiceId = getTTSVoice();
+
         const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.lang = 'ja-JP';
-        const speed = 1.0;
-        utterance.rate = 0.9 * speed;
+        utterance.lang = isEng ? 'en-US' : 'ja-JP';
+        utterance.rate = isEng ? 1.0 : 0.9;
         utterance.pitch = 1;
 
-        const japaneseVoice = loadJapaneseVoice();
-        if (japaneseVoice) utterance.voice = japaneseVoice;
+        const webVoice = loadWebVoice(isEng, voiceId);
+        if (webVoice) utterance.voice = webVoice;
 
         utterance.onend = () => safeResolve();
         utterance.onerror = () => safeResolve();
@@ -530,9 +548,10 @@ export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null,
     let effectiveBase64 = audioBase64;
 
     if (audioBase64) {
-        const savedVoiceId = cardVoiceId || 'mayu';
-        if (savedVoiceId !== currentVoiceId) {
-            console.log(`🔊 Voice mismatch: card voice is "${savedVoiceId}", user selected "${currentVoiceId}". Bypassing pre-saved audio to regenerate.`);
+        const savedVoiceId = cardVoiceId || 'female';
+        const normSaved = savedVoiceId === 'mayu' ? 'female' : (savedVoiceId === 'ryota' ? 'male' : savedVoiceId);
+        if (normSaved !== currentVoiceId) {
+            console.log(`🔊 Voice mismatch: card voice is "${normSaved}", user selected "${currentVoiceId}". Bypassing pre-saved audio to regenerate.`);
             effectiveBase64 = null;
         }
     }

@@ -6,7 +6,7 @@ import { db, appId, storage } from '../../config/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music, Smile, CornerUpLeft, Save } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
-import { showConfirm } from '../../utils/toast';
+import { showConfirm, showToast } from '../../utils/toast';
 import { playAudio, generateAudioSilent } from '../../utils/audio';
 import { aiNormalizeVerbs, aiScanVerbsForNormalization, aiFixFuriganaFormat, aiRecreateVocabulary } from '../../utils/aiProvider';
 import { syncKanjiAndVocabToCDN } from '../../utils/kanjiService';
@@ -81,6 +81,10 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [dictKanjiFilter, setDictKanjiFilter] = useState('all');
     const [dictSearchQuery, setDictSearchQuery] = useState('');
     const [visibleLimit, setVisibleLimit] = useState(50);
+    const [dictLangTab, setDictLangTab] = useState('ja'); // 'ja' | 'en'
+    const [jaCount, setJaCount] = useState(0);
+    const [enCount, setEnCount] = useState(0);
+    const [isClearingDict, setIsClearingDict] = useState(false);
 
     const [isBulkRecreating, setIsBulkRecreating] = useState(false);
     const [bulkProgress, setBulkProgress] = useState({ current: 0, total: 0 });
@@ -932,21 +936,35 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     useEffect(() => {
         if (activeSection === 'vocabulary') {
             setIsLoadingDict(true);
-            const q = query(collection(db, 'sharedVocabulary'));
+            setDictResults([]); // Reset old tab results immediately so previous language items do not linger!
+            const targetCollection = dictLangTab === 'en' ? 'sharedVocabulary_en' : 'sharedVocabulary';
+            const q = query(collection(db, targetCollection));
             const unsubscribe = onSnapshot(q, (snapshot) => {
                 const results = [];
                 snapshot.forEach((doc) => {
                     results.push({ id: doc.id, ...doc.data() });
                 });
                 setDictResults(results);
+                if (dictLangTab === 'en') setEnCount(results.length);
+                else setJaCount(results.length);
                 setIsLoadingDict(false);
             }, (error) => {
                 console.error("Error fetching shared vocabulary:", error);
                 setIsLoadingDict(false);
             });
-            return () => unsubscribe();
+
+            const qJa = query(collection(db, 'sharedVocabulary'));
+            const unsubJa = onSnapshot(qJa, (snap) => setJaCount(snap.size), (e) => {});
+            const qEn = query(collection(db, 'sharedVocabulary_en'));
+            const unsubEn = onSnapshot(qEn, (snap) => setEnCount(snap.size), (e) => {});
+
+            return () => {
+                unsubscribe();
+                unsubJa();
+                unsubEn();
+            };
         }
-    }, [activeSection]);
+    }, [activeSection, dictLangTab]);
 
     const filteredDictResults = useMemo(() => {
         const hasKanji = (text) => {
@@ -1069,7 +1087,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 reportedAudioError: false,
                 updatedAt: Date.now()
             };
-            await setDoc(doc(db, 'sharedVocabulary', docId), saveData, { merge: true });
+            await setDoc(doc(db, dictLangTab === 'en' ? 'sharedVocabulary_en' : 'sharedVocabulary', docId), saveData, { merge: true });
 
             // Close popup immediately and show success notification
             setEditingDictItem(null);
@@ -1132,7 +1150,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const handleDeleteDictItem = async () => {
         if (!deletingDictItem) return;
         try {
-            await deleteDoc(doc(db, 'sharedVocabulary', deletingDictItem));
+            await deleteDoc(doc(db, dictLangTab === 'en' ? 'sharedVocabulary_en' : 'sharedVocabulary', deletingDictItem));
             setDeletingDictItem(null);
             setNotification({ type: 'success', message: 'Đã xóa từ vựng khỏi kho chung!' });
         } catch (err) {
@@ -1147,7 +1165,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         try {
             const recreatedData = await aiRecreateVocabulary(item);
             if (recreatedData) {
-                const docRef = doc(db, 'sharedVocabulary', item.id);
+                const docRef = doc(db, dictLangTab === 'en' ? 'sharedVocabulary_en' : 'sharedVocabulary', item.id);
                 await setDoc(docRef, {
                     ...recreatedData,
                     reportedError: false,
@@ -1193,7 +1211,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             try {
                 const recreatedData = await aiRecreateVocabulary(item);
                 if (recreatedData) {
-                    const docRef = doc(db, 'sharedVocabulary', item.id);
+                    const docRef = doc(db, dictLangTab === 'en' ? 'sharedVocabulary_en' : 'sharedVocabulary', item.id);
                     await setDoc(docRef, {
                         ...recreatedData,
                         reportedError: false,
@@ -1274,7 +1292,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const handleApplyScanCorrection = async (scanItem) => {
         setApplyingScanId(scanItem.id);
         try {
-            const docRef = doc(db, 'sharedVocabulary', scanItem.id);
+            const docRef = doc(db, dictLangTab === 'en' ? 'sharedVocabulary_en' : 'sharedVocabulary', scanItem.id);
             const updateData = {
                 front: scanItem.dictionaryForm,
                 back: scanItem.meaning || '',
@@ -1292,6 +1310,55 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             setNotification({ type: 'error', message: 'Lỗi khi áp dụng sửa đổi: ' + err.message });
         } finally {
             setApplyingScanId(null);
+        }
+    };
+
+    const handleClearSharedVocabCollection = async (langTarget = dictLangTab) => {
+        const isEng = langTarget === 'en';
+        const collectionName = isEng ? 'sharedVocabulary_en' : 'sharedVocabulary';
+        const langLabel = isEng ? 'Tiếng Anh (sharedVocabulary_en)' : 'Tiếng Nhật (sharedVocabulary)';
+
+        const confirmed = await showConfirm(
+            `⚠️ BẠN CÓ CHẮC CHẮN NGHĨ KỸ CHƯA?\n\nHành động này sẽ XÓA SẠCH TOÀN BỘ từ vựng trong kho ${langLabel}.\nDữ liệu đã xóa KHÔNG THỂ KHÔI PHỤC!`,
+            { type: 'danger', confirmText: `Xóa Sạch Kho ${isEng ? 'Tiếng Anh' : 'Tiếng Nhật'}`, cancelText: 'Hủy bỏ' }
+        );
+
+        if (!confirmed) return;
+
+        setIsClearingDict(true);
+        try {
+            const qSnap = await getDocs(collection(db, collectionName));
+            const totalDocs = qSnap.docs.length;
+            if (totalDocs === 0) {
+                showToast(`Kho từ vựng ${langLabel} hiện tại đã trống.`, 'info');
+                setIsClearingDict(false);
+                return;
+            }
+
+            const docs = qSnap.docs;
+            const chunkSize = 400;
+            let deletedCount = 0;
+
+            for (let i = 0; i < docs.length; i += chunkSize) {
+                const batch = writeBatch(db);
+                const chunk = docs.slice(i, i + chunkSize);
+                chunk.forEach(docSnap => {
+                    batch.delete(docSnap.ref);
+                });
+                await batch.commit();
+                deletedCount += chunk.length;
+            }
+
+            showToast(`Đã xóa thành công toàn bộ ${deletedCount} từ vựng trong kho ${langLabel}!`, 'success');
+        } catch (e) {
+            console.error('Lỗi khi xóa kho từ vựng:', e);
+            if (e?.code === 'permission-denied' || e?.message?.includes('permission')) {
+                showToast('Không đủ quyền để xóa kho từ vựng này trên Firestore. Vui lòng kiểm tra lại quyền Admin.', 'error');
+            } else {
+                showToast('Lỗi khi xóa kho từ vựng: ' + (e.message || e), 'error');
+            }
+        } finally {
+            setIsClearingDict(false);
         }
     };
 
@@ -2858,11 +2925,62 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 <div className="space-y-6">
                     {/* Part 2: Vocabulary List */}
                     <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
-                        <div className="flex items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3">
-                            <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                                <BookOpen className="w-5 h-5 text-indigo-500" />
-                                Danh sách từ vựng kho chung ({dictResults.length} từ)
-                            </h3>
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3 gap-3">
+                            <div>
+                                <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2 text-base">
+                                    <BookOpen className="w-5 h-5 text-indigo-500" />
+                                    Quản lý kho từ vựng dùng chung (Shared Vocabulary)
+                                </h3>
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                    Phân chia riêng biệt giữa kho Tiếng Nhật và kho Tiếng Anh
+                                </p>
+                            </div>
+
+                            {/* Clear Collection Danger Buttons */}
+                            <div className="flex items-center gap-2 flex-wrap">
+                                <button
+                                    onClick={() => handleClearSharedVocabCollection('ja')}
+                                    disabled={isClearingDict}
+                                    className="px-3 py-1.5 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 rounded-xl text-xs font-bold hover:bg-red-100 dark:hover:bg-red-900/50 transition-all flex items-center gap-1.5 disabled:opacity-50"
+                                    title="Xóa toàn bộ kho từ vựng Tiếng Nhật"
+                                >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                    Xóa Sạch Kho Tiếng Nhật ({jaCount})
+                                </button>
+                                <button
+                                    onClick={() => handleClearSharedVocabCollection('en')}
+                                    disabled={isClearingDict}
+                                    className="px-3 py-1.5 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-bold hover:bg-rose-100 dark:hover:bg-rose-900/50 transition-all flex items-center gap-1.5 disabled:opacity-50"
+                                    title="Xóa toàn bộ kho từ vựng Tiếng Anh"
+                                >
+                                    <Trash2 className="w-3.5 h-3.5" />
+                                    Xóa Sạch Kho Tiếng Anh ({enCount})
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Language Selector Tabs */}
+                        <div className="flex items-center gap-2 p-1 bg-gray-100 dark:bg-gray-700/60 rounded-xl w-fit">
+                            <button
+                                onClick={() => setDictLangTab('ja')}
+                                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+                                    dictLangTab === 'ja'
+                                        ? 'bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                                }`}
+                            >
+                                <span className="text-base">🇯🇵</span> Kho Tiếng Nhật ({jaCount} từ)
+                            </button>
+                            <button
+                                onClick={() => setDictLangTab('en')}
+                                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+                                    dictLangTab === 'en'
+                                        ? 'bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                        : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                                }`}
+                            >
+                                <span className="text-base">🇬🇧</span> Kho Tiếng Anh ({enCount} từ)
+                            </button>
                         </div>
 
                         {/* Filters & Search Row */}
@@ -2879,18 +2997,31 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <span className="text-xs font-semibold text-gray-500">JLPT:</span>
+                                <span className="text-xs font-semibold text-gray-500">{dictLangTab === 'en' ? 'Trình độ/CEFR:' : 'JLPT:'}</span>
                                 <select
                                     value={dictLevelFilter}
                                     onChange={(e) => setDictLevelFilter(e.target.value)}
                                     className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
                                 >
                                     <option value="all">Tất cả</option>
-                                    <option value="N1">N1</option>
-                                    <option value="N2">N2</option>
-                                    <option value="N3">N3</option>
-                                    <option value="N4">N4</option>
-                                    <option value="N5">N5</option>
+                                    {dictLangTab === 'en' ? (
+                                        <>
+                                            <option value="A1">A1</option>
+                                            <option value="A2">A2</option>
+                                            <option value="B1">B1</option>
+                                            <option value="B2">B2</option>
+                                            <option value="C1">C1</option>
+                                            <option value="C2">C2</option>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <option value="N1">N1</option>
+                                            <option value="N2">N2</option>
+                                            <option value="N3">N3</option>
+                                            <option value="N4">N4</option>
+                                            <option value="N5">N5</option>
+                                        </>
+                                    )}
                                 </select>
                             </div>
 
@@ -2996,9 +3127,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                                     <table className="w-full text-left border-collapse text-xs">
                                         <thead>
                                             <tr className="bg-gray-50 dark:bg-gray-750/30 border-b border-gray-150 dark:border-gray-750 text-gray-500 font-bold">
-                                                <th className="p-3">Từ vựng (Nhật)</th>
+                                                <th className="p-3">{dictLangTab === 'en' ? 'Từ vựng (Anh)' : 'Từ vựng (Nhật)'}</th>
                                                 <th className="p-3">Nghĩa tiếng Việt</th>
-                                                <th className="p-3">Hán Việt</th>
+                                                <th className="p-3">{dictLangTab === 'en' ? 'Phiên âm IPA' : 'Hán Việt'}</th>
                                                 <th className="p-3">Từ loại</th>
                                                 <th className="p-3">Trình độ</th>
                                                 <th className="p-3 text-right">Thao tác</th>

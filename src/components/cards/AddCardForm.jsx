@@ -10,6 +10,7 @@ import BatchAiModal from './BatchAiModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { getLanguageService, isEnglishCard } from '../../languages';
 
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -30,6 +31,7 @@ export const CardEditorItem = ({
 }) => {
     const { t } = useLanguage();
     const { isEnglishMode } = useTargetLanguage();
+    const cardIsEnglish = isEnglishCard(card, isEnglishMode);
     const [showAdvanced, setShowAdvanced] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const [showHandwriting, setShowHandwriting] = useState(false);
@@ -446,7 +448,7 @@ export const CardEditorItem = ({
                                     />
                                     
                                     <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
-                                        {Object.entries(isEnglishMode ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
+                                        {Object.entries(cardIsEnglish ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
                                             if (key === 'grammar') {
                                                 return (
                                                     <div key={key} className="relative group/grammar">
@@ -511,19 +513,18 @@ export const CardEditorItem = ({
                         </div>
                     </div>
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{isEnglishMode ? 'PHIÊN ÂM (IPA)' : t('forms.kanjiReading', 'HÁN VIỆT')}</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{cardIsEnglish ? 'PHIÊN ÂM (IPA)' : t('forms.kanjiReading', 'HÁN VIỆT')}</label>
                         <input
                             type="text"
-                            value={isEnglishMode ? (card.ipa || '') : (card.sinoVietnamese || '')}
+                            value={cardIsEnglish ? (card.ipa || '') : (card.sinoVietnamese || '')}
                             onChange={(e) => {
-                                if (isEnglishMode) {
+                                if (cardIsEnglish) {
                                     onUpdate(card.id, 'ipa', e.target.value);
-                                    onUpdate(card.id, 'sinoVietnamese', '');
                                 } else {
                                     onUpdate(card.id, 'sinoVietnamese', e.target.value);
                                 }
                             }}
-                            placeholder={isEnglishMode ? '/ɪnˈtɛlɪdʒəns/...' : 'Âm Hán Việt...'}
+                            placeholder={cardIsEnglish ? '/ɪnˈtɛlɪdʒəns/...' : 'Âm Hán Việt...'}
                             className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
                         />
                     </div>
@@ -729,7 +730,7 @@ const AddCardForm = ({
     const [description, setDescription] = useState('');
     const [coverImage, setCoverImage] = useState(null);
     const [cards, setCards] = useState([
-        { id: Date.now(), front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null }
+        { id: Date.now(), front: '', back: '', ipa: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null }
     ]);
     const [activeCardId, setActiveCardId] = useState(cards[0].id);
     const [isSaving, setIsSaving] = useState(false);
@@ -757,6 +758,7 @@ const AddCardForm = ({
                 id: Date.now() + index,
                 front: typeof vocab === 'string' ? vocab : vocab.front || '',
                 back: typeof vocab === 'string' ? '' : vocab.back || '',
+                ipa: typeof vocab === 'object' && vocab.ipa ? vocab.ipa : '',
                 synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null
             }));
             setCards(initialCards);
@@ -780,7 +782,7 @@ const AddCardForm = ({
     };
 
     const handleAddCardRow = () => {
-        const newCard = { id: Date.now(), front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null };
+        const newCard = { id: Date.now(), front: '', back: '', ipa: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null };
         setCards(prev => [...prev, newCard]);
         setActiveCardId(newCard.id);
         setTimeout(() => {
@@ -859,24 +861,27 @@ const AddCardForm = ({
         const aiData = await onGeminiAssist(card.front, selectedPos, selectedLevel, selectedBack, false);
 
         if (aiData) {
+            const langService = getLanguageService(card.front || card, isEnglishMode);
+            const cardIsEng = langService.code === 'en';
+
             setCards(prev => prev.map(c => {
                 if (c.id === id) {
                     return {
                         ...c,
-                        front: isEnglishMode ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
+                        front: cardIsEng ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
                         back: aiData.meaning || '',
-                        ipa: aiData.ipa || '',
-                        sinoVietnamese: isEnglishMode ? '' : (aiData.sinoVietnamese || ''),
+                        ipa: cardIsEng ? (aiData.ipa || c.ipa || '') : '',
+                        sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
                         synonym: aiData.synonym || '',
-                        synonymSinoVietnamese: isEnglishMode ? '' : (aiData.synonymSinoVietnamese || ''),
+                        synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
                         pos: aiData.pos || selectedPos || '',
                         level: aiData.level || selectedLevel || '',
-                        reading: isEnglishMode ? '' : (aiData.reading || ''),
-                        accent: isEnglishMode ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
-                        targetLanguage: isEnglishMode ? 'en' : 'ja'
+                        reading: cardIsEng ? '' : (aiData.reading || ''),
+                        accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                        targetLanguage: cardIsEng ? 'en' : 'ja'
                     };
                 }
                 return c;
@@ -981,8 +986,16 @@ const AddCardForm = ({
 
         try {
             const savePromises = validCards.map(async (card) => {
+                const cardIsEng = isEnglishCard(card, isEnglishMode);
+
                 const success = await onSave({
                     ...card,
+                    ipa: cardIsEng ? (card.ipa || '') : (card.ipa || ''),
+                    sinoVietnamese: cardIsEng ? '' : (card.sinoVietnamese || ''),
+                    synonymSinoVietnamese: cardIsEng ? '' : (card.synonymSinoVietnamese || ''),
+                    reading: cardIsEng ? '' : (card.reading || ''),
+                    accent: cardIsEng ? '' : (card.accent || ''),
+                    targetLanguage: cardIsEng ? 'en' : 'ja',
                     action: 'continue',
                     folderId: folderId
                 });
