@@ -467,14 +467,14 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
         newReps = currentReps + 1;
     }
 
-    // Calculate milliseconds offset with Anki Day Cutoff (4:00 AM) & Fuzz Factor
+    // Calculate milliseconds offset with SRS Day Cutoff (5:00 AM) & Fuzz Factor
     let nextReviewOffsetMs = 0;
     let fuzzedInterval = newInterval;
 
     if (nextState === 'REVIEW') {
         // Apply Fuzz Factor for intervals >= 3 days to smooth daily card distribution
         fuzzedInterval = applyFuzzFactor(newInterval, cardSeed);
-        // Calculate target timestamp anchored to 4:00 AM cutoff on scheduled day
+        // Calculate target timestamp anchored to 5:00 AM cutoff on scheduled day
         const targetTimestamp = calculateDayCutoffTimestamp(fuzzedInterval);
         nextReviewOffsetMs = Math.max(60000, targetTimestamp - Date.now());
     } else {
@@ -496,16 +496,16 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
     };
 };
 
-// Default Cutoff Hour (4:00 AM local time, same as Anki)
-export const DAY_CUTOFF_HOUR = 4;
+// Default Cutoff Hour (5:00 AM local time)
+export const DAY_CUTOFF_HOUR = 5;
 
 /**
- * Calculates the Target Day Cutoff Timestamp (4:00 AM on scheduled target day).
- * All day-based REVIEW cards scheduled for the same day become due together at 4:00 AM.
+ * Calculates the Target Day Cutoff Timestamp (5:00 AM on scheduled target day).
+ * All day-based REVIEW cards scheduled for the same day become due together at 5:00 AM.
  * @param {number} intervalDays - Scheduled interval in days
  * @param {number} nowMs - Current timestamp in ms
- * @param {number} cutoffHour - Cutoff hour (default 4 AM)
- * @returns {number} Timestamp in ms representing 4:00 AM on target day
+ * @param {number} cutoffHour - Cutoff hour (default 5 AM)
+ * @returns {number} Timestamp in ms representing 5:00 AM on target day
  */
 export const calculateDayCutoffTimestamp = (intervalDays, nowMs = Date.now(), cutoffHour = DAY_CUTOFF_HOUR) => {
     const d = new Date(nowMs);
