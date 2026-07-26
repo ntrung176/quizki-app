@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Cpu } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
@@ -55,6 +55,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const fadeWholePage = useMenuTransition();
     const { t } = useLanguage();
     const navigate = useNavigate();
+    const location = useLocation();
     const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
     const [srsData, setSrsData] = useState(() => (userId ? getCachedUserSrsData() || {} : {}));
     const [loading, setLoading] = useState(() => {
@@ -161,22 +162,39 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
     const stats = useMemo(() => {
         const now = Date.now();
-        let hasNoSRS = 0, learning = 0, shortTerm = 0, longTerm = 0;
+        let hasNoSRS = 0, learning = 0, shortTerm = 0, longTerm = 0, expert = 0;
         let totalReps = 0;
         const reviewDays = new Set();
 
-        Object.values(srsData).forEach(srs => {
+        Object.entries(srsData).forEach(([id, srs]) => {
+            if (!srs) return;
+            const kanjiDoc = kanjiList.find(k => k.id === id || k.character === id);
+            const char = kanjiDoc?.character || (id.length === 1 ? id : '?');
+            if (char === '?') return;
+
             const interval = srs.interval || 0;
             const reps = srs.reps || 0;
             const state = getCardState(srs);
             totalReps += reps;
-            if (state === 'new' || state === 'NEW') hasNoSRS++;
-            else if (state === 'learning' || state === 'LEARNING' || state === 'relearning' || state === 'RELEARNING') learning++;
-            else {
+            
+            if (state === 'learning' || state === 'LEARNING' || state === 'relearning' || state === 'RELEARNING') {
+                if (reps > 0 || srs.lastReview) {
+                    learning++;
+                } else {
+                    hasNoSRS++;
+                }
+            } else if (state === 'new' || state === 'NEW') {
+                if (reps > 0 || srs.lastReview) {
+                    learning++;
+                } else {
+                    hasNoSRS++;
+                }
+            } else {
                 const isLegacyMinute = interval >= 1440;
                 const daysInterval = isLegacyMinute ? (interval / 1440) : interval;
-                if (daysInterval < 7) shortTerm++;
-                else longTerm++;
+                if (daysInterval >= 21) expert++;
+                else if (daysInterval >= 7) longTerm++;
+                else shortTerm++;
             }
             if (srs.lastReview) {
                 const d = new Date(srs.lastReview);
@@ -201,7 +219,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }
 
         return {
-            dueToday: dueKanji.length, newCards: hasNoSRS, learning, shortTerm, longTerm,
+            dueToday: dueKanji.length, newCards: hasNoSRS, learning, shortTerm, longTerm, expert,
             totalReps, totalReviewed: Object.keys(srsData).length - hasNoSRS,
             daysStudied: reviewDays.size, kanjiLearned: Object.keys(srsData).length, streak,
         };
@@ -417,6 +435,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             setIsReviewActive(true);
         }
     };
+
+    const hasAutoStartedRef = useRef(false);
+
+    // Auto start review session when navigated from Home Screen
+    useEffect(() => {
+        if (location.state?.autoStart && !hasAutoStartedRef.current && !loading && !reviewMode) {
+            if (dueKanji.length > 0) {
+                hasAutoStartedRef.current = true;
+                startReview();
+            } else {
+                hasAutoStartedRef.current = true; // No due kanji, stay on overview tab
+            }
+        }
+    }, [location.state, loading, reviewMode, dueKanji.length]);
 
     const currentCard = reviewQueue[currentReviewIndex] || null;
 
@@ -1014,11 +1046,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
                         <span className="text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Sơ cấp (Mới học/Đang học)</span>
                         <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.newCards + stats.learning}</span>
+                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.learning}</span>
                             <span className="text-xs text-slate-400 font-mono">chữ</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((stats.newCards + stats.learning) / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.learning / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
@@ -1036,22 +1068,22 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
                         <span className="text-[10px] font-mono font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
                         <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{Math.max(0, stats.longTerm - Math.round(stats.longTerm * 0.2))}</span>
+                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.longTerm}</span>
                             <span className="text-xs text-slate-400 font-mono">chữ</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-cyan-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((stats.longTerm - Math.round(stats.longTerm * 0.2)) / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-cyan-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.longTerm / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
                         <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Chuyên gia (Ghi nhớ)</span>
                         <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{Math.round(stats.longTerm * 0.2)}</span>
+                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.expert}</span>
                             <span className="text-xs text-slate-400 font-mono">chữ</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? ((Math.round(stats.longTerm * 0.2)) / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.expert / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
                 </div>

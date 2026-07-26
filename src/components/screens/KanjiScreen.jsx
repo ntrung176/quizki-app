@@ -279,7 +279,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             return;
         }
 
-        navigate(`/kanji/list/${char}`);
+        navigate(`/kanji/list/${char}?from=list`);
         setSelectedKanji(char);
         setShowDetailModal(true);
     }, [navigate, kanjiMap, isAdmin, profile]);
@@ -464,6 +464,9 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
         if (charParam) {
             setSelectedKanji(charParam);
             setShowDetailModal(true);
+        } else {
+            setShowDetailModal(false);
+            setSelectedKanji(null);
         }
     }, [params.char, searchParams]);
     // Handle search query and level parameters from URL
@@ -1386,7 +1389,19 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
             <div className="w-full h-full flex flex-col">
                 {/* Header */}
                 <div className="flex justify-between items-center mb-6 flex-shrink-0">
-                    <button onClick={() => { setShowDetailModal(false); if (location.state?.fromLesson) { navigate(-1); } else { navigate('/kanji/list'); } }} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
+                    <button onClick={() => { 
+                        setShowDetailModal(false); 
+                        setSelectedKanji(null);
+                        const searchParams = new URLSearchParams(location.search);
+                        const from = searchParams.get('from');
+                        if (from === 'saved' || location.state?.fromSaved || location.state?.fromTab === 'saved') { 
+                            navigate(ROUTES.KANJI_SAVED, { replace: true }); 
+                        } else if (location.state?.fromLesson) { 
+                            navigate(-1); 
+                        } else { 
+                            navigate(ROUTES.KANJI_LIST, { replace: true }); 
+                        } 
+                    }} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                         <ArrowLeft className="w-4 h-4" /> Quay lại
                     </button>
                     <div className="text-sm text-gray-400 dark:text-gray-500 font-medium">

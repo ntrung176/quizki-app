@@ -16,6 +16,13 @@ const isTabActive = (tab, pathname, search) => {
         return tab.id === 'grammar-study';
     }
 
+    if (pathname.startsWith('/kanji/list/')) {
+        if (from === 'saved') {
+            return tab.id === 'kanji-saved';
+        }
+        return tab.id === 'kanji-list';
+    }
+
     if (tab.id === 'grammar-study') {
         return pathname === '/grammar' || 
                pathname === '/grammar/study' || 

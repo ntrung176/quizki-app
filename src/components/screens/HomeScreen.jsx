@@ -55,14 +55,18 @@ const HomeScreen = ({
                     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 };
 
-                Object.entries(freshSrs || {}).forEach(([id, data]) => {
-                    if (validKanjiIds.size > 0 && !validKanjiIds.has(id)) return;
+                (kList || []).forEach(k => {
                     total++;
-                    if (isKanjiMastered(data)) mastered++;
-                    else learning++;
-                    if (isSrsCardDue(data, now)) dueCount++;
-                    const dateStr = toDateStr(data.lastReview);
-                    if (dateStr) actDates.push(dateStr);
+                    const data = (freshSrs && freshSrs[k.id]) ? freshSrs[k.id] : (k.srsData || null);
+                    if (data) {
+                        if (isKanjiMastered(data)) mastered++;
+                        else learning++;
+                        if (isSrsCardDue(data, now)) dueCount++;
+                        if (data.lastReview) {
+                            const dateStr = toDateStr(data.lastReview);
+                            if (dateStr) actDates.push(dateStr);
+                        }
+                    }
                 });
 
                 setKanjiSrsStats({ total, learning, mastered, dueCount });
@@ -286,7 +290,10 @@ const HomeScreen = ({
             {/* Today's Summary Telemetry Counters */}
             <div className={`grid grid-cols-2 ${isEnglishMode ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-4`}>
                 {/* Card 1: Vocab Review */}
-                <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
+                <div 
+                    onClick={() => navigate(ROUTES.VOCAB_REVIEW, stats.dueCards > 0 ? { state: { autoStart: true } } : undefined)}
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4 cursor-pointer hover:scale-[1.02] active:scale-98 transition-all hover:border-rose-300 dark:hover:border-rose-800/60"
+                >
                     <div className="w-12 h-12 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
                         <Clock className="w-5 h-5 text-rose-600 dark:text-rose-400" />
                     </div>
@@ -298,7 +305,10 @@ const HomeScreen = ({
 
                 {/* Card 2: Kanji Review (Japanese mode only) or New Cards (English mode) */}
                 {!isEnglishMode ? (
-                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
+                    <div 
+                        onClick={() => navigate(ROUTES.KANJI_REVIEW, kanjiSrsStats.dueCount > 0 ? { state: { autoStart: true } } : undefined)}
+                        className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4 cursor-pointer hover:scale-[1.02] active:scale-98 transition-all hover:border-amber-300 dark:hover:border-amber-800/60"
+                    >
                         <div className="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
                             <Target className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                         </div>
@@ -308,7 +318,10 @@ const HomeScreen = ({
                         </div>
                     </div>
                 ) : (
-                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
+                    <div 
+                        onClick={() => navigate(ROUTES.VOCAB_REVIEW, stats.dueCards > 0 ? { state: { autoStart: true } } : undefined)}
+                        className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4 cursor-pointer hover:scale-[1.02] active:scale-98 transition-all hover:border-amber-300 dark:hover:border-amber-800/60"
+                    >
                         <div className="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
                             <Sparkle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                         </div>
@@ -320,7 +333,10 @@ const HomeScreen = ({
                 )}
 
                 {/* Card 3: Total Cards */}
-                <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
+                <div 
+                    onClick={() => navigate(ROUTES.VOCAB_REVIEW)}
+                    className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4 cursor-pointer hover:scale-[1.02] active:scale-98 transition-all hover:border-sky-300 dark:hover:border-sky-800/60"
+                >
                     <div className="w-12 h-12 bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
                         <BookOpen className="w-5 h-5 text-sky-600 dark:text-sky-400" />
                     </div>
@@ -332,7 +348,10 @@ const HomeScreen = ({
 
                 {/* Card 4: Total Kanji (Japanese mode only) */}
                 {!isEnglishMode && (
-                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4">
+                    <div 
+                        onClick={() => navigate(ROUTES.KANJI_REVIEW)}
+                        className="bg-white dark:bg-slate-900 rounded-2xl p-4.5 border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-4 cursor-pointer hover:scale-[1.02] active:scale-98 transition-all hover:border-emerald-300 dark:hover:border-emerald-800/60"
+                    >
                         <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-2xl flex items-center justify-center flex-shrink-0">
                             <Languages className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                         </div>
@@ -355,7 +374,14 @@ const HomeScreen = ({
                     {quickActions.map((action) => (
                         <button
                             key={action.id}
-                            onClick={() => action.id === 'add' ? setShowAddOptions(true) : navigate(action.route)}
+                            onClick={() => {
+                                if (action.id === 'add') {
+                                    setShowAddOptions(true);
+                                } else {
+                                    const isDueAvailable = action.id === 'vocab-review' ? stats.dueCards > 0 : (action.id === 'kanji-review' ? kanjiSrsStats.dueCount > 0 : true);
+                                    navigate(action.route, isDueAvailable ? { state: { autoStart: true } } : undefined);
+                                }
+                            }}
                             className={`relative group bg-gradient-to-br ${action.gradient} text-white rounded-2xl p-5 text-left transition-all duration-300 hover:scale-[1.03] active:scale-98 overflow-hidden min-h-[120px] cursor-pointer shadow-lg ${action.glow}`}
                         >
                             <div className="relative z-10 flex flex-col justify-between h-full">

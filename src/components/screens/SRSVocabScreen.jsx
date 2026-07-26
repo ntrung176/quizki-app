@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
@@ -91,6 +91,7 @@ const SRSVocabScreen = ({
     setIsReviewActive
 }) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const fadeWholePage = useMenuTransition();
     const { t } = useLanguage();
     const { targetLanguage } = useTargetLanguage();
@@ -345,18 +346,19 @@ const SRSVocabScreen = ({
 
         // Initialize stats for all folders
         folders.forEach(f => {
-            stats[f.id] = { id: f.id, name: f.name, newCards: [], dueCards: [], total: 0, masteredCount: 0, createdAt: f.createdAt };
+            stats[f.id] = { id: f.id, name: f.name, newCards: [], dueCards: [], allCards: [], total: 0, masteredCount: 0, createdAt: f.createdAt };
         });
 
         // Unfiled folder
-        stats['unfiled'] = { id: 'unfiled', name: 'Từ vựng lẻ', newCards: [], dueCards: [], total: 0, masteredCount: 0, createdAt: null };
+        stats['unfiled'] = { id: 'unfiled', name: 'Từ vựng lẻ', newCards: [], dueCards: [], allCards: [], total: 0, masteredCount: 0, createdAt: null };
 
         filteredCards.forEach(card => {
             const fId = cardFolders[card.id] || 'unfiled';
             if (!stats[fId]) {
-                stats[fId] = { id: fId, name: 'Học phần ẩn', newCards: [], dueCards: [], total: 0, masteredCount: 0 };
+                stats[fId] = { id: fId, name: 'Học phần ẩn', newCards: [], dueCards: [], allCards: [], total: 0, masteredCount: 0 };
             }
             stats[fId].total++;
+            stats[fId].allCards.push(card);
 
             // Seen / Mastered calculation based on masteryState 'memorized'
             if (card.masteryState === 'memorized') {
@@ -367,16 +369,16 @@ const SRSVocabScreen = ({
             if (isDue(card)) {
                 stats[fId].dueCards.push(card);
             }
-            // Check if New (not yet added to spaced repetition)
             else if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) {
                 stats[fId].newCards.push(card);
             }
         });
 
         return Object.values(stats)
-            .filter(f => f.total > 0 && (f.dueCards.length > 0 || f.newCards.length > 0)) // include folders that have due cards or new cards
+            .filter(f => f.dueCards.length > 0)
             .map(f => {
                 const masteredPct = f.total > 0 ? Math.round((f.masteredCount / f.total) * 100) : 0;
+                const cardsToReview = f.dueCards;
 
                 // Nice default badges based on name
                 let levelBadge = 'VOCAB';
@@ -393,7 +395,8 @@ const SRSVocabScreen = ({
                     ...f,
                     levelBadge,
                     masteredPct,
-                    hasAction: f.newCards.length > 0 || f.dueCards.length > 0
+                    cardsToReview,
+                    hasAction: f.dueCards.length > 0
                 };
             })
             .sort((a, b) => {
@@ -502,7 +505,7 @@ const SRSVocabScreen = ({
 
     // "Ôn tập" top banner button — launches review queue for due cards or new cards available for study
     const handleResumeGlobal = () => {
-        const allAvailable = folderStats.flatMap(f => [...f.dueCards, ...f.newCards]);
+        const allAvailable = folderStats.flatMap(f => f.cardsToReview || [...f.dueCards, ...f.newCards]);
         if (allAvailable.length > 0) {
             startFolderReview(allAvailable, 'global');
         } else {
@@ -511,6 +514,21 @@ const SRSVocabScreen = ({
             }
         }
     };
+
+    const hasAutoStartedRef = useRef(false);
+
+    // Auto start review session when navigated from Home Screen
+    useEffect(() => {
+        if (location.state?.autoStart && !hasAutoStartedRef.current && !reviewMode) {
+            const dueCardsOnly = filteredCards.filter(c => isDue(c));
+            if (dueCardsOnly.length > 0) {
+                hasAutoStartedRef.current = true;
+                startFolderReview(dueCardsOnly, 'global');
+            } else {
+                hasAutoStartedRef.current = true; // No due cards, stay on overview tab
+            }
+        }
+    }, [location.state, filteredCards, reviewMode]);
 
     const [lastTick, setLastTick] = useState(Date.now());
 
@@ -1369,39 +1387,18 @@ const SRSVocabScreen = ({
                                             </div>
                                         </div>
 
-                                        {/* Action Buttons inside Card */}
+                                        {/* Action Button inside Card */}
                                         <div className="space-y-2 pt-2">
-                                            {folder.newCards.length > 0 && (
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); navigate(`/vocab/set/${folder.id}`); }}
-                                                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 hover:bg-cyan-100 dark:hover:bg-cyan-900/60 text-cyan-700 dark:text-cyan-400 transition-colors border border-cyan-200 dark:border-cyan-800/50 group cursor-pointer"
-                                                >
-                                                    <div className="flex items-center gap-2">
-                                                        <Layers className="w-4 h-4" />
-                                                        <span className="font-bold text-xs">{t('vocab.addToSrs', 'Thêm vào ngắt quãng')}</span>
-                                                    </div>
-                                                    <span className="bg-cyan-200 dark:bg-cyan-900 px-2 py-0.5 rounded-full text-[10px] font-black font-mono">{folder.newCards.length}</span>
-                                                </button>
-                                            )}
-
-                                            {folder.dueCards.length > 0 && (
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); startFolderReview(folder.dueCards, folder.id); }}
-                                                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/40 hover:bg-orange-100 dark:hover:bg-orange-900/60 text-orange-700 dark:text-orange-400 transition-colors border border-orange-200 dark:border-orange-800/50 group cursor-pointer"
-                                                >
-                                                    <div className="flex items-center gap-2">
-                                                        <RotateCw className="w-4 h-4" />
-                                                        <span className="font-bold text-xs">{t('vocab.srsReviewBtn', 'Ôn tập ngắt quãng')}</span>
-                                                    </div>
-                                                    <span className="bg-orange-200 dark:bg-orange-900 px-2 py-0.5 rounded-full text-[10px] font-black font-mono">{folder.dueCards.length}</span>
-                                                </button>
-                                            )}
-
-                                            {!folder.hasAction && (
-                                                <div className="w-full text-center py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 text-slate-400 dark:text-slate-500 font-bold text-xs border border-dashed border-slate-200 dark:border-slate-800">
-                                                    {t('vocab.noDueCardsToday', '✓ Không có thẻ cần ôn tập hôm nay')}
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); startFolderReview(folder.dueCards, folder.id); }}
+                                                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/40 hover:bg-orange-100 dark:hover:bg-orange-900/60 text-orange-700 dark:text-orange-400 transition-colors border border-orange-200 dark:border-orange-800/50 group cursor-pointer"
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <RotateCw className="w-4 h-4 text-orange-500" />
+                                                    <span className="font-bold text-xs">{t('vocab.srsReviewBtn', 'Ôn tập ngắt quãng')}</span>
                                                 </div>
-                                            )}
+                                                <span className="bg-orange-200 dark:bg-orange-900 px-2 py-0.5 rounded-full text-[10px] font-black font-mono text-orange-800 dark:text-orange-200">{folder.dueCards.length}</span>
+                                            </button>
                                         </div>
                                     </div>
                                 ))}

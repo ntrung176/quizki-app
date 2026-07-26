@@ -13,7 +13,7 @@ const EASY_BONUS = 1.3; // Anki default Easy Bonus multiplier
 // ==================== UTILITY FUNCTIONS ====================
 
 // Normalize SRS state and handle migration from legacy Leitner system
-const normalizeSRSState = (srs) => {
+export const normalizeSRSState = (srs) => {
     if (!srs) {
         return {
             interval: 0,
@@ -78,7 +78,16 @@ const normalizeSRSState = (srs) => {
     // 3. Fix the minute-to-day mismatch bug (e.g. 5760 mins interpreted as 5760 days in REVIEW state)
     // In REVIEW state, interval is in DAYS. If it is >= 1000, it's definitely stored in minutes (legacy)
     // and should be converted to days by dividing by 1440.
-    const resolvedState = state || (reps === 0 && (learningStep === null || learningStep === undefined) ? 'NEW' : (reps > 0 ? 'REVIEW' : 'LEARNING'));
+    let resolvedState = state;
+    if (!resolvedState) {
+        if (reps === 0 && !srs?.lastReview) {
+            resolvedState = 'NEW';
+        } else if (reps > 0) {
+            resolvedState = 'REVIEW';
+        } else {
+            resolvedState = 'LEARNING';
+        }
+    }
     if (resolvedState === 'REVIEW' && interval >= 1000) {
         interval = Math.max(1, Math.round(interval / 1440));
     }
@@ -167,13 +176,14 @@ export const parseNextReviewMs = (val) => {
 // Check if card or SRS item is due for review
 export const isSrsCardDue = (srsOrCard, now = Date.now()) => {
     if (!srsOrCard) return false;
+    if (srsOrCard.srsEnabled === false) return false;
     const nextReviewVal = srsOrCard.nextReview !== undefined 
         ? srsOrCard.nextReview 
         : (srsOrCard.nextReview_back !== undefined ? srsOrCard.nextReview_back : null);
     
-    if (!nextReviewVal && nextReviewVal !== 0) return true;
+    if (nextReviewVal === null || nextReviewVal === undefined) return false;
     const reviewMs = parseNextReviewMs(nextReviewVal);
-    if (reviewMs === 0) return true;
+    if (reviewMs === 0) return false;
     return reviewMs <= now;
 };
 
@@ -181,13 +191,16 @@ export const isSrsCardDue = (srsOrCard, now = Date.now()) => {
 export const isVocabCardDue = (card, now = Date.now()) => {
     if (!card) return false;
     if (card.srsEnabled === false) return false;
-    // Thẻ mới chưa từng học (intervalIndex_back === -1) không phải là thẻ đến hạn ôn tập
-    if (card.intervalIndex_back === -1 || card.intervalIndex_back === undefined) {
-        return false;
+
+    const nextReviewVal = card.nextReview_back !== undefined 
+        ? card.nextReview_back 
+        : (card.nextReview !== undefined ? card.nextReview : (card.srsData?.nextReview || card.srsData?.nextReview_back));
+
+    if (nextReviewVal === undefined || nextReviewVal === null) {
+        return card.intervalIndex_back !== undefined && card.intervalIndex_back !== -1;
     }
-    const nextReviewVal = card.nextReview_back !== undefined ? card.nextReview_back : card.nextReview;
     const reviewMs = parseNextReviewMs(nextReviewVal);
-    if (reviewMs === 0) return true;
+    if (reviewMs === 0) return false;
     return reviewMs <= now;
 };
 

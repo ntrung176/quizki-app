@@ -12,7 +12,7 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { TopTabBar } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
-import { parseNextReviewMs, isSrsCardDue } from '../../utils/srs';
+import { parseNextReviewMs, isSrsCardDue, normalizeSRSState } from '../../utils/srs';
 
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
@@ -33,18 +33,33 @@ const LEVEL_LABELS = {
 };
 
 const getSrsStatus = (srs) => {
-    if (!srs) return { label: 'Chưa ôn', color: 'text-gray-400', bg: 'bg-gray-100 dark:bg-gray-700', icon: AlertCircle };
-    const interval = srs.interval || 0;
-    const reps = srs.reps || 0;
+    if (!srs) return { label: 'Chưa học', color: 'text-gray-400', bg: 'bg-gray-100 dark:bg-slate-700', icon: AlertCircle };
+    const norm = normalizeSRSState(srs);
+    const interval = norm.interval || 0;
+    const reps = norm.reps || 0;
+    const lastReview = srs.lastReview;
+    const state = norm.state ? String(norm.state).toUpperCase() : 'NEW';
     const now = Date.now();
     const reviewMs = parseNextReviewMs(srs.nextReview);
     const isDue = reviewMs > 0 && reviewMs <= now;
 
-    if (reps === 0 && interval === 0) return { label: 'Mới', color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/30', icon: BookOpen };
     if (isDue) return { label: 'Cần ôn', color: 'text-orange-500', bg: 'bg-orange-50 dark:bg-orange-900/30', icon: Clock };
-    if (interval < 60) return { label: 'Đang học', color: 'text-yellow-500', bg: 'bg-yellow-50 dark:bg-yellow-900/30', icon: BookOpen };
-    if (interval < 1440 * 7) return { label: 'Ngắn hạn', color: 'text-cyan-500', bg: 'bg-cyan-50 dark:bg-cyan-900/30', icon: Clock };
-    return { label: 'Đã thuộc', color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/30', icon: CheckCircle };
+    
+    if (state === 'NEW' || state === 'LEARNING' || state === 'RELEARNING') {
+        if (reps > 0 || lastReview) {
+            return { label: 'Sơ cấp', color: 'text-yellow-500', bg: 'bg-yellow-50 dark:bg-yellow-900/30', icon: BookOpen };
+        }
+        return { label: 'Chưa học', color: 'text-slate-400', bg: 'bg-slate-100 dark:bg-slate-700', icon: AlertCircle };
+    }
+    
+    const daysInterval = interval >= 1440 ? Math.round(interval / 1440) : interval;
+    if (daysInterval >= 21) {
+        return { label: 'Chuyên gia', color: 'text-indigo-500', bg: 'bg-indigo-50 dark:bg-indigo-900/30', icon: CheckCircle };
+    }
+    if (daysInterval >= 7) {
+        return { label: 'Cao cấp', color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/30', icon: CheckCircle };
+    }
+    return { label: 'Trung cấp', color: 'text-cyan-500', bg: 'bg-cyan-50 dark:bg-cyan-900/30', icon: Clock };
 };
 
 const formatNextReview = (nextReview) => {
@@ -76,6 +91,9 @@ const KanjiSRSListScreen = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filterLevel, setFilterLevel] = useState('all');
     const [filterStatus, setFilterStatus] = useState('all');
+    const [visibleLimit, setVisibleLimit] = useState(50);
+    const [selectedKanjiChar, setSelectedKanjiChar] = useState(null);
+    const [showDetailModal, setShowDetailModal] = useState(false);
     const [selectedIds, setSelectedIds] = useState(new Set());
     const [deleting, setDeleting] = useState(false);
     const [showConfirmDelete, setShowConfirmDelete] = useState(false);
@@ -259,6 +277,11 @@ const KanjiSRSListScreen = () => {
         return () => window.removeEventListener('kanji-cache-updated', handleCacheUpdate);
     }, []);
 
+    // Reset visible limit on filter changes
+    useEffect(() => {
+        setVisibleLimit(50);
+    }, [filterLevel, filterStatus, searchQuery, currentFolder]);
+
     // Save folders to localStorage
     useEffect(() => {
         if (!userId) return;
@@ -351,15 +374,16 @@ const KanjiSRSListScreen = () => {
     const kanjiWithSRS = useMemo(() => {
         const srsKanjiIds = Object.keys(srsData);
         return srsKanjiIds.map(id => {
-            const kanjiDoc = kanjiList.find(k => k.id === id);
-            const jData = kanjiDoc ? getJotobaKanjiData(kanjiDoc.character) : null;
+            const kanjiDoc = kanjiList.find(k => k.id === id || k.character === id);
+            const char = kanjiDoc?.character || (id.length === 1 ? id : '?');
+            const jData = char !== '?' ? getJotobaKanjiData(char) : null;
             const srs = srsData[id];
             return {
                 id,
-                character: kanjiDoc?.character || '?',
+                character: char,
                 sinoViet: kanjiDoc?.sinoViet || jData?.sinoViet || '',
                 meaning: kanjiDoc?.meaning || jData?.meaningVi || jData?.meanings?.join(', ') || '',
-                level: kanjiDoc?.level || jData?.level || '?',
+                level: kanjiDoc?.level || jData?.level || 'N5',
                 strokeCount: jData?.stroke_count || kanjiDoc?.strokeCount || 0,
                 srs,
                 srsStatus: getSrsStatus(srs),
@@ -460,18 +484,23 @@ const KanjiSRSListScreen = () => {
         setShowNewSubFolderInput(false);
     }, [currentFolder, folders]);
 
-    // Filter and search
+    // Filter and search (unified multi-criteria filter)
     const filteredKanji = useMemo(() => {
         let result = [...kanjiWithSRS];
 
-        if (filterLevel !== 'all') {
-            result = result.filter(k => k.level === filterLevel);
+        // 1. Current Folder filter
+        if (currentFolder && currentFolder !== '__all__') {
+            if (currentFolder === 'unfiled') {
+                result = result.filter(k => !kanjiCardFolders[k.id]);
+            } else if (currentFolder.startsWith('jlpt_')) {
+                const level = currentFolder.replace('jlpt_', '');
+                result = result.filter(k => k.level === level);
+            } else {
+                result = result.filter(k => kanjiCardFolders[k.id] === currentFolder);
+            }
         }
 
-        if (filterStatus !== 'all') {
-            result = result.filter(k => k.srsStatus.label === filterStatus);
-        }
-
+        // 2. Custom folder filter dropdown
         if (filterFolder !== 'all') {
             if (filterFolder === 'none') {
                 result = result.filter(k => !kanjiCardFolders[k.id]);
@@ -480,6 +509,50 @@ const KanjiSRSListScreen = () => {
             }
         }
 
+        // 3. Level filter
+        if (filterLevel !== 'all') {
+            result = result.filter(k => k.level === filterLevel);
+        }
+
+        // 4. Status filter
+        if (filterStatus !== 'all') {
+            const now = Date.now();
+            result = result.filter(k => {
+                const norm = normalizeSRSState(k.srs);
+                const reps = norm.reps || 0;
+                const lastReview = k.srs?.lastReview;
+                const state = norm.state ? String(norm.state).toUpperCase() : 'NEW';
+                const interval = norm.interval || 0;
+                const reviewMs = parseNextReviewMs(k.srs?.nextReview);
+                const isDue = reviewMs > 0 && reviewMs <= now;
+
+                if (filterStatus === 'due') {
+                    return isDue;
+                }
+                if (filterStatus === 'new') {
+                    return (state === 'NEW' || state === 'LEARNING' || state === 'RELEARNING') && !(reps > 0 || lastReview);
+                }
+                if (filterStatus === 'learning') {
+                    return (state === 'NEW' || state === 'LEARNING' || state === 'RELEARNING') && (reps > 0 || lastReview);
+                }
+                // REVIEW state
+                if (state === 'REVIEW') {
+                    const daysInterval = interval >= 1440 ? Math.round(interval / 1440) : interval;
+                    if (filterStatus === 'shortTerm') {
+                        return daysInterval < 7;
+                    }
+                    if (filterStatus === 'longTerm') {
+                        return daysInterval >= 7 && daysInterval < 21;
+                    }
+                    if (filterStatus === 'expert') {
+                        return daysInterval >= 21;
+                    }
+                }
+                return false;
+            });
+        }
+
+        // 5. Search query filter
         if (searchQuery.trim()) {
             const query = searchQuery.toLowerCase().trim();
             result = result.filter(k =>
@@ -497,7 +570,13 @@ const KanjiSRSListScreen = () => {
         });
 
         return result;
-    }, [kanjiWithSRS, filterLevel, filterStatus, searchQuery, filterFolder, kanjiCardFolders]);
+    }, [kanjiWithSRS, currentFolder, kanjiCardFolders, filterLevel, filterStatus, searchQuery, filterFolder]);
+
+    const displayedKanjiList = filteredKanji;
+
+    const visibleKanjiList = useMemo(() => {
+        return displayedKanjiList.slice(0, visibleLimit);
+    }, [displayedKanjiList, visibleLimit]);
 
     // Toggle selection
     const toggleSelect = (id) => {
@@ -511,8 +590,7 @@ const KanjiSRSListScreen = () => {
 
     // Select all visible
     const selectAllVisible = () => {
-        const targetList = currentFolder ? currentFolderKanji : filteredKanji;
-        const allIds = targetList.map(k => k.id);
+        const allIds = visibleKanjiList.map(k => k.id);
         const allSelected = allIds.every(id => selectedIds.has(id));
         if (allSelected) {
             setSelectedIds(new Set());
@@ -555,17 +633,46 @@ const KanjiSRSListScreen = () => {
     };
 
     const openKanjiDetail = (character) => {
-        navigate(`${ROUTES.KANJI_LIST}/${character}`);
+        setSelectedKanjiChar(character);
+        setShowDetailModal(true);
     };
 
     // Stats
     const stats = useMemo(() => {
         const total = kanjiWithSRS.length;
         const now = Date.now();
-        const due = kanjiWithSRS.filter(k => isSrsCardDue(k.srs, now)).length;
-        const newCards = kanjiWithSRS.filter(k => k.reps === 0).length;
-        const mastered = kanjiWithSRS.filter(k => k.interval >= 1440 * 7).length;
-        return { total, due, newCards, mastered };
+        
+        let due = 0, newCards = 0, learning = 0, shortTerm = 0, longTerm = 0, expert = 0;
+        
+        kanjiWithSRS.forEach(k => {
+            const norm = normalizeSRSState(k.srs);
+            const reps = norm.reps || 0;
+            const lastReview = k.srs?.lastReview;
+            const state = norm.state ? String(norm.state).toUpperCase() : 'NEW';
+            const interval = norm.interval || 0;
+            const reviewMs = parseNextReviewMs(k.srs?.nextReview);
+            const isDue = reviewMs > 0 && reviewMs <= now;
+            
+            if (isDue) {
+                due++;
+            }
+            
+            if (state === 'NEW' || state === 'LEARNING' || state === 'RELEARNING') {
+                if (reps > 0 || lastReview) {
+                    learning++; // Sơ cấp (Mới học/Đang học)
+                } else {
+                    newCards++; // Thẻ mới (Chưa học)
+                }
+            } else {
+                // REVIEW state
+                const daysInterval = interval >= 1440 ? Math.round(interval / 1440) : interval;
+                if (daysInterval >= 21) expert++;
+                else if (daysInterval >= 7) longTerm++;
+                else shortTerm++;
+            }
+        });
+
+        return { total, due, newCards, learning, shortTerm, longTerm, expert };
     }, [kanjiWithSRS]);
 
     // Recently viewed cards resolved to full details
@@ -682,37 +789,94 @@ const KanjiSRSListScreen = () => {
                 </div>
 
                 {/* Search and Filters */}
-                <div className="flex flex-col md:flex-row gap-3 items-center w-full">
-                    <div className="relative flex-1 w-full">
-                        <input
-                            type="text"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="Tìm kiếm thư mục hoặc Kanji..."
-                            className="w-full bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 rounded-2xl px-4 py-3 pl-11 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 shadow-sm text-sm"
-                        />
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                        {searchQuery && (
-                            <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2">
-                                <X className="w-4 h-4 text-slate-400 hover:text-slate-600" />
+                <div className="space-y-3">
+                    <div className="flex flex-col md:flex-row gap-3 items-center w-full">
+                        <div className="relative flex-1 w-full">
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                placeholder="Tìm kiếm thư mục, chữ Hán, Âm Hán Việt, ý nghĩa..."
+                                className="w-full bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 rounded-2xl px-4 py-3 pl-11 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 shadow-sm text-sm"
+                            />
+                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                            {searchQuery && (
+                                <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2">
+                                    <X className="w-4 h-4 text-slate-400 hover:text-slate-600" />
+                                </button>
+                            )}
+                        </div>
+
+                        <div className="flex gap-2 w-full md:w-auto shrink-0">
+                            <button
+                                onClick={() => setShowFolderManager(true)}
+                                className="px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-2xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2 shadow-sm w-full md:w-auto cursor-pointer"
+                            >
+                                <FolderPlus className="w-4 h-4 text-slate-500" /> Quản lý thư mục
                             </button>
-                        )}
+
+                            <button
+                                onClick={() => navigate(ROUTES.KANJI_REVIEW)}
+                                className="px-5 py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-md w-full md:w-auto cursor-pointer"
+                            >
+                                Ôn tập ngay
+                            </button>
+                        </div>
                     </div>
 
-                    <div className="flex gap-2 w-full md:w-auto">
-                        <button
-                            onClick={() => setShowFolderManager(true)}
-                            className="px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-2xl text-sm font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm w-full md:w-auto cursor-pointer"
-                        >
-                            <FolderPlus className="w-4 h-4 text-slate-500" /> Quản lý thư mục
-                        </button>
+                    {/* Learning Status Filter Pills */}
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                        <span className="text-xs font-bold text-slate-400 uppercase font-mono mr-1">Trạng thái:</span>
+                        {[
+                            { id: 'all', label: 'Tất cả', count: stats.total },
+                            { id: 'due', label: '🔥 Cần ôn', count: stats.due },
+                            { id: 'learning', label: '📖 Sơ cấp', count: stats.learning },
+                            { id: 'shortTerm', label: '⚡ Trung cấp', count: stats.shortTerm },
+                            { id: 'longTerm', label: '🌟 Cao cấp', count: stats.longTerm },
+                            { id: 'expert', label: '🏆 Chuyên gia', count: stats.expert },
+                            { id: 'new', label: '✨ Thẻ mới', count: stats.newCards }
+                        ].map(item => (
+                            <button
+                                key={item.id}
+                                onClick={() => {
+                                    setFilterStatus(item.id);
+                                    if (currentFolder === null) setCurrentFolder('__all__');
+                                }}
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                                    filterStatus === item.id
+                                        ? 'bg-[#2E5B70] text-white shadow-sm'
+                                        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                }`}
+                            >
+                                <span>{item.label}</span>
+                                <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
+                                    filterStatus === item.id ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                                }`}>
+                                    {item.count}
+                                </span>
+                            </button>
+                        ))}
+                    </div>
 
-                        <button
-                            onClick={() => navigate(ROUTES.KANJI_REVIEW)}
-                            className="px-5 py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-md w-full md:w-auto cursor-pointer"
-                        >
-                            Ôn tập ngay
-                        </button>
+                    {/* JLPT Level Filter Pills */}
+                    <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-xs font-bold text-slate-400 uppercase font-mono mr-1">Trình độ:</span>
+                        {['all', 'N5', 'N4', 'N3', 'N2', 'N1'].map(lvl => (
+                            <button
+                                key={lvl}
+                                onClick={() => {
+                                    setFilterLevel(lvl);
+                                    if (currentFolder === null) setCurrentFolder('__all__');
+                                }}
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                                    filterLevel === lvl
+                                        ? 'bg-sky-600 text-white shadow-sm'
+                                        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                }`}
+                            >
+                                {lvl === 'all' ? 'Tất cả' : lvl}
+                            </button>
+                        ))}
                     </div>
                 </div>
 
@@ -1051,19 +1215,19 @@ const KanjiSRSListScreen = () => {
                         {/* Actions bar inside list view */}
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 pb-1 border-b border-slate-100 dark:border-slate-700">
                             <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
-                                Hiển thị {currentFolder ? currentFolderKanji.length : filteredKanji.length} ký tự
+                                Hiển thị {visibleKanjiList.length} / {displayedKanjiList.length} ký tự
                             </span>
 
                             <button 
                                 onClick={selectAllVisible}
                                 className="text-xs font-bold text-sky-600 hover:underline"
                             >
-                                {(currentFolder ? currentFolderKanji : filteredKanji).every(k => selectedIds.has(k.id)) ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                                {visibleKanjiList.every(k => selectedIds.has(k.id)) ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
                             </button>
                         </div>
 
                         {/* Cards List Grid */}
-                        {(currentFolder ? currentFolderKanji : filteredKanji).length === 0 ? (
+                        {displayedKanjiList.length === 0 ? (
                             <div className="text-center py-16 space-y-4">
                                 <Search className="w-12 h-12 text-slate-300 mx-auto" />
                                 <h4 className="text-slate-500 font-semibold text-sm">Không tìm thấy Kanji nào</h4>
@@ -1075,8 +1239,9 @@ const KanjiSRSListScreen = () => {
                                 </button>
                             </div>
                         ) : (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                                {(currentFolder ? currentFolderKanji : filteredKanji).map(kanji => {
+                            <div className="space-y-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                    {visibleKanjiList.map(kanji => {
                                     const isSelected = selectedIds.has(kanji.id);
                                     const StatusIcon = kanji.srsStatus.icon;
                                     const levelColor = LEVEL_COLORS[kanji.level] || { bg: 'bg-gray-500', text: 'text-gray-500', light: 'bg-gray-50' };
@@ -1164,6 +1329,18 @@ const KanjiSRSListScreen = () => {
                                         </div>
                                     );
                                 })}
+                                </div>
+
+                                {displayedKanjiList.length > visibleLimit && (
+                                    <div className="flex justify-center pt-2">
+                                        <button 
+                                            onClick={() => setVisibleLimit(prev => prev + 50)}
+                                            className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-650 text-slate-700 dark:text-slate-200 text-xs font-bold rounded-xl transition-all shadow-sm flex items-center gap-2 cursor-pointer"
+                                        >
+                                            Xem thêm ({displayedKanjiList.length - visibleLimit} Kanji còn lại)
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
@@ -1401,6 +1578,86 @@ const KanjiSRSListScreen = () => {
                         document.body
                     );
                 })()}
+
+                {/* Local Kanji Detail Modal */}
+                {showDetailModal && selectedKanjiChar && createPortal(
+                    (() => {
+                        const kanjiDoc = kanjiList.find(k => k.character === selectedKanjiChar);
+                        const jData = getJotobaKanjiData(selectedKanjiChar);
+                        const srs = kanjiDoc ? srsData[kanjiDoc.id] : null;
+                        const status = getSrsStatus(srs);
+                        const StatusIcon = status.icon;
+                        const sinoViet = kanjiDoc?.sinoViet || jData?.sinoViet || '---';
+                        const meaning = kanjiDoc?.meaning || jData?.meaningVi || jData?.meanings?.join(', ') || '---';
+                        const onyomi = kanjiDoc?.onyomi || jData?.onyomi?.join(', ') || '---';
+                        const kunyomi = kanjiDoc?.kunyomi || jData?.kunyomi?.join(', ') || '---';
+                        const strokeCount = kanjiDoc?.strokeCount || jData?.stroke_count || '?';
+                        const level = kanjiDoc?.level || jData?.level || 'N5';
+                        const levelColor = LEVEL_COLORS[level] || { bg: 'bg-gray-500', text: 'text-gray-500', light: 'bg-gray-50' };
+
+                        return (
+                            <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                                <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[520px] max-w-full max-h-[90vh] overflow-y-auto shadow-2xl space-y-5 border border-slate-100 dark:border-slate-700 animate-scale-in">
+                                    {/* Top Bar */}
+                                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
+                                        <div className="flex items-center gap-2">
+                                            <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${levelColor.light} ${levelColor.text}`}>
+                                                Cấp độ {level}
+                                            </span>
+                                            <span className="text-xs text-slate-400 font-semibold">{strokeCount} nét</span>
+                                        </div>
+                                        <button
+                                            onClick={() => { setShowDetailModal(false); setSelectedKanjiChar(null); }}
+                                            className="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all"
+                                        >
+                                            <X className="w-5 h-5" />
+                                        </button>
+                                    </div>
+
+                                    {/* Main Character Header */}
+                                    <div className="flex items-center gap-5">
+                                        <div className={`w-24 h-24 rounded-2xl flex items-center justify-center text-5xl font-bold font-japanese shadow-inner ${levelColor.light} ${levelColor.text}`}>
+                                            {selectedKanjiChar}
+                                        </div>
+                                        <div className="space-y-1">
+                                            <h2 className="text-2xl font-black text-slate-800 dark:text-white uppercase tracking-wider">{sinoViet}</h2>
+                                            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{meaning}</p>
+                                            <div className="pt-1 flex items-center gap-2">
+                                                <span className={`inline-flex items-center gap-1 text-xs font-bold px-2.5 py-0.5 rounded-full ${status.bg} ${status.color}`}>
+                                                    <StatusIcon className="w-3.5 h-3.5" />
+                                                    {status.label}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Readings Details */}
+                                    <div className="grid grid-cols-2 gap-3 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50">
+                                        <div>
+                                            <span className="text-[10px] uppercase font-mono font-bold text-slate-400">Âm Ôn (Onyomi)</span>
+                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5">{onyomi}</p>
+                                        </div>
+                                        <div>
+                                            <span className="text-[10px] uppercase font-mono font-bold text-slate-400">Âm Kun (Kunyomi)</span>
+                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5">{kunyomi}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Actions */}
+                                    <div className="flex gap-3 pt-2">
+                                        <button
+                                            onClick={() => { setShowDetailModal(false); setSelectedKanjiChar(null); }}
+                                            className="flex-1 py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl font-bold text-xs tracking-wider uppercase transition-all shadow-md"
+                                        >
+                                            Quay lại
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })(),
+                    document.body
+                )}
 
         </div>
     );
