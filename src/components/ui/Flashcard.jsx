@@ -385,7 +385,7 @@ const Flashcard = ({
                             )}
                         </div>
                     )}
-                    {cardSettings.back.nuance !== false && card.nuance && (
+                    {cardSettings.back.nuance === true && card.nuance && (
                         <div className="text-xs text-amber-700 dark:text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-xl p-2 max-w-full text-left font-medium mt-1">
                             💡 <span className="font-bold">Sắc thái:</span> {card.nuance}
                         </div>

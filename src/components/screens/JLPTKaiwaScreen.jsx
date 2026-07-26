@@ -175,7 +175,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 }
 
                 e.preventDefault();
-                if (!isSpacePressedRef.current && !isGenerating && !isTranscribing) {
+                if (!isSpacePressedRef.current && !isGenerating && !isTranscribing && !isAiSpeaking) {
                     isSpacePressedRef.current = true;
                     startRecordingDirect();
                 }
@@ -202,7 +202,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('keyup', handleKeyUp);
         };
-    }, [step, isGenerating, isTranscribing]);
+    }, [step, isGenerating, isTranscribing, isAiSpeaking]);
 
     // Scroll chat to bottom
     useEffect(() => {
@@ -346,7 +346,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
     // Handle Speech-to-Text direct recording triggers
     const startRecordingDirect = async () => {
-        if (isRecordingRef.current || isGenerating || isTranscribing) return;
+        if (isRecordingRef.current || isGenerating || isTranscribing || isAiSpeaking) return;
         unlockAudio();
         if (!speechSupported) return;
 
@@ -541,13 +541,17 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         }
     };
 
-    // Parse Furigana for HTML output with Cyber highlight styling
+    // Parse Furigana for HTML output with exact Kanji-to-Reading alignment
     const formatFurigana = (text) => {
         if (!text) return '';
         if (!showFurigana) {
-            return text.replace(/([^\s\[\]]+)\[([^\]]+)\]/g, '$1').replace(/\[[^\]]+\]/g, '');
+            return text.replace(/([\u4e00-\u9faf\u3005\u3400-\u4dbf\w]+)\[([^\]]+)\]/g, '$1').replace(/\[[^\]]+\]/g, '');
         }
-        return text.replace(/([^\s\[\]]+)\[([^\]]+)\]/g, '<ruby>$1<rt class="text-[10px] font-bold select-none text-rose-600 dark:text-rose-400">$2</rt></ruby>');
+        // Match ONLY Kanji or Alphanumeric characters immediately preceding [furigana] bracket
+        return text.replace(
+            /([\u4e00-\u9faf\u3005\u3400-\u4dbf\w]+)\[([^\]]+)\]/g, 
+            '<ruby class="inline-ruby mx-0.5">$1<rt class="text-[10px] font-bold select-none text-rose-600 dark:text-rose-400 leading-none">$2</rt></ruby>'
+        );
     };
 
     // Helper to start the Kaiwa session
@@ -581,13 +585,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             "explanationVi": ""
           },
           "suggestions": [
-            "2 đến 3 câu gợi ý phản xạ ngắn bằng tiếng Nhật kèm Furigana dạng Chữ[Furigana]"
-          ],
-          "speechAnalytics": {
-            "fluencyScore": 90,
-            "fluencyLabel": "Trôi chảy",
-            "pronunciationTips": "Chào mừng bạn đến buổi học Kaiwa!"
-          }
+            "2 đến 3 câu gợi ý phản xạ ngắn phù hợp"
+          ]
         }`;
 
         try {
@@ -617,7 +616,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             setIsGenerating(false);
         }
     };
-    
+
     // Helper to send message to AI
     const handleSendUserMessage = async (textToSend, speakDurationSec = null) => {
         unlockAudio();
@@ -667,6 +666,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                - "feedback.hasError" là false.
                - "replyJa": 1 câu ngắn khen học viên đã đọc đúng (ví dụ: "素晴らしい！正しく言えましたね。") KÈM THEO 1 câu hỏi ngắn tiếp theo để TIẾP TỤC cuộc hội thoại chủ đề ${selectedTopic.name}.
                - "speechAnalytics": { "fluencyScore": 92, "fluencyLabel": "Sửa lỗi xuất sắc", "pronunciationTips": "Đã phát âm và sửa câu chuẩn xác!" }
+               - "suggestions": BẮT BUỘC LUÔN TẠO ĐÚNG 3 CÂU GỢI Ý TRẢ LỜI MỚI (tiếng Nhật kèm Furigana dạng Chữ[Furigana]) cho câu hỏi tiếp theo bạn vừa hỏi.
             3. NẾU HỌC VIÊN ĐỌC VẪN SAI / CHƯA ĐÚNG:
                - "feedback.hasError" là true.
                - "feedback.userOriginal" là "${messageText}".
@@ -675,13 +675,17 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                - "replyJa": Yêu cầu học viên thử đọc lại câu đúng "${pendingCorrection.corrected}". TUYỆT ĐỐI KHÔNG hỏi câu mới.
                - "suggestions": [ "${pendingCorrection.corrected}", "${pendingCorrection.corrected}", "${pendingCorrection.corrected}" ]
             
-            Định dạng phản hồi: Bắt buộc trả về cấu trúc JSON:
+            Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON:
             {
               "replyJa": "Nội dung câu nói của giáo viên kèm Furigana dạng Chữ[Furigana]",
               "replyVi": "Bản dịch tiếng Việt",
               "feedback": { "hasError": true/false, "userOriginal": "...", "correctedJa": "...", "explanationVi": "..." },
-              "suggestions": ["gợi ý 1", "gợi ý 2", "gợi ý 3"],
-              "speechAnalytics": { "fluencyScore": 85, "fluencyLabel": "...", "pronunciationTips": "..." }
+              "suggestions": [
+                "Gợi ý 1 mới cho câu hỏi tiếp theo",
+                "Gợi ý 2 mới cho câu hỏi tiếp theo",
+                "Gợi ý 3 mới cho câu hỏi tiếp theo"
+              ],
+              "speechAnalytics": { "fluencyScore": 92, "fluencyLabel": "...", "pronunciationTips": "..." }
             }`;
         } else {
             systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
@@ -695,11 +699,11 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                  + "correctedJa": chứa câu tiếng Nhật chuẩn (kèm Furigana dạng Chữ[Furigana]).
                  + "explanationVi": giải thích lỗi bằng tiếng Việt ngắn gọn.
                  + "replyJa": BẮT BUỘC chỉ yêu cầu học viên đọc/phát âm lại câu đúng "${messageText}" -> [correctedJa]. TUYỆT ĐỐI KHÔNG HỎI CÂU MỚI, KHÔNG CHUYỂN CHỦ ĐỀ. Bắt buộc để học viên phát âm sửa lỗi trước.
-                 + "suggestions": [ [correctedJa] ]
+                 + "suggestions": [ "[correctedJa]", "[correctedJa]", "[correctedJa]" ]
                - NẾU HỌC VIÊN NÓI CHUẨN (KHÔNG CÓ LỖI):
                  + "feedback.hasError" là false.
                  + "replyJa": Phản hồi tự nhiên + hỏi câu tiếp theo ngắn gọn (1-2 câu).
-                 + "suggestions": [ 2 đến 3 câu gợi ý phản xạ ngắn ]
+                 + "suggestions": BẮT BUỘC LUÔN TẠO ĐÚNG 3 CÂU GỢI Ý TRẢ LỜI MỚI (tiếng Nhật kèm Furigana dạng Chữ[Furigana]) cho câu hỏi bạn vừa hỏi.
             3. Đánh giá độ trôi chảy và nhận xét phát âm trong "speechAnalytics":
                - "fluencyScore": Điểm 0-100.
                - "fluencyLabel": Nhãn ngắn ("Xuất sắc" | "Trôi chảy" | "Tự nhiên" | "Cần chú ý").
@@ -716,9 +720,9 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 "explanationVi": "lời khuyên nếu error"
               },
               "suggestions": [
-                "câu gợi ý 1 - phù hợp câu hỏi AI vừa hỏi",
-                "câu gợi ý 2 - cách diễn đạt khác",
-                "câu gợi ý 3 - nâng cao hơn"
+                "Gợi ý 1 mới cho câu hỏi tiếp theo",
+                "Gợi ý 2 mới cho câu hỏi tiếp theo",
+                "Gợi ý 3 mới cho câu hỏi tiếp theo"
               ],
               "speechAnalytics": {
                 "fluencyScore": 88,
@@ -773,11 +777,25 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     }
                 }
 
+                // Ensure suggestions array is never empty
+                let finalSuggestions = parsed.suggestions;
+                if (!Array.isArray(finalSuggestions) || finalSuggestions.length === 0) {
+                    if (parsed.feedback && parsed.feedback.hasError && parsed.feedback.correctedJa) {
+                        finalSuggestions = [parsed.feedback.correctedJa, parsed.feedback.correctedJa, parsed.feedback.correctedJa];
+                    } else {
+                        finalSuggestions = [
+                            "はい、わかりました。",
+                            "そうですね。詳しく教[おし]えてください。",
+                            "もう一[いち]度[ど]お願[ねが]いします。"
+                        ];
+                    }
+                }
+
                 const aiReply = {
                     sender: 'ai',
                     textJa: parsed.replyJa,
                     textVi: parsed.replyVi,
-                    suggestions: parsed.suggestions || [],
+                    suggestions: finalSuggestions,
                     feedback: null
                 };
                 setConversation(prev => [...prev, aiReply]);
@@ -787,9 +805,13 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             console.error('Error sending message:', error);
             setConversation(prev => [...prev, {
                 sender: 'ai',
-                textJa: 'すみません, もう一度言っていただくか, メッセージを再送信してください。',
+                textJa: 'すみません、もう一度言っていただくか、メッセージを再送信してください。',
                 textVi: 'Xin lỗi, bạn có thể nói lại hoặc gửi lại tin nhắn được không?',
-                suggestions: []
+                suggestions: [
+                    "はい、わかりました。",
+                    "そうですね。詳しく教[おし]えてください。",
+                    "もう一[いち]度[ど]お願[ねが]いします。"
+                ]
             }]);
         } finally {
             setIsGenerating(false);
@@ -1038,19 +1060,6 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             >
                                 {ttsRate}x
                             </button>
-
-                            {/* Mute */}
-                            <button
-                                onClick={() => setIsMuted(prev => !prev)}
-                                className={`p-2 rounded-xl transition-all cursor-pointer border ${
-                                    isMuted 
-                                        ? 'bg-red-50 text-red-600 border-red-200 dark:bg-red-950/40 dark:text-red-400 dark:border-red-800/60' 
-                                        : 'bg-slate-100 text-slate-600 dark:bg-slate-850 dark:text-slate-400 border-slate-200 dark:border-slate-750'
-                                }`}
-                                title="Bật/Tắt âm thanh AI"
-                            >
-                                {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-indigo-600 dark:text-cyan-400" />}
-                            </button>
                         </div>
                     </div>
 
@@ -1228,11 +1237,13 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                         <button
                                             key={idx}
                                             type="button"
-                                            disabled={isGenerating || isTranscribing}
-                                            onClick={() => handleSendUserMessage(cleanText)}
-                                            className="px-3.5 py-2 rounded-xl border border-indigo-200 dark:border-cyan-800/60 bg-indigo-50 dark:bg-cyan-950/40 hover:bg-indigo-100 dark:hover:bg-cyan-900/60 hover:border-indigo-400 dark:hover:border-cyan-500 text-xs font-semibold text-indigo-700 dark:text-cyan-300 cursor-pointer font-japanese transition-all shadow-sm disabled:opacity-40 disabled:cursor-not-allowed active:scale-95"
+                                            disabled={isAiSpeaking || isGenerating || isTranscribing}
+                                            onClick={() => speakText(cleanText)}
+                                            title={isAiSpeaking ? "Vui lòng chờ AI nói xong" : "Bấm để nghe phát âm mẫu (Dùng Mic / Phím Cách để nói)"}
+                                            className="px-3.5 py-2 rounded-xl border border-indigo-200 dark:border-cyan-800/60 bg-indigo-50/80 dark:bg-cyan-950/40 hover:bg-indigo-100 dark:hover:bg-cyan-900/60 hover:border-indigo-400 dark:hover:border-cyan-500 text-xs font-semibold text-indigo-700 dark:text-cyan-300 cursor-pointer font-japanese transition-all shadow-sm active:scale-95 flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none"
                                         >
-                                            {cleanText}
+                                            <Volume1 className="w-3.5 h-3.5 text-indigo-500 dark:text-cyan-400 shrink-0" />
+                                            <span>{cleanText}</span>
                                         </button>
                                     );
                                 })}
@@ -1256,11 +1267,11 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                 {isRecording && (
                                     <span className="absolute w-24 h-24 rounded-full bg-rose-500/30 dark:bg-rose-500/20 animate-ping pointer-events-none"></span>
                                 )}
-                                {isHandsFree && !isRecording && !isGenerating && !isTranscribing && (
+                                {isHandsFree && !isRecording && !isGenerating && !isTranscribing && !isAiSpeaking && (
                                     <span className="absolute w-20 h-20 rounded-full bg-cyan-500/20 dark:bg-cyan-500/15 animate-pulse pointer-events-none"></span>
                                 )}
                                 {isAiSpeaking && (
-                                    <span className="absolute w-20 h-20 rounded-full bg-violet-500/25 dark:bg-violet-500/20 animate-ping pointer-events-none"></span>
+                                    <span className="absolute w-20 h-20 rounded-full bg-violet-500/30 dark:bg-violet-500/20 animate-ping pointer-events-none"></span>
                                 )}
 
                                 {/* Central Futuristic AI Mic Orb Button */}
@@ -1271,15 +1282,17 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                     onTouchStart={startRecording}
                                     onTouchEnd={stopRecording}
                                     onTouchCancel={stopRecording}
-                                    disabled={isGenerating || isTranscribing}
-                                    className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 cursor-pointer select-none border-2 ${
-                                        isRecording 
-                                            ? 'bg-gradient-to-tr from-rose-600 via-rose-500 to-pink-500 border-rose-300 shadow-rose-500/50 scale-110' 
+                                    disabled={isGenerating || isTranscribing || isAiSpeaking}
+                                    className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 select-none border-2 ${
+                                        isAiSpeaking
+                                            ? 'bg-slate-400 dark:bg-slate-700 border-slate-300 opacity-60 cursor-not-allowed'
+                                            : isRecording 
+                                            ? 'bg-gradient-to-tr from-rose-600 via-rose-500 to-pink-500 border-rose-300 shadow-rose-500/50 scale-110 cursor-pointer' 
                                             : isHandsFree 
-                                            ? 'bg-gradient-to-tr from-cyan-600 via-indigo-600 to-blue-600 border-cyan-300 shadow-cyan-500/40 hover:scale-105'
-                                            : 'bg-gradient-to-tr from-indigo-600 via-indigo-700 to-purple-700 border-indigo-400 shadow-indigo-600/40 hover:scale-105'
+                                            ? 'bg-gradient-to-tr from-cyan-600 via-indigo-600 to-blue-600 border-cyan-300 shadow-cyan-500/40 hover:scale-105 cursor-pointer'
+                                            : 'bg-gradient-to-tr from-indigo-600 via-indigo-700 to-purple-700 border-indigo-400 shadow-indigo-600/40 hover:scale-105 cursor-pointer'
                                     }`}
-                                    title={isHandsFree ? "VAD đang tự động nhận diện (Nhấn giữ/chạm để nói trực tiếp)" : "Nhấn giữ để nói, thả ra để gửi"}
+                                    title={isAiSpeaking ? "Vui lòng chờ AI nói xong" : (isHandsFree ? "VAD đang tự động nhận diện (Nhấn giữ/chạm để nói trực tiếp)" : "Nhấn giữ để nói, thả ra để gửi")}
                                 >
                                     {isRecording ? (
                                         <MicOff className="w-7 h-7 animate-pulse text-white" />
@@ -1308,6 +1321,11 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                         <span className="text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5 animate-pulse">
                                             <Sparkles className="w-3.5 h-3.5 animate-spin" />
                                             AI ĐANG TẠO CÂU TRẢ LỜI...
+                                        </span>
+                                    ) : isAiSpeaking ? (
+                                        <span className="text-violet-600 dark:text-violet-400 flex items-center gap-1.5 animate-pulse">
+                                            <Volume2 className="w-3.5 h-3.5 text-violet-500 animate-bounce" />
+                                            AI ĐANG NÓI... (VUI LÒNG CHỜ AI NÓI XONG)
                                         </span>
                                     ) : isHandsFree ? (
                                         <span className="text-cyan-600 dark:text-cyan-400 flex items-center gap-1.5">

@@ -957,7 +957,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             id: g.id,
                             state: srsData[g.id]?.state,
                             nextReview: srsData[g.id]?.nextReview || 0,
-                            reps: srsData[g.id]?.reps || 0
+                            reps: srsData[g.id]?.reps || 0,
+                            interval: srsData[g.id]?.interval || 0,
+                            learningStep: srsData[g.id]?.learningStep
                         }))} 
                         daysCount={14} 
                         title="Dự Báo Ngữ Pháp Đến Hạn (14 Ngày Tới)" 

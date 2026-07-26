@@ -197,50 +197,120 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
 
 // ============== PARSE JSON RESPONSE ==============
 
+// Helper to fix malformed, extra-braced, or truncated JSON strings returned by AI
+export const repairTruncatedJson = (str) => {
+    if (!str) return '{}';
+    let s = str.trim();
+
+    // 1. Remove markdown code blocks if present
+    if (s.startsWith('```json')) s = s.slice(7);
+    if (s.startsWith('```')) s = s.slice(3);
+    if (s.endsWith('```')) s = s.slice(0, -3);
+    s = s.trim();
+
+    // 2. Find starting brace or bracket
+    const firstBrace = s.indexOf('{');
+    const firstBracket = s.indexOf('[');
+    
+    let startIdx = -1;
+    if (firstBrace !== -1 && (firstBracket === -1 || firstBrace < firstBracket)) {
+        startIdx = firstBrace;
+    } else if (firstBracket !== -1) {
+        startIdx = firstBracket;
+    }
+
+    if (startIdx !== -1) {
+        s = s.slice(startIdx);
+    }
+
+    // Try parsing as-is first
+    try {
+        JSON.parse(s);
+        return s;
+    } catch (_) {}
+
+    // 3. Track open braces/brackets/quotes to close unclosed JSON or trim extra trailing characters
+    let inString = false;
+    let escaped = false;
+    const stack = [];
+
+    for (let i = 0; i < s.length; i++) {
+        const char = s[i];
+
+        if (inString) {
+            if (escaped) {
+                escaped = false;
+            } else if (char === '\\') {
+                escaped = true;
+            } else if (char === '"') {
+                inString = false;
+            }
+            continue;
+        }
+
+        if (char === '"') {
+            inString = true;
+            continue;
+        }
+
+        if (char === '{' || char === '[') {
+            stack.push(char);
+        } else if (char === '}') {
+            if (stack.length > 0 && stack[stack.length - 1] === '{') {
+                stack.pop();
+                if (stack.length === 0) {
+                    // Reached complete balanced top-level object!
+                    return s.slice(0, i + 1);
+                }
+            }
+        } else if (char === ']') {
+            if (stack.length > 0 && stack[stack.length - 1] === '[') {
+                stack.pop();
+                if (stack.length === 0) {
+                    // Reached complete balanced top-level array!
+                    return s.slice(0, i + 1);
+                }
+            }
+        }
+    }
+
+    // If string was truncated mid-way:
+    let repaired = s;
+    if (inString) {
+        repaired += '"';
+    }
+
+    // Remove any trailing comma inside unclosed object/array
+    repaired = repaired.replace(/,\s*$/, '');
+
+    // Close any unclosed braces/brackets
+    while (stack.length > 0) {
+        const open = stack.pop();
+        if (open === '{') repaired += '}';
+        if (open === '[') repaired += ']';
+    }
+
+    return repaired;
+};
+
 export const parseJsonFromAI = (text) => {
     if (!text) return null;
 
     let jsonStr = text.trim();
 
-    // Remove markdown code blocks
-    if (jsonStr.startsWith('```json')) jsonStr = jsonStr.slice(7);
-    if (jsonStr.startsWith('```')) jsonStr = jsonStr.slice(3);
-    if (jsonStr.endsWith('```')) jsonStr = jsonStr.slice(0, -3);
-    jsonStr = jsonStr.trim();
-
-    let candidate = jsonStr;
-    const firstChar = jsonStr.charAt(0);
-    if (firstChar === '[') {
-        const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
-        if (arrayMatch) candidate = arrayMatch[0];
-    } else if (firstChar === '{') {
-        const objectMatch = jsonStr.match(/\{[\s\S]*\}/);
-        if (objectMatch) candidate = objectMatch[0];
-    } else {
-        const firstBrace = jsonStr.indexOf('{');
-        const firstBracket = jsonStr.indexOf('[');
-        if (firstBracket !== -1 && (firstBrace === -1 || firstBracket < firstBrace)) {
-            const arrayMatch = jsonStr.match(/\[[\s\S]*\]/);
-            if (arrayMatch) candidate = arrayMatch[0];
-        } else if (firstBrace !== -1) {
-            const objectMatch = jsonStr.match(/\{[\s\S]*\}/);
-            if (objectMatch) candidate = objectMatch[0];
-        }
-    }
-
+    // Direct JSON parse attempt
     try {
-        return JSON.parse(candidate);
-    } catch (e1) {
-        // Try repairing truncated JSON
-        try {
-            const repaired = repairTruncatedJson(jsonStr);
-            const parsed = JSON.parse(repaired);
-            console.warn('⚠️ Repaired truncated AI JSON response successfully:', parsed);
-            return parsed;
-        } catch (e2) {
-            console.error('Error parsing AI response JSON:', e2, 'Raw text:', text);
-            return null;
-        }
+        return JSON.parse(jsonStr);
+    } catch (_) {}
+
+    // Repair and parse
+    try {
+        const repaired = repairTruncatedJson(jsonStr);
+        const parsed = JSON.parse(repaired);
+        return parsed;
+    } catch (err) {
+        console.error('Error parsing AI response JSON:', err, 'Raw text:', text);
+        return null;
     }
 };
 

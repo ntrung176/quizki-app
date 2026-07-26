@@ -597,6 +597,30 @@ export const isLeechCard = (srsOrCard) => {
     return count >= LEECH_THRESHOLD;
 };
 
+// Check if card has been learned and evaluated in SRS (NOT NEW)
+export const isCardEvaluatedInSrs = (item) => {
+    if (!item) return false;
+    if (item.srsEnabled === false) return false;
+
+    const state = item.state || item.srsState || null;
+    if (state === 'NEW' || state === 'new') return false;
+
+    const intervalIndex = item.intervalIndex_back;
+    if (typeof intervalIndex === 'number' && intervalIndex === -1) return false;
+
+    const reps = item.reps !== undefined ? item.reps : item.srsReps;
+    const interval = item.interval !== undefined ? item.interval : item.srsInterval;
+    const learningStep = item.learningStep !== undefined ? item.learningStep : item.srsLearningStep;
+
+    const hasReps = typeof reps === 'number' && reps > 0;
+    const hasInterval = typeof interval === 'number' && interval > 0;
+    const hasLearningStep = learningStep !== null && learningStep !== undefined;
+    const hasValidState = state && state !== 'NEW' && state !== 'new';
+    const hasValidIntervalIndex = typeof intervalIndex === 'number' && intervalIndex >= 0;
+
+    return hasReps || hasInterval || hasLearningStep || hasValidState || hasValidIntervalIndex;
+};
+
 // ==================== SRS FORECAST CALCULATION ====================
 export const calculateSrsForecast = (itemsList = [], daysCount = 14, nowMs = Date.now()) => {
     const todayCutoff = calculateDayCutoffTimestamp(0, nowMs);
@@ -622,27 +646,17 @@ export const calculateSrsForecast = (itemsList = [], daysCount = 14, nowMs = Dat
     itemsList.forEach(item => {
         if (!item || item.srsEnabled === false) return;
 
+        // Strictly exclude NEW / unstudied cards that have never been evaluated in SRS
+        if (!isCardEvaluatedInSrs(item)) return;
+
         const nextReviewVal = item.nextReview !== undefined 
             ? item.nextReview 
             : (item.nextReview_back !== undefined ? item.nextReview_back : null);
         
         const reviewMs = parseNextReviewMs(nextReviewVal);
-        const state = item.state || item.srsState || null;
-        const interval = item.interval !== undefined ? item.interval : item.srsInterval;
-        const reps = item.reps !== undefined ? item.reps : item.srsReps;
-        const intervalIndex = item.intervalIndex_back;
+        if (reviewMs <= 0) return; // Must have a valid next review timestamp
 
-        // Determine if item has active SRS history
-        const hasActiveSrs = (reviewMs > 0) || 
-            (state && state !== 'NEW' && state !== 'new') || 
-            (typeof intervalIndex === 'number' && intervalIndex >= 0) ||
-            (typeof interval === 'number' && interval > 0) ||
-            (typeof reps === 'number' && reps > 0);
-
-        // Exclude unstudied/new cards that have never been introduced in SRS
-        if (!hasActiveSrs) return;
-
-        if (reviewMs === 0 || reviewMs <= nowMs || reviewMs < nextDayCutoff) {
+        if (reviewMs <= nowMs || reviewMs < nextDayCutoff) {
             // Due today (or overdue)
             forecast[0].count++;
         } else {

@@ -1000,7 +1000,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             id: k.id,
                             state: srsData[k.id]?.state,
                             nextReview: srsData[k.id]?.nextReview || 0,
-                            reps: srsData[k.id]?.reps || 0
+                            reps: srsData[k.id]?.reps || 0,
+                            interval: srsData[k.id]?.interval || 0,
+                            learningStep: srsData[k.id]?.learningStep
                         }))} 
                         daysCount={14} 
                         title="Dự Báo Kanji Đến Hạn (14 Ngày Tới)" 
