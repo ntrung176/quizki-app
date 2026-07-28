@@ -1014,14 +1014,24 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
             models = [effectivePreferred, ...models.filter(m => m !== effectivePreferred)];
         }
         const currentModel = models[modelIndex];
+        const safeOrigin = (typeof window !== 'undefined' && window.location?.origin && window.location.origin.startsWith('http')) 
+            ? window.location.origin 
+            : 'https://quizki.app';
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => {
+            console.warn(`⏰ OpenRouter Kaiwa timeout after 18s (${currentModel}), aborting request...`);
+            controller.abort();
+        }, 18000);
 
         const url = 'https://openrouter.ai/api/v1/chat/completions';
         const options = {
             method: 'POST',
+            signal: controller.signal,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${currentKey}`,
-                'HTTP-Referer': window.location.origin,
+                'HTTP-Referer': safeOrigin,
                 'X-Title': 'Quizki Kaiwa'
             },
             body: JSON.stringify({
@@ -1039,6 +1049,8 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
 
         try {
             const response = await fetch(url, options);
+            clearTimeout(timeoutId);
+
             if (response.ok) {
                 const result = await response.json();
                 const text = extractOpenRouterText(result);
@@ -1068,10 +1080,14 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
             console.error(`❌ OpenRouter Kaiwa error (${status}):`, errorText);
             throw new Error(`OpenRouter API error: ${status}`);
         } catch (error) {
+            clearTimeout(timeoutId);
             if (error.message?.startsWith('OpenRouter API error')) throw error;
-            console.error(`❌ OpenRouter Kaiwa network error:`, error.message);
+            console.error(`❌ OpenRouter Kaiwa network/timeout error:`, error.message);
             if (keyIndex < keys.length - 1) {
                 return callWithMessagesRetry(messagesList, keyIndex + 1, modelIndex, preferredModel);
+            }
+            if (modelIndex < models.length - 1) {
+                return callWithMessagesRetry(messagesList, 0, modelIndex + 1, preferredModel);
             }
             throw error;
         }

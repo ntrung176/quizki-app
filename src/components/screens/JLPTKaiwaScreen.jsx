@@ -561,12 +561,23 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
     // Text-to-Speech (TTS) Reader
     const speakText = async (text) => {
-        if (isMuted) return;
+        if (isMuted || !text) return;
         setIsAiSpeaking(true);
+
+        // Safety fallback timer so UI audio state is NEVER stuck on mobile devices
+        const maxDurationMs = Math.min(12000, Math.max(3500, text.length * 180));
+        const safetyTimer = setTimeout(() => {
+            setIsAiSpeaking(false);
+        }, maxDurationMs);
+
+        const clearSafety = () => {
+            clearTimeout(safetyTimer);
+            setIsAiSpeaking(false);
+        };
         
-        // Strip out furigana reading brackets completely for TTS (handles Katakana, Kanji, Romaji)
+        // Strip out furigana reading brackets completely for TTS
         const cleanText = text.replace(/([^\s\[\]]+)\[([^\]]+)\]/g, '$1').replace(/\[[^\]]+\]/g, '');
-        const selectedTeacher = TEACHERS.find(t => t.id === teacher) || TEACHERS[0];
+        const selectedTeacher = currentTeachers.find(t => t.id === teacher) || currentTeachers[0];
         const gender = selectedTeacher ? selectedTeacher.gender : 'female';
 
         try {
@@ -581,27 +592,42 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             
             audioRef.current.src = audioUrl;
             audioRef.current.playbackRate = ttsRate;
-            audioRef.current.onended = () => setIsAiSpeaking(false);
-            audioRef.current.onerror = () => setIsAiSpeaking(false);
+            audioRef.current.onended = clearSafety;
+            audioRef.current.onerror = clearSafety;
 
-            await audioRef.current.play();
+            const playPromise = audioRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(err => {
+                    console.warn('Autoplay blocked on mobile, attempting WebSpeech fallback:', err);
+                    fallbackWebSpeech(cleanText, gender, clearSafety);
+                });
+            }
         } catch (err) {
             console.log('Neural TTS fallback to WebSpeech:', err.message);
-            if (window.speechSynthesis) {
+            fallbackWebSpeech(cleanText, gender, clearSafety);
+        }
+    };
+
+    const fallbackWebSpeech = (cleanText, gender, onDone) => {
+        if (typeof window !== 'undefined' && window.speechSynthesis) {
+            try {
                 window.speechSynthesis.cancel();
                 const utterance = new SpeechSynthesisUtterance(cleanText);
                 utterance.lang = isEnglishMode ? (teacher === 'emma' ? 'en-GB' : 'en-US') : 'ja-JP';
                 utterance.rate = ttsRate;
-                utterance.onend = () => setIsAiSpeaking(false);
-                utterance.onerror = () => setIsAiSpeaking(false);
+                utterance.onend = onDone;
+                utterance.onerror = onDone;
 
-                const voice = getBestJapaneseVoice(gender);
+                const voice = isEnglishMode ? getBestEnglishVoice(gender) : getBestJapaneseVoice(gender);
                 if (voice) utterance.voice = voice;
 
                 window.speechSynthesis.speak(utterance);
-            } else {
-                setIsAiSpeaking(false);
+            } catch (e) {
+                console.warn('WebSpeech error:', e);
+                onDone();
             }
+        } else {
+            onDone();
         }
     };
 
@@ -693,7 +719,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             const resultText = await callKaiwaAI(systemPrompt, [], "Bắt đầu hội thoại.");
             const parsed = parseJsonFromAI(resultText);
             
-            if (parsed) {
+            if (parsed && parsed.replyJa) {
                 const aiMsg = {
                     sender: 'ai',
                     textJa: parsed.replyJa,
@@ -703,6 +729,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 };
                 setConversation([aiMsg]);
                 speakText(parsed.replyJa);
+            } else {
+                throw new Error('AI response empty or missing replyJa');
             }
         } catch (error) {
             console.error('Error starting conversation:', error);
