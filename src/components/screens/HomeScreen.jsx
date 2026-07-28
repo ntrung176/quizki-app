@@ -56,9 +56,9 @@ const HomeScreen = ({
                 };
 
                 (kList || []).forEach(k => {
-                    total++;
                     const data = (freshSrs && freshSrs[k.id]) ? freshSrs[k.id] : (k.srsData || null);
                     if (data) {
+                        total++;
                         if (isKanjiMastered(data)) mastered++;
                         else learning++;
                         if (isSrsCardDue(data, now)) dueCount++;

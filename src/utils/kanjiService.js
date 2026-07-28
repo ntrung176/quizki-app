@@ -55,10 +55,24 @@ async function fetchVocabUpdatesFromFirestore(exportedAt) {
     }
 }
 
+export const invalidateKanjiCache = () => {
+    cachedKanjiList = null;
+    cachedVocabList = null;
+    cachedVocabCategories = null;
+    kanjiPromise = null;
+    vocabPromise = null;
+    categoriesPromise = null;
+    lastLoadedExportedAt = null;
+};
+
+if (typeof window !== 'undefined') {
+    window.addEventListener('cache-config-updated', invalidateKanjiCache);
+}
+
 export const getSharedKanjiList = async () => {
     const cacheConfig = await getCacheConfig();
     const currentExport = cacheConfig?.exportedAt || 0;
-    const needsRefresh = currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt;
+    const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
 
     if (needsRefresh) {
         cachedKanjiList = null;
@@ -101,7 +115,7 @@ export const getSharedKanjiList = async () => {
             }
 
             cachedKanjiList = await dataRes.json();
-            lastLoadedExportedAt = currentExport || Date.now();
+            lastLoadedExportedAt = currentExport || null;
 
             // Sync edits made after the export timestamp in the background
             fetchKanjiUpdatesFromFirestore(exportedAt);
@@ -112,7 +126,7 @@ export const getSharedKanjiList = async () => {
             try {
                 const snap = await getDocs(collection(db, 'kanji'));
                 cachedKanjiList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-                lastLoadedExportedAt = currentExport || Date.now();
+                lastLoadedExportedAt = currentExport || null;
                 return cachedKanjiList;
             } catch (fsErr) {
                 console.error('Error loading shared kanji list from Firestore fallback:', fsErr);
@@ -128,7 +142,7 @@ export const getSharedKanjiList = async () => {
 export const getSharedVocabList = async () => {
     const cacheConfig = await getCacheConfig();
     const currentExport = cacheConfig?.exportedAt || 0;
-    const needsRefresh = currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt;
+    const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
 
     if (needsRefresh) {
         cachedVocabList = null;
@@ -171,7 +185,7 @@ export const getSharedVocabList = async () => {
             }
 
             cachedVocabList = await dataRes.json();
-            lastLoadedExportedAt = currentExport || Date.now();
+            lastLoadedExportedAt = currentExport || null;
 
             // Sync edits made after the export timestamp in the background
             fetchVocabUpdatesFromFirestore(exportedAt);
@@ -182,7 +196,7 @@ export const getSharedVocabList = async () => {
             try {
                 const snap = await getDocs(collection(db, 'kanjiVocab'));
                 cachedVocabList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-                lastLoadedExportedAt = currentExport || Date.now();
+                lastLoadedExportedAt = currentExport || null;
                 return cachedVocabList;
             } catch (fsErr) {
                 console.error('Error loading shared vocab list from Firestore fallback:', fsErr);
@@ -198,7 +212,7 @@ export const getSharedVocabList = async () => {
 export const getSharedVocabCategories = async () => {
     const cacheConfig = await getCacheConfig();
     const currentExport = cacheConfig?.exportedAt || 0;
-    const needsRefresh = currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt;
+    const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
 
     if (needsRefresh) {
         cachedVocabCategories = null;
@@ -232,7 +246,7 @@ export const getSharedVocabCategories = async () => {
                 throw new Error('Response is not JSON (got: ' + contentType + ')');
             }
             cachedVocabCategories = await dataRes.json();
-            lastLoadedExportedAt = currentExport || Date.now();
+            lastLoadedExportedAt = currentExport || null;
             return cachedVocabCategories;
         } catch (e) {
             console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);

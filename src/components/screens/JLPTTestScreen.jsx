@@ -1614,12 +1614,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                 }
             } catch (e) {}
 
-            // 1. Try CDN URL if available (non-blocking cacheConfig timeout)
+            // 1. Try CDN URL if available
             try {
-                const cacheConfig = await Promise.race([
-                    getCacheConfig(),
-                    new Promise(r => setTimeout(() => r(null), 800))
-                ]);
+                const cacheConfig = await getCacheConfig();
 
                 if (cacheConfig && cacheConfig.jlptUrl) {
                     console.log('Fetching JLPT tests from Storage CDN...');
@@ -1639,7 +1636,25 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                 console.log('CDN JLPT tests load failed:', e.message);
             }
 
-            // 2. Try Local /data/jlpt_data.json
+            // 2. Try Firestore live query as primary fallback
+            if (!active) return;
+            try {
+                console.log('Fetching JLPT tests from Firestore...');
+                const q = query(collection(db, testsPath), orderBy('createdAt', 'desc'));
+                unsub = onSnapshot(q, (snap) => {
+                    if (active) {
+                        const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                        setTests(data);
+                        setLoading(false);
+                        try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(data)); } catch (e) {}
+                    }
+                });
+                return;
+            } catch (e) {
+                console.log('Firestore JLPT tests load failed:', e.message);
+            }
+
+            // 3. Fallback to Local /data/jlpt_data.json as offline last resort
             try {
                 const res = await fetch('/data/jlpt_data.json');
                 if (res && res.ok && active) {
@@ -1652,19 +1667,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
                     }
                 }
             } catch (e) {}
-
-            // 3. Fallback to Firestore listener if no CDN or local cache
-            if (!active) return;
-            console.log('Fallback to Firestore for JLPT tests...');
-            const q = query(collection(db, testsPath), orderBy('createdAt', 'desc'));
-            unsub = onSnapshot(q, (snap) => {
-                if (active) {
-                    const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-                    setTests(data);
-                    setLoading(false);
-                    try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(data)); } catch (e) {}
-                }
-            });
         })();
 
         return () => {

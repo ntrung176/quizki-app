@@ -6,7 +6,7 @@ import { collection, query, onSnapshot, doc } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { 
-    Home, BookOpen, LogOut, Sun, Moon, Sparkle, ChevronRight, X, 
+    Home, BookOpen, LogOut, Sun, Moon, Sparkle, ChevronRight, ChevronLeft, X, 
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell, 
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot
 } from 'lucide-react'
@@ -519,13 +519,13 @@ const Sidebar = ({
             <div className={`p-4 border-b border-slate-200 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
                 <Link
                     to={ROUTES.HOME}
-                    className="flex items-center space-x-3"
+                    className="flex items-center space-x-3 min-w-0"
                 >
                     <div className="w-10 h-10 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 shrink-0">
                         <BookOpen className="w-5 h-5" />
                     </div>
                     {!isCollapsed && (
-                        <div className="flex flex-col">
+                        <div className="flex flex-col min-w-0">
                             <span className="text-xl font-black text-slate-800 dark:text-white leading-none tracking-tight">
                                 QuizKi <span className="text-cyan-500 font-mono text-xs font-black">AI</span>
                             </span>
@@ -535,6 +535,7 @@ const Sidebar = ({
                         </div>
                     )}
                 </Link>
+
                 {!isCollapsed && (
                     <div className="relative">
                         <button
@@ -667,68 +668,71 @@ const Sidebar = ({
                     {!isCollapsed && <span>{t('common.upgrade', 'Nâng cấp tài khoản')}</span>}
                 </Link>
 
-                {/* Integrated Cyber Quick Control Chips (Chatbox with Admin, Help, Theme, Collapse, Logout) */}
-                {isCollapsed ? (
-                    <div className="flex items-center justify-center pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
+                {/* Integrated Cyber Quick Control Chips + Standalone Logout */}
+                <div className="space-y-2 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
+                    {isCollapsed ? (
+                        /* Collapsed Mode: Only show Expand button */
                         <button
                             onClick={() => setIsCollapsed(false)}
-                            className="w-full py-2 rounded-xl text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer"
+                            className="w-full py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer shadow-sm"
                             title="Mở rộng Sidebar"
                         >
                             <ChevronRight className="w-5 h-5" />
                         </button>
-                    </div>
-                ) : (
-                    <div className="flex items-center justify-between gap-1 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
-                        {/* Chatbox with Admin Button */}
-                        <button
-                            onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
-                            className="p-2 rounded-xl text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer"
-                            title="Chatbox hỗ trợ với Admin"
-                        >
-                            <MessageSquare className="w-4.5 h-4.5" />
-                        </button>
+                    ) : (
+                        /* Expanded Mode: Full 4-icon horizontal row */
+                        <div className="flex items-center justify-between p-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-sm w-full">
+                            {/* Chatbox with Admin Button */}
+                            <button
+                                onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
+                                className="p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer"
+                                title="Chatbox hỗ trợ với Admin"
+                            >
+                                <MessageSquare className="w-4.5 h-4.5" />
+                            </button>
 
-                        {/* Help / Page Guide '?' Button */}
-                        <button
-                            onClick={() => {
-                                if (onTriggerTour) onTriggerTour();
-                                else navigate(ROUTES.HELP);
-                            }}
-                            className="p-2 rounded-xl text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer"
-                            title="Xem hướng dẫn trang này"
-                        >
-                            <HelpCircle className="w-4.5 h-4.5" />
-                        </button>
+                            {/* Help / Page Guide '?' Button */}
+                            <button
+                                onClick={() => {
+                                    if (onTriggerTour) onTriggerTour();
+                                    else navigate(ROUTES.HELP);
+                                }}
+                                className="p-2 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer"
+                                title="Xem hướng dẫn trang này"
+                            >
+                                <HelpCircle className="w-4.5 h-4.5" />
+                            </button>
 
-                        {/* Dark Mode Toggle */}
-                        <button
-                            onClick={() => setIsDarkMode(prev => !prev)}
-                            className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                            title={isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
-                        >
-                            {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
-                        </button>
+                            {/* Dark Mode Toggle */}
+                            <button
+                                onClick={() => setIsDarkMode(prev => !prev)}
+                                className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                title={isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
+                            >
+                                {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
+                            </button>
 
-                        {/* Collapse Sidebar Toggle */}
-                        <button
-                            onClick={() => setIsCollapsed(true)}
-                            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                            title="Thu gọn Sidebar"
-                        >
-                            <ChevronRight className="w-4.5 h-4.5 rotate-180" />
-                        </button>
+                            {/* Collapse Nav Toggle - Placed at the rightmost position */}
+                            <button
+                                onClick={() => setIsCollapsed(true)}
+                                className="p-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                title="Thu gọn Sidebar"
+                            >
+                                <ChevronLeft className="w-4.5 h-4.5" />
+                            </button>
+                        </div>
+                    )}
 
-                        {/* Logout Button */}
-                        <button
-                            onClick={handleLogout}
-                            className="p-2 rounded-xl text-slate-400 hover:text-rose-600 dark:text-slate-500 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer"
-                            title="Đăng xuất"
-                        >
-                            <LogOut className="w-4.5 h-4.5" />
-                        </button>
-                    </div>
-                )}
+                    {/* Dedicated Standalone Logout Button */}
+                    <button
+                        onClick={handleLogout}
+                        className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'justify-center space-x-2'} px-3.5 py-2.5 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 hover:bg-rose-500/20 text-xs font-bold transition-all cursor-pointer shadow-sm`}
+                        title={isCollapsed ? "Đăng xuất" : undefined}
+                    >
+                        <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
+                        {!isCollapsed && <span>Đăng xuất</span>}
+                    </button>
+                </div>
             </div>
         </aside>
     );

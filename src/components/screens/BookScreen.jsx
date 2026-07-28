@@ -1406,6 +1406,7 @@ const BookScreen = ({
         if (!userId) return;
         setCreationLoading(true);
         try {
+            const currentTargetLang = localStorage.getItem('quizki_target_language') || 'ja';
             // 1. Link study set to this lesson by setting sourceLesson
             await updateDoc(doc(db, `artifacts/${appId}/users/${userId}/studySets`, selectedExistingStudySetId), {
                 sourceLesson: {
@@ -1497,6 +1498,7 @@ const BookScreen = ({
         if (!linkedStudySet || !userId) return;
         setCreationLoading(true);
         try {
+            const currentTargetLang = localStorage.getItem('quizki_target_language') || 'ja';
             const batch = writeBatch(db);
             let addedCount = 0;
             let updatedCount = 0;

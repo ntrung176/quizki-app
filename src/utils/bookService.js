@@ -17,16 +17,13 @@ let bookGroupsPromise = null;
 export const getSharedBookGroups = async (forceRefresh = false, forceLiveFirestore = false) => {
     let cacheConfig = null;
     try {
-        cacheConfig = await Promise.race([
-            getCacheConfig(),
-            new Promise(r => setTimeout(() => r(null), 800))
-        ]);
+        cacheConfig = await getCacheConfig();
     } catch (e) {
-        console.warn('Cache config fetch timeout/error in bookService:', e);
+        console.warn('Cache config fetch error in bookService:', e);
     }
 
     const currentExport = cacheConfig?.exportedAt || 0;
-    const needsRefresh = forceRefresh || (currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt);
+    const needsRefresh = forceRefresh || (currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt));
 
     if (needsRefresh) {
         cachedBookGroups = null;
@@ -39,7 +36,7 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
     bookGroupsPromise = (async () => {
         const fetchFromFirestoreFallback = async () => {
             try {
-                console.log('Fetching shared book groups from Firestore fallback...');
+                console.log('Fetching shared book groups from Firestore live database...');
                 const COLLECTION = 'bookGroups';
                 const groupsSnap = await getDocs(collection(db, COLLECTION));
                 
@@ -82,7 +79,7 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                 
                 groups.sort((a, b) => (a.order || 0) - (b.order || 0));
                 cachedBookGroups = groups;
-                lastLoadedExportedAt = currentExport || Date.now();
+                lastLoadedExportedAt = currentExport || null;
                 return cachedBookGroups;
             } catch (fsErr) {
                 console.error('Error loading shared book groups from Firestore fallback:', fsErr);
@@ -107,16 +104,24 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                     const data = await dataRes.json();
                     if (Array.isArray(data) && data.length > 0) {
                         cachedBookGroups = data;
-                        lastLoadedExportedAt = currentExport || Date.now();
+                        lastLoadedExportedAt = currentExport || null;
                         return cachedBookGroups;
                     }
                 }
             } catch (cdnErr) {
-                console.warn('CDN fetch for books failed, falling back to local bundle file...', cdnErr);
+                console.warn('CDN fetch for books failed, falling back to Firestore...', cdnErr);
             }
         }
 
-        // 2. Try Local Bundle file /data/books_data.json
+        // 2. Try Firestore live query as primary fallback when CDN is unavailable/fails
+        try {
+            console.log('Fetching shared book groups from Firestore live database...');
+            return await fetchFromFirestoreFallback();
+        } catch (fsErr) {
+            console.warn('Firestore fetch failed, falling back to local bundle file...', fsErr);
+        }
+
+        // 3. Last Resort Fallback: Local Bundle file /data/books_data.json
         try {
             console.log('Fetching shared book groups from local bundle (/data/books_data.json)...');
             const dataRes = await fetch('/data/books_data.json');
@@ -124,7 +129,7 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                 const data = await dataRes.json();
                 if (Array.isArray(data) && data.length > 0) {
                     cachedBookGroups = data;
-                    lastLoadedExportedAt = currentExport || Date.now();
+                    lastLoadedExportedAt = null;
                     return cachedBookGroups;
                 }
             }
@@ -132,9 +137,7 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
             console.warn('Local bundle fetch for books failed:', localErr);
         }
 
-        // 3. Last Resort Fallback: Firestore live query
-        console.log('CDN & Local bundle unavailable, falling back to Firestore queries...');
-        return fetchFromFirestoreFallback();
+        throw new Error('All data sources for books failed');
     })();
 
     return bookGroupsPromise;

@@ -34,10 +34,21 @@ const pointsCache = {}; // "textbookId/lessonId" -> points array
 const pointsListeners = {}; // "textbookId/lessonId" -> Set of callbacks
 const pointsUnsubs = {}; // "textbookId/lessonId" -> unsub function
 
+export const invalidateGrammarCache = () => {
+    cachedGrammarData = null;
+    grammarPromise = null;
+    lastLoadedExportedAt = null;
+    clearSharedGrammarPointsListCache();
+};
+
+if (typeof window !== 'undefined') {
+    window.addEventListener('cache-config-updated', invalidateGrammarCache);
+}
+
 export const getSharedGrammarData = async () => {
     const cacheConfig = await getCacheConfig();
     const currentExport = cacheConfig?.exportedAt || 0;
-    const needsRefresh = currentExport && lastLoadedExportedAt && currentExport > lastLoadedExportedAt;
+    const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
 
     if (needsRefresh) {
         cachedGrammarData = null;
@@ -72,7 +83,7 @@ export const getSharedGrammarData = async () => {
             }
 
             cachedGrammarData = await dataRes.json();
-            lastLoadedExportedAt = currentExport || Date.now();
+            lastLoadedExportedAt = currentExport || null;
             return cachedGrammarData;
         } catch (e) {
             console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);

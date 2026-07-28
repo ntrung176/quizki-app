@@ -16,6 +16,7 @@ const BatchAiModal = ({
     initialTab = 'text',
     existingCards = []
 }) => {
+    const { isEnglishMode } = useTargetLanguage();
     const [activeTab, setActiveTab] = useState(initialTab); // 'text' | 'image'
 
     // Text input state

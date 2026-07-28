@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import vi from '../locales/vi.json';
 import en from '../locales/en.json';
+import ja from '../locales/ja.json';
 import zh from '../locales/zh.json';
 import ko from '../locales/ko.json';
 import id from '../locales/id.json';
@@ -10,6 +11,7 @@ import my from '../locales/my.json';
 export const SUPPORTED_LANGUAGES = [
     { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', countryCode: 'vn', country: 'Việt Nam' },
     { code: 'en', name: 'English', flag: '🇺🇸', countryCode: 'us', country: 'Global / US' },
+    { code: 'ja', name: '日本語', flag: '🇯🇵', countryCode: 'jp', country: 'Japan' },
     { code: 'zh', name: '中文', flag: '🇨🇳', countryCode: 'cn', country: 'China' },
     { code: 'ko', name: '한국어', flag: '🇰🇷', countryCode: 'kr', country: 'Korea' },
     { code: 'id', name: 'Bahasa Indonesia', flag: '🇮🇩', countryCode: 'id', country: 'Indonesia' },
@@ -17,7 +19,7 @@ export const SUPPORTED_LANGUAGES = [
     { code: 'my', name: 'မြန်မာစာ', flag: '🇲🇲', countryCode: 'mm', country: 'Myanmar' },
 ];
 
-const dictionaries = { vi, en, zh, ko, id, th, my };
+const dictionaries = { vi, en, ja, zh, ko, id, th, my };
 
 const LanguageContext = createContext();
 

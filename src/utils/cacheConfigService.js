@@ -1,5 +1,6 @@
 import { db, appId } from '../config/firebase';
 import { doc, getDoc, onSnapshot } from 'firebase/firestore';
+import { invalidateBookGroupsCache } from './bookService';
 
 let cachedConfig = null;
 let configPromise = null;
@@ -11,7 +12,12 @@ export const subscribeCacheConfig = () => {
         const ref = doc(db, `artifacts/${appId}/settings/cacheConfig`);
         unsubConfig = onSnapshot(ref, (snap) => {
             if (snap.exists()) {
-                cachedConfig = snap.data();
+                const newData = snap.data();
+                if (cachedConfig?.exportedAt !== newData?.exportedAt) {
+                    cachedConfig = newData;
+                    invalidateBookGroupsCache();
+                    window.dispatchEvent(new CustomEvent('cache-config-updated', { detail: newData }));
+                }
             }
         }, (err) => {
             console.warn('Real-time cacheConfig listener error:', err);
