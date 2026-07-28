@@ -1315,7 +1315,7 @@ const AppRoutes = ({
                     path={ROUTES.JLPT_KAIWA}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            {isAdmin ? (
+                            {(isAdmin || profile?.isPremiumUnlocked || profile?.isPremium) ? (
                                 <JLPTKaiwaScreen 
                                     profile={profile} 
                                     isAdmin={isAdmin} 
@@ -1325,18 +1325,24 @@ const AppRoutes = ({
                                     <div className="absolute inset-0 bg-grid-pattern opacity-5" />
                                     <div className="relative z-10 max-w-md w-full bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl dark:shadow-none border border-slate-100 dark:border-slate-700 text-center space-y-6">
                                         <div className="w-16 h-16 rounded-2xl bg-amber-500/10 dark:bg-amber-500/10 flex items-center justify-center mx-auto shadow-sm">
-                                            <span className="text-3xl">🛠️</span>
+                                            <span className="text-3xl">👑</span>
                                         </div>
                                         <div className="space-y-2">
-                                            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Tính năng đang phát triển</h2>
+                                            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Dành Cho Tài Khoản Premium</h2>
                                             <p className="text-sm text-gray-500 dark:text-slate-400">
-                                                Tính năng <strong>Phòng Kaiwa AI</strong> hiện đang trong quá trình thử nghiệm và phát triển. Chỉ tài khoản Quản trị viên (Admin) mới có quyền truy cập thử nghiệm.
+                                                Tính năng <strong>Phòng Kaiwa AI (Luyện nói 1:1)</strong> thử nghiệm 10 phút/ngày dành riêng cho tài khoản <strong>Premium</strong>. Vui lòng nâng cấp tài khoản để mở khóa tính năng!
                                             </p>
                                         </div>
                                         <div className="flex flex-col gap-3">
                                             <button
+                                                onClick={() => navigate('/account')}
+                                                className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-200 dark:shadow-none cursor-pointer text-sm"
+                                            >
+                                                Nâng cấp Tài khoản Premium 👑
+                                            </button>
+                                            <button
                                                 onClick={() => navigate(ROUTES.HOME)}
-                                                className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
+                                                className="w-full py-2.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-xl transition-all cursor-pointer text-xs"
                                             >
                                                 Quay lại Trang chủ
                                             </button>

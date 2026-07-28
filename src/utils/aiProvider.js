@@ -1081,7 +1081,7 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
 };
 
 // ============== WHISPER STT CALL ==============
-export const callWhisperSTT = async (audioBlob) => {
+export const callWhisperSTT = async (audioBlob, langCode = 'ja') => {
     const groqKey = import.meta.env.VITE_GROQ_API_KEY;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
@@ -1094,7 +1094,7 @@ export const callWhisperSTT = async (audioBlob) => {
     const file = new File([audioBlob], 'audio.webm', { type: audioBlob.type || 'audio/webm' });
     formData.append('file', file);
     formData.append('model', 'whisper-large-v3'); // Whisper v3 on Groq
-    formData.append('language', 'ja');
+    formData.append('language', langCode || 'ja');
 
     let url = 'https://api.groq.com/openai/v1/audio/transcriptions';
     let apiKey = groqKey;
@@ -1105,7 +1105,7 @@ export const callWhisperSTT = async (audioBlob) => {
         formData.set('model', 'whisper-1');
     }
 
-    console.log(`🎙️ Sending speech to Whisper STT via ${openaiKey ? 'OpenAI' : 'Groq'}...`);
+    console.log(`🎙️ Sending speech to Whisper STT (${langCode || 'ja'}) via ${openaiKey ? 'OpenAI' : 'Groq'}...`);
 
     const response = await fetch(url, {
         method: 'POST',
@@ -1127,15 +1127,17 @@ export const callWhisperSTT = async (audioBlob) => {
 };
 
 // ============== OPENAI / AZURE TTS CALL ==============
-export const callOpenAITTS = async (text, gender = 'female') => {
+export const callOpenAITTS = async (text, gender = 'female', langCode = 'ja') => {
     const azureProxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
-    // 1. Try Azure Speech Proxy first if configured (premium native Japanese voices)
+    // 1. Try Azure Speech Proxy first if configured
     if (azureProxyUrl) {
         try {
             const baseProxy = azureProxyUrl.replace(/\/+$/, '');
-            const azureVoiceName = gender === 'female' ? 'ja-JP-NanamiNeural' : 'ja-JP-KeitaNeural';
+            const azureVoiceName = langCode === 'en'
+                ? (gender === 'female' ? 'en-US-JennyNeural' : 'en-US-GuyNeural')
+                : (gender === 'female' ? 'ja-JP-NanamiNeural' : 'ja-JP-KeitaNeural');
             const response = await fetch(baseProxy, {
                 method: 'POST',
                 headers: {
