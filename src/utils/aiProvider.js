@@ -297,13 +297,25 @@ export const parseJsonFromAI = (text) => {
     if (!text) return null;
 
     let jsonStr = text.trim();
+    // Clean markdown code blocks if present
+    jsonStr = jsonStr.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
 
-    // Direct JSON parse attempt
+    // 1. Direct JSON parse attempt
     try {
         return JSON.parse(jsonStr);
     } catch (_) {}
 
-    // Repair and parse
+    // 2. Fix unescaped quotes inside JSON string field values (e.g. "replyVi": "Text with "quote" inside")
+    try {
+        const sanitized = jsonStr.replace(/("(?:replyVi|replyJa|explanationVi|pronunciationTips|userOriginal|correctedJa|meaning|example|exampleMeaning|nuance|mnemonic)"\s*:\s*")([\s\S]*?)("\s*,\s*"\w+"|\s*}\s*$)/g, (match, prefix, val, suffix) => {
+            // Escape any inner unescaped double quotes inside value
+            const cleanVal = val.replace(/(?<!\\)"/g, '’');
+            return prefix + cleanVal + suffix;
+        });
+        return JSON.parse(sanitized);
+    } catch (_) {}
+
+    // 3. Structural repair and parse
     try {
         const repaired = repairTruncatedJson(jsonStr);
         const parsed = JSON.parse(repaired);

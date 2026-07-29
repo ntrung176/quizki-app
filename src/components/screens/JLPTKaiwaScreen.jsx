@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
     MessageSquare, Mic, MicOff, Volume2, VolumeX, Eye, EyeOff, 
-    ArrowLeft, Settings, Sparkle, AlertCircle, CheckCircle2, 
+    ArrowLeft, ArrowRight, Settings, Sparkle, AlertCircle, CheckCircle2, 
     Play, Send, RefreshCw, Star, Info, Languages, Radio, Trophy, Phone, PhoneOff,
     Activity, Zap, Award, Lightbulb, Volume1, X, ShieldAlert, Cpu, Terminal, Sparkles, Clock
 } from 'lucide-react';
@@ -815,7 +815,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             4. Yêu cầu về độ dài: Câu nói của giáo viên ("replyJa") BẮT BUỘC phải cực kỳ ngắn gọn, súc tích (chỉ 1 đến 2 câu ngắn, tối đa 20-25 ký tự tiếng Nhật), đáp trả nhanh chóng và phản xạ tự nhiên.
             5. Đối với tin nhắn đầu tiên này, hãy gửi một lời chào ngắn gọn đúng phong cách nhân vật, giới thiệu tên ${selectedTeacher.name}, và hỏi 1 câu hỏi mở siêu ngắn phù hợp chủ đề để học viên phản xạ trả lời.
             
-            Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không chứa markdown backticks, không chứa văn bản thừa):
+            Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không dùng dấu ngoặc kép đôi bên trong các chuỗi tiếng Việt như replyVi, dùng dấu nháy đơn ' ' hoặc ngoặc vuông [ ] thay thế, không chứa markdown backticks):
             {
               "replyJa": "Nội dung câu nói của giáo viên bằng tiếng Nhật kèm Furigana dạng Chữ[Furigana]. Ví dụ: 私[わたし]",
               "replyVi": "Bản dịch tiếng Việt tự nhiên",
@@ -861,8 +861,29 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         }
     };
 
+    // Helper: User wants to practice/read corrected sentence
+    const handleReadCorrectedSentence = (feedbackObj) => {
+        if (!feedbackObj || !feedbackObj.correctedJa) return;
+        const cleanText = feedbackObj.correctedJa.replace(/([\u4e00-\u9faf\u3005\u3400-\u4dbf\w]+)\[([^\]]+)\]/g, '$1').replace(/\[[^\]]+\]/g, '');
+        
+        speakText(feedbackObj.correctedJa);
+        setInputText(cleanText);
+        
+        setPendingCorrection({
+            original: feedbackObj.userOriginal || '',
+            corrected: feedbackObj.correctedJa,
+            explanation: feedbackObj.explanationVi
+        });
+    };
+
+    // Helper: User skips correction and continues conversation
+    const handleSkipCorrectionAndContinue = async () => {
+        setPendingCorrection(null);
+        handleSendUserMessage("Tự nhiên tiếp tục cuộc trò chuyện.", null, true);
+    };
+
     // Helper to send message to AI
-    const handleSendUserMessage = async (textToSend, speakDurationSec = null) => {
+    const handleSendUserMessage = async (textToSend, speakDurationSec = null, isSkipTrigger = false) => {
         unlockAudio();
         const messageText = textToSend || inputText;
         if (!messageText.trim()) return;
@@ -960,37 +981,59 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 }`;
             }
         } else {
-            if (pendingCorrection) {
+            if (pendingCorrection && !isSkipTrigger) {
                 systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
-                Học viên vừa đọc/phát âm lại câu để sửa lỗi.
+                Học viên vừa phát âm/đọc lại câu để sửa lỗi theo yêu cầu của bạn.
                 - Câu sai trước đó: "${pendingCorrection.original}"
-                - Câu sửa chuẩn yêu cầu đọc: "${pendingCorrection.corrected}"
-                - Câu học viên vừa đọc/gửi: "${messageText}"
+                - Câu sửa đúng chuẩn: "${pendingCorrection.corrected}"
+                - Câu học viên vừa gửi/đọc: "${messageText}"
                 
-                QUY TẮC ĐÁNH GIÁ CỰC KỲ THÔNG THOÁNG & LÊN LỚP NHANH:
-                1. Hãy cực kỳ linh hoạt và nới lỏng! Chỉ cần học viên đọc được khoảng 40-50% ý chính hoặc phát âm gần đúng là CHO QUA NGAY.
-                2. BẮT BUỘC đặt "feedback.hasError" là false, khen ngợi học viên nhiệt tình (ví dụ: "素晴らしい！よく言えましたね！") và tiếp tục chuyển ngay sang câu hỏi mới. TUYỆT ĐỐI KHÔNG bắt học viên đọc lại nữa!
-                3. "speechAnalytics": { "fluencyScore": 95, "fluencyLabel": "Cải thiện tuyệt vời", "pronunciationTips": "Phát âm đã trôi chảy và tự nhiên hơn rất nhiều!" }
-                4. "suggestions": BẮT BUỘC LUÔN TẠO 3 CÂU GỢI Ý MỚI cho câu hỏi tiếp theo bạn vừa hỏi.`;
+                QUY TẮC BẮT BUỘC:
+                1. BẮT BUỘC đặt "feedback.hasError" là false! Học viên đã cố gắng đọc lại, BẮT BUỘC KHÔNG ĐƯỢC BẮT SỬA LỖI NỮA.
+                2. Trong "replyJa": Gửi 1 câu ngắn khen ngợi học viên phát âm/đọc câu đúng rất tốt (Ví dụ: "素晴らしい！正しく言えましたね。") KÈM THEO 1 câu hỏi mở ngắn tiếp theo để TIẾP TỤC cuộc hội thoại chủ đề ${selectedTopic.name}.
+                3. BẮT BUỘC tạo 3 câu gợi ý trả lời mới trong "suggestions" cho câu hỏi tiếp theo bạn vừa hỏi.
+                
+                Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không dùng dấu ngoặc kép đôi bên trong các chuỗi tiếng Việt như replyVi, không chứa markdown backticks):
+                {
+                  "replyJa": "Lời khen tiếng Nhật + 1 câu hỏi tiếp theo ngắn gọn kèm Furigana dạng Chữ[Furigana]",
+                  "replyVi": "Bản dịch tiếng Việt tự nhiên",
+                  "feedback": { "hasError": false, "userOriginal": "${messageText}", "correctedJa": "", "explanationVi": "" },
+                  "suggestions": [
+                    "Gợi ý 1 mới cho câu hỏi tiếp theo",
+                    "Gợi ý 2 mới cho câu hỏi tiếp theo",
+                    "Gợi ý 3 mới cho câu hỏi tiếp theo"
+                  ],
+                  "speechAnalytics": { "fluencyScore": 95, "fluencyLabel": "Cải thiện tuyệt vời", "pronunciationTips": "Phát âm và sửa câu rất tốt!" }
+                }`;
             } else {
                 systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
                 Tính cách & Phong cách: ${selectedTeacher.personalityPrompt || 'Thân thiện, động viên, ngắn gọn.'}
                 Hội thoại 1:1 cấp độ JLPT: ${level}. Chủ đề: ${selectedTopic.name}.
                 
-                     + "replyJa": Phản hồi tự nhiên + hỏi câu tiếp theo ngắn gọn (1-2 câu).
-                     + "suggestions": BẮT BUỘC LUÔN TẠO ĐÚNG 3 CÂU GỢI Ý TRẢ LỜI MỚI (tiếng Nhật kèm Furigana dạng Chữ[Furigana]) cho câu hỏi bạn vừa hỏi.
-                3. Đánh giá độ trôi chảy và nhận xét phát âm trong "speechAnalytics":
-                   - "fluencyScore": Điểm 0-100.
-                   - "fluencyLabel": Nhãn ngắn ("Xuất sắc" | "Trôi chảy" | "Tự nhiên" | "Cần chú ý").
+                QUY TẮC ĐÁNH GIÁ VÀ XỬ LÝ PHẢN HỒI:
+                1. Phân tích câu nói của học viên: "${messageText}" (thời gian nói: ${durationSec} giây).
+                2. Đánh giá lỗi sai:
+                   - QUAN TRỌNG: CHỈ ĐẶT "feedback.hasError" là true NẾU câu học viên nói mắc lỗi ngữ pháp CỰC KỲ NGHIỆM TRỌNG làm biến dạng hoàn toàn nghĩa của câu.
+                   - NẾU HỌC VIÊN NÓI CÓ LỖI SAI NGHIỆM TRỌNG ("feedback.hasError" là true):
+                     + "correctedJa": chứa câu tiếng Nhật chuẩn (kèm Furigana dạng Chữ[Furigana]).
+                     + "explanationVi": giải thích lỗi bằng tiếng Việt ngắn gọn.
+                     + "replyJa": BẮT BUỘC ĐỂ RỖNG "" (vì hệ thống sẽ tạm dừng chờ học viên chọn đọc lại hoặc bỏ qua).
+                     + "suggestions": [ "[correctedJa]", "[correctedJa]", "[correctedJa]" ]
+                   - NẾU HỌC VIÊN NÓI CHUẨN HOẶC HIỂU ĐƯỢC Ý ("feedback.hasError" là false):
+                     + "replyJa": Phản hồi tự nhiên + hỏi 1 câu hỏi tiếp theo ngắn gọn (1-2 câu).
+                     + "suggestions": BẮT BUỘC tạo 3 câu gợi ý phản xạ mới.
+                3. Đánh giá độ trôi chảy trong "speechAnalytics":
+                   - "fluencyScore": Điểm 0-100 (khích lệ 88-98 điểm).
+                   - "fluencyLabel": Nhãn ngắn ("Xuất sắc" | "Trôi chảy" | "Tự nhiên").
                    - "pronunciationTips": Nhận xét 1 câu ngắn bằng tiếng Việt.
                 
-                Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON:
+                Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không dùng dấu ngoặc kép đôi bên trong các chuỗi tiếng Việt như replyVi, không chứa markdown backticks):
                 {
-                  "replyJa": "Nội dung câu nói của giáo viên bằng tiếng Nhật kèm Furigana dạng Chữ[Furigana]",
+                  "replyJa": "Nội dung câu nói của giáo viên bằng tiếng Nhật kèm Furigana dạng Chữ[Furigana] (để rỗng \"\" nếu feedback.hasError là true)",
                   "replyVi": "Bản dịch tiếng Việt tương ứng",
                   "feedback": {
                     "hasError": true hoặc false,
-                    "userOriginal": "câu gốc học viên",
+                    "userOriginal": "${messageText}",
                     "correctedJa": "câu sửa tiếng Nhật nếu error",
                     "explanationVi": "lời khuyên nếu error"
                   },
@@ -1000,9 +1043,9 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     "Gợi ý 3 mới cho câu hỏi tiếp theo"
                   ],
                   "speechAnalytics": {
-                    "fluencyScore": 88,
+                    "fluencyScore": 90,
                     "fluencyLabel": "Trôi chảy",
-                    "pronunciationTips": "Phát âm rõ ràng, ngữ điệu tự nhiên"
+                    "pronunciationTips": "Phát âm rõ ràng, phản xạ tự nhiên"
                   }
                 }`;
             }
@@ -1018,7 +1061,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             const parsed = parseJsonFromAI(resultText);
 
             if (parsed) {
-                if (parsed.feedback && parsed.feedback.hasError) {
+                if (parsed.feedback && parsed.feedback.hasError && !isSkipTrigger) {
                     setConversation(prev => {
                         const next = [...prev];
                         const lastUserIdx = next.map(m => m.sender).lastIndexOf('user');
@@ -1037,6 +1080,9 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                         corrected: parsed.feedback.correctedJa,
                         explanation: parsed.feedback.explanationVi
                     });
+                    // Pause AI response! Let user choose to re-read or skip & continue
+                    setIsGenerating(false);
+                    return;
                 } else {
                     setPendingCorrection(null);
                     if (parsed.speechAnalytics) {
@@ -1076,6 +1122,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 };
                 setConversation(prev => [...prev, aiReply]);
                 speakText(parsed.replyJa);
+            } else {
+                throw new Error('AI response empty or missing replyJa');
             }
         } catch (error) {
             console.error('Error sending message:', error);
@@ -1469,7 +1517,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
                                         {/* User Smart Diagnostic Correction Feedback */}
                                         {!isAi && msg.feedback && (
-                                            <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/40 rounded-2xl p-3.5 text-xs text-amber-900 dark:text-amber-200 space-y-2 shadow-sm">
+                                            <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/40 rounded-2xl p-3.5 text-xs text-amber-900 dark:text-amber-200 space-y-2.5 shadow-sm">
                                                 <div className="flex items-center gap-1.5 font-mono font-bold text-amber-700 dark:text-amber-400">
                                                     <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                                                     <span>[AI DIAGNOSTIC REPAIR] Gợi ý sửa câu:</span>
@@ -1486,6 +1534,27 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                                             Phân tích: {msg.feedback.explanationVi}
                                                         </p>
                                                     )}
+                                                </div>
+
+                                                {/* 2 Interactive Action Buttons */}
+                                                <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-amber-200/60 dark:border-amber-800/40">
+                                                    <button
+                                                        onClick={() => handleReadCorrectedSentence(msg.feedback)}
+                                                        className="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-mono font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer hover:scale-105 active:scale-95"
+                                                        title="AI sẽ đọc mẫu câu đúng và hỗ trợ bạn luyện phát âm lại"
+                                                    >
+                                                        <Volume2 className="w-3.5 h-3.5" />
+                                                        <span>🔊 Đọc lại câu đúng</span>
+                                                    </button>
+
+                                                    <button
+                                                        onClick={() => handleSkipCorrectionAndContinue()}
+                                                        className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs font-mono font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer hover:scale-105 active:scale-95"
+                                                        title="Bỏ qua lỗi này và để AI tiếp tục hỏi câu tiếp theo"
+                                                    >
+                                                        <ArrowRight className="w-3.5 h-3.5 text-indigo-500" />
+                                                        <span>➡️ Bỏ qua & Tiếp tục cuộc trò chuyện</span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         )}

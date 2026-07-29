@@ -34,19 +34,22 @@
 }
 
 :root {
-  --font-japanese-family: "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "UD デジタル 教科書体 NP-R", "UD Digi Kyokasho NP-R", "UD デジタル 教科書体 NK-R", "UD Digi Kyokasho NK-R", "Noto Sans JP", "BIZ UDPMincho", "MS Mincho", "ＭＳ 明朝", "Hiragino Mincho ProN", "Yu Mincho", "Inter", system-ui, -apple-system, sans-serif;
+  --font-japanese-family: "UD デジタル 教科書体 N-B", "UD Digi Kyokasho N-B", "UD デジタル 教科書体 NK-B", "UD Digi Kyokasho NK-B", "UD デジタル 教科書体 NP-B", "UD Digi Kyokasho NP-B", "UD デジタル 教科書体 N-R", "UD Digi Kyokasho N-R", "Noto Sans JP", "BIZ UDPGothic", "BIZ UDPMincho", "Hiragino Sans", "Yu Gothic", "Meiryo", "Inter", system-ui, -apple-system, sans-serif;
   --jp-ex-size: 1.125rem;
   --jp-ex-md-size: 1.25rem;
-  --jp-ex-weight: 900;
+  --jp-ex-weight: 700;
   --jp-q-size: 1.5rem;
   --jp-q-md-size: 1.875rem;
-  --jp-q-weight: 900;
+  --jp-q-weight: 700;
 }
 
-/* Japanese Mincho font class for JLPT Standard Look */
+/* Japanese font class for JLPT Standard Look */
 .font-japanese {
   font-family: var(--font-japanese-family) !important;
-  letter-spacing: 0.06em !important;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.04em !important;
   line-height: 2.0 !important;
 }
 
