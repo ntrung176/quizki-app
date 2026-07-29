@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { 
     MessageSquare, Mic, MicOff, Volume2, VolumeX, Eye, EyeOff, 
     ArrowLeft, Settings, Sparkle, AlertCircle, CheckCircle2, 
-    Play, Send, RefreshCw, Star, Info, Languages, Radio,
+    Play, Send, RefreshCw, Star, Info, Languages, Radio, Trophy, Phone, PhoneOff,
     Activity, Zap, Award, Lightbulb, Volume1, X, ShieldAlert, Cpu, Terminal, Sparkles, Clock
 } from 'lucide-react';
 import { callKaiwaAI, parseJsonFromAI, callWhisperSTT, callOpenAITTS } from '../../utils/aiProvider';
@@ -11,6 +11,8 @@ import { ROUTES } from '../../router';
 import AudioWaveformVisualizer from './AudioWaveformVisualizer';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import KaiwaScorecardModal from '../ui/KaiwaScorecardModal';
+import AiKaiwaCallOverlay from '../ui/AiKaiwaCallOverlay';
 
 // Level configurations with futuristic Cyber gradients & HUD tags
 const LEVELS = [
@@ -21,36 +23,92 @@ const LEVELS = [
     { value: 'N1', label: 'JLPT N1', tag: 'MASTERY LEVEL', desc: 'Cao cấp (Hội thoại chuyên sâu, thương mại & học thuật)', gradient: 'from-rose-500 via-pink-500 to-red-500' }
 ];
 
-// Virtual Teachers with Cyber HUD Profiles
+// Virtual Teachers & AI Personas with Cyber HUD Profiles
 const TEACHERS = [
     {
         id: 'sakura',
         name: 'Sakura-sensei',
         gender: 'female',
         avatar: '🌸',
-        role: 'Neural Voice Engine - Female',
-        desc: 'Giọng đọc nhẹ nhàng, phát âm chuẩn Tokyo, tốc độ điều chỉnh linh hoạt. Phù hợp cấp độ N5 - N3.',
-        systemName: 'Sakura-sensei'
+        role: 'Giảng viên Nữ Chuẩn Tokyo',
+        desc: 'Giọng đọc dịu dàng, phát âm chuẩn Tokyo, kiên nhẫn khích lệ. Trả lời cực kỳ ngắn gọn (1-2 câu).',
+        systemName: 'Sakura-sensei',
+        personalityPrompt: 'Bạn là Sakura-sensei, cô giáo tiếng Nhật dịu dàng, ân cần, luôn khích lệ học viên. BẮT BUỘC trả lời cực kỳ ngắn gọn (1-2 câu ngắn).'
     },
     {
         id: 'kenji',
-        name: 'Kenji-sensei',
+        name: 'Kenji-sensei 🎭',
         gender: 'male',
-        avatar: '💼',
-        role: 'Neural Voice Engine - Male',
-        desc: 'Phong cách chuẩn công sở & hội thoại tự nhiên của nam giới Nhật Bản. Phù hợp cấp độ N3 - N1.',
-        systemName: 'Kenji-sensei'
+        avatar: '🎭',
+        role: 'Thầy Giáo Nam Hài Hước',
+        desc: 'Thầy giáo nam siêu hài hước, hóm hỉnh phong cách Manzai! Vừa dạy vừa pha trò đùa vui, trả lời cực ngắn gọn!',
+        systemName: 'Kenji-sensei',
+        personalityPrompt: 'Bạn là Kenji-sensei, thầy giáo nam cực kỳ hài hước, dí dỏm, hay đùa vui chọc cười học viên kiểu hài kịch Kansai Manzai. BẮT BUỘC trả lời cực kỳ ngắn gọn, súc tích và hài hước (1-2 câu ngắn).'
+    },
+    {
+        id: 'tama',
+        name: 'Tama-chan 🐱',
+        gender: 'female',
+        avatar: '🐱',
+        role: 'Trợ lý Mèo Đáng Yêu',
+        desc: 'Chú mèo AI đáng yêu, chèn tiếng "nya~" nhí nhảnh. Trả lời ngắn gọn, siêu dễ thương cho N5 - N4.',
+        systemName: 'Tama-chan',
+        personalityPrompt: 'Bạn là Tama-chan, chú mèo AI cực kỳ đáng yêu, hay thêm "nya~" (～にゃ) ở cuối câu. BẮT BUỘC trả lời cực kỳ ngắn gọn (1-2 câu ngắn).'
+    },
+    {
+        id: 'tanaka',
+        name: 'Tanaka-bucho 👔',
+        gender: 'male',
+        avatar: '👔',
+        role: 'Trưởng Phòng Nghiêm Túc',
+        desc: 'Sếp công sở Nhật Bản, dùng Kính ngữ Keigo dứt khoát & quyết đoán. Trả lời cực ngắn gọn chuẩn công sở.',
+        systemName: 'Tanaka-bucho',
+        personalityPrompt: 'Bạn là Tanaka-bucho, trưởng phòng công ty Nhật Bản nghiêm túc, quyết đoán, dùng Keigo chuẩn mực. BẮT BUỘC trả lời cực kỳ ngắn gọn & dứt khoát (1-2 câu ngắn).'
+    },
+    {
+        id: 'yuki',
+        name: 'Yuki-chan 🎭',
+        gender: 'female',
+        avatar: '✨',
+        role: 'Cô Bạn Gen-Z Hài Hước',
+        desc: 'Cô bạn Tokyo Gen-Z siêu hài hước, lầy lội! Dùng Slang trẻ vui nhộn, phản xạ siêu nhanh & cực ngắn gọn!',
+        systemName: 'Yuki-chan',
+        personalityPrompt: 'Bạn là Yuki-chan, cô bạn Gen-Z Tokyo cực kỳ hài hước, lầy lội, dùng Wakamono-kotoba & khẩu ngữ trẻ đùa vui nhộn. BẮT BUỘC trả lời cực kỳ ngắn gọn & hài hước (1-2 câu ngắn).'
     }
 ];
 
 // Predefined Cyber Kaiwa Topics (Japanese)
 const TOPICS = [
-    { id: 'free_talk', name: '💬 Trò chuyện tự do (Free Talk)', desc: 'Tự do trao đổi về bất kỳ chủ đề đời sống, sở thích hay quan điểm nào.' },
-    { id: 'convenience_store', name: '🏪 Mua sắm Konbini (🏪)', desc: 'Thanh toán, yêu cầu quay nóng đồ ăn, mua vé, giao tiếp nhanh tại Konbini.' },
-    { id: 'interview', name: '🏢 Phỏng vấn Arubaito / Việc làm', desc: 'Tập trả lời các câu hỏi phỏng vấn xin việc làm thêm hoặc công sở Nhật.' },
-    { id: 'restaurant', name: '🍕 Đặt bàn & Llamada nhà hàng', desc: 'Luyện đặt bàn trước, chọn món ăn, yêu cầu tách hóa đơn thanh toán.' },
-    { id: 'asking_directions', name: '🗺️ Hỏi đường & Giao thông', desc: 'Hỏi đường ga tàu, di chuyển xe buýt, mua vé shinkansen.' },
-    { id: 'school_life', name: '🏫 Học đường & Du học sinh', desc: 'Trò chuyện sinh hoạt trường lớp, câu lạc bộ, bài tập & bạn bè.' }
+    { 
+        id: 'free_talk', 
+        name: '💬 Trò chuyện tự do (Free Talk)', 
+        desc: 'Tự do trao đổi về bất kỳ chủ đề đời sống, sở thích hay quan điểm nào.'
+    },
+    { 
+        id: 'convenience_store', 
+        name: '🏪 Mua sắm Konbini (コンビニ)', 
+        desc: 'Thanh toán, yêu cầu quay nóng đồ ăn, mua vé, giao tiếp nhanh tại Konbini.'
+    },
+    { 
+        id: 'interview', 
+        name: '🏢 Phỏng vấn Arubaito / Việc làm', 
+        desc: 'Tập trả lời các câu hỏi phỏng vấn xin việc làm thêm hoặc công sở Nhật.'
+    },
+    { 
+        id: 'restaurant', 
+        name: '🍕 Đặt bàn & Gọi món nhà hàng', 
+        desc: 'Luyện đặt bàn trước, chọn món ăn, yêu cầu tách hóa đơn thanh toán.'
+    },
+    { 
+        id: 'asking_directions', 
+        name: '🗺️ Hỏi đường & Giao thông', 
+        desc: 'Hỏi đường ga tàu, di chuyển xe buýt, mua vé shinkansen.'
+    },
+    { 
+        id: 'school_life', 
+        name: '🏫 Học đường & Bạn bè', 
+        desc: 'Trò chuyện sinh hoạt trường lớp, câu lạc bộ, bài tập & bạn bè.'
+    }
 ];
 
 // English Kaiwa Configurations
@@ -129,6 +187,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         }
     });
     const [showTimeLimitModal, setShowTimeLimitModal] = useState(false);
+    const [showScorecardModal, setShowScorecardModal] = useState(false);
+    const [showCallOverlay, setShowCallOverlay] = useState(false);
 
     // Chat states
     const [conversation, setConversation] = useState([]);
@@ -136,9 +196,10 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     const [inputText, setInputText] = useState('');
     const [showTranslation, setShowTranslation] = useState(true);
     const [showFurigana, setShowFurigana] = useState(true);
-    const [ttsRate, setTtsRate] = useState(1.0); // 0.8 | 1.0 | 1.2
+    const [ttsRate, setTtsRate] = useState(1.15); // 0.85 | 1.0 | 1.15 | 1.3
     const [isMuted, setIsMuted] = useState(false);
     const [pendingCorrection, setPendingCorrection] = useState(null);
+    const [completedMissions, setCompletedMissions] = useState([]);
     
     // Hands-Free VAD Mode (Default OFF for clean control & safety)
     const [isHandsFree, setIsHandsFree] = useState(false); 
@@ -190,6 +251,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     const speechStartRef = useRef(null);
     const recordingStartTimeRef = useRef(null);
     const isVadListeningRef = useRef(false);
+    const noiseFloorRef = useRef(15);
 
     const mediaRecorderRef = useRef(null);
     const audioChunksRef = useRef([]);
@@ -362,15 +424,26 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     }
                     const rms = Math.sqrt(vocalSum / (endBin - startBin));
 
-                    const SILENCE_THRESHOLD = 26; // Raised threshold to filter out background room noise/fans
+                    // 1. Adaptive noise floor tracking (exponential moving average during non-recording)
+                    if (!isRecordingRef.current) {
+                        noiseFloorRef.current = noiseFloorRef.current * 0.96 + rms * 0.04;
+                    }
+
+                    // 2. Dynamic Speech Threshold is calculated as 1.6x the ambient noise floor (min 28, max 50)
+                    const DYNAMIC_SPEECH_THRESHOLD = Math.max(28, Math.min(50, noiseFloorRef.current * 1.6));
                     const MAX_SILENCE_DURATION = 650; // Cutoff recording in 0.65s after user stops speaking
                     const MAX_RECORDING_DURATION = 12000; 
 
-                    if (rms > SILENCE_THRESHOLD) {
+                    // 3. Require speech to be sustained above dynamic threshold for >220ms before starting recording
+                    if (rms > DYNAMIC_SPEECH_THRESHOLD) {
                         silenceStartRef.current = null;
                         if (!isRecordingRef.current) {
-                            speechStartRef.current = Date.now();
-                            startRecordingDirect();
+                            if (!speechStartRef.current) {
+                                speechStartRef.current = Date.now();
+                            } else if (Date.now() - speechStartRef.current > 220) {
+                                // Sustained human voice confirmed! Start recording.
+                                startRecordingDirect();
+                            }
                         } else {
                             if (recordingStartTimeRef.current && (Date.now() - recordingStartTimeRef.current > MAX_RECORDING_DURATION)) {
                                 console.log('🎙️ VAD safety limit reached (12s max). Auto-stopping recording...');
@@ -378,6 +451,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             }
                         }
                     } else {
+                        speechStartRef.current = null; // Reset vocal start timer if audio drops
                         if (isRecordingRef.current) {
                             if (!silenceStartRef.current) {
                                 silenceStartRef.current = Date.now();
@@ -540,27 +614,43 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         return enVoices[0];
     };
 
-    // Find Japanese voice
-    const getBestJapaneseVoice = (gender) => {
+    // Find Japanese voice with strict per-persona differentiation
+    const getBestJapaneseVoice = (teacherId, gender) => {
         if (!window.speechSynthesis) return null;
         const voices = window.speechSynthesis.getVoices();
-        const jaVoices = voices.filter(v => v.lang.startsWith('ja') || v.lang === 'ja_JP');
+        const jaVoices = voices.filter(v => v.lang.startsWith('ja') || v.lang === 'ja_JP' || v.lang.includes('ja'));
         if (jaVoices.length === 0) return null;
 
+        // Search persona specific voice names across Windows, macOS, Android, iOS
+        if (teacherId === 'tama') {
+            const v = jaVoices.find(v => v.name.toLowerCase().includes('mayu') || v.name.toLowerCase().includes('ayumi'));
+            if (v) return v;
+        } else if (teacherId === 'tanaka') {
+            const v = jaVoices.find(v => v.name.toLowerCase().includes('daichi') || v.name.toLowerCase().includes('ichiro') || v.name.toLowerCase().includes('naoki'));
+            if (v) return v;
+        } else if (teacherId === 'yuki') {
+            const v = jaVoices.find(v => v.name.toLowerCase().includes('aoi') || v.name.toLowerCase().includes('haruka'));
+            if (v) return v;
+        } else if (teacherId === 'sakura') {
+            const v = jaVoices.find(v => v.name.toLowerCase().includes('shiori') || v.name.toLowerCase().includes('nanami') || v.name.toLowerCase().includes('haruka'));
+            if (v) return v;
+        } else if (teacherId === 'kenji') {
+            const v = jaVoices.find(v => v.name.toLowerCase().includes('naoki') || v.name.toLowerCase().includes('keita') || v.name.toLowerCase().includes('ichiro'));
+            if (v) return v;
+        }
+
         if (gender === 'female') {
-            let voice = jaVoices.find(v => v.name.toLowerCase().includes('nanami') && v.name.toLowerCase().includes('online'));
+            let voice = jaVoices.find(v => v.name.toLowerCase().includes('nanami') || v.name.toLowerCase().includes('shiori') || v.name.toLowerCase().includes('haruka') || v.name.toLowerCase().includes('ayumi') || v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('sakura'));
             if (voice) return voice;
             voice = jaVoices.find(v => v.name.toLowerCase().includes('google') || v.name.includes('日本語'));
             if (voice) return voice;
-            voice = jaVoices.find(v => v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('sakura') || v.name.toLowerCase().includes('haruka'));
-            if (voice) return voice;
+            return jaVoices[0];
         } else {
-            let voice = jaVoices.find(v => v.name.toLowerCase().includes('keita') && v.name.toLowerCase().includes('online'));
+            let voice = jaVoices.find(v => v.name.toLowerCase().includes('daichi') || v.name.toLowerCase().includes('naoki') || v.name.toLowerCase().includes('keita') || v.name.toLowerCase().includes('ichiro') || v.name.toLowerCase().includes('male') || v.name.toLowerCase().includes('man') || v.name.toLowerCase().includes('kenji'));
             if (voice) return voice;
-            voice = jaVoices.find(v => v.name.toLowerCase().includes('male') || v.name.toLowerCase().includes('kenji') || v.name.toLowerCase().includes('keita'));
-            if (voice) return voice;
+            if (jaVoices.length > 1) return jaVoices[1];
+            return jaVoices[0];
         }
-        return jaVoices[0];
     };
 
     // Text-to-Speech (TTS) Reader
@@ -589,7 +679,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 audioRef.current.pause();
             }
 
-            const audioUrl = await callOpenAITTS(cleanText, gender, isEnglishMode ? 'en' : 'ja');
+            const audioUrl = await callOpenAITTS(cleanText, gender, isEnglishMode ? 'en' : 'ja', teacher);
             if (!audioUrl) {
                 throw new Error('No premium neural TTS key configured');
             }
@@ -618,11 +708,32 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 window.speechSynthesis.cancel();
                 const utterance = new SpeechSynthesisUtterance(cleanText);
                 utterance.lang = isEnglishMode ? (teacher === 'emma' ? 'en-GB' : 'en-US') : 'ja-JP';
-                utterance.rate = ttsRate;
+
+                // Pitch & Rate tuning per AI Persona for distinct voice identity
+                let personaPitch = 1.0;
+                let personaRateModifier = 1.0;
+
+                if (teacher === 'tama') {
+                    personaPitch = 1.55; // Cute, high-pitched cat assistant
+                    personaRateModifier = 0.85; // Slower pace
+                } else if (teacher === 'tanaka') {
+                    personaPitch = 0.50; // Deep, firm male manager voice
+                    personaRateModifier = 0.95;
+                } else if (teacher === 'yuki') {
+                    personaPitch = 1.25; // Energetic Gen-Z Tokyo style
+                    personaRateModifier = 1.08;
+                } else if (teacher === 'sakura') {
+                    personaPitch = 1.15; // Soft Tokyo female teacher
+                } else if (teacher === 'kenji') {
+                    personaPitch = 0.55; // Distinct deep male teacher voice
+                }
+
+                utterance.pitch = personaPitch;
+                utterance.rate = ttsRate * personaRateModifier;
                 utterance.onend = onDone;
                 utterance.onerror = onDone;
 
-                const voice = isEnglishMode ? getBestEnglishVoice(gender) : getBestJapaneseVoice(gender);
+                const voice = isEnglishMode ? getBestEnglishVoice(gender) : getBestJapaneseVoice(teacher, gender);
                 if (voice) utterance.voice = voice;
 
                 window.speechSynthesis.speak(utterance);
@@ -695,13 +806,14 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
             }`;
         } else {
             systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
+            Tính cách & Phong cách nói chuyện của bạn: ${selectedTeacher.personalityPrompt || 'Thân thiện, lịch sự, ngắn gọn.'}
             Bạn sẽ thực hiện hội thoại 1:1 với người học.
             Yêu cầu bắt buộc:
             1. Cấp độ JLPT hội thoại của học viên: ${level}. Chỉ sử dụng từ vựng và ngữ pháp phù hợp với cấp độ này.
-            2. Tông giọng và vai trò của bạn: Là một giáo viên tiếng Nhật bản xứ thân thiện, lịch sự (sử dụng kính ngữ desu/masu thích hợp), kiên nhẫn.
+            2. Tông giọng và vai trò của bạn: Đúng theo đặc tính nhân vật (${selectedTeacher.role}).
             3. Chủ đề hội thoại: ${selectedTopic.name} - ${selectedTopic.desc}.
-            4. Yêu cầu về độ dài: Câu nói của giáo viên ("replyJa") phải cực kỳ ngắn gọn, súc tích (1-2 câu ngắn, tối đa 20-30 ký tự), tự nhiên như đang trò chuyện đời thường.
-            5. Đối với tin nhắn đầu tiên này, hãy gửi một lời chào ấm áp ngắn gọn, giới thiệu bản thân là ${selectedTeacher.name}, nhắc đến chủ đề cuộc hội thoại hôm nay và hỏi một câu hỏi mở thật ngắn phù hợp với chủ đề để học viên trả lời.
+            4. Yêu cầu về độ dài: Câu nói của giáo viên ("replyJa") BẮT BUỘC phải cực kỳ ngắn gọn, súc tích (chỉ 1 đến 2 câu ngắn, tối đa 20-25 ký tự tiếng Nhật), đáp trả nhanh chóng và phản xạ tự nhiên.
+            5. Đối với tin nhắn đầu tiên này, hãy gửi một lời chào ngắn gọn đúng phong cách nhân vật, giới thiệu tên ${selectedTeacher.name}, và hỏi 1 câu hỏi mở siêu ngắn phù hợp chủ đề để học viên phản xạ trả lời.
             
             Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON sau (không chứa markdown backticks, không chứa văn bản thừa):
             {
@@ -852,51 +964,19 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
                 Học viên vừa đọc/phát âm lại câu để sửa lỗi.
                 - Câu sai trước đó: "${pendingCorrection.original}"
-                - Câu sửa đúng yêu cầu học viên phải đọc lại: "${pendingCorrection.corrected}"
+                - Câu sửa chuẩn yêu cầu đọc: "${pendingCorrection.corrected}"
                 - Câu học viên vừa đọc/gửi: "${messageText}"
                 
-                Quy trình bắt buộc:
-                1. Kiểm tra câu học viên vừa đọc "${messageText}" đã sửa đúng theo câu chuẩn "${pendingCorrection.corrected}" chưa.
-                2. NẾU HỌC VIÊN ĐÃ ĐỌC/SỬA ĐÚNG:
-                   - "feedback.hasError" là false.
-                   - "replyJa": 1 câu ngắn khen học viên đã đọc đúng (ví dụ: "素晴らしい！正しく言えましたね。") KÈM THEO 1 câu hỏi ngắn tiếp theo để TIẾP TỤC cuộc hội thoại chủ đề ${selectedTopic.name}.
-                   - "speechAnalytics": { "fluencyScore": 92, "fluencyLabel": "Sửa lỗi xuất sắc", "pronunciationTips": "Đã phát âm và sửa câu chuẩn xác!" }
-                   - "suggestions": BẮT BUỘC LUÔN TẠO ĐÚNG 3 CÂU GỢI Ý TRẢ LỜI MỚI (tiếng Nhật kèm Furigana dạng Chữ[Furigana]) cho câu hỏi tiếp theo bạn vừa hỏi.
-                3. NẾU HỌC VIÊN ĐỌC VẪN SAI / CHƯA ĐÚNG:
-                   - "feedback.hasError" là true.
-                   - "feedback.userOriginal" là "${messageText}".
-                   - "feedback.correctedJa" là "${pendingCorrection.corrected}".
-                   - "feedback.explanationVi" giải thích lỗi phát âm/dùng từ bằng tiếng Việt.
-                   - "replyJa": Yêu cầu học viên thử đọc lại câu đúng "${pendingCorrection.corrected}". TUYỆT ĐỐI KHÔNG hỏi câu mới.
-                   - "suggestions": [ "${pendingCorrection.corrected}", "${pendingCorrection.corrected}", "${pendingCorrection.corrected}" ]
-                
-                Định dạng phản hồi: Bắt buộc trả về đúng cấu trúc JSON:
-                {
-                  "replyJa": "Nội dung câu nói của giáo viên kèm Furigana dạng Chữ[Furigana]",
-                  "replyVi": "Bản dịch tiếng Việt",
-                  "feedback": { "hasError": true/false, "userOriginal": "...", "correctedJa": "...", "explanationVi": "..." },
-                  "suggestions": [
-                    "Gợi ý 1 mới cho câu hỏi tiếp theo",
-                    "Gợi ý 2 mới cho câu hỏi tiếp theo",
-                    "Gợi ý 3 mới cho câu hỏi tiếp theo"
-                  ],
-                  "speechAnalytics": { "fluencyScore": 92, "fluencyLabel": "...", "pronunciationTips": "..." }
-                }`;
+                QUY TẮC ĐÁNH GIÁ CỰC KỲ THÔNG THOÁNG & LÊN LỚP NHANH:
+                1. Hãy cực kỳ linh hoạt và nới lỏng! Chỉ cần học viên đọc được khoảng 40-50% ý chính hoặc phát âm gần đúng là CHO QUA NGAY.
+                2. BẮT BUỘC đặt "feedback.hasError" là false, khen ngợi học viên nhiệt tình (ví dụ: "素晴らしい！よく言えましたね！") và tiếp tục chuyển ngay sang câu hỏi mới. TUYỆT ĐỐI KHÔNG bắt học viên đọc lại nữa!
+                3. "speechAnalytics": { "fluencyScore": 95, "fluencyLabel": "Cải thiện tuyệt vời", "pronunciationTips": "Phát âm đã trôi chảy và tự nhiên hơn rất nhiều!" }
+                4. "suggestions": BẮT BUỘC LUÔN TẠO 3 CÂU GỢI Ý MỚI cho câu hỏi tiếp theo bạn vừa hỏi.`;
             } else {
                 systemPrompt = `Bạn là giáo viên dạy tiếng Nhật ảo tên là ${selectedTeacher.name}.
+                Tính cách & Phong cách: ${selectedTeacher.personalityPrompt || 'Thân thiện, động viên, ngắn gọn.'}
                 Hội thoại 1:1 cấp độ JLPT: ${level}. Chủ đề: ${selectedTopic.name}.
                 
-                Quy trình xử lý phản hồi:
-                1. Phân tích câu nói của học viên: "${messageText}" (thời gian nói: ${durationSec} giây).
-                2. Kiểm tra xem học viên có mắc lỗi ngữ pháp, dùng từ sai hoặc phát âm/diễn đạt chưa tự nhiên không:
-                   - QUAN TRỌNG - NẾU HỌC VIÊN CÓ LỖI SAI:
-                     + "feedback.hasError" là true.
-                     + "correctedJa": chứa câu tiếng Nhật chuẩn (kèm Furigana dạng Chữ[Furigana]).
-                     + "explanationVi": giải thích lỗi bằng tiếng Việt ngắn gọn.
-                     + "replyJa": BẮT BUỘC chỉ yêu cầu học viên đọc/phát âm lại câu đúng "${messageText}" -> [correctedJa]. TUYỆT ĐỐI KHÔNG HỎI CÂU MỚI, KHÔNG CHUYỂN CHỦ ĐỀ. Bắt buộc để học viên phát âm sửa lỗi trước.
-                     + "suggestions": [ "[correctedJa]", "[correctedJa]", "[correctedJa]" ]
-                   - NẾU HỌC VIÊN NÓI CHUẨN (KHÔNG CÓ LỖI):
-                     + "feedback.hasError" là false.
                      + "replyJa": Phản hồi tự nhiên + hỏi câu tiếp theo ngắn gọn (1-2 câu).
                      + "suggestions": BẮT BUỘC LUÔN TẠO ĐÚNG 3 CÂU GỢI Ý TRẢ LỜI MỚI (tiếng Nhật kèm Furigana dạng Chữ[Furigana]) cho câu hỏi bạn vừa hỏi.
                 3. Đánh giá độ trôi chảy và nhận xét phát âm trong "speechAnalytics":
@@ -1037,7 +1117,6 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     };
 
     return (
-        <>
         <div className="w-full min-h-[calc(100vh-70px)] flex flex-col justify-start py-6 px-3 md:px-6 relative overflow-hidden font-sans text-slate-800 dark:text-slate-100 selection:bg-cyan-500 selection:text-white">
 
             {step === 'setup' ? (
@@ -1245,6 +1324,29 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             >
                                 <Radio className={`w-3.5 h-3.5 ${isHandsFree ? 'text-white dark:text-cyan-400 animate-spin-slow' : 'text-slate-500 dark:text-slate-400'}`} />
                                 <span>{isHandsFree ? '⚡ HANDS-FREE VAD: ON' : '🎙️ PUSH-TO-TALK MODE'}</span>
+                            </button>
+
+                            {/* FaceTime Call Overlay Trigger Button */}
+                            <button
+                                onClick={() => {
+                                    setIsHandsFree(true);
+                                    setShowCallOverlay(true);
+                                }}
+                                className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white text-xs font-mono font-bold transition-all shadow-md cursor-pointer flex items-center gap-1.5 animate-pulse"
+                                title="Bật màn hình Cuộc gọi thoại FaceTime AI"
+                            >
+                                <Phone className="w-3.5 h-3.5" />
+                                <span>GỌI AI FACETIME</span>
+                            </button>
+
+                            {/* Scorecard Report HUD Button */}
+                            <button
+                                onClick={() => setShowScorecardModal(true)}
+                                className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-white text-xs font-mono font-bold transition-all shadow-md cursor-pointer flex items-center gap-1.5"
+                                title="Xem báo cáo chấm điểm phản xạ Kaiwa"
+                            >
+                                <Trophy className="w-3.5 h-3.5 text-amber-300" />
+                                <span>Báo Cáo HUD</span>
                             </button>
 
                             {/* Furigana Toggle */}
@@ -1459,7 +1561,10 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                             key={idx}
                                             type="button"
                                             disabled={isAiSpeaking || isGenerating || isTranscribing}
-                                            onClick={() => speakText(cleanText)}
+                                            onClick={() => {
+                                                speakText(cleanText);
+                                                setInputText(cleanText);
+                                            }}
                                             title={isAiSpeaking ? "Vui lòng chờ AI nói xong" : "Bấm để nghe phát âm mẫu (Dùng Mic / Phím Cách để nói)"}
                                             className="px-3.5 py-2 rounded-xl border border-indigo-200 dark:border-cyan-800/60 bg-indigo-50/80 dark:bg-cyan-950/40 hover:bg-indigo-100 dark:hover:bg-cyan-900/60 hover:border-indigo-400 dark:hover:border-cyan-500 text-xs font-semibold text-indigo-700 dark:text-cyan-300 cursor-pointer font-japanese transition-all shadow-sm active:scale-95 flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none"
                                         >
@@ -1581,7 +1686,6 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     </div>
                 </div>
             )}
-        </div>
 
             {/* Hands-Free VAD Confirmation Modal */}
             {showHandsFreeConfirm && (
@@ -1672,7 +1776,31 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     </div>
                 </div>
             )}
-        </>
+
+            {/* Kaiwa Scorecard Report Modal */}
+            <KaiwaScorecardModal
+                isOpen={showScorecardModal}
+                onClose={() => setShowScorecardModal(false)}
+                conversation={conversation}
+                selectedLevel={level}
+                selectedTeacher={currentTeachers.find(t => t.id === teacher)}
+            />
+
+            {/* FaceTime AI Phone Call Overlay HUD */}
+            <AiKaiwaCallOverlay
+                isOpen={showCallOverlay}
+                onClose={() => setShowCallOverlay(false)}
+                teacher={currentTeachers.find(t => t.id === teacher)}
+                isAiSpeaking={isAiSpeaking}
+                isRecording={isRecording}
+                isGenerating={isGenerating}
+                isTranscribing={isTranscribing}
+                latestAiText={conversation.length > 0 && conversation[conversation.length - 1].sender === 'ai' ? conversation[conversation.length - 1].textJa : ''}
+                latestUserText={conversation.length > 0 && conversation[conversation.length - 1].sender === 'user' ? conversation[conversation.length - 1].text : ''}
+                onToggleMute={() => setIsMuted(prev => !prev)}
+                isMuted={isMuted}
+            />
+        </div>
     );
 };
 

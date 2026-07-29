@@ -1017,6 +1017,7 @@ export const callWhisperSTT = async (audioBlob, langCode = 'ja') => {
     formData.append('file', file);
     formData.append('model', 'whisper-large-v3'); // Whisper v3 on Groq
     formData.append('language', langCode || 'ja');
+    formData.append('prompt', langCode === 'en' ? 'Natural conversational English speech.' : '日本語の日常会話。です、ます、ひらがな、漢字、カタカナ。');
 
     let url = 'https://api.groq.com/openai/v1/audio/transcriptions';
     let apiKey = groqKey;
@@ -1049,17 +1050,42 @@ export const callWhisperSTT = async (audioBlob, langCode = 'ja') => {
 };
 
 // ============== OPENAI / AZURE TTS CALL ==============
-export const callOpenAITTS = async (text, gender = 'female', langCode = 'ja') => {
+export const callOpenAITTS = async (text, gender = 'female', langCode = 'ja', teacherId = null) => {
     const azureProxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
+
+    // Per-persona Azure Neural Japanese & English Voices Map
+    const AZURE_VOICE_MAP = {
+        sakura: 'ja-JP-ShioriNeural',   // Nữ nhẹ nhàng chuẩn Tokyo
+        kenji: 'ja-JP-NaokiNeural',     // Nam điềm đạc chuẩn giảng viên
+        tama: 'ja-JP-MayuNeural',       // Nữ nhí nhảnh giọng mèo AI
+        tanaka: 'ja-JP-DaichiNeural',   // Nam rất trầm, quản lý uy nghiêm Keigo
+        yuki: 'ja-JP-AoiNeural',        // Nữ Gen-Z năng động, khẩu ngữ Tokyo
+        alex: 'en-US-GuyNeural',        // Nam Anh-Mỹ
+        emma: 'en-GB-SoniaNeural'       // Nữ Anh-Anh
+    };
+
+    // Per-persona OpenAI TTS Voices Map (nova, onyx, fable, echo, shimmer)
+    const OPENAI_VOICE_MAP = {
+        sakura: 'nova',                 // Warm, polite female
+        kenji: 'onyx',                  // Confident male
+        tama: 'fable',                  // High, playful cat voice
+        tanaka: 'echo',                 // Deep executive male
+        yuki: 'shimmer',                // Youthful, expressive female
+        alex: 'echo',                   // American male
+        emma: 'shimmer'                 // British female
+    };
 
     // 1. Try Azure Speech Proxy first if configured
     if (azureProxyUrl) {
         try {
             const baseProxy = azureProxyUrl.replace(/\/+$/, '');
-            const azureVoiceName = langCode === 'en'
-                ? (gender === 'female' ? 'en-US-JennyNeural' : 'en-US-GuyNeural')
-                : (gender === 'female' ? 'ja-JP-NanamiNeural' : 'ja-JP-KeitaNeural');
+            const azureVoiceName = (teacherId && AZURE_VOICE_MAP[teacherId])
+                ? AZURE_VOICE_MAP[teacherId]
+                : (langCode === 'en' 
+                    ? (gender === 'female' ? 'en-US-JennyNeural' : 'en-US-GuyNeural')
+                    : (gender === 'male' ? 'ja-JP-DaichiNeural' : 'ja-JP-ShioriNeural'));
+
             const response = await fetch(baseProxy, {
                 method: 'POST',
                 headers: {
@@ -1084,10 +1110,9 @@ export const callOpenAITTS = async (text, gender = 'female', langCode = 'ja') =>
 
     // 2. Fallback to OpenAI TTS if key is configured
     if (openaiKey) {
-        // OpenAI voices: alloy, echo, fable, onyx, nova, shimmer
-        // Female options: nova, shimmer
-        // Male options: onyx, echo
-        const voice = gender === 'female' ? 'shimmer' : 'onyx';
+        const voice = (teacherId && OPENAI_VOICE_MAP[teacherId]) 
+            ? OPENAI_VOICE_MAP[teacherId] 
+            : (gender === 'female' ? 'nova' : 'onyx');
 
         try {
             const response = await fetch('https://api.openai.com/v1/audio/speech', {
