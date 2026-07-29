@@ -533,24 +533,48 @@ export const calculateDayCutoffTimestamp = (intervalDays, nowMs = Date.now(), cu
 };
 
 /**
- * Applies Anki Fuzz Factor (±5% - 10% random variation) to intervals >= 3 days.
- * Prevents artificial card spikes on the exact same day in the future.
- * @param {number} intervalDays - Raw scheduled interval in days
+ * Smart Workload-Aware Anki Fuzz Factor.
+ * Rules:
+ * 1. Intervals <= 4 days (1 min, 5 min, 10 min, 1 day, 4 days) -> 0% Fuzz (100% exact).
+ * 2. Intervals >= 5 days -> Apply Smart Fuzz Range:
+ *    - 5 <= intervalDays < 14: ±1 day
+ *    - 14 <= intervalDays < 30: ±2 days
+ *    - intervalDays >= 30: ±(5% - 8%) days
+ * 3. If futureWorkloadHistogram is provided, picks candidate day with MINIMUM card load.
+ * @param {number} intervalDays - Scheduled interval in days
  * @param {string|number|null} seed - Deterministic seed (card ID/front) to keep preview intervals stable across re-renders
+ * @param {Object|null} futureWorkloadHistogram - Optional map of { dayOffset: cardCount } for load balancing
  * @returns {number} Fuzzed interval in days
  */
-export const applyFuzzFactor = (intervalDays, seed = null) => {
-    if (intervalDays < 3) return intervalDays;
+export const applyFuzzFactor = (intervalDays, seed = null, futureWorkloadHistogram = null) => {
+    // 1. Never fuzz short/new card intervals (1 day, 4 days, minute steps)
+    if (intervalDays <= 4) return intervalDays;
     
     let fuzzRange = 1;
     if (intervalDays >= 30) {
         fuzzRange = Math.max(2, Math.round(intervalDays * 0.08));
-    } else if (intervalDays >= 7) {
-        fuzzRange = Math.max(1, Math.round(intervalDays * 0.10));
-    } else { // 3 <= intervalDays < 7
+    } else if (intervalDays >= 14) {
+        fuzzRange = 2;
+    } else { // 5 <= intervalDays < 14
         fuzzRange = 1;
     }
 
+    // 2. If workload histogram is provided, pick candidate day with lowest card count
+    if (futureWorkloadHistogram && typeof futureWorkloadHistogram === 'object') {
+        let bestInterval = intervalDays;
+        let minCount = Infinity;
+        for (let offset = -fuzzRange; offset <= fuzzRange; offset++) {
+            const candInt = Math.max(5, intervalDays + offset);
+            const count = futureWorkloadHistogram[candInt] || 0;
+            if (count < minCount) {
+                minCount = count;
+                bestInterval = candInt;
+            }
+        }
+        return bestInterval;
+    }
+
+    // 3. Fallback: Deterministic seed hash
     let randomVal;
     if (seed !== null && seed !== undefined && seed !== '') {
         let hash = 0;
@@ -564,10 +588,9 @@ export const applyFuzzFactor = (intervalDays, seed = null) => {
         randomVal = Math.random();
     }
 
-    // Random integer between -fuzzRange and +fuzzRange
     const randomOffset = Math.floor(randomVal * (fuzzRange * 2 + 1)) - fuzzRange;
     const fuzzed = intervalDays + randomOffset;
-    return Math.max(2, fuzzed); // Ensure interval stays at least 2 days
+    return Math.max(5, fuzzed); // Ensure fuzzed interval stays at least 5 days
 };
 
 export const isKanjiMastered = (srs) => {

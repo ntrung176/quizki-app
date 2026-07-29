@@ -10,30 +10,44 @@ const getProgressDocRef = (userId, setId) => {
     return doc(db, `artifacts/${appId}/users/${userId}/studyProgress`, setId);
 };
 
+// Debounce map for Firestore progress saving to prevent mobile network choking during rapid card swipes
+const saveProgressDebounceMap = new Map();
+
 /**
- * Save study progress to both LocalStorage and Firestore
+ * Save study progress to both LocalStorage (instant) and Firestore (debounced for mobile smoothness)
  */
 export const saveStudyProgress = async (userId, setId, mode, progressData) => {
     const key = `study_progress_${setId}_${mode}`;
     const completedKey = `study_completed_${setId}_${mode}`;
     
-    // 1. Save to LocalStorage
+    // 1. Save to LocalStorage instantly
     localStorage.setItem(key, JSON.stringify(progressData));
     localStorage.setItem(completedKey, 'false');
 
-    // 2. Save to Firestore if user is authenticated
+    // 2. Debounce Save to Firestore if user is authenticated
     if (!userId) return;
-    try {
-        const docRef = getProgressDocRef(userId, setId);
-        const dataToUpdate = {
-            [`${mode}_progress`]: JSON.stringify(progressData),
-            [`${mode}_completed`]: false,
-            [`${mode}_updatedAt`]: Date.now()
-        };
-        await setDoc(docRef, dataToUpdate, { merge: true });
-    } catch (error) {
-        console.error(`Error saving study progress for ${mode} to DB:`, error);
+
+    const debounceKey = `${userId}_${setId}_${mode}`;
+    if (saveProgressDebounceMap.has(debounceKey)) {
+        clearTimeout(saveProgressDebounceMap.get(debounceKey));
     }
+
+    const timer = setTimeout(async () => {
+        saveProgressDebounceMap.delete(debounceKey);
+        try {
+            const docRef = getProgressDocRef(userId, setId);
+            const dataToUpdate = {
+                [`${mode}_progress`]: JSON.stringify(progressData),
+                [`${mode}_completed`]: false,
+                [`${mode}_updatedAt`]: Date.now()
+            };
+            await setDoc(docRef, dataToUpdate, { merge: true });
+        } catch (error) {
+            console.error(`Error saving study progress for ${mode} to DB:`, error);
+        }
+    }, 1200);
+
+    saveProgressDebounceMap.set(debounceKey, timer);
 };
 
 /**

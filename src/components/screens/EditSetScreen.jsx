@@ -350,51 +350,53 @@ const EditSetScreen = ({
         }
 
         try {
-            // Save/update cards in parallel (only if new or modified or folder changed)
-            const savePromises = validCards.map(async (card) => {
-                if (card.isNew) {
-                    const success = await onSaveNewCard({
-                        ...card,
-                        id: undefined, // remove temp ID
-                        isNew: undefined,
-                        action: 'continue',
-                        folderId: activeFolderId
-                    });
-                    if (!success) {
-                        throw new Error(`Không thể lưu từ vựng (có thể bị trùng lặp): ${card.front}`);
-                    }
-                    return success;
-                } else {
-                    const orig = originalSetCards.find(c => c.id === card.id);
-                    const isModified = isCardModified(card, orig);
-                    const needsFolderUpdate = activeFolderId !== folderId;
-
-                    if (isModified || needsFolderUpdate) {
-                        const cardIsEng = isEnglishCard(card, isEnglishMode);
-
-                        const updates = {
-                            front: card.front, back: card.back, 
-                            ipa: cardIsEng ? (card.ipa || '') : (card.ipa || ''), 
-                            synonym: card.synonym, 
-                            example: card.example, exampleMeaning: card.exampleMeaning, 
-                            nuance: card.nuance, pos: card.pos, level: card.level, 
-                            sinoVietnamese: cardIsEng ? '' : card.sinoVietnamese, 
-                            synonymSinoVietnamese: cardIsEng ? '' : card.synonymSinoVietnamese, 
-                            reading: cardIsEng ? '' : (card.reading || ''), 
-                            accent: cardIsEng ? '' : (card.accent || ''),
-                            targetLanguage: cardIsEng ? 'en' : (card.targetLanguage || 'ja'),
-                            imageBase64: card.imageBase64, audioBase64: card.audioBase64
-                        };
-                        if (needsFolderUpdate) {
-                            updates.folderId = activeFolderId;
+            // Save/update cards in controlled chunks of 4 to prevent mobile network/UI thread choking
+            const CHUNK_SIZE = 4;
+            for (let i = 0; i < validCards.length; i += CHUNK_SIZE) {
+                const chunk = validCards.slice(i, i + CHUNK_SIZE);
+                await Promise.all(chunk.map(async (card) => {
+                    if (card.isNew) {
+                        const success = await onSaveNewCard({
+                            ...card,
+                            id: undefined, // remove temp ID
+                            isNew: undefined,
+                            action: 'continue',
+                            folderId: activeFolderId
+                        });
+                        if (!success) {
+                            throw new Error(`Không thể lưu từ vựng (có thể bị trùng lặp): ${card.front}`);
                         }
-                        return onUpdateCard(card.id, 'all', updates);
-                    }
-                    return Promise.resolve(true);
-                }
-            });
+                        return success;
+                    } else {
+                        const orig = originalSetCards.find(c => c.id === card.id);
+                        const isModified = isCardModified(card, orig);
+                        const needsFolderUpdate = activeFolderId !== folderId;
 
-            await Promise.all(savePromises);
+                        if (isModified || needsFolderUpdate) {
+                            const cardIsEng = isEnglishCard(card, isEnglishMode);
+
+                            const updates = {
+                                front: card.front, back: card.back, 
+                                ipa: cardIsEng ? (card.ipa || '') : (card.ipa || ''), 
+                                synonym: card.synonym, 
+                                example: card.example, exampleMeaning: card.exampleMeaning, 
+                                nuance: card.nuance, pos: card.pos, level: card.level, 
+                                sinoVietnamese: cardIsEng ? '' : card.sinoVietnamese, 
+                                synonymSinoVietnamese: cardIsEng ? '' : card.synonymSinoVietnamese, 
+                                reading: cardIsEng ? '' : (card.reading || ''), 
+                                accent: cardIsEng ? '' : (card.accent || ''),
+                                targetLanguage: cardIsEng ? 'en' : (card.targetLanguage || 'ja'),
+                                imageBase64: card.imageBase64, audioBase64: card.audioBase64
+                            };
+                            if (needsFolderUpdate) {
+                                updates.folderId = activeFolderId;
+                            }
+                            return onUpdateCard(card.id, 'all', updates);
+                        }
+                        return true;
+                    }
+                }));
+            }
 
             setIsSaving(false);
             showToast(`Đã lưu thành công học phần!`, 'success');

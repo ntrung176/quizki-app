@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc, writeBatch, collectionGroup } from 'firebase/firestore'
-import * as XLSX from 'xlsx';
+import { collection, query, onSnapshot, doc, deleteDoc, getDocs, getDoc, addDoc, where, serverTimestamp, setDoc, writeBatch, collectionGroup, orderBy, limit } from 'firebase/firestore'
 import { db, appId, storage } from '../../config/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Users, Search, Shield, Trash2, BarChart3, Clock, AlertTriangle, CheckCircle, Loader2, Languages, BookOpen, Sparkle, Bot, UserCheck, UserX, ToggleLeft, ToggleRight, Settings, Crown, ShieldCheck, ChevronLeft, CreditCard, Plus, Check, X as XIcon, Ticket, DollarSign, TrendingUp, TrendingDown, Calendar, Download, RefreshCw, Wifi, Bell, Send, MessageSquare, Image as ImageIcon, Volume2, Music, Smile, CornerUpLeft, Save } from 'lucide-react'
 import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES, addModerator, removeModerator, createVoucher, subscribeVouchers, deleteVoucher, toggleVoucher, subscribeCreditRequests, addExpense, subscribeExpenses, deleteExpense, manuallyApplyPackageToUser, sendGlobalNotification, deleteGlobalNotification } from '../../utils/adminSettings'
 import { showConfirm, showToast } from '../../utils/toast';
-import { playAudio, generateAudioSilent } from '../../utils/audio';
+import { playAudio } from '../../utils/audio';
 import { aiNormalizeVerbs, aiScanVerbsForNormalization, aiFixFuriganaFormat, aiRecreateVocabulary } from '../../utils/aiProvider';
 import { syncKanjiAndVocabToCDN } from '../../utils/kanjiService';
 
@@ -591,17 +590,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     // Load global notifications
     useEffect(() => {
         if (!db) return;
-        const q = query(collection(db, `artifacts/${appId}/globalNotifications`));
+        const q = query(collection(db, `artifacts/${appId}/globalNotifications`), orderBy('createdAt', 'desc'), limit(30));
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const list = snapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
             }));
-            list.sort((a, b) => {
-                const aTime = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : (a.createdAt || 0);
-                const bTime = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : (b.createdAt || 0);
-                return bTime - aTime;
-            });
             setGlobalNotifications(list);
         }, (error) => {
             console.error('Error loading global notifications:', error);
@@ -893,15 +887,21 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
         setSendingNotification(true);
         setNotificationError('');
-        const ok = await sendGlobalNotification(newNotificationText.title, newNotificationText.message, currentUserId, notificationType);
-        if (ok) {
-            setNewNotificationText({ title: '', message: '' });
-            setNotificationType('normal');
-            setNotification({ type: 'success', message: 'Đã gửi thông báo đến toàn bộ người dùng' });
-        } else {
-            setNotificationError('Lỗi khi gửi thông báo');
+        try {
+            const ok = await sendGlobalNotification(newNotificationText.title, newNotificationText.message, currentUserId, notificationType);
+            if (ok) {
+                setNewNotificationText({ title: '', message: '' });
+                setNotificationType('normal');
+                setNotification({ type: 'success', message: 'Đã gửi thông báo đến toàn bộ người dùng' });
+            } else {
+                setNotificationError('Lỗi khi gửi thông báo. Vui lòng kiểm tra lại kết nối.');
+            }
+        } catch (e) {
+            console.error('Error sending notification:', e);
+            setNotificationError('Lỗi khi gửi thông báo: ' + (e.message || e));
+        } finally {
+            setSendingNotification(false);
         }
-        setSendingNotification(false);
     };
 
     const handleDeleteNotification = async (notifId) => {

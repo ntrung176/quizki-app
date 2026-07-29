@@ -202,12 +202,16 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         if (!window.MediaRecorder || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
             setSpeechSupported(false);
         }
-        if (window.speechSynthesis) {
+        if (typeof window !== 'undefined' && window.speechSynthesis) {
             window.speechSynthesis.getVoices();
         }
         return () => {
             if (audioRef.current) {
                 audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+            if (typeof window !== 'undefined' && window.speechSynthesis) {
+                window.speechSynthesis.cancel();
             }
             stopVadLoop();
         };
@@ -1013,7 +1017,14 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     // Quit session safely
     const handleQuit = async () => {
         if (await window.showConfirm('Bạn có chắc chắn muốn dừng buổi luyện tập Kaiwa này không? Lịch sử cuộc hội thoại sẽ không được lưu.', { type: 'warning' })) {
-            window.speechSynthesis.cancel();
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+            if (typeof window !== 'undefined' && window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+            }
+            setIsAiSpeaking(false);
             stopVadLoop();
             if (isRecordingRef.current) {
                 stopRecordingDirect();

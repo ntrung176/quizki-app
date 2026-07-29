@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth, db, appId } from '../../config/firebase';
-import { collection, query, onSnapshot, doc } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, orderBy, limit } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { 
@@ -199,16 +199,13 @@ const Sidebar = ({
     // Listen to Global Notifications
     useEffect(() => {
         if (!userId || !db) return;
-        const q = query(collection(db, `artifacts/${appId}/globalNotifications`));
+        const q = query(collection(db, `artifacts/${appId}/globalNotifications`), orderBy('createdAt', 'desc'), limit(20));
         const unsub = onSnapshot(q, (snap) => {
             const list = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            list.sort((a, b) => {
-                const aTime = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : (a.createdAt || 0);
-                const bTime = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : (b.createdAt || 0);
-                return bTime - aTime;
-            });
             setGlobalNotifications(list);
-        }, () => { });
+        }, (err) => {
+            console.warn('Sidebar notifications listener error:', err);
+        });
         return () => unsub();
     }, [userId]);
 

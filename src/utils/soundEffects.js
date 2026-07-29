@@ -87,17 +87,29 @@ export function playIncorrectSound() {
     }
 }
 
-// ==================== FIREWORKS EFFECT (Visual + Sound) ====================
-export function launchFireworks() {
-    // Muted to allow new Duolingo sound effects to play exclusively
-}
+// Shared AudioContext Singleton for Mobile Stability
+let globalAudioCtx = null;
+const getSharedAudioContext = () => {
+    if (typeof window === 'undefined') return null;
+    if (!globalAudioCtx || globalAudioCtx.state === 'closed') {
+        const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtxClass) {
+            globalAudioCtx = new AudioCtxClass();
+        }
+    }
+    if (globalAudioCtx && globalAudioCtx.state === 'suspended') {
+        globalAudioCtx.resume().catch(() => {});
+    }
+    return globalAudioCtx;
+};
 
 // ==================== CLICK SOUND ====================
 function playClickSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const ctx = getSharedAudioContext();
+        if (!ctx) return;
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = 'sine';
@@ -109,28 +121,16 @@ function playClickSound() {
         gain.connect(ctx.destination);
         osc.start(ctx.currentTime);
         osc.stop(ctx.currentTime + 0.04);
-        setTimeout(() => ctx.close(), 100);
     } catch (e) { }
 }
 
 // ==================== CARD FLIP SOUND ====================
-let flipAudioCtx = null;
-
 export function playFlipSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
-        if (!flipAudioCtx || flipAudioCtx.state === 'closed') {
-            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-            if (AudioContextClass) {
-                flipAudioCtx = new AudioContextClass();
-            }
-        }
+        const flipAudioCtx = getSharedAudioContext();
         if (!flipAudioCtx) return;
-
-        if (flipAudioCtx.state === 'suspended') {
-            flipAudioCtx.resume().catch(() => {});
-        }
 
         const osc = flipAudioCtx.createOscillator();
         const gain = flipAudioCtx.createGain();

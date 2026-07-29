@@ -5,15 +5,15 @@ import { isLeechCard } from '../../utils/srs';
 import FuriganaText from './FuriganaText';
 import { useLanguage } from '../../context/LanguageContext';
 
-const LeechManagerModal = ({ 
-    isOpen, 
-    onClose, 
-    vocabCards = [], 
-    kanjiItems = [], 
+const LeechManagerModal = ({
+    isOpen,
+    onClose,
+    vocabCards = [],
+    kanjiItems = [],
     grammarItems = [],
     scopeType = 'all', // 'all', 'vocab', 'kanji', 'grammar'
     onStartLeechReview,
-    onResetLeechCount 
+    onResetLeechCount
 }) => {
     const { t } = useLanguage();
     const [selectedTab, setSelectedTab] = useState(scopeType);
@@ -44,7 +44,7 @@ const LeechManagerModal = ({
         if (activeTab === 'vocab') return leechVocab.map(item => ({ ...item, leechType: 'vocab' }));
         if (activeTab === 'kanji') return leechKanji.map(item => ({ ...item, leechType: 'kanji' }));
         if (activeTab === 'grammar') return leechGrammar.map(item => ({ ...item, leechType: 'grammar' }));
-        
+
         return [
             ...leechVocab.map(item => ({ ...item, leechType: 'vocab' })),
             ...leechKanji.map(item => ({ ...item, leechType: 'kanji' })),
@@ -57,7 +57,7 @@ const LeechManagerModal = ({
     return createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-fade-in">
             <div className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl border border-rose-200 dark:border-rose-900/50 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
-                
+
                 {/* Header */}
                 <div className="px-6 py-5 bg-gradient-to-r from-rose-500/10 via-amber-500/10 to-transparent border-b border-rose-100 dark:border-rose-900/30 flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -74,7 +74,7 @@ const LeechManagerModal = ({
                         </div>
                     </div>
 
-                    <button 
+                    <button
                         onClick={onClose}
                         className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                     >
@@ -88,41 +88,37 @@ const LeechManagerModal = ({
                         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
                             <button
                                 onClick={() => setSelectedTab('all')}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                                    activeTab === 'all' 
-                                        ? 'bg-rose-600 text-white shadow-md' 
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeTab === 'all'
+                                        ? 'bg-rose-600 text-white shadow-md'
                                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300'
-                                }`}
+                                    }`}
                             >
                                 Tất cả ({leechVocab.length + leechKanji.length + leechGrammar.length})
                             </button>
                             <button
                                 onClick={() => setSelectedTab('vocab')}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                                    activeTab === 'vocab' 
-                                        ? 'bg-rose-600 text-white shadow-md' 
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeTab === 'vocab'
+                                        ? 'bg-rose-600 text-white shadow-md'
                                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300'
-                                }`}
+                                    }`}
                             >
                                 Từ vựng ({leechVocab.length})
                             </button>
                             <button
                                 onClick={() => setSelectedTab('kanji')}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                                    activeTab === 'kanji' 
-                                        ? 'bg-rose-600 text-white shadow-md' 
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeTab === 'kanji'
+                                        ? 'bg-rose-600 text-white shadow-md'
                                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300'
-                                }`}
+                                    }`}
                             >
                                 Kanji ({leechKanji.length})
                             </button>
                             <button
                                 onClick={() => setSelectedTab('grammar')}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                                    activeTab === 'grammar' 
-                                        ? 'bg-rose-600 text-white shadow-md' 
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeTab === 'grammar'
+                                        ? 'bg-rose-600 text-white shadow-md'
                                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300'
-                                }`}
+                                    }`}
                             >
                                 Ngữ pháp ({leechGrammar.length})
                             </button>
@@ -172,7 +168,7 @@ const LeechManagerModal = ({
                             const badgeColor = item.leechType === 'vocab' ? 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400' : item.leechType === 'kanji' ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400' : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400';
 
                             return (
-                                <div 
+                                <div
                                     key={`${item.leechType}-${item.id}`}
                                     className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 gap-3 hover:border-rose-300 dark:hover:border-rose-900/60 transition-all shadow-sm"
                                 >
@@ -215,7 +211,7 @@ const LeechManagerModal = ({
                 {/* Footer */}
                 <div className="px-6 py-4 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 flex justify-between items-center text-xs text-slate-500 dark:text-slate-400">
                     <span>{t('modals.leechTip', 'Mẹo: Hãy thêm câu ví dụ hoặc phân tích Hán Việt để thuộc thẻ lâu hơn.')}</span>
-                    <button 
+                    <button
                         onClick={onClose}
                         className="px-4 py-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-xl transition-all cursor-pointer"
                     >

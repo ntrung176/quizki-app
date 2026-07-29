@@ -9,14 +9,17 @@ let cachedVocabList = null;
 let cachedVocabCategories = null;
 let lastLoadedExportedAt = null;
 
-// Loading promises to coordinate concurrent requests
+// Loading promises & timestamps to coordinate concurrent requests
 let kanjiPromise = null;
 let vocabPromise = null;
 let categoriesPromise = null;
+let lastCheckedKanjiTimestamp = 0;
+let lastCheckedVocabTimestamp = 0;
 
 // Incremental sync in the background
 async function fetchKanjiUpdatesFromFirestore(exportedAt) {
-    if (!exportedAt) return;
+    if (!exportedAt || exportedAt <= lastCheckedKanjiTimestamp) return;
+    lastCheckedKanjiTimestamp = exportedAt;
     try {
         console.log(`Checking Firestore for kanji updates after: ${new Date(exportedAt).toISOString()}`);
         const q = query(collection(db, 'kanji'), where('updatedAt', '>', exportedAt));
@@ -36,7 +39,8 @@ async function fetchKanjiUpdatesFromFirestore(exportedAt) {
 }
 
 async function fetchVocabUpdatesFromFirestore(exportedAt) {
-    if (!exportedAt) return;
+    if (!exportedAt || exportedAt <= lastCheckedVocabTimestamp) return;
+    lastCheckedVocabTimestamp = exportedAt;
     try {
         console.log(`Checking Firestore for vocab updates after: ${new Date(exportedAt).toISOString()}`);
         const q = query(collection(db, 'kanjiVocab'), where('updatedAt', '>', exportedAt));
@@ -63,6 +67,8 @@ export const invalidateKanjiCache = () => {
     vocabPromise = null;
     categoriesPromise = null;
     lastLoadedExportedAt = null;
+    lastCheckedKanjiTimestamp = 0;
+    lastCheckedVocabTimestamp = 0;
 };
 
 if (typeof window !== 'undefined') {
@@ -74,13 +80,12 @@ export const getSharedKanjiList = async () => {
     const currentExport = cacheConfig?.exportedAt || 0;
     const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
 
-    if (needsRefresh) {
+    if (needsRefresh && !kanjiPromise) {
         cachedKanjiList = null;
-        kanjiPromise = null;
     }
 
     if (cachedKanjiList && !needsRefresh) return cachedKanjiList;
-    if (kanjiPromise && !needsRefresh) return kanjiPromise;
+    if (kanjiPromise) return kanjiPromise;
 
     kanjiPromise = (async () => {
         try {
@@ -144,13 +149,12 @@ export const getSharedVocabList = async () => {
     const currentExport = cacheConfig?.exportedAt || 0;
     const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
 
-    if (needsRefresh) {
+    if (needsRefresh && !vocabPromise) {
         cachedVocabList = null;
-        vocabPromise = null;
     }
 
     if (cachedVocabList && !needsRefresh) return cachedVocabList;
-    if (vocabPromise && !needsRefresh) return vocabPromise;
+    if (vocabPromise) return vocabPromise;
 
     vocabPromise = (async () => {
         try {

@@ -14,12 +14,14 @@ const CONFETTI_COLORS = [
 
 const CONFETTI_SHAPES = ['square', 'circle', 'triangle'];
 
-function launchConfetti(duration = 2500, count = 80) {
+function launchConfetti(duration = 2500, count = 70) {
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+    const finalCount = isMobile ? 28 : count;
     const container = document.createElement('div');
     container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;overflow:hidden;';
     document.body.appendChild(container);
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < finalCount; i++) {
         const confetti = document.createElement('div');
         const color = CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)];
         const shape = CONFETTI_SHAPES[Math.floor(Math.random() * CONFETTI_SHAPES.length)];

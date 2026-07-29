@@ -1,5 +1,7 @@
 import { KANJI_COMPONENTS } from './kanjiComponents';
 
+// 214 Kangxi Radicals dataset
+
 // 214 Bộ thủ (Radicals) - Kangxi Radicals
 // Đây là 214 bộ thủ cơ bản dùng để phân loại và chiết tự Kanji
 

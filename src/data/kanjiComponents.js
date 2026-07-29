@@ -1,2 +1,4 @@
-// Placeholder for Kanji Components. Will be populated by running scripts/crawlMaziiComponents.mjs
-export const KANJI_COMPONENTS = {};
+import kanjiComponents from './kanjiComponents.json';
+
+export const KANJI_COMPONENTS = kanjiComponents || {};
+export default KANJI_COMPONENTS;

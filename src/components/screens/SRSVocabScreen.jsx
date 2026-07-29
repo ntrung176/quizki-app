@@ -516,6 +516,7 @@ const SRSVocabScreen = ({
     };
 
     const hasAutoStartedRef = useRef(false);
+    const intervalCacheRef = useRef({});
 
     // Auto start review session when navigated from Home Screen
     useEffect(() => {
@@ -926,13 +927,16 @@ const SRSVocabScreen = ({
     // ==================== LOCAL SRS REVIEW MODE ====================
     const currentCard = (reviewMode && reviewQueue.length > 0) ? reviewQueue[currentReviewIndex] : null;
     if (reviewMode && currentCard) {
-        const previewIntv = getPreviewIntervals(currentCard);
-            const intervals = {
-                again: formatInterval(previewIntv.again),
-                hard: formatInterval(previewIntv.hard),
-                good: formatInterval(previewIntv.good),
-                easy: formatInterval(previewIntv.easy),
-            };
+        if (!intervalCacheRef.current[currentCard.id]) {
+            intervalCacheRef.current[currentCard.id] = getPreviewIntervals(currentCard);
+        }
+        const previewIntv = intervalCacheRef.current[currentCard.id];
+        const intervals = {
+            again: formatInterval(previewIntv.again),
+            hard: formatInterval(previewIntv.hard),
+            good: formatInterval(previewIntv.good),
+            easy: formatInterval(previewIntv.easy),
+        };
             const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
             return (
                 <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8">

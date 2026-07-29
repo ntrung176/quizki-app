@@ -78,6 +78,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
     const reviewModeRef = useRef(false);
     const pendingWriteIds = useRef(new Set());
+    const intervalCacheRef = useRef({});
 
     useEffect(() => {
         reviewModeRef.current = reviewMode;
@@ -695,7 +696,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
     if (reviewMode && currentCard) {
         const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, reps: 0 };
-        const previewIntv = getPreviewIntervals(srs);
+        if (!intervalCacheRef.current[currentCard.id]) {
+            intervalCacheRef.current[currentCard.id] = getPreviewIntervals(srs);
+        }
+        const previewIntv = intervalCacheRef.current[currentCard.id];
         const intervals = {
             again: formatInterval(previewIntv.again),
             hard: formatInterval(previewIntv.hard),

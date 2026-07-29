@@ -19,21 +19,15 @@ import {
     LibraryScreen,
     StudySetDetail,
     ReviewScreen,
-    KanjiScreen,
     KanjiStudyScreen,
     KanjiLessonScreen,
     KanjiReviewScreen,
     KanjiSRSListScreen,
     StudyScreen,
     TestScreen,
-    AdminScreen,
     FlashcardScreen,
-    BookScreen,
     SettingsScreen,
     FeedbackScreen,
-    JLPTTestScreen,
-    JLPTAdminScreen,
-    JLPTKaiwaScreen,
     PrivacyScreen,
     TermsScreen,
     AuthActionScreen,
@@ -43,13 +37,21 @@ import {
     EditSetScreen,
     GrammarTextbooksScreen,
     GrammarLessonsScreen,
-    GrammarPointsScreen,
-    GrammarDetailScreen,
     GrammarPracticeScreen,
     GrammarReviewScreen,
     GrammarSavedScreen,
     GrammarListScreen
 } from './screens';
+
+// Lazy-loaded heavy screen components for optimal initial bundle size
+const AdminScreen = React.lazy(() => import('./screens/AdminScreen'));
+const JLPTAdminScreen = React.lazy(() => import('./screens/JLPTAdminScreen'));
+const JLPTTestScreen = React.lazy(() => import('./screens/JLPTTestScreen'));
+const JLPTKaiwaScreen = React.lazy(() => import('./screens/JLPTKaiwaScreen'));
+const BookScreen = React.lazy(() => import('./screens/BookScreen'));
+const KanjiScreen = React.lazy(() => import('./screens/KanjiScreen'));
+const GrammarPointsScreen = React.lazy(() => import('./screens/GrammarPointsScreen'));
+const GrammarDetailScreen = React.lazy(() => import('./screens/GrammarDetailScreen'));
 
 // Import card components
 import {
@@ -545,7 +547,7 @@ const AppRoutes = ({
     }
 
     return (
-        <>
+        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900"><LoadingIndicator text="Đang nạp tính năng..." /></div>}>
             <Routes>
                 {/* Public routes */}
                 <Route
@@ -1390,7 +1392,7 @@ const AppRoutes = ({
                 {/* Catch all - redirect to home */}
                 <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
             </Routes>
-        </>
+        </React.Suspense>
     );
 };
 

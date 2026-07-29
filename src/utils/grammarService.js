@@ -50,14 +50,13 @@ export const getSharedGrammarData = async () => {
     const currentExport = cacheConfig?.exportedAt || 0;
     const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
 
-    if (needsRefresh) {
+    if (needsRefresh && !grammarPromise) {
         cachedGrammarData = null;
-        grammarPromise = null;
         clearSharedGrammarPointsListCache();
     }
 
     if (cachedGrammarData && !needsRefresh) return cachedGrammarData;
-    if (grammarPromise && !needsRefresh) return grammarPromise;
+    if (grammarPromise) return grammarPromise;
 
     grammarPromise = (async () => {
         try {
