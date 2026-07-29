@@ -1977,62 +1977,8 @@ const App = () => {
         }
     };
 
-    // Lưu từ vựng vào kho dữ liệu chung (Phân tách biệt lập theo ngôn ngữ - Chỉ admin mới có quyền ghi)
-    const saveSharedVocab = async (word, data, force = false, targetLang = null) => {
-        if (!isAdmin) return; // Bỏ qua nếu không phải admin để tránh lỗi permission
-        try {
-            const lang = (targetLang === 'en' || (data && data.targetLanguage === 'en') || isEnglishText(word)) ? 'en' : (targetLang || (data && data.targetLanguage) || localStorage.getItem('quizki_target_language') || 'ja');
-            const collectionName = getSharedVocabCollectionName(lang);
-            const normalized = word.split('（')[0].split('(')[0].trim();
-            const existing = await findSharedVocab(word, lang);
-
-            const docData = lang === 'en' ? {
-                front: data.front || word,
-                back: data.back || data.meaning || '',
-                ipa: data.ipa || '',
-                synonym: data.synonym || '',
-                example: data.example || '',
-                exampleMeaning: data.exampleMeaning || '',
-                nuance: data.nuance || '',
-                pos: data.pos || '',
-                level: data.level || '',
-                targetLanguage: 'en',
-                updatedAt: Date.now()
-            } : {
-                front: data.front || data.frontWithFurigana || word,
-                back: data.back || data.meaning || '',
-                synonym: data.synonym || '',
-                sinoVietnamese: data.sinoVietnamese || '',
-                synonymSinoVietnamese: data.synonymSinoVietnamese || '',
-                example: data.example || '',
-                exampleMeaning: data.exampleMeaning || '',
-                nuance: data.nuance || '',
-                pos: data.pos || '',
-                level: data.level || '',
-                reading: data.reading || '',
-                accent: data.accent !== undefined ? String(data.accent) : '',
-                targetLanguage: 'ja',
-                updatedAt: Date.now()
-            };
-
-            if (!existing) {
-                docData.createdAt = Date.now();
-                const docRef = doc(db, collectionName, normalized);
-                await setDoc(docRef, docData);
-                console.log(`✅ saveSharedVocab: Đã tạo mới từ vựng "${word}" trong kho ${collectionName}.`);
-            } else if (force) {
-                const docRef = doc(db, collectionName, existing.id);
-                await setDoc(docRef, docData, { merge: true });
-                console.log(`✅ saveSharedVocab: Đã cập nhật (force) từ vựng "${word}" vào kho ${collectionName}.`);
-            } else {
-                console.log(`ℹ️ saveSharedVocab: Từ vựng "${word}" đã tồn tại trong kho ${collectionName}.`);
-            }
-        } catch (e) {
-            if (e?.code !== 'permission-denied' && !e?.message?.includes('permission')) {
-                console.warn('Error saving shared vocab:', e);
-            }
-        }
-    };
+    // Cơ chế lưu từ vựng vào kho SharedVocab đã được gỡ bỏ theo yêu cầu
+    const saveSharedVocab = async (word, data, force = false, targetLang = null) => {};
 
     // Lấy dữ liệu từ vựng: ưu tiên shared DB → fallback (dữ liệu đã có)
     const getVocabData = async (word, fallbackData = {}, targetLang = null) => {
