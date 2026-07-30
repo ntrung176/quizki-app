@@ -169,6 +169,8 @@ const App = () => {
     const [notification, setNotification] = useState('');
     const [levelUpInfo, setLevelUpInfo] = useState(null);
     const [isReviewActive, setIsReviewActive] = useState(false);
+    const isReviewActiveRef = useRef(false);
+    useEffect(() => { isReviewActiveRef.current = isReviewActive; }, [isReviewActive]);
     const [isRealExamActive, setIsRealExamActive] = useState(false);
     const isReviewSessionPage = ['REVIEW', 'STUDY', 'FLASHCARD'].includes(view) || (location.pathname.startsWith('/vocab/review/') && location.pathname !== '/vocab/review');
     const lastPlayedLevelRef = useRef(null);
@@ -757,6 +759,9 @@ const App = () => {
         }
 
         const unsubscribe = onSnapshot(doc(db, settingsDocPath), async (docSnap) => {
+            // Skip processing during active review to prevent expensive league calculations on mobile
+            if (docSnap.metadata.hasPendingWrites && isReviewActiveRef.current) return;
+
             if (docSnap.exists()) {
                 const profileData = docSnap.data();
                 if (!profileData.email && auth?.currentUser?.email) {
@@ -1034,10 +1039,46 @@ const App = () => {
         }
 
         const q = query(collection(db, vocabCollectionPath));
+        let isInitialLoad = true;
         const unsubscribe = onSnapshot(q, (snapshot) => {
             // Ignore local pending writes during active review/rating sessions to prevent freezing UI thread on mobile
             if (snapshot.metadata.hasPendingWrites) return;
 
+            // During active review sessions, only update changed cards in-place instead of rebuilding entire array
+            if (!isInitialLoad && isReviewActiveRef.current) {
+                const changes = snapshot.docChanges();
+                if (changes.length > 0 && changes.length < 20) {
+                    // Small number of changes: update in-place without triggering full re-render
+                    setAllCards(prevCards => {
+                        const cardMap = new Map(prevCards.map(c => [c.id, c]));
+                        let hasChanges = false;
+                        changes.forEach(change => {
+                            if (change.type === 'modified') {
+                                const existing = cardMap.get(change.doc.id);
+                                if (existing) {
+                                    const data = change.doc.data();
+                                    // Only update SRS fields in-place, don't rebuild card object
+                                    Object.assign(existing, {
+                                        srsInterval: typeof data.srsInterval === 'number' ? data.srsInterval : existing.srsInterval,
+                                        srsEase: typeof data.srsEase === 'number' ? data.srsEase : existing.srsEase,
+                                        srsReps: typeof data.srsReps === 'number' ? data.srsReps : existing.srsReps,
+                                        srsState: data.srsState || existing.srsState,
+                                        lastReviewed: data.lastReviewed?.toDate ? data.lastReviewed.toDate() : existing.lastReviewed,
+                                        masteryState: data.masteryState || existing.masteryState,
+                                        needsMistakeReview: data.needsMistakeReview === true
+                                    });
+                                    hasChanges = true;
+                                }
+                            }
+                        });
+                        // Return same reference to avoid triggering useMemo recalculations
+                        return hasChanges ? prevCards : prevCards;
+                    });
+                    return;
+                }
+            }
+
+            isInitialLoad = false;
             const cards = [];
             const today = new Date();
             today.setHours(0, 0, 0, 0);

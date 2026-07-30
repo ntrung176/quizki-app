@@ -76,11 +76,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
     const [dashboardTick, setDashboardTick] = useState(Date.now());
     useEffect(() => {
+        // Pause dashboard tick during review mode to avoid expensive re-renders on mobile
+        if (reviewMode) return;
         const interval = setInterval(() => {
             setDashboardTick(Date.now());
         }, 1000);
         return () => clearInterval(interval);
-    }, []);
+    }, [reviewMode]);
 
     const reviewModeRef = useRef(false);
     // Track cards with pending Firestore writes to prevent onSnapshot from overwriting optimistic updates
