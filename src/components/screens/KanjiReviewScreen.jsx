@@ -162,19 +162,17 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     }, [kanjiList]);
 
     const dueKanji = useMemo(() => {
-        if (reviewMode) return [];
         const now = dashboardTick;
         return kanjiList.filter(k => {
             const srs = srsData[k.id];
             if (!srs) return false;
             return isSrsCardDue(srs, now);
         });
-    }, [kanjiList, srsData, dashboardTick, reviewMode]);
+    }, [kanjiList, srsData, dashboardTick]);
 
     const savedSessionInfo = null;
 
     const stats = useMemo(() => {
-        if (reviewMode) return { dueToday: 0, newCards: 0, learning: 0, shortTerm: 0, longTerm: 0, expert: 0, totalReps: 0, totalReviewed: 0, daysStudied: 0, kanjiLearned: 0, streak: 0 };
         const now = Date.now();
         let hasNoSRS = 0, learning = 0, shortTerm = 0, longTerm = 0, expert = 0;
         let totalReps = 0;
@@ -237,10 +235,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             totalReps, totalReviewed: Object.keys(srsData).length - hasNoSRS,
             daysStudied: reviewDays.size, kanjiLearned: Object.keys(srsData).length, streak,
         };
-    }, [kanjiMap, srsData, dueKanji, reviewMode]);
+    }, [kanjiMap, srsData, dueKanji]);
 
     const chartData = useMemo(() => {
-        if (reviewMode) return [];
         const days = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
         const result = [];
         const now = new Date();
@@ -264,14 +261,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             });
         }
         return result;
-    }, [srsData, reviewMode]);
+    }, [srsData]);
 
     const [nextReviewText, setNextReviewText] = useState(null);
     const [isNextReviewCountdown, setIsNextReviewCountdown] = useState(false);
     const [nextRoundCount, setNextRoundCount] = useState(0);
 
     useEffect(() => {
-        if (reviewMode) return;
         const getNextReviewInfo = () => {
             const now = Date.now();
             let earliest = Infinity;
@@ -294,7 +290,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         updateCountdown();
         const interval = setInterval(updateCountdown, 1000);
         return () => clearInterval(interval);
-    }, [srsData, reviewMode]);
+    }, [srsData]);
 
     const [lastTick, setLastTick] = useState(Date.now());
 
