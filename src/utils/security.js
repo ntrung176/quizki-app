@@ -15,43 +15,8 @@
  * Attackers use console.log output to discover API keys and internal state.
  */
 export const initConsoleProtection = () => {
-    if (import.meta.env.DEV) return; // Keep full logging in dev
-
-    const noop = () => { };
-    const originalConsole = {
-        log: console.log,
-        warn: console.warn,
-        error: console.error,
-    };
-
-    // Override console.log to filter sensitive data
-    console.log = (...args) => {
-        // Block all console.log in production to prevent info leakage
-        // API keys, credit counts, provider info are all logged
-        return;
-    };
-
-    // Keep warnings and errors but sanitize them
-    console.warn = (...args) => {
-        const sanitized = args.map(arg => {
-            if (typeof arg === 'string') {
-                // Hide API keys from error messages
-                return arg.replace(/[A-Za-z0-9_-]{30,}/g, '[REDACTED]');
-            }
-            return arg;
-        });
-        originalConsole.warn(...sanitized);
-    };
-
-    console.error = (...args) => {
-        const sanitized = args.map(arg => {
-            if (typeof arg === 'string') {
-                return arg.replace(/[A-Za-z0-9_-]{30,}/g, '[REDACTED]');
-            }
-            return arg;
-        });
-        originalConsole.error(...sanitized);
-    };
+    // Do not mutate native console methods as it breaks WebKit internal bindings on Mobile Safari
+    return;
 };
 
 // ==================== CREDIT VALIDATION ====================
