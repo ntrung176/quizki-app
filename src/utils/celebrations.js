@@ -284,28 +284,30 @@ export function celebrateCorrectAnswer(event) {
 }
 
 // ==================== GREEN FLASH (subtle correct feedback) ====================
+let flashElement = null;
+let flashTimeout = null;
+
 export function flashCorrect() {
-    if (!document.getElementById('flash-keyframes')) {
-        const style = document.createElement('style');
-        style.id = 'flash-keyframes';
-        style.textContent = `
-            @keyframes flashGreen {
-                0% { opacity: 0.4; }
-                100% { opacity: 0; }
-            }
+    if (typeof document === 'undefined') return;
+
+    if (!flashElement) {
+        flashElement = document.createElement('div');
+        flashElement.style.cssText = `
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(72, 219, 127, 0.25), transparent 70%);
+            pointer-events: none;
+            z-index: 99990;
+            opacity: 0;
+            transition: opacity 0.15s ease-out;
         `;
-        document.head.appendChild(style);
+        document.body.appendChild(flashElement);
     }
 
-    const flash = document.createElement('div');
-    flash.style.cssText = `
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(circle at center, rgba(72, 219, 127, 0.3), transparent 70%);
-        pointer-events: none;
-        z-index: 99990;
-        animation: flashGreen 0.5s ease-out forwards;
-    `;
-    document.body.appendChild(flash);
-    setTimeout(() => flash.remove(), 600);
+    if (flashTimeout) clearTimeout(flashTimeout);
+
+    flashElement.style.opacity = '1';
+    flashTimeout = setTimeout(() => {
+        if (flashElement) flashElement.style.opacity = '0';
+    }, 200);
 }
