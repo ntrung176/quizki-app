@@ -13,6 +13,17 @@ const getProgressDocRef = (userId, setId) => {
 // Debounce map for Firestore progress saving to prevent mobile network choking during rapid card swipes
 const saveProgressDebounceMap = new Map();
 
+const stripMedia = (obj) => {
+    if (!obj || typeof obj !== 'object') return obj;
+    if (Array.isArray(obj)) return obj.map(stripMedia);
+    const copy = {};
+    for (const key in obj) {
+        if (key === 'audioBase64' || key === 'imageBase64') continue;
+        copy[key] = stripMedia(obj[key]);
+    }
+    return copy;
+};
+
 /**
  * Save study progress to both LocalStorage (instant) and Firestore (debounced for mobile smoothness)
  */
@@ -20,9 +31,15 @@ export const saveStudyProgress = async (userId, setId, mode, progressData) => {
     const key = `study_progress_${setId}_${mode}`;
     const completedKey = `study_completed_${setId}_${mode}`;
     
+    const cleanProgressData = stripMedia(progressData);
+
     // 1. Save to LocalStorage instantly
-    localStorage.setItem(key, JSON.stringify(progressData));
-    localStorage.setItem(completedKey, 'false');
+    try {
+        localStorage.setItem(key, JSON.stringify(cleanProgressData));
+        localStorage.setItem(completedKey, 'false');
+    } catch (e) {
+        console.warn('localStorage save progress failed:', e);
+    }
 
     // 2. Debounce Save to Firestore if user is authenticated
     if (!userId) return;
@@ -37,7 +54,7 @@ export const saveStudyProgress = async (userId, setId, mode, progressData) => {
         try {
             const docRef = getProgressDocRef(userId, setId);
             const dataToUpdate = {
-                [`${mode}_progress`]: JSON.stringify(progressData),
+                [`${mode}_progress`]: JSON.stringify(cleanProgressData),
                 [`${mode}_completed`]: false,
                 [`${mode}_updatedAt`]: Date.now()
             };

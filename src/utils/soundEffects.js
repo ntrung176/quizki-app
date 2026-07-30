@@ -65,15 +65,11 @@ export function playCorrectSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
-        let audioToPlay;
         if (correctAudio) {
-            audioToPlay = correctAudio.paused ? correctAudio : correctAudio.cloneNode(true);
-        } else {
-            audioToPlay = new Audio('/sfx/duolingo-correct.mp3');
+            correctAudio.volume = volume;
+            correctAudio.currentTime = 0;
+            correctAudio.play().catch(e => console.log('Audio play error:', e));
         }
-        audioToPlay.volume = volume;
-        audioToPlay.currentTime = 0;
-        audioToPlay.play().catch(e => console.log('Audio play error:', e));
     } catch (e) {
         console.log('Sound not available:', e);
     }
@@ -84,15 +80,11 @@ export function playIncorrectSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
-        let audioToPlay;
         if (wrongAudio) {
-            audioToPlay = wrongAudio.paused ? wrongAudio : wrongAudio.cloneNode(true);
-        } else {
-            audioToPlay = new Audio('/sfx/duolingo-wrong.mp3');
+            wrongAudio.volume = volume;
+            wrongAudio.currentTime = 0;
+            wrongAudio.play().catch(e => console.log('Audio play error:', e));
         }
-        audioToPlay.volume = volume;
-        audioToPlay.currentTime = 0;
-        audioToPlay.play().catch(e => console.log('Audio play error:', e));
     } catch (e) {
         console.log('Sound not available:', e);
     }
