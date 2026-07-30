@@ -665,6 +665,17 @@ const SRSVocabScreen = ({
         return () => clearInterval(intervalId);
     }, [reviewMode, currentReviewIndex, allCards]);
 
+    // 60fps keep-alive ticker for Mobile Safari to prevent timer throttling on mobile browsers
+    useEffect(() => {
+        if (!reviewMode) return;
+        let animId;
+        const keepAlive = () => {
+            animId = requestAnimationFrame(keepAlive);
+        };
+        animId = requestAnimationFrame(keepAlive);
+        return () => cancelAnimationFrame(animId);
+    }, [reviewMode]);
+
     const handleRating = (rating) => {
         console.time('⚡ SRS_RATING_VOCAB');
         const card = reviewQueue[currentReviewIndex];
@@ -781,35 +792,25 @@ const SRSVocabScreen = ({
 
         if (currentReviewIndex + 1 < updatedQueue.length) {
             setIsAnimatingFlip(false);
-            setSlideDirection('left');
-            setTimeout(() => {
-                setIsFlipped(false);
-                setCurrentReviewIndex(prev => prev + 1);
-                setSlideDirection('right');
-                setTimeout(() => {
-                    setSlideDirection('');
-                    setTimeout(() => {
-                        setIsAnimatingFlip(true);
-                    }, 110);
-                }, 20);
-            }, 70);
+            setIsFlipped(false);
+            setCurrentReviewIndex(prev => prev + 1);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setIsAnimatingFlip(true);
+                });
+            });
         } else {
             const waiting = getLearningCardsWaiting();
             if (waiting.length > 0) {
                 // Show waiting screen (by advancing index to updatedQueue.length)
                 setIsAnimatingFlip(false);
-                setSlideDirection('left');
-                setTimeout(() => {
-                    setIsFlipped(false);
-                    setCurrentReviewIndex(updatedQueue.length);
-                    setSlideDirection('right');
-                    setTimeout(() => {
-                        setSlideDirection('');
-                        setTimeout(() => {
-                            setIsAnimatingFlip(true);
-                        }, 110);
-                    }, 20);
-                }, 70);
+                setIsFlipped(false);
+                setCurrentReviewIndex(updatedQueue.length);
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        setIsAnimatingFlip(true);
+                    });
+                });
             } else {
                 try {
                     playCompletionFanfare();
