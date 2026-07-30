@@ -666,6 +666,7 @@ const SRSVocabScreen = ({
     }, [reviewMode, currentReviewIndex, allCards]);
 
     const handleRating = (rating) => {
+        console.time('⚡ SRS_RATING_VOCAB');
         const card = reviewQueue[currentReviewIndex];
         if (!card) return;
 
@@ -820,6 +821,7 @@ const SRSVocabScreen = ({
                 }
             }
         }
+        console.timeEnd('⚡ SRS_RATING_VOCAB');
     };
 
     const saveSessionState = () => {};

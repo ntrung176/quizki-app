@@ -465,6 +465,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const currentCard = reviewQueue[currentReviewIndex] || null;
 
     const handleRating = (rating) => {
+        console.time('⚡ SRS_RATING_KANJI');
         if (!currentCard || !userId) return;
 
         const srs = srsData[currentCard.id] || null;
@@ -623,6 +624,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }
             }
         })();
+        console.timeEnd('⚡ SRS_RATING_KANJI');
     };
 
     const saveSessionState = () => { };

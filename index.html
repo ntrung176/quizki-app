@@ -27,6 +27,15 @@
     })();
   </script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    // Enable Eruda Mobile Console if ?debug=true or localStorage 'debug_mobile' is set
+    if (window.location.search.includes('debug=true') || localStorage.getItem('debug_mobile') === 'true') {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/eruda';
+      script.onload = function () { eruda.init(); console.log('🚀 Mobile Console (Eruda) Activated!'); };
+      document.head.appendChild(script);
+    }
+  </script>
 </head>
 
 <body>
