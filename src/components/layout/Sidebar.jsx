@@ -388,6 +388,18 @@ const Sidebar = ({
             </Link>
 
             <div className="flex items-center space-x-2">
+                {/* Mobile Avatar Settings Link */}
+                {displayName && (
+                    <Link
+                        to={ROUTES.SETTINGS}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="w-8.5 h-8.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-[9px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm active:scale-95 transition-transform shrink-0"
+                        title="Trang cá nhân & Cài đặt"
+                    >
+                        {renderAvatar()}
+                    </Link>
+                )}
+
                 <div className="relative">
                     <button
                         onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
@@ -414,8 +426,12 @@ const Sidebar = ({
                 <div className="fixed inset-0 top-[60px] z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl flex flex-col justify-between overflow-y-auto animate-fade-in">
                     {/* User Profile Capsule on Mobile Drawer Header */}
                     {displayName && (
-                        <div className="p-3 mx-3 mt-3 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-2xl flex items-center gap-3 shadow-sm">
-                            <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden shadow-inner">
+                        <Link
+                            to={ROUTES.SETTINGS}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="p-3 mx-3 mt-3 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/50 rounded-2xl flex items-center gap-3 shadow-sm active:scale-[0.98] transition-all cursor-pointer group"
+                        >
+                            <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden shadow-inner group-hover:scale-105 transition-transform">
                                 {renderAvatar()}
                             </div>
                             <div className="flex-1 min-w-0">
@@ -429,7 +445,8 @@ const Sidebar = ({
                                 </div>
                                 <p className="text-[10px] text-slate-400 font-mono mt-0.5">LV {xpDetails.level} • {getLevelTitle(xpDetails.level)}</p>
                             </div>
-                        </div>
+                            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-cyan-500 shrink-0 transition-colors" />
+                        </Link>
                     )}
 
                     {/* Navigation Items */}
