@@ -824,12 +824,13 @@ export const deleteExpense = async (expenseId) => {
 /**
  * Send a global notification to all users
  */
-export const sendGlobalNotification = async (title, message, senderId, type = 'normal') => {
+export const sendGlobalNotification = async (title, message, senderId, type = 'normal', link = '') => {
     try {
         const colRef = collection(db, `artifacts/${appId}/globalNotifications`);
         await addDoc(colRef, {
             title,
             message,
+            link: link ? link.trim() : '',
             createdAt: Date.now(),
             senderId,
             type

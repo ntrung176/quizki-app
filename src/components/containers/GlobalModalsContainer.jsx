@@ -2,6 +2,31 @@ import React from 'react';
 import { Bell, Loader2 } from 'lucide-react';
 import UpdateNotification from '../ui/UpdateNotification';
 
+const renderTextWithClickableLinks = (text) => {
+    if (!text || typeof text !== 'string') return text;
+    const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
+    const parts = text.split(urlRegex);
+
+    return parts.map((part, i) => {
+        if (part.match(urlRegex)) {
+            const href = part.startsWith('www.') ? `https://${part}` : part;
+            return (
+                <a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-cyan-600 dark:text-cyan-400 font-bold underline hover:text-cyan-500 break-all transition-colors cursor-pointer"
+                >
+                    {part} 🔗
+                </a>
+            );
+        }
+        return part;
+    });
+};
+
 export const GlobalModalsContainer = ({
     updateAvailable,
     refreshApp,
@@ -40,8 +65,20 @@ export const GlobalModalsContainer = ({
                                 {activePopup.title}
                             </h3>
                             <div className="text-sm text-gray-600 dark:text-slate-350 leading-relaxed max-h-[40vh] overflow-y-auto whitespace-pre-wrap pr-1 bg-slate-50 dark:bg-slate-950/40 p-4 rounded-2xl border border-gray-100 dark:border-slate-800">
-                                {activePopup.message}
+                                {renderTextWithClickableLinks(activePopup.message)}
                             </div>
+                            {activePopup.link && (
+                                <div className="text-center pt-1">
+                                    <a
+                                        href={activePopup.link.startsWith('http') ? activePopup.link : `https://${activePopup.link}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-bold text-xs rounded-xl shadow-md transition-all active:scale-95 cursor-pointer"
+                                    >
+                                        🔗 Truy cập liên kết kèm theo
+                                    </a>
+                                </div>
+                            )}
                         </div>
                         <div className="p-6 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-center">
                             <button

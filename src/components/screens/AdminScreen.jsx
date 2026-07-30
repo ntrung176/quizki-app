@@ -54,7 +54,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     // Global notifications & maintenance states
     const [globalNotifications, setGlobalNotifications] = useState([]);
-    const [newNotificationText, setNewNotificationText] = useState({ title: '', message: '' });
+    const [newNotificationText, setNewNotificationText] = useState({ title: '', message: '', link: '' });
     const [notificationError, setNotificationError] = useState('');
     const [sendingNotification, setSendingNotification] = useState(false);
     const [notificationType, setNotificationType] = useState('normal');
@@ -888,9 +888,15 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         setSendingNotification(true);
         setNotificationError('');
         try {
-            const ok = await sendGlobalNotification(newNotificationText.title, newNotificationText.message, currentUserId, notificationType);
+            const ok = await sendGlobalNotification(
+                newNotificationText.title, 
+                newNotificationText.message, 
+                currentUserId, 
+                notificationType,
+                newNotificationText.link
+            );
             if (ok) {
-                setNewNotificationText({ title: '', message: '' });
+                setNewNotificationText({ title: '', message: '', link: '' });
                 setNotificationType('normal');
                 setNotification({ type: 'success', message: 'Đã gửi thông báo đến toàn bộ người dùng' });
             } else {

@@ -21,6 +21,31 @@ import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/gra
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
+const renderTextWithClickableLinks = (text) => {
+    if (!text || typeof text !== 'string') return text;
+    const urlRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
+    const parts = text.split(urlRegex);
+
+    return parts.map((part, i) => {
+        if (part.match(urlRegex)) {
+            const href = part.startsWith('www.') ? `https://${part}` : part;
+            return (
+                <a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-cyan-600 dark:text-cyan-400 font-bold underline hover:text-cyan-500 break-all transition-colors cursor-pointer"
+                >
+                    {part} 🔗
+                </a>
+            );
+        }
+        return part;
+    });
+};
+
 // Sidebar Component - Restored Exact Original Menus with Chatbox & Help Buttons Integrated at Bottom
 const Sidebar = ({ 
     isDarkMode, 
@@ -369,6 +394,41 @@ const Sidebar = ({
                             </div>
                         </button>
                     )}
+                    {/* Global System Notifications */}
+                    {globalNotifications.map(notif => {
+                        const isRead = readNotificationIds.includes(notif.id);
+                        return (
+                            <div
+                                key={notif.id}
+                                className={`p-3 rounded-xl border flex items-start gap-3 transition-all ${
+                                    isRead 
+                                        ? 'bg-slate-50/50 dark:bg-slate-900/40 border-slate-100 dark:border-slate-800/60 opacity-80' 
+                                        : 'bg-cyan-50/60 dark:bg-cyan-950/40 border-cyan-200/60 dark:border-cyan-800/50'
+                                }`}
+                            >
+                                <div className="w-8 h-8 rounded-lg bg-cyan-100 dark:bg-cyan-900/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <Bell className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <h4 className="font-bold text-xs text-slate-800 dark:text-slate-200">{notif.title}</h4>
+                                    <div className="text-[11px] text-slate-600 dark:text-slate-350 mt-0.5 whitespace-pre-wrap leading-relaxed">
+                                        {renderTextWithClickableLinks(notif.message)}
+                                    </div>
+                                    {notif.link && (
+                                        <a
+                                            href={notif.link.startsWith('http') ? notif.link : `https://${notif.link}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1 mt-1.5 text-[10px] font-bold text-cyan-600 dark:text-cyan-400 hover:underline cursor-pointer"
+                                        >
+                                            🔗 Mở liên kết ↗
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        );
+                    })}
+
                     {globalNotifications.length === 0 && dueVocabCount === 0 && kanjiDueCount === 0 && grammarDueCount === 0 && (
                         <p className="text-xs text-slate-400 text-center py-4 font-mono">Không có thông báo mới</p>
                     )}
