@@ -1,5 +1,4 @@
-// --- Pitch Accent & Audio Utility ---
-// Fetches pitch accent + audio data from Jotoba API
+import { fetchPitchAccentBatchWithAI } from './aiProvider';
 
 // Cache to avoid repeated API calls
 // Stores { pitch: [...], audioUrl: string|null }
@@ -88,7 +87,6 @@ const processAiBatchQueue = async () => {
 
     try {
         console.log(`🤖 [Pitch Accent] Sending AI batch request for ${uniqueWords.length} unique words:`, uniqueWords);
-        const { fetchPitchAccentBatchWithAI } = await import('./aiProvider');
         const batchResults = await fetchPitchAccentBatchWithAI(uniqueWords);
 
         // Resolve each word in the batch

@@ -1058,12 +1058,24 @@ const App = () => {
                             const existing = allCards.find(c => c.id === change.doc.id);
                             if (existing) {
                                 const data = change.doc.data();
+                                const reviewMs = parseNextReviewMs(data.nextReview_back || data.nextReview);
+                                const nextReviewBack = reviewMs > 0 ? new Date(reviewMs) : existing.nextReview_back;
+                                const computedIntervalIdx = typeof data.intervalIndex_back === 'number'
+                                    ? data.intervalIndex_back
+                                    : (data.srsState === 'NEW' ? -1 : (data.srsState === 'REVIEW' ? (data.srsInterval >= 21 ? 4 : (data.srsInterval >= 3 ? 3 : 2)) : 0));
+
                                 Object.assign(existing, {
                                     srsInterval: typeof data.srsInterval === 'number' ? data.srsInterval : existing.srsInterval,
                                     srsEase: typeof data.srsEase === 'number' ? data.srsEase : existing.srsEase,
                                     srsReps: typeof data.srsReps === 'number' ? data.srsReps : existing.srsReps,
+                                    srsLearningStep: data.srsLearningStep !== undefined ? data.srsLearningStep : existing.srsLearningStep,
+                                    srsIsLapsed: data.srsIsLapsed === true,
+                                    srsLapseCount: typeof data.srsLapseCount === 'number' ? data.srsLapseCount : existing.srsLapseCount,
+                                    srsPrelapseInterval: typeof data.srsPrelapseInterval === 'number' ? data.srsPrelapseInterval : existing.srsPrelapseInterval,
                                     srsState: data.srsState || existing.srsState,
-                                    lastReviewed: data.lastReviewed?.toDate ? data.lastReviewed.toDate() : existing.lastReviewed,
+                                    intervalIndex_back: computedIntervalIdx,
+                                    nextReview_back: nextReviewBack,
+                                    lastReviewed: data.lastReviewed?.toDate ? data.lastReviewed.toDate() : (data.lastReviewed ? new Date(data.lastReviewed) : existing.lastReviewed),
                                     masteryState: data.masteryState || existing.masteryState,
                                     needsMistakeReview: data.needsMistakeReview === true
                                 });
