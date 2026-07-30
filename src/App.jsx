@@ -1035,6 +1035,9 @@ const App = () => {
 
         const q = query(collection(db, vocabCollectionPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
+            // Ignore local pending writes during active review/rating sessions to prevent freezing UI thread on mobile
+            if (snapshot.metadata.hasPendingWrites) return;
+
             const cards = [];
             const today = new Date();
             today.setHours(0, 0, 0, 0);

@@ -26,13 +26,24 @@ try {
 
 // ==================== SETTINGS ====================
 const SETTINGS_KEY = 'quizki-settings';
+let settingsCache = null;
 
 const getSettings = () => {
+    if (settingsCache) return settingsCache;
     try {
         const saved = localStorage.getItem(SETTINGS_KEY);
-        return saved ? JSON.parse(saved) : {};
-    } catch { return {}; }
+        settingsCache = saved ? JSON.parse(saved) : {};
+    } catch { 
+        settingsCache = {}; 
+    }
+    return settingsCache;
 };
+
+if (typeof window !== 'undefined') {
+    window.addEventListener('storage', (e) => {
+        if (e.key === SETTINGS_KEY) settingsCache = null;
+    });
+}
 
 export const getSfxVolume = () => {
     const settings = getSettings();
