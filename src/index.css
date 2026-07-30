@@ -70,8 +70,13 @@ textarea.font-japanese {
   -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+  -webkit-overflow-scrolling: touch;
+}
+
 button, a, [role="button"], input, select, textarea {
   touch-action: manipulation;
+  -webkit-touch-callout: none;
 }
 
 /* Hardware-accelerated backdrop-blur for Safari to prevent WebKit thread locking */

@@ -113,9 +113,9 @@ const TopTabBar = ({ tabs, theme }) => {
     }, [location.pathname, location.search, tabs, language]);
 
     return (
-        <div className="w-full sticky top-14 lg:top-3 z-30 pt-2 pb-2 px-1.5 sm:px-4 pointer-events-none flex justify-center">
+        <div className="w-full sticky top-14 lg:top-3 z-30 pt-2 pb-2 px-1.5 sm:px-4 flex justify-center">
             {/* Floating Glass Capsule Container */}
-            <div className={`w-full max-w-lg sm:max-w-max p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/90 shadow-lg pointer-events-auto transition-all duration-300 overflow-hidden ${themeClasses.shadow}`}>
+            <div className={`w-full max-w-lg sm:max-w-max p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/90 shadow-lg transition-all duration-300 overflow-hidden ${themeClasses.shadow}`}>
                 <div className="relative flex items-center justify-between w-full space-x-0.5 sm:space-x-1" ref={containerRef}>
                     {/* Sliding Capsule Pill Indicator */}
                     <div 
