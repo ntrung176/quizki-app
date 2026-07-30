@@ -383,13 +383,31 @@ export const subscribeKanjiSrs = (userId, callback) => {
     if (!kanjiSrsUnsubscribe) {
         const colRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`);
         kanjiSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
-            const srs = {};
-            snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
-            cachedUserSrsData = srs;
-            cachedUserIdForSrs = userId;
-            userSrsPromise = null;
-            // Notify all registered subscribers
-            kanjiSrsListeners.forEach(cb => cb(srs));
+            const isInitial = !cachedUserSrsData;
+            if (isInitial) {
+                const srs = {};
+                snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
+                cachedUserSrsData = srs;
+                cachedUserIdForSrs = userId;
+                userSrsPromise = null;
+                kanjiSrsListeners.forEach(cb => cb(srs));
+            } else {
+                const changes = snapshot.docChanges();
+                let updated = false;
+                changes.forEach(change => {
+                    if (change.type === 'added' || change.type === 'modified') {
+                        cachedUserSrsData[change.doc.id] = change.doc.data();
+                        updated = true;
+                    } else if (change.type === 'removed') {
+                        delete cachedUserSrsData[change.doc.id];
+                        updated = true;
+                    }
+                });
+                // Only notify background subscribers if update is confirmed from server and not a local pending write
+                if (updated && !snapshot.metadata.hasPendingWrites) {
+                    kanjiSrsListeners.forEach(cb => cb(cachedUserSrsData));
+                }
+            }
         }, (error) => {
             console.error('Kanji SRS onSnapshot error:', error);
         });

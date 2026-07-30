@@ -505,8 +505,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             cardId: currentCard.id,
             srs: srs ? { ...srs } : null,
             isFlipped: isFlipped,
-            xpAwarded: totalXp,
-            queue: [...reviewQueue] // Save copy of queue for undo
+            xpAwarded: totalXp
         }]);
 
         // 1. Determine if card graduated/completed in this session
@@ -515,20 +514,22 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             completedCardIds.current.add(currentCard.id);
         }
 
-        // 2. Scan kanjiList for newly due cards that aren't in the queue yet
-        const nowTime = Date.now();
-        const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
-        const newlyDueKanji = kanjiList.filter(k => {
-            if (k.id === currentCard.id) return false;
-            if (completedCardIds.current.has(k.id)) return false;
-            if (allQueueCardIds.has(k.id)) return false;
-            const srs = srsData[k.id];
-            if (!srs) return false;
-            return (srs.nextReview || 0) <= nowTime;
-        });
+        // 2. Scan kanjiList for newly due cards only when near the end of queue (performance optimization)
+        if (currentReviewIndex + 2 >= updatedQueue.length) {
+            const nowTime = Date.now();
+            const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
+            const newlyDueKanji = kanjiList.filter(k => {
+                if (k.id === currentCard.id) return false;
+                if (completedCardIds.current.has(k.id)) return false;
+                if (allQueueCardIds.has(k.id)) return false;
+                const srs = srsData[k.id];
+                if (!srs) return false;
+                return (srs.nextReview || 0) <= nowTime;
+            });
 
-        if (newlyDueKanji.length > 0) {
-            updatedQueue = [...updatedQueue, ...newlyDueKanji];
+            if (newlyDueKanji.length > 0) {
+                updatedQueue = [...updatedQueue, ...newlyDueKanji];
+            }
         }
 
         setReviewQueue(updatedQueue);

@@ -1232,25 +1232,22 @@ const App = () => {
 
         const q = query(collection(db, activityCollectionPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
+            // Ignore local pending writes to avoid freezing the UI thread during rapid rating clicks
+            if (snapshot.metadata.hasPendingWrites) return;
+
             const logs = snapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
             }));
-            // Sort logs by date string (ID) just in case
             logs.sort((a, b) => a.id.localeCompare(b.id));
             setDailyActivityLogs(logs);
             setIsActivityLogsLoaded(true);
-            // Lưu vào sessionStorage
             try {
                 const jsonString = JSON.stringify(logs);
-                // Kiểm tra kích thước trước khi lưu
-                if (jsonString.length > 1 * 1024 * 1024) { // Nếu > 1MB, không lưu
-                    return;
+                if (jsonString.length <= 1 * 1024 * 1024) {
+                    sessionStorage.setItem(cachedLogsKey, jsonString);
                 }
-                sessionStorage.setItem(cachedLogsKey, jsonString);
-            } catch (e) {
-                // Im lặng nếu không thể lưu, không cần log
-            }
+            } catch (e) {}
         }, (error) => {
             console.error("Lỗi khi tải hoạt động hàng ngày:", error);
             setIsActivityLogsLoaded(true);
@@ -3022,30 +3019,27 @@ const App = () => {
 
         const computedIntervalIdx = result.state === 'NEW' ? -1 : (result.state === 'REVIEW' ? (result.interval >= 21 ? 4 : (result.interval >= 3 ? 3 : 2)) : 0);
 
-        // 1. Optimistically update allCards state immediately
-        setAllCards(prevCards => {
-            const nextCards = [...prevCards];
-            const cardIdx = nextCards.findIndex(c => c.id === cardId);
-            if (cardIdx !== -1) {
-                nextCards[cardIdx] = {
-                    ...cardData,
-                    srsInterval: result.interval,
-                    srsEase: result.ease,
-                    srsLearningStep: result.learningStep,
-                    srsIsLapsed: result.isLapsed,
-                    srsReps: result.reps,
-                    srsLapseCount: result.lapseCount,
-                    srsPrelapseInterval: result.prelapseInterval,
-                    srsState: result.state,
-                    intervalIndex_back: computedIntervalIdx,
-                    nextReview_back: nextReviewDate,
-                    lastReviewed: new Date(),
-                    needsMistakeReview: rating === 'again',
-                    masteryState: newMastery
-                };
-            }
-            return nextCards;
+        // 1. Optimistically update card object in-memory immediately
+        Object.assign(cardData, {
+            srsInterval: result.interval,
+            srsEase: result.ease,
+            srsLearningStep: result.learningStep,
+            srsIsLapsed: result.isLapsed,
+            srsReps: result.reps,
+            srsLapseCount: result.lapseCount,
+            srsPrelapseInterval: result.prelapseInterval,
+            srsState: result.state,
+            intervalIndex_back: computedIntervalIdx,
+            nextReview_back: nextReviewDate,
+            lastReviewed: new Date(),
+            needsMistakeReview: rating === 'again',
+            masteryState: newMastery
         });
+
+        // Only trigger full setAllCards re-render if not in continuous session mode
+        if (!isSessionMode) {
+            setAllCards(prevCards => [...prevCards]);
+        }
 
         // Award XP
         let basePoints = 0;

@@ -682,8 +682,7 @@ const SRSVocabScreen = ({
             cardIndex: currentReviewIndex,
             cardId: card.id,
             srsFields: prevSrsFields,
-            isFlipped: isFlipped,
-            queue: [...reviewQueue] // Save copy of queue for undo
+            isFlipped: isFlipped
         }]);
 
         // Calculate next SRS state locally
@@ -750,21 +749,23 @@ const SRSVocabScreen = ({
             completedCardIds.current.add(card.id);
         }
 
-        // 2. Scan allCards for any newly due cards that aren't in the queue yet (restricted to active review cards)
-        const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
-        const newlyDueCards = allCards.filter(c => {
-            const cardFolder = cardFolders[c.id] || 'unfiled';
-            if (activeFolderIdRef.current !== 'global' && cardFolder !== activeFolderIdRef.current) {
-                return false;
-            }
-            if (c.id === card.id) return false;
-            if (completedCardIds.current.has(c.id)) return false;
-            if (allQueueCardIds.has(c.id)) return false;
-            return isDue(c);
-        });
+        // 2. Scan allCards for newly due cards only when near the end of the queue (performance optimization)
+        if (currentReviewIndex + 2 >= updatedQueue.length) {
+            const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
+            const newlyDueCards = allCards.filter(c => {
+                const cardFolder = cardFolders[c.id] || 'unfiled';
+                if (activeFolderIdRef.current !== 'global' && cardFolder !== activeFolderIdRef.current) {
+                    return false;
+                }
+                if (c.id === card.id) return false;
+                if (completedCardIds.current.has(c.id)) return false;
+                if (allQueueCardIds.has(c.id)) return false;
+                return isDue(c);
+            });
 
-        if (newlyDueCards.length > 0) {
-            updatedQueue = [...updatedQueue, ...newlyDueCards];
+            if (newlyDueCards.length > 0) {
+                updatedQueue = [...updatedQueue, ...newlyDueCards];
+            }
         }
 
         setReviewQueue(updatedQueue);
