@@ -63,17 +63,36 @@ const getKuroshiro = async () => {
     if (kuroshiroInstance) return kuroshiroInstance;
     if (initPromise) return initPromise;
 
-    const kuroshiro = new Kuroshiro();
-    initPromise = kuroshiro.init(createPatchedAnalyzer()).then(() => {
+    initPromise = (async () => {
+        const analyzer = createPatchedAnalyzer();
+        const kuroshiro = new Kuroshiro();
+        await kuroshiro.init(analyzer);
         kuroshiroInstance = kuroshiro;
         return kuroshiroInstance;
-    }).catch(e => {
+    })().catch(e => {
         initPromise = null;
         console.error("Failed to initialize Kuroshiro:", e);
         throw e;
     });
 
     return initPromise;
+};
+
+/**
+ * Preload Kuroshiro in background idle time so card #1 never lags.
+ */
+export const preloadKuroshiro = () => {
+    if (typeof window !== 'undefined') {
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(() => {
+                getKuroshiro().catch(() => {});
+            });
+        } else {
+            setTimeout(() => {
+                getKuroshiro().catch(() => {});
+            }, 1500);
+        }
+    }
 };
 
 const furiganaCache = new Map();

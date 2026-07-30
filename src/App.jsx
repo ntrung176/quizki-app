@@ -20,7 +20,7 @@ import { getNextReviewDate, DEFAULT_EASE, calculateCorrectInterval, calculateAnk
 import { shuffleArray, getSpeechText } from './utils/textProcessing'
 import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, generateEnglishVocabPrompt, getOpenRouterKeys, getSinoVietnamese } from './utils/aiProvider';
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
-import { ensureFuriganaFormat } from './utils/furiganaHelper';
+import { ensureFuriganaFormat, preloadKuroshiro } from './utils/furiganaHelper';
 
 import { getLevelFromXp, getLevelTitle, getWeekId, generateSimulatedLeague, LEAGUES, getLeagueTierRules } from './utils/scoring';
 import { playCompletionFanfare } from './utils/soundEffects';
@@ -1003,6 +1003,11 @@ const App = () => {
 
         return () => unsubscribe();
     }, [authReady, userId, settingsDocPath]);
+
+    // Preload Japanese tokenizer in background idle time so card #1 never lags on mobile
+    useEffect(() => {
+        preloadKuroshiro();
+    }, []);
 
     useEffect(() => {
         if (!authReady || !vocabCollectionPath) return;
