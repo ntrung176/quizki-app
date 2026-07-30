@@ -1044,35 +1044,26 @@ const App = () => {
             // Ignore local pending writes during active review/rating sessions to prevent freezing UI thread on mobile
             if (snapshot.metadata.hasPendingWrites) return;
 
-            // During active review sessions, only update changed cards in-place instead of rebuilding entire array
-            if (!isInitialLoad && isReviewActiveRef.current) {
+            // Update modified cards in-place without rebuilding entire 5,000 card array or stringifying to sessionStorage
+            if (!isInitialLoad) {
                 const changes = snapshot.docChanges();
-                if (changes.length > 0 && changes.length < 20) {
-                    // Small number of changes: update in-place without triggering full re-render
-                    setAllCards(prevCards => {
-                        const cardMap = new Map(prevCards.map(c => [c.id, c]));
-                        let hasChanges = false;
-                        changes.forEach(change => {
-                            if (change.type === 'modified') {
-                                const existing = cardMap.get(change.doc.id);
-                                if (existing) {
-                                    const data = change.doc.data();
-                                    // Only update SRS fields in-place, don't rebuild card object
-                                    Object.assign(existing, {
-                                        srsInterval: typeof data.srsInterval === 'number' ? data.srsInterval : existing.srsInterval,
-                                        srsEase: typeof data.srsEase === 'number' ? data.srsEase : existing.srsEase,
-                                        srsReps: typeof data.srsReps === 'number' ? data.srsReps : existing.srsReps,
-                                        srsState: data.srsState || existing.srsState,
-                                        lastReviewed: data.lastReviewed?.toDate ? data.lastReviewed.toDate() : existing.lastReviewed,
-                                        masteryState: data.masteryState || existing.masteryState,
-                                        needsMistakeReview: data.needsMistakeReview === true
-                                    });
-                                    hasChanges = true;
-                                }
+                if (changes.length > 0 && changes.length < 10) {
+                    changes.forEach(change => {
+                        if (change.type === 'modified') {
+                            const existing = allCards.find(c => c.id === change.doc.id);
+                            if (existing) {
+                                const data = change.doc.data();
+                                Object.assign(existing, {
+                                    srsInterval: typeof data.srsInterval === 'number' ? data.srsInterval : existing.srsInterval,
+                                    srsEase: typeof data.srsEase === 'number' ? data.srsEase : existing.srsEase,
+                                    srsReps: typeof data.srsReps === 'number' ? data.srsReps : existing.srsReps,
+                                    srsState: data.srsState || existing.srsState,
+                                    lastReviewed: data.lastReviewed?.toDate ? data.lastReviewed.toDate() : existing.lastReviewed,
+                                    masteryState: data.masteryState || existing.masteryState,
+                                    needsMistakeReview: data.needsMistakeReview === true
+                                });
                             }
-                        });
-                        // Return same reference to avoid triggering useMemo recalculations
-                        return hasChanges ? prevCards : prevCards;
+                        }
                     });
                     return;
                 }

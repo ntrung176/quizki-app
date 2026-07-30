@@ -271,6 +271,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [nextRoundCount, setNextRoundCount] = useState(0);
 
     useEffect(() => {
+        if (reviewMode) return;
         const getNextReviewInfo = () => {
             const now = Date.now();
             let earliest = Infinity;
@@ -293,7 +294,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         updateCountdown();
         const interval = setInterval(updateCountdown, 1000);
         return () => clearInterval(interval);
-    }, [srsData]);
+    }, [srsData, reviewMode]);
 
     const [lastTick, setLastTick] = useState(Date.now());
 
