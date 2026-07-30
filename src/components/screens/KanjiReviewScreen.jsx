@@ -920,20 +920,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
 
                 {/* Cyber-AI Hero Banner */}
-                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl group">
                     <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 dark:bg-rose-500/15 rounded-full blur-3xl pointer-events-none"></div>
                     <div className="absolute bottom-0 left-0 w-60 h-60 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="space-y-3 text-center md:text-left">
+                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+                        <div className="space-y-2 sm:space-y-3 text-center md:text-left w-full md:w-auto">
                             <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 text-xs font-mono font-bold uppercase tracking-wider">
+                                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
                                     <Cpu className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 animate-spin-slow" />
                                     <span>[KANJI SRS ENGINE]</span>
                                 </div>
                                 <button
                                     onClick={() => setShowLeechManager(true)}
-                                    className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${
+                                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${
                                         leechKanjiItems.length > 0
                                             ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
                                             : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
@@ -942,36 +942,36 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                     <span>🩸 {t('kanji.leechCards', 'Thẻ Khó')} ({leechKanjiItems.length})</span>
                                 </button>
                             </div>
-                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                                 {t('kanji.title', 'Ôn tập Kanji')}
                             </h1>
-                            <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
+                            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
                                 {t('kanji.subtitle', 'Củng cố trí nhớ dài hạn bằng phương pháp lặp lại ngắt quãng thông minh.')}
                             </p>
                         </div>
-                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 shadow-inner">
-                            <span className="text-5xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-1">
+                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 shadow-inner">
+                            <span className="text-4xl sm:text-5xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-1">
                                 {savedSessionInfo ? savedSessionInfo.remaining : stats.dueToday}
                             </span>
-                            <span className="text-[10px] text-rose-600 dark:text-rose-400 font-mono font-black uppercase tracking-wider">{t('kanji.dueKanjiLabel', 'Chữ Kanji cần ôn tập')}</span>
+                            <span className="text-[9px] sm:text-[10px] text-rose-600 dark:text-rose-400 font-mono font-black uppercase tracking-wider">{t('kanji.dueKanjiLabel', 'Chữ Kanji cần ôn tập')}</span>
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer"
+                                    className="mt-3 w-full py-2.5 sm:py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer min-h-[44px]"
                                 >
                                     {t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}
                                 </button>
                             ) : stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                                    className="mt-3 w-full py-2.5 sm:py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer min-h-[44px]"
                                 >
                                     {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
                             ) : nextReviewText ? (
                                 <button
                                     disabled
-                                    className="mt-4 w-full py-3 rounded-xl text-[10px] font-mono font-black tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-1"
+                                    className="mt-3 w-full py-2.5 sm:py-3 rounded-xl text-[10px] font-mono font-black tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-1 min-h-[44px]"
                                 >
                                     <Clock className="w-3 h-3 animate-spin-slow" />
                                     {t('kanji.nextReviewIn', 'TIẾP SAU')}: {nextReviewText}
@@ -979,7 +979,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             ) : (
                                 <button
                                     disabled
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed"
+                                    className="mt-3 w-full py-2.5 sm:py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed min-h-[44px]"
                                 >
                                     {t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}
                                 </button>
@@ -989,39 +989,39 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 </div>
 
                 {/* 3 Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/60 flex items-center justify-center text-sky-600 dark:text-sky-400">
-                                <Calendar className="w-5 h-5" />
+                <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/60 flex items-center justify-center text-sky-600 dark:text-sky-400 shrink-0">
+                                <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                             </div>
-                            <div>
-                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Học mới hôm nay</p>
-                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.newCards} chữ</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
-                                <Clock className="w-5 h-5" />
-                            </div>
-                            <div>
-                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Thời gian học</p>
-                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.totalReps > 0 ? Math.round(stats.totalReps * 0.5) : 15} phút</h4>
+                            <div className="min-w-0">
+                                <p className="text-[9px] sm:text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider truncate">Học mới</p>
+                                <h4 className="text-sm sm:text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.newCards} chữ</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-                                <Target className="w-5 h-5" />
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
+                                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                             </div>
-                            <div>
-                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tỷ lệ nhớ</p>
-                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">
+                            <div className="min-w-0">
+                                <p className="text-[9px] sm:text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider truncate">Thời gian</p>
+                                <h4 className="text-sm sm:text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.totalReps > 0 ? Math.round(stats.totalReps * 0.5) : 15} phút</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                                <Target className="w-4 h-4 sm:w-5 sm:h-5" />
+                            </div>
+                            <div className="min-w-0">
+                                <p className="text-[9px] sm:text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider truncate">Tỷ lệ nhớ</p>
+                                <h4 className="text-sm sm:text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">
                                     {stats.kanjiLearned > 0 ? Math.min(100, Math.round(85 + (stats.longTerm / stats.kanjiLearned) * 15)) : 90}%
                                 </h4>
                             </div>
@@ -1046,47 +1046,47 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 )}
 
                 {/* 4 SRS Stage Cards */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
-                        <span className="text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Sơ cấp (Mới học/Đang học)</span>
-                        <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.learning}</span>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between h-28 sm:h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider truncate">Sơ cấp (Mới/Đang học)</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                            <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.learning}</span>
                             <span className="text-xs text-slate-400 font-mono">chữ</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-2">
                             <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.learning / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
-                        <span className="text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Trung cấp (Đang ôn tập)</span>
-                        <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.shortTerm}</span>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between h-28 sm:h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider truncate">Trung cấp (Đang ôn)</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                            <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.shortTerm}</span>
                             <span className="text-xs text-slate-400 font-mono">chữ</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-2">
                             <div className="h-full bg-amber-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.shortTerm / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
-                        <span className="text-[10px] font-mono font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
-                        <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.longTerm}</span>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between h-28 sm:h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider truncate">Cao cấp (Thành thạo)</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                            <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.longTerm}</span>
                             <span className="text-xs text-slate-400 font-mono">chữ</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-2">
                             <div className="h-full bg-cyan-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.longTerm / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
-                        <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Chuyên gia (Ghi nhớ)</span>
-                        <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.expert}</span>
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between h-28 sm:h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider truncate">Chuyên gia (Ghi nhớ)</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                            <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.expert}</span>
                             <span className="text-xs text-slate-400 font-mono">chữ</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-2">
                             <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.expert / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>

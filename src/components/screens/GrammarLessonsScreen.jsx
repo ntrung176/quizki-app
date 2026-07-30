@@ -195,7 +195,7 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
             )}
 
             {lessons.length === 0 && <p className="text-center text-slate-400 py-12">Chưa có bài học nào. {isAdmin ? 'Nhấn "Thêm bài học" hoặc "Nhập bằng JSON" để bắt đầu.' : ''}</p>}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {lessons.map(lesson => {
                     const isLocked = lesson.isPremium && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('grammar_zen');
                     const handleLessonClick = () => {
@@ -207,7 +207,7 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
                         }
                     };
                     return (
-                        <div key={lesson.id} className="group relative text-left p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                        <div key={lesson.id} className="group relative text-left p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
                             <button onClick={handleLessonClick} className="w-full text-left">
                                 <div className="flex items-center gap-2">
                                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{lesson.sectionLabel}</p>

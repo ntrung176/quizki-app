@@ -201,29 +201,29 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
             <TopTabBar tabs={KANJI_TABS} />
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
                 {/* 1. Cyber-AI Futuristic Header Banner with HUD Telemetry */}
-                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl group">
                     <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
                     <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
                     
-                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="space-y-3 text-center md:text-left flex-1">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
+                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+                        <div className="space-y-2 sm:space-y-3 text-center md:text-left flex-1 w-full md:w-auto">
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
                                 <Cpu className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-spin-slow" />
                                 <span>[NEURAL KANJI ENGINE] • LỘ TRÌNH JLPT {selectedLevel}</span>
                             </div>
 
-                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                                 Chinh Phục Chữ Hán Kanji
                             </h1>
 
-                            <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
+                            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
                                 {config.sublabel} • 10 chữ mỗi ngày • Tổng {levelKanji.length} chữ chia đều trong {totalDays} ngày học tập.
                             </p>
 
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 pt-1 sm:pt-2">
                                 <button
                                     onClick={handleStartStudy}
-                                    className="px-6 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs font-mono tracking-wider rounded-xl transition-all shadow-md shadow-emerald-500/25 hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+                                    className="px-5 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs font-mono tracking-wider rounded-xl transition-all shadow-md shadow-emerald-500/25 hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer min-h-[40px]"
                                 >
                                     <Zap className="w-4 h-4" />
                                     TIẾP TỤC HỌC
@@ -233,7 +233,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                         const el = document.getElementById('lesson-panel');
                                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="px-6 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold text-xs font-mono tracking-wider rounded-xl transition-all cursor-pointer"
+                                    className="px-5 py-2 sm:px-6 sm:py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold text-xs font-mono tracking-wider rounded-xl transition-all cursor-pointer min-h-[40px]"
                                 >
                                     XEM CHI TIẾT
                                 </button>
@@ -241,7 +241,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                         </div>
 
                         {/* Circular Progress Gauge */}
-                        <div className="relative w-36 h-36 flex-shrink-0 bg-slate-50 dark:bg-slate-950 rounded-full p-2 border border-slate-200 dark:border-cyan-500/30 flex items-center justify-center shadow-inner">
+                        <div className="relative w-28 h-28 sm:w-36 sm:h-36 flex-shrink-0 bg-slate-50 dark:bg-slate-950 rounded-full p-2 border border-slate-200 dark:border-cyan-500/30 flex items-center justify-center shadow-inner">
                             <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
                                 <circle cx="60" cy="60" r={progressRadius} fill="none" stroke="rgba(148, 163, 184, 0.2)" strokeWidth="8" />
                                 <circle cx="60" cy="60" r={progressRadius} fill="none" stroke="#10b981" strokeWidth="8" strokeLinecap="round"
@@ -249,8 +249,8 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                     className="transition-all duration-1000 ease-out" />
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white">{stats.progressPercent}%</span>
-                                <span className="text-[9px] text-emerald-600 dark:text-emerald-400 font-mono font-black uppercase tracking-widest mt-0.5">Hoàn thành</span>
+                                <span className="text-xl sm:text-2xl font-black font-mono text-slate-900 dark:text-white">{stats.progressPercent}%</span>
+                                <span className="text-[8px] sm:text-[9px] text-emerald-600 dark:text-emerald-400 font-mono font-black uppercase tracking-widest mt-0.5">Hoàn thành</span>
                             </div>
                         </div>
                     </div>

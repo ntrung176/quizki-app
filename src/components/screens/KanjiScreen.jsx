@@ -2005,26 +2005,26 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 {/* Header Section */}
                 <div className="flex flex-col gap-4">
                     {/* Cyber-AI Header Banner */}
-                    <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
+                    <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl group">
                         <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
                         <div className="absolute bottom-0 left-0 w-60 h-60 bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-                        <div className="relative z-10 space-y-2">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
+                        <div className="relative z-10 space-y-1.5 sm:space-y-2">
+                            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
                                 <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
                                 <span>[NEURAL KANJI DICTIONARY]</span>
                             </div>
-                            <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                            <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
                                 Tra cứu Kanji
                             </h1>
-                            <p className="text-sm text-slate-600 dark:text-slate-300 font-medium max-w-2xl">
+                            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium max-w-2xl">
                                 Khám phá và tra cứu hệ thống Kanji, nghĩa và âm Hán-Việt với bộ công cụ HUD hiện đại.
                             </p>
                         </div>
                     </div>
 
                     {/* Search & Filters Row */}
-                    <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center">
+                    <div className="flex flex-col md:flex-row gap-3 sm:gap-4 items-stretch md:items-center">
                     {/* Search Input */}
                     <div className="relative flex-1" ref={searchInputRef}>
                         <input
@@ -2033,7 +2033,7 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                             onChange={(e) => { setSearchQuery(e.target.value); setShowSearchResults(true); }}
                             onFocus={() => setShowSearchResults(true)}
                             placeholder="Tìm kiếm Kanji, nghĩa hoặc âm Hán-Việt..."
-                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-3.5 pr-20 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400/50 focus:border-cyan-400 shadow-md transition-all text-sm font-medium"
+                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl sm:rounded-2xl px-4 py-2.5 sm:px-5 sm:py-3.5 pr-20 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400/50 focus:border-cyan-400 shadow-md transition-all text-xs sm:text-sm font-medium"
                         />
                             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
                                 <button

@@ -1156,16 +1156,16 @@ const KanjiFlashcard = ({
             {/* Left Column: Drawing and Vocabulary */}
             <div className="contents lg:block lg:space-y-6">
                 {/* Main/Drawing Card (white in light mode, slate in dark mode) */}
-                <div className="order-1 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm relative">
+                <div className="order-1 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm relative">
                     {/* Tags + Bookmark top row */}
-                    <div className="flex justify-between items-center mb-4">
-                        <div className="flex gap-2">
+                    <div className="flex justify-between items-center mb-3 sm:mb-4">
+                        <div className="flex gap-1.5 sm:gap-2">
                             {isHighFreq && (
-                                <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold uppercase tracking-wider rounded-lg">
+                                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-lg">
                                     Tần suất cao
                                 </span>
                             )}
-                            <span className="px-3 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-wider rounded-lg">
+                            <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-lg">
                                 Cấp độ {level}
                             </span>
                         </div>
@@ -1186,7 +1186,7 @@ const KanjiFlashcard = ({
                         </button>
                     </div>
                     {/* Animated Stroke box */}
-                    <div className="relative w-52 h-52 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-gray-100 dark:border-slate-700/50 flex items-center justify-center shadow-inner mx-auto mb-6 overflow-hidden">
+                    <div className="relative w-44 h-44 sm:w-52 sm:h-52 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-gray-100 dark:border-slate-700/50 flex items-center justify-center shadow-inner mx-auto mb-4 sm:mb-6 overflow-hidden">
                         {/* Plus pattern grid guidelines */}
                         <div className="absolute inset-0 pointer-events-none">
                             <div className="w-full h-full border-b border-dashed border-gray-200 dark:border-slate-700/50 absolute top-1/2 left-0 -translate-y-1/2" />
@@ -1197,34 +1197,34 @@ const KanjiFlashcard = ({
                         {/* Replay stroke button */}
                         <button
                             onClick={() => writerRef.current?.replay?.()}
-                            className="absolute bottom-3 right-3 z-20 p-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white rounded-xl shadow-sm transition-all"
+                            className="absolute bottom-2.5 right-2.5 z-20 p-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white rounded-xl shadow-sm transition-all"
                             title="Xem lại nét viết"
                         >
                             <RotateCcw className="w-4 h-4" />
                         </button>
                     </div>
                     {/* Onyomi & Kunyomi Badges */}
-                    <div className="grid grid-cols-2 gap-4 border-t border-gray-100 dark:border-slate-700/50 pt-4">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 border-t border-gray-100 dark:border-slate-700/50 pt-3 sm:pt-4">
                         <div>
-                            <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Âm On</span>
+                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Âm On</span>
                             <div className="flex flex-wrap gap-1.5">
                                 {onyomiList.length > 0 ? onyomiList.map((o, idx) => (
-                                    <span key={`${o}-${idx}`} className="px-2.5 py-1 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-lg text-xs text-cyan-600 dark:text-cyan-400 font-bold font-japanese">{o}</span>
+                                    <span key={`${o}-${idx}`} className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-lg text-xs text-cyan-600 dark:text-cyan-400 font-bold font-japanese">{o}</span>
                                 )) : <span className="text-xs text-gray-400">-</span>}
                             </div>
                         </div>
                         <div>
-                            <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Âm Kun</span>
+                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Âm Kun</span>
                             <div className="flex flex-wrap gap-1.5">
                                 {kunyomiList.length > 0 ? kunyomiList.map((k, idx) => (
-                                    <span key={`${k}-${idx}`} className="px-2.5 py-1 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-lg text-xs text-red-600 dark:text-red-400 font-bold font-japanese">{k}</span>
+                                    <span key={`${k}-${idx}`} className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-lg text-xs text-red-600 dark:text-red-400 font-bold font-japanese">{k}</span>
                                 )) : <span className="text-xs text-gray-400">-</span>}
                             </div>
                         </div>
                     </div>
                 </div>
                 {/* Usage Examples Section */}
-                <div className="order-5 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
+                <div className="order-5 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
                     <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-4">Ví dụ sử dụng</span>
                     {(() => {
                         if (vocab.length === 0) {
@@ -1365,39 +1365,39 @@ const KanjiFlashcard = ({
             {/* Right Column: Widgets */}
             <div className="contents lg:block lg:space-y-6 lg:sticky lg:top-6 text-left">
                 {/* Meaning Card */}
-                <div className="order-2 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
-                    <div className="flex justify-between items-start gap-4">
-                        <div className="space-y-2 flex-1 min-w-0">
-                            <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2">Ý nghĩa</span>
-                            <h3 className="text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 tracking-wide">{kanji.sinoViet || ''}</h3>
-                            <p className="text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
+                <div className="order-2 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
+                    <div className="flex justify-between items-start gap-3 sm:gap-4">
+                        <div className="space-y-1.5 sm:space-y-2 flex-1 min-w-0">
+                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Ý nghĩa</span>
+                            <h3 className="text-xl sm:text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 tracking-wide">{kanji.sinoViet || ''}</h3>
+                            <p className="text-sm sm:text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
                         </div>
                         {(kanji.imageUrl || kanji.imageBase64) && (
-                            <div className="w-24 h-24 sm:w-28 sm:h-28 shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 flex items-center justify-center p-1.5 shadow-inner">
+                            <div className="w-20 h-20 sm:w-28 sm:h-28 shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 flex items-center justify-center p-1.5 shadow-inner">
                                 <img src={kanji.imageUrl || kanji.imageBase64} alt="illustration" className="max-w-full max-h-full object-contain rounded-lg" />
                             </div>
                         )}
                     </div>
                 </div>
                 {/* Mnemonics Card */}
-                <div className="order-3 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
-                    <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-3">Mẹo ghi nhớ</span>
+                <div className="order-3 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
+                    <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2 sm:mb-3">Mẹo ghi nhớ</span>
                     {kanji.mnemonic ? (
-                        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">{kanji.mnemonic}</p>
+                        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">{kanji.mnemonic}</p>
                     ) : (
-                        <p className="text-sm text-gray-400 italic">Không có mẹo ghi nhớ cho chữ này</p>
+                        <p className="text-xs sm:text-sm text-gray-400 italic">Không có mẹo ghi nhớ cho chữ này</p>
                     )}
                     {(kanji.imageUrl || kanji.imageBase64) && (
-                        <div className="mt-4 rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-2 shadow-inner">
-                            <img src={kanji.imageUrl || kanji.imageBase64} alt="illustration" className="w-full max-h-48 object-contain mx-auto" />
+                        <div className="mt-3 sm:mt-4 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-2 shadow-inner">
+                            <img src={kanji.imageUrl || kanji.imageBase64} alt="illustration" className="w-full max-h-40 sm:max-h-48 object-contain mx-auto" />
                         </div>
                     )}
                 </div>
                 {/* Learning Status Card */}
-                <div className="order-4 lg:order-none bg-white dark:bg-slate-800 rounded-3xl border border-gray-100 dark:border-slate-700/60 p-6 shadow-sm">
-                    <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-3">Trạng thái học tập</span>
+                <div className="order-4 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
+                    <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2 sm:mb-3">Trạng thái học tập</span>
                     {/* Mastery bar */}
-                    <div className="space-y-2">
+                    <div className="space-y-1.5 sm:space-y-2">
                         <div className="flex justify-between items-center text-xs text-gray-500 dark:text-slate-400 font-bold">
                             <span>Độ thành thục</span>
                             <span className="text-indigo-500 dark:text-cyan-400">{masteryPercent}%</span>
@@ -1410,29 +1410,29 @@ const KanjiFlashcard = ({
                         </div>
                     </div>
                     {/* Status details */}
-                    <div className="grid grid-cols-2 gap-4 mt-5 border-t border-gray-50 dark:border-slate-700/30 pt-4 text-xs">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-4 border-t border-gray-50 dark:border-slate-700/30 pt-3 sm:pt-4 text-xs">
                         <div>
-                            <span className="text-gray-400 dark:text-slate-500 font-medium block">Số lần học</span>
-                            <span className="text-gray-800 dark:text-slate-200 font-bold text-sm mt-0.5 block">{seenCount} lần</span>
+                            <span className="text-gray-400 dark:text-slate-500 font-medium block text-[11px]">Số lần học</span>
+                            <span className="text-gray-800 dark:text-slate-200 font-bold text-xs sm:text-sm mt-0.5 block">{seenCount} lần</span>
                         </div>
                         <div>
-                            <span className="text-gray-400 dark:text-slate-500 font-medium block">Chu kỳ ôn tập</span>
-                            <span className="text-gray-800 dark:text-slate-200 font-bold text-sm mt-0.5 block">{srsIntervalText}</span>
+                            <span className="text-gray-400 dark:text-slate-500 font-medium block text-[11px]">Chu kỳ ôn tập</span>
+                            <span className="text-gray-800 dark:text-slate-200 font-bold text-xs sm:text-sm mt-0.5 block">{srsIntervalText}</span>
                         </div>
                     </div>
                 </div>
                 {/* Bottom Action buttons */}
-                <div className="order-6 lg:order-none lg:static fixed bottom-0 left-0 right-0 lg:p-0 p-4 lg:bg-transparent bg-white dark:bg-slate-900 lg:border-0 border-t border-slate-200 dark:border-slate-800 lg:shadow-none shadow-[0_-8px_25px_rgba(0,0,0,0.15)] flex gap-4 z-40">
+                <div className="order-6 lg:order-none lg:static fixed bottom-0 left-0 right-0 lg:p-0 p-3 sm:p-4 lg:bg-transparent bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl lg:border-0 border-t border-slate-200 dark:border-slate-800 lg:shadow-none shadow-[0_-8px_25px_rgba(0,0,0,0.15)] flex gap-2.5 sm:gap-4 z-40">
                     <button
                         onClick={onPrev}
                         disabled={currentIndex === 0}
-                        className="flex-1 px-6 py-3.5 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 disabled:opacity-40 text-gray-700 dark:text-gray-300 font-bold rounded-2xl transition-all shadow-sm flex items-center justify-center gap-2"
+                        className="flex-1 px-4 py-3 sm:px-6 sm:py-3.5 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 disabled:opacity-40 text-gray-700 dark:text-gray-300 font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-sm flex items-center justify-center gap-1.5 min-h-[44px]"
                     >
                         <ChevronLeft className="w-4 h-4" /> Trước
                     </button>
                     <button
                         onClick={isLastKanji ? onComplete : onNext}
-                        className="flex-1 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 flex items-center justify-center gap-2"
+                        className="flex-1 px-4 py-3 sm:px-6 sm:py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 flex items-center justify-center gap-1.5 min-h-[44px]"
                     >
                         {isLastKanji ? 'Hoàn thành ngày' : 'Tiếp theo'} <ChevronRight className="w-4 h-4" />
                     </button>

@@ -47,7 +47,7 @@ const TextbookCover = ({ title, titleVi, levels, description, color, featured })
 
     return (
         <div 
-            className="w-full aspect-[16/10] relative overflow-hidden flex flex-col items-center justify-between p-6 text-white text-center select-none rounded-t-3xl transition-all duration-300 shadow-xl group"
+            className="w-full aspect-[16/10] relative overflow-hidden flex flex-col items-center justify-between p-3.5 sm:p-6 text-white text-center select-none rounded-t-2xl sm:rounded-t-3xl transition-all duration-300 shadow-xl group"
             style={gradientStyle}
         >
             {/* 3D Book Spine Effect (Left Edge) */}
@@ -60,14 +60,14 @@ const TextbookCover = ({ title, titleVi, levels, description, color, featured })
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full z-20 shimmer-sweep pointer-events-none" />
 
             {/* Top Header Bar - Centered */}
-            <div className="relative z-20 flex items-center justify-center gap-2 w-full">
-                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-black/30 backdrop-blur-md text-[10px] font-mono font-bold tracking-wider text-white/90 border border-white/15 uppercase">
+            <div className="relative z-20 flex items-center justify-center gap-1.5 w-full">
+                <div className="inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-black/30 backdrop-blur-md text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-white/90 border border-white/15 uppercase">
                     <BookOpen className="w-3 h-3 text-cyan-300" />
                     <span>GIÁO TRÌNH</span>
                 </div>
 
                 {featured && (
-                    <div className="bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-[9px] font-mono px-3 py-1 rounded-full shadow-md tracking-wider flex items-center gap-1">
+                    <div className="bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-[8px] sm:text-[9px] font-mono px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md tracking-wider flex items-center gap-1">
                         <Star className="w-3 h-3 fill-slate-950 text-slate-950" />
                         <span>NỔI BẬT</span>
                     </div>
@@ -75,21 +75,21 @@ const TextbookCover = ({ title, titleVi, levels, description, color, featured })
             </div>
 
             {/* Center Main Book Info - Centered */}
-            <div className="relative z-20 my-auto py-2 flex flex-col items-center justify-center text-center space-y-2 max-w-full">
+            <div className="relative z-20 my-auto py-1 sm:py-2 flex flex-col items-center justify-center text-center space-y-1 sm:space-y-2 max-w-full">
                 {/* Level Badge Stamp */}
-                <div className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 text-white font-mono font-black text-xs md:text-sm tracking-widest shadow-sm">
-                    <Award className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                <div className="inline-flex items-center justify-center gap-1 px-2.5 py-0.5 sm:px-3.5 sm:py-1 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 text-white font-mono font-black text-[10px] sm:text-xs md:text-sm tracking-widest shadow-sm">
+                    <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300 shrink-0" />
                     <span>CẤP ĐỘ {levelText}</span>
                 </div>
 
                 {/* Main Vietnamese Title */}
-                <h3 className="text-lg md:text-xl font-black tracking-tight text-white leading-snug drop-shadow-md line-clamp-2 px-2">
+                <h3 className="text-base sm:text-lg md:text-xl font-black tracking-tight text-white leading-snug drop-shadow-md line-clamp-2 px-1 sm:px-2">
                     {titleVi || 'Giáo trình Ngữ pháp'}
                 </h3>
 
                 {/* Japanese Title */}
                 {title && (
-                    <p className="text-xs font-bold text-white/85 line-clamp-1 font-mono tracking-wide px-2">
+                    <p className="text-[10px] sm:text-xs font-bold text-white/85 line-clamp-1 font-mono tracking-wide px-1 sm:px-2">
                         {title}
                     </p>
                 )}
