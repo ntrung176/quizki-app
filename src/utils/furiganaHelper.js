@@ -76,18 +76,36 @@ const getKuroshiro = async () => {
     return initPromise;
 };
 
+const furiganaCache = new Map();
+
 /**
  * Converts standard Japanese text to furigana format: 漢字(かんじ)
  * Example: 食べ物 -> 食(た)べ物(もの)
  */
-export const generateFuriganaText = async (text) => {
+export const generateFuriganaText = async (text, knownReading = '') => {
     if (!text) return text;
+    if (furiganaCache.has(text)) return furiganaCache.get(text);
+
+    // If knownReading is provided, format immediately in 0ms without Kuroshiro
+    if (knownReading && knownReading.trim()) {
+        const formatted = `${text.trim()}（${knownReading.trim()}）`;
+        furiganaCache.set(text, formatted);
+        return formatted;
+    }
+
     try {
-        const kuro = await getKuroshiro();
-        const result = await kuro.convert(text, { mode: "okurigana", to: "hiragana" });
+        // Add a 400ms timeout so Kuroshiro dictionary loading never hangs mobile JS thread
+        const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Kuroshiro timeout')), 400));
+        const kuroPromise = (async () => {
+            const kuro = await getKuroshiro();
+            return await kuro.convert(text, { mode: "okurigana", to: "hiragana" });
+        })();
+
+        const result = await Promise.race([kuroPromise, timeoutPromise]);
+        furiganaCache.set(text, result);
         return result;
     } catch (e) {
-        console.error("Furigana generation failed:", e);
+        furiganaCache.set(text, text);
         return text;
     }
 };

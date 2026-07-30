@@ -201,13 +201,13 @@ const Flashcard = ({
                                 )}
                             </>
                         ) : (
-                            <FuriganaText text={card.frontWithFurigana || card.front} forceHide={!cardSettings.front.furigana} className="break-words whitespace-normal text-center" />
+                            <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} forceHide={!cardSettings.front.furigana} className="break-words whitespace-normal text-center" />
                         )}
                     </div>
                 )}
                 {!isEnglishCard && !cardSettings.front.word && cardSettings.front.furigana && (
                     <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2`}>
-                        <FuriganaText text={card.frontWithFurigana || card.front} showReadingOnly={true} className="break-words whitespace-normal text-center" />
+                        <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} showReadingOnly={true} className="break-words whitespace-normal text-center" />
                     </div>
                 )}
                 {!isEnglishCard && cardSettings.front.hanviet && card.sinoVietnamese && (

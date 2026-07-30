@@ -489,8 +489,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             cardId: currentCard.id,
             srs: srs ? { ...srs } : null,
             isFlipped: isFlipped,
-            xpAwarded: totalXp,
-            queue: [...reviewQueue]
+            xpAwarded: totalXp
         }]);
 
         let updatedQueue = [...reviewQueue];
@@ -498,19 +497,21 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             completedCardIds.current.add(currentCard.id);
         }
 
-        const nowTime = Date.now();
-        const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
-        const newlyDueGrammar = grammarList.filter(g => {
-            if (g.id === currentCard.id) return false;
-            if (completedCardIds.current.has(g.id)) return false;
-            if (allQueueCardIds.has(g.id)) return false;
-            const srs = srsData[g.id];
-            if (!srs) return false;
-            return (srs.nextReview || 0) <= nowTime;
-        });
+        if (currentReviewIndex + 2 >= updatedQueue.length) {
+            const nowTime = Date.now();
+            const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
+            const newlyDueGrammar = grammarList.filter(g => {
+                if (g.id === currentCard.id) return false;
+                if (completedCardIds.current.has(g.id)) return false;
+                if (allQueueCardIds.has(g.id)) return false;
+                const srs = srsData[g.id];
+                if (!srs) return false;
+                return (srs.nextReview || 0) <= nowTime;
+            });
 
-        if (newlyDueGrammar.length > 0) {
-            updatedQueue = [...updatedQueue, ...newlyDueGrammar];
+            if (newlyDueGrammar.length > 0) {
+                updatedQueue = [...updatedQueue, ...newlyDueGrammar];
+            }
         }
 
         setReviewQueue(updatedQueue);
