@@ -35,6 +35,7 @@ const LibraryScreen = ({
 
     // Study Set editing state
     const [editingStudySet, setEditingStudySet] = useState(null); // { id, name }
+    const [movingStudySet, setMovingStudySet] = useState(null); // { id, name, parentId }
 
     // Parent Folder states
     const [activeParentFolderId, setActiveParentFolderId] = useState(null);
@@ -217,11 +218,16 @@ const LibraryScreen = ({
         setDeletingFolder(null);
     };
 
-    // Drag and Drop implementation
+    // Drag and Drop implementation (HTML5 D&D with fallback formats)
     const handleDragStart = (e, studySetId) => {
         e.stopPropagation();
-        e.dataTransfer.setData('studySetId', studySetId);
-        e.dataTransfer.effectAllowed = 'move';
+        try {
+            e.dataTransfer.setData('studySetId', studySetId);
+            e.dataTransfer.setData('text/plain', studySetId);
+            e.dataTransfer.effectAllowed = 'move';
+        } catch (err) {
+            console.warn('DragStart setData warning:', err);
+        }
         setDraggedStudySetId(studySetId);
     };
 
@@ -233,7 +239,8 @@ const LibraryScreen = ({
 
     const handleDropOnFolder = async (e, parentFolderId) => {
         e.preventDefault();
-        const studySetId = e.dataTransfer.getData('studySetId');
+        e.stopPropagation();
+        const studySetId = e.dataTransfer.getData('studySetId') || e.dataTransfer.getData('text/plain') || draggedStudySetId;
         if (studySetId && onMoveStudySetToParentFolder) {
             await onMoveStudySetToParentFolder(studySetId, parentFolderId);
         }
@@ -243,7 +250,8 @@ const LibraryScreen = ({
 
     const handleDropOnRoot = async (e) => {
         e.preventDefault();
-        const studySetId = e.dataTransfer.getData('studySetId');
+        e.stopPropagation();
+        const studySetId = e.dataTransfer.getData('studySetId') || e.dataTransfer.getData('text/plain') || draggedStudySetId;
         if (studySetId && onMoveStudySetToParentFolder) {
             await onMoveStudySetToParentFolder(studySetId, 'root');
         }
@@ -251,12 +259,11 @@ const LibraryScreen = ({
         setDraggedStudySetId(null);
     };
 
-    const handleMoveViaDropdown = async (e, studySetId, parentFolderId) => {
-        e.stopPropagation();
+    const handleMoveStudySetToParent = async (studySetId, targetFolderId) => {
         if (onMoveStudySetToParentFolder) {
-            await onMoveStudySetToParentFolder(studySetId, parentFolderId);
+            await onMoveStudySetToParentFolder(studySetId, targetFolderId);
         }
-        setActiveMenuStudySetId(null);
+        setMovingStudySet(null);
     };
 
     const activeFolderName = useMemo(() => {
@@ -373,11 +380,11 @@ const LibraryScreen = ({
                         </div>
 
                         {parentFoldersWithCounts.length === 0 ? (
-                            <div className="p-8 text-center bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md text-slate-400 dark:text-slate-500 text-xs italic">
+                            <div className="p-6 sm:p-8 text-center bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md text-slate-400 dark:text-slate-500 text-xs italic">
                                 {searchQuery ? 'Không tìm thấy thư mục nào phù hợp.' : 'Chưa có thư mục nào. Bạn có thể nhấn "Thư mục mới" ở trên để phân loại học phần.'}
                             </div>
                         ) : (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5">
                                 {parentFoldersWithCounts.map(folder => {
                                     const isDragOver = dragOverFolderId === folder.id;
                                     return (
@@ -387,7 +394,7 @@ const LibraryScreen = ({
                                             onDragOver={(e) => { e.preventDefault(); setDragOverFolderId(folder.id); }}
                                             onDragLeave={() => setDragOverFolderId(null)}
                                             onDrop={(e) => handleDropOnFolder(e, folder.id)}
-                                            className={`bg-white dark:bg-slate-900 border-l-4 border-l-cyan-500 border-y border-r border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/50 p-5 rounded-r-2xl rounded-l-md cursor-pointer transition-all duration-200 hover:shadow-xl shadow-md flex flex-col justify-between group relative overflow-hidden h-36 ${
+                                            className={`bg-white dark:bg-slate-900 border-l-4 border-l-cyan-500 border-y border-r border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/50 p-3 sm:p-5 rounded-r-xl sm:rounded-r-2xl rounded-l-md cursor-pointer transition-all duration-200 hover:shadow-xl shadow-md flex flex-col justify-between group relative overflow-hidden h-28 sm:h-36 ${
                                                 isDragOver 
                                                     ? 'border-cyan-500 bg-cyan-50 dark:bg-slate-850 scale-102 ring-2 ring-cyan-500/20' 
                                                     : ''
@@ -395,19 +402,19 @@ const LibraryScreen = ({
                                         >
                                             {/* Folder icon decoration background */}
                                             <div className="absolute right-0 bottom-0 translate-x-4 translate-y-4 opacity-5 group-hover:scale-110 transition-transform">
-                                                <Folder className="w-24 h-24 text-cyan-500" />
+                                                <Folder className="w-16 h-16 sm:w-24 sm:h-24 text-cyan-500" />
                                             </div>
 
-                                            <div className="space-y-3 relative z-10 w-full">
+                                            <div className="space-y-1.5 sm:space-y-3 relative z-10 w-full">
                                                 <div className="flex items-start justify-between">
-                                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                                                    <div className={`w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-colors ${
                                                         isDragOver 
                                                             ? 'bg-cyan-500 text-white' 
                                                             : 'bg-cyan-50 dark:bg-cyan-950/40 text-cyan-500 border border-cyan-200 dark:border-cyan-800/60'
                                                     }`}>
-                                                        <FolderOpen className="w-5 h-5" />
+                                                        <FolderOpen className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                                                     </div>
-                                                    <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <div className="flex gap-1 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity">
                                                         <button
                                                             onClick={(e) => {
                                                                 e.stopPropagation();
@@ -416,7 +423,7 @@ const LibraryScreen = ({
                                                             className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded text-slate-400 hover:text-cyan-500"
                                                             title="Sửa tên thư mục"
                                                         >
-                                                            <Edit3 className="w-3.5 h-3.5" />
+                                                            <Edit3 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                                                         </button>
                                                         <button
                                                             onClick={(e) => {
@@ -426,16 +433,16 @@ const LibraryScreen = ({
                                                             className="p-1 hover:bg-red-50 dark:hover:bg-red-950/30 rounded text-slate-400 hover:text-red-500"
                                                             title="Xóa thư mục"
                                                         >
-                                                            <Trash2 className="w-3.5 h-3.5" />
+                                                            <Trash2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                                                         </button>
                                                     </div>
                                                 </div>
 
                                                 <div>
-                                                    <h3 className="font-bold text-slate-900 dark:text-white leading-snug group-hover:text-cyan-500 transition-colors line-clamp-1">
+                                                    <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white leading-tight group-hover:text-cyan-500 transition-colors line-clamp-1">
                                                         {folder.name}
                                                     </h3>
-                                                    <p className="text-[10px] font-mono text-slate-400 mt-0.5">
+                                                    <p className="text-[9px] sm:text-[10px] font-mono text-slate-400 mt-0.5">
                                                         {folder.setsCount} {t('library.setsUnit', 'Học phần')} • {folder.totalCards} {t('library.wordsUnit', 'Từ')}
                                                     </p>
                                                     {searchQuery && (() => {
@@ -452,8 +459,8 @@ const LibraryScreen = ({
                                                         }, 0);
                                                         if (matchedCount > 0) {
                                                             return (
-                                                                <span className="inline-block mt-1 text-[9px] font-mono font-bold text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/45 px-2 py-0.5 rounded-lg border border-cyan-200 dark:border-cyan-800/40">
-                                                                    Khớp {matchedCount} từ vựng
+                                                                <span className="inline-block mt-1 text-[8px] sm:text-[9px] font-mono font-bold text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/45 px-1.5 py-0.5 rounded-lg border border-cyan-200 dark:border-cyan-800/40">
+                                                                    Khớp {matchedCount} từ
                                                                 </span>
                                                             );
                                                         }
@@ -471,21 +478,21 @@ const LibraryScreen = ({
 
                 {/* 2. STUDY SETS LIST GRID */}
                 <div className="space-y-4">
-                    <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
-                        <Layers className="w-5 h-5 text-cyan-500" />
+                    <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
+                        <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-500" />
                         {searchQuery ? 'Kết quả tìm kiếm học phần' : (activeParentFolderId ? 'Học phần trong thư mục này' : t('library.studySets', 'Học phần'))} ({filteredStudySets.length})
                         {draggedStudySetId && (
-                            <span className="text-xs bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400 font-mono font-bold px-3 py-1 rounded-full animate-pulse">
-                                Kéo học phần thả vào các thư mục để sắp xếp
+                            <span className="text-[10px] sm:text-xs bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400 font-mono font-bold px-2.5 py-0.5 rounded-full animate-pulse">
+                                Kéo thả học phần vào thư mục
                             </span>
                         )}
                     </h2>
 
-                    <p className="text-xs text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-md flex items-center gap-2">
-                        {t('library.dragTip', '💡 Mẹo: Bạn có thể nhấn giữ và kéo thả các học phần vào các thư mục để sắp xếp và phân loại chúng dễ dàng hơn.')}
+                    <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-3.5 py-2.5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-2">
+                        {t('library.dragTip', '💡 Mẹo: Nhấn icon Di chuyển hoặc kéo thả học phần vào các thư mục để sắp xếp dễ dàng hơn.')}
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
                         {/* Unfiled cards set - Only show at root level */}
                         {!activeParentFolderId && !searchQuery && unfiledCount > 0 && (
                             <div 
@@ -528,13 +535,24 @@ const LibraryScreen = ({
                                         </div>
 
                                         <div className="flex items-center gap-1 shrink-0 z-20 opacity-80 group-hover:opacity-100 transition-opacity">
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setMovingStudySet({ id: folder.id, name: folder.name, parentId: folder.parentId });
+                                                }}
+                                                className="p-1.5 sm:p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-indigo-500 transition-colors flex items-center justify-center cursor-pointer min-h-[36px] min-w-[36px] sm:min-h-0 sm:min-w-0"
+                                                title="Di chuyển học phần vào thư mục"
+                                            >
+                                                <Move className="w-3.5 h-3.5" />
+                                            </button>
+
                                             {onRenameFolder && (
                                                 <button
                                                     onClick={(e) => {
                                                         e.stopPropagation();
                                                         setEditingStudySet({ id: folder.id, name: folder.name });
                                                     }}
-                                                    className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors"
+                                                    className="p-1.5 sm:p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors flex items-center justify-center cursor-pointer min-h-[36px] min-w-[36px] sm:min-h-0 sm:min-w-0"
                                                     title="Sửa tên học phần"
                                                 >
                                                     <Edit3 className="w-3.5 h-3.5" />
@@ -546,7 +564,7 @@ const LibraryScreen = ({
                                                     e.stopPropagation();
                                                     navigate(`/vocab/edit-set/${folder.id}`);
                                                 }}
-                                                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors"
+                                                className="p-1.5 sm:p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors flex items-center justify-center cursor-pointer min-h-[36px] min-w-[36px] sm:min-h-0 sm:min-w-0"
                                                 title="Thêm từ vựng nhanh vào học phần này"
                                             >
                                                 <Plus className="w-3.5 h-3.5" />
@@ -555,7 +573,7 @@ const LibraryScreen = ({
                                             {onDeleteFolder && (
                                                 <button
                                                     onClick={(e) => handleDeleteFolder(e, folder)}
-                                                    className="p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 text-slate-400 hover:text-red-500 transition-colors"
+                                                    className="p-1.5 sm:p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 text-slate-400 hover:text-red-500 transition-colors flex items-center justify-center cursor-pointer min-h-[36px] min-w-[36px] sm:min-h-0 sm:min-w-0"
                                                     title="Xoá học phần"
                                                 >
                                                     <Trash2 className="w-3.5 h-3.5" />
@@ -663,6 +681,74 @@ const LibraryScreen = ({
                     )}
                 </div>
             </div>
+
+            {/* MOVE STUDY SET TO FOLDER MODAL (Perfect for Mobile Touch & Desktop) */}
+            {movingStudySet && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-3.5 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in font-sans">
+                    <div className="relative bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-md p-5 sm:p-6 space-y-4 border border-slate-200 dark:border-slate-800">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center shrink-0">
+                                    <Move className="w-5 h-5 text-indigo-500" />
+                                </div>
+                                <div className="min-w-0">
+                                    <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white truncate">Di chuyển học phần</h3>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 truncate">"{movingStudySet.name}"</p>
+                                </div>
+                            </div>
+                            <button onClick={() => setMovingStudySet(null)} className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer">
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        <p className="text-xs font-semibold text-slate-600 dark:text-slate-300">
+                            Chọn thư mục đích để chuyển học phần này vào:
+                        </p>
+
+                        <div className="space-y-2 max-h-60 overflow-y-auto custom-scrollbar pr-1">
+                            {/* Option: Root Level (Gốc) */}
+                            <button
+                                type="button"
+                                onClick={() => handleMoveStudySetToParent(movingStudySet.id, 'root')}
+                                className={`w-full p-3 min-h-[48px] rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer ${
+                                    !movingStudySet.parentId
+                                        ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-500 text-indigo-700 dark:text-indigo-300 font-bold'
+                                        : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-indigo-400'
+                                }`}
+                            >
+                                <div className="flex items-center gap-2.5">
+                                    <Library className="w-4 h-4 text-indigo-500 shrink-0" />
+                                    <span className="text-xs font-semibold">Gốc (Không thuộc thư mục nào)</span>
+                                </div>
+                                {!movingStudySet.parentId && <span className="text-[10px] font-mono bg-indigo-500 text-white px-2 py-0.5 rounded-full font-bold">Hiện tại</span>}
+                            </button>
+
+                            {/* Options: Parent Folders */}
+                            {parentFolders.map(pf => {
+                                const isCurrent = movingStudySet.parentId === pf.id;
+                                return (
+                                    <button
+                                        key={pf.id}
+                                        type="button"
+                                        onClick={() => handleMoveStudySetToParent(movingStudySet.id, pf.id)}
+                                        className={`w-full p-3 min-h-[48px] rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer ${
+                                            isCurrent
+                                                ? 'bg-cyan-50 dark:bg-cyan-950/40 border-cyan-500 text-cyan-700 dark:text-cyan-300 font-bold'
+                                                : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-cyan-400'
+                                        }`}
+                                    >
+                                        <div className="flex items-center gap-2.5 min-w-0">
+                                            <FolderOpen className="w-4 h-4 text-cyan-500 shrink-0" />
+                                            <span className="text-xs font-semibold truncate">{pf.name}</span>
+                                        </div>
+                                        {isCurrent && <span className="text-[10px] font-mono bg-cyan-500 text-white px-2 py-0.5 rounded-full font-bold shrink-0">Hiện tại</span>}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* CREATE PARENT FOLDER MODAL */}
             {showCreateFolderModal && (

@@ -135,7 +135,7 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
                 }
             `}</style>
 
-            <div className="bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 border border-slate-800/80 rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl relative overflow-hidden flex flex-col items-center">
+            <div className="bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 border border-slate-800/80 rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl relative overflow-hidden flex flex-col items-center font-sans">
                 {/* Decorative background glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-orange-500/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -161,7 +161,7 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
                 ))}
 
                 {/* Flame Container */}
-                <div className="relative w-36 h-36 flex items-center justify-center mb-6 animate-flame">
+                <div className="relative w-32 h-32 sm:w-36 sm:h-36 flex items-center justify-center mb-5 sm:mb-6 animate-flame">
                     <svg viewBox="0 0 100 120" className="w-full h-full">
                         <defs>
                             <linearGradient id="outerFlameGrad" x1="0" y1="1" x2="0" y2="0">
@@ -196,10 +196,10 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
                     </svg>
 
                     {/* Streak Number directly inside the flame */}
-                    <div className="absolute inset-0 flex items-end justify-center pb-5">
+                    <div className="absolute inset-0 flex items-end justify-center pb-4 sm:pb-5">
                         <span 
                             key={displayStreak}
-                            className="text-4xl font-extrabold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] animate-streak-num"
+                            className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] animate-streak-num font-mono"
                         >
                             {displayStreak}
                         </span>
@@ -207,23 +207,23 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
                 </div>
 
                 {/* Typography details */}
-                <div className="space-y-2 mb-6">
-                    <div className="flex items-center justify-center gap-1.5 text-orange-400 font-extrabold tracking-widest text-xs uppercase">
+                <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
+                    <div className="flex items-center justify-center gap-1.5 text-orange-400 font-extrabold tracking-widest text-[11px] sm:text-xs uppercase">
                         <Sparkles className="w-3.5 h-3.5 fill-orange-400 animate-spin" style={{ animationDuration: '3s' }} />
                         Streak Luyện Tập!
                     </div>
-                    <h2 className="text-2xl font-black text-white leading-tight">
+                    <h2 className="text-xl sm:text-2xl font-black text-white leading-tight">
                         {displayStreak} Ngày Liên Tiếp!
                     </h2>
-                    <p className="text-slate-400 text-xs font-medium px-4 leading-relaxed">
+                    <p className="text-slate-400 text-xs font-medium px-2 sm:px-4 leading-relaxed">
                         Bạn đang học tập cực kỳ chăm chỉ. Hãy tiếp tục duy trì ngọn lửa học tập này nhé!
                     </p>
                 </div>
 
-                {/* Bouncy action button */}
+                {/* Bouncy action button (Touch target min-h-[52px]) */}
                 <button
                     onClick={() => setShow(false)}
-                    className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 active:scale-[0.98] text-white text-sm font-black shadow-lg shadow-orange-500/25 border-b-4 border-orange-700 hover:border-orange-800 transition-all cursor-pointer uppercase tracking-wider"
+                    className="w-full py-3.5 px-6 min-h-[52px] rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 active:scale-[0.98] text-white text-xs sm:text-sm font-black shadow-lg shadow-orange-500/25 border-b-4 border-orange-700 hover:border-orange-800 transition-all cursor-pointer uppercase tracking-wider select-none flex items-center justify-center"
                 >
                     Tiếp tục học
                 </button>

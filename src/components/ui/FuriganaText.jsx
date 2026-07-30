@@ -288,29 +288,29 @@ const FuriganaText = ({ text, className = '', forceHide = false, showReadingOnly
     const parts = parseFuriganaText(processedText);
 
     if (parts.length === 0 || (parts.length === 1 && parts[0].type === 'text')) {
-        return <span className={className}>{processedText}</span>;
+        return <span className={`break-words whitespace-normal overflow-wrap-anywhere ${className}`}>{processedText}</span>;
     }
 
     return (
-        <span className={className}>
+        <span className={`inline-wrap break-words whitespace-normal overflow-wrap-anywhere ${className}`}>
             {parts.map((part, idx) => {
                 if (part.type === 'ruby') {
                     if (showReadingOnly) {
-                        return <span key={idx}>{part.reading}</span>;
+                        return <span key={idx} className="break-words whitespace-normal">{part.reading}</span>;
                     }
                     if (!furiganaEnabled) {
-                        return <span key={idx}>{part.kanji}</span>;
+                        return <span key={idx} className="break-words whitespace-normal">{part.kanji}</span>;
                     }
                     return (
-                        <ruby key={idx} style={{ rubyPosition: 'over', lineHeight: '2.5' }}>
+                        <ruby key={idx} style={{ rubyPosition: 'over', lineHeight: '2.4', overflowWrap: 'anywhere', wordBreak: 'break-word', whiteSpace: 'normal' }}>
                             {part.kanji}
                             <rp>(</rp>
-                            <rt style={{ fontSize: furiganaFontSize, paddingBottom: '4px', letterSpacing: 'normal', color: furiganaColor }}>{part.reading}</rt>
+                            <rt style={{ fontSize: furiganaFontSize, paddingBottom: '3px', letterSpacing: 'normal', color: furiganaColor, whiteSpace: 'normal', overflowWrap: 'anywhere', wordBreak: 'break-word' }}>{part.reading}</rt>
                             <rp>)</rp>
                         </ruby>
                     );
                 }
-                return <span key={idx}>{part.content}</span>;
+                return <span key={idx} className="break-words whitespace-normal">{part.content}</span>;
             })}
         </span>
     );

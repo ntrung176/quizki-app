@@ -4,7 +4,8 @@ import {
     MessageSquare, Mic, MicOff, Volume2, VolumeX, Eye, EyeOff, 
     ArrowLeft, ArrowRight, Settings, Sparkle, AlertCircle, CheckCircle2, 
     Play, Send, RefreshCw, Star, Info, Languages, Radio, Trophy, Phone, PhoneOff,
-    Activity, Zap, Award, Lightbulb, Volume1, X, ShieldAlert, Cpu, Terminal, Sparkles, Clock
+    Activity, Zap, Award, Lightbulb, Volume1, X, ShieldAlert, Cpu, Terminal, Sparkles, Clock,
+    SlidersHorizontal
 } from 'lucide-react';
 import { callKaiwaAI, parseJsonFromAI, callWhisperSTT, callOpenAITTS } from '../../utils/aiProvider';
 import { ROUTES } from '../../router';
@@ -189,6 +190,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
     const [showTimeLimitModal, setShowTimeLimitModal] = useState(false);
     const [showScorecardModal, setShowScorecardModal] = useState(false);
     const [showCallOverlay, setShowCallOverlay] = useState(false);
+    const [showMobileSettings, setShowMobileSettings] = useState(false);
 
     // Chat states
     const [conversation, setConversation] = useState([]);
@@ -1168,8 +1170,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
         <div className="w-full min-h-[calc(100vh-70px)] flex flex-col justify-start py-6 px-3 md:px-6 relative overflow-hidden font-sans text-slate-800 dark:text-slate-100 selection:bg-cyan-500 selection:text-white">
 
             {step === 'setup' ? (
-                /* SIMPLIFIED ELEVATED SETUP PANEL */
-                <div className="w-full max-w-3xl mx-auto space-y-6 relative z-10 py-2">
+                /* SIMPLIFIED ELEVATED SETUP PANEL (MOBILE-FIRST) */
+                <div className="w-full max-w-3xl mx-auto space-y-5 sm:space-y-6 relative z-10 py-2 px-1 sm:px-0">
                     {/* Header */}
                     <div className="text-center space-y-2">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
@@ -1177,7 +1179,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             <span>{isEnglishMode ? 'AI VOICE SPEAKING AGENT' : 'NEURAL KAIWA AGENT'}</span>
                         </div>
 
-                        <h1 className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                        <h1 className="text-xl sm:text-2xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                             {isEnglishMode ? 'Phòng Luyện Nói Tiếng Anh AI' : 'Phòng Kaiwa AI Bản Xứ'}
                         </h1>
 
@@ -1187,27 +1189,27 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     </div>
 
                     {/* Single Unified Configuration Card */}
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 md:p-7 shadow-xl space-y-6">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-7 shadow-xl space-y-5 sm:space-y-6">
                         {/* 1. TEACHER SELECTION */}
                         <div className="space-y-2.5">
                             <label className="text-xs font-bold font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
                                 <Star className="w-4 h-4 text-amber-500" />
                                 <span>1. Chọn Giáo Viên AI</span>
                             </label>
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                                 {currentTeachers.map((tc) => {
                                     const isSelected = teacher === tc.id;
                                     return (
                                         <button
                                             key={tc.id}
                                             onClick={() => setTeacher(tc.id)}
-                                            className={`p-3.5 rounded-2xl text-left border transition-all duration-200 flex items-center gap-3 cursor-pointer ${
+                                            className={`p-3.5 min-h-[56px] rounded-2xl text-left border transition-all duration-200 flex items-center gap-3 cursor-pointer select-none active:scale-[0.98] ${
                                                 isSelected
                                                     ? 'border-cyan-500 bg-cyan-50/80 dark:border-cyan-500 dark:bg-cyan-950/60 shadow-md ring-1 ring-cyan-500/30'
                                                     : 'border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/60 hover:border-slate-300 dark:hover:border-slate-700'
                                             }`}
                                         >
-                                            <span className="text-2xl p-2 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+                                            <span className="text-2xl p-2 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 shrink-0">
                                                 {tc.avatar}
                                             </span>
                                             <div className="flex-1 min-w-0">
@@ -1230,14 +1232,14 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                 <Languages className="w-4 h-4 text-cyan-500" />
                                 <span>2. Trình Độ Cấp Độ</span>
                             </label>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                                 {currentLevels.map((lvl) => {
                                     const isSelected = level === lvl.value;
                                     return (
                                         <button
                                             key={lvl.value}
                                             onClick={() => setLevel(lvl.value)}
-                                            className={`px-4 py-2.5 rounded-xl font-bold text-xs transition-all duration-200 cursor-pointer flex-1 min-w-[100px] text-center border ${
+                                            className={`px-3.5 py-3 min-h-[48px] rounded-xl font-bold text-xs transition-all duration-200 cursor-pointer flex-1 min-w-[110px] text-center border flex items-center justify-center select-none active:scale-[0.98] ${
                                                 isSelected
                                                     ? 'bg-slate-900 text-white dark:bg-cyan-500 dark:text-slate-950 border-transparent shadow-md scale-[1.02]'
                                                     : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-750'
@@ -1263,16 +1265,16 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                         <button
                                             key={tpc.id}
                                             onClick={() => setTopic(tpc.id)}
-                                            className={`p-3 rounded-2xl text-left border transition-all duration-200 cursor-pointer flex items-center justify-between ${
+                                            className={`p-3.5 min-h-[48px] rounded-2xl text-left border transition-all duration-200 cursor-pointer flex items-center justify-between select-none active:scale-[0.98] ${
                                                 isSelected
                                                     ? 'border-indigo-500 bg-indigo-50/80 dark:border-cyan-400 dark:bg-cyan-950/60 font-bold shadow-sm'
                                                     : 'border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/60 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-700'
                                             }`}
                                         >
-                                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">
+                                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate pr-2">
                                                 {tpc.name}
                                             </span>
-                                            {isSelected && <span className="w-2 h-2 rounded-full bg-indigo-600 dark:bg-cyan-400 shrink-0"></span>}
+                                            {isSelected && <span className="w-2.5 h-2.5 rounded-full bg-indigo-600 dark:bg-cyan-400 shrink-0"></span>}
                                         </button>
                                     );
                                 })}
@@ -1284,7 +1286,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     <div className="flex justify-center pt-1">
                         <button
                             onClick={handleStartConversation}
-                            className="w-full sm:w-auto px-10 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white font-black text-sm md:text-base tracking-wide shadow-xl shadow-cyan-500/20 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-3 border border-cyan-400/30"
+                            className="w-full sm:w-auto min-h-[52px] px-8 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white font-black text-sm md:text-base tracking-wide shadow-xl shadow-cyan-500/20 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-3 border border-cyan-400/30 select-none"
                         >
                             <Play className="w-5 h-5 fill-white" />
                             <span>BẮT ĐẦU TRÒ CHUYỆN AI</span>
@@ -1292,50 +1294,79 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     </div>
                 </div>
             ) : (
-                /* FIXED HEIGHT CHAT PANEL WITH STICKY FOOTER */
-                <div className="w-full max-w-5xl mx-auto flex flex-col h-[calc(100vh-90px)] bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-cyan-500/30 shadow-2xl relative overflow-hidden z-10">
+                /* RESPONSIVE DYNAMIC HEIGHT CHAT PANEL WITH STICKY FOOTER */
+                <div className="w-full max-w-5xl mx-auto flex flex-col h-[calc(100dvh-5rem)] md:h-[calc(100vh-90px)] bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-cyan-500/30 shadow-2xl relative overflow-hidden z-10">
                     {/* Sci-Fi Top Cyber Terminal Header */}
-                    <div className="px-5 py-3.5 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between bg-slate-50 dark:bg-slate-950 relative z-20 gap-3 shrink-0">
-                        {/* Teacher & Session Info */}
-                        <div className="flex items-center gap-3.5">
-                            <button
-                                onClick={handleQuit}
-                                className="p-2 rounded-xl bg-white dark:bg-slate-850 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-750 transition-colors cursor-pointer"
-                                title="Thoát phòng học"
-                            >
-                                <ArrowLeft className="w-4 h-4" />
-                            </button>
+                    <div className="px-3.5 sm:px-5 py-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 relative z-20 shrink-0 space-y-2 sm:space-y-0 sm:flex sm:items-center sm:justify-between gap-3">
+                        {/* Primary Header Row (Mobile & Desktop) */}
+                        <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto">
+                            <div className="flex items-center gap-2.5">
+                                <button
+                                    onClick={handleQuit}
+                                    className="w-11 h-11 sm:w-10 sm:h-10 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0 rounded-xl bg-white dark:bg-slate-850 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-750 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                                    title="Thoát phòng học"
+                                >
+                                    <ArrowLeft className="w-4 h-4" />
+                                </button>
 
-                            <div className="flex items-center gap-3">
-                                <div className="relative">
-                                    <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-indigo-200 dark:border-cyan-500/40 flex items-center justify-center text-xl shadow-sm">
-                                        {currentTeachers.find(t => t.id === teacher)?.avatar}
+                                <div className="flex items-center gap-2.5">
+                                    <div className="relative shrink-0">
+                                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-slate-800 border border-indigo-200 dark:border-cyan-500/40 flex items-center justify-center text-lg sm:text-xl shadow-sm">
+                                            {currentTeachers.find(t => t.id === teacher)?.avatar}
+                                        </div>
+                                        <span className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 border-white dark:border-slate-950 ${isAiSpeaking ? 'bg-cyan-400 animate-ping' : 'bg-emerald-500'}`}></span>
                                     </div>
-                                    <span className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 border-white dark:border-slate-950 ${isAiSpeaking ? 'bg-cyan-400 animate-ping' : 'bg-emerald-500'}`}></span>
-                                </div>
 
-                                <div>
-                                    <div className="flex items-center gap-2">
-                                        <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm font-mono">
-                                            {currentTeachers.find(t => t.id === teacher)?.name}
-                                        </h3>
-                                        <span className="text-[10px] font-mono text-indigo-700 dark:text-cyan-400 bg-indigo-50 dark:bg-cyan-950/60 border border-indigo-200 dark:border-cyan-800/60 px-1.5 py-0.2 rounded font-bold">
-                                            AI CORE
-                                        </span>
+                                    <div className="min-w-0">
+                                        <div className="flex items-center gap-1.5">
+                                            <h3 className="font-bold text-slate-800 dark:text-slate-100 text-xs sm:text-sm font-mono truncate max-w-[130px] sm:max-w-none">
+                                                {currentTeachers.find(t => t.id === teacher)?.name}
+                                            </h3>
+                                            <span className="text-[9px] sm:text-[10px] font-mono text-indigo-700 dark:text-cyan-400 bg-indigo-50 dark:bg-cyan-950/60 border border-indigo-200 dark:border-cyan-800/60 px-1 py-0.2 rounded font-bold shrink-0">
+                                                AI CORE
+                                            </span>
+                                        </div>
+                                        <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-mono truncate">
+                                            {isEnglishMode ? `Level ${level}` : `JLPT ${level}`} • {currentTopics.find(t => t.id === topic)?.name.split(' ')[1] || 'Free Talk'}
+                                        </p>
                                     </div>
-                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
-                                        {isEnglishMode ? `Level ${level}` : `JLPT ${level}`} • {currentTopics.find(t => t.id === topic)?.name.split(' ')[1] || 'Free Talk'}
-                                    </p>
                                 </div>
+                            </div>
+
+                            {/* Mobile Bar Quick Toggles (Call & Menu Drawer Trigger) */}
+                            <div className="flex items-center gap-1.5 sm:hidden">
+                                <button
+                                    onClick={() => {
+                                        setIsHandsFree(true);
+                                        setShowCallOverlay(true);
+                                    }}
+                                    className="min-h-[44px] px-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-xs font-mono font-bold flex items-center gap-1 shadow-sm active:scale-95 cursor-pointer"
+                                    title="Gợi gọi thoại FaceTime AI"
+                                >
+                                    <Phone className="w-3.5 h-3.5" />
+                                    <span className="text-[11px]">GỌI AI</span>
+                                </button>
+
+                                <button
+                                    onClick={() => setShowMobileSettings(prev => !prev)}
+                                    className={`w-11 h-11 min-h-[44px] min-w-[44px] rounded-xl flex items-center justify-center border transition-all cursor-pointer ${
+                                        showMobileSettings 
+                                            ? 'bg-cyan-500 text-white border-cyan-400 shadow-md' 
+                                            : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300'
+                                    }`}
+                                    title="Mở menu tùy chỉnh"
+                                >
+                                    <SlidersHorizontal className="w-4 h-4" />
+                                </button>
                             </div>
                         </div>
 
-                        {/* Controls HUD Panel */}
-                        <div className="flex items-center gap-2 flex-wrap">
+                        {/* Controls HUD Panel (Desktop always visible, Mobile collapsible drawer) */}
+                        <div className={`flex items-center gap-2 flex-wrap transition-all ${showMobileSettings ? 'flex pt-2 border-t border-slate-200 dark:border-slate-800 sm:border-0 sm:pt-0' : 'hidden sm:flex'}`}>
                             {/* Daily Time Limit HUD Badge */}
                             {!isUnlimited ? (
                                 <div 
-                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 text-amber-700 dark:text-amber-300 text-xs font-mono font-bold shadow-xs"
+                                    className="flex items-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-0 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 text-amber-700 dark:text-amber-300 text-xs font-mono font-bold shadow-xs flex-1 sm:flex-none justify-center"
                                     title="Giới hạn 10 phút luyện Kaiwa mỗi ngày cho tài khoản Premium"
                                 >
                                     <Clock className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
@@ -1343,27 +1374,26 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                 </div>
                             ) : (
                                 <div 
-                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300 text-xs font-mono font-bold shadow-xs"
+                                    className="flex items-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-0 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300 text-xs font-mono font-bold shadow-xs flex-1 sm:flex-none justify-center"
                                     title="Tài khoản Quản trị viên không giới hạn thời lượng Kaiwa"
                                 >
                                     <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
                                     <span>Admin: Không giới hạn</span>
                                 </div>
                             )}
+
                             {/* Hands-Free VAD Mode Toggle Button */}
                             <button
                                 onClick={() => {
                                     if (!isHandsFree) {
-                                        // Turning ON: show confirmation first
                                         setShowHandsFreeConfirm(true);
                                     } else {
-                                        // Turning OFF: stop immediately
                                         stopVadLoop();
                                         if (isRecordingRef.current) stopRecordingDirect();
                                         setIsHandsFree(false);
                                     }
                                 }}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer border ${
+                                className={`px-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 rounded-xl text-xs font-mono font-bold flex items-center justify-center gap-2 transition-all cursor-pointer border flex-1 sm:flex-none ${
                                     isHandsFree 
                                         ? 'bg-cyan-500 text-white dark:bg-cyan-500/20 dark:text-cyan-300 border-cyan-500 dark:border-cyan-400 shadow-md animate-pulse' 
                                         : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-400 border-slate-200 dark:border-slate-700'
@@ -1371,16 +1401,16 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                 title="Bật/Tắt chế độ rảnh tay tự động nhận diện giọng nói"
                             >
                                 <Radio className={`w-3.5 h-3.5 ${isHandsFree ? 'text-white dark:text-cyan-400 animate-spin-slow' : 'text-slate-500 dark:text-slate-400'}`} />
-                                <span>{isHandsFree ? '⚡ HANDS-FREE VAD: ON' : '🎙️ PUSH-TO-TALK MODE'}</span>
+                                <span>{isHandsFree ? '⚡ HANDS-FREE VAD: ON' : '🎙️ PUSH-TO-TALK'}</span>
                             </button>
 
-                            {/* FaceTime Call Overlay Trigger Button */}
+                            {/* FaceTime Call Overlay Trigger Button (Desktop view) */}
                             <button
                                 onClick={() => {
                                     setIsHandsFree(true);
                                     setShowCallOverlay(true);
                                 }}
-                                className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white text-xs font-mono font-bold transition-all shadow-md cursor-pointer flex items-center gap-1.5 animate-pulse"
+                                className="hidden sm:flex px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white text-xs font-mono font-bold transition-all shadow-md cursor-pointer items-center gap-1.5 animate-pulse"
                                 title="Bật màn hình Cuộc gọi thoại FaceTime AI"
                             >
                                 <Phone className="w-3.5 h-3.5" />
@@ -1390,7 +1420,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             {/* Scorecard Report HUD Button */}
                             <button
                                 onClick={() => setShowScorecardModal(true)}
-                                className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-white text-xs font-mono font-bold transition-all shadow-md cursor-pointer flex items-center gap-1.5"
+                                className="px-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 rounded-xl bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-white text-xs font-mono font-bold transition-all shadow-md cursor-pointer flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
                                 title="Xem báo cáo chấm điểm phản xạ Kaiwa"
                             >
                                 <Trophy className="w-3.5 h-3.5 text-amber-300" />
@@ -1400,7 +1430,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             {/* Furigana Toggle */}
                             <button
                                 onClick={() => setShowFurigana(prev => !prev)}
-                                className={`px-2.5 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer border ${
+                                className={`px-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer border ${
                                     showFurigana 
                                         ? 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800/60' 
                                         : 'bg-slate-100 text-slate-600 dark:bg-slate-850 dark:text-slate-400 border-slate-200 dark:border-slate-750'
@@ -1413,20 +1443,20 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                             {/* Translation Toggle */}
                             <button
                                 onClick={() => setShowTranslation(prev => !prev)}
-                                className={`p-2 rounded-xl transition-all cursor-pointer border ${
+                                className={`p-2.5 sm:p-2 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0 rounded-xl flex items-center justify-center transition-all cursor-pointer border ${
                                     showTranslation 
                                         ? 'bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-950/40 dark:text-indigo-300 dark:border-indigo-800/60' 
                                         : 'bg-slate-100 text-slate-600 dark:bg-slate-850 dark:text-slate-400 border-slate-200 dark:border-slate-750'
                                 }`}
                                 title="Hiện/Ẩn Dịch nghĩa"
                             >
-                                {showTranslation ? <Eye className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> : <EyeOff className="w-3.5 h-3.5 text-slate-500" />}
+                                {showTranslation ? <Eye className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-indigo-600 dark:text-indigo-400" /> : <EyeOff className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-slate-500" />}
                             </button>
 
                             {/* Speech Speed */}
                             <button
                                 onClick={() => setTtsRate(r => r === 1.0 ? 1.2 : r === 1.2 ? 0.8 : 1.0)}
-                                className="px-2.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 dark:bg-slate-850 dark:text-slate-300 border border-slate-200 dark:border-slate-750 text-xs font-mono font-bold cursor-pointer transition-colors"
+                                className="px-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 rounded-xl bg-slate-100 text-slate-700 dark:bg-slate-850 dark:text-slate-300 border border-slate-200 dark:border-slate-750 text-xs font-mono font-bold cursor-pointer transition-colors"
                                 title="Tốc độ nói AI"
                             >
                                 {ttsRate}x
@@ -1435,30 +1465,30 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                     </div>
 
                     {/* Chat Messages Body Log (Internally Scrollable Only) */}
-                    <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 min-h-0 custom-scrollbar bg-slate-50/50 dark:bg-slate-900/50">
+                    <div className="flex-1 overflow-y-auto p-3.5 sm:p-6 space-y-5 sm:space-y-6 min-h-0 custom-scrollbar bg-slate-50/50 dark:bg-slate-900/50">
                         {conversation.map((msg, idx) => {
                             const isAi = msg.sender === 'ai';
                             return (
                                 <div 
                                     key={idx} 
-                                    className={`flex items-start gap-3 ${isAi ? '' : 'flex-row-reverse'}`}
+                                    className={`flex items-start gap-2.5 sm:gap-3 ${isAi ? '' : 'flex-row-reverse'}`}
                                 >
                                     {/* Avatar */}
-                                    <div className="w-9 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0 shadow-sm">
+                                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-base sm:text-lg flex-shrink-0 shadow-sm">
                                         {isAi ? TEACHERS.find(t => t.id === teacher)?.avatar : '👤'}
                                     </div>
 
                                     {/* Bubble block */}
-                                    <div className="space-y-2 max-w-[85%]">
+                                    <div className="space-y-2 max-w-[90%] sm:max-w-[85%]">
                                         {/* Speakable Speech bubble */}
-                                        <div className={`p-4.5 rounded-2xl relative group transition-all ${
+                                        <div className={`p-3.5 sm:p-4.5 rounded-2xl relative group transition-all ${
                                             isAi 
                                                 ? 'bg-white text-slate-800 border border-slate-200 shadow-sm dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700 rounded-tl-none' 
                                                 : 'bg-indigo-600 text-white dark:bg-gradient-to-r dark:from-indigo-600 dark:to-cyan-700 rounded-tr-none shadow-md border border-indigo-500 dark:border-cyan-400/30'
                                         }`}>
                                             {/* Japanese content with Furigana */}
                                             <p 
-                                                className="text-base font-japanese leading-loose whitespace-pre-wrap font-medium"
+                                                className="text-sm sm:text-base font-japanese leading-relaxed sm:leading-loose whitespace-pre-wrap font-medium"
                                                 dangerouslySetInnerHTML={{ __html: formatFurigana(msg.textJa) }}
                                             />
                                             
@@ -1466,10 +1496,10 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                             {isAi && (
                                                 <button
                                                     onClick={() => speakText(msg.textJa)}
-                                                    className="absolute -right-10 top-1/2 -translate-y-1/2 p-2 bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-indigo-600 dark:text-cyan-400 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity cursor-pointer duration-200 shadow-md"
+                                                    className="absolute -right-9 sm:-right-10 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 min-h-[32px] min-w-[32px] bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-indigo-600 dark:text-cyan-400 flex items-center justify-center opacity-100 sm:opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity cursor-pointer duration-200 shadow-md"
                                                     title="Phát lại âm thanh AI"
                                                 >
-                                                    <Volume2 className="w-3.5 h-3.5" />
+                                                    <Volume2 className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
                                                 </button>
                                             )}
                                         </div>
@@ -1484,7 +1514,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                         {/* User Speech Analytics Telemetry Card */}
                                         {!isAi && msg.stats && (
                                             <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-3 text-xs text-slate-700 dark:text-slate-300 space-y-2 shadow-sm">
-                                                <div className="flex items-center justify-between font-mono font-bold">
+                                                <div className="flex items-center justify-between font-mono font-bold flex-wrap gap-1">
                                                     <div className="flex items-center gap-1.5 text-indigo-600 dark:text-cyan-400">
                                                         <Activity className="w-3.5 h-3.5 animate-pulse" />
                                                         <span>SPEECH TELEMETRY</span>
@@ -1519,7 +1549,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                         {!isAi && msg.feedback && (
                                             <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/40 rounded-2xl p-3.5 text-xs text-amber-900 dark:text-amber-200 space-y-2.5 shadow-sm">
                                                 <div className="flex items-center gap-1.5 font-mono font-bold text-amber-700 dark:text-amber-400">
-                                                    <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                                                    <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
                                                     <span>[AI DIAGNOSTIC REPAIR] Gợi ý sửa câu:</span>
                                                 </div>
                                                 <div className="space-y-1 pl-1">
@@ -1536,24 +1566,24 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                                     )}
                                                 </div>
 
-                                                {/* 2 Interactive Action Buttons */}
-                                                <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-amber-200/60 dark:border-amber-800/40">
+                                                {/* 2 Touch-friendly Action Buttons (Min 48px target) */}
+                                                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 border-t border-amber-200/60 dark:border-amber-800/40">
                                                     <button
                                                         onClick={() => handleReadCorrectedSentence(msg.feedback)}
-                                                        className="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-mono font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer hover:scale-105 active:scale-95"
+                                                        className="px-4 py-3 min-h-[48px] rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-mono font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer active:scale-95 flex-1"
                                                         title="AI sẽ đọc mẫu câu đúng và hỗ trợ bạn luyện phát âm lại"
                                                     >
-                                                        <Volume2 className="w-3.5 h-3.5" />
+                                                        <Volume2 className="w-4 h-4" />
                                                         <span>🔊 Đọc lại câu đúng</span>
                                                     </button>
 
                                                     <button
                                                         onClick={() => handleSkipCorrectionAndContinue()}
-                                                        className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs font-mono font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer hover:scale-105 active:scale-95"
+                                                        className="px-4 py-3 min-h-[48px] rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs font-mono font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer active:scale-95 flex-1"
                                                         title="Bỏ qua lỗi này và để AI tiếp tục hỏi câu tiếp theo"
                                                     >
-                                                        <ArrowRight className="w-3.5 h-3.5 text-indigo-500" />
-                                                        <span>➡️ Bỏ qua & Tiếp tục cuộc trò chuyện</span>
+                                                        <ArrowRight className="w-4 h-4 text-indigo-500" />
+                                                        <span>➡️ Bỏ qua & Tiếp tục</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -1566,10 +1596,10 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                         {/* Loading Indicator */}
                         {isGenerating && (
                             <div className="flex items-start gap-3">
-                                <div className="w-9 h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-lg flex-shrink-0">
+                                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-base sm:text-lg flex-shrink-0">
                                     {TEACHERS.find(t => t.id === teacher)?.avatar}
                                 </div>
-                                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-4 rounded-2xl rounded-tl-none max-w-[80%] flex items-center gap-2 shadow-sm">
+                                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-3.5 sm:p-4 rounded-2xl rounded-tl-none max-w-[80%] flex items-center gap-2 shadow-sm">
                                     <span className="w-2 h-2 bg-indigo-600 dark:bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
                                     <span className="w-2 h-2 bg-indigo-600 dark:bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
                                     <span className="w-2 h-2 bg-indigo-600 dark:bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
@@ -1583,9 +1613,9 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
                     {/* Cyber Speech Waveform Visualizer */}
                     {(isRecording || isAiSpeaking) && (
-                        <div className="px-6 py-2 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-cyan-500/30 shrink-0">
-                            <div className="flex items-center justify-between mb-1 font-mono text-[11px]">
-                                <span className="text-indigo-600 dark:text-cyan-400 font-bold flex items-center gap-2">
+                        <div className="px-4 sm:px-6 py-2 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-cyan-500/30 shrink-0">
+                            <div className="flex items-center justify-between mb-1 font-mono text-[10px] sm:text-[11px]">
+                                <span className="text-indigo-600 dark:text-cyan-400 font-bold flex items-center gap-1.5 sm:gap-2">
                                     <Activity className="w-3.5 h-3.5 animate-pulse text-indigo-600 dark:text-cyan-400" />
                                     {isRecording ? 'LIVE MIC SPECTRUM (VAD Active)...' : 'AI NEURAL SPEECH SPECTRUM...'}
                                 </span>
@@ -1594,22 +1624,22 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                 analyserNode={isRecording ? micAnalyserRef.current : aiAnalyserRef.current} 
                                 isActive={true}
                                 mode={isRecording ? 'mic' : 'ai'}
-                                height={38}
+                                height={32}
                             />
                         </div>
                     )}
 
                     {/* Chat Footer panel: Sticky Bottom Mic & Input Controllers */}
-                    <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 relative z-20 shrink-0 sticky bottom-0">
+                    <div className="p-3 sm:p-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 relative z-20 shrink-0 sticky bottom-0">
                         {/* Correction Alert Banner */}
                         {pendingCorrection && (
-                            <div className="mb-4 p-3.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/50 rounded-2xl flex items-start gap-3 animate-fade-in shadow-sm">
+                            <div className="mb-3 p-3 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/50 rounded-2xl flex items-start gap-2.5 animate-fade-in shadow-sm">
                                 <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0" />
-                                <div className="space-y-1 font-sans">
+                                <div className="space-y-1 font-sans min-w-0">
                                     <p className="text-xs font-semibold text-amber-900 dark:text-amber-300">
                                         Hãy đọc hoặc nhập lại câu sửa bên dưới để tiếp tục hội thoại:
                                     </p>
-                                    <p className="text-sm font-bold text-indigo-700 dark:text-cyan-300 font-japanese animate-pulse" dangerouslySetInnerHTML={{ __html: formatFurigana(pendingCorrection.corrected) }}>
+                                    <p className="text-sm font-bold text-indigo-700 dark:text-cyan-300 font-japanese animate-pulse truncate" dangerouslySetInnerHTML={{ __html: formatFurigana(pendingCorrection.corrected) }}>
                                     </p>
                                 </div>
                             </div>
@@ -1617,12 +1647,12 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
                         {/* Quick Suggestions label */}
                         {conversation.length > 0 && conversation[conversation.length - 1].sender === 'ai' && conversation[conversation.length - 1].suggestions?.length > 0 && (
-                            <p className="text-[10px] font-mono font-bold text-slate-400 dark:text-slate-500 tracking-wider mb-2">💡 GỢI Ý TRẢ LỜI:</p>
+                            <p className="text-[10px] font-mono font-bold text-slate-400 dark:text-slate-500 tracking-wider mb-1.5">💡 GỢI Ý TRẢ LỜI:</p>
                         )}
 
-                        {/* Quick suggestions pills */}
+                        {/* Quick suggestions pills (Mobile horizontal scrollable, Desktop flex-wrap, Touch Target min 48px) */}
                         {conversation.length > 0 && conversation[conversation.length - 1].sender === 'ai' && conversation[conversation.length - 1].suggestions?.length > 0 && (
-                            <div className="mb-4 flex flex-wrap gap-2">
+                            <div className="mb-3 flex gap-2 overflow-x-auto no-scrollbar pb-1 sm:pb-0 sm:flex-wrap">
                                 {conversation[conversation.length - 1].suggestions.map((sug, idx) => {
                                     const cleanText = sug.replace(/([\u4e00-\u9faf\u3005\u3400-\u4dbf]+)\[([^\]]+)\]/g, '$1');
                                     return (
@@ -1635,9 +1665,9 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                                 setInputText(cleanText);
                                             }}
                                             title={isAiSpeaking ? "Vui lòng chờ AI nói xong" : "Bấm để nghe phát âm mẫu (Dùng Mic / Phím Cách để nói)"}
-                                            className="px-3.5 py-2 rounded-xl border border-indigo-200 dark:border-cyan-800/60 bg-indigo-50/80 dark:bg-cyan-950/40 hover:bg-indigo-100 dark:hover:bg-cyan-900/60 hover:border-indigo-400 dark:hover:border-cyan-500 text-xs font-semibold text-indigo-700 dark:text-cyan-300 cursor-pointer font-japanese transition-all shadow-sm active:scale-95 flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none"
+                                            className="px-4 py-3 min-h-[48px] rounded-xl border border-indigo-200 dark:border-cyan-800/60 bg-indigo-50/80 dark:bg-cyan-950/40 hover:bg-indigo-100 dark:hover:bg-cyan-900/60 hover:border-indigo-400 dark:hover:border-cyan-500 text-xs font-semibold text-indigo-700 dark:text-cyan-300 cursor-pointer font-japanese transition-all shadow-sm active:scale-95 flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none shrink-0 sm:shrink whitespace-nowrap"
                                         >
-                                            <Volume1 className="w-3.5 h-3.5 text-indigo-500 dark:text-cyan-400 shrink-0" />
+                                            <Volume1 className="w-4 h-4 text-indigo-500 dark:text-cyan-400 shrink-0" />
                                             <span>{cleanText}</span>
                                         </button>
                                     );
@@ -1647,15 +1677,15 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
                         {/* Microphone live status HUD */}
                         {(isRecording || isTranscribing) && (
-                            <div className="mb-3 px-3.5 py-2 bg-indigo-50 dark:bg-slate-900 border border-indigo-200 dark:border-cyan-500/40 rounded-xl text-xs text-indigo-700 dark:text-cyan-300 flex items-center gap-2.5 font-mono shadow-sm">
+                            <div className="mb-3 px-3 py-2 bg-indigo-50 dark:bg-slate-900 border border-indigo-200 dark:border-cyan-500/40 rounded-xl text-xs text-indigo-700 dark:text-cyan-300 flex items-center gap-2 font-mono shadow-sm">
                                 <span className={`w-2.5 h-2.5 rounded-full bg-indigo-600 dark:bg-cyan-400 ${isRecording ? 'animate-ping' : 'animate-pulse'}`}></span>
                                 <span className="font-bold">{isRecording ? 'VAD RECOGNIZING:' : 'NEURAL WHISPER:'}</span> 
-                                <span className="italic font-japanese text-slate-700 dark:text-slate-200">{transcript || (isRecording ? 'Hãy nói tiếng Nhật...' : 'Đang xử lý giọng nói...')}</span>
+                                <span className="italic font-japanese text-slate-700 dark:text-slate-200 truncate">{transcript || (isRecording ? 'Hãy nói tiếng Nhật...' : 'Đang xử lý giọng nói...')}</span>
                             </div>
                         )}
 
-                        {/* Futuristic AI Voice Mic Control Center (Centered, Orb Effects) */}
-                        <div className="flex flex-col items-center justify-center gap-3 pt-2 pb-1">
+                        {/* Futuristic AI Voice Mic Control Center (Centered, Touch Target >= 64px) */}
+                        <div className="flex flex-col items-center justify-center gap-2 pt-1 pb-1">
                             {/* Micro Orb Control with Glowing Pulse Rings */}
                             <div className="relative flex items-center justify-center">
                                 {/* Outer Pulsing Wave Halo */}
@@ -1678,7 +1708,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                     onTouchEnd={stopRecording}
                                     onTouchCancel={stopRecording}
                                     disabled={isGenerating || isTranscribing || isAiSpeaking}
-                                    className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 select-none border-2 ${
+                                    className={`relative z-10 w-16 h-16 sm:w-20 sm:h-20 min-h-[64px] min-w-[64px] rounded-full flex items-center justify-center text-white shadow-2xl transition-all duration-300 select-none border-2 ${
                                         isAiSpeaking
                                             ? 'bg-slate-400 dark:bg-slate-700 border-slate-300 opacity-60 cursor-not-allowed'
                                             : isRecording 
@@ -1690,18 +1720,16 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                     title={isAiSpeaking ? "Vui lòng chờ AI nói xong" : (isHandsFree ? "VAD đang tự động nhận diện (Nhấn giữ/chạm để nói trực tiếp)" : "Nhấn giữ để nói, thả ra để gửi")}
                                 >
                                     {isRecording ? (
-                                        <MicOff className="w-7 h-7 animate-pulse text-white" />
+                                        <MicOff className="w-7 h-7 sm:w-8 sm:h-8 animate-pulse text-white" />
                                     ) : (
-                                        <Mic className="w-7 h-7 text-white" />
+                                        <Mic className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                                     )}
                                 </button>
-
-
                             </div>
 
                             {/* Dynamic Status Telemetry Label under Orb */}
                             <div className="text-center">
-                                <p className="text-xs font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 text-slate-700 dark:text-slate-300">
+                                <p className="text-[11px] sm:text-xs font-mono font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 text-slate-700 dark:text-slate-300">
                                     {isRecording ? (
                                         <span className="text-rose-600 dark:text-rose-400 flex items-center gap-1.5 animate-pulse">
                                             <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
@@ -1710,7 +1738,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                     ) : isTranscribing ? (
                                         <span className="text-cyan-600 dark:text-cyan-400 flex items-center gap-1.5 animate-pulse">
                                             <Cpu className="w-3.5 h-3.5 animate-spin-slow" />
-                                            ĐANG CHUYỂN GIỌNG NÓI THÀNH VĂN BẢN...
+                                            CHUYỂN GIỌNG NÓI THÀNH VĂN BẢN...
                                         </span>
                                     ) : isGenerating ? (
                                         <span className="text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5 animate-pulse">
@@ -1720,16 +1748,16 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                                     ) : isAiSpeaking ? (
                                         <span className="text-violet-600 dark:text-violet-400 flex items-center gap-1.5 animate-pulse">
                                             <Volume2 className="w-3.5 h-3.5 text-violet-500 animate-bounce" />
-                                            AI ĐANG NÓI... (VUI LÒNG CHỜ AI NÓI XONG)
+                                            AI ĐANG NÓI... (CHỜ AI NÓI XONG)
                                         </span>
                                     ) : isHandsFree ? (
                                         <span className="text-cyan-600 dark:text-cyan-400 flex items-center gap-1.5">
                                             <Radio className="w-3.5 h-3.5 text-cyan-500 animate-pulse" />
-                                            HANDS-FREE VAD: NÓI TRỰC TIẾP QUA MICRO
+                                            HANDS-FREE VAD: NÓI TRỰC TIẾP QUA MIC
                                         </span>
                                     ) : (
-                                        <span className="text-slate-500 dark:text-slate-400">
-                                            GIỮ CHUỘT / GIỮ PHÍM CÁCH ĐỂ NÓI • THẢ RA ĐỂ GỬI
+                                        <span className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs">
+                                            GIỮ NÚT MIC HOẶC PHÍM CÁCH ĐỂ NÓI • THẢ RA ĐỂ GỬI
                                         </span>
                                     )}
                                 </p>
@@ -1737,18 +1765,16 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
 
                             {/* Dual-mode usage hint */}
                             {!isRecording && !isTranscribing && !isGenerating && (
-                                <div className="flex items-center gap-3 text-[10px] font-mono text-slate-400 dark:text-slate-500 mt-1 flex-wrap justify-center">
-                                    <span className="flex items-center gap-1.5">
-                                        <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold">🖱 Chuột</span>
-                                        Nhấn giữ nút Mic
+                                <div className="flex items-center gap-2.5 text-[10px] font-mono text-slate-400 dark:text-slate-500 flex-wrap justify-center">
+                                    <span className="flex items-center gap-1">
+                                        <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold">Chạm / Mouse</span>
+                                        Giữ nút Mic
                                     </span>
                                     <span className="text-slate-300 dark:text-slate-600">•</span>
-                                    <span className="flex items-center gap-1.5">
+                                    <span className="flex items-center gap-1">
                                         <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold tracking-wider">SPACE</span>
-                                        Nhấn giữ Phím Cách
+                                        Giữ Phím Cách
                                     </span>
-                                    <span className="text-slate-300 dark:text-slate-600">→</span>
-                                    <span>Thả ra để gửi</span>
                                 </div>
                             )}
                         </div>

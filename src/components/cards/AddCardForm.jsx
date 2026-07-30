@@ -119,39 +119,39 @@ export const CardEditorItem = ({
     if (!isActive) {
         return (
             <div 
-                className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-lg cursor-pointer transition-all group flex items-start gap-4"
+                className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-lg cursor-pointer transition-all group flex items-start gap-3 sm:gap-4"
                 onClick={() => onActivate(card.id)}
             >
-                <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold text-sm shrink-0">
+                <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold text-xs sm:text-sm shrink-0">
                     {index + 1}
                 </div>
-                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
-                        <p className={`text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'}`}>
+                <div className="flex-1 grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-6">
+                    <div className="border-b border-slate-100 dark:border-slate-800 pb-1.5 sm:pb-2">
+                        <p className={`text-sm sm:text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
                             {card.front || (isEnglishMode ? 'Thuật ngữ (Tiếng Anh)' : 'Thuật ngữ (Tiếng Nhật)')}
                         </p>
-                        <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">THUẬT NGỮ</p>
+                        <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">THUẬT NGỮ</p>
                     </div>
-                    <div className="border-b border-slate-100 dark:border-slate-800 pb-2">
-                        <p className={`text-lg font-bold ${card.back ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'}`}>
+                    <div className="border-b border-slate-100 dark:border-slate-800 pb-1.5 sm:pb-2">
+                        <p className={`text-sm sm:text-lg font-bold ${card.back ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
                             {card.back || 'Định nghĩa (Tiếng Việt)'}
                         </p>
-                        <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">ĐỊNH NGHĨA</p>
+                        <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">ĐỊNH NGHĨA</p>
                     </div>
                 </div>
                 <button 
                     onClick={(e) => onDelete(e, card.id)} 
-                    className="p-2 text-slate-300 hover:text-red-500 dark:text-slate-600 dark:hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="p-1.5 text-slate-300 hover:text-red-500 dark:text-slate-600 dark:hover:text-red-400 opacity-80 sm:opacity-0 group-hover:opacity-100 transition-opacity min-h-[36px] min-w-[36px] flex items-center justify-center cursor-pointer"
                     title="Xóa thẻ"
                 >
-                    <Trash2 className="w-5 h-5" />
+                    <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
             </div>
         );
     }
 
     return (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-md border border-slate-200 dark:border-slate-800 transition-all relative space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-md border border-slate-200 dark:border-slate-800 transition-all relative space-y-4 sm:space-y-6">
             {/* Card Header Info */}
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/65 pb-4">
                 <div className="flex items-center gap-3">

@@ -62,59 +62,63 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
     if (!isOpen) return null;
 
     return createPortal(
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">
-            <div className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl border border-cyan-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in font-sans">
+            <div className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl border border-cyan-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[92dvh]">
                 
                 {/* Header */}
-                <div className="px-6 py-5 bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 text-white flex items-center justify-between">
+                <div className="px-4 sm:px-6 py-4 sm:py-5 bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 text-white flex items-center justify-between shrink-0">
                     <div className="flex items-center gap-3">
-                        <div className="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-amber-300 font-bold shadow-inner">
-                            <Trophy className="w-6 h-6 animate-bounce" />
+                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-amber-300 font-bold shadow-inner shrink-0">
+                            <Trophy className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" />
                         </div>
                         <div>
-                            <h2 className="text-lg sm:text-xl font-black flex items-center gap-2">
+                            <h2 className="text-base sm:text-xl font-black flex items-center gap-2">
                                 Báo Cáo Kaiwa HUD
                             </h2>
-                            <p className="text-xs text-cyan-100 font-mono">Đánh giá phản xạ & năng lực hội thoại</p>
+                            <p className="text-[11px] sm:text-xs text-cyan-100 font-mono">Đánh giá phản xạ & năng lực hội thoại</p>
                         </div>
                     </div>
-                    <button onClick={onClose} className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer">
+                    <button 
+                        onClick={onClose} 
+                        className="w-11 h-11 sm:w-10 sm:h-10 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors cursor-pointer select-none active:scale-95 shrink-0"
+                        title="Đóng báo cáo"
+                    >
                         <X className="w-5 h-5" />
                     </button>
                 </div>
 
                 {/* Body */}
-                <div className="flex-1 overflow-y-auto p-6 space-y-5">
+                <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-5 custom-scrollbar">
                     {loading ? (
-                        <div className="py-16 flex flex-col items-center justify-center space-y-4 text-center">
+                        <div className="py-12 sm:py-16 flex flex-col items-center justify-center space-y-4 text-center">
                             <div className="w-12 h-12 border-4 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin"></div>
                             <p className="text-xs font-bold font-mono text-cyan-600 dark:text-cyan-400">NEURAL AI IS ANALYZING YOUR KAIWA PERFORMANCE...</p>
                         </div>
                     ) : scoreData ? (
                         <>
-                            {/* Dual Score Cards */}
-                            <div className="grid grid-cols-2 gap-3">
-                                <div className="p-4 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-800/60 text-center space-y-1">
+                            {/* Dual Score Cards (1 col on 320px, 2 cols on sm) */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div className="p-3.5 sm:p-4 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-200 dark:border-cyan-800/60 text-center space-y-1">
                                     <span className="text-[10px] font-mono font-black text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">Trôi Chảy & Phản Xạ</span>
-                                    <div className="text-3xl font-black text-cyan-700 dark:text-cyan-300 font-mono">
-                                        {scoreData.fluencyScore}<span className="text-sm text-cyan-500">/100</span>
+                                    <div className="text-2xl sm:text-3xl font-black text-cyan-700 dark:text-cyan-300 font-mono">
+                                        {scoreData.fluencyScore}<span className="text-xs sm:text-sm text-cyan-500">/100</span>
                                     </div>
                                 </div>
 
-                                <div className="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-center space-y-1">
+                                <div className="p-3.5 sm:p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-center space-y-1">
                                     <span className="text-[10px] font-mono font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Ngữ Pháp & Ngữ Cảnh</span>
-                                    <div className="text-3xl font-black text-indigo-700 dark:text-indigo-300 font-mono">
-                                        {scoreData.grammarScore}<span className="text-sm text-indigo-500">/100</span>
+                                    <div className="text-2xl sm:text-3xl font-black text-indigo-700 dark:text-indigo-300 font-mono">
+                                        {scoreData.grammarScore}<span className="text-xs sm:text-sm text-indigo-500">/100</span>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Level badge */}
-                            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-transparent border border-emerald-500/20 flex items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200">
-                                <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-mono">
-                                    <Award className="w-4 h-4" /> Đạt Tiêu Chuẩn Trình Độ:
+                            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-transparent border border-emerald-500/20 flex items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200 gap-2">
+                                <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-mono truncate">
+                                    <Award className="w-4 h-4 shrink-0" /> Đạt Tiêu Chuẩn Trình Độ:
                                 </span>
-                                <span className="px-3 py-1 rounded-xl bg-emerald-500 text-white font-black font-mono">
+                                <span className="px-3 py-1 rounded-xl bg-emerald-500 text-white font-black font-mono shrink-0">
                                     {scoreData.vocabLevel}
                                 </span>
                             </div>
@@ -152,7 +156,7 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
                             )}
 
                             {/* Overall Feedback */}
-                            <div className="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 space-y-1">
+                            <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 space-y-1">
                                 <span className="text-[10px] font-mono font-bold text-slate-500 uppercase">Nhận Xét Tổng Thể Giám Khảo AI:</span>
                                 <p className="text-xs font-medium text-slate-700 dark:text-slate-300 leading-relaxed italic">
                                     "{scoreData.overallFeedback}"
@@ -163,11 +167,14 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
                 </div>
 
                 {/* Footer */}
-                <div className="px-6 py-4 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 flex justify-between items-center">
+                <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-slate-50 dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-2.5 shrink-0">
                     <span className="text-xs font-mono font-bold text-amber-500 flex items-center gap-1">
                         <Zap className="w-3.5 h-3.5 fill-amber-500" /> +150 XP Kaiwa Bonus
                     </span>
-                    <button onClick={onClose} className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 text-white text-xs font-extrabold shadow-md hover:scale-105 transition-all cursor-pointer">
+                    <button 
+                        onClick={onClose} 
+                        className="w-full sm:w-auto px-5 py-3 min-h-[48px] rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 text-white text-xs font-extrabold shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center select-none"
+                    >
                         Đã Hiểu & Lưu Kết Quả
                     </button>
                 </div>

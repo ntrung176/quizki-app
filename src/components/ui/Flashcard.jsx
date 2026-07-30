@@ -190,7 +190,7 @@ const Flashcard = ({
                     </div>
                 )}
                 {cardSettings.front.word && (
-                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} select-none leading-relaxed break-words max-w-full px-2 flex flex-col items-center justify-center gap-2`}>
+                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2 flex flex-col items-center justify-center gap-2`}>
                         {isEnglishCard ? (
                             <>
                                 <span>{card.front}</span>
@@ -201,17 +201,17 @@ const Flashcard = ({
                                 )}
                             </>
                         ) : (
-                            <FuriganaText text={card.frontWithFurigana || card.front} forceHide={!cardSettings.front.furigana} />
+                            <FuriganaText text={card.frontWithFurigana || card.front} forceHide={!cardSettings.front.furigana} className="break-words whitespace-normal text-center" />
                         )}
                     </div>
                 )}
                 {!isEnglishCard && !cardSettings.front.word && cardSettings.front.furigana && (
-                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed break-words max-w-full px-2`}>
-                        <FuriganaText text={card.frontWithFurigana || card.front} showReadingOnly={true} />
+                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2`}>
+                        <FuriganaText text={card.frontWithFurigana || card.front} showReadingOnly={true} className="break-words whitespace-normal text-center" />
                     </div>
                 )}
                 {!isEnglishCard && cardSettings.front.hanviet && card.sinoVietnamese && (
-                    <p className={`${hanvietColorClass} text-[15px] md:text-base font-bold`}>
+                    <p className={`${hanvietColorClass} text-[15px] md:text-base font-bold break-words`}>
                         <span className={variant === 'review' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
                     </p>
                 )}
@@ -249,7 +249,7 @@ const Flashcard = ({
             const cardPitchParts = card.pitch || (card.accent !== undefined && card.accent !== null && card.accent !== '' ? accentNumberToPitchParts(finalReading, card.accent) : null);
             const pitchParts = cardPitchParts || pitchData?.pitch || null;
             if (!finalReading) {
-                return <FuriganaText text={text} showReadingOnly={true} />;
+                return <FuriganaText text={text} showReadingOnly={true} className="break-words whitespace-normal text-center" />;
             }
 
             const readingChars = [...finalReading];
@@ -267,7 +267,7 @@ const Flashcard = ({
                 const lineColor = '#ef4444'; // Standard NHK Red
 
                 return (
-                    <span className="font-japanese inline-flex items-end gap-0">
+                    <span className="font-japanese inline-flex items-end gap-0 flex-wrap justify-center break-words max-w-full">
                         {readingChars.map((char, ci) => {
                             const pm = charPitchMap[ci];
                             const isHigh = pm ? pm.high : false;
@@ -303,7 +303,7 @@ const Flashcard = ({
                 );
             } else {
                 return (
-                    <span className={`font-japanese ${readingColorClass}`}>
+                    <span className={`font-japanese ${readingColorClass} break-words whitespace-normal`}>
                         {finalReading}
                     </span>
                 );
@@ -342,7 +342,7 @@ const Flashcard = ({
                         )
                     ) : (
                         cardSettings.back.reading && (
-                            <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full px-2`}>
+                            <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
                                 {renderReadingWithPitchAccent()}
                                 {card.pos && (
                                     <span className={variant === 'review' ? 

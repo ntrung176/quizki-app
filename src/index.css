@@ -65,7 +65,20 @@ textarea.font-japanese {
   line-height: normal !important;
 }
 
+/* Safari WebKit touch responsiveness & GPU hardware acceleration */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
+button, a, [role="button"], input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Hardware-accelerated backdrop-blur for Safari to prevent WebKit thread locking */
+[class*="backdrop-blur"] {
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateZ(0);
+}
 /* Ruby / Furigana annotations */
 ruby {
   ruby-align: center;

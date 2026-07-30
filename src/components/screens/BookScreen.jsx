@@ -1764,7 +1764,7 @@ const BookScreen = ({
                     </div>
                 )}
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6">
                     {filteredGroups.map(group => {
                         const progress = getGroupProgress(group);
                         const category = getGroupCategory(group);
@@ -1779,43 +1779,43 @@ const BookScreen = ({
                         return (
                             <div
                                 key={group.id}
-                                className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-all duration-300 cursor-pointer flex flex-col group"
+                                className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-all duration-300 cursor-pointer flex flex-col group"
                                 onClick={() => navigateTo({ group: group.id })}
                             >
                                 {group.imageUrl ? (
-                                    <div className="h-44 overflow-hidden relative">
+                                    <div className="h-32 sm:h-44 overflow-hidden relative">
                                         <img
                                             src={group.imageUrl}
                                             alt={group.name}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute top-4 left-4 flex gap-1.5">
-                                            <span className={`px-2.5 py-1 text-[9px] font-black uppercase tracking-wider rounded-lg shadow-sm ${
+                                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex gap-1.5">
+                                            <span className={`px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-black uppercase tracking-wider rounded-lg shadow-sm ${
                                                 isJLPT ? 'bg-sky-500 text-white' : isTextbook ? 'bg-indigo-500 text-white' : 'bg-emerald-500 text-white'
                                             }`}>
                                                 {badgeText}
                                             </span>
                                             {levelBadge && (
-                                                <span className="px-2.5 py-1 text-[9px] font-black uppercase tracking-wider rounded-lg shadow-sm bg-slate-900/80 text-white backdrop-blur-sm">
+                                                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-black uppercase tracking-wider rounded-lg shadow-sm bg-slate-900/80 text-white backdrop-blur-sm">
                                                     {levelBadge}
                                                 </span>
                                             )}
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="h-44 bg-gradient-to-br from-slate-100 to-slate-200/50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center relative">
-                                        <BookOpen className="w-12 h-12 text-slate-400 opacity-40" />
-                                        <div className="absolute top-4 left-4 flex gap-1.5">
-                                            <span className="px-2.5 py-1 text-[9px] font-black uppercase tracking-wider bg-slate-400 text-white rounded-lg shadow-sm">
+                                    <div className="h-32 sm:h-44 bg-gradient-to-br from-slate-100 to-slate-200/50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center relative">
+                                        <BookOpen className="w-8 h-8 sm:w-12 sm:h-12 text-slate-400 opacity-40" />
+                                        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex gap-1.5">
+                                            <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-black uppercase tracking-wider bg-slate-400 text-white rounded-lg shadow-sm">
                                                 {badgeText}
                                             </span>
                                         </div>
                                     </div>
                                 )}
-                                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                                    <div className="space-y-1.5">
-                                        <div className="flex items-start justify-between gap-4">
-                                            <h2 className="text-xl font-bold text-slate-800 dark:text-white leading-tight group-hover:text-sky-500 transition-colors">
+                                <div className="p-3.5 sm:p-6 flex-1 flex flex-col justify-between space-y-3 sm:space-y-4">
+                                    <div className="space-y-1">
+                                        <div className="flex items-start justify-between gap-2">
+                                            <h2 className="text-base sm:text-xl font-bold text-slate-800 dark:text-white leading-tight group-hover:text-sky-500 transition-colors">
                                                 {group.name}
                                             </h2>
                                             {isAdmin && (
@@ -1832,13 +1832,13 @@ const BookScreen = ({
                                             )}
                                         </div>
                                         {group.subtitle && (
-                                            <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">
+                                            <p className="text-xs sm:text-sm text-slate-400 dark:text-slate-500 font-medium line-clamp-2">
                                                 {group.subtitle}
                                             </p>
                                         )}
                                     </div>
-                                    <div className="space-y-2 pt-2">
-                                        <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
+                                    <div className="space-y-1.5 pt-1 sm:pt-2">
+                                        <div className="flex items-center justify-between text-[11px] sm:text-xs font-bold text-slate-600 dark:text-slate-300">
                                             <span>{t('books.progress', 'Tiến độ')}</span>
                                             <span className="text-sky-500 font-extrabold">{progress}%</span>
                                         </div>

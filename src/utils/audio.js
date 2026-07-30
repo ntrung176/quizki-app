@@ -405,6 +405,18 @@ const speakWithWebSpeech = (text) => {
 
 // ============== MAIN TTS FUNCTION ==============
 
+export const safeCancelSpeechSynthesis = () => {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        try {
+            if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+                setTimeout(() => {
+                    try { window.speechSynthesis.cancel(); } catch (e) {}
+                }, 0);
+            }
+        } catch (e) {}
+    }
+};
+
 const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
     return new Promise(async (resolve) => {
         let isResolved = false;
@@ -426,7 +438,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
         const cleanText = extractReadingText(text);
         if (!cleanText) return safeResolve();
 
-        if (window.speechSynthesis) window.speechSynthesis.cancel();
+        safeCancelSpeechSynthesis();
 
         const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
         const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
@@ -506,7 +518,7 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
             } catch (e) {}
             currentAudioObj = null;
         }
-        if (window.speechSynthesis) window.speechSynthesis.cancel();
+        safeCancelSpeechSynthesis();
 
         if (base64Data && text && !isAudioCleaned) {
             const match = text.match(/[（(]([^）)]+)[）)]/);
