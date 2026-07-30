@@ -491,7 +491,7 @@ const SRSVocabScreen = ({
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
-        setReviewModeState(true);
+        setReviewMode(true);
         if (setIsReviewActive) {
             setIsReviewActive(true);
         }
@@ -842,7 +842,7 @@ const SRSVocabScreen = ({
                 setTimeout(checkPendingAndExit, 100);
                 return;
             }
-            setReviewModeState(false);
+            setReviewMode(false);
             if (setIsReviewActive) {
                 setIsReviewActive(false);
             }
