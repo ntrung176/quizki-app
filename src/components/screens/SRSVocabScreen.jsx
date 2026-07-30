@@ -350,6 +350,7 @@ const SRSVocabScreen = ({
 
     // Calculate comprehensive stats for each folder (including completed ones)
     const folderStats = useMemo(() => {
+        if (reviewMode) return [];
         const stats = {};
 
         // Initialize stats for all folders
@@ -423,7 +424,7 @@ const SRSVocabScreen = ({
                 }
                 return b.total - a.total;
             });
-    }, [allCards, folders, cardFolders, dashboardTick]);
+    }, [allCards, folders, cardFolders, dashboardTick, reviewMode]);
 
     useEffect(() => {
         if (vocabSetStartIndex >= folderStats.length) {
@@ -435,6 +436,7 @@ const SRSVocabScreen = ({
     const savedSessionInfo = null;
 
     const nextDueVocabInfo = useMemo(() => {
+        if (reviewMode) return null;
         const now = dashboardTick;
         let earliest = Infinity;
         allCards.forEach(c => {
@@ -455,7 +457,7 @@ const SRSVocabScreen = ({
             }
         });
         return earliest === Infinity ? null : earliest;
-    }, [allCards, dashboardTick]);
+    }, [allCards, dashboardTick, reviewMode]);
 
     const countdownText = useMemo(() => {
         if (!nextDueVocabInfo) return null;

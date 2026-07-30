@@ -1329,6 +1329,14 @@ const App = () => {
     }, [dailyActivityLogs]);
 
     const dueCounts = useMemo(() => {
+        if (isReviewActive) {
+            return {
+                mixed: 0, flashcard: 0, back: 0, synonym: 0, example: 0, study: 0,
+                old: { mixed: 0, back: 0, synonym: 0, example: 0 },
+                new: { mixed: 0, back: 0, synonym: 0, example: 0 },
+                grammar: { mixed: 0, back: 0, synonym: 0, example: 0 }
+            };
+        }
         const now = Date.now();
 
         const isDue = (card) => {
@@ -1464,7 +1472,7 @@ const App = () => {
             new: { mixed: newMixed, back: newBack, synonym: newSynonym, example: newExample },
             grammar: { mixed: grammarMixed, back: grammarBack, synonym: grammarSynonym, example: grammarExample }
         };
-    }, [allCards]);
+    }, [allCards, isReviewActive]);
 
     const prepareReviewCards = useCallback((mode = 'back', category = 'all') => {
         const today = new Date();

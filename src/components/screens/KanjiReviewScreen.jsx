@@ -152,18 +152,29 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return () => unsubSrs();
     }, [userId]);
 
+    const kanjiMap = useMemo(() => {
+        const map = new Map();
+        (kanjiList || []).forEach(k => {
+            if (k.id) map.set(k.id, k);
+            if (k.character) map.set(k.character, k);
+        });
+        return map;
+    }, [kanjiList]);
+
     const dueKanji = useMemo(() => {
+        if (reviewMode) return [];
         const now = dashboardTick;
         return kanjiList.filter(k => {
             const srs = srsData[k.id];
             if (!srs) return false;
             return isSrsCardDue(srs, now);
         });
-    }, [kanjiList, srsData, dashboardTick]);
+    }, [kanjiList, srsData, dashboardTick, reviewMode]);
 
     const savedSessionInfo = null;
 
     const stats = useMemo(() => {
+        if (reviewMode) return { dueToday: 0, newCards: 0, learning: 0, shortTerm: 0, longTerm: 0, expert: 0, totalReps: 0, totalReviewed: 0, daysStudied: 0, kanjiLearned: 0, streak: 0 };
         const now = Date.now();
         let hasNoSRS = 0, learning = 0, shortTerm = 0, longTerm = 0, expert = 0;
         let totalReps = 0;
@@ -171,7 +182,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         Object.entries(srsData).forEach(([id, srs]) => {
             if (!srs) return;
-            const kanjiDoc = kanjiList.find(k => k.id === id || k.character === id);
+            const kanjiDoc = kanjiMap.get(id);
             const char = kanjiDoc?.character || (id.length === 1 ? id : '?');
             if (char === '?') return;
 
@@ -226,9 +237,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             totalReps, totalReviewed: Object.keys(srsData).length - hasNoSRS,
             daysStudied: reviewDays.size, kanjiLearned: Object.keys(srsData).length, streak,
         };
-    }, [kanjiList, srsData, dueKanji]);
+    }, [kanjiMap, srsData, dueKanji, reviewMode]);
 
     const chartData = useMemo(() => {
+        if (reviewMode) return [];
         const days = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
         const result = [];
         const now = new Date();
@@ -252,7 +264,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
             });
         }
         return result;
-    }, [srsData]);
+    }, [srsData, reviewMode]);
 
     const [nextReviewText, setNextReviewText] = useState(null);
     const [isNextReviewCountdown, setIsNextReviewCountdown] = useState(false);
