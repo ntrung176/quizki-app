@@ -104,14 +104,16 @@ const SRSVocabScreen = ({
     }, [allCards, targetLanguage]);
 
     const [dashboardTick, setDashboardTick] = useState(Date.now());
+    const reviewModeTickRef = useRef(false);
     useEffect(() => {
         // Pause dashboard tick during review mode to avoid expensive useMemo recalculations on mobile
-        if (reviewMode) return;
         const intervalId = setInterval(() => {
-            setDashboardTick(Date.now());
+            if (!reviewModeTickRef.current) {
+                setDashboardTick(Date.now());
+            }
         }, 1000);
         return () => clearInterval(intervalId);
-    }, [reviewMode]);
+    }, []);
     const [vocabSetStartIndex, setVocabSetStartIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const [animationDirection, setAnimationDirection] = useState('');
@@ -300,6 +302,10 @@ const SRSVocabScreen = ({
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
     const [reviewMode, setReviewModeState] = useState(false);
+    const setReviewMode = (val) => {
+        reviewModeTickRef.current = val;
+        setReviewModeState(val);
+    };
     const [reviewHistory, setReviewHistory] = useState([]);
     const sessionXpRef = useRef(0);
     const completedCardIds = useRef(new Set());
