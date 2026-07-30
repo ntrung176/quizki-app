@@ -153,7 +153,8 @@ const BookScreen = ({
     onDeleteFolder,
     onAddFolder,
     onMoveStudySetToParentFolder,
-    profile = null
+    profile = null,
+    awardXP = null
 }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
@@ -358,6 +359,9 @@ const BookScreen = ({
             const next = new Set(prev);
             if (!next.has(index)) {
                 next.add(index);
+                if (awardXP) {
+                    awardXP(10);
+                }
                 const arr = [...next];
                 // Save to localStorage immediately (fast cache)
                 if (lessonPersistKey) {

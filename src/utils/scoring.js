@@ -40,6 +40,19 @@ export const getTranslatedLeagueName = (league, t) => {
     return league;
 };
 
+// Helper to format scores with K notation (e.g. 1250 -> 1.3K, 15500 -> 15.5K)
+export const formatScore = (num) => {
+    if (num === null || num === undefined || isNaN(num)) return '0';
+    const val = Number(num);
+    if (val < 1000) return String(val);
+    if (val < 1000000) {
+        const formatted = (val / 1000).toFixed(1);
+        return formatted.endsWith('.0') ? `${Math.floor(val / 1000)}K` : `${formatted}K`;
+    }
+    const formatted = (val / 1000000).toFixed(1);
+    return formatted.endsWith('.0') ? `${Math.floor(val / 1000000)}M` : `${formatted}M`;
+};
+
 // Points configuration
 export const POINTS = {
     // Initial learning/practice modes
@@ -62,6 +75,22 @@ export const POINTS = {
         easy: 60
     },
 
+    // New Features & Additional Modes
+    JLPT_TEST: {
+        correct_question: 10,
+        test_completion_bonus: 100
+    },
+    AI_KAIWA: {
+        session_completion: 50
+    },
+    BOOK_LESSON: {
+        lesson_completion: 20
+    },
+    STUDY_SET: {
+        card_learned: 10,
+        set_completion_bonus: 50
+    },
+
     // Promotion bonuses
     PROMOTION: {
         to_learning: 10,
@@ -75,7 +104,7 @@ export const POINTS = {
     MAX_STREAK_BONUS: 100,
 
     // Anti-spam limits
-    DAILY_LIMIT: 1500,
+    DAILY_LIMIT: Infinity, // Unlimited XP per day for dedicated learners!
     MIN_TIME_THRESHOLD_MS: 1500
 };
 
@@ -188,34 +217,55 @@ export const generateSimulatedLeague = (userId, weekId, userScore) => {
 
 // Dynamic Promotion/Demotion rules based on active user counts (ideal for small user bases)
 export const getLeagueTierRules = (leagueName, totalParticipants) => {
+    let minScoreForPromotion = 1000;
+    let minScoreForSuperPromotion = 5000;
+    let minScoreForSafety = 30;
+    let minScoreForGraceProtection = 500;
+
     if (leagueName === 'Sắt' || leagueName === 'Đồng') {
-        return {
-            minScoreForPromotion: 100, // Phải đạt tối thiểu 100 điểm để thăng hạng
-            minScoreForSafety: 20,     // Dưới 20 điểm hoặc đứng chót sẽ xuống hạng
-            promoteCount: 5,
-            demoteCount: leagueName === 'Sắt' ? 0 : 5,
-            isBotEnabled: false
-        };
+        minScoreForPromotion = 1000; // >= 1Kđ để lên Bạc
+        minScoreForSuperPromotion = 5000; // >= 5Kđ Thần Tốc nhảy thẳng lên Vàng
+        minScoreForSafety = 20;
+        minScoreForGraceProtection = 500;
+    } else if (leagueName === 'Bạc') {
+        minScoreForPromotion = 1000;
+        minScoreForSuperPromotion = 10000; // >= 10Kđ Thần Tốc nhảy thẳng lên Kim Cương
+        minScoreForSafety = 50;
+        minScoreForGraceProtection = 800;
+    } else if (leagueName === 'Vàng') {
+        minScoreForPromotion = 5000;
+        minScoreForSuperPromotion = 30000; // >= 30Kđ Thần Tốc nhảy thẳng lên Huyền Thoại
+        minScoreForSafety = 100;
+        minScoreForGraceProtection = 1500;
+    } else if (leagueName === 'Kim Cương') {
+        minScoreForPromotion = 10000;
+        minScoreForSuperPromotion = 30000; // >= 30Kđ Thăng hạng lên Huyền Thoại
+        minScoreForSafety = 200;
+        minScoreForGraceProtection = 3000;
+    } else { // Huyền Thoại
+        minScoreForPromotion = 30000;
+        minScoreForSuperPromotion = 30000;
+        minScoreForSafety = 300;
+        minScoreForGraceProtection = 5000;
     }
 
-    // For Bạc and above (real users only):
-    // Promote count based on N (totalParticipants)
     let promoteCount = 1;
     if (totalParticipants > 20) promoteCount = 5;
     else if (totalParticipants > 10) promoteCount = 3;
     else if (totalParticipants > 5) promoteCount = 2;
 
-    // Demote count based on N
     let demoteCount = 0;
     if (totalParticipants > 25) demoteCount = 5;
     else if (totalParticipants > 15) demoteCount = 2;
     else if (totalParticipants > 8) demoteCount = 1;
 
     return {
-        minScoreForPromotion: 200, // Phải đạt tối thiểu 200 điểm mới được thăng hạng
-        minScoreForSafety: 30,     // Dưới 30 điểm sẽ bị tự động xuống hạng (coi như không hoạt động)
+        minScoreForPromotion,
+        minScoreForSuperPromotion,
+        minScoreForSafety,
+        minScoreForGraceProtection,
         promoteCount,
-        demoteCount,
+        demoteCount: leagueName === 'Đồng' ? 0 : demoteCount,
         isBotEnabled: false
     };
 };

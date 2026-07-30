@@ -857,19 +857,31 @@ const App = () => {
                     allParticipants.sort((a, b) => b.computedScore - a.computedScore);
 
                     const myRank = allParticipants.findIndex(p => p.id === userId) + 1;
-                    const currentIdx = LEAGUES.indexOf(userLeague);
+                    const currentIdx = LEAGUES.indexOf(userLeague) !== -1 ? LEAGUES.indexOf(userLeague) : 0;
 
                     const tierRules = getLeagueTierRules(prevLeague, allParticipants.length);
 
+                    const qualifiesForSuperPromotion = prevScore >= (tierRules.minScoreForSuperPromotion || 1500);
                     const qualifiesForPromotion = prevScore >= tierRules.minScoreForPromotion;
                     const isInPromotionRank = myRank <= tierRules.promoteCount;
-                    const isPromoted = isInPromotionRank && qualifiesForPromotion && currentIdx < LEAGUES.length - 1;
+
+                    // Super Promotion jumps 2 levels (e.g. Đồng -> Vàng, Bạc -> Kim Cương)
+                    const isSuperPromoted = qualifiesForSuperPromotion && currentIdx < LEAGUES.length - 1;
+                    const isPromoted = !isSuperPromoted && isInPromotionRank && qualifiesForPromotion && currentIdx < LEAGUES.length - 1;
 
                     const isUnderSafetyScore = prevScore < tierRules.minScoreForSafety;
                     const isInDemotionRank = tierRules.demoteCount > 0 && myRank > allParticipants.length - tierRules.demoteCount;
-                    const isDemoted = (prevLeague !== 'Sắt' && currentIdx > 0) && (isUnderSafetyScore || isInDemotionRank);
+                    const isProtectedByGrace = prevScore >= (tierRules.minScoreForGraceProtection || 300);
 
-                    if (isPromoted) {
+                    // Demotion only occurs if not protected by grace period
+                    const isDemoted = (prevLeague !== 'Sắt' && prevLeague !== 'Đồng' && currentIdx > 0) 
+                        && (isUnderSafetyScore || (isInDemotionRank && !isProtectedByGrace));
+
+                    if (isSuperPromoted) {
+                        const jumpLevels = Math.min(2, LEAGUES.length - 1 - currentIdx);
+                        userLeague = LEAGUES[currentIdx + jumpLevels];
+                        leagueNotification = `🚀 XUẤT SẮC! Tuần trước bạn đạt ${formatScore(prevScore)} điểm (vượt mốc Thần Tốc) và được THĂNG HẠNG VƯỢT CẤP từ League ${LEAGUES[currentIdx]} lên League ${userLeague}!`;
+                    } else if (isPromoted) {
                         userLeague = LEAGUES[currentIdx + 1];
                         leagueNotification = `🎉 Tuyệt vời! Tuần trước bạn đạt Hạng ${myRank} ở League ${LEAGUES[currentIdx]} và được THĂNG HẠNG lên League ${userLeague}!`;
                     } else if (isDemoted) {
@@ -879,6 +891,8 @@ const App = () => {
                         } else {
                             leagueNotification = `⚠️ Rất tiếc! Tuần trước bạn đứng Hạng ${myRank}/${allParticipants.length} và đã bị XUỐNG HẠNG xuống League ${userLeague}. Hãy cố gắng thêm tuần này nhé!`;
                         }
+                    } else if (isInDemotionRank && isProtectedByGrace) {
+                        leagueNotification = `🛡️ BẢO VỆ THÀNH CÔNG! Dù đứng nhóm cuối nhưng nhờ đạt ${formatScore(prevScore)} điểm (trên mức an toàn ${tierRules.minScoreForGraceProtection}đ), bạn được giữ lại League ${userLeague}!`;
                     } else if (isInPromotionRank && !qualifiesForPromotion) {
                         leagueNotification = `📅 Tuần mới bắt đầu! Dù đứng Hạng ${myRank} nhưng điểm vinh danh của bạn (${prevScore}) chưa đủ tối thiểu (${tierRules.minScoreForPromotion} điểm) để thăng hạng. Bạn tiếp tục ở lại League ${userLeague}.`;
                     } else {

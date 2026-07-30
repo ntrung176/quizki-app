@@ -61,7 +61,7 @@ import {
 
 
 // Wrapper for StudySetDetail
-const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs, handleGeminiAssist, canUserUseAI }) => {
+const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs, handleGeminiAssist, canUserUseAI, awardXP }) => {
     const { id } = useParams();
     
     React.useEffect(() => {
@@ -78,6 +78,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
     }, [id]);
     
     const handleStudySet = (setId, customCards) => {
+        if (awardXP) awardXP(25);
         const targetId = setId || id;
         const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
@@ -87,6 +88,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
     };
 
     const handleFlashcardSet = (setId, customCards) => {
+        if (awardXP) awardXP(20);
         const targetId = setId || id;
         const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
@@ -97,6 +99,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
     };
 
     const handleMeaningSet = (setId, customCards) => {
+        if (awardXP) awardXP(20);
         const targetId = setId || id;
         const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
@@ -110,6 +113,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
     };
 
     const handleDictationSet = (setId, customCards) => {
+        if (awardXP) awardXP(25);
         const targetId = setId || id;
         const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
@@ -123,6 +127,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
     };
 
     const handleExampleSet = (setId) => {
+        if (awardXP) awardXP(20);
         const setCards = id === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === id);
@@ -141,6 +146,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
     };
 
     const handleSynonymQuiz = (setId) => {
+        if (awardXP) awardXP(20);
         const setCards = id === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === id);
@@ -680,6 +686,7 @@ const AppRoutes = ({
                                 onToggleSrs={onToggleSrs}
                                 handleGeminiAssist={handleGeminiAssist}
                                 canUserUseAI={canUserUseAI}
+                                awardXP={awardXP}
                             />
                         </ProtectedRoute>
                     }
@@ -1151,6 +1158,7 @@ const AppRoutes = ({
                                 onAddFolder={onAddFolder}
                                 onMoveStudySetToParentFolder={onMoveStudySetToParentFolder}
                                 profile={profile}
+                                awardXP={awardXP}
                             />
                         </ProtectedRoute>
                     }
@@ -1307,6 +1315,7 @@ const AppRoutes = ({
                                 allCards={allCards} 
                                 profile={profile} 
                                 userId={userId}
+                                awardXP={awardXP}
                             />
                         </ProtectedRoute>
                     }
@@ -1321,6 +1330,7 @@ const AppRoutes = ({
                                 <JLPTKaiwaScreen 
                                     profile={profile} 
                                     isAdmin={isAdmin} 
+                                    awardXP={awardXP}
                                 />
                             ) : (
                                 <div className="w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden bg-slate-50/50 dark:bg-slate-900/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">

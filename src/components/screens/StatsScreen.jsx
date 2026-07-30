@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkle, Cpu, ChevronDown, ChevronUp, FileText } from 'lucide-react'
-import { collection, query, onSnapshot } from 'firebase/firestore';
+import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkle, Cpu, ChevronDown, ChevronUp, FileText, Zap } from 'lucide-react';
+import { collection, query, onSnapshot, getDocs, doc, writeBatch } from 'firebase/firestore';
 import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { SafeAvatarImage } from '../ui';
 import { isKanjiMastered, isSrsCardDue, isVocabCardMastered } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
-import { getLevelFromXp, getLevelTitle, getTranslatedLeagueName, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules } from '../../utils/scoring';
+import { getLevelFromXp, getLevelTitle, getTranslatedLeagueName, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules, formatScore } from '../../utils/scoring';
 import { useLanguage } from '../../context/LanguageContext';
+import { showToast } from '../../utils/toast';
 
 // Avatar emoji lookup
 const AVATAR_EMOJIS = {
@@ -98,6 +99,71 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     });
     const [timeLeft, setTimeLeft] = useState('');
     const [showRules, setShowRules] = useState(false);
+    const [isRebalancing, setIsRebalancing] = useState(false);
+
+    // Instant Rebalance Function for Admin/User to re-sort all participants into proper leagues
+    const handleRebalanceLeagues = async () => {
+        const ok = await window.showConfirm?.(
+            "Bạn có chắc chắn muốn phân cấp và sắp xếp lại tất cả người học vào các League (Đồng, Bạc, Vàng, Kim Cương, Huyền Thoại) dựa trên điểm số XP hiện tại ngay bây giờ không?",
+            { title: "⚡ Sắp Xếp Lại Bảng Đấu", type: "warning" }
+        ) ?? confirm("Bạn có chắc chắn muốn phân cấp và sắp xếp lại tất cả người học vào các League theo điểm số XP hiện tại ngay bây giờ không?");
+
+        if (!ok) return;
+
+        setIsRebalancing(true);
+        try {
+            if (!publicStatsPath || !db) return;
+            const q = query(collection(db, publicStatsPath));
+            const snap = await getDocs(q);
+            const users = [];
+
+            snap.docs.forEach(d => {
+                const data = d.data();
+                const score = computeScore({ ...data, id: d.id });
+                users.push({ id: d.id, ref: d.ref, score, displayName: data.displayName || 'Học viên' });
+            });
+
+            // Sort users by computed score descending
+            users.sort((a, b) => b.score - a.score);
+            const total = users.length;
+
+            const batch = writeBatch(db);
+
+            users.forEach((u) => {
+                let newLeague = 'Đồng';
+
+                // Categorize strictly by user's requested XP thresholds
+                if (u.score >= 30000) {
+                    newLeague = 'Huyền Thoại';
+                } else if (u.score >= 10000) {
+                    newLeague = 'Kim Cương';
+                } else if (u.score >= 5000) {
+                    newLeague = 'Vàng';
+                } else if (u.score >= 1000) {
+                    newLeague = 'Bạc';
+                } else {
+                    newLeague = 'Đồng';
+                }
+
+                // Update publicStats document
+                batch.update(u.ref, { league: newLeague });
+
+                // Update user settings profile document if present
+                try {
+                    const userProfileRef = doc(db, `artifacts/${appId}/users/${u.id}/settings/profile`);
+                    batch.update(userProfileRef, { league: newLeague });
+                } catch (e) {}
+            });
+
+            await batch.commit();
+            showToast("✅ Đã phân cấp và sắp xếp lại toàn bộ Hạng đấu thành công!", "success");
+        } catch (err) {
+            console.error("Lỗi khi sắp xếp lại bảng đấu:", err);
+            showToast("Lỗi khi sắp xếp lại bảng đấu: " + err.message, "error");
+        } finally {
+            setIsRebalancing(false);
+        }
+    };
 
     // Sync selected league when profile updates
     useEffect(() => {
@@ -519,28 +585,43 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         if (!searchTerm.trim()) {
             const tierRules = getLeagueTierRules(selectedLeague, leagueParticipants.length);
             
-            if (rank <= tierRules.promoteCount) {
+            const isSuperPromo = user.computedScore >= (tierRules.minScoreForSuperPromotion || 1500);
+
+            if (isSuperPromo && selectedLeague !== 'Huyền Thoại') {
+                zoneBadge = (
+                    <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-md animate-pulse" title="Đạt điểm số kỷ lục! Thăng hạng vượt cấp 2 bậc">
+                        🚀 THẦN TỐC (NHẢY HẠNG)
+                    </span>
+                );
+            } else if (rank <= tierRules.promoteCount) {
                 if (user.computedScore >= tierRules.minScoreForPromotion) {
                     zoneBadge = (
-                        <span className="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-emerald-100/30 dark:border-emerald-900/30 shadow-sm animate-pulse">
+                        <span className="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-emerald-100/30 dark:border-emerald-900/30 shadow-sm">
                             {t('leaderboard.rankPromote', '▲ THĂNG HẠNG')}
                         </span>
                     );
                 } else {
                     zoneBadge = (
                         <span className="bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-amber-100/30 dark:border-amber-900/30 shadow-sm" title={`Cần tối thiểu ${tierRules.minScoreForPromotion} điểm vinh danh để thăng hạng`}>
-                            {t('leaderboard.rankScoreLocked', '🔒 THIẾU ĐIỂM')} ({user.computedScore}/{tierRules.minScoreForPromotion})
+                            {t('leaderboard.rankScoreLocked', '🔒 THIẾU ĐIỂM')} ({formatScore(user.computedScore)}/{formatScore(tierRules.minScoreForPromotion)})
                         </span>
                     );
                 }
-            } else if (selectedLeague !== 'Sắt') {
+            } else if (selectedLeague !== 'Sắt' && selectedLeague !== 'Đồng') {
                 const isUnderSafetyScore = user.computedScore < tierRules.minScoreForSafety;
                 const isInDemotionRank = tierRules.demoteCount > 0 && rank > leagueParticipants.length - tierRules.demoteCount;
+                const isProtectedByGrace = user.computedScore >= (tierRules.minScoreForGraceProtection || 300);
                 
                 if (isUnderSafetyScore) {
                     zoneBadge = (
                         <span className="bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-450 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-rose-100/30 dark:border-rose-900/30 shadow-sm" title={`Điểm vinh danh dưới ${tierRules.minScoreForSafety} sẽ bị tự động xuống hạng`}>
                             {t('leaderboard.rankDemoteInactive', '▼ XUỐNG HẠNG (ÍT HỌC)')}
+                        </span>
+                    );
+                } else if (isInDemotionRank && isProtectedByGrace) {
+                    zoneBadge = (
+                        <span className="bg-cyan-50 dark:bg-cyan-950/30 text-cyan-700 dark:text-cyan-400 text-[9px] font-black px-1.5 py-0.5 rounded-full flex items-center gap-0.5 border border-cyan-200/50 dark:border-cyan-800/40 shadow-sm" title="Học tập chăm chỉ đạt điểm an toàn! Được bảo vệ không rớt hạng">
+                            🛡️ BẢO VỆ (HỌC CHĂM)
                         </span>
                     );
                 } else if (isInDemotionRank) {
@@ -563,10 +644,10 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 : rank === 3 ? <Medal className="w-5 h-5 text-amber-600 fill-amber-100 dark:fill-amber-900/30" />
                     : <span className="text-xs font-bold text-gray-400 dark:text-gray-500 w-5 text-center">{rank}</span>;
 
-        const scoreToShow = sortBy === 'vocab' ? `${user.totalCards || 0} từ`
-            : sortBy === 'kanji' ? `${user.kanjiTotal || 0} kanji`
-                : sortBy === 'streak' ? `${user.streak || 0} ngày`
-                    : `${user.computedScore} điểm`;
+        const scoreToShow = sortBy === 'vocab' ? `${formatScore(user.totalCards || 0)} từ`
+            : sortBy === 'kanji' ? `${formatScore(user.kanjiTotal || 0)} kanji`
+                : sortBy === 'streak' ? `${formatScore(user.streak || 0)} ngày`
+                    : `${formatScore(user.computedScore)} điểm`;
 
         const scoreIcon = sortBy === 'vocab' ? <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
             : sortBy === 'kanji' ? <Languages className="w-3.5 h-3.5 text-emerald-500" />
@@ -614,13 +695,13 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         </div>
 
                         <div className="flex items-center gap-2 text-[10px] text-gray-400 dark:text-gray-500 font-medium mt-0.5">
-                            <span>{user.totalCards || 0} từ</span>
+                            <span>{formatScore(user.totalCards || 0)} từ</span>
                             <span>·</span>
-                            <span>{user.kanjiTotal || 0} kanji</span>
+                            <span>{formatScore(user.kanjiTotal || 0)} kanji</span>
                             <span>·</span>
                             <span className="flex items-center gap-0.5">
                                 <Flame className="w-3 h-3 text-orange-400" />
-                                {user.streak || 0}
+                                {formatScore(user.streak || 0)}
                             </span>
                         </div>
                     </div>
@@ -659,9 +740,20 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U', true)}
                         </div>
                         <div>
-                            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
-                                <Cpu className="w-3 h-3 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
-                                <span>[NEURAL LEADERBOARD HUD]</span>
+                            <div className="flex items-center gap-2 mb-1 flex-wrap">
+                                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-wider">
+                                    <Cpu className="w-3 h-3 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
+                                    <span>[NEURAL LEADERBOARD HUD]</span>
+                                </div>
+                                <button
+                                    onClick={handleRebalanceLeagues}
+                                    disabled={isRebalancing}
+                                    className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer disabled:opacity-50"
+                                    title="Sắp xếp và phân cấp lại tất cả người học vào các League chuẩn theo điểm số hiện tại"
+                                >
+                                    <Zap className={`w-3 h-3 ${isRebalancing ? 'animate-spin' : ''}`} />
+                                    <span>{isRebalancing ? 'Đang phân cấp...' : '⚡ Sắp Xếp Lại Bảng Đấu Ngay'}</span>
+                                </button>
                             </div>
                             <div className="flex items-center gap-2 flex-wrap">
                                 <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">{profile.displayName || 'Bạn'}</h2>
@@ -681,7 +773,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             <span className="flex items-center gap-1.5">
                                 <Sparkle className="w-4 h-4 text-amber-500" /> {t('leaderboard.levelProgress', 'Tiến trình cấp độ')} {xpDetails.level}
                             </span>
-                            <span className="text-cyan-600 dark:text-cyan-400 font-extrabold">{xpDetails.remainingXp} / {xpDetails.nextLevelXp} XP</span>
+                            <span className="text-cyan-600 dark:text-cyan-400 font-extrabold">{formatScore(xpDetails.remainingXp)} / {formatScore(xpDetails.nextLevelXp)} XP</span>
                         </div>
                         <div className="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5">
                             <div 
@@ -694,28 +786,28 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     {/* Telemetry Stats Grid */}
                     <div className="grid grid-cols-5 gap-3 bg-slate-50 dark:bg-slate-950 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 font-mono">
                         <div className="text-center">
-                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{totalCards}</div>
+                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{formatScore(totalCards)}</div>
                             <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">{t('nav.vocab', 'Từ vựng')}</div>
                         </div>
                         <div className="text-center">
-                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{kanjiSrsStats.total}</div>
+                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{formatScore(kanjiSrsStats.total)}</div>
                             <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Kanji</div>
                         </div>
                         <div className="text-center">
-                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{vocabMastery.mastered}</div>
+                            <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight">{formatScore(vocabMastery.mastered)}</div>
                             <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">{t('common.mastered', 'Thành thạo')}</div>
                         </div>
                         <div className="text-center">
                             <div className="text-xl md:text-2xl font-black text-slate-900 dark:text-white leading-tight flex items-center justify-center gap-0.5">
                                 <Flame className="w-4 h-4 fill-orange-500 text-orange-500" />
-                                {streak}
+                                {formatScore(streak)}
                             </div>
                             <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">{t('common.streak', 'Chuỗi ngày')}</div>
                         </div>
                         <div className="text-center border-l border-slate-200 dark:border-slate-800 pl-2">
-                            <div className="text-xl md:text-2xl font-black text-amber-500 flex items-center justify-center gap-0.5">
+                            <div className="text-xl md:text-2xl font-black text-amber-500 leading-tight flex items-center justify-center gap-0.5">
                                 <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                                {myScore}
+                                {formatScore(myScore)}
                             </div>
                             <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">{t('common.points', 'Điểm')}</div>
                         </div>
@@ -766,7 +858,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         </div>
                         {/* Countdown Timer */}
                         {timeLeft && (
-                            <div className="flex items-center gap-2 px-3 py-1.5 bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 rounded-xl border border-rose-100 dark:border-rose-900/30 font-mono text-xs font-bold w-fit">
+                            <div className="flex items-center gap-2 px-3 py-1.5 bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:rose-400 rounded-xl border border-rose-100 dark:border-rose-900/30 font-mono text-xs font-bold w-fit">
                                 <Flame className="w-4 h-4 fill-rose-500 text-rose-500 animate-pulse" />
                                 {timeLeft}
                             </div>
@@ -860,10 +952,10 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             )}
                                         </div>
                                     </div>
-                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[1].totalCards || 0} {t('leaderboard.unitWords', 'từ')} · {podiumList[1].kanjiTotal || 0} {t('leaderboard.unitKanji', 'kanji')}</p>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{formatScore(podiumList[1].totalCards || 0)} {t('leaderboard.unitWords', 'từ')} · {formatScore(podiumList[1].kanjiTotal || 0)} {t('leaderboard.unitKanji', 'kanji')}</p>
                                     <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
                                         <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                                        {podiumList[1].computedScore}
+                                        {formatScore(podiumList[1].computedScore)}
                                     </div>
                                 </div>
                             </div>
@@ -907,10 +999,10 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             )}
                                         </div>
                                     </div>
-                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[0].totalCards || 0} {t('leaderboard.unitWords', 'từ')} · {podiumList[0].kanjiTotal || 0} {t('leaderboard.unitKanji', 'kanji')}</p>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{formatScore(podiumList[0].totalCards || 0)} {t('leaderboard.unitWords', 'từ')} · {formatScore(podiumList[0].kanjiTotal || 0)} {t('leaderboard.unitKanji', 'kanji')}</p>
                                     <div className="mt-2 text-yellow-600 dark:text-yellow-400 font-bold text-sm flex items-center justify-center gap-0.5">
                                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                                        {podiumList[0].computedScore}
+                                        {formatScore(podiumList[0].computedScore)}
                                     </div>
                                 </div>
                             </div>
@@ -951,10 +1043,10 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                             )}
                                         </div>
                                     </div>
-                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{podiumList[2].totalCards || 0} {t('leaderboard.unitWords', 'từ')} · {podiumList[2].kanjiTotal || 0} {t('leaderboard.unitKanji', 'kanji')}</p>
+                                    <p className="text-[10px] text-gray-400 mt-0.5 whitespace-nowrap">{formatScore(podiumList[2].totalCards || 0)} {t('leaderboard.unitWords', 'từ')} · {formatScore(podiumList[2].kanjiTotal || 0)} {t('leaderboard.unitKanji', 'kanji')}</p>
                                     <div className="mt-2 text-indigo-500 font-bold text-xs flex items-center justify-center gap-0.5">
                                         <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                                        {podiumList[2].computedScore}
+                                        {formatScore(podiumList[2].computedScore)}
                                     </div>
                                 </div>
                             </div>
@@ -1089,15 +1181,15 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                     </div>
 
                     <div className="flex items-center gap-4 text-xs font-bold">
-                        <span className="text-gray-500 dark:text-gray-400">{totalCards} từ</span>
-                        <span className="text-gray-500 dark:text-gray-400">{kanjiSrsStats.total} kanji</span>
+                        <span className="text-gray-500 dark:text-gray-400">{formatScore(totalCards)} từ</span>
+                        <span className="text-gray-500 dark:text-gray-400">{formatScore(kanjiSrsStats.total)} kanji</span>
                         <span className="flex items-center gap-0.5 text-orange-500">
                             <Flame className="w-3.5 h-3.5 fill-orange-400 text-orange-400" />
-                            {streak}
+                            {formatScore(streak)}
                         </span>
                         <span className="flex items-center gap-0.5 text-indigo-500 dark:text-indigo-400">
                             <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                            {myScore}
+                            {formatScore(myScore)}
                         </span>
                     </div>
                 </div>
@@ -1170,26 +1262,28 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200/70 dark:border-slate-800/70 space-y-3">
                             <div className="flex items-center gap-2 font-bold text-xs text-emerald-700 dark:text-emerald-400 uppercase tracking-wider font-mono">
                                 <Trophy className="w-4 h-4 text-emerald-500" />
-                                <span>2. Thể lệ Giải đấu (Leagues) 🏆</span>
+                                <span>2. Mốc Điểm Phân Cấp Giải Đấu (Leagues) 🏆</span>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                                <div className="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 space-y-1">
-                                    <span className="font-bold text-emerald-700 dark:text-emerald-400 block">🛡️ 10 Cấp hạng (Ranks)</span>
-                                    <span className="text-slate-600 dark:text-slate-300 text-[11px] block leading-relaxed">
-                                        Sắt 🔘 → Đồng 🥉 → Bạc 🥈 → Vàng 🥇 → Bạch Kim 💎 → Lục Bảo 🟢 → Kim Cương 💠 → Cao Thủ 🟣 → Đại Cao Thủ 🔴 → Thách Đấu 👑
-                                    </span>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2.5 text-xs font-mono">
+                                <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 text-center">
+                                    <span className="font-bold text-amber-700 dark:text-amber-400 block text-[11px] font-sans">🥉 ĐỒNG</span>
+                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">&lt; 1,000 XP</span>
                                 </div>
-                                <div className="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 space-y-1">
-                                    <span className="font-bold text-emerald-700 dark:text-emerald-400 block">📈 Thăng / Xuống hạng hàng tuần</span>
-                                    <span className="text-slate-600 dark:text-slate-300 text-[11px] block leading-relaxed">
-                                        Sắt/Đồng lấy <strong>Top 5</strong> (≥100đ). Bạc trở lên lấy <strong>Top 1-5</strong> (≥200đ). Rớt hạng nếu dưới 30đ/tuần.
-                                    </span>
+                                <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 text-center">
+                                    <span className="font-bold text-slate-700 dark:text-slate-300 block text-[11px] font-sans">🥈 BẠC</span>
+                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">≥ 1,000 XP (1K+)</span>
                                 </div>
-                                <div className="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 space-y-1">
-                                    <span className="font-bold text-emerald-700 dark:text-emerald-400 block">🔥 Đấu trường thực tế</span>
-                                    <span className="text-slate-600 dark:text-slate-300 text-[11px] block leading-relaxed">
-                                        Từ giải <strong>Bạc trở lên</strong> 100% người thật. Loại bỏ hoàn toàn tài khoản ảo/bot.
-                                    </span>
+                                <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 text-center">
+                                    <span className="font-bold text-yellow-600 dark:text-yellow-400 block text-[11px] font-sans">🥇 VÀNG</span>
+                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">≥ 5,000 XP (5K+)</span>
+                                </div>
+                                <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 text-center">
+                                    <span className="font-bold text-cyan-600 dark:text-cyan-400 block text-[11px] font-sans">💠 KIM CƯƠNG</span>
+                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">≥ 10,000 XP (10K+)</span>
+                                </div>
+                                <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 text-center">
+                                    <span className="font-bold text-rose-600 dark:text-rose-400 block text-[11px] font-sans">👑 HUYỀN THOẠI</span>
+                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">≥ 30,000 XP (30K+)</span>
                                 </div>
                             </div>
                         </div>
@@ -1227,9 +1321,9 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                     <span className="text-slate-500 dark:text-slate-400 block text-[10px]">N2: <strong>x1.4</strong> | N1: <strong>x1.6</strong></span>
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🛡️ BẢO MẬT</span>
-                                    <span className="text-slate-700 dark:text-slate-300">Tối đa: <strong>1500 XP/ngày</strong></span>
-                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Tự động chống spam</span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🛡️ TÍCH LŨY KHÔNG GIỚI HẠN</span>
+                                    <span className="text-slate-700 dark:text-slate-300">Tự do <strong>học không giới hạn XP</strong></span>
+                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Tăng trưởng theo năng lực</span>
                                 </div>
                             </div>
                         </div>

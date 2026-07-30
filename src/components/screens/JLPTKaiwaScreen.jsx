@@ -161,7 +161,7 @@ const formatTime = (seconds) => {
     return `${m}:${String(s).padStart(2, '0')}`;
 };
 
-const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
+const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
     const navigate = useNavigate();
     const { t } = useLanguage();
     const { isEnglishMode } = useTargetLanguage();
@@ -1124,6 +1124,10 @@ const JLPTKaiwaScreen = ({ profile, isAdmin }) => {
                 };
                 setConversation(prev => [...prev, aiReply]);
                 speakText(parsed.replyJa);
+
+                if (awardXP) {
+                    awardXP(15);
+                }
             } else {
                 throw new Error('AI response empty or missing replyJa');
             }

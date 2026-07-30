@@ -920,7 +920,7 @@ const JLPTPrintView = ({ test, includeAnswers, includeAnswerSheet }) => {
     );
 };
 
-const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
+const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP }) => {
     const navigate = useNavigate();
     // State
     const [tests, setTests] = useState([]);
@@ -1927,6 +1927,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId }) => {
         setShowResult(true);
         setShowDetailedReview(false);
         playCompletionFanfare();
+
+        // Award XP for JLPT exam completion
+        if (awardXP && results) {
+            const testXp = ((results.correct || 0) * 10) + 100;
+            if (testXp > 0) {
+                awardXP(testXp);
+            }
+        }
     };
 
     // Exit test
