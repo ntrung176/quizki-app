@@ -24,6 +24,7 @@ const XpTestingPanelModal = ({ isOpen, onClose, profile, awardXP, userId }) => {
         { id: 'flashcard_study', name: 'Học Thẻ Flashcard', points: '10 XP / thẻ', formula: 'Cộng 10 XP cho mỗi thẻ đã lật qua', status: '🟢 Đã kết nối' },
         { id: 'quiz_test', name: 'Luyện Thi Trắc Nghiệm', points: '20 XP / câu đúng', formula: '20 XP × Số câu đúng + 50 XP hoàn thành bài test', status: '🟢 Đã kết nối' },
         { id: 'kaiwa_ai', name: 'Luyện Hội Thoại AI Kaiwa', points: '50 - 100 XP / phiên', formula: 'Scorecard AI × 50 - 100 XP dựa trên điểm số hội thoại', status: '🟢 Đã kết nối' },
+        { id: 'book_lesson', name: 'Học Từ Vựng Theo Sách / Giáo Trình', points: '10 XP / từ + 50 XP / bài', formula: '+10 XP cho mỗi từ lật trong bài + +50 XP thưởng hoàn thành 100% bài học', status: '🟢 Đã kết nối' },
         { id: 'kanji_lesson', name: 'Học Bài Mới Kanji', points: '25 XP / bài', formula: 'Cộng 25 XP khi hoàn thành bài học Hán tự', status: '🟢 Đã kết nối' },
         { id: 'add_content', name: 'Tạo Từ Vựng / Kanji Mới', points: '10 XP / từ', formula: 'Cộng 10 XP khi tự tạo thẻ hoặc bộ học mới', status: '🟢 Đã kết nối' },
     ];
