@@ -386,52 +386,48 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         });
     };
 
-    useEffect(() => {
+    // Inject due learning cards into review queue when cards are rated
+    const checkAndInjectLearningCards = () => {
         if (!reviewMode) return;
-        const intervalId = setInterval(() => {
-            setLastTick(Date.now());
-
-            const now = Date.now();
-            const waiting = getLearningCardsWaiting();
-            const dueNow = waiting.filter(w => w.nextReview <= now);
-            if (dueNow.length > 0) {
-                setReviewQueue(prevQueue => {
-                    const nextQueue = [...prevQueue];
-                    const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
-                    const cardsToInject = [];
-                    dueNow.forEach(item => {
-                        if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
-                            const fullCard = kanjiList.find(c => c.id === item.id);
-                            if (fullCard) {
-                                const localSrs = srsData[item.id];
-                                cardsToInject.push({
-                                    ...fullCard,
-                                    srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
-                                    srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
-                                    srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
-                                    srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
-                                    srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
-                                    srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
-                                    srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
-                                    srsState: localSrs ? localSrs.state : fullCard.srsState,
-                                    nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
-                                    lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
-                                });
-                            }
+        const now = Date.now();
+        const waiting = getLearningCardsWaiting();
+        const dueNow = waiting.filter(w => w.nextReview <= now);
+        if (dueNow.length > 0) {
+            setReviewQueue(prevQueue => {
+                const nextQueue = [...prevQueue];
+                const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
+                const cardsToInject = [];
+                dueNow.forEach(item => {
+                    if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
+                        const fullCard = kanjiMap.get(item.id);
+                        if (fullCard) {
+                            const localSrs = srsData[item.id];
+                            cardsToInject.push({
+                                ...fullCard,
+                                srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
+                                srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
+                                srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
+                                srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
+                                srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
+                                srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
+                                srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
+                                srsState: localSrs ? localSrs.state : fullCard.srsState,
+                                nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
+                                lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
+                            });
                         }
-                    });
-
-                    if (cardsToInject.length > 0) {
-                        const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
-                        nextQueue.splice(insertIndex, 0, ...cardsToInject);
-                        return nextQueue;
                     }
-                    return prevQueue;
                 });
-            }
-        }, 1000);
-        return () => clearInterval(intervalId);
-    }, [reviewMode, currentReviewIndex, kanjiList, srsData]);
+
+                if (cardsToInject.length > 0) {
+                    const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
+                    nextQueue.splice(insertIndex, 0, ...cardsToInject);
+                    return nextQueue;
+                }
+                return prevQueue;
+            });
+        }
+    };
 
     const startReview = () => {
         if (dueKanji.length === 0) return;
@@ -535,24 +531,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
-        }
-
-        // 2. Scan kanjiList for newly due cards only when near the end of queue (performance optimization)
-        if (currentReviewIndex + 2 >= updatedQueue.length) {
-            const nowTime = Date.now();
-            const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
-            const newlyDueKanji = kanjiList.filter(k => {
-                if (k.id === currentCard.id) return false;
-                if (completedCardIds.current.has(k.id)) return false;
-                if (allQueueCardIds.has(k.id)) return false;
-                const srs = srsData[k.id];
-                if (!srs) return false;
-                return (srs.nextReview || 0) <= nowTime;
-            });
-
-            if (newlyDueKanji.length > 0) {
-                updatedQueue = [...updatedQueue, ...newlyDueKanji];
-            }
         }
 
         setReviewQueue(updatedQueue);
