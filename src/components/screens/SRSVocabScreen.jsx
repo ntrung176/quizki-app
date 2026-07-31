@@ -938,6 +938,10 @@ const SRSVocabScreen = ({
         }
     }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, cardSettings.audioEnabled, reviewQueue]);
 
+    if (isPreparingSession) {
+        return <SrsPrewarmLoader title="Từ Vựng" count={reviewQueue.length} />;
+    }
+
     // ==================== LOCAL SRS REVIEW MODE ====================
     const currentCard = (reviewMode && reviewQueue.length > 0) ? reviewQueue[currentReviewIndex] : null;
     if (reviewMode && currentCard) {
@@ -951,9 +955,6 @@ const SRSVocabScreen = ({
             good: formatInterval(previewIntv.good),
             easy: formatInterval(previewIntv.easy),
         };
-        if (isPreparingSession) {
-            return <SrsPrewarmLoader title="Từ Vựng" count={reviewQueue.length} />;
-        }
 
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
         return (
