@@ -1501,11 +1501,27 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                         {/* User List */}
                         <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-                            <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+                            <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex flex-wrap items-center justify-between gap-2">
                                 <h3 className="font-semibold text-gray-800 dark:text-white flex items-center gap-2">
                                     <Users className="w-4 h-4" />
                                     Danh sách người dùng ({filteredUsers.length})
                                 </h3>
+                                <button
+                                    onClick={async () => {
+                                        try {
+                                            const { normalizeAllUserScores } = await import('../../utils/normalizeUserScore');
+                                            const result = await normalizeAllUserScores();
+                                            setNotification({ type: 'success', message: `⚡ Đã chuẩn hóa ${result.total} người dùng: Gán Score = XP cho ${result.updatedCount} user!` });
+                                        } catch (e) {
+                                            setNotification({ type: 'error', message: 'Lỗi chuẩn hóa điểm: ' + e.message });
+                                        }
+                                    }}
+                                    className="px-3 py-1.5 bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-600 hover:to-purple-700 text-white font-extrabold text-xs rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
+                                    title="Gán trực tiếp Score = XP cho tất cả người dùng trên Bảng xếp hạng"
+                                >
+                                    <Zap className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
+                                    <span>Chuẩn Hóa Điểm (Score = XP)</span>
+                                </button>
                             </div>
                             <div className="max-h-[500px] overflow-y-auto">
                                 {filteredUsers.length === 0 ? (

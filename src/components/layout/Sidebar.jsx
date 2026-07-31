@@ -473,12 +473,14 @@ const Sidebar = ({
 
     // Mobile Header
     const MobileHeader = () => (
-        <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between shadow-md">
-            <Link to={ROUTES.HOME} className="flex items-center space-x-2.5">
-                <div className="w-9 h-9 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/20 border border-cyan-400/30">
+        <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/85 dark:bg-slate-900/85 backdrop-blur-2xl border-b border-slate-200/80 dark:border-slate-800/80 px-4 py-2.5 flex items-center justify-between shadow-lg transition-all">
+            <Link to={ROUTES.HOME} className="flex items-center space-x-2.5 group active:scale-95 transition-transform">
+                <div className="w-9 h-9 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 group-hover:scale-105 transition-transform">
                     <BookOpen className="w-5 h-5" />
                 </div>
-                <span className="text-lg font-black text-slate-800 dark:text-white tracking-wide">QuizKi <span className="text-cyan-500 font-mono text-xs">AI</span></span>
+                <span className="text-lg font-black text-slate-800 dark:text-white tracking-wide">
+                    QuizKi <span className="text-cyan-500 font-mono text-xs font-black">AI</span>
+                </span>
             </Link>
 
             <div className="flex items-center space-x-2">
@@ -487,7 +489,7 @@ const Sidebar = ({
                     <Link
                         to={ROUTES.SETTINGS}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="w-8.5 h-8.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-[9px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm active:scale-95 transition-transform shrink-0"
+                        className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-[9px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm active:scale-95 transition-transform shrink-0"
                         title="Trang cá nhân & Cài đặt"
                     >
                         {renderAvatar()}
@@ -497,7 +499,7 @@ const Sidebar = ({
                 <div className="relative">
                     <button
                         onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                        className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                        className="p-2 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 cursor-pointer active:scale-95 transition-all hover:border-cyan-500/50"
                     >
                         <Bell className="w-4 h-4" />
                         {hasUnread && (
@@ -509,7 +511,7 @@ const Sidebar = ({
 
                 <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                    className="p-2 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 cursor-pointer active:scale-95 transition-all hover:border-cyan-500/50"
                 >
                     {isMobileMenuOpen ? <X className="w-5 h-5" /> : <List className="w-5 h-5" />}
                 </button>

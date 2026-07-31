@@ -692,48 +692,52 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     </div>
                 )}
                 {/* Header */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
-                        <h1 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                            <List className="w-6 h-6 text-indigo-500" />
-                            Danh sách từ vựng
+                        <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2.5">
+                            <div className="p-2 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-500">
+                                <List className="w-6 h-6" />
+                            </div>
+                            <span>Danh sách từ vựng</span>
                         </h1>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                            Quản lý và chỉnh sửa {allCards.length} thẻ ghi nhớ
+                        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">
+                            Quản lý, phân loại và chỉnh sửa <span className="font-bold text-slate-900 dark:text-white font-mono">{allCards.length}</span> thẻ từ vựng
                         </p>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex items-center gap-2.5">
                         <button onClick={() => setShowFolderManager(true)}
-                            className="px-3 py-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5">
-                            <FolderPlus className="w-4 h-4" /> Thư mục
+                            className="px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 text-slate-700 dark:text-slate-200 rounded-2xl text-xs sm:text-sm font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-95">
+                            <FolderPlus className="w-4 h-4 text-indigo-500" /> <span>Thư mục</span>
                         </button>
                         <button onClick={() => onExport(allCards)}
-                            className="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-1.5">
-                            <Upload className="w-4 h-4" /> Xuất
+                            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl text-xs sm:text-sm font-bold transition-all shadow-lg shadow-indigo-500/20 flex items-center gap-2 cursor-pointer active:scale-95">
+                            <Upload className="w-4 h-4" /> <span>Xuất file</span>
                         </button>
                     </div>
                 </div>
-                {/* Stats Cards */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md">
-                        <div className="text-2xl font-bold font-mono text-cyan-600 dark:text-cyan-400">{stats.total}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">Tổng từ vựng</div>
+
+                {/* Telemetry Stats Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800/80 shadow-md">
+                        <div className="text-2xl sm:text-3xl font-black font-mono text-cyan-600 dark:text-cyan-400">{stats.total}</div>
+                        <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">Tổng từ vựng</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md">
-                        <div className="text-2xl font-bold font-mono text-orange-500">{stats.dueCards}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">Cần ôn</div>
+                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800/80 shadow-md">
+                        <div className="text-2xl sm:text-3xl font-black font-mono text-rose-500">{stats.dueCards}</div>
+                        <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">Cần ôn tập</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md">
-                        <div className="text-2xl font-bold font-mono text-blue-500">{stats.newCards}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">Chưa học</div>
+                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800/80 shadow-md">
+                        <div className="text-2xl sm:text-3xl font-black font-mono text-sky-500">{stats.newCards}</div>
+                        <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">Chưa học</div>
                     </div>
-                    <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md">
-                        <div className="text-2xl font-bold font-mono text-emerald-500">{stats.total > 0 ? Math.round(((stats.total - stats.newCards) / stats.total) * 100) : 0}%</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">Đã học</div>
+                    <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800/80 shadow-md">
+                        <div className="text-2xl sm:text-3xl font-black font-mono text-emerald-500">{stats.total > 0 ? Math.round(((stats.total - stats.newCards) / stats.total) * 100) : 0}%</div>
+                        <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">Đã thuộc</div>
                     </div>
                 </div>
-                {/* Search & Filter Bar */}
-                <div className="bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-800 shadow-md space-y-3">
+
+                {/* Glassmorphic Search & Filter Bar */}
+                <div className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800 shadow-xl space-y-3.5">
                     {/* Search */}
                     <div className="relative">
                         <input
@@ -741,36 +745,39 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder="Tìm kiếm từ vựng, Hán Việt, nghĩa..."
-                            className="w-full bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg px-4 py-2.5 pl-10 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm"
+                            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-4 py-3 pl-11 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500 text-sm font-medium transition-all"
                         />
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                         {searchTerm && (
-                            <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2">
-                                <X className="w-4 h-4 text-gray-400 hover:text-gray-600" />
+                            <button onClick={() => setSearchTerm('')} className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg">
+                                <X className="w-4 h-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" />
                             </button>
                         )}
                     </div>
                     {/* Filters */}
-                    <div className="flex flex-wrap items-center gap-2">
-                        <Filter className="w-4 h-4 text-gray-400" />
+                    <div className="flex flex-wrap items-center gap-2 pt-0.5">
+                        <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono font-bold mr-1">
+                            <Filter className="w-3.5 h-3.5 text-indigo-500" />
+                            <span>BỘ LỌC</span>
+                        </div>
                         {/* POS filter */}
                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)}
-                            className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                            className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
                             <option value="all">Từ loại</option>
                             {Object.entries(POS_TYPES).map(([k, v]) => (<option key={k} value={k}>{v.label}</option>))}
                         </select>
                         {/* Sort */}
                         <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}
-                            className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                            className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
                             <option value="newest">Mới nhất</option>
                             <option value="oldest">Cũ nhất</option>
                         </select>
                         {/* Folder filter */}
                         {folders.length > 0 && (
                             <>
-                                <span className="text-gray-300 dark:text-gray-600">|</span>
+                                <span className="text-slate-300 dark:text-slate-700">|</span>
                                 <select value={filterFolder} onChange={(e) => setFilterFolder(e.target.value)}
-                                    className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-400 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                                    className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
                                     <option value="all">📁 Tất cả</option>
                                     <option value="unfiled">📂 Chưa phân loại</option>
                                     {folders.map(f => (<option key={f.id} value={f.id}>📁 {f.name}</option>))}
@@ -780,16 +787,16 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     </div>
                     {/* Active filter info / search results */}
                     {(hasActiveFilters && !isInFolderBrowseMode) || deferredSearchTerm.trim() ? (
-                        <div className="flex justify-between items-center pt-2 border-t border-gray-100 dark:border-gray-700">
-                            <span className="text-xs text-gray-500">
+                        <div className="flex justify-between items-center pt-3 border-t border-slate-100 dark:border-slate-800">
+                            <span className="text-xs text-slate-500 font-medium">
                                 {deferredSearchTerm.trim() ? (
-                                    <>🔍 Tìm thấy <span className="font-bold text-indigo-600 dark:text-indigo-400">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> kết quả cho &ldquo;{deferredSearchTerm.trim()}&rdquo;</>
+                                    <>🔍 Tìm thấy <span className="font-bold text-indigo-600 dark:text-indigo-400 font-mono">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> kết quả cho &ldquo;{deferredSearchTerm.trim()}&rdquo;</>
                                 ) : (
-                                    <>🔽 Đã lọc: <span className="font-bold text-indigo-600 dark:text-indigo-400">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> từ vựng</>
+                                    <>🔽 Đã lọc: <span className="font-bold text-indigo-600 dark:text-indigo-400 font-mono">{currentFolder !== null ? currentFolderCards.length : filteredCards.length}</span> từ vựng</>
                                 )}
                             </span>
                             <button onClick={() => { resetFilters(); setCurrentFolder(null); }}
-                                className="px-3 py-1.5 text-xs font-bold rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors flex items-center gap-1">
+                                className="px-3 py-1.5 text-xs font-bold rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition-colors flex items-center gap-1 cursor-pointer">
                                 <X className="w-3.5 h-3.5" /> Bỏ lọc
                             </button>
                         </div>

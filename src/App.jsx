@@ -22,7 +22,7 @@ import { callAI, parseJsonFromAI, getAIProviderInfo, generateVocabPrompt, genera
 import { subscribeAdminConfig, hasAdminPrivileges } from './utils/adminSettings'
 import { ensureFuriganaFormat, preloadKuroshiro } from './utils/furiganaHelper';
 
-import { getLevelFromXp, getLevelTitle, getWeekId, generateSimulatedLeague, LEAGUES, getLeagueTierRules } from './utils/scoring';
+import { getLevelFromXp, getLevelTitle, getWeekId, generateSimulatedLeague, LEAGUES, getLeagueTierRules, calculateHonorScore } from './utils/scoring';
 import { playCompletionFanfare } from './utils/soundEffects';
 import { initConsoleProtection, aiRateLimiter } from './utils/security';
 import { getSharedKanjiList, getSharedKanjiSrs, subscribeKanjiSrs, clearUserSrsCache, getSharedKanjiProgress, clearKanjiProgressCache } from './utils/kanjiService';
@@ -1889,7 +1889,8 @@ const App = () => {
             try {
                 const docRef = doc(db, settingsDocPath);
                 await updateDoc(docRef, {
-                    xp: increment(addedXp)
+                    xp: increment(addedXp),
+                    score: increment(addedXp)
                 });
                 console.log(`✨ Awarded ${addedXp} XP to user`);
             } catch (e) {
@@ -4361,17 +4362,9 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0), 0);
                 const activeDaysLast7Days = last7DaysLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.newKanjiAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
 
-                // === CÔNG THỨC TÍNH ĐIỂM VINH DANH TÍCH LŨY (KHÔNG TỰ GIẢM) ===
-                // Điểm vinh danh dựa trên Tổng XP tích lũy + Chuỗi ngày Streak + Ngày hoạt động tích cực:
-                // - Tổng XP tích lũy: 100% XP (Tăng đều liên tục, không bao giờ tự giảm)
-                // - Chuỗi ngày Streak: +50 điểm/ngày streak
-                // - Số ngày học tích cực: +20 điểm/ngày
+                // Điểm vinh danh Bảng xếp hạng đọc trực tiếp từ database (profile.score), fallback về profile.xp:
                 const totalUserXp = profile?.xp || 0;
-                const score = Math.round(
-                    totalUserXp +
-                    (currentStreak * 50) +
-                    (activeDays * 20)
-                );
+                const score = (profile?.score !== undefined && profile?.score !== null) ? Number(profile.score) : totalUserXp;
 
                 const publicData = {
                     userId: userId,
@@ -4424,6 +4417,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 });
 
                 if (profile.score !== score) {
+                    setProfile(prev => prev ? { ...prev, score: score } : prev);
                     await updateDoc(doc(db, settingsDocPath), { score: score }).catch(err => {
                         if (err?.code !== 'unavailable' && err?.code !== 'resource-exhausted' && err?.message?.includes('ERR_INSUFFICIENT_RESOURCES') === false) {
                             console.error("Lỗi cập nhật score vào profile:", err);
@@ -4445,7 +4439,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
 
         return () => clearTimeout(timeoutId);
 
-    }, [memoryStats, allCards.length, profile, userId, authReady, publicStatsCollectionPath, dailyActivityLogs, kanjiSrsPublicCount, calculatedStreak]);
+    }, [memoryStats.shortTerm, memoryStats.midTerm, memoryStats.longTerm, allCards.length, profile?.xp, profile?.level, profile?.score, userId, authReady, publicStatsCollectionPath, dailyActivityLogs, kanjiSrsPublicCount.total, kanjiSrsPublicCount.mastered, calculatedStreak]);
 
     // Nếu chưa biết trạng thái auth, show loading
     if (!authReady) {

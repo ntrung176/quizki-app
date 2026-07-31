@@ -1082,18 +1082,21 @@ const SRSVocabScreen = ({
                             </div>
                         </div>
 
-                        {/* Rating Buttons (Touch Target min-h-[52px]) */}
-                        <div className="grid grid-cols-4 gap-1.5 sm:gap-3 w-full animate-fade-in mt-3" data-tour-id="RATING_PANEL">
+                        {/* Anti-Slop High-End SRS Rating Buttons */}
+                        <div className="grid grid-cols-4 gap-2 sm:gap-3.5 w-full animate-fade-in mt-4" data-tour-id="RATING_PANEL">
                             {[
-                                { key: 'again', label: 'Quên rồi', interval: intervals.again, bg: 'bg-red-50 dark:bg-red-950/20', border: 'border-red-200 dark:border-red-900/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/80 dark:text-red-500/60' },
-                                { key: 'hard', label: 'Khó', interval: intervals.hard, bg: 'bg-orange-50 dark:bg-orange-950/20', border: 'border-orange-200 dark:border-orange-900/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/80 dark:text-orange-500/60' },
-                                { key: 'good', label: 'Tốt', interval: intervals.good, bg: 'bg-emerald-50 dark:bg-emerald-950/20', border: 'border-emerald-200 dark:border-emerald-900/50', text: 'text-emerald-600 dark:text-emerald-400', sub: 'text-emerald-400/80 dark:text-emerald-500/60' },
-                                { key: 'easy', label: 'Dễ', interval: intervals.easy, bg: 'bg-blue-50 dark:bg-blue-950/20', border: 'border-blue-200 dark:border-blue-900/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/80 dark:text-blue-500/60' },
+                                { key: 'again', num: '1', label: 'Quên rồi', interval: intervals.again, gradient: 'from-rose-500/10 to-rose-600/5', border: 'border-rose-500/30 hover:border-rose-500/60', text: 'text-rose-600 dark:text-rose-400', badge: 'bg-rose-500/10 text-rose-500', shadow: 'shadow-rose-500/5' },
+                                { key: 'hard', num: '2', label: 'Khó', interval: intervals.hard, gradient: 'from-amber-500/10 to-orange-600/5', border: 'border-amber-500/30 hover:border-amber-500/60', text: 'text-amber-600 dark:text-amber-400', badge: 'bg-amber-500/10 text-amber-500', shadow: 'shadow-amber-500/5' },
+                                { key: 'good', num: '3', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500/10 to-teal-600/5', border: 'border-emerald-500/30 hover:border-emerald-500/60', text: 'text-emerald-600 dark:text-emerald-400', badge: 'bg-emerald-500/10 text-emerald-500', shadow: 'shadow-emerald-500/5' },
+                                { key: 'easy', num: '4', label: 'Dễ', interval: intervals.easy, gradient: 'from-sky-500/10 to-blue-600/5', border: 'border-sky-500/30 hover:border-sky-500/60', text: 'text-sky-600 dark:text-sky-400', badge: 'bg-sky-500/10 text-sky-500', shadow: 'shadow-sky-500/5' },
                             ].map(btn => (
                                 <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                    className={`flex flex-col justify-center items-center py-2.5 sm:py-3.5 min-h-[52px] rounded-xl sm:rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-md active:scale-95 cursor-pointer select-none`}>
-                                    <div className={`font-bold ${btn.text} text-xs sm:text-sm leading-tight`}>{btn.label}</div>
-                                    <div className={`text-[9px] sm:text-[10px] ${btn.sub} mt-0.5 font-medium leading-none`}>{btn.interval}</div>
+                                    className={`relative flex flex-col justify-center items-center py-3 sm:py-4 px-2 min-h-[58px] sm:min-h-[64px] rounded-2xl bg-gradient-to-b ${btn.gradient} bg-white dark:bg-slate-900 border ${btn.border} text-center transition-all duration-300 hover:scale-[1.03] hover:shadow-lg active:scale-95 cursor-pointer select-none ${btn.shadow}`}>
+                                    <span className="absolute top-1.5 right-2 px-1.5 py-0.2 rounded-md bg-slate-100 dark:bg-slate-800 text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 hidden sm:block">
+                                        {btn.num}
+                                    </span>
+                                    <div className={`font-black ${btn.text} text-xs sm:text-base leading-tight`}>{btn.label}</div>
+                                    <div className={`text-[10px] sm:text-xs font-semibold ${btn.text} opacity-80 mt-0.5 leading-none font-mono`}>{btn.interval}</div>
                                 </button>
                             ))}
                         </div>

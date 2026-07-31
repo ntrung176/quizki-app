@@ -113,13 +113,13 @@ const TopTabBar = ({ tabs, theme }) => {
     }, [location.pathname, location.search, tabs, language]);
 
     return (
-        <div className="w-full sticky top-14 lg:top-3 z-30 pt-2 pb-2 px-1.5 sm:px-4 flex justify-center">
-            {/* Floating Glass Capsule Container */}
-            <div className={`w-full max-w-lg sm:max-w-max p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/90 shadow-lg transition-all duration-300 overflow-hidden ${themeClasses.shadow}`}>
-                <div className="relative flex items-center justify-between w-full space-x-0.5 sm:space-x-1" ref={containerRef}>
+        <div className="w-full sticky top-14 lg:top-3 z-30 pt-2 pb-2 px-2 sm:px-4 flex justify-center">
+            {/* Floating Anti-Slop Glass Capsule Container */}
+            <div className={`w-full max-w-xl sm:max-w-max p-1.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 backdrop-blur-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-xl transition-all duration-300 overflow-hidden ${themeClasses.shadow}`}>
+                <div className="relative flex items-center justify-between w-full space-x-1" ref={containerRef}>
                     {/* Sliding Capsule Pill Indicator */}
                     <div 
-                        className={`absolute top-0 bottom-0 rounded-lg sm:rounded-xl bg-gradient-to-r ${themeClasses.gradient} shadow-md transition-all duration-300 ease-out z-0`}
+                        className={`absolute top-0 bottom-0 rounded-xl bg-gradient-to-r ${themeClasses.gradient} shadow-lg shadow-indigo-500/25 transition-all duration-300 ease-out z-0`}
                         style={{ 
                             left: `${indicatorStyle.left}px`, 
                             width: `${indicatorStyle.width}px`,
@@ -144,14 +144,14 @@ const TopTabBar = ({ tabs, theme }) => {
                             <Link
                                 key={tab.id}
                                 to={destination}
-                                className={`tab-item group relative z-10 flex-1 flex items-center justify-center space-x-1 sm:space-x-1.5 px-1 sm:px-3 py-1.5 sm:py-2 text-[10px] min-[360px]:text-[11px] sm:text-xs md:text-sm font-bold whitespace-nowrap rounded-lg sm:rounded-xl transition-colors duration-200 min-h-[38px] sm:min-h-0 select-none ${
+                                className={`tab-item group relative z-10 flex-1 flex items-center justify-center space-x-1.5 px-2 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold whitespace-nowrap rounded-xl transition-all duration-200 min-h-[40px] select-none active:scale-95 ${
                                     isActive
-                                        ? 'text-white'
+                                        ? 'text-white drop-shadow-sm'
                                         : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
                                 }`}
                             >
                                 {tab.icon && (
-                                    <tab.icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-colors duration-200 ${
+                                    <tab.icon className={`w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-110 ${
                                         isActive 
                                             ? 'text-white' 
                                             : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300'

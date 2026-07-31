@@ -156,12 +156,158 @@ const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredMode
 };
 
 
+// ============== DIRECT GOOGLE GEMINI API CALL ==============
+
+export const getGeminiApiKey = () => {
+    try {
+        const localKey = localStorage.getItem('quizki_gemini_api_key');
+        if (localKey) return localKey;
+    } catch (e) {}
+    return import.meta.env.VITE_GEMINI_API_KEY || '';
+};
+
+const callDirectGeminiApi = async (prompt, model = 'gemini-3.1-flash-lite') => {
+    const apiKey = getGeminiApiKey();
+    if (!apiKey) throw new Error('No Gemini API Key configured');
+
+    let initialModel = model || 'gemini-3.1-flash-lite';
+    if (initialModel.includes('/')) {
+        initialModel = initialModel.split('/').pop();
+    }
+    if (!initialModel.startsWith('gemini-')) {
+        initialModel = 'gemini-3.1-flash-lite';
+    }
+
+    const candidateModels = Array.from(new Set([initialModel, 'gemini-3.1-flash-lite', 'gemini-2.0-flash-lite', 'gemini-2.5-flash', 'gemini-2.0-flash']));
+
+    let lastError = null;
+    for (const currentModel of candidateModels) {
+        try {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [
+                    {
+                        role: 'user',
+                        parts: [{ text: prompt }]
+                    }
+                ],
+                generationConfig: {
+                    temperature: 0.3,
+                    maxOutputTokens: 2048
+                }
+            };
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                const errText = await response.text().catch(() => '');
+                console.warn(`⚠️ Gemini model ${currentModel} returned ${response.status}: ${errText}`);
+                lastError = new Error(`Google Gemini API error (${response.status}): ${errText}`);
+                if (response.status === 404) {
+                    continue; // try next model
+                }
+                throw lastError;
+            }
+
+            const data = await response.json();
+            const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) return text;
+        } catch (e) {
+            lastError = e;
+            if (e.message?.includes('404')) continue;
+            throw e;
+        }
+    }
+    throw lastError || new Error('All Gemini models failed');
+};
+
+const callVertexAiApi = async (prompt, model = 'gemini-2.5-flash') => {
+    const apiKey = getGeminiApiKey();
+    if (!apiKey) throw new Error('No Key configured for Vertex AI');
+    const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID || 'quizki-988e9';
+
+    let normalizedModel = model || 'gemini-2.5-flash';
+    if (normalizedModel.includes('/')) normalizedModel = normalizedModel.split('/').pop();
+    if (!normalizedModel.startsWith('gemini-')) normalizedModel = 'gemini-2.5-flash';
+
+    const url = `https://us-central1-aiplatform.googleapis.com/v1/projects/${projectId}/locations/us-central1/publishers/google/models/${normalizedModel}:generateContent?key=${apiKey}`;
+    const payload = {
+        contents: [
+            {
+                role: 'user',
+                parts: [{ text: prompt }]
+            }
+        ],
+        generationConfig: {
+            temperature: 0.3,
+            maxOutputTokens: 2048
+        }
+    };
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+        const errText = await response.text().catch(() => '');
+        throw new Error(`Vertex AI error (${response.status}): ${errText}`);
+    }
+
+    const data = await response.json();
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!text) throw new Error('Empty response from Vertex AI API');
+    return text;
+};
+
 // ============== UNIFIED AI CALL ==============
 
 export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = null) => {
+    // 1. Try Direct Google Gemini API (Free Tier / Cloud API Key)
+    const geminiKey = getGeminiApiKey();
+    if (geminiKey) {
+        try {
+            let normalizedModel = forcedOpenRouterModel || 'gemini-3.1-flash-lite';
+            if (normalizedModel.includes('/')) normalizedModel = normalizedModel.split('/').pop();
+            if (!normalizedModel.startsWith('gemini-') || normalizedModel === 'gemini-2.5-flash') {
+                normalizedModel = 'gemini-3.1-flash-lite';
+            }
+
+            console.log(
+                `%c[AI Provider] 🟢 GOOGLE GEMINI API | Feature: ${featureId || 'default'} | Model: ${normalizedModel}`,
+                'color: #00ffaa; font-weight: bold; background: #002b1d; padding: 4px 8px; border-radius: 4px;'
+            );
+            const geminiResult = await callDirectGeminiApi(prompt, normalizedModel);
+            if (geminiResult) {
+                console.log(`%c[AI Provider] ✅ Google Gemini API Phản hồi Thành Công!`, 'color: #10b981; font-weight: bold;');
+                return geminiResult;
+            }
+        } catch (geminiError) {
+            console.warn(`%c[AI Provider] ⚠️ Direct Gemini API: ${geminiError.message}, thử Vertex AI...`, 'color: #fbbf24;');
+            try {
+                const vertexResult = await callVertexAiApi(prompt, 'gemini-3.1-flash-lite');
+                if (vertexResult) {
+                    console.log(`%c[AI Provider] ✅ Vertex AI Phản hồi Thành Công!`, 'color: #10b981; font-weight: bold;');
+                    return vertexResult;
+                }
+            } catch (vertexError) {
+                console.error(
+                    `%c[AI Provider] ❌ Google AI thất bại (Chi tiết: ${vertexError.message}), tự động chuyển sang OpenRouter`,
+                    'color: #f87171; font-weight: bold;'
+                );
+            }
+        }
+    }
+
+    // 2. Fallback: OpenRouter API
     const keys = getOpenRouterKeys();
     if (keys.length === 0) {
-        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
+        throw new Error('Không có API key khả dụng (cả Gemini và OpenRouter). Vui lòng thêm VITE_GEMINI_API_KEY hoặc VITE_OPENROUTER_API_KEY vào .env');
     }
 
     let activeModel = forcedOpenRouterModel;
@@ -190,7 +336,10 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
     }
 
     activeModel = getEffectiveModel(activeModel);
-    console.log(`🤖 OpenRouter (${keys.length} keys) — Feature: ${featureId || 'default'} — Model: ${activeModel}`);
+    console.log(
+        `%c[AI Provider] 🔵 DỰ PHÒNG OPENROUTER (${keys.length} keys) | Feature: ${featureId || 'default'} | Model: ${activeModel}`,
+        'color: #38bdf8; font-weight: bold; background: #0c4a6e; padding: 4px 8px; border-radius: 4px;'
+    );
     return callWithRetry(prompt, 0, 0, activeModel);
 };
 

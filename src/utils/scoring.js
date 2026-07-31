@@ -53,55 +53,76 @@ export const formatScore = (num) => {
     return formatted.endsWith('.0') ? `${Math.floor(val / 1000000)}M` : `${formatted}M`;
 };
 
-// Points configuration
+/**
+ * Single source of truth for Leaderboard Honor Score calculation.
+ * Formula: Score = TotalXP + (MasteredVocab * 10) + (MasteredKanji * 25) + (Streak * 30) + (ActiveDays * 15)
+ */
+export const calculateHonorScore = ({ xp = 0, mastered = 0, kanjiMastered = 0, streak = 0, activeDays = 0 } = {}) => {
+    const safeXp = Number(xp) || 0;
+    const safeMastered = Number(mastered) || 0;
+    const safeKanji = Number(kanjiMastered) || 0;
+    const safeStreak = Number(streak) || 0;
+    const safeActiveDays = Number(activeDays) || 0;
+
+    return Math.round(
+        safeXp +
+        (safeMastered * 10) +
+        (safeKanji * 25) +
+        (safeStreak * 30) +
+        (safeActiveDays * 15)
+    );
+};
+
+// Balanced Anti-Inflationary Points configuration
 export const POINTS = {
     // Initial learning/practice modes
-    PRACTICE_FLASHCARD_STUDY: 10,
-    PRACTICE_AUXILIARY: 6, // Back Review, Synonym, Example, Dictation
+    PRACTICE_FLASHCARD_STUDY: 3,
+    PRACTICE_AUXILIARY: 2, // Back Review, Synonym, Example, Dictation
 
     // Spaced Repetition (SRS) Reviews - Vocabulary
     SRS_VOCAB: {
-        again: 5,
-        hard: 15,
-        good: 30,
-        easy: 45
+        again: 1,
+        hard: 2,
+        good: 4,
+        easy: 6
     },
 
     // Spaced Repetition (SRS) Reviews - Kanji
     SRS_KANJI: {
-        again: 8,
-        hard: 25,
-        good: 45,
-        easy: 60
+        again: 1,
+        hard: 3,
+        good: 6,
+        easy: 10
     },
 
     // New Features & Additional Modes
     JLPT_TEST: {
-        correct_question: 10,
-        test_completion_bonus: 100
+        correct_question: 2,
+        test_completion_bonus: 20
     },
     AI_KAIWA: {
-        session_completion: 50
+        session_completion: 10
     },
     BOOK_LESSON: {
-        lesson_completion: 20
+        card_learned: 2,
+        lesson_completion: 10
     },
     STUDY_SET: {
-        card_learned: 10,
-        set_completion_bonus: 50
+        card_learned: 3,
+        set_completion_bonus: 10
     },
 
     // Promotion bonuses
     PROMOTION: {
-        to_learning: 10,
-        to_mastered: 100
+        to_learning: 3,
+        to_mastered: 15
     },
 
     // Consistency
-    DAILY_GOAL: 50,
-    PERFECT_SESSION: 20,
-    STREAK_MULTIPLIER: 5,
-    MAX_STREAK_BONUS: 100,
+    DAILY_GOAL: 15,
+    PERFECT_SESSION: 5,
+    STREAK_MULTIPLIER: 2,
+    MAX_STREAK_BONUS: 20,
 
     // Anti-spam limits
     DAILY_LIMIT: Infinity, // Unlimited XP per day for dedicated learners!
@@ -229,22 +250,22 @@ export const getLeagueTierRules = (leagueName, totalParticipants) => {
         minScoreForGraceProtection = 500;
     } else if (leagueName === 'Bạc') {
         minScoreForPromotion = 1000;
-        minScoreForSuperPromotion = 10000; // >= 10Kđ Thần Tốc nhảy thẳng lên Kim Cương
+        minScoreForSuperPromotion = 20000; // >= 20Kđ Thần Tốc nhảy thẳng lên Kim Cương
         minScoreForSafety = 50;
         minScoreForGraceProtection = 800;
     } else if (leagueName === 'Vàng') {
         minScoreForPromotion = 5000;
-        minScoreForSuperPromotion = 30000; // >= 30Kđ Thần Tốc nhảy thẳng lên Huyền Thoại
+        minScoreForSuperPromotion = 100000; // >= 100Kđ Thần Tốc nhảy thẳng lên Huyền Thoại
         minScoreForSafety = 100;
         minScoreForGraceProtection = 1500;
     } else if (leagueName === 'Kim Cương') {
-        minScoreForPromotion = 10000;
-        minScoreForSuperPromotion = 30000; // >= 30Kđ Thăng hạng lên Huyền Thoại
+        minScoreForPromotion = 20000; // >= 20Kđ để lên Kim Cương
+        minScoreForSuperPromotion = 100000; // >= 100Kđ Thăng hạng lên Huyền Thoại
         minScoreForSafety = 200;
         minScoreForGraceProtection = 3000;
     } else { // Huyền Thoại
-        minScoreForPromotion = 30000;
-        minScoreForSuperPromotion = 30000;
+        minScoreForPromotion = 100000; // >= 100Kđ
+        minScoreForSuperPromotion = 100000;
         minScoreForSafety = 300;
         minScoreForGraceProtection = 5000;
     }

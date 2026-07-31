@@ -4,6 +4,7 @@ import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, serverTimestamp, query } from 'firebase/firestore';
 import { showToast } from '../../utils/toast';
+import { normalizeAllUserScores } from '../../utils/normalizeUserScore';
 
 /**
  * XpTestingPanelModal - Interactive XP & Leaderboard Test Suite
@@ -32,23 +33,23 @@ const XpTestingPanelModal = ({ isOpen, onClose, profile, awardXP, userId }) => {
 
     const xpSources = [
         // 📚 Từ Vựng
-        { id: 'vocab_srs', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'SRS Từ Vựng (Review Ngắt Quãng)', points: '8 - 60 XP / thẻ', formula: 'Base (8-60) × Level multiplier (1.0x - 1.6x) + Thưởng thăng cấp (+100 XP)', status: '🟢 Đã kết nối' },
-        { id: 'flashcard_study', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'Học Thẻ Flashcard Học Phần', points: '10 XP / thẻ', formula: '+10 XP cho mỗi thẻ lật xem + 50 XP thưởng hoàn thành bài', status: '🟢 Đã kết nối' },
-        { id: 'vocab_set_practice', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'Trắc Nghiệm / Gõ Từ Học Phần', points: '15 XP / câu', formula: '+15 XP cho mỗi câu đúng + 50 XP thưởng hoàn thành lượt ôn', status: '🟢 Đã kết nối' },
-        { id: 'book_lesson', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'Học Từ Vựng Theo Sách / Giáo Trình', points: '10 XP / từ + 50 XP / bài', formula: '+10 XP cho mỗi từ lật trong bài + 50 XP thưởng hoàn thành 100% bài học', status: '🟢 Đã kết nối' },
-        { id: 'add_vocab', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'Tự Tạo Từ Vựng / Bộ Thẻ Mới', points: '10 XP / từ', formula: '+10 XP khi tự tạo từ mới hoặc import từ vựng vào bộ học', status: '🟢 Đã kết nối' },
+        { id: 'vocab_srs', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'SRS Từ Vựng (Review Ngắt Quãng)', points: '1 - 6 XP / thẻ', formula: 'Trả lời đúng: Lặp lại (+1), Khó (+2), Tốt (+4), Dễ (+6 XP)', testAmount: 4, status: '🟢 Đã kết nối' },
+        { id: 'flashcard_study', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'Học Thẻ Flashcard Học Phần', points: '3 XP / thẻ', formula: '+3 XP cho mỗi thẻ lật xem + 10 XP thưởng hoàn thành bài', testAmount: 3, status: '🟢 Đã kết nối' },
+        { id: 'vocab_set_practice', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'Trắc Nghiệm / Gõ Từ Học Phần', points: '3 XP / câu', formula: '+3 XP cho mỗi câu đúng + 10 XP thưởng hoàn thành lượt ôn', testAmount: 3, status: '🟢 Đã kết nối' },
+        { id: 'book_lesson', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'Học Từ Vựng Theo Sách / Giáo Trình', points: '2 XP / từ + 10 XP / bài', formula: '+2 XP cho mỗi từ lật trong bài + 10 XP thưởng hoàn thành bài học', testAmount: 2, status: '🟢 Đã kết nối' },
+        { id: 'add_vocab', category: 'VOCAB', categoryName: '📚 Menu Từ Vựng', name: 'Tự Tạo Từ Vựng / Bộ Thẻ Mới', points: '2 XP / từ', formula: '+2 XP khi tự tạo từ mới hoặc import từ vựng vào bộ học', testAmount: 2, status: '🟢 Đã kết nối' },
 
         // 🈸 Kanji
-        { id: 'kanji_srs', category: 'KANJI', categoryName: '🈸 Menu Kanji (Hán Tự)', name: 'SRS Kanji (Review Ngắt Quãng)', points: '8 - 60 XP / chữ', formula: 'Base (8-60) × JLPT multiplier (N5-N1) + Thưởng thăng cấp (+100 XP)', status: '🟢 Đã kết nối' },
-        { id: 'kanji_lesson', category: 'KANJI', categoryName: '🈸 Menu Kanji (Hán Tự)', name: 'Học Bài Mới Kanji Theo Cấp Độ', points: '25 XP / bài', formula: '+25 XP khi hoàn thành lượt học bài Hán tự mới', status: '🟢 Đã kết nối' },
+        { id: 'kanji_srs', category: 'KANJI', categoryName: '🈸 Menu Kanji (Hán Tự)', name: 'SRS Kanji (Review Ngắt Quãng)', points: '1 - 10 XP / chữ', formula: 'Trả lời đúng: Lặp lại (+1), Khó (+3), Tốt (+6), Dễ (+10 XP)', testAmount: 6, status: '🟢 Đã kết nối' },
+        { id: 'kanji_lesson', category: 'KANJI', categoryName: '🈸 Menu Kanji (Hán Tự)', name: 'Học Bài Mới Kanji Theo Cấp Độ', points: '5 XP / bài', formula: '+5 XP khi hoàn thành lượt học bài Hán tự mới', testAmount: 5, status: '🟢 Đã kết nối' },
 
         // ⛩️ Ngữ Pháp
-        { id: 'grammar_srs', category: 'GRAMMAR', categoryName: '⛩️ Menu Ngữ Pháp', name: 'SRS Ngữ Pháp (Review Ngắt Quãng)', points: '8 - 60 XP / mẫu', formula: 'Base (8-60) × Level multiplier + Thưởng thăng cấp (+100 XP)', status: '🟢 Đã kết nối' },
-        { id: 'grammar_practice', category: 'GRAMMAR', categoryName: '⛩️ Menu Ngữ Pháp', name: 'Luyện Tập Ngữ Pháp Theo Bài', points: '15 XP / câu', formula: '+15 XP cho mỗi câu gõ/chọn đúng + 50 XP hoàn thành bài', status: '🟢 Đã kết nối' },
+        { id: 'grammar_srs', category: 'GRAMMAR', categoryName: '⛩️ Menu Ngữ Pháp', name: 'SRS Ngữ Pháp (Review Ngắt Quãng)', points: '1 - 6 XP / mẫu', formula: 'Trả lời đúng: Lặp lại (+1), Khó (+2), Tốt (+4), Dễ (+6 XP)', testAmount: 4, status: '🟢 Đã kết nối' },
+        { id: 'grammar_practice', category: 'GRAMMAR', categoryName: '⛩️ Menu Ngữ Pháp', name: 'Luyện Tập Ngữ Pháp Theo Bài', points: '3 XP / câu', formula: '+3 XP cho mỗi câu gõ/chọn đúng + 10 XP hoàn thành bài', testAmount: 3, status: '🟢 Đã kết nối' },
 
         // 🎮 Luyện Thi & AI Kaiwa
-        { id: 'quiz_test', category: 'PRACTICE', categoryName: '🎮 Menu Luyện Thi & AI Kaiwa', name: 'Luyện Thi Trắc Nghiệm JLPT', points: '20 XP / câu đúng', formula: '20 XP × Số câu đúng + 50 XP thưởng hoàn thành đề thi', status: '🟢 Đã kết nối' },
-        { id: 'kaiwa_ai', category: 'PRACTICE', categoryName: '🎮 Menu Luyện Thi & AI Kaiwa', name: 'Luyện Hội Thoại AI Kaiwa', points: '50 - 100 XP / phiên', formula: 'Scorecard AI × (50 - 100 XP) dựa trên đánh giá phát âm & phản xạ', status: '🟢 Đã kết nối' },
+        { id: 'quiz_test', category: 'PRACTICE', categoryName: '🎮 Menu Luyện Thi & AI Kaiwa', name: 'Luyện Thi Trắc Nghiệm JLPT', points: '2 XP / câu đúng', formula: '2 XP × Số câu đúng + 20 XP thưởng hoàn thành đề thi', testAmount: 2, status: '🟢 Đã kết nối' },
+        { id: 'kaiwa_ai', category: 'PRACTICE', categoryName: '🎮 Menu Luyện Thi & AI Kaiwa', name: 'Luyện Hội Thoại AI Kaiwa', points: '10 XP / phiên', formula: '+10 XP cho mỗi phiên luyện nói Kaiwa với AI', testAmount: 10, status: '🟢 Đã kết nối' },
     ];
 
     const filteredSources = activeTab === 'ALL' 
@@ -93,11 +94,19 @@ const XpTestingPanelModal = ({ isOpen, onClose, profile, awardXP, userId }) => {
                 try {
                     const data = userDoc.data();
                     const xp = Number(data.xp || 0);
+                    const masteredVocab = Number(data.mastered || 0);
+                    const masteredKanji = Number(data.kanjiMastered || 0);
                     const streak = Number(data.streak || 0);
                     const activeDays = Number(data.activeDays || 0);
 
-                    // Monotonic formula: score = xp + streak * 50 + activeDays * 20
-                    const calculatedScore = Math.round(xp + (streak * 50) + (activeDays * 20));
+                    // Multi-Dimensional Honor Score Formula
+                    const calculatedScore = Math.round(
+                        xp +
+                        (masteredVocab * 10) +
+                        (masteredKanji * 25) +
+                        (streak * 30) +
+                        (activeDays * 15)
+                    );
 
                     if (data.score !== calculatedScore) {
                         // Update publicStats doc
@@ -254,10 +263,10 @@ const XpTestingPanelModal = ({ isOpen, onClose, profile, awardXP, userId }) => {
                                                 </td>
                                                 <td className="p-3 text-right">
                                                     <button
-                                                        onClick={() => handleTriggerTestXP(item.name, 25)}
+                                                        onClick={() => handleTriggerTestXP(item.name, item.testAmount || 3)}
                                                         className="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold rounded-xl text-[11px] transition-all inline-flex items-center gap-1 shadow-sm cursor-pointer"
                                                     >
-                                                        <Zap className="w-3 h-3 fill-amber-300 text-amber-300" /> +25 XP
+                                                        <Zap className="w-3 h-3 fill-amber-300 text-amber-300" /> +{item.testAmount || 3} XP
                                                     </button>
                                                 </td>
                                             </tr>
@@ -286,15 +295,50 @@ const XpTestingPanelModal = ({ isOpen, onClose, profile, awardXP, userId }) => {
 
                 {/* Modal Footer with Batch Recalibration */}
                 <div className="p-4 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-between items-center gap-3">
-                    <button
-                        onClick={handleRecalculateAllUserScores}
-                        disabled={isRecalculating}
-                        className="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 disabled:opacity-50 text-white font-extrabold rounded-xl text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
-                        title="Tính lại điểm số BXH chuẩn cho tất cả người dùng dựa trên XP + Streak + ActiveDays"
-                    >
-                        <RefreshCw className={`w-3.5 h-3.5 ${isRecalculating ? 'animate-spin' : ''}`} />
-                        {isRecalculating ? 'Đang Tính Lại Dữ Liệu...' : '🔄 Chuẩn Hóa Điểm Tất Cả Người Dùng'}
-                    </button>
+                    <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                        <button
+                            onClick={handleRecalculateAllUserScores}
+                            disabled={isRecalculating}
+                            className="flex-1 sm:flex-none px-3.5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 disabled:opacity-50 text-white font-extrabold rounded-xl text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                            title="Tính lại điểm số BXH dựa trên XP + Streak + ActiveDays"
+                        >
+                            <RefreshCw className={`w-3.5 h-3.5 ${isRecalculating ? 'animate-spin' : ''}`} />
+                            {isRecalculating ? 'Đang Xử Lý...' : '🔄 Đồng Bộ Công Thức BXH'}
+                        </button>
+
+                        <button
+                            onClick={async () => {
+                                if (!db || !appId) return;
+                                setIsRecalculating(true);
+                                try {
+                                    const result = await normalizeAllUserScores();
+                                    showToast(`⚡ Đã chuẩn hóa ${result.total} người dùng: Gán Score = XP thành công!`, 'success');
+                                    const timeStr = new Date().toLocaleTimeString('vi-VN');
+                                    setTestLog(prev => [
+                                        { 
+                                            id: Date.now(), 
+                                            time: timeStr, 
+                                            source: `Chuẩn hóa Score = XP (${result.total} user, cập nhật ${result.updatedCount})`, 
+                                            amount: 0, 
+                                            status: 'Hoàn tất 100%' 
+                                        },
+                                        ...prev
+                                    ]);
+                                } catch (e) {
+                                    console.error("Lỗi khi chuẩn hóa điểm:", e);
+                                    showToast("Lỗi khi chuẩn hóa điểm: " + e.message, 'error');
+                                } finally {
+                                    setIsRecalculating(false);
+                                }
+                            }}
+                            disabled={isRecalculating}
+                            className="flex-1 sm:flex-none px-3.5 py-2.5 bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-600 hover:to-purple-700 disabled:opacity-50 text-white font-black rounded-xl text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
+                            title="Chuẩn hóa điểm người dùng: Gán trực tiếp điểm trên Bảng xếp hạng = XP của người dùng"
+                        >
+                            <Zap className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
+                            {isRecalculating ? 'Đang Chuẩn Hóa...' : '⚡ Chuẩn Hóa Điểm Người Dùng (Score = XP)'}
+                        </button>
+                    </div>
 
                     <button
                         onClick={onClose}

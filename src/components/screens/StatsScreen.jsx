@@ -132,10 +132,10 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             users.forEach((u) => {
                 let newLeague = 'Đồng';
 
-                // Categorize strictly by user's requested XP thresholds
-                if (u.score >= 30000) {
+                // Categorize strictly by user's requested XP thresholds (Kim Cương 20K+, Huyền Thoại 100K+)
+                if (u.score >= 100000) {
                     newLeague = 'Huyền Thoại';
-                } else if (u.score >= 10000) {
+                } else if (u.score >= 20000) {
                     newLeague = 'Kim Cương';
                 } else if (u.score >= 5000) {
                     newLeague = 'Vàng';
@@ -296,19 +296,9 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     // ==================== LEADERBOARD SCORE CALCULATION ====================
     const computeScore = useCallback((user) => {
-        if (user.score !== undefined && user.score !== null) return user.score;
-        // Fallback locally
-        const added7 = user.addedLast7Days !== undefined ? user.addedLast7Days : Math.min(user.totalCards || 0, 5);
-        const kanji7 = user.kanjiAddedLast7Days !== undefined ? user.kanjiAddedLast7Days : 0;
-        const reviews7 = user.reviewsLast7Days !== undefined ? user.reviewsLast7Days : Math.min(user.totalReviews || 0, 20);
-        const activeDays7 = user.activeDaysLast7Days !== undefined ? user.activeDaysLast7Days : Math.min(user.activeDays || 0, 2);
-        return Math.round(
-            (added7 * 10) +
-            (kanji7 * 15) +
-            (reviews7 * 20) +
-            (activeDays7 * 50) +
-            ((user.streak || 0) * 20)
-        );
+        if (user.score !== undefined && user.score !== null) return Number(user.score);
+        if (user.xp !== undefined && user.xp !== null) return Number(user.xp);
+        return 0;
     }, []);
 
     // Current user's weekly stats
@@ -319,9 +309,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             try {
                 const logDate = new Date(log.id);
                 logDate.setHours(0, 0, 0, 0);
-                const diffTime = today.getTime() - logDate.getTime();
-                const diffDays = diffTime / (1000 * 60 * 60 * 24);
-                return diffDays >= 0 && diffDays < 7;
+                return logDate >= today;
             } catch (e) {
                 return false;
             }
@@ -344,16 +332,9 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
     const myScore = useMemo(() => {
         const me = leaderboardData.find(u => u.id === userId);
         if (me) return computeScore(me);
-
-        // Fallback to local log-based calculation
-        return Math.round(
-            (myWeeklyStats.addedLast7Days * 10) +
-            (myWeeklyStats.kanjiLast7Days * 15) +
-            (myWeeklyStats.reviewsLast7Days * 20) +
-            (myWeeklyStats.activeDaysLast7Days * 50) +
-            (streak * 20)
-        );
-    }, [leaderboardData, userId, myWeeklyStats, streak, computeScore]);
+        if (profile?.score !== undefined && profile?.score !== null) return Number(profile.score);
+        return Number(profile?.xp || 0);
+    }, [leaderboardData, userId, profile, computeScore]);
 
     // Current user's XP progress
     const xpDetails = useMemo(() => {
@@ -406,23 +387,16 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             });
         }
 
-        // Fill remaining spaces with deterministic competitive bots (Disabled)
-        const isBotEnabled = false;
-        if (isBotEnabled) {
-            const needed = 30 - finalParticipants.length;
-            if (needed > 0) {
-                const bots = generateSimulatedLeague(currentUserId + selectedLeague, currentWeekId, myScore);
-                finalParticipants = [...finalParticipants, ...bots.slice(0, needed)];
-            }
-        }
-
         // Filter out inactive real users (inactive > 7 days)
         const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
         finalParticipants = finalParticipants.filter(u => {
-            if (u.isBot) return true;
-            if (!u.lastUpdated) return false;
-            const lastActiveDate = u.lastUpdated.toDate ? u.lastUpdated.toDate() : new Date(u.lastUpdated);
-            return lastActiveDate.getTime() >= sevenDaysAgo;
+            if (!u.lastUpdated) return true; // keep if no timestamp
+            try {
+                const updatedTime = u.lastUpdated.toDate ? u.lastUpdated.toDate().getTime() : new Date(u.lastUpdated).getTime();
+                return updatedTime >= sevenDaysAgo;
+            } catch (e) {
+                return true;
+            }
         });
 
         // Search filter
@@ -442,22 +416,26 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             if (sortBy === 'streak') {
                 return (b.streak || 0) - (a.streak || 0);
             }
-            return b.computedScore - a.computedScore; // default: score
+            return (b.computedScore || 0) - (a.computedScore || 0); // default: score
         });
 
         return finalParticipants;
     }, [leaderboardData, selectedLeague, profile, userId, myScore, streak, totalCards, vocabMastery.mastered, kanjiSrsStats.total, kanjiSrsStats.mastered, myWeeklyStats, currentWeekId, searchTerm, sortBy, computeScore]);
 
     const allTimeParticipants = useMemo(() => {
-        let list = leaderboardData.map(u => ({
-            ...u,
-            computedScore: computeScore(u),
-            totalScore: u.xp || u.score || computeScore(u)
-        }));
+        let list = leaderboardData.map(u => {
+            const finalScore = computeScore(u);
+            return {
+                ...u,
+                computedScore: finalScore,
+                totalScore: finalScore
+            };
+        });
 
         const currentUserId = userId;
         const hasMe = list.some(u => u.id === currentUserId);
         if (!hasMe) {
+            const myFinalScore = myScore;
             list.push({
                 id: currentUserId,
                 displayName: profile?.displayName || 'Bạn',
@@ -469,8 +447,8 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                 mastered: vocabMastery.mastered,
                 kanjiTotal: kanjiSrsStats.total,
                 kanjiMastered: kanjiSrsStats.mastered,
-                computedScore: myScore,
-                totalScore: profile?.xp || myScore
+                computedScore: myFinalScore,
+                totalScore: myFinalScore
             });
         }
 
@@ -568,7 +546,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         <div className="p-2.5 bg-gradient-to-br from-indigo-50 to-sky-50 dark:from-indigo-950/20 dark:to-sky-950/10 rounded-xl border border-indigo-100/50 dark:border-indigo-950/50 shadow-sm flex flex-col justify-center">
                             <span className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 block mb-0.5">Điểm vinh danh:</span>
                             <span className="text-sm font-black text-indigo-600 dark:text-indigo-400 flex items-center gap-0.5">
-                                <Star className="w-4 h-4 fill-indigo-500 text-indigo-500 dark:fill-indigo-400 dark:text-indigo-400" /> {user.computedScore} điểm
+                                <Star className="w-4 h-4 fill-indigo-500 text-indigo-500 dark:fill-indigo-400 dark:text-indigo-400" /> {formatScore(user.computedScore)} điểm
                             </span>
                         </div>
                     </div>
@@ -1230,31 +1208,31 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200/70 dark:border-slate-800/70 space-y-3">
                             <div className="flex items-center gap-2 font-bold text-xs text-indigo-700 dark:text-indigo-400 uppercase tracking-wider font-mono">
                                 <Sparkle className="w-4 h-4 text-indigo-500" />
-                                <span>1. Quy định tính điểm Chăm chỉ (Bảng Vinh Danh) ⭐</span>
+                                <span>1. Quy định tính Điểm Vinh Danh Bảng Xếp Hạng ⭐</span>
                             </div>
                             <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                                Điểm số dựa trên hoạt động trong <strong>7 ngày gần nhất</strong> & chuỗi ngày học <strong>Streak</strong>:
+                                Điểm vinh danh được ghi cố định vào Database, đồng bộ theo tổng <strong>Điểm XP tích lũy</strong> và thống kê hoạt động học tập:
                             </p>
                             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans">HỌC TỪ MỚI</span>
-                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">Từ +10đ | Kanji +15đ</span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans">ĐIỂM VINH DANH</span>
+                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">Gán Score = XP</span>
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans">LƯỢT ÔN TẬP (SRS)</span>
-                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">+20 điểm / lượt</span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans">TÍCH LŨY LIÊN TỤC</span>
+                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">Không bị reset</span>
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans">NGÀY NĂNG ĐỘNG</span>
-                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">+50 điểm / ngày</span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans">ĐỒNG BỘ REAL-TIME</span>
+                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">Tự động 100%</span>
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans">STREAK HỌC</span>
-                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">+20 điểm / ngày</span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans">STREAK & NĂNG HOẠT</span>
+                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">Hiển thị chi tiết</span>
                                 </div>
                             </div>
                             <div className="text-[11px] text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 p-2.5 rounded-xl border border-amber-200/50 dark:border-amber-900/40">
-                                ⚠️ <strong>Lưu ý:</strong> Tài khoản không học trong vòng <strong>7 ngày</strong> sẽ tạm thời ẩn khỏi Bảng vinh danh.
+                                ⚠️ <strong>Lưu ý:</strong> Tài khoản không học trong vòng <strong>7 ngày</strong> sẽ tạm thời ẩn khỏi Bảng xếp hạng tuần.
                             </div>
                         </div>
 
@@ -1279,11 +1257,11 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 text-center">
                                     <span className="font-bold text-cyan-600 dark:text-cyan-400 block text-[11px] font-sans">💠 KIM CƯƠNG</span>
-                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">≥ 10,000 XP (10K+)</span>
+                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">≥ 20,000 XP (20K+)</span>
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 text-center">
                                     <span className="font-bold text-rose-600 dark:text-rose-400 block text-[11px] font-sans">👑 HUYỀN THOẠI</span>
-                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">≥ 30,000 XP (30K+)</span>
+                                    <span className="text-slate-600 dark:text-slate-300 text-[10px] font-bold block mt-0.5">≥ 100,000 XP (100K+)</span>
                                 </div>
                             </div>
                         </div>
@@ -1292,38 +1270,28 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                         <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200/70 dark:border-slate-800/70 space-y-3">
                             <div className="flex items-center gap-2 font-bold text-xs text-amber-700 dark:text-amber-400 uppercase tracking-wider font-mono">
                                 <Flame className="w-4 h-4 text-amber-500" />
-                                <span>3. Điểm Kinh Nghiệm (XP) & Thăng cấp ⚡</span>
+                                <span>3. Quy Định Thưởng XP Các Chế Độ Học (Chống Lạm Phát) ⚡</span>
                             </div>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs font-mono">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs font-mono">
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">📖 HỌC LẦN ĐẦU</span>
-                                    <span className="text-slate-700 dark:text-slate-300">Thẻ nhớ: <strong>+10 XP</strong></span>
-                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Chế độ phụ: <strong>+6 XP</strong></span>
-                                </div>
-                                <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🔄 ÔN VOCAB (SRS)</span>
-                                    <span className="text-slate-700 dark:text-slate-300">Quên: <strong>+5</strong> | Khó: <strong>+15</strong></span>
-                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Tốt: <strong>+30</strong> | Dễ: <strong>+45 XP</strong></span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🔄 ÔN TỪ VỰNG (SRS)</span>
+                                    <span className="text-slate-700 dark:text-slate-300">Quên: <strong>+1</strong> \| Khó: <strong>+2</strong></span>
+                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Tốt: <strong>+4</strong> \| Dễ: <strong>+6 XP</strong></span>
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
                                     <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🏮 ÔN KANJI (SRS)</span>
-                                    <span className="text-slate-700 dark:text-slate-300">Quên: <strong>+8</strong> | Khó: <strong>+25</strong></span>
-                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Tốt: <strong>+45</strong> | Dễ: <strong>+60 XP</strong></span>
+                                    <span className="text-slate-700 dark:text-slate-300">Quên: <strong>+1</strong> \| Khó: <strong>+3</strong></span>
+                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Tốt: <strong>+6</strong> \| Dễ: <strong>+10 XP</strong></span>
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🚀 THĂNG HẠNG SRS</span>
-                                    <span className="text-slate-700 dark:text-slate-300">Đang học: <strong>+10 XP</strong></span>
-                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Thành thạo: <strong>+100 XP</strong></span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🎴 FLASHCARD & BÀI HỌC</span>
+                                    <span className="text-slate-700 dark:text-slate-300">Lật thẻ: <strong>+3 XP/thẻ</strong></span>
+                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Giáo trình: <strong>+2 XP/từ</strong></span>
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">📈 HỆ SỐ JLPT</span>
-                                    <span className="text-slate-700 dark:text-slate-300">N5/N4: <strong>x1.0</strong> | N3: <strong>x1.2</strong></span>
-                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">N2: <strong>x1.4</strong> | N1: <strong>x1.6</strong></span>
-                                </div>
-                                <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🛡️ TÍCH LŨY KHÔNG GIỚI HẠN</span>
-                                    <span className="text-slate-700 dark:text-slate-300">Tự do <strong>học không giới hạn XP</strong></span>
-                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Tăng trưởng theo năng lực</span>
+                                    <span className="text-slate-500 dark:text-slate-400 text-[10px] block font-sans font-bold">🎮 LUYỆN THI & AI KAIWA</span>
+                                    <span className="text-slate-700 dark:text-slate-300">Trắc nghiệm: <strong>+2 XP/câu</strong></span>
+                                    <span className="text-slate-500 dark:text-slate-400 block text-[10px]">AI Kaiwa: <strong>+10 XP/phiên</strong></span>
                                 </div>
                             </div>
                         </div>
