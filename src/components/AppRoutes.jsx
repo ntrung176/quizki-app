@@ -864,6 +864,7 @@ const AppRoutes = ({
                                     onUpdateCard={handleUpdateCard}
                                     vocabCollectionPath={vocabCollectionPath}
                                     onSaveCardAudio={handleSaveCardAudio}
+                                    awardXP={awardXP}
                                     onCompleteReview={(failedCardsSet) => {
                                         if (failedCardsSet && failedCardsSet.size > 0) {
                                             const failedCardsList = [];
@@ -921,7 +922,9 @@ const AppRoutes = ({
                                 allCards={allCards}
                                 onUpdateCard={handleUpdateCard}
                                 onSaveCardAudio={handleSaveCardAudio}
+                                awardXP={awardXP}
                                 onCompleteStudy={() => {
+                                    if (awardXP) awardXP(50);
                                     const setId = studySessionData?.setId;
                                     if (setId) {
                                         const userId = getAuth().currentUser?.uid;
@@ -993,6 +996,7 @@ const AppRoutes = ({
                         <ProtectedRoute isAuthenticated={isAuthenticated}>
                             <AccountScreen
                                 profile={profile}
+                                awardXP={awardXP}
                                 publicStatsPath={publicStatsCollectionPath}
                                 currentUserId={userId}
                                 onUpdateProfileName={handleUpdateProfileName}

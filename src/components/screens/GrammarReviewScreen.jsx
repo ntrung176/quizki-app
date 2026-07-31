@@ -13,7 +13,7 @@ import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playFlipSound } from '../../utils/soundEffects';
-import { TopTabBar } from '../ui';
+import { TopTabBar, SrsPrewarmLoader } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
@@ -404,6 +404,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return () => clearInterval(intervalId);
     }, [reviewMode, currentReviewIndex, grammarList, srsData]);
 
+    const [isPreparingSession, setIsPreparingSession] = useState(false);
+
     const startReview = () => {
         if (dueGrammar.length === 0) return;
         sessionXpRef.current = 0;
@@ -413,10 +415,17 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
-        setReviewMode(true);
-        if (setIsReviewActive) {
-            setIsReviewActive(true);
-        }
+
+        // Show high-tech pre-warming screen
+        setIsPreparingSession(true);
+
+        setTimeout(() => {
+            setIsPreparingSession(false);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        }, 400);
     };
 
     const hasAutoStartedRef = useRef(false);
@@ -483,6 +492,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             else if (lvlUpper.includes('N1')) multiplier = 1.6;
         }
         const totalXp = Math.round((basePoints + promotionBonus) * multiplier);
+        sessionXpRef.current += totalXp;
 
         setReviewHistory(prev => [...prev, {
             cardIndex: currentReviewIndex,
@@ -693,6 +703,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 </div>
             </div>
         );
+    }
+
+    if (isPreparingSession) {
+        return <SrsPrewarmLoader title="Ngữ Pháp" count={reviewQueue.length} />;
     }
 
     if (reviewMode && currentCard) {

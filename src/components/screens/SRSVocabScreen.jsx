@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu } from 'lucide-react'
-import { TopTabBar } from '../ui';
+import { TopTabBar, SrsPrewarmLoader } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -298,6 +298,7 @@ const SRSVocabScreen = ({
     // Local review queue state
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+    const [isPreparingSession, setIsPreparingSession] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
@@ -491,6 +492,10 @@ const SRSVocabScreen = ({
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
+
+        // Show calculating & prewarming screen before Card #1
+        setIsPreparingSession(true);
+
         // Pre-warm WebKit AudioContext and SpeechSynthesis on initial user tap
         try {
             if (typeof window !== 'undefined') {
@@ -503,10 +508,14 @@ const SRSVocabScreen = ({
             }
         } catch (_) {}
 
-        setReviewMode(true);
-        if (setIsReviewActive) {
-            setIsReviewActive(true);
-        }
+        // Transition seamlessly to Card #1 after pre-warming phase
+        setTimeout(() => {
+            setIsPreparingSession(false);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        }, 400);
     };
 
     const handleAction = (folderId, actionType, cards) => {
@@ -942,8 +951,12 @@ const SRSVocabScreen = ({
             good: formatInterval(previewIntv.good),
             easy: formatInterval(previewIntv.easy),
         };
-            const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
-            return (
+        if (isPreparingSession) {
+            return <SrsPrewarmLoader title="Từ Vựng" count={reviewQueue.length} />;
+        }
+
+        const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
+        return (
                 <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8">
                     <div className="w-[800px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6">
                         {/* Header with Exit */}

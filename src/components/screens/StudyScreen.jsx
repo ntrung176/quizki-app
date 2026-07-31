@@ -394,7 +394,7 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
 };
 
 // ─── Main StudyScreen ──────────────────────────────────────────────────────
-const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack }) => {
+const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack, awardXP }) => {
     const { isEnglishMode } = useTargetLanguage();
     const originalCards = useMemo(() => studySessionData?.cards || [], [studySessionData]);
     const [furiganaEnabled, setFuriganaEnabled] = useState(() => localStorage.getItem('study_furigana_enabled') !== 'false');
@@ -574,6 +574,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     // ── MC handlers ──────────────────────────────────────────────────────────
 
     const handleMCCorrect = useCallback(() => {
+        if (awardXP) awardXP(15);
         const cCard = mcQueue[mcIdx];
         if (onUpdateCard && cCard?.id && !sessionWrongCardIdsRef.current.has(cCard.id)) {
             onUpdateCard(cCard.id, true, 'back', 'study_mc');
@@ -627,6 +628,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     // ── Written handlers ─────────────────────────────────────────────────────
 
     const handleWrittenCorrect = useCallback(() => {
+        if (awardXP) awardXP(15);
         const cCard = writtenQueue[writtenIdx];
         if (onUpdateCard && cCard?.id && !sessionWrongCardIdsRef.current.has(cCard.id)) {
             onUpdateCard(cCard.id, true, 'back', 'study_written');

@@ -28,7 +28,8 @@ const ReviewScreen = ({
     onCompleteReview,
     vocabCollectionPath,
     onSaveCardAudio,
-    onBack
+    onBack,
+    awardXP
 }) => {
     const { isEnglishMode } = useTargetLanguage();
     // Load saved progress from localStorage
@@ -961,6 +962,7 @@ const ReviewScreen = ({
 
         try {
             if (isCorrect) {
+                if (awardXP) awardXP(15);
                 // Shared handler for correct answer (first try or after prior failure)
                 if (hasFailedBefore) {
                     failedCardsRef.current.delete(cardKey);

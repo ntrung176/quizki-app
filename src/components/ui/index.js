@@ -6,3 +6,5 @@ export { default as PremiumLockedModal } from './PremiumLockedModal';
 export { default as SafeAvatarImage } from './SafeAvatarImage';
 export { default as TargetLanguageSelector } from './TargetLanguageSelector';
 export { default as FlagIcon } from './FlagIcon';
+export { default as XpTestingPanelModal } from './XpTestingPanelModal';
+export { default as SrsPrewarmLoader } from './SrsPrewarmLoader';

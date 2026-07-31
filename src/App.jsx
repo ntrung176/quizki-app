@@ -52,6 +52,7 @@ import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
 import AdminFloatingSupportChatbox from './components/ui/AdminFloatingSupportChatbox';
 import CyberTechBackground from './components/ui/CyberTechBackground';
+import { XpTestingPanelModal } from './components/ui';
 
 // Import hooks
 import useVersionCheck from './hooks/useVersionCheck';
@@ -392,6 +393,7 @@ const App = () => {
 
     // Admin config from Firestore (AI permissions, provider selection, moderators)
     const [adminConfig, setAdminConfig] = useState(null);
+    const [showXpTestModal, setShowXpTestModal] = useState(false);
 
     useEffect(() => {
         if (!userId) return; // Chờ đăng nhập rồi mới subscribe (Firestore rules yêu cầu auth)
@@ -4355,19 +4357,16 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0), 0);
                 const activeDaysLast7Days = last7DaysLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.newKanjiAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
 
-                // === CÔNG THỨC TÍNH ĐIỂM VINH DANH MỚI (CHĂM CHỈ) ===
-                // Điểm vinh danh được tính dựa trên hoạt động tích cực trong 7 ngày gần nhất và streak hiện tại:
-                // - Từ vựng mới thêm trong tuần: +10 điểm/từ
-                // - Kanji mới thêm trong tuần: +15 điểm/chữ
-                // - Ôn tập trong tuần: +20 điểm/lượt
-                // - Số ngày học tích cực trong tuần (max 7 ngày): +50 điểm/ngày
-                // - Chuỗi ngày học liên tục (streak): +20 điểm/ngày streak
+                // === CÔNG THỨC TÍNH ĐIỂM VINH DANH TÍCH LŨY (KHÔNG TỰ GIẢM) ===
+                // Điểm vinh danh dựa trên Tổng XP tích lũy + Chuỗi ngày Streak + Ngày hoạt động tích cực:
+                // - Tổng XP tích lũy: 100% XP (Tăng đều liên tục, không bao giờ tự giảm)
+                // - Chuỗi ngày Streak: +50 điểm/ngày streak
+                // - Số ngày học tích cực: +20 điểm/ngày
+                const totalUserXp = profile?.xp || 0;
                 const score = Math.round(
-                    (addedLast7Days * 10) +
-                    (kanjiLast7Days * 15) +
-                    (reviewsLast7Days * 20) +
-                    (activeDaysLast7Days * 50) +
-                    (currentStreak * 20)
+                    totalUserXp +
+                    (currentStreak * 50) +
+                    (activeDays * 20)
                 );
 
                 const publicData = {
@@ -4629,6 +4628,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
             case 'ACCOUNT':
                 return <AccountScreen
                     profile={profile}
+                    awardXP={awardXP}
                     publicStatsPath={publicStatsCollectionPath}
                     currentUserId={userId}
                     onUpdateProfileName={async (newName) => {
@@ -4774,6 +4774,28 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 handleBatchImportFromText={handleBatchImportFromText}
                 setNotification={setNotification}
             />
+
+            {/* Floating Global XP Test Suite Trigger Button */}
+            {userId && (
+                <>
+                    <button
+                        onClick={() => setShowXpTestModal(true)}
+                        className="fixed bottom-5 right-5 z-40 flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-600 hover:to-purple-700 text-white font-black rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 active:scale-95 cursor-pointer border border-white/20"
+                        title="Mở Bảng Kiểm Tra & Chẩn Đoán Điểm XP"
+                    >
+                        <span className="text-base">🧪</span>
+                        <span className="text-xs font-bold tracking-wide">Test Điểm XP</span>
+                    </button>
+
+                    <XpTestingPanelModal
+                        isOpen={showXpTestModal}
+                        onClose={() => setShowXpTestModal(false)}
+                        profile={profile}
+                        awardXP={awardXP}
+                        userId={userId}
+                    />
+                </>
+            )}
 
             <main className={`${isFullscreen ? 'ml-0 lg:ml-0 pt-0' : isSidebarCollapsed ? 'lg:ml-20 pt-14 lg:pt-0' : 'lg:ml-64 pt-14 lg:pt-0'} transition-all duration-300 min-h-screen flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'bg-transparent' : ''}`}>
                 {profile?.trialPricingTier && (

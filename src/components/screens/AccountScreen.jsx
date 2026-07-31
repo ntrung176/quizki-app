@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db, auth } from '../../config/firebase';
-import { Users, Save, Lock, Eye, EyeOff, Crown, Gift, Copy, Check, Award, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
+import { XpTestingPanelModal } from '../ui';
 
-const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId }) => {
+const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId }) => {
+    const [showXpTestModal, setShowXpTestModal] = useState(false);
     const navigate = useNavigate();
     const isPremiumUser = (profile?.unlockedSpecializedPackages && (
         profile.unlockedSpecializedPackages.includes('premium') ||
@@ -176,10 +177,26 @@ const AccountScreen = ({ profile, onUpdateProfileName, onChangePassword, onBack,
                     <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Tài khoản của bạn</h2>
                     <p className="text-gray-500 dark:text-gray-400 text-sm">Quản lý thông tin cá nhân và bảo mật</p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
-                    <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => setShowXpTestModal(true)}
+                        className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white font-bold rounded-xl text-xs shadow-md transition-all active:scale-95 cursor-pointer"
+                    >
+                        🧪 Bảng Test Điểm XP
+                    </button>
+                    <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                        <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                    </div>
                 </div>
             </div>
+
+            <XpTestingPanelModal
+                isOpen={showXpTestModal}
+                onClose={() => setShowXpTestModal(false)}
+                profile={profile}
+                awardXP={awardXP}
+                userId={currentUserId}
+            />
 
             {/* Subscription Box */}
             <div className="bg-gradient-to-r from-slate-50 to-indigo-50/30 dark:from-slate-900/40 dark:to-slate-800/20 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
