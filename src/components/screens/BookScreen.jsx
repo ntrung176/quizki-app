@@ -265,6 +265,27 @@ const BookScreen = ({
     }, [activeBookGroups, searchQuery, activeFilter]);
     // Audio stored separately to avoid Firestore 1MB document limit
     const [lessonAudioMap, setLessonAudioMap] = useState({});
+
+    // ==================== NAVIGATION HELPERS ====================
+    const currentGroup = useMemo(() => activeBookGroups.find(g => g.id === groupId), [activeBookGroups, groupId]);
+    const currentBook = useMemo(() => currentGroup?.books?.find(b => b.id === bookId), [currentGroup, bookId]);
+    const currentChapter = useMemo(() => currentBook?.chapters?.find(c => c.id === chapterId), [currentBook, chapterId]);
+    const currentLesson = useMemo(() => currentChapter?.lessons?.find(l => l.id === lessonId), [currentChapter, lessonId]);
+    // Merge vocab with audio from subcollection
+    const vocabWithAudio = useMemo(() => {
+        const vocab = currentLesson?.vocab || [];
+        if (Object.keys(lessonAudioMap).length === 0) return vocab;
+        return vocab.map((v, i) => {
+            const wordAudio = lessonAudioMap[`${i}_word`];
+            const exampleAudio = lessonAudioMap[`${i}_example`];
+            return {
+                ...v,
+                ...(wordAudio?.base64 ? { audioBase64: wordAudio.base64 } : {}),
+                ...(exampleAudio?.base64 ? { exampleAudioBase64: exampleAudio.base64 } : {}),
+            };
+        });
+    }, [currentLesson, lessonAudioMap]);
+
     const bgAudioAbortRef = useRef(false);
     const editingCardRef = useRef(null);
     // Fix audio states
@@ -424,25 +445,6 @@ const BookScreen = ({
             setLoading(false);
         }
     };
-    // ==================== NAVIGATION HELPERS ====================
-    const currentGroup = useMemo(() => activeBookGroups.find(g => g.id === groupId), [activeBookGroups, groupId]);
-    const currentBook = useMemo(() => currentGroup?.books?.find(b => b.id === bookId), [currentGroup, bookId]);
-    const currentChapter = useMemo(() => currentBook?.chapters?.find(c => c.id === chapterId), [currentBook, chapterId]);
-    const currentLesson = useMemo(() => currentChapter?.lessons?.find(l => l.id === lessonId), [currentChapter, lessonId]);
-    // Merge vocab with audio from subcollection
-    const vocabWithAudio = useMemo(() => {
-        const vocab = currentLesson?.vocab || [];
-        if (Object.keys(lessonAudioMap).length === 0) return vocab;
-        return vocab.map((v, i) => {
-            const wordAudio = lessonAudioMap[`${i}_word`];
-            const exampleAudio = lessonAudioMap[`${i}_example`];
-            return {
-                ...v,
-                ...(wordAudio?.base64 ? { audioBase64: wordAudio.base64 } : {}),
-                ...(exampleAudio?.base64 ? { exampleAudioBase64: exampleAudio.base64 } : {}),
-            };
-        });
-    }, [currentLesson, lessonAudioMap]);
     const navigateTo = useCallback((params) => {
         const sp = new URLSearchParams();
         if (params.group) sp.set('g', params.group);

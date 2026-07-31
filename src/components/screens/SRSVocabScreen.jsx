@@ -82,6 +82,7 @@ const SRSVocabScreen = ({
     onSaveCardAudio,
     onUpdateVocabSrsRating,
     onRevertVocabSrsRating,
+    onRefreshCards,
     dailyActivityLogs = [],
     onStudySet,
     onFlashcardSet,
@@ -775,14 +776,7 @@ const SRSVocabScreen = ({
             sessionXpRef.current += (xp || 0);
         }
 
-        // Play feedback sounds and animations
-        try {
-            if (rating === 'good' || rating === 'easy') {
-                flashCorrect();
-            }
-        } catch (e) {
-            console.error(e);
-        }
+
 
         // 1. Determine if card graduated/completed in this session
         let updatedQueue = [...reviewQueue];
@@ -845,6 +839,11 @@ const SRSVocabScreen = ({
                 return;
             }
             setReviewMode(false);
+            setDashboardTick(Date.now());
+            window.dispatchEvent(new Event('srs-updated'));
+            if (onRefreshCards) {
+                onRefreshCards();
+            }
             if (setIsReviewActive) {
                 setIsReviewActive(false);
             }

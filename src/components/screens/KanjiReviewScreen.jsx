@@ -549,7 +549,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         updateCachedUserSrs(userId, currentCard.id, newSrs);
         if (currentReviewIndex + 1 < updatedQueue.length) {
             saveSessionState(updatedQueue, currentReviewIndex + 1);
-            if (rating === 'good' || rating === 'easy') { flashCorrect(); }
 
             setIsAnimatingFlip(false);
             setIsFlipped(false);
@@ -631,6 +630,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 setTimeout(waitForWrites, 100);
             } else {
                 setReviewMode(false);
+                setDashboardTick(Date.now());
+                window.dispatchEvent(new Event('srs-updated'));
                 if (setIsReviewActive) {
                     setIsReviewActive(false);
                 }

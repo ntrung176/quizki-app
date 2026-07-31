@@ -283,31 +283,8 @@ export function celebrateCorrectAnswer(event) {
     launchSparkles(x, y, 16);
 }
 
-// ==================== GREEN FLASH (subtle correct feedback) ====================
-let flashElement = null;
-let flashTimeout = null;
-
+// ==================== GREEN FLASH (disabled) ====================
 export function flashCorrect() {
-    if (typeof document === 'undefined') return;
-
-    if (!flashElement) {
-        flashElement = document.createElement('div');
-        flashElement.style.cssText = `
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(72, 219, 127, 0.25), transparent 70%);
-            pointer-events: none;
-            z-index: 99990;
-            opacity: 0;
-            transition: opacity 0.15s ease-out;
-        `;
-        document.body.appendChild(flashElement);
-    }
-
-    if (flashTimeout) clearTimeout(flashTimeout);
-
-    flashElement.style.opacity = '1';
-    flashTimeout = setTimeout(() => {
-        if (flashElement) flashElement.style.opacity = '0';
-    }, 200);
+    // Disabled flash screen glow effect per user request
+    return;
 }

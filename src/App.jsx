@@ -3027,6 +3027,10 @@ const App = () => {
         }
     };
 
+    const handleRefreshCards = useCallback(() => {
+        setAllCards(prevCards => [...prevCards]);
+    }, []);
+
     const handleUpdateVocabSrsRating = (cardId, rating, arg3 = false, arg4 = null) => {
         if (!vocabCollectionPath || !cardId) {
             const cb = typeof arg3 === 'function' ? arg3 : (typeof arg4 === 'function' ? arg4 : null);
@@ -4899,6 +4903,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                                 onToggleSrs={handleToggleSrs}
                                 onUpdateVocabSrsRating={handleUpdateVocabSrsRating}
                                 onRevertVocabSrsRating={handleRevertVocabSrsRating}
+                                onRefreshCards={handleRefreshCards}
                                 awardXP={awardXP}
                                 isReviewActive={isReviewActive}
                                 setIsReviewActive={setIsReviewActive}

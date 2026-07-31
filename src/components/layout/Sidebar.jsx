@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth, db, appId } from '../../config/firebase';
@@ -161,6 +161,47 @@ const Sidebar = ({
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    // 3-second ticker + real-time srs-updated event listener
+    const [sidebarTick, setSidebarTick] = useState(Date.now());
+    const kanjiListRef = useRef([]);
+    const kanjiSrsRef = useRef({});
+    const grammarListRef = useRef([]);
+    const grammarSrsRef = useRef({});
+
+    const updateKanjiCount = useCallback(() => {
+        const now = Date.now();
+        const dueCount = (kanjiListRef.current || []).filter(k => {
+            const srs = kanjiSrsRef.current[k.id] || kanjiSrsRef.current[k.character];
+            if (!srs) return false;
+            return isSrsCardDue(srs, now);
+        }).length;
+        setKanjiDueCount(dueCount);
+    }, []);
+
+    const updateGrammarCount = useCallback(() => {
+        const now = Date.now();
+        const dueCount = (grammarListRef.current || []).filter(g => {
+            const srs = grammarSrsRef.current[g.id];
+            if (!srs) return false;
+            return isSrsCardDue(srs, now);
+        }).length;
+        setGrammarDueCount(dueCount);
+    }, []);
+
+    useEffect(() => {
+        const handleSrsUpdate = () => {
+            setSidebarTick(Date.now());
+            updateKanjiCount();
+            updateGrammarCount();
+        };
+        window.addEventListener('srs-updated', handleSrsUpdate);
+        const intervalId = setInterval(handleSrsUpdate, 3000);
+        return () => {
+            window.removeEventListener('srs-updated', handleSrsUpdate);
+            clearInterval(intervalId);
+        };
+    }, [updateKanjiCount, updateGrammarCount]);
+
     // Listen to Kanji SRS due count synchronized with Kanji module
     useEffect(() => {
         if (!userId) return;
@@ -169,17 +210,12 @@ const Sidebar = ({
 
         getSharedKanjiList().then(kList => {
             if (!isMounted) return;
-            const validKanjiIds = new Set((kList || []).map(k => k.id));
+            kanjiListRef.current = kList || [];
 
             unsub = subscribeKanjiSrs(userId, (freshSrs) => {
                 if (!isMounted) return;
-                let dueCount = 0;
-                const now = Date.now();
-                Object.entries(freshSrs || {}).forEach(([id, data]) => {
-                    if (validKanjiIds.size > 0 && !validKanjiIds.has(id)) return;
-                    if (isSrsCardDue(data, now)) dueCount++;
-                });
-                setKanjiDueCount(dueCount);
+                kanjiSrsRef.current = freshSrs || {};
+                updateKanjiCount();
             });
         }).catch(err => {
             console.error('Error fetching kanji list in Sidebar:', err);
@@ -189,7 +225,7 @@ const Sidebar = ({
             isMounted = false;
             unsub();
         };
-    }, [userId]);
+    }, [userId, updateKanjiCount]);
 
     // Listen to Grammar SRS due count synchronized with Grammar module
     useEffect(() => {
@@ -199,17 +235,12 @@ const Sidebar = ({
 
         getSharedGrammarPointsList().then(gList => {
             if (!isMounted) return;
-            const validGrammarIds = new Set((gList || []).map(g => g.id));
+            grammarListRef.current = gList || [];
 
             unsub = subscribeGrammarSrs(userId, (freshSrs) => {
                 if (!isMounted) return;
-                let dueCount = 0;
-                const now = Date.now();
-                Object.entries(freshSrs || {}).forEach(([id, data]) => {
-                    if (validGrammarIds.size > 0 && !validGrammarIds.has(id)) return;
-                    if (isSrsCardDue(data, now)) dueCount++;
-                });
-                setGrammarDueCount(dueCount);
+                grammarSrsRef.current = freshSrs || {};
+                updateGrammarCount();
             });
         }).catch(err => {
             console.error('Error fetching grammar list in Sidebar:', err);
@@ -219,7 +250,7 @@ const Sidebar = ({
             isMounted = false;
             unsub();
         };
-    }, [userId]);
+    }, [userId, updateGrammarCount]);
 
     // Listen to Global Notifications
     useEffect(() => {
@@ -234,12 +265,15 @@ const Sidebar = ({
         return () => unsub();
     }, [userId]);
 
-    // Calculate due & new vocab count filtered by active target language
-    const dueVocabCount = allCards.filter(card => {
-        const cardIsEng = isEnglishCard(card, isEnglishMode);
-        if (cardIsEng !== isEnglishMode) return false;
-        return isVocabCardDue(card) || card.intervalIndex_back === -1 || card.intervalIndex_back === undefined;
-    }).length;
+    // Calculate due SRS vocab count filtered by active target language & ticker
+    const dueVocabCount = useMemo(() => {
+        const now = sidebarTick;
+        return (allCards || []).filter(card => {
+            const cardIsEng = isEnglishCard(card, isEnglishMode);
+            if (cardIsEng !== isEnglishMode) return false;
+            return isVocabCardDue(card, now);
+        }).length;
+    }, [allCards, isEnglishMode, sidebarTick]);
     const [lastSeenDueCount, setLastSeenDueCount] = useState(() => {
         try {
             return parseInt(localStorage.getItem('quizki_last_seen_due_count') || '0');
@@ -278,16 +312,16 @@ const Sidebar = ({
     const menuItems = React.useMemo(() => {
         const items = [
             { id: 'HOME', icon: Home, label: t('nav.home', 'Trang chủ'), route: ROUTES.HOME },
-            { id: 'VOCAB_LIST', icon: BookOpen, label: t('nav.vocab', 'Từ vựng'), route: ROUTES.VOCAB_REVIEW, badge: dueVocabCount },
+            { id: 'VOCAB_LIST', icon: BookOpen, label: t('nav.vocab', 'Từ vựng'), route: ROUTES.VOCAB_REVIEW },
         ];
 
         // Kanji / Phonetics menu is only relevant for Japanese learning
         if (!isEnglishMode) {
-            items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, badge: kanjiDueCount });
+            items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW });
         }
 
         items.push(
-            { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, badge: grammarDueCount },
+            { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW },
             { id: 'JLPT_TEST', icon: FileCheck, label: isEnglishMode ? 'Luyện thi IELTS/TOEIC' : t('nav.jlptTest', 'Luyện đề JLPT'), route: ROUTES.JLPT_TEST },
             { id: 'JLPT_KAIWA', icon: MessageSquare, label: t('nav.kaiwa', 'Phòng Kaiwa AI'), route: ROUTES.JLPT_KAIWA },
             { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB },

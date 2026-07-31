@@ -386,6 +386,7 @@ const AppRoutes = ({
     onToggleSrs,
     onUpdateVocabSrsRating,
     onRevertVocabSrsRating,
+    onRefreshCards,
     awardXP,
     isReviewActive,
     setIsReviewActive
@@ -626,6 +627,7 @@ const AppRoutes = ({
                                 onToggleSrs={onToggleSrs}
                                 onUpdateVocabSrsRating={onUpdateVocabSrsRating}
                                 onRevertVocabSrsRating={onRevertVocabSrsRating}
+                                onRefreshCards={onRefreshCards}
                                 awardXP={awardXP}
                                 setIsReviewActive={setIsReviewActive}
                                 playAudio={playAudio}

@@ -450,6 +450,9 @@ const KanjiLessonScreen = ({ awardXP }) => {
         }
         // Play celebration sound
         playCompletionFanfare();
+        if (awardXP) {
+            awardXP(25);
+        }
     };
     // Navigate to next day
     const goToNextDay = () => {

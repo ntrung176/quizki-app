@@ -250,6 +250,10 @@ const KanjiScreen = ({ isAdmin = false, onAddVocabToSRS, onGeminiAssist, allUser
                 await onAddVocabToSRS(cardData);
                 setAddedVocabIds(prev => new Set([...prev, v.id]));
             }
+            if (awardXP) {
+                const xpAmount = Math.max(10, items.length * 10);
+                awardXP(xpAmount);
+            }
             showToast(isBulk ? 'Đã lưu tất cả từ vựng vào học phần' : `Đã lưu "${items[0].word}" vào học phần`);
         } catch (e) {
             console.error('Error adding vocab to SRS:', e);

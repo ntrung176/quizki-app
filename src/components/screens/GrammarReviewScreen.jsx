@@ -529,7 +529,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         updateCachedUserGrammarSrs(userId, currentCard.id, newSrs);
 
         if (currentReviewIndex + 1 < updatedQueue.length) {
-            if (rating === 'good' || rating === 'easy') { flashCorrect(); }
 
             setIsAnimatingFlip(false);
             setSlideDirection('left');
@@ -611,6 +610,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 setTimeout(waitForWrites, 100);
             } else {
                 setReviewMode(false);
+                setDashboardTick(Date.now());
+                window.dispatchEvent(new Event('srs-updated'));
                 if (setIsReviewActive) {
                     setIsReviewActive(false);
                 }
