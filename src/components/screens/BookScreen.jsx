@@ -361,6 +361,10 @@ const BookScreen = ({
                 next.add(index);
                 if (awardXP) {
                     awardXP(10);
+                    if (vocabWithAudio.length > 0 && next.size === vocabWithAudio.length) {
+                        awardXP(50);
+                        showToast('🎉 Bạn đã lật hết từ vựng & hoàn thành bài học! (+50 XP)', 'success');
+                    }
                 }
                 const arr = [...next];
                 // Save to localStorage immediately (fast cache)
@@ -385,7 +389,7 @@ const BookScreen = ({
             }
             return next;
         });
-    }, [lessonPersistKey, userId]);
+    }, [lessonPersistKey, userId, awardXP, vocabWithAudio.length]);
     // Re-blur all cards (does NOT affect persisted progress)
     const handleReBlurAll = useCallback(() => {
         setRevealedCards(new Set());
