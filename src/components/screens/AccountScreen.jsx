@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { XpTestingPanelModal } from '../ui';
 
-const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId }) => {
+const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId, isAdmin = false }) => {
     const [showXpTestModal, setShowXpTestModal] = useState(false);
     const navigate = useNavigate();
     const isPremiumUser = (profile?.unlockedSpecializedPackages && (
@@ -178,12 +178,14 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                     <p className="text-gray-500 dark:text-gray-400 text-sm">Quản lý thông tin cá nhân và bảo mật</p>
                 </div>
                 <div className="flex items-center gap-2">
-                    <button
-                        onClick={() => setShowXpTestModal(true)}
-                        className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white font-bold rounded-xl text-xs shadow-md transition-all active:scale-95 cursor-pointer"
-                    >
-                        🧪 Bảng Test Điểm XP
-                    </button>
+                    {isAdmin && (
+                        <button
+                            onClick={() => setShowXpTestModal(true)}
+                            className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white font-bold rounded-xl text-xs shadow-md transition-all active:scale-95 cursor-pointer"
+                        >
+                            🧪 Bảng Test Điểm XP
+                        </button>
+                    )}
                     <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
                         <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                     </div>

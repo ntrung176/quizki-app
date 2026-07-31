@@ -4629,6 +4629,7 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 return <AccountScreen
                     profile={profile}
                     awardXP={awardXP}
+                    isAdmin={userHasAdminPrivileges}
                     publicStatsPath={publicStatsCollectionPath}
                     currentUserId={userId}
                     onUpdateProfileName={async (newName) => {
@@ -4775,8 +4776,8 @@ Chỉ trả về JSON định dạng sau (không giải thích, không markdown)
                 setNotification={setNotification}
             />
 
-            {/* Floating Global XP Test Suite Trigger Button */}
-            {userId && (
+            {/* Floating Global XP Test Suite Trigger Button (Admin Only) */}
+            {userId && userHasAdminPrivileges && (
                 <>
                     <button
                         onClick={() => setShowXpTestModal(true)}

@@ -997,6 +997,7 @@ const AppRoutes = ({
                             <AccountScreen
                                 profile={profile}
                                 awardXP={awardXP}
+                                isAdmin={userHasAdminPrivileges}
                                 publicStatsPath={publicStatsCollectionPath}
                                 currentUserId={userId}
                                 onUpdateProfileName={handleUpdateProfileName}
