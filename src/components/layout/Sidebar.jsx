@@ -150,6 +150,23 @@ const Sidebar = ({
         localStorage.setItem('quizki_read_notifications', JSON.stringify(readNotificationIds));
     }, [readNotificationIds]);
 
+    // Close mobile menu on route change
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location.pathname]);
+
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMobileMenuOpen]);
+
     // Close notifications popover when clicking outside
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -473,8 +490,8 @@ const Sidebar = ({
 
     // Mobile Header
     const MobileHeader = () => (
-        <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/85 dark:bg-slate-900/85 backdrop-blur-2xl border-b border-slate-200/80 dark:border-slate-800/80 px-4 py-2.5 flex items-center justify-between shadow-lg transition-all">
-            <Link to={ROUTES.HOME} className="flex items-center space-x-2.5 group active:scale-95 transition-transform">
+        <header className={`lg:hidden fixed top-0 left-0 right-0 ${isMobileMenuOpen ? 'z-[9999]' : 'z-40'} bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-b border-slate-200/80 dark:border-slate-800/80 px-4 py-2.5 flex items-center justify-between shadow-lg transition-all`}>
+            <Link to={ROUTES.HOME} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2.5 group active:scale-95 transition-transform">
                 <div className="w-9 h-9 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 group-hover:scale-105 transition-transform">
                     <BookOpen className="w-5 h-5" />
                 </div>
@@ -498,6 +515,7 @@ const Sidebar = ({
 
                 <div className="relative">
                     <button
+                        type="button"
                         onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
                         className="p-2 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 cursor-pointer active:scale-95 transition-all hover:border-cyan-500/50"
                     >
@@ -510,8 +528,13 @@ const Sidebar = ({
                 </div>
 
                 <button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="p-2 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 cursor-pointer active:scale-95 transition-all hover:border-cyan-500/50"
+                    type="button"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setIsMobileMenuOpen(prev => !prev);
+                    }}
+                    className="p-2 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 cursor-pointer active:scale-95 transition-all hover:border-cyan-500/50 z-[10000]"
+                    aria-label="Toggle mobile menu"
                 >
                     {isMobileMenuOpen ? <X className="w-5 h-5" /> : <List className="w-5 h-5" />}
                 </button>
@@ -519,7 +542,7 @@ const Sidebar = ({
 
             {/* Mobile menu drawer */}
             {isMobileMenuOpen && (
-                <div className="fixed inset-0 top-[60px] z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl flex flex-col justify-between overflow-y-auto animate-fade-in">
+                <div className="fixed inset-x-0 top-[56px] bottom-0 z-[9999] bg-white/98 dark:bg-slate-950/98 backdrop-blur-2xl flex flex-col justify-between overflow-y-auto animate-fade-in shadow-2xl pb-16">
                     {/* User Profile Capsule on Mobile Drawer Header */}
                     {displayName && (
                         <Link
