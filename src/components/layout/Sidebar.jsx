@@ -130,6 +130,18 @@ const Sidebar = ({
         } catch (e) {}
     }, [isCollapsed]);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const lastMobileToggleRef = useRef(0);
+
+    const handleMobileToggle = useCallback((e) => {
+        if (e) {
+            if (typeof e.preventDefault === 'function') e.preventDefault();
+            if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        }
+        const now = Date.now();
+        if (now - lastMobileToggleRef.current < 400) return;
+        lastMobileToggleRef.current = now;
+        setIsMobileMenuOpen(prev => !prev);
+    }, []);
     
     // Notifications state
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
@@ -488,67 +500,67 @@ const Sidebar = ({
         );
     };
 
-    // Mobile Header
-    const MobileHeader = () => (
-        <header className={`lg:hidden fixed top-0 left-0 right-0 ${isMobileMenuOpen ? 'z-[9999]' : 'z-40'} bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-b border-slate-200/80 dark:border-slate-800/80 px-4 py-2.5 flex items-center justify-between shadow-lg transition-all`}>
-            <Link to={ROUTES.HOME} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2.5 group active:scale-95 transition-transform">
-                <div className="w-9 h-9 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 group-hover:scale-105 transition-transform">
-                    <BookOpen className="w-5 h-5" />
-                </div>
-                <span className="text-lg font-black text-slate-800 dark:text-white tracking-wide">
-                    QuizKi <span className="text-cyan-500 font-mono text-xs font-black">AI</span>
-                </span>
-            </Link>
+    return (
+        <>
+            {/* Top Fixed Mobile Header Bar - Fixed at z-[99999] above everything */}
+            <header className="lg:hidden fixed top-0 left-0 right-0 z-[99999] bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-b border-slate-200/80 dark:border-slate-800/80 px-4 py-2.5 flex items-center justify-between shadow-lg">
+                <Link to={ROUTES.HOME} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2.5 group active:scale-95 transition-transform">
+                    <div className="w-9 h-9 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 group-hover:scale-105 transition-transform">
+                        <BookOpen className="w-5 h-5" />
+                    </div>
+                    <span className="text-lg font-black text-slate-800 dark:text-white tracking-wide">
+                        QuizKi <span className="text-cyan-500 font-mono text-xs font-black">AI</span>
+                    </span>
+                </Link>
 
-            <div className="flex items-center space-x-2">
-                {/* Mobile Avatar Settings Link */}
-                {displayName && (
-                    <Link
-                        to={ROUTES.SETTINGS}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-[9px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm active:scale-95 transition-transform shrink-0"
-                        title="Trang cá nhân & Cài đặt"
-                    >
-                        {renderAvatar()}
-                    </Link>
-                )}
+                <div className="flex items-center space-x-2">
+                    {/* Mobile Avatar Settings Link */}
+                    {displayName && (
+                        <Link
+                            to={ROUTES.SETTINGS}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-[9px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm active:scale-95 transition-transform shrink-0"
+                            title="Trang cá nhân & Cài đặt"
+                        >
+                            {renderAvatar()}
+                        </Link>
+                    )}
 
-                <div className="relative">
+                    <div className="relative">
+                        <button
+                            type="button"
+                            onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                            className="p-2 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 cursor-pointer active:scale-95 transition-all hover:border-cyan-500/50"
+                        >
+                            <Bell className="w-4 h-4" />
+                            {hasUnread && (
+                                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
+                            )}
+                        </button>
+                        <NotificationsPopover isMobile={true} />
+                    </div>
+
+                    {/* Single Stable Toggle Button with 400ms Touch Debounce */}
                     <button
                         type="button"
-                        onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                        onClick={handleMobileToggle}
                         className="p-2 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 cursor-pointer active:scale-95 transition-all hover:border-cyan-500/50"
+                        aria-label="Toggle mobile menu"
                     >
-                        <Bell className="w-4 h-4" />
-                        {hasUnread && (
-                            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
-                        )}
+                        {isMobileMenuOpen ? <X className="w-5 h-5 text-cyan-600 dark:text-cyan-400" /> : <List className="w-5 h-5" />}
                     </button>
-                    <NotificationsPopover isMobile={true} />
                 </div>
+            </header>
 
-                <button
-                    type="button"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        setIsMobileMenuOpen(prev => !prev);
-                    }}
-                    className="p-2 rounded-xl bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 cursor-pointer active:scale-95 transition-all hover:border-cyan-500/50 z-[10000]"
-                    aria-label="Toggle mobile menu"
-                >
-                    {isMobileMenuOpen ? <X className="w-5 h-5" /> : <List className="w-5 h-5" />}
-                </button>
-            </div>
-
-            {/* Mobile menu drawer */}
+            {/* Mobile menu drawer - Full-height Overlay anchored beneath Top Header Bar */}
             {isMobileMenuOpen && (
-                <div className="fixed inset-x-0 top-[56px] bottom-0 z-[9999] bg-white/98 dark:bg-slate-950/98 backdrop-blur-2xl flex flex-col justify-between overflow-y-auto animate-fade-in shadow-2xl pb-16">
+                <div className="lg:hidden fixed inset-x-0 top-[56px] bottom-0 z-[99998] bg-white/98 dark:bg-slate-950/98 backdrop-blur-2xl flex flex-col justify-between overflow-y-auto animate-fade-in p-3 space-y-4 shadow-2xl">
                     {/* User Profile Capsule on Mobile Drawer Header */}
                     {displayName && (
                         <Link
                             to={ROUTES.SETTINGS}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="p-3 mx-3 mt-3 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/50 rounded-2xl flex items-center gap-3 shadow-sm active:scale-[0.98] transition-all cursor-pointer group"
+                            className="p-3 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/50 rounded-2xl flex items-center gap-3 shadow-sm active:scale-[0.98] transition-all cursor-pointer group shrink-0"
                         >
                             <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-cyan-500/40 flex items-center justify-center text-xs font-bold shrink-0 overflow-hidden shadow-inner group-hover:scale-105 transition-transform">
                                 {renderAvatar()}
@@ -569,7 +581,7 @@ const Sidebar = ({
                     )}
 
                     {/* Navigation Items */}
-                    <nav className="p-3 space-y-1 overflow-y-auto flex-1">
+                    <nav className="space-y-1 flex-1">
                         {menuItems.map((item) => {
                             const active = isMenuActive(item);
                             return (
@@ -606,7 +618,7 @@ const Sidebar = ({
                     </nav>
 
                     {/* Bottom Quick Controls & Language Selectors */}
-                    <div className="p-3 border-t border-slate-200 dark:border-slate-800/80 space-y-2 bg-slate-50/70 dark:bg-slate-900/80 shrink-0">
+                    <div className="p-3 border-t border-slate-200 dark:border-slate-800/80 space-y-2 bg-slate-50/70 dark:bg-slate-900/80 rounded-2xl shrink-0">
                         {/* 2-Column Language Selectors */}
                         <div className="grid grid-cols-2 gap-2">
                             <div className="flex items-center justify-between bg-white dark:bg-slate-950 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
@@ -674,238 +686,229 @@ const Sidebar = ({
                     </div>
                 </div>
             )}
-        </header>
-    );
 
-    // Desktop Cyber-AI Futuristic Sidebar
-    const DesktopSidebar = () => (
-        <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
-            {/* Cyber Brand Logo */}
-            <div className={`p-4 border-b border-slate-200 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
-                <Link
-                    to={ROUTES.HOME}
-                    className="flex items-center space-x-3 min-w-0"
-                >
-                    <div className="w-10 h-10 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 shrink-0">
-                        <BookOpen className="w-5 h-5" />
-                    </div>
+            {/* Desktop Cyber-AI Futuristic Sidebar */}
+            <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
+                {/* Cyber Brand Logo */}
+                <div className={`p-4 border-b border-slate-200 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
+                    <Link
+                        to={ROUTES.HOME}
+                        className="flex items-center space-x-3 min-w-0"
+                    >
+                        <div className="w-10 h-10 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 shrink-0">
+                            <BookOpen className="w-5 h-5" />
+                        </div>
+                        {!isCollapsed && (
+                            <div className="flex flex-col min-w-0">
+                                <span className="text-xl font-black text-slate-800 dark:text-white leading-none tracking-tight">
+                                    QuizKi <span className="text-cyan-500 font-mono text-xs font-black">AI</span>
+                                </span>
+                                <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono font-bold tracking-widest uppercase mt-1">
+                                    NEURAL PLATFORM
+                                </span>
+                            </div>
+                        )}
+                    </Link>
+
                     {!isCollapsed && (
-                        <div className="flex flex-col min-w-0">
-                            <span className="text-xl font-black text-slate-800 dark:text-white leading-none tracking-tight">
-                                QuizKi <span className="text-cyan-500 font-mono text-xs font-black">AI</span>
-                            </span>
-                            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono font-bold tracking-widest uppercase mt-1">
-                                NEURAL PLATFORM
-                            </span>
+                        <div className="relative">
+                            <button
+                                onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                                className="p-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-300 hover:border-cyan-400 transition-all relative cursor-pointer"
+                                title="Thông báo"
+                            >
+                                <Bell className="w-4.5 h-4.5" />
+                                {hasUnread && (
+                                    <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
+                                )}
+                            </button>
+                            <NotificationsPopover isMobile={false} />
                         </div>
                     )}
-                </Link>
-
-                {!isCollapsed && (
-                    <div className="relative">
-                        <button
-                            onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-                            className="p-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-300 hover:border-cyan-400 transition-all relative cursor-pointer"
-                            title="Thông báo"
-                        >
-                            <Bell className="w-4.5 h-4.5" />
-                            {hasUnread && (
-                                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
-                            )}
-                        </button>
-                        <NotificationsPopover isMobile={false} />
-                    </div>
-                )}
-            </div>
-
-            {/* Cyber Profile Telemetry Capsule */}
-            {!isCollapsed && displayName && (
-                <div className="px-4 py-4 border-b border-slate-200 dark:border-slate-800">
-                    <Link
-                        to={ROUTES.SETTINGS}
-                        className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-3 shadow-inner hover:border-cyan-400 transition-all w-full cursor-pointer group min-w-0"
-                        title="Trang cá nhân"
-                    >
-                        <div className="flex flex-col items-center gap-1 flex-shrink-0">
-                            <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-cyan-500/40 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
-                                {renderAvatar()}
-                            </div>
-                            <span className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded font-mono uppercase">
-                                LV {xpDetails.level}
-                            </span>
-                        </div>
-
-                        <div className="flex flex-col min-w-0 flex-1 justify-center">
-                            {isPremium ? (
-                                <span className="text-[9px] font-mono font-black uppercase tracking-widest text-amber-500 flex items-center gap-0.5">
-                                    <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> PREMIUM
-                                </span>
-                            ) : (
-                                <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                    FREE ACCOUNT
-                                </span>
-                            )}
-                            <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">
-                                {displayName}
-                            </span>
-                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono truncate mt-0.5">
-                                {getLevelTitle(xpDetails.level)}
-                            </span>
-                        </div>
-                    </Link>
                 </div>
-            )}
 
-            {/* Navigation Menu */}
-            <nav className="flex-1 p-3 space-y-1.5 overflow-y-auto custom-scrollbar">
-                {menuItems.map((item) => (
-                    <div key={item.id} className="relative group">
+                {/* Cyber Profile Telemetry Capsule */}
+                {!isCollapsed && displayName && (
+                    <div className="px-4 py-4 border-b border-slate-200 dark:border-slate-800">
                         <Link
-                            to={item.disabled ? '#' : item.route}
-                            onClick={(e) => {
-                                if (item.disabled) e.preventDefault();
-                            }}
-                            className={`w-full flex items-center justify-between ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 relative ${
-                                item.disabled
-                                    ? 'cursor-not-allowed opacity-40 text-slate-400'
-                                    : isMenuActive(item)
-                                    ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
-                                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
-                            }`}
-                            title={isCollapsed ? item.label : undefined}
+                            to={ROUTES.SETTINGS}
+                            className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-3 shadow-inner hover:border-cyan-400 transition-all w-full cursor-pointer group min-w-0"
+                            title="Trang cá nhân"
                         >
-                            {isMenuActive(item) && !item.disabled && (
-                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-cyan-500 dark:bg-cyan-400 rounded-l-full shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
-                            )}
-                            
-                            <div className="flex items-center space-x-3 min-w-0">
-                                <item.icon className={`w-4.5 h-4.5 ${isMenuActive(item) ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-500 dark:text-slate-400 group-hover:text-cyan-500'}`} />
-                                {!isCollapsed && (
-                                    <span className="text-xs font-semibold truncate">{item.label}</span>
-                                )}
-                            </div>
-                            
-                            {!isCollapsed && item.badge > 0 && (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-black font-mono bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-400 border border-rose-200 dark:border-rose-800/60 shadow-sm">
-                                    {item.badge}
+                            <div className="flex flex-col items-center gap-1 flex-shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-cyan-500/40 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
+                                    {renderAvatar()}
+                                </div>
+                                <span className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded font-mono uppercase">
+                                    LV {xpDetails.level}
                                 </span>
-                            )}
+                            </div>
+
+                            <div className="flex flex-col min-w-0 flex-1 justify-center">
+                                {isPremium ? (
+                                    <span className="text-[9px] font-mono font-black uppercase tracking-widest text-amber-500 flex items-center gap-0.5">
+                                        <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> PREMIUM
+                                    </span>
+                                ) : (
+                                    <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                        FREE ACCOUNT
+                                    </span>
+                                )}
+                                <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">
+                                    {displayName}
+                                </span>
+                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono truncate mt-0.5">
+                                    {getLevelTitle(xpDetails.level)}
+                                </span>
+                            </div>
                         </Link>
                     </div>
-                ))}
-            </nav>
-
-            {/* Bottom Cyber Controls with Chatbox & Help Integrated */}
-            <div className="p-3 border-t border-slate-200 dark:border-slate-800 space-y-2 bg-slate-50/50 dark:bg-slate-950/50">
-                {!isCollapsed ? (
-                    <div className="space-y-2">
-                        <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 pl-1">
-                                🎯 NGÔN NGỮ MUỐN HỌC
-                            </span>
-                            <TargetLanguageSelector isAdmin={isAdmin} />
-                        </div>
-
-                        <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 pl-1">
-                                🌐 {t('common.language', 'Ngôn ngữ')}
-                            </span>
-                            <LanguageSelector compact={true} />
-                        </div>
-                    </div>
-                ) : (
-                    <div className="flex flex-col items-center justify-center gap-2">
-                        <TargetLanguageSelector minimal={true} isAdmin={isAdmin} />
-                        <LanguageSelector compact={true} minimal={true} direction="up" />
-                    </div>
                 )}
 
-                <Link
-                    to={ROUTES.UPGRADE}
-                    className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 font-mono text-xs font-bold ${
-                        location.pathname === ROUTES.UPGRADE
-                            ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
-                            : 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-300/60 dark:border-amber-700/50 hover:bg-amber-500/20'
-                    }`}
-                    title={isCollapsed ? t('common.upgrade', 'Nâng cấp tài khoản') : undefined}
-                >
-                    <Crown className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
-                    {!isCollapsed && <span>{t('common.upgrade', 'Nâng cấp tài khoản')}</span>}
-                </Link>
-
-                {/* Integrated Cyber Quick Control Chips + Standalone Logout */}
-                <div className="space-y-2 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
-                    {isCollapsed ? (
-                        /* Collapsed Mode: Only show Expand button */
-                        <button
-                            onClick={() => setIsCollapsed(false)}
-                            className="w-full py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer shadow-sm"
-                            title="Mở rộng Sidebar"
-                        >
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
-                    ) : (
-                        /* Expanded Mode: Full 4-icon horizontal row */
-                        <div className="flex items-center justify-between p-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-sm w-full">
-                            {/* Chatbox with Admin Button */}
-                            <button
-                                onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
-                                className="p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer"
-                                title="Chatbox hỗ trợ với Admin"
-                            >
-                                <MessageSquare className="w-4.5 h-4.5" />
-                            </button>
-
-                            {/* Help / Page Guide '?' Button */}
-                            <button
-                                onClick={() => {
-                                    if (onTriggerTour) onTriggerTour();
-                                    else navigate(ROUTES.HELP);
+                {/* Navigation Menu */}
+                <nav className="flex-1 p-3 space-y-1.5 overflow-y-auto custom-scrollbar">
+                    {menuItems.map((item) => (
+                        <div key={item.id} className="relative group">
+                            <Link
+                                to={item.disabled ? '#' : item.route}
+                                onClick={(e) => {
+                                    if (item.disabled) e.preventDefault();
                                 }}
-                                className="p-2 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer"
-                                title="Xem hướng dẫn trang này"
+                                className={`w-full flex items-center justify-between ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 relative ${
+                                    item.disabled
+                                        ? 'cursor-not-allowed opacity-40 text-slate-400'
+                                        : isMenuActive(item)
+                                        ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
+                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                                }`}
+                                title={isCollapsed ? item.label : undefined}
                             >
-                                <HelpCircle className="w-4.5 h-4.5" />
-                            </button>
+                                {isMenuActive(item) && !item.disabled && (
+                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-cyan-500 dark:bg-cyan-400 rounded-l-full shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
+                                )}
+                                
+                                <div className="flex items-center space-x-3 min-w-0">
+                                    <item.icon className={`w-4.5 h-4.5 ${isMenuActive(item) ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-500 dark:text-slate-400 group-hover:text-cyan-500'}`} />
+                                    {!isCollapsed && (
+                                        <span className="text-xs font-semibold truncate">{item.label}</span>
+                                    )}
+                                </div>
+                                
+                                {!isCollapsed && item.badge > 0 && (
+                                    <span className="px-2 py-0.5 rounded-full text-[10px] font-black font-mono bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-400 border border-rose-200 dark:border-rose-800/60 shadow-sm">
+                                        {item.badge}
+                                    </span>
+                                )}
+                            </Link>
+                        </div>
+                    ))}
+                </nav>
 
-                            {/* Dark Mode Toggle */}
-                            <button
-                                onClick={() => setIsDarkMode(prev => !prev)}
-                                className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                                title={isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
-                            >
-                                {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
-                            </button>
+                {/* Bottom Cyber Controls with Chatbox & Help Integrated */}
+                <div className="p-3 border-t border-slate-200 dark:border-slate-800 space-y-2 bg-slate-50/50 dark:bg-slate-950/50">
+                    {!isCollapsed ? (
+                        <div className="space-y-2">
+                            <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                                <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 pl-1">
+                                    🎯 NGÔN NGỮ MUỐN HỌC
+                                </span>
+                                <TargetLanguageSelector isAdmin={isAdmin} />
+                            </div>
 
-                            {/* Collapse Nav Toggle - Placed at the rightmost position */}
-                            <button
-                                onClick={() => setIsCollapsed(true)}
-                                className="p-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                                title="Thu gọn Sidebar"
-                            >
-                                <ChevronLeft className="w-4.5 h-4.5" />
-                            </button>
+                            <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                                <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 pl-1">
+                                    🌐 {t('common.language', 'Ngôn ngữ')}
+                                </span>
+                                <LanguageSelector compact={true} />
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="flex flex-col items-center justify-center gap-2">
+                            <TargetLanguageSelector minimal={true} isAdmin={isAdmin} />
+                            <LanguageSelector compact={true} minimal={true} direction="up" />
                         </div>
                     )}
 
-                    {/* Dedicated Standalone Logout Button */}
-                    <button
-                        onClick={handleLogout}
-                        className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'justify-center space-x-2'} px-3.5 py-2.5 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 hover:bg-rose-500/20 text-xs font-bold transition-all cursor-pointer shadow-sm`}
-                        title={isCollapsed ? "Đăng xuất" : undefined}
+                    <Link
+                        to={ROUTES.UPGRADE}
+                        className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 font-mono text-xs font-bold ${
+                            location.pathname === ROUTES.UPGRADE
+                                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
+                                : 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-300/60 dark:border-amber-700/50 hover:bg-amber-500/20'
+                        }`}
+                        title={isCollapsed ? t('common.upgrade', 'Nâng cấp tài khoản') : undefined}
                     >
-                        <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
-                        {!isCollapsed && <span>Đăng xuất</span>}
-                    </button>
-                </div>
-            </div>
-        </aside>
-    );
+                        <Crown className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
+                        {!isCollapsed && <span>{t('common.upgrade', 'Nâng cấp tài khoản')}</span>}
+                    </Link>
 
-    return (
-        <>
-            <MobileHeader />
-            <DesktopSidebar />
+                    {/* Integrated Cyber Quick Control Chips + Standalone Logout */}
+                    <div className="space-y-2 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
+                        {isCollapsed ? (
+                            /* Collapsed Mode: Only show Expand button */
+                            <button
+                                onClick={() => setIsCollapsed(false)}
+                                className="w-full py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer shadow-sm"
+                                title="Mở rộng Sidebar"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        ) : (
+                            /* Expanded Mode: Full 4-icon horizontal row */
+                            <div className="flex items-center justify-between p-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-sm w-full">
+                                {/* Chatbox with Admin Button */}
+                                <button
+                                    onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
+                                    className="p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer"
+                                    title="Chatbox hỗ trợ với Admin"
+                                >
+                                    <MessageSquare className="w-4.5 h-4.5" />
+                                </button>
+
+                                {/* Help / Page Guide '?' Button */}
+                                <button
+                                    onClick={() => {
+                                        if (onTriggerTour) onTriggerTour();
+                                        else navigate(ROUTES.HELP);
+                                    }}
+                                    className="p-2 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer"
+                                    title="Xem hướng dẫn trang này"
+                                >
+                                    <HelpCircle className="w-4.5 h-4.5" />
+                                </button>
+
+                                {/* Dark Mode Toggle */}
+                                <button
+                                    onClick={() => setIsDarkMode(prev => !prev)}
+                                    className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                    title={isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
+                                >
+                                    {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
+                                </button>
+
+                                {/* Collapse Nav Toggle - Placed at the rightmost position */}
+                                <button
+                                    onClick={() => setIsCollapsed(true)}
+                                    className="p-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                    title="Thu gọn Sidebar"
+                                >
+                                    <ChevronLeft className="w-4.5 h-4.5" />
+                                </button>
+                            </div>
+                        )}
+
+                        {/* Dedicated Standalone Logout Button */}
+                        <button
+                            onClick={handleLogout}
+                            className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'justify-center space-x-2'} px-3.5 py-2.5 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 hover:bg-rose-500/20 text-xs font-bold transition-all cursor-pointer shadow-sm`}
+                            title={isCollapsed ? "Đăng xuất" : undefined}
+                        >
+                            <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
+                            {!isCollapsed && <span>Đăng xuất</span>}
+                        </button>
+                    </div>
+                </div>
+            </aside>
         </>
     );
 };
