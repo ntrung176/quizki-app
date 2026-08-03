@@ -18,6 +18,7 @@ import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { POS_TYPES, getPosLabel } from '../../config/constants';
 import { formatIPA, isEnglishCard as checkIsEnglishCard, shouldRunJapaneseFeatures } from '../../utils/englishVocab';
 import { aiAssistVocab } from '../../utils/aiProvider';
+import { normalizeSRSState } from '../../utils/srs';
 
 const parseWordAndReading = (text) => {
     if (!text) return { word: '', reading: '' };
@@ -38,17 +39,21 @@ const hasKanji = (str) => /[\u4e00-\u9faf]/.test(str);
 
 // Helper: derive human-readable SRS cycle stage from vocab SM-2 fields
 const getSrsCycleLabel = (card) => {
-    if (!card.srsEnabled) return null;
-    const state = card.srsState || (card.srsReps === 0 && card.srsLearningStep === null ? 'NEW' : (card.srsIsLapsed ? 'RELEARNING' : (card.srsLearningStep !== null ? 'LEARNING' : 'REVIEW')));
+    if (card.srsEnabled === false) return null;
+    const normalized = normalizeSRSState(card);
+    const hasBeenReviewed = !!(card.lastReview || card.srsLastReview || card.lastReviewed_back || normalized.reps > 0 || (card.intervalIndex_back !== undefined && card.intervalIndex_back >= 0));
 
-    if (state === 'NEW') return 'Mới';
-    if (state === 'RELEARNING') return 'Học lại';
-    if (state === 'LEARNING') {
-        return card.srsLearningStep === 0 ? '1 phút' : '10 phút';
+    if (!hasBeenReviewed || normalized.state === 'NEW') {
+        return 'Mới';
+    }
+
+    if (normalized.state === 'RELEARNING') return 'Học lại';
+    if (normalized.state === 'LEARNING') {
+        return normalized.learningStep === 0 ? '1 phút' : '10 phút';
     }
 
     // REVIEW state - interval is in days
-    const days = card.srsInterval || 1;
+    const days = normalized.interval || 1;
     if (days < 30) return `${days} ngày`;
     return `${Math.round(days / 30)} tháng`;
 };
@@ -1441,7 +1446,7 @@ const StudySetDetail = ({
                                                     {/* SRS Toggle Footer */}
                                                     <div className="border-t border-gray-100 dark:border-gray-700/60 pt-3 flex justify-between items-center">
                                                         <div className="flex items-center gap-4">
-                                                            {card.srsEnabled ? (
+                                                            {card.srsEnabled !== false ? (
                                                                 <div className="flex items-center gap-1.5">
                                                                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
                                                                     <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
@@ -1455,13 +1460,13 @@ const StudySetDetail = ({
                                                             )}
                                                             {/* Toggle switch */}
                                                             <button
-                                                                onClick={(e) => { e.stopPropagation(); onToggleSrs && onToggleSrs(card.id, !card.srsEnabled); }}
-                                                                className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-600'}`}
+                                                                onClick={(e) => { e.stopPropagation(); onToggleSrs && onToggleSrs(card.id, !(card.srsEnabled !== false)); }}
+                                                                className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled !== false ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-600'}`}
                                                                 role="switch"
-                                                                aria-checked={!!card.srsEnabled}
+                                                                aria-checked={card.srsEnabled !== false}
                                                             >
                                                                 <span
-                                                                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${card.srsEnabled ? 'translate-x-4' : 'translate-x-0'}`}
+                                                                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${card.srsEnabled !== false ? 'translate-x-4' : 'translate-x-0'}`}
                                                                 />
                                                             </button>
                                                         </div>

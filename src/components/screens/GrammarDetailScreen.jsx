@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import {
     ArrowLeft, Play, Lightbulb, PenTool, Layers, Settings, Save, Trash2, Plus, X,
     Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Sparkles, Clock, CheckCircle
 } from 'lucide-react';
-import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints } from '../../utils/grammarService';
+import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints, deleteGrammarPoint } from '../../utils/grammarService';
+import { showToast } from '../../utils/toast';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../config/firebase';
 import { getAuth } from 'firebase/auth';
@@ -266,6 +267,25 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         setSaving(false);
     };
 
+    const handleDeleteDetail = async () => {
+        const confirmed = window.showConfirm
+            ? await window.showConfirm(`Bạn có chắc chắn muốn xóa mẫu ngữ pháp "${gp.pattern}" không? Hành động này không thể hoàn tác.`, { type: 'danger', confirmText: 'Xóa vĩnh viễn' })
+            : window.confirm(`Bạn có chắc chắn muốn xóa mẫu ngữ pháp "${gp.pattern}" không?`);
+        if (confirmed) {
+            setSaving(true);
+            const targetTb = gp.textbookId || tb;
+            const targetLs = gp.lessonId || ls;
+            const ok = await deleteGrammarPoint(targetTb, targetLs, grammarId);
+            if (ok) {
+                showToast(`Đã xóa ngữ pháp "${gp.pattern}"`, 'success');
+                navigate(backUrl);
+            } else {
+                showToast('Xóa ngữ pháp thất bại', 'error');
+                setSaving(false);
+            }
+        }
+    };
+
     const handleAddExample = () => {
         setEditForm(f => ({
             ...f,
@@ -433,14 +453,82 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         ? gp.examples
         : ((gp.pattern?.includes('あげk') || gp.pattern?.includes('あげく')) ? FALLBACK_EXAMPLES : []);
 
-    // Reconstruct the full structure formula string from the database
-    const fullStructure = gp.structure?.map(s => s.text).join(' + ') || '';
+    // Reconstruct the full structure formula string intelligently from the database
+    let fullStructure = '';
+    if (gp?.structure) {
+        if (typeof gp.structure === 'string') {
+            fullStructure = gp.structure;
+        } else if (Array.isArray(gp.structure)) {
+            fullStructure = gp.structure.map(s => {
+                if (typeof s === 'string') return s;
+                return s?.text || '';
+            }).reduce((acc, curr) => {
+                const trimmedCurr = curr.trim();
+                if (!acc) return trimmedCurr;
+                if (trimmedCurr === '+' || trimmedCurr === '/' || acc.endsWith('+') || acc.endsWith('/')) {
+                    return `${acc} ${trimmedCurr}`;
+                }
+                return `${acc} + ${trimmedCurr}`;
+            }, '');
+        }
+    }
+
+    const patternClean = gp?.pattern?.replace(/^[~〜]/, '').trim() || '';
+    const structureLines = typeof fullStructure === 'string'
+        ? fullStructure.split(/[\/\n|]+/).map(s => s.trim()).filter(Boolean)
+        : (fullStructure ? [String(fullStructure)] : []);
+
+    const structureAlreadyHasPattern = Boolean(
+        fullStructure && patternClean && (
+            fullStructure.includes(patternClean) || (gp?.pattern && fullStructure.includes(gp.pattern))
+        )
+    );
 
     // Smart language-detection to handle swapped admin database fields
     const isJapanese = (t) => {
         if (!t) return false;
         return /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/.test(t);
     };
+
+    const normalizedExamples = (() => {
+        if (!displayExamples || displayExamples.length === 0) return [];
+        const result = [];
+        for (let i = 0; i < displayExamples.length; i++) {
+            const item = displayExamples[i];
+            if (typeof item === 'string') {
+                const lines = item.split('\n').map(l => l.trim()).filter(Boolean);
+                if (lines.length >= 2) {
+                    result.push({ ja: lines[0], vi: lines[1] });
+                } else if (lines.length === 1) {
+                    if (i + 1 < displayExamples.length && typeof displayExamples[i + 1] === 'string' && !isJapanese(displayExamples[i + 1])) {
+                        result.push({ ja: lines[0], vi: displayExamples[i + 1].trim() });
+                        i++;
+                    } else {
+                        result.push({ ja: lines[0], vi: '' });
+                    }
+                }
+            } else if (item && typeof item === 'object') {
+                const jaText = (item.ja || '').trim();
+                const viText = (item.vi || '').trim();
+
+                if (jaText && !viText && isJapanese(jaText) && i + 1 < displayExamples.length) {
+                    const nextItem = displayExamples[i + 1];
+                    const nextJa = (typeof nextItem === 'object' ? (nextItem?.ja || '') : String(nextItem || '')).trim();
+                    const nextVi = (nextItem?.vi || '').trim();
+
+                    if (nextJa && !isJapanese(nextJa) && !nextVi) {
+                        result.push({ ja: jaText, vi: nextJa });
+                        i++;
+                        continue;
+                    }
+                }
+                if (jaText || viText) {
+                    result.push({ ja: jaText, vi: viText });
+                }
+            }
+        }
+        return result;
+    })();
 
     let jpText = '';
     let viText = '';
@@ -647,10 +735,14 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         </div>
 
                         {isAdmin && (
-                            <div className="shrink-0 pt-1">
+                            <div className="shrink-0 pt-1 flex items-center gap-2">
                                 <button onClick={() => setIsEditing(true)}
-                                    className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-indigo-200 dark:border-indigo-900/40 shadow-sm transition-all">
-                                    <Settings className="w-3.5 h-3.5" /> Sửa ngữ pháp
+                                    className="px-3.5 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-indigo-200 dark:border-indigo-900/40 shadow-sm transition-all">
+                                    <Settings className="w-3.5 h-3.5" /> Sửa
+                                </button>
+                                <button onClick={handleDeleteDetail} disabled={saving}
+                                    className="px-3.5 py-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-rose-200 dark:border-rose-900/40 shadow-sm disabled:opacity-50 transition-all">
+                                    <Trash2 className="w-3.5 h-3.5 text-rose-500" /> Xóa
                                 </button>
                             </div>
                         )}
@@ -686,22 +778,47 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         )}
 
                         {/* CẤU TRÚC KẾT HỢP Box */}
-                        {fullStructure && (
-                            <div className="flex items-center gap-4 md:gap-6 w-full min-w-0">
+                        {structureLines.length > 0 && (
+                            <div className="flex items-start gap-4 md:gap-6 w-full min-w-0">
                                 {/* Left boxed label */}
-                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm">
+                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
                                     Cấu trúc
                                 </div>
-                                {/* Right Content */}
+                                {/* Right Content - Left column of forms, middle +, right single pattern badge */}
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-1.5 flex-wrap">
-                                        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-xl text-base font-bold text-slate-700 dark:text-slate-300 font-japanese tracking-wide shadow-sm flex items-center gap-1.5 w-fit">
-                                            {renderHighlightedText(fullStructure, gp.pattern, true)}
-                                            <span className="text-slate-400 dark:text-slate-500 font-normal mx-0.5">+</span>
-                                            <span className="inline-flex items-center justify-center bg-indigo-50 text-indigo-750 dark:bg-indigo-950/40 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/40 px-2 py-0.5 rounded-md text-base font-black align-middle leading-none">
-                                                {gp.pattern}
-                                            </span>
+                                    <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
+                                        {/* Left column of stacked forms */}
+                                        <div className="flex flex-col gap-2">
+                                            {structureLines.map((line, idx) => {
+                                                let cleanLine = line;
+                                                if (patternClean) {
+                                                    cleanLine = cleanLine.replace(new RegExp(`\\s*\\+?\\s*[~〜]?${patternClean}`, 'gi'), '').trim();
+                                                }
+                                                if (gp?.pattern) {
+                                                    cleanLine = cleanLine.replace(new RegExp(`\\s*\\+?\\s*${gp.pattern}`, 'gi'), '').trim();
+                                                }
+                                                if (cleanLine.endsWith('+')) cleanLine = cleanLine.slice(0, -1).trim();
+                                                if (!cleanLine) cleanLine = line;
+
+                                                return (
+                                                    <div key={idx} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-xl text-base font-bold text-slate-700 dark:text-slate-300 font-japanese tracking-wide shadow-sm flex items-center gap-1.5 w-fit">
+                                                        {renderHighlightedText(cleanLine, gp.pattern, true)}
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
+
+                                        {/* Middle + sign */}
+                                        <div className="text-slate-400 dark:text-slate-500 font-bold text-lg px-0.5">
+                                            +
+                                        </div>
+
+                                        {/* Right single pattern badge */}
+                                        {gp.pattern && (
+                                            <div className="inline-flex items-center justify-center bg-indigo-50 text-indigo-750 dark:bg-indigo-950/40 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/40 px-3.5 py-2 rounded-xl text-base font-black tracking-wide shadow-sm">
+                                                {gp.pattern}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -732,19 +849,22 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                 </div>
                                 {/* Right Content */}
                                 <div className="flex-1 min-w-0 pt-1 space-y-2">
-                                    {displayTips.map((tip, idx) => (
-                                        <div key={idx} className="flex items-start gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 leading-relaxed bg-amber-50/40 dark:bg-amber-950/10 border border-amber-100/60 dark:border-amber-900/20 px-4 py-3 rounded-2xl shadow-sm">
-                                            <span className="shrink-0">{tip.icon || '💡'}</span>
-                                            <p className="break-words w-full">{tip.text}</p>
-                                        </div>
-                                    ))}
+                                    {displayTips.map((tip, idx) => {
+                                        const cleanText = (tip.text || '').replace(/^[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{1F600}-\u{1F64F}💡]\s*/u, '');
+                                        return (
+                                            <div key={idx} className="flex items-start gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 leading-relaxed bg-amber-50/40 dark:bg-amber-950/10 border border-amber-100/60 dark:border-amber-900/20 px-4 py-3 rounded-2xl shadow-sm">
+                                                <span className="shrink-0">{tip.icon || '💡'}</span>
+                                                <p className="break-words w-full">{cleanText}</p>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
                     </div>
 
                     {/* Other Examples Section */}
-                    {displayExamples.length > 0 && (
+                    {normalizedExamples.length > 0 && (
                         <div className="w-full">
                             <div className="flex items-center gap-3 mt-4 mb-5">
                                 <div className="w-1.5 h-6 bg-[#3b6070] dark:bg-teal-600 rounded-full"></div>
@@ -754,7 +874,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             </div>
 
                             <div className="space-y-4 w-full">
-                                {displayExamples.map((ex, i) => {
+                                {normalizedExamples.map((ex, i) => {
                                     // Circular styles index styling
                                     const circleStyles = [
                                         "border-emerald-500/30 text-emerald-600 dark:text-emerald-455 bg-emerald-50/50 dark:bg-emerald-950/20",

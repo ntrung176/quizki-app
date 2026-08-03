@@ -12,7 +12,8 @@ import { linkWithPopup, GoogleAuthProvider, unlink } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 import { showToast } from '../../utils/toast';
 import { TTS_VOICES, getTTSVoice, setTTSVoice, speakJapanese } from '../../utils/audio';
-import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { getReferralStats, submitReferralCode } from '../../utils/referralService';
+
 const SETTINGS_KEY = 'quizki-settings';
 const getSettings = () => {
     try {
@@ -89,7 +90,6 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
         if (!userId) return;
         const fetchStats = async () => {
             try {
-                const { getReferralStats } = await import('../../utils/referralService');
                 const stats = await getReferralStats(userId);
                 setRefStats(stats);
             } catch (e) {
@@ -123,7 +123,6 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
         setErrorMsg('');
         setSuccessMsg('');
         try {
-            const { submitReferralCode } = await import('../../utils/referralService');
             const res = await submitReferralCode(userId, profile?.displayName || 'Người dùng', enteredCode.trim());
             if (res.success) {
                 setSuccessMsg('Áp dụng mã giới thiệu thành công! Bạn nhận được 15 ngày Premium.');

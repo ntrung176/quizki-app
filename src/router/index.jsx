@@ -71,8 +71,13 @@ export const getEditRoute = (cardId) => `/vocab/edit/${cardId}`;
 // Re-export react-router-dom hooks and components for convenience
 export { useNavigate, useParams, useLocation, Navigate, Link };
 
+import LoadingIndicator from '../components/ui/LoadingIndicator';
+
 // Protected Route component - requires authentication only
-export const ProtectedRoute = ({ children, isAuthenticated }) => {
+export const ProtectedRoute = ({ children, isAuthenticated, authReady = true }) => {
+    if (!authReady) {
+        return <LoadingIndicator fullScreen message="Đang kiểm tra đăng nhập..." />;
+    }
     if (!isAuthenticated) {
         return <Navigate to={ROUTES.LOGIN} replace />;
     }
@@ -81,7 +86,10 @@ export const ProtectedRoute = ({ children, isAuthenticated }) => {
 };
 
 // Public Only Route component - redirects to home if already authenticated
-export const PublicOnlyRoute = ({ children, isAuthenticated }) => {
+export const PublicOnlyRoute = ({ children, isAuthenticated, authReady = true }) => {
+    if (!authReady) {
+        return <LoadingIndicator fullScreen message="Đang kiểm tra đăng nhập..." />;
+    }
     if (isAuthenticated) {
         return <Navigate to={ROUTES.HOME} replace />;
     }

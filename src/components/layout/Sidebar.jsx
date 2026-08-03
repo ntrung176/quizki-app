@@ -365,7 +365,7 @@ const Sidebar = ({
     const isMenuActive = (item) => {
         const path = location.pathname;
         if (item.id === 'HOME') return path === '/' || path === '/home';
-        if (item.id === 'VOCAB_LIST') return path.includes('/vocab');
+        if (item.id === 'VOCAB_LIST') return path.includes('/vocab') || path.includes('/books');
         if (item.id === 'KANJI_STUDY') return path.includes('/kanji');
         if (item.id === 'GRAMMAR') return path.includes('/grammar');
         if (item.id === 'JLPT_TEST') return path.includes('/jlpt/test') || path.includes('/jlpt/admin');

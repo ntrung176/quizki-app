@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, Check, X, BookOpen, RotateCcw, Zap, ChevronRight, Settings } from 'lucide-react'
+import { ArrowLeft, Check, X, BookOpen, RotateCcw, Zap, ChevronRight, Settings, Maximize2, Minimize2 } from 'lucide-react'
 import { speakJapanese } from '../../utils/audio';
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 import { launchFanfare } from '../../utils/celebrations';
@@ -9,6 +9,7 @@ import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgress
 import FuriganaText from '../ui/FuriganaText';
 import { shuffleArray } from '../../utils/textProcessing';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -400,6 +401,28 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const [furiganaEnabled, setFuriganaEnabled] = useState(() => localStorage.getItem('study_furigana_enabled') !== 'false');
     const [audioEnabled, setAudioEnabled] = useState(() => localStorage.getItem('study_audio_enabled') !== 'false');
     const [showSettings, setShowSettings] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const toggleFullscreen = useCallback(() => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+            setIsFullscreen(true);
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen().catch(() => {});
+            }
+            setIsFullscreen(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        const handleFSChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+        document.addEventListener('fullscreenchange', handleFSChange);
+        return () => document.removeEventListener('fullscreenchange', handleFSChange);
+    }, []);
+
     const [batches, setBatches] = useState([]);
     const [currentBatchIndex, setCurrentBatchIndex] = useState(0);
     const [currentBatch, setCurrentBatch] = useState([]);
@@ -762,24 +785,38 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         ? `${mcIdx + 1} / ${mcQueue.length}`
         : `${writtenIdx + 1} / ${writtenQueue.length}`;
 
+    if (done) {
+        return (
+            <UnifiedStudyCompleteModal
+                totalCards={originalCards.length}
+                onBack={onBack}
+                onComplete={onCompleteStudy || onBack}
+                onRestart={handleRestart}
+            />
+        );
+    }
+
     return (
-        <div className="relative w-full h-full flex flex-col justify-center py-6 animate-fade-in">
-            <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
+        <div className={isFullscreen 
+            ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen" 
+            : "relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4 animate-fade-in"
+        }>
+            <div className="w-full max-w-3xl mx-auto flex flex-col justify-center items-center space-y-4 my-auto">
                 {/* Back Button - outside frame */}
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
                         <button
                             onClick={onBack}
-                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
+                            className="p-2 flex items-center gap-1.5 justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
                             title="Trở lại"
                         >
-                            <ArrowLeft className="w-5 h-5" />
-                            <span className="text-sm font-medium ml-1">Trở lại</span>
+                            <ArrowLeft className="w-4 h-4" />
+                            <span className="text-xs font-medium">Trở lại</span>
                         </button>
                     </div>
                 )}
 
-                <div className="w-full flex flex-col space-y-5 p-6 md:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
+                <div className="w-full flex flex-col space-y-5 p-6 md:p-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-2 border-indigo-400/30 dark:border-indigo-500/20 rounded-3xl shadow-xl overflow-hidden">
                     {/* Progress bar inside the box */}
                     {!done && batchPhase !== 'batchComplete' && (
                         <div className="space-y-1.5 w-full flex-shrink-0">
@@ -788,8 +825,16 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                 <div className="flex items-center gap-2">
                                     <span className="text-gray-500 dark:text-gray-400">{phaseDesc}</span>
                                     <button
+                                        type="button"
+                                        onClick={toggleFullscreen}
+                                        className="p-1 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-gray-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
+                                        title={isFullscreen ? "Thoát toàn màn hình (Esc)" : "Toàn màn hình"}
+                                    >
+                                        {isFullscreen ? <Minimize2 className="w-4 h-4 text-indigo-400" /> : <Maximize2 className="w-4 h-4" />}
+                                    </button>
+                                    <button
                                         onClick={() => setShowSettings(true)}
-                                        className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-all"
+                                        className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
                                         title="Cài đặt"
                                     >
                                         <Settings className="w-4 h-4 text-gray-500 dark:text-gray-400" />

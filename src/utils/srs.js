@@ -27,8 +27,8 @@ export const normalizeSRSState = (srs) => {
         };
     }
 
-    // 1. Get raw inputs (handling both direct fields and nested srs prefix fields)
-    let interval = srs.interval !== undefined ? srs.interval : (srs.srsInterval !== undefined ? srs.srsInterval : 0);
+    // 1. Get raw inputs (handling both direct fields and nested srs/legacy prefix fields)
+    let interval = srs.interval !== undefined ? srs.interval : (srs.srsInterval !== undefined ? srs.srsInterval : (srs.currentInterval !== undefined ? srs.currentInterval : (srs.currentInterval_back !== undefined ? srs.currentInterval_back : 0)));
     let ease = srs.ease !== undefined ? srs.ease : (srs.srsEase !== undefined ? srs.srsEase : 2.5);
     let learningStep = srs.learningStep !== undefined ? srs.learningStep : (srs.srsLearningStep !== undefined ? srs.srsLearningStep : null);
     let isLapsed = srs.isLapsed !== undefined ? srs.isLapsed : (srs.srsIsLapsed !== undefined ? srs.srsIsLapsed : false);
@@ -80,7 +80,7 @@ export const normalizeSRSState = (srs) => {
     // and should be converted to days by dividing by 1440.
     let resolvedState = state;
     if (!resolvedState) {
-        if (reps === 0 && !srs?.lastReview) {
+        if (reps === 0 && !srs?.lastReview && !srs?.srsLastReview && !srs?.lastReviewed_back) {
             resolvedState = 'NEW';
         } else if (reps > 0) {
             resolvedState = 'REVIEW';
@@ -181,9 +181,9 @@ export const isSrsCardDue = (srsOrCard, now = Date.now()) => {
         ? srsOrCard.nextReview 
         : (srsOrCard.nextReview_back !== undefined ? srsOrCard.nextReview_back : null);
     
-    if (nextReviewVal === null || nextReviewVal === undefined) return false;
+    if (nextReviewVal === null || nextReviewVal === undefined) return true;
     const reviewMs = parseNextReviewMs(nextReviewVal);
-    if (reviewMs === 0) return false;
+    if (reviewMs === 0) return true;
     return reviewMs <= now;
 };
 
@@ -197,10 +197,10 @@ export const isVocabCardDue = (card, now = Date.now()) => {
         : (card.nextReview !== undefined ? card.nextReview : (card.srsData?.nextReview || card.srsData?.nextReview_back));
 
     if (nextReviewVal === undefined || nextReviewVal === null) {
-        return card.intervalIndex_back !== undefined && card.intervalIndex_back !== -1;
+        return true;
     }
     const reviewMs = parseNextReviewMs(nextReviewVal);
-    if (reviewMs === 0) return false;
+    if (reviewMs === 0) return true;
     return reviewMs <= now;
 };
 

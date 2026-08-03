@@ -8,6 +8,9 @@ import React from 'react';
 const CyberTechBackground = () => {
     return (
         <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden select-none">
+            {/* Base background color */}
+            <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 transition-colors duration-200"></div>
+
             {/* Tech Radial Dot Grid Matrix Overlay */}
             <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1.2px,transparent_1.2px)] dark:bg-[radial-gradient(#06b6d4_1.2px,transparent_1.2px)] [background-size:28px_28px] opacity-30 dark:opacity-20"></div>
 

@@ -54,6 +54,11 @@ export default defineConfig({
   // Relative paths ('./') gây lỗi 404 khi GitHub Pages serve 404.html cho SPA routes
   // (vd: /kanji -> 404.html -> ./assets/... -> /kanji/assets/... -> 404!)
   base: '/',
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src')
+    }
+  },
   build: {
     rollupOptions: {
       output: {

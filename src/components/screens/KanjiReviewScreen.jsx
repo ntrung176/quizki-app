@@ -484,8 +484,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         console.time('⚡ SRS_RATING_KANJI');
         if (!currentCard || !userId) return;
 
-        const srs = srsData[currentCard.id] || null;
-        const result = calculateAnkiSRS(srs || { interval: 0, ease: 2.5, nextReview: 0, reps: 0 }, rating);
+        const srs = srsData[currentCard.id] || currentCard.srsData || currentCard;
+        const result = calculateAnkiSRS(srs, rating);
         const now = Date.now();
         const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
         const newSrs = {

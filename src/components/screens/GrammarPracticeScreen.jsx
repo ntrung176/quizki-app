@@ -732,9 +732,9 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                         <div key={id} className={`group relative bg-white dark:bg-slate-800 border rounded-2xl p-5 transition-all ${r === 'correct' ? 'border-emerald-300 dark:border-emerald-700/50' : r === 'incorrect' ? 'border-red-300 dark:border-red-700/50' : 'border-slate-200 dark:border-slate-700'}`}>
                                             {/* Admin Edit/Delete overlays */}
                                             {isAdmin && (
-                                                <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <button onClick={() => startInlineEdit('translate', idx, ex)} className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
-                                                    <button onClick={() => deleteQuestion('translate', idx)} className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-950 text-red-500" title="Xoá"><Trash2 className="w-3.5 h-3.5" /></button>
+                                                <div className="absolute top-4 right-4 flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity bg-slate-100/90 dark:bg-slate-900/90 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm z-10">
+                                                    <button onClick={() => startInlineEdit('translate', idx, ex)} className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
+                                                    <button onClick={() => deleteQuestion('translate', idx)} className="p-1.5 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-950 text-rose-600 dark:text-rose-400 transition-colors" title="Xoá bài tập này"><Trash2 className="w-3.5 h-3.5" /></button>
                                                 </div>
                                             )}
 
@@ -892,9 +892,9 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                         <div key={qIdx} className={`group relative bg-white dark:bg-slate-800 border rounded-2xl p-5 transition-all ${isAnswered ? (isCorrect ? 'border-emerald-300 dark:border-emerald-700/50 shadow-sm' : 'border-red-300 dark:border-red-700/50') : 'border-slate-200 dark:border-slate-700'}`}>
                                             {/* Admin Edit/Delete overlays */}
                                             {isAdmin && (
-                                                <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <button onClick={() => startInlineEdit('quiz', qIdx, quiz)} className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
-                                                    <button onClick={() => deleteQuestion('quiz', qIdx)} className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-950 text-red-500" title="Xoá"><Trash2 className="w-3.5 h-3.5" /></button>
+                                                <div className="absolute top-4 right-4 flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity bg-slate-100/90 dark:bg-slate-900/90 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm z-10">
+                                                    <button onClick={() => startInlineEdit('quiz', qIdx, quiz)} className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
+                                                    <button onClick={() => deleteQuestion('quiz', qIdx)} className="p-1.5 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-950 text-rose-600 dark:text-rose-400 transition-colors" title="Xoá câu hỏi trắc nghiệm này"><Trash2 className="w-3.5 h-3.5" /></button>
                                                 </div>
                                             )}
 

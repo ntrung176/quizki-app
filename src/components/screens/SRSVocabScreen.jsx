@@ -42,14 +42,14 @@ const formatInterval = (minutes) => {
 // Helper to preview intervals based on SRS state
 const getPreviewIntervals = (card) => {
     const srsState = {
-        interval: card.srsInterval || 0,
-        ease: card.srsEase || 2.5,
-        learningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : null,
-        isLapsed: card.srsIsLapsed || false,
-        reps: card.srsReps || 0,
-        lapseCount: card.srsLapseCount || 0,
-        prelapseInterval: card.srsPrelapseInterval || null,
-        state: card.srsState || null,
+        interval: card.srsInterval !== undefined ? card.srsInterval : (card.interval !== undefined ? card.interval : (card.currentInterval_back || 0)),
+        ease: card.srsEase !== undefined ? card.srsEase : (card.ease || 2.5),
+        learningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : (card.learningStep !== undefined ? card.learningStep : null),
+        isLapsed: card.srsIsLapsed !== undefined ? card.srsIsLapsed : (card.isLapsed || false),
+        reps: card.srsReps !== undefined ? card.srsReps : (card.reps || 0),
+        lapseCount: card.srsLapseCount !== undefined ? card.srsLapseCount : (card.lapseCount || 0),
+        prelapseInterval: card.srsPrelapseInterval !== undefined ? card.srsPrelapseInterval : (card.prelapseInterval || null),
+        state: card.srsState || card.state || null,
         intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1,
         masteryState: card.masteryState || 'not_learned',
         seenCount: typeof card.seenCount === 'number' ? card.seenCount : 0,
@@ -99,6 +99,7 @@ const SRSVocabScreen = ({
 
     const filteredCards = useMemo(() => {
         return (allCards || []).filter(c => {
+            if (c.srsEnabled === false) return false;
             const lang = c.targetLanguage || 'ja';
             return lang === targetLanguage;
         });
@@ -339,6 +340,7 @@ const SRSVocabScreen = ({
 
     // Safely determine if a card is due
     const isDue = (card) => {
+        if (!card || card.srsEnabled === false) return false;
         // Merge with local session SRS data if available
         const localSrs = sessionSrsData.current[card.id];
         if (localSrs) {
@@ -440,7 +442,7 @@ const SRSVocabScreen = ({
         const now = Date.now();
         let earliest = Infinity;
         allCards.forEach(c => {
-            if (c.srsEnabled === true) {
+            if (c.srsEnabled !== false) {
                 const localSrs = sessionSrsData.current[c.id];
                 const nextReviewVal = localSrs ? localSrs.nextReview_back : c.nextReview_back;
                 if (!nextReviewVal) return;
@@ -729,14 +731,14 @@ const SRSVocabScreen = ({
 
         // Calculate next SRS state locally
         const currentSrs = sessionSrsData.current[card.id] || {
-            interval: card.srsInterval || 0,
-            ease: card.srsEase || 2.5,
-            learningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : null,
-            isLapsed: card.srsIsLapsed || false,
-            reps: card.srsReps || 0,
-            lapseCount: card.srsLapseCount || 0,
-            prelapseInterval: card.srsPrelapseInterval || null,
-            state: card.srsState || null,
+            interval: card.srsInterval !== undefined ? card.srsInterval : (card.interval !== undefined ? card.interval : (card.currentInterval_back || 0)),
+            ease: card.srsEase !== undefined ? card.srsEase : (card.ease || 2.5),
+            learningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : (card.learningStep !== undefined ? card.learningStep : null),
+            isLapsed: card.srsIsLapsed !== undefined ? card.srsIsLapsed : (card.isLapsed || false),
+            reps: card.srsReps !== undefined ? card.srsReps : (card.reps || 0),
+            lapseCount: card.srsLapseCount !== undefined ? card.srsLapseCount : (card.lapseCount || 0),
+            prelapseInterval: card.srsPrelapseInterval !== undefined ? card.srsPrelapseInterval : (card.prelapseInterval || null),
+            state: card.srsState || card.state || null,
             intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1,
             masteryState: card.masteryState || 'not_learned',
             seenCount: typeof card.seenCount === 'number' ? card.seenCount : 0,

@@ -3,17 +3,18 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
     ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, PenTool, FileJson,
     Clipboard, Check, AlertCircle, Sparkles, Clock, X,
-    Loader2, Award, ClipboardCheck, Lightbulb, Sparkle, Eye, CheckCircle
+    Loader2, Award, ClipboardCheck, Lightbulb, Sparkle, Eye, CheckCircle, BookOpen, Search, ListPlus, CheckSquare, Square
 } from 'lucide-react';
 import {
     subscribeTextbooks, subscribeLessons, subscribeGrammarPoints,
     addGrammarPoint, updateGrammarPoint, deleteGrammarPoint, importGrammarPointsFromJson,
-    updateLesson
+    updateLesson, getMasterGrammarPoints, assignGrammarPointsToLesson
 } from '../../utils/grammarService';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../config/firebase';
-import { aiCheckGrammarAnswer } from '../../utils/aiProvider';
+import { aiCheckGrammarAnswer, aiGenerateGrammarPointsJson } from '../../utils/aiProvider';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
+import { showToast } from '../../utils/toast';
 
 const SAMPLE_POINTS_JSON = `[
   {
@@ -28,6 +29,61 @@ const SAMPLE_POINTS_JSON = `[
       "sentenceJa": "お降りの際は、足元にご注意ください。",
       "descriptionVi": "Khi xuống xe, xin hãy chú ý dưới chân."
     }
+  }
+]`;
+
+const AI_SYSTEM_PROMPT = `Bạn là một chuyên gia biên soạn giáo trình tiếng Nhật JLPT cho ứng dụng QuizKi App.
+Hãy giúp tôi tạo dữ liệu JSON cho các mẫu ngữ pháp tiếng Nhật tuân thủ STRICT các quy tắc sau:
+
+1. QUY CHUẨN KÝ HIỆU NGUYÊN TẮC:
+- Danh từ: N
+- Tính từ đuôi i: いA
+- Tính từ đuôi na: なA
+- Động từ thể từ điển: V-る
+- Động từ thể Masu: V-ます
+- Động từ thể Te: V-て
+- Động từ thể Ta: V-た
+- Động từ thể Nai: V-ない
+- Thể thông thường: Pl
+- Thể lịch sự: Po
+
+2. QUY TẮC CẤU TRÚC (structure):
+- Các thể kết hợp ĐƯỢC TÁCH NGHĨA HÀNG DỌC BẰNG DẤU GẠCH CHÉO '/'.
+- KHÔNG bao gồm lại mẫu ngữ pháp chính trong ô 'structureRaw' vì ứng dụng sẽ tự nối mẫu ngữ pháp vào sau.
+- Ví dụ đúng: "V-る / V-ない / V-ている / いA / なA な / N の"
+
+3. BÀI TẬP (BẮT BUỘC TẠO ĐỦ CẢ 2 PHẦN TRẮC NGHIỆM & ĐẶT CÂU):
+- "quizzes": Mảng câu hỏi Trắc nghiệm điền lỗ trống (4 đáp án, gồm question, options, answer, explanation).
+- "exercises": Mảng câu hỏi Đặt câu dịch Việt -> Nhật (gồm questionVi, hint, answers).
+
+4. ĐỊNH DẠNG JSON KẾT QUẢ:
+[
+  {
+    "pattern": "~うちに",
+    "meaningShort": "Trong lúc... (chuyển biến tự nhiên)",
+    "meaning": "Trong lúc / Trong khi đang làm gì đó thì có sự thay đổi diễn ra một cách tự nhiên",
+    "meaningFull": "【意味・用法】\\n~ をしている間に自然に変わる。\\n\\n• Tiếng Việt: Dùng khi muốn nói rằng một sự thay đổi đã diễn ra một cách tự nhiên trong lúc một hành động khác đang diễn ra.",
+    "structureRaw": "V-る / V-ない / V-ている",
+    "tipsRaw": "💡 Lưu ý ngữ pháp: Vế sau biểu thị sự biến đổi diễn ra TỰ NHIÊN, không dùng với câu mang ý chí hay quyết định chủ quan của người nói.\\n💡 Tình huống sử dụng: Dùng khi miêu tả cảm xúc, thói quen, kỹ năng hoặc trạng thái dần thay đổi theo thời gian.\\n💡 Văn phong: Phổ biến trong cả văn nói giao tiếp hàng ngày lẫn văn viết.",
+    "examplesRaw": "住んでいるうちに日本の生活に慣れました。\\nTrong lúc sống ở Nhật, tôi đã dần quen với cuộc sống ở đây lúc nào không hay.",
+    "quizzes": [
+      {
+        "question": "日本に住んでいる（　　）、日本語が上手になりました。",
+        "options": ["うちに", "あいだに", "ために", "かわりに"],
+        "answer": "うちに",
+        "explanation": "Dùng 'うちに' vì biểu thị sự thay đổi diễn ra tự nhiên trong lúc đang sống ở Nhật."
+      }
+    ],
+    "exercises": [
+      {
+        "questionVi": "Trong lúc sống ở Nhật, tôi đã quen với cuộc sống ở đây.",
+        "hint": "住む, 慣れる",
+        "answers": [
+          "日本に住んでいるうちに、日本の生活に慣れました。",
+          "日本に住んでいるうちに日本の生活に慣れました。"
+        ]
+      }
+    ]
   }
 ]`;
 
@@ -61,9 +117,57 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     const [importError, setImportError] = useState('');
     const [importSuccess, setImportSuccess] = useState('');
     const [copied, setCopied] = useState(false);
+    const [showAiPromptGuide, setShowAiPromptGuide] = useState(false);
+    const [promptCopied, setPromptCopied] = useState(false);
+    const [rawAiInput, setRawAiInput] = useState('');
+    const [aiGenerating, setAiGenerating] = useState(false);
     const [editId, setEditId] = useState(null);
     const [form, setForm] = useState(EMPTY_FORM);
     const [saving, setSaving] = useState(false);
+
+    // Master Grammar Bank Picker Modal States (Admin)
+    const [showMasterBankModal, setShowMasterBankModal] = useState(false);
+    const [masterPointsList, setMasterPointsList] = useState([]);
+    const [selectedMasterIds, setSelectedMasterIds] = useState(new Set());
+    const [masterSearchQuery, setMasterSearchQuery] = useState('');
+    const [masterLevelFilter, setMasterLevelFilter] = useState('ALL');
+    const [loadingMasterBank, setLoadingMasterBank] = useState(false);
+    const [assigningMasterPoints, setAssigningMasterPoints] = useState(false);
+
+    const openMasterBankModal = async () => {
+        setShowMasterBankModal(true);
+        setLoadingMasterBank(true);
+        try {
+            const list = await getMasterGrammarPoints();
+            setMasterPointsList(list || []);
+            // Pre-select points that are already in this lesson
+            const currentIds = new Set((points || []).map(p => p.id));
+            setSelectedMasterIds(currentIds);
+        } catch (e) {
+            console.error("Error loading master bank:", e);
+            showToast("Không thể nạp danh sách Kho Ngữ Pháp Gốc", "error");
+        } finally {
+            setLoadingMasterBank(false);
+        }
+    };
+
+    const handleAssignMasterPoints = async () => {
+        setAssigningMasterPoints(true);
+        try {
+            const selectedPoints = masterPointsList.filter(mp => selectedMasterIds.has(mp.id));
+            const res = await assignGrammarPointsToLesson(textbookId, lessonId, selectedPoints);
+            if (res.success) {
+                showToast(`Đã gắn ${selectedPoints.length} mẫu ngữ pháp vào bài học này!`, 'success');
+                setShowMasterBankModal(false);
+            } else {
+                showToast(`Lỗi khi gắn ngữ pháp: ${res.error}`, 'error');
+            }
+        } catch (e) {
+            showToast(`Lỗi khi gắn ngữ pháp: ${e.message}`, 'error');
+        } finally {
+            setAssigningMasterPoints(false);
+        }
+    };
 
     // Image uploading state for single visual
     const [uploadingState, setUploadingState] = useState(false);
@@ -544,6 +648,36 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
         setTimeout(() => setCopied(false), 2000);
     };
 
+    const handleCopyAiPrompt = () => {
+        navigator.clipboard.writeText(AI_SYSTEM_PROMPT);
+        setPromptCopied(true);
+        showToast("Đã sao chép Prompt AI cho Ngữ pháp!", "success");
+        setTimeout(() => setPromptCopied(false), 2000);
+    };
+
+    const handleAiGenerateJson = async () => {
+        if (!rawAiInput.trim()) {
+            showToast("Vui lòng dán văn bản ngữ pháp thô vào ô!", "warning");
+            return;
+        }
+        setAiGenerating(true);
+        setImportError('');
+        try {
+            const result = await aiGenerateGrammarPointsJson(rawAiInput);
+            if (result && Array.isArray(result) && result.length > 0) {
+                setJsonText(JSON.stringify(result, null, 2));
+                showToast(`✨ AI đã tạo xong ${result.length} điểm ngữ pháp chuẩn JSON!`, "success");
+            } else {
+                showToast("AI không thể phân tích văn bản này. Vui lòng kiểm tra lại nội dung.", "error");
+            }
+        } catch (e) {
+            console.error("AI error:", e);
+            showToast("Lỗi khi gọi AI: " + e.message, "error");
+        } finally {
+            setAiGenerating(false);
+        }
+    };
+
     const handleEdit = (gp) => {
         setForm({
             pattern: gp.pattern || '',
@@ -789,9 +923,9 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                             <div key={id} className={`group relative bg-white dark:bg-slate-800 border rounded-2xl p-5 transition-all duration-300 ${r === 'correct' ? 'border-emerald-500 dark:border-emerald-700/50' : r === 'incorrect' ? 'border-red-500 dark:border-red-700/50' : 'border-slate-200 dark:border-slate-700'}`}>
                                                 {/* Admin Edit/Delete overlays */}
                                                 {isAdmin && (
-                                                    <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                                                        <button onClick={() => startReviewInlineEdit('translate', idx, ex)} className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
-                                                        <button onClick={() => deleteReviewQuestion('translate', idx)} className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-950 text-red-500" title="Xoá"><Trash2 className="w-3.5 h-3.5" /></button>
+                                                    <div className="absolute top-4 right-4 flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity bg-slate-100/90 dark:bg-slate-900/90 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm z-10">
+                                                        <button onClick={() => startReviewInlineEdit('translate', idx, ex)} className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
+                                                        <button onClick={() => deleteReviewQuestion('translate', idx)} className="p-1.5 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-950 text-rose-600 dark:text-rose-400 transition-colors" title="Xoá"><Trash2 className="w-3.5 h-3.5" /></button>
                                                     </div>
                                                 )}
 
@@ -936,9 +1070,9 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                             <div key={qIdx} className={`group relative bg-white dark:bg-slate-800 border rounded-2xl p-5 transition-all duration-300 ${isAnswered ? (isCorrect ? 'border-emerald-500 dark:border-emerald-700/50 shadow-sm' : 'border-red-500 dark:border-red-700/50') : 'border-slate-200 dark:border-slate-700'}`}>
                                                 {/* Admin Edit/Delete overlays */}
                                                 {isAdmin && (
-                                                    <div className="absolute top-4 right-4 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                                                        <button onClick={() => startReviewInlineEdit('quiz', qIdx, quiz)} className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
-                                                        <button onClick={() => deleteReviewQuestion('quiz', qIdx)} className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-950 text-red-500" title="Xoá"><Trash2 className="w-3.5 h-3.5" /></button>
+                                                    <div className="absolute top-4 right-4 flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity bg-slate-100/90 dark:bg-slate-900/90 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm z-10">
+                                                        <button onClick={() => startReviewInlineEdit('quiz', qIdx, quiz)} className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
+                                                        <button onClick={() => deleteReviewQuestion('quiz', qIdx)} className="p-1.5 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-950 text-rose-600 dark:text-rose-400 transition-colors" title="Xoá"><Trash2 className="w-3.5 h-3.5" /></button>
                                                     </div>
                                                 )}
 
@@ -1027,6 +1161,10 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
             {isAdmin && (
                 <div className="flex flex-wrap gap-2">
+                    <button onClick={openMasterBankModal}
+                        className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm cursor-pointer">
+                        <ListPlus className="w-4 h-4" /> Chọn từ Kho Ngữ Pháp
+                    </button>
                     <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm(EMPTY_FORM); }}
                         className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors">
                         <Plus className="w-4 h-4" /> Thêm mẫu ngữ pháp
@@ -1154,22 +1292,98 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             {/* Admin: JSON Import Panel */}
             {showJsonImport && isAdmin && (
                 <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4 shadow-sm w-full">
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
                         <h3 className="font-bold text-slate-800 dark:text-white flex items-center gap-2">
                             <FileJson className="w-5 h-5 text-indigo-500" /> Nhập cấu trúc Ngữ pháp hàng loạt từ JSON
                         </h3>
-                        <button onClick={() => handleCopySample()} className="flex items-center gap-1 px-3 py-1 bg-slate-100 dark:bg-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-slate-600 dark:text-slate-300 hover:text-indigo-600 text-xs font-bold rounded-lg transition-all border border-transparent hover:border-indigo-200">
-                            {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Clipboard className="w-3.5 h-3.5" />}
-                            {copied ? 'Đã sao chép mẫu!' : 'Copy JSON mẫu'}
+                        <div className="flex flex-wrap items-center gap-2">
+                            <button onClick={handleCopyAiPrompt} className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 dark:bg-amber-950/40 hover:bg-amber-100 text-amber-700 dark:text-amber-300 text-xs font-bold rounded-xl transition-all border border-amber-200 dark:border-amber-900/40 shadow-sm">
+                                {promptCopied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Sparkles className="w-3.5 h-3.5 text-amber-500" />}
+                                {promptCopied ? 'Đã copy Prompt!' : 'Copy Prompt AI'}
+                            </button>
+                            <button onClick={() => handleCopySample()} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-slate-600 dark:text-slate-300 hover:text-indigo-600 text-xs font-bold rounded-xl transition-all border border-slate-200 dark:border-slate-700 shadow-sm">
+                                {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Clipboard className="w-3.5 h-3.5" />}
+                                {copied ? 'Đã copy mẫu!' : 'Copy JSON mẫu'}
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* AI Prompt & Symbol Guide Drawer */}
+                    <div className="bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/60 rounded-2xl p-4 text-xs space-y-3">
+                        <div className="flex items-center justify-between cursor-pointer select-none" onClick={() => setShowAiPromptGuide(!showAiPromptGuide)}>
+                            <span className="font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                                <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+                                Hướng dẫn Prompt AI (ChatGPT/Claude/Gemini) & Quy chuẩn ký hiệu ngữ pháp
+                            </span>
+                            <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline shrink-0">
+                                {showAiPromptGuide ? 'Thu gọn ▲' : 'Xem chi tiết ▼'}
+                            </span>
+                        </div>
+
+                        {showAiPromptGuide && (
+                            <div className="space-y-3 pt-3 border-t border-slate-200 dark:border-slate-700/50 animate-fade-in">
+                                <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
+                                    Sao chép <strong>Prompt AI</strong> bên dưới rồi dán vào AI để AI tự động soạn đúng quy chuẩn ký hiệu (<code>N</code>, <code>いA</code>, <code>なA</code>, <code>V-る</code>, <code>V-て</code>, <code>/</code> tách hàng dọc):
+                                </p>
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                                    <div><strong>N</strong>: Danh từ</div>
+                                    <div><strong>いA</strong>: Tính từ i</div>
+                                    <div><strong>なA</strong>: Tính từ na</div>
+                                    <div><strong>V-る</strong>: Thể từ điển</div>
+                                    <div><strong>V-ます</strong>: Thể Masu</div>
+                                    <div><strong>V-て</strong>: Thể Te</div>
+                                    <div><strong>V-た</strong>: Thể Ta</div>
+                                    <div><strong>V-ない</strong>: Thể Phủ định</div>
+                                    <div><strong>V-Pl / Pl</strong>: Thông thường</div>
+                                    <div><strong>V-できる</strong>: Khả năng</div>
+                                    <div><strong>V-られる</strong>: Bị động</div>
+                                    <div><strong>/</strong>: Tách hàng dọc</div>
+                                </div>
+
+                                <div className="relative group">
+                                    <pre className="font-mono text-[11px] bg-slate-900 text-slate-200 p-3.5 rounded-xl overflow-x-auto max-h-56 whitespace-pre-wrap leading-relaxed border border-slate-800 select-all">
+                                        {AI_SYSTEM_PROMPT}
+                                    </pre>
+                                    <button onClick={handleCopyAiPrompt} className="absolute top-2.5 right-2.5 px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-lg shadow-md transition-all flex items-center gap-1">
+                                        {promptCopied ? <Check className="w-3.5 h-3.5" /> : <Sparkles className="w-3.5 h-3.5" />}
+                                        {promptCopied ? 'Đã copy!' : 'Sao chép Prompt'}
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* AI Raw Text Conversion Box */}
+                    <div className="bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/40 rounded-2xl p-4 space-y-3">
+                        <div className="flex items-center justify-between">
+                            <label className="font-bold text-xs text-indigo-900 dark:text-indigo-200 flex items-center gap-1.5">
+                                <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                                1. Dán văn bản / ghi chú thô vào đây (AI tích hợp sẵn sẽ tự động chuẩn hóa sang JSON):
+                            </label>
+                        </div>
+                        <textarea
+                            placeholder="Dán bất kỳ ghi chú, bài học hoặc văn bản thô nào về ngữ pháp vào đây..."
+                            value={rawAiInput}
+                            onChange={e => setRawAiInput(e.target.value)}
+                            rows={3}
+                            className="w-full text-xs px-3 py-2 bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800 rounded-xl outline-none focus:border-indigo-500 font-sans"
+                        />
+                        <button
+                            onClick={handleAiGenerateJson}
+                            disabled={aiGenerating || !rawAiInput.trim()}
+                            className="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50"
+                        >
+                            {aiGenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4 text-amber-300" />}
+                            {aiGenerating ? 'AI đang phân tích & tự động tạo JSON chuẩn...' : '🤖 Tự động tạo JSON chuẩn từ văn bản thô (Bằng AI)'}
                         </button>
                     </div>
 
-                    <p className="text-xs text-slate-500 leading-relaxed">
-                        Nhập danh sách ngữ pháp cho bài học này. Cấu trúc JSON gồm: <code>pattern</code>, <code>meaningShort</code>, <code>meaningFull</code>, <code>structureRaw</code>, <code>tipsRaw</code>, <code>examplesRaw</code>, và <code>visual</code>.
+                    <p className="text-xs text-slate-500 leading-relaxed font-bold">
+                        2. Kiểm tra hoặc chỉnh sửa chuỗi JSON bên dưới rồi nhấn <strong>"Nhập ngữ pháp"</strong>:
                     </p>
 
-                    <textarea placeholder="Paste chuỗi JSON ngữ pháp vào đây..." value={jsonText} onChange={e => setJsonText(e.target.value)} rows={8}
-                        className="w-full font-mono text-xs px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg dark:text-white outline-none resize-y" />
+                    <textarea placeholder="Chuỗi JSON ngữ pháp chuẩn sẽ xuất hiện ở đây sau khi bấm tạo bằng AI hoặc tự dán..." value={jsonText} onChange={e => setJsonText(e.target.value)} rows={8}
+                        className="w-full font-mono text-xs px-3 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-y" />
 
                     {importError && (
                         <div className="flex items-start gap-2 p-3 bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800/40 rounded-xl text-xs text-red-600 font-medium">
@@ -1219,8 +1433,16 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                         <div className="absolute top-3 right-3 flex items-center gap-1 shrink-0">
                             {isAdmin && (
                                 <>
-                                    <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/30 opacity-0 group-hover:opacity-100 transition-all"><Edit2 className="w-3.5 h-3.5 text-indigo-600" /></button>
-                                    <button onClick={async () => { if (await window.showConfirm('Xoá?', { type: 'danger' })) deleteGrammarPoint(textbookId, lessonId, gp.id); }} className="p-1.5 rounded-lg hover:bg-red-100 opacity-0 group-hover:opacity-100 transition-all"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
+                                    <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 transition-all opacity-80 hover:opacity-100 md:opacity-0 md:group-hover:opacity-100" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /></button>
+                                    <button onClick={async () => {
+                                        const confirmed = window.showConfirm
+                                            ? await window.showConfirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`, { type: 'danger', confirmText: 'Xóa ngay' })
+                                            : window.confirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`);
+                                        if (confirmed) {
+                                            const ok = await deleteGrammarPoint(textbookId, lessonId, gp.id);
+                                            if (ok) showToast(`Đã xóa "${gp.pattern}"`, 'success');
+                                        }
+                                    }} className="p-1.5 rounded-lg hover:bg-red-100 dark:hover:bg-red-950/50 text-red-500 transition-all opacity-80 hover:opacity-100 md:opacity-0 md:group-hover:opacity-100" title="Xóa ngữ pháp"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
                                 </>
                             )}
                             <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}`)} className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 transition-colors" title="Làm bài tập"><PenTool className="w-4 h-4" /></button>
@@ -1229,6 +1451,138 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                     </div>
                 ))}
             </div>
+
+            {/* Master Grammar Bank Selection Modal (Admin) */}
+            {showMasterBankModal && (
+                <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-3xl w-full shadow-2xl space-y-4 max-h-[90vh] flex flex-col">
+                        <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 shrink-0">
+                            <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+                                <BookOpen className="w-6 h-6" />
+                                <h3 className="text-lg font-black text-slate-800 dark:text-white">
+                                    Chọn Ngữ Pháp từ Kho Gốc
+                                </h3>
+                            </div>
+                            <button onClick={() => setShowMasterBankModal(false)} className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        {/* Filter & Search Controls */}
+                        <div className="flex flex-col md:flex-row items-center gap-3 shrink-0">
+                            <div className="relative flex-1 w-full">
+                                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                                <input
+                                    type="text"
+                                    value={masterSearchQuery}
+                                    onChange={(e) => setMasterSearchQuery(e.target.value)}
+                                    placeholder="Tìm mẫu câu, dịch nghĩa..."
+                                    className="w-full pl-10 pr-4 py-2 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl outline-none"
+                                />
+                            </div>
+                            <div className="flex gap-1">
+                                {['ALL', 'N5', 'N4', 'N3', 'N2', 'N1'].map(lvl => (
+                                    <button
+                                        key={lvl}
+                                        onClick={() => setMasterLevelFilter(lvl)}
+                                        className={`px-3 py-1 rounded-xl text-xs font-bold transition-all ${
+                                            masterLevelFilter === lvl
+                                                ? 'bg-emerald-600 text-white shadow-sm'
+                                                : 'bg-slate-100 dark:bg-slate-800 text-slate-500 hover:bg-slate-200'
+                                        }`}
+                                    >
+                                        {lvl}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* List of Master Grammar Points with Checkboxes */}
+                        <div className="flex-1 overflow-y-auto space-y-2 custom-scrollbar pr-1">
+                            {loadingMasterBank ? (
+                                <div className="p-12 text-center text-slate-400 text-xs font-bold flex items-center justify-center gap-2">
+                                    <Loader2 className="w-4 h-4 animate-spin" /> Đang tải Kho Ngữ Pháp Gốc...
+                                </div>
+                            ) : masterPointsList.length > 0 ? (
+                                masterPointsList
+                                    .filter(mp => {
+                                        const lvlMatch = masterLevelFilter === 'ALL' || (mp.level || '').toUpperCase() === masterLevelFilter;
+                                        const query = masterSearchQuery.trim().toLowerCase();
+                                        const queryMatch = !query || 
+                                            (mp.pattern && mp.pattern.toLowerCase().includes(query)) ||
+                                            (mp.meaningShort && mp.meaningShort.toLowerCase().includes(query)) ||
+                                            (mp.meaning && mp.meaning.toLowerCase().includes(query));
+                                        return lvlMatch && queryMatch;
+                                    })
+                                    .map(mp => {
+                                        const isSelected = selectedMasterIds.has(mp.id);
+                                        return (
+                                            <div
+                                                key={mp.id}
+                                                onClick={() => {
+                                                    setSelectedMasterIds(prev => {
+                                                        const next = new Set(prev);
+                                                        if (next.has(mp.id)) next.delete(mp.id);
+                                                        else next.add(mp.id);
+                                                        return next;
+                                                    });
+                                                }}
+                                                className={`p-3.5 border rounded-2xl flex items-center justify-between cursor-pointer transition-all ${
+                                                    isSelected
+                                                        ? 'border-emerald-500 bg-emerald-50/20 dark:bg-emerald-950/30'
+                                                        : 'border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                                                }`}
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <div className={`w-5 h-5 rounded-lg flex items-center justify-center transition-all ${
+                                                        isSelected ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700'
+                                                    }`}>
+                                                        {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
+                                                    </div>
+                                                    <div>
+                                                        <div className="flex items-center gap-2">
+                                                            <span className="font-bold text-slate-800 dark:text-white text-sm font-japanese">{mp.pattern}</span>
+                                                            {mp.level && (
+                                                                <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 uppercase">
+                                                                    {mp.level}
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{mp.meaningShort || mp.meaning}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        );
+                                    })
+                            ) : (
+                                <div className="p-8 text-center text-slate-400 text-xs font-bold">
+                                    Chưa có ngữ pháp nào trong Kho Gốc. Bạn có thể Import JSON ở Màn hình Tra cứu!
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Footer Actions */}
+                        <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-3 shrink-0">
+                            <span className="text-xs text-slate-500 font-bold">
+                                Đã chọn <strong className="text-emerald-600 font-mono text-sm">{selectedMasterIds.size}</strong> mục
+                            </span>
+                            <div className="flex gap-2">
+                                <button onClick={() => setShowMasterBankModal(false)} className="px-4 py-2 text-xs font-bold text-slate-500 hover:bg-slate-100 rounded-xl">
+                                    Hủy
+                                </button>
+                                <button
+                                    onClick={handleAssignMasterPoints}
+                                    disabled={assigningMasterPoints}
+                                    className="px-6 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-md disabled:opacity-50 transition-all cursor-pointer"
+                                >
+                                    {assigningMasterPoints ? <Loader2 className="w-4 h-4 animate-spin" /> : <ListPlus className="w-4 h-4" />}
+                                    <span>Gắn vào bài học này</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

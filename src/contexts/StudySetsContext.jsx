@@ -7,7 +7,7 @@ export const StudySetsProvider = ({
     children,
     userId,
     authReady,
-    allCards,
+    allCards = [],
     profile,
     hasPremium,
     targetLanguage,

@@ -16,37 +16,74 @@ export const getSpeechText = (text) => {
 };
 
 // Get word for masking in examples
+const escapeRegExp = (string) => {
+    return string ? string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') : '';
+};
+
+// Get word for masking in examples
 export const getWordForMasking = (text) => {
     if (!text) return '';
-    // Loại bỏ phần trong ngoặc
-    let cleanedText = text.replace(/\s*[（(][^）)]*[）)]/g, '').trim();
-    // Nếu có ・ hoặc /, lấy từ đầu tiên
+    // Strip wave dash ～ or 〜
+    let cleanedText = text.replace(/[～〜]/g, '').trim();
+    // Strip parenthetical readings (furigana / explanations)
+    cleanedText = cleanedText.replace(/\s*[（(][^）)]*[）)]/g, '').trim();
+    // If multiple words delimited by ・ or /, take the first
     if (cleanedText.includes('・')) {
         cleanedText = cleanedText.split('・')[0].trim();
     }
     if (cleanedText.includes('/')) {
         cleanedText = cleanedText.split('/')[0].trim();
     }
-    // Loại bỏ する nếu có ở cuối (cho danh từ する)
-    if (cleanedText.endsWith('する')) {
+    // Remove trailing する if present (for noun + する verbs)
+    if (cleanedText.endsWith('する') && cleanedText.length > 2) {
         cleanedText = cleanedText.slice(0, -2);
     }
     return cleanedText;
 };
 
 // Get the hiragana reading from front text like "勉強する（べんきょうする）"
-// Returns the kana part for N5 fallback masking
 export const getReadingForMasking = (text) => {
     if (!text) return '';
     const match = text.match(/[（(]([^）)]+)[）)]/);
     if (!match) return '';
     let reading = match[1].trim();
-    // Clean up: lấy phần đầu nếu có ・ hoặc /
+    reading = reading.replace(/[～〜]/g, '').trim();
     if (reading.includes('・')) reading = reading.split('・')[0].trim();
     if (reading.includes('/')) reading = reading.split('/')[0].trim();
-    // Loại bỏ する nếu có ở cuối
-    if (reading.endsWith('する')) reading = reading.slice(0, -2);
+    if (reading.endsWith('する') && reading.length > 2) reading = reading.slice(0, -2);
     return reading;
+};
+
+// Mask exact word, removing attached furigana in parentheses if present in sentence
+const replaceWordWithFurigana = (word, sentence, blank = '_____') => {
+    if (!word || !sentence) return null;
+    const escaped = escapeRegExp(word);
+    const regex = new RegExp(`${escaped}(?:[（(][^）)]*[）)])?`, 'g');
+    if (regex.test(sentence)) {
+        return sentence.replace(regex, blank);
+    }
+    return null;
+};
+
+// Xử lý masking cho tính từ い
+const maskAdjIInExample = (targetWord, exampleSentence) => {
+    if (!targetWord || !exampleSentence) return exampleSentence;
+    const blank = '_____';
+    let normalizedTarget = getWordForMasking(targetWord);
+    
+    let stem = normalizedTarget;
+    if (normalizedTarget.endsWith('い')) {
+        stem = normalizedTarget.slice(0, -1);
+    }
+
+    const suffixes = ['い', 'く', 'くて', 'かった', 'くない', 'くなかった', 'ければ', 'さ'];
+    for (const suffix of suffixes) {
+        const pattern = stem + suffix;
+        const result = replaceWordWithFurigana(pattern, exampleSentence, blank);
+        if (result) return result;
+    }
+    
+    return replaceWordWithFurigana(stem, exampleSentence, blank) || exampleSentence;
 };
 
 // Xử lý masking cho động từ với logic hậu tố ngữ pháp
@@ -56,193 +93,162 @@ const maskVerbInExample = (targetWord, exampleSentence) => {
     const blank = '_____';
     const normalizedTarget = getWordForMasking(targetWord);
 
-    // Các biến thể chính của động từ để tìm kiếm
     let verbStems = [normalizedTarget];
 
-    // Nếu là động từ ます-form, thêm dictionary form
     if (normalizedTarget.endsWith('ます')) {
         const masuStem = normalizedTarget.slice(0, -2);
         verbStems.push(masuStem);
-        // Thêm る form (cho ichidan)
         verbStems.push(masuStem + 'る');
     }
 
-    // Nếu là dictionary form, thêm stem
     if (normalizedTarget.endsWith('る')) {
         verbStems.push(normalizedTarget.slice(0, -1));
     }
     if (normalizedTarget.endsWith('う')) {
         verbStems.push(normalizedTarget.slice(0, -1));
-        verbStems.push(normalizedTarget.slice(0, -1) + 'い'); // te-form stem
+        verbStems.push(normalizedTarget.slice(0, -1) + 'い');
     }
     if (normalizedTarget.endsWith('く')) {
         verbStems.push(normalizedTarget.slice(0, -1));
-        verbStems.push(normalizedTarget.slice(0, -1) + 'い'); // te-form stem
+        verbStems.push(normalizedTarget.slice(0, -1) + 'い');
     }
     if (normalizedTarget.endsWith('す')) {
         verbStems.push(normalizedTarget.slice(0, -1));
-        verbStems.push(normalizedTarget.slice(0, -1) + 'し'); // te-form stem
+        verbStems.push(normalizedTarget.slice(0, -1) + 'し');
     }
     if (normalizedTarget.endsWith('つ')) {
         verbStems.push(normalizedTarget.slice(0, -1));
-        verbStems.push(normalizedTarget.slice(0, -1) + 'っ'); // te-form stem
+        verbStems.push(normalizedTarget.slice(0, -1) + 'っ');
     }
     if (normalizedTarget.endsWith('ぬ') || normalizedTarget.endsWith('む') || normalizedTarget.endsWith('ぶ')) {
         verbStems.push(normalizedTarget.slice(0, -1));
-        verbStems.push(normalizedTarget.slice(0, -1) + 'ん'); // te-form stem
+        verbStems.push(normalizedTarget.slice(0, -1) + 'ん');
     }
     if (normalizedTarget.endsWith('ぐ')) {
         verbStems.push(normalizedTarget.slice(0, -1));
-        verbStems.push(normalizedTarget.slice(0, -1) + 'い'); // te-form stem
+        verbStems.push(normalizedTarget.slice(0, -1) + 'い');
     }
 
-    // Loại bỏ duplicates và sắp xếp theo độ dài giảm dần
     verbStems = [...new Set(verbStems)].sort((a, b) => b.length - a.length);
 
-    // Tìm match dài nhất trong câu
     for (const stem of verbStems) {
-        // Thử match stem + suffix
         for (const suffix of GRAMMAR_SUFFIXES) {
             const pattern = stem + suffix;
-            if (exampleSentence.includes(pattern)) {
-                return exampleSentence.replace(pattern, blank);
-            }
+            const res = replaceWordWithFurigana(pattern, exampleSentence, blank);
+            if (res) return res;
         }
-        // Thử match stem trực tiếp (nếu theo sau là particle hoặc kết thúc câu)
         for (const particle of PARTICLES) {
             const pattern = stem + particle;
-            if (exampleSentence.includes(pattern)) {
-                return exampleSentence.replace(stem, blank);
-            }
+            const res = replaceWordWithFurigana(pattern, exampleSentence, blank);
+            if (res) return res;
         }
-        // Thử match stem ở cuối câu
         if (exampleSentence.endsWith(stem)) {
-            return exampleSentence.replace(new RegExp(stem + '$'), blank);
+            const res = replaceWordWithFurigana(stem, exampleSentence, blank);
+            if (res) return res;
         }
     }
 
-    // Fallback: tìm từ gốc bình thường
-    if (exampleSentence.includes(normalizedTarget)) {
-        return exampleSentence.replace(normalizedTarget, blank);
-    }
-
-    return exampleSentence;
+    return replaceWordWithFurigana(normalizedTarget, exampleSentence, blank) || exampleSentence;
 };
 
-// Xử lý masking cho tính từ な với logic khớp không hoàn toàn
+// Xử lý masking cho tính từ な
 const maskAdjNaInExample = (targetWord, exampleSentence) => {
     if (!targetWord || !exampleSentence) return exampleSentence;
 
     const blank = '_____';
     let normalizedTarget = getWordForMasking(targetWord);
 
-    // Loại bỏ な ở cuối nếu có trong từ mục tiêu
     if (normalizedTarget.endsWith('な')) {
         normalizedTarget = normalizedTarget.slice(0, -1);
     }
 
-    // Các pattern cần tìm cho tính từ な
     const patterns = [
-        normalizedTarget + 'な', // Trước danh từ
-        normalizedTarget + 'に', // Dùng như trạng từ
-        normalizedTarget + 'だ', // Kết thúc câu (plain)
-        normalizedTarget + 'です', // Kết thúc câu (polite)
-        normalizedTarget + 'で', // Te-form
-        normalizedTarget + 'だった', // Past (plain)
-        normalizedTarget + 'でした', // Past (polite)
-        normalizedTarget + 'じゃない', // Negative
-        normalizedTarget + 'ではない', // Negative (formal)
-        normalizedTarget // Từ gốc
+        normalizedTarget + 'な',
+        normalizedTarget + 'に',
+        normalizedTarget + 'だ',
+        normalizedTarget + 'です',
+        normalizedTarget + 'で',
+        normalizedTarget + 'だった',
+        normalizedTarget + 'でした',
+        normalizedTarget + 'じゃない',
+        normalizedTarget + 'ではない',
+        normalizedTarget
     ];
 
     for (const pattern of patterns) {
-        if (exampleSentence.includes(pattern)) {
-            return exampleSentence.replace(pattern, blank);
-        }
+        const res = replaceWordWithFurigana(pattern, exampleSentence, blank);
+        if (res) return res;
     }
 
     return exampleSentence;
 };
 
 // Xử lý masking cho câu ví dụ dựa trên từ loại
-// reading: phần hiragana để fallback khi câu ví dụ viết bằng kana (đặc biệt N5)
 export const maskWordInExample = (targetWord, exampleSentence, pos, reading = '') => {
     if (!targetWord || !exampleSentence) return exampleSentence;
 
     const blank = '_____';
     const normalizedTarget = getWordForMasking(targetWord);
+    if (!normalizedTarget) return exampleSentence;
 
-    // Helper: thử khớp 100% (từ / （từ） / (từ))
-    const maskExact100 = (word, sentence, blankChar = '_____') => {
-        const patterns = [word, `（${word}）`, `(${word})`];
-        for (const p of patterns) {
-            if (sentence.includes(p)) {
-                return sentence.replace(p, blankChar);
-            }
-        }
-        return null;
-    };
+    // 1. Exact match with furigana strip
+    let match = replaceWordWithFurigana(normalizedTarget, exampleSentence, blank);
+    if (match) return match;
 
-    // Thử match chính xác trước (kanji)
-    const exactMatch = maskExact100(normalizedTarget, exampleSentence, blank);
-    if (exactMatch) return exactMatch;
-
-    // Xử lý theo từ loại (kanji)
+    // 2. Pos-based matching
     let result = exampleSentence;
-    switch (pos) {
-        case 'verb':
-            result = maskVerbInExample(targetWord, exampleSentence);
-            break;
-        case 'adj-na':
-            result = maskAdjNaInExample(targetWord, exampleSentence);
-            break;
-        default:
-            if (exampleSentence.includes(normalizedTarget)) {
-                result = exampleSentence.replace(normalizedTarget, blank);
-            }
-            break;
+    const posLower = (pos || '').toLowerCase();
+    if (posLower.includes('verb') || posLower.includes('v') || normalizedTarget.endsWith('る') || normalizedTarget.endsWith('う') || normalizedTarget.endsWith('く') || normalizedTarget.endsWith('す') || normalizedTarget.endsWith('つ') || normalizedTarget.endsWith('む') || normalizedTarget.endsWith('ぶ') || normalizedTarget.endsWith('ぐ')) {
+        result = maskVerbInExample(normalizedTarget, exampleSentence);
+        if (result !== exampleSentence) return result;
     }
 
-    // Nếu đã mask thành công bằng kanji, trả về
-    if (result !== exampleSentence) return result;
+    if (posLower.includes('adj-na') || posLower.includes('na') || normalizedTarget.endsWith('な')) {
+        result = maskAdjNaInExample(normalizedTarget, exampleSentence);
+        if (result !== exampleSentence) return result;
+    }
 
-    // === FALLBACK: thử dùng reading (hiragana) ===
-    // Đặc biệt hữu ích cho từ vựng N5 - câu ví dụ viết bằng hiragana
+    if (posLower.includes('adj-i') || posLower.includes('adj') || normalizedTarget.endsWith('い')) {
+        result = maskAdjIInExample(normalizedTarget, exampleSentence);
+        if (result !== exampleSentence) return result;
+    }
+
+    // 3. Fallback: Kana reading match
     const kanaReading = reading || getReadingForMasking(targetWord);
     if (kanaReading && kanaReading !== normalizedTarget) {
-        // Thử match chính xác bằng kana
-        const kanaExact = maskExact100(kanaReading, exampleSentence, blank);
-        if (kanaExact) return kanaExact;
+        match = replaceWordWithFurigana(kanaReading, exampleSentence, blank);
+        if (match) return match;
 
-        // Thử biến thể verb/adj bằng kana
-        switch (pos) {
-            case 'verb':
-                result = maskVerbInExample(kanaReading, exampleSentence);
-                if (result !== exampleSentence) return result;
-                break;
-            case 'adj-na':
-                result = maskAdjNaInExample(kanaReading, exampleSentence);
-                if (result !== exampleSentence) return result;
-                break;
-            default:
-                if (exampleSentence.includes(kanaReading)) {
-                    return exampleSentence.replace(kanaReading, blank);
-                }
-                break;
+        if (posLower.includes('verb') || posLower.includes('v')) {
+            result = maskVerbInExample(kanaReading, exampleSentence);
+            if (result !== exampleSentence) return result;
         }
+        if (posLower.includes('adj-na')) {
+            result = maskAdjNaInExample(kanaReading, exampleSentence);
+            if (result !== exampleSentence) return result;
+        }
+        if (posLower.includes('adj-i') || posLower.includes('adj')) {
+            result = maskAdjIInExample(kanaReading, exampleSentence);
+            if (result !== exampleSentence) return result;
+        }
+    }
 
-        // Thử match kana + hậu tố ngữ pháp thông dụng
-        const commonSuffixes = ['します', 'する', 'した', 'して', 'しない', 'しよう',
-            'です', 'だ', 'な', 'に', 'で', 'い', 'く', 'かった', 'くない',
-            'ます', 'ました', 'ません', 'ましょう', 'ない', 'なかった',
-            'る', 'た', 'て', 'ている', 'ていた', 'れる', 'られる',
-            'く', 'くて', 'かった', 'くない'];
-        for (const suffix of commonSuffixes) {
-            const pattern = kanaReading + suffix;
-            if (exampleSentence.includes(pattern)) {
-                return exampleSentence.replace(pattern, blank);
+    // 4. Fallback for Kanji stems: match Kanji stem + any following Japanese hiragana inflections
+    if (normalizedTarget.length >= 1) {
+        const kanjiMatch = normalizedTarget.match(/^[\u4e00-\u9faf]+/);
+        if (kanjiMatch) {
+            const kanjiStem = kanjiMatch[0];
+            const escapedStem = escapeRegExp(kanjiStem);
+            const stemRegex = new RegExp(`${escapedStem}[ぁ-ん]*(?:[（(][^）)]*[）)])?`, 'g');
+            if (stemRegex.test(exampleSentence)) {
+                return exampleSentence.replace(stemRegex, blank);
             }
         }
+    }
+
+    // 5. Final substring match
+    if (exampleSentence.includes(normalizedTarget)) {
+        return replaceWordWithFurigana(normalizedTarget, exampleSentence, blank);
     }
 
     return exampleSentence;

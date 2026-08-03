@@ -43,15 +43,31 @@ import {
     GrammarListScreen
 } from './screens';
 
-// Lazy-loaded heavy screen components for optimal initial bundle size
-const AdminScreen = React.lazy(() => import('./screens/AdminScreen'));
-const JLPTAdminScreen = React.lazy(() => import('./screens/JLPTAdminScreen'));
-const JLPTTestScreen = React.lazy(() => import('./screens/JLPTTestScreen'));
-const JLPTKaiwaScreen = React.lazy(() => import('./screens/JLPTKaiwaScreen'));
-const BookScreen = React.lazy(() => import('./screens/BookScreen'));
-const KanjiScreen = React.lazy(() => import('./screens/KanjiScreen'));
-const GrammarPointsScreen = React.lazy(() => import('./screens/GrammarPointsScreen'));
-const GrammarDetailScreen = React.lazy(() => import('./screens/GrammarDetailScreen'));
+// Helper for resilient lazy loading that handles network/re-deploy chunk errors smoothly
+const lazyWithRetry = (componentImport) =>
+    React.lazy(async () => {
+        try {
+            return await componentImport();
+        } catch (error) {
+            console.warn('⚠️ Dynamic chunk import failed, retrying once...', error);
+            await new Promise(resolve => setTimeout(resolve, 500));
+            try {
+                return await componentImport();
+            } catch (retryErr) {
+                console.error('⚠️ Dynamic import retry failed:', retryErr);
+                throw retryErr;
+            }
+        }
+    });
+
+const AdminScreen = lazyWithRetry(() => import('./screens/AdminScreen'));
+const JLPTAdminScreen = lazyWithRetry(() => import('./screens/JLPTAdminScreen'));
+const JLPTTestScreen = lazyWithRetry(() => import('./screens/JLPTTestScreen'));
+const JLPTKaiwaScreen = lazyWithRetry(() => import('./screens/JLPTKaiwaScreen'));
+const BookScreen = lazyWithRetry(() => import('./screens/BookScreen'));
+const KanjiScreen = lazyWithRetry(() => import('./screens/KanjiScreen'));
+const GrammarPointsScreen = lazyWithRetry(() => import('./screens/GrammarPointsScreen'));
+const GrammarDetailScreen = lazyWithRetry(() => import('./screens/GrammarDetailScreen'));
 
 // Import card components
 import {
@@ -294,6 +310,7 @@ const GrammarProtectedRoute = ({ children }) => {
 const AppRoutes = ({
     // Auth state
     isAuthenticated,
+    authReady = true,
     isLoading,
 
     // User data
@@ -560,7 +577,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.LOGIN}
                     element={
-                        <PublicOnlyRoute isAuthenticated={isAuthenticated}>
+                        <PublicOnlyRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <LoginScreen />
                         </PublicOnlyRoute>
                     }
@@ -580,7 +597,9 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.HOME}
                     element={
-                        isAuthenticated ? (
+                        !authReady ? (
+                            <LoadingIndicator fullScreen message="Đang kiểm tra đăng nhập..." />
+                        ) : isAuthenticated ? (
                             <HomeScreen
                                 displayName={profile?.displayName}
                                 totalCards={allCards?.length || 0}
@@ -606,7 +625,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_REVIEW}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <SRSVocabScreen
                                 displayName={profile?.displayName}
                                 userId={userId}
@@ -646,7 +665,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_LIST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <LibraryScreen
                                 allCards={allCards}
                                 folders={folders}
@@ -669,7 +688,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_SET_DETAIL}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <StudySetDetailWrapper 
                                 allCards={allCards}
                                 folders={folders}
@@ -697,7 +716,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_ADD}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <AddCardForm
                                 allCards={allCards}
                                 cardFolders={cardFolders}
@@ -726,7 +745,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_QUICK_ADD}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <QuickAddVocabForm
                                 folders={folders}
                                 parentFolders={parentFolders}
@@ -746,7 +765,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_EDIT_SET}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <EditSetScreenWrapper
                                 folders={folders}
                                 cardFolders={cardFolders}
@@ -777,7 +796,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.KANJI_STUDY}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <KanjiStudyScreen profile={profile} isAdmin={isAdmin} />
                         </ProtectedRoute>
                     }
@@ -787,7 +806,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.KANJI_LESSON}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <KanjiLessonScreen awardXP={awardXP} />
                         </ProtectedRoute>
                     }
@@ -797,7 +816,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.KANJI_REVIEW}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <KanjiReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} />
                         </ProtectedRoute>
                     }
@@ -807,7 +826,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.KANJI_SAVED}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <KanjiSRSListScreen />
                         </ProtectedRoute>
                     }
@@ -817,7 +836,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.KANJI_LIST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <KanjiScreen
                                 isAdmin={userHasAdminPrivileges}
                                 onAddVocabToSRS={handleSaveNewCard}
@@ -837,7 +856,7 @@ const AppRoutes = ({
                 <Route
                     path={`${ROUTES.KANJI_LIST}/:char`}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <KanjiScreen
                                 isAdmin={userHasAdminPrivileges}
                                 onAddVocabToSRS={handleSaveNewCard}
@@ -856,7 +875,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.REVIEW}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             {reviewCards?.length > 0 ? (
                                 <ReviewScreen
                                     cards={reviewCards}
@@ -917,7 +936,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.STUDY}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <StudyScreen
                                 studySessionData={studySessionData}
                                 setStudySessionData={setStudySessionData}
@@ -963,7 +982,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.TEST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <TestScreen
                                 allCards={allCards}
                                 onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
@@ -975,7 +994,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.HUB}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <StatsScreen
                                 memoryStats={memoryStats}
                                 totalCards={allCards?.length || 0}
@@ -995,7 +1014,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.ACCOUNT}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <AccountScreen
                                 profile={profile}
                                 awardXP={awardXP}
@@ -1013,7 +1032,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.HELP}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <HelpScreen
                                 isFirstTime={false}
                                 onBack={() => setView('HOME')}
@@ -1025,7 +1044,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.IMPORT}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <ImportScreen
                                 onImport={handleBatchImport}
                                 onBack={() => setView('HOME')}
@@ -1038,7 +1057,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.ADMIN}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             {userHasAdminPrivileges ? (
                                 <AdminScreen
                                     publicStatsPath={publicStatsCollectionPath}
@@ -1058,7 +1077,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.FLASHCARD}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             {flashcardCards && flashcardCards.length > 0 ? (
                                 <FlashcardScreen
                                     cards={flashcardCards}
@@ -1105,7 +1124,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.SYNONYM_QUIZ}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             {flashcardCards && flashcardCards.length > 0 ? (
                                 <SynonymQuizScreen
                                     cards={flashcardCards}
@@ -1151,7 +1170,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.BOOKS}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <BookScreen
                                 isAdmin={userHasAdminPrivileges}
                                 onAddVocabToSRS={handleSaveNewCard}
@@ -1175,7 +1194,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <Navigate to={ROUTES.GRAMMAR_REVIEW} replace />
                         </ProtectedRoute>
                     }
@@ -1183,7 +1202,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_TEXTBOOK}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}><GrammarLessonsScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
@@ -1191,7 +1210,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_LESSON}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}><GrammarPointsScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
@@ -1199,7 +1218,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_DETAIL}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}><GrammarDetailScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
@@ -1207,7 +1226,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_PRACTICE}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}><GrammarPracticeScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
@@ -1215,7 +1234,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_REVIEW}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}>
                                 <GrammarReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} />
                             </GrammarProtectedRoute>
@@ -1225,7 +1244,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_SAVED}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}>
                                 <GrammarSavedScreen />
                             </GrammarProtectedRoute>
@@ -1235,9 +1254,9 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_LIST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarListScreen />
+                                <GrammarListScreen isAdmin={isAdmin} />
                             </GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
@@ -1245,7 +1264,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_STUDY}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}><GrammarTextbooksScreen isAdmin={isAdmin} /></GrammarProtectedRoute>
                         </ProtectedRoute>
                     }
@@ -1255,7 +1274,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.SETTINGS}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <SettingsScreen
                                 profile={profile}
                                 isDarkMode={isDarkMode}
@@ -1274,7 +1293,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.FEEDBACK}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <FeedbackScreen
                                 userId={userId}
                                 profile={profile}
@@ -1288,7 +1307,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.FORUM}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <ForumScreen
                                 userId={userId}
                                 profile={profile}
@@ -1302,7 +1321,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.PROFILE}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <UserProfileScreen
                                 userId={userId}
                                 profile={profile}
@@ -1316,7 +1335,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.JLPT_TEST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <JLPTTestScreen 
                                 isAdmin={isAdmin} 
                                 allCards={allCards} 
@@ -1332,7 +1351,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.JLPT_KAIWA}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             {(isAdmin || profile?.isPremiumUnlocked || profile?.isPremium) ? (
                                 <JLPTKaiwaScreen 
                                     profile={profile} 
@@ -1377,7 +1396,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.JLPT_ADMIN}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <ZenProtectedRoute packageId="jlpt_prep" profile={profile} isAdmin={isAdmin}>
                                 {isAdmin ? (
                                     <JLPTAdminScreen userId={userId} />
@@ -1392,7 +1411,7 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.UPGRADE}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <UpgradeScreen
                                 creditsRemaining={aiCreditsRemaining ?? 0}
                                 adminConfig={adminConfig}

@@ -1533,3 +1533,69 @@ Chỉ trả về duy nhất một đối tượng JSON với các khóa là các
         return {};
     }
 };
+
+// AI Generator: Standardize raw grammar text/notes into JSON
+export const aiGenerateGrammarPointsJson = async (rawText) => {
+    if (!rawText || !rawText.trim()) return [];
+
+    const prompt = `Bạn là một chuyên gia biên soạn giáo trình tiếng Nhật JLPT cho ứng dụng QuizKi App. 
+Hãy chuyển đổi đoạn văn bản / ghi chú thô dưới đây thành danh sách JSON các điểm ngữ pháp (Array of Objects) chuẩn xác 100%.
+
+DƯỚI ĐÂY LÀ QUY CHUẨN KÝ HIỆU VÀ CẤU TRÚC BẮT BUỘC:
+1. Ký hiệu từ loại:
+   - Danh từ: N
+   - Tính từ i: いA
+   - Tính từ na: なA
+   - Động từ thể từ điển: V-る
+   - Động từ thể Masu: V-ます
+   - Động từ thể Te: V-て
+   - Động từ thể Ta: V-た
+   - Động từ thể Phủ định: V-ない
+   - Thể thông thường: Pl
+   - Thể lịch sự: Po
+
+2. Cấu trúc (structureRaw):
+   - Phân tách các thể kết hợp bằng dấu gạch chéo '/'.
+   - KHÔNG lặp lại mẫu ngữ pháp chính trong 'structureRaw'.
+   - Ví dụ: "V-る / V-ない / V-ている / いA / なA な / N の"
+
+3. Trả về đúng định dạng JSON Array chứa đầy đủ cả 2 phần BÀI TẬP (Trắc nghiệm + Đặt câu):
+   - pattern: Mẫu ngữ pháp (Ví dụ: "~うちに", "~際(に)")
+   - meaningShort: Nghĩa ngắn gọn tiếng Việt
+   - meaning: Ý nghĩa diễn giải tiếng Việt
+   - meaningFull: Giải thích chi tiết 【意味・用法】 HOÀN TOÀN BẰNG TIẾNG VIỆT (KHÔNG DÙNG TIẾNG ANH). Gồm câu giải thích tiếng Nhật và bản dịch giải thích tiếng Việt ngay bên dưới.
+   - tipsRaw: Chú ý & Mẹo học chi tiết (mỗi ý một dòng bắt đầu bằng icon 💡). BẮT BUỘC GỒM 3 MỤC:
+       * 💡 Lưu ý ngữ pháp: (Các điểm cần lưu ý, điều cấm kỵ hoặc sắc thái đặc biệt của mẫu ngữ pháp)
+       * 💡 Tình huống sử dụng: (Dùng trong hoàn cảnh/tình huống nào thực tế)
+       * 💡 Văn phong: (Sử dụng trong văn nói hay văn viết, trang trọng hay thân mật)
+   - examplesRaw: Các câu ví dụ (mỗi ví dụ gồm 1 dòng Tiếng Nhật và 1 dòng dịch Tiếng Việt bên dưới)
+   - quizzes: Mảng câu hỏi TRẮC NGHIỆM (điền chỗ trống 4 lựa chọn). Mỗi item gồm:
+       * question: Câu hỏi tiếng Nhật có lỗ trống（　　）
+       * options: Mảng 4 đáp án [ "A", "B", "C", "D" ]
+       * answer: Đáp án đúng chính xác
+       * explanation: Giải thích đáp án tại sao đúng
+   - exercises: Mảng câu hỏi ĐẶT CÂU (dịch Việt -> Nhật). Mỗi item gồm:
+       * questionVi: Câu dịch tiếng Việt cần người học gõ/đặt câu tiếng Nhật
+       * hint: Gợi ý các từ vựng cần dùng
+       * answers: Mảng các câu dịch tiếng Nhật đúng chấp nhận được
+
+NỘI DUNG VĂN BẢN THÔ CẦN CHUYỂN ĐỔI:
+"""
+${rawText}
+"""
+
+TRẢ VỀ CHỈ CÓ DUY NHẤT MẢNG JSON HỢP LỆ (ARRAY OF OBJECTS), KHÔNG DÙNG MARKDOWN BACKTICKS, KHÔNG CÓ THÊM BẤT KỲ VĂN BẢN NÀO KHÁC.`;
+
+    try {
+        const text = await callWithRetry(prompt);
+        if (!text) return [];
+        let cleanText = text.trim();
+        if (cleanText.startsWith('```json')) cleanText = cleanText.slice(7);
+        else if (cleanText.startsWith('```')) cleanText = cleanText.slice(3);
+        if (cleanText.endsWith('```')) cleanText = cleanText.slice(0, -3);
+        return JSON.parse(cleanText.trim());
+    } catch (e) {
+        console.error("aiGenerateGrammarPointsJson error:", e);
+        throw e;
+    }
+};

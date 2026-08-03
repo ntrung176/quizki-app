@@ -76,29 +76,23 @@ if (typeof window !== 'undefined') {
 }
 
 export const getSharedKanjiList = async () => {
-    const cacheConfig = await getCacheConfig();
-    const currentExport = cacheConfig?.exportedAt || 0;
-    const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
-
-    if (needsRefresh && !kanjiPromise) {
-        cachedKanjiList = null;
-    }
-
-    if (cachedKanjiList && !needsRefresh) return cachedKanjiList;
+    if (cachedKanjiList) return cachedKanjiList;
     if (kanjiPromise) return kanjiPromise;
 
     kanjiPromise = (async () => {
         try {
-            console.log('Fetching shared kanji list from CDN...');
+            console.log('Fetching shared kanji list...');
+            const cacheConfig = await getCacheConfig().catch(() => null);
+            const currentExport = cacheConfig?.exportedAt || 0;
             
             let dataRes, exportedAt;
             if (cacheConfig && cacheConfig.kanjiUrl) {
                 console.log('Using Firebase Storage CDN for Kanji cache');
                 const urlWithBuster = cacheConfig.kanjiUrl.includes('?') 
-                    ? `${cacheConfig.kanjiUrl}&t=${cacheConfig.exportedAt || Date.now()}`
-                    : `${cacheConfig.kanjiUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                    ? `${cacheConfig.kanjiUrl}&t=${currentExport}`
+                    : `${cacheConfig.kanjiUrl}?t=${currentExport}`;
                 dataRes = await fetch(urlWithBuster);
-                exportedAt = cacheConfig.exportedAt || 0;
+                exportedAt = currentExport;
             } else {
                 console.log('Falling back to local bundle files for Kanji cache');
                 const [localRes, metaRes] = await Promise.all([
@@ -131,7 +125,6 @@ export const getSharedKanjiList = async () => {
             try {
                 const snap = await getDocs(collection(db, 'kanji'));
                 cachedKanjiList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-                lastLoadedExportedAt = currentExport || null;
                 return cachedKanjiList;
             } catch (fsErr) {
                 console.error('Error loading shared kanji list from Firestore fallback:', fsErr);
@@ -145,29 +138,23 @@ export const getSharedKanjiList = async () => {
 };
 
 export const getSharedVocabList = async () => {
-    const cacheConfig = await getCacheConfig();
-    const currentExport = cacheConfig?.exportedAt || 0;
-    const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
-
-    if (needsRefresh && !vocabPromise) {
-        cachedVocabList = null;
-    }
-
-    if (cachedVocabList && !needsRefresh) return cachedVocabList;
+    if (cachedVocabList) return cachedVocabList;
     if (vocabPromise) return vocabPromise;
 
     vocabPromise = (async () => {
         try {
-            console.log('Fetching shared vocab list from CDN...');
+            console.log('Fetching shared vocab list...');
+            const cacheConfig = await getCacheConfig().catch(() => null);
+            const currentExport = cacheConfig?.exportedAt || 0;
             
             let dataRes, exportedAt;
             if (cacheConfig && cacheConfig.vocabUrl) {
                 console.log('Using Firebase Storage CDN for Vocab cache');
                 const urlWithBuster = cacheConfig.vocabUrl.includes('?') 
-                    ? `${cacheConfig.vocabUrl}&t=${cacheConfig.exportedAt || Date.now()}`
-                    : `${cacheConfig.vocabUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                    ? `${cacheConfig.vocabUrl}&t=${currentExport}`
+                    : `${cacheConfig.vocabUrl}?t=${currentExport}`;
                 dataRes = await fetch(urlWithBuster);
-                exportedAt = cacheConfig.exportedAt || 0;
+                exportedAt = currentExport;
             } else {
                 console.log('Falling back to local bundle files for Vocab cache');
                 const [localRes, metaRes] = await Promise.all([
@@ -189,7 +176,6 @@ export const getSharedVocabList = async () => {
             }
 
             cachedVocabList = await dataRes.json();
-            lastLoadedExportedAt = currentExport || null;
 
             // Sync edits made after the export timestamp in the background
             fetchVocabUpdatesFromFirestore(exportedAt);
@@ -200,7 +186,6 @@ export const getSharedVocabList = async () => {
             try {
                 const snap = await getDocs(collection(db, 'kanjiVocab'));
                 cachedVocabList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-                lastLoadedExportedAt = currentExport || null;
                 return cachedVocabList;
             } catch (fsErr) {
                 console.error('Error loading shared vocab list from Firestore fallback:', fsErr);

@@ -18,8 +18,8 @@ export const JapaneseLanguageService = {
     getSinoVietnamese,
     ensureFuriganaFormat,
     generateFuriganaText,
-    fetchJotobaWordData,
-    accentNumberToPitchParts,
+    fetchJotobaWordData: (...args) => fetchJotobaWordData(...args),
+    accentNumberToPitchParts: (...args) => accentNumberToPitchParts(...args),
     generateVocabPrompt,
     generateMoreExamplePrompt,
 

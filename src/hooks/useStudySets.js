@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { collection, query, onSnapshot, doc, addDoc, updateDoc, deleteDoc, getDocs, writeBatch, where, serverTimestamp } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 
-export const useStudySets = ({ userId, authReady, allCards, profile, hasPremium, targetLanguage, setNotification }) => {
+export const useStudySets = ({ userId, authReady, allCards = [], profile, hasPremium, targetLanguage, setNotification } = {}) => {
     const [folders, setFolders] = useState([]);
 
     const studySetsCollectionPath = useMemo(() => {
@@ -33,7 +33,7 @@ export const useStudySets = ({ userId, authReady, allCards, profile, hasPremium,
 
     const activeFolders = useMemo(() => {
         const currentTarget = targetLanguage || localStorage.getItem('quizki_target_language') || 'ja';
-        return folders.filter(f => {
+        return (folders || []).filter(f => {
             const fLang = f.targetLanguage || 'ja';
             return fLang === currentTarget;
         });
@@ -49,8 +49,8 @@ export const useStudySets = ({ userId, authReady, allCards, profile, hasPremium,
 
     const cardFolders = useMemo(() => {
         const mapping = {};
-        allCards.forEach(card => {
-            if (card.folderId) {
+        (allCards || []).forEach(card => {
+            if (card && card.folderId) {
                 mapping[card.id] = card.folderId;
             }
         });

@@ -530,9 +530,9 @@ html.dark mark {
     overflow: visible !important;
     height: auto !important;
     min-height: auto !important;
-    background: white !important;
-    background-color: white !important;
-    color: black !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
     color-scheme: light !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -543,7 +543,14 @@ html.dark mark {
     visibility: hidden !important;
   }
 
-  /* Show only the print container wrapper and its children */
+  /* Hide any elements explicitly marked no-print */
+  .no-print,
+  .no-print * {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Show ONLY the print container wrapper and its children */
   .print-container-wrapper,
   .print-container-wrapper * {
     visibility: visible !important;
@@ -554,8 +561,20 @@ html.dark mark {
     left: 0 !important;
     top: 0 !important;
     width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     display: block !important;
-    background-color: white !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Force print wrapper elements to use black text on clean white/transparent background */
+  .print-container-wrapper,
+  .print-container-wrapper * {
+    color: #000000 !important;
+    background-color: transparent !important;
+    border-color: #000000 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
   }
 
   /* Force all elements in the print wrapper to use black text on a transparent/white background */

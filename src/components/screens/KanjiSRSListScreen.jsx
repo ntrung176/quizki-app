@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { Search, Trash2, ChevronLeft, ChevronRight, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, Edit, Plus, List, Bookmark, ArrowRight } from 'lucide-react'
+import { Search, Trash2, ChevronLeft, ChevronRight, ChevronDown, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, Edit, Plus, List, Bookmark, ArrowRight } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, getDoc, doc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -824,59 +824,52 @@ const KanjiSRSListScreen = () => {
                         </div>
                     </div>
 
-                    {/* Learning Status Filter Pills */}
-                    <div className="flex flex-wrap items-center gap-2 pt-1">
-                        <span className="text-xs font-bold text-slate-400 uppercase font-mono mr-1">Trạng thái:</span>
-                        {[
-                            { id: 'all', label: 'Tất cả', count: stats.total },
-                            { id: 'due', label: '🔥 Cần ôn', count: stats.due },
-                            { id: 'learning', label: '📖 Sơ cấp', count: stats.learning },
-                            { id: 'shortTerm', label: '⚡ Trung cấp', count: stats.shortTerm },
-                            { id: 'longTerm', label: '🌟 Cao cấp', count: stats.longTerm },
-                            { id: 'expert', label: '🏆 Chuyên gia', count: stats.expert },
-                            { id: 'new', label: '✨ Thẻ mới', count: stats.newCards }
-                        ].map(item => (
-                            <button
-                                key={item.id}
-                                onClick={() => {
-                                    setFilterStatus(item.id);
-                                    if (currentFolder === null) setCurrentFolder('__all__');
-                                }}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                                    filterStatus === item.id
-                                        ? 'bg-[#2E5B70] text-white shadow-sm'
-                                        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
-                                }`}
-                            >
-                                <span>{item.label}</span>
-                                <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
-                                    filterStatus === item.id ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
-                                }`}>
-                                    {item.count}
-                                </span>
-                            </button>
-                        ))}
-                    </div>
+                    {/* Compact Dropdown Filters for Status and JLPT Level */}
+                    <div className="flex flex-wrap items-center gap-3 pt-1">
+                        {/* Status Dropdown */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-xs font-bold text-slate-400 uppercase font-mono shrink-0">Trạng thái:</span>
+                            <div className="relative">
+                                <select
+                                    value={filterStatus}
+                                    onChange={(e) => {
+                                        setFilterStatus(e.target.value);
+                                        if (currentFolder === null) setCurrentFolder('__all__');
+                                    }}
+                                    className="appearance-none bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 font-semibold rounded-xl text-xs pl-3 pr-8 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500/20 shadow-sm transition-all"
+                                >
+                                    <option value="all">Tất cả ({stats.total})</option>
+                                    <option value="due">🔥 Cần ôn ({stats.due})</option>
+                                    <option value="learning">📖 Sơ cấp ({stats.learning})</option>
+                                    <option value="shortTerm">⚡ Trung cấp ({stats.shortTerm})</option>
+                                    <option value="longTerm">🌟 Cao cấp ({stats.longTerm})</option>
+                                    <option value="expert">🏆 Chuyên gia ({stats.expert})</option>
+                                    <option value="new">✨ Thẻ mới ({stats.newCards})</option>
+                                </select>
+                                <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                            </div>
+                        </div>
 
-                    {/* JLPT Level Filter Pills */}
-                    <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xs font-bold text-slate-400 uppercase font-mono mr-1">Trình độ:</span>
-                        {['all', 'N5', 'N4', 'N3', 'N2', 'N1'].map(lvl => (
-                            <button
-                                key={lvl}
-                                onClick={() => {
-                                    setFilterLevel(lvl);
-                                    if (currentFolder === null) setCurrentFolder('__all__');
-                                }}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                                    filterLevel === lvl
-                                        ? 'bg-sky-600 text-white shadow-sm'
-                                        : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
-                                }`}
-                            >
-                                {lvl === 'all' ? 'Tất cả' : lvl}
-                            </button>
-                        ))}
+                        {/* JLPT Level Dropdown */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-xs font-bold text-slate-400 uppercase font-mono shrink-0">Trình độ:</span>
+                            <div className="relative">
+                                <select
+                                    value={filterLevel}
+                                    onChange={(e) => {
+                                        setFilterLevel(e.target.value);
+                                        if (currentFolder === null) setCurrentFolder('__all__');
+                                    }}
+                                    className="appearance-none bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 font-semibold rounded-xl text-xs pl-3 pr-8 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500/20 shadow-sm transition-all"
+                                >
+                                    <option value="all">Tất cả</option>
+                                    {JLPT_LEVELS.map(lvl => (
+                                        <option key={lvl} value={lvl}>{lvl}</option>
+                                    ))}
+                                </select>
+                                <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 

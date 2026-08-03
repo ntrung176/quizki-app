@@ -1,5 +1,5 @@
 // grammarService.js — Firestore CRUD for Grammar module
-import { doc, getDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnapshot, serverTimestamp, writeBatch } from 'firebase/firestore'
+import { doc, getDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnapshot, serverTimestamp, writeBatch, setDoc } from 'firebase/firestore'
 import { db, appId } from '../config/firebase';
 import { getCacheConfig } from './cacheConfigService';
 
@@ -7,6 +7,7 @@ import { getCacheConfig } from './cacheConfigService';
 const textbooksPath = () => `artifacts/${appId}/grammarTextbooks`;
 const lessonsPath = (textbookId) => `artifacts/${appId}/grammarTextbooks/${textbookId}/lessons`;
 const grammarPointsPath = (textbookId, lessonId) => `artifacts/${appId}/grammarTextbooks/${textbookId}/lessons/${lessonId}/points`;
+const masterGrammarPath = () => grammarPointsPath('master_bank', 'master_lesson');
 
 // ============== CDN CACHE ==============
 let cachedGrammarData = null;
@@ -354,7 +355,8 @@ export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin =
     if (!pointsUnsubs[key]) {
         const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
         pointsUnsubs[key] = onSnapshot(colRef, (snapshot) => {
-            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            const deletedSet = getDeletedGrammarIds();
+            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() })).filter(pt => !deletedSet.has(pt.id));
             items.sort((a, b) => (a.order || 0) - (b.order || 0));
             pointsCache[key] = items;
             if (pointsListeners[key]) {
@@ -413,13 +415,102 @@ export const updateGrammarPoint = async (textbookId, lessonId, grammarId, data) 
     }
 };
 
+const DELETED_GRAMMAR_KEY = 'quizki_deleted_grammar_ids';
+
+export const getDeletedGrammarIds = () => {
+    try {
+        const stored = localStorage.getItem(DELETED_GRAMMAR_KEY);
+        return stored ? new Set(JSON.parse(stored)) : new Set();
+    } catch (e) {
+        return new Set();
+    }
+};
+
+export const addDeletedGrammarIds = (ids) => {
+    try {
+        const current = getDeletedGrammarIds();
+        ids.forEach(id => {
+            if (id) current.add(id);
+        });
+        const arr = Array.from(current);
+        localStorage.setItem(DELETED_GRAMMAR_KEY, JSON.stringify(arr));
+
+        // Background sync to Firestore deleted system collection
+        const deletedRef = doc(db, `artifacts/${appId}/system`, 'deletedGrammar');
+        const updateObj = {};
+        ids.forEach(id => {
+            if (id) updateObj[id] = true;
+        });
+        setDoc(deletedRef, updateObj, { merge: true }).catch(err => console.warn('Sync deleted IDs error:', err));
+    } catch (e) {
+        console.error('Error saving deleted grammar IDs:', e);
+    }
+};
+
+// Sync remote deleted IDs on startup
+(async () => {
+    try {
+        const snap = await getDoc(doc(db, `artifacts/${appId}/system`, 'deletedGrammar'));
+        if (snap.exists()) {
+            const data = snap.data();
+            const remoteDeletedIds = Object.keys(data).filter(k => data[k] === true);
+            if (remoteDeletedIds.length > 0) {
+                const localSet = getDeletedGrammarIds();
+                let changed = false;
+                remoteDeletedIds.forEach(id => {
+                    if (!localSet.has(id)) {
+                        localSet.add(id);
+                        changed = true;
+                    }
+                });
+                if (changed) {
+                    localStorage.setItem(DELETED_GRAMMAR_KEY, JSON.stringify(Array.from(localSet)));
+                }
+            }
+        }
+    } catch (e) {
+        // Silently catch if user is offline or collection doesn't exist yet
+    }
+})();
+
 export const deleteGrammarPoint = async (textbookId, lessonId, grammarId) => {
     try {
+        addDeletedGrammarIds([grammarId]);
         clearSharedGrammarPointsListCache();
-        await deleteDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId));
+        cachedGrammarData = null;
+        if (textbookId && lessonId && textbookId !== 'master') {
+            await deleteDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId)).catch(() => {});
+        }
+        await deleteDoc(doc(db, masterGrammarPath(), grammarId)).catch(() => {});
         return true;
     } catch (e) {
         console.error('Delete grammar point error:', e);
+        addDeletedGrammarIds([grammarId]);
+        return true;
+    }
+};
+
+export const deleteGrammarPointsBatch = async (items) => {
+    try {
+        const ids = items.map(item => typeof item === 'string' ? item : item.id).filter(Boolean);
+        addDeletedGrammarIds(ids);
+        clearSharedGrammarPointsListCache();
+        cachedGrammarData = null;
+
+        await Promise.all(items.map(item => {
+            const gid = typeof item === 'string' ? item : item.id;
+            const tb = typeof item === 'string' ? null : item.textbookId;
+            const ls = typeof item === 'string' ? null : item.lessonId;
+            const promises = [];
+            if (tb && ls && tb !== 'master') {
+                promises.push(deleteDoc(doc(db, grammarPointsPath(tb, ls), gid)).catch(() => {}));
+            }
+            promises.push(deleteDoc(doc(db, masterGrammarPath(), gid)).catch(() => {}));
+            return Promise.all(promises);
+        }));
+        return true;
+    } catch (e) {
+        console.error('Batch delete grammar points error:', e);
         return false;
     }
 };
@@ -427,6 +518,25 @@ export const deleteGrammarPoint = async (textbookId, lessonId, grammarId) => {
 // ============== FETCH SINGLE GRAMMAR POINT (for detail/practice) ==============
 
 export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => {
+    // Try Master Bank query directly
+    try {
+        const masterRef = doc(db, masterGrammarPath(), grammarId);
+        const masterSnap = await getDoc(masterRef);
+        if (masterSnap.exists()) {
+            const data = masterSnap.data();
+            return {
+                ...data,
+                id: masterSnap.id,
+                textbookId: textbookId || 'master',
+                lessonId: lessonId || 'master',
+                textbook: { id: 'master', title: `Kho Ngữ Pháp (${data.level || 'N4'})`, titleVi: `Kho Ngữ Pháp (${data.level || 'N4'})` },
+                lesson: { id: 'master', title: 'Kho Ngữ Pháp Trung Tâm', meaning: 'Kho Ngữ Pháp Gốc' }
+            };
+        }
+    } catch (e) {
+        console.warn("Master bank fetch for grammar point failed:", e);
+    }
+
     // Try CDN first
     try {
         const data = await getSharedGrammarData();
@@ -588,7 +698,41 @@ export const importGrammarPointsFromJson = async (textbookId, lessonId, jsonArra
             const parseTips = (raw) => raw ? raw.split('\n').filter(Boolean).map(l => ({ icon: '💡', text: l.trim() })) : [];
             const parseExamples = (raw) => {
                 if (!raw) return [];
-                const lines = raw.split('\n').filter(Boolean);
+                const isJp = (t) => /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff]/.test(t);
+                if (Array.isArray(raw)) {
+                    const result = [];
+                    for (let i = 0; i < raw.length; i++) {
+                        const item = raw[i];
+                        if (typeof item === 'object' && item !== null) {
+                            const ja = (item.ja || '').trim();
+                            const vi = (item.vi || '').trim();
+                            if (ja && !vi && isJp(ja) && i + 1 < raw.length) {
+                                const next = raw[i + 1];
+                                const nextJa = (typeof next === 'object' ? next?.ja : String(next || '')).trim();
+                                if (nextJa && !isJp(nextJa)) {
+                                    result.push({ ja, vi: nextJa });
+                                    i++;
+                                    continue;
+                                }
+                            }
+                            result.push({ ja, vi });
+                        } else if (typeof item === 'string') {
+                            const lines = item.split('\n').map(l => l.trim()).filter(Boolean);
+                            if (lines.length >= 2) {
+                                result.push({ ja: lines[0], vi: lines[1] });
+                            } else if (lines.length === 1) {
+                                if (i + 1 < raw.length && typeof raw[i + 1] === 'string' && !isJp(raw[i + 1])) {
+                                    result.push({ ja: lines[0], vi: raw[i + 1].trim() });
+                                    i++;
+                                } else {
+                                    result.push({ ja: lines[0], vi: '' });
+                                }
+                            }
+                        }
+                    }
+                    return result;
+                }
+                const lines = typeof raw === 'string' ? raw.split('\n').filter(Boolean) : [];
                 const exs = [];
                 for (let i = 0; i < lines.length; i += 2) {
                     exs.push({ ja: lines[i]?.trim() || '', vi: lines[i + 1]?.trim() || '' });
@@ -637,65 +781,304 @@ export const importGrammarPointsFromJson = async (textbookId, lessonId, jsonArra
     }
 };
 
+export const importDirectGrammarPointsFromJson = async (jsonInput, defaultLevel = 'N4', adminUserId = 'admin') => {
+    try {
+        let jsonArray = [];
+        if (typeof jsonInput === 'string') {
+            jsonArray = JSON.parse(jsonInput);
+        } else {
+            jsonArray = jsonInput;
+        }
+        if (!Array.isArray(jsonArray)) {
+            jsonArray = [jsonArray]; // Allow single object import
+        }
+
+        clearSharedGrammarPointsListCache();
+        cachedGrammarData = null;
+
+        // 1. Fetch existing textbooks to map levels
+        const tbSnap = await getDocs(collection(db, textbooksPath()));
+        const existingTextbooks = tbSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+        const levelTbMap = {};
+        for (const tb of existingTextbooks) {
+            if (Array.isArray(tb.levels)) {
+                tb.levels.forEach(lvl => {
+                    const normLvl = String(lvl).trim().toUpperCase();
+                    if (!levelTbMap[normLvl]) {
+                        levelTbMap[normLvl] = tb.id;
+                    }
+                });
+            }
+        }
+
+        let importedCount = 0;
+        const importedItems = [];
+
+        for (const rawGp of jsonArray) {
+            const level = String(defaultLevel || rawGp.level || 'N4').trim().toUpperCase();
+
+            // Helper parsing logic
+            const parseStructure = (raw) => {
+                if (!raw) return [];
+                return raw.split('+').map(s => {
+                    const t = s.trim();
+                    if (t.startsWith('*')) return { text: t.slice(1), type: 'highlight' };
+                    if (t.startsWith('V')) return { text: t, type: 'verb' };
+                    if (t.startsWith('N') || t.startsWith('A')) return { text: t, type: 'noun' };
+                    return { text: t, type: 'connector' };
+                });
+            };
+
+            const structureParsed = Array.isArray(rawGp.structure) 
+                ? rawGp.structure 
+                : parseStructure(rawGp.structureRaw || rawGp.structure || '');
+
+            const tipsParsed = Array.isArray(rawGp.tips)
+                ? rawGp.tips
+                : (rawGp.tipsRaw ? rawGp.tipsRaw.split('\n').filter(Boolean).map(t => ({ icon: '💡', text: t.trim() })) : []);
+
+            const examplesParsed = Array.isArray(rawGp.examples)
+                ? rawGp.examples
+                : (rawGp.examplesRaw ? rawGp.examplesRaw.split('\n').filter(Boolean).map(ex => {
+                    const parts = ex.split('\\n').join('\n').split('\n');
+                    return { ja: parts[0] || '', vi: parts[1] || '' };
+                }) : []);
+
+            const gpData = {
+                pattern: rawGp.pattern || '',
+                meaningShort: rawGp.meaningShort || rawGp.meaning || '',
+                meaning: rawGp.meaning || rawGp.meaningShort || '',
+                meaningFull: rawGp.meaningFull || '',
+                level: level,
+                structure: structureParsed,
+                tips: tipsParsed,
+                examples: examplesParsed,
+                exercises: Array.isArray(rawGp.exercises) ? rawGp.exercises : [],
+                quizzes: Array.isArray(rawGp.quizzes) ? rawGp.quizzes : [],
+                dialogues: Array.isArray(rawGp.dialogues) ? rawGp.dialogues : [],
+                visual: rawGp.visual || {
+                    title: rawGp.visualTitle || "Học Ngữ pháp Trực quan Zen",
+                    imageLabel: rawGp.visualLabel || "",
+                    image: rawGp.visualImage || "",
+                    sentenceJa: rawGp.sentenceJa || "",
+                    sentenceJaUnderline: rawGp.sentenceJaUnderline || "",
+                    descriptionVi: rawGp.descriptionVi || ""
+                }
+            };
+
+            // Save ONLY to Master Bank (artifacts/${appId}/masterGrammarPoints)
+            const res = await addMasterGrammarPoint(gpData, adminUserId);
+
+            if (res.success) {
+                importedCount++;
+                importedItems.push({
+                    id: res.id,
+                    ...gpData,
+                    textbookId: 'master',
+                    lessonId: 'master',
+                    textbookTitle: `Kho Ngữ Pháp (${level})`
+                });
+            }
+        }
+
+        return { success: true, count: importedCount, items: importedItems };
+    } catch (e) {
+        console.error('Import direct grammar points error:', e);
+        return { success: false, error: e.message };
+    }
+};
+
+// ============== MASTER GRAMMAR BANK & LESSON ASSIGNMENT ==============
+
+export const getMasterGrammarPoints = async () => {
+    try {
+        const deletedSet = getDeletedGrammarIds();
+        const snap = await getDocs(collection(db, masterGrammarPath()));
+        const list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        return list.filter(pt => !deletedSet.has(pt.id));
+    } catch (e) {
+        console.error('Fetch master grammar points error:', e);
+        return [];
+    }
+};
+
+export const addMasterGrammarPoint = async (gpData, adminUserId = 'admin') => {
+    try {
+        clearSharedGrammarPointsListCache();
+        cachedGrammarData = null;
+
+        // Ensure parent master_bank textbook & master_lesson docs exist so Firestore Security Rules pass
+        try {
+            await setDoc(doc(db, textbooksPath(), 'master_bank'), {
+                title: 'Kho Ngữ Pháp Gốc',
+                titleVi: 'Kho Ngữ Pháp Trung Tâm',
+                levels: ['N5', 'N4', 'N3', 'N2', 'N1'],
+                category: 'system'
+            }, { merge: true });
+
+            await setDoc(doc(db, lessonsPath('master_bank'), 'master_lesson'), {
+                title: 'Kho Ngữ Pháp Gốc',
+                sectionLabel: 'Master'
+            }, { merge: true });
+        } catch (err) {
+            // Ignore if parent docs exist or warning
+        }
+
+        const docRef = await addDoc(collection(db, masterGrammarPath()), {
+            ...gpData,
+            textbookId: 'master_bank',
+            lessonId: 'master_lesson',
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
+            createdBy: adminUserId
+        });
+        return { success: true, id: docRef.id };
+    } catch (e) {
+        console.error('Add master grammar point error:', e);
+        return { success: false, error: e.message };
+    }
+};
+
+export const updateMasterGrammarPoint = async (id, gpData) => {
+    try {
+        clearSharedGrammarPointsListCache();
+        cachedGrammarData = null;
+        const docRef = doc(db, masterGrammarPath(), id);
+        await updateDoc(docRef, {
+            ...gpData,
+            updatedAt: serverTimestamp()
+        });
+        return { success: true };
+    } catch (e) {
+        console.error('Update master grammar point error:', e);
+        return { success: false, error: e.message };
+    }
+};
+
+export const deleteMasterGrammarPoint = async (id) => {
+    try {
+        clearSharedGrammarPointsListCache();
+        cachedGrammarData = null;
+        addDeletedGrammarIds([id]);
+        await deleteDoc(doc(db, masterGrammarPath(), id));
+        return { success: true };
+    } catch (e) {
+        console.error('Delete master grammar point error:', e);
+        return { success: false, error: e.message };
+    }
+};
+
+export const assignGrammarPointsToLesson = async (textbookId, lessonId, selectedGrammarPoints) => {
+    try {
+        clearSharedGrammarPointsListCache();
+        cachedGrammarData = null;
+
+        const grammarIds = selectedGrammarPoints.map(gp => gp.id);
+        const lessonRef = doc(db, lessonsPath(textbookId), lessonId);
+        await updateDoc(lessonRef, {
+            grammarIds: grammarIds,
+            updatedAt: serverTimestamp()
+        });
+
+        // Copy/Sync documents into grammarPointsPath for backward compatibility & instant listener triggers
+        const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
+        for (let i = 0; i < selectedGrammarPoints.length; i++) {
+            const gp = selectedGrammarPoints[i];
+            const targetDocRef = doc(colRef, gp.id);
+            await setDoc(targetDocRef, {
+                ...gp,
+                order: i,
+                updatedAt: serverTimestamp()
+            }, { merge: true });
+        }
+
+        return { success: true };
+    } catch (e) {
+        console.error('Assign grammar points error:', e);
+        return { success: false, error: e.message };
+    }
+};
+
 export const getSharedGrammarPointsList = async () => {
+    const deletedSet = getDeletedGrammarIds();
+    const allPoints = [];
+    const seenIds = new Set();
+
+    // 1. Fetch points directly from Master Grammar Bank
+    try {
+        const masterSnap = await getDocs(collection(db, masterGrammarPath()));
+        for (const d of masterSnap.docs) {
+            const mp = { id: d.id, ...d.data() };
+            if (!deletedSet.has(mp.id) && !seenIds.has(mp.id)) {
+                seenIds.add(mp.id);
+                allPoints.push({
+                    ...mp,
+                    textbookId: mp.textbookId || 'master',
+                    lessonId: mp.lessonId || 'master',
+                    textbookTitle: mp.textbookTitle || `Kho Ngữ Pháp (${mp.level || 'N4'})`,
+                    lessonTitle: mp.lessonTitle || 'Kho Ngữ Pháp Trung Tâm',
+                });
+            }
+        }
+    } catch (e) {
+        console.warn("Fetch masterGrammarPoints in getSharedGrammarPointsList failed:", e);
+    }
+
+    // 2. Fetch points from CDN / Shared Textbook Data
     try {
         const data = await getSharedGrammarData();
-        const allPoints = [];
         if (data) {
             for (const textbook of data) {
                 for (const lesson of textbook.lessons || []) {
                     for (const point of lesson.points || []) {
-                        allPoints.push({
-                            ...point,
-                            textbookId: textbook.id,
-                            lessonId: lesson.id,
-                            textbookTitle: textbook.title || textbook.titleVi || '',
-                            lessonTitle: lesson.title || '',
-                        });
+                        if (!deletedSet.has(point.id) && !seenIds.has(point.id)) {
+                            seenIds.add(point.id);
+                            allPoints.push({
+                                ...point,
+                                textbookId: textbook.id,
+                                lessonId: lesson.id,
+                                textbookTitle: textbook.title || textbook.titleVi || '',
+                                lessonTitle: lesson.title || '',
+                            });
+                        }
                     }
                 }
             }
-            return allPoints;
         }
     } catch (e) {
         console.warn("CDN getSharedGrammarPointsList failed:", e);
     }
-    
-    // Firestore fallback
-    if (cachedSharedGrammarPointsList) return cachedSharedGrammarPointsList;
-    if (grammarPointsListPromise) return grammarPointsListPromise;
 
-    grammarPointsListPromise = (async () => {
+    // 3. Fallback: Fetch points from Firestore textbooks subcollections if empty
+    if (allPoints.length === 0) {
         try {
-            console.log("Fetching shared grammar list from Firestore fallback (slow query)...");
-            const allPoints = [];
             const textbooksSnap = await getDocs(collection(db, textbooksPath()));
             for (const tbDoc of textbooksSnap.docs) {
                 const lessonsSnap = await getDocs(collection(db, lessonsPath(tbDoc.id)));
                 for (const lessonDoc of lessonsSnap.docs) {
                     const pointsSnap = await getDocs(collection(db, grammarPointsPath(tbDoc.id, lessonDoc.id)));
                     pointsSnap.docs.forEach(pDoc => {
-                        allPoints.push({
-                            id: pDoc.id,
-                            ...pDoc.data(),
-                            textbookId: tbDoc.id,
-                            lessonId: lessonDoc.id,
-                            textbookTitle: tbDoc.data().title || tbDoc.data().titleVi || '',
-                            lessonTitle: lessonDoc.data().title || '',
-                        });
+                        if (!deletedSet.has(pDoc.id) && !seenIds.has(pDoc.id)) {
+                            seenIds.add(pDoc.id);
+                            allPoints.push({
+                                ...pDoc.data(),
+                                id: pDoc.id,
+                                textbookId: tbDoc.id,
+                                lessonId: lessonDoc.id,
+                                textbookTitle: tbDoc.data().title || tbDoc.data().titleVi || '',
+                                lessonTitle: lessonDoc.data().title || '',
+                            });
+                        }
                     });
                 }
             }
-            cachedSharedGrammarPointsList = allPoints;
-            return cachedSharedGrammarPointsList;
         } catch (e) {
-            console.error("Firestore fallback getSharedGrammarPointsList failed:", e);
-            grammarPointsListPromise = null;
-            return [];
+            console.warn("Firestore fallback getSharedGrammarPointsList failed:", e);
         }
-    })();
+    }
 
-    return grammarPointsListPromise;
+    return allPoints;
 };
 
 // ============== GRAMMAR SRS SYSTEM ==============

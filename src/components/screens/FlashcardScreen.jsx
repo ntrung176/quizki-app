@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { RotateCcw, Check, X, Undo2, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers, Settings, Lightbulb } from 'lucide-react'
+import { RotateCcw, Check, X, Undo2, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers, Settings, Lightbulb, Maximize2, Minimize2 } from 'lucide-react'
 import { speakJapanese } from '../../utils/audio'
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { getAuth } from 'firebase/auth';
@@ -8,6 +8,7 @@ import { saveStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
 const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
     const { isEnglishMode } = useTargetLanguage();
     // Load saved progress from localStorage
@@ -56,6 +57,28 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     const [history, setHistory] = useState([]); // For undo: {card, action, index}
     const [isComplete, setIsComplete] = useState(savedProgress?.isComplete || false);
     const [round, setRound] = useState(savedProgress?.round || 1);
+
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const toggleFullscreen = useCallback(() => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+            setIsFullscreen(true);
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen().catch(() => {});
+            }
+            setIsFullscreen(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        const handleFSChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+        document.addEventListener('fullscreenchange', handleFSChange);
+        return () => document.removeEventListener('fullscreenchange', handleFSChange);
+    }, []);
     // Card Settings State (stored in localStorage with v2 version to apply new defaults)
     const [cardSettings, setCardSettings] = useState(() => {
         const defaultSettings = {
@@ -411,8 +434,24 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         const unknownCount = unknownCards.length;
         const totalKnown = allCards.length - unknownCount;
         const allDone = unknownCount === 0;
+        if (allDone) {
+            return (
+                <UnifiedStudyCompleteModal
+                    totalCards={allCards.length}
+                    title="Xuất sắc!"
+                    subtitle={<>Bạn đã thuộc hết tất cả <span className="font-bold text-emerald-600 dark:text-emerald-400">{allCards.length}</span> thẻ!</>}
+                    onRestart={handleRestart}
+                    onComplete={onComplete}
+                    onBack={onBack}
+                />
+            );
+        }
+
         return (
-            <div className="relative w-full h-full flex flex-col justify-center">
+            <div className={isFullscreen 
+                ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen" 
+                : "relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4"
+            }>
                 {/* Back Button */}
                 {onBack && (
                     <button
@@ -423,37 +462,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                 )}
-                {allDone ? (
-                    <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
-                        <div className="text-6xl mb-2">🎉</div>
-                        <div>
-                            <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Xuất sắc!</h2>
-                            <p className="text-gray-500 dark:text-gray-400 text-lg">
-                                Bạn đã thuộc hết tất cả <span className="font-black text-emerald-600 dark:text-emerald-400">{allCards.length}</span> thẻ!
-                            </p>
-                        </div>
-                        <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-emerald-200/60 dark:border-emerald-800/60 shadow-lg">
-                            <div className="flex items-center justify-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-lg">
-                                <Zap className="w-5 h-5" />
-                                <span>100% Thuần thục</span>
-                            </div>
-                        </div>
-                        <div className="flex gap-3 w-full max-w-xs pt-2">
-                            <button 
-                                onClick={handleRestart} 
-                                className="flex-1 py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
-                            >
-                                <RotateCcw className="w-4 h-4" /> Học lại
-                            </button>
-                            <button 
-                                onClick={onComplete} 
-                                className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
-                            >
-                                Xong <ChevronRight className="w-4 h-4" />
-                            </button>
-                        </div>
-                    </div>
-                ) : (
                     <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
                         <div className="text-6xl mb-2">✨</div>
                         <div>
@@ -485,7 +493,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             </button>
                         </div>
                     </div>
-                )}
             </div>
         );
     }
@@ -498,18 +505,21 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         );
     }
     return (
-        <div className="relative w-full h-full flex flex-col justify-center">
-            <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3">
+        <div className={isFullscreen 
+            ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen" 
+            : "relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4"
+        }>
+            <div className="w-full max-w-3xl mx-auto flex flex-col justify-center items-center space-y-4 my-auto">
                 {/* Back Button - outside frame */}
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
                         <button
                             onClick={onBack}
-                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
+                            className="p-2 flex items-center gap-1.5 justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
                             title="Trở lại"
                         >
-                            <ArrowLeft className="w-5 h-5" />
-                            <span className="text-sm font-medium">Trở lại</span>
+                            <ArrowLeft className="w-4 h-4" />
+                            <span className="text-xs font-medium">Trở lại</span>
                         </button>
                     </div>
                 )}
@@ -529,8 +539,16 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                 <span className="px-2.5 py-0.5 bg-red-50 text-red-500 dark:bg-red-950/20 dark:text-red-400 rounded-full">{unknownCards.length} chưa thuộc</span>
                             </div>
 
-                            {/* Top Right Action Buttons Header OUTSIDE Flashcard (Nuance, Speaker, Settings) */}
+                            {/* Top Right Action Buttons Header OUTSIDE Flashcard (Nuance, Speaker, Settings, Fullscreen) */}
                             <div className="flex items-center gap-1.5 z-30">
+                                <button
+                                    type="button"
+                                    onClick={toggleFullscreen}
+                                    className="p-1.5 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
+                                    title={isFullscreen ? "Thoát toàn màn hình (Esc)" : "Toàn màn hình"}
+                                >
+                                    {isFullscreen ? <Minimize2 className="w-4 h-4 text-indigo-400" /> : <Maximize2 className="w-4 h-4" />}
+                                </button>
                                 <button
                                     onClick={(e) => {
                                         e.stopPropagation();

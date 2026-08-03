@@ -260,27 +260,44 @@ const KanjiLessonScreen = ({ awardXP }) => {
         const start = (day - 1) * 10;
         return filtered.slice(start, start + 10);
     }, [kanjiList, level, day]);
-    // Vocab for today's kanji
+    // Vocab for today's kanji (deduplicated by cleanWord)
     const todayVocab = useMemo(() => {
         const chars = todayKanji.map(k => k.character);
-        return vocabList.filter(v => {
-            if (!v.word) return false;
-            return chars.some(c => v.word.includes(c));
-        });
+        const seen = new Set();
+        const result = [];
+        for (const v of vocabList) {
+            if (!v.word || !v.meaning) continue;
+            const cleanWord = v.word.replace(/\s*\([^)]*\)/g, '').trim();
+            if (cleanWord && chars.some(c => v.word.includes(c)) && !seen.has(cleanWord)) {
+                seen.add(cleanWord);
+                result.push(v);
+            }
+        }
+        return result;
     }, [todayKanji, vocabList]);
     // (Prefetch is now handled inline inside the load() above)
     const currentKanji = todayKanji[currentIndex] || null;
-    // Vocab for current kanji
+    // Vocab for current kanji (deduplicated by cleanWord)
     const currentVocab = useMemo(() => {
         if (!currentKanji) return [];
         const list = vocabList.filter(v => v.word?.includes(currentKanji.character));
         const levelOrder = { 'N5': 1, 'N4': 2, 'N3': 3, 'N2': 4, 'N1': 5 };
-        return list.sort((a, b) => {
+        list.sort((a, b) => {
             const orderA = levelOrder[a.level] || 99;
             const orderB = levelOrder[b.level] || 99;
             if (orderA !== orderB) return orderA - orderB;
             return (a.word || '').length - (b.word || '').length;
         });
+        const seen = new Set();
+        const result = [];
+        for (const v of list) {
+            const cleanWord = v.word ? v.word.replace(/\s*\([^)]*\)/g, '').trim() : '';
+            if (cleanWord && !seen.has(cleanWord)) {
+                seen.add(cleanWord);
+                result.push(v);
+            }
+        }
+        return result;
     }, [currentKanji, vocabList]);
     // HanziWriter stroke animation
     useEffect(() => {
@@ -549,27 +566,27 @@ const KanjiLessonScreen = ({ awardXP }) => {
     }
     if (activeMode === 'test') {
         const MODES = [
-            { id: 'hanviet', label: 'Hán Việt', icon: BookOpen, desc: 'Kiểm tra nghĩa Hán Việt', color: 'from-emerald-500 to-teal-500', shadow: 'shadow-emerald-500/20' },
-            { id: 'vocab', label: 'Từ vựng', icon: Layers, desc: 'Trắc nghiệm từ vựng Kanji', color: 'from-blue-500 to-indigo-500', shadow: 'shadow-blue-500/20' },
-            { id: 'typing', label: 'Âm đọc', icon: Keyboard, desc: 'Nhập âm Onyomi/Kunyomi', color: 'from-orange-500 to-red-500', shadow: 'shadow-orange-500/20' },
-            { id: 'writing', label: 'Viết Kanji', icon: PenTool, desc: 'Luyện viết nét Hán tự', color: 'from-sky-500 to-indigo-500', shadow: 'shadow-sky-500/20' },
+            { id: 'hanviet', label: 'Trắc nghiệm Hán Việt', icon: BookOpen, desc: 'Chọn đáp án đúng về nghĩa Hán Việt', color: 'from-emerald-500 to-teal-500', shadow: 'shadow-emerald-500/20' },
+            { id: 'vocab', label: 'Trắc nghiệm Từ vựng', icon: Layers, desc: 'Chọn đáp án từ vựng chứa Kanji', color: 'from-blue-500 to-indigo-500', shadow: 'shadow-blue-500/20' },
+            { id: 'typing', label: 'Tự luận (Âm đọc)', icon: Keyboard, desc: 'Gõ âm Onyomi/Kunyomi hoặc Hán Việt', color: 'from-orange-500 to-red-500', shadow: 'shadow-orange-500/20' },
+            { id: 'writing', label: 'Vẽ viết Kanji', icon: PenTool, desc: 'Luyện tập vẽ viết nét Hán tự', color: 'from-sky-500 to-indigo-500', shadow: 'shadow-sky-500/20' },
         ];
         return (
             <div className="max-w-4xl mx-auto py-8 px-4 animate-fade-in">
                 <div className="mb-8 flex items-center gap-4">
                     <button onClick={() => setActiveMode('flashcard')}
-                        className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
+                        className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 cursor-pointer">
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                     <div>
-                        <h1 className="text-2xl font-black text-gray-800 dark:text-white">Học nâng cao</h1>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Chọn một phương thức kiểm tra để củng cố các chữ vừa học</p>
+                        <h1 className="text-2xl font-black text-gray-800 dark:text-white">Chế độ luyện tập</h1>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Chọn phương thức luyện tập: Trắc nghiệm, Tự luận hoặc Vẽ viết để củng cố các chữ vừa học</p>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                     {MODES.map(m => (
                         <button key={m.id} onClick={() => setTestMode(m.id)}
-                            className={`p-6 rounded-3xl bg-gradient-to-br ${m.color} text-white shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 flex items-center gap-5 group border border-white/10 ${m.shadow}`}>
+                            className={`p-6 rounded-3xl bg-gradient-to-br ${m.color} text-white shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 flex items-center gap-5 group border border-white/10 ${m.shadow} cursor-pointer`}>
                             <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
                                 <m.icon className="w-8 h-8 drop-shadow-md" />
                             </div>
@@ -870,12 +887,12 @@ const KanjiLessonScreen = ({ awardXP }) => {
                         style={{ width: `${((currentIndex + 1) / todayKanji.length) * 100}%` }} />
                 </div>
             </div>
-            {/* Flip Flashcard Button & Kanji navigation indicators */}
+            {/* Practice Mode Button & Kanji navigation indicators */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <button onClick={startKanjiFlipMode}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-[1.02] shadow-sm">
-                    <Layers className="w-4 h-4 text-sky-500" />
-                    {kanjiFlipAllDone ? 'Đặt lại thẻ' : kanjiFlipUnknownCount > 0 ? `Lật thẻ (${kanjiFlipUnknownCount} chưa thuộc)` : '🃏 Lật thẻ ghi nhớ'}
+                <button onClick={() => setActiveMode('test')}
+                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white transition-all hover:scale-[1.02] shadow-md shadow-sky-500/20 cursor-pointer">
+                    <Award className="w-4 h-4 text-amber-300" />
+                    🎯 Chế độ luyện tập
                 </button>
                 <div className="flex justify-center gap-1.5 py-1">
                     {todayKanji.map((k, i) => (
@@ -1501,18 +1518,27 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const questions = useMemo(() => {
         if (testMode === 'hanviet') {
             return todayKanji.filter(k => k.sinoViet).map(k => {
-                const correct = k.sinoViet;
-                const others = todayKanji.filter(o => o.character !== k.character && o.sinoViet).map(o => o.sinoViet);
+                const correct = typeof k.sinoViet === 'string' ? k.sinoViet.trim() : (Array.isArray(k.sinoViet) ? k.sinoViet.join(', ') : String(k.sinoViet));
+                const others = [...new Set(todayKanji.filter(o => o.character !== k.character && o.sinoViet).map(o => typeof o.sinoViet === 'string' ? o.sinoViet.trim() : String(o.sinoViet)).filter(s => s && s !== correct))];
                 const wrong = shuffle(others).slice(0, 3);
                 return { kanji: k.character, question: `Âm Hán Việt của "${k.character}" là gì?`, correct, options: shuffle([correct, ...wrong]), type: 'mc' };
             });
         }
         if (testMode === 'vocab') {
             return todayVocab.filter(v => v.meaning).slice(0, 10).map(v => {
-                const correct = v.meaning;
-                const others = vocabList.filter(o => o.id !== v.id && o.meaning).map(o => o.meaning);
+                const cleanWord = v.word ? v.word.replace(/\s*[\(\（][^\)\）]*[\)\）]/g, '').trim() : '';
+                const readingStr = v.reading ? v.reading.trim() : (v.word?.match(/[\(\（]([^\)\）]+)[\)\）]/)?.[1]?.trim() || '');
+                const correct = String(v.meaning).trim();
+                const others = [...new Set(vocabList.filter(o => o.id !== v.id && o.meaning).map(o => String(o.meaning).trim()).filter(m => m && m !== correct))];
                 const wrong = shuffle(others).slice(0, 3);
-                return { kanji: v.word, sub: v.reading, question: `"${v.word}" nghĩa là gì?`, correct, options: shuffle([correct, ...wrong]), type: 'mc' };
+                return {
+                    kanji: cleanWord,
+                    sub: readingStr,
+                    question: `Từ "${cleanWord}" có nghĩa là gì?`,
+                    correct,
+                    options: shuffle([correct, ...wrong]),
+                    type: 'mc'
+                };
             });
         }
         if (testMode === 'typing') {
@@ -1562,13 +1588,13 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         if (testMode !== 'writing' || !canvasRef.current) return;
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
-        canvas.width = 250; canvas.height = 250;
+        canvas.width = 360; canvas.height = 360;
         ctx.fillStyle = '#0f172a';
-        ctx.fillRect(0, 0, 250, 250);
+        ctx.fillRect(0, 0, 360, 360);
         ctx.strokeStyle = '#334155';
         ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(125, 0); ctx.lineTo(125, 250); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(180, 0); ctx.lineTo(180, 360); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, 180); ctx.lineTo(360, 180); ctx.stroke();
     }, [testMode, qIndex]);
     const getCanvasCoords = (e) => {
         if (!canvasRef.current) return { x: 0, y: 0 };
@@ -1586,7 +1612,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         const { x, y } = getCanvasCoords(e);
         const ctx = canvasRef.current.getContext('2d');
         ctx.beginPath(); ctx.moveTo(x, y);
-        ctx.strokeStyle = '#0891b2'; ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#0891b2'; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
         currentWritingStrokeRef.current = { xs: [Math.round(x)], ys: [Math.round(y)] };
     };
     const draw = (e) => {
@@ -1609,10 +1635,10 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const clearCanvas = () => {
         if (!canvasRef.current) return;
         const ctx = canvasRef.current.getContext('2d');
-        ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, 250, 250);
+        ctx.fillStyle = '#0f172a'; ctx.fillRect(0, 0, 360, 360);
         ctx.strokeStyle = '#334155'; ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(125, 0); ctx.lineTo(125, 250); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(0, 125); ctx.lineTo(250, 125); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(180, 0); ctx.lineTo(180, 360); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, 180); ctx.lineTo(360, 180); ctx.stroke();
         writingStrokesRef.current = [];
         currentWritingStrokeRef.current = { xs: [], ys: [] };
         setWritingResult(null);
@@ -1801,8 +1827,12 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                 </div>
                 {/* Card area */}
                 <div className="w-full bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden border-2 border-indigo-500/50" style={{ minHeight: '280px' }}>
-                    {/* Display: for writing mode show sinoViet hint only, for others show kanji */}
-                    {currentQ.type === 'writing' ? (
+                    {/* Display: for vocab test show single question line, for writing mode show sinoViet hint, for others show kanji */}
+                    {testMode === 'vocab' ? (
+                        <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100 font-japanese leading-relaxed px-4">
+                            Từ "<span className="text-sky-600 dark:text-sky-400 font-black">{currentQ.sub ? `${currentQ.kanji}（${currentQ.sub}）` : currentQ.kanji}</span>" có nghĩa là gì?
+                        </div>
+                    ) : currentQ.type === 'writing' ? (
                         <>
                             <div className="text-3xl font-bold text-emerald-400 mb-2">{currentQ.kanji}</div>
                             {currentQ.meaning && <div className="text-lg text-gray-400 mb-2">{currentQ.meaning}</div>}
@@ -1870,7 +1900,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                 {/* Writing canvas */}
                 {currentQ.type === 'writing' && (
                     <div className="w-full flex flex-col items-center gap-3">
-                        <canvas ref={canvasRef} className="rounded-xl border-2 border-slate-600 cursor-crosshair touch-none"
+                        <canvas ref={canvasRef} className="w-[340px] h-[340px] sm:w-[360px] sm:h-[360px] max-w-full rounded-2xl border-2 border-indigo-500/40 dark:border-slate-700 cursor-crosshair touch-none shadow-xl bg-slate-900"
                             style={{ touchAction: 'none' }}
                             onMouseDown={startDraw} onMouseMove={draw} onMouseUp={endDraw} onMouseLeave={endDraw}
                             onTouchStart={startDraw} onTouchMove={draw} onTouchEnd={endDraw} />

@@ -70,23 +70,23 @@ const LoginScreen = () => {
     useEffect(() => {
         let timer;
         const initGis = () => {
-            if (window.google?.accounts?.id && !gisInitializedRef.current) {
-                const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || "28989364918-a2a99ad3fc0c23fca6417.apps.googleusercontent.com";
-                try {
-                    window.google.accounts.id.initialize({
-                        client_id: clientId,
-                        callback: handleCredentialResponse,
-                        cancel_on_tap_outside: false
-                    });
-                    gisInitializedRef.current = true;
-                    // Trigger Google One Tap
-                    window.google.accounts.id.prompt();
-                    if (timer) clearInterval(timer);
-                } catch (err) {
-                    console.warn("Lỗi khởi tạo Google GIS:", err);
+            if (window.google?.accounts?.id) {
+                if (!window.__quizki_gis_initialized) {
+                    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || "28989364918-a2a99ad3fc0c23fca6417.apps.googleusercontent.com";
+                    try {
+                        window.google.accounts.id.initialize({
+                            client_id: clientId,
+                            callback: handleCredentialResponse,
+                            cancel_on_tap_outside: false
+                        });
+                        window.__quizki_gis_initialized = true;
+                        gisInitializedRef.current = true;
+                        window.google.accounts.id.prompt();
+                    } catch (err) {
+                        console.warn("Lỗi khởi tạo Google GIS:", err);
+                    }
                 }
-            } else if (gisInitializedRef.current && timer) {
-                clearInterval(timer);
+                if (timer) clearInterval(timer);
             }
         };
 
