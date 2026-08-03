@@ -13,6 +13,7 @@ import { auth } from '../../config/firebase';
 import { showToast } from '../../utils/toast';
 import { TTS_VOICES, getTTSVoice, setTTSVoice, speakJapanese } from '../../utils/audio';
 import { getReferralStats, submitReferralCode } from '../../utils/referralService';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
 const SETTINGS_KEY = 'quizki-settings';
 const getSettings = () => {
@@ -140,9 +141,9 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
         }
     };
     const xpDetails = React.useMemo(() => {
-        const xp = profile?.xp || 0;
+        const xp = Number(profile?.xp || profile?.score || profile?.totalXp || 0);
         return getLevelFromXp(xp);
-    }, [profile?.xp]);
+    }, [profile?.xp, profile?.score, profile?.totalXp]);
     // Account state
     const [displayName, setDisplayName] = useState(profile?.displayName || '');
     const [isEditingName, setIsEditingName] = useState(false);

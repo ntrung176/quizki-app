@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { onAuthStateChanged, signOut, getRedirectResult } from 'firebase/auth';
 import { doc, onSnapshot, collection, query, updateDoc, deleteDoc, getDocs, writeBatch, orderBy, limit } from 'firebase/firestore';
 import { auth, db, appId } from '../config/firebase';
@@ -213,10 +213,14 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         }
     }, [userHasAdminPrivileges, publicStatsCollectionPath, setNotification]);
 
+    const callbacksRef = useRef({ setAllCards, setReviewCards, setView, setEditingCard, setNotification });
     useEffect(() => {
-        if (!db || !auth) return;
+        callbacksRef.current = { setAllCards, setReviewCards, setView, setEditingCard, setNotification };
+    });
 
+    useEffect(() => {
         const handleRedirect = async () => {
+            if (!auth) return;
             try {
                 const result = await getRedirectResult(auth);
                 if (result?.user) {
@@ -224,14 +228,14 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                 }
             } catch (err) {
                 console.error("[Quizki Auth] Lỗi Google Redirect:", err);
-                setNotification("Đăng nhập bằng Google không thành công hoặc đã bị hủy.");
+                if (callbacksRef.current.setNotification) callbacksRef.current.setNotification("Đăng nhập bằng Google không thành công hoặc đã bị hủy.");
             }
         };
         handleRedirect();
 
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user && !user.emailVerified) {
-                setNotification("Email chưa xác thực. Vui lòng kiểm tra hộp thư và bấm link xác nhận, sau đó đăng nhập lại.");
+                if (callbacksRef.current.setNotification) callbacksRef.current.setNotification("Email chưa xác thực. Vui lòng kiểm tra hộp thư và bấm link xác nhận, sau đó đăng nhập lại.");
                 signOut(auth);
                 setUserId(null);
                 setAuthReady(true);
@@ -239,23 +243,17 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
             }
             if (user) {
                 setUserId(user.uid);
-                setNotification('');
+                if (callbacksRef.current.setNotification) callbacksRef.current.setNotification('');
             } else {
-                const oldUserId = userId;
                 setUserId(null);
-                setAllCards([]);
-                setReviewCards([]);
+                if (callbacksRef.current.setAllCards) callbacksRef.current.setAllCards([]);
+                if (callbacksRef.current.setReviewCards) callbacksRef.current.setReviewCards([]);
                 setProfile(null);
-                setView('HOME');
-                setEditingCard(null);
-                setNotification('');
+                if (callbacksRef.current.setView) callbacksRef.current.setView('HOME');
+                if (callbacksRef.current.setEditingCard) callbacksRef.current.setEditingCard(null);
+                if (callbacksRef.current.setNotification) callbacksRef.current.setNotification('');
                 clearUserSrsCache();
                 clearKanjiProgressCache();
-                if (oldUserId) {
-                    sessionStorage.removeItem(`profile_${oldUserId}`);
-                    sessionStorage.removeItem(`allCards_${oldUserId}`);
-                    sessionStorage.removeItem(`dailyActivityLogs_${oldUserId}`);
-                }
 
                 localStorage.removeItem('quizki_vocab_review_session');
                 localStorage.removeItem('quizki_kanji_review_session');
@@ -272,7 +270,7 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
 
         getSharedBookGroups().catch(() => { });
         return () => unsubscribe();
-    }, [setAllCards, setReviewCards, setView, setEditingCard, setNotification]);
+    }, []);
 
     useEffect(() => {
         getSharedKanjiList().catch(() => { });

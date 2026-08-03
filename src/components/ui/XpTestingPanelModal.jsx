@@ -93,7 +93,7 @@ const XpTestingPanelModal = ({ isOpen, onClose, profile, awardXP, userId }) => {
             for (const userDoc of snap.docs) {
                 try {
                     const data = userDoc.data();
-                    const xp = Number(data.xp || 0);
+                    const xp = Math.max(Number(data.xp || 0), Number(data.score || 0), Number(data.totalXp || 0));
                     const masteredVocab = Number(data.mastered || 0);
                     const masteredKanji = Number(data.kanjiMastered || 0);
                     const streak = Number(data.streak || 0);

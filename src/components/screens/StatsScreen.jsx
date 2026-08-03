@@ -7,7 +7,7 @@ import { SafeAvatarImage } from '../ui';
 import { isKanjiMastered, isSrsCardDue, isVocabCardMastered } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
-import { getLevelFromXp, getLevelTitle, getTranslatedLeagueName, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules, formatScore } from '../../utils/scoring';
+import { getLevelFromXp, getLevelTitle, getTranslatedLeagueName, LEAGUES, LEAGUE_ICONS, LEAGUE_COLORS, getWeekId, generateSimulatedLeague, getLeagueTierRules, formatScore, getLeagueFromScore } from '../../utils/scoring';
 import { useLanguage } from '../../context/LanguageContext';
 import { showToast } from '../../utils/toast';
 
@@ -130,20 +130,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
             const batch = writeBatch(db);
 
             users.forEach((u) => {
-                let newLeague = 'Đồng';
-
-                // Categorize strictly by user's requested XP thresholds (Kim Cương 20K+, Huyền Thoại 100K+)
-                if (u.score >= 100000) {
-                    newLeague = 'Huyền Thoại';
-                } else if (u.score >= 20000) {
-                    newLeague = 'Kim Cương';
-                } else if (u.score >= 5000) {
-                    newLeague = 'Vàng';
-                } else if (u.score >= 1000) {
-                    newLeague = 'Bạc';
-                } else {
-                    newLeague = 'Đồng';
-                }
+                const newLeague = getLeagueFromScore(u.score);
 
                 // Update publicStats document
                 batch.update(u.ref, { league: newLeague });
@@ -296,9 +283,11 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     // ==================== LEADERBOARD SCORE CALCULATION ====================
     const computeScore = useCallback((user) => {
-        if (user.score !== undefined && user.score !== null) return Number(user.score);
-        if (user.xp !== undefined && user.xp !== null) return Number(user.xp);
-        return 0;
+        if (!user) return 0;
+        const score = Number(user.score || 0);
+        const xp = Number(user.xp || 0);
+        const totalXp = Number(user.totalXp || 0);
+        return Math.max(score, xp, totalXp);
     }, []);
 
     // Current user's weekly stats
@@ -338,20 +327,21 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
 
     // Current user's XP progress
     const xpDetails = useMemo(() => {
-        const xp = profile?.xp || 0;
+        const xp = Number(profile?.xp || profile?.score || profile?.totalXp || 0);
         return getLevelFromXp(xp);
-    }, [profile?.xp]);
+    }, [profile?.xp, profile?.score, profile?.totalXp]);
 
     const currentWeekId = useMemo(() => getWeekId(), []);
 
     // Filter real users and fill with bots to form exactly 30 participants (only for Sắt and Đồng)
     const leagueParticipants = useMemo(() => {
         let realUsersInLeague = leaderboardData.map(u => {
-            const resolvedLeague = (!u.league || u.league === 'Sắt') ? 'Đồng' : u.league;
+            const computedScore = computeScore(u);
+            const resolvedLeague = getLeagueFromScore(computedScore);
             return {
                 ...u,
                 league: resolvedLeague,
-                computedScore: computeScore(u)
+                computedScore
             };
         }).filter(u => u.league === selectedLeague);
 
@@ -360,7 +350,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
         realUsersInLeague = realUsersInLeague.filter(u => u.id !== currentUserId);
 
         // Include current user with their latest computed score if they are in this league
-        const userLeague = (!profile?.league || profile.league === 'Sắt') ? 'Đồng' : profile.league;
+        const userLeague = getLeagueFromScore(myScore);
         const userBelongsToThisLeague = userLeague === selectedLeague;
         let finalParticipants = [...realUsersInLeague];
         if (userBelongsToThisLeague) {
@@ -849,7 +839,7 @@ const StatsScreen = ({ totalCards, profile, allCards, dailyActivityLogs, userId,
                             const icon = LEAGUE_ICONS[lg];
                             const colors = LEAGUE_COLORS[lg];
                             const isSelected = selectedLeague === lg;
-                            const userLeague = (!profile?.league || profile.league === 'Sắt') ? 'Đồng' : profile.league;
+                            const userLeague = getLeagueFromScore(myScore);
                             const isUserLeague = userLeague === lg;
                             
                             return (

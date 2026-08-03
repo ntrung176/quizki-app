@@ -65,9 +65,9 @@ const Sidebar = ({
     const { isEnglishMode } = useTargetLanguage();
 
     const xpDetails = React.useMemo(() => {
-        const xp = profile?.xp || 0;
+        const xp = Number(profile?.xp || profile?.score || profile?.totalXp || 0);
         return getLevelFromXp(xp);
-    }, [profile?.xp]);
+    }, [profile?.xp, profile?.score, profile?.totalXp]);
 
     // Avatar display helper
     const renderAvatar = () => {
@@ -330,6 +330,9 @@ const Sidebar = ({
     // Logout handler
     const handleLogout = async () => {
         try {
+            document.body.style.overflow = '';
+            document.body.style.pointerEvents = '';
+            setIsMobileMenuOpen(false);
             await signOut(auth);
             navigate(ROUTES.LOGIN);
         } catch (error) {

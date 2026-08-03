@@ -123,22 +123,25 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 supportZalo: adminConfig.supportZalo || '',
                 supportMessenger: adminConfig.supportMessenger || '',
                 supportEmail: adminConfig.supportEmail || '',
-                flashSaleEnd: adminConfig.flashSaleEnd || (Date.now() + 2 * 3600 * 1000 + 41 * 60 * 1000), // Default 2h41m
+                flashSaleEnd: adminConfig.flashSaleEnd || (Date.now() + 8 * 3600 * 1000), // Default 8 hours
                 flashSaleText: adminConfig.flashSaleText || 'FLASH SALE – GIẢM ĐẾN 65%'
             });
         }
     }, [adminConfig]);
 
-    // Timer countdown for Flash Sale
-    const [countdownText, setCountdownText] = useState('02:41:00');
+    // Timer countdown for Flash Sale (8-hour continuous repeating cycle)
+    const [countdownText, setCountdownText] = useState('08:00:00');
     useEffect(() => {
         const updateCountdown = () => {
-            const target = adminConfig?.flashSaleEnd || (Date.now() + 2 * 3600 * 1000 + 41 * 60 * 1000);
-            const diff = target - Date.now();
-            if (diff <= 0) {
-                setCountdownText('00:00:00');
-                return;
+            const EIGHT_HOURS_MS = 8 * 3600 * 1000;
+            const target = adminConfig?.flashSaleEnd;
+            let diff = target ? target - Date.now() : 0;
+
+            // If no custom target or target expired, calculate remaining time in continuous 8-hour cycle
+            if (!target || diff <= 0) {
+                diff = EIGHT_HOURS_MS - (Date.now() % EIGHT_HOURS_MS);
             }
+
             const h = Math.floor(diff / (3600 * 1000)).toString().padStart(2, '0');
             const m = Math.floor((diff % (3600 * 1000)) / (60 * 1000)).toString().padStart(2, '0');
             const s = Math.floor((diff % (60 * 1000)) / 1000).toString().padStart(2, '0');
@@ -658,14 +661,14 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 <div className="flex gap-2">
                                     <input
                                         type="number"
-                                        defaultValue={161}
+                                        defaultValue={480}
                                         id="flashSaleDurationInput"
                                         className="w-24 px-3 py-2 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-sm text-gray-900 dark:text-white"
                                     />
                                     <button 
                                         type="button"
                                         onClick={() => {
-                                            const mins = Number(document.getElementById('flashSaleDurationInput')?.value) || 161;
+                                            const mins = Number(document.getElementById('flashSaleDurationInput')?.value) || 480;
                                             const targetTime = Date.now() + mins * 60 * 1000;
                                             setEditedConfig({ ...editedConfig, flashSaleEnd: targetTime });
                                             alert(`Đã đặt thời hạn flash sale mới: ${mins} phút nữa.`);

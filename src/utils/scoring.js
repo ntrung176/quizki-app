@@ -40,6 +40,15 @@ export const getTranslatedLeagueName = (league, t) => {
     return league;
 };
 
+export const getLeagueFromScore = (score) => {
+    const s = Number(score || 0);
+    if (s >= 100000) return 'Huyền Thoại';
+    if (s >= 20000) return 'Kim Cương';
+    if (s >= 5000) return 'Vàng';
+    if (s >= 1000) return 'Bạc';
+    return 'Đồng';
+};
+
 // Helper to format scores with K notation (e.g. 1250 -> 1.3K, 15500 -> 15.5K)
 export const formatScore = (num) => {
     if (num === null || num === undefined || isNaN(num)) return '0';

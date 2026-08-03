@@ -30,6 +30,12 @@ const LoginScreen = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+    // Reset body style locks and loading state when LoginScreen mounts
+    useEffect(() => {
+        document.body.style.overflow = '';
+        document.body.style.pointerEvents = '';
+        setIsLoading(false);
+    }, []);
 
     const handleCredentialResponse = async (response) => {
         if (!auth) return;
@@ -76,12 +82,10 @@ const LoginScreen = () => {
                     try {
                         window.google.accounts.id.initialize({
                             client_id: clientId,
-                            callback: handleCredentialResponse,
-                            cancel_on_tap_outside: false
+                            callback: handleCredentialResponse
                         });
                         window.__quizki_gis_initialized = true;
                         gisInitializedRef.current = true;
-                        window.google.accounts.id.prompt();
                     } catch (err) {
                         console.warn("Lỗi khởi tạo Google GIS:", err);
                     }
@@ -96,7 +100,7 @@ const LoginScreen = () => {
         return () => {
             if (timer) clearInterval(timer);
         };
-    }, [isLoading]);
+    }, []);
 
 
 
