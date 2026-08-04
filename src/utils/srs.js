@@ -27,15 +27,15 @@ export const normalizeSRSState = (srs) => {
         };
     }
 
-    // 1. Get raw inputs (handling both direct fields and nested srs/legacy prefix fields)
-    let interval = srs.interval !== undefined ? srs.interval : (srs.srsInterval !== undefined ? srs.srsInterval : (srs.currentInterval !== undefined ? srs.currentInterval : (srs.currentInterval_back !== undefined ? srs.currentInterval_back : 0)));
-    let ease = srs.ease !== undefined ? srs.ease : (srs.srsEase !== undefined ? srs.srsEase : 2.5);
-    let learningStep = srs.learningStep !== undefined ? srs.learningStep : (srs.srsLearningStep !== undefined ? srs.srsLearningStep : null);
-    let isLapsed = srs.isLapsed !== undefined ? srs.isLapsed : (srs.srsIsLapsed !== undefined ? srs.srsIsLapsed : false);
-    let reps = srs.reps !== undefined ? srs.reps : (srs.srsReps !== undefined ? srs.srsReps : 0);
-    let lapseCount = srs.lapseCount !== undefined ? srs.lapseCount : (srs.srsLapseCount !== undefined ? srs.srsLapseCount : 0);
-    let prelapseInterval = srs.prelapseInterval !== undefined ? srs.prelapseInterval : (srs.srsPrelapseInterval !== undefined ? srs.srsPrelapseInterval : null);
-    let state = srs.state || srs.srsState || null;
+    // 1. Get raw inputs (prioritizing srs* prefix fields used by Vocabulary, then standard fields)
+    let interval = srs.srsInterval !== undefined ? srs.srsInterval : (srs.interval !== undefined ? srs.interval : (srs.currentInterval !== undefined ? srs.currentInterval : (srs.currentInterval_back !== undefined ? srs.currentInterval_back : 0)));
+    let ease = srs.srsEase !== undefined ? srs.srsEase : (srs.ease !== undefined ? srs.ease : 2.5);
+    let learningStep = srs.srsLearningStep !== undefined ? srs.srsLearningStep : (srs.learningStep !== undefined ? srs.learningStep : null);
+    let isLapsed = srs.srsIsLapsed !== undefined ? srs.srsIsLapsed : (srs.isLapsed !== undefined ? srs.isLapsed : false);
+    let reps = srs.srsReps !== undefined ? srs.srsReps : (srs.reps !== undefined ? srs.reps : 0);
+    let lapseCount = srs.srsLapseCount !== undefined ? srs.srsLapseCount : (srs.lapseCount !== undefined ? srs.lapseCount : 0);
+    let prelapseInterval = srs.srsPrelapseInterval !== undefined ? srs.srsPrelapseInterval : (srs.prelapseInterval !== undefined ? srs.prelapseInterval : null);
+    let state = srs.srsState || srs.state || null;
 
     // 2. Legacy migration check: check if no new SRS fields exist but it was studied in the old system
     const legacyIndex = srs.intervalIndex_back !== undefined ? srs.intervalIndex_back : -1;

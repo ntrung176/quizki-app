@@ -773,7 +773,7 @@ const SRSVocabScreen = ({
         // Call parent update vocab srs rating on Firestore asynchronously
         if (onUpdateVocabSrsRating) {
             pendingWriteIds.current.add(card.id);
-            const xp = onUpdateVocabSrsRating(card.id, rating, (success) => {
+            const xp = onUpdateVocabSrsRating(card.id, { ...newSrs, rating }, (success) => {
                 pendingWriteIds.current.delete(card.id);
             });
             sessionXpRef.current += (xp || 0);

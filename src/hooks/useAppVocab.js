@@ -319,7 +319,8 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             }
         }
 
-        const ratingStr = String(typeof ratingOrData === 'string' ? ratingOrData : 'good').toLowerCase();
+        const rawRating = typeof ratingOrData === 'string' ? ratingOrData : (ratingOrData?.rating || 'good');
+        const ratingStr = String(rawRating).toLowerCase();
         const xpReward = POINTS?.SRS_VOCAB?.[ratingStr] || POINTS?.SRS_VOCAB?.good || 4;
         return xpReward;
     }, [allCards, handleUpdateCard]);
