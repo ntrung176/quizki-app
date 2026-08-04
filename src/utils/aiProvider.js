@@ -518,14 +518,14 @@ JSON only, không markdown/backtick:
 ${grammarInstruction}
 
 QUY TẮC BẮT BUỘC:
-1. Giữ nguyên cụm từ dài: Nếu người dùng nhập cụm từ dài hoặc cả câu (Ví dụ: "日本語を勉強する", "お腹gã空いた"), TUYỆT ĐỐI KHÔNG được rút gọn thành từ vựng đơn (như "勉強する", "空く"). Hãy giữ nguyên vẹn cụm từ gốc đó. Nếu cụm từ nhập có lỗi chính tả/ngữ pháp, hãy chuẩn hóa/sửa nó thành cụm từ chuẩn chính xác nhưng giữ nguyên độ dài và ý định gốc.
+1. Giữ nguyên cụm từ dài: Nếu người dùng nhập cụm từ dài hoặc cả câu (Ví dụ: "日本語を勉強する", "お腹が空いた"), TUYỆT ĐỐI KHÔNG được rút gọn thành từ vựng đơn (như "勉強する", "空く"). Hãy giữ nguyên vẹn cụm từ gốc đó. Nếu cụm từ nhập có lỗi chính tả/ngữ pháp, hãy chuẩn hóa/sửa nó thành cụm từ chuẩn chính xác nhưng giữ nguyên độ dài và ý định gốc.
 2. Từ vựng (frontWithFurigana) & Từ đồng nghĩa (synonym) định dạng cách đọc:
    - BẮT BUỘC dùng định dạng: "Từ gốc（cách đọc hiragana của CẢ TỪ）".
    - Ngoặc cách đọc phải đặt duy nhất ở CUỐI CÙNG sau toàn bộ từ gốc. Tuyệt đối KHÔNG chèn ngoặc cách đọc vào giữa các nhóm chữ trong từ gốc.
    - Đối với các cụm từ dài hoặc cụm động từ/tính từ chứa nhiều từ/nhiều chữ Kanji (Ví dụ: "お土産を届ける"), TUYỆT ĐỐI KHÔNG được chia thành nhiều ngoặc như "お土産（おみやげ）を届ける（おとどける）", mà BẮT BUỘC phải viết một ngoặc đọc duy nhất ở cuối cùng cho toàn bộ cụm: "お土産を届ける（おみやげをとどける）".
    - Đối với từ gốc có chứa Katakana xen lẫn Kanji/Hiragana (Ví dụ: "スマホを使う"), trong ngoặc đọc phải giữ nguyên phần chữ Katakana tương ứng và chuyển các chữ Kanji sang Hiragana (Ví dụ: "スマホを使う（スマホをつかう）", chứ không viết là "スマホを使う（すまほをつかう）" hay cắt ngắn).
    - Ví dụ ĐÚNG: "顔認証（かおにんしょう）", "振り込む（ふりこむ）", "スマホを使う（スマホをつかう）", "お土産を届ける（おみやげをとどける）"
-   - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む", "スマホ（すまほ）を使う（つかう）", "お土産（おみやげ）を届ける（おとどける）"
+   - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む", "スマホ（すまほ）を使う（つかう）", "お土産（おみやげ） को届ける（おとどける）"
    - Trả về trường "frontWithFurigana" cho từ gốc và "synonym" cho từ đồng nghĩa.
 
 2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống. Đặc biệt, nếu từ gốc là một cụm từ dài, câu, collocation hoặc có pos là "phrase" (Ví dụ: "進学を契機にテニス部に入った"), thì trường "meaning" BẮT BUỘC phải là một bản dịch tiếng Việt tự nhiên, thoát ý duy nhất cho TOÀN BỘ cụm từ/câu đó. TUYỆT ĐỐI KHÔNG dịch tách nhỏ từng vế hoặc liệt kê nhiều nghĩa rời rạc phân cách bởi dấu chấm phẩy (;).'}

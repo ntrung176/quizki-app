@@ -483,18 +483,22 @@ export const useBookData = ({
         }
     };
 
-    const handleToggleLessonPremium = async (e, lessonItem) => {
-        e.stopPropagation();
-        if (!isAdmin || !groupId || !bookId || !chapterId) return;
+    const handleToggleLessonPremium = async (e, lessonItem, targetChapterId = null) => {
+        if (e && e.stopPropagation) e.stopPropagation();
+        const activeChapterId = targetChapterId || chapterId || lessonItem.chapterId;
+        if (!isAdmin || !groupId || !bookId || !activeChapterId) {
+            console.warn('handleToggleLessonPremium missing IDs:', { isAdmin, groupId, bookId, activeChapterId });
+            return;
+        }
         try {
             const nextVal = !lessonItem.isPremium;
-            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonItem.id);
+            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', activeChapterId, 'lessons', lessonItem.id);
             await updateDoc(lessonRef, { isPremium: nextVal });
             setBookGroups(prev => prev.map(g => g.id === groupId ? {
                 ...g,
                 books: g.books.map(b => b.id === bookId ? {
                     ...b,
-                    chapters: b.chapters.map(c => c.id === chapterId ? {
+                    chapters: b.chapters.map(c => c.id === activeChapterId ? {
                         ...c,
                         lessons: c.lessons.map(l => l.id === lessonItem.id ? { ...l, isPremium: nextVal } : l)
                     } : c)

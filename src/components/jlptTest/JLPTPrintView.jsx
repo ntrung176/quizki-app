@@ -51,13 +51,18 @@ const JLPTPrintView = ({ test, includeAnswers, includeAnswerSheet }) => {
     const getOptionsGridClass = (options) => {
         if (!options || !Array.isArray(options) || options.length === 0) return 'hidden';
         try {
+            const maxOptLen = Math.max(...options.map(opt => {
+                if (!opt) return 0;
+                return String(opt).replace(/<[^>]*>/g, '').length;
+            }));
             const totalLength = options.reduce((sum, opt) => {
-                if (typeof opt !== 'string') return sum;
-                return sum + opt.replace(/<[^>]*>/g, '').length;
+                if (!opt) return sum;
+                return sum + String(opt).replace(/<[^>]*>/g, '').length;
             }, 0);
-            if (totalLength < 40) return 'print-options-grid';
-            if (totalLength < 80) return 'print-options-grid print-options-2col';
-            return 'print-options-1col';
+
+            if (maxOptLen > 25 || totalLength >= 75) return 'print-options-1col';
+            if (maxOptLen > 11 || totalLength >= 38) return 'print-options-2col';
+            return 'print-options-4col';
         } catch (err) {
             console.error("JLPTPrintView error calc options grid class:", err);
             return 'print-options-1col';
@@ -141,9 +146,10 @@ const JLPTPrintView = ({ test, includeAnswers, includeAnswerSheet }) => {
                             const subQs = q?.subQuestions || q?.questions || q?.items;
                             const hasSub = subQs && Array.isArray(subQs) && subQs.length > 0;
                             const qCorrect = q?.correctAnswer !== undefined ? q.correctAnswer : q?.correct !== undefined ? q.correct : q?.answerIndex;
+                            const isReading = Boolean(qPassage);
                             
                             return (
-                                <div key={qi} className="print-question-item">
+                                <div key={qi} className={isReading ? "print-reading-group print-no-break mb-6" : "print-question-item print-no-break mb-4"}>
                                     {qPassage && (
                                         <div className="print-passage-box">
                                             <div dangerouslySetInnerHTML={{ __html: qPassage }} />
@@ -178,16 +184,12 @@ const JLPTPrintView = ({ test, includeAnswers, includeAnswerSheet }) => {
 
                                     {!hasSub && qOptions && qOptions.length > 0 && (
                                         <div className={getOptionsGridClass(qOptions)}>
-                                            {qOptions.map((opt, oi) => {
-                                                const isCorrectOpt = includeAnswers && Number(qCorrect) === oi;
-                                                return (
-                                                    <div key={oi} className={`print-option ${isCorrectOpt ? 'font-extrabold underline text-black' : ''}`}>
-                                                        <span className="font-bold mr-1">({oi + 1})</span>
-                                                        <span dangerouslySetInnerHTML={{ __html: opt }} />
-                                                        {isCorrectOpt && <span className="ml-1 text-black font-black">✓ (Đáp án)</span>}
-                                                    </div>
-                                                );
-                                            })}
+                                            {qOptions.map((opt, oi) => (
+                                                <div key={oi} className="print-option">
+                                                    <span className="font-bold mr-1">({oi + 1})</span>
+                                                    <span dangerouslySetInnerHTML={{ __html: opt }} />
+                                                </div>
+                                            ))}
                                         </div>
                                     )}
 
@@ -197,25 +199,20 @@ const JLPTPrintView = ({ test, includeAnswers, includeAnswerSheet }) => {
                                                 questionGlobalCounter++;
                                                 const sqText = sq?.question || sq?.text || sq?.title || sq?.content || '';
                                                 const sqOptions = sq?.options || sq?.answers || sq?.choices || [];
-                                                const sqCorrect = sq?.correctAnswer !== undefined ? sq.correctAnswer : sq?.correct !== undefined ? sq.correct : sq?.answerIndex;
                                                 return (
-                                                    <div key={sqi} className="print-question-item">
+                                                    <div key={sqi} className="print-question-item print-no-break">
                                                         <div className="mb-1">
                                                             <span className="font-bold">Câu {questionGlobalCounter}. </span>
                                                             <span dangerouslySetInnerHTML={{ __html: getCleanContent(sqText) }} />
                                                         </div>
                                                         {sqOptions && sqOptions.length > 0 && (
                                                             <div className={getOptionsGridClass(sqOptions)}>
-                                                                {sqOptions.map((opt, oi) => {
-                                                                    const isCorrectOpt = includeAnswers && Number(sqCorrect) === oi;
-                                                                    return (
-                                                                        <div key={oi} className={`print-option ${isCorrectOpt ? 'font-extrabold underline text-black' : ''}`}>
-                                                                            <span className="font-bold mr-1">({oi + 1})</span>
-                                                                            <span dangerouslySetInnerHTML={{ __html: opt }} />
-                                                                            {isCorrectOpt && <span className="ml-1 text-black font-black">✓ (Đáp án)</span>}
-                                                                        </div>
-                                                                    );
-                                                                })}
+                                                                {sqOptions.map((opt, oi) => (
+                                                                    <div key={oi} className="print-option">
+                                                                        <span className="font-bold mr-1">({oi + 1})</span>
+                                                                        <span dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                    </div>
+                                                                ))}
                                                             </div>
                                                         )}
                                                     </div>

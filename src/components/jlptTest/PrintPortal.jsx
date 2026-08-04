@@ -2,15 +2,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 const PrintPortal = ({ children }) => {
-    const [container, setContainer] = useState(() => {
-        let el = document.getElementById('quizki-print-portal');
-        if (!el) {
-            el = document.createElement('div');
-            el.id = 'quizki-print-portal';
-            document.body.appendChild(el);
-        }
-        return el;
-    });
+    const [container, setContainer] = useState(null);
 
     useEffect(() => {
         let el = document.getElementById('quizki-print-portal');
@@ -18,20 +10,11 @@ const PrintPortal = ({ children }) => {
             el = document.createElement('div');
             el.id = 'quizki-print-portal';
             document.body.appendChild(el);
-            setContainer(el);
-        } else if (!document.body.contains(el)) {
-            document.body.appendChild(el);
-            setContainer(el);
         }
-
-        return () => {
-            if (el) {
-                el.innerHTML = '';
-            }
-        };
+        setContainer(el);
     }, []);
 
-    if (!container) return children;
+    if (!container) return null;
 
     return createPortal(children, container);
 };

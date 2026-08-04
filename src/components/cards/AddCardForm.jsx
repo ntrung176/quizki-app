@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw, AlertTriangle, Cpu } from 'lucide-react'
+import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw, AlertTriangle, Cpu, FileJson } from 'lucide-react'
 import { POS_TYPES, ENGLISH_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 
@@ -7,6 +7,7 @@ import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 import BatchAiModal from './BatchAiModal';
+import JsonImportModal from './JsonImportModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
@@ -739,9 +740,21 @@ const AddCardForm = ({
     const [duplicateCheckResult, setDuplicateCheckResult] = useState(null);
     const [showPremiumModal, setShowPremiumModal] = useState(false);
 
-    // Bulk AI Modal State
+    // Bulk AI & JSON Modal State
     const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
     const [batchModalInitialTab, setBatchModalInitialTab] = useState('text');
+    const [isJsonModalOpen, setIsJsonModalOpen] = useState(false);
+
+    const handleImportJsonCards = (newCards) => {
+        if (!newCards || newCards.length === 0) return;
+        setCards(prev => {
+            if (prev.length === 1 && !prev[0].front && !prev[0].back) {
+                return newCards;
+            }
+            return [...prev, ...newCards];
+        });
+        showToast(`Đã nhập thành công ${newCards.length} từ vựng vào bài!`, 'success');
+    };
 
     const activeFrontInputRef = useRef(null);
 
@@ -1067,8 +1080,8 @@ const AddCardForm = ({
                 </div>
 
                 {/* Metadata Card */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-md border border-slate-200 dark:border-slate-800 flex flex-col md:flex-row gap-6 items-stretch">
-                    <div className="flex-1 space-y-5">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-md border border-slate-200 dark:border-slate-800">
+                    <div className="space-y-5">
                         <div>
                             <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.setTitleLabel', 'TIÊU ĐỀ HỌC PHẦN')}</label>
                             <input
@@ -1091,27 +1104,6 @@ const AddCardForm = ({
                             />
                         </div>
                     </div>
-                    <div className="w-full md:w-64 h-36 md:h-auto shrink-0 relative flex items-center justify-center">
-                        {coverImage ? (
-                            <div className="relative w-full h-full rounded-2xl overflow-hidden group/cover">
-                                <img src={coverImage} alt="Cover Preview" className="w-full h-full object-cover" />
-                                <button
-                                    type="button"
-                                    onClick={() => setCoverImage(null)}
-                                    className="absolute top-2 right-2 bg-black/60 backdrop-blur-md p-1.5 rounded-full text-white hover:bg-red-500 transition-colors shadow"
-                                    title="Xóa ảnh bìa"
-                                >
-                                    <X className="w-4 h-4" />
-                                </button>
-                            </div>
-                        ) : (
-                            <label className="flex flex-col items-center justify-center w-full h-full border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-indigo-400 rounded-2xl cursor-pointer transition-all bg-slate-50/50 dark:bg-slate-900/20 group/label">
-                                <ImageIcon className="w-6 h-6 text-slate-450 group-hover/label:text-indigo-500 transition-colors mb-2" />
-                                <span className="text-xs font-semibold text-slate-400 group-hover/label:text-indigo-500 transition-colors">{t('forms.addCover', 'Thêm ảnh bìa')}</span>
-                                <input type="file" accept="image/*" onChange={handleCoverImageChange} className="hidden" />
-                            </label>
-                        )}
-                    </div>
                 </div>
 
                 {/* Control Action Row */}
@@ -1119,13 +1111,13 @@ const AddCardForm = ({
                     <button
                         type="button"
                         onClick={handleAddCardRow}
-                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 dark:text-slate-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700/60 transition-all shadow-sm"
+                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 dark:text-slate-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700/60 transition-all shadow-sm cursor-pointer"
                     >
                         <Plus className="w-4 h-4" />
                         {t('forms.addRow', '+ Thêm dòng mới')}
                     </button>
-                    {onGeminiAssist && (
-                        <div className="flex flex-wrap gap-2.5">
+                    <div className="flex flex-wrap gap-2.5">
+                        {onGeminiAssist && (
                             <button
                                 type="button"
                                 onClick={() => {
@@ -1137,28 +1129,21 @@ const AddCardForm = ({
                                     setIsBatchModalOpen(true);
                                 }}
                                 data-tour-id="AI_BATCH_BTN"
-                                className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
+                                className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
                             >
                                 <span className="text-[9px] font-black bg-indigo-200/60 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 rounded-md">AI</span>
                                 {t('forms.aiBatch', 'Tạo bằng AI hàng loạt')}
                             </button>
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    if (!canUserUseAI) {
-                                        setShowPremiumModal(true);
-                                        return;
-                                    }
-                                    setBatchModalInitialTab('image');
-                                    setIsBatchModalOpen(true);
-                                }}
-                                className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-sky-650 bg-sky-50 hover:bg-sky-100 border border-sky-100 dark:text-sky-400 dark:bg-slate-800 dark:border-sky-900/50 dark:hover:bg-slate-700 transition-all shadow-sm"
-                            >
-                                <ImageIcon className="w-4 h-4 text-sky-500" />
-                                {t('forms.ocrAdd', 'Thêm từ vựng theo ảnh')}
-                            </button>
-                        </div>
-                    )}
+                        )}
+                        <button
+                            type="button"
+                            onClick={() => setIsJsonModalOpen(true)}
+                            className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-sky-650 bg-sky-50 hover:bg-sky-100 border border-sky-100 dark:text-sky-400 dark:bg-slate-800 dark:border-sky-900/50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
+                        >
+                            <FileJson className="w-4 h-4 text-sky-500" />
+                            Nhập JSON thủ công
+                        </button>
+                    </div>
                 </div>
 
                 {/* Cards List */}
@@ -1244,6 +1229,13 @@ const AddCardForm = ({
                 aiCreditsRemaining={aiCreditsRemaining}
                 onGenerateComplete={handleBatchAiComplete}
                 existingCards={cards}
+            />
+
+            {/* Manual JSON Import Modal */}
+            <JsonImportModal
+                isOpen={isJsonModalOpen}
+                onClose={() => setIsJsonModalOpen(false)}
+                onImport={handleImportJsonCards}
             />
 
             {/* Folder Selector Dialog */}

@@ -538,32 +538,30 @@ html.dark mark {
     padding: 0 !important;
   }
 
-  /* Hide all elements during print by default */
-  body * {
-    visibility: hidden !important;
-  }
-
-  /* Hide any elements explicitly marked no-print */
+  /* Hide main React root and no-print elements completely during print */
+  #root,
   .no-print,
   .no-print * {
     display: none !important;
-    visibility: hidden !important;
   }
 
-  /* Show ONLY the print container wrapper and its children */
+  /* Show ONLY the print container wrapper and portal children */
+  #quizki-print-portal,
+  #quizki-print-portal *,
   .print-container-wrapper,
   .print-container-wrapper * {
     visibility: visible !important;
   }
 
+  #quizki-print-portal,
   .print-container-wrapper {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
+    position: relative !important;
+    display: block !important;
     width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
     margin: 0 !important;
     padding: 0 !important;
-    display: block !important;
     background-color: #ffffff !important;
   }
 
@@ -638,16 +636,19 @@ html.dark mark {
     font-size: 10.5pt !important;
     line-height: 1.8 !important;
     border-radius: 4px !important;
-    page-break-inside: auto !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
-  .print-question-item {
+  .print-reading-group,
+  .print-question-item,
+  .print-no-break {
     margin-bottom: 20px !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
-  .print-options-grid {
+  .print-options-4col {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 8px !important;
@@ -655,10 +656,18 @@ html.dark mark {
     margin-left: 20px !important;
     margin-bottom: 12px !important;
     page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
   .print-options-2col {
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+    margin-left: 20px !important;
+    margin-bottom: 12px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
   .print-options-1col {
@@ -666,6 +675,8 @@ html.dark mark {
     margin-top: 6px !important;
     margin-left: 20px !important;
     margin-bottom: 12px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
   .print-options-1col > div {
@@ -674,6 +685,7 @@ html.dark mark {
 
   .print-option {
     font-size: 10.5pt !important;
+    word-break: break-word !important;
   }
 
   .print-page-break {

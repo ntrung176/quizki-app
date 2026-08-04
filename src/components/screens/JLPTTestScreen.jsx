@@ -665,8 +665,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                 </button>
                                 <button
                                     onClick={() => {
-                                        setIsPrintTriggered(true);
-                                        setTimeout(() => window.print(), 300);
+                                        if (isPrintTriggered) {
+                                            window.print();
+                                        } else {
+                                            setIsPrintTriggered(true);
+                                        }
                                     }}
                                     className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-md transition-all cursor-pointer"
                                 >
@@ -680,15 +683,17 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
 
                 {/* Print View Layout */}
                 {printingTest && isPrintTriggered && (
-                    <div className="print-container-wrapper">
-                        <PrintErrorBoundary>
-                            <JLPTPrintView 
-                                test={printingTest} 
-                                includeAnswers={includeAnswers} 
-                                includeAnswerSheet={includeAnswerSheet} 
-                            />
-                        </PrintErrorBoundary>
-                    </div>
+                    <PrintPortal>
+                        <div className="print-container-wrapper">
+                            <PrintErrorBoundary>
+                                <JLPTPrintView 
+                                    test={printingTest} 
+                                    includeAnswers={includeAnswers} 
+                                    includeAnswerSheet={includeAnswerSheet} 
+                                />
+                            </PrintErrorBoundary>
+                        </div>
+                    </PrintPortal>
                 )}
             </>
         );

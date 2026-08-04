@@ -229,7 +229,7 @@ const BookView = ({
                                             {isAdmin && (
                                                 <>
                                                     <button 
-                                                        onClick={(e) => handleToggleLessonPremium(e, lesson)}
+                                                        onClick={(e) => handleToggleLessonPremium(e, lesson, chapter.id)}
                                                         className={`p-1 rounded transition-colors cursor-pointer ${lesson.isPremium ? 'text-amber-500 hover:text-amber-600' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'}`}
                                                         title={lesson.isPremium ? "Đổi thành Miễn phí" : "Đổi thành Premium"}
                                                     >

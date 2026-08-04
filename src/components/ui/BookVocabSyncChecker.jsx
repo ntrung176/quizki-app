@@ -38,6 +38,28 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                     allCards.map(c => c.front.split('（')[0].split('(')[0].trim().toLowerCase())
                 );
                 const relevant = [];
+                const cardNeedsUpdate = (card, changes, updateDate) => {
+                    if (!card || !changes) return false;
+                    const cardCreatedDate = card.createdAt ? (card.createdAt?.toDate?.() || new Date(card.createdAt)) : null;
+                    if (cardCreatedDate && updateDate && updateDate <= cardCreatedDate) {
+                        return false;
+                    }
+                    for (const [field, newVal] of Object.entries(changes)) {
+                        if (newVal === undefined || newVal === null) continue;
+                        const cleanNew = String(newVal).trim();
+                        if (field === 'meaning' || field === 'back') {
+                            if (String(card.back || card.meaning || '').trim() !== cleanNew) return true;
+                        } else if (field === 'reading') {
+                            if (String(card.reading || '').trim() !== cleanNew) return true;
+                        } else if (field === 'example') {
+                            if (String(card.example || '').trim() !== cleanNew) return true;
+                        } else {
+                            if (String(card[field] || '').trim() !== cleanNew) return true;
+                        }
+                    }
+                    return false;
+                };
+
                 updatesSnap.forEach(docSnap => {
                     const data = docSnap.data();
                     const updateDate = data.updatedAt?.toDate?.() || new Date(data.updatedAt || 0);
@@ -50,6 +72,11 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                     const matchedCard = allCards.find(c =>
                         c.front.split('（')[0].split('(')[0].trim().toLowerCase() === word
                     );
+                    if (!matchedCard) return;
+
+                    // Skip if card was added after update date or already has latest changes
+                    if (!cardNeedsUpdate(matchedCard, data.changes, updateDate)) return;
+
                     relevant.push({
                         id: docSnap.id,
                         ...data,
