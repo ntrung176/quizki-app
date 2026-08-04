@@ -280,6 +280,46 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         getSharedKanjiProgress(userId).catch(() => { });
     }, [userId]);
 
+    const awardXP = useCallback(async (amount) => {
+        if (!userId || !amount || amount <= 0) return;
+        try {
+            const currentXp = Math.max(
+                Number(rawProfile?.xp || 0),
+                Number(rawProfile?.score || 0),
+                Number(rawProfile?.totalXp || 0)
+            );
+            const newXp = currentXp + Math.round(Number(amount));
+
+            setProfile(prev => prev ? { ...prev, xp: newXp, score: newXp, totalXp: newXp } : prev);
+
+            if (db && appId) {
+                const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+                await updateDoc(profileRef, {
+                    xp: newXp,
+                    score: newXp,
+                    totalXp: newXp,
+                    updatedAt: Date.now()
+                }).catch(async () => {
+                    await setDoc(profileRef, { xp: newXp, score: newXp, totalXp: newXp, updatedAt: Date.now() }, { merge: true });
+                });
+
+                if (publicStatsCollectionPath) {
+                    const statsRef = doc(db, publicStatsCollectionPath, userId);
+                    await setDoc(statsRef, {
+                        xp: newXp,
+                        score: newXp,
+                        totalXp: newXp,
+                        displayName: rawProfile?.displayName || 'User',
+                        photoURL: rawProfile?.photoURL || '',
+                        updatedAt: Date.now()
+                    }, { merge: true }).catch(() => {});
+                }
+            }
+        } catch (err) {
+            console.warn('⚠️ Error awarding XP:', err);
+        }
+    }, [userId, rawProfile, publicStatsCollectionPath]);
+
     return {
         authReady,
         userId,
@@ -295,6 +335,7 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         activePopup,
         handleDismissPopup,
         handleAdminDeleteUserData,
+        awardXP,
         geminiApiKeys,
         publicStatsCollectionPath
     };

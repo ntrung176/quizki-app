@@ -3,8 +3,9 @@ import { collection, query, onSnapshot, doc, updateDoc, setDoc, deleteDoc } from
 import { db, appId } from '../config/firebase';
 import { showToast } from '../utils/toast';
 import { cleanFirestoreData } from '../utils/firestoreHelpers';
-import { isVocabCardDue } from '../utils/srs';
-import { aiAssistVocab } from '../utils/aiProvider';
+import { isVocabCardDue, calculateAnkiSRS } from '../utils/srs';
+import { aiAssistVocab, extractVocabFromImage } from '../utils/aiProvider';
+import { POINTS } from '../utils/scoring';
 
 export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
     const [allCards, setAllCards] = useState([]);
@@ -273,6 +274,84 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         }
     }, [userId, vocabCollectionPath, setAllCards, allCards]);
 
+    const handleUpdateVocabSrsRating = useCallback(async (cardId, ratingOrData, callback) => {
+        if (!cardId) return 0;
+        
+        const safeId = String(cardId);
+        const targetCard = allCards.find(c => String(c.id) === safeId);
+        let newSrsFields = {};
+
+        if (typeof ratingOrData === 'object' && ratingOrData !== null) {
+            newSrsFields = ratingOrData;
+        } else if (targetCard) {
+            const rating = ratingOrData;
+            const result = calculateAnkiSRS(targetCard, rating);
+            const nowTime = Date.now();
+            const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
+            newSrsFields = {
+                srsInterval: result.interval,
+                srsEase: result.ease,
+                srsLearningStep: result.learningStep,
+                srsIsLapsed: result.isLapsed,
+                srsReps: result.reps,
+                srsLapseCount: result.lapseCount,
+                srsPrelapseInterval: result.prelapseInterval,
+                srsState: result.state,
+                nextReview_back: nowTime + nextReviewOffset,
+                lastReviewed_back: nowTime,
+                lastReviewed: nowTime,
+                state: result.state,
+                interval: result.interval,
+                ease: result.ease,
+                nextReview: nowTime + nextReviewOffset
+            };
+        } else {
+            newSrsFields = { lastReviewed: Date.now() };
+        }
+
+        await handleUpdateCard(safeId, newSrsFields);
+
+        if (typeof callback === 'function') {
+            try {
+                callback(true);
+            } catch (cbErr) {
+                console.warn('SRS callback warning:', cbErr);
+            }
+        }
+
+        const ratingStr = String(typeof ratingOrData === 'string' ? ratingOrData : 'good').toLowerCase();
+        const xpReward = POINTS?.SRS_VOCAB?.[ratingStr] || POINTS?.SRS_VOCAB?.good || 4;
+        return xpReward;
+    }, [allCards, handleUpdateCard]);
+
+    const handleRevertVocabSrsRating = useCallback(async (cardId, prevData) => {
+        if (!cardId) return;
+        if (prevData) {
+            await handleUpdateCard(String(cardId), prevData);
+        }
+    }, [handleUpdateCard]);
+
+    const handleSaveCardAudio = useCallback(async (cardId, b64Audio, voiceId) => {
+        if (!cardId || !b64Audio) return;
+        const patch = {
+            audio: b64Audio,
+            audioVoice: voiceId || 'ja-JP-Standard-A',
+            updatedAt: Date.now()
+        };
+        await handleUpdateCard(String(cardId), patch);
+    }, [handleUpdateCard]);
+
+    const handleExtractVocabFromImage = useCallback(async (base64Image, targetLanguage = 'ja') => {
+        if (!base64Image) return [];
+        try {
+            return await extractVocabFromImage(base64Image, targetLanguage);
+        } catch (err) {
+            console.error('Lỗi trích xuất từ vựng từ ảnh:', err);
+            showToast('Lỗi AI OCR', err.message || 'Không thể trích xuất từ vựng từ ảnh.');
+            throw err;
+        }
+    }, []);
+
     return {
         allCards,
         setAllCards,
@@ -287,6 +366,10 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         handleDeleteCard,
         handleSaveChanges,
         handleGeminiAssist,
-        handleToggleSrs
+        handleToggleSrs,
+        handleUpdateVocabSrsRating,
+        handleRevertVocabSrsRating,
+        handleSaveCardAudio,
+        handleExtractVocabFromImage
     };
 };

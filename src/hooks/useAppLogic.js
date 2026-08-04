@@ -54,6 +54,7 @@ export const useAppLogic = () => {
     });
     const [flashcardCards, setFlashcardCards] = useState([]);
     const scrollToCardIdRef = useRef(null);
+    const setAllCardsRef = useRef(null);
 
     const [isDarkMode, setIsDarkMode] = useState(() => {
         const saved = localStorage.getItem('darkMode');
@@ -107,7 +108,9 @@ export const useAppLogic = () => {
 
     // 4. Auth & User Profile Hook
     const authAndProfile = useAppAuthAndProfile({
-        setAllCards: (cards) => vocab.setAllCards(cards),
+        setAllCards: (cards) => {
+            if (setAllCardsRef.current) setAllCardsRef.current(cards);
+        },
         setReviewCards,
         setView,
         setEditingCard,
@@ -133,6 +136,10 @@ export const useAppLogic = () => {
         dueCounts, memoryStats, calculatedStreak, handleUpdateCard, handleAddCard,
         handleDeleteCard, handleSaveChanges, handleGeminiAssist, handleToggleSrs
     } = vocab;
+
+    useEffect(() => {
+        setAllCardsRef.current = setAllCards;
+    }, [setAllCards]);
 
     // 6. Study Sets & Folders Hook
     const studySetsHook = useAppStudySets({
@@ -172,8 +179,8 @@ export const useAppLogic = () => {
         return true;
     }, [allCards, setView]);
 
-    // Optional / Extra handlers (preserved for API compatibility)
-    const handleExtractVocabFromImage = useCallback(async (base64) => {}, []);
+    // Real handlers from hooks
+    const handleExtractVocabFromImage = vocab.handleExtractVocabFromImage;
     const handleGenerateMoreExample = useCallback(async (word) => {}, []);
     const handleBatchImport = useCallback(async (vocabText) => {}, []);
     const handleBatchSaveNext = useCallback(async () => {}, []);
@@ -184,11 +191,11 @@ export const useAppLogic = () => {
     const handleUpdateProfileName = useCallback(async (newName) => {}, []);
     const handleUpdateAvatar = useCallback(async (newAvatar) => {}, []);
     const handleChangePassword = useCallback(async (newPassword) => {}, []);
-    const handleSaveCardAudio = useCallback(async (cardId, b64, voiceId) => {}, []);
-    const handleUpdateVocabSrsRating = useCallback(async (cardId, rating) => {}, []);
-    const handleRevertVocabSrsRating = useCallback(async (cardId) => {}, []);
+    const handleSaveCardAudio = vocab.handleSaveCardAudio;
+    const handleUpdateVocabSrsRating = vocab.handleUpdateVocabSrsRating;
+    const handleRevertVocabSrsRating = vocab.handleRevertVocabSrsRating;
     const handleRefreshCards = useCallback(async () => {}, []);
-    const awardXP = useCallback(async (amount) => {}, []);
+    const awardXP = authAndProfile.awardXP;
 
     return {
         navigate, location, tourTrigger, setTourTrigger, updateAvailable, refreshApp, dismissUpdate,
