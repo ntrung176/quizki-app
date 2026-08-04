@@ -13,6 +13,7 @@ import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
+import { speakJapanese } from '../../utils/audio';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
@@ -931,10 +932,18 @@ const SRSVocabScreen = ({
 
     // Auto-play audio when card is flipped
     useEffect(() => {
-        if (reviewMode && reviewQueue.length > 0 && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
+        if (reviewMode && reviewQueue.length > 0 && cardSettings.autoPlayAudio !== false && cardSettings.audioEnabled !== false) {
             const currentCard = reviewQueue[currentReviewIndex];
-            if (currentCard && currentCard.audioBase64 && isFlipped) {
-                playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+            if (currentCard && isFlipped) {
+                const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
+                if (cardText) {
+                    speakJapanese(
+                        cardText,
+                        currentCard.audioBase64 || currentCard.audioUrl || null,
+                        onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null,
+                        currentCard.audioVoiceId
+                    );
+                }
             }
         }
     }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, cardSettings.audioEnabled, reviewQueue]);
@@ -1009,7 +1018,15 @@ const SRSVocabScreen = ({
                                                 onClick={(e) => {
                                                     e.stopPropagation();
                                                     if (currentCard) {
-                                                        playAudio && playAudio(currentCard.audioBase64, currentCard.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
+                                                        const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
+                                                        if (cardText) {
+                                                            speakJapanese(
+                                                                cardText,
+                                                                currentCard.audioBase64 || currentCard.audioUrl || null,
+                                                                onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null,
+                                                                currentCard.audioVoiceId
+                                                            );
+                                                        }
                                                     }
                                                 }}
                                                 data-tour-id="FLASHCARD_SPEAKER"

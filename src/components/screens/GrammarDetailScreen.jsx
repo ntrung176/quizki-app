@@ -148,6 +148,50 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }
     }, [gp, isEditing]);
 
+    // Reconstruct the structure formula lines intelligently from connection, structureRaw, or structure
+    const structureLines = useMemo(() => {
+        if (!gp) return [];
+        const splitFormulas = (str) => {
+            if (typeof str !== 'string' || !str.trim()) return [];
+            const rawLines = str.split(/\n+/).map(s => s.trim()).filter(Boolean);
+            const result = [];
+            for (const rLine of rawLines) {
+                // Split by space-slash-space " / " or slashes followed by new formula prefixes (e.g., ご, お, N, V, A, Adj, ~, 〜)
+                const subLines = rLine.split(/(?:\s+[/／]\s+|\s*[/／]\s*(?=[おごVNA]|N|V|A|Adj|[~〜]|ない|て|た|の|な))/gi)
+                    .map(s => s.trim())
+                    .filter(Boolean);
+                result.push(...subLines);
+            }
+            return result;
+        };
+
+        if (Array.isArray(gp.connection) && gp.connection.length > 0) {
+            const lines = [];
+            gp.connection.forEach(c => {
+                const text = typeof c === 'string' ? c : c?.text || '';
+                lines.push(...splitFormulas(text));
+            });
+            if (lines.length > 0) return lines;
+        }
+        if (gp.structureRaw && typeof gp.structureRaw === 'string') {
+            return splitFormulas(gp.structureRaw);
+        }
+        if (gp.structure) {
+            if (typeof gp.structure === 'string') {
+                return splitFormulas(gp.structure);
+            }
+            if (Array.isArray(gp.structure)) {
+                const lines = [];
+                gp.structure.forEach(s => {
+                    const text = typeof s === 'string' ? s : s?.text || '';
+                    lines.push(...splitFormulas(text));
+                });
+                if (lines.length > 0) return lines;
+            }
+        }
+        return [];
+    }, [gp]);
+
     if (loading) {
         return (
             <div className="w-full pb-8">
@@ -337,12 +381,31 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }
     };
 
-    // Helper to highlight N, A, V symbols
+    // Helper to highlight N, A, V symbols and strikethrough tags (<s>...</s> or ~...~)
     const highlightNAV = (text) => {
         if (!text) return text;
+
+        const renderWithStrikethrough = (inputStr) => {
+            if (typeof inputStr !== 'string') return inputStr;
+            const delRegex = /(?:<s>|<del>|~~|~)(.*?)(?:<\/s>|<\/del>|~~|~)/gi;
+            const parts = inputStr.split(delRegex);
+            if (parts.length <= 1) return inputStr;
+
+            return parts.map((chunk, idx) => {
+                if (idx % 2 === 1) {
+                    return (
+                        <span key={idx} className="line-through decoration-rose-500 decoration-2 text-slate-400 dark:text-slate-500 font-semibold mx-0.5">
+                            {chunk}
+                        </span>
+                    );
+                }
+                return chunk;
+            });
+        };
+
         const navRegex = /(Aい|Aな|A|V|N)/g;
         const parts = text.split(navRegex);
-        if (parts.length <= 1) return text;
+        if (parts.length <= 1) return renderWithStrikethrough(text);
 
         return (
             <>
@@ -370,7 +433,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             );
                         }
                     }
-                    return <React.Fragment key={index}>{part}</React.Fragment>;
+                    return <React.Fragment key={index}>{renderWithStrikethrough(part)}</React.Fragment>;
                 })}
             </>
         );
@@ -452,37 +515,6 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     const displayExamples = gp.examples?.length > 0
         ? gp.examples
         : ((gp.pattern?.includes('あげk') || gp.pattern?.includes('あげく')) ? FALLBACK_EXAMPLES : []);
-
-    // Reconstruct the full structure formula string intelligently from the database
-    let fullStructure = '';
-    if (gp?.structure) {
-        if (typeof gp.structure === 'string') {
-            fullStructure = gp.structure;
-        } else if (Array.isArray(gp.structure)) {
-            fullStructure = gp.structure.map(s => {
-                if (typeof s === 'string') return s;
-                return s?.text || '';
-            }).reduce((acc, curr) => {
-                const trimmedCurr = curr.trim();
-                if (!acc) return trimmedCurr;
-                if (trimmedCurr === '+' || trimmedCurr === '/' || acc.endsWith('+') || acc.endsWith('/')) {
-                    return `${acc} ${trimmedCurr}`;
-                }
-                return `${acc} + ${trimmedCurr}`;
-            }, '');
-        }
-    }
-
-    const patternClean = gp?.pattern?.replace(/^[~〜]/, '').trim() || '';
-    const structureLines = typeof fullStructure === 'string'
-        ? fullStructure.split(/[\/\n|]+/).map(s => s.trim()).filter(Boolean)
-        : (fullStructure ? [String(fullStructure)] : []);
-
-    const structureAlreadyHasPattern = Boolean(
-        fullStructure && patternClean && (
-            fullStructure.includes(patternClean) || (gp?.pattern && fullStructure.includes(gp.pattern))
-        )
-    );
 
     // Smart language-detection to handle swapped admin database fields
     const isJapanese = (t) => {
@@ -784,41 +816,14 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                 <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
                                     Cấu trúc
                                 </div>
-                                {/* Right Content - Left column of forms, middle +, right single pattern badge */}
+                                {/* Right Content - Stacked structure formula pills */}
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
-                                        {/* Left column of stacked forms */}
-                                        <div className="flex flex-col gap-2">
-                                            {structureLines.map((line, idx) => {
-                                                let cleanLine = line;
-                                                if (patternClean) {
-                                                    cleanLine = cleanLine.replace(new RegExp(`\\s*\\+?\\s*[~〜]?${patternClean}`, 'gi'), '').trim();
-                                                }
-                                                if (gp?.pattern) {
-                                                    cleanLine = cleanLine.replace(new RegExp(`\\s*\\+?\\s*${gp.pattern}`, 'gi'), '').trim();
-                                                }
-                                                if (cleanLine.endsWith('+')) cleanLine = cleanLine.slice(0, -1).trim();
-                                                if (!cleanLine) cleanLine = line;
-
-                                                return (
-                                                    <div key={idx} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-xl text-base font-bold text-slate-700 dark:text-slate-300 font-japanese tracking-wide shadow-sm flex items-center gap-1.5 w-fit">
-                                                        {renderHighlightedText(cleanLine, gp.pattern, true)}
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
-
-                                        {/* Middle + sign */}
-                                        <div className="text-slate-400 dark:text-slate-500 font-bold text-lg px-0.5">
-                                            +
-                                        </div>
-
-                                        {/* Right single pattern badge */}
-                                        {gp.pattern && (
-                                            <div className="inline-flex items-center justify-center bg-indigo-50 text-indigo-750 dark:bg-indigo-950/40 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/40 px-3.5 py-2 rounded-xl text-base font-black tracking-wide shadow-sm">
-                                                {gp.pattern}
+                                    <div className="flex flex-col gap-2.5">
+                                        {structureLines.map((line, idx) => (
+                                            <div key={idx} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-2xl text-base font-bold text-slate-700 dark:text-slate-300 font-japanese tracking-wide shadow-sm flex items-center gap-2 flex-wrap w-fit">
+                                                {highlightNAV(line)}
                                             </div>
-                                        )}
+                                        ))}
                                     </div>
                                 </div>
                             </div>

@@ -43,8 +43,11 @@ const FlashcardModeView = ({
                         setIsAnimatingFlip(true);
                         const newFlippedState = !isFlipped;
                         setIsFlipped(newFlippedState);
-                        if (newFlippedState && currentCard) {
-                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                        if (newFlippedState && currentCard && cardSettings?.autoPlayAudio !== false && cardSettings?.audioEnabled !== false) {
+                            const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
+                            if (cardText) {
+                                speakJapanese(cardText, currentCard.audioBase64 || currentCard.audioUrl || null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                            }
                         }
                     }}
                     variant="review"
@@ -73,7 +76,10 @@ const FlashcardModeView = ({
                         onClick={(e) => {
                             e.stopPropagation();
                             if (currentCard) {
-                                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                                const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
+                                if (cardText) {
+                                    speakJapanese(cardText, currentCard.audioBase64 || currentCard.audioUrl || null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                                }
                             }
                         }}
                         className="p-2 bg-white/20 hover:bg-white/35 text-white rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-white/20 cursor-pointer"
