@@ -147,7 +147,7 @@ const KanjiNavHeader = ({
                 <div className="flex flex-wrap gap-2 items-center">
                     {[...JLPT_LEVELS, 'Bộ thủ', ...(isUserAdmin ? ['Mới thêm', 'Chưa có từ vựng', 'Đã có từ vựng'] : [])].map(level => {
                         const isActive = selectedLevel === level;
-                        const isLocked = ['N4', 'N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
+                        const isLocked = ['N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
                         return (
                             <button
                                 key={level}

@@ -155,6 +155,27 @@ const KanjiDetailView = ({
         );
     }, [pitchAccentData]);
 
+    const getVocabReadingType = useCallback((v) => {
+        if (!detail) return 'Onyomi';
+        const toHiragana = (str) => (str || '').replace(/[\u30A1-\u30F6]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
+        
+        const kunyomiStr = Array.isArray(detail.kunyomi) ? detail.kunyomi.join(',') : (detail.kunyomi || '');
+        const onyomiStr = Array.isArray(detail.onyomi) ? detail.onyomi.join(',') : (detail.onyomi || '');
+        
+        const readingClean = toHiragana(v.reading || (v.word?.includes('（') ? v.word.split('（')[1]?.replace('）', '') : ''));
+
+        const kunList = kunyomiStr.split(/[,，、\s]+/).map(s => toHiragana(s.split('.')[0].replace(/[-。]/g, ''))).filter(Boolean);
+        const onList = onyomiStr.split(/[,，、\s]+/).map(s => toHiragana(s.replace(/[-\.。]/g, ''))).filter(Boolean);
+
+        for (const kr of kunList) {
+            if (kr && readingClean.includes(kr)) return 'Kunyomi';
+        }
+        for (const or of onList) {
+            if (or && readingClean.includes(or)) return 'Onyomi';
+        }
+        return 'Onyomi';
+    }, [detail]);
+
     if (!selectedKanji) return null;
 
     const content = (
@@ -406,18 +427,33 @@ const KanjiDetailView = ({
                             <Tag className="w-4 h-4" /> Từ vựng ({vocab.length})
                         </h3>
                     </div>
+                    {(() => {
+                        if (vocab.length === 0) {
+                            return <p className="text-gray-400 dark:text-gray-500 text-center py-4">Chưa có từ vựng</p>;
+                        }
 
-                    {vocab.length === 0 ? (
-                        <p className="text-gray-400 dark:text-gray-500 text-center py-4">Chưa có từ vựng</p>
-                    ) : (
-                        <div className="space-y-2 overflow-y-auto max-h-[500px] lg:max-h-none pr-1">
-                            {vocab.map((v, i) => (
+                        const kunyomiVocab = [];
+                        const onyomiVocab = [];
+                        for (const v of vocab) {
+                            const rType = getVocabReadingType(v);
+                            if (rType === 'Kunyomi') {
+                                kunyomiVocab.push(v);
+                            } else {
+                                onyomiVocab.push(v);
+                            }
+                        }
+
+                        const renderVocabCardItem = (v, i, rType) => {
+                            const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
+                            return (
                                 <div key={v.id || i} className="flex items-center justify-between p-2.5 bg-gray-50 dark:bg-slate-800/80 rounded-lg border border-gray-200 dark:border-slate-700/50">
                                     <div className="flex-1 min-w-0 flex flex-col gap-1 text-sm">
                                         <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
-                                            <span className="font-japanese font-bold text-gray-900 dark:text-white text-base">{v.word}</span>
+                                            <span className={`font-japanese font-bold text-base ${rType === 'Kunyomi' ? 'text-red-500 dark:text-red-400' : 'text-cyan-600 dark:text-cyan-400'}`}>
+                                                {wordClean}
+                                            </span>
                                             {renderVocabPitch(v)}
-                                            {v.sinoViet && <span className="text-cyan-600 dark:text-cyan-400 font-bold uppercase text-xs ml-1">[{v.sinoViet}]</span>}
+                                            {v.sinoViet && <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded ml-1">[{v.sinoViet}]</span>}
                                         </div>
                                         <div className="text-gray-700 dark:text-gray-200 text-xs">{v.meaning}</div>
                                     </div>
@@ -428,7 +464,7 @@ const KanjiDetailView = ({
                                             </button>
                                         )}
                                         {onAddVocabToSRS && (
-                                            <button onClick={() => handleAddVocabToSRS(v)} className="p-1 text-gray-400 hover:text-sky-500 cursor-pointer">
+                                            <button onClick={() => handleAddVocabToSRS(v)} className="p-1 text-gray-400 hover:text-sky-500 cursor-pointer" title="Thêm vào học phần">
                                                 <Plus className="w-4 h-4" />
                                             </button>
                                         )}
@@ -440,9 +476,42 @@ const KanjiDetailView = ({
                                         )}
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-                    )}
+                            );
+                        };
+
+                        return (
+                            <div className="space-y-4 overflow-y-auto max-h-[500px] lg:max-h-none pr-1">
+                                {kunyomiVocab.length > 0 && (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                            <span className="text-[10px] font-bold uppercase tracking-wider text-red-700 dark:text-red-400">
+                                                Kun yomi (Âm Kun)
+                                            </span>
+                                            <span className="text-[10px] font-bold text-red-600 dark:text-red-500/80 ml-auto">({kunyomiVocab.length})</span>
+                                        </div>
+                                        <div className="space-y-2">
+                                            {kunyomiVocab.map((v, i) => renderVocabCardItem(v, i, 'Kunyomi'))}
+                                        </div>
+                                    </div>
+                                )}
+                                {onyomiVocab.length > 0 && (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2 px-3 py-1.5 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                                            <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-400">
+                                                On yomi (Âm On)
+                                            </span>
+                                            <span className="text-[10px] font-bold text-cyan-600 dark:text-cyan-500/80 ml-auto">({onyomiVocab.length})</span>
+                                        </div>
+                                        <div className="space-y-2">
+                                            {onyomiVocab.map((v, i) => renderVocabCardItem(v, i, 'Onyomi'))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })()}
 
                     {isAdmin && (
                         <button onClick={() => setShowAddVocabModal(true)} className="w-full mt-4 py-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg font-medium flex items-center justify-center gap-2 cursor-pointer">

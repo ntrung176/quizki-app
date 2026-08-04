@@ -4,14 +4,15 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import HanziWriter from 'hanzi-writer';
 import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkle, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Bookmark } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
-import { collection, getDocs, doc, setDoc, getDoc, deleteDoc, increment } from 'firebase/firestore';
+import { collection, getDocs, doc, setDoc, getDoc, deleteDoc, increment, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
-import { fetchJotobaWordData } from '../../utils/pitchAccent';
+import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
+import { showToast } from '../../utils/toast';
 import { renderMaziiStyleKanji, fetchKanjiSvg } from '../../utils/kanjiStroke';
 import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, updateCachedUserSrs, updateCachedKanjiProgress } from '../../utils/kanjiService';
 // ── Module-level data cache ────────────────────────────────────────────────
@@ -93,7 +94,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
     useEffect(() => {
         if (profile) {
             const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
-            const isLockedLevel = ['N4', 'N3', 'N2', 'N1'].includes(level) && !userIsAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
+            const isLockedLevel = ['N3', 'N2', 'N1'].includes(level) && !userIsAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
             if (isLockedLevel) {
                 navigate(ROUTES.KANJI_STUDY);
             }
@@ -1090,6 +1091,109 @@ const KanjiFlashcard = ({
         return 'Onyomi';
     };
 
+    const [pitchAccentData, setPitchAccentData] = useState({});
+
+    useEffect(() => {
+        if (!vocab || vocab.length === 0) return;
+        let isMounted = true;
+
+        const fetchAll = async () => {
+            const newData = {};
+            for (const v of vocab) {
+                if (!v.word) continue;
+                try {
+                    const data = await fetchJotobaWordData(v.word);
+                    if (data && isMounted) {
+                        newData[v.word] = data;
+                    }
+                } catch (_) {}
+            }
+            if (isMounted) {
+                setPitchAccentData(prev => ({ ...prev, ...newData }));
+            }
+        };
+        fetchAll();
+
+        return () => { isMounted = false; };
+    }, [kanji?.character, vocab.length]);
+
+    const renderVocabPitch = (v) => {
+        const jotobaData = pitchAccentData[v.word];
+        const reading = v.reading || jotobaData?.reading || null;
+        if (!reading) return null;
+
+        const storedPitch = v.accent !== undefined && v.accent !== '' && v.accent !== null
+            ? accentNumberToPitchParts(reading, v.accent)
+            : null;
+        const pitchParts = v.pitch || storedPitch || jotobaData?.pitch || null;
+
+        if (!pitchParts || pitchParts.length === 0) return null;
+
+        const readingChars = [...reading];
+        const charPitchMap = [];
+        for (const pp of pitchParts) {
+            for (const c of [...pp.part]) {
+                charPitchMap.push({ char: c, high: pp.high });
+            }
+        }
+
+        const lineColor = '#ef4444';
+        return (
+            <span className="font-japanese inline-flex items-end gap-0 ml-1.5" title="Pitch Accent">
+                {readingChars.map((char, ci) => {
+                    const pm = charPitchMap[ci];
+                    const isHigh = pm ? pm.high : false;
+                    const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
+                    const showTransition = ci + 1 < charPitchMap.length && isHigh !== nextHigh;
+                    return (
+                        <span key={ci} className="relative inline-block">
+                            <span
+                                className="block text-gray-500 dark:text-gray-400"
+                                style={{
+                                    borderTop: `2px solid ${isHigh ? lineColor : 'transparent'}`,
+                                    borderBottom: `2px solid ${!isHigh ? lineColor : 'transparent'}`,
+                                    paddingLeft: '1px',
+                                    paddingRight: '1px',
+                                    lineHeight: '1.2',
+                                    fontSize: '0.75rem',
+                                }}
+                            >
+                                {char}
+                            </span>
+                            {showTransition && (
+                                <span className="absolute -right-[0.75px] top-0 bottom-0 w-[2px]" style={{ backgroundColor: lineColor }}></span>
+                            )}
+                        </span>
+                    );
+                })}
+            </span>
+        );
+    };
+
+    const handleAddVocabToSRS = async (vocabItem) => {
+        if (!vocabItem) return;
+        const wordClean = (vocabItem.word || '').split('（')[0].split('(')[0].trim();
+        if (!userId) {
+            showToast('Vui lòng đăng nhập để lưu từ vựng vào học phần!', 'warning');
+            return;
+        }
+        try {
+            const cardData = {
+                front: wordClean,
+                reading: vocabItem.reading || '',
+                back: vocabItem.meaning || '',
+                sinoVietnamese: vocabItem.sinoViet || '',
+                createdAt: new Date().toISOString()
+            };
+            const cardsRef = collection(db, `artifacts/${appId}/users/${userId}/cards`);
+            await addDoc(cardsRef, cardData);
+            showToast(`Đã thêm từ vựng "${wordClean}" vào danh sách học phần của bạn!`, 'success');
+        } catch (err) {
+            console.error('Error saving vocab to user cards:', err);
+            showToast('Không thể lưu từ vựng: ' + err.message, 'error');
+        }
+    };
+
     const isBookmarked = kanji?.id && srsAddedSet.has(kanji.id);
     const handleBookmarkToggle = async () => {
         if (!kanji?.id || !userId) return;
@@ -1319,32 +1423,47 @@ const KanjiFlashcard = ({
                             );
                         };
 
-                        const renderVocabCard = (v, i, rType) => (
-                            <div key={v.id || i} className="flex justify-between items-start pb-4 border-b border-gray-50 dark:border-slate-700/30 last:border-0 last:pb-0">
-                                <div className="space-y-1 pr-4 text-left">
-                                    <div className="flex items-center gap-2 flex-wrap">
-                                        <span className={`text-lg font-bold font-japanese ${rType === 'Kunyomi' ? 'text-red-500 dark:text-red-400' : 'text-cyan-600 dark:text-cyan-400'}`}>{v.word}</span>
-                                        {v.sinoViet && (
-                                            <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded">{v.sinoViet}</span>
-                                        )}
-                                        {v.category && (
-                                            <span className="text-[9px] text-gray-400 dark:text-slate-500 border border-gray-100 dark:border-slate-700 px-1 rounded ml-auto">
-                                                {v.category.replace('📚', '').trim()}
+                        const renderVocabCard = (v, i, rType) => {
+                            const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
+                            return (
+                                <div key={v.id || i} className="flex justify-between items-start pb-4 border-b border-gray-50 dark:border-slate-700/30 last:border-0 last:pb-0">
+                                    <div className="space-y-1 pr-4 text-left">
+                                        <div className="flex items-center gap-2 flex-wrap">
+                                            <span className={`text-lg font-bold font-japanese ${rType === 'Kunyomi' ? 'text-red-500 dark:text-red-400' : 'text-cyan-600 dark:text-cyan-400'}`}>
+                                                {wordClean}
                                             </span>
-                                        )}
+                                            {renderVocabPitch(v)}
+                                            {v.sinoViet && (
+                                                <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded">{v.sinoViet}</span>
+                                            )}
+                                            {v.category && (
+                                                <span className="text-[9px] text-gray-400 dark:text-slate-500 border border-gray-100 dark:border-slate-700 px-1 rounded ml-auto">
+                                                    {v.category.replace('📚', '').trim()}
+                                                </span>
+                                            )}
+                                        </div>
+                                        {!pitchAccentData[v.word] && renderHighlightedReading(v, rType)}
+                                        <div className="text-sm text-gray-600 dark:text-slate-300 font-medium mt-1">{v.meaning}</div>
                                     </div>
-                                    {renderHighlightedReading(v, rType)}
-                                    <div className="text-sm text-gray-600 dark:text-slate-300 font-medium mt-1">{v.meaning}</div>
+                                    <div className="flex items-center gap-1.5 shrink-0">
+                                        <button
+                                            onClick={() => speakJapanese(v.word, v.audioBase64)}
+                                            className="p-2 bg-gray-50 dark:bg-slate-700 hover:bg-gray-100 dark:hover:bg-slate-600 rounded-xl text-gray-400 hover:text-gray-600 dark:hover:text-white transition-all shadow-sm cursor-pointer"
+                                            title="Nghe phát âm"
+                                        >
+                                            <Volume2 className="w-4 h-4" />
+                                        </button>
+                                        <button
+                                            onClick={() => handleAddVocabToSRS(v)}
+                                            className="p-2 bg-gray-50 dark:bg-slate-700 hover:bg-gray-100 dark:hover:bg-slate-600 rounded-xl text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-all shadow-sm cursor-pointer"
+                                            title="Thêm từ vựng vào học phần"
+                                        >
+                                            <Plus className="w-4 h-4" />
+                                        </button>
+                                    </div>
                                 </div>
-                                <button
-                                    onClick={() => speakJapanese(v.word, v.audioBase64)}
-                                    className="p-2 bg-gray-50 dark:bg-slate-700 hover:bg-gray-100 dark:hover:bg-slate-600 rounded-xl text-gray-400 hover:text-gray-600 dark:hover:text-white transition-all shadow-sm flex-shrink-0"
-                                    title="Nghe phát âm"
-                                >
-                                    <Volume2 className="w-4 h-4" />
-                                </button>
-                            </div>
-                        );
+                            );
+                        };
 
                         return (
                             <div className="space-y-6 max-h-[300px] overflow-y-auto pr-1">
@@ -1386,17 +1505,10 @@ const KanjiFlashcard = ({
             <div className="contents lg:block lg:space-y-6 lg:sticky lg:top-6 text-left">
                 {/* Meaning Card */}
                 <div className="order-2 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
-                    <div className="flex justify-between items-start gap-3 sm:gap-4">
-                        <div className="space-y-1.5 sm:space-y-2 flex-1 min-w-0">
-                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Ý nghĩa</span>
-                            <h3 className="text-xl sm:text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 tracking-wide">{kanji.sinoViet || ''}</h3>
-                            <p className="text-sm sm:text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
-                        </div>
-                        {(kanji.imageUrl || kanji.imageBase64) && (
-                            <div className="w-20 h-20 sm:w-28 sm:h-28 shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 flex items-center justify-center p-1.5 shadow-inner">
-                                <img src={kanji.imageUrl || kanji.imageBase64} alt="illustration" className="max-w-full max-h-full object-contain rounded-lg" />
-                            </div>
-                        )}
+                    <div className="space-y-1.5 sm:space-y-2">
+                        <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Ý nghĩa</span>
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 tracking-wide">{kanji.sinoViet || ''}</h3>
+                        <p className="text-sm sm:text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
                     </div>
                 </div>
                 {/* Mnemonics Card */}

@@ -373,7 +373,7 @@ export const useKanjiData = ({
         const fbData = kanjiMap.get(char);
         const jData = getJotobaKanjiData(char);
         const lvl = fbData?.level || jData?.level || 'N5';
-        const isLvlLocked = ['N4', 'N3', 'N2', 'N1'].includes(lvl) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
+        const isLvlLocked = ['N3', 'N2', 'N1'].includes(lvl) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
 
         if (isLvlLocked) {
             setLockedPkgName('Thư viện Kanji Zen');

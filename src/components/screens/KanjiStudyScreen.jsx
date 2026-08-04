@@ -260,7 +260,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                     {Object.entries(JLPT_CONFIG).map(([level, cfg]) => {
                         const isSelected = selectedLevel === level;
                         const isCompleted = isLevelCompleted(level);
-                        const isLocked = ['N4', 'N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
+                        const isLocked = ['N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
                         return (
                             <button
                                 key={level}
@@ -407,8 +407,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                 return (
                                     <div
                                         key={kanji.id || index}
-                                        onClick={handleStartStudy}
-                                        className="flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/30 hover:bg-slate-100/70 dark:hover:bg-slate-800/80 border border-slate-100 dark:border-slate-800/50 rounded-2xl p-4 shadow-sm transition-all duration-350 cursor-pointer hover:scale-[1.01]"
+                                        className="flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800/50 rounded-2xl p-4 shadow-sm"
                                     >
                                         <div className="flex items-center gap-4">
                                             <div className="w-14 h-14 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center font-japanese text-3xl font-bold text-slate-800 dark:text-white border border-slate-100 dark:border-slate-700/60 shadow-sm">
