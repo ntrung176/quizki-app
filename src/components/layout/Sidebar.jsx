@@ -54,7 +54,7 @@ const Sidebar = ({
     isAdmin, 
     userId, 
     allCards = [], 
-    isPremium = false, 
+    isPremium: isPremiumProp = undefined, 
     avatar, 
     profile,
     onTriggerTour
@@ -63,6 +63,35 @@ const Sidebar = ({
     const location = useLocation();
     const { t } = useLanguage();
     const { isEnglishMode } = useTargetLanguage();
+
+    const isPremium = useMemo(() => {
+        if (isPremiumProp === true) return true;
+        if (!profile) return false;
+        const isPremiumUser = (profile.unlockedSpecializedPackages && (
+            profile.unlockedSpecializedPackages.includes('premium') ||
+            profile.unlockedSpecializedPackages.includes('premium_1m') ||
+            profile.unlockedSpecializedPackages.includes('premium_1y') ||
+            profile.unlockedSpecializedPackages.includes('premium_3y') ||
+            profile.unlockedSpecializedPackages.includes('vocab_zen') ||
+            profile.unlockedSpecializedPackages.includes('grammar_zen') ||
+            profile.unlockedSpecializedPackages.includes('kanji_zen') ||
+            profile.unlockedSpecializedPackages.includes('jlpt_prep')
+        )) || false;
+
+        return (
+            profile.isPremiumUnlocked === true ||
+            profile.isPremium === true ||
+            isPremiumUser ||
+            (profile.premiumExpiresAt && (() => {
+                try {
+                    const exp = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
+                    return exp > new Date();
+                } catch (e) {
+                    return false;
+                }
+            })())
+        ) || false;
+    }, [isPremiumProp, profile]);
 
     const xpDetails = React.useMemo(() => {
         const xp = Number(profile?.xp || profile?.score || profile?.totalXp || 0);

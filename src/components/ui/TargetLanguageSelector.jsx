@@ -28,9 +28,15 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
             return;
         }
 
-        setTargetLanguage(langCode);
+        if (langCode === 'en' && !isAdmin) {
+            showToast('Tính năng học Tiếng Anh đang trong quá trình phát triển (Chỉ dành cho Admin thử nghiệm)!', 'info');
+            setIsOpen(false);
+            return;
+        }
+
+        setTargetLanguage(langCode, isAdmin);
         setIsOpen(false);
-        showToast(`Đã chuyển sang ${langCode === 'en' ? 'Tiếng Anh' : 'Tiếng Nhật'}!`, 'success');
+        showToast(`Đã chuyển sang ${langCode === 'en' ? 'Tiếng Anh (BETA)' : 'Tiếng Nhật'}!`, 'success');
 
         const path = location.pathname.toLowerCase();
         // Nếu đang ở bất kỳ học phần, màn hình sửa, ôn tập, hoặc trang đặc thù:
@@ -64,21 +70,34 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
                         </div>
                         {SUPPORTED_TARGET_LANGUAGES.map((lang) => {
                             const isSelected = targetLanguage === lang.code;
+                            const isRestricted = lang.disabled && !isAdmin;
                             return (
                                 <button
                                     key={lang.code}
                                     onClick={() => handleSelectLanguage(lang.code)}
                                     className={`w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                                        isSelected
-                                            ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400'
-                                            : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                                        isRestricted
+                                            ? 'opacity-70 bg-slate-50 dark:bg-slate-800/40 text-slate-400'
+                                            : isSelected
+                                                ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400'
+                                                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
                                     }`}
                                 >
                                     <span className="flex items-center gap-2">
                                         <FlagIcon countryCode={lang.countryCode} fallbackFlag={lang.flag} className="w-5 h-3.5 object-cover rounded-xs shadow-xs" />
                                         <span>{lang.name}</span>
                                     </span>
-                                    {isSelected && <Check className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />}
+                                    {lang.disabled ? (
+                                        <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-md ${
+                                            isAdmin
+                                                ? 'bg-indigo-100 dark:bg-indigo-900/60 text-indigo-600 dark:text-indigo-300'
+                                                : 'bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400'
+                                        }`}>
+                                            {isAdmin ? 'BETA' : 'Đang phát triển'}
+                                        </span>
+                                    ) : (
+                                        isSelected && <Check className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                                    )}
                                 </button>
                             );
                         })}
@@ -110,20 +129,34 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
                     <div className="space-y-1 pt-1">
                         {SUPPORTED_TARGET_LANGUAGES.map((lang) => {
                             const isSelected = targetLanguage === lang.code;
+                            const isRestricted = lang.disabled && !isAdmin;
                             return (
                                 <button
                                     key={lang.code}
                                     onClick={() => handleSelectLanguage(lang.code)}
                                     className={`w-full flex items-center justify-between p-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                                        isSelected
-                                            ? 'bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-indigo-950/60 dark:to-sky-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60 shadow-sm'
-                                            : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/60 border border-transparent'
+                                        isRestricted
+                                            ? 'opacity-70 bg-slate-50 dark:bg-slate-800/40 text-slate-400 border border-slate-100 dark:border-slate-700/50'
+                                            : isSelected
+                                                ? 'bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-indigo-950/60 dark:to-sky-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60 shadow-sm'
+                                                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/60 border border-transparent'
                                     }`}
                                 >
                                     <div className="flex items-center gap-2.5">
                                         <FlagIcon countryCode={lang.countryCode} fallbackFlag={lang.flag} className="w-5 h-3.5 object-cover rounded-xs shadow-xs" />
                                         <div className="text-left">
-                                            <div className="leading-tight">{lang.name}</div>
+                                            <div className="leading-tight flex items-center gap-1.5">
+                                                <span>{lang.name}</span>
+                                                {lang.disabled && (
+                                                    <span className={`text-[9px] font-semibold px-1.5 py-0.2 rounded-md ${
+                                                        isAdmin
+                                                            ? 'bg-indigo-100 dark:bg-indigo-900/60 text-indigo-600 dark:text-indigo-300'
+                                                            : 'bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400'
+                                                    }`}>
+                                                        {isAdmin ? 'BETA' : 'Đang phát triển'}
+                                                    </span>
+                                                )}
+                                            </div>
                                             <div className="text-[9px] font-normal text-slate-400 font-mono mt-0.5">{lang.testName} • {lang.characterSystem}</div>
                                         </div>
                                     </div>

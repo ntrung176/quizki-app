@@ -39,7 +39,7 @@ const AppContent = () => {
         handleUpdateParentFolder, handleDeleteParentFolder, handleMoveStudySetToParentFolder,
         dueCounts, memoryStats, calculatedStreak, scrollToCardIdRef, flashcardCards,
         vocabCollectionPath, publicStatsCollectionPath, userHasAdminPrivileges, adminConfig,
-        canUserUseAI, studySets, cardFolders, parentFolders, savedFilters, tourTrigger,
+        canUserUseAI, hasPremium, studySets, cardFolders, parentFolders, savedFilters, tourTrigger,
         activePopup, handleDismissPopup, view
     } = appLogic;
 
@@ -75,6 +75,7 @@ const AppContent = () => {
                     isAdmin={userHasAdminPrivileges}
                     userId={userId}
                     profile={profile}
+                    isPremium={hasPremium}
                     allCards={allCards}
                     isDarkMode={isDarkMode}
                     setIsDarkMode={setIsDarkMode}

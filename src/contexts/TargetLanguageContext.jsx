@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db, appId, auth } from '../config/firebase';
+import { showToast } from '../utils/toast';
 
 export const SUPPORTED_TARGET_LANGUAGES = [
     { code: 'ja', name: 'Tiếng Nhật', nativeName: '日本語', flag: '🇯🇵', countryCode: 'jp', testName: 'JLPT', characterSystem: 'Kanji & Kana' },
-    { code: 'en', name: 'Tiếng Anh', nativeName: 'English', flag: '🇬🇧', countryCode: 'gb', testName: 'IELTS / TOEIC', characterSystem: 'Alphabet & IPA' },
+    { code: 'en', name: 'Tiếng Anh', nativeName: 'English', flag: '🇬🇧', countryCode: 'gb', testName: 'IELTS / TOEIC', characterSystem: 'Alphabet & IPA', disabled: true },
 ];
 
 const TargetLanguageContext = createContext();
@@ -14,7 +15,17 @@ export const TargetLanguageProvider = ({ children }) => {
         return localStorage.getItem('quizki_target_language') || 'ja';
     });
 
-    const setTargetLanguage = async (newLang) => {
+    const setTargetLanguage = async (newLang, isAdminOverride = false) => {
+        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
+        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
+        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
+        const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
+        const isUserAdmin = isAdminOverride || (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
+
+        if (newLang === 'en' && !isUserAdmin) {
+            showToast('Tính năng học Tiếng Anh đang trong quá trình phát triển (Chỉ dành cho Admin thử nghiệm)!', 'info');
+            return;
+        }
         if (!SUPPORTED_TARGET_LANGUAGES.some(l => l.code === newLang)) return;
         setTargetLanguageState(newLang);
         localStorage.setItem('quizki_target_language', newLang);
@@ -37,7 +48,16 @@ export const TargetLanguageProvider = ({ children }) => {
                     const snap = await getDoc(userRef);
                     if (snap.exists() && snap.data().targetLanguage) {
                         const cloudLang = snap.data().targetLanguage;
-                        if (cloudLang !== targetLanguage && SUPPORTED_TARGET_LANGUAGES.some(l => l.code === cloudLang)) {
+                        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
+                        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
+                        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
+                        const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
+                        const isUserAdmin = (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
+
+                        if (cloudLang === 'en' && !isUserAdmin) {
+                            setTargetLanguageState('ja');
+                            localStorage.setItem('quizki_target_language', 'ja');
+                        } else if (SUPPORTED_TARGET_LANGUAGES.some(l => l.code === cloudLang)) {
                             setTargetLanguageState(cloudLang);
                             localStorage.setItem('quizki_target_language', cloudLang);
                         }
@@ -48,7 +68,7 @@ export const TargetLanguageProvider = ({ children }) => {
             }
         };
         syncFromProfile();
-    }, [auth?.currentUser?.uid]);
+    }, [auth?.currentUser?.uid, auth?.currentUser?.email]);
 
     const activeTargetConfig = SUPPORTED_TARGET_LANGUAGES.find(l => l.code === targetLanguage) || SUPPORTED_TARGET_LANGUAGES[0];
 
