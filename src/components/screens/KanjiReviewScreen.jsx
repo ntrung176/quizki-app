@@ -540,6 +540,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
+        } else {
+            // Re-queue card for same-session review if card is in LEARNING / RELEARNING state
+            updatedQueue.push(currentCard);
         }
 
         setReviewQueue(updatedQueue);

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { onAuthStateChanged, signOut, getRedirectResult } from 'firebase/auth';
-import { doc, onSnapshot, collection, query, updateDoc, deleteDoc, getDocs, writeBatch, orderBy, limit } from 'firebase/firestore';
+import { doc, onSnapshot, collection, query, updateDoc, deleteDoc, getDocs, writeBatch, orderBy, limit, setDoc } from 'firebase/firestore';
 import { auth, db, appId } from '../config/firebase';
 import { subscribeAdminConfig, hasAdminPrivileges } from '../utils/adminSettings';
 import { getSharedBookGroups } from '../utils/bookService';
@@ -320,6 +320,82 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         }
     }, [userId, rawProfile, publicStatsCollectionPath]);
 
+    const handleUpdateProfileName = useCallback(async (newName) => {
+        if (!userId || !newName || !newName.trim()) return;
+        const cleanName = newName.trim();
+
+        if (auth?.currentUser) {
+            try {
+                const { updateProfile } = await import('firebase/auth');
+                await updateProfile(auth.currentUser, { displayName: cleanName });
+            } catch (e) {
+                console.warn("Lỗi cập nhật Auth displayName:", e);
+            }
+        }
+
+        if (db && appId) {
+            const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+            await updateDoc(profileRef, {
+                displayName: cleanName,
+                updatedAt: Date.now()
+            }).catch(async () => {
+                await setDoc(profileRef, { displayName: cleanName, updatedAt: Date.now() }, { merge: true });
+            });
+
+            if (publicStatsCollectionPath) {
+                const statsRef = doc(db, publicStatsCollectionPath, userId);
+                await setDoc(statsRef, {
+                    displayName: cleanName,
+                    updatedAt: Date.now()
+                }, { merge: true }).catch(() => {});
+            }
+        }
+
+        setProfile(prev => prev ? { ...prev, displayName: cleanName } : { displayName: cleanName });
+    }, [userId, publicStatsCollectionPath]);
+
+    const handleUpdateAvatar = useCallback(async (newAvatar) => {
+        if (!userId) return;
+
+        if (db && appId) {
+            const isPhoto = typeof newAvatar === 'string' && (newAvatar.startsWith('data:image/') || newAvatar.startsWith('http'));
+            const updatePayload = {
+                avatar: newAvatar,
+                photoURL: isPhoto ? newAvatar : '',
+                updatedAt: Date.now()
+            };
+
+            const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+            await updateDoc(profileRef, updatePayload).catch(async () => {
+                await setDoc(profileRef, updatePayload, { merge: true });
+            });
+
+            if (publicStatsCollectionPath) {
+                const statsRef = doc(db, publicStatsCollectionPath, userId);
+                await setDoc(statsRef, {
+                    avatar: newAvatar,
+                    photoURL: isPhoto ? newAvatar : '',
+                    updatedAt: Date.now()
+                }, { merge: true }).catch(() => {});
+            }
+        }
+
+        setProfile(prev => prev ? { ...prev, avatar: newAvatar } : { avatar: newAvatar });
+    }, [userId, publicStatsCollectionPath]);
+
+    const handleChangePassword = useCallback(async (oldPassword, newPassword) => {
+        if (!auth?.currentUser) throw new Error('Người dùng chưa đăng nhập');
+        const { updatePassword, EmailAuthProvider, reauthenticateWithCredential } = await import('firebase/auth');
+        const user = auth.currentUser;
+        const isPasswordUser = user.providerData.some(p => p.providerId === 'password');
+
+        if (isPasswordUser && oldPassword) {
+            const credential = EmailAuthProvider.credential(user.email, oldPassword);
+            await reauthenticateWithCredential(user, credential);
+        }
+        await updatePassword(user, newPassword);
+    }, []);
+
     return {
         authReady,
         userId,
@@ -335,6 +411,9 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         activePopup,
         handleDismissPopup,
         handleAdminDeleteUserData,
+        handleUpdateProfileName,
+        handleUpdateAvatar,
+        handleChangePassword,
         awardXP,
         geminiApiKeys,
         publicStatsCollectionPath

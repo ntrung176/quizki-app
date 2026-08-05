@@ -785,6 +785,9 @@ const SRSVocabScreen = ({
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(card.id);
+        } else {
+            // Re-queue card for same-session review if card is in LEARNING / RELEARNING state
+            updatedQueue.push(card);
         }
 
         setReviewQueue(updatedQueue);

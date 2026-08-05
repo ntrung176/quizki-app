@@ -88,10 +88,10 @@ export const normalizeSRSState = (srs) => {
             resolvedState = 'LEARNING';
         }
     }
-    if (resolvedState === 'REVIEW' && interval >= 1000) {
+    if ((resolvedState === 'REVIEW' || resolvedState === 'RELEARNING') && interval >= 1000) {
         interval = Math.max(1, Math.round(interval / 1440));
     }
-    if (resolvedState === 'REVIEW' && prelapseInterval && prelapseInterval >= 1000) {
+    if ((resolvedState === 'REVIEW' || resolvedState === 'RELEARNING') && prelapseInterval && prelapseInterval >= 1000) {
         prelapseInterval = Math.max(1, Math.round(prelapseInterval / 1440));
     }
 
@@ -380,9 +380,9 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
     // ========== RELEARNING STATE ==========
     else if (currentState === 'RELEARNING') {
         const refInterval = prelapseInterval || 1; // Fallback to 1 day
-        const hardIntVal = Math.max(1, Math.floor(refInterval * 0.1));
-        const goodIntVal = Math.max(hardIntVal + 1, Math.floor(refInterval * 0.2));
-        const easyIntVal = Math.max(goodIntVal + 1, Math.floor(refInterval * 0.2 * EASY_BONUS));
+        const hardIntVal = Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.3)));
+        const goodIntVal = Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.5)));
+        const easyIntVal = Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.7)));
 
         switch (normRating) {
             case 'again':

@@ -188,9 +188,9 @@ export const useAppLogic = () => {
     const handleExport = useCallback(() => {}, []);
     const handleNavigateToEdit = useCallback((card) => {}, []);
     const handleUpdateGoal = useCallback(async (newGoal) => {}, []);
-    const handleUpdateProfileName = useCallback(async (newName) => {}, []);
-    const handleUpdateAvatar = useCallback(async (newAvatar) => {}, []);
-    const handleChangePassword = useCallback(async (newPassword) => {}, []);
+    const handleUpdateProfileName = authAndProfile.handleUpdateProfileName;
+    const handleUpdateAvatar = authAndProfile.handleUpdateAvatar;
+    const handleChangePassword = authAndProfile.handleChangePassword;
     const handleSaveCardAudio = vocab.handleSaveCardAudio;
     const handleUpdateVocabSrsRating = vocab.handleUpdateVocabSrsRating;
     const handleRevertVocabSrsRating = vocab.handleRevertVocabSrsRating;
