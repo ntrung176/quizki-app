@@ -629,6 +629,7 @@ const AppRoutes = ({
                             <SRSVocabScreen
                                 displayName={profile?.displayName}
                                 userId={userId}
+                                isAdmin={isAdmin}
                                 folders={folders}
                                 cardFolders={cardFolders}
                                 setReviewCards={setReviewCards}
@@ -817,7 +818,7 @@ const AppRoutes = ({
                     path={ROUTES.KANJI_REVIEW}
                     element={
                         <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <KanjiReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} />
+                            <KanjiReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} isAdmin={isAdmin} />
                         </ProtectedRoute>
                     }
                 />

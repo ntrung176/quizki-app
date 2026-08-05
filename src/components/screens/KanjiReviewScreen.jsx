@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Cpu } from 'lucide-react'
+import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Cpu, FlaskConical } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
@@ -12,6 +12,7 @@ import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
+import { SrsTestingPanelModal } from '../ui';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar, SrsPrewarmLoader } from '../ui';
@@ -50,7 +51,7 @@ const formatInterval = (minutes) => {
 };
 
 // ==================== MAIN COMPONENT ====================
-const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
+const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const userId = getAuth().currentUser?.uid;
     const fadeWholePage = useMenuTransition();
     const { t } = useLanguage();
@@ -63,6 +64,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const hasSrs = userId ? !!getCachedUserSrsData() : true;
         return !(hasKanji && hasSrs);
     });
+    const [showSrsTestModal, setShowSrsTestModal] = useState(false);
     const [reviewMode, setReviewMode] = useState(false);
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -540,9 +542,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
-        } else {
-            // Re-queue card for same-session review if card is in LEARNING / RELEARNING state
-            updatedQueue.push(currentCard);
         }
 
         setReviewQueue(updatedQueue);
@@ -951,6 +950,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 >
                                     <span>🩸 {t('kanji.leechCards', 'Thẻ Khó')} ({leechKanjiItems.length})</span>
                                 </button>
+                                {isAdmin && (
+                                    <button
+                                        onClick={() => setShowSrsTestModal(true)}
+                                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-[10px] sm:text-xs font-mono font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
+                                    >
+                                        <FlaskConical className="w-3.5 h-3.5 text-emerald-500" />
+                                        <span>🧪 Bảng Test SRS</span>
+                                    </button>
+                                )}
                             </div>
                             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                                 {t('kanji.title', 'Ôn tập Kanji')}
@@ -1114,6 +1122,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }))}
                 scopeType="kanji"
                 onResetLeechCount={handleResetKanjiLeech}
+            />
+            <SrsTestingPanelModal 
+                isOpen={showSrsTestModal}
+                onClose={() => setShowSrsTestModal(false)}
             />
         </div>
     );

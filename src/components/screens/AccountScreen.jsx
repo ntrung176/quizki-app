@@ -3,10 +3,11 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db, auth } from '../../config/firebase';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
-import { XpTestingPanelModal } from '../ui';
+import { XpTestingPanelModal, SrsTestingPanelModal } from '../ui';
 
 const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId, isAdmin = false }) => {
     const [showXpTestModal, setShowXpTestModal] = useState(false);
+    const [showSrsTestModal, setShowSrsTestModal] = useState(false);
     const navigate = useNavigate();
     const isPremiumUser = (profile?.unlockedSpecializedPackages && (
         profile.unlockedSpecializedPackages.includes('premium') ||
@@ -179,12 +180,20 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                 </div>
                 <div className="flex items-center gap-2">
                     {isAdmin && (
-                        <button
-                            onClick={() => setShowXpTestModal(true)}
-                            className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white font-bold rounded-xl text-xs shadow-md transition-all active:scale-95 cursor-pointer"
-                        >
-                            🧪 Bảng Test Điểm XP
-                        </button>
+                        <>
+                            <button
+                                onClick={() => setShowSrsTestModal(true)}
+                                className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold rounded-xl text-xs shadow-md transition-all active:scale-95 cursor-pointer"
+                            >
+                                🧪 Bảng Test SRS
+                            </button>
+                            <button
+                                onClick={() => setShowXpTestModal(true)}
+                                className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white font-bold rounded-xl text-xs shadow-md transition-all active:scale-95 cursor-pointer"
+                            >
+                                🧪 Bảng Test XP
+                            </button>
+                        </>
                     )}
                     <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
                         <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
@@ -198,6 +207,11 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                 profile={profile}
                 awardXP={awardXP}
                 userId={currentUserId}
+            />
+
+            <SrsTestingPanelModal
+                isOpen={showSrsTestModal}
+                onClose={() => setShowSrsTestModal(false)}
             />
 
             {/* Subscription Box */}

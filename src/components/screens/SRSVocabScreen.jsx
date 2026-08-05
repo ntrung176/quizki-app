@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu } from 'lucide-react'
-import { TopTabBar, SrsPrewarmLoader } from '../ui';
+import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu, FlaskConical } from 'lucide-react'
+import { TopTabBar, SrsPrewarmLoader, SrsTestingPanelModal } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -90,7 +90,8 @@ const SRSVocabScreen = ({
     onMeaningSet,
     onDictationSet,
     awardXP,
-    setIsReviewActive
+    setIsReviewActive,
+    isAdmin = false
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -144,6 +145,7 @@ const SRSVocabScreen = ({
     const [showMistakeModal, setShowMistakeModal] = useState(false);
     const [selectedMistakeMode, setSelectedMistakeMode] = useState('flashcard');
     const [showLeechManager, setShowLeechManager] = useState(false);
+    const [showSrsTestModal, setShowSrsTestModal] = useState(false);
 
     const leechVocabCards = useMemo(() => filteredCards.filter(c => isLeechCard(c) || isLeechCard(c.srsData)), [filteredCards]);
 
@@ -785,9 +787,6 @@ const SRSVocabScreen = ({
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(card.id);
-        } else {
-            // Re-queue card for same-session review if card is in LEARNING / RELEARNING state
-            updatedQueue.push(card);
         }
 
         setReviewQueue(updatedQueue);
@@ -1037,6 +1036,15 @@ const SRSVocabScreen = ({
                                                 title="Phát âm"
                                             >
                                                 <Volume2 className="w-4 h-4" />
+                                            </button>
+                                        )}
+                                        {isAdmin && (
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); setShowSrsTestModal(true); }}
+                                                className="p-2 min-h-[44px] min-w-[44px] bg-emerald-500/10 dark:bg-emerald-500/20 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-emerald-500/30 cursor-pointer"
+                                                title="Bảng Test Thuật Toán SRS"
+                                            >
+                                                <FlaskConical className="w-4 h-4" />
                                             </button>
                                         )}
                                         <button
@@ -1290,6 +1298,15 @@ const SRSVocabScreen = ({
                                 >
                                     <span>🩸 {t('vocab.leechCards', 'Thẻ Khó')} ({leechVocabCards.length})</span>
                                 </button>
+                                {isAdmin && (
+                                    <button
+                                        onClick={() => setShowSrsTestModal(true)}
+                                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-[10px] sm:text-xs font-mono font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
+                                    >
+                                        <FlaskConical className="w-3.5 h-3.5 text-emerald-500" />
+                                        <span>🧪 Bảng Test SRS</span>
+                                    </button>
+                                )}
                             </div>
                             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                                 {t('vocab.title', 'Ôn tập Từ vựng')}
@@ -1652,6 +1669,10 @@ const SRSVocabScreen = ({
                 scopeType="vocab"
                 onStartLeechReview={handleStartLeechReview}
                 onResetLeechCount={handleResetLeech}
+            />
+            <SrsTestingPanelModal 
+                isOpen={showSrsTestModal}
+                onClose={() => setShowSrsTestModal(false)}
             />
         </div>
     );
