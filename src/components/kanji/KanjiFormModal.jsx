@@ -1,5 +1,8 @@
-import React from 'react';
-import { X, Folder, Plus } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, Folder, Plus, Upload, Image as ImageIcon } from 'lucide-react';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../config/firebase';
+import { showToast } from '../../utils/toast';
 import { JLPT_LEVELS } from './kanjiConstants';
 
 const KanjiFormModal = ({
@@ -39,11 +42,34 @@ const KanjiFormModal = ({
     setModalSearchQuery,
     vocabToSave
 }) => {
+    const [uploadingImage, setUploadingImage] = useState(false);
+
+    const handleImageUpload = async (e, isEdit = true) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+        setUploadingImage(true);
+        try {
+            const storageRef = ref(storage, `kanji/images/${Date.now()}_${file.name}`);
+            const snapshot = await uploadBytes(storageRef, file);
+            const url = await getDownloadURL(snapshot.ref);
+            if (isEdit) {
+                setEditingKanji(prev => ({ ...prev, imageUrl: url }));
+            } else {
+                setNewKanji(prev => ({ ...prev, imageUrl: url }));
+            }
+            showToast('Đã tải hình ảnh minh họa thành công!', 'success');
+        } catch (err) {
+            console.error('Error uploading image:', err);
+            showToast('Lỗi tải ảnh: ' + err.message, 'error');
+        } finally {
+            setUploadingImage(false);
+        }
+    };
     return (
         <>
             {/* Add Kanji Modal */}
             {showAddKanjiModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setShowAddKanjiModal(false)}>
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowAddKanjiModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Thêm Kanji Mới</h3>
@@ -102,7 +128,7 @@ const KanjiFormModal = ({
 
             {/* Add Vocab Modal */}
             {showAddVocabModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setShowAddVocabModal(false)}>
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowAddVocabModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Thêm Từ Vựng Kanji</h3>
@@ -159,26 +185,26 @@ const KanjiFormModal = ({
 
             {/* Edit Kanji Modal */}
             {showEditKanjiModal && editingKanji && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setShowEditKanjiModal(false)}>
-                    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden" onClick={e => e.stopPropagation()}>
+                <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowEditKanjiModal(false); }}>
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-150" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Chỉnh Sửa Kanji ({editingKanji.character})</h3>
                             <button onClick={() => setShowEditKanjiModal(false)} className="p-1 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg cursor-pointer"><X className="w-5 h-5" /></button>
                         </div>
-                        <div className="p-4 space-y-4 max-h-[70vh] overflow-y-auto">
+                        <div className="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
                             <div>
-                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Chữ Kanji</label>
-                                <input value={editingKanji.character} onChange={e => setEditingKanji({ ...editingKanji, character: e.target.value })}
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Chữ Kanji (*)</label>
+                                <input value={editingKanji.character || ''} onChange={e => setEditingKanji({ ...editingKanji, character: e.target.value })}
                                     className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-lg font-japanese font-bold" />
                             </div>
                             <div className="grid grid-cols-2 gap-3">
                                 <div>
                                     <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Âm Hán Việt</label>
                                     <input value={editingKanji.sinoViet || ''} onChange={e => setEditingKanji({ ...editingKanji, sinoViet: e.target.value })}
-                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" />
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="TAM" />
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Cấp độ</label>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Cấp độ JLPT</label>
                                     <select value={editingKanji.level || 'N5'} onChange={e => setEditingKanji({ ...editingKanji, level: e.target.value })}
                                         className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
                                         {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
@@ -188,7 +214,66 @@ const KanjiFormModal = ({
                             <div>
                                 <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Ý nghĩa tiếng Việt</label>
                                 <input value={editingKanji.meaning || ''} onChange={e => setEditingKanji({ ...editingKanji, meaning: e.target.value })}
-                                    className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" />
+                                    className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="ba, thứ ba" />
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Âm Onyomi (Katakana)</label>
+                                    <input value={editingKanji.onyomi || ''} onChange={e => setEditingKanji({ ...editingKanji, onyomi: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="サン" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Âm Kunyomi (Hiragana)</label>
+                                    <input value={editingKanji.kunyomi || ''} onChange={e => setEditingKanji({ ...editingKanji, kunyomi: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="み、みっ.つ" />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Số nét (Strokes)</label>
+                                    <input type="number" value={editingKanji.strokeCount || editingKanji.stroke_count || ''} onChange={e => setEditingKanji({ ...editingKanji, strokeCount: e.target.value, stroke_count: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="3" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Thành phần bộ thủ (Parts)</label>
+                                    <input value={typeof editingKanji.parts === 'string' ? editingKanji.parts : (Array.isArray(editingKanji.parts) ? editingKanji.parts.join(', ') : '')} onChange={e => setEditingKanji({ ...editingKanji, parts: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="一, 二" />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Cách nhớ / Mô tả hình ảnh (Mnemonic)</label>
+                                <textarea value={editingKanji.mnemonic || ''} onChange={e => setEditingKanji({ ...editingKanji, mnemonic: e.target.value })}
+                                    rows={2} className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="Mô tả câu chuyện nhớ chữ Kanji..." />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Hình ảnh minh họa ý nghĩa (URL hoặc tải từ máy)</label>
+                                <div className="flex gap-2 items-center">
+                                    <input 
+                                        type="text" 
+                                        value={editingKanji.imageUrl || ''} 
+                                        onChange={e => setEditingKanji({ ...editingKanji, imageUrl: e.target.value })}
+                                        className="flex-1 px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" 
+                                        placeholder="https://... hoặc tải ảnh từ máy" 
+                                    />
+                                    <label className="px-3 py-2 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shrink-0 border border-indigo-200/60 dark:border-indigo-800/60">
+                                        <Upload className="w-3.5 h-3.5" />
+                                        {uploadingImage ? 'Đang tải...' : 'Tải ảnh'}
+                                        <input type="file" accept="image/*" className="hidden" onChange={e => handleImageUpload(e, true)} disabled={uploadingImage} />
+                                    </label>
+                                </div>
+                                {editingKanji.imageUrl && (
+                                    <div className="mt-2 relative w-24 h-24 bg-slate-100 dark:bg-slate-900 rounded-xl overflow-hidden border border-gray-250 dark:border-slate-700 group flex items-center justify-center p-1">
+                                        <img src={editingKanji.imageUrl} alt="Ý nghĩa" className="max-w-full max-h-full object-contain rounded-lg" />
+                                        <button 
+                                            type="button" 
+                                            onClick={() => setEditingKanji({ ...editingKanji, imageUrl: '' })}
+                                            className="absolute top-1 right-1 p-1 bg-red-500 hover:bg-red-600 text-white rounded-full opacity-90 transition-opacity cursor-pointer shadow-md"
+                                            title="Xóa ảnh"
+                                        >
+                                            <X className="w-3 h-3" />
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className="flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-slate-700">
@@ -201,7 +286,7 @@ const KanjiFormModal = ({
 
             {/* Edit Vocab Modal */}
             {showEditVocabModal && editingVocab && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setShowEditVocabModal(false)}>
+                <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowEditVocabModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Chỉnh Sửa Từ Vựng ({editingVocab.word})</h3>
@@ -241,7 +326,7 @@ const KanjiFormModal = ({
 
             {/* Folder Select Modal for SRS */}
             {showFolderSelectModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setShowFolderSelectModal(false)}>
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowFolderSelectModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">

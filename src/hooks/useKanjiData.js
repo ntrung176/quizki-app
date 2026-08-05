@@ -789,13 +789,15 @@ export const useKanjiData = ({
             if (targetId) {
                 await updateDoc(doc(db, 'kanji', targetId), kanjiDocToSave);
                 const updatedKanji = { ...editingKanji, ...kanjiDocToSave, id: targetId };
-                setKanjiList(kanjiList.map(k => k.id === targetId ? updatedKanji : k));
+                setKanjiList(prev => prev.map(k => (k.id === targetId || k.character === kanjiDoc.character) ? updatedKanji : k));
                 updateCachedKanji(updatedKanji);
+                showToast(`Đã lưu thay đổi cho Kanji "${kanjiDoc.character}"`, 'success');
             } else {
                 const docRef = await addDoc(collection(db, 'kanji'), kanjiDocToSave);
                 const addedKanji = { ...kanjiDocToSave, id: docRef.id };
-                setKanjiList([...kanjiList, addedKanji]);
+                setKanjiList(prev => prev.map(k => k.character === kanjiDoc.character ? addedKanji : k));
                 updateCachedKanji(addedKanji);
+                showToast(`Đã lưu thay đổi cho Kanji "${kanjiDoc.character}"`, 'success');
             }
             setShowEditKanjiModal(false);
             setEditingKanji(null);

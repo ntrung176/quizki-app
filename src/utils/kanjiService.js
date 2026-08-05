@@ -258,7 +258,10 @@ export const getSharedVocabCategories = async () => {
 // Functions to update the cache when a card/item is added, updated, or deleted
 export const updateCachedKanji = (kanji) => {
     if (!cachedKanjiList) return;
-    const idx = cachedKanjiList.findIndex(k => k.id === kanji.id);
+    const idx = cachedKanjiList.findIndex(k => 
+        (kanji.id && k.id === kanji.id) || 
+        (kanji.character && k.character === kanji.character)
+    );
     if (idx !== -1) {
         cachedKanjiList[idx] = { ...cachedKanjiList[idx], ...kanji };
     } else {
@@ -272,7 +275,7 @@ export const updateCachedKanji = (kanji) => {
 
 export const deleteCachedKanji = (kanjiId) => {
     if (!cachedKanjiList) return;
-    cachedKanjiList = cachedKanjiList.filter(k => k.id !== kanjiId);
+    cachedKanjiList = cachedKanjiList.filter(k => k.id !== kanjiId && k.character !== kanjiId);
     window.dispatchEvent(new CustomEvent('kanji-cache-updated', { 
         detail: { type: 'kanji-delete', data: kanjiId } 
     }));
@@ -280,7 +283,10 @@ export const deleteCachedKanji = (kanjiId) => {
 
 export const updateCachedVocab = (vocab) => {
     if (!cachedVocabList) return;
-    const idx = cachedVocabList.findIndex(v => v.id === vocab.id);
+    const idx = cachedVocabList.findIndex(v => 
+        (vocab.id && v.id === vocab.id) || 
+        (vocab.word && v.word === vocab.word)
+    );
     if (idx !== -1) {
         cachedVocabList[idx] = { ...cachedVocabList[idx], ...vocab };
     } else {
