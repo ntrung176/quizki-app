@@ -304,58 +304,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             });
     };
 
-    const handleReviewNow = () => {
-        const waiting = getLearningCardsWaiting();
-        if (waiting.length === 0) return;
 
-        waiting.forEach(item => {
-            if (srsData[item.id]) {
-                const updatedSrs = {
-                    ...srsData[item.id],
-                    nextReview: Date.now()
-                };
-                setSrsData(prev => ({
-                    ...prev,
-                    [item.id]: updatedSrs
-                }));
-                updateCachedUserGrammarSrs(userId, item.id, updatedSrs);
-            }
-        });
-
-        setReviewQueue(prevQueue => {
-            const nextQueue = [...prevQueue];
-            const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
-            const cardsToInject = [];
-            waiting.forEach(item => {
-                if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
-                    const fullCard = grammarList.find(c => c.id === item.id);
-                    if (fullCard) {
-                        const localSrs = srsData[item.id];
-                        cardsToInject.push({
-                            ...fullCard,
-                            srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
-                            srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
-                            srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
-                            srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
-                            srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
-                            srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
-                            srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
-                            srsState: localSrs ? localSrs.state : fullCard.srsState,
-                            nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
-                            lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
-                        });
-                    }
-                }
-            });
-
-            if (cardsToInject.length > 0) {
-                const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
-                nextQueue.splice(insertIndex, 0, ...cardsToInject);
-                return nextQueue;
-            }
-            return prevQueue;
-        });
-    };
 
     useEffect(() => {
         if (!reviewMode) return;
@@ -875,16 +824,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <span className="text-lg font-black tracking-widest">{countdownText}</span>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row gap-3 w-full">
-                            <button
-                                onClick={handleReviewNow}
-                                className="flex-1 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold text-sm rounded-xl transition-all shadow-md cursor-pointer text-center"
-                            >
-                                Ôn ngay lập tức (Không đợi)
-                            </button>
+                        <div className="flex justify-center w-full">
                             <button
                                 onClick={exitReview}
-                                className="flex-1 py-3 px-4 bg-gray-100 hover:bg-gray-250 dark:bg-slate-700 dark:hover:bg-slate-650 active:scale-95 text-gray-700 dark:text-gray-200 font-bold text-sm rounded-xl transition-all border border-gray-200 dark:border-slate-600 cursor-pointer text-center"
+                                className="w-full py-3 px-4 bg-gray-100 hover:bg-gray-250 dark:bg-slate-700 dark:hover:bg-slate-650 active:scale-95 text-gray-700 dark:text-gray-200 font-bold text-sm rounded-xl transition-all border border-gray-200 dark:border-slate-600 cursor-pointer text-center"
                             >
                                 Kết thúc phiên ôn tập
                             </button>
