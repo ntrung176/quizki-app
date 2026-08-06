@@ -458,9 +458,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         try {
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isPremium;
-            await updateDoc(testRef, { isPremium: nextVal });
+            await setDoc(testRef, { isPremium: nextVal }, { merge: true });
             setNotification(`Đã chuyển đề thi sang: ${nextVal ? 'Premium' : 'Miễn phí'}`);
-            setTests(prevTests => prevTests.map(t => t.id === test.id ? { ...t, isPremium: nextVal } : t));
+            setTests(prevTests => {
+                const updated = prevTests.map(t => t.id === test.id ? { ...t, isPremium: nextVal } : t);
+                try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(updated)); } catch (e) {}
+                return updated;
+            });
         } catch (err) { setNotification('Lỗi: ' + err.message); }
     };
 

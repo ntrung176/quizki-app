@@ -190,18 +190,22 @@ export const useJLPTTestData = ({ userId, profile }) => {
         let active = true;
         let unsub = null;
 
-        (async () => {
-            try {
-                const savedCache = localStorage.getItem('quizki_cached_jlpt_tests');
-                if (savedCache && active) {
-                    const parsed = JSON.parse(savedCache);
-                    if (Array.isArray(parsed) && parsed.length > 0) {
-                        setTests(parsed);
-                        setLoading(false);
-                    }
+        // 1. Instant local cache load
+        try {
+            const savedCache = localStorage.getItem('quizki_cached_jlpt_tests');
+            if (savedCache && active) {
+                const parsed = JSON.parse(savedCache);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    setTests(parsed);
+                    setLoading(false);
                 }
-            } catch (e) {}
+            }
+        } catch (e) {}
 
+        (async () => {
+            let baseTests = [];
+
+            // 2. Fetch CDN / static data
             try {
                 const cacheConfig = await getCacheConfig();
                 if (cacheConfig && cacheConfig.jlptUrl) {
@@ -210,41 +214,76 @@ export const useJLPTTestData = ({ userId, profile }) => {
                     if (res && res.ok && active) {
                         const data = await res.json();
                         if (Array.isArray(data) && data.length > 0) {
-                            setTests(data);
-                            setLoading(false);
-                            try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(data)); } catch (e) {}
-                            return;
+                            baseTests = data;
+                            if (active) {
+                                setTests(data);
+                                setLoading(false);
+                            }
                         }
                     }
                 }
             } catch (e) {}
 
+            if (!baseTests.length) {
+                try {
+                    const res = await fetch('/data/jlpt_data.json');
+                    if (res && res.ok && active) {
+                        const data = await res.json();
+                        if (Array.isArray(data) && data.length > 0) {
+                            baseTests = data;
+                            if (active) {
+                                setTests(data);
+                                setLoading(false);
+                            }
+                        }
+                    }
+                } catch (e) {}
+            }
+
+            // 3. Always connect to real-time Firestore collection so isPremium/isFixed changes persist across F5!
             if (!active) return;
             try {
-                const q = query(collection(db, testsPath), orderBy('createdAt', 'desc'));
+                const q = query(collection(db, testsPath));
                 unsub = onSnapshot(q, (snap) => {
-                    if (active) {
-                        const data = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-                        setTests(data);
-                        setLoading(false);
-                        try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(data)); } catch (e) {}
-                    }
-                });
-                return;
-            } catch (e) {}
+                    if (!active) return;
+                    const firestoreDocs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
 
-            try {
-                const res = await fetch('/data/jlpt_data.json');
-                if (res && res.ok && active) {
-                    const data = await res.json();
-                    if (Array.isArray(data) && data.length > 0) {
-                        setTests(data);
+                    if (firestoreDocs.length === 0 && baseTests.length > 0) {
+                        setTests(baseTests);
+                        try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(baseTests)); } catch (e) {}
+                    } else {
+                        const firestoreMap = new Map();
+                        firestoreDocs.forEach(docItem => firestoreMap.set(docItem.id, docItem));
+
+                        const mergedList = [...baseTests];
+                        const mergedIds = new Set();
+
+                        for (let i = 0; i < mergedList.length; i++) {
+                            const item = mergedList[i];
+                            if (firestoreMap.has(item.id)) {
+                                const fsDoc = firestoreMap.get(item.id);
+                                mergedList[i] = { ...item, ...fsDoc };
+                                mergedIds.add(item.id);
+                            }
+                        }
+
+                        firestoreDocs.forEach(fsDoc => {
+                            if (!mergedIds.has(fsDoc.id)) {
+                                mergedList.push(fsDoc);
+                            }
+                        });
+
+                        const resultList = mergedList.length > 0 ? mergedList : firestoreDocs;
+                        setTests(resultList);
                         setLoading(false);
-                        try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(data)); } catch (e) {}
-                        return;
+                        try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(resultList)); } catch (e) {}
                     }
-                }
-            } catch (e) {}
+                }, (err) => {
+                    console.warn("Firestore jlptTests snapshot warning:", err);
+                });
+            } catch (e) {
+                console.error("Firestore jlptTests snapshot setup error:", e);
+            }
         })();
 
         return () => {

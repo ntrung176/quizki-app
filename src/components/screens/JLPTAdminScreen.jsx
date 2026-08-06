@@ -1551,9 +1551,9 @@ const JLPTAdminScreen = ({ userId }) => {
                                         <button
                                             onClick={async () => {
                                                 try {
-                                                    const { updateDoc: updateDocFn } = await import('firebase/firestore');
+                                                    const { setDoc: setDocFn } = await import('firebase/firestore');
                                                     const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
-                                                    await updateDocFn(testRef, { isPremium: !test.isPremium });
+                                                    await setDocFn(testRef, { isPremium: !test.isPremium }, { merge: true });
                                                 } catch (err) {
                                                     alert('Lỗi cập nhật Premium: ' + err.message);
                                                 }

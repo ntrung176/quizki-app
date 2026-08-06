@@ -41,8 +41,21 @@ const formatInterval = (minutes) => {
 };
 
 // Helper to preview intervals based on SRS state
-const getPreviewIntervals = (card) => {
-    const srsState = {
+const getPreviewIntervals = (card, sessionSrs = null) => {
+    const srsState = sessionSrs ? {
+        interval: sessionSrs.srsInterval !== undefined ? sessionSrs.srsInterval : (sessionSrs.interval !== undefined ? sessionSrs.interval : (card.srsInterval !== undefined ? card.srsInterval : (card.interval !== undefined ? card.interval : (card.currentInterval_back || 0)))),
+        ease: sessionSrs.srsEase !== undefined ? sessionSrs.srsEase : (sessionSrs.ease !== undefined ? sessionSrs.ease : (card.srsEase !== undefined ? card.srsEase : (card.ease || 2.5))),
+        learningStep: sessionSrs.srsLearningStep !== undefined ? sessionSrs.srsLearningStep : (sessionSrs.learningStep !== undefined ? sessionSrs.learningStep : (card.srsLearningStep !== undefined ? card.srsLearningStep : (card.learningStep !== undefined ? card.learningStep : null))),
+        isLapsed: sessionSrs.srsIsLapsed !== undefined ? sessionSrs.srsIsLapsed : (sessionSrs.isLapsed !== undefined ? sessionSrs.isLapsed : (card.srsIsLapsed !== undefined ? card.srsIsLapsed : (card.isLapsed || false))),
+        reps: sessionSrs.srsReps !== undefined ? sessionSrs.srsReps : (sessionSrs.reps !== undefined ? sessionSrs.reps : (card.srsReps !== undefined ? card.srsReps : (card.reps || 0))),
+        lapseCount: sessionSrs.srsLapseCount !== undefined ? sessionSrs.srsLapseCount : (sessionSrs.lapseCount !== undefined ? sessionSrs.lapseCount : (card.srsLapseCount !== undefined ? card.srsLapseCount : (card.lapseCount || 0))),
+        prelapseInterval: sessionSrs.srsPrelapseInterval !== undefined ? sessionSrs.srsPrelapseInterval : (sessionSrs.prelapseInterval !== undefined ? sessionSrs.prelapseInterval : (card.srsPrelapseInterval !== undefined ? card.srsPrelapseInterval : (card.prelapseInterval || null))),
+        state: sessionSrs.srsState || sessionSrs.state || card.srsState || card.state || null,
+        intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1,
+        masteryState: card.masteryState || 'not_learned',
+        seenCount: typeof card.seenCount === 'number' ? card.seenCount : 0,
+        lastReviewed: sessionSrs.lastReviewed || card.lastReviewed || null
+    } : {
         interval: card.srsInterval !== undefined ? card.srsInterval : (card.interval !== undefined ? card.interval : (card.currentInterval_back || 0)),
         ease: card.srsEase !== undefined ? card.srsEase : (card.ease || 2.5),
         learningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : (card.learningStep !== undefined ? card.learningStep : null),
@@ -744,6 +757,9 @@ const SRSVocabScreen = ({
         };
 
         sessionSrsData.current[card.id] = newSrs;
+        if (intervalCacheRef.current) {
+            delete intervalCacheRef.current[card.id];
+        }
 
         // Call parent update vocab srs rating on Firestore asynchronously
         if (onUpdateVocabSrsRating) {
@@ -931,7 +947,8 @@ const SRSVocabScreen = ({
     const currentCard = (reviewMode && reviewQueue.length > 0) ? reviewQueue[currentReviewIndex] : null;
     if (reviewMode && currentCard) {
         if (!intervalCacheRef.current[currentCard.id]) {
-            intervalCacheRef.current[currentCard.id] = getPreviewIntervals(currentCard);
+            const currentSessionSrs = sessionSrsData.current[currentCard.id] || null;
+            intervalCacheRef.current[currentCard.id] = getPreviewIntervals(currentCard, currentSessionSrs);
         }
         const previewIntv = intervalCacheRef.current[currentCard.id];
         const intervals = {

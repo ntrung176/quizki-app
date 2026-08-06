@@ -474,6 +474,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }
 
         setReviewQueue(updatedQueue);
+        if (intervalCacheRef.current) {
+            delete intervalCacheRef.current[currentCard.id];
+        }
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
         updateCachedUserGrammarSrs(userId, currentCard.id, newSrs);
 

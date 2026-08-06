@@ -512,6 +512,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         setReviewQueue(updatedQueue);
 
         // Update local states immediately (optimistic UI)
+        if (intervalCacheRef.current) {
+            delete intervalCacheRef.current[currentCard.id];
+        }
         setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
         updateCachedUserSrs(userId, currentCard.id, newSrs);
         if (currentReviewIndex + 1 < updatedQueue.length) {
