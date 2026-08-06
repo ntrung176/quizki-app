@@ -479,10 +479,6 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
                 if (fetchedResult) {
                     // Standardize front and synonym with ensureFuriganaFormat
-                    const oldFront = fetchedResult.frontWithFurigana;
-                    const oldSynonym = fetchedResult.synonym;
-                    const oldSino = fetchedResult.sinoVietnamese;
-
                     fetchedResult.frontWithFurigana = await ensureFuriganaFormat(fetchedResult.frontWithFurigana);
                     if (fetchedResult.synonym) {
                         fetchedResult.synonym = await ensureFuriganaFormat(fetchedResult.synonym);
@@ -494,52 +490,11 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                         }
                     }
 
-                    // If changed, save back to sharedVocabulary
-                    if (fetchedResult.frontWithFurigana !== oldFront || fetchedResult.synonym !== oldSynonym || fetchedResult.sinoVietnamese !== oldSino) {
-                        try {
-                            await setDoc(docRef, {
-                                front: fetchedResult.frontWithFurigana,
-                                back: fetchedResult.meaning,
-                                synonym: fetchedResult.synonym,
-                                sinoVietnamese: fetchedResult.sinoVietnamese,
-                                synonymSinoVietnamese: fetchedResult.synonymSinoVietnamese || '',
-                                example: fetchedResult.example || '',
-                                exampleMeaning: fetchedResult.exampleMeaning || '',
-                                nuance: fetchedResult.nuance || '',
-                                pos: fetchedResult.pos || '',
-                                level: fetchedResult.level || '',
-                                updatedAt: Date.now()
-                            }, { merge: true });
-                            console.log('📚 Auto-healed and updated sharedVocabulary in lookup:', normalizedKey);
-                        } catch (saveErr) {
-                            console.warn('Error saving healed sharedVocab:', saveErr);
-                        }
-                    }
-
                     setAiResult(fetchedResult);
                 } else {
                     const result = await aiAssistVocab(pendingWord);
                     if (result) {
                         setAiResult(result);
-                        // Save to shared dictionary so other users can fetch it
-                        try {
-                            await setDoc(docRef, {
-                                front: result.frontWithFurigana || pendingWord,
-                                back: result.meaning || '',
-                                synonym: result.synonym || '',
-                                sinoVietnamese: result.sinoVietnamese || '',
-                                synonymSinoVietnamese: result.synonymSinoVietnamese || '',
-                                example: result.example || '',
-                                exampleMeaning: result.exampleMeaning || '',
-                                nuance: result.nuance || '',
-                                pos: result.pos || '',
-                                level: result.level || '',
-                                updatedAt: Date.now()
-                            }, { merge: true });
-                            console.log('📚 Saved vocabulary to sharedVocabulary:', normalizedKey);
-                        } catch (saveErr) {
-                            console.warn('Error saving to sharedVocabulary:', saveErr);
-                        }
                     } else {
                         setError('Không thể tra cứu từ vựng này bằng AI.');
                     }

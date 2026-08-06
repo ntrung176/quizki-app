@@ -49,7 +49,12 @@ const AppContent = () => {
             <CyberTechBackground isDarkMode={isDarkMode} />
 
             {/* Selection text lookup popup for instant dictionary search */}
-            <VocabularySelectionLookup />
+            <VocabularySelectionLookup
+                allCards={flashcardCards}
+                folders={cardFolders}
+                handleAddCard={handleAddCard}
+                isPremiumUnlocked={userHasAdminPrivileges || hasPremium}
+            />
 
             {/* Version Update Popup */}
             {updateAvailable && (
