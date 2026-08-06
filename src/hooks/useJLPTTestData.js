@@ -7,7 +7,13 @@ export const useJLPTTestData = ({ userId, profile }) => {
     const [tests, setTests] = useState([]);
     const [loading, setLoading] = useState(true);
     const [targetLevel, setTargetLevel] = useState(profile?.jlptTargetLevel || 'N2');
-    const [completedTests, setCompletedTests] = useState({});
+    const [completedTests, setCompletedTests] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('quizki_completed_tests') || '{}');
+        } catch (e) {
+            return {};
+        }
+    });
     const [roadmapProgress, setRoadmapProgress] = useState(() => {
         try {
             const cached = localStorage.getItem('quizki_jlpt_roadmap_progress');

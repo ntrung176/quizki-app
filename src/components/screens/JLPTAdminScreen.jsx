@@ -4,7 +4,7 @@ import {
     collection, query, onSnapshot, doc, setDoc, deleteDoc, serverTimestamp, orderBy
 } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
-import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type } from 'lucide-react'
+import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { compressImage, fileToBase64 } from '../../utils/image';
@@ -1527,7 +1527,15 @@ const JLPTAdminScreen = ({ userId }) => {
                                             {test.level}
                                         </span>
                                         <div>
-                                            <p className="font-extrabold text-slate-800 dark:text-white text-xs">{test.title}</p>
+                                            <div className="flex items-center gap-2">
+                                                <p className="font-extrabold text-slate-800 dark:text-white text-xs">{test.title}</p>
+                                                {test.isPremium && (
+                                                    <span className="inline-flex items-center gap-1 text-[9px] font-extrabold px-2 py-0.5 rounded-full bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30">
+                                                        <Crown className="w-2.5 h-2.5 text-amber-500" />
+                                                        PRO
+                                                    </span>
+                                                )}
+                                            </div>
                                             <p className="text-[10px] text-slate-400 font-semibold mt-0.5 flex items-center gap-2">
                                                 <span>{totalQ} câu hỏi</span>
                                                 <span>•</span>
@@ -1540,6 +1548,23 @@ const JLPTAdminScreen = ({ userId }) => {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-1 flex-shrink-0">
+                                        <button
+                                            onClick={async () => {
+                                                try {
+                                                    const { updateDoc: updateDocFn } = await import('firebase/firestore');
+                                                    const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
+                                                    await updateDocFn(testRef, { isPremium: !test.isPremium });
+                                                } catch (err) {
+                                                    alert('Lỗi cập nhật Premium: ' + err.message);
+                                                }
+                                            }}
+                                            className={`p-2 rounded-xl transition cursor-pointer ${
+                                                test.isPremium ? 'text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/20' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+                                            }`}
+                                            title={test.isPremium ? 'Đề thi VIP (Premium) - Click để mở Miễn phí' : 'Đề thi Miễn phí - Click để khoá Premium'}
+                                        >
+                                            {test.isPremium ? <Lock className="w-4 h-4 text-amber-500" /> : <Unlock className="w-4 h-4" />}
+                                        </button>
                                         <button onClick={() => handleEdit(test)} className="p-2 text-[#2E5B70] hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition cursor-pointer">
                                             <Edit3 className="w-4 h-4" />
                                         </button>

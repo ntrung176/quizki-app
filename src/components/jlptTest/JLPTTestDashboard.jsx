@@ -66,17 +66,15 @@ const JLPTTestDashboard = ({
     const completedDays = (roadmapProgress[targetLevel] || []).length;
 
     const getTestStatus = (test) => {
-        const completed = completedTests[test.id];
+        if (!test) return 'not_started';
+        const testId = test.id || test._id;
+        const completed = completedTests[testId] || completedTests[String(testId)];
         if (completed) {
-            return completed.percentage >= 60 ? 'completed' : 'retry';
+            return 'completed';
         }
-        if (savedProgresses[test.id]) {
+        const saved = savedProgresses[testId] || savedProgresses[String(testId)];
+        if (saved) {
             return 'in_progress';
-        }
-        const createdAt = test.createdAt?.seconds ? new Date(test.createdAt.seconds * 1000) : new Date();
-        const diffDays = (new Date() - createdAt) / (1000 * 60 * 60 * 24);
-        if (diffDays <= 14) {
-            return 'new';
         }
         return 'not_started';
     };
@@ -99,14 +97,20 @@ const JLPTTestDashboard = ({
     const getSkillProgress = (skillType) => {
         const skillTests = tests.filter(t => t.isSkillTest && t.skillType === skillType && (selectedLevel === 'all' || t.level === selectedLevel));
         if (skillTests.length === 0) return 0;
-        const completedCount = skillTests.filter(t => !!completedTests[t.id]).length;
+        const completedCount = skillTests.filter(t => {
+            const testId = t.id || t._id;
+            return !!(completedTests[testId] || completedTests[String(testId)]);
+        }).length;
         return Math.round((completedCount / skillTests.length) * 100);
     };
 
     const getLevelProgress = (lvl) => {
         const lvlTests = tests.filter(t => !t.isSkillTest && t.level === lvl);
         if (lvlTests.length === 0) return 0;
-        const completedLvlTests = lvlTests.filter(t => !!completedTests[t.id]);
+        const completedLvlTests = lvlTests.filter(t => {
+            const testId = t.id || t._id;
+            return !!(completedTests[testId] || completedTests[String(testId)]);
+        });
         return Math.round((completedLvlTests.length / lvlTests.length) * 100);
     };
 
@@ -191,7 +195,6 @@ const JLPTTestDashboard = ({
                                 >
                                     <option value="all">Trạng thái: Tất cả</option>
                                     <option value="completed">Đã hoàn thành</option>
-                                    <option value="retry">Cần ôn lại</option>
                                     <option value="in_progress">Đang làm</option>
                                     <option value="not_started">Chưa làm</option>
                                 </select>
@@ -210,18 +213,61 @@ const JLPTTestDashboard = ({
                             {sortedSkillTests.map(test => {
                                 const status = getTestStatus(test);
                                 const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
+                                const isLocked = test.isPremium && !hasPremiumAccess;
+
                                 return (
-                                    <div key={test.id} className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg transition flex flex-col justify-between min-h-[240px]">
+                                    <div key={test.id} className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg transition flex flex-col justify-between min-h-[240px] relative overflow-hidden group">
                                         <div>
                                             <div className="flex items-center justify-between mb-4">
                                                 <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 flex items-center justify-center">
                                                     <SkillIcon className="w-5 h-5" />
                                                 </div>
-                                                <span className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
-                                                    {status === 'completed' ? 'Hoàn thành' : status === 'retry' ? 'Cần ôn lại' : status === 'in_progress' ? 'Đang làm' : 'Chưa làm'}
-                                                </span>
+                                                <div className="flex items-center gap-1.5">
+
+                                                    {canEdit && (
+                                                        <button
+                                                            onClick={(e) => handleToggleTestPremium && handleToggleTestPremium(e, test)}
+                                                            className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
+                                                                test.isPremium
+                                                                    ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-300 dark:border-amber-700 text-amber-600 dark:text-amber-400 hover:scale-105'
+                                                                    : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-400 hover:text-slate-600 hover:scale-105'
+                                                            }`}
+                                                            title={test.isPremium ? 'Đề thi khoá Premium (Click để mở)' : 'Đề thi Miễn phí (Click để khoá Premium)'}
+                                                        >
+                                                            {test.isPremium ? <Lock className="w-3.5 h-3.5 text-amber-500" /> : <Unlock className="w-3.5 h-3.5" />}
+                                                        </button>
+                                                    )}
+                                                    {(() => {
+                                                        const testId = test.id || test._id;
+                                                        const completed = completedTests[testId] || completedTests[String(testId)];
+                                                        const scorePct = completed && typeof completed.percentage === 'number' ? Math.round(completed.percentage) : null;
+                                                        
+                                                        if (status === 'completed') {
+                                                            return (
+                                                                <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/50">
+                                                                    ✓ Đã hoàn thành {scorePct !== null ? `(${scorePct}%)` : ''}
+                                                                </span>
+                                                            );
+                                                        }
+                                                        if (status === 'in_progress') {
+                                                            return (
+                                                                <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 border border-sky-200/60 dark:border-sky-800/50">
+                                                                    ⏳ Đang làm
+                                                                </span>
+                                                            );
+                                                        }
+                                                        return (
+                                                            <span className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200/50 dark:border-slate-700">
+                                                                Chưa làm
+                                                            </span>
+                                                        );
+                                                    })()}
+                                                </div>
                                             </div>
-                                            <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-snug">{test.title}</h4>
+                                            <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-snug flex items-center gap-1.5">
+                                                {test.isPremium && <Lock className="w-4 h-4 text-amber-500 shrink-0 inline-block" />}
+                                                <span>{test.title}</span>
+                                            </h4>
                                             <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold mt-3">
                                                 <span>{totalQ} Câu hỏi</span>
                                                 <span>•</span>
@@ -233,9 +279,43 @@ const JLPTTestDashboard = ({
                                                 <Printer className="w-4 h-4" />
                                             </button>
                                             {status === 'completed' ? (
-                                                <button onClick={() => reviewTest(test)} className="px-4 py-1.5 bg-slate-100 text-slate-700 font-bold text-xs rounded-xl cursor-pointer">Xem lại</button>
+                                                <button
+                                                    onClick={() => {
+                                                        if (isLocked) {
+                                                            setLockedPkgName('jlpt_prep');
+                                                            setShowPremiumModal(true);
+                                                        } else {
+                                                            reviewTest(test);
+                                                        }
+                                                    }}
+                                                    className={`px-4 py-1.5 font-bold text-xs rounded-xl cursor-pointer flex items-center gap-1.5 ${
+                                                        isLocked
+                                                            ? 'bg-amber-500 hover:bg-amber-600 text-white shadow-md'
+                                                            : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                                                    }`}
+                                                >
+                                                    {isLocked && <Lock className="w-3.5 h-3.5" />}
+                                                    <span>Xem lại</span>
+                                                </button>
                                             ) : (
-                                                <button onClick={() => startTest(test)} className="px-4 py-1.5 bg-[#2E5B70] text-white font-bold text-xs rounded-xl cursor-pointer">Bắt đầu</button>
+                                                <button
+                                                    onClick={() => {
+                                                        if (isLocked) {
+                                                            setLockedPkgName('jlpt_prep');
+                                                            setShowPremiumModal(true);
+                                                        } else {
+                                                            startTest(test);
+                                                        }
+                                                    }}
+                                                    className={`px-4 py-1.5 font-bold text-xs rounded-xl cursor-pointer flex items-center gap-1.5 ${
+                                                        isLocked
+                                                            ? 'bg-amber-500 hover:bg-amber-600 text-white shadow-md'
+                                                            : 'bg-[#2E5B70] hover:bg-[#254A5C] text-white'
+                                                    }`}
+                                                >
+                                                    {isLocked && <Lock className="w-3.5 h-3.5" />}
+                                                    <span>{isLocked ? 'Premium' : 'Bắt đầu'}</span>
+                                                </button>
                                             )}
                                         </div>
                                     </div>
@@ -298,18 +378,61 @@ const JLPTTestDashboard = ({
                     {sortedLvlTests.map(test => {
                         const status = getTestStatus(test);
                         const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
+                        const isLocked = test.isPremium && !hasPremiumAccess;
+
                         return (
-                            <div key={test.id} className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 hover:shadow-xl transition flex flex-col justify-between min-h-[250px]">
+                            <div key={test.id} className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 hover:shadow-xl transition flex flex-col justify-between min-h-[250px] relative overflow-hidden group">
                                 <div>
                                     <div className="flex items-center justify-between mb-4">
                                         <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${lvlGradient} text-white flex items-center justify-center font-black text-xs`}>
                                             {test.level}
                                         </div>
-                                        <span className="text-[10px] font-bold px-3 py-1 rounded-full uppercase bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                                            {status === 'completed' ? 'Hoàn thành' : status === 'retry' ? 'Cần ôn lại' : status === 'in_progress' ? 'Đang làm' : 'Chưa làm'}
-                                        </span>
+                                        <div className="flex items-center gap-1.5">
+
+                                            {canEdit && (
+                                                <button
+                                                    onClick={(e) => handleToggleTestPremium && handleToggleTestPremium(e, test)}
+                                                    className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
+                                                        test.isPremium
+                                                            ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-300 dark:border-amber-700 text-amber-600 dark:text-amber-400 hover:scale-105'
+                                                            : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 hover:text-slate-600 hover:scale-105'
+                                                    }`}
+                                                    title={test.isPremium ? 'Đề thi khoá Premium (Click để mở)' : 'Đề thi Miễn phí (Click để khoá Premium)'}
+                                                >
+                                                    {test.isPremium ? <Lock className="w-3.5 h-3.5 text-amber-500" /> : <Unlock className="w-3.5 h-3.5" />}
+                                                </button>
+                                            )}
+                                            {(() => {
+                                                const testId = test.id || test._id;
+                                                const completed = completedTests[testId] || completedTests[String(testId)];
+                                                const scorePct = completed && typeof completed.percentage === 'number' ? Math.round(completed.percentage) : null;
+                                                
+                                                if (status === 'completed') {
+                                                    return (
+                                                        <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/50">
+                                                            ✓ Đã hoàn thành {scorePct !== null ? `(${scorePct}%)` : ''}
+                                                        </span>
+                                                    );
+                                                }
+                                                if (status === 'in_progress') {
+                                                    return (
+                                                        <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 border border-sky-200/60 dark:border-sky-800/50">
+                                                            ⏳ Đang làm
+                                                        </span>
+                                                    );
+                                                }
+                                                return (
+                                                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full uppercase bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200/50 dark:border-slate-700">
+                                                        Chưa làm
+                                                    </span>
+                                                );
+                                            })()}
+                                        </div>
                                     </div>
-                                    <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight">{test.title}</h4>
+                                    <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight flex items-center gap-1.5">
+                                        {test.isPremium && <Lock className="w-4 h-4 text-amber-500 shrink-0 inline-block" />}
+                                        <span>{test.title}</span>
+                                    </h4>
                                     <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold mt-4">
                                         <span>{totalQ} Câu hỏi</span>
                                         <span>•</span>
@@ -321,9 +444,43 @@ const JLPTTestDashboard = ({
                                         <Printer className="w-4 h-4" />
                                     </button>
                                     {status === 'completed' ? (
-                                        <button onClick={() => reviewTest(test)} className="px-4 py-1.5 bg-slate-100 text-slate-700 font-bold text-xs rounded-xl cursor-pointer">Xem lại</button>
+                                        <button
+                                            onClick={() => {
+                                                if (isLocked) {
+                                                    setLockedPkgName('jlpt_prep');
+                                                    setShowPremiumModal(true);
+                                                } else {
+                                                    reviewTest(test);
+                                                }
+                                            }}
+                                            className={`px-4 py-1.5 font-bold text-xs rounded-xl cursor-pointer flex items-center gap-1.5 ${
+                                                isLocked
+                                                    ? 'bg-amber-500 hover:bg-amber-600 text-white shadow-md'
+                                                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                                            }`}
+                                        >
+                                            {isLocked && <Lock className="w-3.5 h-3.5" />}
+                                            <span>Xem lại</span>
+                                        </button>
                                     ) : (
-                                        <button onClick={() => startTest(test)} className="px-4 py-1.5 bg-[#2E5B70] text-white font-bold text-xs rounded-xl cursor-pointer">Vào thi</button>
+                                        <button
+                                            onClick={() => {
+                                                if (isLocked) {
+                                                    setLockedPkgName('jlpt_prep');
+                                                    setShowPremiumModal(true);
+                                                } else {
+                                                    startTest(test);
+                                                }
+                                            }}
+                                            className={`px-4 py-1.5 font-bold text-xs rounded-xl cursor-pointer flex items-center gap-1.5 ${
+                                                isLocked
+                                                    ? 'bg-amber-500 hover:bg-amber-600 text-white shadow-md'
+                                                    : 'bg-[#2E5B70] hover:bg-[#254A5C] text-white'
+                                            }`}
+                                        >
+                                            {isLocked && <Lock className="w-3.5 h-3.5" />}
+                                            <span>{isLocked ? 'Premium' : 'Vào thi'}</span>
+                                        </button>
                                     )}
                                 </div>
                             </div>
