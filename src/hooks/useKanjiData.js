@@ -767,8 +767,9 @@ export const useKanjiData = ({
     };
 
     const handleEditKanji = async () => {
-        if (!editingKanji) return;
+        if (!editingKanji || (!editingKanji.character && !editingKanji.id)) return;
         const kanjiDoc = {
+            ...editingKanji,
             character: editingKanji.character || '',
             meaning: editingKanji.meaning || '',
             onyomi: editingKanji.onyomi || '',
@@ -780,29 +781,24 @@ export const useKanjiData = ({
             radical: editingKanji.radical || '',
             parts: editingKanji.parts || '',
             imageUrl: editingKanji.imageUrl || '',
+            updatedAt: Date.now()
         };
-        try {
-            const existingFbKanji = kanjiList.find(k => k.character === kanjiDoc.character);
-            const targetId = editingKanji.id || existingFbKanji?.id;
 
-            const kanjiDocToSave = { ...kanjiDoc, updatedAt: Date.now() };
-            if (targetId) {
-                await updateDoc(doc(db, 'kanji', targetId), kanjiDocToSave);
-                const updatedKanji = { ...editingKanji, ...kanjiDocToSave, id: targetId };
-                setKanjiList(prev => prev.map(k => (k.id === targetId || k.character === kanjiDoc.character) ? updatedKanji : k));
-                updateCachedKanji(updatedKanji);
-                showToast(`Đã lưu thay đổi cho Kanji "${kanjiDoc.character}"`, 'success');
-            } else {
-                const docRef = await addDoc(collection(db, 'kanji'), kanjiDocToSave);
-                const addedKanji = { ...kanjiDocToSave, id: docRef.id };
-                setKanjiList(prev => prev.map(k => k.character === kanjiDoc.character ? addedKanji : k));
-                updateCachedKanji(addedKanji);
-                showToast(`Đã lưu thay đổi cho Kanji "${kanjiDoc.character}"`, 'success');
-            }
+        try {
+            const existingFbKanji = kanjiList.find(k => k.character === kanjiDoc.character || k.id === editingKanji.id);
+            const targetId = String(editingKanji.id || existingFbKanji?.id || kanjiDoc.character);
+
+            const kanjiDocToSave = { ...kanjiDoc, id: targetId };
+            await setDoc(doc(db, 'kanji', targetId), kanjiDocToSave, { merge: true });
+
+            setKanjiList(prev => prev.map(k => (k.id === targetId || k.character === kanjiDoc.character) ? kanjiDocToSave : k));
+            updateCachedKanji(kanjiDocToSave);
+            showToast(`Đã lưu thành công Kanji "${kanjiDoc.character}" vào Database!`, 'success');
+
             setShowEditKanjiModal(false);
             setEditingKanji(null);
         } catch (e) {
-            console.error('Error saving kanji:', e);
+            console.error('Error saving kanji to Firestore:', e);
             showToast('Lỗi khi lưu kanji: ' + e.message, 'error');
         }
     };
