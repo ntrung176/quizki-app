@@ -497,7 +497,7 @@ export const clearKanjiProgressCache = () => {
     kanjiProgressPromise = null;
 };
 
-export const syncKanjiAndVocabToCDN = async (forceFull = false) => {
+export const syncKanjiAndVocabToCDN = async (forceFull = true) => {
     let kanjiList = [];
     let vocabList = [];
     let categories = [];
@@ -601,7 +601,8 @@ export const syncKanjiAndVocabToCDN = async (forceFull = false) => {
         exportedAt
     }, { merge: true });
 
-    // Update the local in-memory cache directly!
+    // Invalidate stale promises and update local in-memory cache directly!
+    invalidateKanjiCache();
     cachedKanjiList = kanjiList;
     cachedVocabList = vocabList;
     cachedVocabCategories = categories;

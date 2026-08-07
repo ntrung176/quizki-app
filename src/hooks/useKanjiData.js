@@ -893,7 +893,7 @@ export const useKanjiData = ({
         setSyncingCDN(true);
         showToast('Đang tải và cập nhật dữ liệu CDN...', 'info');
         try {
-            await syncKanjiAndVocabToCDN();
+            await syncKanjiAndVocabToCDN(true);
             showToast('Đồng bộ CDN thành công!', 'success');
         } catch (err) {
             console.error('Lỗi đồng bộ CDN:', err);
