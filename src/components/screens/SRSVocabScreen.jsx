@@ -506,8 +506,11 @@ const SRSVocabScreen = ({
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
         sessionSrsData.current = {};
-        activeReviewCardIds.current = new Set(dueCards.map(c => c.id));
-        setReviewQueue(shuffleArray([...dueCards]));
+        const uniqueDueCards = Array.from(
+            new Map(dueCards.map(c => [String(c.id), c])).values()
+        );
+        activeReviewCardIds.current = new Set(uniqueDueCards.map(c => String(c.id)));
+        setReviewQueue(shuffleArray(uniqueDueCards));
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
@@ -627,11 +630,12 @@ const SRSVocabScreen = ({
             if (dueNow.length > 0) {
                 setReviewQueue(prevQueue => {
                     const nextQueue = [...prevQueue];
-                    const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
+                    const allQueueIds = new Set(nextQueue.map(c => String(c.id)));
                     const cardsToInject = [];
                     dueNow.forEach(item => {
-                        if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
-                            const fullCard = allCards.find(c => c.id === item.id);
+                        const itemIdStr = String(item.id);
+                        if (!allQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
+                            const fullCard = allCards.find(c => String(c.id) === itemIdStr);
                             if (fullCard) {
                                 const localSrs = sessionSrsData.current[item.id];
                                 cardsToInject.push({
@@ -652,7 +656,8 @@ const SRSVocabScreen = ({
                     });
                     
                     if (cardsToInject.length > 0) {
-                        const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
+                        const minSpacing = 3;
+                        const insertIndex = Math.min(currentReviewIndex + minSpacing, nextQueue.length);
                         nextQueue.splice(insertIndex, 0, ...cardsToInject);
                         return nextQueue;
                     }

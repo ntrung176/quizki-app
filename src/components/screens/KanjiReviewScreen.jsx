@@ -340,47 +340,52 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
 
     // Inject due learning cards into review queue when cards are rated
-    const checkAndInjectLearningCards = () => {
+    useEffect(() => {
         if (!reviewMode) return;
-        const now = Date.now();
-        const waiting = getLearningCardsWaiting();
-        const dueNow = waiting.filter(w => w.nextReview <= now);
-        if (dueNow.length > 0) {
-            setReviewQueue(prevQueue => {
-                const nextQueue = [...prevQueue];
-                const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
-                const cardsToInject = [];
-                dueNow.forEach(item => {
-                    if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
-                        const fullCard = kanjiMap.get(item.id);
-                        if (fullCard) {
-                            const localSrs = srsData[item.id];
-                            cardsToInject.push({
-                                ...fullCard,
-                                srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
-                                srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
-                                srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
-                                srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
-                                srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
-                                srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
-                                srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
-                                srsState: localSrs ? localSrs.state : fullCard.srsState,
-                                nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
-                                lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
-                            });
+        const intervalId = setInterval(() => {
+            const now = Date.now();
+            const waiting = getLearningCardsWaiting();
+            const dueNow = waiting.filter(w => w.nextReview <= now);
+            if (dueNow.length > 0) {
+                setReviewQueue(prevQueue => {
+                    const nextQueue = [...prevQueue];
+                    const allQueueIds = new Set(nextQueue.map(c => String(c.id)));
+                    const cardsToInject = [];
+                    dueNow.forEach(item => {
+                        const itemIdStr = String(item.id);
+                        if (!allQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
+                            const fullCard = kanjiMap.get(item.id);
+                            if (fullCard) {
+                                const localSrs = srsData[item.id];
+                                cardsToInject.push({
+                                    ...fullCard,
+                                    srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
+                                    srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
+                                    srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
+                                    srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
+                                    srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
+                                    srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
+                                    srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
+                                    srsState: localSrs ? localSrs.state : fullCard.srsState,
+                                    nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
+                                    lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
+                                });
+                            }
                         }
-                    }
-                });
+                    });
 
-                if (cardsToInject.length > 0) {
-                    const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
-                    nextQueue.splice(insertIndex, 0, ...cardsToInject);
-                    return nextQueue;
-                }
-                return prevQueue;
-            });
-        }
-    };
+                    if (cardsToInject.length > 0) {
+                        const minSpacing = 3;
+                        const insertIndex = Math.min(currentReviewIndex + minSpacing, nextQueue.length);
+                        nextQueue.splice(insertIndex, 0, ...cardsToInject);
+                        return nextQueue;
+                    }
+                    return prevQueue;
+                });
+            }
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, [reviewMode, currentReviewIndex, kanjiMap, srsData]);
 
     const [isPreparingSession, setIsPreparingSession] = useState(false);
 
@@ -388,8 +393,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         if (dueKanji.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
-        activeReviewCardIds.current = new Set(dueKanji.map(c => c.id));
-        setReviewQueue([...dueKanji]);
+        const uniqueDueKanji = Array.from(
+            new Map(dueKanji.map(c => [String(c.id), c])).values()
+        );
+        activeReviewCardIds.current = new Set(uniqueDueKanji.map(c => String(c.id)));
+        setReviewQueue(uniqueDueKanji);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);

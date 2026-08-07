@@ -359,8 +359,11 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (dueGrammar.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
-        activeReviewCardIds.current = new Set(dueGrammar.map(c => c.id));
-        setReviewQueue([...dueGrammar]);
+        const uniqueDueGrammar = Array.from(
+            new Map(dueGrammar.map(c => [String(c.id), c])).values()
+        );
+        activeReviewCardIds.current = new Set(uniqueDueGrammar.map(c => String(c.id)));
+        setReviewQueue(uniqueDueGrammar);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
