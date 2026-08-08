@@ -59,7 +59,7 @@ const KanjiScreen = ({
         currentKanjiList, displayedKanjiList, filteredKanjiList, completedCount,
         searchResults, toggleKanjiSRS, openKanjiDetail, handleConfirmSaveVocab,
         handleSelectSearchResult, getKanjiDetail, getVocabForKanji, getRelatedKanji,
-        handleAddKanji, handleAddVocab, handleDeleteCategory, toggleKanjiSelection,
+        handleAddKanji, handleImportKanjiJson, handleAddVocab, handleDeleteCategory, toggleKanjiSelection,
         toggleVocabSelection, selectAllKanji, handleBulkDeleteKanji, handleEditKanji,
         handleDeleteKanji, handleSyncVocabToKanji, handleCDNSync, handleMigrateComponents,
         handleEditVocab, handleDeleteVocab, openEditKanji, openEditVocab,
@@ -245,6 +245,9 @@ const KanjiScreen = ({
                     handleAddKanji={handleAddKanji}
                     newKanji={newKanji}
                     setNewKanji={setNewKanji}
+                    jsonKanjiInput={jsonKanjiInput}
+                    setJsonKanjiInput={setJsonKanjiInput}
+                    handleImportKanjiJson={handleImportKanjiJson}
                     showAddVocabModal={showAddVocabModal}
                     setShowAddVocabModal={setShowAddVocabModal}
                     handleAddVocab={handleAddVocab}

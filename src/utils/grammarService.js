@@ -84,6 +84,16 @@ export const getSharedGrammarData = async () => {
 
             cachedGrammarData = await dataRes.json();
             lastLoadedExportedAt = currentExport || null;
+            const editedMap = getEditedGrammarMap();
+            if (Object.keys(editedMap).length > 0 && Array.isArray(cachedGrammarData)) {
+                cachedGrammarData.forEach(textbook => {
+                    (textbook.lessons || []).forEach(lesson => {
+                        if (lesson.points) {
+                            lesson.points = lesson.points.map(p => editedMap[p.id] ? { ...p, ...editedMap[p.id] } : p);
+                        }
+                    });
+                });
+            }
             return cachedGrammarData;
         } catch (e) {
             console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
@@ -331,7 +341,14 @@ export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin =
                     if (tb) {
                         const ls = (tb.lessons || []).find(l => l.id === lessonId);
                         if (ls) {
-                            callback(ls.points || []);
+                            const editedMap = getEditedGrammarMap();
+                            const deletedSet = getDeletedGrammarIds();
+                            const points = sortGrammarPointsByCreationTime(
+                                (ls.points || [])
+                                    .map(p => editedMap[p.id] ? { ...p, ...editedMap[p.id] } : p)
+                                    .filter(p => !deletedSet.has(p.id))
+                            );
+                            callback(points);
                             return;
                         }
                     }
@@ -356,11 +373,17 @@ export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin =
         const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
         pointsUnsubs[key] = onSnapshot(colRef, (snapshot) => {
             const deletedSet = getDeletedGrammarIds();
-            const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() })).filter(pt => !deletedSet.has(pt.id));
-            items.sort((a, b) => (a.order || 0) - (b.order || 0));
-            pointsCache[key] = items;
+            const editedMap = getEditedGrammarMap();
+            const items = snapshot.docs
+                .map(d => {
+                    const itemData = { id: d.id, ...d.data() };
+                    return editedMap[d.id] ? { ...itemData, ...editedMap[d.id] } : itemData;
+                })
+                .filter(pt => !deletedSet.has(pt.id));
+            const sortedItems = sortGrammarPointsByCreationTime(items);
+            pointsCache[key] = sortedItems;
             if (pointsListeners[key]) {
-                pointsListeners[key].forEach(cb => cb(items));
+                pointsListeners[key].forEach(cb => cb(sortedItems));
             }
         }, (err) => {
             console.error('Subscribe grammar points error:', err);
@@ -404,10 +427,51 @@ export const addGrammarPoint = async (textbookId, lessonId, data, adminUserId) =
     }
 };
 
+const EDITED_GRAMMAR_KEY = 'quizki_edited_grammar_points';
+
+export const getEditedGrammarMap = () => {
+    try {
+        const stored = localStorage.getItem(EDITED_GRAMMAR_KEY);
+        return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+        return {};
+    }
+};
+
+export const updateEditedGrammarLocalCache = (pointId, data) => {
+    try {
+        const currentMap = getEditedGrammarMap();
+        currentMap[pointId] = {
+            ...(currentMap[pointId] || {}),
+            ...data,
+            id: pointId,
+            updatedAt: Date.now()
+        };
+        localStorage.setItem(EDITED_GRAMMAR_KEY, JSON.stringify(currentMap));
+    } catch (e) {
+        console.error('Error saving edited grammar local cache:', e);
+    }
+};
+
+export const clearEditedGrammarLocalCache = () => {
+    try {
+        localStorage.removeItem(EDITED_GRAMMAR_KEY);
+    } catch (_) {}
+};
+
 export const updateGrammarPoint = async (textbookId, lessonId, grammarId, data) => {
     try {
         clearSharedGrammarPointsListCache();
-        await updateDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId), { ...data, updatedAt: serverTimestamp() });
+        const updatedDoc = { ...data, id: grammarId, textbookId, lessonId, updatedAt: Date.now() };
+        updateEditedGrammarLocalCache(grammarId, updatedDoc);
+
+        const promises = [];
+        if (textbookId && lessonId && textbookId !== 'master_bank' && textbookId !== 'master') {
+            promises.push(setDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId), { ...data, updatedAt: serverTimestamp() }, { merge: true }));
+        }
+        promises.push(setDoc(doc(db, masterGrammarPath(), grammarId), { ...data, updatedAt: serverTimestamp() }, { merge: true }));
+
+        await Promise.all(promises);
         return true;
     } catch (e) {
         console.error('Update grammar point error:', e);
@@ -518,18 +582,21 @@ export const deleteGrammarPointsBatch = async (items) => {
 // ============== FETCH SINGLE GRAMMAR POINT (for detail/practice) ==============
 
 export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => {
+    const editedMap = getEditedGrammarMap();
+    const localEdited = editedMap[grammarId];
     // Try Master Bank query directly
     try {
         const masterRef = doc(db, masterGrammarPath(), grammarId);
         const masterSnap = await getDoc(masterRef);
         if (masterSnap.exists()) {
             const data = masterSnap.data();
+            const merged = localEdited ? { ...data, ...localEdited } : data;
             return {
-                ...data,
+                ...merged,
                 id: masterSnap.id,
                 textbookId: textbookId || 'master',
                 lessonId: lessonId || 'master',
-                textbook: { id: 'master', title: `Kho Ngữ Pháp (${data.level || 'N4'})`, titleVi: `Kho Ngữ Pháp (${data.level || 'N4'})` },
+                textbook: { id: 'master', title: `Kho Ngữ Pháp (${merged.level || 'N4'})`, titleVi: `Kho Ngữ Pháp (${merged.level || 'N4'})` },
                 lesson: { id: 'master', title: 'Kho Ngữ Pháp Trung Tâm', meaning: 'Kho Ngữ Pháp Gốc' }
             };
         }
@@ -547,8 +614,9 @@ export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => 
                     if (lessonId && lesson.id !== lessonId) continue;
                     const found = (lesson.points || []).find(pt => pt.id === grammarId);
                     if (found) {
+                        const mergedFound = localEdited ? { ...found, ...localEdited } : found;
                         return {
-                            ...found,
+                            ...mergedFound,
                             textbookId: textbook.id,
                             lessonId: lesson.id,
                             textbook: { id: textbook.id, title: textbook.title, titleVi: textbook.titleVi, levels: textbook.levels, category: textbook.category, color: textbook.color },
@@ -889,14 +957,43 @@ export const importDirectGrammarPointsFromJson = async (jsonInput, defaultLevel 
     }
 };
 
-// ============== MASTER GRAMMAR BANK & LESSON ASSIGNMENT ==============
+export const sortGrammarPointsByCreationTime = (points) => {
+    if (!Array.isArray(points)) return [];
+    return [...points].sort((a, b) => {
+        const getTimestamp = (pt) => {
+            if (!pt) return 0;
+            if (pt.createdAt) {
+                if (typeof pt.createdAt === 'number') return pt.createdAt;
+                if (typeof pt.createdAt === 'string') {
+                    const t = Date.parse(pt.createdAt);
+                    if (!isNaN(t)) return t;
+                }
+                if (typeof pt.createdAt.toMillis === 'function') return pt.createdAt.toMillis();
+                if (pt.createdAt.seconds) return pt.createdAt.seconds * 1000;
+            }
+            if (pt.updatedAt) {
+                if (typeof pt.updatedAt === 'number') return pt.updatedAt;
+                if (typeof pt.updatedAt.toMillis === 'function') return pt.updatedAt.toMillis();
+                if (pt.updatedAt.seconds) return pt.updatedAt.seconds * 1000;
+            }
+            if (typeof pt.order === 'number') return pt.order;
+            return 0;
+        };
+
+        const timeA = getTimestamp(a);
+        const timeB = getTimestamp(b);
+        if (timeA !== timeB) return timeA - timeB;
+        return (a.order || 0) - (b.order || 0);
+    });
+};
 
 export const getMasterGrammarPoints = async () => {
     try {
         const deletedSet = getDeletedGrammarIds();
         const snap = await getDocs(collection(db, masterGrammarPath()));
         const list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        return list.filter(pt => !deletedSet.has(pt.id));
+        const filtered = list.filter(pt => !deletedSet.has(pt.id));
+        return sortGrammarPointsByCreationTime(filtered);
     } catch (e) {
         console.error('Fetch master grammar points error:', e);
         return [];
@@ -1078,7 +1175,21 @@ export const getSharedGrammarPointsList = async () => {
         }
     }
 
-    return allPoints;
+    // 4. Merge locally edited grammar points (persisted across F5 refreshes before CDN sync)
+    const editedMap = getEditedGrammarMap();
+    if (Object.keys(editedMap).length > 0) {
+        for (let i = 0; i < allPoints.length; i++) {
+            const p = allPoints[i];
+            if (editedMap[p.id]) {
+                allPoints[i] = {
+                    ...p,
+                    ...editedMap[p.id]
+                };
+            }
+        }
+    }
+
+    return sortGrammarPointsByCreationTime(allPoints);
 };
 
 // ============== GRAMMAR SRS SYSTEM ==============

@@ -380,9 +380,9 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
     // ========== RELEARNING STATE ==========
     else if (currentState === 'RELEARNING') {
         const refInterval = prelapseInterval || 1; // Fallback to 1 day
-        const hardIntVal = Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.3)));
-        const goodIntVal = Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.5)));
-        const easyIntVal = Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.7)));
+        const hardIntVal = Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.25)));
+        const goodIntVal = Math.max(hardIntVal + 1, Math.min(refInterval + 1, Math.floor(refInterval * 0.5)));
+        const easyIntVal = Math.max(goodIntVal + 1, Math.min(refInterval + 3, Math.floor(refInterval * 0.85)));
 
         switch (normRating) {
             case 'again':

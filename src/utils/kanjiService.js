@@ -116,6 +116,17 @@ export const getSharedKanjiList = async () => {
             cachedKanjiList = await dataRes.json();
             lastLoadedExportedAt = currentExport || null;
 
+            // Merge local edited kanji map over CDN list
+            const localEditedMap = getCachedKanjiMap();
+            if (localEditedMap && Object.keys(localEditedMap).length > 0) {
+                const listMap = new Map(cachedKanjiList.map(k => [k.id || k.character, k]));
+                Object.values(localEditedMap).forEach(edited => {
+                    const key = edited.id || edited.character;
+                    if (key) listMap.set(key, { ...(listMap.get(key) || {}), ...edited });
+                });
+                cachedKanjiList = Array.from(listMap.values());
+            }
+
             // Sync edits made after the export timestamp in the background
             fetchKanjiUpdatesFromFirestore(exportedAt);
 
@@ -176,6 +187,17 @@ export const getSharedVocabList = async () => {
             }
 
             cachedVocabList = await dataRes.json();
+
+            // Merge local edited vocab map over CDN list
+            const localEditedVocabMap = getCachedVocabMap();
+            if (localEditedVocabMap && Object.keys(localEditedVocabMap).length > 0) {
+                const listMap = new Map(cachedVocabList.map(v => [v.id || v.word, v]));
+                Object.values(localEditedVocabMap).forEach(edited => {
+                    const key = edited.id || edited.word;
+                    if (key) listMap.set(key, { ...(listMap.get(key) || {}), ...edited });
+                });
+                cachedVocabList = Array.from(listMap.values());
+            }
 
             // Sync edits made after the export timestamp in the background
             fetchVocabUpdatesFromFirestore(exportedAt);

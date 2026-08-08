@@ -403,7 +403,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             });
         };
 
-        const navRegex = /(Aい|Aな|A|V|N)/g;
+        const navRegex = /(V-(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|受身形|使役|使役形|使役受身|条件形|ば|命令形|普通形|辞書形)|V(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|受身形|使役|使役形|使役受身|条件形|ば|命令形|普通形|辞書形)|V(?:（bỏ ます）|\(bỏ ます\)|\(stem\)|\[stem\])|A-(?:い|な|く|stem|普通形)|A(?:い|な|く|stem|普通形)|A(?:（bỏ い\/な）|\(bỏ い\/na\))|Adj-(?:い|な|く)|Adj(?:い|な|く)|Na|N-(?:の|である|に|な|普通形)|N(?:の|である|に|な|普通形)|V|A|N|Adj)/g;
         const parts = text.split(navRegex);
         if (parts.length <= 1) return renderWithStrikethrough(text);
 
@@ -411,23 +411,23 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             <>
                 {parts.map((part, index) => {
                     if (index % 2 === 1) {
-                        if (part === 'V') {
+                        if (part.startsWith('V')) {
                             return (
-                                <span key={index} className="inline-flex items-center justify-center bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900/40 px-1.5 py-0.5 rounded-md mx-0.5 text-xs font-black align-middle leading-none">
-                                    V
+                                <span key={index} className="inline-flex items-center justify-center bg-emerald-500/15 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 px-2 py-0.5 rounded-lg mx-0.5 text-xs md:text-sm font-black align-middle shadow-2xs tracking-tight">
+                                    {part}
                                 </span>
                             );
                         }
-                        if (part === 'N') {
+                        if (part.startsWith('A') || part.startsWith('Adj') || part === 'Na') {
                             return (
-                                <span key={index} className="inline-flex items-center justify-center bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 border border-rose-100 dark:border-rose-900/40 px-1.5 py-0.5 rounded-md mx-0.5 text-xs font-black align-middle leading-none">
-                                    N
+                                <span key={index} className="inline-flex items-center justify-center bg-amber-500/15 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-700/60 px-2 py-0.5 rounded-lg mx-0.5 text-xs md:text-sm font-black align-middle shadow-2xs tracking-tight">
+                                    {part}
                                 </span>
                             );
                         }
-                        if (part === 'A' || part === 'Aい' || part === 'Aな') {
+                        if (part.startsWith('N')) {
                             return (
-                                <span key={index} className="inline-flex items-center justify-center bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 border border-amber-100 dark:border-amber-900/40 px-1.5 py-0.5 rounded-md mx-0.5 text-xs font-black align-middle leading-none">
+                                <span key={index} className="inline-flex items-center justify-center bg-rose-500/15 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border border-rose-300 dark:border-rose-900/60 px-2 py-0.5 rounded-lg mx-0.5 text-xs md:text-sm font-black align-middle shadow-2xs tracking-tight">
                                     {part}
                                 </span>
                             );
@@ -439,7 +439,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         );
     };
 
-    // Helper to highlight targeted patterns in sentences automatically
+    // Helper to highlight targeted patterns in sentences & structure formulas automatically
     const renderHighlightedText = (text, highlight, isStructure = false) => {
         if (!highlight || !text) return isStructure ? highlightNAV(text) : text;
 
@@ -459,7 +459,9 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         {parts.map((part, index) => {
                             if (index % 2 === 1) {
                                 return (
-                                    <span key={index} className="underline decoration-2 underline-offset-4 font-bold text-indigo-650 dark:text-indigo-400">
+                                    <span key={index} className={isStructure 
+                                        ? "font-black text-amber-950 dark:text-slate-950 bg-amber-300 dark:bg-amber-400 border border-amber-400 dark:border-amber-300 px-2.5 py-0.5 rounded-lg mx-0.5 shadow-sm text-base md:text-lg no-underline"
+                                        : "underline decoration-2 underline-offset-4 font-bold text-indigo-650 dark:text-indigo-400"}>
                                         {part}
                                     </span>
                                 );
@@ -484,7 +486,9 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             return (
                 <>
                     {isStructure ? highlightNAV(parts[0]) : parts[0]}
-                    <span className="underline decoration-2 underline-offset-4 font-bold text-indigo-650 dark:text-indigo-400">
+                    <span className={isStructure 
+                        ? "font-black text-amber-950 dark:text-slate-950 bg-amber-300 dark:bg-amber-400 border border-amber-400 dark:border-amber-300 px-2.5 py-0.5 rounded-lg mx-0.5 shadow-sm text-base md:text-lg no-underline"
+                        : "underline decoration-2 underline-offset-4 font-bold text-indigo-650 dark:text-indigo-400"}>
                         {simplePattern}
                     </span>
                     {isStructure ? highlightNAV(parts[1]) : parts[1]}
@@ -821,7 +825,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     <div className="flex flex-col gap-2.5">
                                         {structureLines.map((line, idx) => (
                                             <div key={idx} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-2xl text-base font-bold text-slate-700 dark:text-slate-300 font-japanese tracking-wide shadow-sm flex items-center gap-2 flex-wrap w-fit">
-                                                {highlightNAV(line)}
+                                                {renderHighlightedText(line, gp.pattern, true)}
                                             </div>
                                         ))}
                                     </div>

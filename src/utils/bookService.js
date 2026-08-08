@@ -140,13 +140,60 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
         throw new Error('All data sources for books failed');
     })();
 
-    return bookGroupsPromise;
+    const result = await bookGroupsPromise;
+    return mergeEditedBookGroups(result);
+};
+
+const EDITED_BOOKS_KEY = 'quizki_edited_book_groups';
+
+export const getEditedBookGroupsMap = () => {
+    try {
+        const stored = localStorage.getItem(EDITED_BOOKS_KEY);
+        return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+        return {};
+    }
+};
+
+export const updateEditedBookGroupLocalCache = (groupData) => {
+    try {
+        if (!groupData || !groupData.id) return;
+        const currentMap = getEditedBookGroupsMap();
+        currentMap[groupData.id] = {
+            ...(currentMap[groupData.id] || {}),
+            ...groupData,
+            updatedAt: Date.now()
+        };
+        localStorage.setItem(EDITED_BOOKS_KEY, JSON.stringify(currentMap));
+    } catch (e) {
+        console.error('Error saving edited book group local cache:', e);
+    }
+};
+
+export const mergeEditedBookGroups = (groups) => {
+    if (!Array.isArray(groups)) return groups;
+    const editedMap = getEditedBookGroupsMap();
+    if (Object.keys(editedMap).length === 0) return groups;
+
+    return groups.map(group => {
+        const editedGroup = editedMap[group.id];
+        if (editedGroup) {
+            return {
+                ...group,
+                ...editedGroup
+            };
+        }
+        return group;
+    });
 };
 
 /**
  * Returns the currently cached book groups synchronously, or null if not yet loaded.
  */
-export const getCachedBookGroups = () => cachedBookGroups;
+export const getCachedBookGroups = () => {
+    if (!cachedBookGroups) return null;
+    return mergeEditedBookGroups(cachedBookGroups);
+};
 
 /**
  * Invalidates the in-memory cache.

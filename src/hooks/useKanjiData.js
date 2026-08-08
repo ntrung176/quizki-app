@@ -157,7 +157,7 @@ export const useKanjiData = ({
     // Form states
     const [newKanji, setNewKanji] = useState({
         character: '', meaning: '', onyomi: '', kunyomi: '',
-        level: 'N5', sinoViet: '', mnemonic: '', radical: '', imageUrl: ''
+        level: 'N5', sinoViet: '', mnemonic: '', radical: '', parts: '', strokeCount: '', imageUrl: ''
     });
     const [newVocab, setNewVocab] = useState({
         word: '', reading: '', meaning: '', level: 'N5', source: 'Mimikara',
@@ -679,17 +679,84 @@ export const useKanjiData = ({
             return;
         }
         try {
-            const docRef = await addDoc(collection(db, 'kanji'), newKanji);
-            const addedKanji = { ...newKanji, id: docRef.id };
-            setKanjiList([...kanjiList, addedKanji]);
+            const kanjiDataToSave = {
+                ...newKanji,
+                character: newKanji.character.trim(),
+                strokeCount: newKanji.strokeCount || newKanji.stroke_count || '',
+                parts: newKanji.parts || '',
+                updatedAt: Date.now()
+            };
+            const docRef = await addDoc(collection(db, 'kanji'), kanjiDataToSave);
+            const addedKanji = { ...kanjiDataToSave, id: docRef.id };
+            setKanjiList(prev => [...prev, addedKanji]);
             updateCachedKanji(addedKanji);
+            showToast(`Đã thêm thành công Kanji "${addedKanji.character}"!`, 'success');
             setNewKanji({
                 character: '', meaning: '', onyomi: '', kunyomi: '',
-                level: 'N5', sinoViet: '', mnemonic: '', radical: '', imageUrl: ''
+                level: 'N5', sinoViet: '', mnemonic: '', radical: '', parts: '', strokeCount: '', imageUrl: ''
             });
             setShowAddKanjiModal(false);
         } catch (e) {
             console.error('Error adding kanji:', e);
+            showToast('Lỗi khi thêm Kanji: ' + e.message, 'error');
+        }
+    };
+
+    const handleImportKanjiJson = async (jsonText) => {
+        if (!jsonText || !jsonText.trim()) {
+            showToast('Vui lòng dán chuỗi JSON hợp lệ!', 'warning');
+            return;
+        }
+        try {
+            let parsed = JSON.parse(jsonText.trim());
+            if (!Array.isArray(parsed)) parsed = [parsed];
+            if (parsed.length === 0) {
+                showToast('Danh sách JSON rỗng!', 'warning');
+                return;
+            }
+
+            let addedCount = 0;
+            const now = Date.now();
+            const newItems = [];
+
+            for (const item of parsed) {
+                if (!item.character) continue;
+                const char = item.character.trim();
+                if (kanjiList.some(k => k.character === char)) continue;
+
+                const kanjiObj = {
+                    character: char,
+                    meaning: item.meaning || item.meaningVi || '',
+                    meaningVi: item.meaningVi || item.meaning || '',
+                    sinoViet: item.sinoViet || '',
+                    onyomi: Array.isArray(item.onyomi) ? item.onyomi.join('、') : (item.onyomi || ''),
+                    kunyomi: Array.isArray(item.kunyomi) ? item.kunyomi.join('、') : (item.kunyomi || ''),
+                    level: item.level || selectedLevel || 'N5',
+                    strokeCount: String(item.strokeCount || item.stroke_count || ''),
+                    parts: Array.isArray(item.parts) ? item.parts.join('、') : (item.parts || ''),
+                    mnemonic: item.mnemonic || '',
+                    radical: item.radical || '',
+                    imageUrl: item.imageUrl || item.image || '',
+                    updatedAt: now
+                };
+
+                const docRef = await addDoc(collection(db, 'kanji'), kanjiObj);
+                const savedItem = { ...kanjiObj, id: docRef.id };
+                updateCachedKanji(savedItem);
+                newItems.push(savedItem);
+                addedCount++;
+            }
+
+            if (newItems.length > 0) {
+                setKanjiList(prev => [...prev, ...newItems]);
+            }
+
+            showToast(`Đã nhập thành công ${addedCount} chữ Kanji mới!`, 'success');
+            setJsonKanjiInput('');
+            setShowAddKanjiModal(false);
+        } catch (err) {
+            console.error('Lỗi import JSON Kanji:', err);
+            showToast('Lỗi cú pháp JSON: ' + err.message, 'error');
         }
     };
 
@@ -1052,7 +1119,7 @@ export const useKanjiData = ({
         currentKanjiList, displayedKanjiList, filteredKanjiList, completedCount,
         searchResults, toggleKanjiSRS, openKanjiDetail, handleConfirmSaveVocab,
         handleSelectSearchResult, getKanjiDetail, getVocabForKanji, getRelatedKanji,
-        handleAddKanji, handleAddVocab, handleDeleteCategory, toggleKanjiSelection,
+        handleAddKanji, handleImportKanjiJson, handleAddVocab, handleDeleteCategory, toggleKanjiSelection,
         toggleVocabSelection, selectAllKanji, handleBulkDeleteKanji, handleEditKanji,
         handleDeleteKanji, handleSyncVocabToKanji, handleCDNSync, handleMigrateComponents,
         handleEditVocab, handleDeleteVocab, openEditKanji, openEditVocab,

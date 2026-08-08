@@ -4,7 +4,7 @@ import { db, appId } from '../config/firebase';
 import {
     collection, getDocs, addDoc, deleteDoc, doc, updateDoc, writeBatch, setDoc, getDoc, serverTimestamp
 } from 'firebase/firestore';
-import { getSharedBookGroups, getCachedBookGroups } from '../utils/bookService';
+import { getSharedBookGroups, getCachedBookGroups, updateEditedBookGroupLocalCache } from '../utils/bookService';
 import { showToast, showConfirm } from '../utils/toast';
 import { generateAudioSilentWithVoice, speakJapanese, playAudio } from '../utils/audio';
 import { ENGLISH_SAMPLE_BOOK_GROUPS, getGroupCategory } from '../components/books/bookConstants';
@@ -523,13 +523,15 @@ export const useBookData = ({
         if (!editTarget || !formName.trim()) return;
         try {
             const ref = doc(db, COLLECTION, editTarget.id);
-            await updateDoc(ref, {
+            const updateObj = {
                 name: formName.trim(),
                 subtitle: formSubtitle.trim(),
                 imageUrl: formImageUrl.trim()
-            });
+            };
+            await updateDoc(ref, updateObj);
+            updateEditedBookGroupLocalCache({ id: editTarget.id, ...updateObj });
             setBookGroups(prev => prev.map(g => g.id === editTarget.id ? {
-                ...g, name: formName.trim(), subtitle: formSubtitle.trim(), imageUrl: formImageUrl.trim()
+                ...g, ...updateObj
             } : g));
             showToast('Đã cập nhật nhóm sách!', 'success');
             resetForm(); setShowEditGroup(false);
@@ -550,15 +552,22 @@ export const useBookData = ({
         if (!editTarget || !formName.trim() || !groupId) return;
         try {
             const ref = doc(db, COLLECTION, groupId, 'books', editTarget.id);
-            await updateDoc(ref, {
+            const updateObj = {
                 name: formName.trim(), subtitle: formSubtitle.trim(), color: formColor,
                 wordCount: formWordCount.trim(), description: formDescription.trim()
-            });
+            };
+            await updateDoc(ref, updateObj);
+
+            const updatedGroup = (bookGroups || []).find(g => g.id === groupId);
+            if (updatedGroup) {
+                const newBooks = (updatedGroup.books || []).map(b => b.id === editTarget.id ? { ...b, ...updateObj } : b);
+                updateEditedBookGroupLocalCache({ id: groupId, books: newBooks });
+            }
+
             setBookGroups(prev => prev.map(g => g.id === groupId ? {
                 ...g,
                 books: g.books.map(b => b.id === editTarget.id ? {
-                    ...b, name: formName.trim(), subtitle: formSubtitle.trim(), color: formColor,
-                    wordCount: formWordCount.trim(), description: formDescription.trim()
+                    ...b, ...updateObj
                 } : b)
             } : g));
             showToast('Đã cập nhật sách!', 'success');
@@ -578,20 +587,35 @@ export const useBookData = ({
         try {
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
             const newVocab = [...(currentLesson?.vocab || [])];
-            const oldItem = { ...newVocab[editingVocabIndex] };
             newVocab[editingVocabIndex] = { ...editingVocabData };
             await updateDoc(lessonRef, { vocab: newVocab });
 
-            setBookGroups(prev => prev.map(g => g.id === groupId ? {
-                ...g,
-                books: g.books.map(b => b.id === bookId ? {
-                    ...b,
-                    chapters: b.chapters.map(c => c.id === chapterId ? {
-                        ...c,
-                        lessons: c.lessons.map(l => l.id === lessonId ? { ...l, vocab: newVocab } : l)
-                    } : c)
-                } : b)
-            } : g));
+            let updatedGroupToSave = null;
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                const newGroup = {
+                    ...g,
+                    books: (g.books || []).map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: (b.chapters || []).map(c => {
+                                if (c.id !== chapterId) return c;
+                                return {
+                                    ...c,
+                                    lessons: (c.lessons || []).map(l => l.id === lessonId ? { ...l, vocab: newVocab } : l)
+                                };
+                            })
+                        };
+                    })
+                };
+                updatedGroupToSave = newGroup;
+                return newGroup;
+            }));
+            if (updatedGroupToSave) {
+                updateEditedBookGroupLocalCache(updatedGroupToSave);
+            }
+
             setEditingVocabIndex(null);
             setEditingVocabData(null);
             showToast('Đã cập nhật từ vựng!', 'success');
