@@ -4,7 +4,7 @@
 // ============== KANJI → HÁN VIỆT LOOKUP ==============
 export { getSinoVietnamese } from './kanjiHVLookup';
 import { getSinoVietnamese } from './kanjiHVLookup';
-import { generateFuriganaText, ensureFuriganaFormat } from './furiganaHelper';
+import { generateFuriganaText, ensureFuriganaFormat, cleanJapaneseExampleSentence } from './furiganaHelper';
 import { db } from '../config/firebase';
 import { doc, getDoc, getDocs, collection, query, collectionGroup, setDoc, updateDoc, where } from 'firebase/firestore';
 import { normalizePosKey } from '../config/constants';
@@ -852,7 +852,7 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
 
                 // Xử lý câu ví dụ
                 if (result.example) {
-                    result.example = await generateFuriganaText(result.example);
+                    result.example = cleanJapaneseExampleSentence(result.example);
                 }
             } catch (e) {
                 console.error("Kuroshiro conversion failed:", e);

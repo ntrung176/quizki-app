@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkle, Folder, AlertTriangle, FileJson } from 'lucide-react'
+import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkle, Folder, AlertTriangle, FileJson, Camera } from 'lucide-react'
 
 import { compressImage } from '../../utils/image';
 import { TopTabBar } from '../ui';
@@ -495,21 +495,38 @@ const EditSetScreen = ({
                     </button>
                     <div className="flex flex-wrap gap-2.5">
                         {onGeminiAssist && (
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    if (!canUserUseAI) {
-                                        setShowPremiumModal(true);
-                                        return;
-                                    }
-                                    setBatchModalInitialTab('text');
-                                    setIsBatchModalOpen(true);
-                                }}
-                                className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
-                            >
-                                <span className="text-[9px] font-black bg-indigo-200/60 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 rounded-md">AI</span>
-                                Tạo bằng AI hàng loạt
-                            </button>
+                            <>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        if (!canUserUseAI) {
+                                            setShowPremiumModal(true);
+                                            return;
+                                        }
+                                        setBatchModalInitialTab('text');
+                                        setIsBatchModalOpen(true);
+                                    }}
+                                    className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
+                                >
+                                    <span className="text-[9px] font-black bg-indigo-200/60 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 rounded-md">AI</span>
+                                    Tạo bằng AI hàng loạt
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        if (!canUserUseAI) {
+                                            setShowPremiumModal(true);
+                                            return;
+                                        }
+                                        setBatchModalInitialTab('image');
+                                        setIsBatchModalOpen(true);
+                                    }}
+                                    className="flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-xl text-purple-650 bg-purple-50 hover:bg-purple-100 border border-purple-100 dark:text-purple-400 dark:bg-slate-800 dark:border-purple-900/50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
+                                >
+                                    <Camera className="w-3.5 h-3.5 text-purple-500" />
+                                    Tạo từ vựng từ ảnh (OCR)
+                                </button>
+                            </>
                         )}
                         <button
                             type="button"
@@ -612,6 +629,7 @@ const EditSetScreen = ({
                 isOpen={isJsonModalOpen}
                 onClose={() => setIsJsonModalOpen(false)}
                 onImport={handleImportJsonCards}
+                existingCards={cards}
             />
 
             {/* Folder Selector Dialog */}

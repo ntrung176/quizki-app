@@ -241,3 +241,24 @@ export const ensureFuriganaFormat = async (word, knownReading = '') => {
     }
     return trimmedWord;
 };
+
+/**
+ * Clean Japanese example sentence from Kuroshiro/AI garbled parenthesized reading clutter.
+ * Removes duplicate reading brackets like "(きぎょう) (きぎょう)" or "(りつ) (た)"
+ * and returns clean Japanese text for inputs and flashcard sentences.
+ */
+export const cleanJapaneseExampleSentence = (text) => {
+    if (!text) return '';
+    let str = text.trim();
+
+    // 1. Remove duplicate identical adjacent brackets like "(きぎょう) (きぎょう)" or "（きぎょう）（きぎょう）"
+    str = str.replace(/([\(（][^\)）]+[\)）])\s*[\(（]\1[\)）]/g, '$1');
+
+    // 2. If sentence contains Kuroshiro garbled readings embedded after Kanji like "企業(きぎょう)" or "立(りつ) (た) ち上(じょう) (あ) げる", strip the reading parens to leave pure clean sentence
+    if (/[\u4E00-\u9FAF\u3400-\u4DBF]+[\(（][\u3040-\u309F\u30A0-\u30FF\s]+[\)）]/.test(str)) {
+        str = str.replace(/([\(（][\u3040-\u309F\u30A0-\u30FF\s]+[\)）])/g, '');
+    }
+
+    // Clean any remaining double spaces
+    return str.replace(/\s+/g, ' ').trim();
+};

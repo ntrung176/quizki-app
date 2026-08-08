@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { X, Copy, Check, FileJson, Sparkles, Download, AlertCircle } from 'lucide-react';
+import { showToast } from '../../utils/toast';
+import { cleanJapaneseExampleSentence } from '../../utils/furiganaHelper';
 
 const SAMPLE_PROMPT = `Hãy tạo cho tôi danh sách từ vựng tiếng Nhật theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào).
 
@@ -21,7 +23,7 @@ LƯU Ý QUAN TRỌNG VỀ CÂU VÍ DỤ: Hãy thay thế từ gốc (hoặc dạ
   }
 ]`;
 
-const JsonImportModal = ({ isOpen, onClose, onImport }) => {
+const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
     const [jsonInput, setJsonInput] = useState('');
     const [copiedPrompt, setCopiedPrompt] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
@@ -32,6 +34,11 @@ const JsonImportModal = ({ isOpen, onClose, onImport }) => {
         navigator.clipboard.writeText(SAMPLE_PROMPT);
         setCopiedPrompt(true);
         setTimeout(() => setCopiedPrompt(false), 2000);
+    };
+
+    const normalizeFrontText = (str) => {
+        if (!str) return '';
+        return str.split('（')[0].split('(')[0].trim().toLowerCase();
     };
 
     const handleImportSubmit = () => {
@@ -64,22 +71,42 @@ const JsonImportModal = ({ isOpen, onClose, onImport }) => {
                 return;
             }
 
-            const formattedCards = items.map((item, idx) => {
-                const front = String(item.front || item.word || item.kanji || item.vocabulary || item.term || '').trim();
+            const existingFrontSet = new Set(
+                (existingCards || [])
+                    .map(c => normalizeFrontText(c.front || c.word || c.character || ''))
+                    .filter(Boolean)
+            );
+
+            const formattedCards = [];
+            const seenInBatch = new Set();
+            let duplicateCount = 0;
+
+            items.forEach((item, idx) => {
+                const rawFront = String(item.front || item.word || item.kanji || item.vocabulary || item.term || '').trim();
+                if (!rawFront) return;
+
+                const norm = normalizeFrontText(rawFront);
+                if (existingFrontSet.has(norm) || seenInBatch.has(norm)) {
+                    duplicateCount++;
+                    return; // Skip duplicate vocabulary!
+                }
+                seenInBatch.add(norm);
+
                 const reading = String(item.reading || item.furigana || item.kana || item.pronunciation || item.romaji || '').trim();
                 const back = String(item.back || item.meaning || item.definition || item.vietnamese || item.definition_vi || '').trim();
                 const sinoVietnamese = String(item.sinoVietnamese || item.hanViet || item.sino_vietnamese || '').trim();
                 const pos = String(item.pos || item.partOfSpeech || item.type || '').trim();
                 const level = String(item.level || item.jlpt || item.jlptLevel || '').trim();
-                const example = String(item.example || item.exampleSentence || item.sentence || '').trim();
+                const rawExample = String(item.example || item.exampleSentence || item.sentence || '').trim();
+                const example = cleanJapaneseExampleSentence(rawExample);
                 const exampleMeaning = String(item.exampleMeaning || item.exampleTranslation || item.example_meaning || item.sentence_meaning || '').trim();
                 const synonym = String(item.synonym || item.synonyms || '').trim();
                 const synonymSinoVietnamese = String(item.synonymSinoVietnamese || item.synonymHanViet || item.synonym_sino_vietnamese || '').trim();
                 const nuance = String(item.nuance || item.note || item.notes || '').trim();
 
-                return {
+                formattedCards.push({
                     id: Date.now() + Math.random().toString(36).substr(2, 9) + idx,
-                    front: front || `Từ vựng ${idx + 1}`,
+                    front: rawFront,
                     reading: reading,
                     back: back,
                     sinoVietnamese: sinoVietnamese,
@@ -94,8 +121,23 @@ const JsonImportModal = ({ isOpen, onClose, onImport }) => {
                     accent: '',
                     imageBase64: null,
                     audioBase64: null
-                };
+                });
             });
+
+            if (formattedCards.length === 0) {
+                if (duplicateCount > 0) {
+                    setErrorMsg(`Tất cả ${duplicateCount} từ vựng trong file JSON đều đã tồn tại trong danh sách!`);
+                } else {
+                    setErrorMsg('Không tìm thấy từ vựng hợp lệ nào trong chuỗi JSON!');
+                }
+                return;
+            }
+
+            if (duplicateCount > 0) {
+                showToast(`Đã nhập ${formattedCards.length} từ vựng mới! (Đã tự động loại bỏ ${duplicateCount} từ bị trùng lặp)`, 'info');
+            } else {
+                showToast(`Đã nhập thành công ${formattedCards.length} từ vựng mới từ JSON!`, 'success');
+            }
 
             onImport(formattedCards);
             setJsonInput('');
