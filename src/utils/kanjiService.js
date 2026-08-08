@@ -15,6 +15,59 @@ let vocabPromise = null;
 let categoriesPromise = null;
 let lastCheckedKanjiTimestamp = 0;
 let lastCheckedVocabTimestamp = 0;
+const EDITED_KANJI_KEY = 'quizki_edited_kanji_map';
+
+export const getCachedKanjiMap = () => {
+    try {
+        const stored = localStorage.getItem(EDITED_KANJI_KEY);
+        return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+        return {};
+    }
+};
+
+export const updateEditedKanjiLocalCache = (kanjiData) => {
+    try {
+        if (!kanjiData || (!kanjiData.id && !kanjiData.character)) return;
+        const currentMap = getCachedKanjiMap();
+        const key = kanjiData.id || kanjiData.character;
+        currentMap[key] = {
+            ...(currentMap[key] || {}),
+            ...kanjiData,
+            updatedAt: Date.now()
+        };
+        localStorage.setItem(EDITED_KANJI_KEY, JSON.stringify(currentMap));
+    } catch (e) {
+        console.warn('Warning updating edited kanji local cache:', e?.message || e);
+    }
+};
+
+const EDITED_VOCAB_KEY = 'quizki_edited_vocab_map';
+
+export const getCachedVocabMap = () => {
+    try {
+        const stored = localStorage.getItem(EDITED_VOCAB_KEY);
+        return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+        return {};
+    }
+};
+
+export const updateEditedVocabLocalCache = (vocabData) => {
+    try {
+        if (!vocabData || (!vocabData.id && !vocabData.word)) return;
+        const currentMap = getCachedVocabMap();
+        const key = vocabData.id || vocabData.word;
+        currentMap[key] = {
+            ...(currentMap[key] || {}),
+            ...vocabData,
+            updatedAt: Date.now()
+        };
+        localStorage.setItem(EDITED_VOCAB_KEY, JSON.stringify(currentMap));
+    } catch (e) {
+        console.warn('Warning updating edited vocab local cache:', e?.message || e);
+    }
+};
 
 // Incremental sync in the background
 async function fetchKanjiUpdatesFromFirestore(exportedAt) {

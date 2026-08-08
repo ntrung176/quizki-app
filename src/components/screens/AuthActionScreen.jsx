@@ -6,7 +6,8 @@ import {
     confirmPasswordReset
 } from 'firebase/auth';
 import { auth } from '../../config/firebase';
-import { CheckCircle, XCircle, Loader2, Eye, EyeOff, KeyRound, BookOpen } from 'lucide-react'
+import { CheckCircle, XCircle, Loader2, Eye, EyeOff, KeyRound, BookOpen } from 'lucide-react';
+import { showToast } from '../../utils/toast';
 const AuthActionScreen = () => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
@@ -14,7 +15,14 @@ const AuthActionScreen = () => {
     const mode = searchParams.get('mode');
     const oobCode = searchParams.get('oobCode');
     const [status, setStatus] = useState('loading'); // 'loading' | 'success' | 'error' | 'resetPassword'
-    const [message, setMessage] = useState('');
+    const [message, setMessageState] = useState('');
+    const setMessage = (msg) => {
+        setMessageState(msg);
+        if (msg) {
+            const isSuccess = msg.includes('thành công');
+            showToast(msg, isSuccess ? 'success' : 'error');
+        }
+    };
     const [email, setEmail] = useState('');
     // Password reset states
     const [newPassword, setNewPassword] = useState('');
@@ -203,11 +211,6 @@ const AuthActionScreen = () => {
                                         </button>
                                     </div>
                                 </div>
-                                {message && (
-                                    <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2">
-                                        {message}
-                                    </div>
-                                )}
                                 <button
                                     type="submit"
                                     disabled={resetting}

@@ -747,6 +747,10 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     // Handle Enter key for BatchComplete and SessionComplete screens
     useEffect(() => {
         const handleGlobalKeyDown = (e) => {
+            const activeTag = e.target ? e.target.tagName : '';
+            if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
+                return;
+            }
             if (e.key === 'Enter') {
                 if (done) {
                     e.preventDefault();

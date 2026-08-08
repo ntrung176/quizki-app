@@ -4,6 +4,7 @@ import { db, auth } from '../../config/firebase';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { XpTestingPanelModal, SrsTestingPanelModal } from '../ui';
+import { showToast } from '../../utils/toast';
 
 const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId, isAdmin = false }) => {
     const [showXpTestModal, setShowXpTestModal] = useState(false);
@@ -44,16 +45,33 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
     const [showCurrent, setShowCurrent] = useState(false);
     const [showNew, setShowNew] = useState(false);
     const [showConfirmNew, setShowConfirmNew] = useState(false);
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
+    const [message, setMessageState] = useState('');
+    const [error, setErrorState] = useState('');
+
+    const setError = (msg) => {
+        setErrorState(msg);
+        if (msg) showToast(msg, 'error');
+    };
+    const setMessage = (msg) => {
+        setMessageState(msg);
+        if (msg) showToast(msg, 'success');
+    };
 
     // Referral States
     const [refStats, setRefStats] = useState({ totalInvited: 0, premiumInvited: 0, friends: [] });
     const [loadingStats, setLoadingStats] = useState(true);
     const [enteredCode, setEnteredCode] = useState('');
     const [submitLoading, setSubmitLoading] = useState(false);
-    const [successMsg, setSuccessMsg] = useState('');
-    const [errorMsg, setErrorMsg] = useState('');
+    const [successMsg, setSuccessMsgState] = useState('');
+    const [errorMsg, setErrorMsgState] = useState('');
+    const setSuccessMsg = (msg) => {
+        setSuccessMsgState(msg);
+        if (msg) showToast(msg, 'success');
+    };
+    const setErrorMsg = (msg) => {
+        setErrorMsgState(msg);
+        if (msg) showToast(msg, 'error');
+    };
     const [copied, setCopied] = useState(false);
 
     // Fetch Referral Stats
@@ -392,16 +410,6 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             <Save className="w-4 h-4 mr-1" /> Đổi mật khẩu
                         </button>
                     </div>
-                    {error && (
-                        <div className="text-xs text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-100 dark:border-red-800 rounded-xl px-3 py-2 mt-1">
-                            {error}
-                        </div>
-                    )}
-                    {message && (
-                        <div className="text-xs text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100 dark:border-emerald-800 rounded-xl px-3 py-2 mt-1">
-                            {message}
-                        </div>
-                    )}
                 </div>
             </div>
 
@@ -510,8 +518,6 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                         {submitLoading ? '...' : 'Gửi'}
                                     </button>
                                 </div>
-                                {errorMsg && <p className="text-[10px] text-red-500 dark:text-red-400 font-medium">{errorMsg}</p>}
-                                {successMsg && <p className="text-[10px] text-emerald-600 dark:text-emerald-450 font-medium">{successMsg}</p>}
                             </div>
                         )}
                     </div>

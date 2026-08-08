@@ -10,7 +10,7 @@ import {
     isMobileDevice
 } from '../utils/textProcessing';
 import { flashCorrect, launchFanfare, celebrateCorrectAnswer } from '../utils/celebrations';
-import { playCorrectSound, playIncorrectSound } from '../utils/soundEffects';
+import { playCorrectSound, playIncorrectSound, playFlipSound } from '../utils/soundEffects';
 import { saveStudyProgress } from '../utils/studyProgressService';
 import { useTargetLanguage } from '../context/TargetLanguageContext';
 import { DEFAULT_CARD_SETTINGS, formatMultipleMeanings } from '../components/review/reviewHelpers';
@@ -383,12 +383,16 @@ export const useReviewData = ({
 
         const handleKeyDown = (e) => {
             if (e.repeat) return;
-            if ((e.key === ' ' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') &&
-                e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+            const activeTag = e.target ? e.target.tagName : '';
+            if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
+                return;
+            }
+            if (e.key === ' ' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
                 e.preventDefault();
             }
 
             if (e.key === ' ' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                playFlipSound();
                 setIsFlipped(prev => {
                     const newFlippedState = !prev;
                     if (newFlippedState && currentCard && cardSettings.autoPlayAudio) {

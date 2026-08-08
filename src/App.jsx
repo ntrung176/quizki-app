@@ -198,17 +198,6 @@ const AppContent = () => {
                                 setIsReviewActive={setIsReviewActive}
                             />
                         </div>
-
-                        {/* Notification toast */}
-                        {notification && (view === 'HOME' || view === 'HUB' || view === 'ADD_CARD' || view === 'LIST') && (
-                            <div className={`mt-4 md:mt-6 p-3 md:p-4 rounded-xl text-center text-sm font-medium animate-fade-in flex items-center justify-center space-x-2
-                                ${notification.includes('Lỗi') || notification.includes('có trong')
-                                    ? 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-800'
-                                    : 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800'}`}>
-                                {notification.includes('Lỗi') ? <AlertTriangle className="w-4 h-4" /> : <CheckCircle className="w-4 h-4" />}
-                                <span>{notification}</span>
-                            </div>
-                        )}
                     </div>
                 </div>
             </main>

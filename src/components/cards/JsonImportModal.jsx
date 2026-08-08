@@ -106,6 +106,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
 
                 formattedCards.push({
                     id: Date.now() + Math.random().toString(36).substr(2, 9) + idx,
+                    isNew: true,
                     front: rawFront,
                     reading: reading,
                     back: back,

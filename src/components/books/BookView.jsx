@@ -1,5 +1,7 @@
-import React from 'react';
-import { Plus, Edit, Trash2, FolderPlus, ChevronUp, ChevronDown, ChevronRight, Lock, Unlock, Layers } from 'lucide-react';
+import React, { useState } from 'react';
+import { Plus, Edit, Trash2, FolderPlus, ChevronUp, ChevronDown, ChevronRight, Lock, Unlock, Layers, CloudUpload, Loader2 } from 'lucide-react';
+import { showToast, showConfirm } from '../../utils/toast';
+import { syncBooksToCDN } from '../../utils/bookService';
 
 const BookView = ({
     currentGroup,
@@ -28,6 +30,29 @@ const BookView = ({
     setShowPremiumModal,
     InlineEditName
 }) => {
+    const [isSyncingCDN, setIsSyncingCDN] = useState(false);
+
+    const handleSyncCDN = async () => {
+        if (!isAdmin || isSyncingCDN) return;
+        const confirm = await showConfirm(
+            'Bạn có muốn xuất toàn bộ dữ liệu Kho sách mới nhất từ Firestore lên Cloud Storage CDN cho học viên không?',
+            { type: 'info', confirmText: 'Bắt đầu đồng bộ CDN' }
+        );
+        if (!confirm) return;
+
+        setIsSyncingCDN(true);
+        showToast('Đang tải dữ liệu Kho sách và đẩy lên CDN Cloud Storage...', 'info', 5000);
+        try {
+            await syncBooksToCDN();
+            showToast('Đã đồng bộ Kho sách lên Cloud Storage CDN thành công! 🎉', 'success');
+        } catch (e) {
+            console.error('Error syncing books to CDN:', e);
+            showToast('Lỗi khi đồng bộ CDN: ' + (e?.message || e), 'error');
+        } finally {
+            setIsSyncingCDN(false);
+        }
+    };
+
     // Level 2: Books list in group
     if (groupId && !bookId) {
         const filteredBooks = (currentGroup?.books || []).filter(book => 
@@ -43,10 +68,21 @@ const BookView = ({
                         {currentGroup?.subtitle && <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">{currentGroup.subtitle}</p>}
                     </div>
                     {isAdmin && (
-                        <button onClick={() => { resetForm(); setShowAddBook(true); }}
-                            className="flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-bold transition-all shadow-sm cursor-pointer">
-                            <Plus className="w-4 h-4" /> Thêm sách
-                        </button>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={handleSyncCDN}
+                                disabled={isSyncingCDN}
+                                className="flex items-center gap-2 px-3.5 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-bold text-xs transition-all shadow-sm disabled:opacity-50 cursor-pointer"
+                                title="Đẩy toàn bộ dữ liệu Kho sách mới nhất từ Firestore lên Cloud Storage CDN"
+                            >
+                                {isSyncingCDN ? <Loader2 className="w-4 h-4 animate-spin" /> : <CloudUpload className="w-4 h-4" />}
+                                Đồng bộ CDN
+                            </button>
+                            <button onClick={() => { resetForm(); setShowAddBook(true); }}
+                                className="flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-bold text-xs transition-all shadow-sm cursor-pointer">
+                                <Plus className="w-4 h-4" /> Thêm sách
+                            </button>
+                        </div>
                     )}
                 </div>
 

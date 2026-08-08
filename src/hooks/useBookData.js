@@ -180,7 +180,7 @@ export const useBookData = ({
     const loadAllData = async (silent = false, forceRefresh = false) => {
         if (!silent) setLoading(true);
         try {
-            const groups = await getSharedBookGroups(forceRefresh, false);
+            const groups = await getSharedBookGroups(forceRefresh, isAdmin);
             setBookGroups(groups);
         } catch (e) {
             console.error('Error loading book data:', e);
@@ -622,6 +622,44 @@ export const useBookData = ({
         } catch (e) {
             console.error('Error saving vocab edit:', e);
             showToast('Lỗi khi lưu: ' + e.message, 'error');
+        }
+    };
+
+    const handleBatchSaveLessonVocab = async (newVocabList) => {
+        if (!lessonId || !groupId || !bookId || !chapterId) return false;
+        try {
+            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
+            await updateDoc(lessonRef, { vocab: newVocabList });
+
+            let updatedGroupToSave = null;
+            setBookGroups(prev => prev.map(g => {
+                if (g.id !== groupId) return g;
+                const newGroup = {
+                    ...g,
+                    books: (g.books || []).map(b => {
+                        if (b.id !== bookId) return b;
+                        return {
+                            ...b,
+                            chapters: (b.chapters || []).map(c => {
+                                if (c.id !== chapterId) return c;
+                                return {
+                                    ...c,
+                                    lessons: (c.lessons || []).map(l => l.id === lessonId ? { ...l, vocab: newVocabList } : l)
+                                };
+                            })
+                        };
+                    })
+                };
+                updatedGroupToSave = newGroup;
+                return newGroup;
+            }));
+            if (updatedGroupToSave) {
+                updateEditedBookGroupLocalCache(updatedGroupToSave);
+            }
+            return true;
+        } catch (e) {
+            console.error('Error saving batch vocab:', e);
+            return false;
         }
     };
 
@@ -1207,7 +1245,7 @@ export const useBookData = ({
         handleAddGroup, handleAddBook, handleAddChapter, handleAddLesson,
         handleDeleteGroup, handleDeleteBook, handleDeleteChapter, handleDeleteLesson,
         handleToggleLessonPremium, handleStartEditGroup, handleSaveEditGroup,
-        handleStartEditBook, handleSaveEditBook, handleEditVocab, handleSaveVocabEdit,
+        handleStartEditBook, handleSaveEditBook, handleEditVocab, handleSaveVocabEdit, handleBatchSaveLessonVocab,
         handleDeleteVocab, handleReorderChapter, handleReorderLesson, handleImportJson,
         handleFixAudio, handleCreateStudySetFromLesson, handleLinkToExistingStudySet,
         handleSyncVocabWithStudySet, handleUnlinkStudySet, handleDeleteStudySet,

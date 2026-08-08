@@ -379,6 +379,13 @@ const speakWithWebSpeech = (text) => {
 
         if (!text || !window.speechSynthesis) return safeResolve();
 
+        try {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            }
+            window.speechSynthesis.cancel();
+        } catch (_) {}
+
         let cleanText = extractReadingText(text);
         if (cleanText.includes('<sub alias=')) {
             const match = cleanText.match(/alias="([^"]+)"/);
@@ -399,7 +406,14 @@ const speakWithWebSpeech = (text) => {
         utterance.onend = () => safeResolve();
         utterance.onerror = () => safeResolve();
 
-        window.speechSynthesis.speak(utterance);
+        try {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            }
+            window.speechSynthesis.speak(utterance);
+        } catch (_) {
+            safeResolve();
+        }
     });
 };
 
@@ -408,6 +422,9 @@ const speakWithWebSpeech = (text) => {
 export const safeCancelSpeechSynthesis = () => {
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
         try {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            }
             if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
                 setTimeout(() => {
                     try { window.speechSynthesis.cancel(); } catch (e) {}
@@ -465,6 +482,10 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
                 safeResolve();
             };
             try {
+                const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioCtxClass && AudioCtxClass.state === 'suspended') {
+                    AudioCtxClass.resume?.().catch(() => {});
+                }
                 await currentAudioObj.play();
             } catch (e) {
                 await speakWithWebSpeech(text);

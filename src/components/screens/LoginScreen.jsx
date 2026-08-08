@@ -14,6 +14,7 @@ import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db, appId } from '../../config/firebase';
 import { Loader2, Eye, EyeOff, Brain, BookOpen, Gamepad2, Database, Route } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { showToast } from '../../utils/toast';
 // Cooldown tracking for email sending (prevent too-many-requests)
 let lastVerificationEmailTime = 0;
 let lastPasswordResetTime = 0;
@@ -25,8 +26,16 @@ const LoginScreen = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [mode, setMode] = useState('login'); // 'login' | 'register'
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
-    const [info, setInfo] = useState('');
+    const [error, setErrorState] = useState('');
+    const [info, setInfoState] = useState('');
+    const setError = (msg) => {
+        setErrorState(msg);
+        if (msg) showToast(msg, 'error');
+    };
+    const setInfo = (msg) => {
+        setInfoState(msg);
+        if (msg) showToast(msg, 'info');
+    };
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -427,17 +436,6 @@ const LoginScreen = () => {
                                         {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                                     </button>
                                 </div>
-                            </div>
-                        )}
-                        {/* Error/Info Messages */}
-                        {error && (
-                            <div className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
-                                {error}
-                            </div>
-                        )}
-                        {info && (
-                            <div className="text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl px-4 py-3">
-                                {info}
                             </div>
                         )}
                         {/* Submit Button */}

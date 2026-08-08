@@ -909,9 +909,14 @@ const SRSVocabScreen = ({
         if (!reviewMode) return;
         const handler = (e) => {
             if (e.repeat) return;
+            const activeTag = e.target ? e.target.tagName : '';
+            if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
+                return;
+            }
             if (e.key === ' ') {
                 e.preventDefault();
                 setIsFlipped(f => !f);
+                playFlipSound();
             }
             if (e.key === '1') handleRating('again');
             if (e.key === '2') handleRating('hard');
@@ -926,19 +931,25 @@ const SRSVocabScreen = ({
         return () => window.removeEventListener('keydown', handler);
     }, [reviewMode, currentReviewIndex, reviewQueue, reviewHistory]);
 
-    // Auto-play audio when card is flipped
+    const lastPlayedKeyRef = useRef('');
+
+    // Auto-play audio when card appears or is flipped
     useEffect(() => {
         if (reviewMode && reviewQueue.length > 0 && cardSettings.autoPlayAudio !== false && cardSettings.audioEnabled !== false) {
             const currentCard = reviewQueue[currentReviewIndex];
-            if (currentCard && isFlipped) {
-                const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
-                if (cardText) {
-                    speakJapanese(
-                        cardText,
-                        currentCard.audioBase64 || currentCard.audioUrl || null,
-                        onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null,
-                        currentCard.audioVoiceId
-                    );
+            if (currentCard) {
+                const playKey = `${currentCard.id}_${isFlipped}`;
+                if (lastPlayedKeyRef.current !== playKey) {
+                    lastPlayedKeyRef.current = playKey;
+                    const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
+                    if (cardText) {
+                        speakJapanese(
+                            cardText,
+                            currentCard.audioBase64 || currentCard.audioUrl || null,
+                            onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null,
+                            currentCard.audioVoiceId
+                        );
+                    }
                 }
             }
         }

@@ -636,7 +636,11 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (!reviewMode) return;
         const handler = (e) => {
             if (e.repeat) return;
-            if (e.key === ' ') { e.preventDefault(); setIsFlipped(f => !f); }
+            const activeTag = e.target ? e.target.tagName : '';
+            if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
+                return;
+            }
+            if (e.key === ' ') { e.preventDefault(); setIsFlipped(f => !f); playFlipSound(); }
             if (e.key === '1') handleRating('again');
             if (e.key === '2') handleRating('hard');
             if (e.key === '3') handleRating('good');

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Settings, User, Volume2, VolumeX, Music, Sun, Moon, ArrowLeft, Save, Check, X, Palette, Shield, Trash2, Upload, Play, Mic, Edit, Type, Camera, Gift, Copy, Crown, Award, Sparkles, Zap } from 'lucide-react';
+import { Settings, User, Volume2, VolumeX, Music, Sun, Moon, ArrowLeft, Save, Check, X, Palette, Shield, Trash2, Upload, Play, Mic, Edit, Type, Camera, Gift, Copy, Crown, Award, Sparkles, Zap, Eye, EyeOff } from 'lucide-react';
 import AvatarCropper from '../ui/AvatarCropper';
 import { SafeAvatarImage } from '../ui';
 import { ROUTES } from '../../router';
@@ -151,7 +151,21 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [accountMsg, setAccountMsg] = useState('');
+    const [showOldPassword, setShowOldPassword] = useState(false);
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [accountMsg, setAccountMsgState] = useState('');
+    const setAccountMsg = (msg) => {
+        if (!msg) {
+            setAccountMsgState('');
+            return;
+        }
+        setAccountMsgState(msg);
+        const isError = msg.includes('Lỗi') || msg.includes('không khớp') || msg.includes('không đúng') || msg.includes('gắn với người dùng khác') || msg.includes('thất bại');
+        const isWarning = msg.includes('Vui lòng') || msg.includes('Không thể') || msg.includes('Vì lý do bảo mật') || msg.includes('ít nhất');
+        const type = isError ? 'error' : (isWarning ? 'warning' : 'success');
+        showToast(msg, type);
+    };
     const [isSaving, setIsSaving] = useState(false);
     const [showAvatarPicker, setShowAvatarPicker] = useState(false);
     const [showAvatarCropper, setShowAvatarCropper] = useState(false);
@@ -170,12 +184,9 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
             if (onUpdateProfileName) {
                 await onUpdateProfileName(displayName.trim());
             }
-            setAccountMsg('Đã lưu tên hiển thị!');
-            showToast('Đã cập nhật tên hiển thị thành công!', 'success');
-            setTimeout(() => setAccountMsg(''), 3000);
+            setAccountMsg('Đã cập nhật tên hiển thị thành công!');
         } catch (e) {
             setAccountMsg('Lỗi: ' + e.message);
-            showToast('Lỗi khi lưu tên hiển thị: ' + e.message, 'error');
         }
         setIsSaving(false);
     };
@@ -772,34 +783,64 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
                         {linkedProviders.includes('password') && (
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mật khẩu hiện tại</label>
-                                <input
-                                    type="password"
-                                    value={oldPassword}
-                                    onChange={(e) => setOldPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm"
-                                    placeholder="Nhập mật khẩu hiện tại"
-                                />
+                                <div className="relative">
+                                    <input
+                                        type={showOldPassword ? 'text' : 'password'}
+                                        value={oldPassword}
+                                        onChange={(e) => setOldPassword(e.target.value)}
+                                        className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm outline-none"
+                                        placeholder="Nhập mật khẩu hiện tại"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowOldPassword(!showOldPassword)}
+                                        className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer"
+                                        tabIndex={-1}
+                                    >
+                                        {showOldPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                    </button>
+                                </div>
                             </div>
                         )}
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mật khẩu mới</label>
-                            <input
-                                type="password"
-                                value={newPassword}
-                                onChange={(e) => setNewPassword(e.target.value)}
-                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm"
-                                placeholder="Nhập mật khẩu mới (ít nhất 6 ký tự)"
-                            />
+                            <div className="relative">
+                                <input
+                                    type={showNewPassword ? 'text' : 'password'}
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm outline-none"
+                                    placeholder="Nhập mật khẩu mới (ít nhất 6 ký tự)"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowNewPassword(!showNewPassword)}
+                                    className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer"
+                                    tabIndex={-1}
+                                >
+                                    {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
+                            </div>
                         </div>
                         <div>
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Xác nhận mật khẩu</label>
-                            <input
-                                type="password"
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm"
-                                placeholder="Nhập lại mật khẩu mới"
-                            />
+                            <div className="relative">
+                                <input
+                                    type={showConfirmPassword ? 'text' : 'password'}
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm outline-none"
+                                    placeholder="Nhập lại mật khẩu mới"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                    className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer"
+                                    tabIndex={-1}
+                                >
+                                    {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
+                            </div>
                         </div>
                         <button
                             onClick={handleChangePassword}
@@ -855,15 +896,6 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
                             )}
                         </div>
                     </div>
-                    {/* Message */}
-                    {accountMsg && (
-                        <div className={`p-3 rounded-xl text-sm font-medium text-center ${accountMsg.includes('Lỗi')
-                            ? 'bg-red-50 dark:bg-red-900/20 text-red-650 dark:text-red-400 border border-red-200 dark:border-red-800'
-                            : 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
-                            }`}>
-                            {accountMsg}
-                        </div>
-                    )}
                 </div>
             )}
 

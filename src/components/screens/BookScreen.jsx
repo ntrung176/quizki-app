@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { Check, Edit, X } from 'lucide-react';
 import { TopTabBar, PremiumLockedModal } from '../ui';
@@ -68,11 +68,17 @@ const BookScreen = ({
         setSelectedExistingStudySetId, setShowLinkStudySetModal, showLinkStudySetModal, selectedExistingStudySetId,
         handleLinkToExistingStudySet, persistedRevealed, revealedCards, revealCard, blurMode, setBlurMode,
         handleReBlurAll, handleResetProgress, editingVocabIndex, setEditingVocabIndex, editingVocabData, setEditingVocabData,
-        editingCardRef, handleSaveVocabEdit, isVocabInUserList, addedVocabSet, fixAudioIndex, setFixAudioIndex,
+        editingCardRef, handleSaveVocabEdit, handleBatchSaveLessonVocab, isVocabInUserList, addedVocabSet, fixAudioIndex, setFixAudioIndex,
         fixAudioCustomReading, setFixAudioCustomReading, fixAudioLoading, handleFixAudio, showNuanceIndex,
         setShowNuanceIndex, handleEditVocab, handleDeleteVocab,
         showPremiumModal, setShowPremiumModal, lockedPkgName, setLockedPkgName
     } = bookData;
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        const scrollContainers = document.querySelectorAll('main, body, html, #root');
+        scrollContainers.forEach(el => { if (el) el.scrollTop = 0; });
+    }, [lessonId, bookId, chapterId, groupId]);
 
     // Inline edit name component helper for Admin
     const InlineEditName = ({ type, id, currentName, className = '' }) => {
@@ -154,6 +160,8 @@ const BookScreen = ({
                     setEditingVocabData={setEditingVocabData}
                     editingCardRef={editingCardRef}
                     handleSaveVocabEdit={handleSaveVocabEdit}
+                    handleBatchSaveLessonVocab={handleBatchSaveLessonVocab}
+                    onGeminiAssist={onGeminiAssist}
                     isVocabInUserList={isVocabInUserList}
                     addedVocabSet={addedVocabSet}
                     fixAudioIndex={fixAudioIndex}

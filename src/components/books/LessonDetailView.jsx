@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     Upload, Folder, RefreshCw, X, Trash2, Plus, Layers, 
     Languages, EyeOff, RotateCcw, FileText, Edit, Save, 
-    Volume2, Wrench, Lightbulb, Mic 
+    Volume2, Wrench, Lightbulb, Mic, AlertTriangle, Sparkles, Loader2, CloudUpload
 } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { speakJapanese, playAudio } from '../../utils/audio';
-import { showConfirm } from '../../utils/toast';
+import { showToast, showConfirm } from '../../utils/toast';
+import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
+import { syncBooksToCDN } from '../../utils/bookService';
 
 const LessonDetailView = ({
     currentLesson,
@@ -46,6 +48,8 @@ const LessonDetailView = ({
     setEditingVocabData,
     editingCardRef,
     handleSaveVocabEdit,
+    handleBatchSaveLessonVocab,
+    onGeminiAssist,
     isVocabInUserList,
     addedVocabSet,
     fixAudioIndex,
@@ -67,7 +71,121 @@ const LessonDetailView = ({
     setShowPremiumModal,
     navigateTo
 }) => {
+    const [filterMissingSino, setFilterMissingSino] = useState(false);
+    const [isAiFillingSino, setIsAiFillingSino] = useState(false);
+    const [isSyncingCDN, setIsSyncingCDN] = useState(false);
     const vocab = vocabWithAudio;
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        const scrollContainers = document.querySelectorAll('main, body, html, #root');
+        scrollContainers.forEach(el => { if (el) el.scrollTop = 0; });
+    }, [currentLesson?.id]);
+
+    const handleSyncCDN = async () => {
+        if (!isAdmin || isSyncingCDN) return;
+        const confirm = await showConfirm(
+            'Bạn có muốn xuất toàn bộ dữ liệu Kho sách mới nhất từ Firestore lên Cloud Storage CDN cho học viên không?',
+            { type: 'info', confirmText: 'Bắt đầu đồng bộ CDN' }
+        );
+        if (!confirm) return;
+
+        setIsSyncingCDN(true);
+        showToast('Đang tải dữ liệu Kho sách và đẩy lên CDN Cloud Storage...', 'info', 5000);
+        try {
+            await syncBooksToCDN();
+            showToast('Đã đồng bộ Kho sách lên Cloud Storage CDN thành công! 🎉', 'success');
+        } catch (e) {
+            console.error('Error syncing books to CDN:', e);
+            showToast('Lỗi khi đồng bộ CDN: ' + (e?.message || e), 'error');
+        } finally {
+            setIsSyncingCDN(false);
+        }
+    };
+
+    const isMissingSino = (v) => {
+        if (!v) return false;
+        const word = v.word || v.front || '';
+        const displayWord = word.split('（')[0].split('(')[0].trim();
+        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(displayWord);
+        const sino = (v.sinoVietnamese || '').trim();
+        return hasKanji && !sino;
+    };
+
+    const missingSinoCount = vocab.filter(isMissingSino).length;
+
+    const handleAutoFillMissingSino = async () => {
+        if (!isAdmin || isAiFillingSino) return;
+
+        const missingIndices = [];
+        vocab.forEach((v, idx) => {
+            if (isMissingSino(v)) {
+                missingIndices.push(idx);
+            }
+        });
+
+        if (missingIndices.length === 0) {
+            showToast('Tất cả từ vựng có chữ Hán trong bài đều đã có âm Hán Việt!', 'info');
+            return;
+        }
+
+        const confirmMsg = `Tìm thấy ${missingIndices.length} từ vựng chứa chữ Hán chưa có âm Hán Việt. Bạn có muốn dùng AI để tự động tra cứu và bổ sung không?`;
+        if (!(await showConfirm(confirmMsg, { type: 'info', confirmText: 'Bắt đầu thêm bằng AI' }))) {
+            return;
+        }
+
+        setIsAiFillingSino(true);
+        showToast(`Đang tự động bổ sung âm Hán Việt cho ${missingIndices.length} từ vựng...`, 'info', 4000);
+
+        const updatedVocab = (currentLesson?.vocab || vocab).map(v => ({ ...v }));
+        let filledCount = 0;
+
+        for (const idx of missingIndices) {
+            const item = updatedVocab[idx];
+            if (!item) continue;
+            const word = item.word || item.front || '';
+            const displayWord = word.split('（')[0].split('(')[0].trim();
+
+            let sino = getSinoVietnamese(displayWord);
+            if (!sino && onGeminiAssist) {
+                try {
+                    const aiRes = await onGeminiAssist(displayWord, item.pos || '', item.level || '', item.meaning || item.back || '', false);
+                    if (aiRes && aiRes.sinoVietnamese) {
+                        sino = aiRes.sinoVietnamese;
+                    }
+                } catch (e) {
+                    console.warn('Gemini Sino-HV lookup error:', displayWord, e);
+                }
+            }
+
+            if (sino) {
+                updatedVocab[idx].sinoVietnamese = sino;
+                filledCount++;
+            }
+        }
+
+        if (filledCount > 0 && handleBatchSaveLessonVocab) {
+            const success = await handleBatchSaveLessonVocab(updatedVocab);
+            if (success) {
+                showToast(`Thành công! Đã tự động bổ sung âm Hán Việt cho ${filledCount} từ vựng! 🎉`, 'success');
+            } else {
+                showToast('Không thể lưu cập nhật Hán Việt vào cơ sở dữ liệu.', 'error');
+            }
+        } else if (filledCount === 0) {
+            showToast('Không thể tra cứu âm Hán Việt cho các từ vựng này.', 'warning');
+        }
+
+        setIsAiFillingSino(false);
+    };
+
+    const displayedVocab = vocab
+        .map((v, i) => ({ ...v, originalIndex: i }))
+        .filter(item => {
+            if (isAdmin && filterMissingSino) {
+                return isMissingSino(item);
+            }
+            return true;
+        });
 
     return (
         <div className="flex gap-6">
@@ -245,20 +363,75 @@ const LessonDetailView = ({
                                         <RotateCcw className="w-3.5 h-3.5" /> Reset tiến độ
                                     </button>
                                 )}
+                                {isAdmin && (
+                                    <button
+                                        onClick={() => setFilterMissingSino(prev => !prev)}
+                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
+                                            filterMissingSino
+                                                ? 'bg-amber-500 text-white border-amber-600 shadow-md animate-pulse'
+                                                : 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900/50'
+                                        }`}
+                                        title="Lọc danh sách từ vựng chứa chữ Hán nhưng chưa có âm Hán Việt (Chỉ Admin nhìn thấy)"
+                                    >
+                                        <AlertTriangle className={`w-3.5 h-3.5 ${filterMissingSino ? 'text-white' : 'text-amber-500'}`} />
+                                        Thiếu Hán Việt ({missingSinoCount})
+                                    </button>
+                                )}
+                                {isAdmin && missingSinoCount > 0 && (
+                                    <button
+                                        onClick={handleAutoFillMissingSino}
+                                        disabled={isAiFillingSino}
+                                        className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all border bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-amber-600 shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer"
+                                        title="Dùng AI & Từ điển tự động tra cứu và điền âm Hán Việt cho tất cả từ vựng bị thiếu trong bài"
+                                    >
+                                        {isAiFillingSino ? (
+                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                        ) : (
+                                            <Sparkles className="w-3.5 h-3.5" />
+                                        )}
+                                        AI Thêm Hán Việt ({missingSinoCount})
+                                    </button>
+                                )}
+                                {isAdmin && (
+                                    <button
+                                        onClick={handleSyncCDN}
+                                        disabled={isSyncingCDN}
+                                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-600 shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer"
+                                        title="Đẩy toàn bộ dữ liệu Kho sách mới nhất từ Firestore lên Cloud Storage CDN"
+                                    >
+                                        {isSyncingCDN ? (
+                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                        ) : (
+                                            <CloudUpload className="w-3.5 h-3.5" />
+                                        )}
+                                        Đồng bộ CDN
+                                    </button>
+                                )}
                             </div>
                         </div>
                     );
                 })()}
 
-                {vocab.length === 0 ? (
-                    <div className="text-center py-12 text-gray-400">
-                        <FileText className="w-12 h-12 mx-auto mb-3 opacity-30" />
-                        <p>Chưa có từ vựng</p>
-                        {isAdmin && <p className="text-sm mt-1">Import JSON để thêm từ vựng</p>}
+                {displayedVocab.length === 0 ? (
+                    <div className="text-center py-12 text-gray-400 bg-white dark:bg-gray-800 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
+                        <FileText className="w-12 h-12 mx-auto mb-3 opacity-30 text-amber-500" />
+                        {isAdmin && filterMissingSino ? (
+                            <div>
+                                <p className="text-base font-bold text-emerald-600 dark:text-emerald-400">Tất cả từ vựng có chữ Hán trong bài này đã có âm Hán Việt! 🎉</p>
+                                <p className="text-xs text-gray-400 mt-1">Không còn từ vựng nào bị thiếu âm Hán Việt.</p>
+                            </div>
+                        ) : (
+                            <>
+                                <p>Chưa có từ vựng</p>
+                                {isAdmin && <p className="text-sm mt-1">Import JSON để thêm từ vựng</p>}
+                            </>
+                        )}
                     </div>
                 ) : (
                     <div className="space-y-2">
-                        {vocab.map((v, i) => {
+                        {displayedVocab.map((item) => {
+                            const v = item;
+                            const i = item.originalIndex;
                             const word = v.word || v.front || '';
                             const displayWord = word.split('（')[0].split('(')[0].trim();
                             const isRevealed = revealedCards.has(i);
@@ -376,6 +549,11 @@ const LessonDetailView = ({
                                                                 <p className={`text-xl font-bold text-gray-900 dark:text-white leading-tight transition-all duration-300 ${blurJP ? blurClass : ''}`}>{displayWord}</p>
                                                                 {v.specialReading && (
                                                                     <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded font-bold" title="Cách đọc đặc biệt">特</span>
+                                                                )}
+                                                                {isAdmin && isMissingSino(v) && (
+                                                                    <span className="text-[10px] px-2 py-0.5 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 rounded-full font-bold border border-amber-300 dark:border-amber-700/60 flex items-center gap-1 shrink-0" title="Từ vựng chứa chữ Hán nhưng chưa nhập âm Hán Việt">
+                                                                        <AlertTriangle className="w-3 h-3 text-amber-500" /> Thiếu Hán Việt
+                                                                    </span>
                                                                 )}
                                                                 <button
                                                                     onClick={(e) => {

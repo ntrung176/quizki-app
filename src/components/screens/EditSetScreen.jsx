@@ -80,11 +80,12 @@ const EditSetScreen = ({
 
     const handleImportJsonCards = (newCards) => {
         if (!newCards || newCards.length === 0) return;
+        const cardsWithIsNew = newCards.map(c => ({ ...c, isNew: true }));
         setCards(prev => {
             if (prev.length === 1 && !prev[0].front && !prev[0].back) {
-                return newCards;
+                return cardsWithIsNew;
             }
-            return [...prev, ...newCards];
+            return [...prev, ...cardsWithIsNew];
         });
         showToast(`Đã nhập thành công ${newCards.length} từ vựng vào bài!`, 'success');
     };

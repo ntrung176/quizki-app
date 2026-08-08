@@ -9,6 +9,8 @@ import { useAppAuthAndProfile } from './useAppAuthAndProfile';
 import { useAppStudySets } from './useAppStudySets';
 import { useAppVocab } from './useAppVocab';
 
+import { showToast } from '../utils/toast';
+
 // SECURITY: Suppress sensitive console logs in production
 initConsoleProtection();
 
@@ -27,7 +29,29 @@ export const useAppLogic = () => {
     const [reviewMode, setReviewMode] = useState('back');
     const [savedFilters, setSavedFilters] = useState(null);
     const [reviewCards, setReviewCards] = useState([]);
-    const [notification, setNotification] = useState('');
+    const [notification, setNotificationState] = useState('');
+    const setNotification = useCallback((msg) => {
+        if (!msg) {
+            setNotificationState('');
+            return;
+        }
+        setNotificationState(msg);
+        let type = 'info';
+        let text = msg;
+        if (typeof msg === 'object' && msg !== null) {
+            type = msg.type || 'info';
+            text = msg.message || JSON.stringify(msg);
+        } else if (typeof msg === 'string') {
+            if (msg.includes('Lỗi') || msg.includes('không thành công') || msg.includes('thất bại') || msg.includes('Lỗi:') || msg.includes('error')) {
+                type = 'error';
+            } else if (msg.includes('⚠️') || msg.includes('chưa') || msg.includes('giới hạn') || msg.includes('không khớp') || msg.includes('không đúng') || msg.includes('warning')) {
+                type = 'warning';
+            } else if (msg.includes('thành công') || msg.includes('🎉') || msg.includes('Đã') || msg.includes('success')) {
+                type = 'success';
+            }
+        }
+        showToast(text, type);
+    }, []);
     const [levelUpInfo, setLevelUpInfo] = useState(null);
     const [isReviewActive, setIsReviewActive] = useState(false);
     const [isRealExamActive, setIsRealExamActive] = useState(false);
