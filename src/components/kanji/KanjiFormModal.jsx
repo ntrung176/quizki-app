@@ -5,6 +5,19 @@ import { storage } from '../../config/firebase';
 import { showToast } from '../../utils/toast';
 import { JLPT_LEVELS } from './kanjiConstants';
 
+const POS_OPTIONS = [
+    'Danh từ',
+    'Động từ nhóm 1 (Tự động từ)',
+    'Động từ nhóm 1 (Tha động từ)',
+    'Động từ nhóm 2',
+    'Động từ nhóm 3 (Suru)',
+    'Tính từ đuôi -i',
+    'Tính từ đuôi -na',
+    'Phụ từ / Trạng từ',
+    'Liên từ',
+    'Cụm từ / Thành ngữ'
+];
+
 const SAMPLE_KANJI_JSON = `[
   {
     "character": "愛",
@@ -18,6 +31,22 @@ const SAMPLE_KANJI_JSON = `[
     "radical": "心",
     "mnemonic": "Một trái tim (心) nằm giữa để đón nhận tình yêu (愛)",
     "imageUrl": "https://example.com/ai.png"
+  }
+]`;
+
+const SAMPLE_KANJI_VOCAB_JSON = `[
+  {
+    "word": "日本語",
+    "reading": "にほんご",
+    "sinoViet": "NHẬT BẢN NGỮ",
+    "meaning": "Tiếng Nhật, Ngôn ngữ Nhật Bản",
+    "pos": "Danh từ",
+    "level": "N5",
+    "example": "毎日＿＿＿＿を勉強しています。",
+    "exampleMeaning": "Tôi học tiếng Nhật mỗi ngày.",
+    "synonym": "国語",
+    "synonymSinoVietnamese": "QUỐC NGỮ",
+    "nuance": "Ngôn ngữ chính thức của quốc gia Nhật Bản"
   }
 ]`;
 
@@ -35,7 +64,10 @@ const KanjiFormModal = ({
     handleAddVocab,
     newVocab,
     setNewVocab,
-    vocabCategories,
+    jsonVocabInput = '',
+    setJsonVocabInput = () => {},
+    handleImportVocabJson = () => {},
+    vocabCategories = [],
     showEditKanjiModal,
     setShowEditKanjiModal,
     handleEditKanji,
@@ -63,13 +95,22 @@ const KanjiFormModal = ({
 }) => {
     const [uploadingImage, setUploadingImage] = useState(false);
     const [kanjiModalTab, setKanjiModalTab] = useState('manual'); // 'manual' | 'json'
+    const [vocabModalTab, setVocabModalTab] = useState('manual'); // 'manual' | 'json'
     const [copiedSample, setCopiedSample] = useState(false);
+    const [copiedVocabSample, setCopiedVocabSample] = useState(false);
 
     const handleCopySampleJson = () => {
         navigator.clipboard.writeText(SAMPLE_KANJI_JSON);
         setCopiedSample(true);
         showToast('Đã sao chép JSON mẫu Kanji!', 'success');
         setTimeout(() => setCopiedSample(false), 2000);
+    };
+
+    const handleCopySampleVocabJson = () => {
+        navigator.clipboard.writeText(SAMPLE_KANJI_VOCAB_JSON);
+        setCopiedVocabSample(true);
+        showToast('Đã sao chép JSON mẫu Từ Vựng Kanji!', 'success');
+        setTimeout(() => setCopiedVocabSample(false), 2000);
     };
 
     const handleImageUpload = async (e, isEdit = true) => {
@@ -93,6 +134,7 @@ const KanjiFormModal = ({
             setUploadingImage(false);
         }
     };
+
     return (
         <>
             {/* Add Kanji Modal */}
@@ -292,56 +334,173 @@ const KanjiFormModal = ({
             {/* Add Vocab Modal */}
             {showAddVocabModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowAddVocabModal(false); }}>
-                    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden" onClick={e => e.stopPropagation()}>
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden flex flex-col max-h-[90vh]" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">Thêm Từ Vựng Kanji</h3>
+                            <div>
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white">Thêm Từ Vựng Kanji</h3>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">Nhập thủ công hoặc dán chuỗi mảng JSON từ vựng hàng loạt</p>
+                            </div>
                             <button onClick={() => setShowAddVocabModal(false)} className="p-1 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg cursor-pointer"><X className="w-5 h-5" /></button>
                         </div>
-                        <div className="p-4 space-y-4 max-h-[70vh] overflow-y-auto">
-                            <div>
-                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ vựng (*)</label>
-                                <input value={newVocab.word} onChange={e => setNewVocab({ ...newVocab, word: e.target.value })}
-                                    className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-lg font-japanese font-bold" placeholder="日本" />
-                            </div>
-                            <div className="grid grid-cols-2 gap-3">
-                                <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Cách đọc (Furigana)</label>
-                                    <input value={newVocab.reading} onChange={e => setNewVocab({ ...newVocab, reading: e.target.value })}
-                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="にほん" />
-                                </div>
-                                <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Hán Việt</label>
-                                    <input value={newVocab.sinoViet} onChange={e => setNewVocab({ ...newVocab, sinoViet: e.target.value })}
-                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="NHẬT BẢN" />
-                                </div>
-                            </div>
-                            <div>
-                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Nghĩa tiếng Việt</label>
-                                <input value={newVocab.meaning} onChange={e => setNewVocab({ ...newVocab, meaning: e.target.value })}
-                                    className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="Nước Nhật" />
-                            </div>
-                            <div className="grid grid-cols-2 gap-3">
-                                <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Cấp độ</label>
-                                    <select value={newVocab.level} onChange={e => setNewVocab({ ...newVocab, level: e.target.value })}
-                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
-                                        {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
-                                    </select>
-                                </div>
-                                <div>
-                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Phân loại</label>
-                                    <select value={newVocab.category} onChange={e => setNewVocab({ ...newVocab, category: e.target.value })}
-                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
-                                        <option value="">Chưa chọn</option>
-                                        {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
-                                    </select>
-                                </div>
-                            </div>
+
+                        {/* Tab Switcher */}
+                        <div className="flex border-b border-gray-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 p-1.5 gap-1.5">
+                            <button
+                                type="button"
+                                onClick={() => setVocabModalTab('manual')}
+                                className={`flex-1 py-2 px-3 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                                    vocabModalTab === 'manual'
+                                        ? 'bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 shadow-xs border border-gray-200/80 dark:border-slate-700'
+                                        : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800/50'
+                                }`}
+                            >
+                                <FileText className="w-4 h-4" /> Nhập Thủ Công (Form)
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setVocabModalTab('json')}
+                                className={`flex-1 py-2 px-3 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                                    vocabModalTab === 'json'
+                                        ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-xs border border-gray-200/80 dark:border-slate-700'
+                                        : 'text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800/50'
+                                }`}
+                            >
+                                <Code className="w-4 h-4" /> Nhập Từ JSON Hàng Loạt
+                            </button>
                         </div>
-                        <div className="flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-slate-700">
-                            <button onClick={() => setShowAddVocabModal(false)} className="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-xl cursor-pointer">Hủy</button>
-                            <button onClick={handleAddVocab} className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl font-bold cursor-pointer">Lưu Từ vựng</button>
-                        </div>
+
+                        {/* Tab Content */}
+                        {vocabModalTab === 'manual' ? (
+                            <>
+                                <div className="p-4 space-y-4 max-h-[65vh] overflow-y-auto">
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ vựng (*)</label>
+                                        <input value={newVocab.word} onChange={e => setNewVocab({ ...newVocab, word: e.target.value })}
+                                            className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-lg font-japanese font-bold" placeholder="日本語" />
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Cách đọc (Furigana / Hiragana)</label>
+                                            <input value={newVocab.reading} onChange={e => setNewVocab({ ...newVocab, reading: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="にほんご" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Hán Việt</label>
+                                            <input value={newVocab.sinoViet} onChange={e => setNewVocab({ ...newVocab, sinoViet: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="NHẬT BẢN NGỮ" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Nghĩa tiếng Việt (*)</label>
+                                        <input value={newVocab.meaning} onChange={e => setNewVocab({ ...newVocab, meaning: e.target.value })}
+                                            className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="Tiếng Nhật, Ngôn ngữ Nhật" />
+                                    </div>
+                                    <div className="grid grid-cols-3 gap-3">
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ loại (POS)</label>
+                                            <select value={newVocab.pos || ''} onChange={e => setNewVocab({ ...newVocab, pos: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
+                                                <option value="">Chưa chọn</option>
+                                                {POS_OPTIONS.map(p => <option key={p} value={p}>{p}</option>)}
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Cấp độ JLPT</label>
+                                            <select value={newVocab.level} onChange={e => setNewVocab({ ...newVocab, level: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
+                                                {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Phân loại</label>
+                                            <select value={newVocab.category} onChange={e => setNewVocab({ ...newVocab, category: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
+                                                <option value="">Chưa chọn</option>
+                                                {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-3 pt-2 border-t border-gray-100 dark:border-slate-700">
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Câu ví dụ tiếng Nhật (Đã che từ bằng ＿＿＿＿)</label>
+                                            <input value={newVocab.example || ''} onChange={e => setNewVocab({ ...newVocab, example: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm font-japanese" placeholder="毎日＿＿＿＿を勉強しています。" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Dịch câu ví dụ tiếng Việt</label>
+                                            <input value={newVocab.exampleMeaning || ''} onChange={e => setNewVocab({ ...newVocab, exampleMeaning: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="Tôi học tiếng Nhật mỗi ngày." />
+                                        </div>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-3 pt-2 border-t border-gray-100 dark:border-slate-700">
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ đồng nghĩa</label>
+                                            <input value={newVocab.synonym || ''} onChange={e => setNewVocab({ ...newVocab, synonym: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm font-japanese" placeholder="国語" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Hán Việt từ đồng nghĩa</label>
+                                            <input value={newVocab.synonymSinoVietnamese || ''} onChange={e => setNewVocab({ ...newVocab, synonymSinoVietnamese: e.target.value })}
+                                                className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="QUỐC NGỮ" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Sắc thái / Ghi chú / Mẹo nhớ từ vựng (Nuance)</label>
+                                        <textarea value={newVocab.nuance || ''} onChange={e => setNewVocab({ ...newVocab, nuance: e.target.value })}
+                                            rows={2} className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="Ghi chú ngữ cảnh sử dụng hoặc mẹo nhớ riêng..." />
+                                    </div>
+                                </div>
+                                <div className="flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-slate-700">
+                                    <button onClick={() => setShowAddVocabModal(false)} className="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-xl cursor-pointer">Hủy</button>
+                                    <button onClick={handleAddVocab} className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl font-bold cursor-pointer">Lưu Từ vựng</button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="p-4 space-y-4 max-h-[65vh] overflow-y-auto">
+                                    {/* Sample JSON Guide */}
+                                    <div className="bg-slate-900 text-slate-100 p-3.5 rounded-2xl border border-slate-800 text-xs font-mono">
+                                        <div className="flex items-center justify-between mb-2 pb-2 border-b border-slate-800">
+                                            <span className="font-bold text-amber-400 flex items-center gap-1.5">
+                                                <Code className="w-4 h-4" /> Cấu trúc JSON Mẫu Từ Vựng Kanji:
+                                            </span>
+                                            <button
+                                                type="button"
+                                                onClick={handleCopySampleVocabJson}
+                                                className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-sans font-bold flex items-center gap-1 cursor-pointer transition-all active:scale-95"
+                                            >
+                                                {copiedVocabSample ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                                                {copiedVocabSample ? 'Đã sao chép!' : 'Sao chép JSON Mẫu'}
+                                            </button>
+                                        </div>
+                                        <pre className="text-[11px] leading-relaxed overflow-x-auto text-emerald-300">
+                                            {SAMPLE_KANJI_VOCAB_JSON}
+                                        </pre>
+                                    </div>
+
+                                    {/* Textarea */}
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Dán mảng JSON Từ Vựng vào đây:</label>
+                                        <textarea
+                                            value={jsonVocabInput}
+                                            onChange={e => setJsonVocabInput(e.target.value)}
+                                            rows={8}
+                                            className="w-full p-3 border rounded-xl dark:bg-slate-900 dark:border-slate-700 text-slate-900 dark:text-emerald-400 font-mono text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                                            placeholder={`[ \n  { \n    "word": "日本語", \n    "reading": "にほんご", \n    "sinoViet": "NHẬT BẢN NGỮ", \n    "meaning": "Tiếng Nhật" \n  } \n]`}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-slate-700">
+                                    <button onClick={() => setShowAddVocabModal(false)} className="px-4 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-xl cursor-pointer">Hủy</button>
+                                    <button
+                                        onClick={() => handleImportVocabJson(jsonVocabInput)}
+                                        className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold cursor-pointer flex items-center gap-2"
+                                    >
+                                        <Upload className="w-4 h-4" /> Import Tất Cả Từ JSON
+                                    </button>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
             )}
@@ -455,10 +614,10 @@ const KanjiFormModal = ({
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Chỉnh Sửa Từ Vựng ({editingVocab.word})</h3>
                             <button onClick={() => setShowEditVocabModal(false)} className="p-1 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg cursor-pointer"><X className="w-5 h-5" /></button>
                         </div>
-                        <div className="p-4 space-y-4 max-h-[70vh] overflow-y-auto">
+                        <div className="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
                             <div>
-                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ vựng</label>
-                                <input value={editingVocab.word} onChange={e => setEditingVocab({ ...editingVocab, word: e.target.value })}
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ vựng (*)</label>
+                                <input value={editingVocab.word || ''} onChange={e => setEditingVocab({ ...editingVocab, word: e.target.value })}
                                     className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-lg font-japanese font-bold" />
                             </div>
                             <div className="grid grid-cols-2 gap-3">
@@ -474,9 +633,63 @@ const KanjiFormModal = ({
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Nghĩa tiếng Việt</label>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Nghĩa tiếng Việt (*)</label>
                                 <input value={editingVocab.meaning || ''} onChange={e => setEditingVocab({ ...editingVocab, meaning: e.target.value })}
                                     className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" />
+                            </div>
+                            <div className="grid grid-cols-3 gap-3">
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ loại (POS)</label>
+                                    <select value={editingVocab.pos || ''} onChange={e => setEditingVocab({ ...editingVocab, pos: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
+                                        <option value="">Chưa chọn</option>
+                                        {POS_OPTIONS.map(p => <option key={p} value={p}>{p}</option>)}
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Cấp độ JLPT</label>
+                                    <select value={editingVocab.level || 'N5'} onChange={e => setEditingVocab({ ...editingVocab, level: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
+                                        {JLPT_LEVELS.map(l => <option key={l} value={l}>{l}</option>)}
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Phân loại</label>
+                                    <select value={editingVocab.category || ''} onChange={e => setEditingVocab({ ...editingVocab, category: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm">
+                                        <option value="">Chưa chọn</option>
+                                        {vocabCategories.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="space-y-3 pt-2 border-t border-gray-100 dark:border-slate-700">
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Câu ví dụ tiếng Nhật</label>
+                                    <input value={editingVocab.example || ''} onChange={e => setEditingVocab({ ...editingVocab, example: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm font-japanese" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Dịch câu ví dụ tiếng Việt</label>
+                                    <input value={editingVocab.exampleMeaning || ''} onChange={e => setEditingVocab({ ...editingVocab, exampleMeaning: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3 pt-2 border-t border-gray-100 dark:border-slate-700">
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Từ đồng nghĩa</label>
+                                    <input value={editingVocab.synonym || ''} onChange={e => setEditingVocab({ ...editingVocab, synonym: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm font-japanese" />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Hán Việt từ đồng nghĩa</label>
+                                    <input value={editingVocab.synonymSinoVietnamese || ''} onChange={e => setEditingVocab({ ...editingVocab, synonymSinoVietnamese: e.target.value })}
+                                        className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Sắc thái / Ghi chú / Mẹo nhớ từ vựng (Nuance)</label>
+                                <textarea value={editingVocab.nuance || ''} onChange={e => setEditingVocab({ ...editingVocab, nuance: e.target.value })}
+                                    rows={2} className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" />
                             </div>
                         </div>
                         <div className="flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-slate-700">

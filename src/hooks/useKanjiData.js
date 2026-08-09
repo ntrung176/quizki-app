@@ -15,6 +15,8 @@ import {
 } from '../utils/kanjiService';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../data/jotobaKanjiData';
 import kanjiComponents from '../data/kanjiComponents.json' with { type: 'json' };
+import { computeSinoVietnameseForWord } from '../utils/kanjiHVLookup';
+import { generateVocabForKanjiWithAI } from '../utils/aiProvider';
 import { ROUTES } from '../router';
 
 export const useKanjiData = ({
@@ -61,6 +63,8 @@ export const useKanjiData = ({
     const [editingVocab, setEditingVocab] = useState(null);
     const [syncingCDN, setSyncingCDN] = useState(false);
     const [migratingComponents, setMigratingComponents] = useState(false);
+    const [fixingSinoViet, setFixingSinoViet] = useState(false);
+    const [generatingAiVocab, setGeneratingAiVocab] = useState(false);
 
     // Vocab Categories
     const [vocabCategories, setVocabCategories] = useState(() => getCachedVocabCategories() || []);
@@ -74,7 +78,10 @@ export const useKanjiData = ({
 
     const kanjiMap = useMemo(() => {
         const map = new Map();
-        kanjiList.forEach(k => { if (k.character) map.set(k.character, k); });
+        kanjiList.forEach(k => {
+            const char = (k?.character || '').trim();
+            if (char && !map.has(char)) map.set(char, { ...k, character: char });
+        });
         return map;
     }, [kanjiList]);
 
@@ -220,16 +227,16 @@ export const useKanjiData = ({
             const { type, data } = e.detail;
             if (type === 'kanji') {
                 setKanjiList(prev => {
-                    const idx = prev.findIndex(k => k.id === data.id);
-                    if (idx !== -1) return prev.map(k => k.id === data.id ? { ...k, ...data } : k);
+                    const idx = prev.findIndex(k => (k.id && data.id && k.id === data.id) || (k.character && data.character && k.character === data.character));
+                    if (idx !== -1) return prev.map((k, i) => i === idx ? { ...k, ...data } : k);
                     return [...prev, data];
                 });
             } else if (type === 'kanji-delete') {
                 setKanjiList(prev => prev.filter(k => k.id !== data));
             } else if (type === 'vocab') {
                 setVocabList(prev => {
-                    const idx = prev.findIndex(v => v.id === data.id);
-                    if (idx !== -1) return prev.map(v => v.id === data.id ? { ...v, ...data } : v);
+                    const idx = prev.findIndex(v => (v.id && data.id && v.id === data.id) || (v.word && data.word && v.word.trim() === data.word.trim()));
+                    if (idx !== -1) return prev.map((v, i) => i === idx ? { ...v, ...data } : v);
                     return [...prev, data];
                 });
             } else if (type === 'vocab-delete') {
@@ -435,31 +442,37 @@ export const useKanjiData = ({
 
     const currentKanjiList = useMemo(() => {
         if (selectedLevel === 'Bộ thủ') return Object.keys(RADICALS_214);
-        let sorted;
+        let sorted = [];
         if (selectedLevel === 'Mới thêm') {
             const list = kanjiList.filter(k => k.updatedAt).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
-            sorted = list.map(k => k.character);
+            sorted = list.map(k => (k.character || '').trim()).filter(Boolean);
         } else if (selectedLevel === 'Chưa có từ vựng') {
             const kanjiInVocab = new Set();
             pureKanjiVocabList.forEach(v => {
                 const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
-                chars.forEach(c => kanjiInVocab.add(c));
+                chars.forEach(c => kanjiInVocab.add(c.trim()));
             });
-            const list = kanjiList.filter(k => !kanjiInVocab.has(k.character));
-            sorted = list.map(k => k.character);
+            const list = kanjiList.filter(k => {
+                const char = (k.character || '').trim();
+                return char && !kanjiInVocab.has(char);
+            });
+            sorted = list.map(k => (k.character || '').trim()).filter(Boolean);
         } else if (selectedLevel === 'Đã có từ vựng') {
             const kanjiInVocab = new Set();
             pureKanjiVocabList.forEach(v => {
                 const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
-                chars.forEach(c => kanjiInVocab.add(c));
+                chars.forEach(c => kanjiInVocab.add(c.trim()));
             });
-            const list = kanjiList.filter(k => kanjiInVocab.has(k.character));
-            sorted = list.map(k => k.character);
+            const list = kanjiList.filter(k => {
+                const char = (k.character || '').trim();
+                return char && kanjiInVocab.has(char);
+            });
+            sorted = list.map(k => (k.character || '').trim()).filter(Boolean);
         } else {
             const jotobaChars = getJotobaKanjiChars(selectedLevel);
             const firebaseChars = [];
             kanjiMap.forEach((v, k) => { if (v.level === selectedLevel) firebaseChars.push(k); });
-            const mergedSet = new Set([...jotobaChars, ...firebaseChars]);
+            const mergedSet = new Set([...jotobaChars, ...firebaseChars].map(c => String(c).trim()).filter(Boolean));
             let merged = [...mergedSet];
             const mapped = merged.map(char => {
                 const jData = getJotobaKanjiData(char);
@@ -477,9 +490,11 @@ export const useKanjiData = ({
             sorted = mapped.map(x => x.char);
         }
 
-        if (!searchQuery.trim()) return sorted;
+        const uniqueSorted = Array.from(new Set(sorted.map(s => String(s).trim()).filter(Boolean)));
+
+        if (!searchQuery.trim()) return uniqueSorted;
         const query = searchQuery.toLowerCase().trim();
-        return sorted.filter(k => {
+        return uniqueSorted.filter(k => {
             if (k.includes(query)) return true;
             const fData = kanjiMap.get(k);
             if (fData) {
@@ -503,7 +518,8 @@ export const useKanjiData = ({
 
     const displayedKanjiList = useMemo(() => {
         if (selectedLevel === 'Bộ thủ') return currentKanjiList;
-        return currentKanjiList.slice(0, visibleLimit);
+        const unique = Array.from(new Set(currentKanjiList.map(c => String(c).trim()).filter(Boolean)));
+        return unique.slice(0, visibleLimit);
     }, [currentKanjiList, selectedLevel, visibleLimit]);
 
     const filteredKanjiList = useMemo(() => {
@@ -515,23 +531,36 @@ export const useKanjiData = ({
             const kanjiInVocab = new Set();
             pureKanjiVocabList.forEach(v => {
                 const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
-                chars.forEach(c => kanjiInVocab.add(c));
+                chars.forEach(c => kanjiInVocab.add(c.trim()));
             });
-            filtered = kanjiList.filter(k => !kanjiInVocab.has(k.character));
+            filtered = kanjiList.filter(k => {
+                const char = (k.character || '').trim();
+                return char && !kanjiInVocab.has(char);
+            });
         } else if (selectedLevel === 'Đã có từ vựng') {
             const kanjiInVocab = new Set();
             pureKanjiVocabList.forEach(v => {
                 const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
-                chars.forEach(c => kanjiInVocab.add(c));
+                chars.forEach(c => kanjiInVocab.add(c.trim()));
             });
-            filtered = kanjiList.filter(k => kanjiInVocab.has(k.character));
+            filtered = kanjiList.filter(k => {
+                const char = (k.character || '').trim();
+                return char && kanjiInVocab.has(char);
+            });
         } else {
-            filtered = kanjiList.filter(k => k.level === selectedLevel);
+            filtered = kanjiList.filter(k => (k.level || '').trim() === selectedLevel);
         }
         if (searchQuery.trim()) {
             const query = searchQuery.toLowerCase().trim();
-            filtered = filtered.filter(k => k.character.includes(query) || (k.meaning && String(k.meaning).toLowerCase().includes(query)) || (k.sinoViet && String(k.sinoViet).toLowerCase().includes(query)));
+            filtered = filtered.filter(k => k.character && (k.character.includes(query) || (k.meaning && String(k.meaning).toLowerCase().includes(query)) || (k.sinoViet && String(k.sinoViet).toLowerCase().includes(query))));
         }
+        const seen = new Set();
+        filtered = filtered.filter(k => {
+            const char = (k?.character || '').trim();
+            if (!char || seen.has(char)) return false;
+            seen.add(char);
+            return true;
+        });
         return filtered;
     }, [selectedLevel, kanjiList, pureKanjiVocabList, searchQuery]);
 
@@ -657,8 +686,16 @@ export const useKanjiData = ({
 
     const getVocabForKanji = (char) => {
         const list = pureKanjiVocabList.filter(v => (v.word || '').includes(char));
+        // Deduplicate list by id or word
+        const seen = new Set();
+        const uniqueList = list.filter(v => {
+            const key = v.id ? `id_${v.id}` : `word_${v.word}`;
+            if (!key || seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
         const levelOrder = { 'N5': 1, 'N4': 2, 'N3': 3, 'N2': 4, 'N1': 5 };
-        return list.sort((a, b) => {
+        return uniqueList.sort((a, b) => {
             const orderA = levelOrder[a.level] || 99;
             const orderB = levelOrder[b.level] || 99;
             if (orderA !== orderB) return orderA - orderB;
@@ -688,7 +725,6 @@ export const useKanjiData = ({
             };
             const docRef = await addDoc(collection(db, 'kanji'), kanjiDataToSave);
             const addedKanji = { ...kanjiDataToSave, id: docRef.id };
-            setKanjiList(prev => [...prev, addedKanji]);
             updateCachedKanji(addedKanji);
             showToast(`Đã thêm thành công Kanji "${addedKanji.character}"!`, 'success');
             setNewKanji({
@@ -769,14 +805,15 @@ export const useKanjiData = ({
         }
         try {
             const kanjiChars = newVocab.word.match(/[\u4e00-\u9faf]/g) || [];
+            const computedHV = computeSinoVietnameseForWord(newVocab.word, kanjiMap);
             const vocabData = {
                 ...newVocab,
+                sinoViet: (newVocab.sinoViet || '').trim() || computedHV,
                 kanjiList: kanjiChars,
                 updatedAt: Date.now()
             };
             const docRef = await addDoc(collection(db, 'kanjiVocab'), vocabData);
             const addedVocab = { ...vocabData, id: docRef.id };
-            setVocabList([...vocabList, addedVocab]);
             updateCachedVocab(addedVocab);
             setNewVocab({
                 word: '', reading: '', meaning: '', level: selectedLevel, source: 'Mimikara',
@@ -785,6 +822,212 @@ export const useKanjiData = ({
             setShowAddVocabModal(false);
         } catch (e) {
             console.error('Error adding vocab:', e);
+        }
+    };
+
+    const handleImportVocabJson = async (jsonStr) => {
+        if (!jsonStr || !jsonStr.trim()) {
+            showToast('Vui lòng nhập mã JSON từ vựng!', 'warning');
+            return;
+        }
+        try {
+            let cleaned = jsonStr.trim();
+            if (cleaned.startsWith('```')) {
+                cleaned = cleaned.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+            }
+            const parsed = JSON.parse(cleaned);
+            const items = Array.isArray(parsed) ? parsed : [parsed];
+            let addedCount = 0;
+            const now = Date.now();
+            const newItems = [];
+
+            for (const item of items) {
+                const word = String(item.word || item.front || item.kanji || item.vocabulary || '').trim();
+                if (!word) continue;
+                if (vocabList.some(v => v.word === word)) continue;
+
+                const kanjiChars = word.match(/[\u4e00-\u9faf]/g) || [];
+                const rawSinoViet = String(item.sinoViet || item.sinoVietnamese || item.hanViet || '').trim();
+                const computedHV = computeSinoVietnameseForWord(word, kanjiMap);
+                const vocabObj = {
+                    word: word,
+                    reading: String(item.reading || item.furigana || item.kana || '').trim(),
+                    sinoViet: rawSinoViet || computedHV,
+                    meaning: String(item.meaning || item.back || item.vietnamese || '').trim(),
+                    pos: String(item.pos || item.partOfSpeech || item.type || '').trim(),
+                    level: String(item.level || item.jlpt || selectedLevel || 'N5').trim(),
+                    example: String(item.example || item.exampleSentence || '').trim(),
+                    exampleMeaning: String(item.exampleMeaning || item.exampleTranslation || '').trim(),
+                    synonym: String(item.synonym || '').trim(),
+                    synonymSinoVietnamese: String(item.synonymSinoVietnamese || item.synonymHanViet || '').trim(),
+                    nuance: String(item.nuance || item.note || '').trim(),
+                    category: String(item.category || '').trim(),
+                    source: 'Mimikara',
+                    kanjiList: kanjiChars,
+                    updatedAt: now
+                };
+
+                const docRef = await addDoc(collection(db, 'kanjiVocab'), vocabObj);
+                const savedItem = { ...vocabObj, id: docRef.id };
+                updateCachedVocab(savedItem);
+                newItems.push(savedItem);
+                addedCount++;
+            }
+
+            if (newItems.length > 0) {
+                newItems.forEach(item => updateCachedVocab(item));
+            }
+
+            showToast(`Đã nhập thành công ${addedCount} từ vựng mới!`, 'success');
+            setJsonVocabInput('');
+            setShowAddVocabModal(false);
+        } catch (err) {
+            console.error('Lỗi import JSON Từ vựng:', err);
+            showToast('Lỗi cú pháp JSON: ' + err.message, 'error');
+        }
+    };
+
+    const handleAutoFixVocabSinoViet = async () => {
+        if (!await showConfirm('Bạn có muốn tự động kiểm tra và chuẩn hóa lại âm Hán Việt cho TOÀN BỘ từ vựng Kanji dựa trên dữ liệu Kanji đã lưu không?', { type: 'info', confirmText: 'Đồng ý chuẩn hóa' })) return;
+
+        setFixingSinoViet(true);
+        try {
+            const now = Date.now();
+            const pendingUpdates = [];
+
+            for (const vocab of vocabList) {
+                if (!vocab.word) continue;
+                const wordClean = vocab.word.split('（')[0].split('(')[0].trim();
+                const correctHV = computeSinoVietnameseForWord(wordClean, kanjiMap);
+                if (!correctHV) continue;
+
+                const currentHV = (vocab.sinoViet || '').trim().toUpperCase();
+                if (currentHV !== correctHV) {
+                    pendingUpdates.push({ ...vocab, sinoViet: correctHV, updatedAt: now });
+                }
+            }
+
+            if (pendingUpdates.length === 0) {
+                showToast('Tất cả từ vựng đã có âm Hán Việt chính xác!', 'info');
+                return;
+            }
+
+            // Batched write to Firestore in chunks of 500 (super high speed!)
+            const batchSize = 500;
+            for (let i = 0; i < pendingUpdates.length; i += batchSize) {
+                const chunk = pendingUpdates.slice(i, i + batchSize);
+                const batch = writeBatch(db);
+                chunk.forEach(item => {
+                    if (item.id) {
+                        const ref = doc(db, 'kanjiVocab', item.id);
+                        batch.update(ref, { sinoViet: item.sinoViet, updatedAt: now });
+                    }
+                });
+                await batch.commit();
+                chunk.forEach(item => updateCachedVocab(item));
+            }
+
+            showToast(`Đã tự động cập nhật và chuẩn hóa âm Hán Việt cho ${pendingUpdates.length} từ vựng!`, 'success');
+        } catch (err) {
+            console.error('Error fixing Sino-Vietnamese for vocab:', err);
+            showToast('Lỗi khi chuẩn hóa âm Hán Việt: ' + err.message, 'error');
+        } finally {
+            setFixingSinoViet(false);
+        }
+    };
+
+    const handleGenerateAiVocabForSingleKanji = async (char) => {
+        const targetChar = (char || selectedKanji || '').trim();
+        if (!targetChar) return;
+
+        setGeneratingAiVocab(true);
+        try {
+            const kDoc = kanjiMap.get(targetChar);
+            const generatedItems = await generateVocabForKanjiWithAI(targetChar, kDoc);
+            
+            let addedCount = 0;
+            const batch = writeBatch(db);
+            const newItems = [];
+
+            for (const item of generatedItems) {
+                const cleanWord = item.word.split('（')[0].split('(')[0].trim();
+                if (vocabList.some(v => (v.word || '').split('（')[0].split('(')[0].trim() === cleanWord)) continue;
+
+                const newRef = doc(collection(db, 'kanjiVocab'));
+                const vocabObj = { ...item, id: newRef.id };
+                batch.set(newRef, vocabObj);
+                newItems.push(vocabObj);
+                addedCount++;
+            }
+
+            if (addedCount > 0) {
+                await batch.commit();
+                newItems.forEach(item => updateCachedVocab(item));
+                showToast(`AI đã tạo thành công ${addedCount} từ vựng mới cho chữ ${targetChar}!`, 'success');
+            } else {
+                showToast(`Từ vựng do AI tạo ra đã có sẵn trong ứng dụng cho chữ ${targetChar}.`, 'info');
+            }
+        } catch (err) {
+            console.error('Lỗi khi dùng AI tạo từ vựng:', err);
+            showToast('Lỗi AI tạo từ vựng: ' + err.message, 'error');
+        } finally {
+            setGeneratingAiVocab(false);
+        }
+    };
+
+    const handleBatchGenerateAiVocabForNoVocabKanji = async (limitCount = 10) => {
+        const kanjiInVocab = new Set();
+        pureKanjiVocabList.forEach(v => {
+            const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
+            chars.forEach(c => kanjiInVocab.add(c.trim()));
+        });
+        const noVocabKanji = kanjiList.filter(k => k.character && !kanjiInVocab.has(k.character.trim())).map(k => k.character.trim());
+
+        if (noVocabKanji.length === 0) {
+            showToast('Tất cả chữ Kanji hiện tại đều đã có từ vựng!', 'info');
+            return;
+        }
+
+        const targetList = noVocabKanji.slice(0, limitCount);
+        if (!await showConfirm(`Bạn có muốn sử dụng AI để tự động tạo từ vựng JLPT chuẩn cho ${targetList.length} chữ Kanji chưa có từ vựng không?\n(${targetList.join(', ')})`, { type: 'info', confirmText: 'Bắt đầu tạo AI' })) return;
+
+        setGeneratingAiVocab(true);
+        try {
+            let totalAdded = 0;
+            for (let i = 0; i < targetList.length; i++) {
+                const char = targetList[i];
+                showToast(`🤖 AI đang tạo từ vựng cho Kanji ${char} (${i + 1}/${targetList.length})...`, 'info');
+                const kDoc = kanjiMap.get(char);
+                const generatedItems = await generateVocabForKanjiWithAI(char, kDoc);
+                
+                const batch = writeBatch(db);
+                const newItems = [];
+                let addedForThisChar = 0;
+
+                for (const item of generatedItems) {
+                    const cleanWord = item.word.split('（')[0].split('(')[0].trim();
+                    if (vocabList.some(v => (v.word || '').split('（')[0].split('(')[0].trim() === cleanWord)) continue;
+
+                    const newRef = doc(collection(db, 'kanjiVocab'));
+                    const vocabObj = { ...item, id: newRef.id };
+                    batch.set(newRef, vocabObj);
+                    newItems.push(vocabObj);
+                    addedForThisChar++;
+                }
+
+                if (addedForThisChar > 0) {
+                    await batch.commit();
+                    newItems.forEach(item => updateCachedVocab(item));
+                    totalAdded += addedForThisChar;
+                }
+            }
+
+            showToast(`🎉 AI đã bổ sung thành công tổng cộng ${totalAdded} từ vựng mới cho ${targetList.length} chữ Kanji!`, 'success');
+        } catch (err) {
+            console.error('Lỗi khi AI bổ sung từ vựng hàng loạt:', err);
+            showToast('Lỗi AI tạo từ vựng: ' + err.message, 'error');
+        } finally {
+            setGeneratingAiVocab(false);
         }
     };
 
@@ -1119,7 +1362,8 @@ export const useKanjiData = ({
         currentKanjiList, displayedKanjiList, filteredKanjiList, completedCount,
         searchResults, toggleKanjiSRS, openKanjiDetail, handleConfirmSaveVocab,
         handleSelectSearchResult, getKanjiDetail, getVocabForKanji, getRelatedKanji,
-        handleAddKanji, handleImportKanjiJson, handleAddVocab, handleDeleteCategory, toggleKanjiSelection,
+        handleAddKanji, handleImportKanjiJson, handleAddVocab, handleImportVocabJson, handleAutoFixVocabSinoViet, fixingSinoViet,
+        handleGenerateAiVocabForSingleKanji, handleBatchGenerateAiVocabForNoVocabKanji, generatingAiVocab, handleDeleteCategory, toggleKanjiSelection,
         toggleVocabSelection, selectAllKanji, handleBulkDeleteKanji, handleEditKanji,
         handleDeleteKanji, handleSyncVocabToKanji, handleCDNSync, handleMigrateComponents,
         handleEditVocab, handleDeleteVocab, openEditKanji, openEditVocab,

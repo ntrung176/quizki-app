@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Search, PenTool, RotateCcw, X, RefreshCw, Upload, Plus, Layers, CheckSquare, Square } from 'lucide-react';
+import { Cpu, Search, PenTool, RotateCcw, X, RefreshCw, Upload, Plus, Layers, CheckSquare, Square, Sparkles, Lock } from 'lucide-react';
 import { JLPT_LEVELS, LEVEL_TAB_COLORS } from './kanjiConstants';
 
 const KanjiNavHeader = ({
@@ -34,6 +34,10 @@ const KanjiNavHeader = ({
     setShowAddVocabModal,
     setShowCategoryModal,
     handleSyncVocabToKanji,
+    handleAutoFixVocabSinoViet,
+    fixingSinoViet,
+    handleBatchGenerateAiVocabForNoVocabKanji,
+    generatingAiVocab,
     bulkSelectMode,
     setBulkSelectMode,
     selectedKanjiIds,
@@ -272,6 +276,27 @@ const KanjiNavHeader = ({
                     >
                         <RefreshCw className="w-3.5 h-3.5" /> Đồng bộ Hán tự thiếu
                     </button>
+                    {handleAutoFixVocabSinoViet && (
+                        <button
+                            onClick={handleAutoFixVocabSinoViet}
+                            disabled={fixingSinoViet}
+                            className="px-3 py-1.5 bg-teal-600 hover:bg-teal-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
+                            title="Tự động chuẩn hóa và điền âm Hán Việt cho tất cả từ vựng Kanji theo chuẩn database"
+                        >
+                            <Sparkles className={`w-3.5 h-3.5 ${fixingSinoViet ? 'animate-spin' : ''}`} /> Sửa Âm Hán Việt Từ Vựng
+                        </button>
+                    )}
+                    {handleBatchGenerateAiVocabForNoVocabKanji && (
+                        <button
+                            onClick={() => handleBatchGenerateAiVocabForNoVocabKanji(10)}
+                            disabled={generatingAiVocab}
+                            className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+                            title="Sử dụng AI tự động tạo từ vựng JLPT phổ biến cho các chữ Kanji chưa có từ vựng"
+                        >
+                            <Sparkles className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
+                            {generatingAiVocab ? 'AI đang tạo từ vựng...' : '✨ AI Bổ Sung Từ Vựng (Chưa Có Từ Vựng)'}
+                        </button>
+                    )}
                     <button
                         onClick={() => setBulkSelectMode(!bulkSelectMode)}
                         className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${bulkSelectMode ? 'bg-rose-500 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200'}`}

@@ -59,7 +59,8 @@ const KanjiScreen = ({
         currentKanjiList, displayedKanjiList, filteredKanjiList, completedCount,
         searchResults, toggleKanjiSRS, openKanjiDetail, handleConfirmSaveVocab,
         handleSelectSearchResult, getKanjiDetail, getVocabForKanji, getRelatedKanji,
-        handleAddKanji, handleImportKanjiJson, handleAddVocab, handleDeleteCategory, toggleKanjiSelection,
+        handleAddKanji, handleImportKanjiJson, handleAddVocab, handleImportVocabJson, handleAutoFixVocabSinoViet, fixingSinoViet,
+        handleGenerateAiVocabForSingleKanji, handleBatchGenerateAiVocabForNoVocabKanji, generatingAiVocab, handleDeleteCategory, toggleKanjiSelection,
         toggleVocabSelection, selectAllKanji, handleBulkDeleteKanji, handleEditKanji,
         handleDeleteKanji, handleSyncVocabToKanji, handleCDNSync, handleMigrateComponents,
         handleEditVocab, handleDeleteVocab, openEditKanji, openEditVocab,
@@ -176,6 +177,10 @@ const KanjiScreen = ({
                     setShowAddVocabModal={setShowAddVocabModal}
                     setShowCategoryModal={setShowCategoryModal}
                     handleSyncVocabToKanji={handleSyncVocabToKanji}
+                    handleAutoFixVocabSinoViet={handleAutoFixVocabSinoViet}
+                    fixingSinoViet={fixingSinoViet}
+                    handleBatchGenerateAiVocabForNoVocabKanji={handleBatchGenerateAiVocabForNoVocabKanji}
+                    generatingAiVocab={generatingAiVocab}
                     bulkSelectMode={bulkSelectMode}
                     setBulkSelectMode={setBulkSelectMode}
                     selectedKanjiIds={selectedKanjiIds}
@@ -232,6 +237,8 @@ const KanjiScreen = ({
                         openEditVocab={openEditVocab}
                         handleDeleteVocab={handleDeleteVocab}
                         setShowAddVocabModal={setShowAddVocabModal}
+                        handleGenerateAiVocabForSingleKanji={handleGenerateAiVocabForSingleKanji}
+                        generatingAiVocab={generatingAiVocab}
                         diagramPan={diagramPan}
                         setDiagramPan={setDiagramPan}
                         setDiagramZoom={setDiagramZoom}
@@ -253,6 +260,9 @@ const KanjiScreen = ({
                     handleAddVocab={handleAddVocab}
                     newVocab={newVocab}
                     setNewVocab={setNewVocab}
+                    jsonVocabInput={jsonVocabInput}
+                    setJsonVocabInput={setJsonVocabInput}
+                    handleImportVocabJson={handleImportVocabJson}
                     vocabCategories={vocabCategories}
                     showEditKanjiModal={showEditKanjiModal}
                     setShowEditKanjiModal={setShowEditKanjiModal}

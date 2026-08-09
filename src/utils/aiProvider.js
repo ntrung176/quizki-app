@@ -10,6 +10,7 @@ import { doc, getDoc, getDocs, collection, query, collectionGroup, setDoc, updat
 import { normalizePosKey } from '../config/constants';
 import { isEnglishText } from './englishVocab';
 import { getLanguageService } from '../languages';
+import { getJotobaKanjiData } from '../data/jotobaKanjiData';
 // ============== KEY MANAGEMENT ==============
 
 // Lấy tất cả OpenRouter keys
@@ -1598,4 +1599,87 @@ TRẢ VỀ CHỈ CÓ DUY NHẤT MẢNG JSON HỢP LỆ (ARRAY OF OBJECTS), KHÔN
         console.error("aiGenerateGrammarPointsJson error:", e);
         throw e;
     }
+};
+
+// ============== AI GENERATE VOCABULARY FOR KANJI WITHOUT VOCAB ==============
+
+export const generateVocabForKanjiWithAI = async (kanjiChar, kanjiDoc = null) => {
+    const char = (kanjiChar || '').trim();
+    if (!char) throw new Error('Chữ Kanji không hợp lệ');
+
+    const jData = getJotobaKanjiData(char);
+    const sinoViet = kanjiDoc?.sinoViet || jData?.sinoViet || getSinoVietnamese(char) || '';
+    const meaning = kanjiDoc?.meaning || jData?.meaningVi || '';
+
+    const kunyomiList = kanjiDoc?.kunyomi || jData?.kunyomi || [];
+    const onyomiList = kanjiDoc?.onyomi || jData?.onyomi || [];
+
+    const kunText = Array.isArray(kunyomiList) ? kunyomiList.join(', ') : String(kunyomiList);
+    const onText = Array.isArray(onyomiList) ? onyomiList.join(', ') : String(onyomiList);
+
+    const kunInstruction = kunText ? `BẮT BUỘC KHÔNG ĐƯỢC BỎ SÓT: Chữ Kanji "${char}" có các Âm Kun (Kunyomi): [${kunText}]. Hãy tạo các từ vựng bao phủ TOÀN BỘ các Âm Kun này (với mỗi Âm Kun, hãy tạo ít nhất 1 từ vựng tiêu biểu nhất thể hiện âm đọc đó).` : '';
+    const onInstruction = onText ? `Đồng thời tạo thêm các từ vựng ghép phổ biến cho các Âm On (Onyomi): [${onText}].` : '';
+
+    const prompt = `Bạn là chuyên gia biên soạn từ điển tiếng Nhật JLPT. Hãy tạo danh sách từ vựng tiếng Nhật phổ biến nhất, hữu ích nhất trong các kỳ thi JLPT (N5-N1) cho chữ Kanji "${char}" (Âm Hán Việt: "${sinoViet}", Nghĩa: "${meaning}").
+
+${kunInstruction}
+${onInstruction}
+
+Mỗi từ vựng phải có câu ví dụ tự nhiên với từ bị che thành ＿＿＿＿.
+
+TRẢ VỀ DUY NHẤT MỘT MẢNG JSON, KHÔNG DÙNG MARKDOWN BACKTICKS, KHÔNG CÓ THÊM BẤT KỲ VĂN BẢN NÀO KHÁC:
+[
+  {
+    "word": "授業中（じゅぎょうちゅう）",
+    "reading": "じゅぎょうちゅう",
+    "sinoViet": "THỤ NGHIỆP TRUNG",
+    "meaning": "Trong giờ học; đang trong tiết học",
+    "pos": "Cụm từ / Thành ngữ",
+    "level": "N3",
+    "example": "＿＿＿＿は携帯電話の電源を切ってください。",
+    "exampleMeaning": "Trong giờ học xin hãy tắt nguồn điện thoại di động.",
+    "nuance": "Dùng trong trường học hoặc lớp học."
+  }
+]
+
+QUY TẮC BẮT BUỘC:
+1. word: Định dạng "TừGốc（phiên âm hiragana cho cả từ trong ngoặc đơn ở cuối cùng）".
+2. reading: Chỉ chứa Hiragana/Katakana đọc cho từ đó.
+3. sinoViet: Âm Hán Việt viết IN HOA đầy đủ cho các chữ Kanji có trong từ vựng đó.
+4. pos: Chọn 1 trong các chuỗi: "Danh từ", "Động từ nhóm 1 (Tự động từ)", "Động từ nhóm 1 (Tha động từ)", "Động từ nhóm 2", "Động từ nhóm 3 (Suru)", "Tính từ đuôi -i", "Tính từ đuôi -na", "Phụ từ / Trạng từ", "Liên từ", "Cụm từ / Thành ngữ".
+5. level: N5, N4, N3, N2, N1.
+6. example: Thay từ vựng trong câu ví dụ bằng ＿＿＿＿. KHÔNG thêm phiên âm ngoặc đơn vào câu ví dụ.
+7. exampleMeaning: Dịch nghĩa câu ví dụ sang tiếng Việt tự nhiên.
+8. nuance: Giải thích ngắn gọn bối cảnh sử dụng (1 câu).`;
+
+    const rawText = await callAI(prompt, 'gemini-3.1-flash-lite', 'kanji-vocab-generator');
+    if (!rawText) throw new Error('Không nhận được phản hồi từ AI');
+
+    let cleanJson = rawText.trim();
+    if (cleanJson.startsWith('```json')) cleanJson = cleanJson.slice(7);
+    else if (cleanJson.startsWith('```')) cleanJson = cleanJson.slice(3);
+    if (cleanJson.endsWith('```')) cleanJson = cleanJson.slice(0, -3);
+
+    const items = JSON.parse(cleanJson.trim());
+    if (!Array.isArray(items)) throw new Error('Dữ liệu AI trả về không phải danh sách');
+
+    return items.map(item => {
+        const wordRaw = String(item.word || '').trim();
+        const wordClean = wordRaw.split('（')[0].split('(')[0].trim();
+        const kanjiChars = wordClean.match(/[\u4e00-\u9faf]/g) || [];
+        return {
+            word: wordRaw,
+            reading: String(item.reading || '').trim(),
+            sinoViet: String(item.sinoViet || '').trim().toUpperCase(),
+            meaning: String(item.meaning || '').trim(),
+            pos: String(item.pos || 'Danh từ').trim(),
+            level: String(item.level || kanjiDoc?.level || 'N3').trim(),
+            example: String(item.example || '').trim(),
+            exampleMeaning: String(item.exampleMeaning || '').trim(),
+            nuance: String(item.nuance || '').trim(),
+            source: 'AI Generator',
+            kanjiList: kanjiChars,
+            updatedAt: Date.now()
+        };
+    });
 };

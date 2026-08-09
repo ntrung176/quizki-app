@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { 
     ArrowLeft, RotateCcw, Check, Bookmark, Edit, Trash2, 
-    Layers, Tag, Volume2, Plus 
+    Layers, Tag, Volume2, Plus, Sparkles 
 } from 'lucide-react';
 import { renderMaziiStyleKanji, renderStrokeGuide } from '../../utils/kanjiStroke';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -9,6 +9,7 @@ import { playAudio } from '../../utils/audio';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { KANJI_TREE } from '../../data/radicals214';
 import kanjiComponents from '../../data/kanjiComponents.json' with { type: 'json' };
+import { computeSinoVietnameseForWord } from '../../utils/kanjiHVLookup';
 
 const KanjiDetailView = ({
     selectedKanji,
@@ -41,6 +42,8 @@ const KanjiDetailView = ({
     openEditVocab,
     handleDeleteVocab,
     setShowAddVocabModal,
+    handleGenerateAiVocabForSingleKanji,
+    generatingAiVocab,
     diagramPan,
     setDiagramPan,
     setDiagramZoom
@@ -426,15 +429,45 @@ const KanjiDetailView = ({
                         <h3 className="text-orange-500 dark:text-orange-400 font-medium flex items-center gap-1.5">
                             <Tag className="w-4 h-4" /> Từ vựng ({vocab.length})
                         </h3>
+                        {handleGenerateAiVocabForSingleKanji && (
+                            <button
+                                onClick={() => handleGenerateAiVocabForSingleKanji(selectedKanji)}
+                                disabled={generatingAiVocab}
+                                className="px-2.5 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+                                title="Sử dụng AI tự động tạo từ vựng JLPT phổ biến cho Kanji này"
+                            >
+                                <Sparkles className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
+                                {generatingAiVocab ? 'AI đang tạo...' : 'AI Tạo Từ Vựng'}
+                            </button>
+                        )}
                     </div>
                     {(() => {
                         if (vocab.length === 0) {
-                            return <p className="text-gray-400 dark:text-gray-500 text-center py-4">Chưa có từ vựng</p>;
+                            return (
+                                <div className="flex flex-col items-center justify-center py-8 text-center gap-3">
+                                    <p className="text-gray-400 dark:text-gray-500 text-sm font-medium">Chưa có từ vựng cho chữ Kanji này</p>
+                                    {handleGenerateAiVocabForSingleKanji && (
+                                        <button
+                                            onClick={() => handleGenerateAiVocabForSingleKanji(selectedKanji)}
+                                            disabled={generatingAiVocab}
+                                            className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-md hover:scale-105 active:scale-95"
+                                        >
+                                            <Sparkles className={`w-4 h-4 ${generatingAiVocab ? 'animate-spin' : ''}`} />
+                                            {generatingAiVocab ? 'AI đang khởi tạo...' : '✨ Dùng AI Tạo Từ Vựng Cho Kanji Này'}
+                                        </button>
+                                    )}
+                                </div>
+                            );
                         }
 
+                        const seenWords = new Set();
                         const kunyomiVocab = [];
                         const onyomiVocab = [];
                         for (const v of vocab) {
+                            const wordKey = (v.word || '').trim();
+                            if (wordKey && seenWords.has(wordKey)) continue;
+                            if (wordKey) seenWords.add(wordKey);
+
                             const rType = getVocabReadingType(v);
                             if (rType === 'Kunyomi') {
                                 kunyomiVocab.push(v);
@@ -445,6 +478,7 @@ const KanjiDetailView = ({
 
                         const renderVocabCardItem = (v, i, rType) => {
                             const wordClean = (v.word || '').split('（')[0].split('(')[0].trim();
+                            const sinoVietText = v.sinoViet || computeSinoVietnameseForWord(wordClean, kanjiMap);
                             return (
                                 <div key={v.id || i} className="flex items-center justify-between p-2.5 bg-gray-50 dark:bg-slate-800/80 rounded-lg border border-gray-200 dark:border-slate-700/50">
                                     <div className="flex-1 min-w-0 flex flex-col gap-1 text-sm">
@@ -453,7 +487,7 @@ const KanjiDetailView = ({
                                                 {wordClean}
                                             </span>
                                             {renderVocabPitch(v)}
-                                            {v.sinoViet && <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded ml-1">[{v.sinoViet}]</span>}
+                                            {sinoVietText && <span className="px-1.5 py-0.5 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded ml-1">[{sinoVietText}]</span>}
                                         </div>
                                         <div className="text-gray-700 dark:text-gray-200 text-xs">{v.meaning}</div>
                                     </div>

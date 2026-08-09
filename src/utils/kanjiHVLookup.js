@@ -287,4 +287,29 @@ export const getSinoVietnamese = (word) => {
     return kanjiList.map(k => KANJI_HV[k] || '').filter(Boolean).join(' ');
 };
 
+// Hàm tính toán Âm Hán Việt chuẩn xác cho 1 từ vựng Nhật (ưu tiên theo kanjiMap dữ liệu)
+export const computeSinoVietnameseForWord = (word, kanjiMap) => {
+    if (!word) return '';
+    const wordClean = String(word).split('（')[0].split('(')[0].trim();
+    const kanjiRegex = /[\u4e00-\u9faf\u3400-\u4dbf]/g;
+    const kanjiChars = wordClean.match(kanjiRegex);
+    if (!kanjiChars || kanjiChars.length === 0) return '';
+
+    const parts = kanjiChars.map(char => {
+        // 1. Prioritize kanjiMap from saved database
+        const kDoc = kanjiMap?.get ? kanjiMap.get(char) : null;
+        if (kDoc && kDoc.sinoViet && String(kDoc.sinoViet).trim() && String(kDoc.sinoViet).trim() !== '-') {
+            return String(kDoc.sinoViet).trim().toUpperCase();
+        }
+        // 2. Fallback to KANJI_HV dictionary table
+        const hv = KANJI_HV[char] || getSinoVietnamese(char);
+        if (hv && String(hv).trim() && String(hv).trim() !== '-') {
+            return String(hv).trim().toUpperCase();
+        }
+        return '';
+    }).filter(Boolean);
+
+    return parts.join(' ');
+};
+
 
