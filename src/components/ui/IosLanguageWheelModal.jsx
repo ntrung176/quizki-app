@@ -99,7 +99,7 @@ const WheelColumn = ({ options, value, onChange, disabledValues = [] }) => {
 
 const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
     const { targetLanguage, setTargetLanguage } = useTargetLanguage();
-    const { language: appLang, changeLanguage } = useLanguage();
+    const { language: appLang, setLanguage } = useLanguage();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -126,7 +126,7 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
 
     const appLangOptions = (SUPPORTED_LANGUAGES || []).map(lang => ({
         code: lang.code,
-        name: lang.name,
+        name: lang.code === 'code' ? lang.name : (lang.name || lang.label),
         flag: lang.flag,
         countryCode: lang.countryCode
     }));
@@ -145,7 +145,9 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
         }
 
         if (tempAppLang !== appLang) {
-            changeLanguage(tempAppLang);
+            if (typeof setLanguage === 'function') {
+                setLanguage(tempAppLang);
+            }
             showToast('Đã cập nhật ngôn ngữ giao diện!', 'info');
         }
 

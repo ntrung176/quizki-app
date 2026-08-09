@@ -8,7 +8,7 @@ import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { 
     Home, BookOpen, LogOut, Sun, Moon, Sparkle, ChevronRight, ChevronLeft, X, 
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell, 
-    MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer
+    MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe
 } from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
 import LanguageSelector from '../ui/LanguageSelector';
