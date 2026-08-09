@@ -14,6 +14,7 @@ import { SafeAvatarImage } from '../ui';
 import LanguageSelector from '../ui/LanguageSelector';
 import TargetLanguageSelector from '../ui/TargetLanguageSelector';
 import IosLanguageWheelModal from '../ui/IosLanguageWheelModal';
+import FloatingFocusWidget from '../ui/FloatingFocusWidget';
 import { isVocabCardDue, isSrsCardDue } from '../../utils/srs';
 import { isEnglishCard } from '../../utils/englishVocab';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
@@ -959,8 +960,8 @@ const Sidebar = ({
                                 <button
                                     onClick={() => setIsFocusModalOpen(true)}
                                     className={`p-2 rounded-lg transition-colors cursor-pointer relative ${
-                                        focusStatus === 'focusing' || focusStatus === 'break'
-                                            ? 'text-purple-500 bg-purple-500/20 font-bold animate-pulse'
+                                        focusStatus === 'focusing' || focusStatus === 'break' || focusStatus === 'paused'
+                                            ? 'text-purple-500 bg-purple-500/20 font-bold'
                                             : 'text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/50'
                                     }`}
                                     title="Đồng hồ tập trung Focus Session"
@@ -1005,6 +1006,8 @@ const Sidebar = ({
                     </div>
                 </div>
             </aside>
+            {/* Floating Pomodoro Focus Live Timer Badge */}
+            <FloatingFocusWidget />
         </>
     );
 };

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { showToast } from '../utils/toast';
-import { playCompletionFanfare, playCorrectSound } from '../utils/soundEffects';
+import { playCompletionFanfare, playCorrectSound, playBreakAlarmSound } from '../utils/soundEffects';
 
 const FocusContext = createContext();
 
@@ -87,7 +87,7 @@ export const FocusProvider = ({ children }) => {
 
     // Handle session / break transition
     const handleTimerCompletion = () => {
-        playCompletionFanfare();
+        playBreakAlarmSound();
 
         if (currentMode === 'focus') {
             // Completed a focus session!
@@ -132,6 +132,16 @@ export const FocusProvider = ({ children }) => {
         setSecondsLeft(totalSecs);
         setStatus('focusing');
         playCorrectSound();
+
+        // Trigger full screen mode for maximum focus
+        try {
+            if (typeof document !== 'undefined' && document.documentElement && document.documentElement.requestFullscreen && !document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(e => {
+                    console.log('Fullscreen request ignored or blocked by browser:', e);
+                });
+            }
+        } catch (e) {}
+
         showToast(`🎯 Đã bắt đầu phiên tập trung ${mins} phút!`, 'success');
     };
 
