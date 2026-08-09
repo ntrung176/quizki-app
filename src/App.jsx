@@ -10,6 +10,8 @@ import OnboardingTour from './components/ui/OnboardingTour';
 import UpdateNotification from './components/ui/UpdateNotification';
 import { AuthProvider } from './contexts/AuthContext';
 import { StudySetsProvider } from './contexts/StudySetsContext';
+import { FocusProvider } from './context/FocusContext';
+import FocusSessionModal from './components/ui/FocusSessionModal';
 import GlobalModalsContainer from './components/containers/GlobalModalsContainer';
 import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
@@ -220,6 +222,7 @@ const AppContent = () => {
                     />
                 )
             )}
+            <FocusSessionModal />
         </div>
     );
 };
@@ -228,7 +231,9 @@ const App = () => {
     return (
         <AuthProvider>
             <StudySetsProvider>
-                <AppContent />
+                <FocusProvider>
+                    <AppContent />
+                </FocusProvider>
             </StudySetsProvider>
         </AuthProvider>
     );
