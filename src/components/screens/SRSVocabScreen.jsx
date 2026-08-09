@@ -934,9 +934,9 @@ const SRSVocabScreen = ({
 
     const lastPlayedKeyRef = useRef('');
 
-    // Auto-play audio when card appears or is flipped
+    // Auto-play audio ONLY when card is flipped to back
     useEffect(() => {
-        if (reviewMode && reviewQueue.length > 0 && cardSettings.autoPlayAudio !== false && cardSettings.audioEnabled !== false) {
+        if (reviewMode && reviewQueue.length > 0 && isFlipped && cardSettings.autoPlayAudio !== false && cardSettings.audioEnabled !== false) {
             const currentCard = reviewQueue[currentReviewIndex];
             if (currentCard) {
                 const playKey = `${currentCard.id}_${isFlipped}`;
