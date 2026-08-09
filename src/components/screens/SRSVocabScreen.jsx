@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu, FlaskConical } from 'lucide-react'
-import { TopTabBar, SrsPrewarmLoader, SrsTestingPanelModal } from '../ui';
+import { TopTabBar, SrsPrewarmLoader, SrsTestingPanelModal, PersonalMnemonicModal } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -110,6 +110,7 @@ const SRSVocabScreen = ({
     const location = useLocation();
     const fadeWholePage = useMenuTransition();
     const { t } = useLanguage();
+    const [editingMnemonicCard, setEditingMnemonicCard] = useState(null);
     const { targetLanguage } = useTargetLanguage();
 
     const filteredCards = useMemo(() => {
@@ -1087,6 +1088,7 @@ const SRSVocabScreen = ({
                                             setIsFlipped(!isFlipped);
                                             playFlipSound();
                                         }}
+                                        onEditMnemonic={(card) => setEditingMnemonicCard(card)}
                                         variant="emerald"
                                         transitionEnabled={isAnimatingFlip}
                                     />
@@ -1673,6 +1675,21 @@ const SRSVocabScreen = ({
             <SrsTestingPanelModal 
                 isOpen={showSrsTestModal}
                 onClose={() => setShowSrsTestModal(false)}
+            />
+            <PersonalMnemonicModal
+                isOpen={!!editingMnemonicCard}
+                onClose={() => setEditingMnemonicCard(null)}
+                card={editingMnemonicCard}
+                onSaveMnemonic={async (mnemonicText) => {
+                    if (!editingMnemonicCard) return;
+                    const cardId = editingMnemonicCard.id || editingMnemonicCard.cardId;
+                    setReviewQueue(prev => prev.map(c => {
+                        if (c.id === cardId || c.cardId === cardId || c.front === editingMnemonicCard.front) {
+                            return { ...c, userMnemonic: mnemonicText, mnemonic: mnemonicText, customMnemonic: mnemonicText };
+                        }
+                        return c;
+                    }));
+                }}
             />
         </div>
     );

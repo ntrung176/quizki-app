@@ -1,8 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Flame, RotateCcw, Play, CheckCircle2, BookOpen, AlertTriangle, Sparkles, Filter } from 'lucide-react';
+import { X, Flame, RotateCcw, Play, CheckCircle2, BookOpen, AlertTriangle, Sparkles, Filter, Lightbulb } from 'lucide-react';
 import { isLeechCard } from '../../utils/srs';
 import FuriganaText from './FuriganaText';
+import InlineMnemonicEditor from './InlineMnemonicEditor';
 import { useLanguage } from '../../context/LanguageContext';
 
 const LeechManagerModal = ({
@@ -13,10 +14,13 @@ const LeechManagerModal = ({
     grammarItems = [],
     scopeType = 'all', // 'all', 'vocab', 'kanji', 'grammar'
     onStartLeechReview,
-    onResetLeechCount
+    onResetLeechCount,
+    onSaveMnemonic,
+    onGeminiAssist
 }) => {
     const { t } = useLanguage();
     const [selectedTab, setSelectedTab] = useState(scopeType);
+    const [editingMnemonicId, setEditingMnemonicId] = useState(null);
 
     // Sync tab if scopeType changes
     const activeTab = scopeType !== 'all' ? scopeType : selectedTab;
@@ -169,38 +173,77 @@ const LeechManagerModal = ({
 
                             return (
                                 <div
-                                    key={`${item.leechType}-${item.id}`}
-                                    className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 gap-3 hover:border-rose-300 dark:hover:border-rose-900/60 transition-all shadow-sm"
+                                    key={`${item.leechType}-${item.id || wordText}`}
+                                    className="flex flex-col p-4 rounded-2xl bg-slate-50 dark:bg-slate-850 border border-slate-200/80 dark:border-slate-800 gap-3 hover:border-rose-300 dark:hover:border-rose-900/60 transition-all shadow-sm"
                                 >
-                                    <div className="space-y-1">
-                                        <div className="flex items-center gap-2">
-                                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider ${badgeColor}`}>
-                                                {typeLabel}
-                                            </span>
-                                            <span className="text-xs font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1">
-                                                🩸 Lapsed {lapseCount} {t('modals.times', 'lần')}
-                                            </span>
+                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 w-full">
+                                        <div className="space-y-1">
+                                            <div className="flex items-center gap-2">
+                                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider ${badgeColor}`}>
+                                                    {typeLabel}
+                                                </span>
+                                                <span className="text-xs font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1">
+                                                    🩸 Quên {lapseCount} {t('modals.times', 'lần')}
+                                                </span>
+                                            </div>
+                                            <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-japanese">
+                                                <FuriganaText text={wordText} />
+                                            </div>
+                                            {meaningText && (
+                                                <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
+                                                    {meaningText}
+                                                </p>
+                                            )}
                                         </div>
-                                        <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-japanese">
-                                            <FuriganaText text={wordText} />
+
+                                        {/* Action buttons (Mẹo nhớ + Reset) */}
+                                        <div className="flex items-center gap-2 shrink-0 self-end sm:self-center flex-wrap">
+                                            <button
+                                                onClick={() => setEditingMnemonicId(editingMnemonicId === (item.id || wordText) ? null : (item.id || wordText))}
+                                                className="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                                title="Thêm hoặc chỉnh sửa mẹo nhớ cá nhân cho từ này"
+                                            >
+                                                <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+                                                {(item.userMnemonic || item.customMnemonic || item.mnemonic) ? 'Sửa Mẹo Nhớ' : '+ Mẹo Nhớ'}
+                                            </button>
+                                            {onResetLeechCount && (
+                                                <button
+                                                    onClick={() => onResetLeechCount(item)}
+                                                    className="px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+                                                    title={t('modals.resetLeechTitle', 'Đặt lại số lần quên nếu bạn đã ghi nhớ từ này')}
+                                                >
+                                                    <RotateCcw className="w-3.5 h-3.5" />
+                                                    {t('modals.masteredReset', 'Đã Thuộc (Reset)')}
+                                                </button>
+                                            )}
                                         </div>
-                                        {meaningText && (
-                                            <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">
-                                                {meaningText}
-                                            </p>
-                                        )}
                                     </div>
 
-                                    {/* Action button */}
-                                    {onResetLeechCount && (
-                                        <button
-                                            onClick={() => onResetLeechCount(item)}
-                                            className="px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shrink-0 self-end sm:self-center"
-                                            title={t('modals.resetLeechTitle', 'Đặt lại số lần quên nếu bạn đã ghi nhớ từ này')}
-                                        >
-                                            <RotateCcw className="w-3.5 h-3.5" />
-                                            {t('modals.masteredReset', 'Đã Thuộc (Reset)')}
-                                        </button>
+                                    {/* Existing Mnemonic Display */}
+                                    {editingMnemonicId !== (item.id || wordText) && (item.userMnemonic || item.customMnemonic || item.mnemonic) && (
+                                        <div className="text-xs text-amber-950 dark:text-amber-100 bg-amber-500/15 border border-amber-500/30 rounded-xl p-2.5 font-medium leading-relaxed mt-1">
+                                            <span className="font-bold text-amber-800 dark:text-amber-300 block mb-0.5">💡 Mẹo nhớ:</span>
+                                            <span className="whitespace-pre-line">{item.userMnemonic || item.customMnemonic || item.mnemonic}</span>
+                                        </div>
+                                    )}
+
+                                    {/* Inline Mnemonic Editor */}
+                                    {editingMnemonicId === (item.id || wordText) && (
+                                        <InlineMnemonicEditor
+                                            initialText={item.userMnemonic || item.customMnemonic || item.mnemonic || ''}
+                                            card={item}
+                                            onSave={async (newText) => {
+                                                item.userMnemonic = newText;
+                                                item.customMnemonic = newText;
+                                                item.mnemonic = newText;
+                                                setEditingMnemonicId(null);
+                                                if (onSaveMnemonic) {
+                                                    await onSaveMnemonic(item, newText);
+                                                }
+                                            }}
+                                            onCancel={() => setEditingMnemonicId(null)}
+                                            onGeminiAssist={onGeminiAssist}
+                                        />
                                     )}
                                 </div>
                             );

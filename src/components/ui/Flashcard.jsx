@@ -5,6 +5,7 @@ import { POS_TYPES, getPosLabel } from '../../config/constants';
 import { isLeechCard } from '../../utils/srs';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { formatIPA, isEnglishCard as checkIsEnglishCard } from '../../utils/englishVocab';
+import InlineMnemonicEditor from './InlineMnemonicEditor';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
@@ -118,11 +119,19 @@ const Flashcard = ({
     isFlipped,
     onFlip,
     onSaveCardAudio,
+    onEditMnemonic,
+    onSaveMnemonic,
+    onGeminiAssist,
     variant = 'default', // 'default' | 'emerald' | 'review'
     transitionEnabled = true,
     showFlipHint = true
 }) => {
     const [pitchData, setPitchData] = useState(null);
+    const [isEditingMnemonic, setIsEditingMnemonic] = useState(false);
+
+    useEffect(() => {
+        setIsEditingMnemonic(false);
+    }, [card]);
 
     useEffect(() => {
         if (!card) return;
@@ -186,7 +195,7 @@ const Flashcard = ({
             <div className="flex-1 flex flex-col items-center justify-center text-center space-y-3 sm:space-y-4 w-full my-auto px-2 py-2 overflow-y-auto no-scrollbar">
                 {isLeechCard(card) && (
                     <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-[11px] font-bold shadow-sm animate-pulse mb-1">
-                        <span>🩸 Thẻ khó thuộc (Lapsed {card.lapseCount || card.srsLapseCount} lần)</span>
+                        <span>🩸 Thẻ khó thuộc (Quên {card.lapseCount || card.srsLapseCount || 3} lần)</span>
                     </div>
                 )}
                 {cardSettings.front.word && (
@@ -390,6 +399,59 @@ const Flashcard = ({
                             💡 <span className="font-bold">Sắc thái:</span> {card.nuance}
                         </div>
                     )}
+                    {(() => {
+                        const isLeech = isLeechCard(card) || card.isLeech || (card.srsLapseCount >= 3) || (card.lapseCount >= 3);
+                        const hasCustomMnemonic = !!(card.userMnemonic || card.customMnemonic);
+
+                        if (isEditingMnemonic) {
+                            return (
+                                <InlineMnemonicEditor
+                                    initialText={card.userMnemonic || card.customMnemonic || card.mnemonic || ''}
+                                    card={card}
+                                    onSave={async (newText) => {
+                                        card.userMnemonic = newText;
+                                        card.customMnemonic = newText;
+                                        card.mnemonic = newText;
+                                        setIsEditingMnemonic(false);
+                                        if (onSaveMnemonic) await onSaveMnemonic(card, newText);
+                                        else if (onEditMnemonic) await onEditMnemonic(card, newText);
+                                    }}
+                                    onCancel={() => setIsEditingMnemonic(false)}
+                                    onGeminiAssist={onGeminiAssist}
+                                />
+                            );
+                        }
+
+                        if (isLeech || hasCustomMnemonic) {
+                            return (
+                                <div className="w-full text-left mt-1.5">
+                                    {(card.userMnemonic || card.customMnemonic || card.mnemonic) ? (
+                                        <div className="text-xs text-amber-950 dark:text-amber-100 bg-amber-500/15 border border-amber-500/30 rounded-2xl p-2.5 max-w-full font-medium leading-relaxed flex items-start justify-between gap-2 shadow-sm">
+                                            <div className="flex-1">
+                                                <span className="font-bold text-amber-800 dark:text-amber-300 block mb-0.5">💡 Mẹo nhớ cá nhân:</span>
+                                                <span className="whitespace-pre-line">{card.userMnemonic || card.customMnemonic || card.mnemonic}</span>
+                                            </div>
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); setIsEditingMnemonic(true); }}
+                                                className="text-[11px] font-bold text-amber-700 dark:text-amber-300 underline hover:opacity-80 shrink-0 cursor-pointer"
+                                            >
+                                                Sửa
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); setIsEditingMnemonic(true); }}
+                                            className="w-full py-1.5 px-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                        >
+                                            💡 + Thêm mẹo nhớ cá nhân
+                                        </button>
+                                    )}
+                                </div>
+                            );
+                        }
+
+                        return null;
+                    })()}
                     {cardSettings.back.example && card.example && (
                         <div 
                             className={`mt-1.5 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[60px] max-h-[150px] sm:max-h-[220px] no-scrollbar cursor-pointer`}

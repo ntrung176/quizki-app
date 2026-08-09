@@ -15,7 +15,7 @@ import LeechManagerModal from '../ui/LeechManagerModal';
 import { SrsTestingPanelModal } from '../ui';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playFlipSound } from '../../utils/soundEffects';
-import { TopTabBar, SrsPrewarmLoader } from '../ui';
+import { TopTabBar, SrsPrewarmLoader, InlineMnemonicEditor } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
@@ -57,6 +57,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const { t } = useLanguage();
     const navigate = useNavigate();
     const location = useLocation();
+    const [isEditingInlineMnemonic, setIsEditingInlineMnemonic] = useState(false);
     const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
     const [srsData, setSrsData] = useState(() => (userId ? getCachedUserSrsData() || {} : {}));
     const [loading, setLoading] = useState(() => {
@@ -799,11 +800,71 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                     <div className="text-center space-y-4 w-full">
                                         <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">{currentCard.sinoViet || '—'}</div>
                                         <div className="text-xl text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
-                                        {currentCard.mnemonic && (
-                                            <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">
-                                                💡 {currentCard.mnemonic}
-                                            </div>
-                                        )}
+                                        {isEditingInlineMnemonic ? (
+                                             <InlineMnemonicEditor
+                                                 initialText={currentCard.userMnemonic || currentCard.mnemonic || ''}
+                                                 card={currentCard}
+                                                 onSave={async (newText) => {
+                                                     currentCard.userMnemonic = newText;
+                                                     currentCard.mnemonic = newText;
+                                                     setIsEditingInlineMnemonic(false);
+                                                     const targetId = currentCard.id || currentCard.kanji || currentCard.character;
+                                                     setReviewQueue(prev => prev.map(c => {
+                                                         if ((c.id && c.id === targetId) || c.kanji === targetId || c.character === targetId) {
+                                                             return { ...c, userMnemonic: newText, mnemonic: newText };
+                                                         }
+                                                         return c;
+                                                     }));
+                                                     if (userId) {
+                                                         try {
+                                                             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, String(targetId)), { userMnemonic: newText, mnemonic: newText }, { merge: true });
+                                                         } catch (e) {
+                                                             console.warn('Error persisting kanji mnemonic:', e);
+                                                         }
+                                                     }
+                                                 }}
+                                                 onCancel={() => setIsEditingInlineMnemonic(false)}
+                                             />
+                                         ) : (
+                                             (() => {
+                                                 const isLeech = isLeechCard(currentCard) || currentCard.isLeech || (currentCard.srsLapseCount >= 3) || (currentCard.lapseCount >= 3);
+                                                 if (isLeech) {
+                                                     return (
+                                                         <div className="w-full text-left">
+                                                             {(currentCard.userMnemonic || currentCard.mnemonic) ? (
+                                                                 <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full flex items-start justify-between gap-2 shadow-sm">
+                                                                     <div className="flex-1">
+                                                                         <span className="font-bold text-amber-600 dark:text-amber-400 block mb-0.5">💡 Mẹo nhớ cá nhân:</span>
+                                                                         <span className="whitespace-pre-line">{currentCard.userMnemonic || currentCard.mnemonic}</span>
+                                                                     </div>
+                                                                     <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="text-xs text-amber-600 dark:text-amber-400 font-bold underline shrink-0 cursor-pointer">Sửa</button>
+                                                                 </div>
+                                                             ) : (
+                                                                 <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="w-full py-2 px-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                                                                     💡 + Thêm mẹo nhớ cá nhân
+                                                                 </button>
+                                                             )}
+                                                         </div>
+                                                     );
+                                                 }
+                                                 // Normal Kanji card -> render standard system mnemonic as before
+                                                 return currentCard.userMnemonic ? (
+                                                     <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full flex items-start justify-between gap-2 shadow-sm">
+                                                         <div className="flex-1">
+                                                             <span className="font-bold text-amber-600 dark:text-amber-400 block mb-0.5">💡 Mẹo nhớ:</span>
+                                                             <span className="whitespace-pre-line">{currentCard.userMnemonic}</span>
+                                                         </div>
+                                                         <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="text-xs text-amber-600 dark:text-amber-400 font-bold underline shrink-0 cursor-pointer">Sửa</button>
+                                                     </div>
+                                                 ) : (
+                                                     currentCard.mnemonic && (
+                                                         <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">
+                                                             💡 {currentCard.mnemonic}
+                                                         </div>
+                                                     )
+                                                 );
+                                             })()
+                                         )}
                                         {(currentCard.imageUrl || currentCard.imageBase64) && (
                                             <div className="w-28 h-28 sm:w-36 sm:h-36 mx-auto shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-2xl overflow-hidden border border-gray-150 dark:border-slate-700 flex items-center justify-center p-1.5 shadow-inner">
                                                 <img src={currentCard.imageUrl || currentCard.imageBase64} alt="illustration" className="max-w-full max-h-full object-contain rounded-xl" />

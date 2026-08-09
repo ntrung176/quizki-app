@@ -380,9 +380,16 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
     // ========== RELEARNING STATE ==========
     else if (currentState === 'RELEARNING') {
         const refInterval = prelapseInterval || 1; // Fallback to 1 day
-        const hardIntVal = Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.25)));
-        const goodIntVal = Math.max(hardIntVal + 1, Math.min(refInterval + 1, Math.floor(refInterval * 0.5)));
-        const easyIntVal = Math.max(goodIntVal + 1, Math.min(refInterval + 3, Math.floor(refInterval * 0.85)));
+        const isLeech = (lapseCount || 0) >= 3;
+        const hardIntVal = isLeech
+            ? Math.max(1, Math.floor(refInterval * 0.10))
+            : Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.25)));
+        const goodIntVal = isLeech
+            ? Math.max(hardIntVal + 1, Math.floor(refInterval * 0.20))
+            : Math.max(hardIntVal + 1, Math.min(refInterval + 1, Math.floor(refInterval * 0.5)));
+        const easyIntVal = isLeech
+            ? Math.max(goodIntVal + 1, Math.floor(refInterval * 0.50))
+            : Math.max(goodIntVal + 1, Math.min(refInterval + 3, Math.floor(refInterval * 0.85)));
 
         switch (normRating) {
             case 'again':
@@ -505,6 +512,7 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
         lapseCount: newLapseCount,
         prelapseInterval: newPrelapseInterval,
         state: nextState,
+        isLeech: newLapseCount >= 3,
         nextReviewOffsetMs: nextReviewOffsetMs
     };
 };
@@ -617,7 +625,7 @@ export const isVocabCardMastered = (card) => {
 };
 
 // ==================== LEECH CARD DETECTION ====================
-export const LEECH_THRESHOLD = 4; // Card lapsed 4 or more times
+export const LEECH_THRESHOLD = 3; // Card lapsed 3 or more times
 
 export const isLeechCard = (srsOrCard) => {
     if (!srsOrCard) return false;
