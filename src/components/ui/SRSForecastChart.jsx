@@ -71,7 +71,7 @@ const SRSForecastChart = ({ items = [], daysCount = 14, title }) => {
                             >
                                 {/* Tooltip on hover */}
                                 <div className="absolute -top-10 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-[11px] font-bold py-1 px-2 rounded shadow-lg whitespace-nowrap z-20 transform group-hover:-translate-y-1">
-                                    {item.dayLabel} ({item.dateString}): {item.count} thẻ
+                                    {item.dayLabel} ({item.dateString}): {item.count} thẻ {isToday ? '(gồm thẻ đếm ngược & ôn lại)' : ''}
                                 </div>
 
                                 {/* Bar Value Label */}

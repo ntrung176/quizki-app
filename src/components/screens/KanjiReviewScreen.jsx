@@ -556,7 +556,14 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                     title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
                     details: `Hoàn thành phiên ôn tập SRS`
                 });
-                exitReview();
+                setIsAnimatingFlip(false);
+                setIsFlipped(false);
+                setCurrentReviewIndex(updatedQueue.length);
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        setIsAnimatingFlip(true);
+                    });
+                });
             }
         }
 
@@ -597,17 +604,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const handleResumeSavedSession = () => { };
     const handleDiscardSavedSession = () => { };
 
-    const exitReview = () => {
-        if (sessionXpRef.current > 0 && awardXP) {
+    const exitReview = (shouldAwardXp = true) => {
+        if (typeof shouldAwardXp !== 'boolean') shouldAwardXp = true;
+        if (shouldAwardXp && sessionXpRef.current > 0 && awardXP) {
             awardXP(sessionXpRef.current);
         }
         sessionXpRef.current = 0;
-        // Delay turning off reviewMode to let pending Firestore writes complete
-        // so onSnapshot doesn't overwrite optimistic updates with stale data
+        let exitAttempts = 0;
         const waitForWrites = () => {
-            if (pendingWriteIds.current.size > 0) {
+            if (pendingWriteIds.current.size > 0 && exitAttempts < 5) {
+                exitAttempts++;
                 setTimeout(waitForWrites, 100);
             } else {
+                pendingWriteIds.current.clear();
                 setReviewMode(false);
                 setDashboardTick(Date.now());
                 window.dispatchEvent(new Event('srs-updated'));
@@ -616,8 +625,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 }
             }
         };
-        // Give a minimum delay for the last write to start
-        setTimeout(waitForWrites, 200);
+        setTimeout(waitForWrites, 50);
     };
 
     const handleUndo = () => {
@@ -719,7 +727,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         return <SrsPrewarmLoader title="Kanji" count={reviewQueue.length} />;
     }
 
-    // ==================== REVIEW MODE ====================
     if (reviewMode && currentCard) {
         const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, reps: 0 };
         if (!intervalCacheRef.current[currentCard.id]) {
@@ -940,8 +947,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
                         <div className="flex justify-center w-full">
                             <button
-                                onClick={exitReview}
-                                className="w-full py-3 px-4 bg-gray-100 hover:bg-gray-250 dark:bg-slate-700 dark:hover:bg-slate-650 active:scale-95 text-gray-700 dark:text-gray-200 font-bold text-sm rounded-xl transition-all border border-gray-200 dark:border-slate-600 cursor-pointer text-center"
+                                onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                className="w-full py-3.5 px-4 bg-gray-100 hover:bg-gray-250 dark:bg-slate-700 dark:hover:bg-slate-650 active:scale-95 text-gray-700 dark:text-gray-200 font-bold text-sm rounded-xl transition-all border border-gray-200 dark:border-slate-600 cursor-pointer text-center relative z-30 touch-manipulation"
                             >
                                 Kết thúc phiên ôn tập
                             </button>
@@ -951,8 +958,33 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             );
         }
 
-        setTimeout(() => exitReview(false), 0);
-        return null;
+        // When 0 cards are waiting -> Render Completion Screen with 'Kết thúc phiên ôn tập' button
+        return (
+            <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8 animate-fade-in">
+                <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-200 dark:border-emerald-500/30">
+                    <div className="flex flex-col items-center space-y-4 text-center">
+                        <div className="w-20 h-20 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 rounded-3xl flex items-center justify-center text-4xl animate-bounce">
+                            🎉
+                        </div>
+                        <h2 className="text-2xl font-black text-slate-900 dark:text-white">
+                            Hoàn thành phiên ôn tập Kanji!
+                        </h2>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
+                            Chúc mừng! Bạn đã hoàn thành tất cả các thẻ Kanji trong phiên ôn tập này.
+                        </p>
+                    </div>
+
+                    <div className="flex justify-center w-full pt-4">
+                        <button
+                            onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                            className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
+                        >
+                            Kết thúc phiên ôn tập
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     // ==================== STATS SCREEN ====================

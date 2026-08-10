@@ -1,5 +1,5 @@
 import { db, storage, appId } from '../config/firebase';
-import { collection, getDocs, query, where, doc, setDoc, onSnapshot } from 'firebase/firestore';
+import { collection, getDocs, query, where, doc, setDoc, onSnapshot, limit, startAfter } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getCacheConfig } from './cacheConfigService';
 
@@ -572,6 +572,27 @@ export const clearKanjiProgressCache = () => {
     kanjiProgressPromise = null;
 };
 
+const safeGetCollectionDocs = async (collectionRef) => {
+    try {
+        return await getDocs(collectionRef);
+    } catch (err) {
+        console.warn('getDocs failed on mobile IndexedDB cursor, falling back to chunked fetch:', err);
+        let allDocs = [];
+        let lastDoc = null;
+        while (true) {
+            let q = lastDoc 
+                ? query(collectionRef, limit(500), startAfter(lastDoc)) 
+                : query(collectionRef, limit(500));
+            const snap = await getDocs(q);
+            if (snap.empty) break;
+            allDocs.push(...snap.docs);
+            lastDoc = snap.docs[snap.docs.length - 1];
+            if (snap.docs.length < 500) break;
+        }
+        return { docs: allDocs, size: allDocs.length };
+    }
+};
+
 export const syncKanjiAndVocabToCDN = async (forceFull = true) => {
     let kanjiList = [];
     let vocabList = [];
@@ -615,9 +636,9 @@ export const syncKanjiAndVocabToCDN = async (forceFull = true) => {
             if (kanjiRes && vocabRes && catsRes) {
                 // Fetch only modified docs since lastExport
                 const [kanjiUpdatesSnap, vocabUpdatesSnap, catsUpdatesSnap] = await Promise.all([
-                    getDocs(query(collection(db, 'kanji'), where('updatedAt', '>', lastExport))),
-                    getDocs(query(collection(db, 'kanjiVocab'), where('updatedAt', '>', lastExport))),
-                    getDocs(query(collection(db, 'vocabCategories'), where('updatedAt', '>', lastExport)))
+                    safeGetCollectionDocs(query(collection(db, 'kanji'), where('updatedAt', '>', lastExport))),
+                    safeGetCollectionDocs(query(collection(db, 'kanjiVocab'), where('updatedAt', '>', lastExport))),
+                    safeGetCollectionDocs(query(collection(db, 'vocabCategories'), where('updatedAt', '>', lastExport)))
                 ]);
 
                 console.log(`Incremental updates found: ${kanjiUpdatesSnap.size} kanji, ${vocabUpdatesSnap.size} vocab, ${catsUpdatesSnap.size} categories`);
@@ -643,11 +664,11 @@ export const syncKanjiAndVocabToCDN = async (forceFull = true) => {
 
     if (!isIncremental) {
         console.log('Performing full sync of Kanji and Vocabulary...');
-        // Fetch all data in parallel
+        // Fetch all data in parallel using safe chunked fallback
         const [kanjiSnap, vocabSnap, categoriesSnap] = await Promise.all([
-            getDocs(collection(db, 'kanji')),
-            getDocs(collection(db, 'kanjiVocab')),
-            getDocs(collection(db, 'vocabCategories'))
+            safeGetCollectionDocs(collection(db, 'kanji')),
+            safeGetCollectionDocs(collection(db, 'kanjiVocab')),
+            safeGetCollectionDocs(collection(db, 'vocabCategories'))
         ]);
 
         kanjiList = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));

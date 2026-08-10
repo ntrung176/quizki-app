@@ -497,7 +497,7 @@ const SRSVocabScreen = ({
     const globalStats = useMemo(() => {
         return folderStats.reduce((acc, curr) => ({
             new: acc.new + curr.newCards.length,
-            due: acc.due + curr.dueCards.length + curr.newCards.length,
+            due: acc.due + curr.dueCards.length,
         }), { new: 0, due: 0 });
     }, [folderStats]);
 
@@ -555,9 +555,9 @@ const SRSVocabScreen = ({
         }
     };
 
-    // "Ôn tập" top banner button — launches review queue for due cards or new cards available for study
+    // "Ôn tập" top banner button — launches review queue for due cards
     const handleResumeGlobal = () => {
-        const allAvailable = folderStats.flatMap(f => f.cardsToReview || [...f.dueCards, ...f.newCards]);
+        const allAvailable = folderStats.flatMap(f => f.dueCards);
         if (allAvailable.length > 0) {
             startFolderReview(allAvailable, 'global');
         } else {
@@ -812,10 +812,14 @@ const SRSVocabScreen = ({
                     playCompletionFanfare();
                     launchFanfare();
                 } catch (e) { }
-                exitReview();
-                if (setNotification) {
-                    setNotification("Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ôn tập hôm nay.");
-                }
+                setIsAnimatingFlip(false);
+                setIsFlipped(false);
+                setCurrentReviewIndex(updatedQueue.length);
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        setIsAnimatingFlip(true);
+                    });
+                });
             }
         }
         console.timeEnd('⚡ SRS_RATING_VOCAB');
@@ -825,19 +829,21 @@ const SRSVocabScreen = ({
     const handleResumeSavedSession = () => {};
     const handleDiscardSavedSession = () => {};
 
-    const exitReview = () => {
-        if (sessionXpRef.current > 0 && awardXP) {
+    const exitReview = (shouldAwardXp = true) => {
+        if (typeof shouldAwardXp !== 'boolean') shouldAwardXp = true;
+        if (shouldAwardXp && sessionXpRef.current > 0 && awardXP) {
             awardXP(sessionXpRef.current);
         }
         sessionXpRef.current = 0;
 
         let exitAttempts = 0;
         const checkPendingAndExit = () => {
-            if (pendingWriteIds.current.size > 0 && exitAttempts < 30) {
+            if (pendingWriteIds.current.size > 0 && exitAttempts < 5) {
                 exitAttempts++;
                 setTimeout(checkPendingAndExit, 100);
                 return;
             }
+            pendingWriteIds.current.clear();
             setReviewMode(false);
             setDashboardTick(Date.now());
             window.dispatchEvent(new Event('srs-updated'));
@@ -982,8 +988,8 @@ const SRSVocabScreen = ({
                         {/* Header with Exit */}
                         <div className="w-full flex justify-between items-center gap-2">
                             <button
-                                onClick={exitReview}
-                                className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer select-none active:scale-95"
+                                onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer select-none active:scale-95 touch-manipulation"
                             >
                                 <ChevronLeft className="w-4 h-4" /> Thoát ôn tập
                             </button>
@@ -1256,8 +1262,8 @@ const SRSVocabScreen = ({
 
                         <div className="flex justify-center w-full">
                             <button
-                                onClick={exitReview}
-                                className="w-full py-3 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-xl transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center"
+                                onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                className="w-full py-3.5 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-xl transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
                             >
                                 Kết thúc phiên ôn tập
                             </button>
@@ -1267,8 +1273,33 @@ const SRSVocabScreen = ({
             );
         }
 
-        setTimeout(() => exitReview(false), 0);
-        return null;
+        // When 0 cards are waiting (session 100% completed) -> Render Completion Congratulation Screen with 'Kết thúc phiên ôn tập' button!
+        return (
+            <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8 animate-fade-in">
+                <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-200 dark:border-emerald-500/30">
+                    <div className="flex flex-col items-center space-y-4 text-center">
+                        <div className="w-20 h-20 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 rounded-3xl flex items-center justify-center text-4xl animate-bounce">
+                            🎉
+                        </div>
+                        <h2 className="text-2xl font-black text-slate-900 dark:text-white">
+                            Hoàn thành phiên ôn tập!
+                        </h2>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
+                            Chúc mừng! Bạn đã hoàn thành xuất sắc tất cả các thẻ từ vựng trong phiên ôn tập này.
+                        </p>
+                    </div>
+
+                    <div className="flex justify-center w-full pt-4">
+                        <button
+                            onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                            className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
+                        >
+                            Kết thúc phiên ôn tập
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     return (
