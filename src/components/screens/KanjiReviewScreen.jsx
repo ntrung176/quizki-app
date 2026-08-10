@@ -177,6 +177,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         });
     }, [kanjiList, srsData, dashboardTick]);
 
+    const nextDueKanjiInfo = useMemo(() => {
+        let earliest = Infinity;
+        const now = dashboardTick;
+        Object.values(srsData || {}).forEach(srs => {
+            if (!srs) return;
+            const next = parseNextReviewMs(srs.nextReview || srs.nextReview_back || srs.lastReviewed);
+            if (next > now && next < earliest) {
+                earliest = next;
+            }
+        });
+        return earliest === Infinity ? 0 : earliest;
+    }, [srsData, dashboardTick]);
+
     const savedSessionInfo = null;
 
     const stats = useMemo(() => {
