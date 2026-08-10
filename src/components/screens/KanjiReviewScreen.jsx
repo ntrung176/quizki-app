@@ -605,10 +605,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const handleResumeSavedSession = () => { };
     const handleDiscardSavedSession = () => { };
 
+    const isExitingRef = useRef(false);
+
     const exitReview = (shouldAwardXp = true) => {
+        if (isExitingRef.current) return;
+        isExitingRef.current = true;
+
         if (typeof shouldAwardXp !== 'boolean') shouldAwardXp = true;
         if (shouldAwardXp && sessionXpRef.current > 0 && awardXP) {
-            awardXP(sessionXpRef.current);
+            try {
+                const p = awardXP(sessionXpRef.current);
+                if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
+            } catch (e) {
+                console.warn('AwardXP error:', e);
+            }
         }
         sessionXpRef.current = 0;
         let exitAttempts = 0;
@@ -620,10 +630,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 pendingWriteIds.current.clear();
                 setReviewMode(false);
                 setDashboardTick(Date.now());
-                window.dispatchEvent(new Event('srs-updated'));
+                try {
+                    window.dispatchEvent(new Event('srs-updated'));
+                } catch (e) {}
                 if (setIsReviewActive) {
-                    setIsReviewActive(false);
+                    try { setIsReviewActive(false); } catch (e) {}
                 }
+                isExitingRef.current = false;
             }
         };
         setTimeout(waitForWrites, 50);
