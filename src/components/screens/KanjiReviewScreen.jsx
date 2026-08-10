@@ -15,7 +15,7 @@ import LeechManagerModal from '../ui/LeechManagerModal';
 import { SrsTestingPanelModal } from '../ui';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playFlipSound } from '../../utils/soundEffects';
-import { TopTabBar, SrsPrewarmLoader, InlineMnemonicEditor } from '../ui';
+import { TopTabBar, SrsPrewarmLoader, InlineMnemonicEditor, SrsCountdownTimer } from '../ui';
 import { KANJI_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
@@ -79,11 +79,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const [dashboardTick, setDashboardTick] = useState(Date.now());
     useEffect(() => {
-        // Pause dashboard tick during review mode to avoid expensive re-renders on mobile
+        // Refresh dashboard stats every 30 seconds to prevent screen flickering/stuttering
         if (reviewMode) return;
         const interval = setInterval(() => {
             setDashboardTick(Date.now());
-        }, 1000);
+        }, 30000);
         return () => clearInterval(interval);
     }, [reviewMode]);
 
@@ -294,7 +294,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             setNextReviewText(result.text); setIsNextReviewCountdown(result.isCountdown); setNextRoundCount(info.count);
         };
         updateCountdown();
-        const interval = setInterval(updateCountdown, 1000);
+        const interval = setInterval(updateCountdown, 10000);
         return () => clearInterval(interval);
     }, [srsData]);
 
@@ -1053,14 +1053,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                 >
                                     {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
-                            ) : nextReviewText ? (
-                                <button
-                                    disabled
-                                    className="mt-3 w-full py-2.5 sm:py-3 rounded-xl text-[10px] font-mono font-black tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-1 min-h-[44px]"
-                                >
-                                    <Clock className="w-3 h-3 animate-spin-slow" />
-                                    {t('kanji.nextReviewIn', 'TIẾP SAU')}: {nextReviewText}
-                                </button>
+                            ) : nextDueKanjiInfo > 0 ? (
+                                <SrsCountdownTimer targetMs={nextDueKanjiInfo} onExpire={() => setDashboardTick(Date.now())} />
                             ) : (
                                 <button
                                     disabled

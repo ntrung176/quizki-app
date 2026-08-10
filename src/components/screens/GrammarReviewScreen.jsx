@@ -70,11 +70,12 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [dashboardTick, setDashboardTick] = useState(Date.now());
 
     useEffect(() => {
+        if (reviewMode) return;
         const interval = setInterval(() => {
             setDashboardTick(Date.now());
-        }, 1000);
+        }, 30000);
         return () => clearInterval(interval);
-    }, []);
+    }, [reviewMode]);
 
     const reviewModeRef = useRef(false);
     const pendingWriteIds = useRef(new Set());

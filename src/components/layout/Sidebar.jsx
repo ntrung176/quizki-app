@@ -269,7 +269,7 @@ const Sidebar = ({
             updateGrammarCount();
         };
         window.addEventListener('srs-updated', handleSrsUpdate);
-        const intervalId = setInterval(handleSrsUpdate, 3000);
+        const intervalId = setInterval(handleSrsUpdate, 30000);
         return () => {
             window.removeEventListener('srs-updated', handleSrsUpdate);
             clearInterval(intervalId);

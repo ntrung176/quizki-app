@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu, FlaskConical } from 'lucide-react'
-import { TopTabBar, SrsPrewarmLoader, SrsTestingPanelModal, PersonalMnemonicModal } from '../ui';
+import { TopTabBar, SrsPrewarmLoader, SrsTestingPanelModal, PersonalMnemonicModal, SrsCountdownTimer } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -124,12 +124,12 @@ const SRSVocabScreen = ({
     const [dashboardTick, setDashboardTick] = useState(Date.now());
     const reviewModeTickRef = useRef(false);
     useEffect(() => {
-        // Pause dashboard tick during review mode to avoid expensive useMemo recalculations on mobile
+        // Refresh dashboard stats every 30 seconds to prevent screen flickering/stuttering
         const intervalId = setInterval(() => {
             if (!reviewModeTickRef.current) {
                 setDashboardTick(Date.now());
             }
-        }, 1000);
+        }, 30000);
         return () => clearInterval(intervalId);
     }, []);
     const [vocabSetStartIndex, setVocabSetStartIndex] = useState(0);
@@ -1370,14 +1370,8 @@ const SRSVocabScreen = ({
                                 >
                                     {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
-                            ) : countdownText ? (
-                                <button
-                                    disabled
-                                    className="md:mt-4 px-3 py-2 md:w-full rounded-xl text-[10px] font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 cursor-not-allowed flex items-center justify-center gap-1 shrink-0"
-                                >
-                                    <Clock className="w-3 h-3 animate-spin-slow" />
-                                    TIẾP SAU: {countdownText}
-                                </button>
+                            ) : nextDueVocabInfo > 0 ? (
+                                <SrsCountdownTimer targetMs={nextDueVocabInfo} onExpire={() => setDashboardTick(Date.now())} />
                             ) : (
                                 <button
                                     disabled
