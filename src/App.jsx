@@ -3,7 +3,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { auth, db, appId } from './config/firebase';
 import { AlertTriangle, CheckCircle } from 'lucide-react';
-
 import AppRoutes from './components/AppRoutes';
 import { Sidebar } from './components/layout';
 import OnboardingTour from './components/ui/OnboardingTour';
@@ -17,6 +16,7 @@ import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
 import AdminFloatingSupportChatbox from './components/ui/AdminFloatingSupportChatbox';
 import CyberTechBackground from './components/ui/CyberTechBackground';
+import LevelUpModal from './components/ui/LevelUpModal';
 import { useAppLogic } from './hooks/useAppLogic';
 import MobileDebugConsole from './components/ui/MobileDebugConsole';
 
