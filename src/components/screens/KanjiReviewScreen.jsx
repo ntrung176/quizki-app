@@ -23,11 +23,12 @@ import { useLanguage } from '../../context/LanguageContext';
 /**
  * Lấy interval preview cho mỗi nút đánh giá (hiển thị cho user)
  */
-const getPreviewIntervals = (srs) => {
+const getPreviewIntervals = (srs, cardId = null) => {
     const ratings = ['again', 'hard', 'good', 'easy'];
     const result = {};
+    const seed = cardId || (srs ? (srs.id || srs.kanji || srs.character) : null);
     for (const r of ratings) {
-        const preview = calculateAnkiSRS(srs, r);
+        const preview = calculateAnkiSRS(srs, r, seed);
         if (preview.state === 'REVIEW') {
             const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
             result[r] = days * 1440;

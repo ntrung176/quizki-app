@@ -42,7 +42,9 @@ const formatInterval = (minutes) => {
 
 // Helper to preview intervals based on SRS state
 const getPreviewIntervals = (card, sessionSrs = null) => {
+    const cardId = card.id || card.cardId || card.word || card.kanji || card.term;
     const srsState = sessionSrs ? {
+        id: cardId,
         interval: sessionSrs.srsInterval !== undefined ? sessionSrs.srsInterval : (sessionSrs.interval !== undefined ? sessionSrs.interval : (card.srsInterval !== undefined ? card.srsInterval : (card.interval !== undefined ? card.interval : (card.currentInterval_back || 0)))),
         ease: sessionSrs.srsEase !== undefined ? sessionSrs.srsEase : (sessionSrs.ease !== undefined ? sessionSrs.ease : (card.srsEase !== undefined ? card.srsEase : (card.ease || 2.5))),
         learningStep: sessionSrs.srsLearningStep !== undefined ? sessionSrs.srsLearningStep : (sessionSrs.learningStep !== undefined ? sessionSrs.learningStep : (card.srsLearningStep !== undefined ? card.srsLearningStep : (card.learningStep !== undefined ? card.learningStep : null))),
@@ -56,6 +58,7 @@ const getPreviewIntervals = (card, sessionSrs = null) => {
         seenCount: typeof card.seenCount === 'number' ? card.seenCount : 0,
         lastReviewed: sessionSrs.lastReviewed || card.lastReviewed || null
     } : {
+        id: cardId,
         interval: card.srsInterval !== undefined ? card.srsInterval : (card.interval !== undefined ? card.interval : (card.currentInterval_back || 0)),
         ease: card.srsEase !== undefined ? card.srsEase : (card.ease || 2.5),
         learningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : (card.learningStep !== undefined ? card.learningStep : null),
@@ -73,7 +76,7 @@ const getPreviewIntervals = (card, sessionSrs = null) => {
     const ratings = ['again', 'hard', 'good', 'easy'];
     const result = {};
     for (const r of ratings) {
-        const preview = calculateAnkiSRS(srsState, r);
+        const preview = calculateAnkiSRS(srsState, r, cardId);
         if (preview.state === 'REVIEW') {
             const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
             result[r] = days * 1440;
@@ -515,6 +518,12 @@ const SRSVocabScreen = ({
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
+
+        // Pre-calculate preview intervals & fuzz factors for all queue cards during prewarming screen
+        intervalCacheRef.current = {};
+        uniqueDueCards.forEach(c => {
+            intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
+        });
 
         // Show calculating & prewarming screen before Card #1
         setIsPreparingSession(true);
