@@ -154,7 +154,13 @@ export const showConfirm = (message, { confirmText = 'Xác nhận', cancelText =
             modal.style.transform = 'scale(1)';
         });
 
+        const handleKey = (e) => {
+            if (e.key === 'Escape') { cleanup(false); }
+            if (e.key === 'Enter') { cleanup(true); }
+        };
+
         const cleanup = (result) => {
+            window.removeEventListener('keydown', handleKey);
             overlay.style.opacity = '0';
             modal.style.transform = 'scale(0.9)';
             setTimeout(() => {
@@ -167,11 +173,6 @@ export const showConfirm = (message, { confirmText = 'Xác nhận', cancelText =
         modal.querySelector('#confirm-ok').onclick = () => cleanup(true);
         overlay.onclick = (e) => { if (e.target === overlay) cleanup(false); };
 
-        // ESC to cancel
-        const handleKey = (e) => {
-            if (e.key === 'Escape') { cleanup(false); window.removeEventListener('keydown', handleKey); }
-            if (e.key === 'Enter') { cleanup(true); window.removeEventListener('keydown', handleKey); }
-        };
         window.addEventListener('keydown', handleKey);
     });
 };

@@ -660,7 +660,7 @@ const LessonDetailView = ({
                                                 </div>
                                                 {v.imageUrl && (
                                                     <div className="shrink-0 flex items-center">
-                                                        <img src={v.imageUrl} alt={word} className="w-28 h-28 rounded-xl object-cover border border-gray-200 dark:border-gray-600 cursor-pointer hover:opacity-80 hover:scale-105 transition-all shadow-sm" onClick={(e) => { e.stopPropagation(); window.open(v.imageUrl, '_blank'); }} title="Click để phóng to" />
+                                                        <img src={v.imageUrl} alt={word} className="w-28 h-28 rounded-xl object-cover border border-gray-200 dark:border-gray-600 cursor-pointer hover:opacity-80 hover:scale-105 transition-all shadow-sm" onClick={(e) => { e.stopPropagation(); window.open(v.imageUrl, '_blank', 'noopener,noreferrer'); }} title="Click để phóng to" />
                                                     </div>
                                                 )}
                                             </div>

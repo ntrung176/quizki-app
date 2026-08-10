@@ -948,7 +948,9 @@ export const useReviewData = ({
             setIsProcessing(false);
         }
     };
-    handleNextRef.current = handleNext;
+    useEffect(() => {
+        handleNextRef.current = handleNext;
+    });
 
     const handleRetypeSubmit = async () => {
         if (!needsRetype || isProcessingRef.current) return;

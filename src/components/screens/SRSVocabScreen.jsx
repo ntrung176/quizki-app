@@ -940,12 +940,16 @@ const SRSVocabScreen = ({
 
     const lastPlayedKeyRef = useRef('');
 
-    // Auto-play audio ONLY when card is flipped to back
+    // Auto-play audio when flipped to answer side
     useEffect(() => {
+        if (!isFlipped) {
+            lastPlayedKeyRef.current = null;
+            return;
+        }
         if (reviewMode && reviewQueue.length > 0 && isFlipped && cardSettings.autoPlayAudio !== false && cardSettings.audioEnabled !== false) {
             const currentCard = reviewQueue[currentReviewIndex];
             if (currentCard) {
-                const playKey = `${currentCard.id}_${isFlipped}`;
+                const playKey = `${currentCard.id}_${currentReviewIndex}_${isFlipped}`;
                 if (lastPlayedKeyRef.current !== playKey) {
                     lastPlayedKeyRef.current = playKey;
                     const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';

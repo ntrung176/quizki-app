@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, useMemo } from 'react';
 import { showToast } from '../utils/toast';
 import { playCompletionFanfare, playCorrectSound, playBreakAlarmSound } from '../utils/soundEffects';
 
@@ -181,26 +181,28 @@ export const FocusProvider = ({ children }) => {
         return `Bạn sẽ có ${breaks} lần nghỉ (5 - 15 phút).`;
     };
 
+    const value = useMemo(() => ({
+        targetMinutes,
+        setTargetMinutes,
+        skipBreaks,
+        setSkipBreaks,
+        stats,
+        status,
+        currentMode,
+        secondsLeft,
+        totalSeconds,
+        isModalOpen,
+        setIsModalOpen,
+        startFocusSession,
+        pauseSession,
+        resumeSession,
+        stopSession,
+        formatTime,
+        getBreakInfoText
+    }), [targetMinutes, setTargetMinutes, skipBreaks, setSkipBreaks, stats, status, currentMode, secondsLeft, totalSeconds, isModalOpen, setIsModalOpen, startFocusSession, pauseSession, resumeSession, stopSession]);
+
     return (
-        <FocusContext.Provider value={{
-            targetMinutes,
-            setTargetMinutes,
-            skipBreaks,
-            setSkipBreaks,
-            stats,
-            status,
-            currentMode,
-            secondsLeft,
-            totalSeconds,
-            isModalOpen,
-            setIsModalOpen,
-            startFocusSession,
-            pauseSession,
-            resumeSession,
-            stopSession,
-            formatTime,
-            getBreakInfoText
-        }}>
+        <FocusContext.Provider value={value}>
             {children}
         </FocusContext.Provider>
     );

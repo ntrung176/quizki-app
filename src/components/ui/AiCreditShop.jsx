@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Sparkle, Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus } from 'lucide-react'
-import { submitCreditRequest, createPendingAutoPayment, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, useVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
+import { submitCreditRequest, createPendingAutoPayment, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, redeemVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
 import { sendAIPurchaseSuccessEmail, sendAIPendingConfirmationEmail } from '../../utils/email';
 import { doc, updateDoc, onSnapshot } from 'firebase/firestore';
@@ -344,7 +344,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     setPaymentSuccess(true);
 
                     if (appliedVoucher) {
-                        try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); }
+                        try { await redeemVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); }
                     }
                     
                     try {
@@ -381,7 +381,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
         const manualFinalPrice = getFinalPrice(selectedPackage);
         const ok = await submitCreditRequest(userId, userName, userEmail, { ...selectedPackage, cards: selectedPackage.cards ?? null, salePrice: manualFinalPrice });
         if (ok) {
-            if (appliedVoucher) { try { await useVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); } }
+            if (appliedVoucher) { try { await redeemVoucher(appliedVoucher.code, userId); } catch (e) { console.warn(e); } }
             if (userEmail) {
                 try {
                     const packageDisplayName = selectedPackage.cards !== undefined 

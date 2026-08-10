@@ -90,7 +90,7 @@ const KanjiGridList = ({
 
                             {/* SRS Bookmark Button / Badge */}
                             <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1">
-                                {strokeCount && (
+                                {Boolean(strokeCount) && (
                                     <span className="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 border border-slate-200/50 dark:border-slate-700/50">
                                         {strokeCount} nét
                                     </span>

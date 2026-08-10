@@ -175,11 +175,11 @@ const Flashcard = ({
         };
     }, [card]);
 
+    const { targetLanguage, isEnglishMode } = useTargetLanguage();
+
     if (!card) return null;
 
     const scale = getCardScaleStyles(card, cardSettings);
-
-    const { targetLanguage, isEnglishMode } = useTargetLanguage();
     const isEnglishCard = checkIsEnglishCard(card, isEnglishMode);
 
     const renderFrontContent = () => {

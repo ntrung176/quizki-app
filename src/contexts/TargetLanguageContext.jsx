@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db, appId, auth } from '../config/firebase';
 import { showToast } from '../utils/toast';
@@ -72,15 +72,17 @@ export const TargetLanguageProvider = ({ children }) => {
 
     const activeTargetConfig = SUPPORTED_TARGET_LANGUAGES.find(l => l.code === targetLanguage) || SUPPORTED_TARGET_LANGUAGES[0];
 
+    const value = useMemo(() => ({
+        targetLanguage,
+        setTargetLanguage,
+        activeTargetConfig,
+        isJapaneseMode: targetLanguage === 'ja',
+        isEnglishMode: targetLanguage === 'en',
+        SUPPORTED_TARGET_LANGUAGES
+    }), [targetLanguage, setTargetLanguage, activeTargetConfig]);
+
     return (
-        <TargetLanguageContext.Provider value={{
-            targetLanguage,
-            setTargetLanguage,
-            activeTargetConfig,
-            isJapaneseMode: targetLanguage === 'ja',
-            isEnglishMode: targetLanguage === 'en',
-            SUPPORTED_TARGET_LANGUAGES
-        }}>
+        <TargetLanguageContext.Provider value={value}>
             {children}
         </TargetLanguageContext.Provider>
     );

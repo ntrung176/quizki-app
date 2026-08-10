@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useMemo } from 'react';
 import vi from '../locales/vi.json';
 import en from '../locales/en.json';
 import ja from '../locales/ja.json';
@@ -65,8 +65,16 @@ export const LanguageProvider = ({ children }) => {
 
     const currentLangObj = SUPPORTED_LANGUAGES.find(l => l.code === language) || SUPPORTED_LANGUAGES[0];
 
+    const value = useMemo(() => ({
+        language,
+        setLanguage: changeLanguage,
+        t,
+        currentLangObj,
+        SUPPORTED_LANGUAGES
+    }), [language, changeLanguage, currentLangObj]);
+
     return (
-        <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, t, currentLangObj, SUPPORTED_LANGUAGES }}>
+        <LanguageContext.Provider value={value}>
             {children}
         </LanguageContext.Provider>
     );

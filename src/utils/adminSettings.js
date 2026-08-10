@@ -766,6 +766,8 @@ export const useVoucher = async (voucherCode, userId) => {
         return false;
     }
 };
+
+export const redeemVoucher = useVoucher;
 // ============== EXPENSE / BUSINESS MANAGEMENT ==============
 const getExpensesPath = () => `artifacts/${appId}/expenses`;
 /**
