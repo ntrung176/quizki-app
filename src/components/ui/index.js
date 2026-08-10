@@ -14,3 +14,4 @@ export { default as InlineMnemonicEditor } from './InlineMnemonicEditor';
 export { default as FocusSessionModal } from './FocusSessionModal';
 export { default as IosLanguageWheelWidget } from './IosLanguageWheelWidget';
 export { default as SrsCountdownTimer } from './SrsCountdownTimer';
+export { default as MobileDebugConsole } from './MobileDebugConsole';

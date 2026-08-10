@@ -17,8 +17,8 @@ import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
 import AdminFloatingSupportChatbox from './components/ui/AdminFloatingSupportChatbox';
 import CyberTechBackground from './components/ui/CyberTechBackground';
-import LevelUpModal from './components/ui/LevelUpModal';
 import { useAppLogic } from './hooks/useAppLogic';
+import MobileDebugConsole from './components/ui/MobileDebugConsole';
 
 const AppContent = () => {
     const location = useLocation();
@@ -47,6 +47,9 @@ const AppContent = () => {
 
     return (
         <div className={`min-h-screen font-sans ${isDarkMode ? 'dark text-slate-100' : 'text-slate-900'} relative transition-colors duration-200`}>
+            {/* Automatic Eruda DevTools Mobile Debug Console for Admin */}
+            <MobileDebugConsole isAdmin={userHasAdminPrivileges} />
+
             {/* Cyberpunk tech grid background animation */}
             <CyberTechBackground isDarkMode={isDarkMode} />
 
