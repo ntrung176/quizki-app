@@ -337,8 +337,10 @@ const BookScreen = ({
                 {/* Premium Locked Modal */}
                 {showPremiumModal && (
                     <PremiumLockedModal
+                        isOpen={showPremiumModal}
                         show={showPremiumModal}
                         onClose={() => setShowPremiumModal(false)}
+                        pkgName={lockedPkgName}
                         packageName={lockedPkgName}
                     />
                 )}

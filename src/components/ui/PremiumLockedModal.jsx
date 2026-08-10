@@ -3,10 +3,13 @@ import { X, ShieldAlert, Zap, Award, Sparkle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
 
-const PremiumLockedModal = ({ isOpen, onClose, pkgName = 'Premium' }) => {
+const PremiumLockedModal = ({ isOpen, show, onClose, pkgName, packageName }) => {
     const navigate = useNavigate();
 
-    if (!isOpen) return null;
+    const isVisible = isOpen !== undefined ? isOpen : show;
+    const nameToDisplay = packageName || pkgName || 'Premium';
+
+    if (!isVisible) return null;
 
     const handleUpgradeClick = () => {
         onClose();
@@ -57,7 +60,7 @@ const PremiumLockedModal = ({ isOpen, onClose, pkgName = 'Premium' }) => {
 
                     {/* Description */}
                     <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-sm mx-auto">
-                        Bài học hoặc tính năng này được đánh dấu dành riêng cho hội viên <span className="font-bold text-slate-800 dark:text-slate-200">{pkgName}</span>. Nâng cấp ngay để mở khóa toàn bộ nội dung học tập không giới hạn!
+                        Bài học hoặc tính năng này được đánh dấu dành riêng cho hội viên <span className="font-bold text-slate-800 dark:text-slate-200">{nameToDisplay}</span>. Nâng cấp ngay để mở khóa toàn bộ nội dung học tập không giới hạn!
                     </p>
 
                     {/* Perks List */}

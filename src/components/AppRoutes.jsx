@@ -1360,28 +1360,41 @@ const AppRoutes = ({
                                     awardXP={awardXP}
                                 />
                             ) : (
-                                <div className="w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden bg-slate-50/50 dark:bg-slate-900/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
-                                    <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-                                    <div className="relative z-10 max-w-md w-full bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl dark:shadow-none border border-slate-100 dark:border-slate-700 text-center space-y-6">
-                                        <div className="w-16 h-16 rounded-2xl bg-amber-500/10 dark:bg-amber-500/10 flex items-center justify-center mx-auto shadow-sm">
-                                            <span className="text-3xl">👑</span>
+                                <div className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-950 text-slate-100 overflow-y-auto animate-fade-in">
+                                    {/* Rich Dark Cinematic Background elements */}
+                                    <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-indigo-950/50 to-slate-950 pointer-events-none" />
+                                    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/15 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+                                    <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none" />
+                                    <div className="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
+
+                                    <div className="relative z-10 max-w-md w-full bg-slate-900/90 backdrop-blur-2xl p-8 sm:p-10 rounded-3xl shadow-2xl shadow-amber-950/30 border border-slate-800/80 text-center space-y-6">
+                                        <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
+                                            <div className="absolute inset-0 bg-gradient-to-tr from-amber-500 to-orange-500 rounded-3xl opacity-30 blur-xl animate-pulse" />
+                                            <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-white shadow-xl shadow-amber-500/40">
+                                                <span className="text-3xl animate-bounce">👑</span>
+                                            </div>
                                         </div>
+
                                         <div className="space-y-2">
-                                            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Dành Cho Tài Khoản Premium</h2>
-                                            <p className="text-sm text-gray-500 dark:text-slate-400">
-                                                Tính năng <strong>Phòng Kaiwa AI (Luyện nói 1:1)</strong> thử nghiệm 10 phút/ngày dành riêng cho tài khoản <strong>Premium</strong>. Vui lòng nâng cấp tài khoản để mở khóa tính năng!
+                                            <span className="inline-block px-3 py-1 text-[10px] font-black tracking-widest text-amber-400 bg-amber-950/50 rounded-full uppercase border border-amber-800/50">
+                                                Đặc quyền Premium
+                                            </span>
+                                            <h2 className="text-2xl font-black text-white tracking-tight">Dành Cho Tài Khoản Premium</h2>
+                                            <p className="text-sm text-slate-300 leading-relaxed max-w-sm mx-auto">
+                                                Tính năng <strong>Phòng Kaiwa AI (Luyện nói 1:1)</strong> dành riêng cho hội viên <strong>Premium</strong>. Vui lòng nâng cấp tài khoản để mở khóa trải nghiệm học tập không giới hạn!
                                             </p>
                                         </div>
-                                        <div className="flex flex-col gap-3">
+
+                                        <div className="flex flex-col gap-3 pt-2">
                                             <button
                                                 onClick={() => navigate('/account')}
-                                                className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-amber-200 dark:shadow-none cursor-pointer text-sm"
+                                                className="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold rounded-2xl transition-all shadow-xl shadow-amber-500/30 active:scale-95 cursor-pointer text-sm tracking-wide uppercase"
                                             >
                                                 Nâng cấp Tài khoản Premium 👑
                                             </button>
                                             <button
                                                 onClick={() => navigate(ROUTES.HOME)}
-                                                className="w-full py-2.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold rounded-xl transition-all cursor-pointer text-xs"
+                                                className="w-full py-3 px-6 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-2xl transition-all cursor-pointer text-xs"
                                             >
                                                 Quay lại Trang chủ
                                             </button>
