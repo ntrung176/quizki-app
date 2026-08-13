@@ -1,14 +1,14 @@
 import { SRS_INTERVALS } from '../config/constants.js';
 
 // ==================== CONSTANTS ====================
-export const DEFAULT_EASE = 2.5;
+export const DEFAULT_EASE = 2.0;
 const MIN_EASE = 1.3;
 const MAX_EASE = 3.5;
 const LEARNING_STEPS = [1, 10]; // Step 0: 1 min, Step 1: 10 mins
 const RELEARNING_STEPS = [10];  // Step 0: 10 mins
-const MAX_INTERVAL_DAYS = 36500; // 100 years, same as Anki default
-const HARD_MULTIPLIER = 1.2; // Anki default Hard Interval multiplier
-const EASY_BONUS = 1.3; // Anki default Easy Bonus multiplier
+const MAX_INTERVAL_DAYS = 90; // Max ceiling: 90 days (3 months)
+const HARD_MULTIPLIER = 1.4; // Balanced Hard Interval multiplier (1.4x)
+const EASY_BONUS = 1.3; // Easy Bonus multiplier (Good 2.0x * 1.3 = 2.6x)
 
 // ==================== UTILITY FUNCTIONS ====================
 
@@ -17,7 +17,7 @@ export const normalizeSRSState = (srs) => {
     if (!srs) {
         return {
             interval: 0,
-            ease: 2.5,
+            ease: DEFAULT_EASE,
             learningStep: null,
             isLapsed: false,
             reps: 0,
@@ -29,7 +29,7 @@ export const normalizeSRSState = (srs) => {
 
     // 1. Get raw inputs (prioritizing srs* prefix fields used by Vocabulary, then standard fields)
     let interval = srs.srsInterval !== undefined ? srs.srsInterval : (srs.interval !== undefined ? srs.interval : (srs.currentInterval !== undefined ? srs.currentInterval : (srs.currentInterval_back !== undefined ? srs.currentInterval_back : 0)));
-    let ease = srs.srsEase !== undefined ? srs.srsEase : (srs.ease !== undefined ? srs.ease : 2.5);
+    let ease = srs.srsEase !== undefined ? srs.srsEase : (srs.ease !== undefined ? srs.ease : DEFAULT_EASE);
     let learningStep = srs.srsLearningStep !== undefined ? srs.srsLearningStep : (srs.learningStep !== undefined ? srs.learningStep : null);
     let isLapsed = srs.srsIsLapsed !== undefined ? srs.srsIsLapsed : (srs.isLapsed !== undefined ? srs.isLapsed : false);
     let reps = srs.srsReps !== undefined ? srs.srsReps : (srs.reps !== undefined ? srs.reps : 0);
