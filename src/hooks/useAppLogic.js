@@ -170,7 +170,8 @@ export const useAppLogic = () => {
         authReady,
         userId,
         targetLanguage,
-        allCards
+        allCards,
+        setAllCards
     });
 
     const {

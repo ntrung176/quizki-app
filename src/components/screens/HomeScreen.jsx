@@ -29,7 +29,14 @@ const HomeScreen = ({
     const { t } = useLanguage();
     const { isEnglishMode } = useTargetLanguage();
     const navigate = useNavigate();
-    const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueCount: 0 });
+    const [kanjiSrsStats, setKanjiSrsStats] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_kanji_srs_stats');
+            return cached ? JSON.parse(cached) : { total: 0, learning: 0, mastered: 0, dueCount: 0 };
+        } catch (_) {
+            return { total: 0, learning: 0, mastered: 0, dueCount: 0 };
+        }
+    });
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
     const [showAddOptions, setShowAddOptions] = useState(false);
 
@@ -71,6 +78,9 @@ const HomeScreen = ({
 
                 setKanjiSrsStats({ total, learning, mastered, dueCount });
                 setKanjiActivityDates(actDates);
+                try {
+                    localStorage.setItem('quizki_cached_kanji_srs_stats', JSON.stringify({ total, learning, mastered, dueCount }));
+                } catch (_) {}
             });
         }).catch(err => {
             console.error('Error fetching kanji list in HomeScreen:', err);

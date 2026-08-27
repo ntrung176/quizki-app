@@ -1,14 +1,19 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { collection, query, onSnapshot, addDoc, updateDoc, deleteDoc, doc, serverTimestamp } from 'firebase/firestore';
+import { collection, query, where, getDocs, writeBatch, onSnapshot, addDoc, updateDoc, deleteDoc, doc, serverTimestamp } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { showToast } from '../utils/toast';
 
-export const useAppStudySets = ({ authReady, userId, targetLanguage, allCards = [] }) => {
+export const useAppStudySets = ({ authReady, userId, targetLanguage, allCards = [], setAllCards }) => {
     const [folders, setFolders] = useState([]);
 
     const studySetsCollectionPath = useMemo(() => {
         if (!userId) return null;
         return `artifacts/${appId}/users/${userId}/studySets`;
+    }, [userId]);
+
+    const vocabCollectionPath = useMemo(() => {
+        if (!userId) return null;
+        return `artifacts/${appId}/users/${userId}/vocabulary`;
     }, [userId]);
 
     useEffect(() => {
@@ -41,6 +46,40 @@ export const useAppStudySets = ({ authReady, userId, targetLanguage, allCards = 
     const studySets = useMemo(() => {
         return activeFolders.filter(f => f.type !== 'folder');
     }, [activeFolders]);
+
+    // Tự động kiểm tra và phục hồi các học phần mồ côi (có parentId nhưng thư mục cha đã bị xóa)
+    useEffect(() => {
+        if (!folders || folders.length === 0 || !studySetsCollectionPath) return;
+        const existingParentIds = new Set(folders.filter(f => f.type === 'folder').map(f => f.id));
+        const orphanedSets = folders.filter(f => f.type !== 'folder' && f.parentId && !existingParentIds.has(f.parentId));
+        
+        if (orphanedSets.length > 0) {
+            const batch = writeBatch(db);
+            orphanedSets.forEach(set => {
+                batch.update(doc(db, studySetsCollectionPath, set.id), { parentId: null });
+            });
+            batch.commit().catch(err => console.warn('Auto-healing orphaned study sets:', err));
+        }
+    }, [folders, studySetsCollectionPath]);
+
+    // Tự động dọn dẹp các từ vựng thuộc về học phần đã bị xóa trước đó
+    useEffect(() => {
+        if (!folders || folders.length === 0 || !allCards || allCards.length === 0 || !vocabCollectionPath) return;
+        const validFolderIds = new Set(folders.map(f => f.id));
+        validFolderIds.add('unfiled');
+
+        const orphanedCards = allCards.filter(c => c.folderId && c.folderId !== 'unfiled' && !validFolderIds.has(c.folderId));
+        if (orphanedCards.length > 0) {
+            const batch = writeBatch(db);
+            orphanedCards.forEach(c => {
+                batch.delete(doc(db, vocabCollectionPath, c.id));
+            });
+            batch.commit().catch(err => console.warn('Auto-deleting orphaned vocab cards in Firestore:', err));
+            if (setAllCards) {
+                setAllCards(prev => prev.filter(c => !c.folderId || c.folderId === 'unfiled' || validFolderIds.has(c.folderId)));
+            }
+        }
+    }, [folders, allCards, vocabCollectionPath, setAllCards]);
 
     const cardFolders = useMemo(() => {
         const mapping = {};
@@ -77,11 +116,47 @@ export const useAppStudySets = ({ authReady, userId, targetLanguage, allCards = 
         if (!userId || !folderId) return;
         try {
             const studySetsCollectionPath = `artifacts/${appId}/users/${userId}/studySets`;
+            const vocabCollectionPath = `artifacts/${appId}/users/${userId}/vocabulary`;
+
+            // 1. Xóa tài liệu học phần
             await deleteDoc(doc(db, studySetsCollectionPath, folderId));
+
+            // 2. Tìm và xóa tất cả từ vựng thuộc học phần này trong Firestore
+            const q = query(collection(db, vocabCollectionPath), where("folderId", "==", folderId));
+            const snap = await getDocs(q);
+            if (!snap.empty) {
+                const batch = writeBatch(db);
+                snap.forEach((docSnapshot) => {
+                    batch.delete(docSnapshot.ref);
+                });
+                await batch.commit();
+            }
+
+            // 3. Dọn dẹp local storage mapping
+            try {
+                const folderKey = `vocab_card_folders_${userId}`;
+                const savedFolders = JSON.parse(localStorage.getItem(folderKey) || '{}');
+                let localChanged = false;
+                Object.keys(savedFolders).forEach(cardId => {
+                    if (savedFolders[cardId] === folderId) {
+                        delete savedFolders[cardId];
+                        localChanged = true;
+                    }
+                });
+                if (localChanged) {
+                    localStorage.setItem(folderKey, JSON.stringify(savedFolders));
+                }
+            } catch (_) {}
+
+            // 4. Cập nhật state local ngay lập tức
+            setFolders(prev => prev.filter(f => f.id !== folderId));
+            if (setAllCards) {
+                setAllCards(prev => prev.filter(c => c.folderId !== folderId && cardFolders[c.id] !== folderId));
+            }
         } catch (err) {
-            console.error('❌ Error deleting folder:', err);
+            console.error('❌ Error deleting study set and vocabulary cards:', err);
         }
-    }, [userId]);
+    }, [userId, cardFolders, setAllCards]);
 
     const handleUpdateFolder = useCallback(async (folderId, updates) => {
         if (!userId || !folderId) return;
@@ -117,11 +192,36 @@ export const useAppStudySets = ({ authReady, userId, targetLanguage, allCards = 
     }, [handleUpdateFolder]);
 
     const handleDeleteParentFolder = useCallback(async (id) => {
-        return handleDeleteFolder(id);
-    }, [handleDeleteFolder]);
+        if (!userId || !id) return;
+        try {
+            const studySetsCollectionPath = `artifacts/${appId}/users/${userId}/studySets`;
+            
+            // 1. Xóa tài liệu thư mục cha
+            await deleteDoc(doc(db, studySetsCollectionPath, id));
+
+            // 2. Tìm tất cả học phần đang nằm trong thư mục này và chuyển ra ngoài gốc (parentId = null)
+            const q = query(collection(db, studySetsCollectionPath), where("parentId", "==", id));
+            const snap = await getDocs(q);
+            if (!snap.empty) {
+                const batch = writeBatch(db);
+                snap.forEach((docSnapshot) => {
+                    batch.update(docSnapshot.ref, { parentId: null });
+                });
+                await batch.commit();
+            }
+
+            // 3. Cập nhật state local ngay lập tức
+            setFolders(prev => prev
+                .filter(f => f.id !== id)
+                .map(f => f.parentId === id ? { ...f, parentId: null } : f)
+            );
+        } catch (err) {
+            console.error('❌ Error deleting parent folder and unlinking study sets:', err);
+        }
+    }, [userId]);
 
     const handleMoveStudySetToParentFolder = useCallback(async (setId, parentId) => {
-        return handleUpdateFolder(setId, { parentId: parentId || null });
+        return handleUpdateFolder(setId, { parentId: (parentId === 'root' || !parentId) ? null : parentId });
     }, [handleUpdateFolder]);
 
     return {

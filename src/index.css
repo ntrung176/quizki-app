@@ -72,6 +72,7 @@ textarea.font-japanese {
 
 html, body {
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
 }
 
 button, a, [role="button"], input, select, textarea {

@@ -75,9 +75,11 @@ const LibraryScreen = ({
         });
     }, [folders, allCards, cardFolders]);
 
+    const existingParentIds = useMemo(() => new Set((parentFolders || []).map(p => p.id)), [parentFolders]);
+
     // Choose the first folder as the featured folder to study (only from root level)
     const featuredFolder = useMemo(() => {
-        const rootSets = foldersWithCounts.filter(f => !f.parentId);
+        const rootSets = foldersWithCounts.filter(f => !f.parentId || !existingParentIds.has(f.parentId));
         if (rootSets.length === 0) return null;
         // Sort root sets by creation time (newest first)
         const sortedRootSets = [...rootSets].sort((a, b) => {
@@ -86,7 +88,7 @@ const LibraryScreen = ({
             return timeB - timeA;
         });
         return sortedRootSets[0];
-    }, [foldersWithCounts]);
+    }, [foldersWithCounts, existingParentIds]);
 
     // Filter and sort Study Sets based on active parent folder and search query
     const filteredStudySets = useMemo(() => {
@@ -117,7 +119,7 @@ const LibraryScreen = ({
             // Match parent folder
             const matchesParent = activeParentFolderId 
                 ? f.parentId === activeParentFolderId 
-                : !f.parentId;
+                : (!f.parentId || !existingParentIds.has(f.parentId));
 
             return matchesParent;
         });
@@ -128,7 +130,7 @@ const LibraryScreen = ({
             const timeB = b.createdAt?.seconds || (b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0) || (b.createdAt instanceof Date ? b.createdAt.getTime() : 0) || 0;
             return timeB - timeA;
         });
-    }, [foldersWithCounts, activeParentFolderId, searchQuery, allCards, cardFolders]);
+    }, [foldersWithCounts, activeParentFolderId, searchQuery, allCards, cardFolders, existingParentIds]);
 
     // Parent Folders with Study Set counts
     const parentFoldersWithCounts = useMemo(() => {

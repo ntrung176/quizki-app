@@ -565,11 +565,6 @@ const AppRoutes = ({
         }
     }, [navigate]);
 
-    // Loading state
-    if (isLoading) {
-        return <LoadingIndicator text="Đang tải..." />;
-    }
-
     return (
         <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900"><LoadingIndicator text="Đang nạp tính năng..." /></div>}>
             <Routes>

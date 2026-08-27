@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Cpu, FlaskConical } from 'lucide-react'
+import { Calendar, Clock, Target, ChevronLeft, RotateCcw, RotateCw, BarChart3, Cpu } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
+import SrsTypingInput from '../srs/SrsTypingInput';
+import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
@@ -12,7 +14,6 @@ import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
-import { SrsTestingPanelModal } from '../ui';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playFlipSound } from '../../utils/soundEffects';
 import { TopTabBar, SrsPrewarmLoader, InlineMnemonicEditor, SrsCountdownTimer } from '../ui';
@@ -66,7 +67,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         const hasSrs = userId ? !!getCachedUserSrsData() : true;
         return !(hasKanji && hasSrs);
     });
-    const [showSrsTestModal, setShowSrsTestModal] = useState(false);
     const [reviewMode, setReviewMode] = useState(false);
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -74,6 +74,38 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const [reviewHistory, setReviewHistory] = useState([]);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
+    const [showModeModal, setShowModeModal] = useState(false);
+    const [kanjiSwapSides, setKanjiSwapSides] = useState(() => {
+        try {
+            return localStorage.getItem('quizki_kanji_swap_sides') === 'true';
+        } catch (_) {
+            return false;
+        }
+    });
+    const [typingMode, setTypingMode] = useState(() => {
+        try {
+            return localStorage.getItem('quizki_kanji_review_type') === 'typing';
+        } catch (_) {
+            return false;
+        }
+    });
+
+    const toggleKanjiSwapSides = () => {
+        setKanjiSwapSides(prev => {
+            const next = !prev;
+            try {
+                localStorage.setItem('quizki_kanji_swap_sides', String(next));
+            } catch (_) {}
+            return next;
+        });
+    };
+
+    useEffect(() => {
+        try {
+            localStorage.setItem('quizki_kanji_review_type', typingMode ? 'typing' : 'flashcard');
+        } catch (_) {}
+    }, [typingMode]);
+
     const sessionXpRef = useRef(0);
     const completedCardIds = useRef(new Set());
     const activeReviewCardIds = useRef(new Set());
@@ -404,7 +436,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const [isPreparingSession, setIsPreparingSession] = useState(false);
 
-    const startReview = () => {
+    const runStartReview = () => {
         if (dueKanji.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
@@ -429,6 +461,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         }, 400);
     };
 
+    const startReview = () => {
+        if (dueKanji.length === 0) return;
+        setShowModeModal(true);
+    };
+
     const hasAutoStartedRef = useRef(false);
 
     // Auto start review session when navigated from Home Screen
@@ -442,6 +479,17 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             }
         }
     }, [location.state, loading, reviewMode, dueKanji.length]);
+
+    const [reviewTick, setReviewTick] = useState(Date.now());
+
+    // 1s ticker for review mode timer and auto detecting newly due cards
+    useEffect(() => {
+        if (!reviewMode) return;
+        const intervalId = setInterval(() => {
+            setReviewTick(Date.now());
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, [reviewMode]);
 
     // 60fps keep-alive ticker for Mobile Safari to prevent timer throttling on mobile browsers
     useEffect(() => {
@@ -523,13 +571,28 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             cardId: currentCard.id,
             srs: srs ? { ...srs } : null,
             isFlipped: isFlipped,
-            xpAwarded: totalXp
+            xpAwarded: totalXp,
+            queue: [...reviewQueue]
         }]);
 
-        // 1. Determine if card graduated/completed in this session
+        // 1. Determine if card graduated/completed in this session or needs re-insertion
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
+        } else {
+            // Thẻ chưa tốt nghiệp (Quên / Khó / chu kỳ ngắn 1m, 5m, 10m):
+            // Tự động chèn lại thẻ vào hàng đợi ôn tập để người học ôn lại ngay trong phiên này
+            const remainingCardsCount = updatedQueue.length - 1 - currentReviewIndex;
+            let insertIndex;
+            if (remainingCardsCount >= 3) {
+                insertIndex = currentReviewIndex + 3; // Chèn sau 2-3 thẻ nếu còn nhiều thẻ
+            } else if (remainingCardsCount >= 1) {
+                insertIndex = updatedQueue.length; // Chèn vào cuối hàng đợi
+            } else {
+                // Nếu chỉ còn 1 thẻ hoặc là thẻ cuối cùng: chèn ngay sau thẻ hiện tại
+                insertIndex = currentReviewIndex + 1;
+            }
+            updatedQueue.splice(insertIndex, 0, currentCard);
         }
 
         setReviewQueue(updatedQueue);
@@ -725,7 +788,14 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
                 return;
             }
-            if (e.key === ' ') { e.preventDefault(); setIsFlipped(f => !f); playFlipSound(); }
+            if (e.key === ' ') {
+                e.preventDefault();
+                if (typingMode && !isFlipped) {
+                    return;
+                }
+                setIsFlipped(f => !f);
+                playFlipSound();
+            }
             if (e.key === '1') handleRating('again');
             if (e.key === '2') handleRating('hard');
             if (e.key === '3') handleRating('good');
@@ -771,21 +841,39 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         return (
             <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
                 <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4">
-                    {/* Back button */}
-                    <div className="w-full flex justify-between mb-2">
+                    {/* Back button & Action Toolbar */}
+                    <div className="w-full flex justify-between items-center mb-2">
                         <button onClick={exitReview}
-                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2 cursor-pointer">
                             <ChevronLeft className="w-4 h-4" />
                             <span className="text-sm font-medium">Trở lại</span>
                         </button>
 
-                        {reviewHistory.length > 0 && (
-                            <button onClick={handleUndo}
-                                className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
-                                <RotateCcw className="w-4 h-4" />
-                                <span className="text-sm font-medium">Quay lại</span>
+                        <div className="flex items-center gap-2">
+                            {/* Swap Sides Button */}
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleKanjiSwapSides();
+                                }}
+                                className={`p-2.5 rounded-xl flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-md border cursor-pointer ${
+                                    kanjiSwapSides
+                                        ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
+                                        : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                                }`}
+                                title={kanjiSwapSides ? "Đang hiện Hán Việt/Nghĩa trước. Nhấn để đổi sang hiện Chữ Kanji trước" : "Đang hiện Chữ Kanji trước. Nhấn để đổi sang hiện Hán Việt/Nghĩa trước"}
+                            >
+                                <RotateCw className="w-4 h-4" />
                             </button>
-                        )}
+
+                            {reviewHistory.length > 0 && (
+                                <button onClick={handleUndo}
+                                    className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2 cursor-pointer">
+                                    <RotateCcw className="w-4 h-4" />
+                                    <span className="text-sm font-medium">Quay lại</span>
+                                </button>
+                            )}
+                        </div>
                     </div>
 
                     {/* Progress */}
@@ -810,7 +898,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                             }}
                         >
                             <div
-                                onClick={() => { setIsFlipped(f => !f); playFlipSound(); }}
+                                onClick={() => {
+                                    if (typingMode && !isFlipped) return;
+                                    setIsFlipped(f => !f);
+                                    playFlipSound();
+                                }}
+                                className={typingMode && !isFlipped ? 'cursor-default' : 'cursor-pointer'}
                                 style={{
                                     position: 'relative',
                                     width: '100%',
@@ -820,20 +913,53 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                     transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
                                 }}
                             >
-                                {/* Front */}
+                                {/* Front Side */}
                                 <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
                                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                    <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
-                                    <div className="absolute bottom-6 left-0 right-0 text-center">
-                                        <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">Nhấn để lật thẻ</span>
-                                    </div>
+                                    {!kanjiSwapSides ? (
+                                        <>
+                                            <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
+                                            {!typingMode && (
+                                                <div className="absolute bottom-6 left-0 right-0 text-center">
+                                                    <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">Nhấn để lật thẻ</span>
+                                                </div>
+                                            )}
+                                        </>
+                                    ) : (
+                                        <div className="text-center space-y-3 w-full px-6">
+                                            <span className="text-xs font-bold text-indigo-500 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">
+                                                Nghĩa & Âm Hán Việt
+                                            </span>
+                                            <div className="text-4xl sm:text-5xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-2">
+                                                {currentCard.sinoViet || '—'}
+                                            </div>
+                                            <div className="text-xl sm:text-2xl text-cyan-600 dark:text-cyan-400 font-semibold">
+                                                {currentCard.meaning || '—'}
+                                            </div>
+                                            {!typingMode && (
+                                                <div className="pt-4">
+                                                    <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">Nhấn để lật thẻ</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
-                                {/* Back */}
+                                {/* Back Side */}
                                 <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
                                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', overflowY: 'auto' }}>
                                     <div className="text-center space-y-4 w-full">
-                                        <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">{currentCard.sinoViet || '—'}</div>
-                                        <div className="text-xl text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
+                                        {!kanjiSwapSides ? (
+                                            <>
+                                                <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400">{currentCard.sinoViet || '—'}</div>
+                                                <div className="text-xl text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="text-6xl font-bold text-gray-800 dark:text-white font-japanese">{currentCard.character}</div>
+                                                <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{currentCard.sinoViet || '—'}</div>
+                                                <div className="text-base text-cyan-600 dark:text-cyan-400 font-semibold">{currentCard.meaning || '—'}</div>
+                                            </>
+                                        )}
                                         {isEditingInlineMnemonic ? (
                                              <InlineMnemonicEditor
                                                  initialText={currentCard.userMnemonic || currentCard.mnemonic || ''}
@@ -910,6 +1036,26 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         </div>
                     </div>
 
+                    {/* Anki Typing Input Component for Kanji */}
+                    {typingMode && (
+                        <div className="w-full mt-2">
+                            <SrsTypingInput
+                                card={currentCard}
+                                isFlipped={isFlipped}
+                                isReversed={kanjiSwapSides}
+                                expectedLanguage={kanjiSwapSides ? 'kanji' : 'sino'}
+                                onFlip={() => {
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                    playFlipSound();
+                                }}
+                                onCheck={() => {}}
+                                onQuickRate={(rating) => handleRating(rating)}
+                                placeholder={kanjiSwapSides ? "Nhập chữ Hán Kanji hoặc cách đọc..." : "Nhập âm Hán Việt (ví dụ: HỌC)..."}
+                            />
+                        </div>
+                    )}
+
                     {/* Rating buttons */}
                     <div className="grid grid-cols-4 gap-2.5 w-full">
                         {[
@@ -985,7 +1131,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             );
         }
 
-        // When 0 cards are waiting -> Render Completion Screen with 'Kết thúc phiên ôn tập' button
+        // Check for any newly due kanji while staying on the completion screen
+        const newlyDueKanji = (kanjiList || []).filter(k => {
+            const srs = srsData[k.id] || k.srsData;
+            return isSrsCardDue(srs, reviewTick);
+        });
+
+        // When 0 cards are waiting -> Render Completion Screen
         return (
             <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8 animate-fade-in">
                 <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-200 dark:border-emerald-500/30">
@@ -997,17 +1149,42 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                             Hoàn thành phiên ôn tập Kanji!
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
-                            Chúc mừng! Bạn đã hoàn thành tất cả các thẻ Kanji trong phiên ôn tập này.
+                            {newlyDueKanji.length > 0
+                                ? `Hiện tại có thêm ${newlyDueKanji.length} chữ Kanji vừa đến hạn ôn tập. Bạn có muốn tiếp tục không?`
+                                : "Chúc mừng! Bạn đã hoàn thành tất cả các thẻ Kanji trong phiên ôn tập này."}
                         </p>
                     </div>
 
-                    <div className="flex justify-center w-full pt-4">
-                        <button
-                            onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                            className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
-                        >
-                            Kết thúc phiên ôn tập
-                        </button>
+                    <div className="w-full pt-4">
+                        {newlyDueKanji.length > 0 ? (
+                            <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        startFolderReview(newlyDueKanji);
+                                    }}
+                                    className="flex-1 w-full py-3.5 px-4 bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
+                                >
+                                    <RotateCw className="w-4 h-4" />
+                                    Tiếp tục ôn tập ({newlyDueKanji.length} thẻ)
+                                </button>
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                    className="w-full sm:w-auto py-3.5 px-5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-xl transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer text-center"
+                                >
+                                    Kết thúc
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="flex justify-center w-full">
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                    className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
+                                >
+                                    Kết thúc phiên ôn tập
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -1044,15 +1221,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                 >
                                     <span>🩸 {t('kanji.leechCards', 'Thẻ Khó')} ({leechKanjiItems.length})</span>
                                 </button>
-                                {isAdmin && (
-                                    <button
-                                        onClick={() => setShowSrsTestModal(true)}
-                                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-[10px] sm:text-xs font-mono font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
-                                    >
-                                        <FlaskConical className="w-3.5 h-3.5 text-emerald-500" />
-                                        <span>🧪 Bảng Test SRS</span>
-                                    </button>
-                                )}
                             </div>
                             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                                 {t('kanji.title', 'Ôn tập Kanji')}
@@ -1211,9 +1379,17 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 scopeType="kanji"
                 onResetLeechCount={handleResetKanjiLeech}
             />
-            <SrsTestingPanelModal 
-                isOpen={showSrsTestModal}
-                onClose={() => setShowSrsTestModal(false)}
+
+            {/* SRS Mode Selection Modal (Flashcard vs Anki Typing) */}
+            <SrsModeSelectModal
+                isOpen={showModeModal}
+                onClose={() => setShowModeModal(false)}
+                title="Chọn chế độ ôn tập Kanji"
+                cardCount={dueKanji.length}
+                onSelectMode={(mode) => {
+                    setTypingMode(mode === 'typing');
+                    runStartReview();
+                }}
             />
         </div>
     );

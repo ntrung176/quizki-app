@@ -95,7 +95,7 @@ const AppContent = () => {
             )}
 
             {/* Main view container */}
-            <main className={`min-h-screen transition-all duration-300 ${userId && !isReviewSessionPage ? (isSidebarCollapsed ? 'pt-16 lg:pt-0 lg:pl-20' : 'pt-16 lg:pt-0 lg:pl-64') : 'pl-0'}`}>
+            <main className={`min-h-screen transition-all duration-300 ${userId && !isReviewSessionPage ? (isSidebarCollapsed ? 'pt-[calc(3.75rem+env(safe-area-inset-top,0px))] lg:pt-0 lg:pl-20' : 'pt-[calc(3.75rem+env(safe-area-inset-top,0px))] lg:pt-0 lg:pl-64') : 'pl-0'}`}>
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">

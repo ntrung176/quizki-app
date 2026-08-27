@@ -6,7 +6,7 @@ const MIN_EASE = 1.3;
 const MAX_EASE = 3.5;
 const LEARNING_STEPS = [1, 10]; // Step 0: 1 min, Step 1: 10 mins
 const RELEARNING_STEPS = [10];  // Step 0: 10 mins
-const MAX_INTERVAL_DAYS = 90; // Max ceiling: 90 days (3 months)
+const MAX_INTERVAL_DAYS = 36500; // Unlimited interval ceiling (Anki standard: 36,500 days = 100 years)
 const HARD_MULTIPLIER = 1.4; // Balanced Hard Interval multiplier (1.4x)
 const EASY_BONUS = 1.3; // Easy Bonus multiplier (Good 2.0x * 1.3 = 2.6x)
 

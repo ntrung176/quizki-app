@@ -8,8 +8,15 @@ import { aiAssistVocab, extractVocabFromImage } from '../utils/aiProvider';
 import { POINTS } from '../utils/scoring';
 
 export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
-    const [allCards, setAllCards] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [allCards, setAllCards] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_vocab_list');
+            return cached ? JSON.parse(cached) : [];
+        } catch (_) {
+            return [];
+        }
+    });
+    const [isLoading, setIsLoading] = useState(false);
 
     const vocabCollectionPath = useMemo(() => {
         if (!userId) return null;
@@ -19,11 +26,9 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
     // Firestore listener for User Vocabulary (allCards)
     useEffect(() => {
         if (!authReady || !vocabCollectionPath) {
-            setIsLoading(false);
             return;
         }
 
-        setIsLoading(true);
         const q = query(collection(db, vocabCollectionPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const fetchedCards = [];
@@ -32,6 +37,9 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             });
             setAllCards(fetchedCards);
             setIsLoading(false);
+            try {
+                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(fetchedCards));
+            } catch (_) {}
         }, (error) => {
             console.error("Lỗi tải danh sách từ vựng:", error);
             setIsLoading(false);

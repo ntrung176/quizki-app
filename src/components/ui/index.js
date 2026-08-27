@@ -8,7 +8,6 @@ export { default as TargetLanguageSelector } from './TargetLanguageSelector';
 export { default as FlagIcon } from './FlagIcon';
 export { default as XpTestingPanelModal } from './XpTestingPanelModal';
 export { default as SrsPrewarmLoader } from './SrsPrewarmLoader';
-export { default as SrsTestingPanelModal } from './SrsTestingPanelModal';
 export { default as PersonalMnemonicModal } from './PersonalMnemonicModal';
 export { default as InlineMnemonicEditor } from './InlineMnemonicEditor';
 export { default as FocusSessionModal } from './FocusSessionModal';

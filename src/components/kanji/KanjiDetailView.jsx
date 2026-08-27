@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { 
     ArrowLeft, RotateCcw, Check, Bookmark, Edit, Trash2, 
     Layers, Tag, Volume2, Plus, Sparkles 
@@ -184,7 +185,7 @@ const KanjiDetailView = ({
     const content = (
         <div className="w-full h-full flex flex-col">
             {/* Header */}
-            <div className="flex justify-between items-center mb-6 flex-shrink-0">
+            <div className="flex justify-between items-center mb-4 sm:mb-6 flex-shrink-0">
                 <button 
                     onClick={() => { 
                         setShowDetailModal(false); 
@@ -199,11 +200,11 @@ const KanjiDetailView = ({
                             navigate(ROUTES.KANJI_LIST, { replace: true }); 
                         } 
                     }} 
-                    className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 cursor-pointer"
+                    className="py-2 px-3 sm:py-2.5 sm:px-4 flex items-center justify-center gap-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all active:scale-95 cursor-pointer font-bold text-xs sm:text-sm"
                 >
-                    <ArrowLeft className="w-4 h-4" /> Quay lại
+                    <ArrowLeft className="w-4 h-4" /> <span>Quay lại</span>
                 </button>
-                <div className="text-sm text-gray-400 dark:text-gray-500 font-medium">
+                <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold font-mono uppercase tracking-wider">
                     Chi tiết Kanji
                 </div>
             </div>
@@ -559,18 +560,21 @@ const KanjiDetailView = ({
 
     if (isFullPage) {
         return (
-            <div className="w-full h-screen p-4 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 overflow-hidden">
+            <div className="w-full min-h-screen pt-[calc(3.75rem+env(safe-area-inset-top,0px))] p-3 sm:p-6 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
                 {content}
             </div>
         );
     }
 
-    return (
-        <div className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-6 lg:p-8">
-            <div className="w-full max-w-[92vw] lg:max-w-[1550px] h-[90vh] bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-slate-800 flex flex-col p-6 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    if (typeof document === 'undefined') return null;
+
+    return createPortal(
+        <div className="fixed inset-0 bg-black/70 dark:bg-black/85 backdrop-blur-md z-[100000] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(0.75rem,env(safe-area-inset-bottom))] animate-fade-in">
+            <div className="w-full max-w-[96vw] lg:max-w-[1550px] h-[94vh] sm:h-[90vh] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col p-3.5 sm:p-6 overflow-hidden">
                 {content}
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 

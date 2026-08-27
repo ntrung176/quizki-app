@@ -490,12 +490,18 @@ const Flashcard = ({
         backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;
     }
 
+    const isTypingMode = cardSettings?.reviewType === 'typing';
+
     return (
-        <div className="perspective-1000 w-full mx-auto relative select-none">
+        <div className={`perspective-1000 w-full mx-auto relative select-none ${isTypingMode && !isFlipped ? 'cursor-default' : 'cursor-pointer'}`}>
             <div
                 className={`w-full transform-style-preserve-3d card-slide ${isFlipped ? 'rotate-y-180' : ''}`}
                 onClick={(e) => {
                     e.stopPropagation();
+                    // Khi ở chế độ typing thì không lật được thẻ trước khi kiểm tra xong
+                    if (isTypingMode && !isFlipped) {
+                        return;
+                    }
                     if (onFlip) {
                         onFlip();
                     }
@@ -509,20 +515,20 @@ const Flashcard = ({
                 {/* Front Side */}
                 <div className={frontCardClass}>
                     <div className="flex flex-col items-center justify-center min-h-full w-full relative h-full my-auto">
-                        {!cardSettings.swapSides ? renderFrontContent() : renderBackContent()}
+                        {!cardSettings?.swapSides ? renderFrontContent() : renderBackContent()}
                     </div>
                 </div>
 
                 {/* Back Side */}
                 <div className={backCardClass}>
                     <div className="flex flex-col items-center justify-center min-h-full w-full relative h-full my-auto">
-                        {!cardSettings.swapSides ? renderBackContent() : renderFrontContent()}
+                        {!cardSettings?.swapSides ? renderBackContent() : renderFrontContent()}
                     </div>
                 </div>
             </div>
 
             {/* Hint text OUTSIDE flashcard - Evenly spaced between flashcard and bottom buttons */}
-            {showFlipHint && (
+            {showFlipHint && !isTypingMode && (
                 <div className="w-full text-center py-2 pointer-events-none z-20 flex justify-center">
                     <span className={`px-3.5 py-1 rounded-full text-xs font-semibold shadow-sm tracking-wide ${
                         variant === 'review' 

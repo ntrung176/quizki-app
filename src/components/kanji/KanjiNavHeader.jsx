@@ -89,23 +89,32 @@ const KanjiNavHeader = ({
 
                     {/* Search Results Dropdown */}
                     {showSearchResults && searchQuery.trim() && (searchResults.length > 0 || vocabList.some(v => v.word?.includes(searchQuery) || (v.meaning && String(v.meaning).toLowerCase().includes(searchQuery.toLowerCase())) || v.reading?.includes(searchQuery))) && (
-                        <div className="absolute z-50 w-full mt-2 bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl shadow-2xl max-h-96 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700/50 animate-in fade-in slide-in-from-top-2 duration-200">
+                        <div className="absolute z-50 left-0 right-0 sm:left-0 sm:w-[480px] max-w-[95vw] mt-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 rounded-2xl shadow-2xl max-h-96 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800 animate-in fade-in slide-in-from-top-2 duration-200">
                             {searchResults.length > 0 && (
                                 <>
-                                    <div className="px-4 py-2 text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider bg-slate-50/50 dark:bg-slate-850/50 flex items-center gap-1.5">
-                                        <span className="w-4.5 h-4.5 rounded-lg bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-[10px] text-sky-600 dark:text-sky-400 font-bold font-japanese">漢</span>
+                                    <div className="px-4 py-2 text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider bg-slate-50 dark:bg-slate-950/50 flex items-center gap-1.5 font-mono uppercase">
+                                        <span className="w-4 h-4 rounded-md bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-[10px] text-sky-600 dark:text-sky-400 font-bold font-japanese">漢</span>
                                         KANJI ({searchResults.length})
                                     </div>
                                     {searchResults.slice(0, 10).map((kanji, idx) => (
-                                        <button key={kanji.id || idx} onClick={() => { openKanjiDetail(kanji.character); setSearchQuery(''); setShowSearchResults(false); }}
-                                            className="w-full px-4 py-3 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors text-left cursor-pointer">
-                                            <span className="text-2xl font-japanese font-bold text-sky-600 dark:text-sky-400 w-10 text-center">{kanji.character}</span>
+                                        <button 
+                                            key={kanji.id || idx} 
+                                            onClick={() => { openKanjiDetail(kanji.character); setSearchQuery(''); setShowSearchResults(false); }}
+                                            className="w-full px-4 py-3 flex items-center gap-3.5 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-all text-left cursor-pointer group"
+                                        >
+                                            <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200/60 dark:border-sky-800/60 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-sm">
+                                                <span className="text-2xl font-japanese font-black text-sky-600 dark:text-sky-400">{kanji.character}</span>
+                                            </div>
                                             <div className="flex-1 min-w-0">
-                                                <div className="flex items-center gap-2">
-                                                    <span className="font-bold text-slate-700 dark:text-slate-200 text-sm">{kanji.sinoViet || '---'}</span>
-                                                    <span className="text-[9px] px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-md font-bold uppercase">{kanji.level}</span>
+                                                <div className="flex items-center gap-2 flex-wrap">
+                                                    <span className="font-bold text-slate-800 dark:text-slate-100 text-sm">{kanji.sinoViet || '---'}</span>
+                                                    {kanji.level && (
+                                                        <span className="text-[9px] px-1.5 py-0.5 bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 rounded-md font-mono font-bold uppercase border border-sky-200/60 dark:border-sky-800/50">
+                                                            {kanji.level}
+                                                        </span>
+                                                    )}
                                                 </div>
-                                                <div className="text-xs text-gray-500 dark:text-gray-400 truncate mt-0.5">{kanji.meaning}</div>
+                                                <div className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5 font-medium">{kanji.meaning}</div>
                                             </div>
                                         </button>
                                     ))}
@@ -113,28 +122,46 @@ const KanjiNavHeader = ({
                             )}
                             {(() => {
                                 const q = searchQuery.toLowerCase().trim();
-                                const vocabResults = vocabList.filter(v => v.word?.includes(q) || (v.meaning && String(v.meaning).toLowerCase().includes(q)) || v.reading?.includes(q) || (v.sinoViet && String(v.sinoViet).toLowerCase().includes(q))).slice(0, 10);
+                                const vocabResults = vocabList.filter(v => v.word?.includes(q) || (v.meaning && String(v.meaning).toLowerCase().includes(q)) || v.reading?.includes(q) || (v.sinoViet && String(v.sinoViet).toLowerCase().includes(q))).slice(0, 15);
                                 if (vocabResults.length === 0) return null;
                                 return (
                                     <>
-                                        <div className="px-4 py-2 text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider bg-slate-50/50 dark:bg-slate-850/50 flex items-center gap-1.5">
-                                            <span className="w-4.5 h-4.5 rounded-lg bg-orange-100 dark:bg-orange-950 flex items-center justify-center text-[10px] text-orange-600 dark:text-orange-400 font-bold font-japanese">語</span>
+                                        <div className="px-4 py-2 text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider bg-slate-50 dark:bg-slate-950/50 flex items-center gap-1.5 font-mono uppercase">
+                                            <span className="w-4 h-4 rounded-md bg-orange-100 dark:bg-orange-950 flex items-center justify-center text-[10px] text-orange-600 dark:text-orange-400 font-bold font-japanese">語</span>
                                             TỪ VỰNG ({vocabResults.length})
                                         </div>
                                         {vocabResults.map((v, idx) => (
-                                            <button key={v.id || idx} onClick={() => {
-                                                const kanjiChar = v.word?.split('').find(ch => { const code = ch.charCodeAt(0); return code >= 0x4E00 && code <= 0x9FFF; });
-                                                if (kanjiChar) { openKanjiDetail(kanjiChar); }
-                                                setSearchQuery(''); setShowSearchResults(false);
-                                            }}
-                                                className="w-full px-4 py-3 flex items-center gap-4 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors text-left cursor-pointer">
-                                                <span className="text-xl font-japanese font-bold text-orange-500 dark:text-orange-400 w-10 text-center">{v.word}</span>
-                                                <div className="flex-1 min-w-0">
-                                                    <div className="flex items-center gap-2">
-                                                        <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">{v.reading}</span>
-                                                        {v.sinoViet && <span className="text-[9px] font-bold text-amber-500 dark:text-amber-400 uppercase">{v.sinoViet}</span>}
+                                            <button 
+                                                key={v.id || idx} 
+                                                onClick={() => {
+                                                    const kanjiChar = v.word?.split('').find(ch => { const code = ch.charCodeAt(0); return code >= 0x4E00 && code <= 0x9FFF; });
+                                                    if (kanjiChar) { openKanjiDetail(kanjiChar); }
+                                                    setSearchQuery(''); 
+                                                    setShowSearchResults(false);
+                                                }}
+                                                className="w-full px-4 py-3 flex items-start gap-3.5 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-all text-left cursor-pointer group"
+                                            >
+                                                <div className="flex flex-col shrink-0 min-w-[75px] max-w-[130px]">
+                                                    <span className="text-base font-japanese font-bold text-orange-600 dark:text-orange-400 break-words leading-tight">
+                                                        {v.word}
+                                                    </span>
+                                                    {v.reading && (
+                                                        <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5 leading-tight">
+                                                            {v.reading}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <div className="flex-1 min-w-0 border-l border-slate-100 dark:border-slate-800 pl-3">
+                                                    {v.sinoViet && (
+                                                        <div className="mb-0.5">
+                                                            <span className="text-[10px] font-black text-amber-600 dark:text-amber-400 uppercase tracking-wider bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200/50 dark:border-amber-900/30">
+                                                                {v.sinoViet}
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                                    <div className="text-xs text-slate-700 dark:text-slate-300 line-clamp-2 mt-0.5 leading-snug font-medium">
+                                                        {v.meaning || '---'}
                                                     </div>
-                                                    <div className="text-xs text-gray-500 dark:text-gray-400 truncate mt-0.5">{v.meaning}</div>
                                                 </div>
                                             </button>
                                         ))}

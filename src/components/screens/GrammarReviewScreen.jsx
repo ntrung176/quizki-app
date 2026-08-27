@@ -396,6 +396,17 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }
     }, [location.state, loading, reviewMode, dueGrammar.length]);
 
+    const [reviewTick, setReviewTick] = useState(Date.now());
+
+    // 1s ticker for review mode timer and auto detecting newly due grammar points
+    useEffect(() => {
+        if (!reviewMode) return;
+        const intervalId = setInterval(() => {
+            setReviewTick(Date.now());
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, [reviewMode]);
+
     const currentCard = reviewQueue[currentReviewIndex] || null;
 
     const speakText = (text) => {
@@ -453,12 +464,27 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             cardId: currentCard.id,
             srs: srs ? { ...srs } : null,
             isFlipped: isFlipped,
-            xpAwarded: totalXp
+            xpAwarded: totalXp,
+            queue: [...reviewQueue]
         }]);
 
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
+        } else {
+            // Thẻ chưa tốt nghiệp (Quên / Khó / chu kỳ ngắn 1m, 5m, 10m):
+            // Tự động chèn lại thẻ vào hàng đợi ôn tập để người học ôn lại ngay trong phiên này
+            const remainingCardsCount = updatedQueue.length - 1 - currentReviewIndex;
+            let insertIndex;
+            if (remainingCardsCount >= 3) {
+                insertIndex = currentReviewIndex + 3; // Chèn sau 2-3 thẻ nếu còn nhiều thẻ
+            } else if (remainingCardsCount >= 1) {
+                insertIndex = updatedQueue.length; // Chèn vào cuối hàng đợi
+            } else {
+                // Nếu chỉ còn 1 thẻ hoặc là thẻ cuối cùng: chèn ngay sau thẻ hiện tại
+                insertIndex = currentReviewIndex + 1;
+            }
+            updatedQueue.splice(insertIndex, 0, currentCard);
         }
 
         if (currentReviewIndex + 2 >= updatedQueue.length) {
@@ -873,7 +899,13 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             );
         }
 
-        // When 0 cards are waiting -> Render Completion Screen with 'Kết thúc phiên ôn tập' button
+        // Check for any newly due grammar points while staying on the completion screen
+        const newlyDueGrammar = (grammarList || []).filter(g => {
+            const srs = srsData[g.id];
+            return isSrsCardDue(srs, reviewTick);
+        });
+
+        // When 0 cards are waiting -> Render Completion Screen
         return (
             <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8 animate-fade-in">
                 <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-200 dark:border-emerald-500/30">
@@ -885,17 +917,42 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             Hoàn thành phiên ôn tập Ngữ Pháp!
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
-                            Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ngữ pháp trong phiên ôn tập này.
+                            {newlyDueGrammar.length > 0
+                                ? `Hiện tại có thêm ${newlyDueGrammar.length} mẫu ngữ pháp vừa đến hạn ôn tập. Bạn có muốn tiếp tục không?`
+                                : "Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ngữ pháp trong phiên ôn tập này."}
                         </p>
                     </div>
 
-                    <div className="flex justify-center w-full pt-4">
-                        <button
-                            onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                            className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
-                        >
-                            Kết thúc phiên ôn tập
-                        </button>
+                    <div className="w-full pt-4">
+                        {newlyDueGrammar.length > 0 ? (
+                            <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        startReviewSession(newlyDueGrammar);
+                                    }}
+                                    className="flex-1 w-full py-3.5 px-4 bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
+                                >
+                                    <Repeat2 className="w-4 h-4" />
+                                    Tiếp tục ôn tập ({newlyDueGrammar.length} thẻ)
+                                </button>
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                    className="w-full sm:w-auto py-3.5 px-5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-xl transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer text-center"
+                                >
+                                    Kết thúc
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="flex justify-center w-full">
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                    className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
+                                >
+                                    Kết thúc phiên ôn tập
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

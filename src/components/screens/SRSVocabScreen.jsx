@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu, FlaskConical } from 'lucide-react'
-import { TopTabBar, SrsPrewarmLoader, SrsTestingPanelModal, PersonalMnemonicModal, SrsCountdownTimer } from '../ui';
+import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu } from 'lucide-react'
+import { TopTabBar, SrsPrewarmLoader, PersonalMnemonicModal, SrsCountdownTimer } from '../ui';
+import SrsTypingInput from '../srs/SrsTypingInput';
+import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -117,12 +119,22 @@ const SRSVocabScreen = ({
     const { targetLanguage } = useTargetLanguage();
 
     const filteredCards = useMemo(() => {
+        const existingFolderIds = new Set((folders || []).map(f => f.id));
+        existingFolderIds.add('unfiled');
+
         return (allCards || []).filter(c => {
             if (c.srsEnabled === false) return false;
             const lang = c.targetLanguage || 'ja';
-            return lang === targetLanguage;
+            if (lang !== targetLanguage) return false;
+
+            const fId = cardFolders[c.id] || c.folderId || 'unfiled';
+            // Không hiển thị từ vựng thuộc học phần đã bị xóa
+            if (fId !== 'unfiled' && !existingFolderIds.has(fId)) {
+                return false;
+            }
+            return true;
         });
-    }, [allCards, targetLanguage]);
+    }, [allCards, targetLanguage, folders, cardFolders]);
 
     const [dashboardTick, setDashboardTick] = useState(Date.now());
     const reviewModeTickRef = useRef(false);
@@ -162,16 +174,32 @@ const SRSVocabScreen = ({
     const [showMistakeModal, setShowMistakeModal] = useState(false);
     const [selectedMistakeMode, setSelectedMistakeMode] = useState('flashcard');
     const [showLeechManager, setShowLeechManager] = useState(false);
-    const [showSrsTestModal, setShowSrsTestModal] = useState(false);
+
+    // Modal chọn chế độ ôn tập (Flashcard vs Typing)
+    const [srsModeModalData, setSrsModeModalData] = useState({
+        isOpen: false,
+        cards: [],
+        folderId: 'global',
+        title: 'Chọn chế độ ôn tập',
+        count: 0
+    });
+
+    const requestStartReview = (cards, folderId = 'global', title = 'Chọn chế độ ôn tập') => {
+        if (!cards || cards.length === 0) return;
+        setSrsModeModalData({
+            isOpen: true,
+            cards,
+            folderId,
+            title,
+            count: cards.length
+        });
+    };
 
     const leechVocabCards = useMemo(() => filteredCards.filter(c => isLeechCard(c) || isLeechCard(c.srsData)), [filteredCards]);
 
     const handleStartLeechReview = (items) => {
         if (!items || items.length === 0) return;
-        setReviewQueue(shuffleArray(items));
-        setCurrentReviewIndex(0);
-        setReviewHistory([]);
-        setReviewMode(true);
+        requestStartReview(items, 'leech', 'Ôn tập thẻ khó nhớ');
     };
 
     const handleResetLeech = (item) => {
@@ -242,7 +270,8 @@ const SRSVocabScreen = ({
             },
             swapSides: false,
             autoPlayAudio: true,
-            audioEnabled: true
+            audioEnabled: true,
+            reviewType: 'flashcard' // 'flashcard' | 'typing'
         };
         try {
             const saved = localStorage.getItem('quizki_flashcard_settings_v2');
@@ -254,7 +283,8 @@ const SRSVocabScreen = ({
                     front: { ...defaultSettings.front, ...parsed.front },
                     back: { ...defaultSettings.back, ...parsed.back },
                     autoPlayAudio: parsed.autoPlayAudio !== undefined ? parsed.autoPlayAudio : true,
-                    audioEnabled: parsed.audioEnabled !== undefined ? parsed.audioEnabled : true
+                    audioEnabled: parsed.audioEnabled !== undefined ? parsed.audioEnabled : true,
+                    reviewType: parsed.reviewType || 'flashcard'
                 };
             }
         } catch (e) { }
@@ -385,9 +415,9 @@ const SRSVocabScreen = ({
         stats['unfiled'] = { id: 'unfiled', name: 'Từ vựng lẻ', newCards: [], dueCards: [], allCards: [], total: 0, masteredCount: 0, createdAt: null };
 
         filteredCards.forEach(card => {
-            const fId = cardFolders[card.id] || 'unfiled';
+            const fId = cardFolders[card.id] || card.folderId || 'unfiled';
             if (!stats[fId]) {
-                stats[fId] = { id: fId, name: 'Học phần ẩn', newCards: [], dueCards: [], allCards: [], total: 0, masteredCount: 0 };
+                return;
             }
             stats[fId].total++;
             stats[fId].allCards.push(card);
@@ -461,7 +491,7 @@ const SRSVocabScreen = ({
     const nextDueVocabInfo = useMemo(() => {
         const now = Date.now();
         let earliest = Infinity;
-        allCards.forEach(c => {
+        filteredCards.forEach(c => {
             if (c.srsEnabled !== false) {
                 const localSrs = sessionSrsData.current[c.id];
                 const nextReviewVal = localSrs ? localSrs.nextReview_back : c.nextReview_back;
@@ -479,7 +509,7 @@ const SRSVocabScreen = ({
             }
         });
         return earliest === Infinity ? null : earliest;
-    }, [allCards]);
+    }, [filteredCards]);
 
     const countdownText = useMemo(() => {
         if (!nextDueVocabInfo) return null;
@@ -558,9 +588,12 @@ const SRSVocabScreen = ({
                 // Navigate to the set detail page so user can activate SRS per card
                 navigate(`/vocab/set/${folderId || 'unfiled'}`);
                 break;
-            case 'due':
-                startFolderReview(cards, folderId || 'unfiled');
+            case 'due': {
+                const folderObj = folders.find(f => f.id === folderId);
+                const folderTitle = folderObj ? `Ôn tập học phần: ${folderObj.name}` : 'Ôn tập học phần';
+                requestStartReview(cards, folderId || 'unfiled', folderTitle);
                 break;
+            }
         }
     };
 
@@ -568,7 +601,7 @@ const SRSVocabScreen = ({
     const handleResumeGlobal = () => {
         const allAvailable = folderStats.flatMap(f => f.dueCards);
         if (allAvailable.length > 0) {
-            startFolderReview(allAvailable, 'global');
+            requestStartReview(allAvailable, 'global', 'Ôn tập từ vựng ngắt quãng');
         } else {
             if (setNotification) {
                 setNotification("Không có thẻ nào cần ôn tập ngắt quãng lúc này.");
@@ -730,7 +763,8 @@ const SRSVocabScreen = ({
             cardIndex: currentReviewIndex,
             cardId: card.id,
             srsFields: prevSrsFields,
-            isFlipped: isFlipped
+            isFlipped: isFlipped,
+            queue: [...reviewQueue]
         }]);
 
         // Calculate next SRS state locally
@@ -785,12 +819,24 @@ const SRSVocabScreen = ({
             sessionXpRef.current += (xp || 0);
         }
 
-
-
-        // 1. Determine if card graduated/completed in this session
+        // 1. Determine if card graduated/completed in this session or needs re-insertion
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(card.id);
+        } else {
+            // Thẻ chưa tốt nghiệp (Quên / Khó / chu kỳ ngắn 1m, 5m, 10m):
+            // Tự động chèn lại thẻ vào hàng đợi ôn tập để người học ôn lại ngay trong phiên này
+            const remainingCardsCount = updatedQueue.length - 1 - currentReviewIndex;
+            let insertIndex;
+            if (remainingCardsCount >= 3) {
+                insertIndex = currentReviewIndex + 3; // Chèn sau 2-3 thẻ nếu còn nhiều thẻ
+            } else if (remainingCardsCount >= 1) {
+                insertIndex = updatedQueue.length; // Chèn vào cuối hàng đợi
+            } else {
+                // Nếu chỉ còn 1 thẻ hoặc là thẻ cuối cùng: chèn ngay sau thẻ hiện tại
+                insertIndex = currentReviewIndex + 1;
+            }
+            updatedQueue.splice(insertIndex, 0, card);
         }
 
         setReviewQueue(updatedQueue);
@@ -944,6 +990,9 @@ const SRSVocabScreen = ({
             }
             if (e.key === ' ') {
                 e.preventDefault();
+                if (cardSettings?.reviewType === 'typing' && !isFlipped) {
+                    return;
+                }
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
@@ -1077,15 +1126,24 @@ const SRSVocabScreen = ({
                                                 <Volume2 className="w-4 h-4" />
                                             </button>
                                         )}
-                                        {isAdmin && (
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); setShowSrsTestModal(true); }}
-                                                className="p-2 min-h-[44px] min-w-[44px] bg-emerald-500/10 dark:bg-emerald-500/20 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-emerald-500/30 cursor-pointer"
-                                                title="Bảng Test Thuật Toán SRS"
-                                            >
-                                                <FlaskConical className="w-4 h-4" />
-                                            </button>
-                                        )}
+                                        {/* Quick Swap Sides Button */}
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setCardSettings(prev => ({
+                                                    ...prev,
+                                                    swapSides: !prev.swapSides
+                                                }));
+                                            }}
+                                            className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border cursor-pointer ${
+                                                cardSettings.swapSides
+                                                    ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
+                                                    : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                            }`}
+                                            title={cardSettings.swapSides ? "Đang hiện Nghĩa tiếng Việt trước. Nhấn để đổi sang hiện Tiếng Nhật trước" : "Đang hiện Tiếng Nhật trước. Nhấn để đổi sang hiện Nghĩa tiếng Việt trước"}
+                                        >
+                                            <RotateCw className="w-4 h-4" />
+                                        </button>
                                         <button
                                             onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
                                             className="p-2 min-h-[44px] min-w-[44px] bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
@@ -1152,6 +1210,26 @@ const SRSVocabScreen = ({
                             </div>
                         </div>
 
+                        {/* Anki Typing Input Component */}
+                        {cardSettings.reviewType === 'typing' && (
+                            <div className="w-full mt-2">
+                                <SrsTypingInput
+                                    card={currentCard}
+                                    isFlipped={isFlipped}
+                                    isReversed={cardSettings.swapSides}
+                                    expectedLanguage={cardSettings.swapSides ? 'ja' : 'vi'}
+                                    onFlip={() => {
+                                        setIsAnimatingFlip(true);
+                                        setIsFlipped(true);
+                                        playFlipSound();
+                                    }}
+                                    onCheck={() => {}}
+                                    onQuickRate={(rating) => handleRating(rating)}
+                                    placeholder={cardSettings.swapSides ? "Nhập từ tiếng Nhật (Kanji hoặc Hiragana)..." : "Nhập nghĩa tiếng Việt..."}
+                                />
+                            </div>
+                        )}
+
                         {/* Anti-Slop High-End SRS Rating Buttons */}
                         <div className="grid grid-cols-4 gap-2 sm:gap-3.5 w-full animate-fade-in mt-4" data-tour-id="RATING_PANEL">
                             {[
@@ -1185,6 +1263,16 @@ const SRSVocabScreen = ({
                             <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
                                 <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
                                 <div className="space-y-4 text-xs font-semibold text-slate-700 dark:text-slate-350">
+                                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                        <div>
+                                            <span className="text-indigo-600 dark:text-indigo-400 font-bold block">Chế độ gõ câu trả lời (Anki Type)</span>
+                                            <span className="text-[11px] text-gray-400 dark:text-gray-500 font-normal">Gõ đáp án và so sánh kết quả từng ký tự</span>
+                                        </div>
+                                        <label className="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked={cardSettings.reviewType === 'typing'} onChange={(e) => setCardSettings(prev => ({ ...prev, reviewType: e.target.checked ? 'typing' : 'flashcard' }))} className="sr-only peer" />
+                                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                        </label>
+                                    </div>
                                     <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
                                         <span className="text-indigo-600 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
                                         <label className="relative inline-flex items-center cursor-pointer">
@@ -1299,7 +1387,10 @@ const SRSVocabScreen = ({
             );
         }
 
-        // When 0 cards are waiting (session 100% completed) -> Render Completion Congratulation Screen with 'Kết thúc phiên ôn tập' button!
+        // Check for any newly due cards while staying on the completion screen
+        const newlyDueCards = filteredCards.filter(c => isDue(c, lastTick));
+
+        // When 0 cards are waiting (session 100% completed) -> Render Completion Congratulation Screen
         return (
             <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8 animate-fade-in">
                 <div className="w-[600px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-200 dark:border-emerald-500/30">
@@ -1311,17 +1402,42 @@ const SRSVocabScreen = ({
                             Hoàn thành phiên ôn tập!
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
-                            Chúc mừng! Bạn đã hoàn thành xuất sắc tất cả các thẻ từ vựng trong phiên ôn tập này.
+                            {newlyDueCards.length > 0
+                                ? `Hiện tại có thêm ${newlyDueCards.length} thẻ từ vựng vừa đến hạn ôn tập. Bạn có muốn tiếp tục không?`
+                                : "Chúc mừng! Bạn đã hoàn thành xuất sắc tất cả các thẻ từ vựng trong phiên ôn tập này."}
                         </p>
                     </div>
 
-                    <div className="flex justify-center w-full pt-4">
-                        <button
-                            onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                            className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
-                        >
-                            Kết thúc phiên ôn tập
-                        </button>
+                    <div className="w-full pt-4">
+                        {newlyDueCards.length > 0 ? (
+                            <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        startFolderReview(newlyDueCards, activeFolderIdRef.current || 'global');
+                                    }}
+                                    className="flex-1 w-full py-3.5 px-4 bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
+                                >
+                                    <Repeat2 className="w-4 h-4" />
+                                    Tiếp tục ôn tập ({newlyDueCards.length} thẻ)
+                                </button>
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                    className="w-full sm:w-auto py-3.5 px-5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-xl transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer text-center"
+                                >
+                                    Kết thúc
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="flex justify-center w-full">
+                                <button
+                                    onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                                    className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
+                                >
+                                    Kết thúc phiên ôn tập
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -1357,15 +1473,6 @@ const SRSVocabScreen = ({
                                 >
                                     <span>🩸 {t('vocab.leechCards', 'Thẻ Khó')} ({leechVocabCards.length})</span>
                                 </button>
-                                {isAdmin && (
-                                    <button
-                                        onClick={() => setShowSrsTestModal(true)}
-                                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-[10px] sm:text-xs font-mono font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
-                                    >
-                                        <FlaskConical className="w-3.5 h-3.5 text-emerald-500" />
-                                        <span>🧪 Bảng Test SRS</span>
-                                    </button>
-                                )}
                             </div>
                             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                                 {t('vocab.title', 'Ôn tập Từ vựng')}
@@ -1723,10 +1830,6 @@ const SRSVocabScreen = ({
                 onStartLeechReview={handleStartLeechReview}
                 onResetLeechCount={handleResetLeech}
             />
-            <SrsTestingPanelModal 
-                isOpen={showSrsTestModal}
-                onClose={() => setShowSrsTestModal(false)}
-            />
             <PersonalMnemonicModal
                 isOpen={!!editingMnemonicCard}
                 onClose={() => setEditingMnemonicCard(null)}
@@ -1740,6 +1843,18 @@ const SRSVocabScreen = ({
                         }
                         return c;
                     }));
+                }}
+            />
+
+            {/* SRS Mode Selection Modal (Flashcard vs Anki Typing) */}
+            <SrsModeSelectModal
+                isOpen={srsModeModalData.isOpen}
+                onClose={() => setSrsModeModalData(prev => ({ ...prev, isOpen: false }))}
+                title={srsModeModalData.title}
+                cardCount={srsModeModalData.count}
+                onSelectMode={(mode) => {
+                    setCardSettings(prev => ({ ...prev, reviewType: mode }));
+                    startFolderReview(srsModeModalData.cards, srsModeModalData.folderId);
                 }}
             />
         </div>
