@@ -409,11 +409,11 @@ const HomeScreen = ({
                                     navigate(action.route, isDueAvailable ? { state: { autoStart: true } } : undefined);
                                 }
                             }}
-                            className={`relative group bg-gradient-to-br ${action.gradient} text-white rounded-2xl p-5 text-left transition-all duration-300 hover:scale-[1.02] active:scale-98 overflow-hidden min-h-[110px] cursor-pointer shadow-lg select-none border border-white/10 ${action.glow}`}
+                            className={`relative group isolate bg-gradient-to-br ${action.gradient} text-white rounded-2xl p-5 text-left transition-all duration-300 hover:scale-[1.02] active:scale-98 overflow-hidden min-h-[110px] cursor-pointer shadow-lg select-none border border-white/10 ${action.glow}`}
                         >
                             <div className="relative z-10 flex flex-col justify-between h-full">
                                 <div className="flex items-center justify-between">
-                                    <div className="p-2.5 rounded-xl bg-white/20 backdrop-blur-md group-hover:scale-110 transition-transform">
+                                    <div className="p-2.5 rounded-xl bg-white/20 group-hover:scale-110 transition-transform">
                                         <action.icon className="w-5 h-5 text-white" />
                                     </div>
                                     <ArrowRight className="w-5 h-5 text-white/70 group-hover:translate-x-1 group-hover:text-white transition-all" />

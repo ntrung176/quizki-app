@@ -164,7 +164,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             const reps = srs.reps || 0;
             const state = getCardState(srs);
             totalReps += reps;
-            
+
             if (state === 'learning' || state === 'LEARNING' || state === 'relearning' || state === 'RELEARNING') {
                 if (reps > 0 || srs.lastReview) {
                     learning++;
@@ -617,9 +617,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 setDashboardTick(Date.now());
                 try {
                     window.dispatchEvent(new Event('srs-updated'));
-                } catch (e) {}
+                } catch (e) { }
                 if (setIsReviewActive) {
-                    try { setIsReviewActive(false); } catch (e) {}
+                    try { setIsReviewActive(false); } catch (e) { }
                 }
                 isExitingRef.current = false;
             }
@@ -736,8 +736,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
 
         return (
-            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
-                <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4">
+            <div className="w-full min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-6 animate-fade-in">
+                <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4 transition-all duration-300">
                     <div className="w-full flex justify-between mb-2">
                         <button onClick={exitReview}
                             className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
@@ -978,11 +978,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 </div>
                                 <button
                                     onClick={() => setShowLeechManager(true)}
-                                    className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${
-                                        leechGrammarItems.length > 0
+                                    className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${leechGrammarItems.length > 0
                                             ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
                                             : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
-                                    }`}
+                                        }`}
                                 >
                                     <span>🩸 {t('grammar.leechCards', 'Thẻ Khó')} ({leechGrammarItems.length})</span>
                                 </button>
@@ -1061,7 +1060,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                 {/* SRS Forecast Chart */}
                 {grammarList.length > 0 && (
-                    <SRSForecastChart 
+                    <SRSForecastChart
                         items={grammarList.map(g => ({
                             id: g.id,
                             state: srsData[g.id]?.state,
@@ -1069,9 +1068,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             reps: srsData[g.id]?.reps || 0,
                             interval: srsData[g.id]?.interval || 0,
                             learningStep: srsData[g.id]?.learningStep
-                        }))} 
-                        daysCount={14} 
-                        title="Dự Báo Ngữ Pháp Đến Hạn (14 Ngày Tới)" 
+                        }))}
+                        daysCount={14}
+                        title="Dự Báo Ngữ Pháp Đến Hạn (14 Ngày Tới)"
                     />
                 )}
 
@@ -1124,7 +1123,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             </div>
 
             {/* Leech Manager Modal */}
-            <LeechManagerModal 
+            <LeechManagerModal
                 isOpen={showLeechManager}
                 onClose={() => setShowLeechManager(false)}
                 grammarItems={grammarList.map(g => ({

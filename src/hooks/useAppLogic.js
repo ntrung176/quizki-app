@@ -206,20 +206,20 @@ export const useAppLogic = () => {
 
     // Real handlers from hooks
     const handleExtractVocabFromImage = vocab.handleExtractVocabFromImage;
-    const handleGenerateMoreExample = useCallback(async (word) => {}, []);
-    const handleBatchImport = useCallback(async (vocabText) => {}, []);
-    const handleBatchSaveNext = useCallback(async () => {}, []);
-    const handleBatchSkip = useCallback(() => {}, []);
-    const handleExport = useCallback(() => {}, []);
-    const handleNavigateToEdit = useCallback((card) => {}, []);
-    const handleUpdateGoal = useCallback(async (newGoal) => {}, []);
+    const handleGenerateMoreExample = useCallback(async (word) => { }, []);
+    const handleBatchImport = useCallback(async (vocabText) => { }, []);
+    const handleBatchSaveNext = useCallback(async () => { }, []);
+    const handleBatchSkip = useCallback(() => { }, []);
+    const handleExport = useCallback(() => { }, []);
+    const handleNavigateToEdit = useCallback((card) => { }, []);
+    const handleUpdateGoal = useCallback(async (newGoal) => { }, []);
     const handleUpdateProfileName = authAndProfile.handleUpdateProfileName;
     const handleUpdateAvatar = authAndProfile.handleUpdateAvatar;
     const handleChangePassword = authAndProfile.handleChangePassword;
     const handleSaveCardAudio = vocab.handleSaveCardAudio;
     const handleUpdateVocabSrsRating = vocab.handleUpdateVocabSrsRating;
     const handleRevertVocabSrsRating = vocab.handleRevertVocabSrsRating;
-    const handleRefreshCards = useCallback(async () => {}, []);
+    const handleRefreshCards = useCallback(async () => { }, []);
     const awardXP = authAndProfile.awardXP;
 
     return {

@@ -212,9 +212,9 @@ const SRSVocabScreen = ({
     // Calculate streak from dailyActivityLogs
     const streak = useMemo(() => {
         if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
-        const activeLogs = dailyActivityLogs.filter(log => 
-            (log.newWordsAdded || 0) > 0 || 
-            (log.newKanjiAdded || 0) > 0 || 
+        const activeLogs = dailyActivityLogs.filter(log =>
+            (log.newWordsAdded || 0) > 0 ||
+            (log.newKanjiAdded || 0) > 0 ||
             (log.reviewsDone || 0) > 0
         );
         if (activeLogs.length === 0) return 0;
@@ -224,7 +224,7 @@ const SRSVocabScreen = ({
         const reversedLogs = [...activeLogs].reverse();
         const lastLog = reversedLogs[0];
         if (lastLog.id !== todayStr && lastLog.id !== yesterdayStr) return 0;
-        
+
         let currentStreak = 0;
         let checkDate = new Date();
         if (lastLog.id !== todayStr) checkDate.setDate(checkDate.getDate() - 1);
@@ -352,6 +352,7 @@ const SRSVocabScreen = ({
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isPreparingSession, setIsPreparingSession] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [hasCheckedTyping, setHasCheckedTyping] = useState(false);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
     const [reviewMode, setReviewModeState] = useState(false);
@@ -368,6 +369,7 @@ const SRSVocabScreen = ({
 
     useEffect(() => {
         setShowNuancePopup(false);
+        setHasCheckedTyping(false);
     }, [currentReviewIndex, reviewMode]);
 
     // Preload adjacent cards' base64 images for seamless transitions
@@ -381,7 +383,7 @@ const SRSVocabScreen = ({
                     const img = new Image();
                     img.src = card.imageBase64;
                     if (typeof img.decode === 'function') {
-                        img.decode().catch(() => {});
+                        img.decode().catch(() => { });
                     }
                 }
             }
@@ -515,10 +517,10 @@ const SRSVocabScreen = ({
         if (!nextDueVocabInfo) return null;
         const secondsLeft = Math.max(0, Math.ceil((nextDueVocabInfo - dashboardTick) / 1000));
         if (secondsLeft <= 0) return null;
-        
+
         const pad = (n) => String(n).padStart(2, '0');
         if (secondsLeft < 60) return `00:00:${pad(secondsLeft)}`;
-        
+
         const hours = Math.floor(secondsLeft / 3600);
         const mins = Math.floor((secondsLeft % 3600) / 60);
         const secs = secondsLeft % 60;
@@ -565,10 +567,10 @@ const SRSVocabScreen = ({
                 const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
                 if (AudioCtxClass) {
                     const tempCtx = new AudioCtxClass();
-                    if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => {});
+                    if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
                 }
             }
-        } catch (_) {}
+        } catch (_) { }
 
         // Transition seamlessly to Card #1 after pre-warming phase
         setTimeout(() => {
@@ -634,7 +636,7 @@ const SRSVocabScreen = ({
         return Object.entries(sessionSrsData.current)
             .filter(([id, srs]) => {
                 if (!activeReviewCardIds.current.has(id)) return false;
-                
+
                 const stateStr = (srs.state || srs.srsState || '').toUpperCase();
                 if (stateStr === 'REVIEW') return false;
                 if (completedCardIds.current.has(id)) return false;
@@ -666,7 +668,7 @@ const SRSVocabScreen = ({
         if (!reviewMode) return;
         const intervalId = setInterval(() => {
             setLastTick(Date.now());
-            
+
             const now = Date.now();
             const waiting = getLearningCardsWaiting();
             const dueNow = waiting.filter(w => w.nextReview <= now);
@@ -697,7 +699,7 @@ const SRSVocabScreen = ({
                             }
                         }
                     });
-                    
+
                     if (cardsToInject.length > 0) {
                         const minSpacing = 3;
                         const insertIndex = Math.min(currentReviewIndex + minSpacing, nextQueue.length);
@@ -786,7 +788,7 @@ const SRSVocabScreen = ({
         const result = calculateAnkiSRS(currentSrs, rating);
         const nowTime = Date.now();
         const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
-        
+
         const newSrs = {
             ...currentSrs,
             srsInterval: result.interval,
@@ -880,9 +882,9 @@ const SRSVocabScreen = ({
         console.timeEnd('⚡ SRS_RATING_VOCAB');
     };
 
-    const saveSessionState = () => {};
-    const handleResumeSavedSession = () => {};
-    const handleDiscardSavedSession = () => {};
+    const saveSessionState = () => { };
+    const handleResumeSavedSession = () => { };
+    const handleDiscardSavedSession = () => { };
 
     const isExitingRef = useRef(false);
 
@@ -913,12 +915,12 @@ const SRSVocabScreen = ({
             setDashboardTick(Date.now());
             try {
                 window.dispatchEvent(new Event('srs-updated'));
-            } catch (e) {}
+            } catch (e) { }
             if (onRefreshCards) {
                 try { onRefreshCards(); } catch (e) { console.warn('onRefreshCards error:', e); }
             }
             if (setIsReviewActive) {
-                try { setIsReviewActive(false); } catch (e) {}
+                try { setIsReviewActive(false); } catch (e) { }
             }
             isExitingRef.current = false;
         };
@@ -990,16 +992,18 @@ const SRSVocabScreen = ({
             }
             if (e.key === ' ') {
                 e.preventDefault();
-                if (cardSettings?.reviewType === 'typing' && !isFlipped) {
+                if (cardSettings?.reviewType === 'typing' && !hasCheckedTyping) {
                     return;
                 }
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
-            if (e.key === '1') handleRating('again');
-            if (e.key === '2') handleRating('hard');
-            if (e.key === '3') handleRating('good');
-            if (e.key === '4') handleRating('easy');
+            if (cardSettings?.reviewType !== 'typing' || hasCheckedTyping) {
+                if (e.key === '1') handleRating('again');
+                if (e.key === '2') handleRating('hard');
+                if (e.key === '3') handleRating('good');
+                if (e.key === '4') handleRating('easy');
+            }
             if (e.key === 'Backspace' || e.key === 'z' || (e.key === 'z' && e.ctrlKey)) {
                 e.preventDefault();
                 handleUndo();
@@ -1007,7 +1011,7 @@ const SRSVocabScreen = ({
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, currentReviewIndex, reviewQueue, reviewHistory]);
+    }, [reviewMode, currentReviewIndex, reviewQueue, reviewHistory, hasCheckedTyping, cardSettings?.reviewType]);
 
     const lastPlayedKeyRef = useRef('');
 
@@ -1058,285 +1062,288 @@ const SRSVocabScreen = ({
 
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
         return (
-                <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8">
-                    <div className="w-[800px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6">
-                        {/* Header with Exit */}
-                        <div className="w-full flex justify-between items-center gap-2">
+            <div className="w-full min-h-[calc(100vh-80px)] flex flex-col justify-center items-center px-4 py-6 bg-transparent animate-fade-in">
+                <div className="w-[800px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 transition-all duration-300">
+                    {/* Header with Exit */}
+                    <div className="w-full flex justify-between items-center gap-2">
+                        <button
+                            onClick={(e) => { e.stopPropagation(); exitReview(true); }}
+                            className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer select-none active:scale-95 touch-manipulation"
+                        >
+                            <ChevronLeft className="w-4 h-4" /> Thoát ôn tập
+                        </button>
+                        {reviewHistory.length > 0 ? (
                             <button
-                                onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer select-none active:scale-95 touch-manipulation"
+                                onClick={handleUndo}
+                                className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-indigo-500 dark:text-indigo-400 hover:text-indigo-650 dark:hover:text-indigo-300 transition-colors cursor-pointer select-none active:scale-95"
                             >
-                                <ChevronLeft className="w-4 h-4" /> Thoát ôn tập
+                                <RotateCcw className="w-4 h-4" /> Quay lại thẻ trước
                             </button>
-                            {reviewHistory.length > 0 ? (
-                                <button
-                                    onClick={handleUndo}
-                                    className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-indigo-500 dark:text-indigo-400 hover:text-indigo-650 dark:hover:text-indigo-300 transition-colors cursor-pointer select-none active:scale-95"
-                                >
-                                    <RotateCcw className="w-4 h-4" /> Quay lại thẻ trước
-                                </button>
-                            ) : (
-                                <span className="text-[10px] sm:text-xs font-semibold text-slate-400 dark:text-slate-500 font-mono">ÔN TẬP TỪ VỰNG NGẮT QUÃNG</span>
-                            )}
-                        </div>
-
-                        {/* Progress Header with Action Buttons OUTSIDE Flashcard */}
-                        <div className="w-full space-y-2">
-                            <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                                <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5 text-indigo-500" /> Tiến độ</span>
-                                <div className="flex items-center gap-3">
-                                    <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}</span>
-                                    
-                                    {/* Action Buttons Toolbar OUTSIDE Flashcard */}
-                                    <div className="flex items-center gap-1.5 z-30">
-                                        <button
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setShowNuancePopup(prev => !prev);
-                                            }}
-                                            className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border ${
-                                                currentCard.nuance 
-                                                    ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300' 
-                                                    : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
-                                            }`}
-                                            title="Sắc thái từ vựng"
-                                        >
-                                            <Lightbulb className="w-4 h-4" />
-                                        </button>
-                                        {cardSettings.audioEnabled !== false && (
-                                            <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    if (currentCard) {
-                                                        const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
-                                                        if (cardText) {
-                                                            speakJapanese(
-                                                                cardText,
-                                                                currentCard.audioBase64 || currentCard.audioUrl || null,
-                                                                onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null,
-                                                                currentCard.audioVoiceId
-                                                            );
-                                                        }
-                                                    }
-                                                }}
-                                                data-tour-id="FLASHCARD_SPEAKER"
-                                                className="p-2 min-h-[44px] min-w-[44px] bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
-                                                title="Phát âm"
-                                            >
-                                                <Volume2 className="w-4 h-4" />
-                                            </button>
-                                        )}
-                                        {/* Quick Swap Sides Button */}
-                                        <button
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                setCardSettings(prev => ({
-                                                    ...prev,
-                                                    swapSides: !prev.swapSides
-                                                }));
-                                            }}
-                                            className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border cursor-pointer ${
-                                                cardSettings.swapSides
-                                                    ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
-                                                    : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
-                                            }`}
-                                            title={cardSettings.swapSides ? "Đang hiện Nghĩa tiếng Việt trước. Nhấn để đổi sang hiện Tiếng Nhật trước" : "Đang hiện Tiếng Nhật trước. Nhấn để đổi sang hiện Nghĩa tiếng Việt trước"}
-                                        >
-                                            <RotateCw className="w-4 h-4" />
-                                        </button>
-                                        <button
-                                            onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                            className="p-2 min-h-[44px] min-w-[44px] bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
-                                            title="Cấu hình hiển thị"
-                                        >
-                                            <Settings className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-2 w-full bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                                <div className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
-                            </div>
-                        </div>
-
-                        {/* Flashcard Container Wrapper */}
-                        <div className="w-full relative group perspective flex-shrink-0" data-tour-id="FLASHCARD_CONTAINER">
-                            <div className="perspective-1000 w-full mx-auto relative">
-                                <div
-                                    className={`cursor-pointer relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
-                                    style={{
-                                        width: '100%',
-                                        transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
-                                    }}
-                                >
-                                    <Flashcard
-                                        card={currentCard}
-                                        cardSettings={cardSettings}
-                                        isFlipped={isFlipped}
-                                        onFlip={() => {
-                                            setIsAnimatingFlip(true);
-                                            setIsFlipped(!isFlipped);
-                                            playFlipSound();
-                                        }}
-                                        onEditMnemonic={(card) => setEditingMnemonicCard(card)}
-                                        variant="emerald"
-                                        transitionEnabled={isAnimatingFlip}
-                                    />
-                                </div>
-
-                                {/* Nuance Text Box */}
-                                {showNuancePopup && (
-                                    <div 
-                                        onClick={(e) => e.stopPropagation()} 
-                                        className="absolute top-16 right-4 left-4 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
-                                    >
-                                        <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
-                                            <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
-                                                <Lightbulb className="w-4 h-4 fill-amber-300 animate-pulse" />
-                                                <span>Sắc thái từ vựng</span>
-                                            </div>
-                                            <button 
-                                                onClick={(e) => { e.stopPropagation(); setShowNuancePopup(false); }}
-                                                className="text-amber-600 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 text-xs font-bold px-2.5 py-1.5 hover:bg-amber-100/50 dark:hover:bg-amber-900/30 rounded-lg transition-colors cursor-pointer min-h-[44px]"
-                                            >
-                                                Đóng
-                                            </button>
-                                        </div>
-                                        <p className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-semibold">
-                                            {currentCard.nuance || "Chưa có thông tin sắc thái cho từ vựng này."}
-                                        </p>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Anki Typing Input Component */}
-                        {cardSettings.reviewType === 'typing' && (
-                            <div className="w-full mt-2">
-                                <SrsTypingInput
-                                    card={currentCard}
-                                    isFlipped={isFlipped}
-                                    isReversed={cardSettings.swapSides}
-                                    expectedLanguage={cardSettings.swapSides ? 'ja' : 'vi'}
-                                    onFlip={() => {
-                                        setIsAnimatingFlip(true);
-                                        setIsFlipped(true);
-                                        playFlipSound();
-                                    }}
-                                    onCheck={() => {}}
-                                    onQuickRate={(rating) => handleRating(rating)}
-                                    placeholder={cardSettings.swapSides ? "Nhập từ tiếng Nhật (Kanji hoặc Hiragana)..." : "Nhập nghĩa tiếng Việt..."}
-                                />
-                            </div>
+                        ) : (
+                            <span className="text-[10px] sm:text-xs font-semibold text-slate-400 dark:text-slate-500 font-mono">ÔN TẬP TỪ VỰNG NGẮT QUÃNG</span>
                         )}
-
-                        {/* Anti-Slop High-End SRS Rating Buttons */}
-                        <div className="grid grid-cols-4 gap-2 sm:gap-3.5 w-full animate-fade-in mt-4" data-tour-id="RATING_PANEL">
-                            {[
-                                { key: 'again', num: '1', label: 'Quên rồi', interval: intervals.again, gradient: 'from-rose-500/10 to-rose-600/5', border: 'border-rose-500/30 hover:border-rose-500/60', text: 'text-rose-600 dark:text-rose-400', badge: 'bg-rose-500/10 text-rose-500', shadow: 'shadow-rose-500/5' },
-                                { key: 'hard', num: '2', label: 'Khó', interval: intervals.hard, gradient: 'from-amber-500/10 to-orange-600/5', border: 'border-amber-500/30 hover:border-amber-500/60', text: 'text-amber-600 dark:text-amber-400', badge: 'bg-amber-500/10 text-amber-500', shadow: 'shadow-amber-500/5' },
-                                { key: 'good', num: '3', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500/10 to-teal-600/5', border: 'border-emerald-500/30 hover:border-emerald-500/60', text: 'text-emerald-600 dark:text-emerald-400', badge: 'bg-emerald-500/10 text-emerald-500', shadow: 'shadow-emerald-500/5' },
-                                { key: 'easy', num: '4', label: 'Dễ', interval: intervals.easy, gradient: 'from-sky-500/10 to-blue-600/5', border: 'border-sky-500/30 hover:border-sky-500/60', text: 'text-sky-600 dark:text-sky-400', badge: 'bg-sky-500/10 text-sky-500', shadow: 'shadow-sky-500/5' },
-                            ].map(btn => (
-                                <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                    className={`relative flex flex-col justify-center items-center py-3 sm:py-4 px-2 min-h-[58px] sm:min-h-[64px] rounded-2xl bg-gradient-to-b ${btn.gradient} bg-white dark:bg-slate-900 border ${btn.border} text-center transition-all duration-300 hover:scale-[1.03] hover:shadow-lg active:scale-95 cursor-pointer select-none ${btn.shadow}`}>
-                                    <span className="absolute top-1.5 right-2 px-1.5 py-0.2 rounded-md bg-slate-100 dark:bg-slate-800 text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 hidden sm:block">
-                                        {btn.num}
-                                    </span>
-                                    <div className={`font-black ${btn.text} text-xs sm:text-base leading-tight`}>{btn.label}</div>
-                                    <div className={`text-[10px] sm:text-xs font-semibold ${btn.text} opacity-80 mt-0.5 leading-none font-mono`}>{btn.interval}</div>
-                                </button>
-                            ))}
-                        </div>
-
-                        {/* Keyboard Hint */}
-                        <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
-                            <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
-                            <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
-                        </div>
                     </div>
 
-                    {/* Flashcard Settings Modal */}
-                    {showSettingsMenu && createPortal(
-                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
-                            <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-                            <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
-                                <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
-                                <div className="space-y-4 text-xs font-semibold text-slate-700 dark:text-slate-350">
-                                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                        <div>
-                                            <span className="text-indigo-600 dark:text-indigo-400 font-bold block">Chế độ gõ câu trả lời (Anki Type)</span>
-                                            <span className="text-[11px] text-gray-400 dark:text-gray-500 font-normal">Gõ đáp án và so sánh kết quả từng ký tự</span>
-                                        </div>
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.reviewType === 'typing'} onChange={(e) => setCardSettings(prev => ({ ...prev, reviewType: e.target.checked ? 'typing' : 'flashcard' }))} className="sr-only peer" />
-                                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                        </label>
-                                    </div>
-                                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
-                                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                        </label>
-                                    </div>
-                                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
-                                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                        </label>
-                                    </div>
-                                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">Tự động phát âm thanh khi lật</span>
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
-                                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
-                                            {cardSettings.back.synonym && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
-                                                </div>
-                                            )}
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.nuance === true} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, nuance: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Sắc thái / Ghi chú (trong thẻ)</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
-                                            {cardSettings.back.example && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="pt-3">
-                                    <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
-                                        Đóng
+                    {/* Progress Header with Action Buttons OUTSIDE Flashcard */}
+                    <div className="w-full space-y-2">
+                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                            <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5 text-indigo-500" /> Tiến độ</span>
+                            <div className="flex items-center gap-3">
+                                <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}</span>
+
+                                {/* Action Buttons Toolbar OUTSIDE Flashcard */}
+                                <div className="flex items-center gap-1.5 z-30">
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setShowNuancePopup(prev => !prev);
+                                        }}
+                                        className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border ${currentCard.nuance
+                                                ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300'
+                                                : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                            }`}
+                                        title="Sắc thái từ vựng"
+                                    >
+                                        <Lightbulb className="w-4 h-4" />
+                                    </button>
+                                    {cardSettings.audioEnabled !== false && (
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                if (currentCard) {
+                                                    const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
+                                                    if (cardText) {
+                                                        speakJapanese(
+                                                            cardText,
+                                                            currentCard.audioBase64 || currentCard.audioUrl || null,
+                                                            onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null,
+                                                            currentCard.audioVoiceId
+                                                        );
+                                                    }
+                                                }
+                                            }}
+                                            data-tour-id="FLASHCARD_SPEAKER"
+                                            className="p-2 min-h-[44px] min-w-[44px] bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
+                                            title="Phát âm"
+                                        >
+                                            <Volume2 className="w-4 h-4" />
+                                        </button>
+                                    )}
+                                    {/* Quick Swap Sides Button */}
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setCardSettings(prev => ({
+                                                ...prev,
+                                                swapSides: !prev.swapSides
+                                            }));
+                                        }}
+                                        className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border cursor-pointer ${cardSettings.swapSides
+                                                ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
+                                                : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                            }`}
+                                        title={cardSettings.swapSides ? "Đang hiện Nghĩa tiếng Việt trước. Nhấn để đổi sang hiện Tiếng Nhật trước" : "Đang hiện Tiếng Nhật trước. Nhấn để đổi sang hiện Nghĩa tiếng Việt trước"}
+                                    >
+                                        <RotateCw className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
+                                        className="p-2 min-h-[44px] min-w-[44px] bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
+                                        title="Cấu hình hiển thị"
+                                    >
+                                        <Settings className="w-4 h-4" />
                                     </button>
                                 </div>
                             </div>
-                        </div>,
-                        document.body
+                        </div>
+                        <div className="h-2 w-full bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
+                        </div>
+                    </div>
+
+                    {/* Flashcard Container Wrapper */}
+                    <div className="w-full relative group perspective flex-shrink-0" data-tour-id="FLASHCARD_CONTAINER">
+                        <div className="perspective-1000 w-full mx-auto relative">
+                            <div
+                                className={`cursor-pointer relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
+                                style={{
+                                    width: '100%',
+                                    transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
+                                }}
+                            >
+                                <Flashcard
+                                    card={currentCard}
+                                    cardSettings={cardSettings}
+                                    isFlipped={isFlipped}
+                                    hasCheckedTyping={hasCheckedTyping}
+                                    onFlip={() => {
+                                        setIsAnimatingFlip(true);
+                                        setIsFlipped(!isFlipped);
+                                        playFlipSound();
+                                    }}
+                                    onEditMnemonic={(card) => setEditingMnemonicCard(card)}
+                                    variant="emerald"
+                                    transitionEnabled={isAnimatingFlip}
+                                />
+                            </div>
+
+                            {/* Nuance Text Box */}
+                            {showNuancePopup && (
+                                <div
+                                    onClick={(e) => e.stopPropagation()}
+                                    className="absolute top-16 right-4 left-4 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
+                                >
+                                    <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
+                                        <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
+                                            <Lightbulb className="w-4 h-4 fill-amber-300 animate-pulse" />
+                                            <span>Sắc thái từ vựng</span>
+                                        </div>
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); setShowNuancePopup(false); }}
+                                            className="text-amber-600 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 text-xs font-bold px-2.5 py-1.5 hover:bg-amber-100/50 dark:hover:bg-amber-900/30 rounded-lg transition-colors cursor-pointer min-h-[44px]"
+                                        >
+                                            Đóng
+                                        </button>
+                                    </div>
+                                    <p className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-semibold">
+                                        {currentCard.nuance || "Chưa có thông tin sắc thái cho từ vựng này."}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Typing Input Component */}
+                    {cardSettings.reviewType === 'typing' && (
+                        <div className="w-full mt-2">
+                            <SrsTypingInput
+                                card={currentCard}
+                                isFlipped={isFlipped}
+                                isReversed={cardSettings.swapSides}
+                                expectedLanguage={cardSettings.swapSides ? 'ja' : 'vi'}
+                                onFlip={() => {
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                    playFlipSound();
+                                }}
+                                onCheck={() => setHasCheckedTyping(true)}
+                                onQuickRate={(rating) => handleRating(rating)}
+                                placeholder={cardSettings.swapSides ? "Nhập từ tiếng Nhật (Kanji hoặc Hiragana)..." : "Nhập nghĩa tiếng Việt..."}
+                            />
+                        </div>
+                    )}
+
+                    {/* SRS Rating Buttons: Hidden in typing mode until user checks answer */}
+                    {(cardSettings.reviewType !== 'typing' || hasCheckedTyping) && (
+                        <div className="w-full space-y-3 animate-fade-in mt-4">
+                            <div className="grid grid-cols-4 gap-2 sm:gap-3.5 w-full" data-tour-id="RATING_PANEL">
+                                {[
+                                    { key: 'again', num: '1', label: 'Quên rồi', interval: intervals.again, gradient: 'from-rose-500/10 to-rose-600/5', border: 'border-rose-500/30 hover:border-rose-500/60', text: 'text-rose-600 dark:text-rose-400', badge: 'bg-rose-500/10 text-rose-500', shadow: 'shadow-rose-500/5' },
+                                    { key: 'hard', num: '2', label: 'Khó', interval: intervals.hard, gradient: 'from-amber-500/10 to-orange-600/5', border: 'border-amber-500/30 hover:border-amber-500/60', text: 'text-amber-600 dark:text-amber-400', badge: 'bg-amber-500/10 text-amber-500', shadow: 'shadow-amber-500/5' },
+                                    { key: 'good', num: '3', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500/10 to-teal-600/5', border: 'border-emerald-500/30 hover:border-emerald-500/60', text: 'text-emerald-600 dark:text-emerald-400', badge: 'bg-emerald-500/10 text-emerald-500', shadow: 'shadow-emerald-500/5' },
+                                    { key: 'easy', num: '4', label: 'Dễ', interval: intervals.easy, gradient: 'from-sky-500/10 to-blue-600/5', border: 'border-sky-500/30 hover:border-sky-500/60', text: 'text-sky-600 dark:text-sky-400', badge: 'bg-sky-500/10 text-sky-500', shadow: 'shadow-sky-500/5' },
+                                ].map(btn => (
+                                    <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
+                                        className={`relative flex flex-col justify-center items-center py-3 sm:py-4 px-2 min-h-[58px] sm:min-h-[64px] rounded-2xl bg-gradient-to-b ${btn.gradient} bg-white dark:bg-slate-900 border ${btn.border} text-center transition-all duration-300 hover:scale-[1.03] hover:shadow-lg active:scale-95 cursor-pointer select-none ${btn.shadow}`}>
+                                        <span className="absolute top-1.5 right-2 px-1.5 py-0.2 rounded-md bg-slate-100 dark:bg-slate-800 text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 hidden sm:block">
+                                            {btn.num}
+                                        </span>
+                                        <div className={`font-black ${btn.text} text-xs sm:text-base leading-tight`}>{btn.label}</div>
+                                        <div className={`text-[10px] sm:text-xs font-semibold ${btn.text} opacity-80 mt-0.5 leading-none font-mono`}>{btn.interval}</div>
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Keyboard Hint */}
+                            <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
+                            </div>
+                        </div>
                     )}
                 </div>
-            );
-        }
+
+                {/* Flashcard Settings Modal */}
+                {showSettingsMenu && createPortal(
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
+                        <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+                        <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
+                            <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
+                            <div className="space-y-4 text-xs font-semibold text-slate-700 dark:text-slate-350">
+                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                    <div>
+                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold block">Chế độ gõ câu trả lời (Typing)</span>
+                                        <span className="text-[11px] text-gray-400 dark:text-gray-500 font-normal">Gõ đáp án và so sánh kết quả từng ký tự</span>
+                                    </div>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked={cardSettings.reviewType === 'typing'} onChange={(e) => setCardSettings(prev => ({ ...prev, reviewType: e.target.checked ? 'typing' : 'flashcard' }))} className="sr-only peer" />
+                                        <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                    <span className="text-indigo-600 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
+                                        <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                    <span className="text-indigo-600 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
+                                        <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                    <span className="text-indigo-600 dark:text-indigo-400 font-bold">Tự động phát âm thanh khi lật</span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
+                                        <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    </label>
+                                </div>
+                                <div>
+                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
+                                    <div className="space-y-2.5 pl-1 text-[13px]">
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                    <div className="space-y-2.5 pl-1 text-[13px]">
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
+                                        {cardSettings.back.synonym && (
+                                            <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
+                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
+                                            </div>
+                                        )}
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.nuance === true} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, nuance: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Sắc thái / Ghi chú (trong thẻ)</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                        {cardSettings.back.example && (
+                                            <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
+                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
+                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-3">
+                                <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
+                                    Đóng
+                                </button>
+                            </div>
+                        </div>
+                    </div>,
+                    document.body
+                )}
+            </div>
+        );
+    }
 
     if (reviewMode && !currentCard) {
         const waiting = getLearningCardsWaiting();
@@ -1344,7 +1351,7 @@ const SRSVocabScreen = ({
             const now = Date.now();
             const earliestNextReview = Math.min(...waiting.map(w => w.nextReview));
             const secondsLeft = Math.max(0, Math.ceil((earliestNextReview - now) / 1000));
-            
+
             let countdownText = "";
             if (secondsLeft < 60) {
                 countdownText = `${secondsLeft} giây`;
@@ -1465,11 +1472,10 @@ const SRSVocabScreen = ({
                                 </div>
                                 <button
                                     onClick={() => setShowLeechManager(true)}
-                                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${
-                                        leechVocabCards.length > 0
+                                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${leechVocabCards.length > 0
                                             ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
                                             : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
-                                    }`}
+                                        }`}
                                 >
                                     <span>🩸 {t('vocab.leechCards', 'Thẻ Khó')} ({leechVocabCards.length})</span>
                                 </button>
@@ -1519,9 +1525,9 @@ const SRSVocabScreen = ({
 
                 {/* SRS Forecast Chart */}
                 {allCards.length > 0 && (
-                    <SRSForecastChart 
-                        items={allCards} 
-                        daysCount={14} 
+                    <SRSForecastChart
+                        items={allCards}
+                        daysCount={14}
                     />
                 )}
 
@@ -1549,8 +1555,8 @@ const SRSVocabScreen = ({
                             </div>
                             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Tuyệt vời!</h3>
                             <p className="text-slate-500 dark:text-slate-400 text-sm">
-                                {allCards.length > 0 
-                                    ? "Bạn đã ôn tập hết các từ vựng cần học hôm nay. Hãy học thêm bài mới nhé!" 
+                                {allCards.length > 0
+                                    ? "Bạn đã ôn tập hết các từ vựng cần học hôm nay. Hãy học thêm bài mới nhé!"
                                     : "Bạn chưa có thẻ từ vựng nào trong thư viện."}
                             </p>
                             {allCards.length === 0 && (
@@ -1590,11 +1596,10 @@ const SRSVocabScreen = ({
                                 </button>
                             )}
 
-                            <div className={`grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 overflow-hidden ${
-                                isAnimating 
+                            <div className={`grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 overflow-hidden ${isAnimating
                                     ? (animationDirection === 'left' ? 'animate-slide-in-right' : 'animate-slide-in-left')
                                     : ''
-                            }`}>
+                                }`}>
                                 {folderStats.slice(vocabSetStartIndex, vocabSetStartIndex + 3).map(folder => (
                                     <div
                                         key={folder.id}
@@ -1822,7 +1827,7 @@ const SRSVocabScreen = ({
             )}
 
             {/* Leech Manager Modal */}
-            <LeechManagerModal 
+            <LeechManagerModal
                 isOpen={showLeechManager}
                 onClose={() => setShowLeechManager(false)}
                 vocabCards={allCards}

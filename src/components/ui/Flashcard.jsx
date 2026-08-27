@@ -124,7 +124,8 @@ const Flashcard = ({
     onGeminiAssist,
     variant = 'default', // 'default' | 'emerald' | 'review'
     transitionEnabled = true,
-    showFlipHint = true
+    showFlipHint = true,
+    hasCheckedTyping = false
 }) => {
     const [pitchData, setPitchData] = useState(null);
     const [isEditingMnemonic, setIsEditingMnemonic] = useState(false);
@@ -491,15 +492,16 @@ const Flashcard = ({
     }
 
     const isTypingMode = cardSettings?.reviewType === 'typing';
+    const isTypingBlocked = isTypingMode && !hasCheckedTyping && !cardSettings?.hasCheckedTyping;
 
     return (
-        <div className={`perspective-1000 w-full mx-auto relative select-none ${isTypingMode && !isFlipped ? 'cursor-default' : 'cursor-pointer'}`}>
+        <div className={`perspective-1000 w-full mx-auto relative select-none ${isTypingBlocked ? 'cursor-default' : 'cursor-pointer'}`}>
             <div
                 className={`w-full transform-style-preserve-3d card-slide ${isFlipped ? 'rotate-y-180' : ''}`}
                 onClick={(e) => {
                     e.stopPropagation();
-                    // Khi ở chế độ typing thì không lật được thẻ trước khi kiểm tra xong
-                    if (isTypingMode && !isFlipped) {
+                    // Khi ở chế độ typing thì chỉ chặn lật khi người dùng chưa kiểm tra đáp án
+                    if (isTypingBlocked) {
                         return;
                     }
                     if (onFlip) {

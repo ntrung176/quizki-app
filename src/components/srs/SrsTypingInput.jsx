@@ -121,9 +121,6 @@ const SrsTypingInput = ({
                                 </div>
                             )}
                         </div>
-                        <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider font-mono">
-                            ANKI TYPE DIFF
-                        </span>
                     </div>
 
                     {/* Chi tiết So sánh ký tự */}

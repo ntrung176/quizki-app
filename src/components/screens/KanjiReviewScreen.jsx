@@ -71,10 +71,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [hasCheckedTyping, setHasCheckedTyping] = useState(false);
     const [reviewHistory, setReviewHistory] = useState([]);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
     const [showModeModal, setShowModeModal] = useState(false);
+
+    useEffect(() => {
+        setHasCheckedTyping(false);
+    }, [currentReviewIndex, reviewMode]);
     const [kanjiSwapSides, setKanjiSwapSides] = useState(() => {
         try {
             return localStorage.getItem('quizki_kanji_swap_sides') === 'true';
@@ -95,7 +100,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             const next = !prev;
             try {
                 localStorage.setItem('quizki_kanji_swap_sides', String(next));
-            } catch (_) {}
+            } catch (_) { }
             return next;
         });
     };
@@ -103,7 +108,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     useEffect(() => {
         try {
             localStorage.setItem('quizki_kanji_review_type', typingMode ? 'typing' : 'flashcard');
-        } catch (_) {}
+        } catch (_) { }
     }, [typingMode]);
 
     const sessionXpRef = useRef(0);
@@ -240,7 +245,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             const reps = srs.reps || 0;
             const state = getCardState(srs);
             totalReps += reps;
-            
+
             if (state === 'learning' || state === 'LEARNING' || state === 'relearning' || state === 'RELEARNING') {
                 if (reps > 0 || srs.lastReview) {
                     learning++;
@@ -708,9 +713,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 setDashboardTick(Date.now());
                 try {
                     window.dispatchEvent(new Event('srs-updated'));
-                } catch (e) {}
+                } catch (e) { }
                 if (setIsReviewActive) {
-                    try { setIsReviewActive(false); } catch (e) {}
+                    try { setIsReviewActive(false); } catch (e) { }
                 }
                 isExitingRef.current = false;
             }
@@ -790,16 +795,18 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             }
             if (e.key === ' ') {
                 e.preventDefault();
-                if (typingMode && !isFlipped) {
+                if (typingMode && !hasCheckedTyping) {
                     return;
                 }
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
-            if (e.key === '1') handleRating('again');
-            if (e.key === '2') handleRating('hard');
-            if (e.key === '3') handleRating('good');
-            if (e.key === '4') handleRating('easy');
+            if (!typingMode || hasCheckedTyping) {
+                if (e.key === '1') handleRating('again');
+                if (e.key === '2') handleRating('hard');
+                if (e.key === '3') handleRating('good');
+                if (e.key === '4') handleRating('easy');
+            }
             if (e.key === 'Backspace' || e.key === 'z' || (e.key === 'z' && e.ctrlKey)) {
                 e.preventDefault();
                 handleUndo();
@@ -807,7 +814,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory]);
+    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory, typingMode, hasCheckedTyping]);
 
     if (loading) {
         return (
@@ -839,8 +846,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
 
         return (
-            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
-                <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4">
+            <div className="w-full min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-6 animate-fade-in">
+                <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4 transition-all duration-300">
                     {/* Back button & Action Toolbar */}
                     <div className="w-full flex justify-between items-center mb-2">
                         <button onClick={exitReview}
@@ -856,11 +863,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                     e.stopPropagation();
                                     toggleKanjiSwapSides();
                                 }}
-                                className={`p-2.5 rounded-xl flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-md border cursor-pointer ${
-                                    kanjiSwapSides
+                                className={`p-2.5 rounded-xl flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-md border cursor-pointer ${kanjiSwapSides
                                         ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
                                         : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700'
-                                }`}
+                                    }`}
                                 title={kanjiSwapSides ? "Đang hiện Hán Việt/Nghĩa trước. Nhấn để đổi sang hiện Chữ Kanji trước" : "Đang hiện Chữ Kanji trước. Nhấn để đổi sang hiện Hán Việt/Nghĩa trước"}
                             >
                                 <RotateCw className="w-4 h-4" />
@@ -899,11 +905,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         >
                             <div
                                 onClick={() => {
-                                    if (typingMode && !isFlipped) return;
+                                    if (typingMode && !hasCheckedTyping) return;
                                     setIsFlipped(f => !f);
                                     playFlipSound();
                                 }}
-                                className={typingMode && !isFlipped ? 'cursor-default' : 'cursor-pointer'}
+                                className={typingMode && !hasCheckedTyping ? 'cursor-default' : 'cursor-pointer'}
                                 style={{
                                     position: 'relative',
                                     width: '100%',
@@ -961,70 +967,70 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                             </>
                                         )}
                                         {isEditingInlineMnemonic ? (
-                                             <InlineMnemonicEditor
-                                                 initialText={currentCard.userMnemonic || currentCard.mnemonic || ''}
-                                                 card={currentCard}
-                                                 onSave={async (newText) => {
-                                                     currentCard.userMnemonic = newText;
-                                                     currentCard.mnemonic = newText;
-                                                     setIsEditingInlineMnemonic(false);
-                                                     const targetId = currentCard.id || currentCard.kanji || currentCard.character;
-                                                     setReviewQueue(prev => prev.map(c => {
-                                                         if ((c.id && c.id === targetId) || c.kanji === targetId || c.character === targetId) {
-                                                             return { ...c, userMnemonic: newText, mnemonic: newText };
-                                                         }
-                                                         return c;
-                                                     }));
-                                                     if (userId) {
-                                                         try {
-                                                             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, String(targetId)), { userMnemonic: newText, mnemonic: newText }, { merge: true });
-                                                         } catch (e) {
-                                                             console.warn('Error persisting kanji mnemonic:', e);
-                                                         }
-                                                     }
-                                                 }}
-                                                 onCancel={() => setIsEditingInlineMnemonic(false)}
-                                             />
-                                         ) : (
-                                             (() => {
-                                                 const isLeech = isLeechCard(currentCard) || currentCard.isLeech || (currentCard.srsLapseCount >= 3) || (currentCard.lapseCount >= 3);
-                                                 if (isLeech) {
-                                                     return (
-                                                         <div className="w-full text-left">
-                                                             {(currentCard.userMnemonic || currentCard.mnemonic) ? (
-                                                                 <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full flex items-start justify-between gap-2 shadow-sm">
-                                                                     <div className="flex-1">
-                                                                         <span className="font-bold text-amber-600 dark:text-amber-400 block mb-0.5">💡 Mẹo nhớ cá nhân:</span>
-                                                                         <span className="whitespace-pre-line">{currentCard.userMnemonic || currentCard.mnemonic}</span>
-                                                                     </div>
-                                                                     <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="text-xs text-amber-600 dark:text-amber-400 font-bold underline shrink-0 cursor-pointer">Sửa</button>
-                                                                 </div>
-                                                             ) : (
-                                                                 <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="w-full py-2 px-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer">
-                                                                     💡 + Thêm mẹo nhớ cá nhân
-                                                                 </button>
-                                                             )}
-                                                         </div>
-                                                     );
-                                                 }
-                                                 // Normal Kanji card -> render standard system mnemonic as before
-                                                 return currentCard.userMnemonic ? (
-                                                     <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full flex items-start justify-between gap-2 shadow-sm">
-                                                         <div className="flex-1">
-                                                             <span className="font-bold text-amber-600 dark:text-amber-400 block mb-0.5">💡 Mẹo nhớ:</span>
-                                                             <span className="whitespace-pre-line">{currentCard.userMnemonic}</span>
-                                                         </div>
-                                                         <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="text-xs text-amber-600 dark:text-amber-400 font-bold underline shrink-0 cursor-pointer">Sửa</button>
-                                                     </div>
-                                                 ) : (
-                                                     currentCard.mnemonic && (
-                                                         <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">
-                                                             💡 {currentCard.mnemonic}
-                                                         </div>
-                                                     )
-                                                 );
-                                             })()
-                                         )}
+                                            <InlineMnemonicEditor
+                                                initialText={currentCard.userMnemonic || currentCard.mnemonic || ''}
+                                                card={currentCard}
+                                                onSave={async (newText) => {
+                                                    currentCard.userMnemonic = newText;
+                                                    currentCard.mnemonic = newText;
+                                                    setIsEditingInlineMnemonic(false);
+                                                    const targetId = currentCard.id || currentCard.kanji || currentCard.character;
+                                                    setReviewQueue(prev => prev.map(c => {
+                                                        if ((c.id && c.id === targetId) || c.kanji === targetId || c.character === targetId) {
+                                                            return { ...c, userMnemonic: newText, mnemonic: newText };
+                                                        }
+                                                        return c;
+                                                    }));
+                                                    if (userId) {
+                                                        try {
+                                                            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, String(targetId)), { userMnemonic: newText, mnemonic: newText }, { merge: true });
+                                                        } catch (e) {
+                                                            console.warn('Error persisting kanji mnemonic:', e);
+                                                        }
+                                                    }
+                                                }}
+                                                onCancel={() => setIsEditingInlineMnemonic(false)}
+                                            />
+                                        ) : (
+                                            (() => {
+                                                const isLeech = isLeechCard(currentCard) || currentCard.isLeech || (currentCard.srsLapseCount >= 3) || (currentCard.lapseCount >= 3);
+                                                if (isLeech) {
+                                                    return (
+                                                        <div className="w-full text-left">
+                                                            {(currentCard.userMnemonic || currentCard.mnemonic) ? (
+                                                                <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full flex items-start justify-between gap-2 shadow-sm">
+                                                                    <div className="flex-1">
+                                                                        <span className="font-bold text-amber-600 dark:text-amber-400 block mb-0.5">💡 Mẹo nhớ cá nhân:</span>
+                                                                        <span className="whitespace-pre-line">{currentCard.userMnemonic || currentCard.mnemonic}</span>
+                                                                    </div>
+                                                                    <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="text-xs text-amber-600 dark:text-amber-400 font-bold underline shrink-0 cursor-pointer">Sửa</button>
+                                                                </div>
+                                                            ) : (
+                                                                <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="w-full py-2 px-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                                                                    💡 + Thêm mẹo nhớ cá nhân
+                                                                </button>
+                                                            )}
+                                                        </div>
+                                                    );
+                                                }
+                                                // Normal Kanji card -> render standard system mnemonic as before
+                                                return currentCard.userMnemonic ? (
+                                                    <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full flex items-start justify-between gap-2 shadow-sm">
+                                                        <div className="flex-1">
+                                                            <span className="font-bold text-amber-600 dark:text-amber-400 block mb-0.5">💡 Mẹo nhớ:</span>
+                                                            <span className="whitespace-pre-line">{currentCard.userMnemonic}</span>
+                                                        </div>
+                                                        <button onClick={(e) => { e.stopPropagation(); setIsEditingInlineMnemonic(true); }} className="text-xs text-amber-600 dark:text-amber-400 font-bold underline shrink-0 cursor-pointer">Sửa</button>
+                                                    </div>
+                                                ) : (
+                                                    currentCard.mnemonic && (
+                                                        <div className="text-sm text-slate-650 dark:text-slate-350 bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 leading-relaxed border border-slate-100 dark:border-slate-800 text-left w-full">
+                                                            💡 {currentCard.mnemonic}
+                                                        </div>
+                                                    )
+                                                );
+                                            })()
+                                        )}
                                         {(currentCard.imageUrl || currentCard.imageBase64) && (
                                             <div className="w-28 h-28 sm:w-36 sm:h-36 mx-auto shrink-0 bg-slate-50 dark:bg-slate-900/40 rounded-2xl overflow-hidden border border-gray-150 dark:border-slate-700 flex items-center justify-center p-1.5 shadow-inner">
                                                 <img src={currentCard.imageUrl || currentCard.imageBase64} alt="illustration" className="max-w-full max-h-full object-contain rounded-xl" />
@@ -1036,7 +1042,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         </div>
                     </div>
 
-                    {/* Anki Typing Input Component for Kanji */}
+                    {/* Typing Input Component for Kanji */}
                     {typingMode && (
                         <div className="w-full mt-2">
                             <SrsTypingInput
@@ -1049,34 +1055,38 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                     setIsFlipped(true);
                                     playFlipSound();
                                 }}
-                                onCheck={() => {}}
+                                onCheck={() => setHasCheckedTyping(true)}
                                 onQuickRate={(rating) => handleRating(rating)}
                                 placeholder={kanjiSwapSides ? "Nhập chữ Hán Kanji hoặc cách đọc..." : "Nhập âm Hán Việt (ví dụ: HỌC)..."}
                             />
                         </div>
                     )}
 
-                    {/* Rating buttons */}
-                    <div className="grid grid-cols-4 gap-2.5 w-full">
-                        {[
-                            { key: 'again', label: 'Quên rồi', interval: intervals.again, gradient: 'from-red-500 to-rose-500', bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/70 dark:text-red-500/60' },
-                            { key: 'hard', label: 'Khó', interval: intervals.hard, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-50 dark:bg-orange-900/20', border: 'border-orange-200 dark:border-orange-800/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/70 dark:text-orange-500/60' },
-                            { key: 'good', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500 to-green-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'border-emerald-200 dark:border-emerald-800/50', text: 'text-emerald-600 dark:text-emerald-400', sub: 'text-emerald-400/70 dark:text-emerald-500/60' },
-                            { key: 'easy', label: 'Dễ', interval: intervals.easy, gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/70 dark:text-blue-500/60' },
-                        ].map(btn => (
-                            <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95`}>
-                                <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
-                                <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
-                            </button>
-                        ))}
-                    </div>
+                    {/* Rating buttons: Hidden in typing mode until user checks answer */}
+                    {(!typingMode || hasCheckedTyping) && (
+                        <div className="w-full space-y-3 animate-fade-in mt-4">
+                            <div className="grid grid-cols-4 gap-2.5 w-full">
+                                {[
+                                    { key: 'again', label: 'Quên rồi', interval: intervals.again, gradient: 'from-red-500 to-rose-500', bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/70 dark:text-red-500/60' },
+                                    { key: 'hard', label: 'Khó', interval: intervals.hard, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-50 dark:bg-orange-900/20', border: 'border-orange-200 dark:border-orange-800/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/70 dark:text-orange-500/60' },
+                                    { key: 'good', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500 to-green-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'border-emerald-200 dark:border-emerald-800/50', text: 'text-emerald-600 dark:text-emerald-400', sub: 'text-emerald-400/70 dark:text-emerald-500/60' },
+                                    { key: 'easy', label: 'Dễ', interval: intervals.easy, gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/70 dark:text-blue-500/60' },
+                                ].map(btn => (
+                                    <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
+                                        className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer`}>
+                                        <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
+                                        <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
+                                    </button>
+                                ))}
+                            </div>
 
-                    {/* Keyboard hint */}
-                    <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
-                        <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
-                        <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
-                    </div>
+                            {/* Keyboard hint */}
+                            <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         );
@@ -1213,11 +1223,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                 </div>
                                 <button
                                     onClick={() => setShowLeechManager(true)}
-                                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${
-                                        leechKanjiItems.length > 0
+                                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${leechKanjiItems.length > 0
                                             ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
                                             : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
-                                    }`}
+                                        }`}
                                 >
                                     <span>🩸 {t('kanji.leechCards', 'Thẻ Khó')} ({leechKanjiItems.length})</span>
                                 </button>
@@ -1305,7 +1314,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
                 {/* SRS Forecast Chart */}
                 {kanjiList.length > 0 && (
-                    <SRSForecastChart 
+                    <SRSForecastChart
                         items={kanjiList.map(k => ({
                             id: k.id,
                             state: srsData[k.id]?.state,
@@ -1313,9 +1322,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                             reps: srsData[k.id]?.reps || 0,
                             interval: srsData[k.id]?.interval || 0,
                             learningStep: srsData[k.id]?.learningStep
-                        }))} 
-                        daysCount={14} 
-                        title="Dự Báo Kanji Đến Hạn (14 Ngày Tới)" 
+                        }))}
+                        daysCount={14}
+                        title="Dự Báo Kanji Đến Hạn (14 Ngày Tới)"
                     />
                 )}
 
@@ -1369,7 +1378,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             </div>
 
             {/* Leech Manager Modal */}
-            <LeechManagerModal 
+            <LeechManagerModal
                 isOpen={showLeechManager}
                 onClose={() => setShowLeechManager(false)}
                 kanjiItems={kanjiList.map(k => ({

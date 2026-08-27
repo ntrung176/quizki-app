@@ -62,11 +62,11 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
 
     const toggleFullscreen = useCallback(() => {
         if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(() => {});
+            document.documentElement.requestFullscreen().catch(() => { });
             setIsFullscreen(true);
         } else {
             if (document.exitFullscreen) {
-                document.exitFullscreen().catch(() => {});
+                document.exitFullscreen().catch(() => { });
             }
             setIsFullscreen(false);
         }
@@ -117,7 +117,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                     audioEnabled: parsed.audioEnabled !== undefined ? parsed.audioEnabled : true
                 };
             }
-        } catch (e) {}
+        } catch (e) { }
         return defaultSettings;
     });
     const [showSettingsMenu, setShowSettingsMenu] = useState(false);
@@ -174,7 +174,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                     const img = new Image();
                     img.src = card.imageBase64;
                     if (typeof img.decode === 'function') {
-                        img.decode().catch(() => {});
+                        img.decode().catch(() => { });
                     }
                 }
             }
@@ -345,7 +345,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         if (isComplete) {
             setIsComplete(false);
         }
-        
+
         setIsAnimatingFlip(false);
         setSlideDirection('right');
         setTimeout(() => {
@@ -448,8 +448,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         }
 
         return (
-            <div className={isFullscreen 
-                ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen" 
+            <div className={isFullscreen
+                ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen"
                 : "relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4"
             }>
                 {/* Back Button */}
@@ -462,37 +462,37 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                 )}
-                    <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
-                        <div className="text-6xl mb-2">✨</div>
-                        <div>
-                            <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Hoàn thành vòng {round}!</h2>
-                            <p className="text-gray-500 dark:text-gray-400 text-lg">
-                                Hãy tiếp tục ôn luyện những thẻ chưa thuộc.
-                            </p>
-                        </div>
-                        <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-indigo-200/60 dark:border-indigo-800/60 shadow-lg">
-                            <div className="flex items-center justify-center gap-2 text-indigo-700 dark:text-indigo-300 font-bold text-lg">
-                                <Layers className="w-5 h-5" />
-                                <span>Đã thuộc: {totalKnown} / {allCards.length}</span>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-3 w-full max-w-xs pt-2">
-                            {unknownCount > 0 && (
-                                <button
-                                    onClick={handleContinueUnknown}
-                                    className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md hover:-translate-y-0.5 transition-all flex items-center justify-center gap-1 cursor-pointer"
-                                >
-                                    <RefreshCw className="w-4 h-4" /> Tiếp tục ({unknownCount} thẻ)
-                                </button>
-                            )}
-                            <button 
-                                onClick={onComplete} 
-                                className="w-full py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
-                            >
-                                Thoát <ChevronRight className="w-4 h-4" />
-                            </button>
+                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
+                    <div className="text-6xl mb-2">✨</div>
+                    <div>
+                        <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Hoàn thành vòng {round}!</h2>
+                        <p className="text-gray-500 dark:text-gray-400 text-lg">
+                            Hãy tiếp tục ôn luyện những thẻ chưa thuộc.
+                        </p>
+                    </div>
+                    <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-indigo-200/60 dark:border-indigo-800/60 shadow-lg">
+                        <div className="flex items-center justify-center gap-2 text-indigo-700 dark:text-indigo-300 font-bold text-lg">
+                            <Layers className="w-5 h-5" />
+                            <span>Đã thuộc: {totalKnown} / {allCards.length}</span>
                         </div>
                     </div>
+                    <div className="flex flex-col gap-3 w-full max-w-xs pt-2">
+                        {unknownCount > 0 && (
+                            <button
+                                onClick={handleContinueUnknown}
+                                className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md hover:-translate-y-0.5 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                            >
+                                <RefreshCw className="w-4 h-4" /> Tiếp tục ({unknownCount} thẻ)
+                            </button>
+                        )}
+                        <button
+                            onClick={onComplete}
+                            className="w-full py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                        >
+                            Thoát <ChevronRight className="w-4 h-4" />
+                        </button>
+                    </div>
+                </div>
             </div>
         );
     }
@@ -505,8 +505,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         );
     }
     return (
-        <div className={isFullscreen 
-            ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen" 
+        <div className={isFullscreen
+            ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen"
             : "relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4"
         }>
             <div className="w-full max-w-3xl mx-auto flex flex-col justify-center items-center space-y-4 my-auto">
@@ -554,11 +554,10 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                         e.stopPropagation();
                                         setShowNuancePopup(prev => !prev);
                                     }}
-                                    className={`p-1.5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border ${
-                                        currentCard.nuance 
-                                            ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300' 
+                                    className={`p-1.5 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border ${currentCard.nuance
+                                            ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300'
                                             : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
-                                    }`}
+                                        }`}
                                     title="Sắc thái từ vựng"
                                 >
                                     <Lightbulb className="w-4 h-4" />
@@ -617,8 +616,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
 
                             {/* Nuance Text Box */}
                             {showNuancePopup && (
-                                <div 
-                                    onClick={(e) => e.stopPropagation()} 
+                                <div
+                                    onClick={(e) => e.stopPropagation()}
                                     className="absolute top-16 right-4 left-4 z-40 bg-amber-50/95 dark:bg-amber-950/95 border-2 border-amber-200 dark:border-amber-900/60 rounded-2xl p-4 shadow-xl animate-fade-in text-slate-850 dark:text-slate-200"
                                 >
                                     <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
@@ -626,7 +625,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                             <Lightbulb className="w-4 h-4 fill-amber-300 animate-pulse" />
                                             <span>Sắc thái từ vựng</span>
                                         </div>
-                                        <button 
+                                        <button
                                             onClick={(e) => { e.stopPropagation(); setShowNuancePopup(false); }}
                                             className="text-amber-600 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 text-xs font-bold px-2 py-1 hover:bg-amber-100/50 dark:hover:bg-amber-900/30 rounded-lg transition-colors"
                                         >

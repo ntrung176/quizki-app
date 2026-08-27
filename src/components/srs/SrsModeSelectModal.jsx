@@ -87,7 +87,7 @@ const SrsModeSelectModal = ({
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
                                 <span className="font-extrabold text-base text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                                    Gõ câu trả lời (Anki)
+                                    Gõ câu trả lời (Typing)
                                 </span>
                                 <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
                                     Nhớ sâu
