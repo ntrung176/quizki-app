@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Folder, Plus, Upload, Image as ImageIcon, Copy, Code, FileText, Check } from 'lucide-react';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../config/firebase';
@@ -135,11 +136,11 @@ const KanjiFormModal = ({
         }
     };
 
-    return (
+    const modalContent = (
         <>
             {/* Add Kanji Modal */}
             {showAddKanjiModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowAddKanjiModal(false); }}>
+                <div className="fixed inset-0 z-[100050] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowAddKanjiModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden flex flex-col max-h-[90vh]" onClick={e => e.stopPropagation()}>
                         {/* Header */}
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
@@ -333,7 +334,7 @@ const KanjiFormModal = ({
 
             {/* Add Vocab Modal */}
             {showAddVocabModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowAddVocabModal(false); }}>
+                <div className="fixed inset-0 z-[100050] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowAddVocabModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden flex flex-col max-h-[90vh]" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <div>
@@ -447,7 +448,7 @@ const KanjiFormModal = ({
                                     <div>
                                         <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Sắc thái / Ghi chú / Mẹo nhớ từ vựng (Nuance)</label>
                                         <textarea value={newVocab.nuance || ''} onChange={e => setNewVocab({ ...newVocab, nuance: e.target.value })}
-                                            rows={2} className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="Ghi chú ngữ cảnh sử dụng hoặc mẹo nhớ riêng..." />
+                                            rows={2} className="w-full px-3 py-2 border rounded-xl dark:bg-slate-700 dark:border-slate-600 dark:text-white text-sm" placeholder="Ghi chú câu chuyện dễ nhớ từ..." />
                                     </div>
                                 </div>
                                 <div className="flex justify-end gap-2 p-4 border-t border-gray-200 dark:border-slate-700">
@@ -507,7 +508,7 @@ const KanjiFormModal = ({
 
             {/* Edit Kanji Modal */}
             {showEditKanjiModal && editingKanji && (
-                <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowEditKanjiModal(false); }}>
+                <div className="fixed inset-0 z-[100050] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowEditKanjiModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-150" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Chỉnh Sửa Kanji ({editingKanji.character})</h3>
@@ -608,7 +609,7 @@ const KanjiFormModal = ({
 
             {/* Edit Vocab Modal */}
             {showEditVocabModal && editingVocab && (
-                <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowEditVocabModal(false); }}>
+                <div className="fixed inset-0 z-[100050] flex items-center justify-center bg-black/60 backdrop-blur-xs p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowEditVocabModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Chỉnh Sửa Từ Vựng ({editingVocab.word})</h3>
@@ -702,7 +703,7 @@ const KanjiFormModal = ({
 
             {/* Folder Select Modal for SRS */}
             {showFolderSelectModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowFolderSelectModal(false); }}>
+                <div className="fixed inset-0 z-[100060] flex items-center justify-center bg-black/50 p-4" onMouseDown={(e) => { if (e.target === e.currentTarget) setShowFolderSelectModal(false); }}>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-slate-700">
                             <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
@@ -734,6 +735,11 @@ const KanjiFormModal = ({
             )}
         </>
     );
+
+    if (typeof document !== 'undefined') {
+        return createPortal(modalContent, document.body);
+    }
+    return modalContent;
 };
 
 export default KanjiFormModal;

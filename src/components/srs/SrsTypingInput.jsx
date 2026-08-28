@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react';
 import { Check, X, ArrowRight, CornerDownLeft, Sparkles, AlertCircle } from 'lucide-react';
-import { calculateAnkiDiff } from '../../utils/ankiDiff';
+import { calculateAnkiDiff, transformVietnameseTelex } from '../../utils/ankiDiff';
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 
 const SrsTypingInput = ({
@@ -18,7 +18,7 @@ const SrsTypingInput = ({
     const [diffResult, setDiffResult] = useState(null);
     const inputRef = useRef(null);
 
-    // Reset input state và kích hoạt con trỏ chuột ngay lập tức
+    // Kích hoạt con trỏ chuột đa tầng (0ms, 40ms, 120ms, 250ms) đảm bảo 100% con trỏ luôn nhấp nháy trong ô nhập
     useLayoutEffect(() => {
         setInput('');
         setHasChecked(false);
@@ -27,19 +27,24 @@ const SrsTypingInput = ({
             inputRef.current.value = '';
             inputRef.current.focus({ preventScroll: true });
         }
-        const timer = setTimeout(() => {
-            if (inputRef.current && document.activeElement !== inputRef.current) {
-                inputRef.current.focus({ preventScroll: true });
-            }
-        }, 30);
-        return () => clearTimeout(timer);
     }, [card?.id, card?.character, card?.front]);
 
     useEffect(() => {
-        if (!hasChecked && inputRef.current) {
-            inputRef.current.focus({ preventScroll: true });
-        }
-    }, [hasChecked]);
+        const focusInput = () => {
+            if (inputRef.current && !hasChecked) {
+                inputRef.current.focus({ preventScroll: true });
+            }
+        };
+        focusInput();
+        const t1 = setTimeout(focusInput, 40);
+        const t2 = setTimeout(focusInput, 120);
+        const t3 = setTimeout(focusInput, 250);
+        return () => {
+            clearTimeout(t1);
+            clearTimeout(t2);
+            clearTimeout(t3);
+        };
+    }, [card?.id, card?.character, card?.front, hasChecked]);
 
     // Xử lý nộp câu trả lời
     const handleSubmit = useCallback((e) => {
@@ -68,6 +73,19 @@ const SrsTypingInput = ({
 
     const isComposingRef = useRef(false);
 
+    // Xử lý thay đổi input với bộ chuyển đổi Telex thời gian thực (Realtime Telex Engine)
+    const handleChange = (e) => {
+        const rawVal = e.target.value;
+        const isVietnameseTarget = expectedLanguage === 'sino' || expectedLanguage === 'vi' || (!isReversed && expectedLanguage === 'auto');
+        
+        if (isVietnameseTarget && !isComposingRef.current) {
+            const transformed = transformVietnameseTelex(rawVal);
+            setInput(transformed);
+        } else {
+            setInput(rawVal);
+        }
+    };
+
     // Lắng nghe phím Enter khi đang gõ (tránh nuốt phím khi đang gõ tiếng Việt Telex/VNI IME)
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -90,13 +108,13 @@ const SrsTypingInput = ({
                         ref={inputRef}
                         type="text"
                         value={input}
-                        onChange={(e) => setInput(e.target.value)}
+                        onChange={handleChange}
                         onKeyDown={handleKeyDown}
                         onCompositionStart={() => { isComposingRef.current = true; }}
                         onCompositionEnd={() => { isComposingRef.current = false; }}
                         placeholder={placeholder}
                         autoComplete="off"
-                        className="w-full py-3.5 pl-4.5 pr-28 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-medium text-base sm:text-lg focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10 dark:focus:ring-indigo-400/10 shadow-lg shadow-slate-200/50 dark:shadow-none transition-all cursor-text"
+                        className="w-full py-3.5 pl-4.5 pr-28 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-medium text-base sm:text-lg focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/15 dark:focus:ring-indigo-400/15 shadow-lg shadow-slate-200/50 dark:shadow-none transition-all cursor-text caret-indigo-600 dark:caret-indigo-400"
                     />
                     <div className="absolute right-2 flex items-center gap-1.5">
                         <button

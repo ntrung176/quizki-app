@@ -136,6 +136,51 @@ const KanjiScreen = ({
                     setDiagramPan={setDiagramPan}
                     setDiagramZoom={setDiagramZoom}
                 />
+
+                {/* Form Modals for Lesson Direct Mode */}
+                <KanjiFormModal
+                    showAddKanjiModal={showAddKanjiModal}
+                    setShowAddKanjiModal={setShowAddKanjiModal}
+                    handleAddKanji={handleAddKanji}
+                    newKanji={newKanji}
+                    setNewKanji={setNewKanji}
+                    jsonKanjiInput={jsonKanjiInput}
+                    setJsonKanjiInput={setJsonKanjiInput}
+                    handleImportKanjiJson={handleImportKanjiJson}
+                    showAddVocabModal={showAddVocabModal}
+                    setShowAddVocabModal={setShowAddVocabModal}
+                    handleAddVocab={handleAddVocab}
+                    newVocab={newVocab}
+                    setNewVocab={setNewVocab}
+                    jsonVocabInput={jsonVocabInput}
+                    setJsonVocabInput={setJsonVocabInput}
+                    handleImportVocabJson={handleImportVocabJson}
+                    vocabCategories={vocabCategories}
+                    showEditKanjiModal={showEditKanjiModal}
+                    setShowEditKanjiModal={setShowEditKanjiModal}
+                    handleEditKanji={handleEditKanji}
+                    editingKanji={editingKanji}
+                    setEditingKanji={setEditingKanji}
+                    showEditVocabModal={showEditVocabModal}
+                    setShowEditVocabModal={setShowEditVocabModal}
+                    handleEditVocab={handleEditVocab}
+                    editingVocab={editingVocab}
+                    setEditingVocab={setEditingVocab}
+                    showCategoryModal={showCategoryModal}
+                    setShowCategoryModal={setShowCategoryModal}
+                    newCategoryName={newCategoryName}
+                    setNewCategoryName={setNewCategoryName}
+                    handleDeleteCategory={handleDeleteCategory}
+                    showFolderSelectModal={showFolderSelectModal}
+                    setShowFolderSelectModal={setShowFolderSelectModal}
+                    handleConfirmSaveVocab={handleConfirmSaveVocab}
+                    folders={folders}
+                    selectedModalFolderId={selectedModalFolderId}
+                    setSelectedModalFolderId={setSelectedModalFolderId}
+                    modalSearchQuery={modalSearchQuery}
+                    setModalSearchQuery={setModalSearchQuery}
+                    vocabToSave={vocabToSave}
+                />
             </div>
         );
     }
