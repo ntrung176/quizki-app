@@ -667,8 +667,6 @@ const SRSVocabScreen = ({
     useEffect(() => {
         if (!reviewMode) return;
         const intervalId = setInterval(() => {
-            setLastTick(Date.now());
-
             const now = Date.now();
             const waiting = getLearningCardsWaiting();
             const dueNow = waiting.filter(w => w.nextReview <= now);
@@ -830,6 +828,7 @@ const SRSVocabScreen = ({
         setReviewQueue(updatedQueue);
 
         if (currentReviewIndex + 1 < updatedQueue.length) {
+            setHasCheckedTyping(false);
             setIsAnimatingFlip(false);
             setIsFlipped(false);
             setCurrentReviewIndex(prev => prev + 1);
@@ -842,6 +841,7 @@ const SRSVocabScreen = ({
             const waiting = getLearningCardsWaiting();
             if (waiting.length > 0) {
                 // Show waiting screen (by advancing index to updatedQueue.length)
+                setHasCheckedTyping(false);
                 setIsAnimatingFlip(false);
                 setIsFlipped(false);
                 setCurrentReviewIndex(updatedQueue.length);
@@ -976,19 +976,26 @@ const SRSVocabScreen = ({
             if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
                 return;
             }
+            // Khi đang ở chế độ gõ và chưa nộp đáp án: không nuốt phím tắt và auto focus input nếu bị mất focus
+            if (cardSettings?.reviewType === 'typing' && !hasCheckedTyping) {
+                if (e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                    const inputEl = document.querySelector('[data-tour-id="SRS_TYPING_PANEL"] input');
+                    if (inputEl && document.activeElement !== inputEl) {
+                        inputEl.focus();
+                    }
+                }
+                return;
+            }
             if (e.key === ' ') {
                 e.preventDefault();
-                if (cardSettings?.reviewType === 'typing' && !hasCheckedTyping) {
-                    return;
-                }
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
             if (cardSettings?.reviewType !== 'typing' || hasCheckedTyping) {
-                if (e.key === '1') handleRating('again');
-                if (e.key === '2') handleRating('hard');
-                if (e.key === '3') handleRating('good');
-                if (e.key === '4') handleRating('easy');
+                if (e.key === '1') { e.preventDefault(); handleRating('again'); }
+                if (e.key === '2') { e.preventDefault(); handleRating('hard'); }
+                if (e.key === '3') { e.preventDefault(); handleRating('good'); }
+                if (e.key === '4') { e.preventDefault(); handleRating('easy'); }
             }
             if (e.key === 'Backspace' || e.key === 'z' || (e.key === 'z' && e.ctrlKey)) {
                 e.preventDefault();

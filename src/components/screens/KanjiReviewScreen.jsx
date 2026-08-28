@@ -484,16 +484,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         }
     }, [location.state, loading, reviewMode, dueKanji.length]);
 
-    const [reviewTick, setReviewTick] = useState(Date.now());
 
-    // 1s ticker for review mode timer and auto detecting newly due cards
-    useEffect(() => {
-        if (!reviewMode) return;
-        const intervalId = setInterval(() => {
-            setReviewTick(Date.now());
-        }, 1000);
-        return () => clearInterval(intervalId);
-    }, [reviewMode]);
 
     // 60fps keep-alive ticker for Mobile Safari to prevent timer throttling on mobile browsers
     useEffect(() => {
@@ -597,6 +588,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         if (currentReviewIndex + 1 < updatedQueue.length) {
             saveSessionState(updatedQueue, currentReviewIndex + 1);
 
+            setHasCheckedTyping(false);
             setIsAnimatingFlip(false);
             setIsFlipped(false);
             setCurrentReviewIndex(prev => prev + 1);
@@ -609,6 +601,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             const waiting = getLearningCardsWaiting();
             if (waiting.length > 0) {
                 // Show waiting screen (by advancing index to updatedQueue.length)
+                setHasCheckedTyping(false);
                 setIsAnimatingFlip(false);
                 setIsFlipped(false);
                 setCurrentReviewIndex(updatedQueue.length);
@@ -779,19 +772,26 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
                 return;
             }
+            // Khi đang ở chế độ gõ và chưa nộp đáp án: không nuốt phím phím tắt và auto focus input nếu bị mất focus
+            if (typingMode && !hasCheckedTyping) {
+                if (e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                    const inputEl = document.querySelector('[data-tour-id="SRS_TYPING_PANEL"] input');
+                    if (inputEl && document.activeElement !== inputEl) {
+                        inputEl.focus();
+                    }
+                }
+                return;
+            }
             if (e.key === ' ') {
                 e.preventDefault();
-                if (typingMode && !hasCheckedTyping) {
-                    return;
-                }
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
             if (!typingMode || hasCheckedTyping) {
-                if (e.key === '1') handleRating('again');
-                if (e.key === '2') handleRating('hard');
-                if (e.key === '3') handleRating('good');
-                if (e.key === '4') handleRating('easy');
+                if (e.key === '1') { e.preventDefault(); handleRating('again'); }
+                if (e.key === '2') { e.preventDefault(); handleRating('hard'); }
+                if (e.key === '3') { e.preventDefault(); handleRating('good'); }
+                if (e.key === '4') { e.preventDefault(); handleRating('easy'); }
             }
             if (e.key === 'Backspace' || e.key === 'z' || (e.key === 'z' && e.ctrlKey)) {
                 e.preventDefault();

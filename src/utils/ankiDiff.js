@@ -12,15 +12,123 @@ export const toHiragana = (str = '') => {
     });
 };
 
-// Chuẩn hóa chuỗi: loại bỏ khoảng trắng thừa, dấu câu, ngoặc furigana
+// Chuẩn hóa dấu tiếng Việt giữa kiểu cũ (uý, oà, oè...) và kiểu mới (úy, òa, òe...)
+export const normalizeVietnameseTone = (str = '') => {
+    if (!str) return '';
+    let res = String(str).normalize('NFC');
+    
+    // Map kiểu cũ (oà, oá, oè, uý,...) sang kiểu mới (òa, óa, òe, úy,...)
+    const toneMap = {
+        'uỳ': 'ùy', 'uý': 'úy', 'uỷ': 'ủy', 'uỹ': 'ũy', 'uỵ': 'ụy',
+        'oà': 'òa', 'oá': 'óa', 'oả': 'ỏa', 'oã': 'õa', 'oạ': 'ọa',
+        'oè': 'òe', 'oé': 'óe', 'oẻ': 'ỏe', 'oẽ': 'õe', 'oẹ': 'ọe',
+    };
+    
+    for (const [oldTone, newTone] of Object.entries(toneMap)) {
+        res = res.replaceAll(oldTone, newTone);
+        res = res.replaceAll(oldTone.toUpperCase(), newTone.toUpperCase());
+    }
+    return res;
+};
+
+// Chuẩn hóa chuỗi: loại bỏ khoảng trắng thừa, dấu câu, ngoặc furigana, đồng bộ Unicode NFC và dấu tiếng Việt (uý <-> úy, hoà <-> hòa)
 export const normalize = (text = '') => {
     if (!text) return '';
-    return String(text)
+    return normalizeVietnameseTone(text)
         .replace(/（[^）]*）/g, '')
         .replace(/\([^)]*\)/g, '')
         .replace(/[。、！？\s\.,!\?~\-–—:;]/g, '')
         .toLowerCase()
         .trim();
+};
+
+/**
+ * Chuyển đổi chuỗi gõ Telex thô thành tiếng Việt có dấu
+ * Hỗ trợ các trường hợp Unikey/EVKey bị trượt hoặc chưa chuyển đổi
+ * Ví dụ: "giar" -> "giả", "hoaf" -> "hòa", "uys" -> "úy", "toasn" -> "toán"
+ */
+export const decodeTelex = (str = '') => {
+    if (!str) return '';
+    const words = String(str).split(/\s+/);
+    
+    const VOWELS = {
+        'a': { tones: ['a', 'á', 'à', 'ả', 'ã', 'ạ'] },
+        'ă': { tones: ['ă', 'ắ', 'ằ', 'ẳ', 'ẵ', 'ặ'] },
+        'â': { tones: ['â', 'ấ', 'ầ', 'ẩ', 'ẫ', 'ậ'] },
+        'e': { tones: ['e', 'é', 'è', 'ẻ', 'ẽ', 'ẹ'] },
+        'ê': { tones: ['ê', 'ế', 'ề', 'ể', 'ễ', 'ệ'] },
+        'i': { tones: ['i', 'í', 'ì', 'ỉ', 'ĩ', 'ị'] },
+        'o': { tones: ['o', 'ó', 'ò', 'ỏ', 'õ', 'ọ'] },
+        'ô': { tones: ['ô', 'ố', 'ồ', 'ổ', 'ỗ', 'ộ'] },
+        'ơ': { tones: ['ơ', 'ớ', 'ờ', 'ở', 'ỡ', 'ợ'] },
+        'u': { tones: ['u', 'ú', 'ù', 'ủ', 'ũ', 'ụ'] },
+        'ư': { tones: ['ư', 'ứ', 'ừ', 'ử', 'ữ', 'ự'] },
+        'y': { tones: ['y', 'ý', 'ỳ', 'ỷ', 'ỹ', 'ỵ'] }
+    };
+    
+    const TONE_INDEX = { 's': 1, 'f': 2, 'r': 3, 'x': 4, 'j': 5 };
+
+    const decodeWord = (word) => {
+        let w = word.toLowerCase();
+        
+        // 1. Phụ âm đ/dd
+        w = w.replace(/dd/g, 'đ');
+        
+        // 2. Nguyên âm kép
+        w = w.replace(/aa/g, 'â').replace(/aw/g, 'ă')
+             .replace(/ee/g, 'ê')
+             .replace(/oo/g, 'ô').replace(/ow/g, 'ơ')
+             .replace(/uw/g, 'ư').replace(/w/g, 'ư')
+             .replace(/uye/g, 'uyê')
+             .replace(/([bcdghklmnprstvx])ie([cmnpt])/g, '$1iê$2');
+             
+        // 3. Tìm dấu thanh
+        let tone = 0;
+        let toneChar = '';
+        for (const t of ['s', 'f', 'r', 'x', 'j']) {
+            if (w.includes(t)) {
+                tone = TONE_INDEX[t];
+                toneChar = t;
+                w = w.replace(new RegExp(t, 'g'), '');
+                break;
+            }
+        }
+        
+        if (tone === 0) return w;
+        
+        // 4. Đặt dấu thanh vào nguyên âm
+        const vowelList = Object.keys(VOWELS);
+        let targetVowelIdx = -1;
+        
+        for (let i = w.length - 1; i >= 0; i--) {
+            if (['â', 'ă', 'ê', 'ô', 'ơ', 'ư'].includes(w[i])) {
+                targetVowelIdx = i;
+                break;
+            }
+        }
+        if (targetVowelIdx === -1) {
+            for (let i = w.length - 1; i >= 0; i--) {
+                if (vowelList.includes(w[i])) {
+                    targetVowelIdx = i;
+                    break;
+                }
+            }
+        }
+        
+        if (targetVowelIdx !== -1) {
+            const v = w[targetVowelIdx];
+            if (VOWELS[v]) {
+                const accentedV = VOWELS[v].tones[tone];
+                w = w.substring(0, targetVowelIdx) + accentedV + w.substring(targetVowelIdx + 1);
+            }
+        } else if (toneChar) {
+            w = w + toneChar;
+        }
+        
+        return w;
+    };
+    
+    return words.map(decodeWord).join(' ');
 };
 
 /**
@@ -39,6 +147,18 @@ export const extractJapaneseParts = (card = {}) => {
     const onReading = card.on || card.onyomi || '';
     const kunReading = card.kun || card.kunyomi || '';
 
+    // Tách các âm Hán Việt đa âm: "KHUYẾN, KHUYÊN", "KHUYẾN / KHUYÊN", "KHUYẾN (KHUYÊN)"
+    const rawSinoViet = card.sinoVietnamese || card.sinoViet || card.hanviet || '';
+    const sinoVietList = typeof rawSinoViet === 'string'
+        ? rawSinoViet.split(/[,;\n/|()（）\-–—]+/).map(s => s.trim()).filter(Boolean)
+        : (Array.isArray(rawSinoViet) ? rawSinoViet : []);
+
+    // Tách các nghĩa tiếng Việt độc lập
+    const rawMeaning = card.back || card.meaning || '';
+    const meaningList = typeof rawMeaning === 'string'
+        ? rawMeaning.split(/[,;\n/|]+/).map(s => s.trim()).filter(Boolean)
+        : (Array.isArray(rawMeaning) ? rawMeaning : []);
+
     return {
         kanjiPart,
         kanaPart,
@@ -46,20 +166,23 @@ export const extractJapaneseParts = (card = {}) => {
         rawReading,
         onReading,
         kunReading,
-        sinoViet: card.sinoVietnamese || card.sinoViet || card.hanviet || '',
-        meaning: card.back || card.meaning || '',
+        sinoViet: rawSinoViet,
+        sinoVietList,
+        meaning: rawMeaning,
+        meaningList,
         synonyms: Array.isArray(card.synonyms) ? card.synonyms : (typeof card.synonyms === 'string' ? card.synonyms.split(/[,;\n]+/).map(s => s.trim()) : [])
     };
 };
 
 /**
  * Kiểm tra xem câu trả lời của người dùng có khớp với thẻ hay không
- * Chấp nhận CẢ Hiragana (cách đọc), Katakana, Kanji (chữ Hán), Âm Hán Việt hoặc Nghĩa
+ * Chấp nhận CẢ Hiragana (cách đọc), Katakana, Kanji (chữ Hán), các âm Hán Việt (kể cả từ đa âm) hoặc Nghĩa
  */
 export const checkAnswerMatch = (userInput = '', card = {}) => {
     if (!userInput || !userInput.trim()) return false;
     const cleanInput = userInput.trim();
     const normInput = toHiragana(normalize(cleanInput));
+    const telexInput = toHiragana(normalize(decodeTelex(cleanInput)));
 
     const parts = extractJapaneseParts(card);
     const candidates = [
@@ -70,13 +193,16 @@ export const checkAnswerMatch = (userInput = '', card = {}) => {
         parts.onReading,
         parts.kunReading,
         parts.sinoViet,
+        ...parts.sinoVietList,
         parts.meaning,
+        ...parts.meaningList,
         ...parts.synonyms
     ].filter(Boolean);
 
-    // 1. So sánh chuẩn hóa với tất cả các ứng viên (chấp nhận cả Kanji lẫn Hiragana/Katakana)
+    // 1. So sánh chuẩn hóa với tất cả các ứng viên (chấp nhận cả Kanji, Hiragana/Katakana, tiếng Việt chuẩn và Telex)
     for (const cand of candidates) {
-        if (normInput === toHiragana(normalize(cand))) return true;
+        const normCand = toHiragana(normalize(cand));
+        if (normInput === normCand || telexInput === normCand) return true;
         if (normalize(cleanInput) === normalize(cand)) return true;
     }
 
@@ -85,6 +211,7 @@ export const checkAnswerMatch = (userInput = '', card = {}) => {
         for (const cand of candidates) {
             const normCand = toHiragana(normalize(cand));
             if (normInput === normCand + 'な' || normInput + 'な' === normCand) return true;
+            if (telexInput === normCand + 'な' || telexInput + 'な' === normCand) return true;
         }
     }
 
@@ -92,13 +219,13 @@ export const checkAnswerMatch = (userInput = '', card = {}) => {
     if (parts.meaning) {
         const meaningItems = parts.meaning.split(/[,;\n/]+/).map(m => normalize(m)).filter(Boolean);
         for (const m of meaningItems) {
-            if (normalize(cleanInput) === m) return true;
+            if (normalize(cleanInput) === m || normalize(decodeTelex(cleanInput)) === m) return true;
         }
     }
 
     // 4. Với Hán Việt có dấu cách
     if (parts.sinoViet) {
-        if (normalize(cleanInput) === normalize(parts.sinoViet)) return true;
+        if (normalize(cleanInput) === normalize(parts.sinoViet) || normalize(decodeTelex(cleanInput)) === normalize(parts.sinoViet)) return true;
     }
 
     return false;
@@ -133,7 +260,7 @@ export const calculateAnkiDiff = (userInput = '', card = {}, options = {}) => {
     const expectedLanguage = typeof options === 'object' ? (options.expectedLanguage || 'auto') : 'auto';
 
     const parts = extractJapaneseParts(card);
-    const cleanInput = (userInput || '').trim();
+    const cleanInput = (userInput || '').normalize('NFC').trim();
     const normInput = toHiragana(normalize(cleanInput));
 
     const kanjiCandidate = parts.kanjiPart || parts.rawFront || '';
@@ -146,7 +273,9 @@ export const calculateAnkiDiff = (userInput = '', card = {}, options = {}) => {
         parts.onReading,
         parts.kunReading,
         parts.sinoViet,
+        ...parts.sinoVietList,
         parts.meaning,
+        ...parts.meaningList,
         ...parts.synonyms
     ].filter(Boolean);
 
@@ -154,9 +283,11 @@ export const calculateAnkiDiff = (userInput = '', card = {}, options = {}) => {
 
     if (isMatch) {
         // Tìm ứng viên nào khớp với input của người dùng nhất
+        const telexInput = toHiragana(normalize(decodeTelex(cleanInput)));
         let matchedTarget = kanjiCandidate || kanaCandidate || parts.meaning;
         for (const cand of candidates) {
-            if (normInput === toHiragana(normalize(cand)) || normalize(cleanInput) === normalize(cand)) {
+            const normCand = toHiragana(normalize(cand));
+            if (normInput === normCand || telexInput === normCand || normalize(cleanInput) === normalize(cand) || normalize(decodeTelex(cleanInput)) === normalize(cand)) {
                 matchedTarget = cand;
                 break;
             }
