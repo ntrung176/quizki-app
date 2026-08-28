@@ -471,21 +471,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
-        } else {
-            // Thẻ chưa tốt nghiệp (Quên / Khó / chu kỳ ngắn 1m, 5m, 10m):
-            // Tự động chèn lại thẻ vào hàng đợi ôn tập để người học ôn lại ngay trong phiên này
-            const remainingCardsCount = updatedQueue.length - 1 - currentReviewIndex;
-            let insertIndex;
-            if (remainingCardsCount >= 3) {
-                insertIndex = currentReviewIndex + 3; // Chèn sau 2-3 thẻ nếu còn nhiều thẻ
-            } else if (remainingCardsCount >= 1) {
-                insertIndex = updatedQueue.length; // Chèn vào cuối hàng đợi
-            } else {
-                // Nếu chỉ còn 1 thẻ hoặc là thẻ cuối cùng: chèn ngay sau thẻ hiện tại
-                insertIndex = currentReviewIndex + 1;
-            }
-            updatedQueue.splice(insertIndex, 0, currentCard);
         }
+        // Thẻ Ngữ pháp có chu kỳ ngắn (1, 5, 10 phút) sẽ ở trạng thái chờ và được tự động chèn ngay sau thẻ hiện tại khi đúng thời gian hẹn
 
         if (currentReviewIndex + 2 >= updatedQueue.length) {
             const nowTime = Date.now();

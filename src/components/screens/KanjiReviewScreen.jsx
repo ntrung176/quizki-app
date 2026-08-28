@@ -401,11 +401,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             if (dueNow.length > 0) {
                 setReviewQueue(prevQueue => {
                     const nextQueue = [...prevQueue];
-                    const allQueueIds = new Set(nextQueue.map(c => String(c.id)));
+                    const upcomingQueueIds = new Set(nextQueue.slice(currentReviewIndex).map(c => String(c.id)));
                     const cardsToInject = [];
                     dueNow.forEach(item => {
                         const itemIdStr = String(item.id);
-                        if (!allQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
+                        if (!upcomingQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
                             const fullCard = kanjiMap.get(item.id);
                             if (fullCard) {
                                 const localSrs = srsData[item.id];
@@ -427,8 +427,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                     });
 
                     if (cardsToInject.length > 0) {
-                        const minSpacing = 3;
-                        const insertIndex = Math.min(currentReviewIndex + minSpacing, nextQueue.length);
+                        const insertIndex = Math.min(currentReviewIndex + 1, nextQueue.length);
                         nextQueue.splice(insertIndex, 0, ...cardsToInject);
                         return nextQueue;
                     }
@@ -580,25 +579,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             queue: [...reviewQueue]
         }]);
 
-        // 1. Determine if card graduated/completed in this session or needs re-insertion
+        // 1. Determine if card graduated/completed in this session or needs waiting for next review
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
             completedCardIds.current.add(currentCard.id);
-        } else {
-            // Thẻ chưa tốt nghiệp (Quên / Khó / chu kỳ ngắn 1m, 5m, 10m):
-            // Tự động chèn lại thẻ vào hàng đợi ôn tập để người học ôn lại ngay trong phiên này
-            const remainingCardsCount = updatedQueue.length - 1 - currentReviewIndex;
-            let insertIndex;
-            if (remainingCardsCount >= 3) {
-                insertIndex = currentReviewIndex + 3; // Chèn sau 2-3 thẻ nếu còn nhiều thẻ
-            } else if (remainingCardsCount >= 1) {
-                insertIndex = updatedQueue.length; // Chèn vào cuối hàng đợi
-            } else {
-                // Nếu chỉ còn 1 thẻ hoặc là thẻ cuối cùng: chèn ngay sau thẻ hiện tại
-                insertIndex = currentReviewIndex + 1;
-            }
-            updatedQueue.splice(insertIndex, 0, currentCard);
         }
+        // Thẻ Kanji có chu kỳ ngắn (1, 5, 10 phút) sẽ ở trạng thái chờ và được tự động chèn ngay sau thẻ hiện tại khi đúng thời gian hẹn
 
         setReviewQueue(updatedQueue);
 
