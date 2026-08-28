@@ -450,15 +450,13 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             const saved = localStorage.getItem(key);
             if (saved) {
                 const data = JSON.parse(saved);
-                const savedIds = new Set(data.cardIds || []);
-                const currentIds = originalCards.map(c => c.id);
-                if (currentIds.length === savedIds.size && currentIds.every(id => savedIds.has(id))) {
+                if (data && (data.batches || data.cardIds)) {
                     return data;
                 }
             }
         } catch (e) { /* ignore */ }
         return null;
-    }, [studySessionData?.setId, originalCards]);
+    }, [studySessionData?.setId]);
 
     // Initialize/Restart batches
     const initializeBatches = useCallback(() => {
@@ -486,17 +484,47 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 return savedBatches.map(batch => restoreCards(batch));
             };
 
-            setBatches(restoreBatches(saved.batches));
-            setCurrentBatchIndex(saved.currentBatchIndex || 0);
-            setCurrentBatch(restoreCards(saved.currentBatch));
-            setBatchPhase(saved.batchPhase || 'mc');
-            setMcQueue(restoreCards(saved.mcQueue));
-            setMcIdx(saved.mcIdx || 0);
-            setMcWrong(restoreCards(saved.mcWrong));
-            setWrittenQueue(restoreCards(saved.writtenQueue));
-            setWrittenIdx(saved.writtenIdx || 0);
-            setWrittenWrong(restoreCards(saved.writtenWrong));
-            setDone(saved.done || false);
+            let restoredBatches = restoreBatches(saved.batches);
+            const trackedCardIds = new Set();
+            restoredBatches.forEach(batch => batch.forEach(c => trackedCardIds.add(c.id)));
+
+            const brandNewCards = originalCards.filter(c => !trackedCardIds.has(c.id));
+            if (brandNewCards.length > 0) {
+                const shuffledNew = shuffleArray([...brandNewCards]);
+                for (let i = 0; i < shuffledNew.length; i += 5) {
+                    restoredBatches.push(shuffledNew.slice(i, i + 5));
+                }
+            }
+
+            setBatches(restoredBatches);
+            const savedBatchIdx = saved.currentBatchIndex || 0;
+            const isPrevDone = saved.done || false;
+
+            if (isPrevDone && brandNewCards.length > 0) {
+                const firstNewBatchIdx = saved.batches ? saved.batches.length : 0;
+                setCurrentBatchIndex(firstNewBatchIdx);
+                const nextBatch = restoredBatches[firstNewBatchIdx] || [];
+                setCurrentBatch(nextBatch);
+                setBatchPhase('mc');
+                setMcQueue(shuffleArray([...nextBatch]));
+                setMcIdx(0);
+                setMcWrong([]);
+                setWrittenQueue([]);
+                setWrittenIdx(0);
+                setWrittenWrong([]);
+                setDone(false);
+            } else {
+                setCurrentBatchIndex(savedBatchIdx);
+                setCurrentBatch(restoreCards(saved.currentBatch));
+                setBatchPhase(saved.batchPhase || 'mc');
+                setMcQueue(restoreCards(saved.mcQueue));
+                setMcIdx(saved.mcIdx || 0);
+                setMcWrong(restoreCards(saved.mcWrong));
+                setWrittenQueue(restoreCards(saved.writtenQueue));
+                setWrittenIdx(saved.writtenIdx || 0);
+                setWrittenWrong(restoreCards(saved.writtenWrong));
+                setDone(isPrevDone && brandNewCards.length === 0);
+            }
             return;
         }
 

@@ -36,9 +36,7 @@ export const useReviewData = ({
             const saved = localStorage.getItem(key);
             if (saved) {
                 const data = JSON.parse(saved);
-                const savedIds = new Set(data.cardIds || []);
-                const currentIds = initialCards.map(c => c.id);
-                if (currentIds.length === savedIds.size && currentIds.every(id => savedIds.has(id))) {
+                if (data && (data.cardIdsList || data.cardIds || data.cards)) {
                     return data;
                 }
             }
@@ -53,7 +51,7 @@ export const useReviewData = ({
             if (savedProgress.cardIdsList) {
                 const pool = allCards || initialCards;
                 const cardMap = new Map(pool.map(c => [c.id, c]));
-                return savedProgress.cardIdsList.map(item => {
+                const restored = savedProgress.cardIdsList.map(item => {
                     const id = typeof item === 'string' ? item : (item && item.id ? item.id : null);
                     const card = cardMap.get(id);
                     if (card) {
@@ -61,9 +59,15 @@ export const useReviewData = ({
                     }
                     return null;
                 }).filter(Boolean);
+
+                const existingIds = new Set(restored.map(c => c.id));
+                const newCards = (initialCards || []).filter(c => !existingIds.has(c.id));
+                return [...restored, ...newCards];
             }
             if (savedProgress.cards) {
-                return savedProgress.cards;
+                const existingIds = new Set(savedProgress.cards.map(c => c.id));
+                const newCards = (initialCards || []).filter(c => !existingIds.has(c.id));
+                return [...savedProgress.cards, ...newCards];
             }
         }
         return initialCards;

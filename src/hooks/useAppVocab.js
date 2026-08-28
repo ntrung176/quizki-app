@@ -115,6 +115,15 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             if (isCorrectOrData.masteryState) {
                 newMasteryState = isCorrectOrData.masteryState;
             }
+        } else if (typeof mode === 'object' && mode !== null) {
+            // Trường hợp gọi onUpdateCard(cardId, 'all', updates)
+            updatedFields = mode;
+            if (mode.masteryState) {
+                newMasteryState = mode.masteryState;
+            }
+        } else if (typeof isCorrectOrData === 'string' && typeof mode !== 'undefined') {
+            // Trường hợp gọi onUpdateCard(cardId, 'front', 'newValue')
+            updatedFields = { [isCorrectOrData]: mode };
         } else {
             const isCorrect = Boolean(isCorrectOrData);
             if (action === 'flashcard_known' || action === 'memorized') {

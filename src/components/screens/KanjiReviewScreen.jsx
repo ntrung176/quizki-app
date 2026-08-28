@@ -1041,7 +1041,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                     setIsFlipped(true);
                                     playFlipSound();
                                 }}
-                                onCheck={() => setHasCheckedTyping(true)}
+                                onCheck={() => {
+                                    setHasCheckedTyping(true);
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                    playFlipSound();
+                                }}
                                 onQuickRate={(rating) => handleRating(rating)}
                                 placeholder={kanjiSwapSides ? "Nhập chữ Hán Kanji hoặc cách đọc..." : "Nhập âm Hán Việt (ví dụ: HỌC)..."}
                             />
@@ -1130,7 +1135,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         // Check for any newly due kanji while staying on the completion screen
         const newlyDueKanji = (kanjiList || []).filter(k => {
             const srs = srsData[k.id] || k.srsData;
-            return isSrsCardDue(srs, reviewTick);
+            return isSrsCardDue(srs, lastTick);
         });
 
         // When 0 cards are waiting -> Render Completion Screen

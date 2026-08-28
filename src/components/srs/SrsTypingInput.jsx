@@ -65,11 +65,11 @@ const SrsTypingInput = ({
             onCheck(result);
         }
 
-        // Tự động lật thẻ để xem toàn bộ thông tin chi tiết nếu chưa lật
-        if (!isFlipped && onFlip) {
+        // Tự động lật thẻ để xem toàn bộ thông tin chi tiết
+        if (onFlip) {
             onFlip();
         }
-    }, [input, card, isReversed, hasChecked, isFlipped, onFlip, onCheck]);
+    }, [input, card, isReversed, hasChecked, onFlip, onCheck]);
 
     const isComposingRef = useRef(false);
 

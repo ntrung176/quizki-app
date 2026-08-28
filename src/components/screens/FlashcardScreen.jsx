@@ -18,10 +18,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             const saved = localStorage.getItem(key);
             if (saved) {
                 const data = JSON.parse(saved);
-                // Verify saved cards match current cards (same IDs)
-                const savedIds = new Set(data.cardIds || []);
-                const currentIds = initialCards.map(c => c.id);
-                if (currentIds.length === savedIds.size && currentIds.every(id => savedIds.has(id))) {
+                if (data && (data.cardIds || data.currentDeckIds)) {
                     return data;
                 }
             }
@@ -30,11 +27,24 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     };
     const savedProgress = getSavedProgress();
     const [allCards] = useState(initialCards);
+
+    // Xác định các thẻ mới được thêm vào học phần (chưa có trong tiến độ cũ)
+    const trackedCardIds = new Set([
+        ...(savedProgress?.knownCardIds || []),
+        ...(savedProgress?.unknownCardIds || []),
+        ...(savedProgress?.currentDeckIds || [])
+    ]);
+    const newlyAddedCards = initialCards.filter(c => !trackedCardIds.has(c.id));
+
     const [currentDeck, setCurrentDeck] = useState(() => {
         if (savedProgress && savedProgress.currentDeckIds) {
             // Restore deck order
             const deckMap = new Map(initialCards.map(c => [c.id, c]));
-            return savedProgress.currentDeckIds.map(id => deckMap.get(id)).filter(Boolean);
+            const restored = savedProgress.currentDeckIds.map(id => deckMap.get(id)).filter(Boolean);
+            if (newlyAddedCards.length > 0) {
+                return [...restored, ...newlyAddedCards];
+            }
+            return restored;
         }
         return initialCards;
     });
@@ -55,7 +65,10 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         return [];
     });
     const [history, setHistory] = useState([]); // For undo: {card, action, index}
-    const [isComplete, setIsComplete] = useState(savedProgress?.isComplete || false);
+    const [isComplete, setIsComplete] = useState(() => {
+        if (newlyAddedCards.length > 0) return false;
+        return savedProgress?.isComplete || false;
+    });
     const [round, setRound] = useState(savedProgress?.round || 1);
 
     const [isFullscreen, setIsFullscreen] = useState(false);
