@@ -52,7 +52,8 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         updatingUserPackage, loadingProfile, notification, setNotification, confirmDelete, setConfirmDelete,
         deleting, deleteType, setDeleteType, roleFilter, setRoleFilter, planFilter, setPlanFilter,
         creditRequests, vouchers, expenses, globalNotifications, cacheConfig, getUserActivePlan,
-        handleSaveUserPackage, stats, filteredUsers, handleDelete, getUserPlans, kanjiStats, formatVND, handleSelectUser
+        handleSaveUserPackage, stats, filteredUsers, handleDelete, getUserPlans, kanjiStats, formatVND, handleSelectUser,
+        handleSyncUserByUidOrEmail, handleSyncAllUsersFromFirestore, isSyncingAllUsers
     } = useAdminData({ publicStatsPath, currentUserId, adminConfig, onAdminDeleteUserData });
 
     const {
@@ -419,6 +420,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     handleSaveUserPackage={handleSaveUserPackage} updatingUserPackage={updatingUserPackage} kanjiStats={kanjiStats}
                     getUserPlans={getUserPlans} formatVND={formatVND} handleToggleModerator={handleToggleModerator}
                     savingConfig={savingConfig} setDeleteType={setDeleteType} setConfirmDelete={setConfirmDelete}
+                    handleSyncUserByUidOrEmail={handleSyncUserByUidOrEmail}
+                    handleSyncAllUsersFromFirestore={handleSyncAllUsersFromFirestore}
+                    isSyncingAllUsers={isSyncingAllUsers}
                 />
             )}
 

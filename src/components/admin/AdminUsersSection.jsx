@@ -32,7 +32,10 @@ const AdminUsersSection = ({
     handleToggleModerator,
     savingConfig,
     setDeleteType,
-    setConfirmDelete
+    setConfirmDelete,
+    handleSyncUserByUidOrEmail,
+    handleSyncAllUsersFromFirestore,
+    isSyncingAllUsers
 }) => {
     return (
         <>
@@ -119,7 +122,7 @@ const AdminUsersSection = ({
             </div>
 
             {/* Main Content: User List + Details */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* User List */}
                 <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
                     <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex flex-wrap items-center justify-between gap-2">
@@ -127,28 +130,71 @@ const AdminUsersSection = ({
                             <Users className="w-4 h-4" />
                             Danh sách người dùng ({filteredUsers.length})
                         </h3>
-                        <button
-                            onClick={async () => {
-                                try {
-                                    const { normalizeAllUserScores } = await import('../../utils/normalizeUserScore');
-                                    const result = await normalizeAllUserScores();
-                                    setNotification({ type: 'success', message: `⚡ Đã chuẩn hóa ${result.total} người dùng: Gán Score = XP cho ${result.updatedCount} user!` });
-                                } catch (e) {
-                                    setNotification({ type: 'error', message: 'Lỗi chuẩn hóa điểm: ' + e.message });
-                                }
-                            }}
-                            className="px-3 py-1.5 bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-600 hover:to-purple-700 text-white font-extrabold text-xs rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
-                            title="Gán trực tiếp Score = XP cho tất cả người dùng trên Bảng xếp hạng"
-                        >
-                            <Zap className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                            <span>Chuẩn Hóa Điểm (Score = XP)</span>
-                        </button>
+                        <div className="flex items-center gap-2 flex-wrap">
+                            <button
+                                type="button"
+                                disabled={isSyncingAllUsers}
+                                onClick={() => handleSyncAllUsersFromFirestore && handleSyncAllUsersFromFirestore()}
+                                className="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
+                                title="Quét toàn bộ tài khoản người dùng trên Firestore và nạp đầy đủ vào danh sách quản trị"
+                            >
+                                {isSyncingAllUsers ? (
+                                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                ) : (
+                                    <Users className="w-3.5 h-3.5" />
+                                )}
+                                <span>{isSyncingAllUsers ? 'Đang Quét...' : 'Quét & Đồng Bộ Tất Cả User'}</span>
+                            </button>
+                            <button
+                                type="button"
+                                onClick={async () => {
+                                    const uidInput = window.prompt("Nhập Email hoặc User UID người dùng để đồng bộ vào Admin (ví dụ: buiphuongthao010120@gmail.com hoặc RZfXCpw3JPeG9CsaWmqlQk...):");
+                                    if (uidInput && uidInput.trim() && handleSyncUserByUidOrEmail) {
+                                        await handleSyncUserByUidOrEmail(uidInput.trim());
+                                    }
+                                }}
+                                className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-slate-300 dark:border-slate-600"
+                                title="Đồng bộ người dùng qua Email hoặc User UID"
+                            >
+                                <Search className="w-3.5 h-3.5 text-indigo-500" />
+                                <span>Tìm & Đồng bộ Email / UID</span>
+                            </button>
+                            <button
+                                onClick={async () => {
+                                    try {
+                                        const { normalizeAllUserScores } = await import('../../utils/normalizeUserScore');
+                                        const result = await normalizeAllUserScores();
+                                        setNotification({ type: 'success', message: `⚡ Đã chuẩn hóa ${result.total} người dùng: Gán Score = XP cho ${result.updatedCount} user!` });
+                                    } catch (e) {
+                                        setNotification({ type: 'error', message: 'Lỗi chuẩn hóa điểm: ' + e.message });
+                                    }
+                                }}
+                                className="px-3 py-1.5 bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-600 hover:to-purple-700 text-white font-extrabold text-xs rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
+                                title="Gán trực tiếp Score = XP cho tất cả người dùng trên Bảng xếp hạng"
+                            >
+                                <Zap className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
+                                <span>Chuẩn Hóa Điểm (Score = XP)</span>
+                            </button>
+                        </div>
                     </div>
                     <div className="max-h-[500px] overflow-y-auto">
                         {filteredUsers.length === 0 ? (
                             <div className="p-8 text-center text-gray-400">
                                 <Users className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                                <p>Không tìm thấy người dùng nào</p>
+                                <p className="text-gray-600 dark:text-gray-300 font-medium">Không tìm thấy người dùng {searchQuery ? `"${searchQuery}"` : ''}</p>
+                                {searchQuery && (
+                                    <div className="mt-4">
+                                        <p className="text-xs text-gray-400 mb-3">Người dùng mới đăng nhập Google có thể chưa cập nhật hồ sơ công khai.</p>
+                                        <button
+                                            type="button"
+                                            onClick={() => handleSyncUserByUidOrEmail && handleSyncUserByUidOrEmail(searchQuery)}
+                                            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow transition-all inline-flex items-center gap-1.5 cursor-pointer"
+                                        >
+                                            <Search className="w-3.5 h-3.5" />
+                                            <span>Tìm kiếm & Đồng bộ "{searchQuery}"</span>
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         ) : (
                             <div className="divide-y divide-gray-100 dark:divide-gray-700">

@@ -565,9 +565,14 @@ export const useKanjiData = ({
     }, [selectedLevel, kanjiList, pureKanjiVocabList, searchQuery]);
 
     const completedCount = useMemo(() => {
-        const savedKanjiSet = new Set(allUserCards.map(c => c.front || c.character).filter(Boolean));
-        return currentKanjiList.filter(k => savedKanjiSet.has(k)).length;
-    }, [currentKanjiList, allUserCards]);
+        if (!userKanjiSRS || userKanjiSRS.size === 0) return 0;
+        return currentKanjiList.filter(char => {
+            if (userKanjiSRS.has(char)) return true;
+            const kanjiDoc = kanjiMap.get(char);
+            if (kanjiDoc && (userKanjiSRS.has(kanjiDoc.id) || (kanjiDoc.character && userKanjiSRS.has(kanjiDoc.character)))) return true;
+            return false;
+        }).length;
+    }, [currentKanjiList, userKanjiSRS, kanjiMap]);
 
     const searchResults = useMemo(() => {
         if (!searchQuery.trim()) return [];

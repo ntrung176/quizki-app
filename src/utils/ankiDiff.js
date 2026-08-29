@@ -105,7 +105,6 @@ export const transformVietnameseTelex = (text = '') => {
         w = w.replace(/dd/g, 'đ').replace(/DD/g, 'Đ').replace(/Dd/g, 'Đ').replace(/dD/g, 'đ');
 
         // Case 1b: Gõ 'd' trễ linh hoạt (vd: 'dongd', 'dongdof', 'dond', 'dangd', 'duongd')
-        // Nếu từ bắt đầu bằng d/D và có phím d/D được bấm sau nguyên âm:
         if (/[dD]/.test(w) && !/đ|Đ/.test(w)) {
             const firstDIdx = w.search(/[dD]/);
             const afterFirstD = w.slice(firstDIdx + 1);
@@ -115,29 +114,28 @@ export const transformVietnameseTelex = (text = '') => {
             }
         }
 
+        // Tìm vị trí nguyên âm đầu tiên trong từ để phân biệt phụ âm đầu (r, s, x trong 'tr', 'ra', 'sa', 'xa') với phím dấu thanh Telex
+        const firstVowelIdx = w.search(/[aAeEiIoOuUyY\u00C0-\u024F\u1EA0-\u1EF9]/);
+
         // 2. Tìm và bóc tách phím dấu thanh (s, f, r, x, j, z)
-        // Phím dấu có thể gõ ở bất kỳ vị trí nào trong từ (cuối từ, sau nguyên âm, trước modifier)
+        // Chỉ bóc tách phím dấu nếu phím đó nằm SAU nguyên âm đầu tiên trong từ
         let toneIndex = -1;
 
-        for (let i = w.length - 1; i >= 0; i--) {
-            const ch = w[i];
-            if (TONE_MAP[ch] !== undefined) {
-                let hasVowelContext = false;
-                for (let j = 0; j < w.length; j++) {
-                    if (j !== i && (CHAR_TO_VOWEL_INFO[w[j]] || /[wW]/.test(w[j]))) {
-                        hasVowelContext = true;
+        if (firstVowelIdx !== -1) {
+            for (let i = w.length - 1; i >= firstVowelIdx; i--) {
+                const ch = w[i];
+                if (TONE_MAP[ch] !== undefined) {
+                    // Nếu là r, s, x: Bắt buộc phải đứng sau ít nhất 1 nguyên âm (i > firstVowelIdx) để không nuốt 'r' trong 'tr', 'ra' hoặc 's' trong 'sa'
+                    if (i > firstVowelIdx || ['j', 'f', 'z', 'J', 'F', 'Z'].includes(ch)) {
+                        toneIndex = TONE_MAP[ch];
+                        w = w.slice(0, i) + w.slice(i + 1);
                         break;
                     }
-                }
-                if (hasVowelContext) {
-                    toneIndex = TONE_MAP[ch];
-                    w = w.slice(0, i) + w.slice(i + 1);
-                    break;
                 }
             }
         }
 
-        // 3. Xử lý 'w' biến đổi nguyên âm (ă, ơ, ư, ươ, oă)
+        // 3. Xử lý 'w' biến đổi nguyên âm (ă, ơ, ư, ươ, ưa, oă)
         if (/[wW]/.test(w)) {
             // Cụm 'uo' + 'w' -> 'ươ' (ví dụ: chuongw, chuowng, chuwong, nguoiw, tuongw)
             if (/[uU]/.test(w) && /[oO]/.test(w)) {
@@ -154,6 +152,23 @@ export const transformVietnameseTelex = (text = '') => {
                 w = w.replace(/([uU])(.*)([oO])/gi, (m, u, mid, o) => {
                     const isUpper = u === u.toUpperCase() && o === o.toUpperCase();
                     return (isUpper ? 'Ư' : 'ư') + mid + (isUpper ? 'Ơ' : 'ơ');
+                });
+            }
+            // Cụm 'ua' + 'w' -> 'ưa' (ví dụ: thuaw -> thưa, muaw -> mưa, chuaw -> chưa, cuaw -> cưa, xuaw -> xưa)
+            else if (/[uU]/.test(w) && /[aA]/.test(w)) {
+                w = w.replace(/([uU])([aA])w?/gi, (m, u, a) => {
+                    const isUpper = u === u.toUpperCase() && a === a.toUpperCase();
+                    const isTitle = u === u.toUpperCase();
+                    return isUpper ? 'ƯA' : (isTitle ? 'Ưa' : 'ưa');
+                });
+                w = w.replace(/([uU])w([aA])/gi, (m, u, a) => {
+                    const isUpper = u === u.toUpperCase() && a === a.toUpperCase();
+                    const isTitle = u === u.toUpperCase();
+                    return isUpper ? 'ƯA' : (isTitle ? 'Ưa' : 'ưa');
+                });
+                w = w.replace(/([uU])(.*)([aA])/gi, (m, u, mid, a) => {
+                    const isUpper = u === u.toUpperCase() && a === a.toUpperCase();
+                    return (isUpper ? 'Ư' : 'ư') + mid + (isUpper ? 'A' : 'a');
                 });
             }
             // Cụm 'oa' + 'w' -> 'oă' (ví dụ: hoacw, hoawc, ngoacw, xoanw)
@@ -180,7 +195,9 @@ export const transformVietnameseTelex = (text = '') => {
                      .replace(/([aA])w/g, (m, a) => a === a.toUpperCase() ? 'Ă' : 'ă');
 
                 if (/[wW]/.test(w)) {
-                    if (/[aA]/.test(w)) {
+                    if (/[uU]/.test(w) && /[aA]/.test(w)) {
+                        w = w.replace(/([uU])/g, (m, u) => u === u.toUpperCase() ? 'Ư' : 'ư');
+                    } else if (/[aA]/.test(w)) {
                         w = w.replace(/([aA])/g, (m, a) => a === a.toUpperCase() ? 'Ă' : 'ă');
                     } else if (/[oO]/.test(w)) {
                         w = w.replace(/([oO])/g, (m, o) => o === o.toUpperCase() ? 'Ơ' : 'ơ');
@@ -229,8 +246,8 @@ export const transformVietnameseTelex = (text = '') => {
              .replace(/([iI])eu/g, (m, i) => (i === i.toUpperCase() ? 'IÊ' : 'iê') + 'u')
              .replace(/([yY])eu/g, (m, y) => (y === y.toUpperCase() ? 'YÊ' : 'yê') + 'u');
 
-        // Tự động chuyển 'ua' + phụ âm cuối thành 'uâ' (ví dụ: chuan -> chuẩn, xuan -> xuân, khuan -> khuân)
-        w = w.replace(/([uU])a([nN])/g, (m, u, n) => (u === u.toUpperCase() ? 'UÂ' : 'uâ') + n);
+        // Tự động chuyển 'ua' + phụ âm cuối thành 'uâ' (ví dụ: chuan -> chuẩn, xuan -> xuân, khuan -> khuân, ngoại trừ qu-)
+        w = w.replace(/([^qQ\s]|^)([uU])a([nN])/g, (m, prefix, u, n) => prefix + (u === u.toUpperCase() ? 'UÂ' : 'uâ') + n);
 
         // 6. Nếu không có dấu thanh
         if (toneIndex === -1 || toneIndex === 0) {

@@ -44,6 +44,11 @@ service cloud.firestore {
     // 1. USER DATA (Dữ liệu riêng tư của người dùng)
     // ============================================
     
+    // Quyền collectionGroup settings cho Admin quét và đồng bộ danh sách tài khoản
+    match /{path=**}/settings/{docId} {
+      allow read: if isAuthenticated() && hasAdminPrivilegesDefault();
+    }
+
     match /artifacts/{appId}/users/{userId}/settings/{docId} {
       allow read: if isOwner(userId) || hasAdminPrivileges(appId);
       allow create: if (isOwner(userId) && isReasonableSize()) || hasAdminPrivileges(appId);

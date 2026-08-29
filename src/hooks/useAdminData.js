@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { collection, query, onSnapshot, doc, getDoc, getDocs, setDoc, writeBatch, orderBy, limit } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, getDoc, getDocs, setDoc, writeBatch, orderBy, limit, collectionGroup, where } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { subscribeVouchers, subscribeCreditRequests, subscribeExpenses } from '../utils/adminSettings';
 
@@ -366,6 +366,190 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
 
     const formatVND = (n) => new Intl.NumberFormat('vi-VN').format(n) + 'đ';
 
+    const [isSyncingAllUsers, setIsSyncingAllUsers] = useState(false);
+
+    const handleSyncUserByUidOrEmail = async (rawInput) => {
+        if (!rawInput || !rawInput.trim() || !db || !publicStatsPath) return null;
+        const input = rawInput.trim();
+        setIsLoading(true);
+        try {
+            // Case 1: Search by Email across all settings/profile documents
+            if (input.includes('@')) {
+                const targetEmailLower = input.toLowerCase();
+                let foundUid = null;
+                let foundData = null;
+
+                try {
+                    // Try collectionGroup query for profile
+                    const cgSnap = await getDocs(collectionGroup(db, 'settings'));
+                    for (const docSnap of cgSnap.docs) {
+                        if (docSnap.id === 'profile') {
+                            const data = docSnap.data() || {};
+                            if ((data.email || '').trim().toLowerCase() === targetEmailLower) {
+                                foundUid = docSnap.ref.parent?.parent?.id;
+                                foundData = data;
+                                break;
+                            }
+                        }
+                    }
+                } catch (cgErr) {
+                    console.warn('CollectionGroup search error:', cgErr);
+                }
+
+                if (foundUid && foundData) {
+                    const userEmail = (foundData.email || input).trim();
+                    const displayName = foundData.displayName || userEmail.split('@')[0] || 'Người học';
+                    const userObj = {
+                        userId: foundUid,
+                        email: userEmail,
+                        displayName: displayName,
+                        photoURL: foundData.photoURL || '',
+                        totalCards: foundData.totalCards || 0,
+                        xp: foundData.xp || foundData.score || 0,
+                        ...foundData
+                    };
+                    const statsRef = doc(db, publicStatsPath, foundUid);
+                    await setDoc(statsRef, userObj, { merge: true });
+                    setUsers(prev => {
+                        const existingIdx = prev.findIndex(u => u.userId === foundUid);
+                        if (existingIdx >= 0) {
+                            const updated = [...prev];
+                            updated[existingIdx] = { ...updated[existingIdx], ...userObj };
+                            return updated;
+                        }
+                        return [userObj, ...prev];
+                    });
+                    setSelectedUser(userObj);
+                    setNotification({ type: 'success', message: `🎉 Đã tìm thấy tài khoản "${displayName}" (${userEmail}) và đồng bộ vào danh sách Admin!` });
+                    return userObj;
+                } else {
+                    setNotification({ type: 'warning', message: `Không tìm thấy tài khoản nào có email "${input}" trên hệ thống Firestore.` });
+                    return null;
+                }
+            }
+
+            // Case 2: Search by UID
+            const profileRef = doc(db, `artifacts/${appId}/users/${input}/settings/profile`);
+            const snap = await getDoc(profileRef);
+            if (snap.exists()) {
+                const pData = snap.data();
+                const userEmail = (pData.email || '').trim();
+                const displayName = pData.displayName || userEmail?.split('@')[0] || 'Người học';
+                const userObj = {
+                    userId: input,
+                    email: userEmail,
+                    displayName: displayName,
+                    photoURL: pData.photoURL || '',
+                    totalCards: pData.totalCards || 0,
+                    xp: pData.xp || pData.score || 0,
+                    ...pData
+                };
+                const statsRef = doc(db, publicStatsPath, input);
+                await setDoc(statsRef, userObj, { merge: true });
+                setUsers(prev => {
+                    const existingIdx = prev.findIndex(u => u.userId === input);
+                    if (existingIdx >= 0) {
+                        const updated = [...prev];
+                        updated[existingIdx] = { ...updated[existingIdx], ...userObj };
+                        return updated;
+                    }
+                    return [userObj, ...prev];
+                });
+                setSelectedUser(userObj);
+                setNotification({ type: 'success', message: `✅ Đã đồng bộ tài khoản "${displayName}" (${userEmail || input}) vào danh sách Admin!` });
+                return userObj;
+            } else {
+                const userObj = {
+                    userId: input,
+                    email: '',
+                    displayName: `User_${input.slice(0, 6)}`,
+                    photoURL: '',
+                    totalCards: 0,
+                    xp: 0
+                };
+                const statsRef = doc(db, publicStatsPath, input);
+                await setDoc(statsRef, userObj, { merge: true });
+                setUsers(prev => [userObj, ...prev]);
+                setSelectedUser(userObj);
+                setNotification({ type: 'success', message: `✅ Đã tạo hồ sơ quản trị cho UID ${input}!` });
+                return userObj;
+            }
+        } catch (e) {
+            console.error('Error syncing user by input:', e);
+            setNotification({ type: 'error', message: 'Lỗi đồng bộ người dùng: ' + e.message });
+        } finally {
+            setIsLoading(false);
+        }
+        return null;
+    };
+
+    const handleSyncAllUsersFromFirestore = async () => {
+        if (!db || !publicStatsPath) return;
+        setIsSyncingAllUsers(true);
+        setNotification({ type: 'info', message: '🔄 Đang quét và đồng bộ toàn bộ tài khoản người dùng từ Firestore...' });
+
+        try {
+            const cgSnap = await getDocs(collectionGroup(db, 'settings'));
+            let syncedCount = 0;
+            const batchSize = 400;
+            let currentBatch = writeBatch(db);
+            let opCount = 0;
+            const updatedUsersMap = new Map();
+
+            for (const docSnap of cgSnap.docs) {
+                if (docSnap.id === 'profile') {
+                    const data = docSnap.data() || {};
+                    const userUid = docSnap.ref.parent?.parent?.id;
+                    if (userUid) {
+                        const userEmail = (data.email || '').trim();
+                        const displayName = data.displayName || (userEmail ? userEmail.split('@')[0] : 'Người học');
+                        const userObj = {
+                            userId: userUid,
+                            email: userEmail,
+                            displayName: displayName,
+                            photoURL: data.photoURL || '',
+                            updatedAt: Date.now(),
+                            ...data
+                        };
+
+                        const statsRef = doc(db, publicStatsPath, userUid);
+                        currentBatch.set(statsRef, userObj, { merge: true });
+                        updatedUsersMap.set(userUid, userObj);
+                        syncedCount++;
+                        opCount++;
+
+                        if (opCount >= batchSize) {
+                            await currentBatch.commit();
+                            currentBatch = writeBatch(db);
+                            opCount = 0;
+                        }
+                    }
+                }
+            }
+
+            if (opCount > 0) {
+                await currentBatch.commit();
+            }
+
+            setNotification({
+                type: 'success',
+                message: `🎉 Quét hoàn tất! Đã đồng bộ đầy đủ ${syncedCount} tài khoản người dùng vào danh sách Admin.`
+            });
+        } catch (err) {
+            console.error('Error syncing all users from Firestore:', err);
+            if (err.message && (err.message.includes('permission') || err.message.includes('Missing or insufficient permissions'))) {
+                setNotification({
+                    type: 'error',
+                    message: '⚠️ Firebase Console chưa bật luật collectionGroup. Bạn hãy vào Firebase Console > Rules để publish firestore.rules, hoặc bấm "Tìm & Đồng bộ Email / UID" và dán UID để đồng bộ ngay!'
+                });
+            } else {
+                setNotification({ type: 'error', message: 'Lỗi quét đồng bộ: ' + err.message });
+            }
+        } finally {
+            setIsSyncingAllUsers(false);
+        }
+    };
+
     return {
         users,
         setUsers,
@@ -409,6 +593,9 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
         handleDelete,
         getUserPlans,
         kanjiStats,
-        formatVND
+        formatVND,
+        handleSyncUserByUidOrEmail,
+        handleSyncAllUsersFromFirestore,
+        isSyncingAllUsers
     };
 };

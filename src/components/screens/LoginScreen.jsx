@@ -55,24 +55,37 @@ const LoginScreen = () => {
             const credential = GoogleAuthProvider.credential(response.credential);
             const result = await signInWithCredential(auth, credential);
             const user = result.user;
-            // Check if profile exists, create if not
             if (db) {
+                const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
+                const userEmail = (user.email || '').trim();
+                const userPhoto = user.photoURL || '';
+
                 const profileRef = doc(db, `artifacts/${appId}/users/${user.uid}/settings/profile`);
                 const profileSnap = await getDoc(profileRef);
                 if (!profileSnap.exists()) {
-                    const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
                     await setDoc(profileRef, {
                         displayName: defaultName,
                         dailyGoal: 10,
                         hasSeenHelp: true,
                         createdAt: serverTimestamp(),
-                        email: user.email || ''
+                        email: userEmail
                     }, { merge: true });
                 } else if (!profileSnap.data()?.email) {
                     await setDoc(profileRef, {
-                        email: user.email || ''
+                        email: userEmail
                     }, { merge: true });
                 }
+
+                // Đồng bộ sang publicStats để hiển thị ngay trong danh sách Admin
+                const statsRef = doc(db, `artifacts/${appId}/public/data/userStats`, user.uid);
+                await setDoc(statsRef, {
+                    userId: user.uid,
+                    email: userEmail,
+                    displayName: defaultName,
+                    photoURL: userPhoto,
+                    lastLoginAt: Date.now(),
+                    updatedAt: Date.now()
+                }, { merge: true }).catch(err => console.warn('Sync userStats in GIS warning:', err));
             }
         } catch (e) {
             console.error('Lỗi đăng nhập Google GIS:', e);
@@ -173,14 +186,27 @@ const LoginScreen = () => {
                 }
                 if (db) {
                     const defaultName = email.trim().split('@')[0];
+                    const userEmail = email.trim();
                     const profileRef = doc(db, `artifacts/${appId}/users/${cred.user.uid}/settings/profile`);
                     await setDoc(profileRef, {
                         displayName: defaultName,
                         dailyGoal: 10,
                         hasSeenHelp: true,
                         createdAt: serverTimestamp(),
-                        email: email.trim()
+                        email: userEmail
                     }, { merge: true });
+
+                    // Đồng bộ vào publicStats để Admin quản lý được
+                    const statsRef = doc(db, `artifacts/${appId}/public/data/userStats`, cred.user.uid);
+                    await setDoc(statsRef, {
+                        userId: cred.user.uid,
+                        email: userEmail,
+                        displayName: defaultName,
+                        photoURL: '',
+                        createdAt: serverTimestamp(),
+                        lastLoginAt: Date.now(),
+                        updatedAt: Date.now()
+                    }, { merge: true }).catch(err => console.warn('Sync userStats on register warning:', err));
                 }
                 await signOut(auth);
             }
@@ -250,22 +276,36 @@ const LoginScreen = () => {
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
             if (db) {
+                const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
+                const userEmail = (user.email || '').trim();
+                const userPhoto = user.photoURL || '';
+
                 const profileRef = doc(db, `artifacts/${appId}/users/${user.uid}/settings/profile`);
                 const profileSnap = await getDoc(profileRef);
                 if (!profileSnap.exists()) {
-                    const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
                     await setDoc(profileRef, {
                         displayName: defaultName,
                         dailyGoal: 10,
                         hasSeenHelp: true,
                         createdAt: serverTimestamp(),
-                        email: user.email || ''
+                        email: userEmail
                     }, { merge: true });
                 } else if (!profileSnap.data()?.email) {
                     await setDoc(profileRef, {
-                        email: user.email || ''
+                        email: userEmail
                     }, { merge: true });
                 }
+
+                // Đồng bộ sang publicStats để hiển thị ngay trong danh sách Admin
+                const statsRef = doc(db, `artifacts/${appId}/public/data/userStats`, user.uid);
+                await setDoc(statsRef, {
+                    userId: user.uid,
+                    email: userEmail,
+                    displayName: defaultName,
+                    photoURL: userPhoto,
+                    lastLoginAt: Date.now(),
+                    updatedAt: Date.now()
+                }, { merge: true }).catch(err => console.warn('Sync userStats in Popup warning:', err));
             }
             setIsLoading(false);
         } catch (e) {

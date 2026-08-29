@@ -715,6 +715,7 @@ export const cleanTextForTTS = (text) => {
     clean = clean.replace(/[_＿—\-]{2,}/g, ' ');
 
     // 4. Remove leftover XML or HTML tags if any (like <sub>, <ruby>, <rt>, etc.)
+    clean = clean.replace(/<rt>[^<]*<\/rt>/gi, '');
     clean = clean.replace(/<[^>]+>/g, '');
 
     // 5. Clean extra spaces
@@ -725,7 +726,7 @@ export const cleanTextForTTS = (text) => {
 
 /**
  * Phát âm câu ví dụ bằng giọng đọc Google Translate chuẩn (tự nhiên, tròn vành rõ chữ)
- * Tự động làm sạch ngoặc furigana, có fallback mượt mà sang Azure TTS / Web Speech API nếu offline
+ * Tự động làm sạch ngoặc furigana, thử lần lượt các endpoint Google TTS và chỉ fallback sang Web Speech API miễn phí (Tuyệt đối không gọi Azure)
  */
 export const speakExampleSentence = (text, lang = 'ja') => {
     globalAudioSessionId++;
@@ -743,7 +744,7 @@ export const speakExampleSentence = (text, lang = 'ja') => {
 
         const safetyTimeout = setTimeout(() => {
             safeResolve();
-        }, 8000);
+        }, 10000);
 
         if (!text) return safeResolve();
 
@@ -761,26 +762,49 @@ export const speakExampleSentence = (text, lang = 'ja') => {
 
         const isEng = isEnglishText(cleanText);
         const targetLang = isEng ? 'en' : (lang || 'ja');
-        const googleUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
 
-        const audio = new Audio(googleUrl);
-        currentAudioObj = audio;
+        // Resume AudioContext if suspended
+        try {
+            const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtxClass && AudioCtxClass.state === 'suspended') {
+                AudioCtxClass.resume?.().catch(() => {});
+            }
+        } catch (_) {}
 
-        audio.onended = () => {
-            currentAudioObj = null;
-            safeResolve();
+        const googleUrls = [
+            `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=tw-ob&q=${encodeURIComponent(cleanText)}`,
+            `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=dict-chrome-ex&q=${encodeURIComponent(cleanText)}`,
+            `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=gtx&q=${encodeURIComponent(cleanText)}`
+        ];
+
+        let attemptIdx = 0;
+
+        const playNextUrl = () => {
+            if (globalAudioSessionId !== currentSessionId) return safeResolve();
+            if (attemptIdx >= googleUrls.length) {
+                // If all Google endpoints fail (e.g. offline), fallback ONLY to Web Speech API (NEVER Azure)
+                speakWithWebSpeech(cleanText).then(safeResolve).catch(safeResolve);
+                return;
+            }
+
+            const currentUrl = googleUrls[attemptIdx++];
+            const audio = new Audio(currentUrl);
+            currentAudioObj = audio;
+
+            audio.onended = () => {
+                currentAudioObj = null;
+                safeResolve();
+            };
+
+            audio.onerror = () => {
+                playNextUrl();
+            };
+
+            audio.play().catch(() => {
+                playNextUrl();
+            });
         };
 
-        audio.onerror = async () => {
-            if (globalAudioSessionId !== currentSessionId) return safeResolve();
-            await speakWithTTS(cleanText, null, currentSessionId);
-            safeResolve();
-        };
-
-        audio.play().catch(async () => {
-            if (globalAudioSessionId !== currentSessionId) return safeResolve();
-            await speakWithTTS(cleanText, null, currentSessionId);
-            safeResolve();
-        });
+        playNextUrl();
     });
 };

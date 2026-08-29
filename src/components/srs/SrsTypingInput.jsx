@@ -111,7 +111,14 @@ const SrsTypingInput = ({
                         onChange={handleChange}
                         onKeyDown={handleKeyDown}
                         onCompositionStart={() => { isComposingRef.current = true; }}
-                        onCompositionEnd={() => { isComposingRef.current = false; }}
+                        onCompositionEnd={(e) => {
+                            isComposingRef.current = false;
+                            const isVietnameseTarget = expectedLanguage === 'sino' || expectedLanguage === 'vi' || (!isReversed && expectedLanguage === 'auto');
+                            if (isVietnameseTarget) {
+                                const transformed = transformVietnameseTelex(e.target.value);
+                                setInput(transformed);
+                            }
+                        }}
                         placeholder={placeholder}
                         autoComplete="off"
                         className="w-full py-3.5 pl-4.5 pr-28 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-medium text-base sm:text-lg focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/15 dark:focus:ring-indigo-400/15 shadow-lg shadow-slate-200/50 dark:shadow-none transition-all cursor-text caret-indigo-600 dark:caret-indigo-400"

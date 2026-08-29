@@ -244,6 +244,31 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
             if (user) {
                 setUserId(user.uid);
                 if (callbacksRef.current.setNotification) callbacksRef.current.setNotification('');
+                
+                // Tự động đồng bộ email, tên hiển thị và trạng thái hoạt động vào publicStats để Admin quản trị được
+                if (db && appId) {
+                    const userEmail = (user.email || '').trim();
+                    const userDisplayName = user.displayName || (userEmail ? userEmail.split('@')[0] : 'Người học');
+                    const userPhoto = user.photoURL || '';
+                    
+                    const statsDocRef = doc(db, `artifacts/${appId}/public/data/userStats`, user.uid);
+                    setDoc(statsDocRef, {
+                        userId: user.uid,
+                        email: userEmail,
+                        displayName: userDisplayName,
+                        photoURL: userPhoto,
+                        lastLoginAt: Date.now(),
+                        updatedAt: Date.now()
+                    }, { merge: true }).catch(err => console.warn('Auto-sync userStats on login warning:', err));
+
+                    const profileDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/settings/profile`);
+                    setDoc(profileDocRef, {
+                        email: userEmail,
+                        displayName: userDisplayName,
+                        photoURL: userPhoto,
+                        updatedAt: Date.now()
+                    }, { merge: true }).catch(err => console.warn('Auto-sync profile on login warning:', err));
+                }
             } else {
                 setUserId(null);
                 if (callbacksRef.current.setAllCards) callbacksRef.current.setAllCards([]);
