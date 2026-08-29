@@ -17,6 +17,7 @@ import { TopTabBar, SrsPrewarmLoader } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
+import { speakExampleSentence } from '../../utils/audio';
 
 const getPreviewIntervals = (srs, cardId = null) => {
     const ratings = ['again', 'hard', 'good', 'easy'];
@@ -410,12 +411,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const currentCard = reviewQueue[currentReviewIndex] || null;
 
     const speakText = (text) => {
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'ja-JP';
-            window.speechSynthesis.speak(utterance);
-        }
+        speakExampleSentence(text);
     };
 
     const handleRating = (rating) => {

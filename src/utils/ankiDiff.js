@@ -90,106 +90,164 @@ const TONE_MAP = {
  * Chuyển đổi ký tự gõ Telex thời gian thực (Realtime Telex Engine)
  * Đảm bảo gõ tiếng Việt mượt mà 100% ngay từ ký tự đầu tiên
  */
+/**
+ * Chuyển đổi ký tự gõ Telex thời gian thực (Realtime Advanced Telex Engine)
+ * Hỗ trợ gõ tiếng Việt mượt mà 100% theo mọi thứ tự phím tự nhiên (vd: dongdof -> đồng, chuongwf -> chường, hoacjw -> hoặc)
+ */
 export const transformVietnameseTelex = (text = '') => {
     if (!text) return '';
 
     return text.replace(/([a-zA-Z\u00C0-\u024F\u1EA0-\u1EF9]+)/g, (rawWord) => {
         let w = rawWord;
 
-        // 1. Phụ âm đ: dd -> đ
-        w = w.replace(/dd/g, 'đ')
-             .replace(/DD/g, 'Đ')
-             .replace(/Dd/g, 'Đ')
-             .replace(/dD/g, 'đ');
+        // 1. Phụ âm Đ:
+        // Case 1a: 'dd' liền nhau (vd: ddoongf -> đồng, ddi -> đi)
+        w = w.replace(/dd/g, 'đ').replace(/DD/g, 'Đ').replace(/Dd/g, 'Đ').replace(/dD/g, 'đ');
 
-        // 2. Xử lý 'w' biến đổi nguyên âm (ă, ơ, ư, ươ) ngay cả khi đã có dấu thanh (vd: chuỏngw -> chưởng, chuongw -> chương)
-        w = w.replace(/([uU])([oO])w/g, (m, u, o) => (u === u.toUpperCase() && o === o.toUpperCase()) ? 'ƯƠ' : (u === u.toUpperCase() ? 'Ươ' : 'ươ'))
-             .replace(/([uU])w([oO])w?/g, (m, u, o) => (u === u.toUpperCase() && o === o.toUpperCase()) ? 'ƯƠ' : (u === u.toUpperCase() ? 'Ươ' : 'ươ'))
-             .replace(/([uU])w/g, (m, u) => u === u.toUpperCase() ? 'Ư' : 'ư')
-             .replace(/([oO])w/g, (m, o) => o === o.toUpperCase() ? 'Ơ' : 'ơ')
-             .replace(/([aA])w/g, (m, a) => a === a.toUpperCase() ? 'Ă' : 'ă');
-
-        // Nếu trong từ có chứa 'w' đứng sau một cụm chứa u/o có dấu thanh (vd: chuỏngw, chuongrw, chuongwr)
-        if (/[wW]/.test(w)) {
-            const hasU = /[uUúùủũụưứừửữự]/.test(w);
-            const hasO = /[oOóòỏõọôốồổỗộơớờởỡợ]/.test(w);
-            if (hasU && hasO) {
-                // Biến đổi u/o thành ươ và bảo tồn dấu thanh
-                w = w.replace(/([uUúùủũụưứừửữự])([oOóòỏõọôốồổỗộơớờởỡợ])(.*)[wW]/g, (match, uChar, oChar, mid) => {
-                    const uInfo = CHAR_TO_VOWEL_INFO[uChar] || { base: 'u', toneIdx: 0 };
-                    const oInfo = CHAR_TO_VOWEL_INFO[oChar] || { base: 'o', toneIdx: 0 };
-                    const currentTone = Math.max(uInfo.toneIdx, oInfo.toneIdx);
-                    
-                    const isUpper = uChar === uChar.toUpperCase() && oChar === oChar.toUpperCase();
-                    const isTitle = uChar === uChar.toUpperCase();
-                    
-                    const baseU = isUpper ? 'Ư' : (isTitle ? 'Ư' : 'ư');
-                    const baseO = isUpper ? 'Ơ' : 'ơ';
-                    const accentedO = VOWEL_TABLE[baseO][currentTone];
-                    return baseU + accentedO + mid;
-                });
-            } else if (hasO) {
-                w = w.replace(/([oOóòỏõọôốồổỗộ])(.*)[wW]/g, (match, oChar, mid) => {
-                    const oInfo = CHAR_TO_VOWEL_INFO[oChar] || { base: 'o', toneIdx: 0 };
-                    const isUpper = oChar === oChar.toUpperCase();
-                    const baseO = isUpper ? 'Ơ' : 'ơ';
-                    return VOWEL_TABLE[baseO][oInfo.toneIdx] + mid;
-                });
-            } else if (hasU) {
-                w = w.replace(/([uUúùủũụ])(.*)[wW]/g, (match, uChar, mid) => {
-                    const uInfo = CHAR_TO_VOWEL_INFO[uChar] || { base: 'u', toneIdx: 0 };
-                    const isUpper = uChar === uChar.toUpperCase();
-                    const baseU = isUpper ? 'Ư' : 'ư';
-                    return VOWEL_TABLE[baseU][uInfo.toneIdx] + mid;
-                });
-            } else if (/[aAáàảãạ]/.test(w)) {
-                w = w.replace(/([aAáàảãạ])(.*)[wW]/g, (match, aChar, mid) => {
-                    const aInfo = CHAR_TO_VOWEL_INFO[aChar] || { base: 'a', toneIdx: 0 };
-                    const isUpper = aChar === aChar.toUpperCase();
-                    const baseA = isUpper ? 'Ă' : 'ă';
-                    return VOWEL_TABLE[baseA][aInfo.toneIdx] + mid;
-                });
+        // Case 1b: Gõ 'd' trễ linh hoạt (vd: 'dongd', 'dongdof', 'dond', 'dangd', 'duongd')
+        // Nếu từ bắt đầu bằng d/D và có phím d/D được bấm sau nguyên âm:
+        if (/[dD]/.test(w) && !/đ|Đ/.test(w)) {
+            const firstDIdx = w.search(/[dD]/);
+            const afterFirstD = w.slice(firstDIdx + 1);
+            if (/[aAeEiIoOuUyY\u00C0-\u024F\u1EA0-\u1EF9]/.test(afterFirstD) && /[dD]/.test(afterFirstD)) {
+                const isUpper = w[firstDIdx] === w[firstDIdx].toUpperCase();
+                w = w.slice(0, firstDIdx) + (isUpper ? 'Đ' : 'đ') + afterFirstD.replace(/([dD])/, '');
             }
-            w = w.replace(/([ưƯơƠăĂ])(.*)[wW]/g, '$1$2');
         }
 
-        // 3. Nguyên âm kép Telex (aa -> â, ee -> ê, oo -> ô, uye -> uyê)
-        w = w.replace(/aa/g, 'â').replace(/AA/g, 'Â').replace(/Aa/g, 'Â').replace(/aA/g, 'â')
-             .replace(/ee/g, 'ê').replace(/EE/g, 'Ê').replace(/Ee/g, 'Ê').replace(/eE/g, 'ê')
-             .replace(/oo/g, 'ô').replace(/OO/g, 'Ô').replace(/Oo/g, 'Ô').replace(/oO/g, 'ô')
-             .replace(/uye/g, 'uyê').replace(/UYE/g, 'UYÊ').replace(/Uye/g, 'Uyê');
-
-        // 4. Tìm phím dấu s, f, r, x, j, z trong từ
+        // 2. Tìm và bóc tách phím dấu thanh (s, f, r, x, j, z)
+        // Phím dấu có thể gõ ở bất kỳ vị trí nào trong từ (cuối từ, sau nguyên âm, trước modifier)
         let toneIndex = -1;
-        let toneKeyPos = -1;
 
         for (let i = w.length - 1; i >= 0; i--) {
             const ch = w[i];
             if (TONE_MAP[ch] !== undefined) {
-                let hasVowelBefore = false;
-                for (let j = 0; j < i; j++) {
-                    if (CHAR_TO_VOWEL_INFO[w[j]]) {
-                        hasVowelBefore = true;
+                let hasVowelContext = false;
+                for (let j = 0; j < w.length; j++) {
+                    if (j !== i && (CHAR_TO_VOWEL_INFO[w[j]] || /[wW]/.test(w[j]))) {
+                        hasVowelContext = true;
                         break;
                     }
                 }
-                if (hasVowelBefore) {
+                if (hasVowelContext) {
                     toneIndex = TONE_MAP[ch];
-                    toneKeyPos = i;
+                    w = w.slice(0, i) + w.slice(i + 1);
                     break;
                 }
             }
         }
 
-        if (toneIndex === -1) return w;
+        // 3. Xử lý 'w' biến đổi nguyên âm (ă, ơ, ư, ươ, oă)
+        if (/[wW]/.test(w)) {
+            // Cụm 'uo' + 'w' -> 'ươ' (ví dụ: chuongw, chuowng, chuwong, nguoiw, tuongw)
+            if (/[uU]/.test(w) && /[oO]/.test(w)) {
+                w = w.replace(/([uU])([oO])w?/gi, (m, u, o) => {
+                    const isUpper = u === u.toUpperCase() && o === o.toUpperCase();
+                    const isTitle = u === u.toUpperCase();
+                    return isUpper ? 'ƯƠ' : (isTitle ? 'Ươ' : 'ươ');
+                });
+                w = w.replace(/([uU])w([oO])/gi, (m, u, o) => {
+                    const isUpper = u === u.toUpperCase() && o === o.toUpperCase();
+                    const isTitle = u === u.toUpperCase();
+                    return isUpper ? 'ƯƠ' : (isTitle ? 'Ươ' : 'ươ');
+                });
+                w = w.replace(/([uU])(.*)([oO])/gi, (m, u, mid, o) => {
+                    const isUpper = u === u.toUpperCase() && o === o.toUpperCase();
+                    return (isUpper ? 'Ư' : 'ư') + mid + (isUpper ? 'Ơ' : 'ơ');
+                });
+            }
+            // Cụm 'oa' + 'w' -> 'oă' (ví dụ: hoacw, hoawc, ngoacw, xoanw)
+            else if (/[oO]/.test(w) && /[aA]/.test(w)) {
+                w = w.replace(/([oO])([aA])w?/gi, (m, o, a) => {
+                    const isUpper = o === o.toUpperCase() && a === a.toUpperCase();
+                    const isTitle = o === o.toUpperCase();
+                    return isUpper ? 'OĂ' : (isTitle ? 'Oă' : 'oă');
+                });
+                w = w.replace(/([oO])w([aA])/gi, (m, o, a) => {
+                    const isUpper = o === o.toUpperCase() && a === a.toUpperCase();
+                    const isTitle = o === o.toUpperCase();
+                    return isUpper ? 'OĂ' : (isTitle ? 'Oă' : 'oă');
+                });
+                w = w.replace(/([oO])(.*)([aA])/gi, (m, o, mid, a) => {
+                    const isUpper = o === o.toUpperCase() && a === a.toUpperCase();
+                    return (isUpper ? 'O' : 'o') + mid + (isUpper ? 'Ă' : 'ă');
+                });
+            }
+            // Single 'uw' -> 'ư', 'ow' -> 'ơ', 'aw' -> 'ă'
+            else {
+                w = w.replace(/([uU])w/g, (m, u) => u === u.toUpperCase() ? 'Ư' : 'ư')
+                     .replace(/([oO])w/g, (m, o) => o === o.toUpperCase() ? 'Ơ' : 'ơ')
+                     .replace(/([aA])w/g, (m, a) => a === a.toUpperCase() ? 'Ă' : 'ă');
 
-        // Xoá phím dấu ra khỏi từ
-        const stem = w.slice(0, toneKeyPos) + w.slice(toneKeyPos + 1);
+                if (/[wW]/.test(w)) {
+                    if (/[aA]/.test(w)) {
+                        w = w.replace(/([aA])/g, (m, a) => a === a.toUpperCase() ? 'Ă' : 'ă');
+                    } else if (/[oO]/.test(w)) {
+                        w = w.replace(/([oO])/g, (m, o) => o === o.toUpperCase() ? 'Ơ' : 'ơ');
+                    } else if (/[uU]/.test(w)) {
+                        w = w.replace(/([uU])/g, (m, u) => u === u.toUpperCase() ? 'Ư' : 'ư');
+                    }
+                }
+            }
+            w = w.replace(/[wW]/g, '');
+        }
 
-        // 5. Tìm các vị trí nguyên âm trong stem
+        // 4. Nguyên âm kép Telex: aa -> â, ee -> ê, oo -> ô, uye -> uyê
+        w = w.replace(/aa/g, 'â').replace(/AA/g, 'Â').replace(/Aa/g, 'Â').replace(/aA/g, 'â')
+             .replace(/ee/g, 'ê').replace(/EE/g, 'Ê').replace(/Ee/g, 'Ê').replace(/eE/g, 'ê')
+             .replace(/oo/g, 'ô').replace(/OO/g, 'Ô').replace(/Oo/g, 'Ô').replace(/oO/g, 'ô')
+             .replace(/uye/g, 'uyê').replace(/UYE/g, 'UYÊ').replace(/Uye/g, 'Uyê');
+
+        // Xử lý gõ nguyên âm lặp trễ (ví dụ: dongdof -> chữ o thứ 2 biến chữ o thứ 1 thành ô)
+        const oMatches = [...w.matchAll(/[oO]/g)];
+        if (oMatches.length >= 2 && !/[ôÔơƠ]/.test(w)) {
+            const firstO = oMatches[0];
+            const isUpper = firstO[0] === firstO[0].toUpperCase();
+            w = w.slice(0, firstO.index) + (isUpper ? 'Ô' : 'ô') + w.slice(firstO.index + 1);
+            w = w.replace(/([oO])/, '');
+        }
+
+        const aMatches = [...w.matchAll(/[aA]/g)];
+        if (aMatches.length >= 2 && !/[âÂăĂ]/.test(w)) {
+            const firstA = aMatches[0];
+            const isUpper = firstA[0] === firstA[0].toUpperCase();
+            w = w.slice(0, firstA.index) + (isUpper ? 'Â' : 'â') + w.slice(firstA.index + 1);
+            w = w.replace(/([aA])/, '');
+        }
+
+        const eMatches = [...w.matchAll(/[eE]/g)];
+        if (eMatches.length >= 2 && !/[êÊ]/.test(w)) {
+            const firstE = eMatches[0];
+            const isUpper = firstE[0] === firstE[0].toUpperCase();
+            w = w.slice(0, firstE.index) + (isUpper ? 'Ê' : 'ê') + w.slice(firstE.index + 1);
+            w = w.replace(/([eE])/, '');
+        }
+
+        // 5. Tự động chuyển 'ie'/'ye' thành 'iê'/'yê' khi có phụ âm cuối (ví dụ: tieng, viet, biet, thiet, chuyen)
+        w = w.replace(/([iI])e([cghkmnpt])/g, (m, i, end) => (i === i.toUpperCase() ? 'IÊ' : 'iê') + end)
+             .replace(/([yY])e([cghkmnpt])/g, (m, y, end) => (y === y.toUpperCase() ? 'YÊ' : 'yê') + end)
+             .replace(/([iI])eu/g, (m, i) => (i === i.toUpperCase() ? 'IÊ' : 'iê') + 'u')
+             .replace(/([yY])eu/g, (m, y) => (y === y.toUpperCase() ? 'YÊ' : 'yê') + 'u');
+
+        // Tự động chuyển 'ua' + phụ âm cuối thành 'uâ' (ví dụ: chuan -> chuẩn, xuan -> xuân, khuan -> khuân)
+        w = w.replace(/([uU])a([nN])/g, (m, u, n) => (u === u.toUpperCase() ? 'UÂ' : 'uâ') + n);
+
+        // 6. Nếu không có dấu thanh
+        if (toneIndex === -1 || toneIndex === 0) {
+            if (toneIndex === 0) {
+                // Xoá dấu (z)
+                return w.replace(/[a-zA-Z\u00C0-\u024F\u1EA0-\u1EF9]/g, (c) => {
+                    const info = CHAR_TO_VOWEL_INFO[c];
+                    return info ? VOWEL_TABLE[info.base][0] : c;
+                });
+            }
+            return w;
+        }
+
+        // 7. Đặt dấu thanh vào đúng nguyên âm chuẩn tiếng Việt
         let vowelIndices = [];
-        for (let i = 0; i < stem.length; i++) {
-            if (CHAR_TO_VOWEL_INFO[stem[i]]) {
+        for (let i = 0; i < w.length; i++) {
+            if (CHAR_TO_VOWEL_INFO[w[i]]) {
                 vowelIndices.push(i);
             }
         }
@@ -197,7 +255,7 @@ export const transformVietnameseTelex = (text = '') => {
         if (vowelIndices.length === 0) return w;
 
         // Xử lý phụ âm đầu đặc biệt: 'gi' và 'qu'
-        const lowerStem = stem.toLowerCase();
+        const lowerStem = w.toLowerCase();
         if (lowerStem.startsWith('gi') && vowelIndices.length > 1 && vowelIndices[0] === 1) {
             vowelIndices.shift();
         }
@@ -205,25 +263,48 @@ export const transformVietnameseTelex = (text = '') => {
             vowelIndices.shift();
         }
 
-        // Xác định vị trí nguyên âm nhận dấu
+        if (vowelIndices.length === 0) return w;
+
         let targetIdx = -1;
 
         // Ưu tiên 1: Cụm 'ươ' / 'ưo' -> Dấu LUÔN LUÔN nằm trên 'ơ' (ví dụ: chưởng, hướng, thường, lượng, đường)
         for (let i = 0; i < vowelIndices.length - 1; i++) {
             const idx1 = vowelIndices[i];
             const idx2 = vowelIndices[i + 1];
-            const b1 = CHAR_TO_VOWEL_INFO[stem[idx1]]?.base.toLowerCase();
-            const b2 = CHAR_TO_VOWEL_INFO[stem[idx2]]?.base.toLowerCase();
+            const b1 = CHAR_TO_VOWEL_INFO[w[idx1]]?.base.toLowerCase();
+            const b2 = CHAR_TO_VOWEL_INFO[w[idx2]]?.base.toLowerCase();
             if ((b1 === 'ư' || b1 === 'u') && (b2 === 'ơ' || b2 === 'o')) {
                 targetIdx = idx2;
                 break;
             }
         }
 
-        // Ưu tiên 2: Nguyên âm có dấu mũ hoặc móc (â, ă, ê, ô, ơ, ư)
+        // Ưu tiên 2: Cụm 'iê', 'yê', 'uô', 'uâ' -> Dấu nằm trên 'ê', 'ô', 'â'
+        if (targetIdx === -1) {
+            for (let i = 0; i < vowelIndices.length - 1; i++) {
+                const idx1 = vowelIndices[i];
+                const idx2 = vowelIndices[i + 1];
+                const b1 = CHAR_TO_VOWEL_INFO[w[idx1]]?.base.toLowerCase();
+                const b2 = CHAR_TO_VOWEL_INFO[w[idx2]]?.base.toLowerCase();
+                if ((b1 === 'i' || b1 === 'y') && b2 === 'ê') {
+                    targetIdx = idx2;
+                    break;
+                }
+                if (b1 === 'u' && b2 === 'ô') {
+                    targetIdx = idx2;
+                    break;
+                }
+                if (b1 === 'u' && b2 === 'â') {
+                    targetIdx = idx2;
+                    break;
+                }
+            }
+        }
+
+        // Ưu tiên 3: Nguyên âm có dấu mũ hoặc móc (â, ă, ê, ô, ơ, ư)
         if (targetIdx === -1) {
             for (const idx of vowelIndices) {
-                const base = CHAR_TO_VOWEL_INFO[stem[idx]]?.base.toLowerCase();
+                const base = CHAR_TO_VOWEL_INFO[w[idx]]?.base.toLowerCase();
                 if (['â', 'ă', 'ê', 'ô', 'ơ', 'ư'].includes(base)) {
                     targetIdx = idx;
                     break;
@@ -231,36 +312,40 @@ export const transformVietnameseTelex = (text = '') => {
             }
         }
 
-        // Ưu tiên 3: Cụm 2 nguyên âm khác
+        // Ưu tiên 4: Quy tắc vị trí (có phụ âm cuối hay không)
         if (targetIdx === -1) {
-            if (vowelIndices.length === 1) {
-                targetIdx = vowelIndices[0];
-            } else if (vowelIndices.length >= 2) {
-                const hasEndingConsonant = vowelIndices[vowelIndices.length - 1] < stem.length - 1;
-                const v1 = CHAR_TO_VOWEL_INFO[stem[vowelIndices[0]]]?.base.toLowerCase();
-                const v2 = CHAR_TO_VOWEL_INFO[stem[vowelIndices[1]]]?.base.toLowerCase();
-                const pair = v1 + v2;
+            const lastVowelPos = vowelIndices[vowelIndices.length - 1];
+            const hasEndingConsonant = lastVowelPos < w.length - 1;
 
-                if (['oa', 'oe', 'uy'].includes(pair)) {
-                    targetIdx = vowelIndices[1];
-                } else if (hasEndingConsonant) {
-                    targetIdx = vowelIndices[1];
-                } else {
+            if (hasEndingConsonant) {
+                targetIdx = lastVowelPos;
+            } else {
+                if (vowelIndices.length === 1) {
                     targetIdx = vowelIndices[0];
+                } else if (vowelIndices.length === 2) {
+                    const b1 = CHAR_TO_VOWEL_INFO[w[vowelIndices[0]]]?.base.toLowerCase();
+                    const b2 = CHAR_TO_VOWEL_INFO[w[vowelIndices[1]]]?.base.toLowerCase();
+                    if (['oa', 'oe', 'uy'].includes(b1 + b2)) {
+                        targetIdx = vowelIndices[1];
+                    } else {
+                        targetIdx = vowelIndices[0];
+                    }
+                } else {
+                    targetIdx = vowelIndices[1];
                 }
             }
         }
 
-        if (targetIdx !== -1) {
-            const char = stem[targetIdx];
-            const info = CHAR_TO_VOWEL_INFO[char];
-            if (info && VOWEL_TABLE[info.base]) {
-                const newChar = VOWEL_TABLE[info.base][toneIndex];
-                w = stem.substring(0, targetIdx) + newChar + stem.substring(targetIdx + 1);
-            }
-        }
+        if (targetIdx === -1) targetIdx = vowelIndices[0];
 
-        return w;
+        const targetChar = w[targetIdx];
+        const info = CHAR_TO_VOWEL_INFO[targetChar];
+        if (!info) return w;
+
+        const baseRow = VOWEL_TABLE[info.base];
+        if (!baseRow || !baseRow[toneIndex]) return w;
+
+        return w.slice(0, targetIdx) + baseRow[toneIndex] + w.slice(targetIdx + 1);
     });
 };
 

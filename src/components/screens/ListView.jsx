@@ -3,7 +3,7 @@ import { List, Search, Upload, Download, Volume2, X, Edit, Trash2, Loader2, Chec
 import { POS_TYPES, getLevelColor, JLPT_LEVELS } from '../../config/constants'
 import { TopTabBar } from '../ui'
 import { SrsStatusCell } from '../ui';
-import { playAudio } from '../../utils/audio';
+import { playAudio, speakExampleSentence } from '../../utils/audio';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
@@ -1137,13 +1137,24 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                                     card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                                                         const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                                                         return (
-                                                                            <div key={idx} className="border-l-2 border-indigo-500/30 pl-2.5">
+                                                                            <div key={idx} className="relative group/ex border-l-2 border-indigo-500/30 pl-2.5 pr-8">
                                                                                 <div className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-japanese leading-relaxed">
                                                                                     <FuriganaText text={ex} />
                                                                                 </div>
                                                                                 {meaning && (
                                                                                     <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans mt-0.5">{meaning}</div>
                                                                                 )}
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={(e) => {
+                                                                                        e.stopPropagation();
+                                                                                        speakExampleSentence(ex);
+                                                                                    }}
+                                                                                    className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                                                                    title="Nghe câu ví dụ"
+                                                                                >
+                                                                                    <Volume2 className="w-3.5 h-3.5" />
+                                                                                </button>
                                                                             </div>
                                                                         );
                                                                     })

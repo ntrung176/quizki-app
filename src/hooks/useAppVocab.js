@@ -38,7 +38,14 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             setAllCards(fetchedCards);
             setIsLoading(false);
             try {
-                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(fetchedCards));
+                if (fetchedCards.length > 0) {
+                    localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(fetchedCards));
+                    localStorage.setItem('quizki_vocab_last_backup', JSON.stringify({
+                        timestamp: Date.now(),
+                        count: fetchedCards.length,
+                        cards: fetchedCards
+                    }));
+                }
             } catch (_) {}
         }, (error) => {
             console.error("Lỗi tải danh sách từ vựng:", error);
@@ -370,6 +377,50 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         }
     }, []);
 
+    const handleRestoreFromLocalBackup = useCallback(async () => {
+        try {
+            const raw = localStorage.getItem('quizki_vocab_last_backup') || localStorage.getItem('quizki_cached_vocab_list');
+            if (!raw) {
+                showToast('Không tìm thấy bản sao lưu nào trên trình duyệt', 'warning');
+                return 0;
+            }
+            let cardsToRestore = [];
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+                cardsToRestore = parsed;
+            } else if (parsed && Array.isArray(parsed.cards)) {
+                cardsToRestore = parsed.cards;
+            }
+
+            if (cardsToRestore.length === 0) {
+                showToast('Bản sao lưu trống', 'warning');
+                return 0;
+            }
+
+            if (!userId || !vocabCollectionPath) return 0;
+            const batchSize = 400;
+            for (let i = 0; i < cardsToRestore.length; i += batchSize) {
+                const chunk = cardsToRestore.slice(i, i + batchSize);
+                const batch = writeBatch(db);
+                chunk.forEach(c => {
+                    const docId = String(c.id);
+                    const cleanCard = { ...c };
+                    delete cleanCard.id;
+                    batch.set(doc(db, vocabCollectionPath, docId), cleanFirestoreData(cleanCard), { merge: true });
+                });
+                await batch.commit();
+            }
+
+            setAllCards(cardsToRestore);
+            showToast(`🎉 Đã khôi phục thành công ${cardsToRestore.length} từ vựng từ bản sao lưu!`, 'success');
+            return cardsToRestore.length;
+        } catch (e) {
+            console.error('Lỗi khôi phục backup:', e);
+            showToast('Lỗi khi khôi phục bản sao lưu', 'error');
+            return 0;
+        }
+    }, [userId, vocabCollectionPath, setAllCards]);
+
     return {
         allCards,
         setAllCards,
@@ -388,6 +439,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         handleUpdateVocabSrsRating,
         handleRevertVocabSrsRating,
         handleSaveCardAudio,
-        handleExtractVocabFromImage
+        handleExtractVocabFromImage,
+        handleRestoreFromLocalBackup
     };
 };

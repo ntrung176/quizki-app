@@ -47,39 +47,7 @@ export const useAppStudySets = ({ authReady, userId, targetLanguage, allCards = 
         return activeFolders.filter(f => f.type !== 'folder');
     }, [activeFolders]);
 
-    // Tự động kiểm tra và phục hồi các học phần mồ côi (có parentId nhưng thư mục cha đã bị xóa)
-    useEffect(() => {
-        if (!folders || folders.length === 0 || !studySetsCollectionPath) return;
-        const existingParentIds = new Set(folders.filter(f => f.type === 'folder').map(f => f.id));
-        const orphanedSets = folders.filter(f => f.type !== 'folder' && f.parentId && !existingParentIds.has(f.parentId));
-        
-        if (orphanedSets.length > 0) {
-            const batch = writeBatch(db);
-            orphanedSets.forEach(set => {
-                batch.update(doc(db, studySetsCollectionPath, set.id), { parentId: null });
-            });
-            batch.commit().catch(err => console.warn('Auto-healing orphaned study sets:', err));
-        }
-    }, [folders, studySetsCollectionPath]);
 
-    // Tự động dọn dẹp các từ vựng thuộc về học phần đã bị xóa trước đó
-    useEffect(() => {
-        if (!folders || folders.length === 0 || !allCards || allCards.length === 0 || !vocabCollectionPath) return;
-        const validFolderIds = new Set(folders.map(f => f.id));
-        validFolderIds.add('unfiled');
-
-        const orphanedCards = allCards.filter(c => c.folderId && c.folderId !== 'unfiled' && !validFolderIds.has(c.folderId));
-        if (orphanedCards.length > 0) {
-            const batch = writeBatch(db);
-            orphanedCards.forEach(c => {
-                batch.delete(doc(db, vocabCollectionPath, c.id));
-            });
-            batch.commit().catch(err => console.warn('Auto-deleting orphaned vocab cards in Firestore:', err));
-            if (setAllCards) {
-                setAllCards(prev => prev.filter(c => !c.folderId || c.folderId === 'unfiled' || validFolderIds.has(c.folderId)));
-            }
-        }
-    }, [folders, allCards, vocabCollectionPath, setAllCards]);
 
     const cardFolders = useMemo(() => {
         const mapping = {};

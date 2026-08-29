@@ -158,7 +158,8 @@ export const useAppLogic = () => {
     const {
         allCards, setAllCards, isLoading, setIsLoading, vocabCollectionPath,
         dueCounts, memoryStats, calculatedStreak, handleUpdateCard, handleAddCard,
-        handleDeleteCard, handleSaveChanges, handleGeminiAssist, handleToggleSrs
+        handleDeleteCard, handleSaveChanges, handleGeminiAssist, handleToggleSrs,
+        handleRestoreFromLocalBackup
     } = vocab;
 
     useEffect(() => {
@@ -243,6 +244,7 @@ export const useAppLogic = () => {
         handleUpdateGoal, handleUpdateProfileName, handleUpdateAvatar, handleChangePassword,
         handleSaveCardAudio, handleToggleSrs, handleUpdateVocabSrsRating, handleRevertVocabSrsRating,
         handleRefreshCards, awardXP, handleAddFolder, handleDeleteFolder, handleUpdateFolder,
-        handleAddParentFolder, handleUpdateParentFolder, handleDeleteParentFolder, handleMoveStudySetToParentFolder
+        handleAddParentFolder, handleUpdateParentFolder, handleDeleteParentFolder, handleMoveStudySetToParentFolder,
+        handleRestoreFromLocalBackup
     };
 };

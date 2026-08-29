@@ -1301,6 +1301,12 @@ export const callOpenAITTS = async (text, gender = 'female', langCode = 'ja', te
         }
     }
 
+    // Fallback miễn phí: Google Translate TTS
+    if (text) {
+        const lang = langCode || 'ja';
+        return `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${encodeURIComponent(text)}`;
+    }
+
     return null;
 };
 

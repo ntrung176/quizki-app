@@ -373,12 +373,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
 
     // Text to Speech
     const speakText = (text) => {
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'ja-JP';
-            window.speechSynthesis.speak(utterance);
-        }
+        speakExampleSentence(text);
     };
 
     // Helper to highlight N, A, V symbols and strikethrough tags (<s>...</s> or ~...~)

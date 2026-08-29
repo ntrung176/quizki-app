@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
-import { speakJapanese, playAudio } from '../../utils/audio';
+import { speakJapanese, playAudio, speakExampleSentence } from '../../utils/audio';
 import { showToast, showConfirm } from '../../utils/toast';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
 import { syncBooksToCDN } from '../../utils/bookService';
@@ -639,7 +639,7 @@ const LessonDetailView = ({
                                                                 const blurVN = blurMode === 'vn' && !isRevealed;
                                                                 const blurClass = 'blur-[4px] opacity-40 select-none';
                                                                 return (
-                                                                    <div key={ei}>
+                                                                    <div key={ei} className="relative group/ex pr-7">
                                                                         <p className={`text-sm text-gray-800 dark:text-gray-200 leading-relaxed transition-all duration-300 ${blurJP ? blurClass : ''}`}><FuriganaText text={ex.trim()} /></p>
                                                                         {v.exampleMeaning && (() => {
                                                                             const meanings = v.exampleMeaning.split('\n');
@@ -647,6 +647,17 @@ const LessonDetailView = ({
                                                                                 <p className={`text-xs text-gray-500 dark:text-gray-400 mt-0.5 italic transition-all duration-300 ${blurVN ? blurClass : ''}`}>{meanings[ei].trim()}</p>
                                                                             ) : null;
                                                                         })()}
+                                                                        <button
+                                                                            type="button"
+                                                                            onClick={(e) => {
+                                                                                e.stopPropagation();
+                                                                                speakExampleSentence(ex.trim());
+                                                                            }}
+                                                                            className="absolute right-0 top-0.5 p-1 rounded-lg text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                                                                            title="Nghe câu ví dụ"
+                                                                        >
+                                                                            <Volume2 className="w-3.5 h-3.5" />
+                                                                        </button>
                                                                     </div>
                                                                 );
                                                             })}

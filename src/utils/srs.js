@@ -668,7 +668,6 @@ export const isCardEvaluatedInSrs = (item) => {
 // ==================== SRS FORECAST CALCULATION ====================
 export const calculateSrsForecast = (itemsList = [], daysCount = 14, nowMs = Date.now()) => {
     const todayCutoff = calculateDayCutoffTimestamp(0, nowMs);
-    const nextDayCutoff = todayCutoff + 86400000;
     const msPerDay = 86400000;
     
     // Day names array
@@ -700,12 +699,20 @@ export const calculateSrsForecast = (itemsList = [], daysCount = 14, nowMs = Dat
         const reviewMs = parseNextReviewMs(nextReviewVal);
         if (reviewMs <= 0) return; // Must have a valid next review timestamp
 
-        if (reviewMs <= nowMs || reviewMs < nextDayCutoff) {
-            // Due today (or overdue)
+        // 1. Thẻ ĐÃ ĐẾN HẠN CẦN ÔN NGAY (Due right now) -> Phản ánh đúng 100% cột "Hôm nay"
+        if (reviewMs <= nowMs) {
             forecast[0].count++;
         } else {
-            const diffMs = reviewMs - todayCutoff;
-            const dayOffset = Math.floor(diffMs / msPerDay);
+            // 2. Thẻ có lịch ôn trong tương lai (sau thời điểm hiện tại):
+            const itemCutoff = calculateDayCutoffTimestamp(0, reviewMs);
+            let dayOffset = Math.round((itemCutoff - todayCutoff) / msPerDay);
+
+            // Nếu thẻ đến hạn sau hiện tại nhưng trước mốc 5:00 sáng mai (ví dụ: vài tiếng nữa / đêm nay),
+            // chuyển sang cột Ngày mai (offset = 1) để cột Hôm nay chỉ thể hiện chính xác các thẻ đang chờ ôn ngay.
+            if (dayOffset <= 0) {
+                dayOffset = 1;
+            }
+
             if (dayOffset >= 0 && dayOffset < daysCount) {
                 forecast[dayOffset].count++;
             }

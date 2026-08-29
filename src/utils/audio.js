@@ -172,7 +172,60 @@ const getSettings = () => {
     } catch { return {}; }
 };
 
-const azureTTS = async (text) => {
+/**
+ * TTS Engine Google Translate miễn phí 100% cho các câu văn dài / ví dụ (Zero Cost, No API Key needed)
+ */
+export const googleTTS = async (text, lang = null) => {
+    if (!text) return null;
+    const cleanText = cleanTextForTTS(text);
+    if (!cleanText) return null;
+
+    const isEng = isEnglishText(cleanText);
+    const targetLang = lang || (isEng ? 'en' : 'ja');
+    const cacheKey = `google:${targetLang}:${cleanText}`;
+
+    if (ttsCache.has(cacheKey)) {
+        return ttsCache.get(cacheKey);
+    }
+
+    try {
+        const googleUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+        const response = await fetch(googleUrl);
+        if (!response.ok) return null;
+
+        const audioBlob = await response.blob();
+        const blobUrl = URL.createObjectURL(audioBlob);
+
+        const base64 = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const result = reader.result;
+                const base64Data = result.split(',')[1] || result;
+                resolve(base64Data);
+            };
+            reader.readAsDataURL(audioBlob);
+        });
+
+        const result = { blobUrl, base64, voiceId: 'google' };
+
+        if (ttsCache.size >= MAX_CACHE_SIZE) {
+            const firstKey = ttsCache.keys().next().value;
+            const oldResult = ttsCache.get(firstKey);
+            if (oldResult?.blobUrl) URL.revokeObjectURL(oldResult.blobUrl);
+            ttsCache.delete(firstKey);
+        }
+        ttsCache.set(cacheKey, result);
+        return result;
+    } catch (e) {
+        console.warn('Google TTS fetch error:', e.message);
+        return null;
+    }
+};
+
+/**
+ * Microsoft Azure Speech API cho từ vựng (chất lượng cao, chuẩn pitch accent)
+ */
+export const azureTTS = async (text) => {
     const key = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const region = import.meta.env.VITE_AZURE_SPEECH_REGION || 'eastasia';
     const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
@@ -446,21 +499,28 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
         };
 
         const safetyTimeout = setTimeout(() => {
-            console.warn('⚠️ TTS playback timed out');
             safeResolve();
-        }, 3000);
+        }, 5000);
 
         if (!text) return safeResolve();
 
         const cleanText = extractReadingText(text);
         if (!cleanText) return safeResolve();
 
+        if (currentAudioObj) {
+            try {
+                currentAudioObj.pause();
+                currentAudioObj.currentTime = 0;
+            } catch (_) {}
+            currentAudioObj = null;
+        }
         safeCancelSpeechSynthesis();
 
         const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
         const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
         let result = null;
 
+        // Từ vựng: Ưu tiên dùng Microsoft Azure TTS
         if (azureKey || proxyUrl) {
             try {
                 result = await azureTTS(cleanText);
@@ -478,7 +538,8 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
                 safeResolve();
             };
             currentAudioObj.onerror = async () => {
-                await speakWithWebSpeech(text);
+                currentAudioObj = null;
+                await speakWithWebSpeech(cleanText);
                 safeResolve();
             };
             try {
@@ -488,7 +549,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
                 }
                 await currentAudioObj.play();
             } catch (e) {
-                await speakWithWebSpeech(text);
+                await speakWithWebSpeech(cleanText);
                 safeResolve();
             }
 
@@ -498,8 +559,27 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
             return;
         }
 
-        await speakWithWebSpeech(text);
-        safeResolve();
+        // Fallback: Google Translate TTS hoặc Web Speech API
+        try {
+            const isEng = isEnglishText(cleanText);
+            const targetLang = isEng ? 'en' : 'ja';
+            const googleUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+            const audioObj = new Audio(googleUrl);
+            currentAudioObj = audioObj;
+            audioObj.onended = () => {
+                currentAudioObj = null;
+                safeResolve();
+            };
+            audioObj.onerror = async () => {
+                currentAudioObj = null;
+                await speakWithWebSpeech(cleanText);
+                safeResolve();
+            };
+            await audioObj.play();
+        } catch (e) {
+            await speakWithWebSpeech(cleanText);
+            safeResolve();
+        }
     });
 };
 
@@ -528,9 +608,8 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
         };
 
         const safetyTimeout = setTimeout(() => {
-            console.warn('⚠️ playAudio timed out');
             safeResolve();
-        }, 4000);
+        }, 5000);
 
         if (currentAudioObj) {
             try {
@@ -612,25 +691,96 @@ export const generateAudioSilent = async (text) => {
 };
 
 export const generateAudioSilentWithVoice = async (text, voiceId) => {
-    if (!text) return null;
-    const cleanText = extractReadingText(text.replace(/＿+/g, ''));
-    if (!cleanText) return null;
-    const originalVoice = getTTSVoice();
-    try {
-        setTTSVoice(voiceId);
-        const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
-        const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
-        let result = null;
-        if (azureKey || proxyUrl) {
-            result = await azureTTS(cleanText);
+    return generateAudioSilent(text);
+};
+
+/**
+ * Chuẩn hóa và làm sạch câu văn tiếng Nhật trước khi đọc TTS:
+ * - Bóc tách toàn bộ ngoặc Furigana gắn sau Kanji: 漢字[かんじ], 漢字(かんじ), 漢字（かんじ）, 漢字{かんじ} -> 漢字
+ * - Bóc tách ngoặc phiên âm đứng độc lập: (かんじ), [かんじ], {かんじ}
+ * - Loại bỏ các ký tự gạch chân điền từ như "________", "＿＿", "---" để tránh đọc "gạch dưới"
+ * - Loại bỏ tag HTML/XML
+ */
+export const cleanTextForTTS = (text) => {
+    if (!text) return '';
+    let clean = String(text).trim();
+
+    // 1. Remove bracketed readings attached to Kanji:
+    clean = clean.replace(/([\u4E00-\u9FAF\u3400-\u4DBF\u3005]+)\s*[（\(\[\{][\u3040-\u309F\u30A0-\u30FF\s]+[）\)\]\}]/g, '$1');
+
+    // 2. Remove any remaining isolated phonetic brackets:
+    clean = clean.replace(/[（\(\[\{][\u3040-\u309F\u30A0-\u30FF\s]+[）\)\]\}]/g, '');
+
+    // 3. Clean blanks / underscores: e.g. "________", "＿＿", "---" -> replace with space
+    clean = clean.replace(/[_＿—\-]{2,}/g, ' ');
+
+    // 4. Remove leftover XML or HTML tags if any (like <sub>, <ruby>, <rt>, etc.)
+    clean = clean.replace(/<[^>]+>/g, '');
+
+    // 5. Clean extra spaces
+    clean = clean.replace(/\s+/g, ' ').trim();
+
+    return clean;
+};
+
+/**
+ * Phát âm câu ví dụ bằng giọng đọc Google Translate chuẩn (tự nhiên, tròn vành rõ chữ)
+ * Tự động làm sạch ngoặc furigana, có fallback mượt mà sang Azure TTS / Web Speech API nếu offline
+ */
+export const speakExampleSentence = (text, lang = 'ja') => {
+    globalAudioSessionId++;
+    const currentSessionId = globalAudioSessionId;
+
+    return new Promise((resolve) => {
+        let isResolved = false;
+        const safeResolve = () => {
+            if (!isResolved) {
+                isResolved = true;
+                clearTimeout(safetyTimeout);
+                resolve();
+            }
+        };
+
+        const safetyTimeout = setTimeout(() => {
+            safeResolve();
+        }, 8000);
+
+        if (!text) return safeResolve();
+
+        const cleanText = cleanTextForTTS(text);
+        if (!cleanText) return safeResolve();
+
+        if (currentAudioObj) {
+            try {
+                currentAudioObj.pause();
+                currentAudioObj.currentTime = 0;
+            } catch (_) {}
+            currentAudioObj = null;
         }
-        setTTSVoice(originalVoice);
-        if (result && result.base64) {
-            return { base64: result.base64, voiceId };
-        }
-    } catch (e) {
-        setTTSVoice(originalVoice);
-        console.warn('generateAudioSilentWithVoice error:', e.message);
-    }
-    return null;
+        safeCancelSpeechSynthesis();
+
+        const isEng = isEnglishText(cleanText);
+        const targetLang = isEng ? 'en' : (lang || 'ja');
+        const googleUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+
+        const audio = new Audio(googleUrl);
+        currentAudioObj = audio;
+
+        audio.onended = () => {
+            currentAudioObj = null;
+            safeResolve();
+        };
+
+        audio.onerror = async () => {
+            if (globalAudioSessionId !== currentSessionId) return safeResolve();
+            await speakWithTTS(cleanText, null, currentSessionId);
+            safeResolve();
+        };
+
+        audio.play().catch(async () => {
+            if (globalAudioSessionId !== currentSessionId) return safeResolve();
+            await speakWithTTS(cleanText, null, currentSessionId);
+            safeResolve();
+        });
+    });
 };

@@ -6,6 +6,8 @@ import { isLeechCard } from '../../utils/srs';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { formatIPA, isEnglishCard as checkIsEnglishCard } from '../../utils/englishVocab';
 import InlineMnemonicEditor from './InlineMnemonicEditor';
+import { Volume2 } from 'lucide-react';
+import { speakExampleSentence } from '../../utils/audio';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
@@ -514,13 +516,28 @@ const Flashcard = ({
                             {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                 return (
-                                    <div key={idx} className={`border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-indigo-500/30'} pl-3`}>
+                                    <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-indigo-500/30'} pl-3 pr-8`}>
                                         <div className={`${scale.exampleTextSize} ${exampleTextClass} ${isEnglishCard ? 'font-sans' : 'font-japanese'} leading-relaxed`}>
                                             {isEnglishCard ? ex : <FuriganaText text={ex} forceHide={showExampleFurigana === false} />}
                                         </div>
                                         {meaning && showExampleMeaning !== false && (
                                             <p className={exampleMeaningClass}>{meaning}</p>
                                         )}
+                                        <button
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                speakExampleSentence(ex);
+                                            }}
+                                            className={`absolute right-1 top-1/2 -translate-y-1/2 p-1.5 rounded-xl transition-all cursor-pointer ${
+                                                variant === 'review' || variant === 'emerald'
+                                                    ? 'text-white/70 hover:text-white hover:bg-white/20'
+                                                    : 'text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                            }`}
+                                            title="Nghe câu ví dụ"
+                                        >
+                                            <Volume2 className="w-3.5 h-3.5" />
+                                        </button>
                                     </div>
                                 );
                             })}

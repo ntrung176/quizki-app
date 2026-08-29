@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Edit, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText, RotateCcw, Settings, Shuffle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Edit, Edit2, PlayCircle, BookOpen, Layers, Search, Volume2, Trash2, Users, Check, Plus, Headphones, FileText, RotateCcw, Settings, Shuffle, RefreshCw } from 'lucide-react';
 import { shuffleArray } from '../../utils/textProcessing';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
-import { playAudio, speakJapanese } from '../../utils/audio';
+import { playAudio, speakJapanese, speakExampleSentence } from '../../utils/audio';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, writeBatch, updateDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -13,6 +13,7 @@ import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { showToast } from '../../utils/toast';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { getSharedKanjiList } from '../../utils/kanjiService';
+import { getSharedBookGroups } from '../../utils/bookService';
 import EditCardModal from '../cards/EditCardModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { POS_TYPES, getPosLabel } from '../../config/constants';
@@ -615,6 +616,120 @@ const StudySetDetail = ({
     const notLearnedCards = useMemo(() => setCards.filter(c => !c.masteryState || c.masteryState === 'not_learned'), [setCards]);
     const learningCards = useMemo(() => setCards.filter(c => c.masteryState === 'learning'), [setCards]);
     const memorizedCards = useMemo(() => setCards.filter(c => c.masteryState === 'memorized'), [setCards]);
+
+    const [isSyncingFromLesson, setIsSyncingFromLesson] = useState(false);
+
+    const handleSyncFromSourceLesson = async () => {
+        const auth = getAuth();
+        const currentUserId = auth.currentUser?.uid;
+        if (!currentUserId || !folderId || folderId === 'unfiled') return;
+
+        setIsSyncingFromLesson(true);
+        try {
+            const groups = await getSharedBookGroups(false);
+            let targetLesson = null;
+
+            // 1. Try finding by folder.sourceLesson
+            if (folder?.sourceLesson) {
+                const { groupId, bookId, chapterId, lessonId } = folder.sourceLesson;
+                const g = groups.find(x => x.id === groupId);
+                const b = g?.books?.find(x => x.id === bookId);
+                const c = b?.chapters?.find(x => x.id === chapterId);
+                const l = c?.lessons?.find(x => x.id === lessonId);
+                if (l && l.vocabulary && l.vocabulary.length > 0) {
+                    targetLesson = l;
+                }
+            }
+
+            // 2. If not found by sourceLesson ID, search by matching folder.name in book lessons
+            if (!targetLesson && folder?.name) {
+                const cleanFolderName = folder.name.toLowerCase().trim();
+                for (const g of groups) {
+                    for (const b of (g.books || [])) {
+                        for (const c of (b.chapters || [])) {
+                            for (const l of (c.lessons || [])) {
+                                const lessonTitle = (l.title || l.name || '').toLowerCase().trim();
+                                const fullBookTitle = `${b.title || ''} - ${l.title || l.name || ''}`.toLowerCase().trim();
+                                if (cleanFolderName.includes(lessonTitle) || lessonTitle.includes(cleanFolderName) || fullBookTitle.includes(cleanFolderName)) {
+                                    if (l.vocabulary && l.vocabulary.length > 0) {
+                                        targetLesson = l;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (targetLesson) break;
+                        }
+                        if (targetLesson) break;
+                    }
+                    if (targetLesson) break;
+                }
+            }
+
+            if (!targetLesson || !targetLesson.vocabulary || targetLesson.vocabulary.length === 0) {
+                showToast('Không tìm thấy bài học tương ứng trong Thư viện Sách', 'warning');
+                return;
+            }
+
+            const currentTargetLang = localStorage.getItem('quizki_target_language') || 'ja';
+            const batch = writeBatch(db);
+            const vocabColRef = collection(db, `artifacts/${appId}/users/${currentUserId}/vocabulary`);
+            let count = 0;
+
+            for (const v of targetLesson.vocabulary) {
+                const word = v.word || v.front || '';
+                if (!word.trim()) continue;
+                const displayWord = word.split('（')[0].split('(')[0].trim();
+                const existingCard = allCards.find(c => (c.front || '').split('（')[0].split('(')[0].trim() === displayWord);
+
+                if (existingCard) {
+                    const cardDocRef = doc(db, `artifacts/${appId}/users/${currentUserId}/vocabulary`, existingCard.id);
+                    batch.update(cardDocRef, { folderId: folderId });
+                    count++;
+                } else {
+                    const cardDocRef = doc(vocabColRef);
+                    batch.set(cardDocRef, {
+                        front: word.trim(),
+                        back: (v.meaning || v.back || '').trim(),
+                        ipa: (v.ipa || '').trim(),
+                        targetLanguage: currentTargetLang,
+                        synonym: (v.synonym || '').trim(),
+                        sinoVietnamese: (v.sinoVietnamese || '').trim(),
+                        synonymSinoVietnamese: '',
+                        example: (v.example || '').trim(),
+                        exampleMeaning: (v.exampleMeaning || '').trim(),
+                        nuance: (v.nuance || v.note || '').trim(),
+                        pos: v.pos || '',
+                        level: v.level || '',
+                        audioBase64: v.audioBase64 || null,
+                        imageBase64: v.imageUrl || null,
+                        createdAt: new Date(),
+                        userId: currentUserId,
+                        folderId: folderId,
+                        intervalIndex_back: -1,
+                        correctStreak_back: 0,
+                        nextReview_back: new Date(),
+                        intervalIndex_synonym: v.synonym ? -1 : -999,
+                        correctStreak_synonym: 0,
+                        nextReview_synonym: v.synonym ? new Date() : new Date(9999, 0, 1),
+                        intervalIndex_example: v.example ? -1 : -999,
+                        correctStreak_example: 0,
+                        nextReview_example: v.example ? new Date() : new Date(9999, 0, 1),
+                        easeFactor: 2.5,
+                        totalReps: 0,
+                    });
+                    count++;
+                }
+            }
+
+            await batch.commit();
+            showToast(`🎉 Đã đồng bộ thành công ${count} từ vựng từ sách vào học phần!`, 'success');
+        } catch (err) {
+            console.error('Lỗi đồng bộ từ sách:', err);
+            showToast('Lỗi khi đồng bộ từ sách', 'error');
+        } finally {
+            setIsSyncingFromLesson(false);
+        }
+    };
 
     const masteryStats = useMemo(() => {
         const total = setCards.length || 1;
@@ -1422,13 +1537,24 @@ const StudySetDetail = ({
                                                                             card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                                                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                                                                 return (
-                                                                                    <div key={idx} className="border-l-2 border-indigo-500/30 pl-2.5">
+                                                                                    <div key={idx} className="relative group/ex border-l-2 border-indigo-500/30 pl-2.5 pr-8">
                                                                                         <div className="text-sm text-slate-800 dark:text-slate-200 font-japanese leading-relaxed">
                                                                                             <FuriganaText text={ex} />
                                                                                         </div>
                                                                                         {meaning && (
                                                                                             <div className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5">{meaning}</div>
                                                                                         )}
+                                                                                        <button
+                                                                                            type="button"
+                                                                                            onClick={(e) => {
+                                                                                                e.stopPropagation();
+                                                                                                speakExampleSentence(ex);
+                                                                                            }}
+                                                                                            className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                                                                            title="Nghe câu ví dụ"
+                                                                                        >
+                                                                                            <Volume2 className="w-3.5 h-3.5" />
+                                                                                        </button>
                                                                                     </div>
                                                                                 );
                                                                             })
@@ -1507,9 +1633,21 @@ const StudySetDetail = ({
                             <Search className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
                             <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">Học phần này trống</h2>
                             <p className="text-gray-500 dark:text-gray-400 mb-6">Chưa có từ vựng nào trong học phần này.</p>
-                            <button onClick={folderId !== 'unfiled' ? () => onEditSet(folderId) : onNavigateToAdd} className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold flex items-center gap-2 mx-auto hover:bg-indigo-700 transition-colors">
-                                <Plus className="w-5 h-5" /> {folderId !== 'unfiled' ? 'Thêm từ vựng ngay' : 'Tạo học phần mới'}
-                            </button>
+                            <div className="flex items-center justify-center gap-3 flex-wrap">
+                                {folderId !== 'unfiled' && (
+                                    <button 
+                                        onClick={handleSyncFromSourceLesson} 
+                                        disabled={isSyncingFromLesson}
+                                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-bold flex items-center gap-2 hover:shadow-lg transition-all cursor-pointer shadow-md disabled:opacity-50"
+                                    >
+                                        <RefreshCw className={`w-5 h-5 ${isSyncingFromLesson ? 'animate-spin' : ''}`} /> 
+                                        {isSyncingFromLesson ? 'Đang nạp từ vựng...' : 'Đồng bộ từ vựng từ Sách'}
+                                    </button>
+                                )}
+                                <button onClick={folderId !== 'unfiled' ? () => onEditSet(folderId) : onNavigateToAdd} className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-bold flex items-center gap-2 hover:bg-indigo-700 transition-colors cursor-pointer">
+                                    <Plus className="w-5 h-5" /> {folderId !== 'unfiled' ? 'Thêm từ vựng ngay' : 'Tạo học phần mới'}
+                                </button>
+                            </div>
                         </div>
                     )}
                 </div>
