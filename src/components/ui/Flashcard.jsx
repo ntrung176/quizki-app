@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import FuriganaText from './FuriganaText';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { POS_TYPES, getPosLabel } from '../../config/constants';
@@ -6,7 +7,7 @@ import { isLeechCard } from '../../utils/srs';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { formatIPA, isEnglishCard as checkIsEnglishCard } from '../../utils/englishVocab';
 import InlineMnemonicEditor from './InlineMnemonicEditor';
-import { Volume2 } from 'lucide-react';
+import { Volume2, Maximize2, X } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
 
 const getCardScaleStyles = (card, settings) => {
@@ -131,6 +132,7 @@ const Flashcard = ({
 }) => {
     const [pitchData, setPitchData] = useState(null);
     const [isEditingMnemonic, setIsEditingMnemonic] = useState(false);
+    const [showImageZoom, setShowImageZoom] = useState(false);
 
     useEffect(() => {
         setIsEditingMnemonic(false);
@@ -281,7 +283,8 @@ const Flashcard = ({
         }
 
         const showReading = isTypingMode || cardSettings.back.reading;
-        const showMeaning = isTypingMode || cardSettings.back.meaning;
+        // Khi swapSides = true: Mặt trước đã hiển thị nghĩa tiếng Việt (card.back), không lặp lại ở mặt đáp án
+        const showMeaning = !cardSettings?.swapSides && (isTypingMode || cardSettings.back.meaning);
         const showHanviet = isTypingMode || cardSettings.back.hanviet;
         const showSynonym = isTypingMode || cardSettings.back.synonym;
         // Ở chế độ typing: Không hiển thị sắc thái trên thẻ mà xem qua popup nút bóng đèn ở thanh công cụ trên cùng
@@ -364,17 +367,31 @@ const Flashcard = ({
         };
 
         return (
-            <div className={`flex-1 flex ${(card.imageUrl || card.imageBase64) && variant !== 'review' && variant !== 'emerald' ? 'flex-row' : 'flex-col md:flex-row'} items-center justify-center gap-3 md:gap-6 px-1 w-full h-full min-h-0`}>
+            <div className="flex-1 flex flex-col items-center justify-center text-center w-full h-full min-h-0 relative">
+                {/* Corner Thumbnail Image: kích thước ~1/3 chiều dọc flashcard, nằm gọn gàng ở góc trên bên trái */}
                 {(card.imageUrl || card.imageBase64) && (
-                    <div className="flex-shrink-0">
-                        <img
-                             src={card.imageUrl || card.imageBase64}
-                             alt={card.front}
-                             className={`w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-2xl object-cover shadow-sm ${variant === 'review' || variant === 'emerald' ? 'border-4 border-white/30 shadow-lg' : 'border border-gray-200 dark:border-slate-700'}`}
-                        />
+                    <div 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setShowImageZoom(true);
+                        }}
+                        className="absolute top-1 left-1 sm:top-2 sm:left-2 z-20 group/img cursor-pointer"
+                        title="Nhấn để xem ảnh phóng to"
+                    >
+                        <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-white/90 dark:border-slate-700/90 shadow-md transition-all duration-200 group-hover/img:scale-105 group-hover/img:shadow-xl bg-white dark:bg-slate-800">
+                            <img
+                                src={card.imageUrl || card.imageBase64}
+                                alt={card.front}
+                                className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/15 transition-colors flex items-center justify-center opacity-0 group-hover/img:opacity-100">
+                                <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5 text-white drop-shadow" />
+                            </div>
+                        </div>
                     </div>
                 )}
-                <div className={`flex flex-col items-center justify-center text-center min-w-0 space-y-2 sm:space-y-2.5 w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full ${(card.imageUrl || card.imageBase64) && (variant === 'review' || variant === 'emerald') ? 'text-left min-w-0 flex-1' : ''}`}>
+
+                <div className="flex flex-col items-center justify-center text-center min-w-0 space-y-1.5 sm:space-y-2.5 w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full px-1">
                     {/* Khi ở chế độ swapSides: Hiển thị lại từ vựng Kanji/Furigana ở mặt đáp án */}
                     {cardSettings?.swapSides && (
                         <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${wordColorClass} select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
@@ -605,6 +622,40 @@ const Flashcard = ({
                         Nhấn để lật thẻ
                     </span>
                 </div>
+            )}
+
+            {/* Image Zoom Lightbox Modal */}
+            {showImageZoom && (card.imageUrl || card.imageBase64) && typeof document !== 'undefined' && createPortal(
+                <div 
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setShowImageZoom(false);
+                    }}
+                    className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in cursor-zoom-out"
+                >
+                    <div 
+                        onClick={(e) => e.stopPropagation()} 
+                        className="relative max-w-sm sm:max-w-md md:max-w-lg w-full bg-white dark:bg-slate-900 rounded-3xl p-3 shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                    >
+                        <button
+                            onClick={() => setShowImageZoom(false)}
+                            className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors cursor-pointer"
+                            title="Đóng"
+                        >
+                            <X className="w-4 h-4" />
+                        </button>
+                        <img 
+                            src={card.imageUrl || card.imageBase64} 
+                            alt={card.front} 
+                            className="w-full h-auto max-h-[70vh] object-contain rounded-2xl" 
+                        />
+                        <div className="flex items-center justify-between mt-3 px-2">
+                            <span className="font-bold text-base text-slate-800 dark:text-slate-200 truncate">{card.front}</span>
+                            {card.back && <span className="text-xs text-slate-500 dark:text-slate-400 truncate ml-2">{card.back}</span>}
+                        </div>
+                    </div>
+                </div>,
+                document.body
             )}
         </div>
     );
