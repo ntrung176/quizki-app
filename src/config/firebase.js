@@ -1,7 +1,17 @@
 import { initializeApp } from 'firebase/app';
-import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from 'firebase/firestore';
+import { 
+    initializeFirestore, 
+    persistentLocalCache, 
+    persistentMultipleTabManager,
+    persistentSingleTabManager,
+    memoryLocalCache 
+} from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
+import { runStorageSanityCleanup } from '../utils/storageCleanup';
+
+// Tự động dọn dẹp các cache quá lớn gây tràn quota localStorage trước khi khởi động
+runStorageSanityCleanup();
 
 // --- Cấu hình Firebase ---
 const firebaseConfig = {
@@ -22,12 +32,28 @@ let storage;
 try {
     app = initializeApp(firebaseConfig);
 
-    // Use new Firestore cache API (replaces deprecated enableIndexedDbPersistence)
-    db = initializeFirestore(app, {
-        localCache: persistentLocalCache({
-            tabManager: persistentMultipleTabManager()
-        })
-    });
+    try {
+        // Ưu tiên Persistent Cache đa tab với IndexedDB
+        db = initializeFirestore(app, {
+            localCache: persistentLocalCache({
+                tabManager: persistentMultipleTabManager()
+            })
+        });
+    } catch (cacheErr) {
+        console.warn("⚠️ Không thể khởi tạo persistentMultipleTabManager, thử singleTabManager:", cacheErr);
+        try {
+            db = initializeFirestore(app, {
+                localCache: persistentLocalCache({
+                    tabManager: persistentSingleTabManager()
+                })
+            });
+        } catch (singleErr) {
+            console.warn("⚠️ Không thể khởi tạo persistentSingleTabManager, chuyển sang memoryLocalCache:", singleErr);
+            db = initializeFirestore(app, {
+                localCache: memoryLocalCache()
+            });
+        }
+    }
 
     auth = getAuth(app);
     storage = getStorage(app);

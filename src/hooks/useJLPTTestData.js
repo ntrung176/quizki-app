@@ -250,7 +250,6 @@ export const useJLPTTestData = ({ userId, profile }) => {
 
                     if (firestoreDocs.length === 0 && baseTests.length > 0) {
                         setTests(baseTests);
-                        try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(baseTests)); } catch (e) {}
                     } else {
                         const firestoreMap = new Map();
                         firestoreDocs.forEach(docItem => firestoreMap.set(docItem.id, docItem));
@@ -276,7 +275,6 @@ export const useJLPTTestData = ({ userId, profile }) => {
                         const resultList = mergedList.length > 0 ? mergedList : firestoreDocs;
                         setTests(resultList);
                         setLoading(false);
-                        try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(resultList)); } catch (e) {}
                     }
                 }, (err) => {
                     console.warn("Firestore jlptTests snapshot warning:", err);

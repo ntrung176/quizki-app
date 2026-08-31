@@ -25,7 +25,10 @@ const saveCache = () => {
     if (saveTimeout) clearTimeout(saveTimeout);
     saveTimeout = setTimeout(() => {
         try {
-            const obj = Object.fromEntries(jotobaCache.entries());
+            const entries = Array.from(jotobaCache.entries());
+            // Chỉ lưu tối đa 100 từ gần nhất vào localStorage để tránh đầy bộ nhớ
+            const trimmed = entries.length > 100 ? entries.slice(-100) : entries;
+            const obj = Object.fromEntries(trimmed);
             localStorage.setItem(cacheKey, JSON.stringify(obj));
         } catch (e) {
             console.warn('Failed to save Jotoba cache to localStorage:', e);

@@ -37,16 +37,6 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             });
             setAllCards(fetchedCards);
             setIsLoading(false);
-            try {
-                if (fetchedCards.length > 0) {
-                    localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(fetchedCards));
-                    localStorage.setItem('quizki_vocab_last_backup', JSON.stringify({
-                        timestamp: Date.now(),
-                        count: fetchedCards.length,
-                        cards: fetchedCards
-                    }));
-                }
-            } catch (_) {}
         }, (error) => {
             console.error("Lỗi tải danh sách từ vựng:", error);
             setIsLoading(false);
