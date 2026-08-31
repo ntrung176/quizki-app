@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { collection, onSnapshot, query, doc, setDoc } from 'firebase/firestore';
+import { db, appId } from '../config/firebase';
 import { useTargetLanguage } from '../context/TargetLanguageContext';
 import { isVocabCardDue } from '../utils/srs';
 import { shuffleArray } from '../utils/textProcessing';
@@ -64,8 +66,8 @@ export const useAppLogic = () => {
     const [isProcessingBatch, setIsProcessingBatch] = useState(false);
     const [showXpTestModal, setShowXpTestModal] = useState(false);
 
-    const [dailyActivityLogs] = useState([]);
-    const [isActivityLogsLoaded] = useState(true);
+    const [dailyActivityLogs, setDailyActivityLogs] = useState([]);
+    const [isActivityLogsLoaded, setIsActivityLogsLoaded] = useState(false);
     const [kanjiSrsPublicCount] = useState({ total: 0, mastered: 0 });
     const [studySessionData, setStudySessionData] = useState({
         learning: [],
@@ -148,6 +150,33 @@ export const useAppLogic = () => {
         publicStatsCollectionPath
     } = authAndProfile;
 
+    // Lắng nghe dữ liệu hoạt động hàng ngày (dailyActivity) từ Firestore
+    useEffect(() => {
+        if (!authReady || !userId || !db || !appId) {
+            setDailyActivityLogs([]);
+            setIsActivityLogsLoaded(true);
+            return;
+        }
+
+        const activityPath = `artifacts/${appId}/users/${userId}/dailyActivity`;
+        const q = query(collection(db, activityPath));
+        const unsub = onSnapshot(q, (snapshot) => {
+            const logs = [];
+            snapshot.forEach((docSnap) => {
+                logs.push({ id: docSnap.id, ...docSnap.data() });
+            });
+            // Sắp xếp ngày tăng dần
+            logs.sort((a, b) => a.id.localeCompare(b.id));
+            setDailyActivityLogs(logs);
+            setIsActivityLogsLoaded(true);
+        }, (err) => {
+            console.warn('⚠️ Lỗi tải dailyActivityLogs:', err);
+            setIsActivityLogsLoaded(true);
+        });
+
+        return () => unsub();
+    }, [authReady, userId]);
+
     // 5. Vocabulary Cards Hook
     const vocab = useAppVocab({
         authReady,
@@ -161,6 +190,16 @@ export const useAppLogic = () => {
         handleDeleteCard, handleSaveChanges, handleGeminiAssist, handleToggleSrs,
         handleRestoreFromLocalBackup
     } = vocab;
+
+    // Đồng bộ streak của người dùng vào publicStats để bảng xếp hạng (Leaderboard) hiển thị chuẩn
+    useEffect(() => {
+        if (!userId || !publicStatsCollectionPath || !db) return;
+        const statsRef = doc(db, publicStatsCollectionPath, userId);
+        setDoc(statsRef, {
+            streak: calculatedStreak || 0,
+            lastActive: Date.now()
+        }, { merge: true }).catch(() => {});
+    }, [userId, publicStatsCollectionPath, calculatedStreak]);
 
     useEffect(() => {
         setAllCardsRef.current = setAllCards;

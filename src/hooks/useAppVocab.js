@@ -72,32 +72,66 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
     const calculatedStreak = useMemo(() => {
         if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
-        const sortedLogs = [...dailyActivityLogs].sort((a, b) => b.id.localeCompare(a.id));
-        const todayStr = new Date().toISOString().split('T')[0];
+
+        // Nhận diện ngày có hoạt động học tập (từ vựng, kanji, ngữ pháp, xp...)
+        const activeLogs = dailyActivityLogs.filter(log =>
+            (log.cardsReviewed || 0) > 0 ||
+            (log.reviewsDone || 0) > 0 ||
+            (log.xpGained || 0) > 0 ||
+            (log.newWordsAdded || 0) > 0 ||
+            (log.newKanjiAdded || 0) > 0 ||
+            (log.count || 0) > 0
+        );
+        if (activeLogs.length === 0) return 0;
+
+        // Lưu log theo Map để tra cứu O(1)
+        const logMap = new Map(activeLogs.map(l => [l.id, l]));
+
+        const getLocalDateStr = (d) => {
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
+
+        const getUtcDateStr = (d) => {
+            return d.toISOString().split('T')[0];
+        };
+
+        // Hàm kiểm tra xem ngày d có hoạt động không (check cả local date lẫn utc date cho dữ liệu cũ)
+        const hasActivityOnDate = (d) => {
+            const localStr = getLocalDateStr(d);
+            const utcStr = getUtcDateStr(d);
+            return logMap.has(localStr) || logMap.has(utcStr);
+        };
+
+        const today = new Date();
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        const hasToday = hasActivityOnDate(today);
+        const hasYesterday = hasActivityOnDate(yesterday);
+
+        // Nếu hôm nay chưa học VÀ hôm qua cũng không học thì streak = 0
+        if (!hasToday && !hasYesterday) return 0;
 
         let currentStreak = 0;
         let checkDate = new Date();
 
-        const latestLogDate = sortedLogs[0]?.id;
-        if (latestLogDate !== todayStr) {
-            const yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 1);
-            const yesterdayStr = yesterday.toISOString().split('T')[0];
-            if (latestLogDate !== yesterdayStr) return 0;
+        // Nếu hôm nay chưa học nhưng hôm qua có học, bắt đầu đếm từ hôm qua
+        if (!hasToday) {
             checkDate = yesterday;
         }
 
-        const logMap = new Map(sortedLogs.map(l => [l.id, l]));
         while (true) {
-            const dStr = checkDate.toISOString().split('T')[0];
-            const log = logMap.get(dStr);
-            if (log && ((log.cardsReviewed || 0) > 0 || (log.xpGained || 0) > 0)) {
+            if (hasActivityOnDate(checkDate)) {
                 currentStreak++;
                 checkDate.setDate(checkDate.getDate() - 1);
             } else {
                 break;
             }
         }
+
         return currentStreak;
     }, [dailyActivityLogs]);
 

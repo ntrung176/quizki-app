@@ -368,14 +368,14 @@ const Flashcard = ({
 
         return (
             <div className="flex-1 flex flex-col items-center justify-center text-center w-full h-full min-h-0 relative">
-                {/* Corner Thumbnail Image: kích thước ~1/3 chiều dọc flashcard, nằm gọn gàng ở góc trên bên trái */}
+                {/* Desktop & Tablet: Corner Thumbnail Badge ở góc trên bên trái */}
                 {(card.imageUrl || card.imageBase64) && (
                     <div 
                         onClick={(e) => {
                             e.stopPropagation();
                             setShowImageZoom(true);
                         }}
-                        className="absolute top-1 left-1 sm:top-2 sm:left-2 z-20 group/img cursor-pointer"
+                        className="hidden sm:block absolute top-2 left-2 z-20 group/img cursor-pointer"
                         title="Nhấn để xem ảnh phóng to"
                     >
                         <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-white/90 dark:border-slate-700/90 shadow-md transition-all duration-200 group-hover/img:scale-105 group-hover/img:shadow-xl bg-white dark:bg-slate-800">
@@ -392,6 +392,29 @@ const Flashcard = ({
                 )}
 
                 <div className="flex flex-col items-center justify-center text-center min-w-0 space-y-1.5 sm:space-y-2.5 w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full px-1">
+                    {/* Mobile: Top Centered Thumbnail in-flow (không che lấp từ vựng & nghĩa) */}
+                    {(card.imageUrl || card.imageBase64) && (
+                        <div 
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setShowImageZoom(true);
+                            }}
+                            className="sm:hidden mb-1.5 shrink-0 group/img cursor-pointer active:scale-95 transition-transform"
+                            title="Chạm để xem ảnh phóng to"
+                        >
+                            <div className="relative overflow-hidden rounded-2xl border-2 border-white/90 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
+                                <img
+                                    src={card.imageUrl || card.imageBase64}
+                                    alt={card.front}
+                                    className="w-20 h-20 object-cover"
+                                />
+                                <div className="absolute bottom-1 right-1 bg-black/40 backdrop-blur-xs rounded-full p-1 text-white">
+                                    <Maximize2 className="w-3 h-3" />
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {/* Khi ở chế độ swapSides: Hiển thị lại từ vựng Kanji/Furigana ở mặt đáp án */}
                     {cardSettings?.swapSides && (
                         <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${wordColorClass} select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>

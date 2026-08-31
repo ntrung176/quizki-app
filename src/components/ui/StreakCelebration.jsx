@@ -13,14 +13,18 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
         return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
     };
 
-    // Check if there is active study today (using today's UTC string since logs are saved in UTC dates)
+    // Check if there is active study today (supporting both local date & UTC date)
     const hasActivityToday = useMemo(() => {
-        const todayUTCStr = new Date().toISOString().split('T')[0];
-        const todayLog = dailyActivityLogs.find(log => log.id === todayUTCStr);
+        const d = new Date();
+        const localStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        const utcStr = d.toISOString().split('T')[0];
+        const todayLog = dailyActivityLogs.find(log => log.id === localStr || log.id === utcStr);
         if (!todayLog) return false;
         return (todayLog.newWordsAdded || 0) > 0 || 
                (todayLog.newKanjiAdded || 0) > 0 || 
-               (todayLog.reviewsDone || 0) > 0;
+               (todayLog.reviewsDone || 0) > 0 ||
+               (todayLog.cardsReviewed || 0) > 0 ||
+               (todayLog.xpGained || 0) > 0;
     }, [dailyActivityLogs]);
 
     const triggerCelebration = () => {

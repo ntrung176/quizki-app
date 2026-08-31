@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { onAuthStateChanged, signOut, getRedirectResult } from 'firebase/auth';
-import { doc, onSnapshot, collection, query, updateDoc, deleteDoc, getDocs, writeBatch, orderBy, limit, setDoc } from 'firebase/firestore';
+import { doc, onSnapshot, collection, query, updateDoc, deleteDoc, getDocs, writeBatch, orderBy, limit, setDoc, increment } from 'firebase/firestore';
 import { auth, db, appId } from '../config/firebase';
 import { subscribeAdminConfig, hasAdminPrivileges } from '../utils/adminSettings';
 import { getSharedBookGroups } from '../utils/bookService';
@@ -327,6 +327,16 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                 }).catch(async () => {
                     await setDoc(profileRef, { xp: newXp, score: newXp, totalXp: newXp, updatedAt: Date.now() }, { merge: true });
                 });
+
+                // Cập nhật hoạt động học tập hàng ngày (dailyActivity) cho hôm nay
+                const now = new Date();
+                const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayStr);
+                setDoc(activityRef, {
+                    xpGained: increment(Math.round(Number(amount))),
+                    reviewsDone: increment(1),
+                    lastUpdated: Date.now()
+                }, { merge: true }).catch(() => {});
 
                 if (publicStatsCollectionPath) {
                     const statsRef = doc(db, publicStatsCollectionPath, userId);

@@ -29,14 +29,46 @@ const HomeScreen = ({
     const { t } = useLanguage();
     const { isEnglishMode } = useTargetLanguage();
     const navigate = useNavigate();
+
+    // 1. Instant Summary Cache cho Kanji Stats
     const [kanjiSrsStats, setKanjiSrsStats] = useState(() => {
         try {
             const cached = localStorage.getItem('quizki_cached_kanji_srs_stats');
-            return cached ? JSON.parse(cached) : { total: 0, learning: 0, mastered: 0, dueCount: 0 };
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                return { ...parsed, isInitialLoading: false };
+            }
+        } catch (_) {}
+        return { total: null, learning: null, mastered: null, dueCount: null, isInitialLoading: true };
+    });
+
+    // 2. Instant Summary Cache cho Vocab Stats & Streak
+    const [cachedVocabStats, setCachedVocabStats] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_home_vocab_stats');
+            return cached ? JSON.parse(cached) : null;
         } catch (_) {
-            return { total: 0, learning: 0, mastered: 0, dueCount: 0 };
+            return null;
         }
     });
+
+    const [cachedStreak, setCachedStreak] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_user_streak');
+            return cached !== null ? parseInt(cached, 10) : null;
+        } catch (_) {
+            return null;
+        }
+    });
+
+    useEffect(() => {
+        if (calculatedStreak > 0) {
+            try {
+                localStorage.setItem('quizki_cached_user_streak', String(calculatedStreak));
+            } catch (_) {}
+        }
+    }, [calculatedStreak]);
+
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
     const [showAddOptions, setShowAddOptions] = useState(false);
 
@@ -76,7 +108,7 @@ const HomeScreen = ({
                     }
                 });
 
-                setKanjiSrsStats({ total, learning, mastered, dueCount });
+                setKanjiSrsStats({ total, learning, mastered, dueCount, isInitialLoading: false });
                 setKanjiActivityDates(actDates);
                 try {
                     localStorage.setItem('quizki_cached_kanji_srs_stats', JSON.stringify({ total, learning, mastered, dueCount }));
@@ -92,17 +124,82 @@ const HomeScreen = ({
         };
     }, [userId]);
 
-    // Calculate stats
+    // Calculate stats with instant fallback cache
     const stats = useMemo(() => {
+        const hasLoadedCards = allCards && allCards.length > 0;
+        const currentStreak = calculatedStreak > 0 ? calculatedStreak : (cachedStreak ?? 0);
+
+        if (!hasLoadedCards && cachedVocabStats) {
+            return {
+                dueCards: cachedVocabStats.dueCards ?? 0,
+                newCards: cachedVocabStats.newCards ?? 0,
+                masteredCards: cachedVocabStats.masteredCards ?? 0,
+                streak: currentStreak,
+                totalCards: cachedVocabStats.totalCards ?? 0,
+                isInitialLoading: false
+            };
+        }
+
+        if (!hasLoadedCards && !cachedVocabStats) {
+            return {
+                dueCards: null,
+                newCards: null,
+                masteredCards: null,
+                streak: currentStreak,
+                totalCards: null,
+                isInitialLoading: true
+            };
+        }
+
         const langCards = allCards.filter(card => isEnglishCard(card, isEnglishMode) === isEnglishMode);
         const dueCards = langCards.filter(card => isVocabCardDue(card)).length;
         const newCards = langCards.filter(card => !card.srsEnabled).length;
         const masteredCards = langCards.filter(card => isVocabCardMastered(card)).length;
-        return { dueCards, newCards, masteredCards, streak: calculatedStreak, totalCards: langCards.length };
-    }, [allCards, calculatedStreak, isEnglishMode]);
+        const result = {
+            dueCards,
+            newCards,
+            masteredCards,
+            streak: currentStreak,
+            totalCards: langCards.length,
+            isInitialLoading: false
+        };
 
-    // Quick action cards adjusted for English vs Japanese mode
+        try {
+            localStorage.setItem('quizki_cached_home_vocab_stats', JSON.stringify({
+                dueCards,
+                newCards,
+                masteredCards,
+                streak: currentStreak,
+                totalCards: langCards.length
+            }));
+        } catch (_) {}
+
+        return result;
+    }, [allCards, calculatedStreak, cachedStreak, isEnglishMode, cachedVocabStats]);
+
+const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none font-mono" }) => {
+    if (isLoading && (value === null || value === undefined)) {
+        return (
+            <div className="h-6 sm:h-8 w-12 sm:w-16 bg-slate-200 dark:bg-slate-800/80 rounded-lg animate-pulse my-0.5" />
+        );
+    }
+    return (
+        <div className={`${className} transition-opacity duration-300`}>
+            {value ?? fallback}
+        </div>
+    );
+};
+
+// Quick action cards adjusted for English vs Japanese mode
     const quickActions = useMemo(() => {
+        const vocabDueSubtitle = stats.isInitialLoading && stats.dueCards === null 
+            ? 'Đang cập nhật...' 
+            : `${stats.dueCards ?? 0} ${t('home.cardsDueSubtitle', 'thẻ đang đến hạn ôn')}`;
+            
+        const kanjiDueSubtitle = kanjiSrsStats.isInitialLoading && kanjiSrsStats.dueCount === null
+            ? 'Đang cập nhật...'
+            : `${kanjiSrsStats.dueCount ?? 0} ${t('home.kanjiDueSubtitle', 'chữ kanji cần ôn tập')}`;
+
         if (isEnglishMode) {
             return [
                 {
@@ -117,7 +214,7 @@ const HomeScreen = ({
                 {
                     id: 'vocab-review',
                     title: t('home.reviewVocabTitle', 'Ôn Tập Từ Vựng'),
-                    subtitle: `${stats.dueCards} ${t('home.cardsDueSubtitle', 'thẻ đang đến hạn ôn')}`,
+                    subtitle: vocabDueSubtitle,
                     icon: Clock,
                     gradient: 'from-indigo-600 via-indigo-500 to-violet-500',
                     glow: 'shadow-indigo-500/25 border border-indigo-400/40',
@@ -168,7 +265,7 @@ const HomeScreen = ({
             {
                 id: 'vocab-review',
                 title: t('home.reviewVocabTitle', 'Ôn Tập Từ Vựng'),
-                subtitle: `${stats.dueCards} ${t('home.cardsDueSubtitle', 'thẻ đang đến hạn ôn')}`,
+                subtitle: vocabDueSubtitle,
                 icon: Clock,
                 gradient: 'from-indigo-600 via-indigo-500 to-violet-500',
                 glow: 'shadow-indigo-500/25 border border-indigo-400/40',
@@ -177,7 +274,7 @@ const HomeScreen = ({
             {
                 id: 'kanji-review',
                 title: t('home.reviewKanjiTitle', 'Ôn Tập Kanji'),
-                subtitle: `${kanjiSrsStats.dueCount} ${t('home.kanjiDueSubtitle', 'chữ kanji cần ôn tập')}`,
+                subtitle: kanjiDueSubtitle,
                 icon: Target,
                 gradient: 'from-amber-600 via-amber-500 to-orange-500',
                 glow: 'shadow-amber-500/25 border border-amber-400/40',
@@ -193,7 +290,7 @@ const HomeScreen = ({
                 route: ROUTES.GRAMMAR_REVIEW,
             },
         ];
-    }, [t, stats.dueCards, kanjiSrsStats.dueCount, isEnglishMode]);
+    }, [t, stats.dueCards, stats.isInitialLoading, kanjiSrsStats.dueCount, kanjiSrsStats.isInitialLoading, isEnglishMode]);
 
     // Greeting based on time
     const getGreeting = () => {
@@ -281,16 +378,30 @@ const HomeScreen = ({
                     <div className="flex flex-wrap items-center gap-2.5 font-mono">
                         <div className="flex items-center gap-2 bg-slate-950/80 border border-slate-800 rounded-2xl px-4 py-2.5 shadow-lg text-xs sm:text-sm font-bold backdrop-blur-md hover:border-orange-500/40 transition-colors">
                             <Flame className="w-4 h-4 text-orange-500 shrink-0 animate-bounce" />
-                            <span className="text-slate-200">{stats.streak} {t('home.dayStreak', 'ngày streak')}</span>
+                            <span className="text-slate-200">{stats.streak ?? 0} {t('home.dayStreak', 'ngày streak')}</span>
                         </div>
                         <div className="flex items-center gap-2 bg-slate-950/80 border border-slate-800 rounded-2xl px-4 py-2.5 shadow-lg text-xs sm:text-sm font-bold backdrop-blur-md hover:border-amber-500/40 transition-colors">
                             <Trophy className="w-4 h-4 text-amber-400 shrink-0" />
-                            <span className="text-slate-200">{stats.masteredCards} {t('home.vocabMastered', 'từ thuộc')}</span>
+                            <span className="text-slate-200 flex items-center gap-1">
+                                {stats.isInitialLoading && stats.masteredCards === null ? (
+                                    <span className="inline-block h-3.5 w-6 bg-slate-800 rounded animate-pulse" />
+                                ) : (
+                                    stats.masteredCards ?? 0
+                                )}{' '}
+                                <span>{t('home.vocabMastered', 'từ thuộc')}</span>
+                            </span>
                         </div>
                         {!isEnglishMode && (
                             <div className="flex items-center gap-2 bg-slate-950/80 border border-slate-800 rounded-2xl px-4 py-2.5 shadow-lg text-xs sm:text-sm font-bold backdrop-blur-md hover:border-emerald-500/40 transition-colors">
                                 <Languages className="w-4 h-4 text-emerald-400 shrink-0" />
-                                <span className="text-slate-200">{kanjiSrsStats.mastered} {t('home.kanjiMastered', 'kanji thuộc')}</span>
+                                <span className="text-slate-200 flex items-center gap-1">
+                                    {kanjiSrsStats.isInitialLoading && kanjiSrsStats.mastered === null ? (
+                                        <span className="inline-block h-3.5 w-8 bg-slate-800 rounded animate-pulse" />
+                                    ) : (
+                                        kanjiSrsStats.mastered ?? 0
+                                    )}{' '}
+                                    <span>{t('home.kanjiMastered', 'kanji thuộc')}</span>
+                                </span>
                             </div>
                         )}
                     </div>
@@ -301,7 +412,7 @@ const HomeScreen = ({
             <div className={`grid grid-cols-2 ${isEnglishMode ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-3 sm:gap-4`}>
                 {/* Card 1: Vocab Review */}
                 <div 
-                    onClick={() => navigate(ROUTES.VOCAB_REVIEW, stats.dueCards > 0 ? { state: { autoStart: true } } : undefined)}
+                    onClick={() => navigate(ROUTES.VOCAB_REVIEW, (stats.dueCards ?? 0) > 0 ? { state: { autoStart: true } } : undefined)}
                     className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-rose-500/40 hover:shadow-rose-500/10"
                 >
                     <div className="flex items-center gap-3 min-w-0">
@@ -309,7 +420,7 @@ const HomeScreen = ({
                             <Clock className="w-5 h-5 text-rose-500" />
                         </div>
                         <div className="min-w-0">
-                            <div className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none font-mono">{stats.dueCards}</div>
+                            <StatNumber value={stats.dueCards} isLoading={stats.isInitialLoading} />
                             <div className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-1">{t('home.dueVocab', 'Từ vựng cần ôn')}</div>
                         </div>
                     </div>
@@ -319,7 +430,7 @@ const HomeScreen = ({
                 {/* Card 2: Kanji Review / New Cards */}
                 {!isEnglishMode ? (
                     <div 
-                        onClick={() => navigate(ROUTES.KANJI_REVIEW, kanjiSrsStats.dueCount > 0 ? { state: { autoStart: true } } : undefined)}
+                        onClick={() => navigate(ROUTES.KANJI_REVIEW, (kanjiSrsStats.dueCount ?? 0) > 0 ? { state: { autoStart: true } } : undefined)}
                         className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-amber-500/40 hover:shadow-amber-500/10"
                     >
                         <div className="flex items-center gap-3 min-w-0">
@@ -327,7 +438,7 @@ const HomeScreen = ({
                                 <Target className="w-5 h-5 text-amber-500" />
                             </div>
                             <div className="min-w-0">
-                                <div className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none font-mono">{kanjiSrsStats.dueCount}</div>
+                                <StatNumber value={kanjiSrsStats.dueCount} isLoading={kanjiSrsStats.isInitialLoading} />
                                 <div className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-1">{t('home.dueKanji', 'Kanji cần ôn')}</div>
                             </div>
                         </div>
@@ -335,7 +446,7 @@ const HomeScreen = ({
                     </div>
                 ) : (
                     <div 
-                        onClick={() => navigate(ROUTES.VOCAB_REVIEW, stats.dueCards > 0 ? { state: { autoStart: true } } : undefined)}
+                        onClick={() => navigate(ROUTES.VOCAB_REVIEW, (stats.dueCards ?? 0) > 0 ? { state: { autoStart: true } } : undefined)}
                         className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-amber-500/40 hover:shadow-amber-500/10"
                     >
                         <div className="flex items-center gap-3 min-w-0">
@@ -343,7 +454,7 @@ const HomeScreen = ({
                                 <Sparkle className="w-5 h-5 text-amber-500" />
                             </div>
                             <div className="min-w-0">
-                                <div className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none font-mono">{stats.newCards}</div>
+                                <StatNumber value={stats.newCards} isLoading={stats.isInitialLoading} />
                                 <div className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-1">Từ vựng mới</div>
                             </div>
                         </div>
@@ -361,7 +472,7 @@ const HomeScreen = ({
                             <BookOpen className="w-5 h-5 text-sky-500" />
                         </div>
                         <div className="min-w-0">
-                            <div className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none font-mono">{stats.totalCards}</div>
+                            <StatNumber value={stats.totalCards} isLoading={stats.isInitialLoading} />
                             <div className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-1">{t('home.totalVocab', 'Tổng từ vựng')}</div>
                         </div>
                     </div>
@@ -379,7 +490,7 @@ const HomeScreen = ({
                                 <Languages className="w-5 h-5 text-emerald-500" />
                             </div>
                             <div className="min-w-0">
-                                <div className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none font-mono">{kanjiSrsStats.total}</div>
+                                <StatNumber value={kanjiSrsStats.total} isLoading={kanjiSrsStats.isInitialLoading} />
                                 <div className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-1">{t('home.totalKanji', 'Tổng Kanji')}</div>
                             </div>
                         </div>

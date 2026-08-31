@@ -185,25 +185,50 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
         const activeLogs = dailyActivityLogs.filter(log => 
             (log.newWordsAdded || 0) > 0 || 
             (log.newKanjiAdded || 0) > 0 || 
-            (log.reviewsDone || 0) > 0
+            (log.reviewsDone || 0) > 0 ||
+            (log.cardsReviewed || 0) > 0 ||
+            (log.xpGained || 0) > 0 ||
+            (log.count || 0) > 0
         );
         if (activeLogs.length === 0) return 0;
-        const todayStr = new Date().toISOString().split('T')[0];
-        const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-        const yesterdayStr = yesterday.toISOString().split('T')[0];
-        const reversedLogs = [...activeLogs].reverse();
-        const lastLog = reversedLogs[0];
-        if (lastLog.id !== todayStr && lastLog.id !== yesterdayStr) return 0;
-        
+
+        const logMap = new Map(activeLogs.map(l => [l.id, l]));
+
+        const getLocalDateStr = (d) => {
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
+
+        const getUtcDateStr = (d) => d.toISOString().split('T')[0];
+
+        const hasActivityOnDate = (d) => {
+            const localStr = getLocalDateStr(d);
+            const utcStr = getUtcDateStr(d);
+            return logMap.has(localStr) || logMap.has(utcStr);
+        };
+
+        const today = new Date();
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        const hasToday = hasActivityOnDate(today);
+        const hasYesterday = hasActivityOnDate(yesterday);
+
+        if (!hasToday && !hasYesterday) return 0;
+
         let currentStreak = 0;
         let checkDate = new Date();
-        if (lastLog.id !== todayStr) checkDate.setDate(checkDate.getDate() - 1);
-        for (const log of reversedLogs) {
-            const checkDateStr = checkDate.toISOString().split('T')[0];
-            if (log.id === checkDateStr) {
+        if (!hasToday) checkDate = yesterday;
+
+        while (true) {
+            if (hasActivityOnDate(checkDate)) {
                 currentStreak++;
                 checkDate.setDate(checkDate.getDate() - 1);
-            } else break;
+            } else {
+                break;
+            }
         }
         return currentStreak;
     }, [dailyActivityLogs]);
