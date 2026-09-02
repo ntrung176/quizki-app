@@ -31,7 +31,7 @@ const AppContent = () => {
         setEditingCard, showBatchImportModal, setShowBatchImportModal, batchVocabList, currentBatchIndex,
         isDarkMode, setIsDarkMode, isSidebarCollapsed, profile, dailyActivityLogs, isActivityLogsLoaded,
         studySessionData, setStudySessionData, setReviewCards, setReviewMode, setSavedFilters,
-        setFlashcardCards, prepareReviewCards, handleUpdateCard, handleDeleteCard, handleAddCard,
+        setFlashcardCards, prepareReviewCards, handleUpdateCard, handleDeleteCard, handleDeleteCards, handleAddCard,
         handleSaveChanges, handleGeminiAssist, handleExtractVocabFromImage, handleGenerateMoreExample,
         handleBatchImport, handleBatchSaveNext, handleBatchSkip, handleExport, handleNavigateToEdit,
         handleUpdateGoal, handleAdminDeleteUserData, handleUpdateProfileName, handleUpdateAvatar,
@@ -171,6 +171,7 @@ const AppContent = () => {
                                 prepareReviewCards={prepareReviewCards}
                                 handleUpdateCard={handleUpdateCard}
                                 handleDeleteCard={handleDeleteCard}
+                                handleDeleteCards={handleDeleteCards}
                                 handleSaveNewCard={handleAddCard}
                                 handleSaveChanges={handleSaveChanges}
                                 handleGeminiAssist={handleGeminiAssist}

@@ -612,8 +612,8 @@ const StudySetDetail = ({
     }, [folderId, folders]);
 
     const setCards = useMemo(() => {
-        if (folderId === 'unfiled') return allCards.filter(c => !cardFolders[c.id] || cardFolders[c.id] === 'unfiled');
-        return allCards.filter(c => cardFolders[c.id] === folderId);
+        if (folderId === 'unfiled') return allCards.filter(c => !c.folderId || c.folderId === 'unfiled' || !cardFolders[c.id] || cardFolders[c.id] === 'unfiled');
+        return allCards.filter(c => c.folderId === folderId || cardFolders[c.id] === folderId);
     }, [folderId, allCards, cardFolders]);
 
     const notLearnedCards = useMemo(() => setCards.filter(c => !c.masteryState || c.masteryState === 'not_learned'), [setCards]);

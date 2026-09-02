@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { collection, query, onSnapshot, doc, updateDoc, setDoc, deleteDoc } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, updateDoc, setDoc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { showToast } from '../utils/toast';
 import { cleanFirestoreData } from '../utils/firestoreHelpers';
@@ -33,7 +33,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const fetchedCards = [];
             snapshot.forEach((docSnap) => {
-                fetchedCards.push({ id: docSnap.id, ...docSnap.data() });
+                fetchedCards.push({ ...docSnap.data(), id: docSnap.id });
             });
             setAllCards(fetchedCards);
             setIsLoading(false);
@@ -210,10 +210,11 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             updatedAt: Date.now(),
             masteryState: newCard.masteryState || 'not_learned'
         };
+        delete cardData.isNew;
         setAllCards(prevCards => [cardData, ...prevCards]);
         if (userId && vocabCollectionPath) {
             try {
-                const cardRef = doc(collection(db, vocabCollectionPath), String(cardId));
+                const cardRef = doc(db, vocabCollectionPath, String(cardId));
                 await setDoc(cardRef, cleanFirestoreData(cardData));
             } catch (err) {
                 console.warn('⚠️ Failed to persist new card to Firestore:', err);
@@ -224,14 +225,37 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
     const handleDeleteCard = useCallback(async (cardId) => {
         if (!cardId) return;
-        setAllCards(prevCards => prevCards.filter(c => String(c.id) !== String(cardId)));
+        const safeCardId = String(cardId);
+        setAllCards(prevCards => prevCards.filter(c => String(c.id) !== safeCardId));
         if (userId && vocabCollectionPath) {
             try {
-                const safeCardId = String(cardId);
-                const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
+                const cardRef = doc(db, vocabCollectionPath, safeCardId);
                 await deleteDoc(cardRef);
             } catch (err) {
                 console.warn('⚠️ Failed to delete card from Firestore:', err);
+            }
+        }
+    }, [userId, vocabCollectionPath, setAllCards]);
+
+    const handleDeleteCards = useCallback(async (cardIds) => {
+        if (!cardIds || !cardIds.length) return;
+        const idStrings = cardIds.map(id => String(id));
+        const idSet = new Set(idStrings);
+        setAllCards(prevCards => prevCards.filter(c => !idSet.has(String(c.id))));
+        if (userId && vocabCollectionPath) {
+            try {
+                const BATCH_SIZE = 450;
+                for (let i = 0; i < idStrings.length; i += BATCH_SIZE) {
+                    const chunk = idStrings.slice(i, i + BATCH_SIZE);
+                    const batch = writeBatch(db);
+                    chunk.forEach(id => {
+                        const cardRef = doc(db, vocabCollectionPath, id);
+                        batch.delete(cardRef);
+                    });
+                    await batch.commit();
+                }
+            } catch (err) {
+                console.warn('⚠️ Failed to batch delete cards from Firestore:', err);
             }
         }
     }, [userId, vocabCollectionPath, setAllCards]);
@@ -457,6 +481,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         handleUpdateCard,
         handleAddCard,
         handleDeleteCard,
+        handleDeleteCards,
         handleSaveChanges,
         handleGeminiAssist,
         handleToggleSrs,

@@ -187,7 +187,7 @@ export const useAppLogic = () => {
     const {
         allCards, setAllCards, isLoading, setIsLoading, vocabCollectionPath,
         dueCounts, memoryStats, calculatedStreak, handleUpdateCard, handleAddCard,
-        handleDeleteCard, handleSaveChanges, handleGeminiAssist, handleToggleSrs,
+        handleDeleteCard, handleDeleteCards, handleSaveChanges, handleGeminiAssist, handleToggleSrs,
         handleRestoreFromLocalBackup
     } = vocab;
 
@@ -277,7 +277,7 @@ export const useAppLogic = () => {
         isEnglishMode, activeFolders, parentFolders, studySets, cardFolders, vocabCollectionPath,
         publicStatsCollectionPath, isAdmin, adminConfig, showXpTestModal, setShowXpTestModal, hasPremium,
         canUserUseAI, userHasAdminPrivileges, handleAdminDeleteUserData, prepareReviewCards, dueCounts,
-        memoryStats, calculatedStreak, scrollToCardIdRef, handleUpdateCard, handleDeleteCard, handleAddCard,
+        memoryStats, calculatedStreak, scrollToCardIdRef, handleUpdateCard, handleDeleteCard, handleDeleteCards, handleAddCard,
         handleSaveChanges, handleGeminiAssist, handleExtractVocabFromImage, handleGenerateMoreExample,
         handleBatchImport, handleBatchSaveNext, handleBatchSkip, handleExport, handleNavigateToEdit,
         handleUpdateGoal, handleUpdateProfileName, handleUpdateAvatar, handleChangePassword,

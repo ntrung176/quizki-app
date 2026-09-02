@@ -213,6 +213,7 @@ const EditSetScreenWrapper = ({
     onAddFolder,
     handleUpdateCard,
     handleDeleteCard,
+    handleDeleteCards,
     handleSaveNewCard,
     handleGeminiAssist,
     handleGenerateMoreExample,
@@ -232,6 +233,7 @@ const EditSetScreenWrapper = ({
         onAddFolder={onAddFolder}
         onUpdateCard={handleUpdateCard}
         onDeleteCard={handleDeleteCard}
+        onDeleteCards={handleDeleteCards}
         onSaveNewCard={handleSaveNewCard}
         onBack={() => navigate(-1)}
         onGeminiAssist={handleGeminiAssist}
@@ -359,6 +361,7 @@ const AppRoutes = ({
     prepareReviewCards,
     handleUpdateCard,
     handleDeleteCard,
+    handleDeleteCards,
     handleSaveNewCard,
     handleSaveChanges,
     handleGeminiAssist,
@@ -770,6 +773,7 @@ const AppRoutes = ({
                                 onAddFolder={onAddFolder}
                                 handleUpdateCard={handleUpdateCard}
                                 handleDeleteCard={handleDeleteCard}
+                                handleDeleteCards={handleDeleteCards}
                                 handleSaveNewCard={handleSaveNewCard}
                                 handleGeminiAssist={handleGeminiAssist}
                                 handleGenerateMoreExample={handleGenerateMoreExample}

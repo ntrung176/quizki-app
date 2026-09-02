@@ -940,8 +940,41 @@ const AddCardForm = ({
             return front.split('（')[0].split('(')[0].trim().toLowerCase();
         };
 
-        const duplicates = [];
+        // 1. Phân loại 1: Trùng lặp nội bộ trong chính học phần hiện tại (trên màn hình / từ file JSON vừa nhập)
+        const internalGroupMap = new Map(); // norm -> [card1, card2, ...]
         for (const card of validCards) {
+            const norm = getFrontTextOnly(card.front);
+            if (!norm) continue;
+
+            if (!internalGroupMap.has(norm)) {
+                internalGroupMap.set(norm, []);
+            }
+            internalGroupMap.get(norm).push(card);
+        }
+
+        const internalDuplicates = [];
+        const internalDuplicateCardIds = [];
+
+        internalGroupMap.forEach((cardGroup) => {
+            if (cardGroup.length > 1) {
+                // Giữ lại 1 thẻ đầu tiên, đánh dấu các thẻ xuất hiện sau là trùng lặp cần loại bỏ
+                const duplicateCards = cardGroup.slice(1);
+                duplicateCards.forEach(d => internalDuplicateCardIds.push(d.id));
+                internalDuplicates.push({
+                    front: cardGroup[0].front.trim(),
+                    count: cardGroup.length,
+                    removeCount: duplicateCards.length,
+                    duplicateCardIds: duplicateCards.map(d => d.id)
+                });
+            }
+        });
+
+        // 2. Phân loại 2: Trùng lặp với học phần khác của người dùng
+        const externalDuplicates = [];
+        // Chỉ kiểm tra các thẻ đầu tiên (không bị đánh dấu là trùng lặp nội bộ)
+        const firstOccurrenceCards = validCards.filter(c => !internalDuplicateCardIds.includes(c.id));
+
+        for (const card of firstOccurrenceCards) {
             const norm = getFrontTextOnly(card.front);
             if (!norm) continue;
 
@@ -958,26 +991,43 @@ const AddCardForm = ({
             if (existingDuplicate) {
                 const otherFolderId = cardFolders[existingDuplicate.id];
                 const otherFolder = folders?.find(f => f.id === otherFolderId);
-                duplicates.push({
+                externalDuplicates.push({
                     cardId: card.id,
-                    front: card.front,
+                    front: card.front.trim(),
                     otherSetName: otherFolder ? otherFolder.name : 'Học phần khác'
                 });
             }
         }
 
-        if (duplicates.length > 0) {
-            setDuplicateCheckResult({ duplicates, parentFolderId });
+        // Nếu có bất kỳ loại trùng lặp nào -> Hiện Pop-up cảnh báo chi tiết
+        if (internalDuplicates.length > 0 || externalDuplicates.length > 0) {
+            const allExcludeIds = [
+                ...internalDuplicateCardIds,
+                ...externalDuplicates.map(d => d.cardId)
+            ];
+
+            setDuplicateCheckResult({
+                parentFolderId,
+                internalDuplicates,
+                externalDuplicates,
+                allExcludeIds,
+                totalExcludedCount: allExcludeIds.length
+            });
             return;
         }
 
         await proceedSaveWithChoices(parentFolderId, []);
     };
 
-    const proceedSaveWithChoices = async (parentFolderId, cardIdsToExclude) => {
+    const proceedSaveWithChoices = async (parentFolderId, cardIdsToExclude = []) => {
         setDuplicateCheckResult(null);
         setIsSaving(true);
-        const validCards = cards.filter(c => c.front.trim() && c.back.trim() && !cardIdsToExclude.includes(c.id));
+        const excludeSet = new Set((cardIdsToExclude || []).map(id => String(id)));
+        const validCards = cards.filter(c => 
+            c.front && c.front.trim() && 
+            c.back && c.back.trim() && 
+            !excludeSet.has(String(c.id))
+        );
 
         if (validCards.length === 0) {
             showToast('Không còn từ vựng nào để lưu sau khi loại bỏ từ trùng.', 'warning');
@@ -1354,61 +1404,99 @@ const AddCardForm = ({
             {/* Duplicates Alert Dialog */}
             {duplicateCheckResult && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-md max-h-[80vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-lg max-h-[85vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
                         
                         {/* Dialog Header */}
-                        <div className="flex items-center gap-3 p-5 border-b border-slate-150 dark:border-slate-750 bg-amber-50/50 dark:bg-amber-950/10">
-                            <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
+                        <div className="flex items-center gap-3 p-5 border-b border-slate-100 dark:border-slate-700 bg-amber-50/60 dark:bg-amber-950/20">
+                            <div className="w-10 h-10 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shrink-0 border border-amber-300 dark:border-amber-700/50">
                                 <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                             </div>
-                            <div>
-                                <h3 className="text-lg font-bold text-slate-800 dark:text-white">
-                                    Từ vựng đã tồn tại
+                            <div className="min-w-0">
+                                <h3 className="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    <span>Phát hiện từ vựng trùng lặp</span>
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Phát hiện từ trùng lặp trong học phần khác
+                                    Học phần có {duplicateCheckResult.totalExcludedCount} từ vựng trùng lặp cần xử lý
                                 </p>
                             </div>
                         </div>
 
-                        {/* List of Duplicates */}
-                        <div className="flex-1 overflow-y-auto p-5 space-y-3 max-h-[40vh] custom-scrollbar">
-                            <p className="text-sm text-slate-650 dark:text-slate-350">
-                                Có <strong className="text-amber-600 dark:text-amber-400">{duplicateCheckResult.duplicates.length} từ vựng</strong> trong học phần này đã được tạo ở các học phần khác của bạn:
-                            </p>
-                            <div className="space-y-2">
-                                {duplicateCheckResult.duplicates.map((dup, index) => (
-                                    <div key={index} className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800/80">
-                                        <span className="font-semibold text-sm text-slate-750 dark:text-slate-250 truncate max-w-[180px]">
-                                            {dup.front}
+                        {/* List of Duplicates Categorized */}
+                        <div className="flex-1 overflow-y-auto p-5 space-y-4 max-h-[48vh] custom-scrollbar">
+                            {/* Category 1: Trùng lặp nội bộ trong học phần */}
+                            {duplicateCheckResult.internalDuplicates && duplicateCheckResult.internalDuplicates.length > 0 && (
+                                <div className="space-y-2">
+                                    <div className="flex items-center justify-between">
+                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-300 text-xs font-bold">
+                                            <span>🔁 Trùng trong học phần này ({duplicateCheckResult.internalDuplicates.length} từ)</span>
                                         </span>
-                                        <div className="flex items-center gap-1.5 text-xs text-slate-450 dark:text-slate-500 shrink-0 font-medium">
-                                            <Folder className="w-3.5 h-3.5 text-amber-500/80" />
-                                            <span className="truncate max-w-[120px]">{dup.otherSetName}</span>
-                                        </div>
+                                        <span className="text-[11px] text-slate-400 font-medium">Giữ lại 1 bản ghi</span>
                                     </div>
-                                ))}
-                            </div>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                        Các từ vựng sau xuất hiện nhiều lần trên màn hình / file JSON. Hệ thống sẽ tự động giữ lại bản ghi đầu tiên và loại bỏ các bản ghi lặp lại:
+                                    </p>
+                                    <div className="space-y-1.5">
+                                        {duplicateCheckResult.internalDuplicates.map((dup, idx) => (
+                                            <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800">
+                                                <span className="font-bold text-sm text-slate-800 dark:text-slate-200 truncate max-w-[240px]">
+                                                    {dup.front}
+                                                </span>
+                                                <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 shrink-0">
+                                                    Lặp {dup.count} lần (Bỏ {dup.removeCount})
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Category 2: Trùng lặp với học phần khác */}
+                            {duplicateCheckResult.externalDuplicates && duplicateCheckResult.externalDuplicates.length > 0 && (
+                                <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                                    <div className="flex items-center justify-between">
+                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+                                            <span>📂 Trùng với học phần khác ({duplicateCheckResult.externalDuplicates.length} từ)</span>
+                                        </span>
+                                    </div>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                        Các từ vựng sau đã được tạo ở các học phần khác trong tài khoản của bạn:
+                                    </p>
+                                    <div className="space-y-1.5">
+                                        {duplicateCheckResult.externalDuplicates.map((dup, idx) => (
+                                            <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800">
+                                                <span className="font-bold text-sm text-slate-800 dark:text-slate-200 truncate max-w-[200px]">
+                                                    {dup.front}
+                                                </span>
+                                                <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 shrink-0 font-medium">
+                                                    <Folder className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                                                    <span className="truncate max-w-[140px] font-semibold">{dup.otherSetName}</span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         {/* Actions */}
-                        <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-750/50 flex flex-col gap-2">
-                            <button
-                                type="button"
-                                onClick={() => proceedSaveWithChoices(duplicateCheckResult.parentFolderId, [])}
-                                className="w-full py-2.5 text-sm font-bold rounded-xl text-white bg-indigo-650 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-700 transition-colors shadow-sm cursor-pointer"
-                            >
-                                Vẫn tiếp tục lưu học phần
-                            </button>
+                        <div className="p-4 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2">
                             <button
                                 type="button"
                                 onClick={() => proceedSaveWithChoices(
                                     duplicateCheckResult.parentFolderId, 
-                                    duplicateCheckResult.duplicates.map(d => d.cardId)
+                                    duplicateCheckResult.allExcludeIds
                                 )}
-                                className="w-full py-2.5 text-sm font-semibold rounded-xl text-indigo-700 dark:text-indigo-400 bg-indigo-50 hover:bg-indigo-100 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer border border-indigo-100 dark:border-slate-700"
+                                className="w-full py-2.5 px-4 text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] transition-all shadow-md shadow-indigo-500/20 cursor-pointer flex items-center justify-center gap-2"
                             >
-                                Lưu và trừ {duplicateCheckResult.duplicates.length} từ trùng
+                                <Check className="w-4 h-4" />
+                                <span>Lưu và trừ {duplicateCheckResult.totalExcludedCount} từ trùng lặp</span>
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => proceedSaveWithChoices(duplicateCheckResult.parentFolderId, [])}
+                                className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl text-slate-700 dark:text-slate-300 bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
+                            >
+                                Vẫn lưu tất cả (Bao gồm từ trùng)
                             </button>
                             <button
                                 type="button"
@@ -1416,9 +1504,9 @@ const AddCardForm = ({
                                     setDuplicateCheckResult(null);
                                     setIsSaving(false);
                                 }}
-                                className="w-full py-2 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer"
+                                className="w-full py-2 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer text-center"
                             >
-                                Hủy bỏ
+                                Hủy bỏ để chỉnh sửa thủ công
                             </button>
                         </div>
                     </div>

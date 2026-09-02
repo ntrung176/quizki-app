@@ -42,6 +42,7 @@ const EditSetScreen = ({
     onAddFolder,
     onUpdateCard,
     onDeleteCard,
+    onDeleteCards,
     onSaveNewCard,
     onBack,
     onGeminiAssist,
@@ -59,12 +60,17 @@ const EditSetScreen = ({
 
     // Original cards in this set
     const originalSetCards = folderId === 'unfiled' 
-        ? allCards.filter(c => !cardFolders[c.id] || cardFolders[c.id] === 'unfiled')
-        : allCards.filter(c => cardFolders[c.id] === folderId);
+        ? allCards.filter(c => !c.folderId || c.folderId === 'unfiled' || !cardFolders[c.id] || cardFolders[c.id] === 'unfiled')
+        : allCards.filter(c => c.folderId === folderId || cardFolders[c.id] === folderId);
 
-    const [cards, setCards] = useState(originalSetCards.length > 0 ? originalSetCards : [
-        { id: `new_${Date.now()}`, isNew: true, front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null }
-    ]);
+    const [cards, setCards] = useState(() => {
+        if (originalSetCards.length > 0) {
+            return originalSetCards.map(c => ({ ...c, isNew: false }));
+        }
+        return [
+            { id: `new_${Date.now()}`, isNew: true, front: '', back: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null }
+        ];
+    });
 
     const [activeCardId, setActiveCardId] = useState(cards[0]?.id);
     const [isSaving, setIsSaving] = useState(false);
@@ -233,89 +239,122 @@ const EditSetScreen = ({
 
     const handleConfirmSaveSet = async (parentFolderId) => {
         setShowFolderSelector(false);
-        const validCards = cards.filter(c => c.front.trim() && c.back.trim());
+        const validCards = cards.filter(c => c.front && c.front.trim() && c.back && c.back.trim());
 
-        // 1. Check for duplicates within the current screen's inputs
-        const seenInputs = new Set();
-        const screenDuplicates = [];
-        for (const card of validCards) {
-            const normalized = card.front.split('（')[0].split('(')[0].trim().toLowerCase();
-            if (normalized) {
-                if (seenInputs.has(normalized)) {
-                    screenDuplicates.push(card.front.trim());
-                }
-                seenInputs.add(normalized);
-            }
-        }
-
-        if (screenDuplicates.length > 0) {
-            showToast(`Có từ vựng bị trùng lặp trên màn hình: ${screenDuplicates.join(', ')}`, 'error');
-            return;
-        }
-
-        // 2. Check for duplicates in other sets
         const getFrontTextOnly = (front) => {
             if (!front) return '';
             return front.split('（')[0].split('(')[0].trim().toLowerCase();
         };
 
-        const duplicates = [];
+        // 1. Phân loại 1: Trùng lặp nội bộ trong chính học phần hiện tại (trên màn hình / từ file JSON vừa nhập)
+        const internalGroupMap = new Map(); // norm -> [card1, card2, ...]
         for (const card of validCards) {
             const norm = getFrontTextOnly(card.front);
             if (!norm) continue;
 
+            if (!internalGroupMap.has(norm)) {
+                internalGroupMap.set(norm, []);
+            }
+            internalGroupMap.get(norm).push(card);
+        }
+
+        const internalDuplicates = [];
+        const internalDuplicateCardIds = [];
+
+        internalGroupMap.forEach((cardGroup) => {
+            if (cardGroup.length > 1) {
+                // Giữ lại 1 thẻ đầu tiên, đánh dấu các thẻ xuất hiện sau là trùng lặp cần loại bỏ
+                const duplicateCards = cardGroup.slice(1);
+                duplicateCards.forEach(d => internalDuplicateCardIds.push(String(d.id)));
+                internalDuplicates.push({
+                    front: cardGroup[0].front.trim(),
+                    count: cardGroup.length,
+                    removeCount: duplicateCards.length,
+                    duplicateCardIds: duplicateCards.map(d => String(d.id))
+                });
+            }
+        });
+
+        // 2. Phân loại 2: Trùng lặp với học phần khác của người dùng
+        const externalDuplicates = [];
+        // Chỉ kiểm tra các thẻ đầu tiên (không bị đánh dấu là trùng lặp nội bộ)
+        const firstOccurrenceCards = validCards.filter(c => !internalDuplicateCardIds.includes(String(c.id)));
+
+        for (const card of firstOccurrenceCards) {
+            const norm = getFrontTextOnly(card.front);
+            if (!norm) continue;
+
             const existingDuplicate = allCards?.find(c => {
-                if (c.id === card.id) return false;
+                if (String(c.id) === String(card.id)) return false;
 
                 const otherNorm = getFrontTextOnly(c.front);
                 if (otherNorm !== norm) return false;
 
-                const otherFolderId = cardFolders[c.id];
+                const otherFolderId = c.folderId || cardFolders[c.id];
                 if (!otherFolderId || otherFolderId === 'unfiled' || otherFolderId === folderId) return false;
 
                 return true;
             });
 
             if (existingDuplicate) {
-                const otherFolderId = cardFolders[existingDuplicate.id];
+                const otherFolderId = existingDuplicate.folderId || cardFolders[existingDuplicate.id];
                 const otherFolder = folders?.find(f => f.id === otherFolderId);
-                duplicates.push({
-                    cardId: card.id,
-                    front: card.front,
+                externalDuplicates.push({
+                    cardId: String(card.id),
+                    front: card.front.trim(),
                     otherSetName: otherFolder ? otherFolder.name : 'Học phần khác'
                 });
             }
         }
 
-        if (duplicates.length > 0) {
-            setDuplicateCheckResult({ duplicates, parentFolderId });
+        // Nếu có bất kỳ loại trùng lặp nào -> Hiện Pop-up cảnh báo chi tiết
+        if (internalDuplicates.length > 0 || externalDuplicates.length > 0) {
+            const allExcludeIds = Array.from(new Set([
+                ...internalDuplicateCardIds,
+                ...externalDuplicates.map(d => String(d.cardId))
+            ]));
+
+            setDuplicateCheckResult({
+                parentFolderId,
+                internalDuplicates,
+                externalDuplicates,
+                allExcludeIds,
+                totalExcludedCount: allExcludeIds.length
+            });
             return;
         }
 
         await proceedSaveWithChoices(parentFolderId, []);
     };
 
-    const proceedSaveWithChoices = async (parentFolderId, cardIdsToExclude) => {
+    const proceedSaveWithChoices = async (parentFolderId, cardIdsToExclude = []) => {
         setDuplicateCheckResult(null);
         setIsSaving(true);
 
-        // Delete any existing cards that are explicitly excluded
-        if (cardIdsToExclude.length > 0 && onDeleteCard) {
+        const excludeSet = new Set((cardIdsToExclude || []).map(id => String(id)));
+
+        // 1. Xóa các từ vựng đã tồn tại trong Firestore bị loại bỏ do trùng lặp
+        if (excludeSet.size > 0) {
             try {
-                const deletePromises = cardIdsToExclude.map(async (cardId) => {
-                    const card = cards.find(c => c.id === cardId);
-                    if (card && !card.isNew) {
-                        return onDeleteCard(cardId, '');
-                    }
-                });
-                await Promise.all(deletePromises);
+                const idsToDelete = Array.from(excludeSet);
+                if (onDeleteCards) {
+                    await onDeleteCards(idsToDelete);
+                } else if (onDeleteCard) {
+                    await Promise.all(idsToDelete.map(id => onDeleteCard(id)));
+                }
             } catch (e) {
                 console.error("Lỗi khi loại bỏ từ trùng:", e);
             }
         }
 
-        // Filter cards to save
-        const validCards = cards.filter(c => c.front.trim() && c.back.trim() && !cardIdsToExclude.includes(c.id));
+        // 2. Lọc danh sách thẻ hợp lệ cần lưu / cập nhật (loại bỏ hoàn toàn các thẻ trong excludeSet)
+        const validCards = cards.filter(c => 
+            c.front && c.front.trim() && 
+            c.back && c.back.trim() && 
+            !excludeSet.has(String(c.id))
+        );
+
+        setCards(validCards);
 
         if (validCards.length === 0) {
             showToast('Không còn từ vựng nào để lưu sau khi loại bỏ từ trùng.', 'warning');
@@ -369,7 +408,8 @@ const EditSetScreen = ({
             for (let i = 0; i < validCards.length; i += CHUNK_SIZE) {
                 const chunk = validCards.slice(i, i + CHUNK_SIZE);
                 await Promise.all(chunk.map(async (card) => {
-                    if (card.isNew) {
+                    const isTrulyNew = Boolean(card.isNew) && !allCards.some(ac => String(ac.id) === String(card.id));
+                    if (isTrulyNew) {
                         const success = await onSaveNewCard({
                             ...card,
                             id: undefined, // remove temp ID
@@ -382,7 +422,7 @@ const EditSetScreen = ({
                         }
                         return success;
                     } else {
-                        const orig = originalSetCards.find(c => c.id === card.id);
+                        const orig = originalSetCards.find(c => String(c.id) === String(card.id));
                         const isModified = isCardModified(card, orig);
                         const needsFolderUpdate = activeFolderId !== folderId;
 
@@ -747,61 +787,99 @@ const EditSetScreen = ({
             {/* Duplicates Alert Dialog */}
             {duplicateCheckResult && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-md max-h-[80vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-lg max-h-[85vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
                         
                         {/* Dialog Header */}
-                        <div className="flex items-center gap-3 p-5 border-b border-slate-150 dark:border-slate-750 bg-amber-50/50 dark:bg-amber-950/10">
-                            <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
+                        <div className="flex items-center gap-3 p-5 border-b border-slate-100 dark:border-slate-700 bg-amber-50/60 dark:bg-amber-950/20">
+                            <div className="w-10 h-10 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shrink-0 border border-amber-300 dark:border-amber-700/50">
                                 <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                             </div>
-                            <div>
-                                <h3 className="text-lg font-bold text-slate-800 dark:text-white">
-                                    Từ vựng đã tồn tại
+                            <div className="min-w-0">
+                                <h3 className="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    <span>Phát hiện từ vựng trùng lặp</span>
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Phát hiện từ trùng lặp trong học phần khác
+                                    Học phần có {duplicateCheckResult.totalExcludedCount} từ vựng trùng lặp cần xử lý
                                 </p>
                             </div>
                         </div>
 
-                        {/* List of Duplicates */}
-                        <div className="flex-1 overflow-y-auto p-5 space-y-3 max-h-[40vh] custom-scrollbar">
-                            <p className="text-sm text-slate-650 dark:text-slate-350">
-                                Có <strong className="text-amber-600 dark:text-amber-400">{duplicateCheckResult.duplicates.length} từ vựng</strong> trong học phần này đã được tạo ở các học phần khác của bạn:
-                            </p>
-                            <div className="space-y-2">
-                                {duplicateCheckResult.duplicates.map((dup, index) => (
-                                    <div key={index} className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800/80">
-                                        <span className="font-semibold text-sm text-slate-750 dark:text-slate-250 truncate max-w-[180px]">
-                                            {dup.front}
+                        {/* List of Duplicates Categorized */}
+                        <div className="flex-1 overflow-y-auto p-5 space-y-4 max-h-[48vh] custom-scrollbar">
+                            {/* Category 1: Trùng lặp nội bộ trong học phần */}
+                            {duplicateCheckResult.internalDuplicates && duplicateCheckResult.internalDuplicates.length > 0 && (
+                                <div className="space-y-2">
+                                    <div className="flex items-center justify-between">
+                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-300 text-xs font-bold">
+                                            <span>🔁 Trùng trong học phần này ({duplicateCheckResult.internalDuplicates.length} từ)</span>
                                         </span>
-                                        <div className="flex items-center gap-1.5 text-xs text-slate-450 dark:text-slate-500 shrink-0 font-medium">
-                                            <Folder className="w-3.5 h-3.5 text-amber-500/80" />
-                                            <span className="truncate max-w-[120px]">{dup.otherSetName}</span>
-                                        </div>
+                                        <span className="text-[11px] text-slate-400 font-medium">Giữ lại 1 bản ghi</span>
                                     </div>
-                                ))}
-                            </div>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                        Các từ vựng sau xuất hiện nhiều lần trên màn hình / file JSON. Hệ thống sẽ tự động giữ lại bản ghi đầu tiên và loại bỏ các bản ghi lặp lại:
+                                    </p>
+                                    <div className="space-y-1.5">
+                                        {duplicateCheckResult.internalDuplicates.map((dup, idx) => (
+                                            <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800">
+                                                <span className="font-bold text-sm text-slate-800 dark:text-slate-200 truncate max-w-[240px]">
+                                                    {dup.front}
+                                                </span>
+                                                <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 shrink-0">
+                                                    Lặp {dup.count} lần (Bỏ {dup.removeCount})
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Category 2: Trùng lặp với học phần khác */}
+                            {duplicateCheckResult.externalDuplicates && duplicateCheckResult.externalDuplicates.length > 0 && (
+                                <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                                    <div className="flex items-center justify-between">
+                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+                                            <span>📂 Trùng với học phần khác ({duplicateCheckResult.externalDuplicates.length} từ)</span>
+                                        </span>
+                                    </div>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                        Các từ vựng sau đã được tạo ở các học phần khác trong tài khoản của bạn:
+                                    </p>
+                                    <div className="space-y-1.5">
+                                        {duplicateCheckResult.externalDuplicates.map((dup, idx) => (
+                                            <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-800">
+                                                <span className="font-bold text-sm text-slate-800 dark:text-slate-200 truncate max-w-[200px]">
+                                                    {dup.front}
+                                                </span>
+                                                <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 shrink-0 font-medium">
+                                                    <Folder className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                                                    <span className="truncate max-w-[140px] font-semibold">{dup.otherSetName}</span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         {/* Actions */}
-                        <div className="p-4 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-750/50 flex flex-col gap-2">
-                            <button
-                                type="button"
-                                onClick={() => proceedSaveWithChoices(duplicateCheckResult.parentFolderId, [])}
-                                className="w-full py-2.5 text-sm font-bold rounded-xl text-white bg-indigo-650 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-700 transition-colors shadow-sm cursor-pointer"
-                            >
-                                Vẫn tiếp tục lưu học phần
-                            </button>
+                        <div className="p-4 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2">
                             <button
                                 type="button"
                                 onClick={() => proceedSaveWithChoices(
                                     duplicateCheckResult.parentFolderId, 
-                                    duplicateCheckResult.duplicates.map(d => d.cardId)
+                                    duplicateCheckResult.allExcludeIds
                                 )}
-                                className="w-full py-2.5 text-sm font-semibold rounded-xl text-indigo-700 dark:text-indigo-400 bg-indigo-50 hover:bg-indigo-100 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer border border-indigo-100 dark:border-slate-700"
+                                className="w-full py-2.5 px-4 text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] transition-all shadow-md shadow-indigo-500/20 cursor-pointer flex items-center justify-center gap-2"
                             >
-                                Lưu và trừ {duplicateCheckResult.duplicates.length} từ trùng
+                                <Check className="w-4 h-4" />
+                                <span>Lưu và trừ {duplicateCheckResult.totalExcludedCount} từ trùng lặp</span>
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => proceedSaveWithChoices(duplicateCheckResult.parentFolderId, [])}
+                                className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl text-slate-700 dark:text-slate-300 bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
+                            >
+                                Vẫn lưu tất cả (Bao gồm từ trùng)
                             </button>
                             <button
                                 type="button"
@@ -809,9 +887,9 @@ const EditSetScreen = ({
                                     setDuplicateCheckResult(null);
                                     setIsSaving(false);
                                 }}
-                                className="w-full py-2 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer"
+                                className="w-full py-2 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer text-center"
                             >
-                                Hủy bỏ
+                                Hủy bỏ để chỉnh sửa thủ công
                             </button>
                         </div>
                     </div>
