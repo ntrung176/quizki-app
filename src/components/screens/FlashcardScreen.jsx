@@ -619,7 +619,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             >
                                 <Flashcard
                                     card={currentCard}
-                                    cardSettings={cardSettings}
+                                    cardSettings={{ ...cardSettings, reviewType: 'flashcard' }}
                                     isFlipped={isFlipped}
                                     onFlip={handleFlip}
                                     onSaveCardAudio={onSaveCardAudio}

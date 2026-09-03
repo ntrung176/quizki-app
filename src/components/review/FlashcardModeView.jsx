@@ -37,7 +37,7 @@ const FlashcardModeView = ({
             >
                 <Flashcard
                     card={currentCard}
-                    cardSettings={cardSettings}
+                    cardSettings={{ ...cardSettings, reviewType: 'flashcard' }}
                     isFlipped={isFlipped}
                     onFlip={() => {
                         setIsAnimatingFlip(true);

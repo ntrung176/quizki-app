@@ -689,21 +689,39 @@ export const calculateSrsForecast = (itemsList = [], daysCount = 14, nowMs = Dat
     itemsList.forEach(item => {
         if (!item || item.srsEnabled === false) return;
 
-        // Strictly exclude NEW / unstudied cards that have never been evaluated in SRS
-        if (!isCardEvaluatedInSrs(item)) return;
-
-        const nextReviewVal = item.nextReview !== undefined 
-            ? item.nextReview 
-            : (item.nextReview_back !== undefined ? item.nextReview_back : null);
-        
-        const reviewMs = parseNextReviewMs(nextReviewVal);
-        if (reviewMs <= 0) return; // Must have a valid next review timestamp
-
-        // 1. Thẻ ĐÃ ĐẾN HẠN CẦN ÔN NGAY (Due right now) -> Phản ánh đúng 100% cột "Hôm nay"
-        if (reviewMs <= nowMs) {
+        // 1. Check if caller explicitly precalculated isDue (e.g. Kanji / Grammar review screens)
+        if (item.isDue === true) {
             forecast[0].count++;
-        } else {
-            // 2. Thẻ có lịch ôn trong tương lai (sau thời điểm hiện tại):
+            return;
+        }
+
+        // 2. Safely extract scheduled next review timestamp across multiple SRS property names
+        const nextReviewVal = (item.nextReview_back !== undefined && item.nextReview_back !== null)
+            ? item.nextReview_back
+            : ((item.nextReview !== undefined && item.nextReview !== null)
+                ? item.nextReview
+                : (item.srsData?.nextReview_back || item.srsData?.nextReview || null));
+
+        const reviewMs = parseNextReviewMs(nextReviewVal);
+
+        // 3. Determine if card is due for review today
+        const isVocabCard = Boolean(item.front !== undefined || item.word !== undefined || item.term !== undefined || item.back !== undefined);
+
+        let isDueNow = false;
+        if (isVocabCard) {
+            isDueNow = isVocabCardDue(item, nowMs);
+        } else if (item.isDue !== undefined) {
+            isDueNow = Boolean(item.isDue);
+        } else if (reviewMs > 0) {
+            isDueNow = reviewMs <= nowMs;
+        } else if (isCardEvaluatedInSrs(item)) {
+            isDueNow = isSrsCardDue(item, nowMs);
+        }
+
+        if (isDueNow) {
+            forecast[0].count++;
+        } else if (reviewMs > nowMs) {
+            // 4. Card scheduled for future review
             const itemCutoff = calculateDayCutoffTimestamp(0, reviewMs);
             let dayOffset = Math.round((itemCutoff - todayCutoff) / msPerDay);
 

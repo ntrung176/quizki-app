@@ -12,90 +12,155 @@ import { speakExampleSentence } from '../../utils/audio';
 
 const getCardScaleStyles = (card, settings) => {
     if (!card) return {};
-    const textLength = card.front ? card.front.length : 0;
 
-    // Front side vocabulary font size: responsive auto-scaling based on text length
+    const isSwap = Boolean(settings?.swapSides);
+    const frontText = isSwap ? (card.back || '') : (card.frontWithFurigana || card.front || '');
+    const frontLength = frontText.length;
+
+    // 1. Tự động điều chỉnh kích thước chữ ở mặt trước (Front side auto-scaling)
     let frontWordSize = "text-4xl sm:text-5xl md:text-6xl font-black";
-    if (textLength > 20) {
-        frontWordSize = "text-xl sm:text-2xl md:text-3xl font-extrabold";
-    } else if (textLength > 12) {
-        frontWordSize = "text-2xl sm:text-3xl md:text-4xl font-extrabold";
-    } else if (textLength > 6) {
-        frontWordSize = "text-3xl sm:text-4xl md:text-5xl font-extrabold";
+    if (isSwap) {
+        // Khi mặt trước là nghĩa tiếng Việt (thường dài hơn từ tiếng Nhật)
+        if (frontLength > 120) {
+            frontWordSize = "text-base sm:text-lg md:text-xl font-bold leading-snug";
+        } else if (frontLength > 70) {
+            frontWordSize = "text-lg sm:text-xl md:text-2xl font-bold leading-snug";
+        } else if (frontLength > 35) {
+            frontWordSize = "text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug";
+        } else if (frontLength > 18) {
+            frontWordSize = "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug";
+        } else {
+            frontWordSize = "text-3xl sm:text-4xl md:text-5xl font-black leading-snug";
+        }
+    } else {
+        // Khi mặt trước là Từ vựng / Cụm từ Kanji / Ngữ pháp tiếng Nhật
+        if (frontLength > 35) {
+            frontWordSize = "text-lg sm:text-xl md:text-2xl font-bold leading-normal";
+        } else if (frontLength > 20) {
+            frontWordSize = "text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug";
+        } else if (frontLength > 12) {
+            frontWordSize = "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug";
+        } else if (frontLength > 6) {
+            frontWordSize = "text-3xl sm:text-4xl md:text-5xl font-black leading-snug";
+        }
     }
 
-    const hasExample = card.example && settings?.back?.example;
-    const exampleLines = hasExample ? card.example.split('\n').filter(e => e.trim()).length : 0;
+    // 2. Tính toán độ dài & độ phức tạp của mặt sau (Back side density calculation)
+    const rawReading = card.reading || parseWordAndReading(card.frontWithFurigana || card.front || '').reading || '';
+    const readingLength = rawReading.length;
+    const meaningText = card.back || '';
+    const meaningLength = meaningText.length;
+    const meaningLines = (meaningText.match(/\n/g) || []).length + 1;
 
-    const showExamples = settings?.back?.example;
+    const showExamples = Boolean(settings?.back?.example !== false && card.example && card.example.trim());
+    const exampleLines = showExamples ? card.example.split('\n').filter(e => e.trim()).length : 0;
+    const exampleLength = showExamples ? card.example.length : 0;
 
-    // Default sizes (no examples or large mode)
-    let wordSize = (card.front?.length || 0) > 6 || (card.reading?.length || 0) > 6 
-        ? "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug" 
-        : "text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug";
-    let meaningSize = (card.back?.length || 0) > 15 
-        ? "text-lg sm:text-xl md:text-2xl font-bold mt-1" 
-        : "text-xl sm:text-2xl md:text-3xl font-bold mt-1.5";
-    let exampleBoxPadding = "p-3 sm:p-4.5";
+    const hasImage = Boolean(card.imageUrl || card.imageBase64);
+    const hasSinoViet = Boolean(card.sinoVietnamese && settings?.back?.hanviet !== false);
+    const hasSynonym = Boolean(card.synonym && settings?.back?.synonym !== false);
+    const hasMnemonic = Boolean(card.userMnemonic || card.customMnemonic || card.mnemonic || isLeechCard(card));
+    const hasNuance = Boolean(card.nuance && settings?.back?.nuance === true);
+
+    // Tính điểm mật độ nội dung (Density Score)
+    let densityScore = 0;
+
+    if (exampleLines >= 3 || exampleLength > 140) densityScore += 4;
+    else if (exampleLines === 2 || exampleLength > 70) densityScore += 2.5;
+    else if (exampleLines === 1) densityScore += 1.5;
+
+    if (meaningLength > 140 || meaningLines >= 4) densityScore += 3.5;
+    else if (meaningLength > 75 || meaningLines >= 3) densityScore += 2;
+    else if (meaningLength > 35 || meaningLines >= 2) densityScore += 1;
+
+    if (readingLength > 16) densityScore += 2;
+    else if (readingLength > 8) densityScore += 1;
+
+    if (hasImage) densityScore += 1.5;
+    if (hasMnemonic) densityScore += 1;
+    if (hasSinoViet && hasSynonym) densityScore += 1;
+    if (hasNuance) densityScore += 0.5;
+
+    // 3. Phân cấp kích thước font chữ & khoảng cách dựa trên densityScore
+    let wordSize = "text-3xl sm:text-4xl md:text-5xl font-black leading-snug";
+    let meaningSize = "text-xl sm:text-2xl md:text-3xl font-bold mt-1.5 leading-snug";
+    let hanvietSize = "text-[13px] md:text-sm font-bold";
+    let exampleBoxPadding = "p-3.5 sm:p-4.5";
     let exampleItemGap = "space-y-2";
     let exampleTitleSize = "text-[12px]";
     let exampleTextSize = "text-[15px] sm:text-[17px] md:text-[19px] leading-relaxed font-bold";
     let exampleMeaningSize = "text-[13px] sm:text-[14px] md:text-[15px] font-sans mt-1 leading-relaxed";
+    let exampleMaxHeight = "max-h-[160px] sm:max-h-[200px]";
     let cardPadding = "p-4 sm:p-5 md:p-6";
-    let titleSize = "text-lg sm:text-xl font-bold";
+    let contentGap = "space-y-2 sm:space-y-2.5";
+    let imageMobileSize = "w-16 h-16 sm:w-20 sm:h-20";
 
-    if (showExamples && exampleLines > 0) {
-        if (exampleLines >= 3 || (card.back?.length || 0) > 240) {
-            // Small scale: 3 or more example sentences
-            wordSize = "text-lg sm:text-xl md:text-2xl font-semibold leading-normal";
-            meaningSize = "text-base sm:text-lg md:text-xl font-semibold mt-0.5";
-            titleSize = "text-sm sm:text-base font-bold";
-            exampleBoxPadding = "p-2.5 sm:p-3";
-            exampleItemGap = "space-y-1.5";
-            exampleTitleSize = "text-[9.5px]";
-            exampleTextSize = "text-[12px] sm:text-[13px] md:text-[14px] leading-normal font-medium";
-            exampleMeaningSize = "text-[10.5px] sm:text-[11px] md:text-[12px] font-sans mt-0.5 leading-normal";
-            cardPadding = "p-3.5 sm:p-4";
-        } else if (exampleLines === 2 || (card.back?.length || 0) > 150) {
-            // Medium scale: 2 example sentences
-            wordSize = "text-xl sm:text-2xl md:text-3xl font-bold leading-normal";
-            meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-1";
-            titleSize = "text-base sm:text-lg font-bold";
-            exampleBoxPadding = "p-3 sm:p-3.5";
-            exampleItemGap = "space-y-1.5";
-            exampleTitleSize = "text-[11px]";
-            exampleTextSize = "text-[14px] sm:text-[15px] md:text-[16.5px] leading-relaxed font-semibold";
-            exampleMeaningSize = "text-[12px] sm:text-[13px] md:text-[14px] font-sans mt-1 leading-snug";
-            cardPadding = "p-4 sm:p-5";
-        } else {
-            // 1 example sentence: Large scale
-            wordSize = "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug";
-            meaningSize = "text-xl sm:text-2xl md:text-3xl font-bold mt-1.5";
-            titleSize = "text-lg sm:text-xl font-bold";
-            exampleBoxPadding = "p-3.5 sm:p-4.5";
-            exampleItemGap = "space-y-2";
-            exampleTitleSize = "text-[12px]";
-            exampleTextSize = "text-[15px] sm:text-[17px] md:text-[19px] leading-relaxed font-bold";
-            exampleMeaningSize = "text-[13px] sm:text-[14px] md:text-[15px] font-sans mt-1 leading-relaxed";
-            cardPadding = "p-4 sm:p-5 md:p-6";
-        }
+    if (densityScore >= 5.5) {
+        // Tầng 4: Siêu thu gọn (Nhiều ví dụ dài + nghĩa dài + ghi chú/ảnh)
+        wordSize = "text-base sm:text-lg md:text-xl font-bold leading-tight";
+        meaningSize = "text-sm sm:text-base md:text-lg font-semibold mt-0.5 leading-snug";
+        hanvietSize = "text-[11px] sm:text-xs font-semibold";
+        exampleBoxPadding = "p-2 sm:p-2.5";
+        exampleItemGap = "space-y-1";
+        exampleTitleSize = "text-[9.5px]";
+        exampleTextSize = "text-[11.5px] sm:text-[12.5px] leading-snug font-medium";
+        exampleMeaningSize = "text-[10px] sm:text-[11px] font-sans leading-tight mt-0.5";
+        exampleMaxHeight = "max-h-[105px] sm:max-h-[125px]";
+        cardPadding = "p-3 sm:p-3.5";
+        contentGap = "space-y-1 sm:space-y-1.5";
+        imageMobileSize = "w-12 h-12 sm:w-14 sm:h-14";
+    } else if (densityScore >= 3.5) {
+        // Tầng 3: Thu gọn vừa (2 ví dụ hoặc nghĩa dài)
+        wordSize = "text-lg sm:text-xl md:text-2xl font-extrabold leading-snug";
+        meaningSize = "text-base sm:text-lg md:text-xl font-bold mt-0.5 leading-snug";
+        hanvietSize = "text-xs sm:text-[12.5px] font-semibold";
+        exampleBoxPadding = "p-2.5 sm:p-3";
+        exampleItemGap = "space-y-1.5";
+        exampleTitleSize = "text-[10.5px]";
+        exampleTextSize = "text-[13px] sm:text-[14px] leading-snug font-semibold";
+        exampleMeaningSize = "text-[11px] sm:text-[12px] font-sans leading-snug mt-0.5";
+        exampleMaxHeight = "max-h-[125px] sm:max-h-[150px]";
+        cardPadding = "p-3.5 sm:p-4";
+        contentGap = "space-y-1.5 sm:space-y-2";
+        imageMobileSize = "w-14 h-14 sm:w-16 sm:h-16";
+    } else if (densityScore >= 2) {
+        // Tầng 2: Trung bình (1 ví dụ hoặc nghĩa vừa phải)
+        wordSize = "text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug";
+        meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-1 leading-snug";
+        hanvietSize = "text-[12.5px] sm:text-[13px] md:text-sm font-bold";
+        exampleBoxPadding = "p-3 sm:p-3.5";
+        exampleItemGap = "space-y-1.5";
+        exampleTitleSize = "text-[11.5px]";
+        exampleTextSize = "text-[14px] sm:text-[15.5px] md:text-[17px] leading-relaxed font-bold";
+        exampleMeaningSize = "text-[12px] sm:text-[13px] font-sans leading-snug mt-0.5";
+        exampleMaxHeight = "max-h-[145px] sm:max-h-[175px]";
+        cardPadding = "p-4 sm:p-5";
+        contentGap = "space-y-1.5 sm:space-y-2";
+        imageMobileSize = "w-16 h-16 sm:w-20 sm:h-20";
     } else {
-        // If there are no examples, let's keep word and meaning sizes large (default)
-        wordSize = "text-3xl md:text-4xl font-extrabold leading-snug";
-        meaningSize = "text-2xl md:text-3xl font-bold mt-2";
+        // Tầng 1: Tiêu chuẩn / Lớn (Từ ngắn, không có ví dụ)
+        if (readingLength > 8 || frontLength > 8) {
+            wordSize = "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug";
+        }
+        if (meaningLength > 30) {
+            meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-1 leading-snug";
+        }
     }
 
     return {
         wordSize,
         frontWordSize,
-        titleSize,
         meaningSize,
+        hanvietSize,
         exampleBoxPadding,
         exampleItemGap,
         exampleTitleSize,
         exampleTextSize,
         exampleMeaningSize,
-        cardPadding
+        exampleMaxHeight,
+        cardPadding,
+        contentGap,
+        imageMobileSize
     };
 };
 
@@ -128,7 +193,7 @@ const Flashcard = ({
     variant = 'default', // 'default' | 'emerald' | 'review'
     transitionEnabled = true,
     showFlipHint = true,
-    hasCheckedTyping = false
+    hasCheckedTyping = undefined
 }) => {
     const [pitchData, setPitchData] = useState(null);
     const [isEditingMnemonic, setIsEditingMnemonic] = useState(false);
@@ -187,8 +252,8 @@ const Flashcard = ({
     const scale = getCardScaleStyles(card, cardSettings);
     const isEnglishCard = checkIsEnglishCard(card, isEnglishMode);
 
-    const isTypingMode = cardSettings?.reviewType === 'typing';
-    const isTypingBlocked = isTypingMode && !hasCheckedTyping && !cardSettings?.hasCheckedTyping;
+    const isTypingMode = cardSettings?.reviewType === 'typing' && hasCheckedTyping !== undefined;
+    const isTypingBlocked = isTypingMode && hasCheckedTyping === false;
 
     const renderFrontContent = () => {
         let wordColorClass = "text-slate-800 dark:text-white";
@@ -202,7 +267,7 @@ const Flashcard = ({
         // Khi swapSides = true: Mặt trước là Nghĩa tiếng Việt (Prompt)
         if (cardSettings?.swapSides) {
             return (
-                <div className="flex-1 flex flex-col items-center justify-center text-center space-y-3 sm:space-y-4 w-full my-auto px-2 py-2 overflow-y-auto no-scrollbar">
+                <div className={`flex-1 flex flex-col items-center justify-center text-center ${scale.contentGap || 'space-y-2 sm:space-y-3'} w-full my-auto px-2 py-2 overflow-y-auto no-scrollbar`}>
                     {isLeechCard(card) && (
                         <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-[11px] font-bold shadow-sm animate-pulse mb-1">
                             <span>🩸 Thẻ khó thuộc (Quên {card.lapseCount || card.srsLapseCount || 3} lần)</span>
@@ -219,13 +284,18 @@ const Flashcard = ({
                     <div className={`${scale.frontWordSize} font-bold ${wordColorClass} select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2`}>
                         {card.back}
                     </div>
+                    {!isEnglishCard && cardSettings.front?.hanviet && card.sinoVietnamese && (
+                        <p className={`${hanvietColorClass} ${scale.hanvietSize || 'text-[14px] md:text-base'} font-bold break-words`}>
+                            <span className={variant === 'review' || variant === 'emerald' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
+                        </p>
+                    )}
                 </div>
             );
         }
 
         // Khi swapSides = false: Mặt trước là Từ vựng tiếng Nhật (Prompt)
         return (
-            <div className="flex-1 flex flex-col items-center justify-center text-center space-y-3 sm:space-y-4 w-full my-auto px-2 py-2 overflow-y-auto no-scrollbar">
+            <div className={`flex-1 flex flex-col items-center justify-center text-center ${scale.contentGap || 'space-y-2 sm:space-y-3'} w-full my-auto px-2 py-2 overflow-y-auto no-scrollbar`}>
                 {isLeechCard(card) && (
                     <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/80 border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-[11px] font-bold shadow-sm animate-pulse mb-1">
                         <span>🩸 Thẻ khó thuộc (Quên {card.lapseCount || card.srsLapseCount || 3} lần)</span>
@@ -252,9 +322,9 @@ const Flashcard = ({
                         <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} showReadingOnly={true} className="break-words whitespace-normal text-center" />
                     </div>
                 )}
-                {/* Ở chế độ typing: Không hiển thị Hán Việt ở mặt trước trước khi kiểm tra đáp án để tránh lộ nghĩa tiếng Việt */}
-                {!isEnglishCard && cardSettings.front.hanviet && card.sinoVietnamese && (!isTypingMode || hasCheckedTyping) && (
-                    <p className={`${hanvietColorClass} text-[15px] md:text-base font-bold break-words`}>
+                {/* Hiển thị Âm Hán Việt ở mặt trước nếu được bật trong cài đặt hiển thị */}
+                {!isEnglishCard && cardSettings.front?.hanviet && card.sinoVietnamese && (
+                    <p className={`${hanvietColorClass} ${scale.hanvietSize || 'text-[14px] md:text-base'} font-bold break-words`}>
                         <span className={variant === 'review' || variant === 'emerald' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
                     </p>
                 )}
@@ -391,7 +461,7 @@ const Flashcard = ({
                     </div>
                 )}
 
-                <div className="flex flex-col items-center justify-center text-center min-w-0 space-y-1.5 sm:space-y-2.5 w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full px-1">
+                <div className={`flex flex-col items-center justify-center text-center min-w-0 ${scale.contentGap || 'space-y-1.5 sm:space-y-2.5'} w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full px-1`}>
                     {/* Mobile: Top Centered Thumbnail in-flow (không che lấp từ vựng & nghĩa) */}
                     {(card.imageUrl || card.imageBase64) && (
                         <div 
@@ -399,14 +469,14 @@ const Flashcard = ({
                                 e.stopPropagation();
                                 setShowImageZoom(true);
                             }}
-                            className="sm:hidden mb-1.5 shrink-0 group/img cursor-pointer active:scale-95 transition-transform"
+                            className="sm:hidden mb-1 shrink-0 group/img cursor-pointer active:scale-95 transition-transform"
                             title="Chạm để xem ảnh phóng to"
                         >
                             <div className="relative overflow-hidden rounded-2xl border-2 border-white/90 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
                                 <img
                                     src={card.imageUrl || card.imageBase64}
                                     alt={card.front}
-                                    className="w-20 h-20 object-cover"
+                                    className={`${scale.imageMobileSize || 'w-16 h-16 sm:w-20 sm:h-20'} object-cover`}
                                 />
                                 <div className="absolute bottom-1 right-1 bg-black/40 backdrop-blur-xs rounded-full p-1 text-white">
                                     <Maximize2 className="w-3 h-3" />
@@ -464,7 +534,7 @@ const Flashcard = ({
                         </div>
                     )}
                     {((showHanviet && (card.sinoVietnamese || card.ipa)) || (showSynonym && card.synonym)) && (
-                        <div className="flex items-baseline justify-center gap-3 text-[13px] md:text-[14px] font-bold mt-0.5 flex-wrap">
+                        <div className={`flex items-baseline justify-center gap-2 sm:gap-3 ${scale.hanvietSize || 'text-[13px] md:text-[14px]'} font-bold mt-0.5 flex-wrap`}>
                             {showHanviet && (card.sinoVietnamese || card.ipa) && (
                                 <span className={`inline-flex items-baseline ${variant === 'review' || variant === 'emerald' ? 'text-yellow-300' : 'text-slate-700 dark:text-slate-300'}`}>
                                     <span className={variant === 'review' || variant === 'emerald' ? "text-emerald-100 font-normal mr-1" : "text-slate-400 dark:text-slate-500 font-normal mr-1"}>
@@ -548,7 +618,7 @@ const Flashcard = ({
                     })()}
                     {showExample && card.example && (
                         <div 
-                            className={`mt-1.5 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[60px] max-h-[150px] sm:max-h-[220px] no-scrollbar cursor-pointer`}
+                            className={`mt-1 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[45px] ${scale.exampleMaxHeight || 'max-h-[150px] sm:max-h-[220px]'} no-scrollbar cursor-pointer`}
                             onTouchStart={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                             onTouchEnd={(e) => e.stopPropagation()}

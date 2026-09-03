@@ -3,10 +3,37 @@
  * Chuẩn hóa chuỗi và tính toán so sánh diff từng ký tự kiểu Anki cho tiếng Nhật, Việt và Anh.
  */
 
-// Chuyển Katakana thành Hiragana để so sánh cách đọc linh hoạt
+// Bảng ánh xạ Katakana nửa độ rộng (Halfwidth Katakana) sang Hiragana
+const HALFWIDTH_KATA_MAP = {
+    'ｶﾞ': 'が', 'ｷﾞ': 'ぎ', 'ｸﾞ': 'ぐ', 'ｹﾞ': 'げ', 'ｺﾞ': 'ご',
+    'ｻﾞ': 'ざ', 'ｼﾞ': 'じ', 'ｽﾞ': 'ず', 'ｾﾞ': 'ぜ', 'ｿﾞ': 'ぞ',
+    'ﾀﾞ': 'だ', 'ﾁﾞ': 'ぢ', 'ﾂﾞ': 'づ', 'ﾃﾞ': 'で', 'ﾄﾞ': 'ど',
+    'ﾊﾞ': 'ば', 'ﾋﾞ': 'び', 'ﾌﾞ': 'ぶ', 'ﾍﾞ': 'べ', 'ﾎﾞ': 'ぼ',
+    'ﾊﾟ': 'ぱ', 'ﾋﾟ': 'ぴ', 'ﾌﾟ': 'ぷ', 'ﾍﾟ': 'ぺ', 'ﾎﾟ': 'ぽ',
+    'ｳﾞ': 'ゔ', 'ﾜﾞ': 'わ゛', 'ｦﾞ': 'を゛',
+    'ｱ': 'あ', 'ｲ': 'い', 'ｳ': 'う', 'ｴ': 'え', 'ｵ': 'お',
+    'ｶ': 'か', 'ｷ': 'き', 'ｸ': 'く', 'ｹ': 'け', 'ｺ': 'こ',
+    'ｻ': 'さ', 'ｼ': 'し', 'ｽ': 'す', 'ｾ': 'せ', 'ｿ': 'そ',
+    'ﾀ': 'た', 'ﾁ': 'ち', 'ﾂ': 'つ', 'ﾃ': 'て', 'ﾄ': 'と',
+    'ﾅ': 'な', 'ﾆ': 'に', 'ﾇ': 'ぬ', 'ﾈ': 'ね', 'ﾉ': 'の',
+    'ﾊ': 'は', 'ﾋ': 'ひ', 'ﾌ': 'ふ', 'ﾍ': 'へ', 'ﾎ': 'ほ',
+    'ﾏ': 'ま', 'ﾐ': 'み', 'ﾑ': 'む', 'ﾒ': 'め', 'ﾓ': 'も',
+    'ﾔ': 'や', 'ﾕ': 'ゆ', 'ﾖ': 'よ',
+    'ﾗ': 'ら', 'ﾘ': 'り', 'ﾙ': 'る', 'ﾚ': 'れ', 'ﾛ': 'ろ',
+    'ﾜ': 'わ', 'ｦ': 'を', 'ﾝ': 'ん',
+    'ｧ': 'ぁ', 'ｨ': 'ぃ', 'ｩ': 'ぅ', 'ｪ': 'ぇ', 'ｫ': 'ぉ',
+    'ｯ': 'っ', 'ｬ': 'ゃ', 'ｭ': 'ゅ', 'ｮ': 'ょ',
+    'ｰ': 'ー', '｡': '。', '｢': '「', '｣': '」', '､': '、', '･': '・'
+};
+
+// Chuyển Katakana (cả Fullwidth & Halfwidth) thành Hiragana để so sánh cách đọc linh hoạt
 export const toHiragana = (str = '') => {
     if (!str) return '';
-    return str.replace(/[\u30A1-\u30F6]/g, (match) => {
+    let res = String(str);
+    for (const [half, full] of Object.entries(HALFWIDTH_KATA_MAP)) {
+        res = res.replaceAll(half, full);
+    }
+    return res.replace(/[\u30A1-\u30F6]/g, (match) => {
         const chr = match.charCodeAt(0) - 0x60;
         return String.fromCharCode(chr);
     });
@@ -22,6 +49,10 @@ export const normalizeVietnameseTone = (str = '') => {
         'uỳ': 'ùy', 'uý': 'úy', 'uỷ': 'ủy', 'uỹ': 'ũy', 'uỵ': 'ụy',
         'oà': 'òa', 'oá': 'óa', 'oả': 'ỏa', 'oã': 'õa', 'oạ': 'ọa',
         'oè': 'òe', 'oé': 'óe', 'oẻ': 'ỏe', 'oẽ': 'õe', 'oẹ': 'ọe',
+        'uà': 'ùa', 'uá': 'úa', 'uả': 'ủa', 'uã': 'ũa', 'uạ': 'ụa',
+        'uè': 'ùe', 'ué': 'úe', 'uẻ': 'ủe', 'uẽ': 'ũe', 'uẹ': 'ụe',
+        'uò': 'ùo', 'uó': 'úo', 'uỏ': 'ủo', 'uõ': 'ũo', 'uọ': 'ụo',
+        'ià': 'ìa', 'iá': 'ía', 'iả': 'ỉa', 'iã': 'ĩa', 'iạ': 'ịa'
     };
     
     for (const [oldTone, newTone] of Object.entries(toneMap)) {
@@ -32,14 +63,32 @@ export const normalizeVietnameseTone = (str = '') => {
 };
 
 // Chuẩn hóa chuỗi: loại bỏ khoảng trắng thừa, dấu câu, ngoặc furigana, đồng bộ Unicode NFC và dấu tiếng Việt (uý <-> úy, hoà <-> hòa)
+// Hỗ trợ mọi loại ký tự tilde/wave dash (~, ～, 〜, 〰, ∼), gạch nối (-, －, ―, —, –, ─), dấu câu tiếng Nhật & tiếng Việt
 export const normalize = (text = '') => {
     if (!text) return '';
-    return normalizeVietnameseTone(text)
+    let res = String(text).normalize('NFC');
+    
+    // Đồng bộ dấu tiếng Việt
+    res = normalizeVietnameseTone(res);
+    
+    // Chuyển ký tự Fullwidth ASCII sang Standard ASCII
+    res = res.replace(/[\uFF01-\uFF5E]/g, (ch) => {
+        const code = ch.charCodeAt(0) - 0xFEE0;
+        return String.fromCharCode(code);
+    });
+    
+    // Xóa chú thích trong các loại ngoặc
+    res = res
         .replace(/（[^）]*）/g, '')
         .replace(/\([^)]*\)/g, '')
-        .replace(/[。、！？\s\.,!\?~\-–—:;]/g, '')
-        .toLowerCase()
-        .trim();
+        .replace(/\[[^\]]*\]/g, '')
+        .replace(/［[^］]*］/g, '')
+        .replace(/【[^】]*】/g, '');
+    
+    // Xóa tất cả các dạng tilde, wave dash, dấu câu tiếng Nhật, tiếng Việt, fullwidth, dấu gạch nối, dấu cách
+    res = res.replace(/[\u007E\uFF5E\u301C\u3030\u223C\u2248\u002D\uFF0D\u2015\u2014\u2013\u2500\u2501\u005F\uFF3F。、！？\s\.,!\?:;，、：；／＼|｜・·•…‥'‘’`´"“”„/\\()[\]{}【】〈〉《》「」『』〔〕]/g, '');
+    
+    return res.toLowerCase().trim();
 };
 
 const VOWEL_TABLE = {
@@ -477,6 +526,43 @@ export const checkAnswerMatch = (userInput = '', card = {}) => {
 };
 
 /**
+ * So sánh tính tương đương giữa 2 ký tự (chấp nhận mọi bảng gõ: ~, ～, 〜, 〰, dấu gạch nối, hoa/thường, Katakana/Hiragana, fullwidth/halfwidth)
+ */
+export const isCharEquivalent = (c1 = '', c2 = '') => {
+    if (c1 === c2) return true;
+    if (!c1 || !c2) return false;
+    if (c1.toLowerCase() === c2.toLowerCase()) return true;
+
+    // Tilde / Wave Dash equivalence: ~, ～ (\uFF5E), 〜 (\u301C), 〰 (\u3030), ∼ (\u223C), ≈ (\u2248)
+    const isTilde1 = /^[\u007E\uFF5E\u301C\u3030\u223C\u2248]$/.test(c1);
+    const isTilde2 = /^[\u007E\uFF5E\u301C\u3030\u223C\u2248]$/.test(c2);
+    if (isTilde1 && isTilde2) return true;
+
+    // Hyphen / Dash equivalence: -, － (\uFF0D), ― (\u2015), — (\u2014), – (\u2013), ─ (\u2500), ━ (\u2501), _ (\u005F), ＿ (\uFF3F)
+    const isDash1 = /^[\u002D\uFF0D\u2015\u2014\u2013\u2500\u2501\u005F\uFF3F]$/.test(c1);
+    const isDash2 = /^[\u002D\uFF0D\u2015\u2014\u2013\u2500\u2501\u005F\uFF3F]$/.test(c2);
+    if (isDash1 && isDash2) return true;
+
+    // Quotes / Apostrophes
+    if (/^[''‘’`´′]$/.test(c1) && /^[''‘’`´′]$/.test(c2)) return true;
+    if (/^[""“”„″]$/.test(c1) && /^[""“”„″]$/.test(c2)) return true;
+
+    // Hiragana / Katakana equivalence
+    const h1 = toHiragana(c1);
+    const h2 = toHiragana(c2);
+    if (h1 && h2 && h1 === h2) return true;
+
+    // Fullwidth / Halfwidth alphanumeric equivalence
+    const code1 = c1.charCodeAt(0);
+    const code2 = c2.charCodeAt(0);
+    const half1 = (code1 >= 0xFF01 && code1 <= 0xFF5E) ? String.fromCharCode(code1 - 0xFEE0) : c1;
+    const half2 = (code2 >= 0xFF01 && code2 <= 0xFF5E) ? String.fromCharCode(code2 - 0xFEE0) : c2;
+    if (half1.toLowerCase() === half2.toLowerCase()) return true;
+
+    return false;
+};
+
+/**
  * Thuật toán Longest Common Subsequence (LCS) để so sánh diff chi tiết từng ký tự giữa input và target
  */
 const computeLCS = (s1, s2) => {
@@ -486,7 +572,7 @@ const computeLCS = (s1, s2) => {
 
     for (let i = 1; i <= m; i++) {
         for (let j = 1; j <= n; j++) {
-            if (s1[i - 1] === s2[j - 1]) {
+            if (isCharEquivalent(s1[i - 1], s2[j - 1])) {
                 dp[i][j] = dp[i - 1][j - 1] + 1;
             } else {
                 dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
@@ -588,7 +674,7 @@ export const calculateAnkiDiff = (userInput = '', card = {}, options = {}) => {
     let j = s2.length;
 
     while (i > 0 || j > 0) {
-        if (i > 0 && j > 0 && s1[i - 1] === s2[j - 1]) {
+        if (i > 0 && j > 0 && isCharEquivalent(s1[i - 1], s2[j - 1])) {
             userTokens.unshift({ char: s1[i - 1], type: 'correct' });
             targetTokens.unshift({ char: s2[j - 1], type: 'correct' });
             i--;

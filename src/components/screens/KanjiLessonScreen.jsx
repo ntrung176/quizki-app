@@ -15,6 +15,7 @@ import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitch
 import { showToast } from '../../utils/toast';
 import { renderMaziiStyleKanji, fetchKanjiSvg } from '../../utils/kanjiStroke';
 import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, updateCachedUserSrs, updateCachedKanjiProgress } from '../../utils/kanjiService';
+import { normalize, toHiragana } from '../../utils/ankiDiff';
 // ── Module-level data cache ────────────────────────────────────────────────
 // Survives component unmount/remount (e.g. Back from KanjiScreen detail).
 // Cleared only when the browser tab is closed or hard-refreshed.
@@ -1846,8 +1847,11 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const handleTypingSubmit = () => {
         if (answered) return;
         setAnswered(true);
-        const input = typingInput.trim().toLowerCase();
-        const isCorrect = currentQ.answers.some(a => a === input);
+        const inputNorm = toHiragana(normalize(typingInput));
+        const isCorrect = currentQ.answers.some(a => {
+            const aNorm = toHiragana(normalize(a));
+            return aNorm === inputNorm || normalize(a) === normalize(typingInput);
+        });
         if (isCorrect) {
             playCorrectSound();
             setScore(s => s + 1);

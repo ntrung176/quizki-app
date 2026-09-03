@@ -1309,10 +1309,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         items={kanjiList.map(k => ({
                             id: k.id,
                             state: srsData[k.id]?.state,
-                            nextReview: srsData[k.id]?.nextReview || 0,
+                            nextReview: srsData[k.id]?.nextReview || srsData[k.id]?.nextReview_back || 0,
+                            nextReview_back: srsData[k.id]?.nextReview_back || srsData[k.id]?.nextReview || 0,
                             reps: srsData[k.id]?.reps || 0,
                             interval: srsData[k.id]?.interval || 0,
-                            learningStep: srsData[k.id]?.learningStep
+                            learningStep: srsData[k.id]?.learningStep,
+                            isDue: srsData[k.id] ? isSrsCardDue(srsData[k.id], dashboardTick) : false
                         }))}
                         daysCount={14}
                         title="Dự Báo Kanji Đến Hạn (14 Ngày Tới)"

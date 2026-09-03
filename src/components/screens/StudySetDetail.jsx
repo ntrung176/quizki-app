@@ -248,7 +248,7 @@ const FlashcardPlayerSection = ({
             >
                 <Flashcard
                     card={activeCard}
-                    cardSettings={cardSettings}
+                    cardSettings={{ ...cardSettings, reviewType: 'flashcard' }}
                     isFlipped={isCardFlipped}
                     onFlip={() => {
                         setIsAnimatingFlip(true);

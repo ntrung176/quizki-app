@@ -14,6 +14,7 @@ import { playCorrectSound, playIncorrectSound, playFlipSound } from '../utils/so
 import { saveStudyProgress } from '../utils/studyProgressService';
 import { useTargetLanguage } from '../context/TargetLanguageContext';
 import { DEFAULT_CARD_SETTINGS, formatMultipleMeanings } from '../components/review/reviewHelpers';
+import { normalize, toHiragana as toHira } from '../utils/ankiDiff';
 
 export const useReviewData = ({
     cards: initialCards,
@@ -301,15 +302,11 @@ export const useReviewData = ({
     const getResponseTime = () => Date.now() - cardShownTimeRef.current;
 
     const normalizeAnswer = useCallback((text) => {
-        return text.replace(/（[^）]*）/g, '').replace(/\([^)]*\)/g, '').replace(/\s+/g, '').toLowerCase();
+        return normalize(text);
     }, []);
 
     const toHiragana = useCallback((str) => {
-        if (!str) return '';
-        return str.replace(/[\u30A1-\u30F6]/g, (match) => {
-            const chr = match.charCodeAt(0) - 0x60;
-            return String.fromCharCode(chr);
-        });
+        return toHira(str);
     }, []);
 
     const moveToPreviousCard = useCallback(() => {
@@ -740,11 +737,10 @@ export const useReviewData = ({
                 isCorrect = accepted.has(normalizedUser);
             }
         } else {
-            const normalizeVietnamese = (text) => text.toLowerCase().trim().replace(/\s+/g, ' ');
-            const userAnswerNormalized = normalizeVietnamese(inputValue);
+            const userAnswerNormalized = normalize(inputValue);
 
-            const rawMeanings = currentCard.back.split(/[,;，；\n]/);
-            const meanings = rawMeanings.map(m => normalizeVietnamese(m.replace(/^\d+\.\s*/, '').trim())).filter(m => m.length > 0);
+            const rawMeanings = currentCard.back.split(/[,;，；\n/|~～〜\u301C\uFF5E]+/);
+            const meanings = rawMeanings.map(m => normalize(m.replace(/^\d+\.\s*/, '').trim())).filter(m => m.length > 0);
 
             isCorrect = meanings.some(meaning => {
                 if (!meaning) return false;

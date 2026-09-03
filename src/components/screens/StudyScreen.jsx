@@ -10,24 +10,9 @@ import FuriganaText from '../ui/FuriganaText';
 import { shuffleArray } from '../../utils/textProcessing';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
+import { normalize, toHiragana } from '../../utils/ankiDiff';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
-
-const normalize = (text = '') =>
-    text
-        .replace(/（[^）]*）/g, '')
-        .replace(/\([^)]*\)/g, '')
-        .replace(/[。、！？\s]/g, '')
-        .toLowerCase()
-        .trim();
-
-const toHiragana = (str) => {
-    if (!str) return '';
-    return str.replace(/[\u30A1-\u30F6]/g, (match) => {
-        const chr = match.charCodeAt(0) - 0x60;
-        return String.fromCharCode(chr);
-    });
-};
 
 const checkJapaneseAnswer = (userInput, cardFront, pos) => {
     const rawFront = cardFront || '';
