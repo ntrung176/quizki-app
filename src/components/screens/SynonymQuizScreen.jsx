@@ -320,8 +320,8 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     const progress = (currentIndex / quizCards.length) * 100;
 
     return (
-        <div className="relative w-full h-full flex flex-col justify-center py-6">
-            <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-3">
+        <div className="relative w-full flex-1 min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4">
+            <div className="w-full max-w-3xl mx-auto my-auto flex flex-col items-center space-y-3">
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
                         <button
@@ -352,41 +352,67 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                     </div>
 
                     {/* Question */}
-                    <div className="text-center py-6">
-                        <p className="text-sm text-gray-400 mb-2">Từ đồng nghĩa của</p>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white font-japanese">
-                            <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!synonymFuriganaEnabled} />
-                        </h2>
-                        {synonymVietnameseEnabled && <p className="text-gray-500 dark:text-gray-400 mt-2 text-base">{currentCard.back}</p>}
-                    </div>
+                    {(() => {
+                        const wordLen = (currentCard.front || '').length;
+                        let wordSize = 'text-3xl sm:text-4xl font-bold';
+                        if (wordLen > 16) wordSize = 'text-xl sm:text-2xl font-bold';
+                        else if (wordLen > 8) wordSize = 'text-2xl sm:text-3xl font-bold';
 
-                    {/* Options */}
-                    <div className="grid grid-cols-1 gap-3">
-                        {options.map((option, i) => {
-                            const isCorrect = option === currentCard.synonym;
-                            const isSelected = selectedAnswer === option;
-                            let cls = 'w-full p-4 rounded-xl font-bold text-left border-2 transition-all text-base ';
-                            if (!isRevealed) {
-                                cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 text-gray-800 dark:text-gray-200 cursor-pointer';
-                            } else if (isCorrect) {
-                                cls += 'bg-green-50 dark:bg-green-900/20 border-green-400 dark:border-green-600 text-green-700 dark:text-green-400 cursor-default';
-                            } else if (isSelected && !isCorrect) {
-                                cls += 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600 text-red-700 dark:text-red-400 cursor-default';
-                            } else {
-                                cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60 cursor-default';
-                            }
-                            return (
-                                <div key={i} onClick={() => { if (!isRevealed) handleSelect(option); }} className={cls}>
-                                    <span className="flex items-center gap-3">
-                                        <span className="w-7 h-7 rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-gray-400 flex-shrink-0 select-none">{i + 1}</span>
-                                        <span className="font-japanese"><FuriganaText text={option} forceHide={!synonymFuriganaEnabled} /></span>
-                                        {isRevealed && isCorrect && <CheckCircle className="w-5 h-5 text-green-500 ml-auto flex-shrink-0" />}
-                                        {isRevealed && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-500 ml-auto flex-shrink-0" />}
-                                    </span>
+                        const meaningLen = (currentCard.back || '').length;
+                        let meaningSize = 'text-sm sm:text-base';
+                        if (meaningLen > 60) meaningSize = 'text-xs sm:text-sm';
+
+                        const maxOptLen = Math.max(...options.map(o => (typeof o === 'string' ? o : (o?.front || '')).length || 0), 0);
+                        let optTextSize = 'text-base sm:text-lg font-bold';
+                        let optPadding = 'p-3.5 sm:p-4';
+                        if (maxOptLen > 20) {
+                            optTextSize = 'text-xs sm:text-sm font-semibold';
+                            optPadding = 'p-2.5 sm:p-3';
+                        } else if (maxOptLen > 10) {
+                            optTextSize = 'text-sm sm:text-base font-bold';
+                            optPadding = 'p-3 sm:p-3.5';
+                        }
+
+                        return (
+                            <>
+                                <div className="text-center py-4 sm:py-6">
+                                    <p className="text-xs sm:text-sm text-gray-400 mb-1.5">Từ đồng nghĩa của</p>
+                                    <h2 className={`text-gray-800 dark:text-white font-japanese break-words ${wordSize}`}>
+                                        <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!synonymFuriganaEnabled} />
+                                    </h2>
+                                    {synonymVietnameseEnabled && <p className={`text-gray-500 dark:text-gray-400 mt-1.5 break-words ${meaningSize}`}>{currentCard.back}</p>}
                                 </div>
-                            );
-                        })}
-                    </div>
+
+                                {/* Options */}
+                                <div className="grid grid-cols-1 gap-2.5">
+                                    {options.map((option, i) => {
+                                        const isCorrect = option === currentCard.synonym;
+                                        const isSelected = selectedAnswer === option;
+                                        let cls = `w-full ${optPadding} rounded-xl font-bold text-left border-2 transition-all `;
+                                        if (!isRevealed) {
+                                            cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 text-gray-800 dark:text-gray-200 cursor-pointer';
+                                        } else if (isCorrect) {
+                                            cls += 'bg-green-50 dark:bg-green-900/20 border-green-400 dark:border-green-600 text-green-700 dark:text-green-400 cursor-default';
+                                        } else if (isSelected && !isCorrect) {
+                                            cls += 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600 text-red-700 dark:text-red-400 cursor-default';
+                                        } else {
+                                            cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60 cursor-default';
+                                        }
+                                        return (
+                                            <div key={i} onClick={() => { if (!isRevealed) handleSelect(option); }} className={cls}>
+                                                <span className="flex items-center gap-3">
+                                                    <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-gray-400 flex-shrink-0 select-none">{i + 1}</span>
+                                                    <span className={`font-japanese break-words ${optTextSize}`}><FuriganaText text={option} forceHide={!synonymFuriganaEnabled} /></span>
+                                                    {isRevealed && isCorrect && <CheckCircle className="w-5 h-5 text-green-500 ml-auto flex-shrink-0" />}
+                                                    {isRevealed && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-500 ml-auto flex-shrink-0" />}
+                                                </span>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </>
+                        );
+                    })()}
 
                     {/* Next */}
                     {isRevealed && selectedAnswer !== currentCard?.synonym && (

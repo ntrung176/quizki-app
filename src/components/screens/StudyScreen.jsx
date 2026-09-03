@@ -114,20 +114,36 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [answered, options, selected, correct, onWrong]);
 
+    const promptLen = (card.back || '').length;
+    let promptSize = 'text-2xl md:text-3xl font-bold';
+    if (promptLen > 70) promptSize = 'text-base sm:text-lg md:text-xl font-semibold';
+    else if (promptLen > 35) promptSize = 'text-lg sm:text-xl md:text-2xl font-bold';
+
+    const maxOptLen = Math.max(...options.map(o => (typeof o === 'string' ? o : (o?.front || '')).length || 0), 0);
+    let optTextSize = 'text-base sm:text-lg font-bold';
+    let optPadding = 'px-4 sm:px-5 py-3.5 sm:py-4';
+    if (maxOptLen > 20) {
+        optTextSize = 'text-xs sm:text-sm font-semibold';
+        optPadding = 'px-3 py-2.5 sm:py-3';
+    } else if (maxOptLen > 10) {
+        optTextSize = 'text-sm sm:text-base font-bold';
+        optPadding = 'px-3.5 sm:px-4 py-3 sm:py-3.5';
+    }
+
     return (
-        <div className="space-y-5 animate-fade-in">
+        <div className="space-y-4 animate-fade-in">
             {/* Prompt: show Vietnamese meaning */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-8 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[140px] flex flex-col items-center justify-center">
-                <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Nghĩa tiếng Việt</p>
-                <p className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">{card.back}</p>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[120px] sm:min-h-[140px] flex flex-col items-center justify-center">
+                <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-2">Nghĩa tiếng Việt</p>
+                <p className={`text-gray-800 dark:text-white break-words ${promptSize}`}>{card.back}</p>
             </div>
 
             {/* Options */}
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 gap-2.5">
                 {options.map((opt, i) => {
                     const isCorrectOpt = normalize(opt) === normalize(correct);
                     const isSelected = selected === opt;
-                    let cls = 'w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all flex items-center gap-3 shadow-sm ';
+                    let cls = `w-full text-left ${optPadding} rounded-xl border-2 font-medium transition-all flex items-center gap-3 shadow-sm `;
                     if (!answered) {
                         cls += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500 hover:bg-cyan-50/50 dark:hover:bg-cyan-950/30 text-slate-800 dark:text-slate-200 cursor-pointer';
                     } else if (isCorrectOpt) {
@@ -139,10 +155,10 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
                     }
                     return (
                         <div key={i} onClick={() => { if (!answered) handleSelect(opt); }} className={cls}>
-                            <span className="w-7 h-7 rounded-lg bg-gray-100 dark:bg-slate-700 text-xs font-black flex items-center justify-center flex-shrink-0 text-gray-500 dark:text-gray-400 select-none">
+                            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-gray-100 dark:bg-slate-700 text-xs font-black flex items-center justify-center flex-shrink-0 text-gray-500 dark:text-gray-400 select-none">
                                 {i + 1}
                             </span>
-                            <span className="font-japanese text-lg font-bold">
+                            <span className={`font-japanese break-words ${optTextSize}`}>
                                 <FuriganaText text={opt} forceHide={!furiganaEnabled} />
                             </span>
                             {answered && isCorrectOpt && <Check className="ml-auto w-5 h-5 text-emerald-500 flex-shrink-0" />}
@@ -243,14 +259,19 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
         }
     };
 
+    const promptLen = (card.back || '').length;
+    let promptSize = 'text-2xl md:text-3xl font-bold';
+    if (promptLen > 70) promptSize = 'text-base sm:text-lg md:text-xl font-semibold';
+    else if (promptLen > 35) promptSize = 'text-lg sm:text-xl md:text-2xl font-bold';
+
     return (
-        <div className="space-y-5 animate-fade-in">
+        <div className="space-y-4 animate-fade-in">
             {/* Prompt */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-8 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[140px] flex flex-col items-center justify-center">
-                <p className="text-xs font-bold text-emerald-500 uppercase tracking-widest mb-3">Nhập từ tiếng Nhật</p>
-                <p className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">{card.back}</p>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[120px] sm:min-h-[140px] flex flex-col items-center justify-center">
+                <p className="text-xs font-bold text-emerald-500 uppercase tracking-widest mb-2">Nhập từ tiếng Nhật</p>
+                <p className={`text-gray-800 dark:text-white break-words ${promptSize}`}>{card.back}</p>
                 {card.sinoVietnamese && (
-                    <p className="text-sm text-yellow-600 dark:text-yellow-400 mt-2 font-medium">Hán Việt: {card.sinoVietnamese}</p>
+                    <p className="text-xs sm:text-sm text-yellow-600 dark:text-yellow-400 mt-1.5 font-medium">Hán Việt: {card.sinoVietnamese}</p>
                 )}
             </div>
 
@@ -272,18 +293,18 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                 }}
                 disabled={feedback === 'correct'}
                 placeholder={needsRetype ? "Nhập lại đáp án đúng để tiếp tục..." : "Nhập từ vựng tiếng Nhật..."}
-                className={`w-full px-5 py-4 text-xl font-japanese font-bold rounded-xl border-2 outline-none transition-all shadow-sm
+                className={`w-full px-4 sm:px-5 py-3 text-base sm:text-lg font-japanese font-bold rounded-xl border-2 outline-none transition-all shadow-sm
                     ${feedback === 'correct' ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
                         : needsRetype ? 'border-red-400 bg-red-50 dark:bg-red-950 text-red-800 dark:text-red-300'
                             : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-cyan-500 focus:bg-white dark:focus:bg-slate-900'}`}
             />
 
             {!feedback && !needsRetype && (
-                <div className="space-y-1.5">
+                <div className="space-y-1">
                     <button
                         onClick={check}
                         disabled={!input.trim()}
-                        className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
+                        className="w-full py-3 text-base bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
                     >
                         Kiểm tra
                     </button>
@@ -816,7 +837,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     return (
         <div className={isFullscreen 
             ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen" 
-            : "relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4 animate-fade-in"
+            : "relative w-full flex-1 min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4 animate-fade-in"
         }>
             <div className="w-full max-w-3xl mx-auto flex flex-col justify-center items-center space-y-4 my-auto">
                 {/* Back Button - outside frame */}

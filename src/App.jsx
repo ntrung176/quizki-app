@@ -95,7 +95,7 @@ const AppContent = () => {
             )}
 
             {/* Main view container */}
-            <main className={`min-h-screen transition-all duration-300 ${userId && !isReviewSessionPage ? (isSidebarCollapsed ? 'pt-[calc(3.75rem+env(safe-area-inset-top,0px))] lg:pt-0 lg:pl-20' : 'pt-[calc(3.75rem+env(safe-area-inset-top,0px))] lg:pt-0 lg:pl-64') : 'pl-0'}`}>
+            <main className={`min-h-screen flex flex-col transition-all duration-300 ${userId ? (isSidebarCollapsed ? 'pt-[calc(3.75rem+env(safe-area-inset-top,0px))] lg:pt-0 lg:pl-20' : 'pt-[calc(3.75rem+env(safe-area-inset-top,0px))] lg:pt-0 lg:pl-64') : 'pl-0'}`}>
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
@@ -119,9 +119,9 @@ const AppContent = () => {
                     </div>
                 )}
 
-                <div className={`${isReviewSessionPage ? 'w-full flex-1 flex items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'w-full flex-1' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6'}`}>
-                    <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'bg-transparent' : ''}`}>
-                        <div className={`w-full ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'bg-transparent' : ''}`}>
+                <div className={`${isReviewSessionPage ? 'w-full flex-1 flex flex-col items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'w-full flex-1 flex flex-col' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6 flex-1 flex flex-col'}`}>
+                    <div className={`w-full flex-1 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'bg-transparent' : ''}`}>
+                        <div className={`w-full flex-1 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN'].includes(view) || location.pathname.startsWith('/vocab/set') || location.pathname.startsWith('/vocab/edit-set') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') ? 'bg-transparent' : ''}`}>
                             <AppRoutes
                                 authReady={authReady}
                                 isAuthenticated={!!userId}

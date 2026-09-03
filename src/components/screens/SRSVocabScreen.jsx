@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu } from 'lucide-react'
+import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu, Repeat2 } from 'lucide-react'
 import { TopTabBar, SrsPrewarmLoader, PersonalMnemonicModal, SrsCountdownTimer } from '../ui';
 import SrsTypingInput from '../srs/SrsTypingInput';
 import SrsModeSelectModal from '../srs/SrsModeSelectModal';
@@ -1454,7 +1454,7 @@ const SRSVocabScreen = ({
                                 <button
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        startFolderReview(newlyDueCards, activeFolderIdRef.current || 'global');
+                                        requestStartReview(newlyDueCards, activeFolderIdRef.current || 'global', 'Tiếp tục ôn tập');
                                     }}
                                     className="flex-1 w-full py-3.5 px-4 bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
                                 >
@@ -1654,7 +1654,10 @@ const SRSVocabScreen = ({
                                         {/* Action Button inside Card */}
                                         <div className="space-y-2 pt-1 sm:pt-2">
                                             <button
-                                                onClick={(e) => { e.stopPropagation(); startFolderReview(folder.dueCards, folder.id); }}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    requestStartReview(folder.dueCards, folder.id, `${t('vocab.dueSetsTitle', 'Ôn tập học phần')}: ${folder.name}`);
+                                                }}
                                                 className="w-full flex items-center justify-between px-2.5 py-2 sm:px-3.5 sm:py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/40 hover:bg-orange-100 dark:hover:bg-orange-900/60 text-orange-700 dark:text-orange-400 transition-colors border border-orange-200 dark:border-orange-800/50 group cursor-pointer min-h-[44px]"
                                             >
                                                 <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">

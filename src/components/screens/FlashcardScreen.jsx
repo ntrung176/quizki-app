@@ -520,7 +520,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     return (
         <div className={isFullscreen
             ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen"
-            : "relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4"
+            : "relative w-full flex-1 min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4"
         }>
             <div className="w-full max-w-3xl mx-auto flex flex-col justify-center items-center space-y-4 my-auto">
                 {/* Back Button - outside frame */}
