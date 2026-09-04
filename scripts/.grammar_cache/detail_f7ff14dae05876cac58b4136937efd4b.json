@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1495,
+  "usages": [
+    {
+      "explain": "Expresses regret about something one didn't do but wishes they had done, like \"if only I had done that, it would have been great.\" In spoken language, it often becomes 「んだった].",
+      "note": null,
+      "examples": [
+        {
+          "content": "あと５分あれば間に合ったのに。もう少し早く出発するのだった。",
+          "transcription": "あとごふんあればまにあったのに。もうすこしはやくしゅっぱつするのだった。",
+          "mean": "I could have made it in time if I had 5 more minutes. I was leaving a little earlier."
+        },
+        {
+          "content": "こんなに大変な仕事なら、断わるのだった。",
+          "transcription": "こんなにたいへんなしごとなら、ことわるのだった。",
+          "mean": "If it was such a difficult job, I would have turned it down."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + のだった"
+    }
+  ],
+  "title": "...のだった => If only I...., then I would... (Regret)",
+  "_id": "f7ff14dae05876cac58b4136937efd4b"
+}

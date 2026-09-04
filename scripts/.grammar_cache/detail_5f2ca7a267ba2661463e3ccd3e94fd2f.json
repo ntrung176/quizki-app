@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 3215,
+  "usages": [
+    {
+      "explain": "To compare two people, things, or events with each other. This is used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そこへいくと、私のほうが給料が低いだ。",
+          "transcription": "そこへいくと、わたしのほうがきゅうりょうがひくいだ。",
+          "mean": "When I go there, my salary is lower."
+        },
+        {
+          "content": "そこへいくと、うちの息子は怠け者だ。",
+          "transcription": "そこへいくと、うちのむすこはなまけものだ。",
+          "mean": "My son is lazy when we go there."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そこへいくと"
+    }
+  ],
+  "title": "そこへいくと => In comparison",
+  "_id": "5f2ca7a267ba2661463e3ccd3e94fd2f"
+}

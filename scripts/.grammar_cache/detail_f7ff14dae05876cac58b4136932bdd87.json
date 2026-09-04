@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 893,
+  "usages": [
+    {
+      "explain": "■ Indicates the meaning 「しないで」\"without doing\".<br/>■ This expression is idiomatic and leans towards written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "悪天候の中を飛行磯が無事着陸すると、乗客の中から期せずして拍手がわき起こった。",
+          "transcription": "あくてんこうのなかをひこういそがぶじちゃくりくすると、じょうきゃくのなかからきせずしてはくしゅがわきおこった。",
+          "mean": "When Iso landed safely despite the bad weather, the passengers unexpectedly burst into applause."
+        },
+        {
+          "content": "戦わずして勝つ。",
+          "transcription": "たたかわずしてかつ。",
+          "mean": "Win without a fight."
+        },
+        {
+          "content": "期せずして逢った。<br>",
+          "transcription": "きせずしてあった。<br>",
+          "mean": "We met unexpectedly. &lt;br&gt;"
+        }
+      ],
+      "mean": null,
+      "synopsis": "～Vず して"
+    }
+  ],
+  "title": "～Vず  して => without doing ~",
+  "_id": "f7ff14dae05876cac58b4136932bdd87"
+}

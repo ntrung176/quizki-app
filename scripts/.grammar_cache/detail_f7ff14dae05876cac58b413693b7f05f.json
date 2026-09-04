@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1918,
+  "usages": [
+    {
+      "explain": "Used to soften the tone, usually preceding phrases with adjectives like 「大変」, 「無理」, 「難しい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：君の話し方は、ちょっとかたすぎませんか。B：そうですか。直します。",
+          "transcription": "A：くんのはなしかたは、ちょっとかたすぎませんか。B：そうですか。なおします。",
+          "mean": "A: Isn't your way of speaking a little too stiff? B: Is that so? Fix."
+        },
+        {
+          "content": "A：吉田さんが急病で、当分会社に出てこられないそうです。B：そうか、それはちょっと大変だな。",
+          "transcription": "A：よしださんがきゅうびょうで、とうぶんかいしゃにでてこられないそうです。B：そうか、それはちょっとたいへんだな。",
+          "mean": "A: Mr. Yoshida is suddenly ill and will not be able to come to work for the time being. B: Yeah, that's a bit difficult."
+        },
+        {
+          "content": "バレエは君にはちょっと難しすぎるんじゃないかな。",
+          "transcription": "ばれえはきみにはちょっとむずかしすぎるんじゃないかな。",
+          "mean": "I think ballet is a little too difficult for you."
+        },
+        {
+          "content": "一日でそんなに難しいタスクを完了するのはちょっと無理だ。",
+          "transcription": "いちにちでそんなにむずかしいたすくをかんりょうするのはちょっとむりだ。",
+          "mean": "It's a bit impossible to complete such a difficult task in one day."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ちょっと => a little; a bit; slightly​",
+  "_id": "f7ff14dae05876cac58b413693b7f05f"
+}

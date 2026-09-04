@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5269,
+  "usages": [
+    {
+      "explain": "てはならない is used to give prohibitive statements, reminders, advice, or admonishments that something must not be done. <br/>Comparison between \"てはならない\" and \"てはいけない\":<br/>\"てはならない\" is often used more in written language, discussing rules, general behavioral norms that everyone should adhere to, such as regulations, laws, social etiquette, rather than the situation of an individual.<br/>\"てはいけない\" is often used more in spoken language, discussing the situation of an individual, indicating that if the individual does not comply with the prohibition, they will face unfavorable consequences.",
+      "note": null,
+      "examples": [
+        {
+          "content": "失敗を人のせいにしてはなりません。",
+          "transcription": "しっぱいをひとのせいにしてはなりません。",
+          "mean": "Don't blame others for your failures."
+        },
+        {
+          "content": "法律を犯してはならない。",
+          "transcription": "ほうりつをおかしてはならない。",
+          "mean": "Do not break the law."
+        },
+        {
+          "content": "友達の宿題を写してはなりません。自分でしてください。",
+          "transcription": "ともだちのしゅくだいをうつしてはなりません。じぶんでしてください。",
+          "mean": "Do not copy your friend's homework. Please do it yourself."
+        },
+        {
+          "content": "明日は健康診断なので、朝食を食べてはなりません。",
+          "transcription": "あしたはけんこうしんだんなので、ちょうしょくをたべてはなりません。",
+          "mean": "I have a medical checkup tomorrow, so I mustn't eat breakfast."
+        },
+        {
+          "content": "この悲惨な体験を決して忘れてはならない。",
+          "transcription": "このひさんなたいけんをけっしてわすれてはならない。",
+          "mean": "This tragic experience must never be forgotten."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+はならない"
+    }
+  ],
+  "title": "てはならない => must not; cannot; should not ~",
+  "_id": "ffcedf516521430ea8cd6d4ad1a94fb8"
+}

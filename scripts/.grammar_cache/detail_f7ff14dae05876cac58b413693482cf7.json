@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1102,
+  "usages": [
+    {
+      "explain": "Often accompanied by negation to convey the meaning \"not very much\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はそれほど親切じゃない。",
+          "transcription": "かのじょはそれほどしんせつじゃない。",
+          "mean": "She's not that kind."
+        },
+        {
+          "content": "この問題は一見難しそうに見えますが、実はそれほど難しくない。",
+          "transcription": "このもんだいはいっけんかんたんそうにみえますが、じつはそれほどかんたんじゃない。",
+          "mean": "This problem may seem difficult at first glance, but it's actually not that difficult."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それほど"
+    }
+  ],
+  "title": "それほど => to that extent",
+  "_id": "f7ff14dae05876cac58b413693482cf7"
+}

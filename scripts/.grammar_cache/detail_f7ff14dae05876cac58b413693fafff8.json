@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 2395,
+  "usages": [
+    {
+      "explain": "Emphasizes the feeling of surprise or confusion of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちっとも働かないでお酒を飲んでばかりで、どうも困った夫です。",
+          "transcription": "ちっともはたらかないでおさけをのんでばかりで、どうもこまったおっとです。",
+          "mean": "My husband is in trouble because he doesn't work at all and only drinks alcohol."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうも ～"
+    }
+  ],
+  "title": "どうも => Confused, bewildered",
+  "_id": "f7ff14dae05876cac58b413693fafff8"
+}

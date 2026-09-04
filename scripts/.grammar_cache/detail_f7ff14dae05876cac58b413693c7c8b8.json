@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2026,
+  "usages": [
+    {
+      "explain": "Describes a situation where something seems about to happen immediately.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの船は今にも沈みそうだ。",
+          "transcription": "あのふねはいまにもしずみそうだ。",
+          "mean": "That ship looks like it's about to sink."
+        },
+        {
+          "content": "あの女の子は今にも泣き出しそうな顔をしている。",
+          "transcription": "あのおんなのこはいまにもなきだしそうなかおをしている。",
+          "mean": "That girl looks like she's about to cry."
+        },
+        {
+          "content": "「助けてくれ」とあいつは今にも死にそうな声を出した。",
+          "transcription": "「たすけてくれ」とあいつはいまにもしにそうなこえをだした。",
+          "mean": "``Help me,'' he said in a deathly voice."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いま（今）にも V－そうだ"
+    }
+  ],
+  "title": "いまにも ... そうだ => It seems like ... at any moment now",
+  "_id": "f7ff14dae05876cac58b413693c7c8b8"
+}

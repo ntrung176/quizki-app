@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5503,
+  "usages": [
+    {
+      "explain": "「きっと」is an adverb used when the speaker is quite certain about their speculation. The level of certainty of the speculation ranges from very high to equivalent to 「でしょう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日はきっと雨でしょう。",
+          "transcription": "あしたはきっとあめでしょう。",
+          "mean": "It will probably rain tomorrow."
+        },
+        {
+          "content": "ミラーさんはきっと来ます。",
+          "transcription": "ミラーさんはきっときます。",
+          "mean": "Mr. Miller will surely come."
+        },
+        {
+          "content": "私たちには、きっと明るい未来が待っています。",
+          "transcription": "わたしたちには、きっとあかるいみらいがまっています。",
+          "mean": "We definitely have a bright future ahead of us."
+        },
+        {
+          "content": "彼は私の親友だから、きっと私を助けてくれる。",
+          "transcription": "かれはわたしのしんゆうだから、きっとわたしをたすけてくれる。",
+          "mean": "He's my best friend, so I'm sure he'll help me."
+        },
+        {
+          "content": "あの人は見たことがないから、きっと新しい学生だ。",
+          "transcription": "あのひとはみたことがないから、きっとあたらしいがくせいだ。",
+          "mean": "I've never seen that person before, so he must be a new student."
+        },
+        {
+          "content": "頑張って勉強したら、きっと明日のテストは大丈夫だよ。",
+          "transcription": "がんばってべんきょうしたら、きっとあしたのテストはだいじょうぶだよ。",
+          "mean": "If you study hard, you'll definitely do well on tomorrow's test."
+        },
+        {
+          "content": "今、悲しい映画を見たら、私はきっと泣いてしまうだろう。",
+          "transcription": "いま、かなしいえいがをみたら、わたしはきっとないてしまうだろう。",
+          "mean": "If I watch a sad movie now, I'm sure I'll cry."
+        },
+        {
+          "content": "当店なら、あなたの探している本がきっと見つかりますよ。",
+          "transcription": "とうてんなら、あなたのさがしているほんがきっとみつかりますよ。",
+          "mean": "At our store, you are sure to find the book you are looking for."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nは+きっと"
+    }
+  ],
+  "title": "きっと => surely; undoubtedly; almost certainly; most likely",
+  "_id": "65601c3e02824b3d906e642096ebccea"
+}

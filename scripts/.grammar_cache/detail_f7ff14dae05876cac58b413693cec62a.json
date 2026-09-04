@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2078,
+  "usages": [
+    {
+      "explain": "Means that one assumed something would definitely happen. This expression indicates that the outcome was not as expected. It often contains feelings of surprise, disappointment, or regret. It is commonly used with 「はずだったが/のに/けれど」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は7時に来るはずだったが、9時になるまで姿を現さなかった。",
+          "transcription": "かのじょは7じにくるはずだったが、9じになるまですがたをあらわさなかった。",
+          "mean": "She was supposed to come at 7 o'clock, but she didn't show up until 9 o'clock."
+        },
+        {
+          "content": "私は彼女に会うはずだったけれど、彼女が病気で中止になりました。",
+          "transcription": "わたしはかのじょにあうはずだったけれど、かのじょがびょうきでちゅうしになりました。",
+          "mean": "I was supposed to meet her, but the meeting was canceled because she was sick."
+        },
+        {
+          "content": "我々は彼女に事実を話すべきはずだったのに。",
+          "transcription": "われわれはかのじょにじじつをはなすべきはずだったのに。",
+          "mean": "We should have told her the truth."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの + はず\nNaな + はず\nA/V + はず"
+    }
+  ],
+  "title": "…はずだった => it must be; it should be (expectation)",
+  "_id": "f7ff14dae05876cac58b413693cec62a"
+}

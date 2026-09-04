@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2123,
+  "usages": [
+    {
+      "explain": "Used in the form 「AかあるいはB」 to express \"either A or B\". Additionally, it can indicate a condition where \"either A or B is acceptable\". <br/>This structure is used in written language or formal speech.",
+      "note": null,
+      "examples": [
+        {
+          "content": "入学の申し込み書類は、メールで送るかあるいは速達で出してください。",
+          "transcription": "にゅうがくのもうしこみしょるいは、めーるでおくるかあるいはそくたつでだしてください。",
+          "mean": "Please send your application for admission by email or by express delivery."
+        },
+        {
+          "content": "沖縄へは船で行くかあるいは汽車で行ったらいい。",
+          "transcription": "おきなわへはふねでいくかあるいはきしゃでおこなったらいい。",
+          "mean": "You can go to Okinawa by boat or by train."
+        },
+        {
+          "content": "募集の条件は修士号を持っているかあるいは2年以上の経験があることです。",
+          "transcription": "ぼしゅうのじょうけんはしゅうしごうをもっているかあるいは2ねんいじょうのけいけんがあることです。",
+          "mean": "Candidates must have a master's degree or at least two years of experience."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる・Vない + かあるいは"
+    }
+  ],
+  "title": "かあるいは => or; either; maybe; perhaps; possibly",
+  "_id": "f7ff14dae05876cac58b413693d57072"
+}

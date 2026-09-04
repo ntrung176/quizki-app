@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 792,
+  "usages": [
+    {
+      "explain": "✦ Expresses the idea that upon taking action based on some prediction, a certain result is obtained. Following this is the description of the result.<br/>✦ Often used in cases where the result differs from the initial prediction, as in examples 1 and 2, rather than cases where the result matches the prediction, as in example 3. This is a somewhat formal and dignified way of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "漢字がおもしろそうだったので日本語を勉強することにしたのだが、さてはじめてみると、これがけっこうむずかしい。",
+          "transcription": "かんじがおもしろそうだったのでにほんごをべんきょうすることにしたのだが、さてはじめてみると、これがけっこうむずかしい。",
+          "mean": "I decided to study Japanese because kanji seemed interesting, but when I tried it for the first time, I realized that it was quite difficult."
+        },
+        {
+          "content": "頂上までいけば水ぐらいあるだろうと、むりをしてのぼっていった。ところが、さてついてみると何もないのである。",
+          "transcription": "ちょうじょうまでいけばみずぐらいあるだろうと、 むりをしてのぼっていった 。ところが、さてついてみるとなにもないのである。",
+          "mean": "I forced myself to climb up, thinking that if I got to the top, I would probably find some water. However, when I looked back, there was nothing there."
+        },
+        {
+          "content": "頂上までいけば水ぐらいあるだろうと、むりをしてのぼっていった。さてついてみると、あった、あった、そこには神社もあり水もあった。",
+          "transcription": "ちょうじょうまでいけばみずぐらいあるだろうと、 むりをしてのぼっていった 。さてついてみると、あった、あった、そこにはじんじゃもありすいもあった。",
+          "mean": "I forced myself to climb up, thinking that if I got to the top, I would probably find some water. When I arrived there, there was a shrine and water."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦さて + Vて + みると"
+    }
+  ],
+  "title": "～ さて...てみると => Until ... then, ... then...",
+  "_id": "f7ff14dae05876cac58b4136931d9117"
+}

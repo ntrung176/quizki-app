@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2691,
+  "usages": [
+    {
+      "explain": "Used to indicate that the subject is in one of two negative states mentioned. Then comes the words indicating the inconvenient or unpleasant situation that has arisen as a result.",
+      "note": null,
+      "examples": [
+        {
+          "content": "鈴木さんの話は、たいてい自分の自慢話か仕事の愚痴かで、聞いているとうんざりする。",
+          "transcription": "すずきさんのはなしは、たいていじぶんのじまんばなしかしごとのぐちかで、きいているとうんざりする。",
+          "mean": "Mr. Suzuki's stories are usually either bragging about himself or complaining about his work, and I get tired of listening to them."
+        },
+        {
+          "content": "あの男の人は毎晩飲み屋で飲んでいるかカラオケバーに行っているかで、電話してもほとんどつかまらない。",
+          "transcription": "あのおとこのひとはまいばんのみやでのんでいるかからおけばーにいっているかで、でんわしてもほとんどつかまらない。",
+          "mean": "That guy is either drinking at a bar or going to a karaoke bar every night, so I can hardly get a hold of him when I call him."
+        },
+        {
+          "content": "最近の大学生はアルバイトで忙しいかクラブ活動で疲れているかで、あまり家で勉強していないようだ。",
+          "transcription": "さいきんのだいがくせいはあるばいとでいそがしいかくらぶかつどうでつかれているかで、あまりかでべんきょうしていないようだ。",
+          "mean": "It seems like college students these days don't study much at home, either because they're busy with part-time jobs or because they're tired from club activities."
+        },
+        {
+          "content": "家賃が安い家は交通が不便か部屋がきれいじゃないかで、どこか欠点があるような場合が多い。",
+          "transcription": "やちんがやすいいえはこうつうがふべんかへやがきれいじゃないかで、どこかけってんがあるようなばあいがおおい。",
+          "mean": "Houses with low rent often have some drawbacks, such as inconvenient transportation or not-so-clean rooms."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + か + N（か）で\nNa + か + Na + かで\nA + か +A + かで\nV + か + V + かで"
+    }
+  ],
+  "title": "…か…かで => either…or",
+  "_id": "f2d618ceb0702f781ec83b7d4f228060"
+}

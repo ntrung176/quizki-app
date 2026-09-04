@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5176,
+  "usages": [
+    {
+      "explain": "「ものがある」indicates that the speaker has a certain feeling or sense about something, even though they may not know exactly why they feel that way.",
+      "note": null,
+      "examples": [
+        {
+          "content": "満員電車で毎日通勤するのは辛いものがある。",
+          "transcription": "まんいんでんしゃでまいにちつうきんするのはつらいものがある。",
+          "mean": "Commuting every day on a crowded train can be painful."
+        },
+        {
+          "content": "彼の歌には心に響くものがある。",
+          "transcription": "かれのうたにはこころにひびくものがある。",
+          "mean": "There's something about his songs that touches my heart."
+        },
+        {
+          "content": "この絵には人を引き付けるものがある。",
+          "transcription": "このえにはひとをひきつけるものがある。",
+          "mean": "There's something about this picture that attracts people."
+        },
+        {
+          "content": "彼の話にはどこか納得できないものがある。",
+          "transcription": "かれのはなしにはどこかなっとくできないものがある。",
+          "mean": "There's something about his story that doesn't make sense."
+        },
+        {
+          "content": "彼の話し方にはどこか強引なものがあった。",
+          "transcription": "かれのはなしかたにはどこかごういんなものがあった。",
+          "mean": "There was something forced in the way he spoke."
+        },
+        {
+          "content": "彼女の演奏には、人の心を動かすものがある。",
+          "transcription": "かのじょのえんそうには、ひとのこころをうごかすものがある。",
+          "mean": "There is something about her performance that moves people's hearts."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい/Aな/Vる/Vない+ものがある"
+    }
+  ],
+  "title": "ものがある => there is such a thing; to be the case that​; feels like ~",
+  "_id": "ac71d5f3cc0b465d9f0988f383e54939"
+}

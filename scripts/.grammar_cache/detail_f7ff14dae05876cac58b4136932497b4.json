@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 837,
+  "usages": [
+    {
+      "explain": "● This is a way of speaking that lists multiple nouns.<br/>● It has a literary quality.",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中君並びに令夫人。",
+          "transcription": "たなかくんならびにれいふじん。",
+          "mean": "Mr. Tanaka and his wife."
+        },
+        {
+          "content": "この美術館は主に東欧の絵画並びに工芸品を所蔵している。",
+          "transcription": "このびじゅつかんはおもにとうおうのかいがならびにこうげいひんをしょぞうしている。",
+          "mean": "This museum mainly houses paintings and artifacts from Eastern Europe."
+        },
+        {
+          "content": "本日ご出席のの諸君ならびに御家族の皆さま方に心からお祝い申し上げます。",
+          "transcription": "ほんじつごしゅっせきののしょくんならびにごかぞくのみなさまかたにこころからおいわいもうしあげます。",
+          "mean": "I would like to extend my heartfelt congratulations to you and your families in attendance today."
+        },
+        {
+          "content": "優勝者には賞状ならびに記念品が手渡されることになっている。",
+          "transcription": "ゆうしょうしゃにはしょうじょうならびにきねんひんがてわたされることになっている。",
+          "mean": "The winners will receive a certificate and a commemorative gift."
+        },
+        {
+          "content": "住所、氏名ならびに生年月日を教えてください。",
+          "transcription": "じゅうしょ、しめいならびにせいねんがっぴをおしえてください。",
+          "mean": "Please tell me your address, name and date of birth."
+        }
+      ],
+      "mean": "and (also),both ... and, as well as",
+      "synopsis": "N + ならびに + N"
+    }
+  ],
+  "title": "～ならびに => and (also),both ... and, as well as",
+  "_id": "f7ff14dae05876cac58b4136932497b4"
+}

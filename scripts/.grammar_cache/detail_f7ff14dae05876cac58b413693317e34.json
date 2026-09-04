@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 933,
+  "usages": [
+    {
+      "explain": "Followed by negations, used to emphasize the meaning \"nobody or nothing except...\". There are also expressions like 「...しか ...ない」,「 ...以外に ...ない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんよりほかにこの任務を任せられる人はいない。",
+          "transcription": "やまださんよりほかにこのにんむをまかせられるひとはいない。",
+          "mean": "There is no one else I can entrust with this task than Mr. Yamada."
+        },
+        {
+          "content": "せっかくのお休みで天気もいいのに、うちで漫画を読むよりほかにすることはないのですか。",
+          "transcription": "せっかくのおやすみでてんきもいいのに、うちでまんがをよむよりほかにすることはないのですか。",
+          "mean": "It's a nice day off and the weather is nice, so what else do you have to do at home other than read manga?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる・N + よりほかに…ない"
+    }
+  ],
+  "title": "よりほかに...ない => to have no choice but ~",
+  "_id": "f7ff14dae05876cac58b413693317e34"
+}

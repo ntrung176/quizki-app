@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1317,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"in that case\", \"if encountering that situation\", \"based on that event\", etc.<br/>Following this, there are often statements asserting what is considered natural, or actions to be taken in such situations.<br/>There are cases referring to hypothetical situations, as well as cases referring to real situations, but the meaning depends on the context.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本に留学するとなれば、やはり日本語は勉強しておいたほうがいい。",
+          "transcription": "にっぽんにりゅうがくするとなれば、やはりにほんごはべんきょうしておいたほうがいい。",
+          "mean": "If you are going to study abroad in Japan, it is better to study Japanese."
+        },
+        {
+          "content": "結婚してから兄の夫婦と同居するとなれば、今のアパートでは狭すぎるはずだ。",
+          "transcription": "けっこんしてからあにのふうふとどうきょするとなれば、いまのあぱーとではせますぎるはずだ。",
+          "mean": "If I were to live with my brother's wife after getting married, my current apartment would probably be too small."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na（だ）+ となれば\nA／V + となれば"
+    }
+  ],
+  "title": "…となれば => if that happens",
+  "_id": "f7ff14dae05876cac58b413693656f35"
+}

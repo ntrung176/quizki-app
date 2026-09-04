@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2664,
+  "usages": [
+    {
+      "explain": "Used to give examples, mainly things, among the possibilities to choose from.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その仕事は鈴木さんか誰かに頼むつもりだ。",
+          "transcription": "そのしごとはすずきさんかだれかにたのむつもりだ。",
+          "mean": "I'm planning to ask Mr. Suzuki or someone else to do that job."
+        },
+        {
+          "content": "今年の冬休みは、タイかどこか、暑いところに行きたい。",
+          "transcription": "ことしのふゆやすみは、たいかどこか、あついところにいきたい。",
+          "mean": "This winter vacation, I want to go somewhere warm, like Thailand."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N か＋Interrogative word＋ か"
+    }
+  ],
+  "title": "Nか＋nghi vấn từ＋ か => Or N...or+interrogative word",
+  "_id": "f2d618ceb0702f781ec83b7d4f1ec140"
+}

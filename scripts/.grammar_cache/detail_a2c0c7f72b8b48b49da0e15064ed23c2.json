@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 5276,
+  "usages": [
+    {
+      "explain": "「というのは」is a conjunction connecting two clauses. The second clause provides the reason or explanation for the situation mentioned in the first clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は家を出られないんです。というのは父の具合が悪くなりまして...",
+          "transcription": "きょうはいえをでられないんです。というのはちちのぐあいがわるくなりまして...",
+          "mean": "I can't leave the house today. That's because my father has become unwell..."
+        },
+        {
+          "content": "僕は卵を食べないんです。というのは、アレルギーがあるんですよ。",
+          "transcription": "ぼくはたまごをたべないんです。というのは、アレルギーがあるんですよ。",
+          "mean": "I don't eat eggs. That's because I have an allergy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。というのは B"
+    }
+  ],
+  "title": "というのは => because",
+  "_id": "a2c0c7f72b8b48b49da0e15064ed23c2"
+}

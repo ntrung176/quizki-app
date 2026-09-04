@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5376,
+  "usages": [
+    {
+      "explain": "「みたいな / みたいに / みたいだ」are used to make comparisons, indicating that someone, something, an event, an action, a characteristic... is similar to another person, thing, event, action, characteristic... (although it is not exactly the same)..<br/>\n\nThese are often used in everyday conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼みたいな強い人になりたいんです。",
+          "transcription": "かれみたいなつよいひとになりたいんです。",
+          "mean": "I want to become a strong person like him."
+        },
+        {
+          "content": "会社を売ると言うか取られたみたいなものだ。",
+          "transcription": "かいしゃをうるというかとられたみたいなものだ。",
+          "mean": "It's like selling the company or having it taken away."
+        },
+        {
+          "content": "ここの砂は星みたいな形をしている。",
+          "transcription": "ここのすなはほしみたいなかたちをしている。",
+          "mean": "The sand here is shaped like a star."
+        },
+        {
+          "content": "彼は自分は関係ないみたいな素振りを見せた。",
+          "transcription": "かれはじぶんはかんけいないみたいなそぶりをみせた。",
+          "mean": "He acted like he had nothing to do with it."
+        },
+        {
+          "content": "リンさんみたいに日本語がうまくなりたい。",
+          "transcription": "リンさんみたいににほんごがうまくなりたい。",
+          "mean": "I want to become good at Japanese like Rin."
+        },
+        {
+          "content": "彼はお城みたいに大きな家に住んでいる。",
+          "transcription": "かれはおしろみたいにおおきないえにすんでいる。",
+          "mean": "He lives in a big house like a castle."
+        },
+        {
+          "content": "彼の話し方は女みたいだ。",
+          "transcription": "かれのはなしかたはおんなみたいだ。",
+          "mean": "He speaks like a woman."
+        },
+        {
+          "content": "この古い鍋きれいだね。まるで新しいみたいだ。",
+          "transcription": "このふるいなべきれいだね。まるであたらしいみたいだ。",
+          "mean": "This old pot is beautiful. It's like new."
+        },
+        {
+          "content": "どうでもいいことなのにあの言い方だとさも重要みたいだ。",
+          "transcription": "どうでもいいことなのにあのいいかただとさもじゅうようみたいだ。",
+          "mean": "Even though it doesn't matter, the way you say it makes it seem important."
+        },
+        {
+          "content": "この鍋、古いのにまるで最近買ったみたいだ。",
+          "transcription": "このなべ、ふるいのにまるでさいきんかったみたいだ。",
+          "mean": "Although this pot is old, it looks like it was recently purchased."
+        },
+        {
+          "content": "山田はまるで君の弟みたいだね。",
+          "transcription": "やまだはまるできみのおとうとみたいだね。",
+          "mean": "Yamada is like your younger brother."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+みたいな+N<br/>\nV/Aい/Aな/N (formal form)+みたいに+V/A<br/>\nV/Aい/Aな/N (formal form)+みたいだ\n<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>\n<br/> Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "みたい => like; similar to; resembling ~",
+  "_id": "e399b586c96646eeba54a18458ea6c72"
+}

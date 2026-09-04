@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1378,
+  "usages": [
+    {
+      "explain": "Uses metaphorical language to describe a very high level of something. This is a formal expression, often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ここの景色は輝くばかりの美しさだ。",
+          "transcription": "ここのけしきはかがやくばかりのうつくしさだ。",
+          "mean": "The scenery here is absolutely beautiful."
+        },
+        {
+          "content": "彼は世界でどこでも行くばかりの旅行経験がある。",
+          "transcription": "かれはせかいでどこでもいくばかりのりょこうけいけんがある。",
+          "mean": "He is an experienced traveler who has traveled all over the world."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-い + ばかり + の NV-る + ばかり + の N"
+    }
+  ],
+  "title": "... ばかり... => It is said that, seem ...",
+  "_id": "f7ff14dae05876cac58b4136936df598"
+}

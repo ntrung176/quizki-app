@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5261,
+  "usages": [
+    {
+      "explain": "1. 「たきり」indicates that an action (V2) has not occurred since the last time it happened (V1), and the situation remains the same. The last time it happened (V1) can sometimes be replaced with これ、それ、あれ to become 「これきり/これっきり」(since now), 「それきり/それっきり」(since then), 「あれきり/あれっきり」(since that time). This structure conveys a sense of unease, worry, or regret from the speaker. \"Since/From the time...\"<br/>\n\n2. 「<s>ます</s>きり」describes a state of doing nothing else but a particular action (V), being completely absorbed or engrossed in it. This structure is limited to certain verbs like 任せきり (to leave entirely to someone), 付きり (to be always with), かかりきり (to be fully occupied with). \"Only doing/Just absorbed in...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "うちの子は遊びに行ったきり帰ってこない。",
+          "transcription": "うちのこはあそびにいったきりかえってこない。",
+          "mean": "My child goes out to play and never comes back."
+        },
+        {
+          "content": "息子は、自分の部屋に入ったきり出てこない。",
+          "transcription": "むすこは、じぶんのへやにはいったきりでてこない。",
+          "mean": "My son goes into his room and doesn't come out."
+        },
+        {
+          "content": "彼とは去年の忘年会に会って、それっきり会っていない。",
+          "transcription": "かれとはきょねんのぼうねんかいにあって、それっきりあっていない。",
+          "mean": "I met him at the year-end party last year, but I haven't seen him since."
+        },
+        {
+          "content": "これきりあんなところへは行かない。",
+          "transcription": "これきりあんなところへはいかない。",
+          "mean": "I will never go to that place again."
+        },
+        {
+          "content": "あれっきり彼女には会っていない。",
+          "transcription": "あれっきりかのじょにはあっていない。",
+          "mean": "I haven't met her since then."
+        },
+        {
+          "content": "沖縄は新婚旅行で行ったっきりだ。",
+          "transcription": "おきなわはしんこんりょこうでいったっきりだ。",
+          "mean": "I just went to Okinawa on my honeymoon."
+        },
+        {
+          "content": "母は入院している父を付きっきりで看病している。",
+          "transcription": "はははにゅういんしているちちをつきっきりでかんびょうしている。",
+          "mean": "My mother is always there to take care of my hospitalized father."
+        },
+        {
+          "content": "彼は部屋の中にずっとこもりきりで、人に会おうとしない。",
+          "transcription": "かれはへやのなかにずっとこもりきりで、ひとにあおうとしない。",
+          "mean": "He stays in his room all the time and doesn't want to meet anyone."
+        },
+        {
+          "content": "今はこのプロジェクトにかかりっきりで、他の仕事に手が回りそうにない。",
+          "transcription": "いまはこのプロジェクトにかかりっきりで、ほかのしごとにてがまわりそうにない。",
+          "mean": "I'm so focused on this project that I don't feel like I'll be able to do anything else."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. V1た+きり / っきり+V2ない<br/>\n これ / それ / あれ+きり / っきり+V2ない<br/> V1た+きりだ / っきりだ<br/><br/>\n2. V<s>ます</s>+きり/っきり"
+    }
+  ],
+  "title": "きり => only; just; since; after ~",
+  "_id": "b976dbdc85e84b9195027ebef06573fb"
+}

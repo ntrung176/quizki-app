@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 2350,
+  "usages": [
+    {
+      "explain": "Following a noun, to bring that noun up as a topic, meaning \"once that topic arises\". <br/>Subsequently are expressions implying \"if that topic arises, there will be a different attitude or behavior than usual\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は普段は無口だけど、サッカーのこととなれば、急におしゃべりになる。",
+          "transcription": "かれはふだんはむくちだけど、さっかーのこととなれば、きゅうにおしゃべりになる。",
+          "mean": "He's usually quiet, but when it comes to soccer, he suddenly becomes talkative."
+        },
+        {
+          "content": "お弁当は作るっ方が経済的だし、体にもいいけど、毎日となれば、大変かもしれない。",
+          "transcription": "おべんとうはつくるっほうがけいざいてきだし、からだにもいいけど、まいにちとなれば、たいへんかもしれない。",
+          "mean": "Making lunch boxes is more economical and good for your health, but it can be a pain if you do it every day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + (のこと) となれば"
+    }
+  ],
+  "title": "(のこと）となれば => when it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b413693f4f44b"
+}

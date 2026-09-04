@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2713,
+  "usages": [
+    {
+      "explain": "Expresses extreme intensity of the situation. It has a somewhat stylish manner of speaking. In spoken language, forms like 「とても」 (very) or 「すごく」 (extremely) are often used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はたいへん効率よく仕事をした。",
+          "transcription": "かれはたいへんこうりつよくしごとをした。",
+          "mean": "He worked very efficiently."
+        },
+        {
+          "content": "先日は大変結構な贈り物を頂戴し、身に余る喜びを感じております。",
+          "transcription": "せんじつはたいへんけっこうなおくりものをちょうだいし、みにあまるよろこびをかんじております。",
+          "mean": "The other day I received a very nice gift and I feel overjoyed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Significance indicates that the nature of the matter has reached an extreme level."
+    }
+  ],
+  "title": "たいへん => very; greatly; terribly; serious; difficult",
+  "_id": "f2d618ceb0702f781ec83b7d4f25ee71"
+}

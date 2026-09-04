@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5272,
+  "usages": [
+    {
+      "explain": "The phrase 「と考えられる」in Japanese expresses a thought or viewpoint without specifying the subject who holds that thought or viewpoint, making it somewhat objective.<br/>\nThe phrase 「と考えられている」indicates that the thought or viewpoint is held by the majority, by many people.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本人は礼儀正しいと考えられています。",
+          "transcription": "にっぽんじんはれいぎただしいとかんがえられています。",
+          "mean": "Japanese people are considered to be polite."
+        },
+        {
+          "content": "これは今年最高の映画だと考えられている。",
+          "transcription": "これはことしさいこうのえいがだとかんがえられている。",
+          "mean": "This is considered the best movie of the year."
+        },
+        {
+          "content": "彼女は優秀な医者であると考えられている。",
+          "transcription": "かのじょはゆうしゅうないしゃであるとかんがえられている。",
+          "mean": "She is considered an excellent doctor."
+        },
+        {
+          "content": "低脂肪食が長寿の秘訣だと考えられている。",
+          "transcription": "ていしぼうしょくがちょうじゅのひけつだとかんがえられている。",
+          "mean": "A low-fat diet is thought to be the secret to longevity."
+        },
+        {
+          "content": "このデータは今後の研究に役に立つと考えられる。",
+          "transcription": "このデータはこんごのけんきゅうにやくにたつとかんがえられる。",
+          "mean": "This data will be useful for future research."
+        },
+        {
+          "content": "彼が死んだ原因は事故だと考えられる。",
+          "transcription": "かれがしんだげんいんはじこだとかんがえられる。",
+          "mean": "His death is believed to have been an accident."
+        },
+        {
+          "content": "その事故はスピードの出しすぎのせいだと考えられる。",
+          "transcription": "そのじこはスピードのだしすぎのせいだとかんがえられる。",
+          "mean": "The accident is believed to have been caused by excessive speed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence (formal form)+と考えられる<br/>Sentence (formal form)+と考えられている"
+    }
+  ],
+  "title": "と考えられる/と考えられている => one can think that; it is conceivable that; considered ~",
+  "_id": "7e7c243eeae048389c3a23d588c14f44"
+}

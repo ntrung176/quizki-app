@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 3150,
+  "usages": [
+    {
+      "explain": "Indicates the level of the state.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ここの標高は富士山の頂上とほぼ同じくらいです。",
+          "transcription": "ここのひょうこうはふじさんのちょうじょうとほぼおなじくらいです。",
+          "mean": "The altitude here is almost the same as the top of Mt. Fuji."
+        },
+        {
+          "content": "母の普通の睡眠時間は5時間から6時間くらいです。",
+          "transcription": "ははのふつうのすいみんじかんは5じかんから6じかんくらいです。",
+          "mean": "My mother's normal sleep time is about 5 to 6 hours."
+        }
+      ],
+      "mean": ": about the only, to the extent that",
+      "synopsis": "Nは ～くらいです"
+    }
+  ],
+  "title": "～は～くらいです      => about the only, to the extent that",
+  "_id": "93020c54469e582d6fdb16f7ba6f996f"
+}

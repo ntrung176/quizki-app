@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5262,
+  "usages": [
+    {
+      "explain": "「たところ」 is used to describe the situation where, after performing an action, a new result/event/discovery occurs that is unexpected or beyond prediction. This sentence pattern emphasizes the speaker's surprise about that result/event/discovery or emphasizes the severity of them. Because it is something that has already happened, the second clause (V2) is always in the past tense.",
+      "note": null,
+      "examples": [
+        {
+          "content": "病院で検査したところ、異常はなかった。",
+          "transcription": "びょういんでけんさしたところ、いじょうはなかった。",
+          "mean": "An examination at the hospital revealed no abnormalities."
+        },
+        {
+          "content": "駅に問い合わせたところ、忘れ物は届いていた。",
+          "transcription": "えきにといあわせたところ、わすれものはとどいていた。",
+          "mean": "When I contacted the station, I was told that the item I had left behind had been delivered."
+        },
+        {
+          "content": "辞書で調べたところ、漢字が間違っていた。",
+          "transcription": "じしょでしらべたところ、かんじがまちがっていた。",
+          "mean": "When I looked it up in the dictionary, the kanji was wrong."
+        },
+        {
+          "content": "先生に今度のテストの範囲を聞いたところ、10課までだと言われた。",
+          "transcription": "せんせいにこんどのテストのはんいをきいたところ、じゅっかまでだといわれた。",
+          "mean": "When I asked my teacher about the scope of the upcoming test, I was told that it would cover up to lesson 10."
+        },
+        {
+          "content": "歯が痛いので歯医者さんに行ったところ、ひどい虫歯になっていると言われた。",
+          "transcription": "はがいたいのではいしゃさんに行ったところ、ひどいむしばになっているといわれた。",
+          "mean": "I had a toothache so I went to the dentist and was told that I had a severe cavity."
+        },
+        {
+          "content": "試験を受けたところ、合格した。",
+          "transcription": "しけんをうけたところ、ごうかくした。",
+          "mean": "I took the test and passed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1た+ところ、V2た"
+    }
+  ],
+  "title": "たところ => just finished doing, was just doing",
+  "_id": "db14eda64d184b82b31680466dc76f1f"
+}

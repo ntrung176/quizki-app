@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1179,
+  "usages": [
+    {
+      "explain": "途端に（とたんに）conveys the meaning \"suddenly\", \"instantaneously\". In this case, 「に」cannot be omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雷雨が来たと思ったら、途端に大雨が降り出した。",
+          "transcription": "らいうがきたとおもったら、とたんにおおあめがふりだした。",
+          "mean": "Just when I thought a thunderstorm had arrived, it started to rain heavily."
+        },
+        {
+          "content": "エアコンがついたら、途端に部屋が涼しくなった。",
+          "transcription": "エアコンがついたら、とたんにへやがすずしくなった。",
+          "mean": "As soon as the air conditioner was turned on, the room became cool."
+        },
+        {
+          "content": "車はゆっくりと動き出した。途端に女の子が泣き出した。",
+          "transcription": "くるまはゆっくりとうごきだした。とたんにおんなのこがなきだした。",
+          "mean": "The car started moving slowly. Immediately, the girl started crying."
+        }
+      ],
+      "mean": null,
+      "synopsis": "途端に + V"
+    }
+  ],
+  "title": "途端に... => as soon as; just as ~",
+  "_id": "f7ff14dae05876cac58b41369352610e"
+}

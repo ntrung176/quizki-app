@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 641,
+  "usages": [
+    {
+      "explain": "The noun in the clause [NがNなら] is different from the noun in the clause [NもNだ], but they are related. This expression shows a negative evaluation that \"both Ns are not good\". Used in cases where both are criticized.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この生徒はいつも教師に口答えばかりして困る。親もすぐ学校にどなりこんでくるし、まったく、親が親なら子も子だ。",
+          "transcription": "このせいとはいつもきょうしにくちごたえばかりしてこまる。おやもすぐがっこうにどなりこんでくるし、まったく、おやがおやならこもこだ。",
+          "mean": "This student always talks back to the teacher and is in trouble. Parents come rushing into school right away, and if parents are parents, children are children too."
+        },
+        {
+          "content": "まったく、おじさんがおじさんなら、おばさんもおばさんだよ。おじさんが頑固なのはわかっているんだから、嘘でも「ごめんなさい」って言えば喧嘩なんかすぐにおさまるのに。",
+          "transcription": "まったく、おじさんがおじさんなら、おばさんもおばさんだよ。おじさんががんこなのはわかっているんだから、うそでも「ごめんなさい」っていえばけんかなんかすぐにおさまるのに。",
+          "mean": "Indeed, if an uncle is an uncle, an aunt is also an aunt. I know that my uncle is stubborn, so if I just say ``I'm sorry,'' even if it's a lie, the fight will quickly subside."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 が N1 なら N2 も N2 だ"
+    }
+  ],
+  "title": "が～なら～も～だ => negative connection/comparison (like father like son)",
+  "_id": "f7ff14dae05876cac58b41369309aa6e"
+}

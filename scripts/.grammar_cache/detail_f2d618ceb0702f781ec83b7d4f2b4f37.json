@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2762,
+  "usages": [
+    {
+      "explain": "Used when the specific object or event cannot be identified. In casual speech, it becomes 「かなんか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ナイフか何かの鋭い物で刺された。",
+          "transcription": "ないふかなにかのするどいものでさされた。",
+          "mean": "He was stabbed with a knife or some other sharp object."
+        },
+        {
+          "content": "山田君は病気か何かで学校を休んでいます。",
+          "transcription": "やまだくんはびょうきかなにかでがっこうをやすんでいます。",
+          "mean": "Yamada-kun is absent from school due to illness or something."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/N + かなにか"
+    }
+  ],
+  "title": "かなにか => or something",
+  "_id": "f2d618ceb0702f781ec83b7d4f2b4f37"
+}

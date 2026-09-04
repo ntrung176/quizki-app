@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 2318,
+  "usages": [
+    {
+      "explain": "<a>✦</a> Expresses the meaning \"if condition A is not satisfied, then action B is not performed\".<br/><a>✦</a>This is a more formal way of speaking. In spoken language, 「...をぜんていにして」/ として」is also commonly used.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "彼は氏名を明かさないことを前提に記者にその話を言った。",
+          "transcription": "かれはしめいをあかさないことをぜんていにきしゃにそのはなしをいった。",
+          "mean": "He told the story to a reporter on the condition that his name not be disclosed."
+        },
+        {
+          "content": "彼女は一生懸命を前提に今回の試験に合格できる。",
+          "transcription": "かのじょはいっしょうけんめいをぜんていにこんかいのしけんにごうかくできる。",
+          "mean": "She can pass this exam by working hard."
+        },
+        {
+          "content": "あなた達は結婚を前提に付き合う気がありますか？",
+          "transcription": "あなたたちはけっこんをぜんていにつきあうきがありますか？",
+          "mean": "Are you willing to start dating with the intention of getting married?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "<a>✦</a>N + を前提に + V"
+    }
+  ],
+  "title": "を前提に => On the premise of",
+  "_id": "f7ff14dae05876cac58b413693f11edd"
+}

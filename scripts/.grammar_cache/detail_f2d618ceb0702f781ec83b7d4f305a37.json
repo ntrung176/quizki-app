@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2796,
+  "usages": [
+    {
+      "explain": "Used together with time-related words to emphasize that a new state has occurred after some time has passed since a certain event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "アメリカへ来て、まだ三ヶ月だ。",
+          "transcription": "あめりかへきて、まださんかげつだ。",
+          "mean": "It's only been three months since I came to America."
+        },
+        {
+          "content": "まだ半時間だけ働いているのに、もう疲れる気がした。",
+          "transcription": "まだはんじかんだけはたらいているのに、もうつかれるきがした。",
+          "mean": "Even though I had only been working for half an hour, I felt like I was already tired."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まだ..."
+    }
+  ],
+  "title": "まだ... => Have just ...(passed)",
+  "_id": "f2d618ceb0702f781ec83b7d4f305a37"
+}

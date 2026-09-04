@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5157,
+  "usages": [
+    {
+      "explain": "「からして」is used to give a typical example as evidence and to draw a conclusion that other similar things are natural or obvious.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は服装からしてだらしない、きっとほかの面も同じだろう。",
+          "transcription": "かれはふくそうからしてだらしない、きっとほかのめんもおなじだろう。",
+          "mean": "He looks sloppy in his clothes, and I'm sure the same goes for everything else."
+        },
+        {
+          "content": "あの映画は題名からして悲しそうだ。",
+          "transcription": "あのえいがはだいめいからしてかなしそうだ。",
+          "mean": "That movie sounds sad from the title."
+        },
+        {
+          "content": "この子は笑い方からして母親にそっくりだ。",
+          "transcription": "このこはわらいかたからしてははおやにそっくりだ。",
+          "mean": "This child looks just like her mother, judging by the way she smiles."
+        },
+        {
+          "content": "リーダーからしてやる気がないのだから、他の人たちがやるはずがない。",
+          "transcription": "リーダーからしてやるきがないのだから、ほかのひとたちがやるはずがない。",
+          "mean": "Since the leader is not motivated, there is no way other people will do it."
+        },
+        {
+          "content": "その君の言い方からして外国人に対する偏見が感じられる。",
+          "transcription": "そのきみのいいかたからしてがいこくじんにたいするへんけんがかんじられる。",
+          "mean": "The way you say it gives me a sense of prejudice against foreigners."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+からして"
+    }
+  ],
+  "title": "からして => judging from; based on; since; from; even ~",
+  "_id": "3ab0f691b17e4088bc03a7059aa6ca1f"
+}

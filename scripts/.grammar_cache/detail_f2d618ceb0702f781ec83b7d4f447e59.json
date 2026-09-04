@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2959,
+  "usages": [
+    {
+      "explain": "Placed at the beginning or in the middle of a sentence to express criticism towards the listener. Only used in casual conversations. It is more commonly used by females. Often used together with「（っ）たら」to emphasize the desire to criticize.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お父さんたら、もう、私の彼氏の悪口を言うのは止めてよ。",
+          "transcription": "おとうさんたら、もう、わたしのかれしのわるぐちをいうのはとめてよ。",
+          "mean": "Dad, please stop saying bad things about my boyfriend."
+        },
+        {
+          "content": "もう、あなたったら、こんな簡単な問題も解決できないの。",
+          "transcription": "もう、あなたったら、こんなかんたんなもんだいもかいけつできないの。",
+          "mean": "You can't even solve such a simple problem anymore."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もう"
+    }
+  ],
+  "title": "もう => really (criticism)",
+  "_id": "f2d618ceb0702f781ec83b7d4f447e59"
+}

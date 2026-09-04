@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1857,
+  "usages": [
+    {
+      "explain": "Expressing the meaning: \"It's a difficult situation, but eventually something can be done\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "朝食用のパンはなんとかある。",
+          "transcription": "ちょうしょくようのぱんはなんとかある。",
+          "mean": "We have some bread for breakfast."
+        },
+        {
+          "content": "友達の支援で何とかここまで頑張れた。",
+          "transcription": "ともだちのしえんでなんとかここまでがんばれた。",
+          "mean": "I was able to make it this far with the support of my friends."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとか～"
+    }
+  ],
+  "title": "なんとか => It's enough, just okay (Intentional)",
+  "_id": "f7ff14dae05876cac58b413693afcfbb"
+}

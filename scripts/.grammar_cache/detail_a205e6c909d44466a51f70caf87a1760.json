@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5116,
+  "usages": [
+    {
+      "explain": "「どころではない」indicates that there are more urgent, important, or difficult matters at hand, so there is no time, energy, etc., for the matter being mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "風が強すぎて、花見どころではなかった。",
+          "transcription": "かぜがつよすぎて、はなみどころではなかった。",
+          "mean": "The wind was so strong that it wasn't a good place to see the flowers."
+        },
+        {
+          "content": "風邪がひどくて、遊びに行くどころじゃない。",
+          "transcription": "かぜがひどくて、あそびにいくどころじゃない。",
+          "mean": "I have a bad cold and can't go out to play."
+        },
+        {
+          "content": "工場で火事があり、仕事どころではなかった。",
+          "transcription": "こうじょうでかじがあり、しごとどころではなかった。",
+          "mean": "There was a fire at the factory, and there was no work to be done."
+        },
+        {
+          "content": "宿題がたくさんあって、テレビを見るどころではない。",
+          "transcription": "しゅくだいがたくさんあって、テレビをみるどころではない。",
+          "mean": "I have so much homework to do that I can't even watch TV."
+        },
+        {
+          "content": "年末から母の入院で、お正月どころではありません。",
+          "transcription": "ねんまつからははのにゅういんで、おしょうがつどころではありません。",
+          "mean": "My mother has been hospitalized since the end of the year, so it's not even close to New Year's."
+        },
+        {
+          "content": "他人の仕事を手伝うどころではありません。自分の仕事も間に合わないんです。",
+          "transcription": "たにんのしごとをてつだうどころではありません。じぶんのしごともまにあわないんです。",
+          "mean": "It's not about helping others with their work. I can't even finish my work on time."
+        },
+        {
+          "content": "寝坊したので、今朝は新聞を読んでいるどころではなく、慌てて家を出てきました。",
+          "transcription": "ねぼうしたので、けさはしんぶんをよんでいるどころではなく、あわてていえをでてきました。",
+          "mean": "I overslept, so instead of reading the newspaper this morning, I rushed out of the house."
+        },
+        {
+          "content": "彼女はケーキ屋で働いているから、毎年クリスマスは彼氏とデートどころではない。",
+          "transcription": "かのじょはケーキやではたらいているから、まいとしクリスマスはかれしとデートどころではない。",
+          "mean": "She works at a cake shop, so every Christmas she doesn't go on a date with her boyfriend."
+        },
+        {
+          "content": "留学を始めた頃は、日本語を勉強するのに一生懸命で、バイトどころではありませんでした。",
+          "transcription": "りゅうがくをはじめたころは、にほんごをべんきょうするのにいっしょうけんめいで、バイトどころではありませんでした。",
+          "mean": "When I first started studying abroad, I was studying Japanese so hard that I couldn't even get a part-time job."
+        },
+        {
+          "content": "今度の日曜日は朝から予定がぎっしり詰まっているので、ゆっくり寝ているどころではありません。",
+          "transcription": "こんどのにちようびはあさからよていがぎっしりつまっているので、ゆっくりねているどころではありません。",
+          "mean": "I have a jam-packed schedule starting this Sunday morning, so I won't be able to get a good night's sleep."
+        },
+        {
+          "content": "朝から子供が熱を出したり、病院に連れていったりで、昨日は仕事をしているどころじゃなかった。",
+          "transcription": "あさからこどもがねつをだしたり、びょういんにつれていったりで、きのうはしごとをしているどころじゃなかった。",
+          "mean": "My child had a fever in the morning and I had to take him to the hospital, so I couldn't even work yesterday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+どころではない / どころじゃない<br/> Vる+どころではない / どころじゃない<br/> Vている+どころではない / どころじゃない"
+    }
+  ],
+  "title": "どころではない => not the time for; not the place for; far from; anything but ~",
+  "_id": "a205e6c909d44466a51f70caf87a1760"
+}

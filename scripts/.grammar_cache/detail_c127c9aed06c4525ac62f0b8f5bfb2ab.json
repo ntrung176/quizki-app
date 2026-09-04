@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5511,
+  "usages": [
+    {
+      "explain": "「命令形」is the imperative form of a verb, used to give commands or orders, compelling someone to perform a certain action.<br/>\n\nIt's often used in situations like with criminals, in the military, in emergencies, or in everyday conversations only when extremely angry, with the condition that the other person is a very close friend, a subordinate (children, pets...). Due to its strong and commanding tone, to avoid causing offense, rudeness, or negative perceptions, the imperative form should not be used with superiors or strangers...",
+      "note": null,
+      "examples": [
+        {
+          "content": "早く寝ろ。",
+          "transcription": "はやくねろ。",
+          "mean": "Sleep soon."
+        },
+        {
+          "content": "もっと勉強しろ。",
+          "transcription": "もっとべんきょうしろ。",
+          "mean": "Study more."
+        },
+        {
+          "content": "雪ちゃん頑張れ。",
+          "transcription": "ゆきちゃんがんばれ。",
+          "mean": "Good luck Yuki-chan."
+        },
+        {
+          "content": "前に危ないから、早く逃げろ。",
+          "transcription": "まえにあぶないから、はやくにげろ。",
+          "mean": "There's danger ahead, so run away quickly."
+        },
+        {
+          "content": "もう疲れた、ちょっと休憩しろ。",
+          "transcription": "もうつかれた、ちょっときゅうけいしろ。",
+          "mean": "I'm tired, take a break."
+        },
+        {
+          "content": "もうすぐ試合が来る、皆さんはもっと練習しろ。",
+          "transcription": "もうすぐしあいがくる、みなさんはもっとれんしゅうしろ。",
+          "mean": "The game is coming soon, so everyone should practice more."
+        },
+        {
+          "content": "10分休憩があります。トイレに行きたい人は早く行け。",
+          "transcription": "じゅっぷんきゅうけいがあります。トイレにいきたいひとははやくいけ。",
+          "mean": "There will be a 10 minute break. If you want to go to the toilet, go quickly."
+        },
+        {
+          "content": "すぐ戻ってこい。",
+          "transcription": "すぐもどってこい。",
+          "mean": "Come back soon."
+        },
+        {
+          "content": "手を離せ。",
+          "transcription": "てをはなせ。",
+          "mean": "Take your hands off me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group 1: (い)ます ➔ (え) (Eg: 行きます ➔ 行け)<br/> Group 2: (え)ます ➔ (え)ろ (Eg: 食べます ➔ 食べろ)<br/>Group 3: します ➔ しろ (Eg: 勉強します ➔ 勉強しろ)<br/> きます ➔ こい (Eg: 学校へきます ➔ 学校へこい)"
+    }
+  ],
+  "title": "命令形 => Imperative form",
+  "_id": "c127c9aed06c4525ac62f0b8f5bfb2ab"
+}

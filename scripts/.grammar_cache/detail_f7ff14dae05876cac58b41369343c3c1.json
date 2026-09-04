@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1069,
+  "usages": [
+    {
+      "explain": "Expresses a difficult situation that a person has to face.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この国家は財政危機に面している。",
+          "transcription": "このこっかはざいせいききにめんしている。",
+          "mean": "This country is facing a financial crisis."
+        },
+        {
+          "content": "現実に面することは必ずしも簡単ではない。",
+          "transcription": "げんじつにめんすることはかならずしもかんたんではない。",
+          "mean": "Facing reality is not always easy."
+        },
+        {
+          "content": "彼は危険に面しても冷静だった。",
+          "transcription": "かれはきけんにめんしてもれいせいだった。",
+          "mean": "He was calm in the face of danger."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にめんして"
+    }
+  ],
+  "title": "にめんして => having a space looking towards N",
+  "_id": "f7ff14dae05876cac58b41369343c3c1"
+}

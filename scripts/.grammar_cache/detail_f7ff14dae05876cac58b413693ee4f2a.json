@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2298,
+  "usages": [
+    {
+      "explain": "It expresses the notion \"it's okay not to do...\". It's similar in meaning to 「Vなくてもいい」.<br/>There are instances where 「も」is omitted, resulting in 「ないでいい」. In spoken language, 「なくてもいい」 is more commonly used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この行には何も記入しないでもよい。",
+          "transcription": "このくだりにはなにもきにゅうしないでもよい。",
+          "mean": "You can leave this line blank."
+        },
+        {
+          "content": "来週の試合は出ないでいいですか。",
+          "transcription": "らいしゅうのしあいはでないでいいですか。",
+          "mean": "Is it okay if I don't attend next week's game?"
+        },
+        {
+          "content": "そんなことはしないでもいいじゃありませんか。",
+          "transcription": "そんなことはしないでもいいじゃありませんか。",
+          "mean": "You don't have to do that, do you?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ないで（も）よい"
+    }
+  ],
+  "title": "ないでもよい => don't have to; it's OK to not do. Indicates permission to not do ~",
+  "_id": "f7ff14dae05876cac58b413693ee4f2a"
+}

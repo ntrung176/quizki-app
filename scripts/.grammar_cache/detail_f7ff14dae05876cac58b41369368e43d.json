@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1344,
+  "usages": [
+    {
+      "explain": "Means \"despite that\". Used to blame the other party for a current state, which has changed contrary to the previous state.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あれほど考え直すように言ったのに君は会社をやめた。それを今になってもう一度雇ってくれだなんて、いったい何を考えてるんだ。",
+          "transcription": "あれほどかんがえなおすようにいったのにきみはかいしゃをやめた。それをいまになってもういちどやとってくれだなんて、いったいなにをかんがえてるんだ。",
+          "mean": "Even though I told you to reconsider, you quit the company. What on earth are you thinking now, asking me to hire you again?"
+        },
+        {
+          "content": "契約したのは1年前だ。それを今になって解約したいと言ってきても無理だ。",
+          "transcription": "けいやくしたのは1ねんまえだ。それをいまになってかいやくしたいといってきてもむりだ。",
+          "mean": "I signed the contract a year ago. Even if you ask me to cancel the contract now, it won't be possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それを～"
+    }
+  ],
+  "title": "それを => Despite that ...",
+  "_id": "f7ff14dae05876cac58b41369368e43d"
+}

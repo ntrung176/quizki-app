@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1331,
+  "usages": [
+    {
+      "explain": "✦ Takes an extreme person, event, or situation as the subject of the story, to express the meaning \"in such a case, it's obvious that one should do this\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "毎日残業の後に飲み屋のはしごときたら、体がもつはずがない。",
+          "transcription": "まいにちざんぎょうののちにのみやのはしごときたら、からだがもつはずがない。",
+          "mean": "There's no way your body can survive if you go bar hopping every day after working overtime."
+        },
+        {
+          "content": "働き者で気立てがいいときたら、みんなに好かれるのも無理はない。",
+          "transcription": "はたらきものできだてがいいときたら、みんなにすかれるのもむりはない。",
+          "mean": "If you're a hard worker and good-natured, it's no wonder that everyone likes you."
+        },
+        {
+          "content": "新鮮な刺し身ときたら、やっぱり辛口の日本酒がいいな。",
+          "transcription": "しんせんなさしみときたら、やっぱりからくちのにっぽんしゅがいいな。",
+          "mean": "When it comes to fresh sashimi, dry sake is definitely the way to go."
+        },
+        {
+          "content": "ステーキときたらやっぱり赤ワインでなくちゃ。",
+          "transcription": "ステーキときたらやっぱりあかわいんでなくちゃ。",
+          "mean": "When it comes to steak, it has to be red wine."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～ときたら => when it comes to; concerning ~",
+  "_id": "f7ff14dae05876cac58b413693675f31"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5598,
+  "usages": [
+    {
+      "explain": "「いつも」expresses an action or habit that happens regularly, frequently.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はいつも元気です。",
+          "transcription": "わたしはいつもげんきです。",
+          "mean": "I'm always fine."
+        },
+        {
+          "content": "妹はいつも寝ている。",
+          "transcription": "いもうとはいつもねている。",
+          "mean": "My sister is always sleeping."
+        },
+        {
+          "content": "いつも夜10時に寝ます。",
+          "transcription": "いつもよるじゅうじにねます。",
+          "mean": "I always go to bed at 10pm."
+        },
+        {
+          "content": "今日もいつもと同じ一日だった。",
+          "transcription": "きょうもいつもとおなじいちにちだった。",
+          "mean": "Today was another day like any other."
+        },
+        {
+          "content": "昼ご飯はいつも納豆を食べます。",
+          "transcription": "ひるごはんはいつもなっとをたべます。",
+          "mean": "I always eat natto for lunch."
+        },
+        {
+          "content": "仕事に行く前にいつもジムに行きます。",
+          "transcription": "しごとにいくまえにいつもジムにいきます。",
+          "mean": "I always go to the gym before going to work."
+        },
+        {
+          "content": "いつも自転車で学校に行きますが今日は歩きました。",
+          "transcription": "いつもじてんしゃでがっこうにいきますがきょうはあるきました。",
+          "mean": "I usually go to school by bicycle, but today I walked."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いつも+Sentence"
+    }
+  ],
+  "title": "いつも => always; usually; habitually",
+  "_id": "2c3b6257aec041e5952ebb483e21b76f"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2016,
+  "usages": [
+    {
+      "explain": "Similar to, it seems like",
+      "note": null,
+      "examples": [
+        {
+          "content": "十一月が来たばかりなのに真冬のような寒さだ。",
+          "transcription": "じゅういちがつがきたばかりなのにまふゆのようなさむさだ。",
+          "mean": "Even though November has just arrived, it's cold like midwinter."
+        },
+        {
+          "content": "自分ではないような気がする。",
+          "transcription": "じぶんではないようなきがする。",
+          "mean": "I feel as if I were another person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N の / V普通形 + ような + N"
+    }
+  ],
+  "title": "のような => like; similar to",
+  "_id": "f7ff14dae05876cac58b413693c67376"
+}

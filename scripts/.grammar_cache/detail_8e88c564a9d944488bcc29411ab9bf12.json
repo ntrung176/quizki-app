@@ -1,0 +1,66 @@
+{
+  "level": "N5",
+  "mobileId": 5579,
+  "usages": [
+    {
+      "explain": "「あまり」is an adverb often used in negative sentences to indicate a low degree. When it modifies an adjective or a verb, it is placed before the adjective or verb.<br/>\nIn spoken language, 「あまり」can have a stronger emphasis than 「あんまり」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ホラー映画はあまり見ません。",
+          "transcription": "ホラーえいがはあまりみません。",
+          "mean": "I don't watch many horror movies."
+        },
+        {
+          "content": "私はお酒があまり好きじゃない。",
+          "transcription": "わたしはおさけがあまりすきじゃない。",
+          "mean": "I don't really like alcohol."
+        },
+        {
+          "content": "この食べ物はあまり美味しくなかった。",
+          "transcription": "このたべものはあまりおいしくなかった。",
+          "mean": "This food was not very tasty."
+        },
+        {
+          "content": "テレビはあまり見ませんが嫌いじゃありません。",
+          "transcription": "テレビはあまりみませんがきらいじゃありません。",
+          "mean": "I don't watch much TV, but I don't hate it."
+        },
+        {
+          "content": "冷たい飲み物があまり好きじゃありません。",
+          "transcription": "つめたいのみものがあまりすきじゃありません。",
+          "mean": "I don't really like cold drinks."
+        },
+        {
+          "content": "昨日の飲み会にはあまり人が来ませんでした。",
+          "transcription": "きのうののみかいにはあまりひとがきませんでした。",
+          "mean": "Not many people came to the drinking party yesterday."
+        },
+        {
+          "content": "日曜日はあまり勉強しません。友達と遊びます。",
+          "transcription": "にちようびはあまりべんきょうしません。ともだちとあそびます。",
+          "mean": "I don't study much on Sunday. I play with friends."
+        },
+        {
+          "content": "この文法があまり分かりません。教えてください。",
+          "transcription": "このぶんぽがあまりわかりません。おしえてください。",
+          "mean": "I don't really understand this grammar. please tell me."
+        },
+        {
+          "content": "あまりツイッターをしませんがフェイスブックはよく見ます。",
+          "transcription": "あまりツイッターをしませんがフェイスブックはよくみます。",
+          "mean": "I don't use Twitter much, but I often check Facebook."
+        },
+        {
+          "content": "最近は忙しいですから友達とあんまり遊びに行きません。",
+          "transcription": "さいきんはいそがしいですからともだちとあんまりあそびにいきません。",
+          "mean": "I've been busy lately, so I don't go out with my friends much."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<span class=\"iro\">あまり</span>+A<s>い</s>くない<br/> <span class=\"iro\">あまり</span>+A<s>な</s>じゃない<br/> <span class=\"iro\">あまり</span>+Vない"
+    }
+  ],
+  "title": "あまり～ない => not very, not much ~",
+  "_id": "8e88c564a9d944488bcc29411ab9bf12"
+}

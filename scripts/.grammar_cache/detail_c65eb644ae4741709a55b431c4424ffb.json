@@ -1,0 +1,81 @@
+{
+  "level": "N2",
+  "mobileId": 5102,
+  "usages": [
+    {
+      "explain": "「ばかりに」expresses the cause or reason leading to the negative consequence or state of the following clause. It reflects the speaker's dissatisfaction, criticism, regret... about the situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の一言を信じたばかりに、ひどい目にあった。",
+          "transcription": "かれのひとことをしんじたばかりに、ひどいめにあった。",
+          "mean": "Just because I believed his words, I ended up in a terrible situation."
+        },
+        {
+          "content": "お金がないばかりに、今度の旅行に行けなかった。",
+          "transcription": "おかねがないばかりに、こんどのりょこうにいけなかった。",
+          "mean": "I couldn't go on another trip because I didn't have the money."
+        },
+        {
+          "content": "私が遅刻をしたばかりに、皆に迷惑をかけてしまった。",
+          "transcription": "わたしがちこくをしたばかりに、みなにめいわくをかけてしまった。",
+          "mean": "I was late and caused trouble for everyone."
+        },
+        {
+          "content": "背が高いばかりに、どこへ行っても目立ってしまう。",
+          "transcription": "せがたかいばかりに、どこへいってもめだってしまう。",
+          "mean": "Because of his height, he stands out no matter where he goes."
+        },
+        {
+          "content": "外国人であるばかりに、アパート探しには苦労した。",
+          "transcription": "がいこくじんであるばかりに、アパートさがしにはくろうした。",
+          "mean": "As a foreigner, I had a hard time finding an apartment."
+        },
+        {
+          "content": "兄は無口なばかりに、よく冷たい人だと誤解されるようだ。",
+          "transcription": "あにはむくちなばかりに、よくつめたいひとだとごかいされるようだ。",
+          "mean": "My brother is so quiet that people often misunderstand him as being cold."
+        },
+        {
+          "content": "ホラー映画を見たばかりに、怖くてなかなか寝られない。",
+          "transcription": "ホラーえいがをみたばかりに、こわくてなかなかねられない。",
+          "mean": "I just watched a horror movie and I'm so scared I can't sleep."
+        },
+        {
+          "content": "受験票を忘れたばかりに、テストを受けることができなかった。",
+          "transcription": "じゅけんひょうをわすれたばかりに、テストをうけることができなかった。",
+          "mean": "I couldn't take the test because I forgot my admission ticket."
+        },
+        {
+          "content": "先輩のアドバイスを聞き入れなかったばかりに、大きな失敗をしてしまった。",
+          "transcription": "せんぱいのアドバイスをききいれなかったばかりに、おおきなしっぱいをしてしまった。",
+          "mean": "I made a big mistake by not listening to the advice of my seniors."
+        },
+        {
+          "content": "どうしても新しいIphoneが欲しいばかりに、親の財布から少しずつお金を盗んだ。",
+          "transcription": "どうしてもあたらしいアイフォンがほしいばかりに、おやのさいふからすこしずつおかねをぬすんだ。",
+          "mean": "I desperately wanted a new iPhone, so I stole money from my parents' wallets little by little."
+        },
+        {
+          "content": "大学を卒業していないばかりに、海外で働きたくてもビザがとれない。",
+          "transcription": "だいがくをそつぎょうしていないばかりに、かいがいではたらきたくてもビザがとれない。",
+          "mean": "Even if I wanted to work abroad, I couldn't get a visa because I hadn't even graduated from university."
+        },
+        {
+          "content": "タコマナローズ橋は強い風だったばかりに、崩壊した。",
+          "transcription": "タコマナローズきょうはつよいかぜだったばかりに、ほうかいした。",
+          "mean": "The Tacoma Rose Bridge collapsed due to strong winds."
+        },
+        {
+          "content": "英文開示が不十分だったばかりに、投資対象から除外された会社もあるといいます。",
+          "transcription": "えいぶんかいじがふじゅうぶんだったばかりに、とうしたいしょうからじょがいされたかいしゃもあるといいます。",
+          "mean": "It is said that some companies were excluded from investment because their English disclosure was insufficient."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+ばかりに<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>/A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>である)"
+    }
+  ],
+  "title": "ばかりに => simply because; on account of~ (negative result)",
+  "_id": "c65eb644ae4741709a55b431c4424ffb"
+}

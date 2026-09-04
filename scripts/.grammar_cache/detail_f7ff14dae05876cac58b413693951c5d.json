@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1663,
+  "usages": [
+    {
+      "explain": "Used to present one's thoughts as something objective based on evidence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このままでは、アメリカの製造産業は落ち込む一方だと考えられる。",
+          "transcription": "このままでは、あめりかのせいぞうさんぎょうはおちこむいっぽうだとかんがえられる。",
+          "mean": "If things continue like this, America's manufacturing industry is likely to continue to decline."
+        },
+        {
+          "content": "こんな優秀な小説を15歳の少年が害いたとは考えられないですね。",
+          "transcription": "こんなゆうしゅうなしょうせつを15さいのしょうねんががいいたとはかんがえられないですね。",
+          "mean": "It's hard to imagine that a 15-year-old boy could have damaged such an excellent novel."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + とかんがえられる\nNa + とかんがえられる\nA + とかんがえられる\nV + とかんがえられる"
+    }
+  ],
+  "title": "... と考られる => one can think that; it is conceivable that; considered ...",
+  "_id": "f7ff14dae05876cac58b413693951c5d"
+}

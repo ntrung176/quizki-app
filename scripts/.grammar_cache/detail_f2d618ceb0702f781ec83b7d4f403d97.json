@@ -1,0 +1,21 @@
+{
+  "level": "N5",
+  "mobileId": 2926,
+  "usages": [
+    {
+      "explain": "Replace the interrogative word in the position of the sentence element you want to ask about. The word order does not change. Add 「か」at the end of the sentence. When answering this type of question, there is no need to use 「はい」or 「いいえ」directly give the answer.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その事故はいつ起こったのか。",
+          "transcription": "そのじこはいつおこったのか。",
+          "mean": "When did the accident occur?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 は だれ/ いつ/ どこ/どの.....か?"
+    }
+  ],
+  "title": "か => Interrogative pronouns",
+  "_id": "f2d618ceb0702f781ec83b7d4f403d97"
+}

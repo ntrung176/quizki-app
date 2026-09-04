@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5500,
+  "usages": [
+    {
+      "explain": "「かしら」is used to express uncertain speculation or to convey a sense of worry or anxiety. It can mean \"who knows...\" or \"perhaps...\". <br/>\n\nWhen used by oneself, it can indicate that the speaker is unsure or contemplating something. But when used with someone else present, 「かしら」becomes a way for the listener to inquire or seek the opinion of the other person, meaning \"I wonder if you think so...\" or \"Do you think...?\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "誰かしら。",
+          "transcription": "だれかしら。",
+          "mean": "I wonder who."
+        },
+        {
+          "content": "本当かしら。",
+          "transcription": "ほんとうかしら。",
+          "mean": "Is it true?"
+        },
+        {
+          "content": "どこへ行ったかしら。",
+          "transcription": "どこへいったかしら。",
+          "mean": "I wonder where you went?"
+        },
+        {
+          "content": "彼は本気かしら。",
+          "transcription": "かれはほんきかしら。",
+          "mean": "Is he serious?"
+        },
+        {
+          "content": "明日は雨かしら。",
+          "transcription": "あしたはあめかしら。",
+          "mean": "I wonder if it will rain tomorrow."
+        },
+        {
+          "content": "この本は売れるかしら。",
+          "transcription": "このほんはうれるかしら。",
+          "mean": "Will this book sell?"
+        },
+        {
+          "content": "明日は晴れるかしら。",
+          "transcription": "あしたははれるかしら。",
+          "mean": "I wonder if it will clear up tomorrow."
+        },
+        {
+          "content": "今夜、外食するのはどうかしら？",
+          "transcription": "こんや、がいしょくするのはどうかしら？",
+          "mean": "What do you say to eating out tonight?"
+        },
+        {
+          "content": "以前お会いしませんでしたかしら。",
+          "transcription": "いぜんおあいしませんでしたかしら。",
+          "mean": "Haven't we met before?"
+        },
+        {
+          "content": "生徒たちは授業が分かったかしら。",
+          "transcription": "せいとたちはじゅぎょうがわかったかしら。",
+          "mean": "Did the students understand the lesson?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence+かしら"
+    }
+  ],
+  "title": "かしら => I wonder (feminine)",
+  "_id": "7047c42a2483477fb59453082462da3f"
+}

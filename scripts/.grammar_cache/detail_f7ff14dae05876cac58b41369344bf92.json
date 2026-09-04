@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1075,
+  "usages": [
+    {
+      "explain": "■ Expresses the meaning \"considered to be ... / seen as ...\".<br/><br/>■ In the case where the noun serves as the predicate, the word 「だ」is often omitted to become the form 「Nとされている」. It is commonly used in serious forms of writing such as newspapers or essays.",
+      "note": null,
+      "examples": [
+        {
+          "content": "仏教で、生き物を殺すのは十悪のひとつとされている。",
+          "transcription": "ぶっきょうで、いきものをころすのはじゅうあくのひとつとされている。",
+          "mean": "In Buddhism, killing living things is considered one of the ten evils."
+        },
+        {
+          "content": "地球の温暖化の一因として、大気中のオゾン層の破壊が大きくかかわっているとされている。",
+          "transcription": "ちきゅうのおんだんかのいちいんとして、たいきちゅうのオゾンそうのはかいがおおきくかかわっているとされている。",
+          "mean": "Depletion of the ozone layer in the atmosphere is said to be a major cause of global warming."
+        },
+        {
+          "content": "チョムスキーの理論では、言語能力は人間が生まれつきもっている能力とされている。",
+          "transcription": "チョムスキーのりろんでは、げんごのうりょくはにんげんがうまれつきもっているのうりょくとされている。",
+          "mean": "According to Chomsky's theory, language is an innate ability that humans are born with."
+        },
+        {
+          "content": "当時歌舞伎は風俗を乱すものとされ、禁止されていた。",
+          "transcription": "とうじかぶきはふうぞくをみだすものとされ、きんしされていた。",
+          "mean": "At that time, Kabuki was considered to be disturbing to public morals and was prohibited."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■Often used in journalistic writing or essays, that is, formal writing."
+    }
+  ],
+  "title": "... とされている => to be considered as (A)",
+  "_id": "f7ff14dae05876cac58b41369344bf92"
+}

@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5518,
+  "usages": [
+    {
+      "explain": "「なら」when used with a noun:<br/>\n1. Puts the topic just mentioned by the other party as the main topic.<br/>\n2. Sets a limit (\"if it's this then...\") or a contrast (\"not this, but if it's that then yes\").",
+      "note": null,
+      "examples": [
+        {
+          "content": "あのドラマなら私はまだ見ていないよ。",
+          "transcription": "あのドラマならわたしはまだみていないよ。",
+          "mean": "I haven't watched that drama yet."
+        },
+        {
+          "content": "その時のことなら今もよく覚えている。",
+          "transcription": "そのときのことならいまもよくおぼえている。",
+          "mean": "I still remember that time very well."
+        },
+        {
+          "content": "寿司なら、くら寿司が一番美味しいですよ。",
+          "transcription": "すしなら、くらずしがいちばんおいしいですよ。",
+          "mean": "When it comes to sushi, Kura Sushi is the most delicious."
+        },
+        {
+          "content": "『夏休みに旅行したいんです。』『旅行なら北海道がいいだと思います。』",
+          "transcription": "『なつやすみにりょこうしたいんです。』『りょこうならほっかいどうがいいだとおもいます。』",
+          "mean": "``I want to travel during summer vacation. ``I think Hokkaido is a good place to travel.'' ”"
+        },
+        {
+          "content": "『トムさんはどこ？』『トムさんなら、さっきトイレに行ったよ。』",
+          "transcription": "『トムさんはどこ？』『トムさんなら、さっきトイレにいったよ。』",
+          "mean": "``Where's Tom? ``Tom, I just went to the bathroom.'' ”"
+        },
+        {
+          "content": "『ペットを飼ったことがありますか。』『猫なら飼ったことがありますよ。』",
+          "transcription": "『ペットをかったことがありますか。』『ねこならかったことがありますよ。』",
+          "mean": "“Have you ever had a pet? ``I've owned a cat before.'' ”"
+        },
+        {
+          "content": "『君は本を読みますか。』『漫画なら読みますよ。』",
+          "transcription": "『きみはほんをよみますか。』『まんがならよみますよ。』",
+          "mean": "``Do you read books? \"If it's a manga, I'll read it. ”"
+        },
+        {
+          "content": "『アルバイトをしたことがありますか。』『いいえ、ありません。でも、ボランティアならしたことがあります。』",
+          "transcription": "『アルバイトをしたことがありますか。』『いいえ、ありません。でも、ボランティアならしたことがあります。』",
+          "mean": "``Have you ever worked part-time? \"\"No there is not. But I have done it as a volunteer. ”"
+        },
+        {
+          "content": "『沢村くんはサッカーをしますか。』『しないですね。でも、野球ならしますよ。』",
+          "transcription": "『さわむらくんはサッカーをしますか。』『しないですね。でも、やきゅうならしますよ。』",
+          "mean": "``Does Sawamura-kun play soccer? ” “I don’t.” But I will play baseball. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+なら"
+    }
+  ],
+  "title": "なら => if; in the case that ~",
+  "_id": "eec94032bb284ad5b777960e0e7ae3aa"
+}

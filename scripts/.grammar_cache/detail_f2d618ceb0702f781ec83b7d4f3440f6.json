@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2830,
+  "usages": [
+    {
+      "explain": "Used after a clause to acknowledge that the fact mentioned is true, and this truth is the cause or reason for the following event. In spoken language, it often becomes 「...んだから」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "世界は広いのだから、いろいろな習慣があるのは当然だ。",
+          "transcription": "せかいはひろいのだから、いろいろなしゅうかんがあるのはとうぜんだ。",
+          "mean": "The world is a big place, so it's only natural that there are many different customs."
+        },
+        {
+          "content": "生活のなかのけじめやきまりは、一方的に大人が決めたことなのだから、ことごとにそれを子どもがいやがるのは当然だ。",
+          "transcription": "せいかつのなかのけじめやきまりは、いっぽうてきにおとながきめたことなのだから、ことごとにそれをこどもがいやがるのはとうぜんだ。",
+          "mean": "Discriminations and rules in life are unilaterally decided by adults, so it is natural for children to dislike them."
+        },
+        {
+          "content": "あんたはけがをしているんだから、無理をしてはいけませんよ。",
+          "transcription": "あんたはけがをしているんだから、むりをしてはいけませんよ。",
+          "mean": "You are injured, so don't push yourself too hard."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Naな + のだから\nA/ V + のだから"
+    }
+  ],
+  "title": "... のだから => Because ...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3440f6"
+}

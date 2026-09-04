@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1804,
+  "usages": [
+    {
+      "explain": "途中 (は) （とちゅう）(は) expresses an action taking place during the course of another action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学校に行く途中、ずっとこの漫画を読んでいた。",
+          "transcription": "がっこうにいくとちゅう、ずっとこのまんがをよんでいた。",
+          "mean": "I was reading this manga all the time on my way to school."
+        },
+        {
+          "content": "運転している途中、彼女に言われたことばが頭を離れなかった。",
+          "transcription": "うんてんしているとちゅう、かのじょにいわれたことばがあたまをはなれなかった。",
+          "mean": "As I was driving, I couldn't stop thinking about what she said to me."
+        },
+        {
+          "content": "歴史の授業の途中は居眠りしてばかりいた。",
+          "transcription": "れきしのじゅぎょうのとちゅうはいねむりしてばかりいた。",
+          "mean": "I kept falling asleep during history class."
+        },
+        {
+          "content": "アルバイトの途中は日本語の勉強をすることにしている。",
+          "transcription": "あるばいとのとちゅうはにほんごのべんきょうをすることにしている。",
+          "mean": "I plan to study Japanese during my part-time job."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る・ Nの + 途中 (は)"
+    }
+  ],
+  "title": "途中 (は) => on the way; in the middle of ~",
+  "_id": "f7ff14dae05876cac58b413693a957a4"
+}

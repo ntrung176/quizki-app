@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2457,
+  "usages": [
+    {
+      "explain": "Expresses the idea: \"Actually it's not like that, but it appears to be so.",
+      "note": null,
+      "examples": [
+        {
+          "content": "泥棒は跡を消して外部から誰も侵入しなかったように見せた。",
+          "transcription": "どろぼうはあとをけしてがいぶからだれもしんにゅうしなかったようにみせた。",
+          "mean": "The thief erased all traces to make it appear as if no one had broken in from outside."
+        },
+        {
+          "content": "彼は勉強していたように見せたが、実は漫画を読んでいた。",
+          "transcription": "かれはべんきょうしていたようにみせたが、じつはまんがをよんでいた。",
+          "mean": "He made it look like he was studying, but he was actually reading manga."
+        },
+        {
+          "content": "彼女は息子の結婚を気にしていないように見せたが、本当はとても心配だった。",
+          "transcription": "かのじょはむすこのけっこんをきにしていないようにみせたが、ほんとうはとてもしんぱいだった。",
+          "mean": "She pretended not to be concerned about her son's marriage, but in reality she was very worried."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな・Nの + ようにみせる"
+    }
+  ],
+  "title": "ようにみせる => to look; to seem; to appear ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f038256"
+}

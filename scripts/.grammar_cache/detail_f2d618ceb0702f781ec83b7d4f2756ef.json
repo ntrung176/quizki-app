@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2723,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"to make something become a certain way,\" \"to be the cause of something changing.\" This is a way to create transitive verbs for intransitive verbs that don't have corresponding transitive forms like 「凍る」(to freeze), 「湿る」(to become wet).",
+      "note": null,
+      "examples": [
+        {
+          "content": "きれいにする、または湿らせるためにスポンジで拭く。",
+          "transcription": "きれいにする、またはしめらせるためにすぽんじでふく。",
+          "mean": "Sponge to clean or dampen."
+        },
+        {
+          "content": "彼は幸福そうに目を輝かせていた。",
+          "transcription": "かれはこうふくそうにめをかがやかせていた。",
+          "mean": "His eyes were shining with happiness."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N が N を V-させる"
+    }
+  ],
+  "title": "NがNをV-させる => to make somebody do something. to let somebody do something",
+  "_id": "f2d618ceb0702f781ec83b7d4f2756ef"
+}

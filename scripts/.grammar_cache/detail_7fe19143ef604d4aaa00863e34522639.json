@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5391,
+  "usages": [
+    {
+      "explain": "「に関して」 is used to indicate the topic or subject of a particular issue, story, etc. It is a more formal way of saying \"about\" or \"regarding\" compared to 「について」. It is often used in formal speech or writing such as investigations, research, etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この問題に関してご意見ありませんか。",
+          "transcription": "このもんだいにかんしてごいけんありませんか。",
+          "mean": "Do you have any opinions regarding this issue?"
+        },
+        {
+          "content": "この事件に関して新しい情報が入りました。",
+          "transcription": "このじけんにかんしてあたらしいじょうほうがはいりました。",
+          "mean": "We have received new information regarding this incident."
+        },
+        {
+          "content": "最近テロにかんしてニュースがよく新聞に出ています。",
+          "transcription": "さいきんテロにかんしてニュースがよくしんぶんにでています。",
+          "mean": "There has been a lot of news about terrorism in the newspapers lately."
+        },
+        {
+          "content": "商品に関するご質問は、メールでお願します。",
+          "transcription": "しょうひんにかんするごしつもんは、メールでおねがいします。",
+          "mean": "If you have any questions about the product, please email us."
+        },
+        {
+          "content": "この町の歴史に関する本を探しています。",
+          "transcription": "このまちのれきしにかんするほんをさがしています。",
+          "mean": "I'm looking for a book about the history of this town."
+        },
+        {
+          "content": "詳しい使い方に関してはこちらの説明書をお読みください。",
+          "transcription": "くわしいつかいかたにかんしてはこちらのせつめいしょをおよみください。",
+          "mean": "Please read this manual for detailed usage information."
+        },
+        {
+          "content": "彼は仕事に関しても遊びに関しても熱心な人です。",
+          "transcription": "かれはしごとにかんしてもあそびにかんしてもねっしんなひとです。",
+          "mean": "He is an enthusiastic person, both at work and at play."
+        },
+        {
+          "content": "日本のお正月に関するレポートを書かなければいけない。",
+          "transcription": "にほんのおしょうがつにかんするレポートをかかなければいけない。",
+          "mean": "I have to write a report about New Year's in Japan."
+        },
+        {
+          "content": "日本語の文法に関しての本はありますか。",
+          "transcription": "にほんごのぶんぽうにかんしてのほんはありますか。",
+          "mean": "Are there any books on Japanese grammar?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に関して<br/> N+に関しては<br/> N+に関しても<br/> N+に関するN'<br/>N+に関してのN'"
+    }
+  ],
+  "title": "に関して => about; regarding; related to ~",
+  "_id": "7fe19143ef604d4aaa00863e34522639"
+}

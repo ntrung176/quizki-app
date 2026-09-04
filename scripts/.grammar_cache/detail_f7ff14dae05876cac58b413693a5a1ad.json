@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1778,
+  "usages": [
+    {
+      "explain": "Used when urging or inviting others. In the case of example 3, it is to encourage oneself. In the case of example 4, the meaning of \"urging\", \"inviting\", \"encouraging\" is not expressed, although expressions like 「さあ、新年だ。がんばるぞ。」(Come on, it's the new year. I'll do my best) could be used. Except for example 3, if the situation alone can convey the meaning of the sentence, then just using 「さあ」would suffice.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さあ、急ごう。",
+          "transcription": "さあ、いそごう。",
+          "mean": "Come on, let's hurry."
+        },
+        {
+          "content": "さあ、目を覚まして。",
+          "transcription": "さあ、めをさまして。",
+          "mean": "Come on, wake up."
+        },
+        {
+          "content": "さあ、 仕事頑張るぞ！",
+          "transcription": "さあ、しごとがんばるぞ！",
+          "mean": "Now, let's do our best at work!"
+        },
+        {
+          "content": "さあ、新年だ。",
+          "transcription": "さあ、しんねんだ。",
+          "mean": "Well, it's a new year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "さあ : Come on, okay"
+    }
+  ],
+  "title": "さあ => well",
+  "_id": "f7ff14dae05876cac58b413693a5a1ad"
+}

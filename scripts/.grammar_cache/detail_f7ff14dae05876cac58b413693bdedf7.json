@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1955,
+  "usages": [
+    {
+      "explain": "Indicates the meaning \"immediately\" or \"right away\". Used with words indicating a desire, such as in the form「たい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は今すぐにでもベトナムに戻るべきだ。",
+          "transcription": "かのじょはいますぐにでもべとなむにもどるべきだ。",
+          "mean": "She should return to Vietnam immediately."
+        },
+        {
+          "content": "今すぐにでもあなたと深い関係を持ちたい。",
+          "transcription": "いますぐにでもあなたとふかいかんけいをもちたい。",
+          "mean": "I want to have a deep relationship with you right away."
+        },
+        {
+          "content": "あなたのチャンスはすぐにでも巡ってくるだろう。",
+          "transcription": "あなたのちゃんすはすぐにでもめぐってくるだろう。",
+          "mean": "Your opportunity will come your way soon."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "すぐにでも => right now",
+  "_id": "f7ff14dae05876cac58b413693bdedf7"
+}

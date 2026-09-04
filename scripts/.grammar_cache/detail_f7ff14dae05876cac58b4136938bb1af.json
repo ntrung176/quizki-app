@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1584,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"necessary / indispensable / obligation\". <br/><br/>It can also be expressed as 「なくてはいけない」, 「なければいけない」, but 「ないといけない」 is more colloquial. <br/><br/>There is also the expression 「なくてはならない」, 「なければならない」, but there is no form of 「ないとならない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学校を休みたいなら先生の許可をお願わないといけない。",
+          "transcription": "がっこうをやすみたいならせんせいのきょかをおねがわないといけない。",
+          "mean": "If you want to take time off from school, you must ask your teacher's permission."
+        },
+        {
+          "content": "何かか買いたいならお金をし払わないとだめだ。",
+          "transcription": "なにかかかいたいならおかねをしはらわないとだめだ。",
+          "mean": "If you want to buy something, you have to pay."
+        },
+        {
+          "content": "今日は客が来るので、部屋を片付けないといけない。",
+          "transcription": "きょうはきゃくがくるので、へやをかたづけないといけない。",
+          "mean": "I have a guest coming today, so I have to clean up the room."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ないと + いけない/だめだ<br/>A-くないと + いけない/だめだ<br/>Na・N でないと + いけない/だめだ<br/>"
+    }
+  ],
+  "title": "ないといけない / だめだ => must do; have an obligation to do ~",
+  "_id": "f7ff14dae05876cac58b4136938bb1af"
+}

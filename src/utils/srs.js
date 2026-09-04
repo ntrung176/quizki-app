@@ -617,10 +617,24 @@ export const isKanjiMastered = (srs) => {
 
 export const isVocabCardMastered = (card) => {
     if (!card) return false;
-    if (card.srsEnabled === false) return false;
+    if (card.masteryState === 'memorized') return true;
+    if (card.mastered === true) return true;
+    if (typeof card.correctStreak_back === 'number' && card.correctStreak_back >= 5) return true;
     if (typeof card.intervalIndex_back === 'number' && card.intervalIndex_back >= 4) return true;
     if (typeof card.srsReps === 'number' && card.srsReps >= 5) return true;
     if (typeof card.srsInterval === 'number' && (card.srsInterval >= 21 || card.srsInterval >= 10080)) return true;
+    if (typeof card.seenCount === 'number' && card.seenCount >= 3) return true;
+    return false;
+};
+
+export const isVocabCardLearning = (card) => {
+    if (!card) return false;
+    if (isVocabCardMastered(card)) return false;
+    if (card.masteryState === 'learning') return true;
+    if (typeof card.intervalIndex_back === 'number' && card.intervalIndex_back >= 0) return true;
+    if (typeof card.correctStreak_back === 'number' && card.correctStreak_back > 0) return true;
+    if (typeof card.srsReps === 'number' && card.srsReps > 0) return true;
+    if (card.lastReviewed_back || card.lastStudied || (typeof card.seenCount === 'number' && card.seenCount > 0)) return true;
     return false;
 };
 

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1893,
+  "usages": [
+    {
+      "explain": "This is a way to give an example. It's used when avoiding speaking explicitly, implying that there are many other possibilities. Often used in casual conversations among young people.",
+      "note": null,
+      "examples": [
+        {
+          "content": "変だね、まだ誰も来てないよ。約束、午後だったりして。",
+          "transcription": "へんだね、まだだれもきてないよ。やくそく、ごごだったりして。",
+          "mean": "That's strange, no one has come yet. I promised it would be in the afternoon."
+        },
+        {
+          "content": "山田さん、遅いわね。事故にあったりして。",
+          "transcription": "やまださん、おそいわね。じこにあったりして。",
+          "mean": "Yamada-san, you're late. I had an accident."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～たりして"
+    }
+  ],
+  "title": "…たりして => maybe, It could be, it is possible that…",
+  "_id": "f7ff14dae05876cac58b413693b44daf"
+}

@@ -1,0 +1,38 @@
+{
+  "level": "N5",
+  "mobileId": 2941,
+  "usages": [
+    {
+      "explain": "We will learn about demonstrative pronouns for location 「ここ／そこ／あそこ」. 「ここ」 indicates the location where the speaker is. 「そこ」 indicates the location where the listener is. 「あそこ」 indicates a location far from both the listener and the speaker. 「こちら／そちら／あちら」 are directional pronouns, but can also be used as polite alternatives to 「ここ／そこ／あそこ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ここは ホテルです。",
+          "transcription": "ここはほてるです。",
+          "mean": "This is a hotel."
+        },
+        {
+          "content": "エレベーターはあそこです。",
+          "transcription": "えれべーたーはあそこです。",
+          "mean": "The elevator is over there."
+        },
+        {
+          "content": "トイレはどちらですか。 あちらです。",
+          "transcription": "といれはどちらですか。あちらです。",
+          "mean": "Where is the toilet? There it is."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ここ／そこ／あそこ／こちら／そちら／あちら are all positional pronouns."
+    },
+    {
+      "explain": "Note: When the speaker considers that the listener is also within the range of their position, use 「ここ」to indicate a position slightly far from both, and use 「そこ」to indicate a position a bit farther away from both, and use 「あそこ」to indicate a relatively far position from both.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ここ／そこ／あそこ／こちら／そちら／あちら => here / there / over there",
+  "_id": "f2d618ceb0702f781ec83b7d4f423deb"
+}

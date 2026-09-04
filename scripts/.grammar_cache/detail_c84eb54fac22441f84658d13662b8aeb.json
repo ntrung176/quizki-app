@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5319,
+  "usages": [
+    {
+      "explain": "「ば～のに/たら～のに」<br/>\n1. Expresses the speaker's regret for themselves or someone else not being able to do something in the past. In this case, the clause after will be in the past tense.<br/>\n\n2. Expresses the speaker's regret for the current reality being different from expectations, and through that, the desire for the situation to be different. In this case, the clause after will be in the present tense.<br/>\n\nIn addition to ～のに, the clause after can also be followed by ～のだが, ～のだけれど...",
+      "note": null,
+      "examples": [
+        {
+          "content": "もうちょっと早く連絡してくれれば、迎えに行ったのに。",
+          "transcription": "もうちょっとはやくれんらくしてくれれば、むかえにいったのに。",
+          "mean": "If you had contacted me sooner, I would have come to pick you up."
+        },
+        {
+          "content": "昨日、もっと早く寝れば、朝起きられたのに。",
+          "transcription": "きのう、もっとはやくねれば、あさおきられたのに。",
+          "mean": "If I had gone to bed earlier yesterday, I could have woken up in the morning."
+        },
+        {
+          "content": "あと5分あれば、全部の問題を解くことができたのに。",
+          "transcription": "あとごふんあれば、ぜんぶのもんだいをとくことができたのに。",
+          "mean": "If I had 5 more minutes, I could have solved all the problems."
+        },
+        {
+          "content": "タクシーで行けば、間に合ったのに、バスに乗ってしまったので遅れてしまった。",
+          "transcription": "タクシーでいけば、まにあったのに、バスにのってしまったのでおくれてしまった。",
+          "mean": "If I had taken a taxi, I would have made it on time, but because I took the bus, I was late."
+        },
+        {
+          "content": "日本語がもっと上手なら、雇ってもらえそうなのに。",
+          "transcription": "にほんごがもっとじょうずなら、やとってもらえそうなのに。",
+          "mean": "If my Japanese was better, I might be able to hire you."
+        },
+        {
+          "content": "隣のクラスの先生、すごく美人だよな。俺らのクラスの先生ならいいのに。",
+          "transcription": "となりのくらすのせんせい、すごくびじんだよな。おれらのくらすのせんせいならいいのに。",
+          "mean": "The teacher in the class next to me is very beautiful. I wish he were our class teacher."
+        },
+        {
+          "content": "安かったら買うのに。",
+          "transcription": "やすかったらかうのに。",
+          "mean": "I would buy it if it was cheap."
+        },
+        {
+          "content": "いい天気だったら、海に行くのに。",
+          "transcription": "いいてんきだったら、うみにいくのに。",
+          "mean": "If the weather was nice, I'd go to the beach."
+        },
+        {
+          "content": "アパートがもう少し学校から近ければ、便利なのに。",
+          "transcription": "アパートがもうすこしがっこうからちかければ、べんりなのに。",
+          "mean": "It would be more convenient if the apartment was a little closer to the school."
+        },
+        {
+          "content": "上司との飲み会がなければ、仕事がもっと楽しいのに。",
+          "transcription": "じょうしとののみかいがなければ、しごとがもっとたのしいのに。",
+          "mean": "Work would be more fun if I didn't have drinking parties with my boss."
+        },
+        {
+          "content": "お金があれば、その家を買うことができたのだが。",
+          "transcription": "おかねがあれば、そのいえをかうことができたのだが。",
+          "mean": "If I had the money, I could have bought the house."
+        },
+        {
+          "content": "私が若ければ、外国へ行くのだけれど。",
+          "transcription": "わたしがわかければ、がいこくへいくのだけれど。",
+          "mean": "If I were young, I would go abroad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (conditional form) (ば/たら)+～のに"
+    }
+  ],
+  "title": "ば～のに/たら～のに => would have; should have; if only ~",
+  "_id": "c84eb54fac22441f84658d13662b8aeb"
+}

@@ -1,0 +1,86 @@
+{
+  "level": "N3",
+  "mobileId": 5321,
+  "usages": [
+    {
+      "explain": "「ばかりでなく」expresses the idea of not only this action, characteristic, object, etc., but also another action, characteristic, object, etc.<br/>\n「ばかりでなく」can describe both positive and negative situations. It often expresses the speaker's surprise or astonishment, so the clause following it may be accompanied by particles like も、まで、さえ...<br/>\nOn the other hand, when the clause following it is in the form of a command or an imperative, 「ばかりでなく」conveys the speaker's critical attitude towards the preceding clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの店は味が悪いばかりでなく、店員の態度もひどい。",
+          "transcription": "あのみせはあじがわるいばかりでなく、てんいんのたいどもひどい。",
+          "mean": "Not only does that restaurant have bad food, but the staff's attitude is also terrible."
+        },
+        {
+          "content": "私は漢字ばかりでなく、まだひらがなも書けません。",
+          "transcription": "わたしはかんじばかりでなく、まだひらがなもかけません。",
+          "mean": "I can't write not only kanji but also hiragana."
+        },
+        {
+          "content": "私の故郷は不便なばかりでなく、寒さが厳しい。",
+          "transcription": "わたしのふるさとはふべんなばかりでなく、さむさがきびしい。",
+          "mean": "My hometown is not only inconvenient, but also extremely cold."
+        },
+        {
+          "content": "あの店は休みの日ばかりでなく、普段の日も混んでいます。",
+          "transcription": "あのみせはやすみのひばかりでなく、ふだんのひもこんでいます。",
+          "mean": "That store is crowded not only on holidays, but also on normal days."
+        },
+        {
+          "content": "最近は女性ばかりでなく、男性も化粧するようになった。",
+          "transcription": "さいきんはじょせいばかりでなく、だんせいもけしょうするようになった。",
+          "mean": "Recently, not only women but also men have started wearing makeup."
+        },
+        {
+          "content": "台風が来ている。雨ばかりでなく、風も強くなってきた。",
+          "transcription": "たいふうがきている。あめばかりでなく、かぜもつよくなってきた。",
+          "mean": "A typhoon is coming. Not only was it raining, but the wind was also getting stronger."
+        },
+        {
+          "content": "ジャスティン・ビーバーはアメリカばかりでなく、世界中でも有名だ。",
+          "transcription": "ジャスティン・ビーバーはアメリカばかりでなく、せかいじゅうでもゆうめいだ。",
+          "mean": "Justin Bieber is famous not only in America but also all over the world."
+        },
+        {
+          "content": "『鬼滅の刃』という漫画は国内ばかりではなく、世界中でもとても人気がある。",
+          "transcription": "『きめつのやいば』というまんがはこくないばかりではなく、せかいじゅうでもとてもにんきがある。",
+          "mean": "The manga ``Demon Slayer: Kimetsu no Yaiba'' is very popular not only in Japan but also all over the world."
+        },
+        {
+          "content": "東京を案内してくれたばかりでなく、食事もごちそうしてくれた。",
+          "transcription": "とうきょうをあんないしてくれたばかりでなく、しょくじもごちそうしてくれた。",
+          "mean": "Not only did he show me around Tokyo, but he also treated me to a meal."
+        },
+        {
+          "content": "彼は無断欠席が多いばかりでなく、出勤してまで真面目に働かずスマホばかり触っている。",
+          "transcription": "かれはむだんけっせきがおおいばかりでなく、しゅっきんしてまでまじめにはたらかずスマホばかりさわっている。",
+          "mean": "Not only is he often absent without notice, but even when he comes to work, he doesn't work diligently and spends all his time on his smartphone."
+        },
+        {
+          "content": "この商品は送料がかからないばかりでなく、手数料も無料だ。",
+          "transcription": "このしょうひんはそうりょうがかからないばかりでなく、てすうりょうもむりょうだ。",
+          "mean": "Not only does this product have no shipping charges, but it also has no handling charges."
+        },
+        {
+          "content": "他人の意見に従うばかりではなく、たまには自分の意見を主張したらどうだい？",
+          "transcription": "たにんのいけんにしたがうばかりではなく、たまにはじぶんのいけんをしゅちょうしたらどうだい？",
+          "mean": "Instead of just following the opinions of others, why not assert your own opinion once in a while?"
+        },
+        {
+          "content": "質問ばかりでなく、自分でも考えてみなさい。",
+          "transcription": "しつもんばかりでなく、じぶんでもかんがえてみなさい。",
+          "mean": "Don't just ask questions, think about it yourself."
+        },
+        {
+          "content": "単語ばかりではなく、漢字も勉強しましょう。",
+          "transcription": "たんごばかりではなく、かんじもべんきょうしましょう。",
+          "mean": "Let's study not only words but also kanji."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/ N (formal form)+ばかりで(は)なく、～(も/まで/さえ)<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s> / A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s> / N<s>だ</s>である)"
+    }
+  ],
+  "title": "ばかりでなく => not only.. but also; as well as ~",
+  "_id": "61b6ecd89103408faec57a81ac02e5f7"
+}

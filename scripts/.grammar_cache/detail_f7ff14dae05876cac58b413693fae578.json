@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2394,
+  "usages": [
+    {
+      "explain": "Used when the speaker is unsure if they remember accurately.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんは仕事が大変とかなんとか言って辞めたそうだ。",
+          "transcription": "やまださんはしごとがたいへんとかなんとかいってやめたそうだ。",
+          "mean": "Mr. Yamada apparently quit because he said that the work was too difficult."
+        },
+        {
+          "content": "彼女はパスポートをなくしたとか何とか言っていたようです。",
+          "transcription": "かのじょはぱすぽーとをなくしたとかなんとかいっていたようです。",
+          "mean": "She seemed to have said that she had lost her passport or something."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とかなんとかいう～"
+    }
+  ],
+  "title": "とかなんとかいう => Basically, it's like saying...",
+  "_id": "f7ff14dae05876cac58b413693fae578"
+}

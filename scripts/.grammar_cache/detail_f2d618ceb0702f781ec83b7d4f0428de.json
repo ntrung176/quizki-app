@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2462,
+  "usages": [
+    {
+      "explain": "Used to correct information, indicating that the information after it is correct rather than what was stated before. In spoken language, it takes the form 「...じゃなくて」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女が先日一緒に歩いていた男性は、同僚ではなくて、彼氏だそうだ。",
+          "transcription": "かのじょがせんじついっしょにあるいていただんせいは、どうりょうではなくて、かれしだそうだ。",
+          "mean": "The man she was walking with the other day was apparently her boyfriend, not a colleague."
+        },
+        {
+          "content": "私が買ったのは、小説ではなくて、漫画です。",
+          "transcription": "わたしがかったのは、しょうせつではなくて、まんがです。",
+          "mean": "I bought the manga, not the novel."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + のではなくて <br/>Na・N + (なの)ではなくて"
+    }
+  ],
+  "title": "ではなくて => Not A but B",
+  "_id": "f2d618ceb0702f781ec83b7d4f0428de"
+}

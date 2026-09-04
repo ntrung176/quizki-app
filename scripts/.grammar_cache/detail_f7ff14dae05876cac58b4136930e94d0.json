@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 679,
+  "usages": [
+    {
+      "explain": "✦Repeats a verb to express the idea \"the event that was expected to happen has actually happened now.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "この機械の危険性は以前から何度も指摘されていた。この事故は起こるべくして起こったといえる。",
+          "transcription": "このきかいのきけんせいはいぜんからなんどもしてきされていた。このじこはおこるべくしておこったといえる。",
+          "mean": "The dangers of this machine have been pointed out many times before. This accident can be said to have happened as it was meant to happen."
+        },
+        {
+          "content": "彼が勝ったのは偶然ではない。練習につぐ練習を重ねて、彼は勝つべくして勝ったのだ。",
+          "transcription": "かれがかったのはぐうぜんではない。れんしゅうにつぐれんしゅうをかさねて、かれはかつべくしてかったのだ。",
+          "mean": "It's no coincidence that he won. Through practice after practice, he tried to win and won."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V + べくして + V－た"
+    }
+  ],
+  "title": "～べくして => as it is bound to (happen); following the natural course",
+  "_id": "f7ff14dae05876cac58b4136930e94d0"
+}

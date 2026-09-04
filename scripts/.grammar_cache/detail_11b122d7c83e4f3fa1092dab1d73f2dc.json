@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5182,
+  "usages": [
+    {
+      "explain": "「もう少しで」 expresses the meaning that something (usually not desirable) is about to happen with just a little more time or effort.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう少しであの川でおぼれるところでした.",
+          "transcription": "もうすこしであのかわでおぼれるところでした.",
+          "mean": "I almost drowned in that river."
+        },
+        {
+          "content": "その話を聞いて、もう少しで泣くところだった。",
+          "transcription": "そのはなしをきいて、もうすこしでなくところだった。",
+          "mean": "I almost cried when I heard that story."
+        },
+        {
+          "content": "彼は、バナナの皮で滑り、もう少しで転ぶところだった。",
+          "transcription": "かれは、バナナのかわですべり、もうすこしでころぶところだった。",
+          "mean": "He slipped on a banana peel and almost fell."
+        },
+        {
+          "content": "君はもう少しで私の目を鉛筆で突き刺すところだったよ。",
+          "transcription": "きみはもうすこしでわたしのめをえんぴつでつきさすところだったよ。",
+          "mean": "You almost stabbed me in the eye with a pencil."
+        },
+        {
+          "content": "もう少しで大切な卒業論文をタクシーの中に忘れるところだった。",
+          "transcription": "もうすこしでたいせつなそつぎょうろんぶんをタクシーのなかにわすれるところだった。",
+          "mean": "I almost forgot my important graduation thesis in the taxi."
+        },
+        {
+          "content": "私は道路を渡るときに、大型トラックにもう少しではねられそうになった。",
+          "transcription": "わたしはどうろうをわたるときに、おおがたトラックにもうすこしではねられそうになった。",
+          "mean": "I almost got hit by a large truck when I was crossing the road."
+        },
+        {
+          "content": "もう少しで、私は、終電に乗り遅れそうでした。",
+          "transcription": "もうすこしで、わたしは、しゅうでんにのりおくれそうでした。",
+          "mean": "I almost missed the last train."
+        },
+        {
+          "content": "もう少しで友人の秘密を漏らしそうだった。",
+          "transcription": "もうすこしでゆうじんのひみつをもらしそうだった。",
+          "mean": "I was about to reveal my friend's secret."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もう少しで+V (root form)+ところだった<br/>もう少しで+V<s>ます</s>+そうだった / そうになった"
+    }
+  ],
+  "title": "もう少しで => almost; nearly, close to ~",
+  "_id": "11b122d7c83e4f3fa1092dab1d73f2dc"
+}

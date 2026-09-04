@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 884,
+  "usages": [
+    {
+      "explain": "■ Coming after a noun indicating an action, it expresses the idea of \"directing one's efforts towards something, without paying attention to other matters\".<br/>■ Often used in a negative sense, implying \"being single-minded or indifferent to other matters\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "忙しさにかまけて本も読まない、映画も見ない、音楽も聴かない。",
+          "transcription": "いそがしさにかまけてほんもよまない、えいがもみない、おんがくもきかない。",
+          "mean": "I don't read books, watch movies, or listen to music because I'm so busy."
+        },
+        {
+          "content": "ゲームにかまけてて全然ブログ書いてなかった。",
+          "transcription": "げーむにかまけててぜんぜんぶろぐかいてなかった。",
+          "mean": "I was so busy playing games that I didn't write any blog posts."
+        },
+        {
+          "content": "資料の整理にばかりかまけていては、仕事は前へ進まない。",
+          "transcription": "しりょうのせいりにばかりかまけていては、しごとはまえへすすまない。",
+          "mean": "Your work won't move forward if you focus only on organizing materials."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■N + にかまけて"
+    }
+  ],
+  "title": "にかまけて => to be too busy; to focus / concentrate only on; obsessed with ~",
+  "_id": "f7ff14dae05876cac58b4136932aa57a"
+}

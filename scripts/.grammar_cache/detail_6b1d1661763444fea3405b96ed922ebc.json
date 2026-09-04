@@ -1,0 +1,91 @@
+{
+  "level": "N3",
+  "mobileId": 5440,
+  "usages": [
+    {
+      "explain": "「というと/といえば/といったら」are used to mention something remarkable, representative, or associated with the topic (N) that the speaker heard from the other person.<br/>\n\nIn general, these structures can be interchangeable, but when asking the other person about the topic, we often use 「というと」, while 「といえば」 is mainly used in narrative sentences to talk about something that the speaker remembers from that topic.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本の山といったら、富士山です。",
+          "transcription": "にほんのやまといったら、ふじさんです。",
+          "mean": "Speaking of Japan's mountains, it is Mt. Fuji."
+        },
+        {
+          "content": "京都というと、お寺をイメージします。",
+          "transcription": "きょうとというと、おてらをイメージします。",
+          "mean": "When I think of Kyoto, I imagine a temple."
+        },
+        {
+          "content": "夏の果物といったら、やっぱりスイカだね。",
+          "transcription": "なつのくだものといったら、やっぱりスイカだね。",
+          "mean": "When it comes to summer fruits, it's definitely watermelon."
+        },
+        {
+          "content": "子供の好きな動物というと、象でしょうか。",
+          "transcription": "こどものすきなどうぶつというと、ぞうでしょうか。",
+          "mean": "When it comes to children's favorite animal, is it an elephant?"
+        },
+        {
+          "content": "日本で一番有名な大学といえば、東京大学だ。",
+          "transcription": "にほんでいちばんゆうめいなだいがくといえば、とうきょうだいがくだ。",
+          "mean": "The most famous university in Japan is the University of Tokyo."
+        },
+        {
+          "content": "デトロイト市というと、どんなイメージをしますか。",
+          "transcription": "デトロイトしというと、どんなイメージをしますか。",
+          "mean": "What image do you have when you think of the city of Detroit?"
+        },
+        {
+          "content": "難しい外国語といえば、やっぱりアラビア語かなあ。",
+          "transcription": "むずかしいがいこくごといえば、やっぱりアラビアごかなあ。",
+          "mean": "When it comes to difficult foreign languages, it has to be Arabic."
+        },
+        {
+          "content": "日本の食べ物といえば、お寿司が一番有名だと思います。",
+          "transcription": "にほんのたべものといえば、おすしがいちばんゆうめいだとおもいます。",
+          "mean": "When it comes to Japanese food, I think sushi is the most famous."
+        },
+        {
+          "content": "海外で人気のあるアニメというと、『ドラゴンボール』でしょう！",
+          "transcription": "かいがいでにんきのあるアニメというと、『ドラゴンボール』でしょう！",
+          "mean": "When it comes to anime that is popular overseas, it has to be “Dragon Ball”!"
+        },
+        {
+          "content": "最近の日本の子供がなりたい職業といったら、YouTuberだろうか。",
+          "transcription": "さいきんのにほんのこどもがなりたいしょくぎょうといったら、ユーチューバーだろうか。",
+          "mean": "If there is a job that Japanese children want to become these days, it would be to be a YouTuber."
+        },
+        {
+          "content": "山田さんといえば、彼は去年結婚したらしいです。",
+          "transcription": "やまださんといえば、かれはきょねんけっこんしたらしいです。",
+          "mean": "Speaking of Mr. Yamada, he apparently got married last year."
+        },
+        {
+          "content": "『 彼、結婚するんだって。』『彼というと安藤さん？』『そうそう。』",
+          "transcription": "『 かれ、けっこんするんだって。』『かれというとあんどうさん？』『そうそう。』",
+          "mean": "``He's getting married. ” “When you say him, do you mean Mr. Ando?” \"\"oh yeah. ”"
+        },
+        {
+          "content": "『もうすぐ12月だね。』『12月といえばクリスマスだね。』",
+          "transcription": "『もうすぐじゅうにがつだね。』『じゅうにがつといえばクリスマスだね。』",
+          "mean": "``It's almost December. ``December means Christmas. ”"
+        },
+        {
+          "content": "そういえば明日私の姉がイギリスから帰国します。",
+          "transcription": "そういえばあしたわたしのいもうとがイギリスからきこくします。",
+          "mean": "By the way, my sister will be returning from England tomorrow."
+        },
+        {
+          "content": "フランスといえば、パスポートを落として困ったことを思い出します。",
+          "transcription": "ふらんすといえば、ぱすぽーとをおとしてこまったことをおもいだします。",
+          "mean": "Speaking of France, I remember losing my passport and getting in trouble."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+というと / といえば / といったら"
+    }
+  ],
+  "title": "というと/といえば/といったら => speaking of; when you talk of; when you say ~",
+  "_id": "6b1d1661763444fea3405b96ed922ebc"
+}

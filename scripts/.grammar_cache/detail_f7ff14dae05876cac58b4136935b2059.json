@@ -1,0 +1,43 @@
+{
+  "level": "N1",
+  "mobileId": 1244,
+  "usages": [
+    {
+      "explain": "Used to talk about an extreme case among those considered negative.",
+      "note": null,
+      "examples": [
+        {
+          "content": "終わり、または結論に至っていない。",
+          "transcription": "おわり、またはけつろんにいたっていない。",
+          "mean": "Not reaching an end or conclusion."
+        },
+        {
+          "content": "10月中旬に至って交渉は妥結した。",
+          "transcription": "10つきちゅうじゅんにいたってこうしょうはだけつした。",
+          "mean": "Negotiations were concluded in mid-October."
+        },
+        {
+          "content": "不登校の生徒に対して、どの教師も何の対応もしようとせず、教頭にいたってはどこかよその学校に転校してもらえたらなどと言う始末である。",
+          "transcription": "ふとうこうのせいとにたいして、どのきょうしもなにのたいおうもしようとせず、きょうとうにいたってはどこかよそのがっこうにてんこうしてもらえたらなどというしまつである。",
+          "mean": "None of the teachers do anything about the students who don't go to school, and even the vice-principal says that they should be transferred to another school."
+        },
+        {
+          "content": "ことここにいたっては、家庭裁判所に仲裁を頼むしかないのではないだろうか。",
+          "transcription": "ことここにいたっては、かていさいばんしょにちゅうさいをたのむしかないのではないだろうか。",
+          "mean": "In this case, I think the only option is to ask the family court to arbitrate."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にいたっては"
+    },
+    {
+      "explain": "Note: The phrase [ことここにいたっては] in sentence (4) is an idiomatic expression meaning \"if the problem has become this serious.\"",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "〜にいたっては （に至っては） => when it comes to; as for ~",
+  "_id": "f7ff14dae05876cac58b4136935b2059"
+}

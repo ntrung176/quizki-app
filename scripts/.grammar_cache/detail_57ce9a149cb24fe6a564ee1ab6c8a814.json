@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 5609,
+  "usages": [
+    {
+      "explain": "「前に」<br/> \n1. When used with a verb, it indicates that action 2 (V2) occurred before action 1 (V1). Regardless of whether it happened in the past or future, V1 is always in its root form. <br/>\n2. When used with a noun, it indicates that the action V occurred before the noun N. N is a noun representing or indicating an action. <br/>\n3. When used with a time expression indicating a period, it indicates that the action V occurred before the time specified, or some time before a certain point in time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本へ来る前に、日本語を勉強しました。",
+          "transcription": "にほんへくるまえに、にほんごをべんきょうしました。",
+          "mean": "Before coming to Japan, I studied Japanese."
+        },
+        {
+          "content": "寝る前に、本を読みます。",
+          "transcription": "ねるまえに、ほんをよみます。",
+          "mean": "I read a book before going to bed."
+        },
+        {
+          "content": "食事の前に、手を洗います。",
+          "transcription": "しょくじのまえに、てをあらいます。",
+          "mean": "Wash your hands before eating."
+        },
+        {
+          "content": "離婚の前に、よく話し合いましたか。",
+          "transcription": "りこんのまえに、よくはなしあいましたか。",
+          "mean": "Did you have a good discussion before getting divorced?"
+        },
+        {
+          "content": "田中さんは1時間前に、出かけました。",
+          "transcription": "たなかさんはいちじかんまえに、でかけました。",
+          "mean": "Mr. Tanaka left an hour ago."
+        },
+        {
+          "content": "眠る1時間前には、スマホなどは見ないようにする。",
+          "transcription": "ねるいちじかんまえには、スマホなどはみないようにする。",
+          "mean": "Avoid looking at your smartphone an hour before going to bed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1 (root form)+前に、V2<br/>Nの+前に、V<br/> Quantity (time)+前に、V"
+    }
+  ],
+  "title": "前に => before; in front of ~",
+  "_id": "57ce9a149cb24fe6a564ee1ab6c8a814"
+}

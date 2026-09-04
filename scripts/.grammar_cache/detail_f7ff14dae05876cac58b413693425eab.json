@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1058,
+  "usages": [
+    {
+      "explain": "Expresses the strong affirmation, assertion of one's viewpoint on a certain matter. Often used to negate or emphasize the listener's perceptions or expectations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それはあくまでも理論に過ぎず、実際はもっと大変のではないか。",
+          "transcription": "それはあくまでもりろんにすぎず、じっさいはもっとたいへんのではないか。",
+          "mean": "This is just a theory, and in reality it may be more difficult."
+        },
+        {
+          "content": "この仕事はあくまでも一時的で、永遠にここに働くるつもりはない。",
+          "transcription": "このしごとはあくまでもいちじてきで、えいえんにここにはたらくるつもりはない。",
+          "mean": "This job is only temporary, and I don't plan on working here forever."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あくまで (も)"
+    }
+  ],
+  "title": "あくまで (も) => Whatever it is, it's just... (Point of view)",
+  "_id": "f7ff14dae05876cac58b413693425eab"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1708,
+  "usages": [
+    {
+      "explain": "Used to provide an explanation, conclusion about something the other party has said before.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そうすると、明日午前8時に出発します。",
+          "transcription": "そうすると、あしたごぜん8じにしゅっぱつします。",
+          "mean": "Then, we will leave tomorrow at 8am."
+        },
+        {
+          "content": "そうすると、約束の時間に間に合わない。",
+          "transcription": "そうすると、やくそくのじかんにまにあわない。",
+          "mean": "If you do that, you won't be able to make it on time for your appointment."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そうすると～"
+    }
+  ],
+  "title": "そうすると => having done that; if that is done; if it is done in that way",
+  "_id": "f7ff14dae05876cac58b4136939b6870"
+}

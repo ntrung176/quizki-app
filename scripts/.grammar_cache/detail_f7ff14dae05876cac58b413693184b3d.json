@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 752,
+  "usages": [
+    {
+      "explain": "<a>✦</a> Used to express the tendency towards something.<br/><a>✦</a>Often used in negative contexts.<br/><a>✦</a> Often used with words like: <br><br><p>-どうも～きらいがあるようだ</p><p>～すぎるきらいがある</p></br></br>",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はいい男だが、なんでもおおげさに言うきらいがある。",
+          "transcription": "かれはいいおとこだが、なんでもおおげさにいうきらいがある。",
+          "mean": "He's a nice guy, but he tends to exaggerate everything."
+        },
+        {
+          "content": "彼はどうも物事を悲観的に考えるきらいがある。",
+          "transcription": "かれはどうもものごとをひかんてきにかんがえるきらいがある。",
+          "mean": "He tends to think about things in a pessimistic way."
+        },
+        {
+          "content": "あの先生の講義はおもしろいのだが、いつの間にか自慢話に変わってしまうきらいがある。",
+          "transcription": "あのせんせいのこうぎはおもしろいのだが、いつのまにかじまんばなしにかわってしまうきらいがある。",
+          "mean": "That professor's lectures are interesting, but they tend to turn into bragging before you know it."
+        },
+        {
+          "content": "あの人はものごとを大げさに言うきらいがある。",
+          "transcription": "あのひとはものごとをおおげさにいうきらいがある。",
+          "mean": "That person has a tendency to exaggerate things."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<a>✦</a>V (root form) + 嫌いがある<br/><a>✦</a><span>N + の嫌いがある</span>"
+    }
+  ],
+  "title": "～きらいがある => bad habit; to have a tendency to ~",
+  "_id": "f7ff14dae05876cac58b413693184b3d"
+}

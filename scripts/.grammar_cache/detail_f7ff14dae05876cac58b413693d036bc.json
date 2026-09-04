@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2089,
+  "usages": [
+    {
+      "explain": "Used to express the idea that \"a certain situation is likely to occur.\" It is often used in contexts where \"generally it will be fine, but there might be exceptions, so I am informing you in advance.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "施設によっては、浴場以外にサウナ風呂を有する場合もある。",
+          "transcription": "しせつによっては、よくじょういがいにさうなふろをゆうするばあいもある。",
+          "mean": "Some facilities may have a sauna bath in addition to the bathhouse."
+        },
+        {
+          "content": "審査の結果、入会のご希望にそえない場合もございます。",
+          "transcription": "しんさのけっか、にゅうかいのごきぼうにそえないばあいもございます。",
+          "mean": "As a result of the screening, we may not be able to meet your request for membership."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + ばあいもある\nNa + な + ばあいもある\nA + ばあいもある\nV + ばあいもある"
+    }
+  ],
+  "title": "…ばあいもある => there are cases…",
+  "_id": "f7ff14dae05876cac58b413693d036bc"
+}

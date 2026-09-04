@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5425,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>確</rb><rp>(</rp><rt>たし</rt><rp>)</rp></ruby>かに」helps the speaker express that what they are talking about is certain; it is also used to agree or acknowledge that what the other party mentioned is correct.<br/>\n\n* Differentiating「確かに」and「確か」:<br/>\n「確か」indicates uncertainty about the information presented. \"It seems like, it appears that...\"\n「確かに」indicates certainty about the information presented. \"Certainly, not wrong, it's exactly like that...\"<br/><br/>\n\nOn the other hand,「確かに」is also used to connect two contrasting sentences with the structure「<ruby><rb>確</rb><rp>(</rp><rt>たし</rt><rp>)</rp></ruby>かに A。しかし、B」or「確かに A が、B」... The sentence with 確かに will acknowledge a certain content. While the sentences with しかし/が will express the contrasting content with the 確かに sentence, and this is the main point the speaker wants to make.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは確かにそのように見えます。",
+          "transcription": "それはたしかにそのようにみえます。",
+          "mean": "It certainly looks like that."
+        },
+        {
+          "content": "私は確かに少し疲れている。",
+          "transcription": "わたしはたしかにすこしつかれている。",
+          "mean": "I'm definitely a little tired."
+        },
+        {
+          "content": "確かに君の責任ではない。",
+          "transcription": "たしかにきみのせきにんではない。",
+          "mean": "I'm sure that's no fault of yours."
+        },
+        {
+          "content": "彼は確かに立派な人だと思う。",
+          "transcription": "かれはたしかにりっぱなひとだとおもう。",
+          "mean": "I think he's definitely a fine person."
+        },
+        {
+          "content": "僕は、彼女の言うことが確かに正しいと思う。",
+          "transcription": "ぼくは、かのじょのいうことがたしかにただしいとおもう。",
+          "mean": "I think what she says is certainly correct."
+        },
+        {
+          "content": "確かに、このペンはとても書きやすいです。",
+          "transcription": "たしかに、このペンはとてもかきやすいです。",
+          "mean": "Indeed, this pen is very easy to write with."
+        },
+        {
+          "content": "私が話をした学生達からも、確かにそういう印象を受けた。",
+          "transcription": "わたしがはなしをしたがくせいたちからも、たしかにそういういんしょうをうけた。",
+          "mean": "I certainly got that impression from the students I spoke with."
+        },
+        {
+          "content": "人生には確かに高い地位よりめざす価値のあることがたくさんある。",
+          "transcription": "じんせいにはたしかにたかいちいよりめざすかちのあることがたくさんある。",
+          "mean": "There are certainly many things in life more worth aiming for than a high position."
+        },
+        {
+          "content": "『私はこの作者のことはあまり好きではありませんが、彼の本は読む価値がありますよ。』『確かに。一理あります。』",
+          "transcription": "『わたしはこのさっかのことはあまりすきではありませんが、かれのほんはよむかちがありますよ。』『たしかに。いちりあります。』",
+          "mean": "``I don't really like this author, but his books are worth reading. \"\"surely. There's a point. ”"
+        },
+        {
+          "content": "確かに彼は格好いいが、あまり好きじゃないんだ。",
+          "transcription": "たしかにかれはかっこういいが、あまりすきじゃないんだ。",
+          "mean": "Sure, he's cool, but I don't really like him."
+        },
+        {
+          "content": "確かに、原発は低コストで大きな電力を安定して供給する。しかし、原発事故が起きた場合、その被害はとても大きなものになる。",
+          "transcription": "たしかに、げんぱつはていコストでおおきなでんりょくをあんていしてきょうきゅうする。しかし、げんぱつじこがおきたばあい、そのひがいはとてもおおきなものになる。",
+          "mean": "It is true that nuclear power plants provide a stable supply of large amounts of electricity at low cost. However, if a nuclear power plant accident were to occur, the damage would be enormous."
+        },
+        {
+          "content": "確かに、裏口入学は法律上は違法行為ではない。しかし、裏口入学は社会において許されない不正行為である。",
+          "transcription": "たしかに、うらぐちにゅうがくはほうりつじょうはいほうこういではない。しかし、うらぐちにゅうがくはしゃかいにおいてゆるされないふせいこういである。",
+          "mean": "It is true that backdoor admission is not illegal under the law. However, backdoor admission is a form of misconduct that cannot be tolerated in society."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<ruby><rb>確</rb><rp>(</rp><rt>たし</rt><rp>)</rp></ruby>かに+Sentence<br/>\n<ruby><rb>確</rb><rp>(</rp><rt>たし</rt><rp>)</rp></ruby>かに A しかし/が B"
+    }
+  ],
+  "title": "確かに => surely, certainly ~",
+  "_id": "dd2edda77a0d40f88d9dfc8fa27a9d1c"
+}

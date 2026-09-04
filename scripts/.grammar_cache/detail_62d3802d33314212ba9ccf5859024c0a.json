@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5343,
+  "usages": [
+    {
+      "explain": "「いくら～ても」is often used to emphasize that regardless of the strong condition stated in the first part, the result in the second part remains unchanged or unaffected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これはいくら安くても、買いたくない。",
+          "transcription": "これはいくらやすくても、かいたくない。",
+          "mean": "I don't want to buy this, no matter how cheap it is."
+        },
+        {
+          "content": "これは必要なので、いくら高くても買います。",
+          "transcription": "これはひつようなので、いくらたかくてもかいます。",
+          "mean": "I need this, so I'll buy it no matter how expensive it is."
+        },
+        {
+          "content": "いくら好きでも、それを伝えなければ始まらない。",
+          "transcription": "いくらすきでも、それをつたえなければはじまらない。",
+          "mean": "No matter how much you love someone, it won't start if you don't tell them."
+        },
+        {
+          "content": "生活のために仕事はいくら嫌いでもやらなければならない。",
+          "transcription": "せいかつのためにしごとはいくらきらいでもやらなければならない。",
+          "mean": "I have to work to make a living no matter how much I hate it."
+        },
+        {
+          "content": "私はいくらお酒を飲んでも顔色が変わらない。",
+          "transcription": "わたしはいくらおさけをのんでもかおいろがかわらない。",
+          "mean": "No matter how much alcohol I drink, my face never changes."
+        },
+        {
+          "content": "いくら好きでもコーラーをたくさん飲むと、身体に悪いですよ。",
+          "transcription": "いくらすきでもコーラーをたくさんのむと、しんたいにわるいですよ。",
+          "mean": "No matter how much you like it, drinking a lot of cola is bad for your health."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いくら+Vても<br/> いくら+Nでも<br/> いくら+A<s>な</s>でも<br/> いくら+A<s>い</s>くても"
+    }
+  ],
+  "title": "いくら～ても => no matter how ~",
+  "_id": "62d3802d33314212ba9ccf5859024c0a"
+}

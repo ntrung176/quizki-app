@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1134,
+  "usages": [
+    {
+      "explain": "Positioned at the beginning of a sentence to present an inference or judgment of the speaker, based on what the other party has just presented.<br/>This is a formal way of speaking, often used in writing. In spoken language, \"だったら、そうなら\" is commonly used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "だとすれば、彼女はもう会社に向かっているということだ。",
+          "transcription": "だとすれば、かのじょはもうかいしゃにむかっているということだ。",
+          "mean": "If that's the case, she's already on her way to work."
+        },
+        {
+          "content": "だとすれば、彼にはアリバイがないということになる。",
+          "transcription": "だとすれば、かれにはありばいがないということになる。",
+          "mean": "If that's the case, it means he has no alibi."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だとすれば～"
+    }
+  ],
+  "title": "だとすれば => in the case of",
+  "_id": "f7ff14dae05876cac58b4136934c94f3"
+}

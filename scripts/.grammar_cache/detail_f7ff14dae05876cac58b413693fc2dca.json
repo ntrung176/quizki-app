@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2405,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"whenever there is a reason, whenever there is a certain time, then definitely...\" Followed by expressions describing events or states, indicating that the event always repeats, or the object is always in that state. It can also be expressed as [なにかというと].",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生には何かにつけて相談にのってもらっている。",
+          "transcription": "せんせいにはなにかにつけてそうだんにのってもらっている。",
+          "mean": "I always ask my teacher for advice about something."
+        },
+        {
+          "content": "都市の中心の近くで暮らすと、何かにつけて便利です。",
+          "transcription": "としのちゅうしんのちかくでくらすと、なにかにつけてべんりです。",
+          "mean": "Living near the city center has many conveniences."
+        },
+        {
+          "content": "彼女は何かにつけて義理の母の悪口を言い触らしている。",
+          "transcription": "かのじょはなにかにつけてぎりのははのわるぐちをいいふらしている。",
+          "mean": "She always talks bad about her mother-in-law."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにかにつけて"
+    }
+  ],
+  "title": "なにかにつけて => to take every opportunity",
+  "_id": "f7ff14dae05876cac58b413693fc2dca"
+}

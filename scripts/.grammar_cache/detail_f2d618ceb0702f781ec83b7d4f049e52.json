@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 2465,
+  "usages": [
+    {
+      "explain": "Indicates the passage of time or amount of expenses. In the case of time, it can be replaced with 「たつ」, and for expenses, it can be replaced with 「かかる」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ベトナムまで往復でいくらぐらいしますか。",
+          "transcription": "べとなむまでおうふくでいくらぐらいしますか。",
+          "mean": "How much does a round trip to Vietnam cost?"
+        },
+        {
+          "content": "そのホテルは一泊3万円もする。",
+          "transcription": "そのほてるはいちはく3まんえんもする。",
+          "mean": "The hotel costs 30,000 yen per night."
+        },
+        {
+          "content": "15分ほどして戻りますのでお待ちください。",
+          "transcription": "15ふんほどしてもどりますのでおまちください。",
+          "mean": "I'll be back in about 15 minutes, so please wait."
+        },
+        {
+          "content": "この球根は植えて三ヶ月したら芽がでます。",
+          "transcription": "このきゅうこんはうえてさんかげつしたらめがでます。",
+          "mean": "These bulbs will sprout within three months after being planted."
+        },
+        {
+          "content": "あんな建て方では5年しないうちに壊れる。",
+          "transcription": "あんなたてかたでは5ねんしないうちにこわれる。",
+          "mean": "If it were built that way, it would collapse within five years."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word+ する"
+    }
+  ],
+  "title": "Từ chỉ số lượng + する => it takes (a time) to...",
+  "_id": "f2d618ceb0702f781ec83b7d4f049e52"
+}

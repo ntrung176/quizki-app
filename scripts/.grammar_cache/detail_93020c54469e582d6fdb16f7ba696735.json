@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 3051,
+  "usages": [
+    {
+      "explain": "Modify verbs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "常に注意深くしていなければならない。",
+          "transcription": "つねにちゅういぶかくしていなければならない。",
+          "mean": "You must always be attentive."
+        },
+        {
+          "content": "彼はプロにサッカーをする。",
+          "transcription": "かれはぷろにさっかーをする。",
+          "mean": "He plays soccer professionally."
+        }
+      ],
+      "mean": ": to make something ~",
+      "synopsis": "Aい → く／N・Aな → に ＋ する"
+    }
+  ],
+  "title": "～く/ ～にする      => to make something ~",
+  "_id": "93020c54469e582d6fdb16f7ba696735"
+}

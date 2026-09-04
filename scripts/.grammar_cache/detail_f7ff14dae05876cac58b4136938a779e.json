@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1576,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"coming\" or \"arriving\". It's the honorific form of 「来る」. Similar to 「いらっしゃる」「おいでになる」. To express even more respect, you can use 「...がお見えになる」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨日、山下さんが挨拶に見えた。",
+          "transcription": "きのう、やましたさんがあいさつにみえた。",
+          "mean": "Yesterday, Mr. Yamashita appeared to be greeting me."
+        },
+        {
+          "content": "今週末のパーティーには、吉田さんも見えるはずだ。",
+          "transcription": "こんしゅうまつのぱーてぃーには、よしださんもみえるはずだ。",
+          "mean": "Yoshida-san will probably be seen at the party this weekend."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + がみえる（見える）"
+    }
+  ],
+  "title": "がみえる => to look; to seem; to appear",
+  "_id": "f7ff14dae05876cac58b4136938a779e"
+}

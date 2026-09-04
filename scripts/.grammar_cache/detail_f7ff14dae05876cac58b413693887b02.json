@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1560,
+  "usages": [
+    {
+      "explain": "This is a way of speaking used for evaluation. Used in conjunction with negative expressions to emphasize the negative meaning. Often used in cases of higher evaluation than usual.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんなに良い歌は最近ちょっとない。",
+          "transcription": "こんなによいうたはさいきんちょっとない。",
+          "mean": "There aren't many songs this good these days."
+        },
+        {
+          "content": "この漫画は読み出したらちょっとやめられませんよ。",
+          "transcription": "このまんがはよみだしたらちょっとやめられませんよ。",
+          "mean": "Once you start reading this manga, you won't be able to put it down."
+        },
+        {
+          "content": "山北さんのあんな演説は、ちょっとほかの人にはまねができないだろう。",
+          "transcription": "やまきたさんのあんなえんぜつは、ちょっとほかのひとにはまねができないだろう。",
+          "mean": "No one else would be able to imitate Mr. Yamakita's speech like that."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ちょっと…ない"
+    }
+  ],
+  "title": "ちょっと…ない => (not) at all; (not) in the least ~",
+  "_id": "f7ff14dae05876cac58b413693887b02"
+}

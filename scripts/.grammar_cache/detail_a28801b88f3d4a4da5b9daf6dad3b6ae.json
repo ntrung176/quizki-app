@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5581,
+  "usages": [
+    {
+      "explain": "「だ/です」comes after nouns, adjectives ending in い, or adjectives ending in な to form predicates, indicating the speaker's judgment or affirmation about something.「です」is used in polite, formal conversations, while「だ」is used in casual conversations among close acquaintances.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今年は22歳です。",
+          "transcription": "ことしはにじゅうにさいです。",
+          "mean": "I'm 22 years old this year."
+        },
+        {
+          "content": "雪ちゃんは日本人だよ。",
+          "transcription": "ゆきちゃんはにほんじんだよ。",
+          "mean": "Yuki-chan is Japanese."
+        },
+        {
+          "content": "私はベトナム人です。",
+          "transcription": "わたしはベトナムじんです。",
+          "mean": "I'm Vietnamese."
+        },
+        {
+          "content": "母は銀行員です。",
+          "transcription": "はははぎんこういんです。",
+          "mean": "My mother is a bank employee."
+        },
+        {
+          "content": "兄は大学生です。",
+          "transcription": "あにはだいがくせいです。",
+          "mean": "My brother is a university student."
+        },
+        {
+          "content": "私の名前は木村です。",
+          "transcription": "わたしのなまえはきむらです。",
+          "mean": "My name is Kimura."
+        },
+        {
+          "content": "彼女は綺麗ですね。",
+          "transcription": "かのじょはきれいですね。",
+          "mean": "She's beautiful."
+        },
+        {
+          "content": "今日は暑いだね。",
+          "transcription": "きょうはあついだね。",
+          "mean": "It's hot today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい/A<s>な</s>/N+です<br/> Aい/A<s>な</s>/N+だ"
+    }
+  ],
+  "title": "だ/です => to be",
+  "_id": "a28801b88f3d4a4da5b9daf6dad3b6ae"
+}

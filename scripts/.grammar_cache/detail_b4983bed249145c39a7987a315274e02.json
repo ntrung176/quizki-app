@@ -1,0 +1,61 @@
+{
+  "level": "N1",
+  "mobileId": 5085,
+  "usages": [
+    {
+      "explain": "「という」emphasizes the idea of entirety, everything that is being talked about (i.e., the noun N is repeated before and after「という」).<br/>\nIn negative sentences,「という」expresses the idea of something not really being what is being talked about.<br/>\nAdditionally, there are idiomatic expressions using「という」such as 今日という今日、今度という今度... meaning: precisely/exactly...",
+      "note": null,
+      "examples": [
+        {
+          "content": "娘の部屋は壁という壁に初音ミクのポスターが貼ってある。",
+          "transcription": "むすめのへやはかべというかべにはつねミクのポスターがはってある。",
+          "mean": "My daughter's room has a poster of Hatsune Miku on the wall."
+        },
+        {
+          "content": "新聞をこの地域の家という家に配って歩いた。",
+          "transcription": "しんぶんをこのちいきのいえといういえにくばってあるいた。",
+          "mean": "I went around distributing newspapers to houses in the area."
+        },
+        {
+          "content": "家に変な匂いがこもったので、窓という窓を全部開けた。",
+          "transcription": "いえにへんなにおいがこもったので、まどというまどをぜんぶあけた。",
+          "mean": "There was a strange smell in the house, so I opened all the windows."
+        },
+        {
+          "content": "世の中の不運という不運を全て集めたかのような彼の人生に誰もが同情した。",
+          "transcription": "よのなかのふうんというふうんをすべてあつめたかのようなかれのじんせいにだれもがどうじょうした。",
+          "mean": "Everyone sympathized with his life, which seemed to be a collection of all the bad luck in the world."
+        },
+        {
+          "content": "贅沢という贅沢を人生であまりしたことがない。",
+          "transcription": "ぜいたくというぜいたくをじんせいであまりしたことがない。",
+          "mean": "I have never had much luxury in my life."
+        },
+        {
+          "content": "産まれてこのかた50年、病気という病気をしたことがありません。",
+          "transcription": "うまれてこのかたごじゅうねん、びょうきというびょうきをしたことがありません。",
+          "mean": "In the 50 years since I was born, I have never had an illness."
+        },
+        {
+          "content": "彼はこれまで、苦労という苦労をせずに生きてきたんだろう。",
+          "transcription": "かれはこれまで、くろうというくろうをせずにいきてきたんだろう。",
+          "mean": "He must have lived his life without any hardships."
+        },
+        {
+          "content": "今日という今日は、このレポートをやり遂げなければならない。",
+          "transcription": "きょうというきょうは、このレポートをやりとげなければならない。",
+          "mean": "Today, I have to finish this report."
+        },
+        {
+          "content": "今度という今度は、どんなに謝ってもあいつを許さないことにした。",
+          "transcription": "こんどというこんどは、どんなにあやまってもあいつをゆるさないことにした。",
+          "mean": "This time, no matter how much I apologized, I decided not to forgive him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N という N"
+    }
+  ],
+  "title": "という => to be called, said, named, etc. · to define something. · to emphasize something. · they say; people say",
+  "_id": "b4983bed249145c39a7987a315274e02"
+}

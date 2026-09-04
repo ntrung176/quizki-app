@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2446,
+  "usages": [
+    {
+      "explain": "This phrase describes making an assumption that leads to a negative or unfavorable outcome according to the speaker's judgment.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は手術したばかりだから、お見舞いに行ってはかえって迷惑だ。",
+          "transcription": "かのじょはしゅじゅつしたばかりだから、おみまいにいってはかえってめいわくだ。",
+          "mean": "She just had surgery, so visiting her would be a nuisance."
+        },
+        {
+          "content": "そんな無責任な態度ではみんなに嫌われますよ。",
+          "transcription": "そんなむせきにんなたいどではみんなにきらわれますよ。",
+          "mean": "With such an irresponsible attitude, everyone will hate you."
+        },
+        {
+          "content": "指導者がそんなに不公平では誰も尊重しません。",
+          "transcription": "しどうしゃがそんなにふこうへいではだれもそんちょうしません。",
+          "mean": "If a leader is so unfair, no one will respect him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vては<br/>Aくては<br/>Naでは<br/>Nでは<br/><br/><br/>"
+    }
+  ],
+  "title": "ては => if",
+  "_id": "f2d618ceb0702f781ec83b7d4f01f2a7"
+}

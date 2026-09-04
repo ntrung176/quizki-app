@@ -1,0 +1,45 @@
+{
+  "level": "N4",
+  "mobileId": 2809,
+  "usages": [
+    {
+      "explain": "Used when the asker wants to confirm whether the information matches their assumption.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんは時々中国語を使いますね。中国に住んでいたんですか。",
+          "transcription": "やまださんはときどきちゅうごくごをつかいますね。ちゅうごくにすんでいたんですか。",
+          "mean": "Mr. Yamada sometimes uses Chinese. Did you live in China?"
+        },
+        {
+          "content": "いい腕時計ですね。どこで買ったんですか。",
+          "transcription": "いいうでどけいですね。どこでかったんですか。",
+          "mean": "It's a nice watch. Where did you buy it?"
+        },
+        {
+          "content": "どうして会社を辞めたんですか。",
+          "transcription": "どうしてかいしゃをやめたんですか。",
+          "mean": "Why did you leave the company?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んだか The polite form is 「んですか」"
+    },
+    {
+      "explain": "Used when the asker wants to know about the information they heard or saw.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": "Used when the asker wants to know the reason for the situation they heard or saw.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "んだか => Confirm and provide information",
+  "_id": "f2d618ceb0702f781ec83b7d4f31b13c"
+}

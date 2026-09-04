@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1122,
+  "usages": [
+    {
+      "explain": "Expressing the meaning \"as if about to...\", even though it's not actually the case.",
+      "note": null,
+      "examples": [
+        {
+          "content": "行きたかった大学に合格した息子は、飛び上がらんばかりに喜んでいた。<br>",
+          "transcription": "いきたかっただいがくにごうかくしたむすこは、とびあがらんばかりによろこんでいた。<br>",
+          "mean": "My son was so happy that he was accepted into the university he wanted to go to. &lt;br&gt;"
+        },
+        {
+          "content": "うちの猫は、私が家に帰ると「寂しかった！」と言わんばかりに近寄ってくる。",
+          "transcription": "うちのねこは、わたしがいえにかえると「さびしかった！」といわんばかりにちかよってくる。",
+          "mean": "When I get home, my cat approaches me as if to say, \"I missed you!\""
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ない + ん + ばかり"
+    }
+  ],
+  "title": "... ばかり => only; just ~",
+  "_id": "f7ff14dae05876cac58b4136934b11eb"
+}

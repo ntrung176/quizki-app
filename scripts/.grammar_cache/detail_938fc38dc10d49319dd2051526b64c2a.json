@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5429,
+  "usages": [
+    {
+      "explain": "「て済む」expresses the meaning: it's enough to do just this, to resolve something, to be okay without any further trouble.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その夜は何の事故もなくて済んだ。",
+          "transcription": "そのよるはなんのじこもなくてすんだ。",
+          "mean": "That night passed without any incidents."
+        },
+        {
+          "content": "台風が近づいてきているから、明日は学校に行かなくて済みそうだ。",
+          "transcription": "たいふうがちかづいてきているから、あしたはがっこうにいかなくてすみそうだ。",
+          "mean": "The typhoon is approaching, so it looks like I won't have to go to school tomorrow."
+        },
+        {
+          "content": "ちょうど熱が出たから、学校に行かなくて済んだ。",
+          "transcription": "ちょうどねつがでたから、がっこうにいかなくてすんだ。",
+          "mean": "I just had a fever so I didn't have to go to school."
+        },
+        {
+          "content": "これでこれ以上の義務を負わなくて済む。",
+          "transcription": "これでこれいじょうのぎむをおわなくてすむ。",
+          "mean": "That absolves me from further responsibility."
+        },
+        {
+          "content": "スマホの修理に出したが、2000円で済んだ。",
+          "transcription": "スマホのしゅうりにだしたが、にせんえんですんだ。",
+          "mean": "I sent my smartphone in for repair, but it only cost 2,000 yen."
+        },
+        {
+          "content": "少しお時間いただけませんか、5分で済みますから。",
+          "transcription": "すこしおじかんいただけませんか、ごふんですみますから。",
+          "mean": "Could you spare a moment? It only takes 5 minutes."
+        },
+        {
+          "content": "予約だったら、わざわざ店に行かなくても、電話1本で済むよ。",
+          "transcription": "よやくだったら、わざわざみせにいかなくても、でんわいっぽんですむよ。",
+          "mean": "If you make a reservation, you don't have to go to the store, just make a phone call."
+        },
+        {
+          "content": "お金で済む事ならいくらでも出す。",
+          "transcription": "おかねですむことならいくらでもだす。",
+          "mean": "I'll give as much as I can if I can get away with it."
+        },
+        {
+          "content": "髪が短いとシャンプーが少なくて済むので経済的だ。",
+          "transcription": "かみがみじかいとシャンプーがすくなくてすむのでけいざいてきだ。",
+          "mean": "Short hair means you need less shampoo, so it's economical."
+        },
+        {
+          "content": "レストランのクーポンを持ってるので、今日の食事は安くて済む。",
+          "transcription": "レストランのクーポンをもってるので、きょうのしょくじはやすくてすむ。",
+          "mean": "I have a restaurant coupon, so today's meal will be cheap."
+        },
+        {
+          "content": "スタイリングはなるべく簡単で済むようにしています。",
+          "transcription": "スタイリングはなるべくかんたんですむようにしています。",
+          "mean": "I try to keep the styling as simple as possible."
+        },
+        {
+          "content": "両隣の駅と比べるとお店も少なく物足りないが、逆に静かで済むにはよい。",
+          "transcription": "りょうどなりのえきとくらべるとおみせもすくなくものたりないが、ぎゃくにしずかですむにはよい。",
+          "mean": "Compared to the stations on both sides, there aren't many shops, so it's a bit lacking, but on the other hand, it's nice to be quiet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+済む<br/>Nで+済む<br/>A<s>い</s>くて+済む<br/>A<s>な</s>で+済む<br/>"
+    }
+  ],
+  "title": "て済む => sufficient by; no problem to; resolve by ~",
+  "_id": "938fc38dc10d49319dd2051526b64c2a"
+}

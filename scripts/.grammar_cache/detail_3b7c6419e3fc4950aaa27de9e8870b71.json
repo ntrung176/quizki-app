@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5409,
+  "usages": [
+    {
+      "explain": "「最中に」 means \"in the midst of,\" \"right in the middle of,\" or \"while something is happening.\" It refers to a situation where an unexpected event occurs, which interrupts or disrupts the ongoing action or situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "食事の最中に、お客さんが来た。",
+          "transcription": "しょくじのさいちゅうに、おきゃくさんがきた。",
+          "mean": "A customer came in during the meal."
+        },
+        {
+          "content": "会議をしている最中に携帯電話が鳴った。",
+          "transcription": "かいぎをしているさいちゅうに、けいたいでんわがなった。",
+          "mean": "While I was in a meeting, my cell phone rang."
+        },
+        {
+          "content": "引っ越しの最中に雨が降り出した。",
+          "transcription": "ひっこしのさいちゅうにあめがふりだした。",
+          "mean": "It started raining while we were moving."
+        },
+        {
+          "content": "人が話している最中に口を挟まないでください。",
+          "transcription": "ひとがはなしているさいちゅうに、くちをはさまないでください。",
+          "mean": "Don't interrupt while people are talking."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの+最中に / 最中だ<br/> Vている+最中に / 最中だ"
+    }
+  ],
+  "title": "最中に => while; during; in the middle of ~",
+  "_id": "3b7c6419e3fc4950aaa27de9e8870b71"
+}

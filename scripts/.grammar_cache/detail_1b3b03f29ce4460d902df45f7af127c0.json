@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5166,
+  "usages": [
+    {
+      "explain": "「～まえ/までして」 expresses the idea of going so far as to do something undesirable or extreme in order to achieve a goal. This structure conveys the speaker's criticism of that action, suggesting that it was unnecessary, excessive, lacking consideration, or not well thought out.",
+      "note": null,
+      "examples": [
+        {
+          "content": "借金してまで海外旅行に行くなんて、私には信じられない。",
+          "transcription": "しゃっきんしてまでかいがいりょこうにいくなんて、わたしにはしんじられない。",
+          "mean": "I can't believe people would go to the extent of borrowing money to travel abroad."
+        },
+        {
+          "content": "いやな思いをしてまで彼女と付き合うことないよ。",
+          "transcription": "いやなおもいをしてまでかのじょとつきあうことないよ。",
+          "mean": "I won't go out with her even if I feel bad about it."
+        },
+        {
+          "content": "親に嘘をついてまでも遊びに行きたくない。",
+          "transcription": "おやにうそをついてまでもあそびにいきたくない。",
+          "mean": "I don't want to go out and have fun even if I have to lie to my parents."
+        },
+        {
+          "content": "会社を休んでまで、子供の運動会に来るなんて、熱心な親だ。",
+          "transcription": "かいしゃをやすんでまで、こどものうんどうかいにくるなんて、ねっしんなおやだ。",
+          "mean": "He is a devoted parent who even takes time off from work to come to his child's sports day."
+        },
+        {
+          "content": "犯人は顔まで変えて逃げ続けた。",
+          "transcription": "はんにんはかおまでかえてにげつづけた。",
+          "mean": "The criminal changed his face and continued to run away."
+        },
+        {
+          "content": "株のために借金までするなんて、本当にバカだね。",
+          "transcription": "かぶのためにしゃっきんまでするなんて、ほんとうにバカだね。",
+          "mean": "It's really stupid to go to the extent of borrowing money to buy stocks."
+        },
+        {
+          "content": "カンニングまでしてテストでいい点を取りたいとは思わない。",
+          "transcription": "カンニングまでしてテストでいいてんをとりたいとはおもわない。",
+          "mean": "I don't want to cheat to get a good score on a test."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+まで(も)<br/> Nまで+Vて"
+    }
+  ],
+  "title": "～てまで/までして => even; will go far so as to ~",
+  "_id": "1b3b03f29ce4460d902df45f7af127c0"
+}

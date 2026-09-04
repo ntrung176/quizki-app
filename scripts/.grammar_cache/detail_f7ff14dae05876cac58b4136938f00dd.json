@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1609,
+  "usages": [
+    {
+      "explain": "Follows a phrase about something and expresses the feeling that: it is only natural that it happens. Often includes reasons or causes explaining why it is considered natural. The 「...のも」 can be omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "鈴木さんが立腹するのも無理もない。",
+          "transcription": "すずきさんがりっぷくするのもむりもない。",
+          "mean": "No wonder Suzuki is angry."
+        },
+        {
+          "content": "彼女がパーティーに来なかったのは無理もない。",
+          "transcription": "かのじょがぱーてぃーにこなかったのはむりもない。",
+          "mean": "No wonder she didn't come to the party."
+        },
+        {
+          "content": "彼女が子供たちを自慢に思うのも無理もない。",
+          "transcription": "かのじょがこどもたちをじまんにおもうのもむりもない。",
+          "mean": "No wonder she's proud of her children."
+        }
+      ],
+      "mean": null,
+      "synopsis": "のも無理もない often comes after a phrase talking about an event."
+    }
+  ],
+  "title": "のも無理もない => (to be) natural,(to be) understandable",
+  "_id": "f7ff14dae05876cac58b4136938f00dd"
+}

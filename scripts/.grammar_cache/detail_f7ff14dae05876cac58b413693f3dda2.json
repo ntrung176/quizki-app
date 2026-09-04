@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2342,
+  "usages": [
+    {
+      "explain": "Speculating about an event that one believes could have happened differently. In the final clause, one typically uses speculative or predictive expressions like (だろう/ はずだ/ かもしれない/ にちがいない/ と思う)... If the verb form of the sentence is in the past tense, it indicates that the truth in the past differs from the described event. However, if it's in the dictionary form (present tense), it expresses that the current situation would be different.",
+      "note": null,
+      "examples": [
+        {
+          "content": "よく考えればこの問題の答えはわかったはずだ。",
+          "transcription": "よくかんがえればこのもんだいのこたえはわかったはずだ。",
+          "mean": "If you think about it carefully, you should know the answer to this question."
+        },
+        {
+          "content": "あの馬に賭ければ勝つかもしれない。",
+          "transcription": "あのうまにかければかつかもしれない。",
+          "mean": "That horse may be a good bet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば…はずだ"
+    }
+  ],
+  "title": "…ば…はずだ => If ... then perhaps ...",
+  "_id": "f7ff14dae05876cac58b413693f3dda2"
+}

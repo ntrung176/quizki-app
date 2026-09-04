@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2195,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"despite many situations and reasons, but still...\". Used when giving reminders, advice, or requests after acknowledging the situation and reasons provided by the other person.",
+      "note": null,
+      "examples": [
+        {
+          "content": "場合は何にしろ、その行動は犯罪だ。",
+          "transcription": "ばあいはなににしろ、そのこうどうははんざいだ。",
+          "mean": "Whatever the case, that action is a crime."
+        },
+        {
+          "content": "理由は何にしろ、火事を起こしたことについては責任をとってもらいます。",
+          "transcription": "りゆうはなににしろ、かじをおこしたことについてはせきにんをとってもらいます。",
+          "mean": "Regardless of the reason, we will hold you accountable for causing the fire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+なんにしろ"
+    }
+  ],
+  "title": "なんにしろ => at any rate; after all; anyhow; anyway; in any case",
+  "_id": "f7ff14dae05876cac58b413693dfa1d5"
+}

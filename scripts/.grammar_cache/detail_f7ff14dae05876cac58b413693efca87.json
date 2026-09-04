@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2308,
+  "usages": [
+    {
+      "explain": "Conveys the meaning: although difficult and challenging, eventually it gets done. There's no sense of urgency as in the case with 「やっと」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "知人の推薦のおかげで、ようやくこの会社に入っている。",
+          "transcription": "ちじんのすいせんのおかげで、ようやくこのかいしゃにはいっている。",
+          "mean": "Thanks to a recommendation from an acquaintance, I finally joined this company."
+        },
+        {
+          "content": "患者は、人口心肺装置を使って、ようやく生命が続いている。",
+          "transcription": "かんじゃは、じんこうしんぱいそうちをつかって、ようやくせいめいがつづいている。",
+          "mean": "The patient is finally being kept alive using a heart-lung machine."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ようやく + V－ている"
+    }
+  ],
+  "title": "ようやく => only just",
+  "_id": "f7ff14dae05876cac58b413693efca87"
+}

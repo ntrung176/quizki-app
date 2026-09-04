@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5134,
+  "usages": [
+    {
+      "explain": "「以上は」expresses the idea that once a situation described in the preceding clause has been reached, then the action or event described in the following clause is natural, necessary, or must be done. This structure conveys the speaker's assertion, determination, or is used to give advice or prohibition to the listener. It's a formal structure with a similar meaning to「からには」and「上は」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "行くと約束した以上、行かないわけにはいかない。",
+          "transcription": "いくとやくそくしたいじょう、いかないわけにはいかない。",
+          "mean": "Since I promised to go, I have no choice but to go."
+        },
+        {
+          "content": "権利を主張する以上は義務を果たさなければならない。",
+          "transcription": "けんりをしゅちょうするいじょうはぎむをはたさなければならない。",
+          "mean": "As long as you claim your rights, you must fulfill your obligations."
+        },
+        {
+          "content": "試験を受けなかった以上、進級は認められない。",
+          "transcription": "しけんをうけなかったいじょう、しんきゅうはみとめられない。",
+          "mean": "Since you did not take the exam, you will not be allowed to advance."
+        },
+        {
+          "content": "学生である以上、アルバイトではなく勉強が大事ですよ。",
+          "transcription": "がくせいであるいじょう、アルバイトではなくべんきょうがだいじですよ。",
+          "mean": "As a student, studying is more important than part-time work."
+        },
+        {
+          "content": "競馬好きである以上、その魅力を多くの人に知らしめたい。",
+          "transcription": "けいばすきであるいじょう、そのみりょくをおおくのひとにしらしめたい。",
+          "mean": "As someone who loves horse racing, I want to share its appeal with as many people as possible."
+        },
+        {
+          "content": "失敗する確率が高い以上は、計画を変更せざるをえない。",
+          "transcription": "しっぱいするかくりつがたかいいじょうは、けいかくをへんこうせざるをえない。",
+          "mean": "If the probability of failure is high, the plan must be changed."
+        },
+        {
+          "content": "約束した以上は守らなければならない。",
+          "transcription": "やくそくしたいじょうはまもらなければならない。",
+          "mean": "You must keep what you promise."
+        },
+        {
+          "content": "日本に住んでいる以上は日本の法律に従わなければならない。",
+          "transcription": "にっぽんにすんでいるいじょうはにっぽんのほうりつにしたがわなければならない。",
+          "mean": "As long as you live in Japan, you must obey Japanese laws."
+        },
+        {
+          "content": "契約を結ぶ以上は条件を慎重に検査しなければならない。",
+          "transcription": "けいやくをむすぶいじょうはじょうけんをしんちょうにけんさしなければならない。",
+          "mean": "Before signing a contract, you must carefully examine the terms and conditions."
+        },
+        {
+          "content": "医者になると決めた以上は苦しても頑張らなければならない。",
+          "transcription": "いしゃになるときめたいじょうはくるしてもがんばらなければならない。",
+          "mean": "Once you have decided to become a doctor, you have to do your best even if it is difficult."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+以上(は)<br/>Aい (formal form)+以上(は)<br/>Aな (formal form)+以上(は)<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>である)<br/>N (formal form)+以上(は)<br/>(In this particular case: Nだ ➔ N<s>だ</s>である)"
+    }
+  ],
+  "title": "以上(は) => because; since; seeing that ~",
+  "_id": "c18258915c5c48319f6cb590358bc875"
+}

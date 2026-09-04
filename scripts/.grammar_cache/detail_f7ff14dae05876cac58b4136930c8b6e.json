@@ -1,0 +1,43 @@
+{
+  "level": "N1",
+  "mobileId": 665,
+  "usages": [
+    {
+      "explain": "✦It is an emphatic sentence pattern.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今更公開しても始まらない。",
+          "transcription": "いまさらこうかいしてもはじまらない。",
+          "mean": "Even if I release it now, it won't start."
+        },
+        {
+          "content": "感傷的になっても始まらないわ。",
+          "transcription": "かんしょうてきになってもはじまらないわ。",
+          "mean": "I can't help but get sentimental."
+        },
+        {
+          "content": "今更担当者に攻めても始まらないのよ。",
+          "transcription": "いまさらたんとうしゃにせめてもはじまらないのよ。",
+          "mean": "Even if you attack the person in charge now, it won't start."
+        },
+        {
+          "content": "くよくよしても始まらないと思う。",
+          "transcription": "くよくよしてもはじまらないとおもう。",
+          "mean": "I don't think it will start no matter how much I worry about it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V-てもはじまらない"
+    },
+    {
+      "explain": "✦Note: often used with the adverb いまさら to emphasize the present moment.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～てもはじまらない => even if you… it's no use; there is no point to ~",
+  "_id": "f7ff14dae05876cac58b4136930c8b6e"
+}

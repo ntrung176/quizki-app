@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 2351,
+  "usages": [
+    {
+      "explain": "Used for cases where the speaker has negative thoughts about the action (repeated many times), that habit. In other words, it's used in cases where one wants to say \"doing the same thing repeatedly many times\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "兄は毎日あきずにインスタントラーメンばかり食べている。",
+          "transcription": "あにはまいにちあきずにいんすたんとらーめんばかりたべている。",
+          "mean": "My brother eats nothing but instant ramen every day."
+        },
+        {
+          "content": "物価は上がるばかりだ。",
+          "transcription": "ぶっかはあがるばかりだ。",
+          "mean": "Prices are only going up."
+        },
+        {
+          "content": "彼女は身の不幸を嘆いているばかりだ。",
+          "transcription": "かのじょはみのふこうをなげいているばかりだ。",
+          "mean": "She is just lamenting her misfortune."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N ＋ ばかり\nV-る/ V-ている＋ばかり"
+    },
+    {
+      "explain": "Note: When \"ばかり\" comes after a noun, if it precedes the particles が or を, it will become \"ばかりが\" or \"ばかりを\". However, often the particles が or を are omitted. In other cases, it takes the form \"noun + particle + ばかり\".",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ばかり => only; just ~ (negative description)",
+  "_id": "f7ff14dae05876cac58b413693f50af3"
+}

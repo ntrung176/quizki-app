@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3095,
+  "usages": [
+    {
+      "explain": "When connecting two nouns together, we use the particle [と].",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの事務所に鈴木さんとナムさんがいます。",
+          "transcription": "あのじむしょにすずきさんとなむさんがいます。",
+          "mean": "Mr. Suzuki and Mr. Nam are in that office."
+        },
+        {
+          "content": "国立銀行は土曜日と日曜日が休みです。",
+          "transcription": "こくりつぎんこうはどようびとにちようびがやすみです。",
+          "mean": "National banks are closed on Saturdays and Sundays."
+        }
+      ],
+      "mean": ": and~",
+      "synopsis": "N1 とN2"
+    }
+  ],
+  "title": "～と      => and~",
+  "_id": "93020c54469e582d6fdb16f7ba5e79fa"
+}

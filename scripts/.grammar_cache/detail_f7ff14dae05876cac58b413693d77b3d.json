@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 2133,
+  "usages": [
+    {
+      "explain": "Sentences (1) to (3) list similar events for emphasis, while sentences (4) and (5) list contrasting events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山下さんは心臓が悪いくせに酒も飲めばたばこも吸う。",
+          "transcription": "やましたさんはしんぞうがわるいくせにさけものめばたばこもすう。",
+          "mean": "Although Mr. Yamashita has a heart condition, he drinks alcohol and smokes."
+        },
+        {
+          "content": "田中さんは器用な男で料理もできれば裁縫もできる。",
+          "transcription": "たなかさんはきようなおとこでりょうりもできればさいほうもできる。",
+          "mean": "Mr. Tanaka is a handy man who can cook and sew."
+        },
+        {
+          "content": "賞状なんかもらっても、うれしくもなければ、名誉だとも思わない。",
+          "transcription": "しょうじょうなんかもらっても、うれしくもなければ、めいよだともおもわない。",
+          "mean": "Even if I receive a certificate, I don't feel happy or consider it an honor."
+        },
+        {
+          "content": "猫が好きな人もいれば、嫌いな人もいる。",
+          "transcription": "ねこがすきなひともいれば、きらいなひともいる。",
+          "mean": "Some people like cats, and some people hate them."
+        },
+        {
+          "content": "仕事にも人生にも良い時もあれば悪い時もある。",
+          "transcription": "しごとにもじんせいにもよいときもあればわるいときもある。",
+          "mean": "There are good times and bad times in work and life."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…も…Vれば…も"
+    }
+  ],
+  "title": "…も…ば…も => and; also; as well; either/or; neither/nor",
+  "_id": "f7ff14dae05876cac58b413693d77b3d"
+}

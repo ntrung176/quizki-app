@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1146,
+  "usages": [
+    {
+      "explain": "Describing an unforeseen event occurring after performing a certain action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "病気になったはずみに2キロ痩せてしまった。",
+          "transcription": "びょうきになったはずみに2きろやせてしまった。",
+          "mean": "I lost 2 kg after getting sick."
+        },
+        {
+          "content": "衝突のはずみで、運転手はくるまから放り出された。",
+          "transcription": "しょうとつのはずみで、うんてんしゅはくるまからほうりだされた。",
+          "mean": "The driver was thrown from the vehicle during the collision."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + はずみ で／にV一た + はずみ で／に"
+    }
+  ],
+  "title": "... はずみ.... => So",
+  "_id": "f7ff14dae05876cac58b4136934e07aa"
+}

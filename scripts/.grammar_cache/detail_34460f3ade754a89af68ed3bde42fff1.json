@@ -1,0 +1,81 @@
+{
+  "level": "N3",
+  "mobileId": 5349,
+  "usages": [
+    {
+      "explain": "「代わりに」has several meanings:<br/>1. It is used to substitute one person, action, or thing with another. \"Instead of/In place of...\"\n<br/>2. Despite having some good aspects, there are also negative aspects or vice versa (showing the positive and negative sides of an object or issue). \"In return...\"\n<br/>3. To do one thing in exchange for another. \"In return...\"\n<br/>Note: Meaning 1 is only used with nouns and verbs in the dictionary form. Meanings 2 and 3 can be used with nouns, verbs, and adjectives in their regular forms.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私が部長の代わりに出張に行きます。",
+          "transcription": "わたしがぶちょうのかわりにしゅっちょうにいきます。",
+          "mean": "I will go on a business trip in place of the manager."
+        },
+        {
+          "content": "今朝はコーヒーの代わりにお茶を飲んだ。",
+          "transcription": "けさはコーヒーのかわりにおちゃをのんだ。",
+          "mean": "This morning I drank tea instead of coffee."
+        },
+        {
+          "content": "今日は仕事へ車で行く代わりに自転車で行った。",
+          "transcription": "きょうはしごとへくるまでいくかわりにじてんしゃでいった。",
+          "mean": "I went to work today by bicycle instead of driving."
+        },
+        {
+          "content": "お箸がないので、その代わりにフォークを使う。",
+          "transcription": "おはしがないので、そのかわりにフォークをつかう。",
+          "mean": "I don't have chopsticks, so I use a fork instead."
+        },
+        {
+          "content": "車で来たので、ビールの代わりにジュースをください。",
+          "transcription": "くるまできたので、ビールのかわりにジュースをください。",
+          "mean": "I came by car, so I'd like some juice instead of beer."
+        },
+        {
+          "content": "あなたの国では水の代わりにビールを飲むって本当ですか。",
+          "transcription": "あなたのくにではみずのかわりにビールをのむってほんとうですか。",
+          "mean": "Is it true that people drink beer instead of water in your country?"
+        },
+        {
+          "content": "今年の正月はいつものように故郷に帰る代わりに両親と旅行したい。",
+          "transcription": "ことしのしょうがつはいつものようにふるさとにかえるかわりにりょうしんとりょこうしたい。",
+          "mean": "This New Year, I want to travel with my parents instead of going back to my hometown like usual."
+        },
+        {
+          "content": "この地方は買い物に便利で楽な生活を送れる代わりにちょっとうるさい。",
+          "transcription": "このちほうはかいものにべんりでらくなせいかつをおくれるかわりにちょっとうるさい。",
+          "mean": "Although this region is convenient for shopping and offers a comfortable lifestyle, it is a bit noisy."
+        },
+        {
+          "content": "あそこの焼肉レストランは値段が安い代わりに肉の質はあまり良くない。",
+          "transcription": "あそこのやきにくレストランはねだんがやすいかわりににくのしつはあまりよくない。",
+          "mean": "Although the price at that Yakiniku restaurant is low, the quality of the meat is not very good."
+        },
+        {
+          "content": "運動が全般的に得意な代わりに勉強があまりできない。",
+          "transcription": "うんどうがぜんぱんてきにとくいなかわりにべんきょうがあまりできない。",
+          "mean": "Although he is generally good at sports, he is not good at studying."
+        },
+        {
+          "content": "昨日残業した代わりに今日は少し早く帰っていいと言われた。",
+          "transcription": "きのうざんぎょうしたかわりに、きょうはすこしはやくかえっていいといわれた。",
+          "mean": "In exchange for working overtime yesterday, I was told that I could go home a little earlier today."
+        },
+        {
+          "content": "私がこの漫画を貸す代わりに私にはあのゲームを貸してよ。",
+          "transcription": "わたしがこのまんがをかすかわりにわたしにはあのゲームをかしてよ。",
+          "mean": "In exchange for me lending you this manga, please lend me that game."
+        },
+        {
+          "content": "日曜日に働いた代わりに今日休みを取りました。",
+          "transcription": "にちようびにはたらいたかわりにきょうやすみをとりました。",
+          "mean": "I took today off instead of working on Sunday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+代わりに<br/>Aい (formal form)+代わりに<br/>Aな (formal form)+代わりに<br/>(In this particular case: Aな<s>だ</s> Aな<s>だ</s>)<br>Nの+代わりに</br>"
+    }
+  ],
+  "title": "代わりに => instead of; as a substitute for​; in exchange for; in return for",
+  "_id": "34460f3ade754a89af68ed3bde42fff1"
+}

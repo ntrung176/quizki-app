@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3133,
+  "usages": [
+    {
+      "explain": "<div>✦ Cannot tolerate the fact that ~<br/></div>\n<div>✦ Has the meaning of:</div><div>～するのが～我慢できない</div><div>～するのが～堪えられない</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "親からの大事なプレゼントなので捨てるに忍びない。",
+          "transcription": "おやからのだいじなぷれぜんとなのですてるにしのびない。",
+          "mean": "It's an important present from my parents, so I can't bear to throw it away."
+        },
+        {
+          "content": "死ぬときの悲鳴は聞くに忍びない。",
+          "transcription": "しぬときのひめいはきくにしのびない。",
+          "mean": "I can't bear to hear the screams of death."
+        },
+        {
+          "content": "彼は私を不幸にしておくには忍びないと言った.",
+          "transcription": "かれはわたくしをふこうにしておくにはしのびないといった.",
+          "mean": "He said he couldn't bear to leave me unhappy."
+        }
+      ],
+      "mean": "cannot bring oneself (to do); unable to bear ~",
+      "synopsis": "<div>✦Vる・N ＋ にしのびない<br/></div>"
+    }
+  ],
+  "title": "～にしのびない (～に忍びない)      => cannot bring oneself (to do); unable to bear ~",
+  "_id": "93020c54469e582d6fdb16f7baa001db"
+}

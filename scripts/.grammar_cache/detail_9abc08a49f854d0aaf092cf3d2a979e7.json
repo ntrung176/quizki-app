@@ -1,0 +1,61 @@
+{
+  "level": "N5",
+  "mobileId": 5627,
+  "usages": [
+    {
+      "explain": "「の」when used to connect two nouns, indicates that noun 1 (N1) is modifying noun 2 (N2). Specifically in this structure,「の」shows that N2 belongs to or is possessed by N1.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の父は先生です。",
+          "transcription": "わたしのちちはせんせいです。",
+          "mean": "My father is a teacher."
+        },
+        {
+          "content": "この本は誰の本ですか。",
+          "transcription": "このほんはだれのほんですか。",
+          "mean": "Whose book is this?"
+        },
+        {
+          "content": "あなたの名前は何ですか。",
+          "transcription": "あなたのなまえはなにですか。",
+          "mean": "What's your name?"
+        },
+        {
+          "content": "あなたの趣味は何ですか。",
+          "transcription": "あなたのしゅみはなんですか。",
+          "mean": "What are your hobbies."
+        },
+        {
+          "content": "それは安田くんの靴です。",
+          "transcription": "それはやすだくんのくつです。",
+          "mean": "Those are Yasuda-kun's shoes."
+        },
+        {
+          "content": "このペンは私の物です。",
+          "transcription": "このペンはわたしのものです。",
+          "mean": "This pen is mine."
+        },
+        {
+          "content": "あなたの誕生日はいつですか。",
+          "transcription": "あなたのたんじょうびはいつですか。",
+          "mean": "When is your birthday?"
+        },
+        {
+          "content": "私の彼氏は日本人です。",
+          "transcription": "わたしのかれしはにほんじんです。",
+          "mean": "My boyfriend is Japanese."
+        },
+        {
+          "content": "私の妹の先生はアメリカ人です。",
+          "transcription": "わたしのいもうとのせんせいはアメリカじんです。",
+          "mean": "My sister's teacher is American."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 の N2"
+    }
+  ],
+  "title": "の => of",
+  "_id": "9abc08a49f854d0aaf092cf3d2a979e7"
+}

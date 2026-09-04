@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 2086,
+  "usages": [
+    {
+      "explain": "Used when advising or requesting the use of a specific method or means to achieve a concrete result.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君が死んだ方がいいと思うなら死ねばいい。",
+          "transcription": "きみがしんだほうがいいとおもうならしねばいい。",
+          "mean": "If you think it's better to die, just die."
+        },
+        {
+          "content": "どうして私に頼むの、自分でやればいいじゃない。",
+          "transcription": "どうしてわたしにたのむの、じぶんでやればいいじゃない。",
+          "mean": "Why ask me? Wouldn't it be better to do it yourself?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + なら（ば）いい\nNa + なら（ば）いい\nA－ければいい\nV－ばいい"
+    },
+    {
+      "explain": "Note: It has the same meaning as [たらいい] and can be used interchangeably, but [ばいい] carries additional meanings. Depending on the context, it can also convey a tone of indifference, such as \"it doesn't matter to the speaker\" or \"how can you not know such a simple thing?\"",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "... ばいい => should; can; it'd be good if ~",
+  "_id": "f7ff14dae05876cac58b413693cfe557"
+}

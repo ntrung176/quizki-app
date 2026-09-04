@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2168,
+  "usages": [
+    {
+      "explain": "Expresses an action that has just finished recently relative to the time of speaking, a short time ago according to the speaker's perception (though this duration may vary greatly in reality, from a week to a month, or even several years).",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はその会社に入社したばかりなのに，もう別の仕事を探している。",
+          "transcription": "かのじょはそのかいしゃににゅうしゃしたばかりなのに，もうべつのしごとをさがしている。",
+          "mean": "Although she just joined the company, she is already looking for another job."
+        },
+        {
+          "content": "先月、生け花を学び始めたばかりですので、まだ、初心者です。",
+          "transcription": "せんげつ、いけばなをまなびはじめたばかりですので、まだ、しょしんしゃです。",
+          "mean": "I just started learning flower arrangement last month, so I'm still abeginner."
+        },
+        {
+          "content": "大学を卒業したばかりだ。",
+          "transcription": "だいがくをそつぎょうしたばかりだ。",
+          "mean": "I just graduated from university."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た＋ばかりだ"
+    }
+  ],
+  "title": "ばかりだ => Just",
+  "_id": "f7ff14dae05876cac58b413693dbe0a0"
+}

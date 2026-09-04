@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2281,
+  "usages": [
+    {
+      "explain": "It serves to halt the interlocutor from speaking further, used for soothing, comforting, and reassuring them.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなことはいいから、さあ、行こう。",
+          "transcription": "そんなことはいいから、さあ、いこう。",
+          "mean": "That's fine, so let's go."
+        },
+        {
+          "content": "A：もう少し早く家を出ていたならば乗り遅れることもなかったのですが。。。B：もうそのことはいいから。それより今からどうしたらいいかを考えましょう。",
+          "transcription": "A：もうすこしはやくいえをでていたならばのりおくれることもなかったのですが。。。B：もうそのことはいいから。それよりいまからどうしたらいいかをかんがえましょう。",
+          "mean": "A: If I had left home a little earlier, I wouldn't have missed the train. . . B: That's okay. Instead, think about what you should do now."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いいから => Alright, let's not talk about it anymore",
+  "_id": "f7ff14dae05876cac58b413693eb8a0c"
+}

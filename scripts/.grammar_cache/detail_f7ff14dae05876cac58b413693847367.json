@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1530,
+  "usages": [
+    {
+      "explain": "It is followed by words indicating a low degree to express the meaning \"suppose the event does happen, then the extent, quantity of it is not significant\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は昇進したところでチームリーダーどまりだろう。",
+          "transcription": "かのじょはしょうしんしたところでちーむりーだーどまりだろう。",
+          "mean": "Even if she was promoted, she would remain the team leader."
+        },
+        {
+          "content": "この専門書はどんなに売れたところで、500冊くらいだろう。",
+          "transcription": "このせんもんしょはどんなにうれたところで、500さつくらいだろう。",
+          "mean": "No matter how much this specialized book sold, it would probably only sell around 500 copies."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Ｖ-た+ところで"
+    }
+  ],
+  "title": "... ところで => Even though",
+  "_id": "f7ff14dae05876cac58b413693847367"
+}

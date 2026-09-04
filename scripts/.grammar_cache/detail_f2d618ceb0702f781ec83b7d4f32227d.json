@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2813,
+  "usages": [
+    {
+      "explain": "Express the meaning of continuity, maintaining a state without change.",
+      "note": null,
+      "examples": [
+        {
+          "content": "去年の地震以来、町の時計塔は壊れたままになっている。",
+          "transcription": "きょねんのじしんいらい、まちのとけいとうはこわれたままになっている。",
+          "mean": "The town's clock tower has remained broken since last year's earthquake."
+        },
+        {
+          "content": "夕べテレビがついたままになっていた。",
+          "transcription": "ゆうべてれびがついたままになっていた。",
+          "mean": "The TV was left on in the evening."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + ままになる"
+    },
+    {
+      "explain": "Note: Differentiate between ままになる and ままにする. ままになる is used with the implication that the state remains on its own and does not refer to the subject acting. ままにする indicates that the state is maintained by an external influence.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ままになる => Just let...",
+  "_id": "f2d618ceb0702f781ec83b7d4f32227d"
+}

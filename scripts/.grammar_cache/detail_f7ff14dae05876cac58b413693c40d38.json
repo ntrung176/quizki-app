@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1997,
+  "usages": [
+    {
+      "explain": "Describes things that did not exist or were not visible until now, but have just appeared. Conversely, when describing disappearance or destruction, use [...ていく].",
+      "note": null,
+      "examples": [
+        {
+          "content": "やっとう雨が止んで、虹が現れて来た",
+          "transcription": "やっとうあめがやんで、にじがあらわれてきた",
+          "mean": "The rain finally stopped and a rainbow appeared."
+        },
+        {
+          "content": "ライオンの鬣が生えて来た。",
+          "transcription": "らいおんのたてがみがはえてきた。",
+          "mean": "A lion's mane has grown."
+        },
+        {
+          "content": "秋になって葉が散って来た。",
+          "transcription": "あきになってはがちってきた。",
+          "mean": "Autumn has come and the leaves have fallen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + くる"
+    }
+  ],
+  "title": "てくる => Already... now (Appearance)",
+  "_id": "f7ff14dae05876cac58b413693c40d38"
+}

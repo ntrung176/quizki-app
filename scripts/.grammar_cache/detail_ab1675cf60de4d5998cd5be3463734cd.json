@@ -1,0 +1,81 @@
+{
+  "level": "N4",
+  "mobileId": 5536,
+  "usages": [
+    {
+      "explain": "「さ」is used to turn adjectives into nouns.<br/>\nMany adjectives can be nominalized by adding either the suffix 「さ」or 「み」, but they have slightly different meanings.<br/>\nThe suffix 「さ」emphasizes the degree and is more objective. The adjective it accompanies often describes something measurable like size, weight, etc. Or if it's an adjective describing emotions,「さ」will express a shared feeling that many people can perceive about an object or event, which can be somewhat shared among them.<br/>\n\nOn the other hand, the suffix 「み」emphasizes the quality or condition and is more subjective. This quality or condition needs to be experienced in reality to be understood, such as flavor, warmth, etc. Or it could be emotions that are perceived only by individuals and therefore difficult to share with others.<br/>\n\nExamples: 強さ (strength) and 強み (strong point); 甘さ (sweetness) and 甘み (sweetness)",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の面白さが大好きです。",
+          "transcription": "かれのおもしろさがだいすきです。",
+          "mean": "I love how funny he is."
+        },
+        {
+          "content": "私はワサビの辛さが大好きです。",
+          "transcription": "わたしはワサビのからさがだいすきです。",
+          "mean": "I love the spiciness of wasabi."
+        },
+        {
+          "content": "この池の深さはどのぐらいですか。",
+          "transcription": "このいけのふかさはどのぐらいですか。",
+          "mean": "How deep is this pond?"
+        },
+        {
+          "content": "大きさは違うけど質は同じですよ。",
+          "transcription": "おおきさはちがうけどしつはおなじですよ。",
+          "mean": "The size is different, but the quality is the same."
+        },
+        {
+          "content": "新しい橋の長さは3メートルです。",
+          "transcription": "あたらしいはしのながさはさんメートルです。",
+          "mean": "The length of the new bridge is 3 meters."
+        },
+        {
+          "content": "彼女の部屋の広さは畳で６畳くらいです。",
+          "transcription": "かのじょのへやのひろさはたたみでろくじょうくらいです。",
+          "mean": "The size of her room is about 6 tatami mats."
+        },
+        {
+          "content": "空港へ行く前に、荷物の重さを測りました。",
+          "transcription": "くうこうへいくまえに、にもつのおもさをはかりました。",
+          "mean": "Before going to the airport, I weighed my luggage."
+        },
+        {
+          "content": "私たちはプールの深さを確認してから入ります。",
+          "transcription": "わたしたちはプールのふかさをかくにんしてからはいります。",
+          "mean": "We check the depth of the pool before entering."
+        },
+        {
+          "content": "この料理の美味しさを皆さんに紹介したいです。",
+          "transcription": "このりょうりのおいしさをみなさんにしょうかいしたいです。",
+          "mean": "I would like to introduce the deliciousness of this dish to everyone."
+        },
+        {
+          "content": "どの作品にも良さがあります。",
+          "transcription": "どのさくひんにもよさがあります。",
+          "mean": "Every work has its merits."
+        },
+        {
+          "content": "子供に命の大切さを教えなければならない。",
+          "transcription": "こどもにいのちのたいせつさをおしえなければならない。",
+          "mean": "We must teach children the value of life."
+        },
+        {
+          "content": "昔の人は、今の世界の便利さを知りません。",
+          "transcription": "むかしのひとは、いまのせかいのべんりさをしりません。",
+          "mean": "People from the past didn't know about the conveniences of today's world."
+        },
+        {
+          "content": "どんな状況でも冷静さを保ってるようになりたい。",
+          "transcription": "どんなじょうきょうでもれいせいさをたもってるようになりたい。",
+          "mean": "I want to be able to remain calm in any situation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s> ✚ さ<br/>A<s>な</s> ✚ さ"
+    }
+  ],
+  "title": "さ => -ness",
+  "_id": "ab1675cf60de4d5998cd5be3463734cd"
+}

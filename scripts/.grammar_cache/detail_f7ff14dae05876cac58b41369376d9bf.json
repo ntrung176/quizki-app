@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1440,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: \"Something should have already happened, yet in reality, it hasn't happened yet.\"<br/><br/>This structure indicates the disparity between expectation and reality, and expresses a stronger sense of surprise than 「まだ」. Used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "未だに彼から何の便りもない。",
+          "transcription": "いまだにかれからなにのたよりもない。",
+          "mean": "I haven't heard anything from him yet."
+        },
+        {
+          "content": "傷は未だに治らない。",
+          "transcription": "きずはいまだになおらない。",
+          "mean": "The wound still hasn't healed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いまだ(に) + V-ない"
+    }
+  ],
+  "title": "いまだ => Until now, still not...",
+  "_id": "f7ff14dae05876cac58b41369376d9bf"
+}

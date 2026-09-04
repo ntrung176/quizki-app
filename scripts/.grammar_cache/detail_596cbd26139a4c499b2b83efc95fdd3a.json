@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5213,
+  "usages": [
+    {
+      "explain": "「にともなって」<br/>\n\n1. Indicates that the state of the preceding clause (V/N) changes, and the state of the following clause also changes accordingly (gradually or immediately). These changes can be in the same direction or opposite directions, often involving significant changes, such as socially. \"Along with...\"<br/>\n2. Indicates that the following clause (V/N) happens simultaneously with the preceding clause due to the preceding clause being the cause. \"Because... therefore...\"<br/>\n「にともない」is more formal and is often used in writing.<br/>\nThe Kanji for 「にともなって」is「に伴って」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "インターネットの普及にともなって、ネットで買い物をする人が増えた。",
+          "transcription": "インターネットのふきゅうにともなって、ネットでかいものをするひとがふえた。",
+          "mean": "With the spread of the Internet, the number of people shopping online has increased."
+        },
+        {
+          "content": "昇進にともない、様々な責任が増えるだろう。",
+          "transcription": "しょうしんにともない、さまざまなせきにんがふえるだろう。",
+          "mean": "With promotion, various responsibilities will increase."
+        },
+        {
+          "content": "入院にともなう費用は、会社の保険から支払われた。",
+          "transcription": "にゅういんにともなうひようは、かいしゃのほけんからしはらわれた。",
+          "mean": "Expenses associated with hospitalization were paid by the company's insurance."
+        },
+        {
+          "content": "会社を倒産にともなって、多くの社員が失業した。",
+          "transcription": "かいしゃをとうさんにともなって、おおくのしゃいんがしつぎょうした。",
+          "mean": "Many employees lost their jobs as the company went bankrupt."
+        },
+        {
+          "content": "機器の入れ替えにともない、一時的にシステムを停止する。",
+          "transcription": "ききのいれかえにともない、いちじてきにシステムをていしする。",
+          "mean": "The system will be temporarily stopped as equipment is replaced."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)/N+にともなって<br/>V (root form)/N+にともない<br/>V (root form)/N+にともなうN'"
+    }
+  ],
+  "title": "にともなって => as; due to; with; along with; following; accordingly ~",
+  "_id": "596cbd26139a4c499b2b83efc95fdd3a"
+}

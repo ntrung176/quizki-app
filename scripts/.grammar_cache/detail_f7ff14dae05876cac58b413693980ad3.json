@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1685,
+  "usages": [
+    {
+      "explain": "Expresses a certain emotion that arises naturally and uncontrollably.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この歌を聞くたびに、ふるさとを思い出していけない。",
+          "transcription": "このうたをきくたびに、ふるさとをおもいだしていけない。",
+          "mean": "Every time I hear this song, I can't help but remember my hometown."
+        },
+        {
+          "content": "彼の話を聞いたら、笑っていけない。",
+          "transcription": "かれのはなしをきいたら、わらっていけない。",
+          "mean": "I can't help but laugh when I hear his story."
+        },
+        {
+          "content": "彼女の病気が気になっていけない。",
+          "transcription": "かのじょのびょうきがきになっていけない。",
+          "mean": "Don't worry about her illness."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ていけない"
+    }
+  ],
+  "title": "ていけない => Suddenly...",
+  "_id": "f7ff14dae05876cac58b413693980ad3"
+}

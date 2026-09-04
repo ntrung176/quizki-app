@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3087,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate a state resulting from an action taken, and that state will persist.",
+      "note": null,
+      "examples": [
+        {
+          "content": "運動し始めてからというもの、体が元気になった。",
+          "transcription": "うんどうしはじめてからというもの、からだがげんきになった。",
+          "mean": "Ever since I started exercising, my body has become more energetic."
+        },
+        {
+          "content": "娘が帰ってきてからというもの、年老いた父親が見違えるほど元気になった。",
+          "transcription": "むすこがかえってきてからというもの、としおいたちちおやがみちがえるほどげんきになった。",
+          "mean": "Ever since her daughter came home, her elderly father has become so much more energetic."
+        },
+        {
+          "content": "先生に遅刻を注意されてからというもの、山田は毎日遅れずに来ている。",
+          "transcription": "せんせいにちこくをちゅういされてからというもの、やまだはまいにちおくれずにきている。",
+          "mean": "Ever since his teacher warned him about being late, Yamada has been on time every day."
+        },
+        {
+          "content": "母は退院してからというもの、寝たり起きたりの状態が続いている。",
+          "transcription": "はははたいいんしてからというもの、ねたりおきたりのじょうたいがつづいている。",
+          "mean": "Ever since my mother was discharged from the hospital, she has continued to sleep and wake up."
+        },
+        {
+          "content": "家の近くに遊園地ができてからというもの、道路の渋滞がひどくなった。",
+          "transcription": "うちのちかくにゆうえんちができてからというもの、どうろのじゅうたいがひどくなった。",
+          "mean": "Ever since an amusement park was built near my house, the traffic on the roads has gotten worse."
+        }
+      ],
+      "mean": "✦ ever since ~",
+      "synopsis": "✦Vて+からというもの"
+    }
+  ],
+  "title": "～てからというもの      => ever since ~",
+  "_id": "93020c54469e582d6fdb16f7ba93ff2e"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2697,
+  "usages": [
+    {
+      "explain": "Used to give a suggestion or advice. Often used in the form 「V-てみては」. It has a similar meaning to 「V-たらどうか」, but 「V-てはどうか」 leans towards written language and is often used in letters or formal speeches.",
+      "note": null,
+      "examples": [
+        {
+          "content": "戦略を変えてみてはどうですか。",
+          "transcription": "せんりゃくをかえてみてはどうですか。",
+          "mean": "Why not change your strategy?"
+        },
+        {
+          "content": "この任務については山田さんに任せてみてはどうだろうか。",
+          "transcription": "このにんむについてはやまださんにまかせてみてはどうだろうか。",
+          "mean": "Why not leave this task to Mr. Yamada?"
+        },
+        {
+          "content": "先生に聞いてみてはどうですか。",
+          "transcription": "せんせいにきいてみてはどうですか。",
+          "mean": "How about asking your teacher?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-てはどうか"
+    }
+  ],
+  "title": "てはどうか => What about?/ … How do you feel about?",
+  "_id": "f2d618ceb0702f781ec83b7d4f2324a9"
+}

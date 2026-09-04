@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5034,
+  "usages": [
+    {
+      "explain": "「ぶる」indicates someone pretending or acting as if they have a certain attitude, behavior, etc., when in reality they do not. This attitude or behavior is often negative or undesirable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "加藤さんはお金持ちぶっているが、本当は借金がたくさんある。",
+          "transcription": "かとうさんはおかねもちぶっているが、ほんとうはしゃっきんがたくさんある。",
+          "mean": "Mr. Kato pretends to be rich, but he actually has a lot of debt."
+        },
+        {
+          "content": "息子は悪ぶっているが、実は気の弱い優しい子です。",
+          "transcription": "むすこはわるぶっているが、じつはきのよわいやさしいこです。",
+          "mean": "Although my son pretends to be evil, he is actually a gentle and kind child."
+        },
+        {
+          "content": "利口ぶるのはやめて、素直に分からないことは人に聞いた方がいいよ。",
+          "transcription": "りこうぶるのはやめて、すなおにわからないことはひとにきいたほうがいいよ。",
+          "mean": "It's better to stop trying to be clever and honestly ask people about things you don't understand."
+        },
+        {
+          "content": "SNSでお金持ちぶった写真とか上げてる人はお金持ちに憧れすぎて頭がおかしくなった人だと思う。",
+          "transcription": "エスエヌエスでおかねもちぶったしゃしんとかあげてるひとはおかねもちにあこがれすぎてあたまがおかしくなったひとだとおもう。",
+          "mean": "I think people who post pictures of themselves looking rich on social media are people who admire rich people so much that they've gone crazy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/A<s>い</s>/A<s>な</s>+ぶる<br/> N/A<s>い</s>/A<s>な</s>+ぶって<br/> N/A<s>い</s>/A<s>な</s>+ぶったN'"
+    }
+  ],
+  "title": "ぶる => assuming the air of; behaving like; to pretend / act like ~",
+  "_id": "e0fed933d5a64adea924d9763feb5b88"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5473,
+  "usages": [
+    {
+      "explain": "「あとで」indicates that the action expressed by the second verb (V2) occurs after the action expressed by the first verb (V1) or noun (N).<br/>\nCompared to「Vてから」, this pattern clearly shows the sequence of events in time between the actions.<br/>\nThe Kanji for「あとで」is「後で」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学校のあとで買い物をします。",
+          "transcription": "がっこうのあとでかいものをします。",
+          "mean": "I go shopping after school."
+        },
+        {
+          "content": "仕事のあとで飲み会があります。",
+          "transcription": "しごとのあとでのみかいがあります。",
+          "mean": "We have a drinking party after work."
+        },
+        {
+          "content": "宿題のあとで友達と遊びに行きます。",
+          "transcription": "しゅくだいのあとでともだちとあそびにいきます。",
+          "mean": "After doing my homework, I will go out with my friends."
+        },
+        {
+          "content": "授業のあとで先生に質問をします。",
+          "transcription": "じゅぎょうのあとでせんせいにしつもんをします。",
+          "mean": "Ask your teacher questions after class."
+        },
+        {
+          "content": "ケーキはお父さんが帰って来たあとで食べましょうね。",
+          "transcription": "ケーキはおとうさんがかえってきたあとでたべましょうね。",
+          "mean": "Let's eat cake after dad comes home."
+        },
+        {
+          "content": "このソフトを使えば、写真を撮ったあとで編集できますよ。",
+          "transcription": "このソフトをつかえば、しゃしんをとったあとでへんしゅうできますよ。",
+          "mean": "With this software, you can edit photos after taking them."
+        },
+        {
+          "content": "映画を見たあとで映画のタイトルの意味がわかりました。",
+          "transcription": "えいがをみたあとでえいがのタイトルのいみがわかりました。",
+          "mean": "After watching the movie, I understood the meaning of the movie title."
+        },
+        {
+          "content": "お店を出たあとでレシートをもらわなかったことに気がつきました。",
+          "transcription": "おみせをでたあとでレシートをもらわなかったことにきがつきました。",
+          "mean": "After leaving the store, I realized that I had not received a receipt."
+        },
+        {
+          "content": "バスが出発したあとで違うバスに乗ったことに気がつきました。",
+          "transcription": "バスがしゅっぱつしたあとでちがうバスにのったことにきがつきました。",
+          "mean": "After the bus left, I realized that I had taken the wrong bus."
+        },
+        {
+          "content": "カメラは買ったあとで後悔しないようによく考えてから買いましょう。",
+          "transcription": "カメラはかったあとでこうかいしないようによくかんがえてからかいましょう。",
+          "mean": "Think carefully before buying a camera so you don't regret it later."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1た+あとで+V2<br/>Nの+あとで+V2"
+    }
+  ],
+  "title": "あとで => after~; later",
+  "_id": "de8aa12fab614b0a8c445324738e309a"
+}

@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5346,
+  "usages": [
+    {
+      "explain": "「かなあ」is used to:<br/>\n1. Express one's doubts or hopes about a certain issue. It often carries a sense of worry or uncertainty. Used when speaking to oneself.<br/>\n2. Indirectly ask for the listener's favor or approval. Used in intimate conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "バス、早く来ないかなあ。",
+          "transcription": "バス、はやくこないかなあ。",
+          "mean": "I wonder if the bus will come soon."
+        },
+        {
+          "content": "この実験、うまくいくかなあ。",
+          "transcription": "このじっけん、うまくいくかなあ。",
+          "mean": "I wonder if this experiment will go well."
+        },
+        {
+          "content": "今日、富士山が見えるかなあ。",
+          "transcription": "きょう、ふじさんがみえるかなあ。",
+          "mean": "I wonder if I can see Mt. Fuji today."
+        },
+        {
+          "content": "私の料理が好きになるかなあ。",
+          "transcription": "わたしのりょうりがすきになるかなあ。",
+          "mean": "I wonder if you'll like my cooking?"
+        },
+        {
+          "content": "明日は彼氏との初デートだ。何を着るかなあ。",
+          "transcription": "あしたはかれしとのはつデートだ。なにをきるかなあ。",
+          "mean": "Tomorrow is my first date with my boyfriend. What should I wear?"
+        },
+        {
+          "content": "あと5分だ。終電に間に合うかなあ。",
+          "transcription": "あとごふんだ。しゅうでんにまにあうかなあ。",
+          "mean": "There's only 5 minutes left. Will I make it in time for the last train?"
+        },
+        {
+          "content": "『内田くん、悪いんだけど、明日までにプレゼントの資料を用意してくれるかな。』『はい、かしこまりました。』",
+          "transcription": "『うちだくん、わるいんだけど、あしたまでにプレゼントのしりょうをよういしてくれるかな。』『はい、かしこまりました。』",
+          "mean": "``Uchida-kun, I'm sorry, but could you please prepare the materials for the present by tomorrow? \"\"Yes, I got it. ”"
+        },
+        {
+          "content": "『これ、消してもいいかな。』『はい。』",
+          "transcription": "『これ、けしてもいいかな。』『はい。』",
+          "mean": "``Can I delete this? \"\"yes. ”"
+        },
+        {
+          "content": "『わぁ、美味しそう。一口食べてみてもいいかな。』『うん、どうぞ。』",
+          "transcription": "『わぁ、おいしそう。ひとくちたべてみてもいいかな。』『うん、どうぞ。』",
+          "mean": "“Wow, that looks delicious. I wonder if I could try a bite? ” “Yes, please. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる+かな(あ)<br/> Vない+かな(あ)"
+    }
+  ],
+  "title": "かな(あ) => I wonder; should I?",
+  "_id": "8793d5d53f2740bf80fc20bb29a5b580"
+}

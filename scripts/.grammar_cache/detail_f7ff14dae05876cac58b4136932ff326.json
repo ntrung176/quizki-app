@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 923,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"having enough capability, money... to do something\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "先週の土曜日に私の財布にはバスのチケットを買うだけの金もなかった。",
+          "transcription": "せんしゅうのどようびにわたしのさいふにはばすのちけっとをかうだけのきんもなかった。",
+          "mean": "Last Saturday I didn't even have enough money in my wallet to buy a bus ticket."
+        },
+        {
+          "content": "彼女に愛を告白するだけの勇気もなかった。",
+          "transcription": "かのじょにあいをこくはくするだけのゆうきもなかった。",
+          "mean": "I didn't even have the courage to confess my love to her."
+        },
+        {
+          "content": "彼には大学で勉強するだけの学力が不足している。",
+          "transcription": "かれにはだいがくでべんきょうするだけのがくりょくがふそくしている。",
+          "mean": "He lacks the academic ability to study at university."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + だけの N"
+    }
+  ],
+  "title": "... だけの ... => have enough to...",
+  "_id": "f7ff14dae05876cac58b4136932ff326"
+}

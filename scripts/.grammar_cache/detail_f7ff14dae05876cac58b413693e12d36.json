@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2206,
+  "usages": [
+    {
+      "explain": "Expressing the meaning of \"normal, okay, no problem.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は徹夜しても、どうもない。",
+          "transcription": "かれはてつやしても、どうもない。",
+          "mean": "Even if he stays up all night, nothing will happen."
+        },
+        {
+          "content": "納豆は食べてみてもどうもない。",
+          "transcription": "なっとうはたべてみてもどうもない。",
+          "mean": "Even if I try eating natto, there is nothing I can do about it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～どうもない"
+    }
+  ],
+  "title": "どうもない => No problem",
+  "_id": "f7ff14dae05876cac58b413693e12d36"
+}

@@ -1,0 +1,4802 @@
+[
+  {
+    "level": "N3",
+    "mobileId": 5416,
+    "category": "",
+    "title": "その結果 => Kết quả là",
+    "type": "grammar",
+    "_id": "0a3c09cdae174ca693989388e5483790"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5341,
+    "category": "",
+    "title": "ほど～ない => Không bằng/Không gì bằng",
+    "type": "grammar",
+    "_id": "1541a8458dd4400a84eb5032cf42b9fd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5453,
+    "category": "",
+    "title": "はもちろん => Chẳng những... mà ngay cả",
+    "type": "grammar",
+    "_id": "8934fa94dd9342239f08f7d13d8c9cbb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3246,
+    "category": "Diễn tả",
+    "title": "なんという => ...gọi là gì, tên là gì",
+    "type": "grammar",
+    "_id": "5f2ca7a267ba2661463e3ccd3e911dfa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5449,
+    "category": "",
+    "title": "つまり  => Nói cách khác/Tóm lại là",
+    "type": "grammar",
+    "_id": "8c6953649f5b48e1a7acaf7918d7df65"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3160,
+    "category": "",
+    "title": "～ふり（～振り）     =>Giả vờ, giả bộ, bắt chước",
+    "type": "grammar",
+    "_id": "93020c54469e582d6fdb16f7ba72c8c1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5356,
+    "category": "",
+    "title": "こそ => Chính là/Nhất định",
+    "type": "grammar",
+    "_id": "9e486b23c095473aa26292839314616d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5362,
+    "category": "",
+    "title": "ことは～が  => Thì... thật đấy, nhưng",
+    "type": "grammar",
+    "_id": "a15ebee766224ae8ab7a62413ab68952"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5331,
+    "category": "",
+    "title": "ですから => Vì vậy",
+    "type": "grammar",
+    "_id": "eff315499f454264a28daac4fb989591"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5410,
+    "category": "",
+    "title": "～られる => Bị/Được (thể hiện sự việc, thông tin)",
+    "type": "grammar",
+    "_id": "f476a25391554583ba159e93a0e5c8d6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5427,
+    "category": "",
+    "title": "たて => Vừa mới... xong",
+    "type": "grammar",
+    "_id": "b389940b467148a9a152f3ec5d12ac0c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5443,
+    "category": "",
+    "title": "ところで => Nhân tiện",
+    "type": "grammar",
+    "_id": "b761c48089f44bf8b61d5306334c62da"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5419,
+    "category": "",
+    "title": "それと/あと => Và/Vẫn còn",
+    "type": "grammar",
+    "_id": "38166b405ad447fa9968ecfcc5e6a4cc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5444,
+    "category": "",
+    "title": "ところが => Nhưng/Thế mà",
+    "type": "grammar",
+    "_id": "77affa42e174473a8382692a4533a14f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5418,
+    "category": "",
+    "title": "その上 => Thêm vào đó/Hơn nữa",
+    "type": "grammar",
+    "_id": "9bbf1a0d2e8749828c6b042e41999fc5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5347,
+    "category": "",
+    "title": "かける => Chưa xong/Dở dang",
+    "type": "grammar",
+    "_id": "7db9d04d28374ec2a0edf54154dcbbc9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5384,
+    "category": "",
+    "title": "ないと/なくちゃ/なきゃ => Phải/Bắt buộc",
+    "type": "grammar",
+    "_id": "967700f21f1442659d1d4b5683776472"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5329,
+    "category": "",
+    "title": "だけしか～ない => Chỉ... mà thôi",
+    "type": "grammar",
+    "_id": "8c4f49b0c34c4e3a8cb41bf7b307841b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5436,
+    "category": "",
+    "title": "という => Tên là/Gọi là",
+    "type": "grammar",
+    "_id": "d769a7b0fe134d6a87d4e92cc021d286"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5406,
+    "category": "",
+    "title": "っぱなし => Để nguyên/Suốt",
+    "type": "grammar",
+    "_id": "d8b8af18aff548eda24d0e120f16132a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5417,
+    "category": "",
+    "title": "そのため(に) => Vì thế/Vậy nên",
+    "type": "grammar",
+    "_id": "d94b5df9033643049918ec563001e9c9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5370,
+    "category": "",
+    "title": "まるで => Cứ như",
+    "type": "grammar",
+    "_id": "e8a5f012056647a9b418efe08d39523c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1310,
+    "category": "Đề tài câu chuyện",
+    "title": "といえば / というと / といったら => Nói đến...thì...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369364808b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1351,
+    "category": "Ngạc nhiên",
+    "title": "そのくせ => Thế nhưng lại",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369369fc52"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1364,
+    "category": "Phương tiện, phương pháp",
+    "title": "なんとかなる => Rồi cũng xong",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136936bd90a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1392,
+    "category": "Vô can",
+    "title": "ても～ただろう => Cho dù...cũng (đã)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136936f89b2"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2639,
+    "category": "Tôn kính, khiêm nhường",
+    "title": "お...になる => Làm, thực hiện",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f1c0321"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1039,
+    "category": "Bất biến",
+    "title": "どう～ても => Có...thế nào cũng...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136933fc9df"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1130,
+    "category": "Phương hướng",
+    "title": "むき => Hướng, quay về phía...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136934c1b42"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1419,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "～ ば/たら～かもしれない => Nếu...thì có thể...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369373921c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1561,
+    "category": "Vô can",
+    "title": "いざしらず => Không biết ... thì sao ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369388a358"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1576,
+    "category": "Diễn tả",
+    "title": "がみえる => Tới, đến",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938a779e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1583,
+    "category": "Sửa đổi",
+    "title": "なおす => ...lại (Không chủ ý)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938b818d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1604,
+    "category": "Chuyển đề tài câu chuyện",
+    "title": "よかろう => Có lẽ cũng tốt, chắc không sao",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938e4daf"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1625,
+    "category": "Nhấn mạnh về mức độ",
+    "title": "てでも => Cho dù phải...vẫn",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693909198"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1642,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "(の) なら～しろ => Nếu..., thì anh hãy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939292e4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1695,
+    "category": "Tình huống, trường hợp",
+    "title": "となると => Đến lúc, trường hợp",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693995a23"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1714,
+    "category": "Trạng thái kết quả",
+    "title": "ちゃんとする => Nghiêm chỉnh, ngăn nắp, đầy đủ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939c7d8b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1748,
+    "category": "Suy đoán",
+    "title": "たろう => Có lẽ đã",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a0bfff"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1765,
+    "category": "Căn cứ, cơ sở",
+    "title": "... だけ ... => Càng ... (càng ...)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a341b4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1810,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "…とすれば => Nếu như... (Điều kiện xác định)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aa1103"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1815,
+    "category": "Mệnh lệnh",
+    "title": "... ことだ => Phải, đừng ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aaa39c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1839,
+    "category": "Nhấn mạnh nghĩa phủ định",
+    "title": "...ぬ => Không (Phủ định)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ad848f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1844,
+    "category": "Căn cứ, cơ sở",
+    "title": "ことによると / ばあいによると => Không chừng là...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ae2044"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1854,
+    "category": "Dự định",
+    "title": "なんでもない => Không có gì, không đáng, không ăn thua gì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693af5dae"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1866,
+    "category": "Nhấn mạnh nghĩa phủ định",
+    "title": "とても ... ない => Không thể nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b0ec28"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1901,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "(の) なら => Nếu, giả sử (Điều kiện giả định)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b55d48"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1919,
+    "category": "Điều kiện (điều kiện cần)",
+    "title": "なくては => Nếu không ... thì không ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b84371"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1925,
+    "category": "Đặc điểm",
+    "title": "... いか + từ chỉ số lượng => Bao nhiêu ... dưới sự lãnh dạo, dưới quyền của ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b93c02"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1927,
+    "category": "Lặp lại, thói quen",
+    "title": "ひとつ => Một chút, một ít",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b9afa8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1940,
+    "category": "Xếp hàng, liệt kê",
+    "title": "あるいは～あるいは～ => Hoặc là...hoặc là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bb7e15"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1950,
+    "category": "Đề tài câu chuyện",
+    "title": "って => Nói rằng, tôi nghe bảo rằng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bd23f4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1967,
+    "category": "Nhấn mạnh nghĩa phủ định",
+    "title": "さあ => À! cái đó thì (nghĩa phủ định)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bfd7e7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1976,
+    "category": "Kết luận",
+    "title": "わけだ => Có nghĩa là (nói cách khác)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c111a9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2045,
+    "category": "Bất biến",
+    "title": "もともと => Vốn là, ngay từ đầu",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c9fc63"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2047,
+    "category": "Phương tiện, phương pháp",
+    "title": "なんとしても => Bằng mọi cách, nhất định",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ca439a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2058,
+    "category": "Khoảng thời gian ngắn",
+    "title": "そのうち => Chẳng bao lâu nữa, chẳng mấy chốc nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cc0ff3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2071,
+    "category": "Mơ hồ",
+    "title": "かなんか => ...Hay cái gì đó...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ce02f0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2078,
+    "category": "Dự định",
+    "title": "…はずだった => Theo dự định thì đã phải ..., lẽ ra thì ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cec62a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2121,
+    "category": "Suy đoán",
+    "title": "…とばかりおもっていた => Cứ tưởng là ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d52118"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2135,
+    "category": "Nghe nói",
+    "title": "と言われている => Được cho là...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d7add0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2147,
+    "category": "Diễn tả",
+    "title": "ような感じがする => Cảm thấy dường như.....",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d9b71d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2166,
+    "category": "Nhấn mạnh",
+    "title": "... も ... もない => Không phải ... hay không",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dba89c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2192,
+    "category": "Mơ hồ",
+    "title": "...とか (いう) ... => ...Hay sao ấy, tên là...gì đấy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693df3d6c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2197,
+    "category": "Thời điểm",
+    "title": "げんざい => Hiện tại, bây giờ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dff7eb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2205,
+    "category": "Đánh giá",
+    "title": "なんとも => Không thể hình dung nổi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e110fb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2212,
+    "category": "Nhấn mạnh nghĩa phủ định",
+    "title": "いっこうに ... ない => Mãi chẳng thấy ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e219c7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2219,
+    "category": "Đính chính",
+    "title": "そしたら => Và lúc đó, cứ làm thế",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e30e22"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2234,
+    "category": "Trạng thái kết quả",
+    "title": "ちゃんと => Rõ ràng, chỉnh tề, đàng hoàng, đầy đủ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e556b6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5337,
+    "category": "",
+    "title": "ごらん => Hãy... thử xem",
+    "type": "grammar",
+    "_id": "24efb5fa75fc4ce99c18ebbc6db7f77a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5332,
+    "category": "",
+    "title": "どんなに～ても  => Dù... đến đâu, thì...",
+    "type": "grammar",
+    "_id": "2cf5a1966d7d4662bdc661faaa490a27"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5434,
+    "category": "",
+    "title": "といいなあ/たらいいなあ/ばいいなあ => Ước gì/Mong sao",
+    "type": "grammar",
+    "_id": "387b00457a8d4bc08501e6670f43d55a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5466,
+    "category": "",
+    "title": "ように  => Như/Theo như...",
+    "type": "grammar",
+    "_id": "39e22b14f7a34547ba6e7a38a9d4abaa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5424,
+    "category": "",
+    "title": "たび(に) => Mỗi khi/Mỗi lần",
+    "type": "grammar",
+    "_id": "3d30c1d78a504558b4a8fc9bf0415c06"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5324,
+    "category": "",
+    "title": "ぶりに => Sau (bao lâu) mới lại.../Lần đầu tiên sau (bao lâu)...",
+    "type": "grammar",
+    "_id": "438e3ee646f441b3a3d943a905848d1f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5393,
+    "category": "",
+    "title": "に慣れる => Quen với...",
+    "type": "grammar",
+    "_id": "448d99d5caec449099feafb24201f5e4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5404,
+    "category": "",
+    "title": "おかげで => Nhờ vào/Nhờ có",
+    "type": "grammar",
+    "_id": "5a393290ab61410d8a21100ba9a11bbd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5335,
+    "category": "",
+    "title": "ごとに => Mỗi/Cứ mỗi/Cứ... lại...",
+    "type": "grammar",
+    "_id": "5b6890b0c050485cad8a23edd54ca222"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5464,
+    "category": "",
+    "title": "ようとしない  => Không định/Không chịu",
+    "type": "grammar",
+    "_id": "5b9669c204034315aa7f4f82ca2fbbfa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5357,
+    "category": "",
+    "title": "こと => Việc/Chuyện",
+    "type": "grammar",
+    "_id": "70c10bc210a14b8bae616f11aeb77148"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5388,
+    "category": "",
+    "title": "なんか/なんて/など => Mấy thứ như/Mấy chuyện như",
+    "type": "grammar",
+    "_id": "7760c4bdc2284e6a9fed3e687057ab12"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5470,
+    "category": "",
+    "title": "ずに => Làm... mà không làm...",
+    "type": "grammar",
+    "_id": "9e4ea95fb58e4fd0b49cf5ff6cbffb5d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5389,
+    "category": "",
+    "title": "～ろと/～なと => Bị nhắc nhở là hãy.../Bị nhắc nhở là đừng...",
+    "type": "grammar",
+    "_id": "a1a32c7232c44ce7a2314d95640656a3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5363,
+    "category": "",
+    "title": "くらい/ぐらい => Đến mức/Cỡ",
+    "type": "grammar",
+    "_id": "b210842e091848418eeb6b6adf3039d5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5319,
+    "category": "",
+    "title": "ば～のに/たら～のに => Giá mà",
+    "type": "grammar",
+    "_id": "c84eb54fac22441f84658d13662b8aeb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5333,
+    "category": "",
+    "title": "どうしても => Bằng mọi giá/Thế nào đi chăng nữa",
+    "type": "grammar",
+    "_id": "cc2357abd66449e6b00c233ab7979153"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5378,
+    "category": "",
+    "title": "もし～たなら => Nếu... thì đã...",
+    "type": "grammar",
+    "_id": "d7e734cd340c4f4ea49267b43aee6f1e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5373,
+    "category": "",
+    "title": "全く～ない => Hoàn toàn không",
+    "type": "grammar",
+    "_id": "e3820d2c30f64608981df9ba1ca5fb7a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5377,
+    "category": "",
+    "title": "ものだ => Đúng là (cảm thán)/Thật muốn (ước muốn)",
+    "type": "grammar",
+    "_id": "007018b1ad504ddf83ca87cc6cd38033"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5385,
+    "category": "",
+    "title": "んだって => Nghe nói",
+    "type": "grammar",
+    "_id": "0421d2bf835d4d4db45ee030e8f5302f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5414,
+    "category": "",
+    "title": "しばらく => Một lúc/Một thời gian",
+    "type": "grammar",
+    "_id": "152ede61f9ed4c349a62328ebb3c2f04"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5354,
+    "category": "",
+    "title": "っけ => Nhỉ",
+    "type": "grammar",
+    "_id": "1c82eb2f225940249d841176761d3f6a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5365,
+    "category": "",
+    "title": "てくれと => Được nhờ/Được nhắc",
+    "type": "grammar",
+    "_id": "1ea09776fcd847e9b29fb82b34911bb9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5397,
+    "category": "",
+    "title": "について => Về...",
+    "type": "grammar",
+    "_id": "2bd345587d37452895dfe561d5887fc4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5408,
+    "category": "",
+    "title": "さえ/でさえ => Ngay cả/Thậm chí",
+    "type": "grammar",
+    "_id": "2ecb7f9220644b0f85236dd27a30f498"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5326,
+    "category": "",
+    "title": "ちゃった  => Làm xong/Làm gì đó mất rồi",
+    "type": "grammar",
+    "_id": "35188d69a6674a86a5da464eb7f592ae"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5409,
+    "category": "",
+    "title": "最中に => Đúng lúc đang/Ngay giữa lúc",
+    "type": "grammar",
+    "_id": "3b7c6419e3fc4950aaa27de9e8870b71"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5411,
+    "category": "",
+    "title": "せいで  => Vì/Do/Tại",
+    "type": "grammar",
+    "_id": "46d13663400a43a29f90a6ff17c43e4d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5398,
+    "category": "",
+    "title": "によれば/によると => Theo/Dựa vào",
+    "type": "grammar",
+    "_id": "4db6123b615b4ac3a0d817226b5f8a2a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5359,
+    "category": "",
+    "title": "ことになる/ことになっている => Được quyết định/Được quy định",
+    "type": "grammar",
+    "_id": "53812af6f85141a3a20d9b86f2ef80cc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5468,
+    "category": "",
+    "title": "ように言う/頼む/注意する/伝える => Bảo rằng/Nhờ/Nhắc rằng/Nhắn rằng",
+    "type": "grammar",
+    "_id": "606e33dc239544d29ed57356cac4bebf"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5336,
+    "category": "",
+    "title": "がる => Cảm thấy (Cảm xúc, cảm giác, ý muốn của người khác)",
+    "type": "grammar",
+    "_id": "63710e2b65f04ed8913c28dbab6422b0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5412,
+    "category": "",
+    "title": "せいぜい => Tối đa/Cùng lắm/Nhiều nhất cũng chỉ",
+    "type": "grammar",
+    "_id": "6bb1d5f6b366426c9dcd0d9cea791863"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5348,
+    "category": "",
+    "title": "必ずしも～とは限らない  => Không nhất thiết/Không phải lúc nào cũng",
+    "type": "grammar",
+    "_id": "74556086af15440ab7b2a138a0aecb06"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5367,
+    "category": "",
+    "title": "まで => Cho đến khi",
+    "type": "grammar",
+    "_id": "80ee04fc3c5b492f81ec3ba869b5c535"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5429,
+    "category": "",
+    "title": "て済む => Giải quyết xong chỉ bằng/Chỉ tốn... là xong/Chỉ cần... là xong",
+    "type": "grammar",
+    "_id": "938fc38dc10d49319dd2051526b64c2a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5369,
+    "category": "",
+    "title": "まで => Đến cả/Đến mức",
+    "type": "grammar",
+    "_id": "a3a46538207d43efbae4dd520c6e550e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5371,
+    "category": "",
+    "title": "ますように => Mong sao",
+    "type": "grammar",
+    "_id": "2ea9c5fa582645c9936609a6a2698aad"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5439,
+    "category": "",
+    "title": "というより/というか => Đúng hơn là/Thì đúng hơn",
+    "type": "grammar",
+    "_id": "3089b421f36c425a85b948584dad6e71"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5349,
+    "category": "",
+    "title": "代わりに => Thay cho/Đổi lại",
+    "type": "grammar",
+    "_id": "34460f3ade754a89af68ed3bde42fff1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5455,
+    "category": "",
+    "title": "わけだ => Thảo nào/Chẳng trách/Bảo sao (vỡ lẽ)",
+    "type": "grammar",
+    "_id": "411091f22ce14f47bd381346322073a4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5442,
+    "category": "",
+    "title": "ところだった => Suýt nữa",
+    "type": "grammar",
+    "_id": "45b00990e4b24176ad35061021e1fad8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5334,
+    "category": "",
+    "title": "ふりをする => Giả vờ/Tỏ ra",
+    "type": "grammar",
+    "_id": "4c714a3941d0430cbee2c498b308c5f8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5353,
+    "category": "",
+    "title": "切る/切れる/切れない => Làm hết/Làm... không hết",
+    "type": "grammar",
+    "_id": "508ed87fb728447fbba1fe4d2e635fa4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5448,
+    "category": "",
+    "title": "ついでに => Nhân tiện/Tiện thể",
+    "type": "grammar",
+    "_id": "5fb01659775e44058fa14726704297fa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5343,
+    "category": "",
+    "title": "いくら～ても => Dù... đến mấy/Dù... bao nhiêu đi chăng nữa",
+    "type": "grammar",
+    "_id": "62d3802d33314212ba9ccf5859024c0a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5440,
+    "category": "",
+    "title": "というと/といえば/といったら => Nói đến",
+    "type": "grammar",
+    "_id": "6b1d1661763444fea3405b96ed922ebc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5433,
+    "category": "",
+    "title": "といっても => Dù nói là... nhưng...",
+    "type": "grammar",
+    "_id": "760ad14aeb9646b2afffd60e95c36421"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5382,
+    "category": "",
+    "title": "より(も)むしろ => Hơn là/Thà... còn hơn",
+    "type": "grammar",
+    "_id": "792653db9ff5487191b093edc032484c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5391,
+    "category": "",
+    "title": "に関して => Về/Liên quan đến",
+    "type": "grammar",
+    "_id": "7fe19143ef604d4aaa00863e34522639"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5451,
+    "category": "",
+    "title": "つもりだった => Đã định/Đã tưởng rằng...",
+    "type": "grammar",
+    "_id": "b50e3657fee3467dba0b3d4843bcf820"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5364,
+    "category": "",
+    "title": "くらい～はない => Cỡ như... thì không có",
+    "type": "grammar",
+    "_id": "b8baa6cc36b346d5ba58c7fa74482943"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5325,
+    "category": "",
+    "title": "別に～ない => Không thực sự/Không hẳn",
+    "type": "grammar",
+    "_id": "c5b0ed95b63c49b9bc13092e6773ba2f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5383,
+    "category": "",
+    "title": "もの/もん/んだもの/んだもん => Thì là vì",
+    "type": "grammar",
+    "_id": "cd7f1d2989e44031a902a734e0009bf1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5458,
+    "category": "",
+    "title": "わけにはいかない => Không thể/Phải",
+    "type": "grammar",
+    "_id": "d01c9800f2834e93a0dbac4394b0824b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5351,
+    "category": "",
+    "title": "決して～ない => Nhất định không/Tuyệt đối không",
+    "type": "grammar",
+    "_id": "d602b3f7019547e6991014cd6a52b332"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5425,
+    "category": "",
+    "title": "確かに => Chắc chắn/Quả thực",
+    "type": "grammar",
+    "_id": "dd2edda77a0d40f88d9dfc8fa27a9d1c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5438,
+    "category": "",
+    "title": "ということ/というの => Chuyện/Việc/Tin...",
+    "type": "grammar",
+    "_id": "e143bb0fd9ce48abbfa9371a2b11c1bd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5322,
+    "category": "",
+    "title": "ばかり => Toàn/Chỉ/Lúc nào cũng",
+    "type": "grammar",
+    "_id": "f27605cb1b014e368bf5009bb20cdeca"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5469,
+    "category": "",
+    "title": "ようになる => Trở nên",
+    "type": "grammar",
+    "_id": "fee0d1d4635b4ecbb90ad36216975122"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5339,
+    "category": "",
+    "title": "はずだ/はずがない => Chắc chắn là/Chắc chắn không có chuyện",
+    "type": "grammar",
+    "_id": "33f5a63454a44cf1ab924744751c2169"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5399,
+    "category": "",
+    "title": "によって  => Do/Bằng/Tùy theo",
+    "type": "grammar",
+    "_id": "372a744cc5a14671bfb58048b2c0e128"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5361,
+    "category": "",
+    "title": "ことはない => Không cần phải",
+    "type": "grammar",
+    "_id": "397a998ec5ff428b857f03cdd729ad0f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5413,
+    "category": "",
+    "title": "させてください/させてもらえますか/させてもらえませんか => Xin được phép/Cho phép tôi... được không?",
+    "type": "grammar",
+    "_id": "61cb1047a00543b1ac96594c1676fdad"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5462,
+    "category": "",
+    "title": "ようと思う/ようと思っている => Định...",
+    "type": "grammar",
+    "_id": "65c12967b3714bc6bd483d1164863be0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5401,
+    "category": "",
+    "title": "に比べて => So với",
+    "type": "grammar",
+    "_id": "7581917f3c0c4838a194f5954d936566"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5394,
+    "category": "",
+    "title": "に対して => Đối với/Trái với/Cho mỗi",
+    "type": "grammar",
+    "_id": "7c6f85df936c4968ba783e3107e00c3c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5435,
+    "category": "",
+    "title": "的 => Mang tính/Về mặt",
+    "type": "grammar",
+    "_id": "7fde1733d5774e98a5c82600265ffc81"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5395,
+    "category": "",
+    "title": "において => Ở/Tại/Trong",
+    "type": "grammar",
+    "_id": "886aa10047514b21a2dec2c7477db290"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5407,
+    "category": "",
+    "title": "らしい => Ra dáng/Mang dáng dấp",
+    "type": "grammar",
+    "_id": "91ebaf01090a4cbb8fcb2dcc68e5b87f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5402,
+    "category": "",
+    "title": "にしても/にしろ/にせよ => Dù/Dẫu",
+    "type": "grammar",
+    "_id": "c4d14c9c9ece47b3b236ba46f02abda9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5358,
+    "category": "",
+    "title": "ことだ => Nên/Không nên",
+    "type": "grammar",
+    "_id": "e0decc76a55448a88959269a6a708552"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5320,
+    "category": "",
+    "title": "ば～ほど => Càng... càng...",
+    "type": "grammar",
+    "_id": "f1382000e85347f6b2cee77cd7b7ef2c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5450,
+    "category": "",
+    "title": "うちに => Trong lúc/Trong khi",
+    "type": "grammar",
+    "_id": "fec7f49095504913bd886cf23d1d793a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5360,
+    "category": "",
+    "title": "ことにする/ことにしている => Quyết định/Có thói quen",
+    "type": "grammar",
+    "_id": "0ccaeecfcd4c48949264eb8f6df3efcd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5342,
+    "category": "",
+    "title": "一度に => Cùng một lúc",
+    "type": "grammar",
+    "_id": "3c22f67bf3ee4108a66c79f9603a6e17"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5447,
+    "category": "",
+    "title": "としたら/とすれば => Nếu/Giả sử (Điều kiện giả định)",
+    "type": "grammar",
+    "_id": "418d58049be64e8fb660dc4f90c9781c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5437,
+    "category": "",
+    "title": "ということだ => Nghe nói/Có nghĩa là",
+    "type": "grammar",
+    "_id": "4477e0aa86e04eaf81dcbc94293857b6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5403,
+    "category": "",
+    "title": "にしては => Vậy mà",
+    "type": "grammar",
+    "_id": "4bd03be8892e4d10a715fc46184ba944"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5405,
+    "category": "",
+    "title": "の => Việc",
+    "type": "grammar",
+    "_id": "5ca7e9129d374c019a4383f886bcc958"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5380,
+    "category": "",
+    "title": "もしかすると/もしかしたら～かもしれない => Có lẽ/Không chừng",
+    "type": "grammar",
+    "_id": "7e84011b1d774d14962cd3058b00964c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5430,
+    "category": "",
+    "title": "ても => Dù... thì cũng...",
+    "type": "grammar",
+    "_id": "896a4a4a00234c51979feb7e8dbd9406"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5467,
+    "category": "",
+    "title": "ように  => Hãy làm.../Đừng làm...",
+    "type": "grammar",
+    "_id": "b3343acdd3fd4fb796dd0b22c2b46fe1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5350,
+    "category": "",
+    "title": "結局 => Rốt cuộc/Cuối cùng",
+    "type": "grammar",
+    "_id": "bbfac9bebf564da39cf8a9c81c16eabe"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5376,
+    "category": "",
+    "title": "みたい => Giống như (Ví von)",
+    "type": "grammar",
+    "_id": "e399b586c96646eeba54a18458ea6c72"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5456,
+    "category": "",
+    "title": "わけではない => Không hẳn là",
+    "type": "grammar",
+    "_id": "f605bba53d394e32859ee06ec9c149b0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5318,
+    "category": "",
+    "title": "～ばよかった/～たらよかった/～ばよかったのに/～たらよかったのに => Giá mà/Phải chi",
+    "type": "grammar",
+    "_id": "f940fc7e1c644226b0c9773dc64a0fe7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5344,
+    "category": "",
+    "title": "一体 => Rốt cuộc/Không biết là",
+    "type": "grammar",
+    "_id": "01c17e3ed9db4936bcda28e1d322bd3a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5323,
+    "category": "",
+    "title": "べき => Phải/Nên...",
+    "type": "grammar",
+    "_id": "048a7994800b4d349dab0625a648936a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5316,
+    "category": "",
+    "title": "上げる => Làm... xong",
+    "type": "grammar",
+    "_id": "04fb2250f2fe4e558fa9ef7b4230814c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5452,
+    "category": "",
+    "title": "は別として => Ngoại trừ/Không quan trọng",
+    "type": "grammar",
+    "_id": "0898fcd9970d45728377f721c00fefa4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5381,
+    "category": "",
+    "title": "もしも～なら/ もしも～たら/ もしも～ても => Nếu... thì/Nếu... đi chăng nữa",
+    "type": "grammar",
+    "_id": "0c9767b3952a410d9b1e203919a2de16"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5352,
+    "category": "",
+    "title": "きり => Chỉ có",
+    "type": "grammar",
+    "_id": "0ec2e74491bb47ea8b23b7f641cd8de9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5375,
+    "category": "",
+    "title": "み => Điểm/Nỗi/Niềm",
+    "type": "grammar",
+    "_id": "2210a4b66edb4267b62f9ca9af87b4f7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5327,
+    "category": "",
+    "title": "だけ => Nhất có thể/Thỏa thích",
+    "type": "grammar",
+    "_id": "259f95394de0470195f22a6da23722b6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5328,
+    "category": "",
+    "title": "だけで(は)なく => Không chỉ... mà còn",
+    "type": "grammar",
+    "_id": "2f03c677d8094a218391c7cdce4ccd26"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5355,
+    "category": "",
+    "title": "込む => (Nhét) vào/(Chất) lên",
+    "type": "grammar",
+    "_id": "6dd7e8dcefdc45aba6af146442ee0f6e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5387,
+    "category": "",
+    "title": "なかなか => Rất/Khá là",
+    "type": "grammar",
+    "_id": "74cba198af21443bb530a7ed1b43fac0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5431,
+    "category": "",
+    "title": "て(は)はじめて => Sau khi... thì mới bắt đầu",
+    "type": "grammar",
+    "_id": "878f89811c6e4652bdd15d5996108269"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5345,
+    "category": "",
+    "title": "か何か => Hay gì đó",
+    "type": "grammar",
+    "_id": "8ba121a42f9d42d58d20bb97cc5970dd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5465,
+    "category": "",
+    "title": "ようとする  => Định/Cố gắng để",
+    "type": "grammar",
+    "_id": "a1975fff73d04ce4b0dd066d1e540ca6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5446,
+    "category": "",
+    "title": "通す => Làm đến cùng/Làm một mạch",
+    "type": "grammar",
+    "_id": "c1150c3bae30423387e2694f3c85fdbb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5422,
+    "category": "",
+    "title": "少しも～ない/ちっとも～ない => Một chút cũng không",
+    "type": "grammar",
+    "_id": "cbddcd322691461cb82475b2ab242ce5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5421,
+    "category": "",
+    "title": "すでに => Đã... rồi",
+    "type": "grammar",
+    "_id": "e176057af7fc4036a98baa969fd492a5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5379,
+    "category": "",
+    "title": "もし～としても/もし～としたって => Giả sử... đi chăng nữa, thì cũng...",
+    "type": "grammar",
+    "_id": "03a87a1250af4fa4b1e6ada47e4cd842"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5461,
+    "category": "",
+    "title": "わざわざ => Cất công",
+    "type": "grammar",
+    "_id": "04f4cda93c0c4efdb65b848d331f0e7a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5317,
+    "category": "",
+    "title": "合う => Làm... cùng nhau",
+    "type": "grammar",
+    "_id": "06639defa6ed48b5908aa8a0f225bc6e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5374,
+    "category": "",
+    "title": "めったに～ない => Hiếm khi",
+    "type": "grammar",
+    "_id": "0b79c1629adf4e66aec57cbf8024a631"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5423,
+    "category": "",
+    "title": "たとたん(に) => Vừa mới... thì",
+    "type": "grammar",
+    "_id": "192c6dc3009741369d1153ab87fc3600"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5460,
+    "category": "",
+    "title": "わざと => Cố tình/Cố ý",
+    "type": "grammar",
+    "_id": "327c80254add4d34abd30c1cb2b4deb7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5340,
+    "category": "",
+    "title": "ほど => Càng... càng...",
+    "type": "grammar",
+    "_id": "585f941c69644f9192b7147bc52df4d8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5321,
+    "category": "",
+    "title": "ばかりでなく  => Không chỉ... mà còn",
+    "type": "grammar",
+    "_id": "61b6ecd89103408faec57a81ac02e5f7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5415,
+    "category": "",
+    "title": "しかない => Chỉ có thể",
+    "type": "grammar",
+    "_id": "71c252cbf79e4f24bb3c35f6ce2bc39f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5346,
+    "category": "",
+    "title": "かな(あ) => Không biết... không đây/Mong sao/Không nhỉ",
+    "type": "grammar",
+    "_id": "8793d5d53f2740bf80fc20bb29a5b580"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5426,
+    "category": "",
+    "title": "たとえ～ても => Giả sử... đi chăng nữa/Dù... đi chăng nữa",
+    "type": "grammar",
+    "_id": "97b243cce36f4255afd14e9116fc0aa5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5390,
+    "category": "",
+    "title": "なぜなら(ば)/なぜかというと/どうしてかというと/なぜかといえば => Bởi vì",
+    "type": "grammar",
+    "_id": "a01973faaf824cc880f01cfb2df042bd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5372,
+    "category": "",
+    "title": "まさか => Không thể nào/Lẽ nào",
+    "type": "grammar",
+    "_id": "c0242bd55c6e4c098ba88f383344b490"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5441,
+    "category": "",
+    "title": "というのは/とは => Cái gọi là/Nghĩa là",
+    "type": "grammar",
+    "_id": "c11e4a14082840b0814e63a84a712ca6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5432,
+    "category": "",
+    "title": "てほしい => Muốn (ai đó) làm gì",
+    "type": "grammar",
+    "_id": "ce8d01609ab34b6d821b0a66c3947c85"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5457,
+    "category": "",
+    "title": "わけがない => Chắc chắn không/Không lý nào",
+    "type": "grammar",
+    "_id": "ffa5097a073a4ddaa7549d57898cdc31"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5338,
+    "category": "",
+    "title": "ふと => Đột nhiên/Tình cờ/Chợt",
+    "type": "grammar",
+    "_id": "298540ea4ac14db1963843d36d43bb72"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5428,
+    "category": "",
+    "title": "例えば => Ví dụ như/Chẳng hạn như",
+    "type": "grammar",
+    "_id": "3e4cf8131c4441b1bbcb20f7fdca9147"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5454,
+    "category": "",
+    "title": "は～で有名 => Nổi tiếng vì/Nổi tiếng với",
+    "type": "grammar",
+    "_id": "49ef693400fa4e5b8c1973189484890f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5386,
+    "category": "",
+    "title": "ないことはない/ないこともない => Không phải là không/Không hẳn là không",
+    "type": "grammar",
+    "_id": "772129aa89e9420f90f0fa4eed058edd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5392,
+    "category": "",
+    "title": "に代わって => Thay mặt/Thay cho",
+    "type": "grammar",
+    "_id": "7ef8d25aa5a345c8b8275be88eedda55"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5396,
+    "category": "",
+    "title": "にとって => Đối với",
+    "type": "grammar",
+    "_id": "8444319c700f46d4806ba2e28c693646"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5459,
+    "category": "",
+    "title": "わりには => Tuy... nhưng/So với... thì...",
+    "type": "grammar",
+    "_id": "86c16cb91aae4d078f9b9d3a7b065c57"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5366,
+    "category": "",
+    "title": "くせに => Dù.../Thế mà...",
+    "type": "grammar",
+    "_id": "97b371cdd9d54d49a653f2d421b24f82"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5463,
+    "category": "",
+    "title": "よりも => Hơn...",
+    "type": "grammar",
+    "_id": "a2de4fc646e44b7fa8af24515a3e5226"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5368,
+    "category": "",
+    "title": "まま => Y nguyên/Để nguyên",
+    "type": "grammar",
+    "_id": "ca8c4b719efa42c9938529323d3cc5fa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 269,
+    "category": "Nhấn mạnh",
+    "title": "といったら => Nói về...",
+    "type": "grammar",
+    "_id": "93020c54469e582d6fdb16f7ba4f6460"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1560,
+    "category": "Đánh giá",
+    "title": "ちょっと…ない => Hầu như không có, không thể ... (Đánh giá tích cực)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693887b02"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1575,
+    "category": "Đối chiếu",
+    "title": "…と (は) はんたい (反対)に => Trái lại với",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938a5c31"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1562,
+    "category": "Cần thiết, nghĩa vụ",
+    "title": "なくちゃ => Phải...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369388bb9b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1609,
+    "category": "Đánh giá",
+    "title": "のも無理もない => Cũng là lẽ đương nhiên thôi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938f00dd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1614,
+    "category": "Mơ hồ",
+    "title": "なんでも…そうだ => Nghe nói dường như...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938f7b00"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1577,
+    "category": "Cho phép",
+    "title": "(さ）せてほしい => Muốn, cho phép tôi ( Được cho phép làm gì, không phải làm gì)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938a993d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1606,
+    "category": "Cấp (so sánh) cao nhất",
+    "title": "ほど… はない => Không có.......nào bằng  N",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938e8dc2"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1704,
+    "category": "Mơ hồ",
+    "title": "なぜか => Không hiểu sao",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939af29f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1659,
+    "category": "Diễn tả",
+    "title": "...では => Bằng ..., ở..., theo...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939492af"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1662,
+    "category": "Ngoài dự đoán",
+    "title": "とんでもない => Không ngờ, ngoài sức tưởng tượng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693950610"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1742,
+    "category": "Mệnh lệnh",
+    "title": "ちょっと => Này, này này (Gọi)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939fe876"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1702,
+    "category": "Chấp thuận, đồng ý",
+    "title": "なるほど => Quả thực là, thảo nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939aa9f1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1755,
+    "category": "Mệnh lệnh, định nghĩa",
+    "title": "を…という => Gọi ... là ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a1e222"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1762,
+    "category": "Nguyên nhân, lý do",
+    "title": "…からか／…せいか／…のか => Có lẽ do ... hay sao mà",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a2c002"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1777,
+    "category": "Thêm vào",
+    "title": "さらに => Thêm nữa, (càng) ... hơn nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a57860"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1773,
+    "category": "Xác nhận",
+    "title": "じゃないか / ではないか=> Đúng không... (Xác nhận)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a4b37f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1778,
+    "category": "Đề nghị",
+    "title": "さあ => Nào, được rồi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a5a1ad"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1892,
+    "category": "Suy đoán",
+    "title": "みるからに => Thoạt trông đã thấy, nhìn qua là thấy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b44376"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1918,
+    "category": "Đánh giá",
+    "title": "ちょっと => Hơi (Giảm nhẹ ngữ điệu)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b7f05f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1922,
+    "category": "Mức cực đoan",
+    "title": "いかに…ても => Cho dẫu thế nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b8ea18"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1889,
+    "category": "Cưỡng chế",
+    "title": "てあげてくれ => Hãy ... cho",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b3e77a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1895,
+    "category": "Biểu thị bằng ví dụ",
+    "title": "…たりしたら／しては => ... Chẳng hạn",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b47d62"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1920,
+    "category": "Trạng thái",
+    "title": "と => (Trạng thái thực hiện hành động, động tác)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b88931"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1932,
+    "category": "Diễn tả",
+    "title": "ひじょうに => Cực kì, vô cùng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ba3e95"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1952,
+    "category": "Quả quyết (quyết định dứt khoát)",
+    "title": "だからといって => Không phải vì thế mà...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bd6693"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1977,
+    "category": "Mức cực đoan",
+    "title": "あまりに (も) => ...Quá sức, ...quá chừng, ...quá mức",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c14417"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2017,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "(の) なら => Nếu ... thì đã (Điều kiện không thật)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c69f46"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1975,
+    "category": "Phạm vi",
+    "title": "うち (で/ から) => Trong số, trong.....",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c0eab5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1990,
+    "category": "Yêu cầu",
+    "title": "てもらえないか => Nhờ... được không?",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c2dca6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2044,
+    "category": "Mệnh lệnh, định nghĩa",
+    "title": "なんとかいう => Nói cái gì đó",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c9d018"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2057,
+    "category": "Đánh giá",
+    "title": "なに～ない => Không một chút nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cbda5a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2069,
+    "category": "Căn cứ, cơ sở",
+    "title": "つもりで => Cho là đã, xem như là đã",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cdba66"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2095,
+    "category": "Nhấn mạnh",
+    "title": "ったら => Nhấn mạnh chủ đề ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d113b1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2119,
+    "category": "Phát ngôn",
+    "title": "と言っている => Nói rằng ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d4c49c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2133,
+    "category": "Diễn tả",
+    "title": "…も…ば…も => Cũng, và .... cũng .... (Nếu ..., thì cũng ....)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d77b3d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2163,
+    "category": "Mệnh lệnh, định nghĩa",
+    "title": "... というもの => Cái gọi là, thứ gọi là ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693db5ffb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2168,
+    "category": "Trạng thái kết quả",
+    "title": "ばかりだ => Vừa mới",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dbe0a0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2186,
+    "category": "Căn cứ, cơ sở",
+    "title": "ともすると => Không chừng, dễ chừng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693de240d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2195,
+    "category": "Cách nói mào đầu",
+    "title": "なんにしろ => Dù là gì đi nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dfa1d5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2204,
+    "category": "Mơ hồ",
+    "title": "なんとなく => Không hiểu tại sao, không mục đích",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e0e4f6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2211,
+    "category": "Chỉ trích",
+    "title": "...ではないか => Không... phải hay sao?,  như vậy là... biết chưa? (trách móc)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e206f9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2857,
+    "category": "Cảm thán",
+    "title": "よく(ぞ) => Thật quý hóa, cảm ơn",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f3895cf"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2177,
+    "category": "Từ chối",
+    "title": "いい => (Từ chối) đủ (rồi)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dce6ef"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2180,
+    "category": "Cảm thán",
+    "title": "...ぞ => Vĩ tố câu",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dd5665"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2300,
+    "category": "Hối hận",
+    "title": "…ば ... た => Nếu ... thì đã",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ee8ec0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2302,
+    "category": "Cảm thán",
+    "title": ".... ば…のか => Phải ... đây",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693eedbe6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2303,
+    "category": "Quyết tâm, quyết định",
+    "title": "...ず => Mà không ..., không ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ef086a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2311,
+    "category": "Tình hình",
+    "title": "らしい => Đúng nghĩa, ra hồn",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f030ef"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2315,
+    "category": "Mức nhiều ít về số lượng",
+    "title": "わずか => Chỉ vỏn vẹn",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f0b611"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2326,
+    "category": "Cương vị, quan điểm",
+    "title": "にすれば => Nếu đứng từ lập trường của…",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f20fa7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2334,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "... ば => Nếu..., thì hãy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f2e3fa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2342,
+    "category": "Suy đoán",
+    "title": "…ば…はずだ => Nếu ... thì có lẽ ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f3dda2"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2361,
+    "category": "Nguyên nhân, lý do",
+    "title": "... はず => Làm gì mà không, hèn chi, chả trách...là phải (Hiểu ra)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f6574c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2374,
+    "category": "Nhấn mạnh nghĩa phủ định",
+    "title": "とんでもない => Không phải thế đâu",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f820da"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2378,
+    "category": "Thời điểm",
+    "title": "いまさらながら => Bây giờ vẫn ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f8cb81"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2385,
+    "category": "Thời điểm",
+    "title": "いまごろになって => Tới bây giờ mới ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f9bee7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2390,
+    "category": "Kết quả",
+    "title": "けっか => Kết quả là, sau khi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fa86c5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2395,
+    "category": "Nhấn mạnh",
+    "title": "どうも => Lúng túng, bối rối",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fafff8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2398,
+    "category": "Đánh giá",
+    "title": "なんとも～ようがない => Không có cách nào để làm .., không biết nên làm... thế nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fb4fd1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2399,
+    "category": "Đánh giá",
+    "title": "なんとも～ない => Không thể ... như thế",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fb92f6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2400,
+    "category": "Diễn tả",
+    "title": "なにもかも => Tất cả",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fbc5c9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2401,
+    "category": "Căn cứ, cơ sở",
+    "title": "なんとはなしに => Không biết tại sao, không mục đích",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fbdad3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2405,
+    "category": "Kỳ vọng",
+    "title": "なにかにつけて => Hễ có dịp nào là ... lại",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fc2dca"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2196,
+    "category": "Mời rủ, khuyên bảo",
+    "title": "どうせ (のこと) だから => Vì đằng nào cũng phải ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fc5a6e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2408,
+    "category": "Đánh giá",
+    "title": "…ほどの…ではない => không phải...tới mức (cần) phải...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fc7fad"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2409,
+    "category": "Đánh giá",
+    "title": "…というほどではない => Không tới mức...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fc9a04"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2410,
+    "category": "Nhấn mạnh",
+    "title": "なんということもない => Chẳng có gì đáng nói",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fcb0a7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2417,
+    "category": "Mơ hồ",
+    "title": "なんて... => Cái gì ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fdce28"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2419,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "もし...ても => Dù cho, dẫu cho",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fe2b21"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2423,
+    "category": "Cảm thán",
+    "title": "...にV => Hằng ..., quá ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fed663"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2426,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "たなら => Nếu ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ff6377"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3244,
+    "category": "Ngạc nhiên",
+    "title": "なんて (いう)～だ => quá cừ, quá quắt, quá mức chịu đựng",
+    "type": "grammar",
+    "_id": "5f2ca7a267ba2661463e3ccd3e91a8c6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3245,
+    "category": "Diễn tả",
+    "title": "なんと～のだろう => ...dường nào, ...biết bao",
+    "type": "grammar",
+    "_id": "5f2ca7a267ba2661463e3ccd3e913afa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3215,
+    "category": "Tỷ lệ, song song",
+    "title": "そこへいくと => So với, chẳng bù với",
+    "type": "grammar",
+    "_id": "5f2ca7a267ba2661463e3ccd3e94fd2f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5029,
+    "category": "Chỉ trích",
+    "title": "じゃないか / ではないか => Anh không biết...hay sao chứ (Phê phán)",
+    "type": "grammar",
+    "_id": "5f2ca7a267ba2661463e3ccd3eb50dcc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 255,
+    "category": "Diễn tả",
+    "title": "ということ => Có nghĩa là",
+    "type": "grammar",
+    "_id": "93020c54469e582d6fdb16f7ba47fb38"
+  },
+  {
+    "level": "N3",
+    "mobileId": 395,
+    "category": "Bất biến",
+    "title": "にしても => Cho dù... (bất kể)",
+    "type": "grammar",
+    "_id": "93020c54469e582d6fdb16f7ba5868ae"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3150,
+    "category": "Nhấn mạnh về mức độ",
+    "title": "～は～くらいです     =>Khoảng cỡ, như là…",
+    "type": "grammar",
+    "_id": "93020c54469e582d6fdb16f7ba6f996f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3255,
+    "category": "Căn cứ, cơ sở",
+    "title": "によると / によれば => Theo...",
+    "type": "grammar",
+    "_id": "93020c54469e582d6fdb16f7ba751c7b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3253,
+    "category": "Biểu hiện bằng ví dụ",
+    "title": "にしても => Ngay cả...",
+    "type": "grammar",
+    "_id": "93020c54469e582d6fdb16f7ba7cc2e7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2524,
+    "category": "Giải thích",
+    "title": "... というのは => ... Có nghĩa là",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f0c86bc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2563,
+    "category": "Ngạc nhiên",
+    "title": "よく(も) => Không ngờ..., mà vẫn...",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f121c06"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2576,
+    "category": "Tôn kính, khiêm nhường",
+    "title": "ご...になる => Làm, thực hiện",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f139fef"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2597,
+    "category": "Tôn kính, khiêm nhường",
+    "title": "お … いただく => Được quý ngài ..., quý ngài ... cho",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f15edec"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2431,
+    "category": "Đánh giá",
+    "title": "つもりではない => Không có ý",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f000857"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2434,
+    "category": "Khả năng",
+    "title": "ひとつ…できない => Không (làm) ... nổi lấy một ...",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f005c4c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2436,
+    "category": "Mệnh lệnh",
+    "title": "こと => Phải (làm gì)…, không được, cấm…(làm gì)",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f008dd6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2442,
+    "category": "Ngạc nhiên",
+    "title": "あれで => Như thế mà (Thể hiện sự ngạc nhiên)",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f016dc4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2446,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "ては => Nếu",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f01f2a7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2450,
+    "category": "Diễn tả",
+    "title": "...もまた => Thì cũng...",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f024eaf"
+  },
+  {
+    "level": "N3",
+    "mobileId": 3231,
+    "category": "Diễn tả",
+    "title": "ても～れない => Dù muốn... cũng không được",
+    "type": "grammar",
+    "_id": "1deff59183d11869f4e26da71124aea3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 765,
+    "category": "Quan hệ trước sau",
+    "title": "あとから => Sau đó, sau đó lại, sau này mới",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136931a1123"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1221,
+    "category": "Suy đoán",
+    "title": "といえば～かもしれない => Nếu nói là...thì có lẽ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369357f747"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5445,
+    "category": "",
+    "title": "とく => Làm... sẵn/Cứ để nguyên",
+    "type": "grammar",
+    "_id": "04ee59be94d74c739c4348c35b9cad48"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5400,
+    "category": "",
+    "title": "に～られる => Bị (gây phiền toái)",
+    "type": "grammar",
+    "_id": "059f9563abcb45e4a655d4ae11b37d69"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5420,
+    "category": "",
+    "title": "それとも => Hay là/Hoặc là",
+    "type": "grammar",
+    "_id": "070bbbd5c1ef470cb6c26e57c31f5b77"
+  },
+  {
+    "level": "N3",
+    "mobileId": 5330,
+    "category": "",
+    "title": "だけど => Nhưng",
+    "type": "grammar",
+    "_id": "13a7ecca4a9646cfadc26dab5a01d03a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2538,
+    "category": "Tuyển chọn",
+    "title": "また => (Lựa chọn) mà, hoặc",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f0e504c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2601,
+    "category": "Giải thích",
+    "title": "N1 の N2 => N2 là N1 (Đồng cách)",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f164f23"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2437,
+    "category": "Nhắc nhở",
+    "title": "いい => Nhớ là, sẵn sàng chưa (Lưu ý ai đó)",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f00c581"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2438,
+    "category": "Tiêu chuẩn",
+    "title": "以下 => Như sau, dưới đây",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f00da45"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2439,
+    "category": "Đánh giá",
+    "title": "まんざら…でもない/ではない => Không đến nỗi là...",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f010cac"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2441,
+    "category": "Khoảng thời gian ngắn",
+    "title": "そうになる => Suýt...",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f0152a7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2447,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "のでは => Nếu",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f02098f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 798,
+    "category": "Bất biến",
+    "title": "なん～ても => Bao nhiêu...vẫn...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136931ea35d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 843,
+    "category": "Bất biến",
+    "title": "てもどうなるものでもない => Dù có...cũng chẳng đi đến đâu",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693255d56"
+  },
+  {
+    "level": "N3",
+    "mobileId": 844,
+    "category": "Nhấn mạnh",
+    "title": "ても ～きれない => Dù có...bao nhiêu cũng không...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369325748f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 641,
+    "category": "Đánh giá",
+    "title": "が～なら～も～だ => ...như thế nào thì... cũng như thế nấy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369309aa6e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2822,
+    "category": "Tôn kính, khiêm nhường",
+    "title": "お…です => Đã ..., đang ..., sẽ ...",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f3315af"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2854,
+    "category": "Mức cực đoan",
+    "title": "なんてあんまりだ => Thật là quá đáng",
+    "type": "grammar",
+    "_id": "f2d618ceb0702f781ec83b7d4f382759"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1142,
+    "category": "Đương nhiên",
+    "title": "むきもある => Cũng có những người...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136934d8881"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1143,
+    "category": "Thời gian",
+    "title": "そこへ => Đúng vào lúc đó",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136934da33d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 892,
+    "category": "Căn cứ, cơ sở",
+    "title": "くもなんともない => Hoàn toàn không..., không... chút nào cả",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136932bac2d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1035,
+    "category": "Suy đoán",
+    "title": "たしかに/なるほど～かもしれない => Có thể ... thật, có thể ... đúng như anh nói",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136933f38d7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1062,
+    "category": "Biểu thị bằng ví dụ",
+    "title": "などする => Như... chẳng hạn",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369342d12f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1663,
+    "category": "Suy đoán",
+    "title": "... と考られる => Có thể, nghĩ rằng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693951c5d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1664,
+    "category": "Suy đoán",
+    "title": "ことだろう => Chắc (là) ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693952f35"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1667,
+    "category": "Quả quyết (quyết định dứt khoát)",
+    "title": "... のだ => Cho nên ..., thành ra ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693956c66"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1669,
+    "category": "Cảm thán",
+    "title": "... のだ => Cơ chứ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369395c48f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1671,
+    "category": "Mơ hồ",
+    "title": "どうも => Thế nào ấy (Nghi hoặc)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369395ec34"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1675,
+    "category": "Kết quả",
+    "title": "それゆえ => Do đó",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693968d01"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1680,
+    "category": "Biểu thị bằng ví dụ",
+    "title": "ということなら => Nếu anh ấy nói thế",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693975c42"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1682,
+    "category": "Mức cực đoan",
+    "title": "なにも～ない => Đâu cần phải..., việc gì phải ..., sao lại ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369397ba16"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1685,
+    "category": "Đồng thời",
+    "title": "ていけない => Tự nhiên...hết sức",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693980ad3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1686,
+    "category": "Nguyên nhân, lý do",
+    "title": "おかげだ => Là nhờ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693981ff9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1690,
+    "category": "Ngạc nhiên",
+    "title": "... ではないか => ... đấy phải không, ...đấy chứ (kinh ngạc, phát hiện)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369398a309"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1694,
+    "category": "Ngạc nhiên",
+    "title": "なんという～だ => ...thật là kinh khủng, đáng nể, đáng ngạc nhiên",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369399436f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1696,
+    "category": "Bất biến",
+    "title": "なにひとつ～ない => Không... một cái nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693998072"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1699,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "とする => Giả dụ (giả định)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939a0cfc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1701,
+    "category": "Xác nhận",
+    "title": "なんて（いう）... => ... Gọi là gì, tên gì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939a6815"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1707,
+    "category": "Thời điểm",
+    "title": "ところで => Đúng vào lúc (Thời điểm ngắt)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939b5864"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1708,
+    "category": "Kết luận",
+    "title": "そうすると => Nếu thế thì, vậy thì (Kết luận)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939b6870"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1712,
+    "category": "Mơ hồ",
+    "title": "なんか => Thế nào ấy...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939c3069"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1716,
+    "category": "Nhấn mạnh",
+    "title": "いくら…といっても => Dẫu nói thế nào đi nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939ccd3b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1559,
+    "category": "Mệnh lệnh",
+    "title": "せられたい => Xin, hãy...(cho)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693884c2c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1563,
+    "category": "Đánh giá",
+    "title": "…のも無理 (は) ない => Cũng là lẽ đương nhiên thôi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369388da7a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1568,
+    "category": "Tiêu chuẩn",
+    "title": "... いか... => ... Trở xuống",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938988ea"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1578,
+    "category": "Kỳ vọng",
+    "title": "… がいい ... => ... Mong sao cho ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938aa4b7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1587,
+    "category": "Điều kiện (điều kiện trái với sự thực)",
+    "title": "…ば…ところだ（った） => Nếu ... thì sẽ (thì đã)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938c0964"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1601,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "ば … => Giá như, chẳng hạn như",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938ddcdd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1621,
+    "category": "Giới hạn, cực hạn",
+    "title": "限り => Chỉ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939014cc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1639,
+    "category": "Cảm thán",
+    "title": "こと => Làm sao, quá",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693922e00"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1655,
+    "category": "Thời điểm",
+    "title": "... いらいはじめて => Từ khi ... tới nay mới lần đầu",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369393ecb7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1666,
+    "category": "Giải thích",
+    "title": "... のだ => Chính là ... (Giải thích)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369395523d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1672,
+    "category": "Suy đoán",
+    "title": "... ところをみると => Do chỗ ... nên (Tôi đoán)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369395fe53"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1681,
+    "category": "Căn cứ, cơ sở",
+    "title": "…くらいだから => Vì (Ở mức) ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693977fb1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1684,
+    "category": "Cảm thán",
+    "title": "ていただけるとありがたい => Nếu được anh...cho thì tôi biết ơn lắm",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369397f6f8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1719,
+    "category": "Liên tục",
+    "title": "中 => Trong khi đang (Kéo dài)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939d4d53"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1741,
+    "category": "Chỉ trích",
+    "title": "…も…なら => ... Làm sao thì....làm vậy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939fbedf"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1745,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "かりに…たら/…ば => Nếu ..., giả sử ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a041d8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1747,
+    "category": "Mức cực đoan",
+    "title": "いかに…ようと（も） => Dù ... thế nào đi nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a07d23"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1814,
+    "category": "Căn cứ, cơ sở",
+    "title": "ところから => Do (ở...chỗ)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aa86b8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1830,
+    "category": "Nghe nói",
+    "title": "...とかいうことだ => Nghe nói... thì phải",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ac5f09"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1848,
+    "category": "Cấp (so sánh) cao nhất",
+    "title": "なにより => Hơn hết, ...nhất",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ae8a70"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1851,
+    "category": "Diễn tả",
+    "title": "など～ない => Chẳng...chút nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aeef59"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1890,
+    "category": "Diễn tả",
+    "title": "つもりはない => Không có ý",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b40f30"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1900,
+    "category": "Tình hình",
+    "title": "風 => Có phong cách..., có dáng vẻ ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b54a03"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1912,
+    "category": "Giới hạn, cực hạn",
+    "title": "なるたけ => Cố hết sức",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b6c66f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1921,
+    "category": "Điều không ăn khớp với dự đoán",
+    "title": "いかに … とはいえ => Cho dù .. thế nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b8bc47"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1926,
+    "category": "Đánh giá",
+    "title": "... いかだ => Không bằng ..., còn thua cả ..., không phải ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b95e3b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1928,
+    "category": "Kỳ vọng",
+    "title": "いまひとつ…ない => Chưa thật là ... (lắm)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b9d399"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1974,
+    "category": "Thay đổi cách nói",
+    "title": "わけだ => Như anh biết đấy (khẳng định sự thật)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c0cc6b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1980,
+    "category": "Quan hệ trước sau",
+    "title": "あとから => Sau khi...xong rồi mới...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c184bd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2024,
+    "category": "Ngoại lệ",
+    "title": "ともかく => Dù thế nào, bất luận thế nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c783db"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2051,
+    "category": "Suy đoán",
+    "title": "ではないか => Phải chăng là, có lẽ, không biết có phải...không",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693caf16c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2065,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "なら (ば) => Nếu ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cd35b1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2077,
+    "category": "Cho phép",
+    "title": "（ さ）せてもらいたい => Muốn, cho phép tôi ( được cho phép làm gì, không phải làm gì)…",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ceb73b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2090,
+    "category": "Lặp lại, thói quen",
+    "title": "またしても => Thế là lại",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d05018"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2128,
+    "category": "Ngạc nhiên",
+    "title": "まさか...とはおもわなかった => Không thể ngờ rằng...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d641b3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2137,
+    "category": "Suy đoán",
+    "title": "...ようで (いて) => Có vẻ như là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d7fceb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2148,
+    "category": "Cảm thán",
+    "title": "いいよ => Được rồi, không nói nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d9d854"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2173,
+    "category": "Cương vị, quan điểm",
+    "title": "なら => Nếu (Quan điểm)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dc66cb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2185,
+    "category": "Mệnh lệnh",
+    "title": "こと => Hãy làm gì…",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ddf748"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2210,
+    "category": "Bất biến",
+    "title": "どうせ… (の) なら => Nếu đằng nào cũng ... thì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e1d6a5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2214,
+    "category": "Nhấn mạnh về mức độ",
+    "title": "…ほど => Tới mức, cỡ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e27619"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2226,
+    "category": "Đề nghị",
+    "title": "...では => Vậy thì... (thể hiện thái độ)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e434db"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2239,
+    "category": "Điều kiện (điều kiện đủ)",
+    "title": "さえ...たら => Chỉ cần...là đủ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e5e8c9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2244,
+    "category": "Trạng thái kết quả",
+    "title": "...かえる (換える) => Đổi, thay",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e6862c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2256,
+    "category": "Kỳ vọng",
+    "title": "…も...ない => Không thèm...., không hề...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e8140e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2286,
+    "category": "Nguyên nhân, lý do",
+    "title": "ひとつには…ためである => Một phần là do ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ec4c48"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1444,
+    "category": "Kết luận",
+    "title": "わけだ => Thành ra (kết luận)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693779170"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1554,
+    "category": "Hối hận",
+    "title": "…ほうがよかった => Giá mà (Hối hận)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369387b5a1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1674,
+    "category": "Quan hệ trước sau",
+    "title": "てこそ => Chỉ khi...mới...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693966868"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1683,
+    "category": "Bất biến",
+    "title": "なんともない => Không có gì cả",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369397dda3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1687,
+    "category": "Chỉ trích",
+    "title": "なにがなんでも => Nói gì thì nói (Phê phán)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693985a02"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1700,
+    "category": "Mơ hồ",
+    "title": "なんだか => Không biết tại sao...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939a32a8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1611,
+    "category": "Ví dụ cực đoan",
+    "title": "Ví dụ cực đoan + も => Cả, chỉ...cũng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938f2ec7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1670,
+    "category": "Suy đoán",
+    "title": "どうも ... そうだ/ ようだ/ らしい => Dường như, chắc là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369395d475"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1679,
+    "category": "Cảm thán",
+    "title": "…けれど => (Đấy) ạ ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939739c3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1703,
+    "category": "Kỳ vọng",
+    "title": "なにかというと => Hễ nói gì là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939ad2c9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1720,
+    "category": "Mức nhiều ít về số lượng",
+    "title": "いくらも…ない => Chẳng ... bao nhiêu ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939d7177"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1723,
+    "category": "Tình hình",
+    "title": "…風 => (Dạng thức) Có vẻ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939db892"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1724,
+    "category": "Nhấn mạnh",
+    "title": "いかなる => ... Thế nào cũng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939dcb5c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1738,
+    "category": "Xếp hàng, liệt kê",
+    "title": "そうして => Và (Liệt kê)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939f47aa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1752,
+    "category": "Tiêu chuẩn",
+    "title": "...いか => Từ bao nhiêu trở xuống",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a16349"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1759,
+    "category": "Khoảng thời gian ngắn",
+    "title": "まもなく => Sắp, chẳng bao lâu nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a24ec8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1763,
+    "category": "Mức nhiều ít về số lượng",
+    "title": "...か => Một vài (người,cái ...)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a2f23b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1842,
+    "category": "Hoàn tất",
+    "title": "とうとう => Cuối cùng thì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693add9d9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1852,
+    "category": "Nguyên nhân, lý do",
+    "title": "せいだ => Là tại...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693af03ed"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1861,
+    "category": "Trách móc",
+    "title": "... ではない => Đừng có nói là... (gì cả)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b05f6f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1875,
+    "category": "Nghe nói",
+    "title": "もくされている => Được xem là, cho rằng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b214d6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1788,
+    "category": "Điều kiện (điều kiện cần)",
+    "title": "... ば => Nếu ... thì sẽ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a72eb3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1793,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "(の) なら～するな => Nếu...thì anh đừng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a7c592"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1825,
+    "category": "Tỉ dụ, ví von",
+    "title": "いわば => Ví như là, có thể nói, khác nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693abc437"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1831,
+    "category": "",
+    "title": "てっきり...と思う => Cứ ngỡ là, đinh ninh rằng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ac78c5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1857,
+    "category": "Phương tiện, phương pháp",
+    "title": "なんとか => Cũng tạm đủ, tàm tạm (Có chủ ý)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693afcfbb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1872,
+    "category": "Cảm thán",
+    "title": "なんて…んだろう => ... Là dường nào (Tâm trạng cảm thán hoặc kinh ngạc)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b1c88b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1936,
+    "category": "Đối chiếu",
+    "title": "... 反対に => Ngược, ngược lại, trái lại, lại",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bae39c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1943,
+    "category": "Mức nhiều ít về số lượng",
+    "title": "あまり => Hơn, trên...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bbfb79"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1958,
+    "category": "Khoảng thời gian ngắn",
+    "title": "瞬間 => Đúng vào giây phút",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693be76d1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1966,
+    "category": "Thành tựu",
+    "title": "ようやく => Rồi cuối cùng cũng đã...(Tốn nhiều thời gian, công sức)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bfbf2d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2063,
+    "category": "Căn cứ, cơ sở",
+    "title": "さすが (に) … だけあって => Quả không hổ danh là, ... như thế hèn chi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ccd57d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2089,
+    "category": "Khả năng",
+    "title": "…ばあいもある => Cũng có khi, cũng có trường hợp",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d036bc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2103,
+    "category": "Mơ hồ",
+    "title": "…にはむりがある => Có điểm không thể thực hiện được, bất hợp lí",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d26519"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2126,
+    "category": "Diễn ra kế tiếp",
+    "title": "あらためる => Lại",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d5ddde"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2160,
+    "category": "Nhấn mạnh về mức độ",
+    "title": "Nくらい => Cỡ N",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693db16e0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2171,
+    "category": "Lặp lại, thói quen",
+    "title": "てばかりいる => Suốt ngày, hoài",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dc30ec"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2178,
+    "category": "Ngoài dự đoán",
+    "title": "だとしたら => Nếu thế thì, nếu đã thế thì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693dd1a7d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2193,
+    "category": "Giải thích",
+    "title": "N1 の...N2 => Cái N2 mà N1...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693df5fe0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2202,
+    "category": "Liên tục",
+    "title": "...どおし => Suốt",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e0b122"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2207,
+    "category": "Mơ hồ",
+    "title": "とかなんとかいう => ... Tên là ... hay cái gì đó",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e14fcb"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2223,
+    "category": "Cho phép",
+    "title": "ならいい => Nếu ... cũng không sao",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e3ba98"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2254,
+    "category": "Mơ hồ",
+    "title": "やなんか => Đại loại là...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e7ca6f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2267,
+    "category": "Diễn tả",
+    "title": "むりをする => Ráng quá sức, cố quá sức",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e9b876"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2268,
+    "category": "Cần thiết, nghĩa vụ",
+    "title": "むりに => Cố mà..., ráng sức mà",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e9e0af"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2270,
+    "category": "Chấp thuận, đồng ý",
+    "title": "いかにも…そうだ => Trông thật là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ea23af"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2288,
+    "category": "Biểu thị bằng ví dụ",
+    "title": "... だって => Ngay cả ... cũng, ngay cả ... chẳng hạn, (nghi vấn từ) mà chẳng ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693eca86f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2291,
+    "category": "Cảm thán",
+    "title": "まさか... => Làm sao có thể, không lẽ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ed1c22"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1481,
+    "category": "Kết luận",
+    "title": "わけだ => Vậy là (kết luận)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136937cd9d7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1555,
+    "category": "Nghi vấn",
+    "title": "なんと => Sao (Như thế nào)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369387d935"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1557,
+    "category": "Mức vươn tới",
+    "title": "になると => Đến mức độ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693881ad3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1558,
+    "category": "Kết quả",
+    "title": "そうしたら => Như thế, đến lúc đó, rồi (Tương lai)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369388394b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1567,
+    "category": "Đúng như dự đoán",
+    "title": "ふそくはない => Không có gì đáng để phàn nàn, chê trách",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693896c1f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1580,
+    "category": "Được lợi",
+    "title": "ていただきたい => Xin ông vui lòng... cho",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938af459"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1582,
+    "category": "Hạn định",
+    "title": "ただ => Chỉ, vỏn vẹn có (Hạn định)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938b5716"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1594,
+    "category": "Nhấn mạnh về mức độ",
+    "title": "たいして…ない => Không ... mấy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938cd812"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1608,
+    "category": "Giới hạn, cực hạn",
+    "title": "ほど… => Khoảng (áng chừng)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938ee081"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1610,
+    "category": "Nhấn mạnh",
+    "title": "...もの (こと) も...ない => Đành bỏ không",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136938f10a0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1620,
+    "category": "Nhấn mạnh về mức độ",
+    "title": "くらいの => ... ngang với...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939003bc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1622,
+    "category": "Giải thích",
+    "title": "というものは...だ => Là thứ, cái gọi là ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693903951"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1623,
+    "category": "Khả năng",
+    "title": "... ないものは ...ない => Không ... là không ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939053f2"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1628,
+    "category": "Lập luận (khẳng định một cách gián tiếp)",
+    "title": "…ようにおもう => (Tôi) cảm thấy dường như",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369390e8aa"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1641,
+    "category": "Cương vị, quan điểm",
+    "title": "... としての... => ... với tư cách...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693926731"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1648,
+    "category": "Cảm thán",
+    "title": "...さ => Vĩ tố câu",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939317be"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1654,
+    "category": "So sánh",
+    "title": "いまや => Bây giờ, còn bây giờ thì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369393d205"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1658,
+    "category": "Nhấn mạnh về mức độ",
+    "title": "とりわけ => Đặc biệt là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693945698"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1290,
+    "category": "Thành tựu",
+    "title": "ようやく => Cuối cùng, mãi mới, rồi cũng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369361e91d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1369,
+    "category": "Diễn ra kế tiếp",
+    "title": "それだけ => Bao nhiêu... bấy nhiêu, theo đó mà (Tăng thêm...), càng...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136936cb64c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1409,
+    "category": "Điều kiện (điều kiện cần)",
+    "title": "なくてはいけない => Phải làm gì đó",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b41369371d23e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1878,
+    "category": "Điều kiện (điều kiện cần)",
+    "title": "としたら => Một khi (Điều kiện xác định)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b26d9b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1881,
+    "category": "Phương tiện, phương pháp",
+    "title": "なんとか => Tìm cách này cách kia để xoay sở (Chỉ ý định tích cực)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b2c1a8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1882,
+    "category": "Diễn tả",
+    "title": "なんでも => Bất cứ cái gì, tất cả mọi thứ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b2df1d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1883,
+    "category": "Chỉ trích",
+    "title": "... ばかりで => Chỉ là ,  chỉ có…",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b2fe2c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1884,
+    "category": "Đề tài câu chuyện",
+    "title": "…って => Cái gọi là, người tên là ... (nhấn mạnh chủ đề)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b3429e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1885,
+    "category": "Giải thích",
+    "title": "なぜ～かというと => Sở dĩ ... là vì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b371c9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1891,
+    "category": "Điều kiện (điều kiện tổng quát)",
+    "title": "つもりで => Với ý định",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b4292d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1893,
+    "category": "Biểu thị bằng ví dụ",
+    "title": "…たりして => Có khi là, hay là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b44daf"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1896,
+    "category": "Đánh giá",
+    "title": "まんざらでもない => Không đến nỗi tệ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b49fe4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1903,
+    "category": "Đánh giá",
+    "title": "あれで => Tuy thế nhưng... (Đánh giá tích cực)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b585d6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1909,
+    "category": "Lặp lại, thói quen",
+    "title": "...また... => Hết... lại tới...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b64ba2"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1910,
+    "category": "Diễn tả",
+    "title": "...といって => Dù vậy, nhưng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b67410"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1913,
+    "category": "Kết quả",
+    "title": "そうしたら => Thế là, nào ngờ (Quá khứ)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b6f986"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1916,
+    "category": "Thay đổi cách nói",
+    "title": "ことになる => Thành ra..., nghĩa là...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b7916f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1929,
+    "category": "Cách nói mào đầu",
+    "title": "いうまでもなく => Không cần phải nói ... ai cũng biết",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b9f722"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1933,
+    "category": "Nguyện vọng",
+    "title": "… たらいい => Mong sao, ước gì ..., phải chi ... (Nguyện vọng)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ba6029"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1938,
+    "category": "Hành động",
+    "title": "...かける => Tác động",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bb3654"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1945,
+    "category": "Điều kiện (điều kiện cần)",
+    "title": "…も…ば => Chỉ cần",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bc3710"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1946,
+    "category": "Sửa đổi",
+    "title": "なおす => ...lại (Có chủ ý)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bc7436"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1947,
+    "category": "Diễn tả",
+    "title": "副詞 + する => Có tính chất ..., trong tình trạng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bcac3d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1948,
+    "category": "Nghe nói",
+    "title": "という => Nghe nói",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bcc96f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1949,
+    "category": "Hoàn tất",
+    "title": "... やっと => Cuối cùng (Thực hiện điều mong đợi)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bcfedd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1953,
+    "category": "Suy đoán",
+    "title": "…ば…だろう => Nếu ... thì có lẽ ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bda2bd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1955,
+    "category": "Khoảng thời gian ngắn",
+    "title": "すぐにでも => Ngay bây giờ, ngay lập tức",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bdedf7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1956,
+    "category": "Đánh giá",
+    "title": "...ようでもあり / ようでもあるし => Hình như..., mà, hình như cũng...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693be08a1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1963,
+    "category": "Ngạc nhiên",
+    "title": "じゃないか / ではないか => Không phải...hay sao, ...đấy phải không (Ngạc nhiên)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693bf384c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1982,
+    "category": "Khả năng",
+    "title": "姿を見せる => Đến, tới, hiện ra, xuất hiện",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c1d785"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2000,
+    "category": "Biểu thị bằng ví dụ",
+    "title": "みたい => Như là (Kể ra)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c47217"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2009,
+    "category": "Đề nghị",
+    "title": "(の) なら～と => Nếu... thì... (Đáng lẽ)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c5b65e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2015,
+    "category": "Đúng như dự đoán",
+    "title": "やっぱり => Quả là, đúng là...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c65d82"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2016,
+    "category": "Tỉ dụ, ví von",
+    "title": "のような => Giống như, hình như",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c67376"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1753,
+    "category": "Đương nhiên",
+    "title": "…はいうまでもない => ... Là điều đương nhiên",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a17861"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1757,
+    "category": "Thông qua, trải qua",
+    "title": "まわる => ...Khắp, hết chỗ này tới chỗ khác",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a21c19"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1758,
+    "category": "Ngạc nhiên",
+    "title": "あれでも => Như thế mà cũng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a2405e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1768,
+    "category": "Nguyên nhân, lý do",
+    "title": "だからこそ => Chính vì thế",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a3e1a6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1771,
+    "category": "Diễn tả",
+    "title": "...ような気がする => Có cảm tưởng như, có cảm giác như...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a474a8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1776,
+    "category": "Giải thích",
+    "title": "じつは => Thực ra là, thú thực là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a535ef"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1779,
+    "category": "Hạn định",
+    "title": "よりない => Không còn cách nào khác ngoài..., chỉ còn cách...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a5b850"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1785,
+    "category": "Mơ hồ",
+    "title": "とやら => Gì đấy, sao ấy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a6cf22"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1795,
+    "category": "Thêm vào",
+    "title": "も => Dù...thì cũng...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a810a7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1804,
+    "category": "Nửa chừng",
+    "title": "途中 (は) => Trong thời gian",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a957a4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1806,
+    "category": "Suy đoán",
+    "title": "みたいだ => Hình như, có vẻ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a97e4e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1813,
+    "category": "Phát ngôn",
+    "title": "なんとかいう => Tên gì đó",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aa7208"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1819,
+    "category": "Cương vị, quan điểm",
+    "title": "...としても => ...Cũng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aaf8d7"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1822,
+    "category": "Diễn ra kế tiếp",
+    "title": "切る => Từ bỏ, chấm dứt...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ab5972"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1824,
+    "category": "Quyết tâm, quyết định",
+    "title": "になる => Được quy định là, được sắp xếp là, trở nên….",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aba4cd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1832,
+    "category": "Căn cứ, cơ sở",
+    "title": "ところによると / よれば => Theo chỗ..., theo như...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ac8f7d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1836,
+    "category": "Tình hình",
+    "title": "ところとなる => Bị người khác (Nhận biết)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ad1c73"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1840,
+    "category": "Hoàn tất",
+    "title": "とうとう ... なかった => Cuối cùng không...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ad9b71"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1841,
+    "category": "Phạm vi",
+    "title": "いない => Nội trong, trong vòng ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693adbb5d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1845,
+    "category": "Cần thiết, nghĩa vụ",
+    "title": "どうせ ... いじょう/どうせ ... からには => Nếu đằng nào cũng ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ae2e67"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1846,
+    "category": "Cách nói mào đầu",
+    "title": "なんにしても => Dù trong bất kỳ trường hợp nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ae4bdd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1847,
+    "category": "So sánh",
+    "title": "が～なら～は～だ => Nếu... là..., thì... là...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ae669f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1849,
+    "category": "Suy đoán",
+    "title": "というのなら => Nếu nói rằng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aea91a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1850,
+    "category": "Bất biến",
+    "title": "なんともおもわない => Không nghĩ gì cả",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693aed9c6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1859,
+    "category": "Nhấn mạnh về mức độ",
+    "title": "それこそ => Khỉ phải nói, đích thị là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b0073a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1867,
+    "category": "Suy đoán",
+    "title": "となると => Nếu thế thì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b10129"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1869,
+    "category": "Suy đoán",
+    "title": "しまいそうだ => Chắc là sẽ... mất",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b14652"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1870,
+    "category": "Nguyên nhân, lý do",
+    "title": "...し => Cũng ... vậy ... (lý do)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b174f4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1877,
+    "category": "Coi như",
+    "title": "…といっても…ない => Dẫu nói là ... cũng không",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693b25660"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1721,
+    "category": "Quyết định",
+    "title": "...とする => Cho là, quy định là...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939d92cd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1725,
+    "category": "Ngạc nhiên",
+    "title": "…はずではなかった => Không có lẽ nào ..., không thể có chuyện ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939ddc2b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1726,
+    "category": "Điều kiện (điều kiện trái với sự thực)",
+    "title": "…たら…だろう => Phải chi ..., giá mà ..., nếu ... thì chắc ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939dffbc"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1734,
+    "category": "Nguyên nhân, lý do",
+    "title": "ため(に) => Vì...nên...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939ee559"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1737,
+    "category": "Lặp lại, thói quen",
+    "title": "またもや => Lại...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939f32a4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1739,
+    "category": "Đề tài câu chuyện",
+    "title": "...って => Tên gọi, gọi là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b4136939f7a1a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1743,
+    "category": "Đánh giá",
+    "title": "ちょっと => Cũng, khá (Đánh giá tích cực)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a00be5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1744,
+    "category": "Đánh giá",
+    "title": "いくら…からといっても => Dẫu ... thế nào đi nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a0269b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1749,
+    "category": "Mức cực đoan",
+    "title": "いかに…か => Đến mức nào, đến thế nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a0e27d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 1751,
+    "category": "Nhấn mạnh",
+    "title": "いかなる ... でも => Dẫu ... thế nào đi nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693a1362c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2206,
+    "category": "Xác nhận",
+    "title": "どうもない => Không hề gì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e12d36"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2208,
+    "category": "Ý chí, ý hướng",
+    "title": "なにがなんでも => Dù thế nào ... cũng (Nhiệt tình)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e17d13"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2220,
+    "category": "Đánh giá",
+    "title": "なんてことない => Không có gì quan trọng, không ăn nhằm gì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e3239a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2224,
+    "category": "Đánh giá",
+    "title": "て … て => ... Ơi là ..., quá",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e3ed6c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2228,
+    "category": "Đúng như dự đoán",
+    "title": "いずれも => Cái nào cái nấy đều",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e47c4e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2229,
+    "category": "Diễn tả",
+    "title": "なんか => Cái gì đó...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e4a59a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2248,
+    "category": "Diễn tả",
+    "title": "…か…ない (か) => Vào khoảng ..., khi V được khi không, chưa V hẳn",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e70784"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2250,
+    "category": "Hạn định",
+    "title": "のうちに => Nội trong.....",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e748f3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2257,
+    "category": "Mức vươn tới",
+    "title": "そう...ない => Không đến nỗi, không được...(cho) lắm",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e83921"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2258,
+    "category": "Đánh giá",
+    "title": "ちょっとした ... => Chút đỉnh, kha khá (Đánh giá tích cực)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e85fc6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2259,
+    "category": "Diễn tả",
+    "title": "ちょっとした ... => Chỉ là ... đơn giản, xoàng (Giảm nhẹ mức độ)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e884c9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2260,
+    "category": "Đính chính",
+    "title": "ちょっと…ない => Thực tình là không (Giảm nhẹ ngữ điệu)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e8ae75"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2261,
+    "category": "Đánh giá",
+    "title": "いささか => Hơi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e8cab8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2262,
+    "category": "Đánh giá",
+    "title": "ちょっと => Hơi (Nói lửng)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e8ef84"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2264,
+    "category": "Thời gian",
+    "title": "中 => Trong thời gian (Kì hạn)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e97722"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2265,
+    "category": "Cấm chỉ",
+    "title": "てはだめだ => Nếu...thì không được",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e98be4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2266,
+    "category": "Biểu thị bằng ví dụ",
+    "title": "... だろうが、... だろうが => Dù là ... hay ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693e9a761"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2279,
+    "category": "Điều kiện (điều kiện giả định)",
+    "title": "でもしたら => Nếu lỡ như...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693eb2db0"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2281,
+    "category": "Cảm thán",
+    "title": "いいから => Được rồi, không nói nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693eb8a0c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2282,
+    "category": "Đối chiếu",
+    "title": "そればかりか => Không những thế, đâu chỉ có vậy",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ebbd93"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2283,
+    "category": "Nhấn mạnh nghia phủ định",
+    "title": "まるで...ない => Hoàn toàn không...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ebda7a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2304,
+    "category": "Chỉ trích",
+    "title": "だいたい => Hầu hết, những nét chính, nói chung, thông thường, có thể nói rằng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ef3dc9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2307,
+    "category": "Hoàn tất",
+    "title": "ようやく => ....(Mà) phải khó khăn lắm mới... được",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693efa894"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2308,
+    "category": "Thành tựu",
+    "title": "ようやく => Mới... được",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693efca87"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2328,
+    "category": "Mức nhiều ít về số lượng",
+    "title": "Từ chỉ số lượng + も => Tới",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f23bb5"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2331,
+    "category": "Kỳ hạn",
+    "title": "まだ...ある => Vẫn còn...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f27945"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2351,
+    "category": "Liên tục",
+    "title": "ばかり => Toàn, chỉ, lúc nào cũng…",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f50af3"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2354,
+    "category": "Mời rủ, khuyên bảo",
+    "title": "(の) なら～がいい => Nếu ... thì nên ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f56c44"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2355,
+    "category": "Biểu thị bằng ví dụ",
+    "title": "のような... => Chẳng hạn như",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f58516"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2358,
+    "category": "Ngoài dự đoán",
+    "title": "そうかといって => Thậm chí là như vậy, tuy nhiên, nhưng, vẫn..",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f5ffce"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2359,
+    "category": "Tôn kính, khiêm nhường",
+    "title": "お…くださる => Làm cho, làm giúp",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f629f4"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2362,
+    "category": "Điều kiện (điều kiện trái với sự thực)",
+    "title": "… たら... ところだ => Nếu là... thì...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f68246"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2367,
+    "category": "Cương vị, quan điểm",
+    "title": "として => Với tư cách là…., với quan điểm là…",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f70510"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2368,
+    "category": "Bất biến",
+    "title": "いまだに => Cho tới bây giờ vẫn còn ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f71d1b"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2373,
+    "category": "Diễn tả",
+    "title": "のだったら => Nếu thực sự...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f7fed9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2376,
+    "category": "Nhấn mạnh vào mức độ",
+    "title": "どんなに…だろう(か) => Biết bao nhiêu, đến nhường nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f88a28"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2381,
+    "category": "Giới hạn, cực hạn",
+    "title": "ところまで => Cho đến lúc nào còn ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f92f5e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2383,
+    "category": "Nhấn mạnh",
+    "title": "ていては => Nếu lúc nào cũng...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f96cf8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2386,
+    "category": "Cấp (so sánh) cao nhất",
+    "title": "なによりだ => ...là tốt nhất rồi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693f9e804"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2388,
+    "category": "Giới hạn, cực hạn",
+    "title": "それまでだ => Là hết, coi như xong",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fa2955"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2392,
+    "category": "Bất biến",
+    "title": "おいそれと（は）…ない => Không dễ gì, khó mà",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fac23e"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2394,
+    "category": "Kết luận",
+    "title": "とかなんとかいう => Đại loại nói rằng...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fae578"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2412,
+    "category": "Giải thích",
+    "title": "…ほどだ => Tới mức là...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fd1d47"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2413,
+    "category": "Đồng thời",
+    "title": "...どうじに => Đồng thời cũng ...(Nhưng)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fd361d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2418,
+    "category": "Đề tài câu chuyện",
+    "title": "…なんて => Nói rằng, cho rằng",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693fdfe3c"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2427,
+    "category": "Kết quả",
+    "title": "そうすると => Nhờ thế mà, làm thế, như thế thì (Duyên cớ)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ff85e1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2428,
+    "category": "Đánh giá",
+    "title": "といって => Lấy lí do là ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ffa528"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2025,
+    "category": "Ngoại lệ",
+    "title": "ときには => Có lúc, có khi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c7a03a"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2026,
+    "category": "Khoảng thời gian ngắn",
+    "title": "いまにも ... そうだ => Sắp ... tới nơi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c7c8b8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2028,
+    "category": "Thời điểm",
+    "title": "... のところ => Lúc ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c800a8"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2033,
+    "category": "Cương vị, quan điểm",
+    "title": "... おぼえはない => Tôi không nhớ là đã ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c898cd"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2034,
+    "category": "Điều kiện (điều kiện cần)",
+    "title": "てのこと => Là nhờ, còn tùy thuộc vào, chính nhờ",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c8ac52"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2035,
+    "category": "Giải thích",
+    "title": "...ところのN => N mà ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c8c458"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2042,
+    "category": "Phương hướng",
+    "title": "...くる => ... Đến, ... với tôi (Động tác hướng đến đây)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693c9a947"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2049,
+    "category": "Nguyên nhân, lý do",
+    "title": "のは…ためだ => ... Là vì, là để ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ca9112"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2052,
+    "category": "Nguyên nhân, lý do",
+    "title": "それでこそ => Như thế",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cb0853"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2053,
+    "category": "Đề tài câu chuyện",
+    "title": "...かとなると => Khi bàn đến ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cb1d1d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2060,
+    "category": "Mơ hồ",
+    "title": "なんでも…らしい => Nghe nói dường như...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cc6642"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2062,
+    "category": "Diễn ra kế tiếp",
+    "title": "そうして => Làm như thế, sau đó mới...(Diễn ra kế tiếp)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ccb303"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2064,
+    "category": "Cương vị, quan điểm",
+    "title": "など～ものか => Không thể nào...được",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cd0b96"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2073,
+    "category": "Căn cứ, cơ sở",
+    "title": "にみる => Thấy qua",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693ce3da2"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2085,
+    "category": "Bất biến",
+    "title": "いぜん (依然) => Vẫn...,vẫn cứ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cfc5e1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2086,
+    "category": "Mời rủ, khuyên bảo",
+    "title": "... ばいい => Nên ..., thì cứ ... (là được)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693cfe557"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2088,
+    "category": "Căn cứ, cơ sở",
+    "title": "どおり => Theo như ....",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d01878"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2092,
+    "category": "Cần thiết, nghĩa vụ",
+    "title": "またの… => ...Tới, khác",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d08e34"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2094,
+    "category": "Điều không ăn khớp với dự đoán",
+    "title": "… たって => Dù có ... đi nữa cũng ...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d0dec1"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2098,
+    "category": "Kỳ vọng",
+    "title": "も…ない => Không một..., chưa một...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d193e9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2100,
+    "category": "Chỉ trích",
+    "title": "いくらなんでも => Dù gì đi nữa, dù thế nào đi nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d1dc5f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2104,
+    "category": "Chấp thuận, đồng ý",
+    "title": "いかにも => Đúng như thế, đúng thế",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d28c28"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2107,
+    "category": "Chấp thuận, đồng ý",
+    "title": "いかにも…らしい => Đúng là, thực là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d3069d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2109,
+    "category": "Sửa đổi",
+    "title": "いかに…といっても => Cho dù nói thế nào",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d368f9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2110,
+    "category": "Ví dụ cực đoan",
+    "title": "いかなる…とも => Dẫu ... thế nào đi nữa",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d38cb6"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2112,
+    "category": "Khả năng",
+    "title": "ひとつまちがえば => Chỉ (sơ suất)",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d3dcb9"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2116,
+    "category": "Đối chiếu",
+    "title": "そのはんめん(では) => Ngược lại, mặt khác, đồng thời",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d45c64"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2120,
+    "category": "Khoảng thời gian ngắn",
+    "title": "...まもなく => Chẳng bao lâu sau khi... thì, được một lúc thì...",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d4fb3f"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2123,
+    "category": "Xếp hàng, liệt kê",
+    "title": "かあるいは => Hoặc là...hoặc là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d57072"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2127,
+    "category": "Diễn tả",
+    "title": "まさか... => Những lúc có chuyện",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d5f7fe"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2132,
+    "category": "Nguyên nhân, lý do",
+    "title": "…というだけで => Chỉ vì ... mà, ... chỉ vì",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d73325"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2134,
+    "category": "Diễn tả",
+    "title": "ただ…だけでは => Nếu chỉ ... mà thôi",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d7943d"
+  },
+  {
+    "level": "N3",
+    "mobileId": 2138,
+    "category": "Đánh giá",
+    "title": "...ようにおもう / かんじる => Cảm thấy như là",
+    "type": "grammar",
+    "_id": "f7ff14dae05876cac58b413693d82350"
+  }
+]

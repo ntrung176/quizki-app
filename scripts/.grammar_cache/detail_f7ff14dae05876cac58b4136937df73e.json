@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1488,
+  "usages": [
+    {
+      "explain": "Used when stating with certainty that something will happen in the near future.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あんなに贅沢に暮らしたら、彼は今に破産するだろう。",
+          "transcription": "あんなにぜいたくにくらしたら、かれはいまにはさんするだろう。",
+          "mean": "If he lived such a luxurious life, he would go bankrupt any day now."
+        },
+        {
+          "content": "小林さんの監督は今に素晴らしい映画を作ってくれると信じている。",
+          "transcription": "こばやしさんのかんとくはいまにすばらしいえいがをつくってくれるとしんじている。",
+          "mean": "I believe that director Kobayashi will make a great movie right now."
+        },
+        {
+          "content": "今に見ていろ。きっと有名な歌手になってみせる。",
+          "transcription": "いまにみていろ。きっとゆうめいなかしゅになってみせる。",
+          "mean": "Watch it now. I'm sure she'll become a famous singer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いまに～"
+    }
+  ],
+  "title": "いまに => Soon, in the near future",
+  "_id": "f7ff14dae05876cac58b4136937df73e"
+}

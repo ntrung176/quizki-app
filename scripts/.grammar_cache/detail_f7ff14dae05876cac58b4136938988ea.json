@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1568,
+  "usages": [
+    {
+      "explain": "It follows a noun indicating a certain position or level, expressing a degree below or equal to this position.",
+      "note": null,
+      "examples": [
+        {
+          "content": "乗車定員29人以下の自動車ならこの道を通ることができる。",
+          "transcription": "じょうしゃていいん29にんいかのじどうしゃならこのみちをとおることができる。",
+          "mean": "Vehicles with a seating capacity of 29 people or less can use this road."
+        },
+        {
+          "content": "2010年夏より、学校の休暇期間に小学生以下の子どもに乗車無料サービスを行っている。",
+          "transcription": "2010ねんなつより、がっこうのきゅうかきかんにしょうがくせいいかのこどもにじょうしゃむりょうさーびすをおこなっている。",
+          "mean": "Since the summer of 2010, we have been offering free rides to children under elementary school age during school holidays."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N いか N"
+    }
+  ],
+  "title": "... いか... => below~",
+  "_id": "f7ff14dae05876cac58b4136938988ea"
+}

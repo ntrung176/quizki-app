@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1137,
+  "usages": [
+    {
+      "explain": "Meaning: \"Immediately after that action, ...\". Used in cases where the subsequent event is unexpected, not anticipated. Synonymous grammatically: ～したとたん, ～するやなや",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は、部屋に入るなり、泣き出した。",
+          "transcription": "かのじょは、へやにはいるなり、なきだした。",
+          "mean": "As soon as she entered the room, she started crying."
+        },
+        {
+          "content": "あのひとは、いつも授業が始まるなり、寝てしまった。",
+          "transcription": "あのひとは、いつもじゅぎょうがはじまるなり、ねてしまった。",
+          "mean": "That person always fell asleep as soon as class started."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Ｖ‐る +なり"
+    }
+  ],
+  "title": "Ｖ‐る+なり => as soon as; right after ~",
+  "_id": "f7ff14dae05876cac58b4136934cf02c"
+}

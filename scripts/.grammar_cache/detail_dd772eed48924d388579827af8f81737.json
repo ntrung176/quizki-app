@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5283,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>当然</rb><rp>(</rp><rt>とうぜん</rt><rp>)</rp></ruby>だ / 当たり前だ」is used to express that something is natural or obvious.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ひどいことばかり言ったので、彼女に嫌われて当然だ。",
+          "transcription": "ひどいことばかりいったので、かのじょにいやわれてとうぜんだ。",
+          "mean": "I've said so many horrible things to her, so it's no wonder she hates me."
+        },
+        {
+          "content": "相手のチームは弱い。勝って当たり前だ。",
+          "transcription": "あいてのチームはよわい。かってあたりまえだ。",
+          "mean": "The other team is weak. It's only natural that we win."
+        },
+        {
+          "content": "よその家の庭に勝手に入ってうろうろしていたら、泥棒と間違われて当然だ。",
+          "transcription": "よそのいえのにわにかってにはいってうろうろしていたら、どろぼうとまちがわれてとうぜんだ。",
+          "mean": "If you were to wander around in someone else's garden without permission, it would be natural for you to be mistaken for a thief."
+        },
+        {
+          "content": "怪我をしてから普通はできて当たり前のことができない。",
+          "transcription": "けがをしてからふつうはできてあたりまえのことができない。",
+          "mean": "Since my injury, I can't do the things I normally do."
+        },
+        {
+          "content": "この服はお父さんの服なのだから、子供には大きくて当たり前です。",
+          "transcription": "このふくはおとうさんのふくなのだから、こどもにはおおきくてあたりまえです。",
+          "mean": "These clothes are dad's clothes, so it's natural for them to be too big for the child."
+        },
+        {
+          "content": "飼っていた犬が死んだら、悲しくて当然だ。",
+          "transcription": "かっていたいぬがしんだら、かなしくてとうぜんだ。",
+          "mean": "It's natural to feel sad when your dog dies."
+        },
+        {
+          "content": "この家は新築の家なのだから、きれいで当たり前です。",
+          "transcription": "このいえはしんちくのいえなのだから、きれいであたりまえです。",
+          "mean": "This house is a newly built house, so it's natural that it's clean."
+        },
+        {
+          "content": "このマンションはセキュリティがしっかりしているから、安全で当然だ。",
+          "transcription": "このマンションはセキュリティがしっかりしているから、あんぜんでとうぜんだ。",
+          "mean": "This apartment building has good security, so it's natural that it's safe."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて / A<s>い</s>くて / A<s>な</s>で+<ruby><rb>当然</rb><rp>(</rp><rt>とうぜん</rt><rp>)</rp></ruby>だ / 当たり前だ<br/>Vて / A<s>い</s>くて / A<s>な</s>で+<ruby><rb>当然</rb><rp>(</rp><rt>とうぜん</rt><rp>)</rp></ruby>のN / 当たり前のN"
+    }
+  ],
+  "title": "当然だ/当たり前だ => natural; as a matter of course",
+  "_id": "dd772eed48924d388579827af8f81737"
+}

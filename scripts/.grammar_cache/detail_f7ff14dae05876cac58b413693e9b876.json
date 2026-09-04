@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2267,
+  "usages": [
+    {
+      "explain": "It expresses the idea of doing difficult things, things that cannot be accomplished forcibly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は試験のために無理をして入院した。",
+          "transcription": "かれはしけんのためにむりをしてにゅういんした。",
+          "mean": "He forced himself into the hospital for the exam."
+        },
+        {
+          "content": "あの会社は不可能なプロジェクトの投資で無理をして倒産した。",
+          "transcription": "あのかいしゃはふかのうなぷろじぇくとのとうしでむりをしてとうさんした。",
+          "mean": "That company went bankrupt because it was forced to invest in an impossible project."
+        }
+      ],
+      "mean": null,
+      "synopsis": "むりをする"
+    }
+  ],
+  "title": "むりをする => to work too hard, to try too hard, to strain oneself",
+  "_id": "f7ff14dae05876cac58b413693e9b876"
+}

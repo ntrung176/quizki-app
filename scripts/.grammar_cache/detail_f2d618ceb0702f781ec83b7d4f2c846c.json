@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2770,
+  "usages": [
+    {
+      "explain": "Expresses regret or blame towards the listener for something that didn't go as desired. This is a spoken form of 「の ではなかったか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はもっと真面目なんじゃなかったか。",
+          "transcription": "かれはもっとまじめなんじゃなかったか。",
+          "mean": "Couldn't he be more serious?"
+        },
+        {
+          "content": "約束を守ると言ったんじゃなか‘ったか。",
+          "transcription": "やくそくをまもるといったんじゃなか‘ったか。",
+          "mean": "Didn't I say I'd keep my promise?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んじゃなかったか"
+    }
+  ],
+  "title": "んじゃなかったか => shouldn't have...",
+  "_id": "f2d618ceb0702f781ec83b7d4f2c846c"
+}

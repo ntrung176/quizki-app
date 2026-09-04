@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1867,
+  "usages": [
+    {
+      "explain": "Standing at the beginning of the sentence to express the meaning \"if such a situation arises...\". The first part presents information that the speaker has just learned, and the second part presents the speaker's judgment based on that information.<br/>It can also be used with 「だとなると/そうだとなると」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "来年、あなたはアメリカに行って在留するそうだね。となると、アメリカ人になるか。",
+          "transcription": "らいねん、あなたはあめりかにいってざいりゅうするそうだね。となると、あめりかじんになるか。",
+          "mean": "I heard that you will be going to America and staying there next year. So, do you become an American?"
+        },
+        {
+          "content": "昨日山田さんは熱を出したようです。となると、今日彼は学校に行かないね。",
+          "transcription": "きのうやまださんはねつをだしたようです。となると、きょうかれはがっこうにいかないね。",
+          "mean": "It seems that Mr. Yamada had a fever yesterday. So, he won't be going to school today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "となると"
+    }
+  ],
+  "title": "となると => when it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b413693b10129"
+}

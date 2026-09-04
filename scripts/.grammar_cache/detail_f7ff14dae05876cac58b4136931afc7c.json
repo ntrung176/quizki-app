@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 772,
+  "usages": [
+    {
+      "explain": "This is a fixed expression with an idiomatic nature, and it describes a different meaning from the usual character and appearance of that person or thing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日はがらにもなく背広なんかを着ている。",
+          "transcription": "きょうはがらにもなくせびろなんかをきている。",
+          "mean": "Today I'm wearing nothing but a suit."
+        },
+        {
+          "content": "その光景を見て、我にもなく動揺してしまった。",
+          "transcription": "そのこうけいをみて、わがにもなくどうようしてしまった。",
+          "mean": "When I saw that scene, I was uncontrollably shaken."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + にもなく"
+    }
+  ],
+  "title": "～にもなく => ～different from",
+  "_id": "f7ff14dae05876cac58b4136931afc7c"
+}

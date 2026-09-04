@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5523,
+  "usages": [
+    {
+      "explain": "「にする」indicates the speaker's decision to choose something or to decide to do something from among various options. Sometimes a noun (N) can be followed by a particle.",
+      "note": null,
+      "examples": [
+        {
+          "content": "夏休みは沖縄にする。",
+          "transcription": "なつやすみはおきなわにする。",
+          "mean": "I will spend my summer vacation in Okinawa."
+        },
+        {
+          "content": "韓国に留学することにします。",
+          "transcription": "かんこくにりゅうがくすることにします。",
+          "mean": "I am planning to study abroad in Korea."
+        },
+        {
+          "content": "大型の台風が近づいてきているので、今日は休みにします。",
+          "transcription": "おおがたのたいふうがちかづいてきているので、きょうはやすみにします。",
+          "mean": "A large typhoon is approaching, so I will take today off."
+        },
+        {
+          "content": "紅茶にしますか。それともコーヒーにしますか。",
+          "transcription": "こうちゃにしますか。それともコーヒーにしますか。",
+          "mean": "Would you like some tea? Or would you like some coffee?"
+        },
+        {
+          "content": "ビールを飲まないですから、ジュースにします。",
+          "transcription": "ビールをのまないですから、ジュースにします。",
+          "mean": "I don't drink beer, so I'll make juice."
+        },
+        {
+          "content": "母の誕生日プレゼントは財布にしました。",
+          "transcription": "ははのたんじょうびプレゼントはさいふにしました。",
+          "mean": "My mother's birthday present was a wallet."
+        },
+        {
+          "content": "会議は5時からにします。",
+          "transcription": "かいぎはごじからにします。",
+          "mean": "The meeting will start at 5 o'clock."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にする"
+    }
+  ],
+  "title": "にする => にする",
+  "_id": "81cdef21410644ec8390428d49764bd7"
+}

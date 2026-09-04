@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5424,
+  "usages": [
+    {
+      "explain": "「たび(に)」is used to indicate an action that happens regularly or each time a specific situation occurs. It is not used to talk about natural phenomena that happen every day.",
+      "note": null,
+      "examples": [
+        {
+          "content": "買い物のたびに、袋をたくさんもらう。",
+          "transcription": "かいもののたびに、ふくろをたくさんもらう。",
+          "mean": "Every time I go shopping, I get a lot of bags."
+        },
+        {
+          "content": "この曲を聞くたびに、故郷を思い出す。",
+          "transcription": "このきょくをきくたびに、ふるさとをおもいだす。",
+          "mean": "Every time I hear this song, it reminds me of my hometown."
+        },
+        {
+          "content": "お子さん、会うたびに大きくなられますね。",
+          "transcription": "おこさん、あうたびにおおきくなられますね。",
+          "mean": "Your child grows bigger every time I see him."
+        },
+        {
+          "content": "お隣の人は旅行のたびに、お土産を買ってきてくれます。",
+          "transcription": "おとなりのひとはりょこうのたびに、おみやげをかってきてくれます。",
+          "mean": "My neighbors buy me souvenirs every time they travel."
+        },
+        {
+          "content": "あの子の靴、歩くたびに音がして可愛いですね。",
+          "transcription": "あのこのくつ、あるくたびにおとがしてかわいいですね。",
+          "mean": "That girl's shoes make a cute sound every time she walks."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの+たび(に)<br/> V (root form)+たび(に)<br/> V (root form)。そのたび(に)"
+    }
+  ],
+  "title": "たび(に) => whenever; every time ~",
+  "_id": "3d30c1d78a504558b4a8fc9bf0415c06"
+}

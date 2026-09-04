@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 3039,
+  "usages": [
+    {
+      "explain": "Often used with the negative form to describe an event happening differently than expected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんの英語は思うように上達しない。",
+          "transcription": "さとうさんのえいごはおもうようにじょうたつしない。",
+          "mean": "Mr. Sato's English hasn't improved as much as he expected."
+        },
+        {
+          "content": "プロジェクトは思うようにうまく行かなかった。",
+          "transcription": "ぷろじぇくとはおもうようにうまくいかなかった。",
+          "mean": "The project didn't go as planned."
+        },
+        {
+          "content": "計画は思うように完成しない。",
+          "transcription": "けいかくはおもうようにかんせいしない。",
+          "mean": "The plan doesn't go as planned."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～思うように（おもうように）"
+    }
+  ],
+  "title": "～おもうように  => As one hopes, As desired, As one thought",
+  "_id": "93020c54469e582d6fdb16f7ba872ad4"
+}

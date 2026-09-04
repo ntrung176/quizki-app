@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 2212,
+  "usages": [
+    {
+      "explain": "Continuously doing something in hope of a different outcome, yet things seem to go awry. Expresses eagerness, apprehension towards the situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は人に悪口を言われてもいっこうに気にとめない。",
+          "transcription": "かのじょはひとにわるぐちをいわれてもいっこうにきにとめない。",
+          "mean": "She doesn't care even if people say bad things about her."
+        },
+        {
+          "content": "その薬を飲んだがいっこうによくならない。",
+          "transcription": "そのくすりをのんだがいっこうによくならない。",
+          "mean": "I took the medicine, but it didn't get any better."
+        },
+        {
+          "content": "彼の言うことはぼくにはいっこうにわからない。",
+          "transcription": "かれのいうことはぼくにはいっこうにわからない。",
+          "mean": "I can make nothing of what he says."
+        },
+        {
+          "content": "何度も手紙を出しているのに、妹はいっこうに返事をよこさない。",
+          "transcription": "なんどもてがみをだしているのに、いもうとはいっこうにへんじをよこさない。",
+          "mean": "Although I have sent many letters, my sister never replies."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いっこうにV－ない"
+    }
+  ],
+  "title": "いっこうに ... ない => Still haven't seen...",
+  "_id": "f7ff14dae05876cac58b413693e219c7"
+}

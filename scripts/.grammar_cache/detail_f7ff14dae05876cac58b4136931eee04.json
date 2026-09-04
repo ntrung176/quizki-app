@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 801,
+  "usages": [
+    {
+      "explain": "✦ This expression means: the person is qualified to..., the person holds a position of..., followed by phrases like: of course should..., expressing the demeanor expected of people of status, qualification.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは、指導者たるべき者のとる行動ではない。",
+          "transcription": "それは、しどうしゃたるべきもののとるこうどうではない。",
+          "mean": "That is not the behavior of someone who is supposed to be a leader."
+        },
+        {
+          "content": "後継者たるべき者は以下の資格を備えていなければならない。",
+          "transcription": "こうけいしゃたるべきものはいかのしかくをそなえていなければならない。",
+          "mean": "A successor must possess the following qualifications."
+        },
+        {
+          "content": "王たるべき者はそのようなことを恐れてはならない。",
+          "transcription": "おうたるべきものはそのようなことをおそれてはならない。",
+          "mean": "A king should not be afraid of such things."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + たるべきもの"
+    }
+  ],
+  "title": "たるべきもの => have the capacity to be a...",
+  "_id": "f7ff14dae05876cac58b4136931eee04"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2437,
+  "usages": [
+    {
+      "explain": "These are used to draw attention and check with the listener before giving an order or relying on them, to see if they are ready to receive information.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いいね、今言った話は誰にも言っちゃダメだよ。",
+          "transcription": "いいね、いまいったはなしはだれにもいっちゃだめだよ。",
+          "mean": "Great, don't tell anyone what I just said."
+        },
+        {
+          "content": "いいか、よく聞け。これからは俺がこのチームのリーダーだ。",
+          "transcription": "いいか、よくきけ。これからはおれがこのちーむのりーだーだ。",
+          "mean": "Listen carefully. From now on, I will be the leader of this team."
+        },
+        {
+          "content": "このグラフを見てください。いいですか。これは2010年までのベトナムの人口増加を表したものです。",
+          "transcription": "このぐらふをみてください。いいですか。これは2010ねんまでのべとなむのじんこうぞうかをあらわしたものです。",
+          "mean": "Look at this graph. May I. This shows the population growth of Vietnam until 2010."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いい => Remember, are you ready (note to someone)",
+  "_id": "f2d618ceb0702f781ec83b7d4f00c581"
+}

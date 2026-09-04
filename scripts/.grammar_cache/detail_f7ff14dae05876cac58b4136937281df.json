@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1413,
+  "usages": [
+    {
+      "explain": "<p class=\"MsoNormal\">Used with the forms [N<span>からみると</span>/ <span>みれば</span> / <span>みたら</span>], to express the meaning \"if judging from a certain standpoint\". </p><p class=\"MsoNormal\"><span>「からみると」</span> has a similar meaning to [<span>からいうと</span>] but differs in that it can follow a noun indicating a person, whereas [<span>からいうと</span>] cannot.<br/></p>",
+      "note": null,
+      "examples": [
+        {
+          "content": "顔つきから見ると、ほんとうの軍人であろう。",
+          "transcription": "かおつきからみると、ほんとうのぐんじんであろう。",
+          "mean": "Judging from his face, he must be a real soldier."
+        },
+        {
+          "content": "昨日の大統領の発言から見れば、彼はこの法案に否定的な考えを持っているようだ。",
+          "transcription": "きのうのだいとうりょうのはつげんからみれば、かれはこのほうあんにひていてきなかんがえをもっているようだ。",
+          "mean": "Judging from the president's statements yesterday, it seems that he has negative thoughts about this bill."
+        },
+        {
+          "content": "子供の教育という点からみると、豊かすぎる生活は、必ずしもいいとは言えない。",
+          "transcription": "こどものきょういくというてんからみると、ゆたかすぎるせいかつは、かならずしもいいとはいえない。",
+          "mean": "From the point of view of children's education, a lifestyle that is too rich is not necessarily good."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + からみると"
+    }
+  ],
+  "title": "... からみると => from the point of view of; by the look of; judging from ~",
+  "_id": "f7ff14dae05876cac58b4136937281df"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2109,
+  "usages": [
+    {
+      "explain": "Used to acknowledge the preceding statement while asserting the point made in the following statement.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いかに彼女が有能だと言っても、こんな難題を一人で処理することは不可能だろう。",
+          "transcription": "いかにかのじょがゆうのうだといっても、こんななんだいをいちにんでしょりすることはふかのうだろう。",
+          "mean": "No matter how talented she is, it would be impossible for her to handle such a difficult task by herself."
+        },
+        {
+          "content": "いかに彼が多忙を極めていると言っても、電話一本をかける時間もないということはないだろう。",
+          "transcription": "いかにかれがたぼうをきわめているといっても、でんわいっぽんをかけるじかんもないということはないだろう。",
+          "mean": "No matter how busy he is, there's no way he doesn't have time to make a phone call."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いかに + Vる・た・ない + といってもいかに + Aい/ A(な)だ/ Nだ + といっても"
+    }
+  ],
+  "title": "いかに…といっても => no matter how",
+  "_id": "f7ff14dae05876cac58b413693d368f9"
+}

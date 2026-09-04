@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5217,
+  "usages": [
+    {
+      "explain": "「にもかかわらず」 describes an action or event that happens regardless of the influence of another event, often expressing surprise, dissatisfaction, criticism, etc., from the speaker about that situation. As it describes an unexpected result, the latter clause does not use structures that express the speaker's will or desire.<br/>\n「にもかかわらず」is used as a standalone conjunction to connect two sentences",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨にもかかわらず、大勢の人々が集まった。",
+          "transcription": "あめにもかかわらず、おおぜいのひとびとがあつまった。",
+          "mean": "Despite the rain, a large crowd gathered."
+        },
+        {
+          "content": "見たにもかかわらず、彼は見なかったと言った。",
+          "transcription": "みたにもかかわらず、かれはみなかったといった。",
+          "mean": "Even though he did, he said he didn't see it."
+        },
+        {
+          "content": "お忙しいにもかかわらず、来てくださってありがとうございます。",
+          "transcription": "おいそがしいにもかかわらず、きてくださってありがとうございます。",
+          "mean": "Thank you for coming even though you are busy."
+        },
+        {
+          "content": "福島県産の農産物が安全にもかかわらず、買い控えられる。",
+          "transcription": "ふくしまけんさんののうさんぶつがあんぜんにもかかわらず、かいひかえられる。",
+          "mean": "People are refraining from buying agricultural products from Fukushima Prefecture even though they are safe."
+        },
+        {
+          "content": "元々は誠実な人であったにもかかわらず、度重なる不運が彼の人格を変えてしまったのだろう。",
+          "transcription": "もともとはせいじつなひとであったにもかかわらず、たびかさなるふうんがかれのじんかくをかえてしまったのだろう。",
+          "mean": "Although he was originally an honest person, repeated misfortunes probably changed his personality."
+        },
+        {
+          "content": "戦争を経験した直後は、もう二度とこんな悲惨は絶対に繰り返さないと考えます。にもかかわらず、この地球上から戦争がなくなったことはない。",
+          "transcription": "せんそうをけいけんしたちょくごは、もうにどとこんなひさんはぜったいにくりかえさないとかんがえます。にもかかわらず、このちきゅうじょうからせんそうがなくなったことはない。",
+          "mean": "Immediately after experiencing war, I think that I will never experience such a tragedy again. Despite this, war has never disappeared from this earth."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+にもかかわらず<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>/A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>/N<s>だ</s>である)"
+    }
+  ],
+  "title": "にもかかわらず => despite; in spite of; nevertheless; although ~",
+  "_id": "57e1a44378f941aea97d65eb8db5b0d1"
+}

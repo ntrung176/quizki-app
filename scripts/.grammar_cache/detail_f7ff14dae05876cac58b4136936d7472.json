@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1374,
+  "usages": [
+    {
+      "explain": "✦Expresses the meaning of \"entirely, without discrimination\", by repeating the noun referring to a part of something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本人は、子どもといわず、大人といわず、漫画をよく読みます。",
+          "transcription": "にっぽんじんは、こどもといわず、おとなといわず、まんがをよくよみます。",
+          "mean": "Japanese people read manga a lot, whether they are children or adults."
+        },
+        {
+          "content": "僕は、鶏肉といわず、牛肉といわず、肉は食べません。",
+          "transcription": "ぼくは、けいにくといわず、ぎゅうにくといわず、にくはたべません。",
+          "mean": "I don't eat meat, neither chicken nor beef."
+        },
+        {
+          "content": "最近の若者は、食事中といわず、勉強している間といわず、いつも携帯電話を手にしている。",
+          "transcription": "さいきんのわかものは、しょくじちゅうといわず、べんきょうしているまといわず、いつもけいたいでんわをてにしている。",
+          "mean": "Young people these days always have their cell phones in their hands, whether they're eating or studying."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N1 + といわず + N2 + といわず"
+    }
+  ],
+  "title": "～ といわず…といわず => Not only A or B but every-; A, B and every-; Not only A or B but all over; A, B both, whether a or B",
+  "_id": "f7ff14dae05876cac58b4136936d7472"
+}

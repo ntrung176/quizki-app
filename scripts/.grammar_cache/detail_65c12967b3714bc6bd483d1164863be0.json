@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5462,
+  "usages": [
+    {
+      "explain": "「ようと思う」is used to express the speaker's intention. When in the form of a question, it is used to inquire about the listener's intention. It has the same meaning as 「つもりだ」but can only be used to express the intention of a third party.<br/>\n\n「ようと思っている」indicates a plan or intention that has been harbored and considered for a long time by the speaker. It can be used to talk about the plans or intentions of the listener or a third party.",
+      "note": null,
+      "examples": [
+        {
+          "content": "会社を辞めようと思っている。",
+          "transcription": "かいしゃをやめようとおもっている。",
+          "mean": "I'm thinking of quitting my job."
+        },
+        {
+          "content": "来年、国に帰ろうと思っています。",
+          "transcription": "らいねん、くににかえろうとおもっています。",
+          "mean": "I'm thinking of returning to my country next year."
+        },
+        {
+          "content": "弟の好きなCDを誕生日に買ってやろうと思っています。",
+          "transcription": "おとうとのすきなシディをたんじょうびにかってやろうとおもっています。",
+          "mean": "I'm thinking of buying my younger brother's favorite CD for his birthday."
+        },
+        {
+          "content": "時間があれば旅行をしようと思っています。",
+          "transcription": "じかんがあればりょこうをしようとおもっています。",
+          "mean": "I would like to travel if I have time."
+        },
+        {
+          "content": "日本で働こうと思っている。",
+          "transcription": "にほんではたらこうとおもっている。",
+          "mean": "I'm thinking of working in Japan."
+        },
+        {
+          "content": "あしたは早く起きようと思います。",
+          "transcription": "あしたははやくおきようとおもいます。",
+          "mean": "I think I'll get up early tomorrow."
+        },
+        {
+          "content": "これから、図書館で勉強しようと思います。",
+          "transcription": "これから、としょかんでべんきょうしようとおもいます。",
+          "mean": "From now on, I'm going to study at the library."
+        },
+        {
+          "content": "今日は給料日なので、欲しかったゲームを買おうと思います。",
+          "transcription": "きょうはきゅうりょうひなので、ほしかったゲームをかおうとおもいます。",
+          "mean": "Today is payday, so I'm going to buy the game I wanted."
+        },
+        {
+          "content": "来年は英語能力試験を受けようと思いますか。",
+          "transcription": "らいねんはえいごのうりょくしけんをうけようとおもいますか。",
+          "mean": "Are you thinking of taking the English proficiency test next year?"
+        },
+        {
+          "content": "君は留学しようと思いますか。",
+          "transcription": "きみはりゅうがくしようとおもいますか。",
+          "mean": "Are you thinking of studying abroad?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (volitional form)+と思う<br/>V (volitional form)+と思っている"
+    }
+  ],
+  "title": "ようと思う/ようと思っている => thinking of doing; planning to ~",
+  "_id": "65c12967b3714bc6bd483d1164863be0"
+}

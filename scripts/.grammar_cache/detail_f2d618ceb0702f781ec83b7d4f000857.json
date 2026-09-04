@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2431,
+  "usages": [
+    {
+      "explain": "To defend oneself, saying \"I really didn't mean it like that,\" when others misunderstand one's behavior and attitude. 「つもりはない」 can be used as a replacement.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はそんなことをするつもりではなかったんです。",
+          "transcription": "わたしはそんなことをするつもりではなかったんです。",
+          "mean": "I didn't mean to do that."
+        },
+        {
+          "content": "あなたの迷惑をかけるつもりではなかったんです。",
+          "transcription": "あなたのめいわくをかけるつもりではなかったんです。",
+          "mean": "I didn't mean to cause any trouble for you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + つもりではない"
+    }
+  ],
+  "title": "つもりではない => have no intention to / didn't mean to ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f000857"
+}

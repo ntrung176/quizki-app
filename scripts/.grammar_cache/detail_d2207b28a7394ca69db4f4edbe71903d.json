@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5575,
+  "usages": [
+    {
+      "explain": "「ようになる」indicates a change from a state of not being able to do something to a state of being able to do it.<br/>\n「なくなる」indicates a change from a state of being able to do something to a state of not being able to do it.<br/>\nThe verb preceding 「ようになる」is in the potential form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やっと自転車に乗れるようになりました。",
+          "transcription": "やっとじてんしゃにのれるようになりました。",
+          "mean": "I can finally ride a bicycle."
+        },
+        {
+          "content": "息子が一人で服を着られるようになった。",
+          "transcription": "むすこがひとりでふくをきられるようになった。",
+          "mean": "My son is now able to get dressed by himself."
+        },
+        {
+          "content": "毎日練習すれば、泳げるようになります。",
+          "transcription": "まいにちれんしゅうすれば、およげるようになります。",
+          "mean": "If you practice every day, you will be able to swim."
+        },
+        {
+          "content": "年を取ると、小さい字が読めなくなります。",
+          "transcription": "としをとると、ちいさいじがよめなくなります。",
+          "mean": "As we get older, it becomes difficult to read small print."
+        },
+        {
+          "content": "薬を飲んで、よく寝られるようになりました。",
+          "transcription": "くすりをのんで、よくねられるようになりました。",
+          "mean": "After taking medicine, I can now sleep well."
+        },
+        {
+          "content": "それをいつ使えるようになるのか教えてください。",
+          "transcription": "それをいつつかえるようになるのかおしえてください。",
+          "mean": "Please let me know when I can use it."
+        },
+        {
+          "content": "太りましたから、好きな服が着られなくなりました。",
+          "transcription": "ふとりましたから、すきなふくがきられなくなりました。",
+          "mean": "Since I gained weight, I can no longer wear the clothes I like."
+        },
+        {
+          "content": "以前はビールを飲めなかったが、このごろ飲むようになりました。",
+          "transcription": "いぜんはビールをのめなかったが、このごろのむようになりました。",
+          "mean": "I used to not be able to drink beer, but recently I started drinking beer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (potential form)+ようになる<br/> V (potential form) な<s>い</s>く+なる"
+    }
+  ],
+  "title": "ようになる =>  to reach the point that; to come to be that; to turn into ~",
+  "_id": "d2207b28a7394ca69db4f4edbe71903d"
+}

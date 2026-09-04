@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1268,
+  "usages": [
+    {
+      "explain": "Expresses the idea related to an event that has happened, implying \"if the conditions had been different at that time, the result could have been different.\" Used to convey the speaker's regret or a sense of relief for having avoided a bad outcome.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう少し早く出発したら、遅れなかったかもしれない。",
+          "transcription": "もうすこしはやくしゅっぱつしたら、おくれなかったかもしれない。",
+          "mean": "If I had left a little earlier, I might not have been late."
+        },
+        {
+          "content": "あなたたの援助がなければ、私たちは失敗していたかもしれない。",
+          "transcription": "あなたたのえんじょがなければ、わたしたちはしっぱいしていたかもしれない。",
+          "mean": "Without your help, we might have failed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ ば/たら + V-た + かもしれない"
+    }
+  ],
+  "title": "～ ば/たら～かもしれない => If only... then...",
+  "_id": "f7ff14dae05876cac58b4136935e48c0"
+}

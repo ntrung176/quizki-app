@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1699,
+  "usages": [
+    {
+      "explain": "Used to express hypothetical conditions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もしあなたは１ドルの宝くじが当たったとします。その金額で何をしますか。",
+          "transcription": "もしあなたはいちどるのたからくじがあたったとします。そのきんがくでなにをしますか。",
+          "mean": "Suppose you win a $1 lottery ticket. What will you do with that amount?"
+        },
+        {
+          "content": "例えば20人来るとして、費用は一人いくらぐらいにすればよいでしょうか。",
+          "transcription": "たとえば20にんくるとして、ひようはいちにんいくらぐらいにすればよいでしょうか。",
+          "mean": "For example, if 20 people come, how much should each person spend?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Na-だ + とするA-い + とするV-る/ V-た/ V-ない + とする"
+    }
+  ],
+  "title": "とする => Suppose (assumption)",
+  "_id": "f7ff14dae05876cac58b4136939a0cfc"
+}

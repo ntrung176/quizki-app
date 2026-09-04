@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 1966,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: although in a dangerous situation, but ultimately managed to overcome it. Used to recount a situation with a positive outcome.",
+      "note": null,
+      "examples": [
+        {
+          "content": "タクシーを飛ばして、ようやく契約を結ぶ時間に間に合った。",
+          "transcription": "たくしーをとばして、ようやくけいやくをむすぶじかんにまにあった。",
+          "mean": "I took a taxi and finally made it in time to sign the contract."
+        },
+        {
+          "content": "試合はペナルティーキックにも連れ込んだが、ようやく勝つことができた。",
+          "transcription": "しあいはぺなるてぃーきっくにもつれこんだが、ようやくかつことができた。",
+          "mean": "We forced the match into penalty kicks, but we were finally able to win."
+        },
+        {
+          "content": "8時間にもわたる手術の末に、ようやく患者が助かった。",
+          "transcription": "8じかんにもわたるしゅじゅつのすえに、ようやくかんじゃがたすかった。",
+          "mean": "After an eight-hour operation, the patient finally survived."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ようやく + V－た"
+    },
+    {
+      "explain": "In the case of wanting to express that a bad situation was narrowly avoided, then 「かろうじて…なかった」is used.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ようやく => finally; at last",
+  "_id": "f7ff14dae05876cac58b413693bfbf2d"
+}

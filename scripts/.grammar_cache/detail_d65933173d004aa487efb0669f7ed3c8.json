@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5205,
+  "usages": [
+    {
+      "explain": "「に際して」 indicates the timing at which an event or action V/N takes place. This timing is a special occasion.<br/>\n- This is a formal way of speaking.「に際し」is more formal than「に際して」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "新しいプロジェクトを始めるに際して、新しいグループリーダーを決めた。",
+          "transcription": "あたらしいプロジェクトをはじめるにさいして、あたらしいグループリーダーをきめた。",
+          "mean": "When starting a new project, we decided on a new group leader."
+        },
+        {
+          "content": "木村氏はアメリカを訪問するに際し、喜びを語った。",
+          "transcription": "きむらしはアメリカをほうもんするにさいし、よろこびをかたった。",
+          "mean": "Mr. Kimura expressed his joy on his visit to the United States."
+        },
+        {
+          "content": "契約に際し、注意すべき点について説明します。",
+          "transcription": "けいやくにさいし、ちゅういすべきてんについてせつめいします。",
+          "mean": "We will explain the points you should pay attention to when signing a contract."
+        },
+        {
+          "content": "お申し込みに際しては、写真が必要となります。",
+          "transcription": "おもうしこみにさいしては、しゃしんがひつようとなります。",
+          "mean": "A photo is required when applying."
+        },
+        {
+          "content": "ここに入院に際しての注意事項が書いてありますから、読んでおいてください。",
+          "transcription": "ここににゅういんにさいしてのちゅういじこうがかいてありますから、よんでおいてください。",
+          "mean": "Please read the precautions you should take when being admitted to the hospital."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) / N+に際して<br/>V (root form) / N+に際し<br/>V (root form) / N+に際しては<br/>V (root form) / N+に際してのN'"
+    }
+  ],
+  "title": "に際して => on the occasion of; at the time of ~",
+  "_id": "d65933173d004aa487efb0669f7ed3c8"
+}

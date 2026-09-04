@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1449,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"action completed.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "会員の意見を取り入れて、営業提案が出来上がった。",
+          "transcription": "かいいんのいけんをとりいれて、えいぎょうていあんができあがった。",
+          "mean": "A sales proposal was created by incorporating the opinions of the members."
+        },
+        {
+          "content": "肉が湯で上がったら、すぐこの特別調味料と混ぜます。",
+          "transcription": "にくがゆであがったら、すぐこのとくべつちょうみりょうとまぜます。",
+          "mean": "Once the meat is cooked, immediately mix it with this special seasoning."
+        },
+        {
+          "content": "結婚式招待状が刷り上ってきた。",
+          "transcription": "けっこんしきしょうたいじょうがすりのぼってきた。",
+          "mean": "The wedding invitations have been printed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます＋あがる"
+    }
+  ],
+  "title": "あがる => has finished doing something",
+  "_id": "f7ff14dae05876cac58b41369378944e"
+}

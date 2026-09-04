@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5472,
+  "usages": [
+    {
+      "explain": "「間に」expresses the idea that within a certain period of time, there was a temporary action or event. The difference between「間に」and「間」is that the action or event in the second clause of「間に」occurs at a specific moment within that time period, rather than continuing throughout the entire duration. Therefore, the predicate after「間に」is often a verb in forms like ～する (to do), ～し始める (to begin to do), ～になる (to become)... indicating a temporary action. Example:<br/>\n\n✖ 授業の間に、ずっとおしゃべりをしていた。<br/>\n〇 授業の間に、3回質問をした。",
+      "note": null,
+      "examples": [
+        {
+          "content": "私達が風景の写真を撮っている間に、財布を盗まれてしまいました。",
+          "transcription": "わたしたちがふうけいのしゃしんをとっているあいだに、さいふをぬすまれてしまいました。",
+          "mean": "While we were taking pictures of the scenery, my wallet was stolen."
+        },
+        {
+          "content": "昨日寝ている間に、地震がありました。",
+          "transcription": "きのうねているあいだに、じしんがありました。",
+          "mean": "There was an earthquake while I was sleeping yesterday."
+        },
+        {
+          "content": "ちょっと見ない間に、姉の子供がずいぶん大きくなっていた。",
+          "transcription": "ちょっとみないあいだに、あねのこどもがずいぶんおおきくなっていた。",
+          "mean": "Before I could see it, my sister's child had grown considerably."
+        },
+        {
+          "content": "若い間に、色々なことにチャレンジするつもりです。",
+          "transcription": "わかいあいだに、いろいろなことにチャレンジするつもりです。",
+          "mean": "I plan to try many different things while I'm still young."
+        },
+        {
+          "content": "暇な間に、宿題を終わらせてしまいます。",
+          "transcription": "ひまなあいだに、しゅくだいをおわらせてしまいます。",
+          "mean": "I finish my homework in my free time."
+        },
+        {
+          "content": "留守の間に、泥棒が入った。",
+          "transcription": "るすのあいだに、どろぼうがはいった。",
+          "mean": "A thief broke in while I was away."
+        },
+        {
+          "content": "テレビがCMの間に、コーヒーを取りに行ってきます。",
+          "transcription": "テレビがシイエムのあいだに、コーヒーをとりにいってきます。",
+          "mean": "I'll go get some coffee while the TV is on commercials."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) / Vない / Vている+間に<br/>Aい/Aな+間に<br/>Nの+間に"
+    }
+  ],
+  "title": "間に => while; during~ something happened",
+  "_id": "bed54ada768c4512b66611393cb3d814"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1242,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"just as it is about to happen, just as it begins.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼が到着した時、コンサートはまさに終わろうとしているところだった。",
+          "transcription": "かれがとうちゃくしたとき、こんさーとはまさにおわろうとしているところだった。",
+          "mean": "The concert was just about to end when he arrived."
+        },
+        {
+          "content": "私が着いた時、彼女は出かけようとしているところだった。",
+          "transcription": "わたしがついたとき、かのじょはでかけようとしているところだった。",
+          "mean": "She was about to leave when I arrived."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まさに～V-ようとしている（ところだ）"
+    }
+  ],
+  "title": "まさに…ようとしている（ところだ） => Right on time",
+  "_id": "f7ff14dae05876cac58b4136935ab57b"
+}

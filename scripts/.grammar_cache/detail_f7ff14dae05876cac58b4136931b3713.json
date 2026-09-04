@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 774,
+  "usages": [
+    {
+      "explain": "<a>●</a> Comes after words like 「何（なん）」, 「幾（いく）」, etc., which denote an indefinite quantity, serving as counting units, such as 「...人」(people), 「...回」(times), etc., to express a considerable number.<br/><a>●</a> Used in written language.<br/><a>●</a>In spoken language, expressions like 「何回も」、「幾組みも」are often used instead.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あなたは一日何本となく漫画を読みますよね。",
+          "transcription": "あなたはいちにちなんほんとなくまんがをよみますよね。",
+          "mean": "You read several comics a day, right?"
+        },
+        {
+          "content": "彼女は海外旅行に何回となく行った経験があります。",
+          "transcription": "かのじょはかいがいりょこうになんかいとなくいったけいけんがあります。",
+          "mean": "She has traveled abroad many times."
+        },
+        {
+          "content": "公園のベンチには若いカップルが幾組となく腰掛けて愛を語り合っている。",
+          "transcription": "こうえんのべんちにはわかいかっぷるがいくくみとなくこしかけてあいをかたりあっている。",
+          "mean": "Many young couples sit on benches in the park and talk about their love."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<a>●</a>なん＋ counting unit word ＋となく"
+    }
+  ],
+  "title": "～となく => on countless occasions; many a time",
+  "_id": "f7ff14dae05876cac58b4136931b3713"
+}

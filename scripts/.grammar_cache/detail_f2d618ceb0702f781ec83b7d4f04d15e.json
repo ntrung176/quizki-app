@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 2466,
+  "usages": [
+    {
+      "explain": "Used with the form Xば Yか to ask the listener to choose. Sentences (1) and (2) are \"yes/no\" questions, while sentences (3) to (5) are questions using question words.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学生ならば、チケット価格は安くなりますか。",
+          "transcription": "がくせいならば、ちけっとかかくはやすくなりますか。",
+          "mean": "Will the ticket price be cheaper if I am a student?"
+        },
+        {
+          "content": "この病気は早く手術をすれば、より高い確率で完全に治すことができますか。",
+          "transcription": "このびょうきははやくしゅじゅつをすれば、よりたかいかくりつでかんぜんになおすことができますか。",
+          "mean": "Is it possible to completely cure this disease with a higher probability if surgery is performed early?"
+        },
+        {
+          "content": "どう謝れば、両親は許してくれるでしょうか。",
+          "transcription": "どうあやまれば、りょうしんはゆるしてくれるでしょうか",
+          "mean": "How should I apologize to get my parents to forgive me?"
+        },
+        {
+          "content": "どうすれば日本語が上達しますか。",
+          "transcription": "どうすればにほんごがじょうたつしますか。",
+          "mean": "How can I improve my Japanese?"
+        },
+        {
+          "content": "新鮮な野菜はどこに行けば買えますか。",
+          "transcription": "しんせんなやさいはどこにいけばかえますか。",
+          "mean": "Where can I buy fresh vegetables?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Conditional form (条件形)＋Make a question"
+    }
+  ],
+  "title": "…ば ... => If...",
+  "_id": "f2d618ceb0702f781ec83b7d4f04d15e"
+}

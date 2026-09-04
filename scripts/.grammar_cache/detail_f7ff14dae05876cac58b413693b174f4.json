@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1870,
+  "usages": [
+    {
+      "explain": "This is a way of expressing reasons, indicating a looser cause-and-effect relationship compared to 「ので」or 「から」, with the implication that there are other reasons as well.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そろそろ暗くなってきたしホテルに戻りますかね。",
+          "transcription": "そろそろくらくなってきたしほてるにもどりますかね。",
+          "mean": "It's getting dark soon, so I think I'll go back to the hotel."
+        },
+        {
+          "content": "大丈夫だよ、 まだ若いんだし、 これからいい事いっぱい待ってるよな。",
+          "transcription": "だいじょうぶだよ、まだわかいんだし、これからいいごといっぱいまってるよな。",
+          "mean": "It's okay, you're still young, and there are many good things waiting for you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない/ Na-だ/ A-い + し"
+    }
+  ],
+  "title": "...し => and; and what's more",
+  "_id": "f7ff14dae05876cac58b413693b174f4"
+}

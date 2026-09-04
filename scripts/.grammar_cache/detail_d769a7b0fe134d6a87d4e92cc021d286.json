@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5436,
+  "usages": [
+    {
+      "explain": "「という」 is used to introduce the name of something (object, person, place, concept, etc.) that the listener may not know. <br/> The first noun (Noun 1) is the specific noun that needs to be introduced, while the second noun (Noun 2) is a general noun that encompasses Noun 1.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さっき、木村さんという人から電話がありましたよ。",
+          "transcription": "さっき、木村さんという人からでんわがありましたよ。",
+          "mean": "I just received a call from a person called Mr. Kimura."
+        },
+        {
+          "content": "これは日本の楽器で尺八というものです。",
+          "transcription": "これは日本のがっきで『しゃくはち』というものです。",
+          "mean": "This is a Japanese musical instrument called the shakuhachi."
+        },
+        {
+          "content": "これは日本のヒーターでこたつというものです。",
+          "transcription": "これは日本のヒーターで『こたつ』というものです。",
+          "mean": "This is a Japanese heater called a kotatsu."
+        },
+        {
+          "content": "『鬼滅の刃』という漫画が、世界中で人気があるそうです。",
+          "transcription": "『きめつのやいば』というまんがが、せかいじゅうでにんきがあるそうです。",
+          "mean": "Apparently the manga ``Demon Slayer: Kimetsu no Yaiba'' is popular all over the world."
+        },
+        {
+          "content": "「傾国傾城」という言葉を知っていますか。",
+          "transcription": "「けいこくけいせい」ということばをしっていますか。",
+          "mean": "Do you know the phrase ``Kokukoku-Kanjo''?"
+        },
+        {
+          "content": "箱の中から、ガリガリという音が聞こえる。",
+          "transcription": "はこのなかから、ガリガリというおとがきこえる。",
+          "mean": "A crunching sound can be heard coming from inside the box."
+        },
+        {
+          "content": "シュレーディンガーの猫という思考実験について説明致します。",
+          "transcription": "シュレーディンガーのねこというしこうじけんについてせつめいいたします。",
+          "mean": "I will explain the thought experiment called Schrödinger's cat."
+        },
+        {
+          "content": "そこでは「芝生に入らないでください」という標識があった。",
+          "transcription": "そこでは「しばふにはいらないでください」というひょうしきがあった。",
+          "mean": "There, there was a sign that said, ``Do not enter the grass.''"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 という N2"
+    }
+  ],
+  "title": "という => called; named; that ~",
+  "_id": "d769a7b0fe134d6a87d4e92cc021d286"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2210,
+  "usages": [
+    {
+      "explain": "Expressing the meaning of \"if in any case, then...\" Used to talk about actions or attitudes needed in that situation. \"のだったら\" can also be used.<br/>Followed by expressions of will, hope, obligation of the speaker, or ways to influence the listener, such as commands or advice.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうせやるなら上手にやれ。",
+          "transcription": "どうせやるならじょうずにやれ。",
+          "mean": "If you do it at all, do it well."
+        },
+        {
+          "content": "どうせ登録しないのなら、早めに知らせておいたほうがいい。",
+          "transcription": "どうせとうろくしないのなら、はやめにしらせておいたほうがいい。",
+          "mean": "If you don't want to register anyway, it's best to let us know as soon as possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうせ～(の) なら"
+    }
+  ],
+  "title": "どうせ… (の) なら => anyhow; in any case; at any rate; after all; no matter what",
+  "_id": "f7ff14dae05876cac58b413693e1d6a5"
+}

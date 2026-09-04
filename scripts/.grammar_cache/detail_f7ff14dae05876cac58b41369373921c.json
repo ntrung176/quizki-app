@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1419,
+  "usages": [
+    {
+      "explain": "Indicates the speaker's conjecture about a possible occurrence, assuming a certain condition is met.",
+      "note": null,
+      "examples": [
+        {
+          "content": "走れば転んで壊れるかもしれない。",
+          "transcription": "はしればころんでこわれるかもしれない。",
+          "mean": "If you run, you might fall and break it."
+        },
+        {
+          "content": "夕食を食べていたら列車に乗り遅れるかもしれない.",
+          "transcription": "ゆうしょくをたべていたられっしゃにのりおくれるかもしれない.",
+          "mean": "If I were to eat dinner, I might miss the train."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ ば/たら + V-る+ かもしれない"
+    }
+  ],
+  "title": "～ ば/たら～かもしれない => If...then maybe...",
+  "_id": "f7ff14dae05876cac58b41369373921c"
+}

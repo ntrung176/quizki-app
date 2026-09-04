@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5263,
+  "usages": [
+    {
+      "explain": "「直ちに」means 'immediately, right away'. When used with purposeful actions,「直ちに」emphasizes the urgency of that action. It's more formal and serious than「今すぐ」which also means 'right away'.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はこの仕事を直ちにしなければならない。",
+          "transcription": "わたしはこのしごとをただちにしなければならない。",
+          "mean": "I have to do this work immediately."
+        },
+        {
+          "content": "万一間違いを見つけたら、直ちに知らせてください。",
+          "transcription": "まんいちまちがいをみつけたら、ただちにしらせてください。",
+          "mean": "If you should find any mistakes, please let me know at once."
+        },
+        {
+          "content": "彼女は仕事が終わって直ちに事務所を出た。",
+          "transcription": "かのじょはしごとがおわってただちにじむしょをでた。",
+          "mean": "She left the office immediately after work."
+        },
+        {
+          "content": "直ちに出発しないと、私は約束に遅れるだろう。",
+          "transcription": "ただちにしゅっぱつしないと、わたしはやくそくにおくれるだろう。",
+          "mean": "If I don't leave immediately, I'll be late for my appointment."
+        },
+        {
+          "content": "彼らは直ちに彼女に手術をしなければならないだろう。",
+          "transcription": "かれらはただちにかのじょにしゅじゅつをしなければならないだろう。",
+          "mean": "They will have to operate on her immediately."
+        },
+        {
+          "content": "彼らはその計画を直ちに実行に移すべきだと提案した。",
+          "transcription": "かれらはそのけいかくをただちにじっこうにうつすべきだとていあんした。",
+          "mean": "They suggested that we should put the plan into practice right now."
+        },
+        {
+          "content": "新型コロナウイルスに感染した人は直ちに隔離された。",
+          "transcription": "しんがたコロナウイルスにかんせんしたひとはただちにかくりされた。",
+          "mean": "People infected with the new coronavirus were immediately isolated."
+        },
+        {
+          "content": "彼の様子はよくないから、直ちに病院に連れていこう！",
+          "transcription": "かれのようすはよくないから、ただちにびょういんにつれていこう！",
+          "mean": "He doesn't look well, so let's take him to the hospital right away!"
+        },
+        {
+          "content": "効果は直ちに現れるわけではありません。",
+          "transcription": "こうかはただちにあらわれるわけではありません。",
+          "mean": "The effects will not be immediate."
+        },
+        {
+          "content": "判決は直ちには出ません。裁判は何年もかかるかもしれません。",
+          "transcription": "はんけつはただちにはでません。さいばんはなんねんもかかるかもしれません。",
+          "mean": "A verdict will not be issued immediately. The trial could take years."
+        },
+        {
+          "content": "直ちに影響がないということは、将来影響があるということか？",
+          "transcription": "ただちにえいきょうがないということは、しょうらいえいきょうがあるということか？",
+          "mean": "If there is no immediate impact, does that mean there will be an impact in the future?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "直ちに+Sentence"
+    }
+  ],
+  "title": "直ちに => at once; immediately; directly; in person; automatically ~",
+  "_id": "aa06df822d654b92b79638a01acb8fb5"
+}

@@ -1,0 +1,21 @@
+{
+  "level": "N2",
+  "mobileId": 1424,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"because of a strong desire for something, enduring hardships and even doing things that are undesirable or negative.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "わずかな金がほしいばかりに、泥棒になるなんて、馬鹿げたことだろう。",
+          "transcription": "わずかなきんがほしいばかりに、どろぼうになるなんて、ばかげたことだろう。",
+          "mean": "It would be foolish to become a thief just for a little money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + が + ほしいばかりに"
+    }
+  ],
+  "title": "... ほしいばかりに => just because I want to…",
+  "_id": "f7ff14dae05876cac58b413693744413"
+}

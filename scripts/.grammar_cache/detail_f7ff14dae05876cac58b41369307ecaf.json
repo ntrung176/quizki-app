@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 628,
+  "usages": [
+    {
+      "explain": "✦Used with a noun, it expresses the meaning \"that factor combined with another factor\" or \"the characteristic of that factor working together with the characteristic of another factor\". This is a way of expression in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の現代的な建築は背景のすばらしい自然とあいまって、シンプルでやすらぎのある空間を生み出している。",
+          "transcription": "かれのげんだいてきなけんちくははいけいのすばらしいしぜんとあいまって、シンプルでやすらぎのあるくうかんをうみだしている。",
+          "mean": "His contemporary architecture, combined with the splendid nature in the background, creates a simple and peaceful space."
+        },
+        {
+          "content": "その映画は、安楽器の音色が美しい映像と和まって、見る人を感動させずにはおかないすばらしい作品となっている。",
+          "transcription": "そのえいがは、あんらくきのねいろがうつくしいえいぞうとわまって、みるひとをかんどうさせずにはおかないすばらしいさくひんとなっている。",
+          "mean": "The sound of cheap musical instruments harmonizes with the beautiful images, making this a wonderful piece of work that cannot help but move the viewer."
+        },
+        {
+          "content": "彼の独創性が彼女の伝統美と相まって、彼らの作る家具はオリジナリティあふれたものとなっている。",
+          "transcription": "かれのどくそうせいがかのじょのでんとうびとあいまって、かれらのつくるかぐはオリジナリティあふれたものとなっている。",
+          "mean": "His originality is combined with her traditional beauty, and the furniture they create is full of originality."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + とあいまって"
+    }
+  ],
+  "title": "とあいまって => together with..., more; because of the influence of..., more ~",
+  "_id": "f7ff14dae05876cac58b41369307ecaf"
+}

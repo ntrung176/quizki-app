@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1125,
+  "usages": [
+    {
+      "explain": "Used to emphasize that something is exactly the same as something else, when comparing with another object.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は善良そのものだ。",
+          "transcription": "かのじょはぜんりょうそのものだ。",
+          "mean": "She is goodness itself."
+        },
+        {
+          "content": "あの小説は彼の自伝そのものだ。",
+          "transcription": "あのしょうせつはかれのじでんそのものだ。",
+          "mean": "That novel is his autobiography."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + そのものだ"
+    }
+  ],
+  "title": "そのものだ => exactly ～",
+  "_id": "f7ff14dae05876cac58b4136934b7d09"
+}

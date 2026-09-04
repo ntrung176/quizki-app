@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1762,
+  "usages": [
+    {
+      "explain": "Used to express a conjecture \"perhaps due to X, there is Y\", with the form「Xからか、Y」. The emphasis is on Y. The part followed by か often expresses reasons such as からか (probably because), せいか (probably due to), のか (probably).",
+      "note": null,
+      "examples": [
+        {
+          "content": "秋田さんは自分も留学経験があるからか、留学生の悩みの相談によくのってあげている。",
+          "transcription": "あきたさんはじぶんもりゅうがくけいけんがあるからか、りゅうがくせいのなやみのそうだんによくのってあげている。",
+          "mean": "Perhaps because she has studied abroad herself, Akita often helps international students with their problems."
+        },
+        {
+          "content": "来週、英語のテストがあるせいか、何だか落ち着かない。",
+          "transcription": "らいしゅう、えいごのてすとがあるせいか、なんだかおちつかない。",
+          "mean": "I don't feel at ease because I have an English test next week."
+        },
+        {
+          "content": "中村さんはそれを知っていたのか、私の話を聞いても特に驚いた様子はなかった。",
+          "transcription": "なかむらさんはそれをしっていたのか、わたしのはなしをきいてもとくにおどろいたようすはなかった。",
+          "mean": "Mr. Nakamura probably knew this, but he didn't seem surprised when he heard my story."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N / Na / A/ V + からか\nNの / Naな / A / V + せいか\nN な / Na な / A / V + のか"
+    }
+  ],
+  "title": "…からか／…せいか／…のか => perhaps because ~.",
+  "_id": "f7ff14dae05876cac58b413693a2c002"
+}

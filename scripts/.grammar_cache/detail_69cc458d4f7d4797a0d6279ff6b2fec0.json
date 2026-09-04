@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5239,
+  "usages": [
+    {
+      "explain": "「さて」is used to transition to a different topic or action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これで授業を終わります。さて、来週の予定ですが...",
+          "transcription": "これでじゅぎょうをおわります。さて、らいしゅうのよていですが...",
+          "mean": "This concludes the lesson. Well, my plans for next week..."
+        },
+        {
+          "content": "以上、今日のニュースをお伝えしました。さて、次に天気予報です。",
+          "transcription": "いじょう、きょうのニュースをおつたえしました。さて、つぎにてんきよほうです。",
+          "mean": "That's all for today's news. Now, let's talk about the weather forecast."
+        },
+        {
+          "content": "さて、とりあえず乾杯しましょう。",
+          "transcription": "さて、とりあえずかんぱいしましょう。",
+          "mean": "Well, let's have a toast for now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。さて、 B"
+    }
+  ],
+  "title": "さて => well; now; then ~",
+  "_id": "69cc458d4f7d4797a0d6279ff6b2fec0"
+}

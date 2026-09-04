@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1859,
+  "usages": [
+    {
+      "explain": "This expression emphasizes the seriousness of the situation through the use of metaphorical imagery. It leans towards spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "サッカーのクラブは練習がひどくて、君ではそれこそ一日ともたないよ。",
+          "transcription": "さっかーのくらぶはれんしゅうがひどくて、きみではそれこそいちにちともたないよ。",
+          "mean": "The soccer club's practice is so bad that you can't even last a day."
+        },
+        {
+          "content": "家族は人がたくさんいるので、毎日それこそ山のように洗濯物が重ねてある。",
+          "transcription": "かぞくはひとがたくさんいるので、まいにちそれこそやまのようにせんたくぶつがかさねてある。",
+          "mean": "Since there are many people in my family, there are mountains of laundry piled up every day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それこそ～"
+    }
+  ],
+  "title": "それこそ => exactly that",
+  "_id": "f7ff14dae05876cac58b413693b0073a"
+}

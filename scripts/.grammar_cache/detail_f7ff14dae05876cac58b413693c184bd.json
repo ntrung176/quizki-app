@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1980,
+  "usages": [
+    {
+      "explain": "Means that after a certain event has fully occurred, something happens that reverses that event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父に褒め後から、悪いことをして、がっかりさせてしまった。",
+          "transcription": "ちちにほめごから、わるいことをして、がっかりさせてしまった。",
+          "mean": "After complimenting my father, I did something bad and let him down."
+        },
+        {
+          "content": "一生懸命勉強して、英語の試験に参加しようと思った後から、今年あの試験が行われないお知らせが出た。",
+          "transcription": "いっしょうけんめいべんきょうして、えいごのしけんにさんかしようとおもったのちから、ことしあのしけんがおこなわれないおしらせがでた。",
+          "mean": "After studying hard and planning to take the English exam, I was informed that the exam would not be held this year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた + あとから"
+    }
+  ],
+  "title": "あとから => after~; later",
+  "_id": "f7ff14dae05876cac58b413693c184bd"
+}

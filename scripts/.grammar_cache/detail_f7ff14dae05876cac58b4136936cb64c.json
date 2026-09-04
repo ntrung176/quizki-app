@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1369,
+  "usages": [
+    {
+      "explain": "Represents the idea of \"corresponding to that extent\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "良書を読めば、必ずそれだけ賢くなる。",
+          "transcription": "りょうしょをよめば、かならずそれだけかしこくなる。",
+          "mean": "Reading good books will definitely make you smarter."
+        },
+        {
+          "content": "彼女が親切なのでそれだけますます彼女が好きだ。",
+          "transcription": "かのじょがしんせつなのでそれだけますますかのじょがすきだ。",
+          "mean": "I like her all the more because she is kind."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それだけ～"
+    }
+  ],
+  "title": "それだけ => that much, as much, to that extent, only that, that alone, no more than that",
+  "_id": "f7ff14dae05876cac58b4136936cb64c"
+}

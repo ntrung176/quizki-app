@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5406,
+  "usages": [
+    {
+      "explain": "「っぱなし」is a pattern that conveys a negative tone and describes:\n<br/>1. Leaving something in its current state without taking action to change it. \"Leaving as is...\"\n<br/>2. Continuously maintaining a certain state. \"Continuously...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "窓を開けっぱなしで出てきた。",
+          "transcription": "まどをあけっぱなしででてきた。",
+          "mean": "I left the window open and came out."
+        },
+        {
+          "content": "水を出しっぱなしにしないでください。",
+          "transcription": "みずをだしっぱなしにしないでください。",
+          "mean": "Do not leave the water running."
+        },
+        {
+          "content": "テレビがつけっぱなしですよ。見ない時は消してください。",
+          "transcription": "テレビがつけっぱなしですよ。みないときはけしてください。",
+          "mean": "The TV is left on. Please turn it off when you don't see it."
+        },
+        {
+          "content": "服を脱ぎっぱなしにしないで片付けなさい。",
+          "transcription": "ふくをぬぎっぱなしにしないでかたづけなさい。",
+          "mean": "Don't leave your clothes undressed; put them away."
+        },
+        {
+          "content": "大変だ。台所のガスの火がつけっぱなしだ。",
+          "transcription": "たいへんだ。だいどころのガスのひがつけっぱなしだ。",
+          "mean": "It's tough. The gas fire in the kitchen was left on."
+        },
+        {
+          "content": "うちの子は玄関にかばんを置きっぱなしにして遊びに行ってしまう。",
+          "transcription": "うちのこはげんかんにかばんをおきっぱなしにしてあそびにいってしまう。",
+          "mean": "My child leaves her bag at the entrance and goes out to play."
+        },
+        {
+          "content": "テレビをつけっぱなしでねてしまった。",
+          "transcription": "テレビをつけっぱなしでねてしまった。",
+          "mean": "I left the TV on and fell asleep."
+        },
+        {
+          "content": "この1週間雨が降りっぱなしで、洗濯物が乾かない。",
+          "transcription": "このいっしゅうかんあめがふりっぱなしで、せんたくものがかわかない。",
+          "mean": "It's been raining for the past week and my laundry won't dry."
+        },
+        {
+          "content": "新製品の注文が殺到している。朝から電話が鳴りっぱなしだ。",
+          "transcription": "しんせいひんのちゅうもんがさっとうしている。あさからでんわがなりっぱなしだ。",
+          "mean": "Orders for new products are flooding in. The phone has been ringing since morning."
+        },
+        {
+          "content": "電車が混んでいて、東京まで立ちっぱなしだった。",
+          "transcription": "でんしゃがこんでいて、とうきょうまでたちっぱなしだった。",
+          "mean": "The train was so crowded that I had to stand all the way to Tokyo."
+        },
+        {
+          "content": "その野球のチームは最近ずっと勝ちっぱなしだ。",
+          "transcription": "そのやきゅうのちーむはさいきんずっとかちっぱなしだ。",
+          "mean": "The baseball team has been winning a lot lately."
+        },
+        {
+          "content": "今週は遅れてばかりで、部長に叱られっぱなしだった。",
+          "transcription": "こんしゅうはおくれてばかりで、ぶちょうにしかられっぱなしだった。",
+          "mean": "This week I was always late, and the manager kept scolding me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s> っぱなし"
+    }
+  ],
+  "title": "っぱなし => leaving something in an improper state; leaving something on; leaving still in use",
+  "_id": "d8b8af18aff548eda24d0e120f16132a"
+}

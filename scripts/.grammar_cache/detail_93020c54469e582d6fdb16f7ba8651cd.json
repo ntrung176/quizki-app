@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 3218,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's feelings of anxiety, doubt about the possibility of something happening.",
+      "note": null,
+      "examples": [
+        {
+          "content": "社長はこの提案に反対するだろうか。",
+          "transcription": "しゃちょうはこのていあんにはんたいするだろうか。",
+          "mean": "Will the president oppose this proposal?"
+        },
+        {
+          "content": "今年のワールドカップはどんなチームが優勝するだろうか。",
+          "transcription": "ことしのわーるどかっぷはどんなちーむがゆうしょうするだろうか。",
+          "mean": "What team will win this year's World Cup?"
+        },
+        {
+          "content": "山田さんが帰国するときにその日本語の漫画を買ってくれただろうか。",
+          "transcription": "やまださんがきこくするときにそのにほんごのまんがをかってくれただろうか。",
+          "mean": "I wonder if Mr. Yamada bought the Japanese manga when he returned to Japan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + だろうか"
+    }
+  ],
+  "title": "だろうか  => I wonder...",
+  "_id": "93020c54469e582d6fdb16f7ba8651cd"
+}

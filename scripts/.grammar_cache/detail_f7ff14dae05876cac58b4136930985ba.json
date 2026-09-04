@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 639,
+  "usages": [
+    {
+      "explain": "●Represents a concession with the meaning of \"even with condition ..., it's fine, there's no problem\".<br/>●Has the meaning of \"if something happens, then definitely will...\". Often followed by expressions indicating the speaker's will or naturally occurring situations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ここで会ったが最後、謝ってもらうまでは逃がしはしない。",
+          "transcription": "ここであったがさいご、あやまってもらうまではにがしはしない。",
+          "mean": "I met him here, and in the end, I won't let him go until he apologizes."
+        },
+        {
+          "content": "この計画を聞いたが最後、あなたもグループに加わってもらおう。",
+          "transcription": "このけいかくをきいたがさいご、あなたもグループにくわわってもらおう。",
+          "mean": "I've heard about this plan, but in the end, I'd like you to join the group."
+        },
+        {
+          "content": "学校内でタバコを吸っているのを見つかったが最後、停学は免れないだろう。",
+          "transcription": "がっこうないでタバコをすっているのをみつかったがさいご、ていがくはまぬかれないだろう。",
+          "mean": "He was caught smoking inside the school, but in the end, he probably won't be suspended from school."
+        },
+        {
+          "content": "息子はは、いったん寝たが最後、朝まで起きない。",
+          "transcription": "むすこはは、いったんねたがさいご、あさまでおきない。",
+          "mean": "My son went to sleep, but he didn't wake up until morning."
+        }
+      ],
+      "mean": null,
+      "synopsis": "●Vた + がさいご(が最後)"
+    }
+  ],
+  "title": "〜がさいご(が最後) => if you do... negative result",
+  "_id": "f7ff14dae05876cac58b4136930985ba"
+}

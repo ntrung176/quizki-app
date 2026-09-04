@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1648,
+  "usages": [
+    {
+      "explain": "It's used to connect sentence clauses when the speaker hasn't figured out what to say next.",
+      "note": null,
+      "examples": [
+        {
+          "content": "俺はさ、ドラマが好きじゃない。",
+          "transcription": "おれはさ、どらまがすきじゃない。",
+          "mean": "I don't like dramas."
+        },
+        {
+          "content": "今週末はさ、ピクニックに行かないよ。",
+          "transcription": "こんしゅうまつはさ、ぴくにっくにいかないよ。",
+          "mean": "I'm not going on a picnic this weekend."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...さ is like a conjunction"
+    }
+  ],
+  "title": "...さ => Sentence-ending particle",
+  "_id": "f7ff14dae05876cac58b4136939317be"
+}

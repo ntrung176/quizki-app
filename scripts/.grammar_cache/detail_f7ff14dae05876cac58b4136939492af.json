@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1659,
+  "usages": [
+    {
+      "explain": "It follows nouns indicating manner, standards, time, place, etc., to express the meaning \"in such a manner, standard, time, place.\" Following are often negative expressions. Sometimes, it also expresses a contrasting comparison.",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中さんの時計では今7時15分です。",
+          "transcription": "たなかさんのとけいではいま7じ15ふんです。",
+          "mean": "According to Mr. Tanaka's watch, it is now 7:15."
+        },
+        {
+          "content": "これくらいの病気では心配する必要がありません。",
+          "transcription": "これくらいのびょうきではしんぱいするひつようがありません。",
+          "mean": "There is no need to worry about such an illness."
+        },
+        {
+          "content": "このプロジェクトは一ヶ月では終わらない。",
+          "transcription": "このぷろじぇくとはいっかげつではおわらない。",
+          "mean": "This project will not be completed in one month."
+        },
+        {
+          "content": "その惑星では生命を維持できない。",
+          "transcription": "そのわくせいではせいめいをいじできない。",
+          "mean": "That planet cannot support life."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + では"
+    }
+  ],
+  "title": "...では => By..., in..., according to...",
+  "_id": "f7ff14dae05876cac58b4136939492af"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2220,
+  "usages": [
+    {
+      "explain": "Conveys the meaning of 'nothing significant, just so-so'. This is the intimate form of [なんということはない].",
+      "note": null,
+      "examples": [
+        {
+          "content": "これくらいの病気、なんて事ないさ。",
+          "transcription": "これくらいのびょうき、なんてことないさ。",
+          "mean": "There's no such thing as a disease like this."
+        },
+        {
+          "content": "この程度の宿題はなんて事ない。1時間で出来るさ。",
+          "transcription": "このていどのしゅくだいはなんてことない。1じかんでできるさ。",
+          "mean": "This amount of homework is nothing. You can do it in an hour."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～なんてことない"
+    }
+  ],
+  "title": "なんてことない => Nothing serious, significant",
+  "_id": "f7ff14dae05876cac58b413693e3239a"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2250,
+  "usages": [
+    {
+      "explain": "Accompanied by structures expressing a period to mean \"during that time, then...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "今週のうちに、仕事を済ませよ。",
+          "transcription": "こんしゅうのうちに、しごとをすませよ。",
+          "mean": "Finish your work this week."
+        },
+        {
+          "content": "数日のうちに大雨となるでしょう。",
+          "transcription": "すうにちのうちにおおあめとなるでしょう。",
+          "mean": "There will be heavy rain in the next few days."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (time) の + うちに"
+    }
+  ],
+  "title": "のうちに => Within...",
+  "_id": "f7ff14dae05876cac58b413693e748f3"
+}

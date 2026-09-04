@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2454,
+  "usages": [
+    {
+      "explain": "This structure is used with pairs of opposite verbs, such as 「行く・行かない」(to go - not to go),「勝つ・負ける」(to win - to lose)... At the end of the sentence, it often uses expressions like 「…しだいだ」(depending on), 「…にかかっている」(depends on...) to convey the meaning \"the choice of which side is determined by...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "行くも留まるもあなたの自由です。",
+          "transcription": "いくもとまるもあなたのじゆうです。",
+          "mean": "You may go or stay at will."
+        },
+        {
+          "content": "成るも成らぬも自分自身の努力次第だ。",
+          "transcription": "なるもならぬもじぶんじしんのどりょくしだいだ。",
+          "mean": "Whether you succeed or not depends on your own efforts."
+        },
+        {
+          "content": "勝つも負けるも運次第です。",
+          "transcription": "かつもまけるもうんしだいです。",
+          "mean": "Whether you win or lose depends on your luck."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-るも + V-る／V-ない も"
+    }
+  ],
+  "title": "…も…も => too; also; as well",
+  "_id": "f2d618ceb0702f781ec83b7d4f02efb6"
+}

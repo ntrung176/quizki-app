@@ -1,0 +1,38 @@
+{
+  "level": "N5",
+  "mobileId": 2997,
+  "usages": [
+    {
+      "explain": "Presenting pairs of words in order to express neutrality, not leaning towards either side.",
+      "note": null,
+      "examples": [
+        {
+          "content": "事業成績は上がりも下がりもしない。現状維持だ。",
+          "transcription": "じぎょうせいせきはあがりもさがりもしない。げんじょういじだ。",
+          "mean": "Business results neither rise nor fall. Maintain the status quo."
+        },
+        {
+          "content": "趣味でスポーツをするのに上手も下手もない。",
+          "transcription": "しゅみですぽーつをするのにじょうずもへたもない。",
+          "mean": "There is no one who is good or bad at playing sports as a hobby."
+        },
+        {
+          "content": "現在は男も女もない時代だ。",
+          "transcription": "げんざいはおとこもおんなもないじだいだ。",
+          "mean": "Nowadays, there are no men or women."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nも + Nも…ない/Naも + Naもない/A-くも + A-くもない/ Vます－も + Vます－もしない"
+    },
+    {
+      "explain": "(Note) There are many idiomatic expressions, in addition to fixed expressions, there is also 「にっちもさっちもいかない」(it's hopeless, can't do anything).",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…も…も…ない => nothing; (not) ~ at all; there's no need to ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f492373"
+}

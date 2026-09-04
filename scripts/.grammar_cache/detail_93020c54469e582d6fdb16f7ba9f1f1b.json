@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3129,
+  "usages": [
+    {
+      "explain": "✦ Expresses the progression of a situation until ... and finally it has become that situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "死者が出るに至って、国は初めて病気の感染拡大の深刻さに気がついたのだ。",
+          "transcription": "ししゃがでるにいたって、くにははじめてびょうきのかんせんかくだいのしんこくさにきがついたのだ。",
+          "mean": "It was only when people died that the country realized the seriousness of the spread of the disease."
+        },
+        {
+          "content": "犠牲者が出るに至って、問題の深刻さに気がつくのでは遅いのだ。",
+          "transcription": "ぎせいしゃがでるにいたって、もんだいのしんこくさにきがつくのではおそいのだ。",
+          "mean": "It is too late to realize the seriousness of the problem until there are victims."
+        },
+        {
+          "content": "病気の牛２０万頭が処分されるに至って、経済的混乱がマスコミに取り上げられるようになった。",
+          "transcription": "びょうきのうし２０まんとうがしょぶんされるにいたって、けいざいてきこんらんがマスコミにとりあげられるようになった。",
+          "mean": "After 200,000 sick cattle were culled, the economic turmoil began to be covered in the media."
+        }
+      ],
+      "mean": "when it comes to A, even more / already B",
+      "synopsis": "Vる ＋ に至って"
+    }
+  ],
+  "title": "～にいたって（～に至って）   => when it comes to A, even more / already B",
+  "_id": "93020c54469e582d6fdb16f7ba9f1f1b"
+}

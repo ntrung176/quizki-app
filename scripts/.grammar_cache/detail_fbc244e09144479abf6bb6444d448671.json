@@ -1,0 +1,86 @@
+{
+  "level": "N5",
+  "mobileId": 5651,
+  "usages": [
+    {
+      "explain": "「よ」is a particle placed at the end of a sentence, helping the speaker:<br/>1. Emphasize one's own information, opinion, judgment, emotions, etc., to let the listener know.<br/>2. Emphasize prohibition, request, desire (when used with a command or prohibition).<br/>3. Show interrogation (when used with a question).<br/>4. Express invitation, appeal, indifference.<br/>Sometimes, people also add ね after よ to soften the sentence.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "インドのカレーは辛くないですよ。",
+          "transcription": "インドのカレーはからくないですよ。",
+          "mean": "Indian curry is not spicy."
+        },
+        {
+          "content": "君は疲れたら僕が運転してあげるよ。",
+          "transcription": "きみはつかれたらぼくがうんてんしてあげるよ。",
+          "mean": "If you get tired, I'll drive you."
+        },
+        {
+          "content": "無理なダイエットは体に良くないですよ。",
+          "transcription": "むりなダイエットはからだによくないですよ。",
+          "mean": "An unreasonable diet is not good for your body."
+        },
+        {
+          "content": "日本は9月に入って涼しくなりましたよ。",
+          "transcription": "にほんはくがつにはいってすずしくなりましたよ。",
+          "mean": "It's getting cooler in Japan in September."
+        },
+        {
+          "content": "あなたは頑張ればきっと日本語が上手になるよ。",
+          "transcription": "あなたはがんばればきっとにほんごがじょうずになるよ。",
+          "mean": "If you try hard, you will surely become good at Japanese."
+        },
+        {
+          "content": "『この電車は甲子園へ行きますか。』『いいえ、行きません。次の普通ですよ。』",
+          "transcription": "『このでんしゃはこうしえんへいきますか。』『いいえ、いきません。つぎのふつうですよ。』",
+          "mean": "``Does this train go to Koshien? 'No, I'm not going. It's the next normal thing. ”"
+        },
+        {
+          "content": "もう11時になったよ。早く寝てください。",
+          "transcription": "もうじゅういちじになったよ。はやくねてください。",
+          "mean": "It's already 11 o'clock. Please go to bed early."
+        },
+        {
+          "content": "今日の午後は雨が降るよ。 傘を忘れないでください。",
+          "transcription": "きょうのごごはあめがふるよ。 かさをわすれないでください。",
+          "mean": "It's going to rain this afternoon. Don't forget your umbrella."
+        },
+        {
+          "content": "勉強しなさいよ。",
+          "transcription": "べんきょうしなさいよ。",
+          "mean": "Study."
+        },
+        {
+          "content": "早く来いよ。",
+          "transcription": "はやくこいよ。",
+          "mean": "Come quickly!"
+        },
+        {
+          "content": "喋ったのは誰よ。",
+          "transcription": "しゃべったのはだれよ。",
+          "mean": "Who spoke?"
+        },
+        {
+          "content": "早く行きましょうよ。",
+          "transcription": "はやくいきましょうよ。",
+          "mean": "Let's go quickly."
+        },
+        {
+          "content": "私など眼中にないんでしょうよ。",
+          "transcription": "わたしなどがんちゅうにないんでしょうよ。",
+          "mean": "I guess they don't even have me in mind."
+        },
+        {
+          "content": "これは私のペンですよね。",
+          "transcription": "これはわたしのぺんですよね。",
+          "mean": "This is my pen, right?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence+よ"
+    }
+  ],
+  "title": "よ => Right",
+  "_id": "fbc244e09144479abf6bb6444d448671"
+}

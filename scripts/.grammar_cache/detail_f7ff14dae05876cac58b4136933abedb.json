@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1004,
+  "usages": [
+    {
+      "explain": "Expresses the idea \"there's only one way to do something left\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "こうなったからは継続あるのみだ。",
+          "transcription": "こうなったからはけいぞくあるのみだ。",
+          "mean": "Now that this has happened, there is only continuity."
+        },
+        {
+          "content": "大学に合格するためには、努力あるのみです。",
+          "transcription": "だいがくにごうかくするためには、どりょくあるのみです。",
+          "mean": "The only way to get into university is to work hard."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + あるのみだ"
+    }
+  ],
+  "title": "... あるのみだ => only way …., only to do ….",
+  "_id": "f7ff14dae05876cac58b4136933abedb"
+}

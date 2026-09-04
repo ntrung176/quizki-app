@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5129,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>反面</rb><rp>(</rp><rt>はんめん</rt><rp>)</rp></ruby>」expresses the dual aspects, tendencies, or contrasting sides of the same object or situation. Typically, the first part of 反面 is the positive aspect, while the second part is the negative aspect.",
+      "note": null,
+      "examples": [
+        {
+          "content": "パソコンは便利な反面、トラブルも多い。",
+          "transcription": "パソコンはべんりなはんめん、トラブルもおおい。",
+          "mean": "Although computers are convenient, they can also cause many problems."
+        },
+        {
+          "content": "彼は優れた学者である反面、精神的に弱い人間だ。",
+          "transcription": "かれはすぐれたがくしゃであるはんめん、せいしんてきによわいにんげんだ。",
+          "mean": "Although he is an excellent scholar, he is also a mentally weak person."
+        },
+        {
+          "content": "子供の成長は嬉しい反面、どこか寂しい。",
+          "transcription": "こどものせいちょうはうれしいはんめん、どこかかなしい。",
+          "mean": "I'm happy to see my child grow, but at the same time I feel lonely."
+        },
+        {
+          "content": "ノートパソコンは手軽である反面、壊れやすい。",
+          "transcription": "ノートパソコンはてがるであるはんめん、こわれやすい。",
+          "mean": "Although laptop computers are convenient, they are also easily damaged."
+        },
+        {
+          "content": "この部屋は日当たりがいい反面、夏はかなり暑い。",
+          "transcription": "このへやはひあたりがいいはんめん、なつはかなりあつい。",
+          "mean": "Although this room gets plenty of sunlight, it gets quite hot in the summer."
+        },
+        {
+          "content": "この車は、空気を汚さない反面、価格が高い。",
+          "transcription": "このくるまは、くうきをよごさないはんめん、かかくがたかい。",
+          "mean": "Although this car does not pollute the air, it is expensive."
+        },
+        {
+          "content": "この薬はよく効く反面、副作用も強い。",
+          "transcription": "このくすりはよくきくはんめん、ふくさようもつよい。",
+          "mean": "Although this drug is effective, it also has strong side effects."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+<ruby><rb>反面</rb><rp>(</rp><rt>はんめん</rt><rp>)</rp></ruby><br/>\nAい (formal form)+<ruby><rb>反面</rb><rp>(</rp><rt>はんめん</rt><rp>)</rp></ruby><br/>\n Nである+<ruby><rb>反面</rb><rp>(</rp><rt>はんめん</rt><rp>)</rp></ruby><br>\nAな/A<s>な</s>である+<ruby><rb>反面</rb><rp>(</rp><rt>はんめん</rt><rp>)</rp></ruby></br>"
+    }
+  ],
+  "title": "反面 => while, although; on the other hand~",
+  "_id": "8bc4fcac11c94ae6925f857a45649c1b"
+}

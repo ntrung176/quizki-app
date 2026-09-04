@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1523,
+  "usages": [
+    {
+      "explain": "Used to describe the fundamental nature of something. Often used to refute an opinion that lacks thorough consideration of that nature.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そもそも人の考えは他人に抑制できるものではないのだから、彼女を思い通りにしようとしても無駄だ。",
+          "transcription": "そもそもひとのかんがえはたにんによくせいできるものではないのだから、かのじょをおもいどおりにしようとしてもむだだ。",
+          "mean": "In the first place, people's thoughts cannot be controlled by others, so there is no point in trying to get her to do what she wants."
+        },
+        {
+          "content": "そもそも彼は型にはまらない生き方を好むものだ。規則ずくめの組織を息苦しく感じるのは当然だ。",
+          "transcription": "そもそもかれはかたにはまらないいきかたをこのむものだ。きそくずくめのそしきをいきぐるしくかんじるのはとうぜんだ。",
+          "mean": "To begin with, he likes an unconventional way of life. It's natural to feel stifled by an organization full of rules."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そもそも...というのは"
+    }
+  ],
+  "title": "そもそも...というのは => in the first place; to begin with; from the start; originally",
+  "_id": "f7ff14dae05876cac58b413693833c71"
+}

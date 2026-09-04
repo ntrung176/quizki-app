@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 815,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"a problem cannot be solved by just one action. One action alone is not enough\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "大事な書類をなくしてしまうなんて、謝ってすむことではない。",
+          "transcription": "だいじなしょるいをなくしてしまうなんて、あやまってすむことではない。",
+          "mean": "There's no need to apologize for losing an important document."
+        },
+        {
+          "content": "少数意見だと片付けてすむことではない。",
+          "transcription": "しょうすういけんだとかたづけてすむことではない。",
+          "mean": "This is not something that can be dismissed as a minority opinion."
+        },
+        {
+          "content": "この問題は補償金で済むことではない。心からの謝罪が必要だ。",
+          "transcription": "このもんだいはほしょうきんですむことではない。こころからのしゃざいがひつようだ。",
+          "mean": "This issue is not one that can be resolved with compensation. A sincere apology is necessary."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦Nで + すむことではない </div><div>✦Vて + すむことではない</div>"
+    }
+  ],
+  "title": "～すむことではない => ~ is not enough to solve the problem; cannot be resolved by ~",
+  "_id": "f7ff14dae05876cac58b413693215345"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2806,
+  "usages": [
+    {
+      "explain": "Change a state, situation. (often with a subject acting)",
+      "note": null,
+      "examples": [
+        {
+          "content": "お客様を幸せにする。",
+          "transcription": "おきゃくさまをしあわせにする。",
+          "mean": "Make customers happy."
+        },
+        {
+          "content": "これは通話中に音量を大きくする機能です。",
+          "transcription": "これはつうわちゅうにおんりょうをおおきくするきのうです。",
+          "mean": "This is a feature that increases the volume during a call."
+        },
+        {
+          "content": "部屋を明るくする。",
+          "transcription": "へやをあかるくする。",
+          "mean": "Brighten up the room."
+        },
+        {
+          "content": "砂糖の量を半分にしました。",
+          "transcription": "さとうのりょうをはんぶんにしました。",
+          "mean": "I halved the amount of sugar."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-く + する\nNa- に +する"
+    }
+  ],
+  "title": "する => become ...",
+  "_id": "f2d618ceb0702f781ec83b7d4f315079"
+}

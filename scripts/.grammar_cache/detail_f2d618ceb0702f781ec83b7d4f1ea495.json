@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2663,
+  "usages": [
+    {
+      "explain": "Comes after a clause to indicate that what is said there is true.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日の朝、歯医者さんの予約をしたことをすっかり忘れてた。",
+          "transcription": "あしたのあさ、はいしゃさんのよやくをしたことをすっかりわすれてた。",
+          "mean": "I completely forgot that I had a dentist appointment tomorrow morning."
+        },
+        {
+          "content": "祖父は死んでもうこの世にいない（という）ことが、まだ私には信じられない気がする。",
+          "transcription": "そふはしんでもうこのよにいない（という）ことが、まだわたしにはしんじられないきがする。",
+          "mean": "I still can't believe that my grandfather is dead and no longer in this world."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの + こと\nNaな + こと （という）こと\nA/V + こと"
+    }
+  ],
+  "title": "... こと => thing (Truth)",
+  "_id": "f2d618ceb0702f781ec83b7d4f1ea495"
+}

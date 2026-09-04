@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1269,
+  "usages": [
+    {
+      "explain": "This expression emphasizes \"completely not, absolutely not.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "この中に同じものはひとつもない。",
+          "transcription": "このなかにおなじものはひとつもない。",
+          "mean": "None of these are the same."
+        },
+        {
+          "content": "その女優はひとつも美しくない。",
+          "transcription": "そのじょゆうはひとつもうつくしくない。",
+          "mean": "That actress is not beautiful at all."
+        },
+        {
+          "content": "彼は漢字ひとつも覚えなかった。",
+          "transcription": "かれはかんじひとつもおぼえなかった。",
+          "mean": "He couldn't remember a single kanji."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ひとつもない\nひとつも + A－くない\nひとつも + V－ない"
+    }
+  ],
+  "title": "…ひとつも…ない => cannot possibly be ~",
+  "_id": "f7ff14dae05876cac58b4136935e63c2"
+}

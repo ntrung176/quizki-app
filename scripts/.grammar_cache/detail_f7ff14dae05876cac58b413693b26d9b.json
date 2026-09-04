@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1878,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"if based on the current situation, then...\". <br/>Typically used in the form「 ...のだとしたら」. In this usage, it cannot be combined with「かりに/もし」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これほど試しても成功しないのだとしたら、この実験は不可能だろう。",
+          "transcription": "これほどためしてもせいこうしないのだとしたら、このじっけんはふかのうだろう。",
+          "mean": "If we tried this many times without success, this experiment would be impossible."
+        },
+        {
+          "content": "あなたが話してないのだとしたら、誰がその秘密を明かしたか。",
+          "transcription": "あなたがはなしてないのだとしたら、だれがそのひみつをあかしたか。",
+          "mean": "If you haven't told me, who revealed the secret?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Na (なの)だ + としたら\nA/V (の) だ + としたら"
+    }
+  ],
+  "title": "としたら => in the case of~; assuming~; if A then B (conditional) ...",
+  "_id": "f7ff14dae05876cac58b413693b26d9b"
+}

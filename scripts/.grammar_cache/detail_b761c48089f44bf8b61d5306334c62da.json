@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5443,
+  "usages": [
+    {
+      "explain": "「ところで」is used to bring up a different topic, to change the subject of the conversation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日、試験でしょ。頑張ってね。ところで、来週の月曜日は空いてる？",
+          "transcription": "あした、しけんでしょ。がんばってね。ところで、らいしゅうのげつようびはあいてる？",
+          "mean": "There's an exam tomorrow. good luck. By the way, are you free next Monday?"
+        },
+        {
+          "content": "もうすぐ、今年も終わりですね。ところで、お正月はどうなさいますか。",
+          "transcription": "もうすぐ、ことしもおわりですね。ところで、おしょうがつはどうなさいますか。",
+          "mean": "It's almost the end of this year. By the way, what do you do on New Year's Day?"
+        },
+        {
+          "content": "もうすぐ卒業ですね。ところで、就職はどうするんですか。",
+          "transcription": "もうすぐそつぎょうですね。ところで、しゅうしょくはどうするんですか。",
+          "mean": "I'm graduating soon. By the way, how are you going to get a job?"
+        },
+        {
+          "content": "今学期は明日で終わりです。ところで、来学期の授業料払いましたか。",
+          "transcription": "こんがっきはあしたでおわりです。ところで、らいがっきのじゅぎょうりょうはらいましたか。",
+          "mean": "This semester ends tomorrow. By the way, have you paid your tuition fees for next semester?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。 ところで、 B"
+    }
+  ],
+  "title": "ところで => by the way ~",
+  "_id": "b761c48089f44bf8b61d5306334c62da"
+}

@@ -1,0 +1,86 @@
+{
+  "level": "N2",
+  "mobileId": 5117,
+  "usages": [
+    {
+      "explain": "「どころか」expresses:<br/>\n\n1. A result or state that exceeds (is lower or higher than) expectations. This structure emphasizes the extreme degree of the surpassing. The clause following it is often in negative form or implies a negation. It can be translated as \"Not only... but even...\".<br/>\n  \n2. A result or state that goes against expectations. This structure emphasizes the speaker's surprise at the contradiction. It can be translated as \"Not only not... but on the contrary...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "今の給料は家を買うどころか、食事も足りない。",
+          "transcription": "いまのきゅうりょうはいえをかうどころか、しょくじもたりない。",
+          "mean": "My current salary is not enough to buy a house, let alone eat."
+        },
+        {
+          "content": "もっと勉強しないと、N2どころかN3も無理だ。",
+          "transcription": "もっとべんきょうしないと、エヌにどころかエヌさんもむりだ。",
+          "mean": "If I don't study more, I won't be able to pass N2 or even N3."
+        },
+        {
+          "content": "私は日本語で論文を書くどころか、簡単な会話も出来ない。",
+          "transcription": "わたしはにほんごでろんぶんをかくどころか、かんたんなかいわもできない。",
+          "mean": "I can't even have a simple conversation in Japanese, let alone write a paper."
+        },
+        {
+          "content": "うちの会社は忙しいどころか、仕事がなくて困っているんだ。",
+          "transcription": "うちのかいしゃはいそがしいどころか、しごとがなくてこまっているんだ。",
+          "mean": "My company is not only busy, but we're also in trouble because we don't have any work to do."
+        },
+        {
+          "content": "『夏休みは取れそう？』『忙しくて夏休みどころか、日曜日も休めない。』",
+          "transcription": "『なつやすみはとれそう？』『いそがしくてなつやすみどころか、にちようびもやすめない。』",
+          "mean": "``Do you think you'll be able to take summer vacation? ``I'm so busy that I can't even take Sunday off, let alone summer vacation. ”"
+        },
+        {
+          "content": "私が高校生の頃は、スマホどころか、インターネットもありませんでした。",
+          "transcription": "わたしがこうこうせいのころは、スマホどころか、インターネットもありませんでした。",
+          "mean": "When I was in high school, there was no internet, let alone smartphones."
+        },
+        {
+          "content": "彼は日本語どころか、ロシア語やドイツ語もできる。",
+          "transcription": "かれはにほんごどころか、ロシアごやドイツごもできる。",
+          "mean": "He can speak not only Japanese but also Russian and German."
+        },
+        {
+          "content": "彼は私の期待に応えるどころか、それを超えた働きをみせた。",
+          "transcription": "かれはわたしのきたいにこたえるどころか、それをこえたはたらきをみせた。",
+          "mean": "He not only met my expectations, but exceeded them."
+        },
+        {
+          "content": "友達と海外旅行に行くことになったんだけど、二人とも英語が話せないから、楽しみどころか、むしろ心配だ。",
+          "transcription": "ともだちとかいがいりょこうにいくことになったんだけど、ふたりともえいごがはなせないから、たのしみどころか、むしろしんぱいだ。",
+          "mean": "I'm going on a trip overseas with a friend, but since neither of us can speak English, I'm more worried than excited."
+        },
+        {
+          "content": "私は彼に役に立つどころか、迷惑もかけた。",
+          "transcription": "わたしはかれにやくにたつどころか、めいわくもかけた。",
+          "mean": "I caused more trouble than I helped him."
+        },
+        {
+          "content": "医者に出された薬を飲んでいるのに、よくなるどころか、症状はひどくなる一方だよ。",
+          "transcription": "いしゃにだされたくすりをのんでいるのに、よくなるどころか、しょうじょうはひどくなるいっぽうだよ。",
+          "mean": "Even though I'm taking the medicine prescribed by my doctor, instead of getting better, my symptoms are only getting worse."
+        },
+        {
+          "content": "加藤さんは毎日勉強をしているのに、成績は良くなるどころか、悪くなる一方だ。",
+          "transcription": "かとうさんはまいにちべんきょうをしているのに、せいせきはよくなるどころか、わるくなるいっぽうだ。",
+          "mean": "Although Mr. Kato studies every day, his grades are getting worse instead of getting better."
+        },
+        {
+          "content": "この部屋は涼しいどころか、暑すぎる。",
+          "transcription": "このへやはすずしいどころか、あつすぎる。",
+          "mean": "This room isn't cool, it's too hot."
+        },
+        {
+          "content": "彼の奥さんは優しいどころか、鬼のような人だ。",
+          "transcription": "かれのおくさんはやさしいどころか、おにのようなひとだ。",
+          "mean": "His wife is far from being kind, she is like a demon."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+どころか<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/> Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "どころか => far from; anything but; let alone; not to mention; much less ~",
+  "_id": "66a941f57afb4b808f94130d56dd4494"
+}

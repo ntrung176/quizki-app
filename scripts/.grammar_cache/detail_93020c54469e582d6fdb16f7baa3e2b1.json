@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 3170,
+  "usages": [
+    {
+      "explain": "<div>✦ Describes doing something roughly, roughly due to lack of time.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は仕事もそこそこに、いそいそ会社を出た。",
+          "transcription": "デートらしいね。 かのじょはしごともそこそこに、いそいそかいしゃをでた。デートらしいね。",
+          "mean": "She was able to get a decent job and left the company in a hurry."
+        },
+        {
+          "content": "化粧もそこそこに、会社に行った。",
+          "transcription": "けしょうもそこそこに、かいしゃにいった。",
+          "mean": "I put on some makeup and went to work."
+        },
+        {
+          "content": "リンさんは好きなコーヒーを飲むのもそこそこに立ち去った。",
+          "transcription": "リンさんはすきなコーヒーをのむのもそこそこにたちさった。",
+          "mean": "Mr. Lin stopped short of drinking his favorite coffee."
+        },
+        {
+          "content": "部下からの説明もそこそこに、上司はコートを持って、外出の準備をした。",
+          "transcription": "ぶかからのせつめいもそこそこに、じょうしはコートをもって、がいしゅつのじゅんびをした。",
+          "mean": "After some explanation from his subordinates, the boss grabbed his coat and got ready to go out."
+        },
+        {
+          "content": "仕事もそこそこに、いそいそと会社を出た。",
+          "transcription": "しごともそこそこに、いそいそとかいしゃをでた。",
+          "mean": "I was able to get a decent amount of work, so I left the company in a hurry."
+        },
+        {
+          "content": "弁護士事務所を訪ね、挨拶もそこそこに、早速相談に入った。",
+          "transcription": "べんごうしけんじむしょをたずね、あいさつもそこそこに、さっそくそうだんにはいった。",
+          "mean": "I visited a lawyer's office, exchanged a few greetings, and immediately began a consultation."
+        },
+        {
+          "content": "息子は朝食もそこそこに家を飛び出した。",
+          "transcription": "むすこはちょうしょくもそこそこにいえをとびだした。",
+          "mean": "My son left the house right after breakfast."
+        }
+      ],
+      "mean": "do …. hurry",
+      "synopsis": "✦N・Vの ＋ もそこそこに"
+    }
+  ],
+  "title": "～もそこそこに      => do …. hurry",
+  "_id": "93020c54469e582d6fdb16f7baa3e2b1"
+}

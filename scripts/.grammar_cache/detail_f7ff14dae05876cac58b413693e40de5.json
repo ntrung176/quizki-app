@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 2225,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"cannot sustain a certain state indefinitely\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "成長したくないが、人はいつまでも子供ではいられないと分かる。",
+          "transcription": "せいちょうしたくないが、ひとはいつまでもこどもではいられないとわかる。",
+          "mean": "I don't want to grow up, but I realize that people can't stay children forever."
+        },
+        {
+          "content": "ずっと高校にいたいが、いつまでも学生のままではいられない。",
+          "transcription": "ずっとこうこうにいたいが、いつまでもがくせいのままではいられない。",
+          "mean": "I want to stay in high school forever, but I can't stay a student forever."
+        },
+        {
+          "content": "私は同僚の彼女と友達でいたいのに、彼女はこのままではいられないと言う。",
+          "transcription": "わたしはどうりょうのかのじょとともだちでいたいのに、かのじょはこのままではいられないという。",
+          "mean": "I want to be friends with my co-worker's girlfriend, but she says she can't stay like this."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ではいられない"
+    }
+  ],
+  "title": "ではいられない => can't afford to; unable to",
+  "_id": "f7ff14dae05876cac58b413693e40de5"
+}

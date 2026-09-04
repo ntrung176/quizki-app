@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1334,
+  "usages": [
+    {
+      "explain": "Expresses the idea that something is even more extreme than the thing being compared to.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この問題は数学の教授でも解けられないのに、あなたに解けられるはずがないじゃないの。",
+          "transcription": "このもんだいはすうがくのきょうじゅでもとけられないのに、あなたにとけられるはずがないじゃないの。",
+          "mean": "Even a math professor can't solve this problem, so there's no way you can."
+        },
+        {
+          "content": "屋内でもこんなに暑いのに、まして屋外はどんなに暑いだろう。",
+          "transcription": "おくないでもこんなにあついのに、ましておくがいはどんなにあついだろう。",
+          "mean": "It's so hot even indoors, let alone how hot it is outdoors."
+        },
+        {
+          "content": "こんな軽い物、子供でも挙げられるのに、どうして挙げられなかったの？",
+          "transcription": "こんなかるいもの、こどもでもあげられるのに、どうしてあげられなかったの？",
+          "mean": "Even a child could pick up such a light object, so why couldn't he?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + でも...のに"
+    }
+  ],
+  "title": "でも～のに => Even... also..., then...",
+  "_id": "f7ff14dae05876cac58b41369367aee8"
+}

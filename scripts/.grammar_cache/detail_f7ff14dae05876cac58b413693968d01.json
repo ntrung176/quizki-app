@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1675,
+  "usages": [
+    {
+      "explain": "Therefore, used to connect sentences, expressing a cause-effect relationship. This is a formal way of speaking, often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は病気になった。それゆえ、外国行きをあきらめた。",
+          "transcription": "かれはびょうきになった。それゆえ、がいこくいきをあきらめた。",
+          "mean": "he became ill. Therefore, I gave up on going abroad."
+        },
+        {
+          "content": "世界の人口が増加している。それゆえ、ますます多くの食料が必要なのだ。",
+          "transcription": "せかいのじんこうがぞうかしている。それゆえ、ますますおおくのしょくりょうがひつようなのだ。",
+          "mean": "The world's population is increasing. Therefore, more and more food is needed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それゆえ～"
+    }
+  ],
+  "title": "それゆえ =>  therefore; consequently​; because of; due to ~",
+  "_id": "f7ff14dae05876cac58b413693968d01"
+}

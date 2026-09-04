@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3046,
+  "usages": [
+    {
+      "explain": "<div>✦Using からある: when talking about weight, measurements, dimensions, quantity</div><div>✦Using からする: when talking about prices, costs</div><div>✦Using からの: when talking about costs, numbers</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのデモには２０万人からの人が参加したそうだ。",
+          "transcription": "そのでもにはにぜろまんにんからのひとがさんかしたそうだ。",
+          "mean": "Approximately 200,000 people reportedly participated in the demonstration."
+        },
+        {
+          "content": "１００キロからある荷物を５階まで運ぶには、足腰の強い人が３人は必要だ。",
+          "transcription": "いちぜろぜろきろからあるにもつをごかいまではこぶには、あしこしのつよいひとがさんにんはひつようだ。",
+          "mean": "It would take three strong people to carry a 100kg load to the fifth floor."
+        },
+        {
+          "content": "今年のスピーチコンテストには１０００人からの人が集まった。",
+          "transcription": "ことしのすぴーちこんてすとにはいちぜろぜろぜろにんからのひとがあつまった。",
+          "mean": "This year's speech contest attracted around 1,000 people."
+        }
+      ],
+      "mean": "(Số lượng) trở lên, có tới ....",
+      "synopsis": "Noun + からある/からする/からの"
+    }
+  ],
+  "title": "～からある => at least; as much as; as many as ~",
+  "_id": "1deff59183d11869f4e26da711241e60"
+}

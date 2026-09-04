@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1846,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"...still....\" regardless of any circumstances.",
+      "note": null,
+      "examples": [
+        {
+          "content": "なんにしても家族がまだ一番です。",
+          "transcription": "なんにしてもかぞくがまだいちばんです。",
+          "mean": "No matter what, family still comes first."
+        },
+        {
+          "content": "なんにしても断ったほうがいい。",
+          "transcription": "なんにしてもことわったほうがいい。",
+          "mean": "It's better to refuse no matter what."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんにしても～"
+    }
+  ],
+  "title": "なんにしても => even if; even though; regardless of",
+  "_id": "f7ff14dae05876cac58b413693ae4bdd"
+}

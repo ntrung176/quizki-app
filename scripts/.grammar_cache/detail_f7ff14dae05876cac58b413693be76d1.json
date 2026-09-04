@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1958,
+  "usages": [
+    {
+      "explain": "瞬間 （しゅんかん）conveys the meaning of \"right at that moment\". It seldom follows nouns. In spoken language, it takes the form 「V-たとたん」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "僕は会った瞬間彼女が好きになった。",
+          "transcription": "ぼくはあったしゅんかんかのじょがすきになった。",
+          "mean": "I took to her the moment I met her."
+        },
+        {
+          "content": "私は転んだ瞬間に手首を折ったことが分かった。",
+          "transcription": "わたしはころんだしゅんかんにてくびをおったことがわかった。",
+          "mean": "I knew I'd broken my wrist the moment I fell."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た・Nの + 瞬間"
+    }
+  ],
+  "title": "瞬間 => At the very moment",
+  "_id": "f7ff14dae05876cac58b413693be76d1"
+}

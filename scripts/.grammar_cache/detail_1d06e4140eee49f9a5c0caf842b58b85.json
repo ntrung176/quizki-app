@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5300,
+  "usages": [
+    {
+      "explain": "「を込めて」expresses the idea of doing something with a particular emotion or feeling.",
+      "note": null,
+      "examples": [
+        {
+          "content": "感謝の気持ちを込めて編んだマフラーです。",
+          "transcription": "かんしゃのきもちをこめてあんだマフラーです。",
+          "mean": "This scarf was knitted with gratitude."
+        },
+        {
+          "content": "愛を込めてカードを贈る。",
+          "transcription": "あいをこめてカードをおくる。",
+          "mean": "Send a card with love."
+        },
+        {
+          "content": "平和への祈りを込めて歌を歌う。",
+          "transcription": "へいわへのいのりをこめてうたをうたう。",
+          "mean": "Sing songs with prayers for peace."
+        },
+        {
+          "content": "大学受験の日、息子が合格しますようにと願いを込めてお弁当を作った。",
+          "transcription": "だいがくじゅけんのひ、むすこがごうかくしますようにとねがいをこめておべんとうをつくった。",
+          "mean": "On the day of the university entrance exam, I made a lunch box for my son with the hope that he would pass."
+        },
+        {
+          "content": "彼女は故郷への想いを込めて、その曲を作ったそうだ。",
+          "transcription": "かのじょはふるさとへのおもいをこめて、そのきょくをつくったそうだ。",
+          "mean": "It seems that she wrote the song to express her feelings for her hometown."
+        },
+        {
+          "content": "怒りを込めて核実験反対の署名をした。",
+          "transcription": "いかりをこめてかくじっけんはんたいのしょめいをした。",
+          "mean": "In anger, he signed a petition opposing nuclear tests."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+込めて"
+    }
+  ],
+  "title": "を込めて => filled with; full of",
+  "_id": "1d06e4140eee49f9a5c0caf842b58b85"
+}

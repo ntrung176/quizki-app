@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1850,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"do not think it's a big deal\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は不合格をなんとも思わない。",
+          "transcription": "かのじょはふごうかくをなんともおもわない。",
+          "mean": "She doesn't care about failing."
+        },
+        {
+          "content": "彼は人の感情を害することをなんとも思わない。",
+          "transcription": "かれはひとのかんじょうをがいすることをなんともおもわない。",
+          "mean": "He doesn't care about hurting people's feelings."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんともおもわない～"
+    }
+  ],
+  "title": "なんともおもわない => think nothing of",
+  "_id": "f7ff14dae05876cac58b413693aed9c6"
+}

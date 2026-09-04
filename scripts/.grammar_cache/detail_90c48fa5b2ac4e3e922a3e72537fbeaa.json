@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5178,
+  "usages": [
+    {
+      "explain": "「ものか/ものですか」is used to emphasize the speaker's intention or to strongly deny someone else's opinion, meaning \"There's no way that's the case!\" or \"Certainly not!\"\nMen often use「ものか」, while women tend to use the more polite form「ものですか」. It is commonly used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "元気なもんか。くたくただよ。",
+          "transcription": "げんきなもんか。くたくただよ。",
+          "mean": "Are you doing well? I'm exhausted."
+        },
+        {
+          "content": "嬉しいものですか。困っているんです。",
+          "transcription": "うれしいものですか。こまっているんです。",
+          "mean": "Are you happy? I'm in trouble."
+        },
+        {
+          "content": "『日本語が上手ですね。』『上手なもんですか。』",
+          "transcription": "『にほんごがじょうずですね。』『じょうずなもんですか。』",
+          "mean": "``Your Japanese is good. ” “Are you good at it?” ”"
+        },
+        {
+          "content": "彼がいい人なものか。元カノ達に聞けば分かるよ。",
+          "transcription": "かれがいいひとなものか。もとカノたちにきけばわかるよ。",
+          "mean": "Is he a good person? Just ask your ex-girlfriends and they'll tell you."
+        },
+        {
+          "content": "あんな店、二度と行くものか。",
+          "transcription": "あんなみせ、にどといくものか。",
+          "mean": "Would I ever go to a store like that again?"
+        },
+        {
+          "content": "あと1点で合格だったのに… この悔しさを忘れるものか。",
+          "transcription": "あといってんでごうかくだったのに…　このくやしさをわすれるものか。",
+          "mean": "I could have passed with just one more point... I'll never forget this frustration."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)/Aい/Aな/Nな+ものか<br/> V (root form)/Aい/Aな/Nな+もんか<br/> V (root form)/Aい/Aな/Nな+ものですか<br/> V (root form)/Aい/Aな/Nな+もんですか"
+    }
+  ],
+  "title": "ものか/ものですか => there's no way ~",
+  "_id": "90c48fa5b2ac4e3e922a3e72537fbeaa"
+}

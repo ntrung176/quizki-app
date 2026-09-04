@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2132,
+  "usages": [
+    {
+      "explain": "Indicates the meaning \"just because of a single reason.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "この果物は色がカラフルというだけでよく売れている。",
+          "transcription": "このくだものはいろがからふるというだけでよくうれている。",
+          "mean": "This fruit sells well simply because of its colorful color."
+        },
+        {
+          "content": "彼女は美しいというだけでたくさんの人に人気がある。",
+          "transcription": "かのじょはうつくしいというだけでたくさんのひとににんきがある。",
+          "mean": "She is popular with many people simply because she is beautiful."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～というだけで"
+    }
+  ],
+  "title": "…というだけで => just because…",
+  "_id": "f7ff14dae05876cac58b413693d73325"
+}

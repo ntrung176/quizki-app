@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 1952,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: while temporarily accepting the reason stated in the previous clause, it does not imply acceptance of the viewpoint stated in the following clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼がお金持ちだからといって、幸せだということにはならない。",
+          "transcription": "かれがおかねもちだからといって、しあわせだということにはならない。",
+          "mean": "Just because he's rich doesn't mean he's happy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だからといって～"
+    }
+  ],
+  "title": "だからといって => It's not because of...",
+  "_id": "f7ff14dae05876cac58b413693bd6693"
+}

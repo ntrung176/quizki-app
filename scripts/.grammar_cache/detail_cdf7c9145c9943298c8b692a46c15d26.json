@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5524,
+  "usages": [
+    {
+      "explain": "「に気がつく」is used to indicate that the speaker suddenly becomes aware of something they hadn't noticed or had forgotten about.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は電車の中に傘を忘れたことに気がついた。",
+          "transcription": "かのじょはでんしゃのなかにかさをわすれたことにきがついた。",
+          "mean": "She realized that she forgot her umbrella on the train."
+        },
+        {
+          "content": "私はタクシーを降るとき、財布がないことに気がついた。",
+          "transcription": "わたしはタクシーをおりるとき、さいふがないことにきがついた。",
+          "mean": "When I got out of the taxi, I realized that I didn't have my wallet."
+        },
+        {
+          "content": "彼が自分の間違いに気がつくのは時間をかからないだろう。",
+          "transcription": "かれがじぶんのまちがいにきがつくのはじかんをかからないだろう。",
+          "mean": "It won't take long for him to realize his mistake."
+        },
+        {
+          "content": "空港に着いたときに、フライトのチケットを忘れたことに気がついた。",
+          "transcription": "くうこうについたときに、フライトのチケットをわすれたことにきがついた。",
+          "mean": "When I arrived at the airport, I realized that I had forgotten my flight ticket."
+        },
+        {
+          "content": "ドアを閉めてから、ベッドに携帯電話を置いていたことに気がついた。",
+          "transcription": "ドアをしめてから、ベッドにけいたいでんわをおいていたことにきがついた。",
+          "mean": "After I closed the door, I realized that I had left my cell phone on the bed."
+        },
+        {
+          "content": "彼氏が浮気していることは昨日のパーティーで彼女に気がついた。",
+          "transcription": "かれしがうわきしていることはきのうのパーティーでかのじょにきがついた。",
+          "mean": "She realized at the party yesterday that her boyfriend was cheating on her."
+        },
+        {
+          "content": "彼がドアを開けようとしたとき、鍵を持っていないことに気がついた。",
+          "transcription": "かれがドアをあけようとしたとき、かぎをもっていないことにきがついた。",
+          "mean": "When he tried to open the door, he realized he didn't have the key."
+        },
+        {
+          "content": "帰宅すると、スーツケースの１つがなくなっていることに気がついた。",
+          "transcription": "きたくすると、スーツケースのひとつがなくなっていることにきがついた。",
+          "mean": "When I got home, I noticed that one of my suitcases was missing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+気がつく<br/>V (formal form) ことに+気がつく"
+    }
+  ],
+  "title": "に気がつく => to notice; to realize",
+  "_id": "cdf7c9145c9943298c8b692a46c15d26"
+}

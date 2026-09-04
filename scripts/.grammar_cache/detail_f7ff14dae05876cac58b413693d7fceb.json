@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 2137,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"at first glance it seems like that, but actually...\" Often in the form 「一見／見かけは…ようで、実際は…」, expressing the idea that \"the reality is completely different.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "一見、簡単なようで、実際やってみると案外複雑です。",
+          "transcription": "いっけん、かんたんなようで、じっさいやってみるとあんがいふくざつです。",
+          "mean": "It may seem simple at first glance, but it is actually more complicated than you might think."
+        },
+        {
+          "content": "吉田さんは普段はおとなしいようでいて、いざとなるとなかなか決断力に富んだ女性だ。",
+          "transcription": "よしださんはふだんはおとなしいようでいて、いざとなるとなかなかけつだんりょくにとんだじょせいだ。",
+          "mean": "Ms. Yoshida usually seems quiet, but when the situation calls for it, she is quite decisive."
+        },
+        {
+          "content": "中村さんは、一見、内気で温厚なようだが、実は短気で、喧嘩っぱやい性格の男だ。",
+          "transcription": "なかむらさんは、いっけん、うちきでおんこうなようだが、じつはたんきで、けんかっぱやいせいかくのおとこだ。",
+          "mean": "At first glance, Mr. Nakamura appears to be shy and gentle, but he is actually short-tempered and quarrelsome."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A／V + ようで (いて)"
+    },
+    {
+      "explain": "Sometimes said as 「...ようだが」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...ようで (いて) => It seems like ...",
+  "_id": "f7ff14dae05876cac58b413693d7fceb"
+}

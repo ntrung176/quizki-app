@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3003,
+  "usages": [
+    {
+      "explain": "This structure is used to indicate the location of an object and emphasizes the subject. Not used for people or animals.",
+      "note": null,
+      "examples": [
+        {
+          "content": "パソコンは事務所にあります。",
+          "transcription": "ぱそこんはじむしょにあります。",
+          "mean": "The computer is in the office."
+        },
+        {
+          "content": "病院はどこにありますか。",
+          "transcription": "びょういんはどこにありますか。",
+          "mean": "Where is the hospital?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 は N2 にあります"
+    }
+  ],
+  "title": "は～にあります => ...is in... (emphasis on subject)",
+  "_id": "f2d618ceb0702f781ec83b7d4f4a1508"
+}

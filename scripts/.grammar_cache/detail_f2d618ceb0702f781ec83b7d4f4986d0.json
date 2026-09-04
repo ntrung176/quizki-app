@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3000,
+  "usages": [
+    {
+      "explain": "Describes the degree of completeness when doing something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は家族のために、よく働いています。",
+          "transcription": "かれはかぞくのために、よくはたらいています。",
+          "mean": "He works hard for his family."
+        },
+        {
+          "content": "彼女は英語とフランス語がよく話せます。",
+          "transcription": "かのじょはえいごとふらんすごがよくはなせます。",
+          "mean": "She speaks English and French well."
+        },
+        {
+          "content": "契約をよく読んだ上署名してください。",
+          "transcription": "けいやくをよくよんだうえしょめいしてください。",
+          "mean": "Please read the contract carefully before signing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "よく + V"
+    }
+  ],
+  "title": "よく => good, well",
+  "_id": "f2d618ceb0702f781ec83b7d4f4986d0"
+}

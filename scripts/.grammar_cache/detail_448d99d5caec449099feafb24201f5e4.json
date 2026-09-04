@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5393,
+  "usages": [
+    {
+      "explain": "「に<ruby><rb>慣</rb><rp>(</rp><rt>な</rt><rp>)</rp></ruby>れる」describes the idea of becoming accustomed to something, due to experience or exposure, over a period of time in that particular situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は早起きするのに慣れていない。",
+          "transcription": "わたしははやおきするのになれていない。",
+          "mean": "I'm not used to getting up early."
+        },
+        {
+          "content": "彼は一人暮らしに慣れている。",
+          "transcription": "かれはひとりぐらしになれている。",
+          "mean": "He is used to living alone."
+        },
+        {
+          "content": "私は日本の生活に慣れるまでが大変だった。",
+          "transcription": "わたしはにほんのせいかつになれるまでがたいへんだった。",
+          "mean": "It was difficult for me to get used to life in Japan."
+        },
+        {
+          "content": "あなたはすぐに新しい大学生活に慣れるだろう。",
+          "transcription": "あなたはすぐにあたらしいだいがくせいかつになれるだろう。",
+          "mean": "You'll soon get accustomed to your new college life."
+        },
+        {
+          "content": "彼は新しい会社で働くことに慣れるだろう。",
+          "transcription": "かれはあたらしいかいしゃではたらくことになれるだろう。",
+          "mean": "He will get used to working at a new company."
+        },
+        {
+          "content": "外国人が日本の食事に慣れることは難しい。",
+          "transcription": "がいこくじんがにほんのしょくじになれることはむずかしい。",
+          "mean": "It is difficult for foreigners to get used to Japanese food."
+        },
+        {
+          "content": "私がここの生活に慣れるのは時間がかかりそうです。",
+          "transcription": "わたしがここのせいかつになれるのはじかんがかかりそうです。",
+          "mean": "It seems like it will take some time for me to get used to life here."
+        },
+        {
+          "content": "あなたは道路の右側を運転することにすぐに慣れるでしょう。",
+          "transcription": "あなたはどうろのみぎがわをうんてんすることにすぐになれるでしょう。",
+          "mean": "You'll soon get used to driving on the right."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に<ruby><rb>慣</rb><rp>(</rp><rt>な</rt><rp>)</rp></ruby>れる"
+    }
+  ],
+  "title": "に慣れる => to be used to something",
+  "_id": "448d99d5caec449099feafb24201f5e4"
+}

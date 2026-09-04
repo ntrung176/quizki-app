@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 5100,
+  "usages": [
+    {
+      "explain": "「あるいは」is a way of presenting options to the listener, suggesting that either \"A\" or \"B\" is acceptable. This phrase is similar to \"または\" but is more formal and often used in serious contexts.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ファックス、あるいはメールでお知らせください。",
+          "transcription": "ファックス、あるいはメールでおしらせください。",
+          "mean": "Please let us know by fax or email."
+        },
+        {
+          "content": "来週の火曜日の午後はどうですか。あるいは水曜日の午前でも構いませんが...",
+          "transcription": "らいしゅうのかようびのごごはどうですか。あるいはすいようびのごぜんでもかまいませんが...",
+          "mean": "How about next Tuesday afternoon? Or maybe Wednesday morning..."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A あるいは B"
+    }
+  ],
+  "title": "あるいは => or; either; maybe; perhaps; possibly ~",
+  "_id": "e86d33bec05d498fa0c6dfdb7fb5ea65"
+}

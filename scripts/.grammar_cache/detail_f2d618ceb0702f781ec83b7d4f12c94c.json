@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2567,
+  "usages": [
+    {
+      "explain": "Expresses commands, instructions, mainly used by men. Women often use 「んです」and 「の」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "早く走るんだ。",
+          "transcription": "はやくはしるんだ。",
+          "mean": "Run fast."
+        },
+        {
+          "content": "コーチの指示どおりにするんだ。",
+          "transcription": "こーちのしじどおりにするんだ。",
+          "mean": "Follow the coach's instructions."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + んだ"
+    }
+  ],
+  "title": "んだ => Let's...",
+  "_id": "f2d618ceb0702f781ec83b7d4f12c94c"
+}

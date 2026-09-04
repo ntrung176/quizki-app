@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2679,
+  "usages": [
+    {
+      "explain": "Expresses the idea \"it's impossible to do things that are normally doable.\" The verbs before and after ものも are the same.",
+      "note": null,
+      "examples": [
+        {
+          "content": "朝寝坊したので、歯を磨くものも磨かないで慌てて学校へ行った。",
+          "transcription": "あさねぼうしたので、はをみがくものもみがかないであわててがっこうへいった。",
+          "mean": "I overslept in the morning, so I hurried to school without even brushing my teeth."
+        },
+        {
+          "content": "突然雨が降り出したので、映画に行くものも行かないで帰ってきてしまった。",
+          "transcription": "とつぜんあめがふりだしたので、えいがにいくものもいかないでかえってきてしまった。",
+          "mean": "It suddenly started raining, so I didn't go to the movies but came home instead."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + ものも + V-ない"
+    }
+  ],
+  "title": "ものもV-ない => is not entirely impossible",
+  "_id": "f2d618ceb0702f781ec83b7d4f20ec8d"
+}

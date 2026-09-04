@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5229,
+  "usages": [
+    {
+      "explain": "「お～願います」is used to request or ask someone to do something. This is a polite form of speech, often used in business environments, when speaking to superiors, etc.<br/>\nRegarding adding お or ご to verbs in Group III: use ご for words with pure Chinese origin read entirely in onyomi (e.g., 説明、解決...), and use お for other words (e.g., 仕事、電話...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "しばらくお待ち願います。",
+          "transcription": "しばらくおまちねがいます。",
+          "mean": "Please wait for a while."
+        },
+        {
+          "content": "そちらでも再度ご確認願います。",
+          "transcription": "そちらでもさいどごかくにんねがいます。",
+          "mean": "Please check there again."
+        },
+        {
+          "content": "その書類を作成したのでご確認願います。",
+          "transcription": "そのしょるいをさくせいしたのでごかくにんねがいます。",
+          "mean": "I have created the document, so please check it."
+        },
+        {
+          "content": "図書館では小さな声でお話し願います。",
+          "transcription": "としょかんではちいさなこえでおはなしねがいます。",
+          "mean": "Please speak in a low voice in the library."
+        },
+        {
+          "content": "ご提案の詳細についてお聞かせ願えますか。",
+          "transcription": "ごていあんのしょうさいについておきかせねがえますか。",
+          "mean": "Could you please tell us more about your proposal?"
+        },
+        {
+          "content": "私は明日休みますと安田課長にお伝え願えますか。",
+          "transcription": "わたしはあしたやすみますとやすだかちょうにおつたえねがえますか。",
+          "mean": "Could you please tell Manager Yasuda that I will be taking the day off tomorrow?"
+        },
+        {
+          "content": "また機会があれば、ぜひご出席願いたいですね。",
+          "transcription": "またきかいがあれば、ぜひごしゅっせきねがいたいですね。",
+          "mean": "If you have a chance, I would love to have you attend."
+        },
+        {
+          "content": "ご自分のシートベルトが安全にかかっているかお確かめ願います。",
+          "transcription": "ごじぶんのシートベルトがあんぜんにかかっているかおたしかめねがいます。",
+          "mean": "Please make sure that your seat belt is securely fastened."
+        }
+      ],
+      "mean": null,
+      "synopsis": "おV (I, II) <s>ます</s>+願います / 願えますか<br/> お/ごV (III)<s>します</s>+願います / 願えますか"
+    }
+  ],
+  "title": "お～願います => please do (A)",
+  "_id": "872b1c0b69ab4c84b7337fa657d1e78c"
+}

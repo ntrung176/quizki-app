@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5558,
+  "usages": [
+    {
+      "explain": "「てしまう」has two meanings: \"to complete something\" and \"to regret having done something\". Specifically:<br/>\n1. 「てしまった」has two meanings: \"have completed something\" (often used with adverbs like もう、全部...) and \"regret having done something.\"<br/>\n\n2. 「てしまう」has two meanings: \"about to complete something\" and \"regret doing something regularly or in the future.\"<br/>\n\nTo distinguish between these meanings, you can consider whether the verb is involuntary (e.g., 道に迷う, 遅刻する, 忘れる, 間違える...) or intentional, or based on the context.",
+      "note": null,
+      "examples": [
+        {
+          "content": "仕事は全部終わってしまいました。",
+          "transcription": "しごとはぜんぶおわってしまいました。",
+          "mean": "All the work is finished."
+        },
+        {
+          "content": "漢字の宿題はもうやってしまいました。",
+          "transcription": "かんじのしゅくだいはもうやってしまいました。",
+          "mean": "I have already done my kanji homework."
+        },
+        {
+          "content": "この映画のシリーズは1日で全部見てしまいました。",
+          "transcription": "このえいがのシリーズはいちにちでぜんぶみてしまいました。",
+          "mean": "I watched the entire series of movies in one day."
+        },
+        {
+          "content": "昼ご飯までにレポートを書いてしまいます。",
+          "transcription": "ひるごはんまでにレポートをかいてしまいます。",
+          "mean": "I will write a report by lunch."
+        },
+        {
+          "content": "すぐに読んでしまいますから、もう少し貸しておいてください。",
+          "transcription": "すぐによんでしまいますから、もうすこしかしておいてください。",
+          "mean": "I'll read it soon, so please lend me a little more."
+        },
+        {
+          "content": "ダイエットしているので、夕飯は、毎日4時に食べてしまいます。",
+          "transcription": "ダイエットしているので、ゆうはんは、まいにちよじにたべてしまいます。",
+          "mean": "Since I'm on a diet, I eat dinner at 4 o'clock every day."
+        },
+        {
+          "content": "パソコンが故障してしまいました。",
+          "transcription": "パソコンがこしょうしてしまいました。",
+          "mean": "My computer has broken down."
+        },
+        {
+          "content": "パスポートをなくしてしまいました。",
+          "transcription": "パスポートをなくしてしまいました。",
+          "mean": "I've lost my passport."
+        },
+        {
+          "content": "友達に借りたカメラを壊してしまった。どうしよう。",
+          "transcription": "ともだちにかりたカメラをこわしてしまった。どうしよう。",
+          "mean": "I broke the camera I borrowed from a friend. What should I do."
+        },
+        {
+          "content": "アルバイトを始めたら、しょっちゅう寝坊してしまうんです。",
+          "transcription": "アルバイトをはじめたら、しょっちゅうねぼうしてしまうんです。",
+          "mean": "When I started working part-time, I often overslept."
+        },
+        {
+          "content": "早くいかないと、遅れてしまいますよ。",
+          "transcription": "はやくいかないと、おくれてしまいますよ。",
+          "mean": "If you don't hurry, you'll be late."
+        },
+        {
+          "content": "一つ間違えれば免許を取り消されてしまう。",
+          "transcription": "ひとつまちがえればめんきょをとりけされてしまう。",
+          "mean": "If you make one mistake, your license will be revoked."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+しまう"
+    }
+  ],
+  "title": "てしまう => to do something by accident, to finish completely",
+  "_id": "b83ae6a2df9945ea92215df87f0bcda5"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3168,
+  "usages": [
+    {
+      "explain": "☞ Using to describe events/actions/qualities similar to a previously mentioned one. (to avoid repeating the particle \"は\" or verbs multiple times) ☞ Expressing surprise at the extent of abundance. ☞ Indicating a level that is different from normal (higher or lower).",
+      "note": "☞ \"も\" functions similarly to \"は\" and \"が,\" so it does not directly follow \"は\" or \"が\" when used for a subject.<br>\n☞ \"も\" can also come after other particles like \"は,\" \"で,\" \"と,\" \"へ,\" etc.\n<br>Example: 日曜日(にちようび)ですが、どこへも行(い)けません。 On Sunday, but I can't go anywhere.",
+      "examples": [
+        {
+          "content": "田中さんは医者です。私も医者です。",
+          "transcription": "たなかさんはいしゃです。わたしもいしゃです。",
+          "mean": "Mr. Tanaka is a doctor. I'm also a doctor."
+        },
+        {
+          "content": "雨はもう四日も降っています。",
+          "transcription": "あめはもうよんにちもふっています。",
+          "mean": "It's been raining for four days now."
+        },
+        {
+          "content": "お客はひとりも来なかった。",
+          "transcription": "おきゃくはひとりもこなかった。",
+          "mean": "Not a single customer came."
+        }
+      ],
+      "mean": ":  as many as; as much as; up to; nearly ~",
+      "synopsis": "～ も"
+    }
+  ],
+  "title": "～も      =>  as many as; as much as; up to; nearly ~",
+  "_id": "93020c54469e582d6fdb16f7ba5d3d64"
+}

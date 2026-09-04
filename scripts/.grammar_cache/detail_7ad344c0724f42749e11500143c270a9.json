@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5505,
+  "usages": [
+    {
+      "explain": "「くださいませんか」is used to ask someone to do something for you. This is a polite way of asking, but it is not as formal as「いただけませんか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この計算をしてくださいませんか。",
+          "transcription": "このけいさんをしてくださいませんか。",
+          "mean": "Could you please do this calculation?"
+        },
+        {
+          "content": "電話を貸してくださいませんか。",
+          "transcription": "でんわをかしてくださいませんか。",
+          "mean": "Could you please lend me your phone?"
+        },
+        {
+          "content": "僕は戻るまで待ってくださいませんか。",
+          "transcription": "ぼくはもどるまでまってくださいませんか。",
+          "mean": "Could you please wait until I return?"
+        },
+        {
+          "content": "もう一度説明してくださいませんか。",
+          "transcription": "もういちどせつめいしてくださいませんか。",
+          "mean": "Would you explain it again?"
+        },
+        {
+          "content": "すみません、窓を開けてくださいませんか。",
+          "transcription": "すみません、まどをあけてくださいませんか。",
+          "mean": "Excuse me, could you please open the window?"
+        },
+        {
+          "content": "コピー機の使い方を教えてくださいませんか。",
+          "transcription": "コピーきのつかいかたをおしえてくださいませんか。",
+          "mean": "Could you please tell me how to use the copy machine?"
+        },
+        {
+          "content": "どうやって注文するのか教えてくださいませんか。",
+          "transcription": "どうやってちゅうもんするのかおしえてくださいませんか。",
+          "mean": "Could you please tell me how to order?"
+        },
+        {
+          "content": "前期のスケジュールについてアドバイスをしてくださいませんか。",
+          "transcription": "ぜんきのスケジュールについてアドバイスをしてくださいませんか。",
+          "mean": "Could you please give me some advice regarding the schedule for the first term?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+くださいませんか"
+    }
+  ],
+  "title": "くださいませんか => Could(Would) you please",
+  "_id": "7ad344c0724f42749e11500143c270a9"
+}

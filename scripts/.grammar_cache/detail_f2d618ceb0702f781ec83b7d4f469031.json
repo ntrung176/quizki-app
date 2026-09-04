@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2976,
+  "usages": [
+    {
+      "explain": "The infinitive form (also called the dictionary form) is the basic form of a verb. In dictionaries, verbs are presented in this form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はご飯を食べる。",
+          "transcription": "わたしはごはんをたべる。",
+          "mean": "I eat rice."
+        },
+        {
+          "content": "私は先生と話す。",
+          "transcription": "わたしはせんせいとはなす。",
+          "mean": "I talk to the teacher."
+        },
+        {
+          "content": "私の趣味はサッカーをすることです。",
+          "transcription": "わたしのしゅみはさっかーをすることです。",
+          "mean": "My hobby is playing soccer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group I: V-iます➔V-u\nGroup II: V-eます➔V-eる Group III: きます➔くる (N+)します➔(N+)する"
+    }
+  ],
+  "title": "辞書形 => Dictionary form",
+  "_id": "f2d618ceb0702f781ec83b7d4f469031"
+}

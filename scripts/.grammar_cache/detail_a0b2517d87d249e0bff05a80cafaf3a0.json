@@ -1,0 +1,91 @@
+{
+  "level": "N5",
+  "mobileId": 5620,
+  "usages": [
+    {
+      "explain": "「なければならない/なくてはならない」indicates that a certain action must be done because it is necessary, an obligation, or a societal norm.「なければならない」is a formal expression, often used in legal documents, regulations, newspapers, etc.<br/>\n「なければいけない/なくてはいけない」indicates that a certain action must be done because it is necessary, an obligation, or a general requirement, or because the speaker perceives the listener's personal situation as demanding it. <br/>\nなくては is softer than なければ, so it tends to be used in spoken language.<br/>\nいけない has a conversational tone and carries a sense of urgency or pressure on the listener more than ならない. Besides being necessary or obligatory, if the listener does not take the action, it will bring disadvantages to themselves or others.<br/>\n「なければだめ/なくてはだめ」indicates that a certain action must be done because the speaker perceives the listener's personal situation as demanding it. It is often used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "飛行機に乗る時はパスポートを見せなければなりません。",
+          "transcription": "ひこうきにのるときはパスポートをみせなければなりません。",
+          "mean": "When boarding a plane, you must show your passport."
+        },
+        {
+          "content": "学生は宿題をしなければなりません。",
+          "transcription": "がくせいはしゅくだいをしなければなりません。",
+          "mean": "Students must do their homework."
+        },
+        {
+          "content": "明日は学校でイベントがありますから、8時までに学校に来なければなりません。",
+          "transcription": "あしたはがっこうでイベントがありますから、はちじまでにがっこうにこなければなりません。",
+          "mean": "There is an event at school tomorrow, so you have to be at school by 8 o'clock."
+        },
+        {
+          "content": "悪いことをしたら、謝らなければならない。",
+          "transcription": "わるいことをしたら、あやまらなければならない。",
+          "mean": "If you do something wrong, you must apologize."
+        },
+        {
+          "content": "これらの本は2冊とも金曜日までに返さなくてはならない。",
+          "transcription": "これらのほんはにさつともきんようびまでにかえさなくてはならない。",
+          "mean": "Both of these books must be returned by Friday."
+        },
+        {
+          "content": "君はこれをやり直さなくてはならないよ。",
+          "transcription": "きみはこれをやりなおさなくてはならないよ。",
+          "mean": "you have to do this again."
+        },
+        {
+          "content": "毎朝早く起きなくてはならない。",
+          "transcription": "まいあさはやくおきなくてはならない。",
+          "mean": "I have to get up early every morning."
+        },
+        {
+          "content": "車は駐車場に止めなければいけない。",
+          "transcription": "くるまはちゅうしゃじょうにとめなければいけない。",
+          "mean": "The car must be parked in the parking lot."
+        },
+        {
+          "content": "来月に友達の結婚式に行かなければいけない。",
+          "transcription": "らいげつにともだちのけっこんしきにいかなければいけない。",
+          "mean": "I have to go to a friend's wedding next month."
+        },
+        {
+          "content": "兄みたいに大学に行かなければいけないと言われました。",
+          "transcription": "あにみたいにだいがくにいかなければいけないといわれました。",
+          "mean": "I was told that I had to go to college like my brother."
+        },
+        {
+          "content": "もう10時だ。寝なくてはいけない。",
+          "transcription": "もうじゅうじだ。ねなくてはいけない。",
+          "mean": "It's already 10 o'clock. I have to sleep."
+        },
+        {
+          "content": "花の水やりをしなくてはいけません。",
+          "transcription": "はなのみずやりをしなくてはいけません。",
+          "mean": "I have to water the flowers."
+        },
+        {
+          "content": "野菜を食べなくてはいけませんよ。",
+          "transcription": "やさいをたべなくてはいけませんよ。",
+          "mean": "You have to eat vegetables."
+        },
+        {
+          "content": "試験の前にこれを勉強しておかなければだめだ。",
+          "transcription": "しけんのまえにこれをべんきょうしておかなければだめだ。",
+          "mean": "I need to study this before the exam."
+        },
+        {
+          "content": "ミルクを飲まなくてはだめだよ！",
+          "transcription": "ミルクをのまなくてはだめだよ！",
+          "mean": "You have to drink milk!"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vな<s>い</s>ければ+ならない<br/>\nVな<s>い</s>くては+ならない<br/><br/>\nVな<s>い</s>ければ+いけない<br/>\nVな<s>い</s>くては+いけない<br/><br/>\nVな<s>い</s>ければ+だめ<br/>\nVな<s>い</s>くては+だめ"
+    }
+  ],
+  "title": "なければならない/なくてはならない/なければいけない/なくてはいけない/なければだめ/なくてはだめ => must",
+  "_id": "a0b2517d87d249e0bff05a80cafaf3a0"
+}

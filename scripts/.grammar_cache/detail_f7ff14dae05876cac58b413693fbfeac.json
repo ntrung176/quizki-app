@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2403,
+  "usages": [
+    {
+      "explain": "Carries the meaning of \"unaware,\" \"without realizing.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "漫画を読んでいる間にいつか眠り込んでしまったようだ。",
+          "transcription": "まんがをよんでいるまにいつかねむりこんでしまったようだ。",
+          "mean": "I think I fell asleep while reading a manga."
+        },
+        {
+          "content": "公園はいつか人影もまばらになり、閉園のアナウンスが流れていた。",
+          "transcription": "こうえんはいつかひとかげもまばらになり、閉園のあなうんすがながれていた。",
+          "mean": "At some point, the park became deserted and an announcement was made that it was closing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いつか refers to an unspecified time"
+    }
+  ],
+  "title": "いつか => Since when (Don't know)",
+  "_id": "f7ff14dae05876cac58b413693fbfeac"
+}

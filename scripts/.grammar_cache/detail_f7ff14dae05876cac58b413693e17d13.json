@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2208,
+  "usages": [
+    {
+      "explain": "Expressing the meaning of \"determined to make it happen regardless of the situation.\" Followed by words expressing requests or the speaker's determination.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日の試合 には、なにがなんでも負けたくない。",
+          "transcription": "あしたのしあいには、なにがなんでもまけたくない。",
+          "mean": "I don't want to lose in tomorrow's match no matter what."
+        },
+        {
+          "content": "このレポートは、なにがなんでも週末までに終わらせてもらわなければ困ります。",
+          "transcription": "このれぽーとは、なにがなんでもしゅうまつまでにおわらせてもらわなければこまります。",
+          "mean": "This report will be in trouble if I don't finish it by the end of the week."
+        },
+        {
+          "content": "なにがなんでも彼を賛成させて下さい。",
+          "transcription": "なにがなんでもかれをさんせいさせてください。",
+          "mean": "Please agree with him no matter what."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにがなんでも"
+    }
+  ],
+  "title": "なにがなんでも => No matter how ... still (enthusiastic)",
+  "_id": "f7ff14dae05876cac58b413693e17d13"
+}

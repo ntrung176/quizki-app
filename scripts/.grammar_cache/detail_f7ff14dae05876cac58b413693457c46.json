@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1081,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"not the appropriate time or circumstances to do something\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "息子は入院中で、お正月どころの話ではない。",
+          "transcription": "むすこはにゅういんちゅうで、おしょうがつどころのはなしではない。",
+          "mean": "My son is in the hospital, and it's not even about New Year's."
+        },
+        {
+          "content": "こう忙しくては、ゆっくり花見どころの話ではない。",
+          "transcription": "こういそがしくては、ゆっくりはなみどころのはなしではない。",
+          "mean": "With such a busy schedule, I can't take my time to enjoy the cherry blossoms."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + どころのはなしではない"
+    }
+  ],
+  "title": "どころのはなしではない => this is not the time/occasion for",
+  "_id": "f7ff14dae05876cac58b413693457c46"
+}

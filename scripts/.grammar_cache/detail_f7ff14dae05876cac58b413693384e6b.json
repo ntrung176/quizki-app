@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 985,
+  "usages": [
+    {
+      "explain": "Used after a clause to express a feeling of strangeness, as one doesn't understand the cause or reason for the situation.<br/>The following clause explains the reason for an action that has been or will be taken.",
+      "note": null,
+      "examples": [
+        {
+          "content": "猫が見えないと思ったら、引き出しの中で寝ていた。",
+          "transcription": "ねこがみえないとおもったら、ひきだしのなかでねていた。",
+          "mean": "When I thought I couldn't see the cat, it was sleeping in the drawer."
+        },
+        {
+          "content": "なんだか寒いと思ったら、エアコンがついていたのか。",
+          "transcription": "なんだかさむいとおもったら、えあこんがついていたのか。",
+          "mean": "I thought it was kind of cold, but the air conditioner was on."
+        },
+        {
+          "content": "鍵がないと思ったら、冷蔵庫に置き忘れていたよ。",
+          "transcription": "かぎがないとおもったら、れいぞうこにおきわすれていたよ。",
+          "mean": "I thought I didn't have the key, but I left it in the fridge."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na だとおもったら\nA／V とおもったら"
+    }
+  ],
+  "title": "おもったら => just when; no sooner than ~",
+  "_id": "f7ff14dae05876cac58b413693384e6b"
+}

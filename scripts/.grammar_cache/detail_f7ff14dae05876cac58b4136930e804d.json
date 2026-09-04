@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 678,
+  "usages": [
+    {
+      "explain": "✦Expresses the idea \"if it had been done, perhaps the bad result would not have happened, but because it was not done, the bad result occurred.\" Often used to express regret or reproach.",
+      "note": null,
+      "examples": [
+        {
+          "content": "すぐに医者に行けばいいものを、がまんしていたから、ひどくなってしまったのだ。",
+          "transcription": "すぐにいしゃにいけばいいものを、がまんしていたから、ひどくなってしまったのだ。",
+          "mean": "I should have gone to the doctor right away, but I kept putting up with it, so it got worse."
+        },
+        {
+          "content": "そこで引き返せばいいものを、まっすぐ行ったものだから、山に迷い込んでしまった。",
+          "transcription": "そこでひきかえせばいいものを、まっすぐおこなったものだから、やまにまよいこんでしまった。",
+          "mean": "I should have turned back, but instead I went straight, so I ended up getting lost in the mountains."
+        },
+        {
+          "content": "そのまま逃げだせばいいものを、うろうろしていたので彼は結局警官に捕まってしまった。",
+          "transcription": "そのままにげだせばいいものを、うろうろしていたのでかれはけっきょくけいかんにつかまってしまった。",
+          "mean": "He ended up being caught by the police because he was wandering around when he should have just run away."
+        },
+        {
+          "content": "部屋が火につつまれたときすぐ逃げればよかったものを、ペットを助けに行ったばかりに逃げ遅れて死んでしまった。",
+          "transcription": "へやがひにつつまれたときすぐにげればよかったものを、ペットをたすけにいったばかりににげおくれてしんでしまった。",
+          "mean": "When the room was engulfed in flames, he should have run away right away, but just as he was trying to save his pet, he was too late to escape and died."
+        },
+        {
+          "content": "わたしに話してくれればいいものを、どうして、ひとこと言ってくれなかったんですか。",
+          "transcription": "わたしにはなしてくれればいいものを、どうして、ひとこといってくれなかったんですか。",
+          "mean": "Why didn't you say something that I wish you had told me?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Used to express regret or blame."
+    }
+  ],
+  "title": "～すればいいものを => if only (someone) would do (something), should have done (something)",
+  "_id": "f7ff14dae05876cac58b4136930e804d"
+}

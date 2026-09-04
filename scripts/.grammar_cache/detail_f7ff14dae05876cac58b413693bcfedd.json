@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1949,
+  "usages": [
+    {
+      "explain": "Describes the situation where the speaker accomplishes their desires after much effort, difficulty, or time. Often used in the form「やっとV-た」, it conveys the speaker's feelings of relief or joy, or the sense of \"finally after much time\" or \"after much hardship\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "やっと火を消した。",
+          "transcription": "やっとひをけした。",
+          "mean": "I finally put out the fire."
+        },
+        {
+          "content": "仕事は半分終わった、やっと休憩できる。",
+          "transcription": "しごとははんぶんおわった、やっときゅうけいできる。",
+          "mean": "I've done half the work, and now I can take a break."
+        },
+        {
+          "content": "長年の苦労の末にやっと完成した。",
+          "transcription": "ながねんのくろうのすえにやっとかんせいした。",
+          "mean": "It was finally completed after many years of struggle."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "... やっと => at last; finally (Realizing what is expected)",
+  "_id": "f7ff14dae05876cac58b413693bcfedd"
+}

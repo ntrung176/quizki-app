@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5499,
+  "usages": [
+    {
+      "explain": "「からつくる/でつくる」indicates the material or ingredients used to make an object. We use:<br/>\n- 「から」with ingredients (the ingredients are not visible in the final product). \"Made from...\"<br/>\n- 「で」with materials (the materials are visible in the final product). \"Made with...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "酒は米からつくられます。",
+          "transcription": "さけはこめからつくられます。",
+          "mean": "Sake is made from rice."
+        },
+        {
+          "content": "ビールは麦からつくられます。",
+          "transcription": "ビールはむぎからつくられます。",
+          "mean": "Beer is made from wheat."
+        },
+        {
+          "content": "日本の味噌は大豆からつくられます。",
+          "transcription": "にほんのみそはだいずからつくられます。",
+          "mean": "Japanese miso is made from soybeans."
+        },
+        {
+          "content": "チーズは牛乳からつくられますか。",
+          "transcription": "チーズはぎゅうにゅうからつくられますか。",
+          "mean": "Is cheese made from milk?"
+        },
+        {
+          "content": "ワインはブドウからつくられます。",
+          "transcription": "ワインはブドウからつくられます。",
+          "mean": "Wine is made from grapes."
+        },
+        {
+          "content": "昔、日本の家は木でつくられました。",
+          "transcription": "むかし、にほんのいえはきでつくられました。",
+          "mean": "In the old days, Japanese houses were made of wood."
+        },
+        {
+          "content": "このゼリーはリンゴジュースでつくられた。",
+          "transcription": "このゼリーはリンゴジュースでつくられた。",
+          "mean": "This jelly was made with apple juice."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+からつくる<br/> N+でつくる"
+    }
+  ],
+  "title": "からつくる/でつくる => made from; made with",
+  "_id": "86ba05d6ca904cf682d7664fd532bf6b"
+}

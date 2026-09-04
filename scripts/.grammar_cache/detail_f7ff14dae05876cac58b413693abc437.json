@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1825,
+  "usages": [
+    {
+      "explain": "Used when illustrating by way of analogy to explain a situation more easily.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その犬はいわば家族の一員のようなものだ。",
+          "transcription": "そのいぬはいわばかぞくのいちいんのようなものだ。",
+          "mean": "The dog is like a member of the family."
+        },
+        {
+          "content": "多くの若者に慕われている秋田さんは、いわば悩み多き人々を救済する神様だ。",
+          "transcription": "おおくのわかものにしたわれているあきたさんは、いわばなやみおおきひとびとをきゅうさいするかみさまだ。",
+          "mean": "Akita-san, who is admired by many young people, is a god who helps people who are in trouble."
+        },
+        {
+          "content": "そんなプロジェクトに手を出すなんて、いわばお金をどぶに捨てるようなものだ。",
+          "transcription": "そんなぷろじぇくとにてをだすなんて、いわばおかねをどぶにすてるようなものだ。",
+          "mean": "Taking on such a project would be like throwing money away."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いわば N + のような\nいわば V + ような"
+    }
+  ],
+  "title": "いわば => so to speak,so to call it,as it were -",
+  "_id": "f7ff14dae05876cac58b413693abc437"
+}

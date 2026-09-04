@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2974,
+  "usages": [
+    {
+      "explain": "嫌い（きらい）is used to express someone's dislike towards something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は数学が嫌いだ。",
+          "transcription": "わたしはすうがくがきらいだ。",
+          "mean": "I hate mathematics."
+        },
+        {
+          "content": "彼女は家事をすることが嫌いだ。",
+          "transcription": "かのじょはかじをすることがきらいだ。",
+          "mean": "She hates doing housework."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + が + 嫌いだ"
+    }
+  ],
+  "title": "きらい => Hate...",
+  "_id": "f2d618ceb0702f781ec83b7d4f464fe2"
+}

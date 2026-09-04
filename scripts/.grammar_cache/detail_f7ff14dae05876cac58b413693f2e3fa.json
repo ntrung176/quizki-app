@@ -1,0 +1,43 @@
+{
+  "level": "N3",
+  "mobileId": 2334,
+  "usages": [
+    {
+      "explain": "Following 「ば」 are expressions of \"impact\", meaning they request the listener to perform an action, such as commands, prohibitions, permissions, encouragements, requests. Generally, if the ending of the sentence consists of expressions of \"impact\", then in the clause X, it's difficult to use verbs expressing actions or changes, and they will be more restricted than in the case of Y, which expresses \"will, hope\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "君は行きたくなければ、行かなくてもいいです。",
+          "transcription": "きみはいきたくなければ、いかなくてもいいです。",
+          "mean": "You don't have to go if you don't want to."
+        },
+        {
+          "content": "お時間があれば、どうぞ私に会いに来てください。",
+          "transcription": "おじかんがあれば、どうぞわたしにあいにきてください。",
+          "mean": "If you have time, please come and see me."
+        },
+        {
+          "content": "8時までに仕事が終われば、ここに戻って来てください。",
+          "transcription": "8じまでにしごとがおわれば、ここにもどってきてください。",
+          "mean": "If you finish work by 8 o'clock, please come back here."
+        },
+        {
+          "content": "あちらに着いたら手紙をください。",
+          "transcription": "あちらについたらてがみをください。",
+          "mean": "Please write to me when you get there."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...ば＋impact"
+    },
+    {
+      "explain": "Note: Cases where 「ば」 can be used are those of predicates expressing a state, such as 「V-たい」,「V-ない」,「ある」... There are also cases where 「 ば」 is used with verbs indicating changes, so after the verb indicating change 「終わる」is a way to express a request. In general, in case X expresses an action or change, and after that action or change occurs, if there is an instruction to do or not to do a subsequent action, then one cannot use 「 ば」 and instead must use 「 たら」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "... ば => If..., then let's",
+  "_id": "f7ff14dae05876cac58b413693f2e3fa"
+}

@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5389,
+  "usages": [
+    {
+      "explain": "「～ろと/～なと」is used to report a command that someone else has given to the subject.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生に、もっと勉強しろと言われた。",
+          "transcription": "せんせいに、もっとべんきょうしろといわれた。",
+          "mean": "My teacher told me to study more."
+        },
+        {
+          "content": "父に、もっと早く帰れと注意された。",
+          "transcription": "ちちに、もっとはやくかえれとちゅういされた。",
+          "mean": "My father warned me to come home early."
+        },
+        {
+          "content": "明日は8時までに会社に来いと注意された。",
+          "transcription": "あしたははちじまでにかいしゃにこいとちゅういされた。",
+          "mean": "I was warned to come to the office by 8 o'clock tomorrow."
+        },
+        {
+          "content": "授業中に隣の子と私語していたら、先生に口を閉じろと叱られた。",
+          "transcription": "じゅぎょうちゅうにとなりのことしごしていたら、せんせいにくちをとじろとしかられた。",
+          "mean": "When I was having a private conversation with the child next to me during class, the teacher scolded me and told me to shut up."
+        },
+        {
+          "content": "82歳の男性は息子にギャンブルするくらいならパチンコ店に勤めろと怒られたという。",
+          "transcription": "はちじゅうにさいのだんせいはむすこにギャンブルするくらいならパチンコてんにつとめろとおこられたという。",
+          "mean": "An 82-year-old man was told by his son that he should work at a pachinko parlor rather than gamble."
+        },
+        {
+          "content": "医者に、酒を飲むなと言われた。",
+          "transcription": "いしゃに、さけをのむなといわれた。",
+          "mean": "The doctor told me not to drink alcohol."
+        },
+        {
+          "content": "先生に、遅刻するなと注意された。",
+          "transcription": "せんせいに、ちこくするなとちゅういされた。",
+          "mean": "The teacher warned me not to be late."
+        },
+        {
+          "content": "泣くなと叱られた。",
+          "transcription": "なくなとしかられた。",
+          "mean": "I was scolded not to cry."
+        },
+        {
+          "content": "上司から残業するなと怒られた。",
+          "transcription": "じょうしからざんぎょうするなとおこられた。",
+          "mean": "My boss scolded me and told me not to work overtime."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (Imperative form) と+言われる/注意される<br/> V Imperative form) と+叱られる/怒られる<br/> V (Negative imperative form) と+言われる/注意される<br/> V (Negative imperative form) と+叱られる/怒られる"
+    }
+  ],
+  "title": "～ろと/～なと => Being reminded is to.../Being reminded is not to...",
+  "_id": "a1a32c7232c44ce7a2314d95640656a3"
+}

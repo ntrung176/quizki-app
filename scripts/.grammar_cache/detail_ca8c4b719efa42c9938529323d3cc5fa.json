@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5368,
+  "usages": [
+    {
+      "explain": "「まま」expresses the unchanged state or condition of a thing or situation.<br/>\nNote: In sentences that express the idea of \"leaving a state unchanged while doing another action\", the subject of both clauses must be the same. For example:<br/>\n\n✖　彼が待っているまま、私は他の人と話していた。(Different subjects in both clauses: the first clause has \"he\" and the second clause has \"I\".)<br/>\n〇　彼を待たせたまま、私は他の人と話していた。(The subject in both clauses is \"I\".)<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "この野菜は、生のままで食べても美味しいですよ。",
+          "transcription": "このやさいは、なまのままでたべてもおいしいですよ。",
+          "mean": "This vegetable is delicious even when eaten raw."
+        },
+        {
+          "content": "そのまま切らずにお待ちください。",
+          "transcription": "そのままきらずにおまちください。",
+          "mean": "Please wait without turning off."
+        },
+        {
+          "content": "この村は昔のままだ。",
+          "transcription": "このむらはむかしのままだ。",
+          "mean": "This village remains the same."
+        },
+        {
+          "content": "そのままにしておいてください。",
+          "transcription": "そのままにしておいてください。",
+          "mean": "Please leave it as is."
+        },
+        {
+          "content": "エアコンを付けたまま出かけた。",
+          "transcription": "エアコンをつけたままでかけた。",
+          "mean": "I left the air conditioner on."
+        },
+        {
+          "content": "昨夜は、テレビをつけたまま寝てしまった。",
+          "transcription": "さくやは、テレビをつけたままねてしまった。",
+          "mean": "Last night, I fell asleep with the TV on."
+        },
+        {
+          "content": "誰からも必要とされないままで人生が終わってほしくない。",
+          "transcription": "だれからもひつようとされないままでじんせいがおわってほしくない。",
+          "mean": "I don't want my life to end without being needed by anyone."
+        },
+        {
+          "content": "許可を取らないまま駅で撮影をしていたら、警察が来た。",
+          "transcription": "きょかをとらないままえきでさつえいをしていたら、けいさつがきた。",
+          "mean": "When I was taking pictures at the station without permission, the police came."
+        },
+        {
+          "content": "先生が注意したのにも関わらず、子供達はうるさいままだった。",
+          "transcription": "せんせいがちゅういしたのにもかかわらず、こどもたちはうるさいままだった。",
+          "mean": "Despite the teacher's warning, the children continued to be noisy."
+        },
+        {
+          "content": "部屋を汚いままにしていたら、ゴキブリがたくさん出てきた。",
+          "transcription": "へやをきたないままにしていたら、ゴキブリがたくさんでてきた。",
+          "mean": "When I left my room dirty, a lot of cockroaches came out."
+        },
+        {
+          "content": "彼女はいくつになってもきれいなままだ。",
+          "transcription": "かのじょはいくつになってもきれいなままだ。",
+          "mean": "She remains beautiful no matter how old she gets."
+        },
+        {
+          "content": "いつまでも元気なままでいてね。",
+          "transcription": "いつまでもげんきなままでいてね。",
+          "mean": "Please stay healthy forever."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた/Vない+まま<br/>Aい/Aな+まま<br/> Nの+まま"
+    }
+  ],
+  "title": "まま => as it is; current state; without changing",
+  "_id": "ca8c4b719efa42c9938529323d3cc5fa"
+}

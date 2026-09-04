@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1614,
+  "usages": [
+    {
+      "explain": "Used to convey things heard from others but not sure about.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何でも社長はもうすぐ辞職するそうですよ。",
+          "transcription": "なにでもしゃちょうはもうすぐじしょくするそうですよ。",
+          "mean": "Apparently the president will resign soon."
+        },
+        {
+          "content": "何でも、この家には幽霊が現れるっていう話ですよ。",
+          "transcription": "なにでも、このいえにはゆうれいがあらわれるっていうはなしですよ。",
+          "mean": "The story goes that a ghost appears in this house."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんでも～そうだ"
+    }
+  ],
+  "title": "なんでも…そうだ => I heard that; it is said that ~",
+  "_id": "f7ff14dae05876cac58b4136938f7b00"
+}

@@ -1,0 +1,56 @@
+{
+  "level": "N1",
+  "mobileId": 5071,
+  "usages": [
+    {
+      "explain": "「に足りない/に足らない」 expresses the meaning of not being sufficient or worthy enough to perform a certain action (V/N).<br/>\nSome verbs commonly used with this structure include: 信頼する (to trust), 信じる (to believe), 信用する (to rely on), 恐れる (to fear), 取る (to take)...\nSome nouns commonly used with this structure include: 信頼 (trust), 信用 (reliance), 尊敬 (respect), 満足 (satisfaction)...<br/>\nNote: 「に足らない」 can only modify nouns when used in fixed phrases such as 恐れるに足らない (not worth fearing), 「に足るNではない」 (not worth taking)... Otherwise, the form 「に足りないN」must be used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "就職難など、能力がある学生にとっては、恐れるに足りない。",
+          "transcription": "しゅうしょくなんなど、のうりょくがあるがくせいにとっては、おそれるにたりない。",
+          "mean": "For talented students, the difficulty of getting a job is nothing to fear."
+        },
+        {
+          "content": "この証拠だけでは彼が有罪であることを証明するに足りない。",
+          "transcription": "このしょうこだけではかれがゆうざいであることをしょうめいするにたりない。",
+          "mean": "This evidence alone is not enough to prove his guilt."
+        },
+        {
+          "content": "新武器はまだまだ実用に足りない。",
+          "transcription": "しんぶきはまだまだじつようにたりない。",
+          "mean": "The new weapons are still not practical enough."
+        },
+        {
+          "content": "君の実力なら、あんな人は恐れるに足らないよ。",
+          "transcription": "きみのじつりょくなら、あんなひとはおそれるにたらないよ。",
+          "mean": "With your ability, there's no need to fear people like that."
+        },
+        {
+          "content": "単なる人の噂など頼りとするに足らない.。",
+          "transcription": "たんなるひとのうわさなどたよりとするにたらない.。",
+          "mean": "Rumors from mere people are not worth relying on."
+        },
+        {
+          "content": "彼は全くあなたの信頼するに足りない男です。",
+          "transcription": "かれはまったくあなたのしんらいするにたりないおとこです。",
+          "mean": "He is not a man you can trust at all."
+        },
+        {
+          "content": "今回のテストの結果は発表するに足りない点数だった。",
+          "transcription": "こんかいのテストのけっかははっぴょうするにたりないてんすうだった。",
+          "mean": "The results of this test were not high enough to be published."
+        },
+        {
+          "content": "話題になっている本を読んでみたが、どれも取るに足らない内容だった。",
+          "transcription": "わだいになっているほんをよんでみたが、どれもとるにたらないないようだった。",
+          "mean": "I tried reading some of the books that were being talked about, but they all had very little content."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+に足りない / に足らない<br/> N+に足りない / に足らない"
+    }
+  ],
+  "title": "に足りない/に足らない => cannot; not worthy; not worth doing ~",
+  "_id": "0a2085d5362a4893be244b26bcac3127"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1020,
+  "usages": [
+    {
+      "explain": "Expresses a situation that is about to happen. It's used with verbs indicating actions in a short period of time. This structure is more formal than using the verb with もうすぐ.",
+      "note": null,
+      "examples": [
+        {
+          "content": "準決勝戦が今始まろうとしている。",
+          "transcription": "じゅんけっしょうせんがいまはじまろうとしている。",
+          "mean": "The semi-final match is about to begin."
+        },
+        {
+          "content": "桜が満開になろうとしているとき、雪が降った。",
+          "transcription": "さくらがまんかいになろうとしているとき、ゆきがふった。",
+          "mean": "It snowed when the cherry blossoms were about to bloom."
+        },
+        {
+          "content": "公園の前に45階建ての高級マンションが完成しようとしている。",
+          "transcription": "こうえんのまえに45かいだてのこうきゅうまんしょんがかんせいしようとしている。",
+          "mean": "A 45-story luxury condominium building is about to be completed in front of the park."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-よう + としている"
+    }
+  ],
+  "title": "としている => be about to",
+  "_id": "f7ff14dae05876cac58b4136933cc8db"
+}

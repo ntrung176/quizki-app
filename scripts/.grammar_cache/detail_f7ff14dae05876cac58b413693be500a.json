@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 1957,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"because of not doing... but...\". It is often followed by expressions of emotion or evaluation such as 「困った」(troubled), 「助かった」(fortunate), or confirming temporal relationships. In this usage, it can be reasonably replaced with 「なくて」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "部下が頑張らないで困っています。",
+          "transcription": "ぶかががんばらないでこまっています。",
+          "mean": "I'm having trouble because my subordinates aren't working hard."
+        },
+        {
+          "content": "嫌いな人が来ないで助かった。",
+          "transcription": "きらいなひとがこないでたすかった。",
+          "mean": "I was saved because no one I disliked came."
+        },
+        {
+          "content": "宝くじが当たらないで失望した。",
+          "transcription": "たからくじがあたらないでしつぼうした。",
+          "mean": "I was disappointed that I didn't win the lottery."
+        },
+        {
+          "content": "夕べ早く寝ないで、今朝寝坊した。",
+          "transcription": "ゆうべはやくねないで、こんあさねぼうした。",
+          "mean": "I didn't go to bed early in the evening and overslept this morning."
+        },
+        {
+          "content": "火事が起こらないでよかった。",
+          "transcription": "かじがおこらないでよかった。",
+          "mean": "I'm glad there was no fire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ないで"
+    }
+  ],
+  "title": "ないで => Because of... (Reason)",
+  "_id": "f7ff14dae05876cac58b413693be500a"
+}

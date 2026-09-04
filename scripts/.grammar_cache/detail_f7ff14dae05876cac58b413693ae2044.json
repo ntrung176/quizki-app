@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1844,
+  "usages": [
+    {
+      "explain": "This expression means \"perhaps\" or \"maybe\" (không chừng), used to express the speaker's speculation. It can also be expressed using forms such as「ことによったら」, 「ばあいによったら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ことによると今週のコンサートが中止されるかもしれない。",
+          "transcription": "ことによるとこんしゅうのこんさーとがちゅうしされるかもしれない。",
+          "mean": "Possibly this week's concert may be cancelled."
+        },
+        {
+          "content": "場合によると、彼女は東京大学に合格できるかもしれない。",
+          "transcription": "ばあいによると、かのじょはとうきょうだいがくにごうかくできるかもしれない。",
+          "mean": "Depending on the case, she might be able to get into Tokyo University."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ことによると/ ばあいによると"
+    }
+  ],
+  "title": "ことによると / ばあいによると => perhaps, ...",
+  "_id": "f7ff14dae05876cac58b413693ae2044"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2047,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"must do something at all costs.\" This is a more formal expression of [どうしても].",
+      "note": null,
+      "examples": [
+        {
+          "content": "私たちはなんとしても核戦争を防がなければならない。",
+          "transcription": "わたしたちはなんとしてもかくせんそうをふせがなければならない。",
+          "mean": "We must prevent nuclear war at all costs."
+        },
+        {
+          "content": "彼はなんとしても成功したいと願っている。",
+          "transcription": "かれはなんとしてもせいこうしたいとねがっている。",
+          "mean": "He wants to succeed no matter what."
+        },
+        {
+          "content": "なんとしても被害者を救わなければならない。",
+          "transcription": "なんとしてもひがいしゃをすくわなければならない。",
+          "mean": "We must save the victims at all costs."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとしても ～"
+    }
+  ],
+  "title": "なんとしても => no matter what it takes, by any means necessary, at all costs",
+  "_id": "f7ff14dae05876cac58b413693ca439a"
+}

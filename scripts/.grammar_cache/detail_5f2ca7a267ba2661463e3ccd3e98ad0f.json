@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3258,
+  "usages": [
+    {
+      "explain": "To express the meaning \"special, different from usual\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "会長の友人として招かれて、別段の扱いを受けた。",
+          "transcription": "かいちょうのゆうじんとしてまねかれて、べつだんのあつかいをうけた。",
+          "mean": "He was invited as a friend of the chairman and was treated differently."
+        },
+        {
+          "content": "鈴木様から別段の注目をいただきました。",
+          "transcription": "すずきさまからべつだんのちゅうもくをいただきました。",
+          "mean": "We received special attention from Mr. Suzuki."
+        }
+      ],
+      "mean": null,
+      "synopsis": "べつだん + の + N"
+    }
+  ],
+  "title": "べつだんの => particular; special",
+  "_id": "5f2ca7a267ba2661463e3ccd3e98ad0f"
+}

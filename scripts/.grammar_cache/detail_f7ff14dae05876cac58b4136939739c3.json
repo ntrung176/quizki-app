@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 1679,
+  "usages": [
+    {
+      "explain": "Used in a concise form between sentences to present reasoning or explain a situation with a subtle tone. It follows both polite and plain forms of speech. When following a polite sentence, it adds both politeness and femininity to the speech.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょっとお話したいのですけれど。",
+          "transcription": "ちょっとおはなししたいのですけれど。",
+          "mean": "I'd like to speak to you for a moment."
+        },
+        {
+          "content": "来月はベトナム出張で、いないんですけれど。",
+          "transcription": "らいげつはべとなむしゅっちょうで、いないんですけれど。",
+          "mean": "I'm on a business trip to Vietnam next month, so I won't be there."
+        },
+        {
+          "content": "ジュースは切らしています。ミルクならありますけれど。",
+          "transcription": "じゅーすはきらしています。みるくならありますけれど。",
+          "mean": "I'm out of juice. Milk is available though."
+        },
+        {
+          "content": "このドレスを試着してみたいのですけれど。",
+          "transcription": "このどれすを試着してみたいのですけれど。",
+          "mean": "I'd like to try on this dress."
+        },
+        {
+          "content": "あなたは仕事に就くつもりだなんて言わなかったけれどね。",
+          "transcription": "あなたはしごとにつくつもりだなんていわなかったけれどね。",
+          "mean": "You didn't say you were going to get a job though."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…けれど => Explanation",
+  "_id": "f7ff14dae05876cac58b4136939739c3"
+}

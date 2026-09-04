@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5525,
+  "usages": [
+    {
+      "explain": "In passive sentences that indicate something (N1) is created, invented, discovered, constructed, etc., by someone (N2), we use 「によって」instead of 「に」after N2.",
+      "note": null,
+      "examples": [
+        {
+          "content": "電話はベルによって発明されました。",
+          "transcription": "でんわはベルによってはつめいされました。",
+          "mean": "The telephone was invented by Bell."
+        },
+        {
+          "content": "カラオケは日本人によって発明されました。",
+          "transcription": "カラオケはにほんじんによってはつめいされました。",
+          "mean": "Karaoke was invented by the Japanese."
+        },
+        {
+          "content": "『源氏物語』は紫式部によって書かれました。",
+          "transcription": "『げんじものがたり』はむらさきしきぶによってかかれました。",
+          "mean": "The Tale of Genji was written by Murasaki Shikibu."
+        },
+        {
+          "content": "これは有名な作家によって書かれた小説です。",
+          "transcription": "これはゆうめいなさっかによってかかれたしょうせつです。",
+          "mean": "This is a novel written by a famous author."
+        },
+        {
+          "content": "この橋はフランス人の有名な建築家によって建てられました。",
+          "transcription": "このはしはフランスじんのゆうめいなけんちっかによってたてられました。",
+          "mean": "This bridge was built by a famous French architect."
+        },
+        {
+          "content": "漢字は中国人によって作られて、後日本に流入されたそうですよ。",
+          "transcription": "かんじはちゅうこくじんによってつくられて、あとにほんじんにりゅうにゅうされたそうですよ。",
+          "mean": "It is said that kanji were created by the Chinese and later imported to Japan."
+        },
+        {
+          "content": "あのレストランは世界で有名なシェフによって開かれたから、値段がとても高いです。",
+          "transcription": "あのレストランはせかいでゆうめいなシェフによってひかれたから、ねだんがとてもたかいです。",
+          "mean": "That restaurant was opened by a world-famous chef, so the prices are very high."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は N2によって+V (passive form)"
+    }
+  ],
+  "title": "によって～られる => by means of; due to; owing to; because of ~",
+  "_id": "309a152ebbd743198b634b1138c3a3d4"
+}

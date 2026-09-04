@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1737,
+  "usages": [
+    {
+      "explain": "Expresses a situation that keeps repeating itself. Similar in meaning to 「また」, 「またも」, 「またしても」. Often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "またもや飲酒運転でひどい事故が起こった。",
+          "transcription": "またもやいんしゅうんてんでひどいじこがおこった。",
+          "mean": "Another terrible accident occurred due to drunk driving."
+        },
+        {
+          "content": "またもや芸能界でスキャンダルが発覚した。",
+          "transcription": "またもやげいのうかいですきゃんだるがはっかくした。",
+          "mean": "Another scandal has been revealed in the entertainment industry."
+        }
+      ],
+      "mean": null,
+      "synopsis": "またもや"
+    }
+  ],
+  "title": "またもや => again",
+  "_id": "f7ff14dae05876cac58b4136939f32a4"
+}

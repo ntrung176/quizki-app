@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1582,
+  "usages": [
+    {
+      "explain": "Expresses the limitation \"only, merely has ...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "ただパーティーで一度会っただけなのに、彼女が忘れられない。",
+          "transcription": "ただぱーてぃーでいちどあっただけなのに、かのじょがわすれられない。",
+          "mean": "Even though I only met her once at a party, I can't forget her."
+        },
+        {
+          "content": "この会社に入って以来、会社をただの一日も休んだことはない。",
+          "transcription": "このかいしゃにはいっていらい、かいしゃをただのいちにちもやすんだことはない。",
+          "mean": "Since joining this company, I have never taken a single day off from work."
+        },
+        {
+          "content": "ただ子供たちの安全をお祈りするばかりです。",
+          "transcription": "ただこどもたちのあんぜんをおいのりするばかりです。",
+          "mean": "I just pray for the safety of the children."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ただ～"
+    }
+  ],
+  "title": "ただ => all we can do is; can do nothing but; only ~",
+  "_id": "f7ff14dae05876cac58b4136938b5716"
+}

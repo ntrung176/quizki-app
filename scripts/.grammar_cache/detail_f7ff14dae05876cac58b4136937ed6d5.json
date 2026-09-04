@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1494,
+  "usages": [
+    {
+      "explain": "Used to provide reasons for the evaluation, will, or wish of the speaker. This is a formal style of speech, but more dignified than using just \"[し]\".",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "彼も謝ったことだし、許してあげよう。",
+          "transcription": "かれもあやまったことだし、ゆるしてあげよう。",
+          "mean": "He also apologized, so I'll forgive him."
+        },
+        {
+          "content": "雨もやんだことだし、そろそろ帰りましょうか。",
+          "transcription": "あめもやんだことだし、そろそろかえりましょうか。",
+          "mean": "The rain has stopped, so it's time to go home."
+        },
+        {
+          "content": "皆さんお帰りになったことだし、そろそろ会場を片付けましょう。<br style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\">",
+          "transcription": "みなさんおかえりになったことだし、そろそろかいじょうをかたづけましょう。",
+          "mean": "Now that everyone has gone home, it's time to clean up the venue. &lt;br style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\"&gt;"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな・Nの + ことだし"
+    }
+  ],
+  "title": "ことだし => Because...so...",
+  "_id": "f7ff14dae05876cac58b4136937ed6d5"
+}

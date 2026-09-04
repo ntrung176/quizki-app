@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1959,
+  "usages": [
+    {
+      "explain": "This is a colloquial expression of 「ではないだろうか」. The polite form is 「（ん）じゃないでしょうか」. When used in a monologue, it indicates the speaker's speculation, but in dialogue, it often serves to confirm the listener's inference.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう出発したんじゃないだろうか。",
+          "transcription": "もうしゅっぱつしたんじゃないだろうか。",
+          "mean": "I guess they've already left."
+        },
+        {
+          "content": "彼女はこの仕事をしたくないんじゃないだろうか。",
+          "transcription": "かのじょはこのしごとをしたくないんじゃないだろうか。",
+          "mean": "Maybe she doesn't want to do this job."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + んじゃないだろうか <br/>Na・N + (なん)じゃないだろうか <br/>"
+    }
+  ],
+  "title": "じゃないだろうか => I think ... isn't it?, It might be that..., Don't you agree?",
+  "_id": "f7ff14dae05876cac58b413693be8f87"
+}

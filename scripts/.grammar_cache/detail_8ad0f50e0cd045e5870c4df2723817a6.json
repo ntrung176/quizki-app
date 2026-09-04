@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5475,
+  "usages": [
+    {
+      "explain": "「ばかりだ」indicates that something has happened not long before the present moment (the time of speaking), as perceived by the speaker. The actual time elapsed from the event to the present may vary, but if the speaker perceives that time as short, this structure can be used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さっき昼ご飯を食べたばかりです。",
+          "transcription": "さっきひるごはんをたべたばかりです。",
+          "mean": "I just had lunch."
+        },
+        {
+          "content": "木村さんは先月にこの会社に入ったばかりです。",
+          "transcription": "きむらさんはせんげつにこのかいしゃにはいったばかりです。",
+          "mean": "Mr. Kimura just joined this company last month."
+        },
+        {
+          "content": "君に教えたばかりなのにもう忘れちゃったの？",
+          "transcription": "きみにおしえたばかりなのにもうわすれちゃったの？",
+          "mean": "I just taught you and you've already forgotten?"
+        },
+        {
+          "content": "日本に来たばかりだから、まだ日本語は分からない。",
+          "transcription": "にほんにきたばかりだから、まだにほんごはわからない。",
+          "mean": "I just came to Japan, so I don't understand Japanese yet."
+        },
+        {
+          "content": "動物園では、生まれたばかりのトラの赤ちゃんに会えます。",
+          "transcription": "どうぶつえんでは、うまれたばかりのトラのあかちゃんにあえます。",
+          "mean": "At the zoo, you can meet newborn tiger cubs."
+        },
+        {
+          "content": "私のパソコンはとても遅いです。まだ買ったばかりなのに。",
+          "transcription": "わたしのパソコンはとてもおそいです。まだかったばかりなのに。",
+          "mean": "My computer is very slow. Even though I just bought it."
+        },
+        {
+          "content": "10分前に覚えたばかりの単語を、もう忘れてしまいました。",
+          "transcription": "じゅっぷんまえにおぼえたばかりのたんごを、もうわすれてしまいました。",
+          "mean": "I have already forgotten a word that I just learned 10 minutes ago."
+        },
+        {
+          "content": "この店で働き始めたばかりのとき、あの先輩にはとてもお世話になりました。",
+          "transcription": "このみせではたらきはじめたばかりのとき、あのせんぱいにはとてもおせわになりました。",
+          "mean": "When I first started working at this store, I was very indebted to that senior colleague."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた+ばかり (だ)"
+    }
+  ],
+  "title": "ばかりだ => just done, just",
+  "_id": "8ad0f50e0cd045e5870c4df2723817a6"
+}

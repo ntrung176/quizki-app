@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2530,
+  "usages": [
+    {
+      "explain": "Indicates a time before the time of N.",
+      "note": null,
+      "examples": [
+        {
+          "content": "鈴木さんは予定していたはずの5月19日以前に引っ越してしまったので、連絡がつかない。",
+          "transcription": "すずきさんはよていしていたはずの5がつ19にちいぜんにひっこしてしまったので、れんらくがつかない。",
+          "mean": "Mr. Suzuki moved before the scheduled date of May 19th, so I have been unable to contact him."
+        },
+        {
+          "content": "広島市の郊外では先週末の大きな地震以前にも何度も小さな地震が起こっていた。",
+          "transcription": "ひろしましのこうがいではせんしゅうまつのおおきなじしんいぜんにもなんどもちいさなじしんがおこっていた。",
+          "mean": "Before last weekend's big earthquake, there had been a number of small earthquakes in the suburbs of Hiroshima."
+        },
+        {
+          "content": "この間捕まった女は、それ以前にも何回も同じ手口で子供を誘拐していたらしい。",
+          "transcription": "このかんつかまったおんなは、それいぜんにもなんかいもおなじてぐちでこどもをゆうかいしていたらしい。",
+          "mean": "It appears that the woman who was recently caught had kidnapped children using the same method many times before."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N いぜん"
+    }
+  ],
+  "title": "... いぜん => ago, since, before, previous (time)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0d5865"
+}

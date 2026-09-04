@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5238,
+  "usages": [
+    {
+      "explain": "The phrase 「幸いなことに」is used to express that something has happened or is happening in a favorable direction for the speaker. It conveys a sense of relief or gratitude that things are going well for oneself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "幸い彼は気づかなかった。",
+          "transcription": "さいわいかれはきづかなかった。",
+          "mean": "Luckily he didn't notice."
+        },
+        {
+          "content": "幸い私は締切に間に合った。",
+          "transcription": "さいわいわたしはしめきりにまにあった。",
+          "mean": "Fortunately I met the deadline."
+        },
+        {
+          "content": "私はあなたのお役に立てれば幸いです。",
+          "transcription": "わたしはあなたのおやくにたてればさいわいです。",
+          "mean": "I hope I can be of help to you."
+        },
+        {
+          "content": "幸いなことに、母の心臓の手術はうまくいった。",
+          "transcription": "さいわいなことに、ははのしんぞうのしゅじゅつはうまくいった。",
+          "mean": "Fortunately, my mother's heart surgery went well."
+        },
+        {
+          "content": "幸いなことに、私達は事故を避けることができた。",
+          "transcription": "幸いなことに私たちはじこをよけることができた。",
+          "mean": "Fortunately, we were able to avoid the accident."
+        },
+        {
+          "content": "幸いなことに、息子は新しい学校での生活にすぐに慣れた。",
+          "transcription": "さいわいなことに、むすこはあたらしいがっこうでのせいかつにすぐになれた。",
+          "mean": "Fortunately, my son quickly adjusted to life in his new school."
+        },
+        {
+          "content": "幸い大過なく仕事を終わらせることができた。",
+          "transcription": "さいわいたいかなくしごとをおわらせることができた。",
+          "mean": "Fortunately I was able to finish my work without any serious errors."
+        },
+        {
+          "content": "近所で火事が起きたが、その家の人達は幸い無事だった。",
+          "transcription": "きんじょでかじがおきたが、そのいえのひとたちはさいわいぶじだった。",
+          "mean": "A fire broke out in the neighborhood, but fortunately the people in the house escaped unharmed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "幸いなことに+Sentence<br/> 幸い+Sentence"
+    }
+  ],
+  "title": "幸いなことに => fortunately; luckily; thankfully ~",
+  "_id": "5e8cd71782214ac684ffba40889b1dbb"
+}

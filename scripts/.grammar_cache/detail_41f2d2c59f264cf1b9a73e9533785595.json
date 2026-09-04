@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5237,
+  "usages": [
+    {
+      "explain": "「際に」indicates a specific moment or situation where the action or state in the following clause takes place. It is similar in meaning to「とき」but is more formal, so it is often used in announcements, explanatory texts, instructions, etc.<br/>\nThe following clause usually shows intentional behavior, often a request or favor, and rarely accompanies negative forms or adjectives.<br/>\nIn addition,「この際」is an idiomatic expression used to express determination or resolution, indicating \"this time, we must definitely do that.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "申し込んだ際、住所を間違って書いてしまった。",
+          "transcription": "もうしこんださい、じゅうしょをまちがってかいてしまった。",
+          "mean": "When I applied, I wrote the wrong address."
+        },
+        {
+          "content": "カードを紛失した際に、カード会社にすぐ知らせなければならない。",
+          "transcription": "カードをふんしつしたさいに、カードかいしゃにすぐしらせなければならない。",
+          "mean": "If you lose your card, you must notify your credit card company immediately."
+        },
+        {
+          "content": "パスポートを申請する際に、必要なものを教えてください。",
+          "transcription": "パスポートをしんせいするさいに、ひつようなものをおしえてください。",
+          "mean": "Please let me know what I need when applying for a passport."
+        },
+        {
+          "content": "車を運転する際には免許証が必要です。",
+          "transcription": "くるまをうんてんするさいにはめんきょしょうがひつようです。",
+          "mean": "A license is required to drive a car."
+        },
+        {
+          "content": "受験の際に、写真が必要。",
+          "transcription": "じゅけんのさいに、しゃしんがひつよう。",
+          "mean": "A photo is required for the exam."
+        },
+        {
+          "content": "帰国の際、保証人の家に挨拶に行った。",
+          "transcription": "きこくのさい、ほしょうにんのいえにあいさつにいった。",
+          "mean": "When I returned to Japan, I went to my guarantor's house to say hello."
+        },
+        {
+          "content": "バスからお降りの際は足元にお気をつけください。",
+          "transcription": "バスからおおりのさいはあしもとにおきをつけください。",
+          "mean": "Please be careful where you step when getting off the bus."
+        },
+        {
+          "content": "店内にご入店の際は、マスクの着用をお願いします。",
+          "transcription": "てんないにごにゅうてんのさいは、マスクのちゃくようをおねがいします。",
+          "mean": "Please wear a mask when entering the store."
+        },
+        {
+          "content": "台風で家が壊れた。この際、新築しよう。",
+          "transcription": "たいふうでいえがこわれた。このさい、しんちくしよう。",
+          "mean": "My house was destroyed by the typhoon. At this time, let's build a new one."
+        },
+        {
+          "content": "この際、彼女に告白しよう。",
+          "transcription": "このさい、かのじょにこくはくしよう。",
+          "mean": "Let's confess to her this time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vた+際に / 際 / 歳は<br/>Nの+際に / 際 / 歳は"
+    }
+  ],
+  "title": "際に/際/際は => occasion, time",
+  "_id": "41f2d2c59f264cf1b9a73e9533785595"
+}

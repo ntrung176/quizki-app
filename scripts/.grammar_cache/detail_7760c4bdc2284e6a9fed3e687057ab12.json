@@ -1,0 +1,111 @@
+{
+  "level": "N3",
+  "mobileId": 5388,
+  "usages": [
+    {
+      "explain": "「なんか/なんて/など」are used to:<br/>\n1. Provide examples.<br/>\n2. Show disdain, dislike, or a lack of preference towards the object being mentioned.<br/>\n3. Express modesty.<br/>\n「なんて」, in addition to the above meanings, also expresses surprise or an unexpected feeling of the speaker towards something beyond prediction.<br/>\nNotes:<br/>\n- 「なんか」and「なんて」are used in everyday spoken language, while 「など」is used in written language such as reports, or in polite and formal speech such as speeches, salespeople speaking to customers...<br/>\n- 「なんか」and「など」can have a particle after them, while 「なんて」cannot have a particle after it.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "『もうすぐ母の誕生日なんだけど、何がいいかな。』『うーん、花なんかいいんじゃない？』",
+          "transcription": "『もうすぐははのたんじょうびなんだけど、なにがいいかな。』『うーん、はななんかいいんじゃない？』",
+          "mean": "``My mother's birthday is coming up soon, what should I do?'' ” “Hmm, wouldn’t flowers be nice?” ”"
+        },
+        {
+          "content": "旅行するなら、ハワイなんてどう？",
+          "transcription": "りょこうするなら、はわいなんてどう？",
+          "mean": "If you want to travel, how about Hawaii?"
+        },
+        {
+          "content": "結婚式に着ていくなら、このワンピースなどいかがですか。",
+          "transcription": "けっこんしきにきていくなら、このワンピースなどいかがですか。",
+          "mean": "If you want to wear it to a wedding, how about this dress?"
+        },
+        {
+          "content": "カラオケなんか行きたくない。",
+          "transcription": "カラオケなんかいきたくない。",
+          "mean": "I don't want to go to karaoke."
+        },
+        {
+          "content": "こんな天気のいい日に、家の中で仕事なんかしたくない。",
+          "transcription": "こんなてんきのいいひに、いえのなかでしごとなんかしたくない。",
+          "mean": "I don't want to work inside the house on such a nice day."
+        },
+        {
+          "content": "お化粧なんかしてはいけません。",
+          "transcription": "おけしょうなんかしてはいけません。",
+          "mean": "Don't wear makeup."
+        },
+        {
+          "content": "『泣いてるの？』『泣いてなんかいないよ！』",
+          "transcription": "『ないてるの？』『ないてなんかいないよ！』",
+          "mean": "“Are you crying? ” “I’m not crying! ”"
+        },
+        {
+          "content": "納豆なんて嫌いだ。",
+          "transcription": "なっとうなんてきらいだ。",
+          "mean": "I hate natto."
+        },
+        {
+          "content": "優しいねってよく言われるけど、僕は全然優しくなんてないよ。",
+          "transcription": "やさしいねってよくいわれるけど、ぼくはぜんぜんやさしくなんてないよ。",
+          "mean": "People often say I'm kind, but I'm not at all kind."
+        },
+        {
+          "content": "山田なんて人は知らない。",
+          "transcription": "やまだなんてひとはしらない。",
+          "mean": "No one knows about Yamada."
+        },
+        {
+          "content": "デートに遅れるなんて許せない。",
+          "transcription": "デートにおくれるなんてゆるせない。",
+          "mean": "I can't afford to be late for a date."
+        },
+        {
+          "content": "日本語でスピーチなどできません。",
+          "transcription": "にほんごでスピーチなどできません。",
+          "mean": "I can't give a speech in Japanese."
+        },
+        {
+          "content": "あなたなどに私の気持ちは分からないわ！",
+          "transcription": "あなたなどにわたしのきもちはわからないわ！",
+          "mean": "You don't know how I feel!"
+        },
+        {
+          "content": "『料理が本当にうまいね！』『私なんか全然上手じゃないよ。』",
+          "transcription": "『りょうりがほんとうにうまいね！』『わたしなんかぜんぜんじょうずじゃないよ。』",
+          "mean": "``Your cooking is really good! ” “I’m not that good at all. ”"
+        },
+        {
+          "content": "『日本語がとても上手になりましたね。』『私なんてまだまだです。』",
+          "transcription": "『にほんごがとてもじょうずになりましたね。』『わたしなんてまだまだです。』",
+          "mean": "``Your Japanese has become very good. “I still have a long way to go. ”"
+        },
+        {
+          "content": "私など、まだまだ部長になるに早すぎますよ。",
+          "transcription": "わたしなど、まだまだぶちょうになるにはやすぎますよ。",
+          "mean": "It's still too early for someone like me to become a manager."
+        },
+        {
+          "content": "彼がまさか、大学を辞めていたなんて思ってもいなかった。",
+          "transcription": "かれがまさか、だいがくをやめていたなんておもってもいなかった。",
+          "mean": "I never expected him to drop out of university."
+        },
+        {
+          "content": "美術館の入場料が3千円だなんて、高すぎる！",
+          "transcription": "びじゅつかんのにゅうじょうりょうがさんぜんえんだなんて、たかすぎる！",
+          "mean": "The entrance fee to the museum is 3,000 yen, which is too expensive!"
+        },
+        {
+          "content": "こんなに寒いなんて... コートを着てくればよかった。",
+          "transcription": "こんなにさむいなんて... コートをきてくればよかった。",
+          "mean": "It's so cold...I should have put on a coat."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+なんか/なんて/など<br/>\n A/V+なんて/など<br/>"
+    }
+  ],
+  "title": "なんか/なんて/など => give examples",
+  "_id": "7760c4bdc2284e6a9fed3e687057ab12"
+}

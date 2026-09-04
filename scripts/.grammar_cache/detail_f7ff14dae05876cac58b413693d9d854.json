@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2148,
+  "usages": [
+    {
+      "explain": "Used to prevent the other party from speaking further, to soothe, comfort, or reassure them.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：私がちゃんと財布を鞄の中にしまっておけば、とられたりはしなかったのよね。クレジットカードだって別のところに入れておくべきだった。ガイドブックにもそうしろって書いてあったし…。私が悪いのよ。B：いいよ。警察はきっとそれを見つけることができる。",
+          "transcription": "A：わたしがちゃんとさいふをかばんのなかにしまっておけば、とられたりはしなかったのよね。くれじっとかーどだってべつのところにいれておくべきだった。がいどぶっくにもそうしろってかいてあったし…。わたしがわるいのよ。B：いいよ。けいさつはきっとそれをみつけることができる。",
+          "mean": "A: If I had kept my wallet in my bag properly, it wouldn't have been stolen. I should have put my credit card somewhere else. The guidebook also told me to do that... It's my fault. B：Okay. I'm sure the police can find it."
+        },
+        {
+          "content": "キョロキョロするな。もういいよ。",
+          "transcription": "きょろきょろするな。もういいよ。",
+          "mean": "Don't look around. that's enough."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いいよ => Alright, let's not talk about it anymore.",
+  "_id": "f7ff14dae05876cac58b413693d9d854"
+}

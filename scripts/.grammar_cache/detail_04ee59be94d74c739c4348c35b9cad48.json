@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5445,
+  "usages": [
+    {
+      "explain": "「とく」 is a shortened form of 「ておく」, commonly used in everyday conversations, to express the following ideas:\n<br/> 1. To perform an action necessary to prepare for a certain time or event.\n<br/> 2. To perform an action necessary to prepare for future use; to do something as a temporary solution.\n<br/> 3. To leave something as is; to maintain a certain state regardless of other factors.",
+      "note": null,
+      "examples": [
+        {
+          "content": "テストで間違ったところを、ノートに書いとこう。",
+          "transcription": "テストでまちがったところを、ノートにかいとこう。",
+          "mean": "Write down what you did wrong on the test in your notebook."
+        },
+        {
+          "content": "これ洗濯しといて。",
+          "transcription": "これせんたくしといて。",
+          "mean": "Wash this."
+        },
+        {
+          "content": "トイレットペーパーがもうすぐなくなるから、買っとかないと。",
+          "transcription": "トイレットペーパーがもうすぐなくなるから、かっとかないと。",
+          "mean": "I'm running out of toilet paper soon, so I have to buy some."
+        },
+        {
+          "content": "『パソコン消す？』『まだ使うからつけといて。』",
+          "transcription": "『パソコンけす？』『まだつかうからつけといて。』",
+          "mean": "``Are you going to turn off your computer? ``I'll still use it, so keep it on.'' ”"
+        },
+        {
+          "content": "これ、来週までに読んどいて。",
+          "transcription": "これ、らいしゅうまでによんどいて。",
+          "mean": "Read this by next week."
+        },
+        {
+          "content": "明日友達が来るので、ジュースを買っときました。",
+          "transcription": "あしたともだちがくるので、ジュースをかっときました。",
+          "mean": "My friend is coming tomorrow, so I bought some juice."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vておく ➔ Vとく<br/> Vでおく ➔ Vどく<br/> Vておかない ➔ Vとかない"
+    }
+  ],
+  "title": "とく => To do something in advance",
+  "_id": "04ee59be94d74c739c4348c35b9cad48"
+}

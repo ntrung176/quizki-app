@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2752,
+  "usages": [
+    {
+      "explain": "Attached after the dictionary form of a verb to express purpose. It can be replaced with「...するために」, but it is followed by limiting words such as「使う」(\"to use\"),「必要だ」(\"necessary\"),「不可欠だ」(\"essential\"), etc., so this usage is not as free as「...するために」. <br/>X   留学するのに英語を習っている。 <br/>O   留学するために英語を習っている。 <br/>I'm learning English to study abroad. <br/>When attached after a noun, and also expressing a similar meaning, it becomes「Nに」.辞書は語学の勉強に必要だ。<br/>A dictionary is necessary for language study.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この機械はパイプを切るのに使います。",
+          "transcription": "このきかいはぱいぷをきるのにつかいます。",
+          "mean": "This machine is used to cut pipes."
+        },
+        {
+          "content": "彼女を説得するのには時間が必要です。",
+          "transcription": "かのじょをせっとくするのにはじかんがひつようです。",
+          "mean": "I need time to convince her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + のに"
+    }
+  ],
+  "title": "...のに => to (do something); in order to ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f2a2376"
+}

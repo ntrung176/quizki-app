@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2135,
+  "usages": [
+    {
+      "explain": "と言われている (といわれている) is used to relay information heard or known from others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人は迷子の父親だと言われている。",
+          "transcription": "あのひとはまいごのちちおやだといわれている。",
+          "mean": "That person is said to be the father of a lost child."
+        },
+        {
+          "content": "この現象は江戸時代に発生したと言われている。",
+          "transcription": "このげんしょうはえどじだいにはっせいしたといわれている。",
+          "mean": "This phenomenon is said to have occurred during the Edo period."
+        },
+        {
+          "content": "納豆は体にいいと言われている。",
+          "transcription": "なっとうはからだにいいといわれている。",
+          "mean": "Natto is said to be good for the body."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naだ・Nだ+ と言われている"
+    }
+  ],
+  "title": "と言われている => it is said that ~",
+  "_id": "f7ff14dae05876cac58b413693d7add0"
+}

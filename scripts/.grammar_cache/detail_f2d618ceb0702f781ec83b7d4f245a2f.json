@@ -1,0 +1,43 @@
+{
+  "level": "N4",
+  "mobileId": 2703,
+  "usages": [
+    {
+      "explain": "This expression describes a relationship: \"in the situation where the event happens first, the speaker then becomes aware of the subsequent event, or the first event is the cause of the second event.\"In any case, the subsequent event must be something the speaker can observe from the outside and occurs in the same situation as the first event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "駅に着くと、田中さんが迎えに来ていた。",
+          "transcription": "えきにつくと、たなかさんがむかえにきていた。",
+          "mean": "When I arrived at the station, Tanaka-san had come to pick me up."
+        },
+        {
+          "content": "散歩していると、見知らぬ男が声をかけてきた。",
+          "transcription": "さんぽしていると、みしらぬおとこがこえをかけてきた。",
+          "mean": "As I was walking, a strange man called out to me."
+        },
+        {
+          "content": "午後になると急に冷え込んできた。",
+          "transcription": "ごごになるときゅうにひえこんできた。",
+          "mean": "In the afternoon, it suddenly became cold."
+        },
+        {
+          "content": "ベルを鳴らすと、男の子が出て来た。",
+          "transcription": "べるをならすと、おとこのこがでてきた。",
+          "mean": "When I rang the bell, a boy came out."
+        }
+      ],
+      "mean": null,
+      "synopsis": "と is used to express the sequence of events."
+    },
+    {
+      "explain": "Note: The following examples describe the speaker's bodily sensations, not a cause-and-effect relationship, so we cannot use \"と\" but must use \"たら\" instead.<br/>\nX  昨夜この薬を飲むと、よく効いた。<br/>\nO  昨夜この薬を飲んだら、よく効いた。<br/>\nLast night, when I took this medicine, it worked really well.<br/>\n\nIn most cases, both the first and second halves of the sentence use verbs, but when describing the discovery of a situation, nouns and adjectives are sometimes used as predicates.<br/>\n外に出ると、予想以上に寒かった。<br/>\nWhen I went outside, it was colder than I expected.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "と => When... then... (First reason)",
+  "_id": "f2d618ceb0702f781ec83b7d4f245a2f"
+}

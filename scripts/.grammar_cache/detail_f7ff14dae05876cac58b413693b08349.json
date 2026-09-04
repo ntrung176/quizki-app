@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1862,
+  "usages": [
+    {
+      "explain": "Expressing the meaning: whenever a certain topic is mentioned, the speaker's attitude or behavior changes abnormally.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父は優しいですが、お金となると、厳しいです。",
+          "transcription": "ちちはやさしいですが、おかねとなると、きびしいです。",
+          "mean": "My father is kind, but he is strict when it comes to money."
+        },
+        {
+          "content": "彼は車のこととなると、急に専門家みたいになります。",
+          "transcription": "かれはくるまのこととなると、きゅうにせんもんかみたいになります。",
+          "mean": "He suddenly becomes something of an expert when it comes to cars."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + (のこと) となると"
+    }
+  ],
+  "title": "(のこと) となると => when it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b413693b08349"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1274,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of remaining unchanged, staying as it is. Commonly used verbs include 「感じたまま」 (as felt), 「見たまま」 (as seen), and 「聞いたまま」 (as heard).",
+      "note": null,
+      "examples": [
+        {
+          "content": "聞いたままを話してください。",
+          "transcription": "きいたままをはなしてください。",
+          "mean": "Please tell me what you hear."
+        },
+        {
+          "content": "感じたままを書いてください。",
+          "transcription": "かんじたままをかいてください。",
+          "mean": "Please write what you feel."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + ままを"
+    }
+  ],
+  "title": "...ままを => as it is",
+  "_id": "f7ff14dae05876cac58b4136935f2382"
+}

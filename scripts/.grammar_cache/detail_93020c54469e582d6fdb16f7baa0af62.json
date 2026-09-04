@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3142,
+  "usages": [
+    {
+      "explain": "✦ The form of using this sentence pattern is with a noun or a sentence including an interrogative particle.<br/>\n✦ When attached to a noun or a noun sentence without an interrogative particle, it expresses the meaning of not depending on the method... or not being a method of...<br/>\n✦ When attached to a noun with an interrogative particle such as いつ／だれ／どこ／どの, it will mean not related to... but entirely...",
+      "note": null,
+      "examples": [
+        {
+          "content": "どの国によらず、経済運営が政策の土台になっている。",
+          "transcription": "どのくにによらず、けいざいうんえいがせいさくのどだいになっている。",
+          "mean": "Regardless of the country, economic management is the foundation of policy."
+        },
+        {
+          "content": "多数決によらず、譲歩し合いながら最大限全員の合意を目指すが日本的なやり方です。",
+          "transcription": "たすうけつによらず、じょうほしあいながらさいだいげんぜんいんのごういをめざすがにほんてきなやりかたです。",
+          "mean": "The Japanese approach is to aim for consensus among everyone as much as possible by making concessions, without relying on majority voting."
+        },
+        {
+          "content": "何事によらず、自らが求めようとしなければ、手に入れることはできない。",
+          "transcription": "なにごとによらず、みずからがもとめようとしなければ、てにいれることはできない。",
+          "mean": "No matter what, if you are not willing to seek it, you will not be able to obtain it."
+        },
+        {
+          "content": "学歴がどうか、また出身校がどこかによらず、社員を実力本位で採用する企業が、今後増えていくだろう。",
+          "transcription": "がくれきがどうか、またしゅっしんこうがどこかによらず、しゃいんをじつりょくほんいでさいようするきぎょうが、こんごふえていくだろう。",
+          "mean": "In the future, more and more companies will hire employees based on their ability, regardless of their educational background or where they graduated from."
+        },
+        {
+          "content": "武力によらず国家統一を成し挙げる道はないだろうか。",
+          "transcription": "ぶりょくによらずこっかとういつをなしあげるみちはないだろうか。",
+          "mean": "Is there a way to achieve national unity without using force?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N・疑問詞を含む句 ＋ によらず"
+    }
+  ],
+  "title": "～によらず      => regardless of ~",
+  "_id": "93020c54469e582d6fdb16f7baa0af62"
+}

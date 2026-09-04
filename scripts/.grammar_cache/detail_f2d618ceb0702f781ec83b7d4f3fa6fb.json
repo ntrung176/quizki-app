@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2921,
+  "usages": [
+    {
+      "explain": "Indicates an ongoing action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は朝ごはんを食べている。",
+          "transcription": "わたしはあさごはんをたべている。",
+          "mean": "I'm eating breakfast."
+        },
+        {
+          "content": "彼女は本を読んでいる。",
+          "transcription": "かのじょはほんをよんでいる。",
+          "mean": "she is reading a book."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ている"
+    }
+  ],
+  "title": "ている => Doing something...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3fa6fb"
+}

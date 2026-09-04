@@ -1,0 +1,33 @@
+{
+  "level": "N2",
+  "mobileId": 1395,
+  "usages": [
+    {
+      "explain": "一方(で) (いっぽうで) shows two sides of an issue. These are two opposing sides that can occur simultaneously.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はお金がないと言う一方で、高い車を買ったばかりだ。",
+          "transcription": "かれはおかねがないといういっぽうで、たかいくるまをかったばかりだ。",
+          "mean": "Although he says he has no money, he just bought an expensive car."
+        },
+        {
+          "content": "日本は工場製品の輸出国である一方、原材料や農産物の輸入国でもある。",
+          "transcription": "にっぽんはこうじょうせいひんのゆしゅつこくであるいっぽう、げんざいりょうやのうさんぶつのゆにゅうこくでもある。",
+          "mean": "While Japan is an exporter of factory products, it is also an importer of raw materials and agricultural products."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな/だ/である・Nだ/である + 一方(で)"
+    },
+    {
+      "explain": "Note: The usage of 一方 is similar to 反面（はんめん）, but 一方 compared to 反面 also has the additional meaning of showing two sides occurring simultaneously.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いっぽう(で) => on one hand, on the other hand; although ~",
+  "_id": "f7ff14dae05876cac58b4136936fe96e"
+}

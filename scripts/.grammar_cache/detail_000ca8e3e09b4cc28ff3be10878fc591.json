@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5248,
+  "usages": [
+    {
+      "explain": "「そこで」is a conjunction that connects two sentences, expressing a cause-and-effect relationship. The first sentence introduces or explains a situation or event as a cause, and the second sentence presents a solution, proposal, request, etc., as a result of that cause.<br/>\nAdditionally, 「そこで」can be used to change the topic or return to the initial topic, similar to 「さて」 in Japanese.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は車が混むらしい。そこで、我々は朝早く出発するつもりだ。",
+          "transcription": "あしたはくるまがこむらしい。そこで、われわれはあさはやくしゅっぱつするつもりだ。",
+          "mean": "It seems like there will be a lot of traffic tomorrow. So we plan to leave early in the morning."
+        },
+        {
+          "content": "今度アメリカに旅行します。そこで、お願いがあるのですが...",
+          "transcription": "こんどアメリカにりょこうします。そこで、おねがいがあるのですが...",
+          "mean": "I will be traveling to America next time. So, I have a request..."
+        },
+        {
+          "content": "この周辺は交通渋滞がひどい。そこで、新しい道路が作られることになった。",
+          "transcription": "このしゅうへんはこうつうじゅうたいがひどい。そこであたらしいどうろがつくられることになった。",
+          "mean": "Traffic congestion is terrible around this area. Therefore, a new road was built."
+        },
+        {
+          "content": "そこで、話を戻しますが一つお聞きしたいことがあります。",
+          "transcription": "そこで、はなしをもどしますがひとつおききしたいことがあります。",
+          "mean": "So, going back to the topic, there is one thing I would like to ask you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。そこで、B"
+    }
+  ],
+  "title": "そこで => So/Therefore/Thus",
+  "_id": "000ca8e3e09b4cc28ff3be10878fc591"
+}

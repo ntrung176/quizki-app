@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 819,
+  "usages": [
+    {
+      "explain": "✦ This expression emphasizes appearance or condition, meaning \"seems to be so\", \"appears to be\". It is used with words like 「そうだ」,「らしい」,「ようだ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "かれはさもおいしそうにビールを飲みほした。",
+          "transcription": "かれはさもおいしそうにビールをのみほした。",
+          "mean": "He drank the beer with great relish."
+        },
+        {
+          "content": "子供はさもねむそうな様子で、大きなあくびをした。",
+          "transcription": "こどもはさもねむそうなようすで、おおきなあくびをした。",
+          "mean": "The child seemed sleepy and let out a big yawn."
+        },
+        {
+          "content": "老人は、さもがっかりした様子で立ち去った。",
+          "transcription": "ろうじんは、さもがっかりしたようすでたちさった。",
+          "mean": "The old man walked away looking disappointed."
+        },
+        {
+          "content": "その植木はさも本物らしく作ってあるが、よく見るとにせ物だということがわかる。",
+          "transcription": "そのうえきはさもほんものらしくつくってあるが、よくみるとにせぶつだということがわかる。",
+          "mean": "The plants are made to look real, but if you look closely you can see that they are fake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦A way of speaking that emphasizes appearance or status, meaning \"to look like it's real\", \"to really pretend\". <br/></div>"
+    }
+  ],
+  "title": "～ さも => really (seem, appear, etc.); truly; as if ~",
+  "_id": "f7ff14dae05876cac58b41369322050e"
+}

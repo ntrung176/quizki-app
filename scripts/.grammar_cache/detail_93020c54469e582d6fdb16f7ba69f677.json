@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 3059,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's decision or intention regarding future actions. Used for the first person.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日からはどこへも行かないで勉強することにする。",
+          "transcription": "あしたからはどこへもいかないでべんきょうすることにする。",
+          "mean": "Starting tomorrow, I will study without going anywhere."
+        },
+        {
+          "content": "田中さんはその橋が安全だというが、それでも私は気をつけることにする。",
+          "transcription": "たなかさんはそのはしがあんぜんだというが、それでもわたしはきをつけることにする。",
+          "mean": "Mr. Tanaka says that the bridge is safe, but I will still be careful."
+        },
+        {
+          "content": "この問題はミラーによく相談して彼の意見を聞くことにする。",
+          "transcription": "このもんだいはみらーによくそうだんしてかれのいけんをきくことにする。",
+          "mean": "I will discuss this issue with Miller and ask for his opinion."
+        },
+        {
+          "content": "健康のために毎日野菜を食べることにします。",
+          "transcription": "けんこうのためにまいにちやさいをたべることにします。",
+          "mean": "I will eat vegetables every day for my health."
+        },
+        {
+          "content": "使用が不必要なので売ることにしました。",
+          "transcription": "しようがふひつようなのでうることにしました。",
+          "mean": "I decided to sell it because I don't need it anymore."
+        }
+      ],
+      "mean": ": to decide on",
+      "synopsis": "Vる ＋ ことにする"
+    }
+  ],
+  "title": "～ことにする      => to decide on",
+  "_id": "93020c54469e582d6fdb16f7ba69f677"
+}

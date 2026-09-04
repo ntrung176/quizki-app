@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3172,
+  "usages": [
+    {
+      "explain": "<div>✦ Means that even though it's not the truth, but the situation is almost like that. It is subjective and expressive.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "友達ですが、幼い頃からずっとそばにいるので兄弟も同然です。",
+          "transcription": "ともだちですが、おさないころからずっとそばにいるのできょうだいもどうぜんです。",
+          "mean": "We're friends, but we've been by each other since we were little, so we're like brothers."
+        },
+        {
+          "content": "2点の差が開いたから、これでもう勝ったも同然だ。",
+          "transcription": "2てんのさがひらいたから、これでもうかったもどうぜんだ。",
+          "mean": "We now have a two-point difference, so it's as if we've already won."
+        },
+        {
+          "content": "私には別れた恋人は死んだも同然だ。",
+          "transcription": "わたしにはわかれたこいびとはしんだもどうぜんだ。",
+          "mean": "To me, a lover who broke up with me is as good as dead."
+        },
+        {
+          "content": "彼は天才も同然だ。",
+          "transcription": "かれはてんさいもどうぜんだ。",
+          "mean": "He is also a genius."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N ＋ も同然だ"
+    }
+  ],
+  "title": "～もどうぜんだ（～も同然だ）      => just like; same as ~",
+  "_id": "93020c54469e582d6fdb16f7baa413ae"
+}

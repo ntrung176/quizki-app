@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5150,
+  "usages": [
+    {
+      "explain": "「かねる」expresses the idea that despite wanting to do something, even with effort, it is difficult or impossible to do. This is a polite and formal way of speaking, often used in conversations related to the service industry, restaurants, hotels, etc., to politely decline or refuse.",
+      "note": null,
+      "examples": [
+        {
+          "content": "申し訳ありませんが、私には分かりかねます。",
+          "transcription": "もうしわけありませんが、わたしにはわかりかねます。",
+          "mean": "Sorry, I don't understand."
+        },
+        {
+          "content": "そのようなご依頼は、お引き受けしかねます。",
+          "transcription": "そのようなごいらいは、おひきうけしかねます。",
+          "mean": "We cannot accept such requests."
+        },
+        {
+          "content": "ご予約金の返金はできかねます。",
+          "transcription": "ごよやくきんのへんきんはできかねます。",
+          "mean": "Reservation deposits cannot be refunded."
+        },
+        {
+          "content": "あなたのご意見には賛成しかねます。",
+          "transcription": "あなたのごいけんにはさんせいしかねます。",
+          "mean": "I cannot agree with your opinion."
+        },
+        {
+          "content": "残念ながら、そのご提案はお受けいたしかねます。",
+          "transcription": "ざんねんながら、そのごていあんはおうけいたしかねます。",
+          "mean": "Unfortunately, we cannot accept your proposal."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s> かねる"
+    }
+  ],
+  "title": "かねる => unable to do something; can’t do something",
+  "_id": "4aee86576aaa4a8382f1941e8c882c2b"
+}

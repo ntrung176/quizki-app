@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1486,
+  "usages": [
+    {
+      "explain": "It represents two completely opposite states.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんの夫婦は今でこそ幸せに暮らしているが、結婚当初は毎日喧嘩ばかりしていた。",
+          "transcription": "やまださんのふうふはいまでこそしあわせにくらしているが、けっこんとうしょはまいにちけんかばかりしていた。",
+          "mean": "Mr. Yamada and his wife are now living happily, but when they first got married, they fought every day."
+        },
+        {
+          "content": "今でこそこの日本語に全力を尽くしているが、以前は何度やめようと思った。",
+          "transcription": "いまでこそこのにほんごにぜんりょくをつくしているが、いぜんはなんどやめようとおもった。",
+          "mean": "Nowadays, I am putting all my effort into learning Japanese, but in the past I thought about giving up many times."
+        },
+        {
+          "content": "今でこそ留学も珍しくないが、20年前に留学は夢のようだった。",
+          "transcription": "いまでこそりゅうがくもめずらしくないが、20ねんまえにりゅうがくはゆめのようだった。",
+          "mean": "Studying abroad is not uncommon these days, but 20 years ago it seemed like a dream."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いまでこそ + ...N/...Na だが<br/>いまでこそ+ ...A/...V が"
+    }
+  ],
+  "title": "いまでこそ => An event is currently clear and obvious, but it wasn’t in the past",
+  "_id": "f7ff14dae05876cac58b4136937dace6"
+}

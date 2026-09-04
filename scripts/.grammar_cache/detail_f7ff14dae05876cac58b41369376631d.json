@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1437,
+  "usages": [
+    {
+      "explain": "Used in cases where an object, which was initially evaluated in a certain way, has shown a different result due to being placed in a special situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さすがの英雄も老後には勝てなかった。",
+          "transcription": "さすがのえいゆうもろうごにはかてなかった。",
+          "mean": "Even a true hero could not win in his old age."
+        },
+        {
+          "content": "さすがの小林さんも、初めてステージに現れた時は緊張した。",
+          "transcription": "さすがのこばやしさんも、はじめてすてーじにあらわれたときはきんちょうした。",
+          "mean": "As expected, Kobayashi was nervous when she first appeared on stage."
+        }
+      ],
+      "mean": null,
+      "synopsis": "さすがの + N + も"
+    }
+  ],
+  "title": "さすがの...も => even ~also",
+  "_id": "f7ff14dae05876cac58b41369376631d"
+}

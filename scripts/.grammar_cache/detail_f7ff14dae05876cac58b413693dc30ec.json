@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2171,
+  "usages": [
+    {
+      "explain": "Used when the speaker criticizes that something keeps repeating or always remains in that state. It cannot be replaced with だけ or のみ.",
+      "note": null,
+      "examples": [
+        {
+          "content": "試験が近いのに弟は遊んでばかりいる。",
+          "transcription": "しけんがちかいのにおとうとはあそんでばかりいる。",
+          "mean": "Even though the exam is coming up, my younger brother is just playing around."
+        },
+        {
+          "content": "木村さんはいつもしゃべってばかりいる。",
+          "transcription": "きむらさんはいつもしゃべってばかりいる。",
+          "mean": "Mr. Kimura is always talking."
+        },
+        {
+          "content": "私は子供の頃、いつもテレビを見てばかりいた。",
+          "transcription": "わたしはこどものころ、いつもてれびをみてばかりいた。",
+          "mean": "When I was a child, I always watched TV."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て＋ばかりいる"
+    }
+  ],
+  "title": "てばかりいる => Repeatedly or continuously ~, without doing other things",
+  "_id": "f7ff14dae05876cac58b413693dc30ec"
+}

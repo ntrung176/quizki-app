@@ -1,0 +1,81 @@
+{
+  "level": "N2",
+  "mobileId": 5218,
+  "usages": [
+    {
+      "explain": "「にしても～にしても/にしろ～にしろ/にせよ～にせよ」expresses the idea that regardless of the situation, the result remains the same, without change. X and Y represent two cases of the same type or opposing each other.<br/>「にしろ～にしろ」and 「にせよ～にせよ」are more formal and are often used in writing to express the same idea \"whether X or Y, the result remains the same,\" but with a more serious tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "家を立て直すにしても、リフォームするにしても、費用は同じぐらいになりそうだ。",
+          "transcription": "いえをたてなおすにしても、リフォームするにしても、ひようはおなじぐらいになりそうだ。",
+          "mean": "Whether you rebuild your house or renovate it, the cost is likely to be about the same."
+        },
+        {
+          "content": "水深が深いにしても、浅いにしても、ライフジャケットは着ておいた方がいい。",
+          "transcription": "すいしんがふかいにしても、あさいにしても、ライフジャケットはきておいたほうがいい。",
+          "mean": "Whether you're in deep or shallow water, it's a good idea to wear a life jacket."
+        },
+        {
+          "content": "日本語が上手にしても、下手にしても、勉強は毎日しておいた方がいい。",
+          "transcription": "にほんごがじょうずにしても、へたにしても、べんきょうはまいにちしておいたほうがいい。",
+          "mean": "No matter whether you are good at Japanese or not, it is better to study every day."
+        },
+        {
+          "content": "平日にしても祝日にしても、ディズニーランドは多くの人で賑わっています。",
+          "transcription": "へいじつにしてもしゅくじつにしても、ディズニーランドはおおくのひとでにぎわっています。",
+          "mean": "Whether it's a weekday or a holiday, Disneyland is crowded with people."
+        },
+        {
+          "content": "行くにしろ行かないにしろ、連絡してください。",
+          "transcription": "いくにしろいかないにしろ、れんらくしてください。",
+          "mean": "Please contact me whether you go or not."
+        },
+        {
+          "content": "殴るにしろ言葉で攻撃するにしろ、いじめはしてはいけない。",
+          "transcription": "なぐるにしろことばでこうげきするにしろ、いじめはしてはいけない。",
+          "mean": "Whether it's hitting someone or attacking them verbally, don't bully them."
+        },
+        {
+          "content": "仕事が忙しいにしろ忙しくないにしろ、自分の時間を大切にしたい。",
+          "transcription": "しごとがいそがしいにしろいそがしくないにしろ、じぶんのじかんをたいせつにしたい。",
+          "mean": "Whether I'm busy with work or not, I want to value my time."
+        },
+        {
+          "content": "ハンサムにしろハンサムじゃないにしろ、優しい人はモテる。",
+          "transcription": "ハンサムにしろハンサムじゃないにしろ、やさしいひとはモテる。",
+          "mean": "Whether handsome or not, kind people are popular."
+        },
+        {
+          "content": "音楽にしろ絵にしろ、今作っているものを小学生のころの自分に見せたらなんていうかなあとよく想像する。",
+          "transcription": "おんがくにしろえにしろ、いまつくっているものをしょうがくせいのころのじぶんにみせたらなんていうかなあとよくそうぞうする。",
+          "mean": "Whether it's music or painting, I often imagine what my elementary school self would say if I showed what I'm making now to my elementary school self."
+        },
+        {
+          "content": "彼が謝罪するにせよしないにせよ、私は彼を許すつもりだ。",
+          "transcription": "かれがしゃざいするにせよしないにせよ、わたしはかれをゆるすつもりだ。",
+          "mean": "Whether he apologizes or not, I'm going to forgive him."
+        },
+        {
+          "content": "結果が良いにせよ悪いにせよ、私は自分の選択を後悔しない。",
+          "transcription": "けっかがよいにせよわるいにせよ、わたしはじぶんのせんたくをこうかいしない。",
+          "mean": "Whether the outcome is good or bad, I won't regret my choice."
+        },
+        {
+          "content": "この曲が人気にせよ不人気にせよ、私はこの感動を誰かと分かち合いたい。",
+          "transcription": "このきょくがにんきにせよふにんきにせよ、わたしはこのかんどうをだれかとわかちあいたい。",
+          "mean": "Whether this song is popular or not, I want to share this emotion with someone."
+        },
+        {
+          "content": "1年にせよ2年にせよ、とにかく経験を積むことが重要だ。",
+          "transcription": "いちねんにせよにねんにせよ、とにかくけいけんをつむことがじゅうようだ。",
+          "mean": "Whether it's for one year or two, it's important to gain experience."
+        }
+      ],
+      "mean": null,
+      "synopsis": "X にしても+Y にしても<br/>\nX にしろ+Y にしろ<br/>\nX にせよ+Y にせよ<br/><br/>\nX = V (root form) / Vない<br/>\n Aい / A<s>い</s>くない<br/>\n A<s>な</s> / A<s>な</s>じゃない<br/>\n N<br/>\nY = V (root form) / Vない<br/>\n Aい / A<s>い</s>くない<br/>\n A<s>な</s> / A<s>な</s>じゃない<br/>\n N"
+    }
+  ],
+  "title": "にしても～にしても/にしろ～にしろ/にせよ～にせよ => whether… or ~, regardless of whether ~",
+  "_id": "31c3c10fef9544fba96fe6fa27107169"
+}

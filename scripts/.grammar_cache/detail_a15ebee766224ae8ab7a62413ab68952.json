@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5362,
+  "usages": [
+    {
+      "explain": "「ことは～が」is used to acknowledge that something is indeed true, but then deny the expected consequence of that truth. The verb/adjective (V/A) before ことは is repeated and followed by が/けれど.<br/>\"Indeed... that's true, but...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "ピアノは弾けることは弾けるが、うまくありません。",
+          "transcription": "ピアノはひけることはひけるが、うまくありません。",
+          "mean": "I can play the piano, but I'm not good at it."
+        },
+        {
+          "content": "このバッグ、高いことは高いけれど、すごく使いやすいです。",
+          "transcription": "このバッグ、たかいことはたかいけれど、すごくつかいやすいです。",
+          "mean": "This bag is expensive, but it's very easy to use."
+        },
+        {
+          "content": "携帯電話は便利なことは便利ですが、なくてもいいと思っています。",
+          "transcription": "けいたいでんわはべんりなことはべんりですが、なくてもいいとおもっています。",
+          "mean": "Having a mobile phone is convenient, but I don't think it's necessary."
+        },
+        {
+          "content": "復習したことはしましたがまだよく理解していません。",
+          "transcription": "ふくしゅうしたことはしましたがまだよくりかいしていません。",
+          "mean": "I have reviewed it, but I still don't fully understand it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form) ことは V (formal form) が / けれど<br/> Aい ことは Aい が / けれど<br/> Aな ことは A<s>な</s>だ が / けれど"
+    }
+  ],
+  "title": "ことは～が => although; but ~",
+  "_id": "a15ebee766224ae8ab7a62413ab68952"
+}

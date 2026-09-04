@@ -1,0 +1,38 @@
+{
+  "level": "N1",
+  "mobileId": 828,
+  "usages": [
+    {
+      "explain": "■ Used to express the speaker's surprise at someone's (negative) actions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君としたが、とんだへまをしでかしてくれたものだ。",
+          "transcription": "きみとしたが、とんだへまをしでかしてくれたものだ。",
+          "mean": "I tried to talk to you, but you made a huge mistake."
+        },
+        {
+          "content": "彼女としたが、そこでついつい眠り込んでしまったらしい。",
+          "transcription": "かのじょとしたが、そこでついついねむりこんでしまったらしい。",
+          "mean": "I went to talk to her, but apparently she just fell asleep there."
+        },
+        {
+          "content": "あらあら私としたことが.",
+          "transcription": "あらあらわたしとしたことが.",
+          "mean": "Oh my, what happened to me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■N + としたことが"
+    },
+    {
+      "explain": "Note: if used with 私 (watashi), the expression will convey the meaning: \"who could imagine that I would do something like this?\"",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～としたことが => ～ surprised",
+  "_id": "f7ff14dae05876cac58b4136932336d6"
+}

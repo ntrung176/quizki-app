@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5188,
+  "usages": [
+    {
+      "explain": "「なくて済む/ないで済む」expresses the idea of something being done or completed without needing to do action V.<br/>\nThis structure is used when the speaker has planned or prepared in advance, so the matter is resolved without needing to take a certain action. It can also be used when one avoids doing something that should have been done, often to avoid inconvenience. Because these situations can be bothersome,「なくて済む/ないで済む」reflects the speaker's light-hearted, relieved attitude.<br/>\nThis is commonly used in spoken language. In written language,「ずに済む」is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "アマゾンさえあれば、外出しなくて済む。",
+          "transcription": "アマゾンさえあれば、がいしゅつしなくてすむ。",
+          "mean": "As long as you have Amazon, you don't have to go out."
+        },
+        {
+          "content": "予約しておいたおかげで、待たなくて済みました。",
+          "transcription": "よやくしておいたおかげで、またなくてすみました。",
+          "mean": "Thanks to my reservation, I didn't have to wait."
+        },
+        {
+          "content": "今年は涼しかったので、エアコンを使わなくて済みました。",
+          "transcription": "ことしはすずしかったので、エアコンをつかわなくてすみました。",
+          "mean": "It was cool this year, so I didn't have to use the air conditioner."
+        },
+        {
+          "content": "母が車で迎えに来てくれたので、歩かなくて済みました。",
+          "transcription": "ははがくるまでむかえにきてくれたので、あるかなくてすみました。",
+          "mean": "My mother came to pick me up by car, so I didn't have to walk."
+        },
+        {
+          "content": "私の友達が自分のアパートに泊めてくれたので、ホテルに泊まらなくて済んだ。",
+          "transcription": "わたしのともだちがじぶんのアパートにとめてくれたので、ホテルにとまらなくてすんだ。",
+          "mean": "My friend let me stay in his apartment so I didn't have to stay in a hotel."
+        },
+        {
+          "content": "学校では皆、同じ制服を着るので、服のことで悩まなくて済みます。",
+          "transcription": "がっこうではみな、おなじせいふくをきるので、ふくのことでなやまなくてすみます。",
+          "mean": "Everyone at school wears the same uniform, so you don't have to worry about clothes."
+        },
+        {
+          "content": "友達がおごってくれたので、お金を払わないで済みました。",
+          "transcription": "ともだちがおごってくれたので、おかねをはらわないですみました。",
+          "mean": "My friend bought it for me so I didn't have to pay."
+        },
+        {
+          "content": "人身事故で電車が遅れたが、あまり待たないで済んだ。",
+          "transcription": "じんしんじこででんしゃがおくれたが、あまりまたないですんだ。",
+          "mean": "The train was delayed due to an accident, but I didn't have to wait long."
+        },
+        {
+          "content": "この電車なら、乗り換えをしないで済みますよ。",
+          "transcription": "このでんしゃなら、のりかえをしないですみますよ。",
+          "mean": "With this train, you won't have to change trains."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ない</s>+なくて済む<br/>V<s>ない</s>+ないで済む"
+    }
+  ],
+  "title": "なくて済む/ないで済む => get by without doing ~",
+  "_id": "a7d9d5d70f6b4ea8a6f255a4731b8842"
+}

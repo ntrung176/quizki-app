@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 838,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"no matter what you do, the situation remains unchanged\". Used in situations where a negative situation cannot be altered.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今さら反対してもどうなるものでもない。",
+          "transcription": "いまさらはんたいしてもどうなるものでもない。",
+          "mean": "There is no point in objecting now."
+        },
+        {
+          "content": "過ぎたことを後悔してもどうにもならない。",
+          "transcription": "すぎたことをこうかいしてもどうにもならない。",
+          "mean": "There's nothing you can do about regretting what happened."
+        },
+        {
+          "content": "負けたことを反省してもどうなるものでもない。",
+          "transcription": "まけたことをはんせいしてもどうなるものでもない。",
+          "mean": "There's no point in regretting your loss."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうにもならない/ できない is used in bad situations that cannot be changed."
+    }
+  ],
+  "title": "～どうにもならない/ できない => not … by any means; no matter how hard one tries, cannot ~",
+  "_id": "f7ff14dae05876cac58b41369324b115"
+}

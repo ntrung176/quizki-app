@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1931,
+  "usages": [
+    {
+      "explain": "Suggests what others should or should not do.",
+      "note": null,
+      "examples": [
+        {
+          "content": "英語は少しずつ習うといいよ。",
+          "transcription": "えいごはすこしずつならうといいよ。",
+          "mean": "It's good to learn English little by little."
+        },
+        {
+          "content": "クレーンを使うといいですよ。",
+          "transcription": "くれーんをつかうといいですよ。",
+          "mean": "It's better to use a crane."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Naだ + といい\nA-い + といい\nV-る + といい"
+    }
+  ],
+  "title": "といい => it would be nice if; should; I hope ~",
+  "_id": "f7ff14dae05876cac58b413693ba23e8"
+}

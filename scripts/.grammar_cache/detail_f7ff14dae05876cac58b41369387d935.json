@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1555,
+  "usages": [
+    {
+      "explain": "Means 「どのように」、「どんなふうに」. Followed by verbs like 「言う」(say), 「書く」(write) and expresses uncertainty about the content.",
+      "note": null,
+      "examples": [
+        {
+          "content": "部長はなんとおっしゃっていましたか。",
+          "transcription": "ぶちょうはなんとおっしゃっていましたか。",
+          "mean": "What did the manager say?"
+        },
+        {
+          "content": "提案書には何と書いてありましたか。",
+          "transcription": "ていあんしょにはなんとかいてありましたか。",
+          "mean": "What did the proposal say?"
+        },
+        {
+          "content": "彼の奥さんにはなんと知らせればいいんでしょうか。",
+          "transcription": "かれのおくさんにはなんとしらせればいいんでしょうか。",
+          "mean": "How should I tell his wife?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんと～"
+    }
+  ],
+  "title": "なんと => How",
+  "_id": "f7ff14dae05876cac58b41369387d935"
+}

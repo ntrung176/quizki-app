@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5074,
+  "usages": [
+    {
+      "explain": "「そばから」 expresses the idea that as soon as one event happens, immediately afterward, an opposite or contrasting event also occurs. This situation often repeats itself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "祖母は、携帯電話の使い方を教えても、教えるそばから忘れてしまう。",
+          "transcription": "そぼは、けいたいでんわのつかいかたをおしえても、おしえるそばからわすれてしまう。",
+          "mean": "Even when his grandmother teaches him how to use a cell phone, he forgets the lesson."
+        },
+        {
+          "content": "掃除をするそばから子供が散らかしてしまう。",
+          "transcription": "そうじをするそばからこどもがちらかしてしまう。",
+          "mean": "A child makes a mess while cleaning."
+        },
+        {
+          "content": "その商品は、並べるそばから飛ぶように売れていった。",
+          "transcription": "そのしょうひんは、ならべるそばからとぶようにうれていった。",
+          "mean": "The products sold like hotcakes as soon as they were put on display."
+        },
+        {
+          "content": "この商品は店頭に置いたそばから売れていく。",
+          "transcription": "このしょうひんはてんとうにおいたそばからうれていく。",
+          "mean": "This product sells as soon as it is placed in stores."
+        },
+        {
+          "content": "新しいカタカナ言葉は聞いたそばから忘れてしまう。",
+          "transcription": "あたらしいカタカナことばはきいたそばからわすれてしまう。",
+          "mean": "I forget new katakana words as soon as I hear them."
+        },
+        {
+          "content": "小さい子供は片付けているそばから部屋を散らかす。",
+          "transcription": "ちいさいこどもはかたづけているそばからへやをちらかす。",
+          "mean": "Small children tend to make a mess in their rooms while they are cleaning up."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+そばから<br/> Vた+そばから<br/> Vている+そばから"
+    }
+  ],
+  "title": "そばから => as soon as; right after​ ~",
+  "_id": "0b2be9f6257544b0a3d8b6187e9dd512"
+}

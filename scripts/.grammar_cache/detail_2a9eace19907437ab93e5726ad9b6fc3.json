@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5092,
+  "usages": [
+    {
+      "explain": "「をものともせずに」expresses the idea of doing something regardless of difficulties or strict conditions. This structure is often used to praise someone's courage and determination. It is not used to talk about oneself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "田村選手は右手の怪我をものともせずに、戦った。",
+          "transcription": "たむらせんしゅはみぎてのけがをものともせずに、たたかった。",
+          "mean": "Tamura fought despite the injury to his right hand."
+        },
+        {
+          "content": "父親は炎のをものともせずに、燃え盛る火の中から子供を助け出した。",
+          "transcription": "ちちおやはほのおのをものともせずに、もえさかるひのなかからこどもをたすけだした。",
+          "mean": "The father braved the flames and rescued his child from the raging fire."
+        },
+        {
+          "content": "彼は周りの非難をものともせずに、自らの信念を貫いた。",
+          "transcription": "かれはまわりのひなんをものともせずに、みずからのしんねんをつらぬいた。",
+          "mean": "He stuck to his beliefs, regardless of the criticism of those around him."
+        },
+        {
+          "content": "母は強かった。がんの宣告をものともせず、最後まで明るくふるまった。",
+          "transcription": "はははつよかった。がんのせんこくをものともせず、さいごまであかるくふるまった。",
+          "mean": "My mother was strong. Despite the diagnosis of cancer, he remained cheerful until the end."
+        },
+        {
+          "content": "隊員達は危険をものともせずに、行方不明の人の捜索を続けた。",
+          "transcription": "たいいんたちはきけんをものともせずに、ゆくえふめいのひとのそうさくをつづけた。",
+          "mean": "Team members continued searching for the missing person, despite the danger."
+        },
+        {
+          "content": "彼は体の障害をものともせずに、精力的に活動している。",
+          "transcription": "かれはからだのしょうがいをものともせずに、せいりょくてきにかつどうしている。",
+          "mean": "He continues to work energetically despite his physical disabilities."
+        },
+        {
+          "content": "今年90歳になる高橋さんは、足腰の痛みをものともせずに、若い人の指導に励んでいる。",
+          "transcription": "ことしきゅうじゅっさいになるたかはしさんは、あしこしのいたみをものともせずに、わかいひとのしどうにはげんでいる。",
+          "mean": "Takahashi, who will turn 90 this year, continues to work hard to teach young people, despite the pain in his legs and hips."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+ものともせずに"
+    }
+  ],
+  "title": "をものともせずに => in defiance of; not losing to / afraid / worrying about ~",
+  "_id": "2a9eace19907437ab93e5726ad9b6fc3"
+}

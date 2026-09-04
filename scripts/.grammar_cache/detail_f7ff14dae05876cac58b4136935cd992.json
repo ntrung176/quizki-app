@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1258,
+  "usages": [
+    {
+      "explain": "Expresses the feeling of refuting the opponent's doubts about oneself after receiving their words. Used in casual spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一人で持てるの。持てるったら。",
+          "transcription": "いちにんでもてるの。もてるったら。",
+          "mean": "I can have it by myself. If I could have it."
+        },
+        {
+          "content": "薬を飲んだの。飲んだったら。",
+          "transcription": "くすりをのんだの。のんだったら。",
+          "mean": "I took some medicine. If you drink."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ったら"
+    }
+  ],
+  "title": "…ったら => speaking of; I told you already",
+  "_id": "f7ff14dae05876cac58b4136935cd992"
+}

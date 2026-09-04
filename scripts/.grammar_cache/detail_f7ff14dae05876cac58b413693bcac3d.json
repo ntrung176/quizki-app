@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1947,
+  "usages": [
+    {
+      "explain": "Used in the forms「...している」or「...したN」to indicate \"having a certain characteristic\" or \"being in a certain state\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "心臓が興奮でどきどきしている。",
+          "transcription": "しんぞうがこうふんでどきどきしている。",
+          "mean": "My heart is pounding with excitement."
+        },
+        {
+          "content": "お腹が空腹でごろごろしている。",
+          "transcription": "おなかがくうふくでごろごろしている。",
+          "mean": "My stomach is rumbling with hunger."
+        },
+        {
+          "content": "彼は授業が終わった後も教室でぶらぶらしていた。",
+          "transcription": "かれはじゅぎょうがおわったのちもきょうしつでぶらぶらしていた。",
+          "mean": "He lingered in the classroom after school was over."
+        },
+        {
+          "content": "その車はワックスがかけられてぴかぴかしている。",
+          "transcription": "そのくるまはわっくすがかけられてぴかぴかしている。",
+          "mean": "The car is waxed and shiny."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Adverb + する"
+    }
+  ],
+  "title": "副詞 + する => Having the nature of..., in condition",
+  "_id": "f7ff14dae05876cac58b413693bcac3d"
+}

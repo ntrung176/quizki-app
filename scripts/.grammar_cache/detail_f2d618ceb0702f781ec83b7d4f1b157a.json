@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2631,
+  "usages": [
+    {
+      "explain": "Used to express the speaker's wish or desire, meaning \"it would be good if that happened\", \"hope to be like that\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "早くお正月にならないかなあ。",
+          "transcription": "はやくおしょうがつにならないかなあ。",
+          "mean": "I wonder if the new year will come soon."
+        },
+        {
+          "content": "宝くじが当たらないかな。",
+          "transcription": "たからくじがあたらないかな。",
+          "mean": "I wonder if I won the lottery."
+        },
+        {
+          "content": "娘が東京大学に入ってくれないかな。",
+          "transcription": "むすめがとうきょうだいがくにはいってくれないかな。",
+          "mean": "I wonder if my daughter will enter the University of Tokyo."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V -ない・ V -れない + かな(あ) <br/>V -てくれない + かな(あ)"
+    }
+  ],
+  "title": "ないかな (あ) => I wish... (Wish)",
+  "_id": "f2d618ceb0702f781ec83b7d4f1b157a"
+}

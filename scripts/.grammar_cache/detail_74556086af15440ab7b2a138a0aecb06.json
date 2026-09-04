@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5348,
+  "usages": [
+    {
+      "explain": "「必ずしも～とは限らない」is used to negate a statement, indicating that something is not always true, and there are exceptions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お金持ちが必ずしも幸福だとは限らない。",
+          "transcription": "おかねもちがかならずしもこうふくだとはかぎらない。",
+          "mean": "Being rich doesn't necessarily mean being happy."
+        },
+        {
+          "content": "高いものが必ずしもいいものだとは限らない。",
+          "transcription": "たかいものがかならずしもいいものだとはかぎらない。",
+          "mean": "Expensive doesn't necessarily mean good."
+        },
+        {
+          "content": "日本人の日本語が必ずしも全て正しいとは限らない。",
+          "transcription": "にほんじんのにほんごがかならずしもすべてただしいとはかぎらない。",
+          "mean": "Japanese people's Japanese is not always correct."
+        },
+        {
+          "content": "雑誌に紹介されている店が必ずしもいいとは限らない。",
+          "transcription": "ざっしにしょうかいされているみせがかならずしもいいとはかぎらない。",
+          "mean": "Stores introduced in magazines are not necessarily good."
+        },
+        {
+          "content": "天気予報は必ずしも当てになるとは限らない。",
+          "transcription": "てんきよほうはかならずしもあてになるとはかぎらない。",
+          "mean": "The weather forecast is not necessarily reliable."
+        },
+        {
+          "content": "身体の大きな男が必ずしも強い男とは限らない。",
+          "transcription": "しんたいのおおきなおとこがかならずしもつよいおとことはかぎらない。",
+          "mean": "Big men are not necessarily strong men."
+        },
+        {
+          "content": "人生は必ずしも思うようになるとは限らない.",
+          "transcription": "じんせいはかならずしもおもうようになるとはかぎらない.",
+          "mean": "Life doesn't always turn out the way you think it will."
+        },
+        {
+          "content": "見えたことは必ずしもいつも真実だとは限らない。",
+          "transcription": "みえたことはかならずしもいつもしんじつだとはかぎらない。",
+          "mean": "What you see is not always the truth."
+        },
+        {
+          "content": "日本に長年に住んでいることは必ずしも日本語が上手だとは限らない。",
+          "transcription": "にほんにながねんにすんでいることはかならずしもにほんごがじょうずだとはかぎらない。",
+          "mean": "Living in Japan for many years does not necessarily mean that you are good at Japanese."
+        },
+        {
+          "content": "刑務所にいる人達は必ずしも犯罪を犯したとは限らない。",
+          "transcription": "けいむしょにいるひとたちはかならずしもはんざいをおかしたとはかぎらない。",
+          "mean": "People in prison do not necessarily commit crimes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "必ずしも+V (formal form)+とは限らない<br/>必ずしも+Aい (formal form)+とは限らない<br/>必ずしも+Aな (formal form)+とは限らない<br/>(In this particular case: A<s>な</s>だ だ can be omitted )<br/>必ずしも+N (formal form)+とは限らない<br/>(In this particular case: Nだ だ can be omitted )"
+    }
+  ],
+  "title": "必ずしも～とは限らない => Not necessarily; not always",
+  "_id": "74556086af15440ab7b2a138a0aecb06"
+}

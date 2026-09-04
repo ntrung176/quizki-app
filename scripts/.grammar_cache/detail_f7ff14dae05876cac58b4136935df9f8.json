@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1266,
+  "usages": [
+    {
+      "explain": "一通り (ひととおり) expresses the meaning of doing something thoroughly in a general manner, to a satisfactory level.",
+      "note": null,
+      "examples": [
+        {
+          "content": "理論は一通り復習したが、まだ実行に移していない。",
+          "transcription": "りろんはいちとおりふくしゅうしたが、まだじっこうにうつしていない。",
+          "mean": "I've reviewed the theory, but I haven't put it into practice yet."
+        },
+        {
+          "content": "あまり上手じゃないが、この料理の作り方一通りは習った。",
+          "transcription": "あまりじょうずじゃないが、このりょうりのつくりかたいちとおりはならった。",
+          "mean": "I'm not very good at it, but I learned how to make this dish."
+        }
+      ],
+      "mean": null,
+      "synopsis": "一通り～"
+    }
+  ],
+  "title": "一通り => Basically, (get) over, done",
+  "_id": "f7ff14dae05876cac58b4136935df9f8"
+}

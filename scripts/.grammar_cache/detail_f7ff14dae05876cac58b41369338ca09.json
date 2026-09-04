@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 988,
+  "usages": [
+    {
+      "explain": "Expresses strong negation, meaning \"absolutely not...\", \"not at all\". This is a formal expression. In spoken language, [何にも...ない] is more common.",
+      "note": null,
+      "examples": [
+        {
+          "content": "アスピリンは血圧になんら影響はない。",
+          "transcription": "あすぴりんはけつあつになんらえいきょうはない。",
+          "mean": "Aspirin has no effect on blood pressure."
+        },
+        {
+          "content": "私たちはその双子の違いをなんら気づくことが出来ない。",
+          "transcription": "わたしたちはそのふたごのちがいをなんらきづくことができない。",
+          "mean": "We cannot notice any difference between the twins."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんら + Vない"
+    }
+  ],
+  "title": "なんら～ ない => nothing, absolutely not …",
+  "_id": "f7ff14dae05876cac58b41369338ca09"
+}

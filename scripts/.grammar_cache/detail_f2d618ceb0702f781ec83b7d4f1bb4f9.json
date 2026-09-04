@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2636,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"at that time\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "仕掛け花火が炸裂し、そこで祭りが終わりになった。",
+          "transcription": "しかけはなびがさくれつし、そこでまつりがおわりになった。",
+          "mean": "The fireworks exploded, and the festival came to an end."
+        },
+        {
+          "content": "2014年に日本に行った。そこで、１円相当220ドンです。",
+          "transcription": "2014ねんににっぽんにいった。そこで、いちえんそうとう220どんです。",
+          "mean": "I went to Japan in 2014. Therefore, it is 220 dong, which is equivalent to 1 yen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そこで is a form of conjunction used to connect sentences."
+    }
+  ],
+  "title": "そこで => There, at that time (Time)",
+  "_id": "f2d618ceb0702f781ec83b7d4f1bb4f9"
+}

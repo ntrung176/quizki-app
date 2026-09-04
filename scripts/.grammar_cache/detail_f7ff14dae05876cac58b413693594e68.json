@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1231,
+  "usages": [
+    {
+      "explain": "Used when convinced, \"no wonder, so that's why,\" upon learning the reason behind the information heard.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は日本に4年住んでいたんだって。道理で、日本語が得意なわけだ。",
+          "transcription": "かれはにっぽんに4ねんすんでいたんだって。どうりで、にほんごがとくいなわけだ。",
+          "mean": "He lived in Japan for four years. Naturally, he is good at Japanese."
+        },
+        {
+          "content": "彼女の母は歌手だよ。道理で、彼女も歌が上手はずだ。",
+          "transcription": "かのじょのはははかしゅだよ。どうりで、かのじょもうたがじょうずはずだ。",
+          "mean": "Her mother is a singer. Naturally, she should be good at singing too."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうりで～"
+    }
+  ],
+  "title": "どうりで => indeed,it's no wonder",
+  "_id": "f7ff14dae05876cac58b413693594e68"
+}

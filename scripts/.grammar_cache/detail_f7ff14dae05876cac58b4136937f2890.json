@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1496,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"although being in a situation ..., still...\". It is followed by an event completely different from what one predicted would happen in that situation. It's more common in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのチームは不利な環境にあっても、諦めずに努力している。",
+          "transcription": "そのちーむはふりなかんきょうにあっても、あきらめずにどりょくしている。",
+          "mean": "Even though the team is in an unfavorable environment, they continue to work hard without giving up."
+        },
+        {
+          "content": "豊かな家庭の中にあっても、彼女は幸せな感じがしない。",
+          "transcription": "ゆたかなかていのなかにあっても、かのじょはしあわせなかんじがしない。",
+          "mean": "Even though she lives in a rich family, she doesn't feel happy."
+        },
+        {
+          "content": "彼は瀕死にあっても、子供たちのことを気にかけている。",
+          "transcription": "かれはひんしにあっても、こどもたちのことをきにかけている。。",
+          "mean": "Even when he is dying, he cares about his children."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にあっても"
+    }
+  ],
+  "title": "にあっても => Even in the situation...",
+  "_id": "f7ff14dae05876cac58b4136937f2890"
+}

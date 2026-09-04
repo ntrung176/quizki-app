@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5110,
+  "usages": [
+    {
+      "explain": "「だけは」 helps the speaker convey the idea that although they do not expect a particular outcome from an action, they will still (try to) carry out that action to the extent that they consider sufficient. The verb before and after 「だけは」 is the same.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼氏のことは親に話すだけは話しました。",
+          "transcription": "かれしのことはおやにはなすだけははなしました。",
+          "mean": "I only told my parents about my boyfriend."
+        },
+        {
+          "content": "覚えるだけは覚えたのだから、後は試験の日を待つだけだ。",
+          "transcription": "おぼえるだけはおぼえたのだから、あとはしけんのひをまつだけだ。",
+          "mean": "Now that you've memorized all you need to know, all that's left to do is wait for the day of the exam."
+        },
+        {
+          "content": "すべて彼のことを聞くだけは聞いたが、彼は悪い人を思わないよ。",
+          "transcription": "すべてかれのことをきくだけはきいたが、かれはわるいひとをおもわないよ。",
+          "mean": "I've heard everything about him, but I don't think he's a bad person."
+        },
+        {
+          "content": "君を助けるだけは助けたが、残る部分は自分で頑張ってください。",
+          "transcription": "きみをたすけるだけはたすけたがのこるぶぶんはじぶんでがんばってください。",
+          "mean": "I've helped you, but please do your best for the rest."
+        },
+        {
+          "content": "指示のとおりにやるだけはやったが、いい結果が出るかどうか自信がない。",
+          "transcription": "しじのとおりにやるだけはやったが、いいけっかがでるかどうかじしんがない。",
+          "mean": "I did what I was instructed to do, but I wasn't sure if I would get a good result."
+        },
+        {
+          "content": "日本へ行きたいことは両親と話すだけは話したが、どんな反応でも必ず行きます。",
+          "transcription": "にほんへいきたいことはりょうしんとはなすだけははなしたがどんなはんのうでもかならずいきます。",
+          "mean": "I have already talked to my parents about wanting to go to Japan, but no matter what their reaction is, I will definitely go."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+だけは+Vた"
+    }
+  ],
+  "title": "だけは => To do all that one can",
+  "_id": "081f05ceec994460a6ba9d5cb7f2f64f"
+}

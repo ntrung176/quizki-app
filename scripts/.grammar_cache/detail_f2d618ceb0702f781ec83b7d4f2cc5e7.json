@@ -1,0 +1,21 @@
+{
+  "level": "N4",
+  "mobileId": 2773,
+  "usages": [
+    {
+      "explain": "Used when demanding agreement from the listener, in a way like \"I think that..., and you think so too, right?\". This is often used by men.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A:最近、電動自転車を使用する人が増えていないか。B:そうですね。昔は少なかったのに。。。",
+          "transcription": "A:さいきん、でんどうじてんしゃをしようするにんがふえていないか。B:そうですね。むかしはすくなかったのに。。。",
+          "mean": "A:Aren't more people using electric bicycles recently? B: Yes. There used to be less. . ."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vないか？ A-く＋ないですか？A-なじゃ＋ないですか？N-じゃ +ないですか？"
+    }
+  ],
+  "title": "...ないか? => right? isn't it?, I think...., do you think so too?",
+  "_id": "f2d618ceb0702f781ec83b7d4f2cc5e7"
+}

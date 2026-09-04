@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 5639,
+  "usages": [
+    {
+      "explain": "「ても」in English is a structure indicating a reverse condition, expressing \"even if... still...\" or \"no matter... still...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨が降っても、洗濯します。",
+          "transcription": "あめがふっても、せんたくします。",
+          "mean": "Even if it rains, I will wash my clothes."
+        },
+        {
+          "content": "安くても、私はグループ旅行が嫌いです。",
+          "transcription": "やすくても、わたしはグループりょこうがきらいです。",
+          "mean": "Even if it's cheap, I don't like traveling in groups."
+        },
+        {
+          "content": "便利でも、パソコンを使いません。",
+          "transcription": "べんりでも、パソコンをつかいません。",
+          "mean": "Even though it's convenient, I don't use a computer."
+        },
+        {
+          "content": "日曜日でも、働きます。",
+          "transcription": "にちようびでもはたらきます",
+          "mean": "I work even on Sunday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+も<br/> A<s>い</s>くて+も<br/>A<s>な</s>で+も<br/> Nで+も"
+    }
+  ],
+  "title": "ても => even; even if; even though ~",
+  "_id": "3970ef4d79574cab99e6c607c558aff8"
+}

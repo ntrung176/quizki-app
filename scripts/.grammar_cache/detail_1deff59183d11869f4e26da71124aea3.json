@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 3231,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"Even if you want to do that, you can't\". Used in cases where you want to emphasize that because the situation does not allow it, you cannot do something or want to justify something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ここに車で行って、お酒を飲みたくても飲めない。",
+          "transcription": "ここにくるまでおこなって、おさけをのみたくてものめない。",
+          "mean": "I drive here and want to drink alcohol, but I can't."
+        },
+        {
+          "content": "妻に禁止しているので、タバコは吸いたくても吸えない。",
+          "transcription": "つまにきんししているので、たばこはすいたくてもすえない。",
+          "mean": "I can't smoke even if I want to because my wife forbids it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-たくて も + V-れない"
+    }
+  ],
+  "title": "ても～れない => No matter how much I want to ..., I can't ...",
+  "_id": "1deff59183d11869f4e26da71124aea3"
+}

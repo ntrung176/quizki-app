@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1832,
+  "usages": [
+    {
+      "explain": "Expressing the source or basis of information obtained by the speaker. The sentence often ends with「らしい/そうだ/とのことだ」(I heard).",
+      "note": null,
+      "examples": [
+        {
+          "content": "聞いたところによると、山田さんは佐藤さんと結婚したそうだ。",
+          "transcription": "きいたところによると、やまださんはさとうさんとけっこんしたそうだ。",
+          "mean": "According to what I heard, Mr. Yamada married Mr. Sato."
+        },
+        {
+          "content": "特派員の話すところによれば、ドイツの首首は辞職したとのことだ。",
+          "transcription": "とくはいんのはなすところによれば、どいつのくびくびはじしょくしたとのことだ。",
+          "mean": "Our correspondent says that the head of Germany has resigned."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/ Vた/ Vない + ところによると / よれば"
+    }
+  ],
+  "title": "ところによると / よれば => According to..",
+  "_id": "f7ff14dae05876cac58b413693ac8f7d"
+}

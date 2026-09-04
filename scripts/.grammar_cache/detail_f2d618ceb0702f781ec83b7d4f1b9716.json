@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2635,
+  "usages": [
+    {
+      "explain": "Placed at the beginning of a sentence, used to transition to a new topic or situation.<br/><br/>「じゃ」is often elongated to 「じゃあ」, and is an informal way of saying 「では」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "じゃ、授業を始めましょう。",
+          "transcription": "じゃ、じゅぎょうをはじめましょう。",
+          "mean": "Well then, let's start the lesson."
+        },
+        {
+          "content": "では、今日の番組はこれで終わりにします。",
+          "transcription": "では、きょうのばんぐみはこれでおわりにします。",
+          "mean": "Well, that concludes today's program."
+        }
+      ],
+      "mean": null,
+      "synopsis": "じゃ(あ)/では～"
+    }
+  ],
+  "title": "じゃ(あ) / では => then; well; so; well then",
+  "_id": "f2d618ceb0702f781ec83b7d4f1b9716"
+}

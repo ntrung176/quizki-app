@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1779,
+  "usages": [
+    {
+      "explain": "To express the meaning: in a difficult situation, there's no other way to solve it besides doing this. <br/>Another way to say this is 「...しかない」、「 ... 以外にない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "悔やんでも仕方がない。とりあえず今できることを一生懸命やるよりない。",
+          "transcription": "くやんでもしかたがない。とりあえずいまできることをいっしょうけんめいやるよりない。",
+          "mean": "There's no point in regretting it. For now, I have no choice but to try my best to do what I can."
+        },
+        {
+          "content": "こんな経済危機なら、どこでもいいから採用してくれるところに就職するよりなさそうだ。",
+          "transcription": "こんなけいざいききなら、どこでもいいからさいようしてくれるところにしゅうしょくするよりなさそうだ。",
+          "mean": "In an economic crisis like this, it seems like your only option is to get a job anywhere that will hire you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる + よりない"
+    }
+  ],
+  "title": "よりない => to have no choice but ~",
+  "_id": "f7ff14dae05876cac58b413693a5b850"
+}

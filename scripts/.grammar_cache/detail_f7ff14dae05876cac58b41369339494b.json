@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 991,
+  "usages": [
+    {
+      "explain": "Expresses the idea of capability or the extent to which something can be done being low.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ガソリンが少なくなっているので、あと2キロくらいしか運転できない。",
+          "transcription": "がそりんがすくなくなっているので、あと2きろくらいしかうんてんできない。",
+          "mean": "I'm running low on gas, so I can only drive another 2 kilometers."
+        },
+        {
+          "content": "4年間も日本語を習っているのに、挨拶くらいの会話しかできない。",
+          "transcription": "4ねんかんもにほんごをならっているのに、あいさつくらいのかいわしかできない。",
+          "mean": "Even though I've been learning Japanese for four years, I can only have conversations beyond greetings."
+        },
+        {
+          "content": "今忙しいので、15分話すくらいの時間しかありませんが、いいですか。",
+          "transcription": "いまいそがしいので、15ふんはなすくらいのじかんしかありませんが、いいですか。",
+          "mean": "I'm busy right now, so I only have time to talk for 15 minutes, is that okay?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "～くらいの～しか～ない"
+    }
+  ],
+  "title": "…くらいの…しか…ない => Only… at low level",
+  "_id": "f7ff14dae05876cac58b41369339494b"
+}

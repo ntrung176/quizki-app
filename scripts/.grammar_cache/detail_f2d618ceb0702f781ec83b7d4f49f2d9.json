@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 3002,
+  "usages": [
+    {
+      "explain": "Describes the \"back\" or \"rear\" of an object in terms of space.",
+      "note": null,
+      "examples": [
+        {
+          "content": "警察は犯人が走っていく後を追いかけた。",
+          "transcription": "けいさつははんにんがはしっていくのちをおいかけた。",
+          "mean": "The police chased after the criminal as he ran away."
+        },
+        {
+          "content": "観客が去ったあとには、ごみがいっぱいなった。",
+          "transcription": "かんきゃくがさったあとには、ごみがいっぱいなった。",
+          "mean": "After the audience left, it was full of garbage."
+        },
+        {
+          "content": "バラを抜いたあとに見たこともない苗木が生えてきた。",
+          "transcription": "ばらをぬいたあとにみたこともないなえぎがはえてきた。",
+          "mean": "After I pulled out the roses, a sapling that I had never seen before grew up."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vた・Nの + あと"
+    }
+  ],
+  "title": "あと => behind (Space)",
+  "_id": "f2d618ceb0702f781ec83b7d4f49f2d9"
+}

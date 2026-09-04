@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2239,
+  "usages": [
+    {
+      "explain": "It sets the minimum condition for something to happen. In this structure, the clause formed by さえ〜たら indicates the condition that, if fulfilled, will result in the subsequent clause also happening.",
+      "note": null,
+      "examples": [
+        {
+          "content": "体さえ丈夫なら、どんなことにも挑戦出来ます。",
+          "transcription": "からださえじょうぶなら、どんなことにもちょうせんできます。",
+          "mean": "As long as your body is strong, you can try anything."
+        },
+        {
+          "content": "君は同意してさえしたら、この問題は易しくなる。",
+          "transcription": "きみはどういしてさえしたら、このもんだいはやさしくなる。",
+          "mean": "If only you agreed, this problem would become easier."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + さえ…たら<br/>Vます + さえ + したら<br/>Vて + さえ + したら"
+    }
+  ],
+  "title": "さえ...たら => Just...is enough",
+  "_id": "f7ff14dae05876cac58b413693e5e8c9"
+}

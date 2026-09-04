@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2880,
+  "usages": [
+    {
+      "explain": "「 そうです」is used to respond to a question about a noun and confirm that the asked content is correct.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは鉛筆ですか。はい、そうです。",
+          "transcription": "これはえんぴつですか。はい、そうです。",
+          "mean": "Is this a pencil? Yes, it is."
+        },
+        {
+          "content": "それはカメラですか。はい、そうです。",
+          "transcription": "それはかめらですか。はい、そうです。",
+          "mean": "Is that a camera? Yes, it is."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～そうです"
+    }
+  ],
+  "title": "そうです => That's right",
+  "_id": "f2d618ceb0702f781ec83b7d4f3aa773"
+}

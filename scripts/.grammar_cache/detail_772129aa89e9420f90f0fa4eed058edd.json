@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5386,
+  "usages": [
+    {
+      "explain": "「ないことはない」is used to gently negate the opinion of the other person, suggesting that the event actually has a possibility of happening, albeit very low. We often encounter this structure in sentences expressing the idea \"if conditions are met or if you try, then it is still possible,\" or \"it is possible to do it, but for some reason one might not want to do it\"...<br/>\n「ないこともない」is a stronger emphasis of「ないことはない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "鶏肉は、食べないことはないが、あまり好きじゃない。",
+          "transcription": "とりにくは、たべないことはないが、あまり好きじゃない。",
+          "mean": "I don't avoid eating chicken, but I don't really like it."
+        },
+        {
+          "content": "走れば間に合わないことはないよ。急ごう！",
+          "transcription": "はしればまにあわないことはないよ。いそごう！",
+          "mean": "If you run, you'll never miss it. Let's hurry!"
+        },
+        {
+          "content": "車を運転できないことはないんですが、ほとんどしません。",
+          "transcription": "くるまをうんてんできないことはないんですが、ほとんどしません。",
+          "mean": "It's not that I can't drive a car, but I rarely do."
+        },
+        {
+          "content": "生活できないことはないんですが、経済的に苦しいです。",
+          "transcription": "せいかつできないことはないんですが、けいざいてきにくるしいです。",
+          "mean": "It's not like I can't make a living, but it's financially difficult."
+        },
+        {
+          "content": "毎日、漢字を4つか5つなら、覚えられないこともない。",
+          "transcription": "まいにち、かんじをよっつかいつつなら、おぼえられないこともない。",
+          "mean": "If you learn four or five kanji every day, you won't have trouble remembering them."
+        },
+        {
+          "content": "この会社を辞める人の気持ちが分からないこともない。",
+          "transcription": "このかいしゃをやめるひとのきもちがわからないこともない。",
+          "mean": "I don't understand how people who leave this company feel."
+        },
+        {
+          "content": "肉はあまり好きではないが、食べないこともない。",
+          "transcription": "にくはあまりすきではないが、たべないこともない。",
+          "mean": "I don't really like meat, but I don't eat it either."
+        },
+        {
+          "content": "たくさんは無理だが、1日に4つなら覚えられないこともない。",
+          "transcription": "たくさんはむりだが、いちにちによっつならおぼえられないこともない。",
+          "mean": "You can't do that many things, but if you do 4 things a day, you won't have trouble remembering them."
+        },
+        {
+          "content": "相手は強いけど、頑張れば勝てないこともない。",
+          "transcription": "あいてはつよいけど、がんばればかてないこともない。",
+          "mean": "The opponent is strong, but if you try hard, you won't be able to win."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>くない+ことはない / こともない<br/>A<s>な</s>じゃない+ことはない / こともない<br/>Vない+ことはない / こともない<br/> V(potential ない+ことはない / こともない<br/>"
+    }
+  ],
+  "title": "ないことはない/ないこともない => can do; is not impossible to ~",
+  "_id": "772129aa89e9420f90f0fa4eed058edd"
+}

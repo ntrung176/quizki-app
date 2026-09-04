@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2413,
+  "usages": [
+    {
+      "explain": "Occurs between two sentences to express the idea that the event in the second sentence happens simultaneously with the event in the first sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "弁護士という職業は知識を必要とする。同時に、人間の心理に対する深い理解も要求される。",
+          "transcription": "べんごしというしょくぎょうはちしきをひつようとする。どうじに、にんげんのしんりにたいするふかいりかいもようきゅうされる。",
+          "mean": "The profession of a lawyer requires knowledge. At the same time, a deep understanding of human psychology is also required."
+        },
+        {
+          "content": "過疎地の開発も大切である。が、同時に伝統文化の保護には十分な注意が必要である。",
+          "transcription": "かそちのかいはつもたいせつである。が、どうじにでんとうぶんかのほごにはじゅうぶんなちゅういがひつようである。",
+          "mean": "Development of depopulated areas is also important. However, at the same time, sufficient care must be taken to protect traditional culture."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる／ Vた／ Vない + どうじに\nN + どうじに"
+    }
+  ],
+  "title": "...どうじに => at the same time as; while; simultaneously ~",
+  "_id": "f7ff14dae05876cac58b413693fd361d"
+}

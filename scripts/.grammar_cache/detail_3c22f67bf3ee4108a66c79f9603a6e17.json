@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5342,
+  "usages": [
+    {
+      "explain": "「一度に」describes the idea of how many tasks, items, or people can be done or handled at the same time. This structure emphasizes the quantity of actions or objects mentioned in the sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は一度にクッキーを3つ取った。",
+          "transcription": "かれはいちどにクッキーをみっつとった。",
+          "mean": "He took three cookies at once."
+        },
+        {
+          "content": "一度に3冊の本を借りることが出来ます。",
+          "transcription": "いちどにさんさつのほんをかりることができます。",
+          "mean": "You can borrow three books at once."
+        },
+        {
+          "content": "一度に全部はできないよ。",
+          "transcription": "いちどにぜんぶはできないよ。",
+          "mean": "You can't do everything at once."
+        },
+        {
+          "content": "彼は一度に6個の箱を運んだ。",
+          "transcription": "かれはいちどにろっこのはこをはこんだ。",
+          "mean": "He carried six boxes at once."
+        },
+        {
+          "content": "その薬品は一度に全部使用しなければなりません。",
+          "transcription": "そのやくひんはいちどにぜんぶしようしなければなりません。",
+          "mean": "The drug must be used all at once."
+        },
+        {
+          "content": "私はそれらを一度にまとめて注文したい。",
+          "transcription": "わたしはそれらをいちどにまとめてちゅうもんしたい。",
+          "mean": "I would like to order them all at once."
+        },
+        {
+          "content": "一度に2つの計画を試してはいけない。",
+          "transcription": "いちどにふたつのけいかくをためしてはいけない。",
+          "mean": "Don't try two plans at once."
+        },
+        {
+          "content": "このエレベーターは一度に10人くらい運べる。",
+          "transcription": "このエレベーターはいちどにじゅうにんくらいはこべる。",
+          "mean": "This elevator can carry about 10 people at a time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "一度に+Sentence"
+    }
+  ],
+  "title": "一度に => all at once",
+  "_id": "3c22f67bf3ee4108a66c79f9603a6e17"
+}

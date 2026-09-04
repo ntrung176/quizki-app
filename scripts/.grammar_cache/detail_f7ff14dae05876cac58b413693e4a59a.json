@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 2229,
+  "usages": [
+    {
+      "explain": "Used to describe an object that cannot be specified, a spoken form of \"なにか\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "なんか質問がありませんか。",
+          "transcription": "なんかしつもんがありませんか。",
+          "mean": "Do you have any questions?"
+        },
+        {
+          "content": "エンジンになんか故障がある。",
+          "transcription": "えんじんになんかこしょうがある。",
+          "mean": "There's something wrong with the engine."
+        },
+        {
+          "content": "なんか食べるものがほしい。",
+          "transcription": "なんかたべるものがほしい。",
+          "mean": "I want something to eat."
+        },
+        {
+          "content": "なんか変な匂いがしない。",
+          "transcription": "なんかへんなにおいがしない。",
+          "mean": "There's no strange smell."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんか～"
+    }
+  ],
+  "title": "なんか => things like; something like",
+  "_id": "f7ff14dae05876cac58b413693e4a59a"
+}

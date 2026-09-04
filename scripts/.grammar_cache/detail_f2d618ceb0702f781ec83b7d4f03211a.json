@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2455,
+  "usages": [
+    {
+      "explain": "This structure is used to express subjective speculation based on the speaker's intuition, often with a lowering of tone at the end of the sentence. Compared to 「かもしれない」, this construction indicates a higher level of certainty from the speaker. 「でしょう」is a more formal version of 「だろう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は雨が降るだろう。",
+          "transcription": "あしたはあめがふるだろう。",
+          "mean": "It will rain tomorrow."
+        },
+        {
+          "content": "彼女は今晩のパーティーに来ないだろう。",
+          "transcription": "かのじょはこんばんのぱーてぃーにこないだろう。",
+          "mean": "She won't come to the party tonight."
+        },
+        {
+          "content": "この靴は丈夫だろう。",
+          "transcription": "このくつはじょうぶだろう。",
+          "mean": "These shoes will be durable."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + だろう"
+    }
+  ],
+  "title": "だろう => I think; it seems; probably; right?",
+  "_id": "f2d618ceb0702f781ec83b7d4f03211a"
+}

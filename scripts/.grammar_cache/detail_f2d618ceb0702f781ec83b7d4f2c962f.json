@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2771,
+  "usages": [
+    {
+      "explain": "Used when wanting to say there are still similar things or events as mentioned earlier. In casual speech, it becomes 「やなんか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "休日はテレビやなにかを見てゆっくりリラックスします。",
+          "transcription": "きゅうじつはてれびやなにかをみてゆっくりりらっくすします。",
+          "mean": "On my days off, I relax by watching TV or something."
+        },
+        {
+          "content": "財布の中には運転免許やなにかの身の回り品が入っていた。",
+          "transcription": "さいふのなかにはうんてんめんきょやなにかのみのまわりひんがはいっていた。",
+          "mean": "Inside the wallet was a driver's license and other personal items."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + やなにか"
+    }
+  ],
+  "title": "やなにか => the same, equivalent to",
+  "_id": "f2d618ceb0702f781ec83b7d4f2c962f"
+}

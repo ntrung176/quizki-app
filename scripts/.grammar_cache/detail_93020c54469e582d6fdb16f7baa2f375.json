@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3163,
+  "usages": [
+    {
+      "explain": "<div>✦ It means 「…することは、とてもできない」 (the action of ... is very impossible).</div>",
+      "note": "<div>✦ This is a formal, classical way of speaking that is not used much nowadays.</div>\n",
+      "examples": [
+        {
+          "content": "優勝は望むべくもない。",
+          "transcription": "ゆうしょうはのぞむべくもない。",
+          "mean": "There is no hope of winning."
+        },
+        {
+          "content": "突然の母の死を、遠く海外にいた彼は知るべくもなかった。",
+          "transcription": "とつぜんのははのしを、とおくかいがいにいたかれはしるべくもなかった。",
+          "mean": "He was far away overseas and had no way of knowing about his mother's sudden death."
+        },
+        {
+          "content": "出来うるべくもない程度.",
+          "transcription": "できうるべくもないていど.",
+          "mean": "As much as possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦Vる ＋ べくもない</div>"
+    }
+  ],
+  "title": "～べくもない      => cannot possibly be ~.",
+  "_id": "93020c54469e582d6fdb16f7baa2f375"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1927,
+  "usages": [
+    {
+      "explain": "Commonly used in daily conversation, meaning \"a little\" or \"to try\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "ひとつ頼まれてくれないか。",
+          "transcription": "ひとつたのまれてくれないか。",
+          "mean": "Could you please do me one favor?"
+        },
+        {
+          "content": "おひとつどうぞ。",
+          "transcription": "おひとつどうぞ。",
+          "mean": "Please have one."
+        },
+        {
+          "content": "ひとついかがですか。",
+          "transcription": "ひとついかがですか。",
+          "mean": "Would you like one?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "ひとつ～"
+    }
+  ],
+  "title": "ひとつ => A little",
+  "_id": "f7ff14dae05876cac58b413693b9afa8"
+}

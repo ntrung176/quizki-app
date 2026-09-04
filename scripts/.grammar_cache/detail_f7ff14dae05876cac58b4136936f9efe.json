@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 1393,
+  "usages": [
+    {
+      "explain": "祭 (に)（さい）(に) has the same meaning as とき but carries a more formal tone. It is used with nouns and verbs that indicate intentional actions. It is often used in public announcements and not commonly in everyday conversation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "車を運転する際には免許証が必要です。",
+          "transcription": "くるまをうんてんするさいにはめんきょしょうがひつようです。",
+          "mean": "A license is required to drive a car."
+        },
+        {
+          "content": "火災が発生した際にはこの非常ボタンを押してください。",
+          "transcription": "かさいがはっせいしたさいにはこのひじょうぼたんをおしてください。",
+          "mean": "Please press this emergency button in the event of a fire."
+        },
+        {
+          "content": "非常の際にはこの窓を割れて逃げてください。",
+          "transcription": "ひじょうのさいにはこのまどをわれてにげてください。",
+          "mean": "In case of emergency, please break this window and escape."
+        },
+        {
+          "content": "こちらの会議室をご利用になる際は、受付で必要事項をご記入ください。",
+          "transcription": "こちらのかいぎしつをごりようになるさいは、うけつけでひつようじこうをごきにゅうください。",
+          "mean": "If you would like to use this conference room, please fill out the necessary information at the reception desk."
+        },
+        {
+          "content": "アメリカの大統領は来日した際に、私たちの大学でスピーチを行った。",
+          "transcription": "あめりかのだいとうりょうはらいにちしたさいに、わたくしたちのだいがくですぴーちをおこなった。",
+          "mean": "When the American president visited Japan, he gave a speech at our university."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/V-た・Nの + 祭 (に)"
+    }
+  ],
+  "title": "祭 (に) => when; at the time of; in the case of ~",
+  "_id": "f7ff14dae05876cac58b4136936f9efe"
+}

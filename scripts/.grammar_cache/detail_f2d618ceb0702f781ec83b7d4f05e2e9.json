@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2473,
+  "usages": [
+    {
+      "explain": "This is used to express the speaker's speculation. The polite form is 「んじゃありませんか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今晩は雨なんじゃないか。黒雲が来たよ。",
+          "transcription": "こんばんはあめなんじゃないか。くろくもがきたよ。",
+          "mean": "Isn't it going to rain tonight? A black cloud has arrived."
+        },
+        {
+          "content": "山田さんは肉が嫌いなんじゃないか。ぜんぜん食べなかった。",
+          "transcription": "やまださんはにくがきらいなんじゃないか。ぜんぜんたべなかった。",
+          "mean": "Mr. Yamada probably doesn't like meat. I didn't eat it at all."
+        },
+        {
+          "content": "彼は病気なんじゃないかな。咳が出ているよ。",
+          "transcription": "かれはびょうきなんじゃないかな。せきがでているよ。",
+          "mean": "I think he's sick. I'm coughing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んじゃないか"
+    }
+  ],
+  "title": "んじゃないか => right? isn't it? let's~; confirmation",
+  "_id": "f2d618ceb0702f781ec83b7d4f05e2e9"
+}

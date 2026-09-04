@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1892,
+  "usages": [
+    {
+      "explain": "「見るからに（みるからに）」conveys the meaning \"at a glance, it's easy to guess, it's immediately understood\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "この時計は見るからに安物だ 。",
+          "transcription": "このとけいはみるからにやすものだ 。",
+          "mean": "This watch looks cheap."
+        },
+        {
+          "content": "部屋に入ってきたのは、見るからに貧しそうな中年の男性だった。",
+          "transcription": "へやにはいってきたのは、みるからにまずしそうなちゅうねんのだんせいだった。",
+          "mean": "The person who entered the room was a middle-aged man who looked poor."
+        }
+      ],
+      "mean": null,
+      "synopsis": "見るからに"
+    }
+  ],
+  "title": "みるからに => from the point of view of; by the look of; judging from ~",
+  "_id": "f7ff14dae05876cac58b413693b44376"
+}

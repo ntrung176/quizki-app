@@ -1,0 +1,86 @@
+{
+  "level": "N3",
+  "mobileId": 5351,
+  "usages": [
+    {
+      "explain": "「決して～ない」<br/>\n- Expresses a determination not to do something.<br/>\n- When used with a prohibition structure, it emphasizes the prohibition, indicating \"absolutely not allowed under any circumstances.\"<br/>\n- Strongly denies something, indicating \"absolutely, definitely not.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は決して夢を諦めません。",
+          "transcription": "わたしはけっしてゆめをあきらめません。",
+          "mean": "I will never give up on my dreams."
+        },
+        {
+          "content": "噓は決して申しません。",
+          "transcription": "うそはけっしてもうしません。",
+          "mean": "I will never lie."
+        },
+        {
+          "content": "色々お世話になりました。親切にしていただいたことは決して忘れません。",
+          "transcription": "いろいろおせわになりました。しんせつにしていただいたことはけっしてわすれません。",
+          "mean": "Thank you for all your help. I will never forget your kindness."
+        },
+        {
+          "content": "このことは、決して人に話してはだめよ。",
+          "transcription": "このことは、けっしてひとにはなしてはだめよ。",
+          "mean": "Never tell anyone about this."
+        },
+        {
+          "content": "危険ですから、決して入らないでください。",
+          "transcription": "きけんですから、けっしてはいらないでください。",
+          "mean": "It is dangerous, so please do not enter."
+        },
+        {
+          "content": "飛行機の中で、決してたばこを吸ってはいけない。",
+          "transcription": "ひこうきのなかで、けっしてたばこをすってはいけない。",
+          "mean": "Never smoke on an airplane."
+        },
+        {
+          "content": "決して見かけで他人を判断するな。",
+          "transcription": "けっしてみかけでたにんをはんだんするな。",
+          "mean": "Never judge others by their appearance."
+        },
+        {
+          "content": "決して痛くないとは言えないです。",
+          "transcription": "けっしていたくないとはいえないです。",
+          "mean": "I can't say it never hurts."
+        },
+        {
+          "content": "この乗り物は決して危険ではないです。",
+          "transcription": "こののりものはけっしてきけんではないです。",
+          "mean": "This vehicle is not dangerous at all."
+        },
+        {
+          "content": "成功は決して偶然ではない。",
+          "transcription": "せいこうはけっしてぐうぜんではない。",
+          "mean": "Success is never an accident."
+        },
+        {
+          "content": "彼は決してそのような嘘をつく人ではない。",
+          "transcription": "かれはけっしてそのようなうそをつくひとではない。",
+          "mean": "He would never tell such a lie."
+        },
+        {
+          "content": "彼は決して妥協しない人だ。",
+          "transcription": "かれはけっしてだきょうしないひとだ。",
+          "mean": "He is a person who never compromises."
+        },
+        {
+          "content": "あなたは決して一人じゃない。",
+          "transcription": "あなたはけっしてひとりじゃない。",
+          "mean": "you are never alone."
+        },
+        {
+          "content": "値段は決して高くない。",
+          "transcription": "ねだんはけっしてたかくない。",
+          "mean": "The price is none too high."
+        }
+      ],
+      "mean": null,
+      "synopsis": "決して+Vない<br/> 決して+A<s>い</s>くない<br/> 決して+A<s>な</s>ではない<br/> 決して+Nではない"
+    }
+  ],
+  "title": "決して～ない => never; by no means ~",
+  "_id": "d602b3f7019547e6991014cd6a52b332"
+}

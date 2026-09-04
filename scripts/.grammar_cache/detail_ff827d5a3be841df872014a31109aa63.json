@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5251,
+  "usages": [
+    {
+      "explain": "それが is used to:<br/>1. Refer to an unexpected result. \"That's it/Actually...\"<br/>2. Indicate a result contrary to the expectation or prediction in the preceding sentence. \"Yet...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "『お嬢さん、もう大学をご卒業されましたでしょう？』『それが、まだなんですよ。』",
+          "transcription": "『おじょうさん、もうだいがくをごそつぎょうされましたでしょう？』『それが、まだなんですよ。』",
+          "mean": "“Miss, you have already graduated from university, right? ``That's not it yet.'' ”"
+        },
+        {
+          "content": "『彼女さんとはどうですか？』『それが先週別れたんです。』",
+          "transcription": "『かのじょさんとはどうですか？』『それがせんしゅうわかれたんです。』",
+          "mean": "``What about your girlfriend? ” “Then we broke up last week. ”"
+        },
+        {
+          "content": "たばこをやめると誓った。それが、たった3日でまた吸ってしまった。",
+          "transcription": "たばこをやめるとちかった。それが、たったみっかでまたすってしまった。",
+          "mean": "I vowed to quit smoking. Then, after only 3 days, I started smoking again."
+        },
+        {
+          "content": "先月、友達が結婚した。それが、もう離婚した。",
+          "transcription": "せんげつ、ともだちがけっこんした。それが、もうりこんした。",
+          "mean": "A friend of mine got married last month. That's why I'm already divorced."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。それが、B"
+    }
+  ],
+  "title": "それが => well yes, actually, now that you mention it; well, in fact ...",
+  "_id": "ff827d5a3be841df872014a31109aa63"
+}

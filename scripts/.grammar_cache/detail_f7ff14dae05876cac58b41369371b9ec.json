@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1408,
+  "usages": [
+    {
+      "explain": "以上の（いじょうの）expresses that something has a level higher than what the preceding noun or verb indicates.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はみんなが期待している以上の成功を収めた。",
+          "transcription": "かれはみんながきたいしているいじょうのせいこうをおさめた。",
+          "mean": "He achieved more success than anyone expected."
+        },
+        {
+          "content": "収入以上の生活をするな。",
+          "transcription": "しゅうにゅういじょうのせいかつをするな。",
+          "mean": "Do not live above your income."
+        },
+        {
+          "content": "彼女は必要以上のものを要求した。",
+          "transcription": "かのじょはひつよういじょうのものをようきゅうした。",
+          "mean": "She demanded one above the necessity."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ V + い以上 の+ N"
+    }
+  ],
+  "title": "以上 の => more than; not less than; beyond ~",
+  "_id": "f7ff14dae05876cac58b41369371b9ec"
+}

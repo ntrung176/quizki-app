@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2456,
+  "usages": [
+    {
+      "explain": "点（てん）is used to emphasize a point among the characteristics of an object.",
+      "note": null,
+      "examples": [
+        {
+          "content": "姉より妹の方が知能の点でまさっている。",
+          "transcription": "あねよりいもうとのほうがちのうのてんでまさっている。",
+          "mean": "My younger sister is superior to my older sister in terms of intelligence."
+        },
+        {
+          "content": "省エネの点では、トヨタの車の方がよくできている。",
+          "transcription": "しょうえねのてんでは、とよたのくるまのほうがよくできている。",
+          "mean": "Toyota's cars are better in terms of energy efficiency."
+        },
+        {
+          "content": "この種類の馬は素早い点が好まれている。",
+          "transcription": "このしゅるいのうまはすばやいてんがこのまれている。",
+          "mean": "This type of horse is known for its quickness."
+        },
+        {
+          "content": "性格の点で、女性の候補者の方がこの仕事には向いている。",
+          "transcription": "せいかくのてんで、じょせいのこうほしゃのほうがこのしごとにはむいている。",
+          "mean": "Female candidates are better suited for this job in terms of personality."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな・Nの + 点"
+    }
+  ],
+  "title": "点 => from the viewpoint of",
+  "_id": "f2d618ceb0702f781ec83b7d4f0354bc"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5432,
+  "usages": [
+    {
+      "explain": "「てほしい/てもらいたい」is used when the speaker wants the listener or a third party to do something for them. When the speaker wants the listener or a third party not to do something, they will use「ないでほしい/ないでもらいたい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この話は他の人に言わないでほしいです。",
+          "transcription": "このはなしはほかのひとにいわないでほしいです。",
+          "mean": "I don't want you to tell this story to other people."
+        },
+        {
+          "content": "会社で起こっている事は全て話してほしい。",
+          "transcription": "かいしゃでおこっていることはすべてはなしてほしい。",
+          "mean": "I want you to tell me everything that's happening at the company."
+        },
+        {
+          "content": "あのう、教科書を見せてほしいんですが…",
+          "transcription": "あのう、きょうかしょをみせてほしいんですが…",
+          "mean": "Um, I'd like to see your textbook..."
+        },
+        {
+          "content": "父に酒を辞めてほしいです。",
+          "transcription": "ちちにさけをやめてほしいです。",
+          "mean": "I want my father to quit drinking."
+        },
+        {
+          "content": "明日は雨が降らないでほしい。",
+          "transcription": "あしたはあめがふらないでほしい。",
+          "mean": "I hope it doesn't rain tomorrow."
+        },
+        {
+          "content": "息子に優しい人になってほしい。",
+          "transcription": "むすこにやさしいひとになってほしい。",
+          "mean": "I want my son to be a kind person."
+        },
+        {
+          "content": "明日、私の家に遊びに来てほしいです。",
+          "transcription": "あした、わたしのうちにあそびにきてほしいです。",
+          "mean": "I would like you to come to my house tomorrow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+ほしい / もらいたい<br/> Vないで+ほしい / もらいたい"
+    }
+  ],
+  "title": "てほしい => I want you to; need you to ~",
+  "_id": "ce8d01609ab34b6d821b0a66c3947c85"
+}

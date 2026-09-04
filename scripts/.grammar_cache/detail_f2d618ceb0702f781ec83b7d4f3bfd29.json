@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2890,
+  "usages": [
+    {
+      "explain": "中（じゅう）is used together with nouns indicating places, scopes, expressing the meaning \"all, the entire scope\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "火は家中に広がった。",
+          "transcription": "ひはいえじゅうにひろがった。",
+          "mean": "The fire spread throughout the house."
+        },
+        {
+          "content": "彼の名前は国中で知られている。",
+          "transcription": "かれのなまえはくになかでしられている。",
+          "mean": "His name is known all over the country."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 中"
+    }
+  ],
+  "title": "じゅう => everything within the area",
+  "_id": "f2d618ceb0702f781ec83b7d4f3bfd29"
+}

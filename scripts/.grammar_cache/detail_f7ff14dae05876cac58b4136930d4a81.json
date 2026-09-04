@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 670,
+  "usages": [
+    {
+      "explain": "✦Expresses prohibition, something that must not be done. Sometimes used in the form [ならぬ]. This is an old-fashioned expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学校を辞めることはならない。",
+          "transcription": "がっこうをやめることはならない。",
+          "mean": "You don't have to quit school."
+        },
+        {
+          "content": "封建時代には、王様の顔を見上げることはならないと聞いた。",
+          "transcription": "ほうけんじだいには、おうさまのかおをみあげることはならないときいた。",
+          "mean": "I heard that in feudal times, you were not allowed to look up at the king's face."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + ことはならない"
+    }
+  ],
+  "title": "ことはならない => forbidden, not allowed to do anything",
+  "_id": "f7ff14dae05876cac58b4136930d4a81"
+}

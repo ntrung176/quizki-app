@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1861,
+  "usages": [
+    {
+      "explain": "This expression conveys reproach by repeating the words of the other party. This form of expression is used in spoken language and only with very close individuals or those subordinate to the speaker. It is often used with the form 「じゃない」 as in example (2).",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：すみません、スケジュールの変更をご通知するのを忘れていました。B：忘れていましたではないよ。おかげで、大変な目にあったんですよ。",
+          "transcription": "A：すみません、すけじゅーるのへんこうをごつうちするのをわすれていました。B：わすれていましたではないよ。おかげで、たいへんなめにあったんですよ。",
+          "mean": "A: Sorry, I forgot to notify you of the schedule change. B: I didn't forget. Thanks to that, I was in a lot of trouble."
+        },
+        {
+          "content": "A：あ。そのピクニックの中止、言い忘れてた。B：言い忘れてたじゃないわ。おかげで、予定が狂ってしまったのよ。",
+          "transcription": "A：あ。そのぴくにっくのちゅうし、いいわすれてた。B：いいわすれてたじゃないわ。おかげで、よていがくるってしまったのよ。",
+          "mean": "A: Oh. I forgot to mention that the picnic was cancelled. B: I forgot to mention that. Thanks to you, my plans were messed up."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ではない/じゃない"
+    }
+  ],
+  "title": "... ではない => Don't say... (anything)",
+  "_id": "f7ff14dae05876cac58b413693b05f6f"
+}

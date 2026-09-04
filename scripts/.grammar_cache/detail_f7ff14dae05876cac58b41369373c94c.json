@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1421,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"to such a high degree that one might think so.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はネイティブかと思うほど英語が上手だ。",
+          "transcription": "かれはねいてぃぶかとおもうほどえいごがじょうずだ。",
+          "mean": "He speaks English so well that I thought he was a native speaker."
+        },
+        {
+          "content": "今日は服を着てお風呂にいるかと思うほど蒸し暑かった。",
+          "transcription": "きょうはふくをきておふろにいるかとおもうほどむしあつかった。",
+          "mean": "It was so humid today that I thought I was taking a bath with my clothes on."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～かとおもうほど"
+    }
+  ],
+  "title": "かとおもうほど => a thing reaches such a terrible level",
+  "_id": "f7ff14dae05876cac58b41369373c94c"
+}

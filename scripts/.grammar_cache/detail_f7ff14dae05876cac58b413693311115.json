@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 930,
+  "usages": [
+    {
+      "explain": "Used to express the speaker's wish or to ask for a favor from the listener.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女から連絡がないかしら。",
+          "transcription": "かのじょかられんらくがないかしら。",
+          "mean": "I wonder if I've heard from her."
+        },
+        {
+          "content": "試験に合格できないかしら。",
+          "transcription": "しけんにごうかくできないかしら。",
+          "mean": "I wonder if I won't be able to pass the exam."
+        },
+        {
+          "content": "電車が遅れないかしら。",
+          "transcription": "でんしゃがおくれないかしら。",
+          "mean": "I wonder if the train will be late."
+        },
+        {
+          "content": "ちょっと教えてくれないかしら。",
+          "transcription": "ちょっとおしえてくれないかしら。",
+          "mean": "Could you please tell me a little bit about it?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V -ない・ V -れない + かしら\nV -てくれない + かしら"
+    }
+  ],
+  "title": "ないかしら => I wonder (feminine)",
+  "_id": "f7ff14dae05876cac58b413693311115"
+}

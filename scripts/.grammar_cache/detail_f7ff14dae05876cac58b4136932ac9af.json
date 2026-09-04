@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 885,
+  "usages": [
+    {
+      "explain": "■ Conveys the meaning \"having the freedom to choose anything\".<br/>■ Frequently used with interrogative words like どこ (doko), だれ (dare), いつ (itsu), なに (nani).",
+      "note": "Is an Interrogative word",
+      "examples": [
+        {
+          "content": "誰なりとも連れて来い。",
+          "transcription": "だれなりともつれてこい。",
+          "mean": "Bring whoever you want."
+        },
+        {
+          "content": "だれとなりと、好きな男と一緒になるがいい。",
+          "transcription": "だれとなりと、すきなおとこといっしょになるがいい。",
+          "mean": "Be with any man you like."
+        },
+        {
+          "content": "彼が結婚写真なりとも見たい。",
+          "transcription": "かれがけっこんしゃしんなりともみたい。",
+          "mean": "I would also like to see his wedding photos."
+        },
+        {
+          "content": "ご希望がありましたら、どうぞ遠慮せずに何なりとお申しつけ下さい。",
+          "transcription": "ごきぼうがありましたら、どうぞえんりょせずになになりとおもうしつけください。",
+          "mean": "If you have any requests, please feel free to let us know."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～ なりと => at least; even just a little",
+  "_id": "f7ff14dae05876cac58b4136932ac9af"
+}

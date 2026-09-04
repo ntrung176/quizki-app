@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2531,
+  "usages": [
+    {
+      "explain": "Conveys the meaning \"before an event, incident.\" Used to describe the temporal relationship of an event starting a new phase after a long period of the previous phase.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は歌手になる以前はスーパー店員だったらしい。",
+          "transcription": "かのじょはかしゅになるいぜんはすーぱーてんいんだったらしい。",
+          "mean": "Apparently, she was a supermarket clerk before becoming a singer."
+        },
+        {
+          "content": "新しい家具を買う以前に、引っ越し先を決めなければならない。",
+          "transcription": "あたらしいかぐをかういぜんに、ひっこしさきをきめなければならない。",
+          "mean": "Before you buy new furniture, you need to decide where you will move to."
+        },
+        {
+          "content": "新しいプロジェクトを始める以前に、今までのものをもう一度見直してみる必要もあるのではありませんか。",
+          "transcription": "あたらしいぷろじぇくとをはじめるいぜんに、いままでのものをもういちどみなおしてみるひつようもあるのではありませんか。",
+          "mean": "Before starting a new project, don't you need to take another look at your old one?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-るいぜん"
+    }
+  ],
+  "title": "... いぜん => Before, Not even, Before even, Precede, Far from",
+  "_id": "f2d618ceb0702f781ec83b7d4f0d7636"
+}

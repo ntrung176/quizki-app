@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5111,
+  "usages": [
+    {
+      "explain": "「だらけ」is used to describe a state of being full or covered entirely with something, making it very noticeable. It often conveys a (usually) negative attitude from the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "弟の部屋はゴミだらけだ。",
+          "transcription": "おとうとのへやはゴミだらけだ。",
+          "mean": "My brother's room is full of trash."
+        },
+        {
+          "content": "この手紙の日本語は間違いだらけだ。",
+          "transcription": "このてがみのにほんごはまちがいだらけだ。",
+          "mean": "The Japanese in this letter is full of mistakes."
+        },
+        {
+          "content": "泥だらけの手でパソコンを触らないで。",
+          "transcription": "どろだらけのてでパソコンをさわらないで。",
+          "mean": "Don't touch your computer with muddy hands."
+        },
+        {
+          "content": "海外旅行に行っても日本人だらけでがっかりした。",
+          "transcription": "かいがいりょこうにいってもにほんじんだらけでがっかりした。",
+          "mean": "When I traveled overseas, I was disappointed because there were so many Japanese people there."
+        },
+        {
+          "content": "彼の部屋はマンガだらけで、勉強の本は全然なかった。",
+          "transcription": "かれのへやはマンガだらけで、べんきょうのほんはぜんぜんなかった。",
+          "mean": "His room was full of manga, and there were no study books."
+        },
+        {
+          "content": "一人暮らしの彼氏の家に行ったら、ゴミだらけだった。",
+          "transcription": "ひとりぐらしのかれしのいえにいったら、ゴミだらけだった。",
+          "mean": "When I went to my boyfriend's house, where he lives alone, it was full of trash."
+        },
+        {
+          "content": "息子が傷だらけで帰ってきた。友達とケンカしたようだ。",
+          "transcription": "むすこがきずだらけでかえってきた。ともだちとケンカしたようだ。",
+          "mean": "My son came home with a lot of injuries. Looks like you had a fight with a friend."
+        },
+        {
+          "content": "何度も引っ越しをしているので、家具が傷だらけになっている。",
+          "transcription": "なんどもひっこしをしているので、かぐがきずだらけになっている。",
+          "mean": "Since I have moved many times, my furniture is covered in scratches."
+        },
+        {
+          "content": "ちゃんと畳んでおかなかったから、服がしわだらけになってしまった。",
+          "transcription": "ちゃんとたたんでおかなかったから、ふくがしわだらけになってしまった。",
+          "mean": "I didn't fold my clothes properly, so my clothes were all wrinkled."
+        },
+        {
+          "content": "彼女は学生の間違いだらけの作文を家へ持ち帰して、いちいち直してやりました。",
+          "transcription": "かのじょはがくせいのまちがいだらけのさくぶんをいえへもちかえして、いちいちなおしてやりました。",
+          "mean": "She would take students' essays home that were full of mistakes and correct them one by one."
+        },
+        {
+          "content": "床は血だらけだった。",
+          "transcription": "ゆかはちだらけだった。",
+          "mean": "The floor was covered with blood."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+だらけ"
+    }
+  ],
+  "title": "だらけ => full of; covered with; a lot of (something undesirable)",
+  "_id": "c097a06a028e4136b4e0427d44d5ecc3"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5155,
+  "usages": [
+    {
+      "explain": "「から見ると/から見れば/から見て/から見ても」indicates the standpoint or perspective from which the speaker forms their thoughts or judgments.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本の習慣には、外国人から見ると、妙なものもあるだろう。",
+          "transcription": "にほんのしゅうかんには、がいこくじんからみると、みょうなものもあるだろう。",
+          "mean": "Some Japanese customs may seem strange to foreigners."
+        },
+        {
+          "content": "昔の人から見れば、現代人の生活リズムは速すぎるかも。",
+          "transcription": "むかしのひとからみれば、げんだいじんのせいかつリズムははやすぎるかも。",
+          "mean": "From the perspective of people from the past, the rhythm of modern life may be too fast."
+        },
+        {
+          "content": "ゴルフをしない者から見ると、何が面白いのか理解できない。",
+          "transcription": "ゴルフをしないものからみると、なにがおもしろいのかりかいできない。",
+          "mean": "People who don't play golf can't understand what's so funny about it."
+        },
+        {
+          "content": "あの様子から見て、彼は昨晩飲みすぎたようだ。",
+          "transcription": "あのようすからみて、かれはさくばんのみすぎたようだ。",
+          "mean": "Judging by his appearance, it seems like he drank too much last night."
+        },
+        {
+          "content": "明子さんは男性にも人気があるけど、女性から見ても魅力的だ。",
+          "transcription": "あきこさんはだんせいにもにんきがあるけど、じょせいからみてもみりょくてきです。",
+          "mean": "Akiko is popular with men, but she's also attractive to women."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N から+見ると<br/> N から+見れば<br/> N から+見て<br/> N から+見ても"
+    }
+  ],
+  "title": "から見ると/から見れば/から見て/から見ても => from the point of view of; by the look of; judging from ~",
+  "_id": "9249f300f2844bafb5379441a863fbac"
+}

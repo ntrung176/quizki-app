@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1982,
+  "usages": [
+    {
+      "explain": "姿を見せる（すがたをみせる）means: to come, to arrive, to appear, to show up.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女が姿を見せることは確実だ。",
+          "transcription": "かのじょがすがたをみせることはかくじつだ。",
+          "mean": "She is certain to turn up."
+        },
+        {
+          "content": "僕らは、彼が土曜の午後姿を見せるのを期待している。",
+          "transcription": "ぼくらは、かれがどようのごごすがたをみせるのをきたいしている。",
+          "mean": "We expect him to show up on Saturday afternoon."
+        }
+      ],
+      "mean": null,
+      "synopsis": "姿を見せる"
+    }
+  ],
+  "title": "姿を見せる =>  figure; appearance",
+  "_id": "f7ff14dae05876cac58b413693c1d785"
+}

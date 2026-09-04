@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 2178,
+  "usages": [
+    {
+      "explain": "Accepts the preceding sentence or the words of the interlocutor, and expresses the meaning \"if considering the situation, the truth is like that\", \"if that is the case\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "台風の上陸と満潮の時刻が重なるらしい。だとしたら、沿岸では厳重な警戒が必要になる。",
+          "transcription": "たいふうのじょうりくとまんちょうのじこくがかさなるらしい。だとしたら、えんがんではげんじゅうなけいかいがひつようになる。",
+          "mean": "It seems that the typhoon's landfall and high tide coincide. If this is the case, strict vigilance will be required along the coast."
+        }
+      ],
+      "mean": null,
+      "synopsis": "(そう) + だとしたら"
+    }
+  ],
+  "title": "だとしたら => in the case of~; assuming~; if A then B",
+  "_id": "f7ff14dae05876cac58b413693dd1a7d"
+}

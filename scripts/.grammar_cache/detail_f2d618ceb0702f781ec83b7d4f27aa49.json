@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2727,
+  "usages": [
+    {
+      "explain": "Used with question words like「だれ/なに/どれ/どこ/いつ」to express \"whichever/whatever/wherever/whenever\" situation. When used with affirmative sentences, it means \"in all cases,\" and with negative sentences, it means \"none at all.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女がだれであるかだれも知らない。",
+          "transcription": "かのじょがだれであるかだれもしらない。",
+          "mean": "No one knows who she is."
+        },
+        {
+          "content": "偶然に生じるものはなにもない。",
+          "transcription": "ぐうぜんにしょうじるものはなにもない。",
+          "mean": "Nothing happens by chance."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative word＋(particle) + も"
+    }
+  ],
+  "title": "Nghi vấn từ＋(trợ từ) + も => Also (affirmative),...both (negative)",
+  "_id": "f2d618ceb0702f781ec83b7d4f27aa49"
+}

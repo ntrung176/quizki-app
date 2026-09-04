@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 2065,
+  "usages": [
+    {
+      "explain": "To express the meaning \"assuming it to be so\" for something that is not confirmed or is contrary to fact.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ロンドンならこんなに安い家賃で部屋は借りられません。",
+          "transcription": "ろんどんならこんなにやすいやちんでへやはかりられません。",
+          "mean": "You can't rent a room in London for such a low rent."
+        },
+        {
+          "content": "私はあなたなら、そんな馬鹿なことをしなかった。",
+          "transcription": "わたしはあなたなら、そんなばかなことをしなかった。",
+          "mean": "I wouldn't have done such a stupid thing if it were you."
+        },
+        {
+          "content": "土曜日はいい天気なら旅行に行きましょう。",
+          "transcription": "どようびはいいてんきならりょこうにいきましょう。",
+          "mean": "If the weather is nice on Saturday, let's go on a trip."
+        },
+        {
+          "content": "このまま経済危機が続くなら失業問題は悪化になる。",
+          "transcription": "このままけいざいききがつづくならしつぎょうもんだいはあっかになる。",
+          "mean": "If the economic crisis continues, the unemployment problem will worsen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N / Na + (だった) なら (ば) <br/>A-い / A-かった + なら (ば) <br/>V-る / V-た + なら (ば)"
+    }
+  ],
+  "title": "なら (ば) => if; in case; if it is the case that; if it is true that",
+  "_id": "f7ff14dae05876cac58b413693cd35b1"
+}

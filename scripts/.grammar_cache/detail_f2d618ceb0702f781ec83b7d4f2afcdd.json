@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2760,
+  "usages": [
+    {
+      "explain": "Used when asking someone to do something beneficial for a third party. In cases where the third party is someone related to the speaker, we often use 「…てやってくれ／くれないか／ください」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ケーキを作りすぎたので、おじいさんに持っていってあげて下さい。",
+          "transcription": "けーきをつくりすぎたので、おじいさんにもっていってあげてください。",
+          "mean": "I made too much cake, so please take it to grandpa."
+        },
+        {
+          "content": "大翔くん、今度の日曜日、暇だったら真理子さんの引っ越しを手伝ってあげてくれない？私、用事があってどうしても行けないのよ。",
+          "transcription": "ひろとくん、こんどのにちようび、ひまだったらまりこさんのひっこしをてつだってあげてくれない？わたし、ようじがあってどうしてもいけないのよ。",
+          "mean": "Daisho-kun, if you have free time next Sunday, would you mind helping Mariko move? I have something to do so I can't go."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-てあげてください"
+    }
+  ],
+  "title": "...てあげてください => to do for; to do a favor",
+  "_id": "f2d618ceb0702f781ec83b7d4f2afcdd"
+}

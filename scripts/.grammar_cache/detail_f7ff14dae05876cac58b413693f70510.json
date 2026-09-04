@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2367,
+  "usages": [
+    {
+      "explain": "Used to talk about the stance, status, type, perspective, function, etc., of a certain object.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この病気は難病として認定された。",
+          "transcription": "このびょうきはなんびょうとしてにんていされた。",
+          "mean": "This disease was recognized as an incurable disease."
+        },
+        {
+          "content": "私はコーヒーカップを花びんとして使っています。",
+          "transcription": "わたしはコーヒーカップをかびんとしてつかっています。",
+          "mean": "I use a coffee cup as a vase."
+        },
+        {
+          "content": "社長の代理として会議に出席した。",
+          "transcription": "しゃちょうのだいりとしてかいぎにしゅっせきした。",
+          "mean": "Attended the meeting on behalf of the president."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N ＋ として"
+    }
+  ],
+  "title": "として => as; in the role of ~",
+  "_id": "f7ff14dae05876cac58b413693f70510"
+}

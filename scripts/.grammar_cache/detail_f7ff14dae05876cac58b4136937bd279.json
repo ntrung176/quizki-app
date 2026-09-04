@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1472,
+  "usages": [
+    {
+      "explain": "Comes after a noun, used to emphasize a certain event that is more important or needs to be done before the event represented by the preceding noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "挨拶ははとにかくとして、さっそく会議の本題に入りましょう。",
+          "transcription": "あいさつははとにかくとして、さっそくかいぎのほんだいにはいりましょう。",
+          "mean": "With the greetings out of the way, let's get to the main topic of the meeting."
+        },
+        {
+          "content": "値段はとにかく、デザインのほうが気に入った。",
+          "transcription": "ねだんはとにかく、でざいんのほうがきにいった。",
+          "mean": "Regardless of the price, I liked the design better."
+        },
+        {
+          "content": "あの女優は、顔ははとにかくとして演技がすばらしい。",
+          "transcription": "あのじょゆうは、かおははとにかくとしてえんぎがすばらしい。",
+          "mean": "That actress has a great face and great acting skills."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～はとにかく（として）"
+    }
+  ],
+  "title": "はとにかく (として) => setting aside, regardless of",
+  "_id": "f7ff14dae05876cac58b4136937bd279"
+}

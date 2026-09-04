@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 723,
+  "usages": [
+    {
+      "explain": "上（じょう）expresses the meaning \"in that respect\", \"from that perspective\". This is a formal way of speaking.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "彼は健康上の理由で会社を辞めた。",
+          "transcription": "かれはけんこうじょうのりゆうでかいしゃをやめた。",
+          "mean": "He left the company for health reasons."
+        },
+        {
+          "content": "日本では１５歳での結婚は法律上認められない。",
+          "transcription": "にっぽんではいちごさいでのけっこんはほうりつじょうみとめられない。",
+          "mean": "In Japan, marriage at the age of 15 is not legally recognized."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + じょう"
+    }
+  ],
+  "title": "上 => In terms of...",
+  "_id": "f7ff14dae05876cac58b4136931431ea"
+}

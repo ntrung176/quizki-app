@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2268,
+  "usages": [
+    {
+      "explain": "「むりに」acts as an adverb, expressing the effort to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "友達が映画を見に行きたくないと言ったが私は無理に誘った。",
+          "transcription": "ともだちがえいがをみにいきたくないといったがわたしはむりにさそった。",
+          "mean": "My friend said he didn't want to go see a movie, but I forced him to invite me."
+        },
+        {
+          "content": "この車は窓を壊して無理に開けようとすると盗難防止アラームが鳴るようになっています。",
+          "transcription": "このくるまはまどをこわしてむりにあけようとするととうなんぼうしあらーむがなるようになっています。",
+          "mean": "This car has an anti-theft alarm that goes off if you try to break the window and force it open."
+        }
+      ],
+      "mean": null,
+      "synopsis": "むりに + V"
+    }
+  ],
+  "title": "むりに => Try to..., make an effort to...",
+  "_id": "f7ff14dae05876cac58b413693e9e0af"
+}

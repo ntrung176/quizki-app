@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5506,
+  "usages": [
+    {
+      "explain": "「くする/にする」 expresses the idea of making an object or situation possess a quality similar to that indicated by adjective A or attain a state similar to that indicated by verb V.",
+      "note": null,
+      "examples": [
+        {
+          "content": "テレビの音を大きくする。",
+          "transcription": "テレビのおとをおおきくする。",
+          "mean": "Make the TV sound louder."
+        },
+        {
+          "content": "うちの会社をもっと良くしたい。",
+          "transcription": "うちのかいしゃをもっとよくしたい。",
+          "mean": "I want to make our company better."
+        },
+        {
+          "content": "運動をして、体を強くしましょう。",
+          "transcription": "うんどうをして、からだをつよくしましょう。",
+          "mean": "Exercise and make your body stronger."
+        },
+        {
+          "content": "電気をつけて、部屋を明るくしましょう。",
+          "transcription": "でんきをつけて、へやをあかるくしましょう。",
+          "mean": "Turn on the light and brighten the room."
+        },
+        {
+          "content": "あと５００円安くしてくれたら、買いますよ。",
+          "transcription": "あとごひゃくえんやすくしてくれたら、かいますよ。",
+          "mean": "If you can make it 500 yen cheaper, I'll buy it."
+        },
+        {
+          "content": "部屋が暑いので、エアコンをつけて涼しくします。",
+          "transcription": "へやがあついので、エアコンをつけてすずしくします。",
+          "mean": "The room is hot, so I turn on the air conditioner to cool it down."
+        },
+        {
+          "content": "このコーヒーは苦すぎるので、砂糖を入れて甘くします。",
+          "transcription": "このコーヒーはにがすぎるので、さとうをいれてあまくします。",
+          "mean": "This coffee is too bitter, so I add sugar to make it sweeter."
+        },
+        {
+          "content": "教室が汚いので、掃除してきれいにしましょう。",
+          "transcription": "きょうしつがきたないので、そうじしてきれいにしましょう。",
+          "mean": "The classroom is dirty, so let's clean it up and make it tidy."
+        },
+        {
+          "content": "君を幸せにするから、僕と結婚してください。",
+          "transcription": "きみをしあわせにするから、ぼくとけっこんしてください。",
+          "mean": "I will make you happy, so please marry me."
+        },
+        {
+          "content": "スマホの設定を変えて、寝ている間はスマホが鳴らないようにしています。",
+          "transcription": "スマホのせっていをかえて、ねているあいだはスマホがならないようにしています。",
+          "mean": "I changed the settings on my smartphone so that it doesn't ring while I'm sleeping."
+        },
+        {
+          "content": "長い間空き家だったその家をきれいにして、人が住めるようにしました。",
+          "transcription": "ながいあいだあきやだったそのいえをきれいにして、ひとがすめるようにしました。",
+          "mean": "The house, which had been vacant for a long time, was cleaned up and made habitable."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>く+する<br/> A<s>な</s>に+する<br/>\nV (root form)/Vない+ようにする"
+    }
+  ],
+  "title": "くする/にする/ようにする => to make something ~, to decide on, to try to; to make sure that ~",
+  "_id": "09d86f9949a241888610ce65e4ddd9f8"
+}

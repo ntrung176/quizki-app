@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1296,
+  "usages": [
+    {
+      "explain": "事と次第によって (こととしだいによって) is used as the first step in deciding something important when it's uncertain how the situation will unfold.",
+      "note": null,
+      "examples": [
+        {
+          "content": "事と次第によって 、戦略を調整する。",
+          "transcription": "こととしだいによって、せんりゃくをちょうせいする。",
+          "mean": "Adjust your strategy depending on the situation."
+        },
+        {
+          "content": "事と次第によって は、その会社との契約を解約しなければならなくなるかもしれない。<br><br><br><br>",
+          "transcription": "こととしだいによって は、そのかいしゃとのけいやくをかいやくしなければならなくなるかもしれない。<br><br><br><br>",
+          "mean": "Depending on the circumstances, you may have to cancel your contract with the company. &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;"
+        }
+      ],
+      "mean": null,
+      "synopsis": "事と次第によって"
+    }
+  ],
+  "title": "事と次第によって => Depending on the progress of the situation",
+  "_id": "f7ff14dae05876cac58b41369362b0e8"
+}

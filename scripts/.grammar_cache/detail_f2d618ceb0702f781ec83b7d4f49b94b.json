@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3001,
+  "usages": [
+    {
+      "explain": "Indicates a high probability of occurrence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はこの理髪店によく来る。",
+          "transcription": "かれはこのりはつてんによくくる。",
+          "mean": "He often comes to this barber shop."
+        },
+        {
+          "content": "私はよく日本へ出張するが、まだ一度も富士山に行ったことがない。",
+          "transcription": "わたしはよくにっぽんへしゅっちょうするが、まだいちどもふじさんにいったことがない。",
+          "mean": "I often travel to Japan on business, but I have never been to Mt. Fuji."
+        },
+        {
+          "content": "子供のときはよく一人で川で遊んだものだ。",
+          "transcription": "こどものときはよくいちにんでかわであそんだものだ。",
+          "mean": "When I was a child, I often played by myself in the river."
+        }
+      ],
+      "mean": null,
+      "synopsis": "よく + V"
+    }
+  ],
+  "title": "よく => Often...",
+  "_id": "f2d618ceb0702f781ec83b7d4f49b94b"
+}

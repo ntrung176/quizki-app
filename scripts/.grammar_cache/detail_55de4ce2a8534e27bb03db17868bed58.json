@@ -1,0 +1,46 @@
+{
+  "level": "N4",
+  "mobileId": 5507,
+  "usages": [
+    {
+      "explain": "The word 「まだ」in Japanese is used to describe an action or a state that is still ongoing. When it is in the form of 「まだVている」, it means the action/state is still ongoing in the present. However, when it is in the form of 「まだVていた」, it indicates that the action/state, while different now, has occurred in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "まだ一時間があるよ。",
+          "transcription": "まだいちじかんがあるよ。",
+          "mean": "There's still an hour left."
+        },
+        {
+          "content": "まだ雨が降っています。",
+          "transcription": "まだあめがふっています。",
+          "mean": "It's still raining."
+        },
+        {
+          "content": "3月なのにまだ寒いですね。",
+          "transcription": "さんがつなのにまださむいですね。",
+          "mean": "Even though it's March, it's still cold."
+        },
+        {
+          "content": "彼は40歳になったけどまだ若く見えるね。",
+          "transcription": "かれはよんじゅっさいになったけどまだわかくみえるね。",
+          "mean": "He's 40 years old but still looks young."
+        },
+        {
+          "content": "もう午後の2時だよ。あなたはまだ寝ているの？",
+          "transcription": "もうごごのにじだよ。あなたはまだねているの？",
+          "mean": "It's already 2 o'clock in the afternoon. are you still sleeping?"
+        },
+        {
+          "content": "まだ彼が生きていたとき、週末に釣りに行った。",
+          "transcription": "まだかれがいきていたとき、しゅうまつにつりにいった。",
+          "mean": "When he was still alive, we went fishing on the weekends."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まだ+V (affirmative sentence)"
+    }
+  ],
+  "title": "まだ => still; not yet",
+  "_id": "55de4ce2a8534e27bb03db17868bed58"
+}

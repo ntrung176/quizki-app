@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2368,
+  "usages": [
+    {
+      "explain": "Indicates the meaning of \"a state that one would normally expect to have changed by now, yet it still continues up to the present moment.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "古い信仰が今だに広く行われていることがある。",
+          "transcription": "ふるいしんこうがいまだにひろくおこなわれていることがある。",
+          "mean": "An old belief is sometimes still widely current."
+        },
+        {
+          "content": "そのレストランは客もめっきり減ってしまったが、いまだにがんばって経営を続けている。",
+          "transcription": "そのれすとらんはきゃくもめっきりへってしまったが、いまだにがんばってけいえいをつづけている。",
+          "mean": "Although the number of customers at the restaurant has decreased significantly, it is still doing its best to continue running the business."
+        },
+        {
+          "content": "父方の祖母が亡くなって5年もたつというのに、いまだに父方の祖母宛の年賀状が何通か届く。",
+          "transcription": "ちちかたのそぼがなくなって5ねんもたつというのに、いまだにちちかたのそぼあてのねんがじょうがなんつうかとどく。",
+          "mean": "Even though it has been five years since my paternal grandmother passed away, I still receive several New Year's cards addressed to her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いまだに is used by the speaker to express an unusual event that lasts until the moment of speaking."
+    }
+  ],
+  "title": "いまだに => still, even now, until this very day",
+  "_id": "f7ff14dae05876cac58b413693f71d1b"
+}

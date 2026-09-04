@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2085,
+  "usages": [
+    {
+      "explain": "To describe a state where \"something has not changed for a long time.\" It is similar in meaning to 「未だに」 (still not up to now).",
+      "note": null,
+      "examples": [
+        {
+          "content": "先月の問題はいぜん解決されないままになっている。",
+          "transcription": "せんげつのもんだいはいぜんかいけつされないままになっている。",
+          "mean": "Last month's problems remain unresolved."
+        },
+        {
+          "content": "裁判ざたになっているにも関わらず、あの人は依然自分は何も知らないと言い張っている。",
+          "transcription": "さいばんざたになっているにもかかわらず、あのひとはいぜんじぶんはなにもしらないといいはっている。",
+          "mean": "Even though the case is going to trial, the man still insists that he doesn't know anything."
+        },
+        {
+          "content": "新駅の建設工事は、依然として再開されていない。",
+          "transcription": "しんえきのけんせつこうじは、いぜんとしてさいかいされていない。",
+          "mean": "Construction work on the new station has not yet resumed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いぜん (依然) is a written, idiomatic way of speaking."
+    }
+  ],
+  "title": "いぜん (依然) => still, as yet, as it has been",
+  "_id": "f7ff14dae05876cac58b413693cfc5e1"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3132,
+  "usages": [
+    {
+      "explain": "✦ Since ~, this has been obtained (previously it did not exist).",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは、専門家の田中さんにしてはじめて気づく問題だ。",
+          "transcription": "これは、せんもんかのたなかさんにしてはじめてきづくもんだいだ。",
+          "mean": "This is a problem that only Mr. Tanaka, an expert, noticed."
+        },
+        {
+          "content": "３５歳にしてはじめて彼女ができました。",
+          "transcription": "３５さいにしてはじめてかのじょができました。",
+          "mean": "I got my first girlfriend when I was 35 years old."
+        },
+        {
+          "content": "この写真は、プロカメラマンの彼にしてはじめて撮れる写真だ。",
+          "transcription": "このしゃしんは、プロカメラマンのかれにしてはじめてとれるしゃしんだ。",
+          "mean": "This photo was the first one he was able to take as a professional photographer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N ＋ にしてはじめて"
+    }
+  ],
+  "title": "～にしてはじめて      => since at ~",
+  "_id": "93020c54469e582d6fdb16f7ba9fe446"
+}

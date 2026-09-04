@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2361,
+  "usages": [
+    {
+      "explain": "Used to express a feeling of revelation or understanding when discovering the truth helps explain something that was previously unclear.",
+      "note": null,
+      "examples": [
+        {
+          "content": "暑いはずです。夏はもう来ました。",
+          "transcription": "あついはずです。なつはもうきました。",
+          "mean": "It must be hot. Summer is already here."
+        },
+        {
+          "content": "さっきから道が妙にすいていると思っていたが、すいているはずだ。今日は元日だ。",
+          "transcription": "さっきからみちがみょうにすいているとおもっていたが、すいているはずだ。きょうはがんじつだ。",
+          "mean": "I had been thinking that the road had been strangely empty for a while, but it should have been empty. Today is New Year's Day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + はず\nNaな + はず\nA + はず\nV + はず"
+    }
+  ],
+  "title": "... はず => it must be; it should be (expectation)",
+  "_id": "f7ff14dae05876cac58b413693f6574c"
+}

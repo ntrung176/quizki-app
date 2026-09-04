@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 2175,
+  "usages": [
+    {
+      "explain": "Used to express surprise at an unexpected event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "高級ブランドのバッグが簡単に壊れるとは偽物だったのかな。",
+          "transcription": "こうきゅうぶらんどのばっぐがかんたんにこわれるとはにせものだったのかな。",
+          "mean": "I wonder if it was a fake that a luxury brand bag breaks easily."
+        },
+        {
+          "content": "一枚だけ買った宝くじが当たるとは夢を見ているようだ。",
+          "transcription": "いちまいだけかったたからくじがあたるとはゆめをみているようだ。",
+          "mean": "It's like dreaming that you only bought one lottery ticket and won."
+        },
+        {
+          "content": "一ヶ月で5キロも太るとは一体何を食べたんだ。",
+          "transcription": "いちかげつで5きろもふとるとはいったいなにをたべたんだ。",
+          "mean": "What on earth did I eat to gain 5 kg in one month?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "～とは"
+    }
+  ],
+  "title": "…とは => I was surprised that",
+  "_id": "f7ff14dae05876cac58b413693dcb7b4"
+}

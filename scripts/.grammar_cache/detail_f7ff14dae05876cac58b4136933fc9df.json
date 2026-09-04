@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1039,
+  "usages": [
+    {
+      "explain": "Expresses the idea that even if this method or another method is applied, it will not make the desired outcome happen.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どう口説いてみても、部長の意見を変えさせることはできなかった。",
+          "transcription": "どうくどいてみても、ぶちょうのいけんをかえさせることはできなかった。",
+          "mean": "No matter how I tried to persuade him, I couldn't get the manager to change his opinion."
+        },
+        {
+          "content": "どう計算してみても、駅へ着くまで５時間はかかる。",
+          "transcription": "どうけいさんしてみても、えきへつくまでごじかんはかかる。",
+          "mean": "No matter how you calculate it, it will take five hours to reach the station."
+        },
+        {
+          "content": "どう頑張っても、前を走っているトラックを追い越すのは無理だと思った。",
+          "transcription": "どうがんばっても、まえをはしっているとらっくをおいこすのはむりだとおもった。",
+          "mean": "No matter how hard I tried, I thought it would be impossible to overtake the truck in front of me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どう + Vても"
+    }
+  ],
+  "title": "どう～ても => no matter what; at any cost; after all ~.",
+  "_id": "f7ff14dae05876cac58b4136933fc9df"
+}

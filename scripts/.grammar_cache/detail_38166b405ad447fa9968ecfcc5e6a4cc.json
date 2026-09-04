@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5419,
+  "usages": [
+    {
+      "explain": "「それと」is used to add additional quantity of objects, people, or additional points in general.",
+      "note": null,
+      "examples": [
+        {
+          "content": "レタス1つとトマト３個ください。それと、ピーマンも１袋ください。",
+          "transcription": "レタスひとつとトマトさんこください。それと、ピーマンもひとふくろください。",
+          "mean": "One lettuce and three tomatoes, please. Also, please give me a bag of green peppers."
+        },
+        {
+          "content": "名前を書きましたか。それと、ID番号も忘れずに書いてください。",
+          "transcription": "なまえをかきましたか。それと、アイディばんごうもわすれずにかいてください。",
+          "mean": "Did you write your name? Also, don't forget to write down your ID number."
+        },
+        {
+          "content": "掃除をして、洗濯をして、買い物をして、あと料理をしてください。",
+          "transcription": "そうじをして、せんたくをして、かいものをして、あとりょうりをしてください。",
+          "mean": "Clean, do laundry, shop, and cook."
+        },
+        {
+          "content": "言われたことはしました。あと、何をすればいいですか。",
+          "transcription": "いわれたことはしました。あと、なにをすればいいですか。",
+          "mean": "I did what I was told. What else should I do?"
+        },
+        {
+          "content": "『今日はこれで全員かな。』『あと、田中さんが来ると思います。』",
+          "transcription": "『きょうはこれでぜんいんかな。』『あと、たなかさんがくるとおもいます。』",
+          "mean": "``I guess that's all for today. ``Also, I think Mr. Tanaka will come.'' ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A 。それと、 B<br/>A。あと、B"
+    }
+  ],
+  "title": "それと/あと => and then, and, also",
+  "_id": "38166b405ad447fa9968ecfcc5e6a4cc"
+}

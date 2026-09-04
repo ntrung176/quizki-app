@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5539,
+  "usages": [
+    {
+      "explain": "「使役形」is the causative form of a verb, indicating one of two main meanings: \"to force\" or \"to allow.\" It is used in cases where the relationship between the subject and the object is clear, such as superiors and subordinates, parents and children, etc. Here, the superior compels or permits the subordinate to do something.<br/>\n\n* Note: When someone within a group (for example, colleagues in a company) tells someone outside the group to have someone else in the same group do something, the causative form is used regardless of the hierarchical relationship.<br/>\nExample: 空港に着いたら、お電話をください。係の者を迎えに行かせますから。(When you arrive at the airport, please give me a call. I will have someone come to pick you up.) Here, the speaker and the person being sent to pick up do not necessarily have a superior-subordinate relationship.\n<br/>Additionally, the 「使役形」is also used with several other meanings such as: arousing emotions (making someone feel something); self-reproach (unintentionally causing someone/something to perform an action or fall into an undesirable situation); assistance; indicating a reason; leaving something undone. The pairs of subjects and objects in these meanings do not necessarily have a superior-subordinate relationship.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は子供を歩かせます。",
+          "transcription": "わたしはこどもをあるかせます。",
+          "mean": "I walk the child."
+        },
+        {
+          "content": "私は息子を自由に遊ばせました。",
+          "transcription": "わたしはむすこをじゆうにあそばせました。",
+          "mean": "I let my son play freely."
+        },
+        {
+          "content": "母は私に自分の部屋を片付けさせた。",
+          "transcription": "はははわたしにじぶんのへやをかたづけさせた。",
+          "mean": "My mother made me clean my room."
+        },
+        {
+          "content": "もう少し考えさせてくれませんか。",
+          "transcription": "もうすこしかんがえさせてくれませんか。",
+          "mean": "Could you please let me think about it a little more?"
+        },
+        {
+          "content": "先生は学生に自由に意見を言わせました。",
+          "transcription": "せんせいはがくせいにじゆうにいけんをいわせました。",
+          "mean": "The teacher allowed the students to express their opinions freely."
+        },
+        {
+          "content": "山田課長は佐藤さんを名古屋へ出張させます。",
+          "transcription": "やまだかちょうはさとうさんをなごやへしゅっちょうさせます。",
+          "mean": "Manager Yamada sends Mr. Sato on a business trip to Nagoya."
+        },
+        {
+          "content": "病気にならないように、子供を運動させました。",
+          "transcription": "びょうきにならないように、こどもをうんどうさせました。",
+          "mean": "I made my kids exercise so they wouldn't get sick."
+        },
+        {
+          "content": "お皿を割って、お母さんを怒らせた。",
+          "transcription": "おさらをわって、おかあさんをおこらせた。",
+          "mean": "I broke a plate and made my mom angry."
+        },
+        {
+          "content": "水をあげるのを忘れて、花を枯れさせてしまった。",
+          "transcription": "みずをあげるのをわすれて、はなをかれさせてしまった。",
+          "mean": "I forgot to water the flowers and they withered."
+        },
+        {
+          "content": "病気のお母さんにご飯を食べさせてあげる。",
+          "transcription": "びょうきのおかあさんにごはんをたべさせてあげる。",
+          "mean": "I will feed my sick mother."
+        },
+        {
+          "content": "地震が彼女にケガをさせた。",
+          "transcription": "じしんがかのじょにケガをさせた。",
+          "mean": "The earthquake injured her."
+        },
+        {
+          "content": "冷蔵庫でプリンを固まらせる。",
+          "transcription": "れいぞうこでプリンをかたまらせる。",
+          "mean": "Let the pudding harden in the refrigerator."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group 1: (い)ます ➔ (あ)せます (Eg: 行きます ➔ 行かせます)<br/> Nhóm 2: (え)ます ➔ (え)させます (Eg食べます ➔ 食べさせます)<br/>Group 3: します ➔ させます (Eg: 勉強します ➔ 勉強させます)<br/> きます ➔ こさせます (Eg: 学校へきます ➔ 学校へこさせます)"
+    }
+  ],
+  "title": "使役形 => Causative form",
+  "_id": "5ae0af330bfc4ce7bac75f9fd97e40c6"
+}

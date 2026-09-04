@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1765,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"if doing something, then another corresponding event will occur, corresponding to the degree of the previous event\". <br/><br/>It can be replaced by 「V-ば  V-るほど」. The form 「V-ば  V-るほど」 is more widely used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "甘いものを食べれば食べるだけ太っていく。",
+          "transcription": "あまいものをたべればたべるだけふとっていく。",
+          "mean": "The more you eat sweets, the more weight you gain."
+        },
+        {
+          "content": "この本は読めば読むだけ面白くなる。",
+          "transcription": "このほんはよめばよむだけおもしろくなる。",
+          "mean": "The more you read this book, the more interesting it becomes."
+        },
+        {
+          "content": "経済が成長すればするだけ貧富の差が広がっていく。",
+          "transcription": "けいざいがせいちょうすればするだけひんぷのさがひろがっていく。",
+          "mean": "As the economy grows, the gap between rich and poor widens."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ば + V-る + だけ"
+    }
+  ],
+  "title": "... だけ ... => as much as",
+  "_id": "f7ff14dae05876cac58b413693a341b4"
+}

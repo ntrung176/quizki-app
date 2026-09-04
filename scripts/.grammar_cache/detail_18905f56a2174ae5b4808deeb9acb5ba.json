@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5265,
+  "usages": [
+    {
+      "explain": "「たまらない」 expresses a strong emotion or physical sensation of the speaker that is so intense that it is \"unbearable\" or \"unendurable\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "暑くてたまらない。",
+          "transcription": "あつくてたまらない。",
+          "mean": "This heat is unbearable."
+        },
+        {
+          "content": "子供のことが心配でたまらない。",
+          "transcription": "こどものことがしんぱいでたまらない。",
+          "mean": "I can't help but worry about my child."
+        },
+        {
+          "content": "家族に会いたくてたまらない。",
+          "transcription": "かぞくにあいたくてたまらない。",
+          "mean": "I can't wait to see my family."
+        },
+        {
+          "content": "痛くてたまらない。",
+          "transcription": "いたくてたまらない。",
+          "mean": "I can't bear the pain."
+        },
+        {
+          "content": "この料理はまずくてたまらない。",
+          "transcription": "このりょうりはまずくてたまらない。",
+          "mean": "This dish is so bad I can't stand it."
+        },
+        {
+          "content": "昨日徹夜なので眠くてたまらない。",
+          "transcription": "きのうてつやなのでねむくてたまらない。",
+          "mean": "I stayed up all night yesterday so I'm sleepy."
+        },
+        {
+          "content": "今朝遅刻するかもしれないと思ったので、朝ご飯を食べずに早く学校に行きました。今何か食べたくてたまらない。",
+          "transcription": "けさちこくするかもしれないとおもったのであさごはんをたべずにはやくがっこうにいきました。いまなにかたべたくてたまらない。",
+          "mean": "I thought I might be late this morning, so I went to school early without having breakfast. I'm dying to eat something right now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>くて+たまらない<br/> A<s>な</s>で+たまらない<br/> Vたくて+たまらない"
+    }
+  ],
+  "title": "たまらない => can't help but; dying to; extremely ~",
+  "_id": "18905f56a2174ae5b4808deeb9acb5ba"
+}

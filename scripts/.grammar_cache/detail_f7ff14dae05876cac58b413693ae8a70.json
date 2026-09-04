@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1848,
+  "usages": [
+    {
+      "explain": "Conveys the meaning of \"...above all, more than anything\", synonymous with [なににもまして].",
+      "note": null,
+      "examples": [
+        {
+          "content": "生け花をする のがなにより得意です。",
+          "transcription": "いけばなをするのがなによりとくいです。",
+          "mean": "I am especially good at arranging flowers."
+        },
+        {
+          "content": "彼女の病気が治るかどうかが、なにより心配だ。",
+          "transcription": "かのじょのびょうきがなおるかどうかが、なによりしんぱいだ。",
+          "mean": "I'm most worried about whether her illness will be cured or not."
+        },
+        {
+          "content": "なにより嬉しかったのは、大学に合格できたことです。",
+          "transcription": "なによりうれしかったのは、だいがくにごうかくできたことです。",
+          "mean": "What made me most happy was that I was able to get into university."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにより"
+    }
+  ],
+  "title": "なにより => most,best,above all",
+  "_id": "f7ff14dae05876cac58b413693ae8a70"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 883,
+  "usages": [
+    {
+      "explain": "This grammar pattern uses the form 「A わけだから Bはとうぜんだ」 to assert that because A is true, it is natural or obvious that the result would be B.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんは何年ベトナム駐在員だったわけだから、ベトナム語が話せるのは当然だ。",
+          "transcription": "やまださんはなんねんべとなむちゅうざいいんだったわけだから、べとなむごがはなせるのはとうぜんだ。",
+          "mean": "Mr. Yamada was stationed in Vietnam for several years, so it is natural that he can speak Vietnamese."
+        },
+        {
+          "content": "あの社員は履歴を偽って会社を騙していたわけだから、解雇されたのは当然だ。",
+          "transcription": "あのしゃいんはりれきをいつわってかいしゃをだましていたわけだから、かいこされたのはとうぜんだ。",
+          "mean": "That employee was deceiving the company by lying about his resume, so it was only natural that he was fired."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・ A ・Naな・ Nの + わけだから...はとうぜんだ"
+    }
+  ],
+  "title": "わけだから...はとうぜんだ => Because, ..., it's only natural; no wonder; might as well ~",
+  "_id": "f7ff14dae05876cac58b4136932a88ff"
+}

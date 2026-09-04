@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3122,
+  "usages": [
+    {
+      "explain": "✦ Meaning: A is acceptable, but B is not possible. Or, A is available, but B is not.",
+      "note": null,
+      "examples": [
+        {
+          "content": "小学生ならいざ知らず、大学生がこんな簡単な計算ができないなんて信じられない。",
+          "transcription": "しょうがくせいならいざしらず、だいがくせいがこんなかんたんなけいさんができないなんてしんじられない。",
+          "mean": "Elementary school students don't know this, and I can't believe that university students can't do such simple calculations."
+        },
+        {
+          "content": "安いホテルならいざ知らず、一流ホテルでこんなにサービスが悪いなんて許せない。",
+          "transcription": "やすいほてるならいざしらず、いちりゅうほてるでこんなにさーびすがわるいなんてゆるせない。",
+          "mean": "I don't know about cheap hotels, but I can't tolerate such poor service at a first-class hotel."
+        },
+        {
+          "content": "祖父母の代ならいざ知らず、今の時代に「手ぬぐい」なんてあまり使わないよ。",
+          "transcription": "そふぼのだいならいざしらず、いまのじだいに「てぬぐい」なんてあまりつかわないよ。",
+          "mean": "My grandparents didn't know about it, but in this day and age, we don't use tenugui very often."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦A ＋ ならいざしらず, B..."
+    }
+  ],
+  "title": "～ならいざしらず      => I don't know about … but; it may be possible for … but ~ ...",
+  "_id": "93020c54469e582d6fdb16f7ba9e7afc"
+}

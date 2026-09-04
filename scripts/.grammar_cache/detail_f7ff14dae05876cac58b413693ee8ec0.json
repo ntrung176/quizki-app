@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2300,
+  "usages": [
+    {
+      "explain": "The verb at the end of the sentence is in the past tense, to express a situation contrary to reality after assuming that a past event didn't happen in reality, or assuming a state different from reality.",
+      "note": null,
+      "examples": [
+        {
+          "content": "必要であれば買った。",
+          "transcription": "ひつようであればかった。",
+          "mean": "I bought it if I needed it."
+        },
+        {
+          "content": "時間があればもっと案内したかったです。",
+          "transcription": "じかんがあればもっとあんないしたかったです。",
+          "mean": "I wish I had more time to show you around."
+        },
+        {
+          "content": "手当てが早ければ、彼女は助かっていた。",
+          "transcription": "てあてがはやければ、かのじょはたすかっていた。",
+          "mean": "If she had been treated quickly, she could have survived."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば V－た／V－ていた"
+    }
+  ],
+  "title": "…ば ... た => If ..., then would have",
+  "_id": "f7ff14dae05876cac58b413693ee8ec0"
+}

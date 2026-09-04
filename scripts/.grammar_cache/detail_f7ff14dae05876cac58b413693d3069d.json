@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2107,
+  "usages": [
+    {
+      "explain": "This expression conveys the typical characteristics, traits, or features of an object or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのようにふるまうとはいかにも彼らしい。",
+          "transcription": "そのようにふるまうとはいかにもかれらしい。",
+          "mean": "It's very typical of him to act like that."
+        },
+        {
+          "content": "木村さんはいかにもフランス語らしいフランス語を話す。",
+          "transcription": "きむらさんはいかにもふらんすごらしいふらんすごをはなす。",
+          "mean": "Mr. Kimura speaks French, which sounds very French."
+        },
+        {
+          "content": "遅刻するなんていかにも彼女らしいと思う。",
+          "transcription": "ちこくするなんていかにもかのじょらしいとおもう。",
+          "mean": "I think it's very typical of her to be late."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いかにも…らしい => indeed; really; truly",
+  "_id": "f7ff14dae05876cac58b413693d3069d"
+}

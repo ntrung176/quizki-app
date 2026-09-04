@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5080,
+  "usages": [
+    {
+      "explain": "「とあって」is used to express the idea that due to being in a particular special circumstance mentioned in the preceding clause, the action or event in the following clause occurs. This is often used in writing or news reports.<br/>\n\nNote: Because it refers to a specific situation, the preceding clause of 「とあって」does not go with events that occur regularly. On the other hand, as it refers to events that have already occurred or are happening, the following clause of 「とあって」does not go with expressions of will or speculation about the future such as 「でしょう」「だろう」「かもしれない」...",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は休日とあって、車の混雑が激しい。",
+          "transcription": "きょうはきゅうじつとあって、くるまのこんざつがはげしい。",
+          "mean": "Today is a holiday, so cars are very crowded."
+        },
+        {
+          "content": "久しぶりの再会とあって、彼らは何時間も話していた。",
+          "transcription": "ひさしぶりのさいかいとあって、かれらはなんじかんもはなしていた。",
+          "mean": "It had been a while since they had met again, and they talked for hours."
+        },
+        {
+          "content": "決勝戦とあって、その試合の入場券はすぐに売り切れた。",
+          "transcription": "けっしょうせんとあって、そのしあいのにゅうじょうけんはすぐにうりきれた。",
+          "mean": "Since it was the final game, tickets for the game sold out quickly."
+        },
+        {
+          "content": "アイドルが来日するとあって、空港にはファンがたくさん集まっていた。",
+          "transcription": "アイドルがらいにちするとあって、くうこうにはファンがたくさんあつまっていた。",
+          "mean": "Since the idol was coming to Japan, many fans had gathered at the airport."
+        },
+        {
+          "content": "彼は死線を潜り抜けてきたとあって、顔つきも人並みではない。",
+          "transcription": "かれはしせんをくぐりぬけてきたとあって、かおつきもひとなみではない。",
+          "mean": "He had been through the throes of death, and his face was not like that of a normal person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+とあって<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/> Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "とあって => because of",
+  "_id": "8333f46d6ba9412ebbcf3a439dbae3c2"
+}

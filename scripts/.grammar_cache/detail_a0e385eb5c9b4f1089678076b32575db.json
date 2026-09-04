@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5099,
+  "usages": [
+    {
+      "explain": "「ばかりだ」expresses a negative change or deterioration of a situation. It is used with verbs that indicate change such as なる (become), 上がる (rise), 下がる (fall), ていく (continue to). It can be replaced with 「～一方だ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "年をとると、記憶力は衰えるばかりだ。",
+          "transcription": "としをとると、きおくりょくはおとろえるばかりだ。",
+          "mean": "As we get older, our memory just declines."
+        },
+        {
+          "content": "この数年、生活は苦しくなるばかりだ。",
+          "transcription": "このすうねん、せいかつはくるしくなるばかりだ。",
+          "mean": "Life has only gotten harder over the past few years."
+        },
+        {
+          "content": "せっかく覚えた日本語も、使わなければ忘れていくばかりだ。",
+          "transcription": "せっかくおぼえたにほんごも、つかわなければわすれていくばかりだ。",
+          "mean": "Even the Japanese you have learned will be forgotten if you don't use it."
+        },
+        {
+          "content": "仕事も私生活もうまくいかない。ストレスがたまるばかりで、いやになってしまう。",
+          "transcription": "しごともしせいかつもうまくいかない。ストレスがたまるばかりで、いやになってしまう。",
+          "mean": "My work and personal life are not going well. It's just stressful and I don't like it."
+        },
+        {
+          "content": "仕事は減るし、物価が上がるばかりで、生活は楽にならない。",
+          "transcription": "しごとはへるし、ぶっかがあがるばかりで、せいかつはらくにならない。",
+          "mean": "Jobs are decreasing, prices are rising, and life is not getting any easier."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ばかりだ"
+    }
+  ],
+  "title": "ばかりだ => continue to (go in negative direction)",
+  "_id": "a0e385eb5c9b4f1089678076b32575db"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1066,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"unable to proceed with that, it is not possible to happen\". It is not used to talk about one's own ability. The negative form is only read as えない, not えません.",
+      "note": null,
+      "examples": [
+        {
+          "content": "人間が１００メートルを５秒で走ることはあり得ない。",
+          "transcription": "にんげんがいちぜろぜろめーとるをごびょうではしることはありえない。",
+          "mean": "It is impossible for a human to run 100 meters in 5 seconds."
+        },
+        {
+          "content": "ブラジルのチームが失敗することはありえない。",
+          "transcription": "ぶらじるのちーむがしっぱいすることはありえない。",
+          "mean": "It is impossible for the Brazilian team to fail."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます + 得ない"
+    }
+  ],
+  "title": "得ない => unable to; cannot; it is not possible to ~",
+  "_id": "f7ff14dae05876cac58b413693436b5b"
+}

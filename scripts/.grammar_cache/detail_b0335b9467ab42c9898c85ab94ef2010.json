@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5144,
+  "usages": [
+    {
+      "explain": "「かえって」is used to express a result that is contrary to what was predicted or expected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "幸福のためにじたばたすると、かえって不幸になりやすい。",
+          "transcription": "こうふくのためにじたばたすると、かえってふこうになりやすい。",
+          "mean": "If you struggle for happiness, you are more likely to become unhappy."
+        },
+        {
+          "content": "それはかえって言わずにおく方がよい。",
+          "transcription": "それはかえっていわずにおくほうがよい。",
+          "mean": "It would be better to leave it unsaid."
+        },
+        {
+          "content": "彼は手助けどころか、かえって邪魔になった。",
+          "transcription": "かれはてだすけどころか、かえってじゃまになった。",
+          "mean": "He was more of a hindrance than a help."
+        },
+        {
+          "content": "彼女は瘦せるどころか、かえって体重が増えた。",
+          "transcription": "かのじょはやせるどころか、かえってたいじゅうがふえた。",
+          "mean": "Instead of losing weight, she actually gained weight."
+        },
+        {
+          "content": "タクシーに乗ったら電車よりかえって時間が掛かった。",
+          "transcription": "タクシーにのったらでんしゃよりかえってじかんがかかった。",
+          "mean": "Taking a taxi took longer than taking the train."
+        },
+        {
+          "content": "親切で言ったつもりだが、かえって怒らせてしまったようだ。",
+          "transcription": "しんせつでいったつもりだが、かえっておこらせてしまったようだ。",
+          "mean": "I thought I was being kind, but I think I ended up making her angry."
+        },
+        {
+          "content": "ウイルスの影響でビジネスは利益を上げるどころか、かえって大損だった。",
+          "transcription": "ウイルスのえいきょうでビジネスはりえきをあげるどころか、かえっておおぞんだった。",
+          "mean": "Rather than making a profit due to the virus, the business suffered a huge loss."
+        },
+        {
+          "content": "別の道で行ったら学校に早く着くと思ったら、かえっていつもと変わらない。",
+          "transcription": "べつのみちでいったらがっこうにはやくつくとおもったら、かえっていつもとかわらない。",
+          "mean": "I thought I would get to school faster if I took a different route, but instead it was just the same as usual."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence 1+かえって+Sentence 2"
+    }
+  ],
+  "title": "かえって => on the contrary",
+  "_id": "b0335b9467ab42c9898c85ab94ef2010"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 806,
+  "usages": [
+    {
+      "explain": "✦ Used to express two simultaneous states of the same object or event. It has a similar meaning to [そして] (and). <br/> ✦ Has a literary quality. <br/> ✦ In spoken language, often used in the form […て], such as [必要で十分] (necessary and sufficient), [騒いで飲む] (talk loudly and drink).",
+      "note": null,
+      "examples": [
+        {
+          "content": "これで、福祉会館建設に関する議案を提出するのに必要かつ十分な条件が整った。",
+          "transcription": "これで、ふくしかいかんけんせつにかんするぎあんをていしゅつするのにひつようかつじゅうぶんなじょうけんがととのった。",
+          "mean": "The necessary and sufficient conditions are now in place to submit a proposal regarding the construction of a welfare center."
+        },
+        {
+          "content": "今回の大胆かつ巧妙な手口の犯行は犯人像を割り出す手がかりになるものと思われる。",
+          "transcription": "こんかいのだいたんかつこうみょうなてぐちのはんこうははんにんぞうをわりだすてがかりになるものとおもわれる。",
+          "mean": "It is believed that the bold and clever method used in this crime will provide clues to the identity of the culprit."
+        },
+        {
+          "content": "その知らせを聞いて一同皆驚きかつ喜び、中には涙を流す者さえいた。",
+          "transcription": "そのしらせをきいていちどうかいおどろきかつよろこび、なかにはなみだをながすものさえいた。",
+          "mean": "When they heard the news, they were all surprised and overjoyed, and some even shed tears."
+        },
+        {
+          "content": "我々は久しぶりの再会に、陽気に騒ぎかつ大いに飲み、時間のたつのも忘れた。",
+          "transcription": "われわれはひさしぶりのさいかいに、ようきにさわぎかつおおいにのみ、じかんのたつのもわすれた。",
+          "mean": "We met again for the first time in a long time, made a lot of noise, drank a lot, and lost track of time."
+        },
+        {
+          "content": "彼は私の親友であり、かつライバルでもある。",
+          "transcription": "かれはわたしのしんゆうであり、かつライバルでもある。",
+          "mean": "He is my best friend and also my rival."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦N (であり) かつ + N <br/></div><div>✦A - Na かつ + A - Na </div><div>✦Vます + かつ + V</div><div><br/></div>"
+    }
+  ],
+  "title": "～且つ（かつ） => and",
+  "_id": "f7ff14dae05876cac58b4136931fbb5d"
+}

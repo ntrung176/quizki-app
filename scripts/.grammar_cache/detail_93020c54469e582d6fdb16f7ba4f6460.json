@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 269,
+  "usages": [
+    {
+      "explain": "This structure captures the sense of awe or surprise, whether it's for a positive or negative event or object.",
+      "note": null,
+      "examples": [
+        {
+          "content": "娘の部屋の汚いことと言ったら、ひどいものです。",
+          "transcription": "むすめのへやのきたないことといったら、ひどいものです。",
+          "mean": "Speaking of how dirty my daughter's room is, it's terrible."
+        },
+        {
+          "content": "暗い山道を一人で歩いたときの怖さと言ったら、君も想像出来ない。",
+          "transcription": "くらいさんどうをいちにんであるいたときのこわさといったら、きみもそうぞうできない。",
+          "mean": "You can't even imagine the fear of walking alone on a dark mountain road."
+        },
+        {
+          "content": "富士山の頂上から見た景色と言ったら、言葉で表すことが出来ないほどきれいだ。",
+          "transcription": "ふじさんのちょうじょうからみたけしきといったら、ことばであらわすことができないほどきれいだ。",
+          "mean": "The view from the top of Mt. Fuji is so beautiful that it cannot be described in words."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + といったら"
+    }
+  ],
+  "title": "といったら => extremely; very; nothing more ... than this; as ... as it could possibly be",
+  "_id": "93020c54469e582d6fdb16f7ba4f6460"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1683,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"nothing significant\", \"no big deal\". It's often used to talk about health conditions or emotional states.",
+      "note": null,
+      "examples": [
+        {
+          "content": "なんともありません。ちょっと熱があるだけです。",
+          "transcription": "なんともありません。ちょっとねつがあるだけです。",
+          "mean": "No way. I just have a little fever."
+        },
+        {
+          "content": "小さい擦り傷だけで、手のけがはなんともありません。",
+          "transcription": "ちいさいすりきずだけで、てのけがはなんともありません。",
+          "mean": "There are no injuries to my hand, just a small scratch."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんともない～"
+    }
+  ],
+  "title": "なんともない => it's no big deal, it's no problem, it's nothing to worry about",
+  "_id": "f7ff14dae05876cac58b41369397dda3"
+}

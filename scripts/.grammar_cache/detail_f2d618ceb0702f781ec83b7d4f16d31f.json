@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2604,
+  "usages": [
+    {
+      "explain": "This is the humble form of 「てもらう」. It describes someone doing something for the speaker or those associated with the speaker, often conveying a sense of gratitude.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は友達のお父さんにバイクを直していただきました。",
+          "transcription": "わたしはともだちのおとうさんにばいくをなおしていただきました。",
+          "mean": "I had my friend's father fix my bike."
+        },
+        {
+          "content": "私は部長にこの時計を買っていただきました。",
+          "transcription": "わたしはぶちょうにこのとけいをかっていただきました。",
+          "mean": "I bought this watch for my manager."
+        },
+        {
+          "content": "私は先生に日本語を教えていただきました。",
+          "transcription": "わたしはせんせいににほんごをおしえていただきました。",
+          "mean": "My teacher taught me Japanese."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て+ いただく"
+    }
+  ],
+  "title": "ていただく => to have someone do something (humble)",
+  "_id": "f2d618ceb0702f781ec83b7d4f16d31f"
+}

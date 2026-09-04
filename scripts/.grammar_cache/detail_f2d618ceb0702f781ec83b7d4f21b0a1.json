@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2685,
+  "usages": [
+    {
+      "explain": "Describes something the speaker is accustomed to doing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "使いなれたペンで書く。",
+          "transcription": "つかいなれたぺんでかく。",
+          "mean": "Write with a familiar pen."
+        },
+        {
+          "content": "退職後も住み慣れた都市で暮らしたい。",
+          "transcription": "たいしょくごもすみなれたとしでくらしたい。",
+          "mean": "I want to live in a familiar city even after I retire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます + なれた + N"
+    }
+  ],
+  "title": "なれた => to be used to something",
+  "_id": "f2d618ceb0702f781ec83b7d4f21b0a1"
+}

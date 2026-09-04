@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3110,
+  "usages": [
+    {
+      "explain": "<div>✦ The form \"Aとみるや\" expresses the meaning [if evaluating A then immediately B], with the action happening quickly after the evaluation.<br/></div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "夫が逮捕されるとみるや、彼女は現場を立ち去った。",
+          "transcription": "おっとがたいほされるとみるや、かのじょはげんばをたちさった。",
+          "mean": "As soon as she saw that her husband was arrested, she left the scene."
+        },
+        {
+          "content": "いたずらをしていた生徒たちは、教師が来たとみるやいっせいに逃げ出した。",
+          "transcription": "いたずらをしていたせいとたちは、きょうしがきたとみるやいっせいににげだした。",
+          "mean": "As soon as the students who were playing the prank saw the teacher coming, they all ran away."
+        },
+        {
+          "content": "課長の意見に賛成したほうがいいとみるや、彼はすぐに意見を変えた。",
+          "transcription": "かちょうのいけんにさんせいしたほうがいいとみるや、かれはすぐにいえけんをかえた。",
+          "mean": "As soon as he saw that it would be better to agree with the manager's opinion, he immediately changed his opinion."
+        },
+        {
+          "content": "一口食べた魚がおいしいとみるや、魚嫌いの子供も食べだした。",
+          "transcription": "ひとくちたべたさかながおいしいとみるや、さかなぎらいのこどももたべだした。",
+          "mean": "As soon as I took a bite of the fish and saw how delicious it was, even the children who hated fish started eating it."
+        }
+      ],
+      "mean": "at the sight of; upon seeing; right after confirming ~",
+      "synopsis": "<div>✦V (formal form )＋ とみるや<br/></div>"
+    }
+  ],
+  "title": "～とみるや      => at the sight of; upon seeing; right after confirming ~",
+  "_id": "93020c54469e582d6fdb16f7ba9d043a"
+}

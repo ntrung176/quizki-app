@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5372,
+  "usages": [
+    {
+      "explain": "「まさか」is used with a negative sentence to emphasize the idea that such a thing is impossible or inconceivable in reality. It can be translated as \"There's no way...\" or \"It can't be...\"<br/>\nWhen used in a question,「まさか」expresses strong doubt or disbelief from the speaker about the event. It can be translated as \"Could it be...?\" or \"Is it possible that...?\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "僕はまさかそんなことはできないよ。",
+          "transcription": "ぼくはまさかそんなことはできないよ。",
+          "mean": "I can't possibly do that."
+        },
+        {
+          "content": "まさか鍵をなくしたのではないでしょうね！",
+          "transcription": "まさか鍵をなくしたのではないでしょうね！",
+          "mean": "I bet you lost your key!"
+        },
+        {
+          "content": "まさか僕を疑ってるんじゃないだろうね。ケーキを食べたのは僕じゃないよ。",
+          "transcription": "まさかぼくをうたがってるんじゃないだろうね。けーきをたべたのはぼくじゃないよ。",
+          "mean": "I don't think you're doubting me. I wasn't the one who ate the cake."
+        },
+        {
+          "content": "あなた、まさか私がそんなひどい女だと思ってたの？",
+          "transcription": "あなた、まさかわたしがそんなひどいおんなだとおもってたの？",
+          "mean": "Did you really think I was such a terrible woman?"
+        },
+        {
+          "content": "あなた、まさか本当に彼にそのことを話したの？",
+          "transcription": "あなた、まさかほんとうにかれにそのことをはなしたの？",
+          "mean": "Did you really tell him that?"
+        },
+        {
+          "content": "どうしてそんなに急にお金持ちになったの？まさか宝くじでも当たったの？",
+          "transcription": "どうしてそんなにきゅうにおかねもちになったの？まさかたからくじでもあたったの？",
+          "mean": "How did you get rich so quickly? Did you even win the lottery?"
+        },
+        {
+          "content": "まさか、私の名前を忘れちゃった？",
+          "transcription": "まさか、わたしのなまえをわすれちゃった？",
+          "mean": "Did you forget my name?"
+        },
+        {
+          "content": "『このあとも仕事をするの？』『まさか。帰って寝るに決まってるだろ。』",
+          "transcription": "『このあともしごとをするの？』『まさか。かえってねるにきまってるだろ。』",
+          "mean": "“Are you still going to work after this? ” “No way. You've decided to go home and sleep. ”"
+        },
+        {
+          "content": "『私、昨日の夜、UFOを見たの。』『まさか。UFOなんて、いないだろう。』",
+          "transcription": "『わたし、きのうのよる、ユーフォーをみたの。』『まさか。ユーフォーなんて、いないだろう。』",
+          "mean": "``I saw a UFO last night. ” “No way. There are no UFOs. ”"
+        },
+        {
+          "content": "時間に厳しい彼がまさか遅れることはないだろう。",
+          "transcription": "じかんにきびしいかれがまさかおくれることはないだろう。",
+          "mean": "He is very punctual, so there's no way he'll be late."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まさか+Sentence"
+    }
+  ],
+  "title": "まさか => there's no way; that's impossible; you must be joking",
+  "_id": "c0242bd55c6e4c098ba88f383344b490"
+}

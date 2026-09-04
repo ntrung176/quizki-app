@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1531,
+  "usages": [
+    {
+      "explain": "Means \"either one\". Used to demand a choice between two options, X or Y, or to indicate either option is acceptable if it meets the condition of X or Y. This is a term used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "黒もしくは青のインクを使用すること。",
+          "transcription": "くろもしくはあおのインクをしようすること。",
+          "mean": "Use black or blue ink."
+        },
+        {
+          "content": "お問い合わせは、電話もしくは往復葉書でお願いします。",
+          "transcription": "おといあわせは、でんわもしくはおうふくはがきでおねがいします。",
+          "mean": "For inquiries, please contact us by phone or return postcard."
+        },
+        {
+          "content": "この施設は、会員もしくはその家族に限り使用できる。",
+          "transcription": "このしせつは、かいいんもしくはそのかぞくにかぎりしようできる。",
+          "mean": "This facility may only be used by members or their families."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + もしくは + N"
+    }
+  ],
+  "title": "もしくは => or; otherwise",
+  "_id": "f7ff14dae05876cac58b413693849b18"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5123,
+  "usages": [
+    {
+      "explain": "「がち」expresses that something tends to happen frequently or has a tendency to occur. This often implies that the event is not good or undesirable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は子供の頃、病気がちだった。",
+          "transcription": "わたしはこどものころ、びょうきがちだった。",
+          "mean": "When I was a child, I was often sick."
+        },
+        {
+          "content": "最近、彼は仕事を休みがちだ。",
+          "transcription": "さいきん、かれはしごとをやすみがちだ。",
+          "mean": "Lately, he's been absent from work."
+        },
+        {
+          "content": "この季節は風邪を引きがちだよね。",
+          "transcription": "このきせつはかぜをひきがちだよね。",
+          "mean": "It's easy to catch a cold this season."
+        },
+        {
+          "content": "この時計は20年使っているがこの頃遅れがちだ。",
+          "transcription": "このとけいはにじゅうねんつかっているがこのごろおくれがちだ。",
+          "mean": "I've been using this watch for 20 years, but it tends to run late these days."
+        },
+        {
+          "content": "最近、悪い天気がちなので試合が行われない。",
+          "transcription": "さいきん、わるいてんきがちなのでしあいがおこなわれない。",
+          "mean": "The weather has been bad lately, so no games have been held."
+        },
+        {
+          "content": "最近、メールの返信を忘れがちで、上司からよく怒られる。",
+          "transcription": "さいきん、メールのへんしんをわすれがちで、じょうしからよくおこられる。",
+          "mean": "Lately, I tend to forget to reply to emails, and my boss often scolds me."
+        },
+        {
+          "content": "大勢の人の前で話をするときは、早口になりがちなので注意してください。",
+          "transcription": "おおぜいのひとのまえではなしをするときは、はやぐちになりがちなのでちゅういしてください。",
+          "mean": "Be careful when speaking in front of a large group of people, as you tend to speak too quickly."
+        },
+        {
+          "content": "最近、寝る前にメイクを落とすのを忘れがちで、肌が荒れてきてしまった。",
+          "transcription": "さいきん、ねるまえにメイクをおとすのをわすれがちで、はだがあれてきてしまった。",
+          "mean": "Lately, I tend to forget to remove my makeup before going to bed, and my skin has become rough."
+        },
+        {
+          "content": "彼は宿題を提出するのが遅れがちです。期限内に提出するように指導してください。",
+          "transcription": "かれはしゅくだいをていしゅつするのがおくれがちです。きげんないにていしゅつするようにしどうしてください。",
+          "mean": "He tends to be late in handing in his homework. Please instruct them to submit it within the deadline."
+        },
+        {
+          "content": "息子さんのそのような態度は思春には見られがちなので、あまり気にすることはないですよ。",
+          "transcription": "むすこさんのそのようなたいどはししゅんにはみられがちなので、あまりきにすることはないですよ。",
+          "mean": "Your son's behavior like this is common in adolescents, so don't worry about it too much."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+がち<br/> N+がち"
+    }
+  ],
+  "title": "がち => tend to; tendency to; frequently; often; to do something easily.",
+  "_id": "884b48b957974cdda983b7ec6ace7ecf"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1341,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"even if unable to do A, at least must be able to do B\". <br/>This usage has an archaic tone similar to 「～ないまでも」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "プロにはなれぬまでも、サッカーを続けていくつもりだ。",
+          "transcription": "ぷろにはなれぬまでも、さっかーをつづけていくつもりだ。",
+          "mean": "Even if I can't become a professional, I plan to continue playing soccer."
+        },
+        {
+          "content": "全額でぬまでも、せめて利子ぐらいは払ってくれ。",
+          "transcription": "ぜんがくでぬまでも、せめてりしぐらいははらってくれ。",
+          "mean": "Even if you don't pay the full amount, please at least pay the interest."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ない + ぬまでも"
+    }
+  ],
+  "title": "ぬまでも => not to say; although it does not reach the level of ~",
+  "_id": "f7ff14dae05876cac58b413693686b47"
+}

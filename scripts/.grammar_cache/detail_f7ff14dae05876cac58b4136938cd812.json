@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1594,
+  "usages": [
+    {
+      "explain": "Describes a low degree, often used in negatively toned evaluations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君が思っているほど大してお金を持っていない。",
+          "transcription": "きみがおもっているほどたいしておかねをもっていない。",
+          "mean": "I don't have as much money as you think I do."
+        },
+        {
+          "content": "彼女は一生懸命勉強したが、大して進歩しなかった。",
+          "transcription": "かのじょはいっしょうけんめいべんきょうしたが、たいしてしんぽしなかった。",
+          "mean": "She studied hard but didn't make much progress."
+        },
+        {
+          "content": "私は彼の能力を大して信頼していない。",
+          "transcription": "わたしはかれののうりょくをたいしてしんらいしていない。",
+          "mean": "I don't have much faith in his ability."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たいして～ない"
+    }
+  ],
+  "title": "たいして…ない => ~is not much of~",
+  "_id": "f7ff14dae05876cac58b4136938cd812"
+}

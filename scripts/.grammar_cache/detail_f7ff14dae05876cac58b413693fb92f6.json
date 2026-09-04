@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2399,
+  "usages": [
+    {
+      "explain": "Diễn tả tâm trạng \"không biết nên nói sao đây\", \"không rõ vấn đề như thế nào\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "手術の結果がどうなるかはまだなんとも確認できません。",
+          "transcription": "しゅじゅつのけっかがどうなるかはまだなんともかくにんできません。",
+          "mean": "It is still unclear what the outcome of the surgery will be."
+        },
+        {
+          "content": "最近若者の考え方はなんとも理解できない。",
+          "transcription": "さいきんわかもののかんがえかたはなんともりかいできない。",
+          "mean": "I can't understand the way young people think these days."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとも + V-ない"
+    }
+  ],
+  "title": "なんとも～ない => can't ... like that",
+  "_id": "f7ff14dae05876cac58b413693fb92f6"
+}

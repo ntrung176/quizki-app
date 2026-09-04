@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 2475,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's regret about an important thing they forgot to do.",
+      "note": null,
+      "examples": [
+        {
+          "content": "期末試験の点数は悪かった。こんなことなら、もっとよく勉強するんだった。",
+          "transcription": "きまつしけんのてんすうはわるかった。こんなことなら、もっとよくべんきょうするんだった。",
+          "mean": "My score on the final exam was bad. If this was the case, I would have studied harder."
+        },
+        {
+          "content": "クリスマスに帰ろうと思ったが、満員で航空券が買えない。もっと早く予約しておくんだった。",
+          "transcription": "くりすますにかえろうとおもったが、まんいんでこうくうけんがかえない。もっとはやくよやくしておくんだった。",
+          "mean": "I wanted to go home for Christmas, but the plane was full and I couldn't buy a ticket. I should have made a reservation earlier."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + んだった"
+    }
+  ],
+  "title": "んだった => If... (express regret)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0635f6"
+}

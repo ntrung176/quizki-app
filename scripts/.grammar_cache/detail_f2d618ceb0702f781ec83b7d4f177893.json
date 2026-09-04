@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2609,
+  "usages": [
+    {
+      "explain": "Used to express the meaning \"not sure why I feel that way\". In a familiar way, it becomes [なんか].",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女の話し方は何か不自然だ。",
+          "transcription": "かのじょのはなしかたはなにかふしぜんだ。",
+          "mean": "There's something unnatural about the way she speaks."
+        },
+        {
+          "content": "何か問題があると感じた。",
+          "transcription": "なにかもんだいがあるとかんじた。",
+          "mean": "I felt that something was wrong."
+        },
+        {
+          "content": "この歌を聞くと、いつも何か寂しい気持ちになってくる。",
+          "transcription": "このうたをきくと、いつもなにかさびしいきもちになってくる。",
+          "mean": "Whenever I hear this song, I always feel lonely."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにか"
+    }
+  ],
+  "title": "なにか => have something that (Status)",
+  "_id": "f2d618ceb0702f781ec83b7d4f177893"
+}

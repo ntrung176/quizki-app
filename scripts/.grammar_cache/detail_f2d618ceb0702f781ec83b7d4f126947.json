@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2565,
+  "usages": [
+    {
+      "explain": "Used to convey information heard from another source.",
+      "note": null,
+      "examples": [
+        {
+          "content": "二人は来年結するらしいです。",
+          "transcription": "ににんはらいねんゆいするらしいです。",
+          "mean": "It seems that the two will tie the knot next year."
+        },
+        {
+          "content": "山田さんと佐藤さんは夕べけんかしたらしいです。",
+          "transcription": "やまださんとさとうさんはゆうべけんかしたらしいです。",
+          "mean": "It seems that Mr. Yamada and Mr. Sato had a fight in the evening."
+        },
+        {
+          "content": "うわさでは彼女は会社を辞めて大学へ通ったらしいです。",
+          "transcription": "うわさではかれはかいしゃをやめてだいがくへとおったらしいです。",
+          "mean": "Rumor has it that she quit her job and went to college."
+        },
+        {
+          "content": "彼は百万長者らしいです。",
+          "transcription": "かれはひゃくまんちょうじゃらしいです。",
+          "mean": "He seems to be a millionaire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + らしい"
+    }
+  ],
+  "title": "らしい => it seems like; I heard; apparently ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f126947"
+}

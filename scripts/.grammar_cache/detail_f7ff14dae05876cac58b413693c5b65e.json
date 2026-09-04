@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2009,
+  "usages": [
+    {
+      "explain": "In this structure, the word before and after なら is repeated to express the idea that: <br/>the speaker reproaches the listener for not doing something, or advises the listener should have done, expressing a clear attitude.",
+      "note": null,
+      "examples": [
+        {
+          "content": "参加しないならしないと事前に知らせておいてください。",
+          "transcription": "さんかしないならしないとじぜんにしらせておいてください。",
+          "mean": "If you don't want to participate, please let us know in advance that you won't."
+        },
+        {
+          "content": "問題があるならあると言ってほしかった。",
+          "transcription": "もんだいがあるならあるといってほしかった。",
+          "mean": "If there was a problem, I wanted them to say that there was one."
+        },
+        {
+          "content": "賛成しないならしないとはっきり言ってくれればいいのに。",
+          "transcription": "さんせいしないならしないとはっきりいってくれればいいのに。",
+          "mean": "I wish they'd clearly say they won't do it if they don't agree with it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + なら + N（だ）+ と\nNa + なら + Na（だ）+ と\nA +（の）なら + A + と\nV + （の）なら + V + と"
+    }
+  ],
+  "title": "(の) なら～と => If... then... (Ideally)",
+  "_id": "f7ff14dae05876cac58b413693c5b65e"
+}

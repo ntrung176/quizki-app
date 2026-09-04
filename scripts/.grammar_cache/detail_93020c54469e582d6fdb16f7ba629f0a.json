@@ -1,0 +1,41 @@
+{
+  "level": "N5",
+  "mobileId": 3149,
+  "usages": [
+    {
+      "explain": "☞To nominalize a verb with わすれました, we use the dictionary form \"辞書形\" which means \"to forget~.\"  ☞To nominalize a verb with 知っていますか, we use the normal form \"普通形\" which means \"Do you know ~?\" This sentence pattern is used to ask if the listener knows the content expressed in the preceding part with 「の」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "キャベツを 買うのを 忘れました。",
+          "transcription": "きゃべつをかうのをわすれました。",
+          "mean": "I forgot to buy cabbage."
+        },
+        {
+          "content": "窓を 閉めるのを 忘れました。",
+          "transcription": "まどをしめるのをわすれました。",
+          "mean": "I forgot to close the window."
+        },
+        {
+          "content": "私は届書に 住所を書くのを わすれました。",
+          "transcription": "わたしはとどけしょにじゅうしょをかくのをわすれました。",
+          "mean": "I forgot to write the address on the notification form."
+        },
+        {
+          "content": "木村さんが来月結婚するのを 知っていますか。",
+          "transcription": "きむらさんがらいげつけっこんするのをしっていますか。",
+          "mean": "Did you know that Mr. Kimura is getting married next month?"
+        },
+        {
+          "content": "田中さんが来年ベトナムへ出張するのを知っていますか。",
+          "transcription": "たなかさんがらいねんべとなむへしゅっちょうするのをしっていますか。",
+          "mean": "Did you know that Mr. Tanaka will be going on a business trip to Vietnam next year?"
+        }
+      ],
+      "mean": "Nominalize verbs",
+      "synopsis": "Vる、V-普通形＋のを～"
+    }
+  ],
+  "title": "～のを => Nominalize verbs",
+  "_id": "93020c54469e582d6fdb16f7ba629f0a"
+}

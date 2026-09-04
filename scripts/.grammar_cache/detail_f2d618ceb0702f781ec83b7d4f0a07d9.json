@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2507,
+  "usages": [
+    {
+      "explain": "It indicates that something happened not long ago (according to the speaker's perception). The actual time from when the event occurred to the present moment may vary, but if the speaker perceives that time as short, this pattern can be used. This is the difference between this pattern and the pattern that indicates something has just finished (Verb te-form + ところです).",
+      "note": null,
+      "examples": [
+        {
+          "content": "さっき朝ごはんを食べたばかりです。",
+          "transcription": "さっきあさごはんをたべたばかりです。",
+          "mean": "I just had breakfast."
+        },
+        {
+          "content": "このコンピューターは先週買ったばかりなのに、調子がおかしいです。",
+          "transcription": "このこんぴゅーたーはせんしゅうかったばかりなのに、ちょうしがおかしいです。",
+          "mean": "I just bought this computer last week and it's not working properly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた ばかりです"
+    },
+    {
+      "explain": "[Note] 「～ばかりです」is a versatile phrase, so it can be used with various structures.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ばかりです => only; just ~ (speaker's feeling)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0a07d9"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2737,
+  "usages": [
+    {
+      "explain": "Used to connect an adjective with the ending な or a noun with another word.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この部屋はきれいで、広いです。",
+          "transcription": "このへやはきれいで、ひろいです。",
+          "mean": "This room is clean and spacious."
+        },
+        {
+          "content": "リーさんは韓国人で、留学生です。",
+          "transcription": "りーさんはかんこくじんで、りゅうがくせいです。",
+          "mean": "Mr. Lee is Korean and an international student."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aな + でN + で"
+    }
+  ],
+  "title": "で => ...and... (talking about two or more characteristics of a place)",
+  "_id": "f2d618ceb0702f781ec83b7d4f288e1c"
+}

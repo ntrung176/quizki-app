@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2001,
+  "usages": [
+    {
+      "explain": "Expresses how far something is reached by action or means.",
+      "note": null,
+      "examples": [
+        {
+          "content": "公園まで走って来た。",
+          "transcription": "こうえんまではしってきた。",
+          "mean": "I ran to the park."
+        },
+        {
+          "content": "バスに乗り遅れたので、学校へ歩いて来なければならなかった。",
+          "transcription": "ばすにのりおくれたので、がっこうへあるいてこなければならなかった。",
+          "mean": "I missed the bus, so I had to walk to school."
+        },
+        {
+          "content": "徒歩は時間がかかるから、バイクに乗って来てください。",
+          "transcription": "とほはじかんがかかるから、ばいくにのってきてください。",
+          "mean": "It takes a long time to walk, so please come by bike."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + くる"
+    }
+  ],
+  "title": "てくる => Arriving by... (Mode of transportation)",
+  "_id": "f7ff14dae05876cac58b413693c4a2d0"
+}

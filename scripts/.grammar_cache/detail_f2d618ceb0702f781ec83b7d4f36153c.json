@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2840,
+  "usages": [
+    {
+      "explain": "This is a way to present two or more reasons.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この女の子はまだ10歳だし、体が弱いから留学は無理だ。",
+          "transcription": "このおんなのこはまだ10さいだし、からだがよわいからりゅうがくはむりだ。",
+          "mean": "This girl is only 10 years old and her body is weak, so it is impossible for her to study abroad."
+        },
+        {
+          "content": "前週の日曜日は祭日だったし、天気がよかったから、がらくた市は大勢の人でにぎわった。",
+          "transcription": "ぜんしゅうのにちようびはさいじつだったし、てんきがよかったから、がらくたしはたいせいのひとでにぎわった。",
+          "mean": "Last Sunday was a public holiday and the weather was nice, so the junk market was crowded with people."
+        },
+        {
+          "content": "この道は夜は暗いし危ないから一人で歩かないようにしてください。",
+          "transcription": "このみちはよるはくらいしあぶないからいちにんであるかないようにしてください。",
+          "mean": "This road is dark and dangerous at night, so please do not walk alone."
+        },
+        {
+          "content": "風邪気味だし、それに着て行く服もないから今晩のパーティーには行かない。",
+          "transcription": "かぜぎみだし、それにきていくふくもないからこんばんのぱーてぃーにはいかない。",
+          "mean": "I have a cold and I don't have any clothes to wear, so I won't go to the party tonight."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない/ Na-だ/ A-い + し,V-る/ V-た/ V-ない/ Na-だ/ A-い + から"
+    }
+  ],
+  "title": "…し, …から  => Because... moreover... so...",
+  "_id": "f2d618ceb0702f781ec83b7d4f36153c"
+}

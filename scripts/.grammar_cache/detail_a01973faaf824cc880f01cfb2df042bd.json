@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5390,
+  "usages": [
+    {
+      "explain": "「なぜなら(ば)/なぜかというと/どうしてかというと/なぜかといえば」is used to state the reason or cause (B) for an event, conclusion, decision... (A).<br/>\n「なぜなら(ば)」is often used in formal writing or speech. In everyday conversations, people often use「なぜかというと」or「なぜかといえば」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "買いたいけど買えません。なぜなら、お金がないからです。",
+          "transcription": "かいたいけどかえません。なぜなら、おかねがないからです。",
+          "mean": "I want to buy it, but I can't. Because there is no money."
+        },
+        {
+          "content": "私は獣医になりたい。なぜなら、私は動物が大好きだからです。",
+          "transcription": "わたしはじゅういになりたい。なぜなら、わたしはどうぶつがだいすきだからです。",
+          "mean": "I want to be a veterinarian. Because I love animals."
+        },
+        {
+          "content": "来週、国に帰る予定です。なぜなら、親友の結婚式に出席するからです。",
+          "transcription": "らいしゅう、くににかえるよていです。なぜなら、しんゆうのけっこんしきにしゅっせきするからです。",
+          "mean": "I am planning to return to my country next week. Because I will be attending my best friend's wedding."
+        },
+        {
+          "content": "学校を変えた。なぜかというと、僕のレベルのクラスがなかったからだ。",
+          "transcription": "がっこうをかえた。なぜかというと、ぼくのレベルのクラスがなかったからだ。",
+          "mean": "I changed schools. The reason is that there were no classes at my level."
+        },
+        {
+          "content": "仕事を辞めたくても辞められません。なぜなら、家のローンがあるからです。",
+          "transcription": "しごとをやめたくてもやめられません。なぜなら、いえのローンがあるからです。",
+          "mean": "I can't quit my job even if I want to. Because I have a mortgage on my house."
+        },
+        {
+          "content": "この場所が大好きだ。なぜかというと、たくさんの思い出があるからだ。",
+          "transcription": "このばしょがだいすきだ。なぜかというと、たくさんのおもいでがあるからだ。",
+          "mean": "I love this place. The reason is because I have so many memories."
+        },
+        {
+          "content": "私は数学が好きです。なぜならば、数学は最も得意な科目だからです。",
+          "transcription": "わたしはすうがくがすきです。なぜならば、すうがくはもっともとくいなかもくだからです。",
+          "mean": "I like mathematics. Because mathematics is my favorite subject."
+        },
+        {
+          "content": "この人を雇うつもりです。どうしてかというと、この人は日本語も英語も上手だからです。",
+          "transcription": "このひとをやとうつもりです。どうしてかというと、このひとはにほんごもえいごもじょうずだからです。",
+          "mean": "I'm going to hire this person. The reason is that this person is good at both Japanese and English."
+        },
+        {
+          "content": "この場所が好きだ。それはなぜかといえば、たくさんの思い出があるからだ。",
+          "transcription": "このばしょがすきだ。それはなぜかといえば、たくさんのおもいでがあるからだ。",
+          "mean": "I like this place. The reason is because I have so many memories."
+        },
+        {
+          "content": "この商品はとても売れた。なぜかといえば、顧客のニーズにマッチしていたからだ。",
+          "transcription": "このしょうひんはとてもうれた。なぜかといえば、こきゃくのにーずにまっちしていたからだ。",
+          "mean": "This product sold very well. The reason is that it matched the customer's needs."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。 なぜなら(ば)、 B<br/> A。 なぜかというと、 B<br/> A。 どうしてかというと、 B<br/>A。 なぜかといえば、 B<br/><br/>\nB = Sentence formal form+からだ"
+    }
+  ],
+  "title": "なぜなら(ば)/なぜかというと/どうしてかというと/なぜかといえば =>  because; the reason is; if you want to know why",
+  "_id": "a01973faaf824cc880f01cfb2df042bd"
+}

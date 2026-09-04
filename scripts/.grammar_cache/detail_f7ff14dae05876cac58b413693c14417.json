@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1977,
+  "usages": [
+    {
+      "explain": "Often used with adjectives but can also be used with verbs. The degree expressed by the adjective or verb is beyond normal thinking. In most cases, it is used to express criticism or something negative. It often accompanies 「すぎる」. Additionally, it often goes with 「て/ので/から」to express an inevitable event due to the excessive degree of the preceding event or to infer a result or judgment from that event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それはあまりにも突然で、とてもショックでした。",
+          "transcription": "それはあまりにもとつぜんで、とてもしょっくでした",
+          "mean": "It happened so suddenly and I was so shocked."
+        },
+        {
+          "content": "あまりに速すぎてよく見えない。",
+          "transcription": "あまりにはやすぎてよくみえない。",
+          "mean": "It's so fast I can't see clearly."
+        },
+        {
+          "content": "あまりにも疲れているので仕事ができない。",
+          "transcription": "あまりにもつかれているのでしごとができない。",
+          "mean": "I'm too tired to work."
+        },
+        {
+          "content": "彼はあまりに子供だから誘惑にかてなかった。",
+          "transcription": "かれはあまりにこどもだからゆうわくにかてなかった。",
+          "mean": "He was so childish that he couldn't resist temptation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Usually goes with adjectives, sometimes also goes with verbs."
+    }
+  ],
+  "title": "あまりに (も) => too much; so much…",
+  "_id": "f7ff14dae05876cac58b413693c14417"
+}

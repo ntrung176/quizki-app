@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2186,
+  "usages": [
+    {
+      "explain": "Expresses the likelihood of something happening due to a certain cause. In cases of expressing unexpected things, it is often used with 「... がちだ」, 「... かねない」. Also used with 「ともすれば」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はともすると子供に甘い。",
+          "transcription": "かれはともするとこどもにあまい。",
+          "mean": "He is very kind towards children."
+        },
+        {
+          "content": "冬はともするとインフルエンザになりがちである。",
+          "transcription": "ふゆはともするといんふるえんざになりがちである。",
+          "mean": "In winter, people tend to get the flu."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ともすると～"
+    }
+  ],
+  "title": "ともすると => Perhaps, maybe",
+  "_id": "f7ff14dae05876cac58b413693de240d"
+}

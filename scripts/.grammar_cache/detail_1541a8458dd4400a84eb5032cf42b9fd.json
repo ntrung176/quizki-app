@@ -1,0 +1,101 @@
+{
+  "level": "N3",
+  "mobileId": 5341,
+  "usages": [
+    {
+      "explain": "「ほど～ない」in structure 1. expresses the idea that N1 is not as [verb/adjective] as N2 being referred to. This is a comparative expression indicating a subjective comparison by the speaker. \"Not as [verb/adjective] as...\"<br/>\n\n「ほど～ない」in structure 2. expresses the idea that there is nothing to compare with N2. N1 is a general noun that encompasses N2. This is a superlative comparison. \"Nothing is better than/Nothing is more [noun] than...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "この町は今も人が多いですが、昔ほど賑やかじゃありません。",
+          "transcription": "このまちはいまもひとがおおいですが、むかしほどにぎやかじゃありません。",
+          "mean": "This town is still crowded, but it's not as lively as it used to be."
+        },
+        {
+          "content": "ナナちゃんはミミちゃんほどスペイン語を話すのが上手じゃない。",
+          "transcription": "ナナちゃんはミミちゃんほどスペインごをはなすのがじょうずじゃない。",
+          "mean": "Nana-chan doesn't speak Spanish as well as Mimi-chan."
+        },
+        {
+          "content": "高校の時の友達は、大学の時の友達ほど頻繁に連絡はとっていない。",
+          "transcription": "こうこうのときのともだちは、だいがくのときのともだちほどひんぱんにれんらくはとっていない。",
+          "mean": "I don't keep in touch with my friends from high school as often as my friends from college."
+        },
+        {
+          "content": "私は妹ほど両親に愛されていない。",
+          "transcription": "わたしはいもうとほどりょうしんにあいされていない。",
+          "mean": "I am not loved by my parents as much as my sister."
+        },
+        {
+          "content": "あのテレビドラマの続編は、最初のシリーズほど面白くはなかった。",
+          "transcription": "あのテレビドラマのぞくへんは、さいしょのシリーズほどおもしろくはなかった。",
+          "mean": "The sequel to that TV drama wasn't as interesting as the first series."
+        },
+        {
+          "content": "この新しい部屋は引っ越す前の部屋ほど広くない。",
+          "transcription": "このあたらしいへやはひっこすまえのへやほどひろくない。",
+          "mean": "This new room is not as big as the one before I moved."
+        },
+        {
+          "content": "英語の文法は日本語ほど難しくありません。",
+          "transcription": "えいごのぶんぽうはにほんごほどむずかしくありません。",
+          "mean": "English grammar is not as difficult as Japanese."
+        },
+        {
+          "content": "この問題は思っていたほど複雑じゃなかった。",
+          "transcription": "このもんだいはおもっていたほどふくざつじゃなかった。",
+          "mean": "This problem wasn't as complicated as I thought."
+        },
+        {
+          "content": "そのプロジェクトは外部から見ているほど簡単ではない。",
+          "transcription": "そのぷろじぇくとはがいぶからみているほどかんたんではない。",
+          "mean": "The project is not as easy as it looks from the outside."
+        },
+        {
+          "content": "あの大学の試験は私達が考えているほど簡単ではないのだろう。",
+          "transcription": "あのだいがくのしけんはわたしたちがかんがえているほどかんたんではないのだろう。",
+          "mean": "That university exam may not be as easy as we think."
+        },
+        {
+          "content": "彼ほど頭のいい人はいない。",
+          "transcription": "かれほどあたまのいいひとはいない。",
+          "mean": "Nobody is cleverer than he."
+        },
+        {
+          "content": "日本ほど治安のいい国はあまりない。",
+          "transcription": "にほんほどちあんのいいくにはあまりない。",
+          "mean": "There are not many countries as safe as Japan."
+        },
+        {
+          "content": "東京ほど家賃の高いところはない。",
+          "transcription": "とうきょうほどやちんのたかいところはない。",
+          "mean": "Nowhere is rent as high as in Tokyo."
+        },
+        {
+          "content": "健康ほど大切なものはないと言われている。",
+          "transcription": "けんこうほどたいせつなものはないといわれている。",
+          "mean": "It is said that nothing is more important than health."
+        },
+        {
+          "content": "美味しいものを食べることほど幸せなことはない。",
+          "transcription": "おいしいものをたべることほどしあわせなことはない。",
+          "mean": "There is nothing happier than eating delicious food."
+        },
+        {
+          "content": "私ほどあなたのことを大切に思っている人はいないんだよ。",
+          "transcription": "わたしほどあなたのことをたいせつにおもっているひとはいないんだよ。",
+          "mean": "No one cares about you as much as I do."
+        },
+        {
+          "content": "彼女ほど優しい人はいない。",
+          "transcription": "かのじょほどやさしいひとはいない。",
+          "mean": "There is no one as kind as her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. N1は N2ほど Vない/A<s>い</s>くない/ A<s>な</s>じゃない<br/>\n N1は V (affirmative formal form) ほど Vない/A<s>い</s>くない/ A<s>な</s>じゃない<br/>\n2. N2ほど N1は ない/いない"
+    }
+  ],
+  "title": "ほど～ない => is not as… as ~",
+  "_id": "1541a8458dd4400a84eb5032cf42b9fd"
+}

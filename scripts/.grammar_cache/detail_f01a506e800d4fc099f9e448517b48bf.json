@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5209,
+  "usages": [
+    {
+      "explain": "「に沿って」expresses the idea of \"following along\" or \"in accordance with,\" typically referring to something that extends (a straight line, a road) or adhering to, following (instructions, procedures, plans, desires).",
+      "note": null,
+      "examples": [
+        {
+          "content": "資料に沿って、ご説明いたします。",
+          "transcription": "しりょうにそって、ごせつめいいたします。",
+          "mean": "We will explain according to the materials."
+        },
+        {
+          "content": "お客様一人一人のご希望に沿った旅行プランをお作りします。",
+          "transcription": "おきゃくさまひとりひとりのごきぼうにそったりょこうプランをおつくりします。",
+          "mean": "We will create a travel plan according to each customer's wishes."
+        },
+        {
+          "content": "川に沿って200メートルぐらい歩くと、右に灰色の建物が見えます。",
+          "transcription": "かわにそってにひゃくメートルぐらいあるくと、みぎにはいいろのたてものがみえます。",
+          "mean": "Walk along the river for about 200 meters and you will see a gray building on your right."
+        },
+        {
+          "content": "黄色の線に沿って並んでください。",
+          "transcription": "きいろのせんにそってならんでください。",
+          "mean": "Please line up along the yellow line."
+        },
+        {
+          "content": "春になると土手に沿い植えられている桜が一斉に咲いてとてもきれいです。",
+          "transcription": "はるになるとどてにそいうえられているさくらがいっせいにさいてとてもきれいです。",
+          "mean": "In spring, the cherry blossoms planted along the banks bloom all at once, making it very beautiful."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に沿って<br/> N+に沿い<br/> N+に沿ったN'"
+    }
+  ],
+  "title": "に沿って => along with; in accordance with ~",
+  "_id": "f01a506e800d4fc099f9e448517b48bf"
+}

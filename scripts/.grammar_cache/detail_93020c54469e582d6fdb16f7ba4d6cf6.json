@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 61,
+  "usages": [
+    {
+      "explain": "Expressing two actions happening almost simultaneously, with the implication of surprise or astonishment from the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は家に着いたかと思うと玄関に倒れてしまった。",
+          "transcription": "かれはいえについたかとおもうとげんかんにたおれてしまった。",
+          "mean": "Just as he arrived home, he collapsed at the front door."
+        },
+        {
+          "content": "ドンと音がしたと思ったら、トラックが壁にぶつかっていた。",
+          "transcription": "どんとおとがしたとおもったら、とらっくがかべにぶつかっていた。",
+          "mean": "When I heard a bang, the truck hit the wall."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた + (か)とおもうと <br/>Vた + (か)とおもったら<br/>"
+    }
+  ],
+  "title": "(か)とおもうと / (か)とおもったら => just when; no sooner than ~",
+  "_id": "93020c54469e582d6fdb16f7ba4d6cf6"
+}

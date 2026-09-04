@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 901,
+  "usages": [
+    {
+      "explain": "■ With the form 「XもありYもある」expresses both sides X and Y.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はこの会社の創始者でもあり、今の社長でもある。",
+          "transcription": "かれはこのかいしゃのそうししゃでもあり、いまのしゃちょうでもある。",
+          "mean": "He is also the founder and current president of this company."
+        },
+        {
+          "content": "彼は監督でもなく、選手でもない。",
+          "transcription": "かれはかんとくでもなく、せんしゅでもない。",
+          "mean": "He is neither a coach nor a player."
+        },
+        {
+          "content": "兄の結婚は、嬉しくもありさみしくもある。",
+          "transcription": "あにのけっこんは、うれしくもありさみしくもある。",
+          "mean": "My brother's marriage is both a joy and a sadness."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■NでもありNでもある\n<br/><br/>■NaでもありNaでもある\n<br/><br/>■A-くもありA-くもある"
+    }
+  ],
+  "title": "～もあり～もある => and; also; as well",
+  "_id": "f7ff14dae05876cac58b4136932cd0b4"
+}

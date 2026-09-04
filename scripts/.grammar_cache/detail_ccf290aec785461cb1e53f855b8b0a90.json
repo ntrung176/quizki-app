@@ -1,0 +1,91 @@
+{
+  "level": "N2",
+  "mobileId": 5121,
+  "usages": [
+    {
+      "explain": "「ふうに」is used to provide an example or interpretation of how an action is done, or how an event occurs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんなふうにやりなさい。",
+          "transcription": "こんなふうにやりなさい。",
+          "mean": "Do it like this."
+        },
+        {
+          "content": "私もあんなふうになりたいです。",
+          "transcription": "わたしもあんなふうになりたいです。",
+          "mean": "I want to be like that too."
+        },
+        {
+          "content": "どういうふうに動くか見せてください。",
+          "transcription": "どういうふうにうごくかみせてください。",
+          "mean": "Show me how it works."
+        },
+        {
+          "content": "すみません、これはどんなふうにやればいいでしょうか。",
+          "transcription": "すみません、これはどんなふうにやればいいでしょうか。",
+          "mean": "Sorry, how should I do this?"
+        },
+        {
+          "content": "本当の友達なら、あんなふうに行動しなかっただろう。",
+          "transcription": "ほんとうのともだちなら、あんなふうにこうどうしなかっただろう。",
+          "mean": "A true friend wouldn't have acted like that."
+        },
+        {
+          "content": "どうやってあんなふうに飛行機から飛び降りますか。",
+          "transcription": "どうやってあんなふうにひこうきからとびおりますか。",
+          "mean": "How do you jump out of a plane like that?"
+        },
+        {
+          "content": "私はそんなふうに言われると、めちゃくちゃ怒るよ。",
+          "transcription": "わたしはそんなふうにいわれると、めちゃくちゃおこるよ。",
+          "mean": "I get really angry when people say things like that."
+        },
+        {
+          "content": "彼の日本語がペラペラですね。私もあんなふうになりたいです。",
+          "transcription": "かれのにほんごがペラペラですね。わたしもあんなふうになりたいです。",
+          "mean": "His Japanese is fluent. I want to be like that too."
+        },
+        {
+          "content": "あなたの説明はこういうふうに理解してもよろしいでしょうか。",
+          "transcription": "あなたのせつめいはこういうふうにりかいしてもよろしいでしょうか。",
+          "mean": "Is it okay to understand your explanation this way?"
+        },
+        {
+          "content": "勝手にそんなふうにしないでください。教えたどおりにやればいいです。",
+          "transcription": "かってにそんなふうにしないでください。おしえたどおりにやればいいです。",
+          "mean": "Please don't do it like that. Just do what I tell you."
+        },
+        {
+          "content": "彼女は信じられないというふうに頭を振った。",
+          "transcription": "かのじょはしんじられないというふうにあたまをふった。",
+          "mean": "She shook her head in disbelief."
+        },
+        {
+          "content": "彼はどうしようもないという風に首を振った。",
+          "transcription": "かれはどうしようもないというふうにくびをふった。",
+          "mean": "He shook his head helplessly."
+        },
+        {
+          "content": "ぜひ皆様のご協力、ご指導も頂きたいというふうに思っています。",
+          "transcription": "ぜひみなさまのごきょうりょく、ごしどうもいただきたいというふうにおもっています。",
+          "mean": "I would like to receive your cooperation and guidance."
+        },
+        {
+          "content": "彼女は月曜日、あなたは火曜日という風に交代で当番になったらどうですか。",
+          "transcription": "かのじょはげつようび、あなたはかようびというふうにこうだいでとうばんになったらどうですか。",
+          "mean": "What if she took turns on Monday and you on Tuesday?"
+        },
+        {
+          "content": "彼はいつも自分が天才だというふうに思い込んでいた。",
+          "transcription": "かれはいつもじぶんがてんさいだというふうにおもいこんでいた。",
+          "mean": "He always thought he was a genius."
+        }
+      ],
+      "mean": null,
+      "synopsis": "こんな / そんな / あんな+ふうに<br/>どんな / どういう+ふうに<br/>V/Aい/Aな/N (formal form)+というふうに"
+    }
+  ],
+  "title": "ふうに => this way; that way; in such a way; how",
+  "_id": "ccf290aec785461cb1e53f855b8b0a90"
+}

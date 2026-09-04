@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1558,
+  "usages": [
+    {
+      "explain": "Follows a content describing a plan to talk about the results that plan will bring in the future.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もうい一杯飲もう、そうしたら、家まで送っていくよ。",
+          "transcription": "もういいちはいのもう、そうしたら、いえまでおくっていくよ。",
+          "mean": "Let's have another drink, then I'll take you home."
+        },
+        {
+          "content": "手を貸してくれ、そうしたら、君に一杯おごるから。",
+          "transcription": "てをかしてくれ、そうしたら、くんにいっぱいおごるから。",
+          "mean": "Give me your hand and I'll buy you a drink."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そうしたら～"
+    }
+  ],
+  "title": "そうしたら => Then, and (then), in that case, if so (future)",
+  "_id": "f7ff14dae05876cac58b41369388394b"
+}

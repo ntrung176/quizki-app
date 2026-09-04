@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1106,
+  "usages": [
+    {
+      "explain": "Expressing the meaning \"from the beginning, from the outset\". Often used with sentences indicating \"already known, already thought\". It's a slightly formal way of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はもとより彼の話を知っています。",
+          "transcription": "わたしはもとよりかれのはなしをしっています。",
+          "mean": "I know his story, of course."
+        },
+        {
+          "content": "断れるのはもとより分かっていたことです。",
+          "transcription": "ことわれるのはもとよりわかっていたことです。",
+          "mean": "Of course I knew I could refuse."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もとより"
+    }
+  ],
+  "title": "もとより => from the beginning",
+  "_id": "f7ff14dae05876cac58b41369348c156"
+}

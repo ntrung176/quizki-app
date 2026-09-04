@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3022,
+  "usages": [
+    {
+      "explain": "Use expressions of negation such as 「無理だ」(impossible), 「いやだ」(dislike) to express that the situation cannot continue.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんな大変な仕事はもうしたくない。",
+          "transcription": "こんなたいへんなしごとはもうしたくない。",
+          "mean": "I don't want to do such a difficult job anymore."
+        },
+        {
+          "content": "もう彼の嘘 を聞くのは嫌だ。",
+          "transcription": "もうかれのうそをきくのはいやだ。",
+          "mean": "I don't want to hear his lies anymore."
+        },
+        {
+          "content": "これ以上走り続けるのは体力的にもう無理だ。",
+          "transcription": "これいじょうはしりつづけるのはたいりょくてきにもうむりだ。",
+          "mean": "It is physically impossible for me to keep running any longer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もう + Negative expression"
+    }
+  ],
+  "title": "もう... => It's been a long time, not...anymore (negative attitude)",
+  "_id": "f2d618ceb0702f781ec83b7d4f4c49c1"
+}

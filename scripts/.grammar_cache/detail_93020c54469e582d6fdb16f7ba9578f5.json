@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3154,
+  "usages": [
+    {
+      "explain": "✦ Expressing something that is not only obvious but also...<br/>\n✦ Used to indicate a simpler, easier state that cannot even be achieved. AはおろかB: not to mention B, A is at a higher level than B. The B clause often carries a negation meaning.",
+      "note": "✦ Similar meaning to \"～どころか\". \n✦ Often used in structures like: AはおろかBも/さえ/まで.",
+      "examples": [
+        {
+          "content": "彼は敬語はおろか、簡単な日本語さえできない。",
+          "transcription": "かれはけいごはおろか、かんたんなにほんごさえできない。",
+          "mean": "He can't even use simple Japanese, let alone use honorific language."
+        },
+        {
+          "content": "内の妹は内気で、人前スピーチはおろか簡単な挨拶さえできない。",
+          "transcription": "うちのいもうとはうちきで、ひとまえスピーチはおろかかんたんなあいさつさえできない。",
+          "mean": "My younger sister is shy and can't even give a simple greeting, let alone give a public speech."
+        },
+        {
+          "content": "彼はテニスの国内大会はおろか世界大会にも選手として選ばれた。",
+          "transcription": "かれはテニスのこくないたいかいはおろかせかいたいかいにもせんしゅとしてえらばれた。",
+          "mean": "He was selected as a player not only for national tennis tournaments but also for world tournaments."
+        },
+        {
+          "content": "クラス委員の彼は、勉強はおろかスポーツでもクラスで一番だ。",
+          "transcription": "クラスいいんのかれは、べんきょうはおろかスポーツでもクラスでいちばんだ。",
+          "mean": "He is the class representative and is the best in his class not only in studies but also in sports."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N ＋ はおろか"
+    }
+  ],
+  "title": "～はおろか      => let alone; not to mention; needless to say ~",
+  "_id": "93020c54469e582d6fdb16f7ba9578f5"
+}

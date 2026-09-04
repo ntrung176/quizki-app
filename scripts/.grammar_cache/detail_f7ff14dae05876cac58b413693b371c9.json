@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1885,
+  "usages": [
+    {
+      "explain": "Used to explain the cause or reason behind a certain event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "なぜ遅れたかというと、事故にあったからです。",
+          "transcription": "なぜおくれたかというと、じこにあったからです。",
+          "mean": "The reason I was late was because I had an accident."
+        },
+        {
+          "content": "なぜ日本に留学したかというと、親日本語を習いたいからです。",
+          "transcription": "なぜにっぽんにりゅうがくしたかというと、しんにほんごをならいたいからです。",
+          "mean": "The reason I chose to study abroad in Japan is because I wanted to learn Japanese."
+        },
+        {
+          "content": "なぜあんなに勉強しているのかというと、彼女は博士号をとるつもりなのです。",
+          "transcription": "なぜあんなにべんきょうしているのかというと、かのじょははかせごうをとるつもりなのです。",
+          "mean": "The reason she is studying so much is because she plans to get a Ph.D."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なぜ～かというと"
+    }
+  ],
+  "title": "なぜ～かというと => because; the reason is; if you want to know why",
+  "_id": "f7ff14dae05876cac58b413693b371c9"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3090,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate that because something is not an object/event, or because it is not done, it leads to what should be done/how it should be done.",
+      "note": "：It can be used in the form of \"～じゃあるまいし\" but only in spoken language.\n\n",
+      "examples": [
+        {
+          "content": "子どもじゃあるまいし。早く会社に行きなさい！",
+          "transcription": "こどもじゃあるまいし。はやくかいしゃにいきなさい！",
+          "mean": "I'm not a child. Go to work early!"
+        },
+        {
+          "content": "真夏ではあるまいし、裸で外を歩くのはやめてください。",
+          "transcription": "まなつではあるまいし、はだかでそとをあるくのはやめてください。",
+          "mean": "It's not the middle of summer, so please refrain from walking outside naked."
+        },
+        {
+          "content": "あなたが悪かったわけではあるいまいし、そんなに自分を責めることはないよ。",
+          "transcription": "あなたがわるかったわけではあるいまいし、そんなにじぶんをせめることはないよ。",
+          "mean": "It's not your fault, so don't blame yourself that much."
+        }
+      ],
+      "mean": "it's not like; it isn't as if ~",
+      "synopsis": "<div>✦V root form + のではあるまいし</div><div>✦V past tense plain form + のではあるまいし</div><div>✦N + ではあるまいし/じゃあるまいし</div><div><br/></div>"
+    }
+  ],
+  "title": "～ではあるまいし      =>  it's not like; it isn't as if ~",
+  "_id": "93020c54469e582d6fdb16f7ba93a9a8"
+}

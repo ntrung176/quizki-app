@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 954,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"not even to the lowest extent, absolutely not...\". This is a formal way of speaking, often used in writing. In spoken language, 「ひとつもない」is more common.",
+      "note": null,
+      "examples": [
+        {
+          "content": "宿題をした学生は一人としていません。",
+          "transcription": "しゅくだいをしたがくせいはいちにんとしていません。",
+          "mean": "Not a single student did their homework."
+        },
+        {
+          "content": "彼の提案に誰一人として反対できませんでした。",
+          "transcription": "かれのていあんにだれいちにんとしてはんたいできませんでした。",
+          "mean": "No one could object to his proposal."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Number (minimum unit) + として…ない"
+    }
+  ],
+  "title": "... として…ない => not at all / there is not even one",
+  "_id": "f7ff14dae05876cac58b41369333f747"
+}

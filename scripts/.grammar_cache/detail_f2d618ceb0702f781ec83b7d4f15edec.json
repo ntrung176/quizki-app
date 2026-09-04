@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2597,
+  "usages": [
+    {
+      "explain": "This is a pattern used to express humility similar to 「ていただく」 but in a more polite and formal manner. When using Sino-Japanese nouns to indicate actions, it often takes the form of 「ごNいただく」, but with \"to call\" (「電話する」), it is used as 「お電話いただく」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "本日は暑い中，またお忙しい中お集まりいただきまして誠にありがとうございます。",
+          "transcription": "ほんじつはあついなか，またおいそがしいちゅうおあつまりいただきましてまことにありがとうございます。",
+          "mean": "Thank you very much for taking time out of your busy schedules to join us today despite the hot weather."
+        },
+        {
+          "content": "ご説明頂いた内容を参考にさせて頂きます。",
+          "transcription": "ごせつめいいただいたないようをさんこうにさせていただきます。",
+          "mean": "I will refer to the information you have provided."
+        }
+      ],
+      "mean": null,
+      "synopsis": "お Vます いただく\nご N いただく"
+    }
+  ],
+  "title": "お … いただく => a person whose position is higher than the speaker does something for you…",
+  "_id": "f2d618ceb0702f781ec83b7d4f15edec"
+}

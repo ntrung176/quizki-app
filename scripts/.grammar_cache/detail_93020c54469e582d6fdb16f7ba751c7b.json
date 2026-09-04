@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 3255,
+  "usages": [
+    {
+      "explain": "Used to indicate the source or basis of information that the speaker has. The second part of the sentence often uses 「そうだ」,「ということだ」 (heard that).",
+      "note": null,
+      "examples": [
+        {
+          "content": "天気予報によると、明日は雪が降るそうだ。<br>",
+          "transcription": "てんきよほうによると、あしたはゆきがふるそうだ。<br>",
+          "mean": "According to the weather forecast, it will snow tomorrow. &lt;br&gt;"
+        },
+        {
+          "content": "この本によれば、昔はここにお寺があったということだ。",
+          "transcription": "このほんによれば、むかしはここにおてらがあったということだ。",
+          "mean": "According to this book, there used to be a temple here."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + によると/によれば"
+    }
+  ],
+  "title": "によると / によれば => according to ~",
+  "_id": "93020c54469e582d6fdb16f7ba751c7b"
+}

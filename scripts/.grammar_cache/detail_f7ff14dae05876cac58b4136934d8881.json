@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1142,
+  "usages": [
+    {
+      "explain": "向きもある（むきもある） expresses the meaning \"there are also people like that\". It's a formal way of speaking, typically used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その仕事は無理だと思う向きもある。",
+          "transcription": "そのしごとはむりだとおもうむきもある。",
+          "mean": "Some people think the job is impossible."
+        },
+        {
+          "content": "自分の間違えた点を見つけないほど自慢する向きもある。",
+          "transcription": "じぶんのまちがえたてんをみつけないほどじまんするむきもある。",
+          "mean": "Some people are so proud that they can't see what they did wrong."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + 向きもある"
+    }
+  ],
+  "title": "むきもある => There are people…",
+  "_id": "f7ff14dae05876cac58b4136934d8881"
+}

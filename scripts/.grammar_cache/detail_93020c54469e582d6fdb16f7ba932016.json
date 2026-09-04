@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3190,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate that even though one knows it's impossible or unreasonable, they still proceed with the next action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "コーチの反対をおして怪我をしているのに試合に出た。",
+          "transcription": "コーチのはんたいをおしてけがをしているのにしあいにでた。",
+          "mean": "Despite his coach's opposition, he participated in the game even though he was injured."
+        },
+        {
+          "content": "危険をおして冒険にでた。",
+          "transcription": "きけんをおしてぼうけんにでた。",
+          "mean": "I went on an adventure despite the danger."
+        }
+      ],
+      "mean": "✦ to overcome (opposition); to push past ~",
+      "synopsis": "✦N ＋ をおして"
+    }
+  ],
+  "title": "～をおして      => to overcome (opposition); to push past ~",
+  "_id": "93020c54469e582d6fdb16f7ba932016"
+}

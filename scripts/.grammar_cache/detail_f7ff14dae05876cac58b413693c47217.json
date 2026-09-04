@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2000,
+  "usages": [
+    {
+      "explain": "Used to give examples. When speaking politely, use「...のような/ように」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ハノイやホーチミンみたいな大都市には住みたくない。",
+          "transcription": "はのいやほーちみんみたいなだいとしにはすみたくない。",
+          "mean": "I don't want to live in a big city like Hanoi or Ho Chi Minh."
+        },
+        {
+          "content": "彼みたいに自慢した人は誰も手伝いたくない。",
+          "transcription": "かれみたいにじまんしたひとはだれもてつだいたくない。",
+          "mean": "No one wants to help someone who boasts like him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + みたいな + N\nN + みたいに"
+    }
+  ],
+  "title": "みたい => like; similar to; resembling ~",
+  "_id": "f7ff14dae05876cac58b413693c47217"
+}

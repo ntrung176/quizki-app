@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2258,
+  "usages": [
+    {
+      "explain": "It means \"above average\" and is often replaced by saying 「かなりのN」. 「ちょっとしたN」 is used to express a judgment or evaluation in a cautious, vague manner.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山下さんは、両親の死後、ちょっとした財産を受け継いだので、生活には困らない。",
+          "transcription": "やましたさんは、りょうしんのしご、ちょっとしたざいさんをうけついだので、せいかつにはこまらない。",
+          "mean": "Mr. Yamashita inherited a small fortune after his parents died, so he doesn't have to worry about making ends meet."
+        },
+        {
+          "content": "パーティーではお母さんの手料理が出た。素人の料理とはいえ、ちょっとしたものだった。",
+          "transcription": "ぱーてぃーではおかあさんのてりょうりがでた。しろうとのりょうりとはいえ、ちょっとしたものだった。",
+          "mean": "At the party, my mother's cooking was served. Although it was an amateur's dish, it was a small dish."
+        },
+        {
+          "content": "吉田さんの帰国は、まわりの人にとって、ちょっとした驚きだった",
+          "transcription": "よしださんのきこくは、まわりのひとにとって、ちょっとしたおどろきだった",
+          "mean": "Mr. Yoshida's return to Japan came as a bit of a surprise to those around him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ちょっとした + N"
+    }
+  ],
+  "title": "ちょっとした ... => quite a bit; somewhat (Positive review)",
+  "_id": "f7ff14dae05876cac58b413693e85fc6"
+}

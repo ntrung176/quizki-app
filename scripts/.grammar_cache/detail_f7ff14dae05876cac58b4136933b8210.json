@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1010,
+  "usages": [
+    {
+      "explain": "It's used to quote someone else's words. It's less formal than using 「～と」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はそんなことを知らないって言った。",
+          "transcription": "かれはそんなことをしらないっていった。",
+          "mean": "He said he didn't know about that."
+        },
+        {
+          "content": "佐藤さんはパーティーに参加しないって言った。",
+          "transcription": "さとうさんはぱーてぃーにさんかしないっていった。",
+          "mean": "Mr. Sato said he would not participate in the party."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～って"
+    }
+  ],
+  "title": "…って => named; called ~",
+  "_id": "f7ff14dae05876cac58b4136933b8210"
+}

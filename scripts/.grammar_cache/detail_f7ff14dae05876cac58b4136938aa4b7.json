@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1578,
+  "usages": [
+    {
+      "explain": "Expresses a desire for someone to suffer harm, used to condemn, speak ill of, or curse someone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "悪いことをした者は処罰されるがいいよ。",
+          "transcription": "わるいことをしたものはしょばつされるがいいよ。",
+          "mean": "Those who do bad things should be punished."
+        },
+        {
+          "content": "浮気性な男はみんな悪魔にとりつかれて死んでしまうがいい。",
+          "transcription": "うわきせいなおとこはみんなあくまにとりつかれてしんでしまうがいい。",
+          "mean": "All cheating men should be possessed by the devil and die."
+        }
+      ],
+      "mean": null,
+      "synopsis": "~ がいい"
+    }
+  ],
+  "title": "… がいい ... => ... I hope that ...",
+  "_id": "f7ff14dae05876cac58b4136938aa4b7"
+}

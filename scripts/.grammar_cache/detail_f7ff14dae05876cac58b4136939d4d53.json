@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1719,
+  "usages": [
+    {
+      "explain": "中（ちゅう）expresses the meaning of doing something. The noun accompanying this word often describes an action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "授業中だから、携帯を使ってはいけない。",
+          "transcription": "じゅぎょうちゅうだから、けいたいをつかってはいけない。",
+          "mean": "I'm in class, so I can't use my cell phone."
+        },
+        {
+          "content": "「手術中」の札がかかっている。",
+          "transcription": "「しゅじゅつちゅう」のさつがかかっている。",
+          "mean": "There is a sign saying ``In surgery.''"
+        },
+        {
+          "content": "この道路は工事中だから、立ち入りは禁止だ。",
+          "transcription": "このどうろはこうじちゅうだから、たちいりはきんしだ。",
+          "mean": "This road is under construction, so access is prohibited."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 中"
+    }
+  ],
+  "title": "中 => While (Lasting)",
+  "_id": "f7ff14dae05876cac58b4136939d4d53"
+}

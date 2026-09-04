@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3141,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate a contrast with something else, going completely opposite to it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨日のひどい天気にひきかえ、当日は晴れている。",
+          "transcription": "きのうのひどいてんきにひきかえ、とうじつははれている。",
+          "mean": "In contrast to yesterday's terrible weather, it is sunny today."
+        },
+        {
+          "content": "息子が社交的なタイプなのにひきかえ、娘は人前に出るのを嫌うタイプだ。",
+          "transcription": "むすこがしゃこうてきなたいぷなのにひきかえ、むすめはひとまえにでるのをきらうたいぷだ。",
+          "mean": "While my son is the sociable type, my daughter is the type who hates going out in public."
+        },
+        {
+          "content": "去年にひきかえ、今年は暖かい。",
+          "transcription": "きょねんにひきかえ、ことしはあたたかい。",
+          "mean": "It's warmer this year than last year."
+        },
+        {
+          "content": "あの店は食料品が豊富なのにひきかえ、衣料品は少ない。",
+          "transcription": "あのみせはしょくりょうひんがほうふなのにひきかえ、いりょうひんはすくない。",
+          "mean": "That store has an abundance of food, but not much clothing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V (root form) + のにひきかえ</div><div>✦N + （である）のにひきかえ</div><div>✦なadj + な/である + のにひきかえ</div>"
+    }
+  ],
+  "title": "～にひきかえ      => compared to; in contrast to; unlike; while; whereas ~",
+  "_id": "93020c54469e582d6fdb16f7ba95422a"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1303,
+  "usages": [
+    {
+      "explain": "Used to request or ask others to do something. This is a formal expression commonly used by men.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大阪支店についは支店長として行ってもらえまいか。",
+          "transcription": "おおさかしてんについはしてんちょうとしていってもらえまいか。",
+          "mean": "Could you please go to the Osaka branch as the branch manager?"
+        },
+        {
+          "content": "最近忙しすぎるから、レポートを書いてもらえまいか。",
+          "transcription": "さいきんいそがしすぎるから、れぽーとをかいてもらえまいか。",
+          "mean": "I've been too busy lately, so could you write me a report?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + もらえまいか"
+    }
+  ],
+  "title": "もらえまいか => Help...",
+  "_id": "f7ff14dae05876cac58b41369363a0dd"
+}

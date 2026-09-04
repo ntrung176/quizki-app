@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1245,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"there are many possibilities, but no matter which one is chosen, ...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "小林は用事で遅れるとは言っていたが、いずれにしても参加することにはなっている。",
+          "transcription": "こばやしはようじでおくれるとはいっていたが、いずれにしてもさんかすることにはなっている。",
+          "mean": "Kobayashi said he would be late due to business, but he was going to participate anyway."
+        },
+        {
+          "content": "その薬は副作用があるだろうが、いずれにしても飲まなければならない。",
+          "transcription": "そのくすりはふくさようがあるだろうが、いずれにしてものまなければならない。",
+          "mean": "The medicine may have side effects, but you must take it anyway."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いずれにしても～"
+    }
+  ],
+  "title": "いずれにしても => anyhow; anyway; either ...",
+  "_id": "f7ff14dae05876cac58b4136935b4252"
+}

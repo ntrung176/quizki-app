@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3102,
+  "usages": [
+    {
+      "explain": "■ This means \"even\", used to emphasize. N is taken as an example meaning \"even if it's N\" or \"even right at N\".<br/>\n■ \"でも\" can be used as a replacement.<br/>\n■ It has a similar meaning to \"～とはいえ\".<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "外国人といえども、日本では日本語を話さなければならない。",
+          "transcription": "がいこくじんといえども、にほんではにほんごをはなさなければならない。",
+          "mean": "Even if you are a foreigner, you must speak Japanese in Japan."
+        },
+        {
+          "content": "中国語5級に合格したといえども、仕事がない。",
+          "transcription": "ちゅうごくご5きゅうにごうかくしたといえども、しごとがない。",
+          "mean": "Even though I passed the Level 5 Chinese test, I still don't have a job."
+        },
+        {
+          "content": "三歳の小児といえどもこれを知る。",
+          "transcription": "さんさいのしょうにといえどもこれをしる。",
+          "mean": "Even a three-year-old child knows this."
+        }
+      ],
+      "mean": "even if; even though; despite ~",
+      "synopsis": "普通形 ＋ といえども"
+    }
+  ],
+  "title": "～といえども => even if; even though; despite ~",
+  "_id": "93020c54469e582d6fdb16f7ba947f2e"
+}

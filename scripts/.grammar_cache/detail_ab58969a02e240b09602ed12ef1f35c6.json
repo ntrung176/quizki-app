@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5195,
+  "usages": [
+    {
+      "explain": "「に関わらず/に関わりなく」expresses the idea that regardless of how the preceding clause is, no matter what the difference is, the following clause will still occur.<br/>\n\nThe preceding clause can be:<br/>\n- A pair of contrasting words (to go / not to go, delicious / not delicious...)<br/>\n- A word indicating a range (distance, amount, size...), including multiple factors forming it <br/>(weather, age, nationality...), formed by opposing factors (male/female, big/small, much/little, young/old...), or<br/>\n- An interrogative word in the form of 「Interrogative word~か」.<br/>\n\nNote: The preceding clause almost never comes with the adjective ending な, except for some words like 好き (like), 嫌い (dislike), 上手 (good at), 下手 (bad at)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "来る来ないに関わらず、連絡をください。",
+          "transcription": "くるこないにかかわらず、れんらくをください。",
+          "mean": "Please contact me whether you come or not."
+        },
+        {
+          "content": "国籍に関わらず歓迎します。",
+          "transcription": "こくせきにかかわらずかんげいします。",
+          "mean": "We welcome everyone regardless of nationality."
+        },
+        {
+          "content": "美味しい美味しくないに関わらず、全部食べます。",
+          "transcription": "おいしいおいしくないにかかわらず、ぜんぶたべます。",
+          "mean": "I eat everything, whether it's delicious or not."
+        },
+        {
+          "content": "精神科の薬が欲しくなった人がいたら、このメッセージは適切だった。僕は好き好きでないに関わらず、16年飲んでいる。",
+          "transcription": "せいしんかのくすりがほしくなったひとがいたら、このメッセージはてきせつだった。ぼくはすきすきでないにかかわらず、じゅうろくねんのんでいる。",
+          "mean": "If someone needed psychiatric medication, this message was appropriate. I've been drinking for 16 years, whether I like it or not."
+        },
+        {
+          "content": "好き嫌いに関わりなく、やらなければならない。",
+          "transcription": "すききらいにかかわりなく、やらなければならない。",
+          "mean": "You have to do it whether you like it or not."
+        },
+        {
+          "content": "才能のあるなしに関わらず、チャンスは平等だ。",
+          "transcription": "さいのうのあるなしにかかわらず、チャンスはびょうどうだ。",
+          "mean": "Opportunities are equal whether you have talent or not."
+        },
+        {
+          "content": "ルールは、正社員、アルバイトなどの雇用形態に関わりなく適用される。",
+          "transcription": "ルールは、せいしゃいん、アルバイトなどのこようけいたいにかかわりなくてきようされる。",
+          "mean": "The rules apply regardless of employment status, such as full-time or part-time employment."
+        },
+        {
+          "content": "この路線バスの料金は、乗った距離に関わりなく1律2百円です。",
+          "transcription": "このろせんバスのりょうきんは、のったきょりにかかわりなくいちりつにひゃくえんです。",
+          "mean": "The fare for this route bus is 200 yen regardless of the distance traveled."
+        },
+        {
+          "content": "理由が何であるかに関わりなく、一度納入した入学金はお返しできません。",
+          "transcription": "りゆうがなんであるかにかかわりなく、いちどのうにゅうしたにゅうがくきんはおかえしできません。",
+          "mean": "Regardless of the reason, once the enrollment fee has been paid, it cannot be refunded."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる Vない に+関わらず/関わりなく<br/>Aい Aくない に+関わらず/関わりなく<br/>A<s>な</s> A<s>な</s>でない に+関わらず/関わりなく<br/> N に+関わらず/関わりなく"
+    }
+  ],
+  "title": "に関わらず/に関わりなく =>  in spite of; regardless of ~",
+  "_id": "ab58969a02e240b09602ed12ef1f35c6"
+}

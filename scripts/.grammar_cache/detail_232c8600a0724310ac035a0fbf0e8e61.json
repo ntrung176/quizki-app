@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5488,
+  "usages": [
+    {
+      "explain": "「意向形」is the volitional form of verbs, used to invite, suggest the listener to do something (based on the assumption that they will agree, similar to「～ましょう」), to offer help in doing something, or to express the speaker's intention.<br/>「意向形」is also used in some other structures, helping to express the specific meaning of those structures.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう11時だ。早く寝よう。",
+          "transcription": "もうじゅういちじだ。はやくねよう。",
+          "mean": "It's already 11 o'clock. Let's go to bed early."
+        },
+        {
+          "content": "重たそうだね。手伝おうか。",
+          "transcription": "おもたそうだね。てつだおうか。",
+          "mean": "It looks heavy. Shall I help."
+        },
+        {
+          "content": "明日は週末ですから、飲みに行こう。",
+          "transcription": "あしたはしゅうまつですから、のみにいこう。",
+          "mean": "Tomorrow is the weekend, so let's go out for drinks."
+        },
+        {
+          "content": "今日から自転車で出勤しよう。",
+          "transcription": "きょうからじてんしゃでしゅっきんしよう。",
+          "mean": "Let's go to work by bicycle from today."
+        },
+        {
+          "content": "皆さんはもう疲れたね。少し休もうか。",
+          "transcription": "みなさんはもうつかれたね。すこしやすもうか。",
+          "mean": "Everyone is already tired. Shall we take a little rest?"
+        },
+        {
+          "content": "映画のチケットを2枚持っているので、一緒に見に行こう。",
+          "transcription": "えいがのチケットをにまいもっているので、いっしょにみにいこう。",
+          "mean": "I have two movie tickets, so let's go see them together."
+        },
+        {
+          "content": "明日は早く起きなければならないので、今日は早く寝よう。",
+          "transcription": "あしたははやくおきなければならないので、きょうははやくねよう。",
+          "mean": "I have to get up early tomorrow, so I'll go to bed early today."
+        },
+        {
+          "content": "もうすぐ先生の誕生日だから、プレゼントを買いに行こう。",
+          "transcription": "もうすぐせんせいのたんじょうびだから、プレゼントをかいにいこう。",
+          "mean": "It's my teacher's birthday soon, so let's go buy him a present."
+        },
+        {
+          "content": "あした早く起きようと思います。",
+          "transcription": "あしたはやくおきようとおもいます。",
+          "mean": "I think I'll wake up early tomorrow."
+        },
+        {
+          "content": "夏休みに旅行しようと思っています。",
+          "transcription": "なつやすみにりょこうしようとおもっています。",
+          "mean": "I'm thinking of traveling during summer vacation."
+        },
+        {
+          "content": "ご飯を食べようとしたとき、お客さんが来た。",
+          "transcription": "ごはんをたべようとしたとき、おきゃくさんがきた。",
+          "mean": "When I was about to eat, a customer came."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group 1: (い)ます ➔ (お)う (VD: 行きます ➔ 行こう)<br/> Group 2: ます ➔ よう (Ex: 食べます ➔ 食べよう)<br/>Group 3: します ➔ しよう (VD: 勉強します ➔ 勉強しよう)<br/> きます ➔ こよう (VD: 学校へきます ➔ 学校へこよう)"
+    }
+  ],
+  "title": "意向形 => volitional form​",
+  "_id": "232c8600a0724310ac035a0fbf0e8e61"
+}

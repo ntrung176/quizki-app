@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1362,
+  "usages": [
+    {
+      "explain": "Used in conjunction with words like [評判] (reputation), [噂] (rumor)... and expresses the idea \"that's what everyone is talking about\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "今年アカデミー賞を受けた映画が優秀ともっぱらの評判だ。",
+          "transcription": "ことしあかでみーしょうをうけたえいががゆうしゅうともっぱらのひょうばんだ。",
+          "mean": "The movies that won Academy Awards this year have a reputation for being excellent."
+        },
+        {
+          "content": "社長候補の第一位は山田さんだと、もっぱらの噂だ。",
+          "transcription": "しゃちょうこうほのだいいちいはやまださんだと、もっぱらのうわさだ。",
+          "mean": "It is rumored that Mr. Yamada is the number one candidate for president."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もっぱらの + N"
+    }
+  ],
+  "title": "もっぱら => Everyone...",
+  "_id": "f7ff14dae05876cac58b4136936baa99"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2484,
+  "usages": [
+    {
+      "explain": "It expresses permission or allowing someone to do something without interference, received as a favor, by combining the causative form with 「 もらう」(morau) or 「くれる」(kureru).",
+      "note": null,
+      "examples": [
+        {
+          "content": "両親が早く亡くなったので、兄と姉が働いて私を大学に進学させてくれた。",
+          "transcription": "りょうしんがはやくなくなったので、あにとあねがはたらいてわたしをだいがくにしんがくさせてくれた。",
+          "mean": "My parents died young, so my older brother and sister worked to help me go to university."
+        },
+        {
+          "content": "彼は私を幸せな気持ちにさせてくれる。",
+          "transcription": "かれはわたしをしあわせなきもちにさせてくれる。",
+          "mean": "he makes me feel happy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-させてくれる"
+    }
+  ],
+  "title": "させてくれる => Let me...",
+  "_id": "f2d618ceb0702f781ec83b7d4f06fd2d"
+}

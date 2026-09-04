@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5249,
+  "usages": [
+    {
+      "explain": "「それでも」is a conjunction used to connect two sentences. The following sentence expresses an opinion or result that is contrary to the situation stated in the previous sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "外は大雨だ。それでも、出かけないといけない。",
+          "transcription": "そとはおおあめだ。それでも、でかけないといけない。",
+          "mean": "It's raining heavily outside. Still, I have to go out."
+        },
+        {
+          "content": "みんなに反対されている。それでも、私は彼と結婚したい。",
+          "transcription": "みんなにはんたいされている。それでも、わたしはかれとけっこんしたい。",
+          "mean": "Everyone is against it. Still, I want to marry him."
+        },
+        {
+          "content": "あの大学は絶対無理だと言われた。それでも、僕は受けるつもりだ。",
+          "transcription": "あのだいがくはぜったいむりだといわれた。それでも、ぼくはうけるつもりだ。",
+          "mean": "I was told that there was no way I could get into that university. Still, I'm going to take it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。それでも、 B"
+    }
+  ],
+  "title": "それでも => but still; and yet; even so ~",
+  "_id": "df47c5500dad45cda9c40263f0f387c0"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1891,
+  "usages": [
+    {
+      "explain": "Expresses the intention of the speaker when carrying out a certain action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "来週から会社を辞めるつもりで、社長に話に行った。",
+          "transcription": "らいしゅうからかいしゃをやめるつもりで、しゃちょうにはなしにいった。",
+          "mean": "I went to talk to the president about my plans to quit the company next week."
+        },
+        {
+          "content": "彼は彼女と会うつもりで雨の中にずっと待っていた。",
+          "transcription": "かれはかのじょとあうつもりであめのなかにずっとまっていた。",
+          "mean": "He had been waiting in the rain with the intention of meeting her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + つもりで"
+    }
+  ],
+  "title": "つもりで => with the intention of doing ~",
+  "_id": "f7ff14dae05876cac58b413693b4292d"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3199,
+  "usages": [
+    {
+      "explain": "Generally, the quantifier is placed before the verb it modifies, except in the case of quantifiers indicating time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "マンゴーを４つ買いました。",
+          "transcription": "まんごーをよっつかいました。",
+          "mean": "I bought four mangoes."
+        },
+        {
+          "content": "中国人の学生が２人います。",
+          "transcription": "ちゅうごくじんのがくせいがににんいます。",
+          "mean": "There are two Chinese students."
+        },
+        {
+          "content": "みかんを6つ食べました。",
+          "transcription": "みかんを6つたべました。",
+          "mean": "I ate six oranges."
+        }
+      ],
+      "mean": ": Corresponds to the verb...of quantity",
+      "synopsis": "～助詞＋数量～V"
+    }
+  ],
+  "title": "～助詞＋数量      => Corresponds to the verb...of quantity",
+  "_id": "93020c54469e582d6fdb16f7ba5fb80b"
+}

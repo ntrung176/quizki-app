@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1787,
+  "usages": [
+    {
+      "explain": "Following a noun referring to a person to express the viewpoint, position of that person.",
+      "note": null,
+      "examples": [
+        {
+          "content": "1000円は、子供にしてみたら相当なお金だ。",
+          "transcription": "1000えんは、こどもにしてみたらそうとうなおかねだ。",
+          "mean": "1000 yen is a lot of money for a child."
+        },
+        {
+          "content": "彼にしてみれば、私のことなんて遊びだったんです。",
+          "transcription": "かれにしてみれば、わたしのことなんてあそびだったんです。",
+          "mean": "To him, I was just a game."
+        },
+        {
+          "content": "三年使っていた古いテレビを上げたのだが、彼にしてみればとてもありがたかったらしく、何度も感謝された。",
+          "transcription": "さんねんつかっていたふるいてれびをあげたのだが、かれにしてみればとてもありがたかったらしく、なんどもかんしゃされた。",
+          "mean": "I gave him my old TV that I had been using for three years, and he seemed to be very grateful for it, and he thanked me many times."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にしてみれば / にしてみたら"
+    }
+  ],
+  "title": "にしてみれば / にしてみたら => For (A), In the case of (A), From (A)'s point of view, In the eyes of (A)",
+  "_id": "f7ff14dae05876cac58b413693a71621"
+}

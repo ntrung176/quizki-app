@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5531,
+  "usages": [
+    {
+      "explain": "「のが～です」expresses the idea that the subject's aspect or ability in doing an action V has the characteristic A. The adjectives often used in this structure include 好き (like), 嫌い (dislike), 上手 (good at), 下手 (bad at), 早い (fast), 遅い (slow), 得意 (skilled at), 苦手 (not good at)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "漫画を読むのが好きです。",
+          "transcription": "まんがをよむのがすきです。",
+          "mean": "I like reading manga."
+        },
+        {
+          "content": "彼女は食べるのが好きです。",
+          "transcription": "かのじょはたべるのがすきです。",
+          "mean": "she likes to eat"
+        },
+        {
+          "content": "水上さんは喋るのが遅いです。",
+          "transcription": "みずかみさんはしゃべるのがおそいです。",
+          "mean": "Mr. Minakami speaks slowly."
+        },
+        {
+          "content": "私は花を育てるのが好きです。",
+          "transcription": "わたしははなをそだてるのがすきです。",
+          "mean": "I like growing flowers."
+        },
+        {
+          "content": "東京の人は歩くのが早いです。",
+          "transcription": "とうきょうのひとはあるくのがはやいです。",
+          "mean": "People in Tokyo walk quickly."
+        },
+        {
+          "content": "うちの子は本を読むのが嫌いです。",
+          "transcription": "うちのこはほんをよむのがきらいです。",
+          "mean": "My child hates reading books."
+        },
+        {
+          "content": "木村さんは絵を描くのが上手です。",
+          "transcription": "きむらさんはえをかくのがじょうずです。",
+          "mean": "Mr. Kimura is good at drawing."
+        },
+        {
+          "content": "母は料理をするのが下手です。",
+          "transcription": "はははりょうりをするのがへたです。",
+          "mean": "My mother is not good at cooking."
+        },
+        {
+          "content": "私はピアノを弾くのが得意です。",
+          "transcription": "わたしはピアノをひくのがとくいです。",
+          "mean": "I'm good at playing the piano."
+        },
+        {
+          "content": "私はサッカーをするのが苦手です。",
+          "transcription": "わたしはサッカーをするのがにがてです。",
+          "mean": "I'm not good at playing soccer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) のが Aい/A<s>な</s> です"
+    }
+  ],
+  "title": "のが～です => to be",
+  "_id": "289cb665a0df4f6a81238511aea3470f"
+}

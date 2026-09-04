@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5067,
+  "usages": [
+    {
+      "explain": "「にして」expresses that something can only happen under certain specific conditions or circumstances (such as time, age, position). When N is in this condition, then something else can happen, or become possible. This structure expresses the speaker's surprise or relief about the situation. It is often used with 初めて (hajimete - for the first time) or ようやく.",
+      "note": null,
+      "examples": [
+        {
+          "content": "35歳にして車の免許を取った。",
+          "transcription": "さんじゅうごさいにしてくるまのめんきょをとった。",
+          "mean": "I got my driver's license at the age of 35."
+        },
+        {
+          "content": "この改革は、あの政治家にして初めてできたことだ。",
+          "transcription": "このかいかくは、あのせいじかにしてはじめてできたことだ。",
+          "mean": "This reform was the first thing that politician could accomplish."
+        },
+        {
+          "content": "これほどの安売りは現金取引にして初めて可能になることだ。",
+          "transcription": "これほどのやすうりはげんきんとりひきにしてはじめてかのうになることだ。",
+          "mean": "Selling at such low prices is only possible through cash transactions."
+        },
+        {
+          "content": "貧乏にして家族が大切だと分かりました。",
+          "transcription": "びんぼうにしてかぞくがたいせつだとわかりました。",
+          "mean": "Even though I was poor, I realized that family is important."
+        },
+        {
+          "content": "この年にして母親の苦労が分かった。",
+          "transcription": "このとしにしてははおやのくろうがわかった。",
+          "mean": "At this age, I realized how hard my mother was."
+        },
+        {
+          "content": "50歳にしてようやく子宝に恵まれた。",
+          "transcription": "ごじゅっさいにしてようやくこだからにめぐまれた。",
+          "mean": "At the age of 50, she was finally blessed with a child."
+        },
+        {
+          "content": "入社5年目にして、ようやく給料が少し上がった。",
+          "transcription": "にゅうしゃごねんめにして、ようやくきゅうりょうがすこしあがった。",
+          "mean": "After five years with the company, I finally received a slight increase in my salary."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にして（初めて/ようやく）"
+    }
+  ],
+  "title": "にして => at / on / under certain conditions (time, position, age, number of times)",
+  "_id": "990a60a445fe4ab4ae25d6007eef8161"
+}

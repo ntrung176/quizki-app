@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2735,
+  "usages": [
+    {
+      "explain": "Represents something that cannot be done at the moment but the speaker will try to do it in the future.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本語でまだ歌えません。",
+          "transcription": "にほんごでまだうたえません。",
+          "mean": "I can't sing in Japanese yet."
+        },
+        {
+          "content": "英語がまだ上手に話せません。",
+          "transcription": "えいごがまだじょうずにはなせません。",
+          "mean": "I still can't speak English well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まだ V-られない"
+    }
+  ],
+  "title": "まだV-られない => Not yet ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f285fc0"
+}

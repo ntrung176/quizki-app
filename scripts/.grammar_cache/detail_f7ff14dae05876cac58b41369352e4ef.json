@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1183,
+  "usages": [
+    {
+      "explain": "When used with a noun representing a person, it expresses the idea \"if one were to look at it or think about it from that person's perspective\". It's somewhat formal in tone. <br/>In spoken language, 「にしたら/にしてみれば」is often used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "上司とすれば仕事をおろそかにする部下には不満も多いだろうと思う。",
+          "transcription": "じょうしとすればしごとをおろそかにするぶかにはふまんもおおいだろうとおもう。",
+          "mean": "As a boss, I think you would be dissatisfied with your subordinates who neglect their work."
+        },
+        {
+          "content": "社長とすれば、よくできる社員に関心が行くのは自然なことだと思う。",
+          "transcription": "しゃちょうとすれば、よくできるしゃいんにかんしんがいくのはしぜんなことだとおもう。",
+          "mean": "I think it's natural for a company president to be interested in employees who perform well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + とすれば"
+    }
+  ],
+  "title": "... とすれば => point of view",
+  "_id": "f7ff14dae05876cac58b41369352e4ef"
+}

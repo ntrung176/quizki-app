@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1976,
+  "usages": [
+    {
+      "explain": "This grammar pattern uses the structure 「A つまり B わけだ」to express that A and B are the same thing, and A can be replaced by B.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の母親は私の父の妹だ。つまり彼と私はいとこのわけだ。",
+          "transcription": "かれのははおやはわたしのちちのいもうとだ。つまりかれとわたしはいとこのわけだ。",
+          "mean": "His mother is my father's sister. In other words, he and I are cousins."
+        },
+        {
+          "content": "彼はイタリアの有名なレストランで６年間料理の修行をしたそうだ。つまりプロの料理人のわけだ。",
+          "transcription": "かれはいたりあのゆうめいなれすとらんでろくねんかんりょうりのしゅぎょうをしたそうだ。つまりぷろのりょうりじんのわけだ。",
+          "mean": "He apparently trained as a chef at a famous restaurant in Italy for six years. In other words, he is a professional chef."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・ A ・Naな・ Nの＋ わけだ"
+    }
+  ],
+  "title": "わけだ => It means (in other words)",
+  "_id": "f7ff14dae05876cac58b413693c111a9"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2494,
+  "usages": [
+    {
+      "explain": "This structure is also used when presenting more than one reason or cause. 「それで」 is a conjunction used to connect the part before it, which talks about something, with the part after it, which explains the reason or cause leading to that.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は雪だし、お金もないし、(それで)出かけません。",
+          "transcription": "きょうはゆきだし、おかねもないし、(それで)でかけません。",
+          "mean": "It's snowing today, and I don't have any money, so I won't go out."
+        },
+        {
+          "content": "その中国レストランは食べ物もおいしいし、値段も安いし, (それで) 人が多いです。",
+          "transcription": "そのちゅうごくれすとらんはたべものもおいしいし、ねだんもやすいし,(それで)じんがおおいです。",
+          "mean": "The food at that Chinese restaurant is delicious, the prices are low, and there are a lot of people."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない/ Na-だ/ A-い + し, V-る/ V-た/ V-ない/ Na-だ/ A-い + し, それで..."
+    }
+  ],
+  "title": "...し, ...し, (それで) ...  => Because... and..., so...",
+  "_id": "f2d618ceb0702f781ec83b7d4f08026b"
+}

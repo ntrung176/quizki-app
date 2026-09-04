@@ -1,0 +1,43 @@
+{
+  "level": "N1",
+  "mobileId": 788,
+  "usages": [
+    {
+      "explain": "✦ Similar in meaning to [のに], but often used with feelings of dissatisfaction, regret, or reproach for the occurrence of outcomes that one is not satisfied with. <br/> ✦ In front of 「ものを」, it is not necessarily 「V-ば」, but can also be used with 「V-たら」 or 「N-なら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "前日に早く寝ればいいものを、夜中まで起きてるから朝起きられないんだよ。",
+          "transcription": "ぜんじつにはやくねればいいものを、やちゅうまでおきてるからあさおきられないんだよ。",
+          "mean": "I wish I had gone to bed early the night before, but I stay up until midnight so I can't wake up in the morning."
+        },
+        {
+          "content": "<div>ちゃんと窓を閉めておけばよかったものを。閉めるのを忘れていて、雨で濡ぬれてしまった。<br></div>",
+          "transcription": "ちゃんとまどをしめておけばよかったものを。しめるのをわすれていて、あめで濡ぬれてしまった。",
+          "mean": "&lt;div&gt;I should have closed the window properly. I forgot to close it and got wet from the rain. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "<div>大学生の時に、ちゃんと勉強しておけばよかったものを。今になって後悔こうかいしている。<br></div>",
+          "transcription": "だいがくせいのときに、ちゃんとべんきょうしておけばよかったものを。いまになってこうかいこうかいしている。",
+          "mean": "&lt;div&gt;What I wish I had studied properly when I was a university student. I regret doing this now. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "場所が場所なら大事故となるものを、この程度のけがですんでよかったと思いなさい。",
+          "transcription": "ばしょがばしょならだいじことなるものを、このていどのけがですんでよかったとおもいなさい。",
+          "mean": "Be glad that you only sustained this level of injury in what would have been a serious accident in any other location."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V- ば / V-る/ V-た/ V-ない + ものを"
+    },
+    {
+      "explain": "Note: In spoken language, 「ものを」can be replaced with 「もんを」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…ものを => if only; I wish; I'm sorry it's not actually (regret)",
+  "_id": "f7ff14dae05876cac58b4136931d3c1b"
+}

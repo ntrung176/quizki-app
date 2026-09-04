@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2057,
+  "usages": [
+    {
+      "explain": "To describe a state of being completely sufficient, without any lack or discomfort, using fixed idiomatic expressions like [なに不自由なく] (なにふじゆうなく).",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は親から莫大な財産を相続して、なに不自由なく暮らしている。",
+          "transcription": "かのじょはおやからばくだいなざいさんをそうぞくして、なにふじゆうなくくらしている。",
+          "mean": "She inherited a huge amount of property from her parents and lives without any inconvenience."
+        },
+        {
+          "content": "お金には何不足ない生活をしているのだが、なぜか幸せな感じがしていない。",
+          "transcription": "おかねにはなにふそくないせいかつをしているのだが、なぜかしあわせなかんじがしていない。",
+          "mean": "I live a life with no shortage of money, but for some reason I don't feel happy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なに～ない"
+    }
+  ],
+  "title": "なに～ない => nothing; (not) ~ at all; there's no need to ~",
+  "_id": "f7ff14dae05876cac58b413693cbda5a"
+}

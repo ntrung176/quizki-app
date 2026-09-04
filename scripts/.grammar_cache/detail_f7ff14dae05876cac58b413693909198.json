@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1625,
+  "usages": [
+    {
+      "explain": "Expressing the speaker's strong determination: \"to achieve something, no matter how difficult it is, will not give up.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうしてもこの財布を買いたい。借金してでも買いたいと思った。",
+          "transcription": "どうしてもこのさいふをかいたい。しゃっきんしてでもかいたいとおもった。",
+          "mean": "I really want to buy this wallet. I wanted to buy it even if I had to borrow money."
+        },
+        {
+          "content": "山田はまだ病気が治らないが、この旅は死んででも行きたいと言っている。",
+          "transcription": "やまだはまだびょうきがなおらないが、このたびはしんででもいきたいといっている。",
+          "mean": "Yamada hasn't recovered from his illness yet, but he says he wants to go on this trip even if it means dying."
+        },
+        {
+          "content": "首になってでも、正義のために争うつもりだ。",
+          "transcription": "くびになってでも、せいぎのためにあらそうつもりだ。",
+          "mean": "I will fight for justice even if it means getting fired."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + でも"
+    }
+  ],
+  "title": "てでも => no matter what",
+  "_id": "f7ff14dae05876cac58b413693909198"
+}

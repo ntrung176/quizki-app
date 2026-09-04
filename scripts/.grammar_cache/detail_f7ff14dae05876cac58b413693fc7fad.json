@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2408,
+  "usages": [
+    {
+      "explain": "Conveys the meaning: it's something of a lighter degree... Implying that it's not a big deal or a serious issue.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はこの事がわからないほどの馬鹿ではない。",
+          "transcription": "かのじょはこのことがわからないほどのばかではない。",
+          "mean": "She's not that stupid that she doesn't understand this."
+        },
+        {
+          "content": "僕の地位は君が考えるほど好ましいものではない。",
+          "transcription": "ぼくのちいはきみがかんがえるほどこのましいものではない。",
+          "mean": "My position is not as favorable as you think."
+        },
+        {
+          "content": "それは驚くほどのことではない。",
+          "transcription": "それはおどろくほどのことではない。",
+          "mean": "That's not surprising."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ほどの + N + ではない\n…ほどの + こと／もの + ではない"
+    }
+  ],
+  "title": "…ほどの…ではない => It's not worth; no need to ~, not too serious",
+  "_id": "f7ff14dae05876cac58b413693fc7fad"
+}

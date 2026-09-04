@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5151,
+  "usages": [
+    {
+      "explain": "The 「かのようだ/かのように/かのような」is used to describe a situation or object as \"seeming as if\" or \"as if it were.\" It implies that the situation or object is not actually like that.",
+      "note": null,
+      "examples": [
+        {
+          "content": "葬式が始まると雨が降り出した。まるで空が泣いているかのようだ。",
+          "transcription": "そうしきがはじまるとあめがふりだした。まるでそらがないているかのようだ。",
+          "mean": "As the funeral began, it began to rain. It's as if the sky is crying."
+        },
+        {
+          "content": "怖いものでも見たかのように、彼女は震えた。",
+          "transcription": "こわいものでもみたかのように、かのじょはふるえた。",
+          "mean": "She trembled, as if she had seen something scary."
+        },
+        {
+          "content": "この雪はまるで綿かのようだ。",
+          "transcription": "このゆきはまるでわたかのようだ。",
+          "mean": "This snow looks like cotton."
+        },
+        {
+          "content": "友達は自分が合格したかのように喜んでくれた。",
+          "transcription": "ともだちはじぶんがごうかくしたかのようによろこんでくれた。",
+          "mean": "My friends were happy as if they had passed the exam."
+        },
+        {
+          "content": "野菜が大好きかのように食べてる。",
+          "transcription": "やさいがだいすきかのようにたべてる。",
+          "mean": "I eat vegetables as if I love them."
+        },
+        {
+          "content": "あの水は温いのに、彼は水がとても熱いかのように飲んでる。",
+          "transcription": "あのみずはぬるいのに、かれはみずがとてもあついかのようにのんでる。",
+          "mean": "Even though that water is warm, he drinks it as if it were very hot."
+        },
+        {
+          "content": "その自分だけが優秀かのような態度は改めたほうがいいよ。",
+          "transcription": "そのじぶんだけがゆうしゅうかのようなたいどはあらためたほうがいいよ。",
+          "mean": "You should change your attitude as if you are the only one who is superior."
+        },
+        {
+          "content": "ちょっと有名になったからって、自分が何者かになったかのような気がしているなら、それは勘違だよ。",
+          "transcription": "ちょっとゆうめいになったからって、じぶんがなにものかになったかのようなきがしているなら、それはかんちがいだよ。",
+          "mean": "If you feel like you've become someone just because you're a bit famous, you're wrong."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい /V (formal form)+かのようだ / かのように / かのようなN'<br/> A<s>な</s> (である)+かのようだ / かのように / かのようなN'<br/> N (である)+かのようだ / かのように / かのようなN'"
+    }
+  ],
+  "title": "かのようだ/かのように/かのような => as if; just like ~",
+  "_id": "5c868b340b6a499c9177a62aa5d5b7eb"
+}

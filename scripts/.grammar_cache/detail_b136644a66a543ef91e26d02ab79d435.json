@@ -1,0 +1,61 @@
+{
+  "level": "N5",
+  "mobileId": 5592,
+  "usages": [
+    {
+      "explain": "「～がほしいです」is used to express a desire to possess something or someone. This pattern is also used to inquire about the desires of the listener.<br/>\n\nTo express one's desire to the listener and hope they can fulfill it, you can say「～がほしいですが...」<br/>\n\nNote: Avoid using「～がほしいです」to express the desires of a third par",
+      "note": null,
+      "examples": [
+        {
+          "content": "車がほしいです。",
+          "transcription": "くるまがほしいです。",
+          "mean": "I want a car."
+        },
+        {
+          "content": "私はパソコンがほしいです。",
+          "transcription": "わたしはパソコンがほしいです。",
+          "mean": "I want a computer."
+        },
+        {
+          "content": "恋人がほしいです。",
+          "transcription": "こいびとがほしいです。",
+          "mean": "I want a lover."
+        },
+        {
+          "content": "お金がほしくないです。",
+          "transcription": "おかねがほしくないです。",
+          "mean": "I don't want money."
+        },
+        {
+          "content": "『今何がほしいですか。』『家がほしいです。』",
+          "transcription": "『いまなにがほしいですか。』『いえがほしいです。』",
+          "mean": "“What do you want now? ``I want a house.'' ”"
+        },
+        {
+          "content": "『カメラがほしいですか。』『いいえ、ほしくないです。』",
+          "transcription": "『カメラがほしいですか。』『いいえ、ほしくないです。』",
+          "mean": "“Do you want a camera? ” “No, I don’t want it. ”"
+        },
+        {
+          "content": "『誕生日に何がほしいですか。』『新しい靴がほしいです。』",
+          "transcription": "『たんじょうびになにがほしいですか。』『あたらしいくつがほしいです。』",
+          "mean": "“What do you want for your birthday? ``I want new shoes.'' ”"
+        },
+        {
+          "content": "『すみません、白い紙がほしいですが...』『いいですよ。』",
+          "transcription": "『すみません、しろいかみがほしいですが...』『いいですよ。』",
+          "mean": "``Excuse me, I'd like a white piece of paper...'' ``Okay. ”"
+        },
+        {
+          "content": "『あのう、赤いボールペンがほしいですが...』『うん。』",
+          "transcription": "『あのう、あかいボールペンがほしいですが...』『うん。』",
+          "mean": "``Um, I'd like a red ballpoint pen...'' ``Yes. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+がほしいです"
+    }
+  ],
+  "title": "～がほしいです => to want something",
+  "_id": "b136644a66a543ef91e26d02ab79d435"
+}

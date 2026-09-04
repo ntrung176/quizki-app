@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1852,
+  "usages": [
+    {
+      "explain": "Expressing the cause, reason for a negative outcome.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お腹が痛くなったのは食べ過ぎたせいです。",
+          "transcription": "おなかがいたくなったのはたべすぎたせいです。",
+          "mean": "My stomach hurts because I ate too much."
+        },
+        {
+          "content": "チームは試合に負けたのは私がミスをしたせいだ",
+          "transcription": "ちーむはしあいにまけたのはわたしがみすをしたせいだ",
+          "mean": "The team lost the game because I made a mistake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな・Nの + せいだ"
+    }
+  ],
+  "title": "せいだ => because of; due to",
+  "_id": "f7ff14dae05876cac58b413693af03ed"
+}

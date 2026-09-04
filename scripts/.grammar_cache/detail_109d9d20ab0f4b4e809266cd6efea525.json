@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5509,
+  "usages": [
+    {
+      "explain": "「まだ～ていない」 expresses the state of \"not yet done, or still in the process of doing but not completed\" regarding an action.<br/>This structure is often encountered in conversations with 「もう～ましたか。」(\"Have you already done...?\"). Accordingly, to answer the question「もう～ましたか。」, you can respond in three ways:\n\n「はい、もう～ました。」 (\"Yes, I have already done.\")<br/>\n「いいえ、まだです。」 (\"No, not yet.\")<br/>\n「いいえ、まだ～ていません。」(\"No, I haven't done it yet.\")",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はまだ決めてない。",
+          "transcription": "わたしはまだきめてない。",
+          "mean": "I haven't decided yet."
+        },
+        {
+          "content": "銀行はまだ開いていません。",
+          "transcription": "ぎんこうはまだあいていません。",
+          "mean": "Banks are not yet open."
+        },
+        {
+          "content": "この映画はまだ見ていません。",
+          "transcription": "このえいがはまだみていません。",
+          "mean": "I haven't seen this movie yet."
+        },
+        {
+          "content": "今日は忙しかったので、まだご飯を食べていません。",
+          "transcription": "きょうはいそがしかったので、まだごはんをたべていません。",
+          "mean": "I've been busy today, so I haven't eaten yet."
+        },
+        {
+          "content": "今週の新しい単語をまだ覚えていません。",
+          "transcription": "こんしゅうのあたらしいたんごをまだおぼえていません。",
+          "mean": "I haven't learned this week's new words yet."
+        },
+        {
+          "content": "彼はまだ帰ってこない。途中で何かあったかな。",
+          "transcription": "かれはまだかえってこない。とちゅうでなにかあったかな。",
+          "mean": "He hasn't come back yet. Maybe something happened on the way."
+        },
+        {
+          "content": "まだレポートが終わっていないので、遊びに行けない。",
+          "transcription": "まだレポートがおわっていないので、あそびにいけない。",
+          "mean": "I haven't finished my report yet, so I can't go out."
+        },
+        {
+          "content": "今日はまだ仕事が終わっていないので、もうちょっと残業します。",
+          "transcription": "きょうはまだしごとがおわっていないので、もうちょっとざんぎょうします。",
+          "mean": "I haven't finished my work yet today, so I'll work a little more overtime."
+        },
+        {
+          "content": "『お昼ご飯はもう食べましたか。』『いいえ、まだ食べていません。』",
+          "transcription": "『おひるごはんはもうたべましたか。』『いいえ、まだたべていません。』",
+          "mean": "``Have you eaten lunch yet? 'No, I haven't eaten yet. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "まだ+Vていない"
+    }
+  ],
+  "title": "まだ～ていない => have not yet ~",
+  "_id": "109d9d20ab0f4b4e809266cd6efea525"
+}

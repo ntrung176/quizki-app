@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1025,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: if one thing doesn't happen, then another thing cannot happen either.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このクラブは会員でなければ入ることができない。",
+          "transcription": "このくらぶはかいいんでなければはいることができない。",
+          "mean": "You cannot enter this club unless you are a member."
+        },
+        {
+          "content": "背が高くなければゴールキーパーにはなれない。",
+          "transcription": "せがたかくなければごーるきーぱーにはなれない。",
+          "mean": "You can't be a goalkeeper unless you're tall."
+        },
+        {
+          "content": "サービスが安くなければ使わない。",
+          "transcription": "さーびすがやすくなければつかわない。",
+          "mean": "If the service is cheap, I won't use it."
+        },
+        {
+          "content": "一生懸命頑張らなければ、東京大学には入れない。",
+          "transcription": "いっしょうけんめいがんばらなければ、とうきょうだいがくにはいれない。",
+          "mean": "If you don't work hard, you won't be able to get into the University of Tokyo."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Na + でなければ～ない \nA + くなければ～ない \nV + なければ～ない"
+    }
+  ],
+  "title": "なければ ～ない => must do something; have to do something",
+  "_id": "f7ff14dae05876cac58b4136933da65d"
+}

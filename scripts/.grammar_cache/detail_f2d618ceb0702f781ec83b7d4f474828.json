@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2984,
+  "usages": [
+    {
+      "explain": "くなかった is the negative past form of A-い adjectives.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一昨日パーティーはあまり楽しくなかったです。",
+          "transcription": "おとといぱーてぃーはあまりたのしくなかったです。",
+          "mean": "The party the day before yesterday wasn't very fun."
+        },
+        {
+          "content": "去年の冬は寒くなかった。",
+          "transcription": "きょねんのふゆはさむくなかった。",
+          "mean": "Last winter was not cold."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-い + くなかった"
+    }
+  ],
+  "title": "くなかった => Past negative of A-い",
+  "_id": "f2d618ceb0702f781ec83b7d4f474828"
+}

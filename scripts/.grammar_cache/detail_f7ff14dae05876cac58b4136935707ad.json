@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1212,
+  "usages": [
+    {
+      "explain": "ものと考えられている (ものとかんがえられている) is used when presenting a viewpoint generally accepted as correct by everyone.<br/>This is a formal usage, often found in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "英語は世界の共通語であるものと考えられている。",
+          "transcription": "えいごはせかいのきょうつうごであるものとかんがえられている。",
+          "mean": "English is considered to be the world's lingua franca."
+        },
+        {
+          "content": "このままでは、韓国の観光産業は進む一方であるものと考えられている。",
+          "transcription": "このままでは、かんこくのかんこうさんぎょうはすすむいっぽうであるものとかんがえられている。",
+          "mean": "It is believed that if things continue as they are, South Korea's tourism industry will only continue to advance."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + であるものと考えられているNa + であるものと考えられているA + ものと考えられているV + ものと考えられている"
+    }
+  ],
+  "title": "…ものと考えられている => one can think that; it is conceivable that; considered ...",
+  "_id": "f7ff14dae05876cac58b4136935707ad"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1234,
+  "usages": [
+    {
+      "explain": "Used to express the speaker's speculation or intention in a situation where the result is already determined. The following part often expresses the speaker's resigned or yielding attitude.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうせ遅れるのだから、いまさら慌てても仕方がない。",
+          "transcription": "どうせおくれるのだから、いまさらあわててもしかたがない。",
+          "mean": "It's going to be late anyway, so there's no point in panicking now."
+        },
+        {
+          "content": "どうせ不合格なのだから、気にしないで。",
+          "transcription": "どうせふごうかくなのだから、きにしないで。",
+          "mean": "Don't worry about it, you'll fail anyway."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうせ～のだから"
+    }
+  ],
+  "title": "どうせ…のだから => anyhow; in any case; at any rate; after all; no matter what",
+  "_id": "f7ff14dae05876cac58b41369359de83"
+}

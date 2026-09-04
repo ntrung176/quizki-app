@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5201,
+  "usages": [
+    {
+      "explain": "「に基づいて」 is \"based on\" or \"according to,\" and it is used to indicate that something (N) is used as a standard, basis, or reference to carry out a certain action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この工事は市の計画に基づいて進められます。",
+          "transcription": "このこうじはしのけいかくにもとづいてすすめられます。",
+          "mean": "This construction will proceed based on the city's plan."
+        },
+        {
+          "content": "長年の経験に基づき新入社員を教育する。",
+          "transcription": "ながねんのけいけんにもとづきしんにゅうしゃいんをきょういくする。",
+          "mean": "Train new employees based on years of experience."
+        },
+        {
+          "content": "この番組は皆様からのご意見に基づいて構成されています。",
+          "transcription": "このばんぐみはみなさまからのごいけんにもとづいてこうせいされています。",
+          "mean": "This program is based on your feedback."
+        },
+        {
+          "content": "人間工学に基づいた家具を作っている。",
+          "transcription": "にんげんこうがくにもとづいたかぐをつくっている。",
+          "mean": "We make furniture based on ergonomics."
+        },
+        {
+          "content": "公務員の給与は法律に基づいて決められています。",
+          "transcription": "こうむいんのきゅうよはほうりつにもとづいてきめられています。",
+          "mean": "The salaries of civil servants are determined by law."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+基づいて<br/> Nに+基づき<br/> Nに+基づくN'<br/> Nに+基づいたN'"
+    }
+  ],
+  "title": "に基づいて => based on; on the basis of ~",
+  "_id": "3968075c372d46c3ab32770dd829bd58"
+}

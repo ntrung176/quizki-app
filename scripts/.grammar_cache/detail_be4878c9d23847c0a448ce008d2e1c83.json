@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5159,
+  "usages": [
+    {
+      "explain": "「からといって」expresses the idea that just because of that reason alone is not enough to affirm that the subsequent situation is logical or reasonable. The clause after it often goes with negative structures like「とは限らない」(not necessarily),「わけではない」(it doesn't mean that),「とは言えない」(it's not to say that)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "話題の映画だからといって、おもしろいとは限らない。",
+          "transcription": "わだいのえいがだからといって、おもしろいとはかぎらない。",
+          "mean": "Just because a movie is popular doesn't mean it's interesting."
+        },
+        {
+          "content": "大変だからといって、諦めないでください。",
+          "transcription": "たいへんだからといって、あきらめないでください。",
+          "mean": "Don't give up just because it's difficult."
+        },
+        {
+          "content": "楽だからといって車にばかり乗っていると、運動不足になる。",
+          "transcription": "らくだからといってくるまにばかりのっていると、うんどうぶそくになる。",
+          "mean": "If you keep riding in your car just because it's easier, you won't get enough exercise."
+        },
+        {
+          "content": "いくら体にいいからといって、同じものばかり食べるのはよくない。",
+          "transcription": "いくらからだにいいからといって、おなじものばかりたべるのはよくない。",
+          "mean": "No matter how good it is for your body, it's not good to eat the same thing all the time."
+        },
+        {
+          "content": "日本に住んでいるからといって、日本語がしゃべれるようにならない。",
+          "transcription": "にほんにすんでいるからといって、にほんごがしゃべれるようにならない。",
+          "mean": "Just because you live in Japan doesn't mean you can speak Japanese."
+        },
+        {
+          "content": "有名大学を出たからといって、必ずしも頭がいいとは言えない。",
+          "transcription": "ゆうめいだいがくをでたからといって、かならずしもあたまがいいとはいえない。",
+          "mean": "Just because you graduated from a famous university doesn't necessarily mean you're smart."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい/V(formal form)+からといって / からって<br/> A<s>な</s>/N+だからといって / だからって"
+    }
+  ],
+  "title": "からといって => just because; even if; even though ~",
+  "_id": "be4878c9d23847c0a448ce008d2e1c83"
+}

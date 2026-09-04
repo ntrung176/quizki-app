@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3011,
+  "usages": [
+    {
+      "explain": "Noun 1 modifies Noun 2.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは科学の本です。",
+          "transcription": "これはかがくのほんです。",
+          "mean": "This is a science book."
+        },
+        {
+          "content": "あれはカメラの雑誌です。",
+          "transcription": "あれはかめらのざっしです。",
+          "mean": "That's a camera magazine."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 + の + N2"
+    }
+  ],
+  "title": "の => Complements",
+  "_id": "f2d618ceb0702f781ec83b7d4f4ac1a6"
+}

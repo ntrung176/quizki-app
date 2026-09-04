@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5135,
+  "usages": [
+    {
+      "explain": "「一気に」expresses:<br/>\n1. Completing something in a single step, all at once, without stopping or resting. \"At one go/In one breath/In one stretch...\"<br/>\n2. Doing something immediately or in response to an immediate event. \"Immediately/Right away...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "お茶を一気に飲みました。",
+          "transcription": "おちゃをいっきにのみました。",
+          "mean": "I drank the tea in one go."
+        },
+        {
+          "content": "私はこの本を一気に読みました。",
+          "transcription": "わたしはこのほんをいっきによみました。",
+          "mean": "I read this book in one go."
+        },
+        {
+          "content": "彼は一気に10時間働いた。",
+          "transcription": "かれはいっきにじゅうじかんはたらいた。",
+          "mean": "He worked 10 hours at a stretch."
+        },
+        {
+          "content": "こういう仕事は一気にやった方がいいんだよ。",
+          "transcription": "こういうしごとはいっきにやったほうがいいんだよ。",
+          "mean": "It's better to do this kind of work all at once."
+        },
+        {
+          "content": "買ってきたお菓子は一気に食べないで、少しずつ食べましょうね。",
+          "transcription": "かってきたおかしはいっきにたべないで、すこしずつたべましょうね。",
+          "mean": "Don't eat the sweets you bought all at once, eat them little by little."
+        },
+        {
+          "content": "その仕事を一気にやってしまいなさい。",
+          "transcription": "そのしごとをいっきにやってしまいなさい。",
+          "mean": "Please finish the work at once."
+        },
+        {
+          "content": "値段が一気に高くなっている。",
+          "transcription": "ねだんがいっきにたかくなっている。",
+          "mean": "Prices are skyrocketing."
+        },
+        {
+          "content": "彼の日本語は一気に上達した。",
+          "transcription": "かれのにほんごはいっきにじょうたつした。",
+          "mean": "His Japanese improved rapidly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "一気に+Sentence"
+    }
+  ],
+  "title": "一気に => in one go; without stopping; all at once; immediately; instantly; right away ~",
+  "_id": "858ecfa139dd4a179412b68b4bb1d0fb"
+}

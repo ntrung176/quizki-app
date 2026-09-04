@@ -1,0 +1,43 @@
+{
+  "level": "N5",
+  "mobileId": 2936,
+  "usages": [
+    {
+      "explain": "This sentence pattern is used when the speaker wants the listener to describe or explain about the object in Noun 1. Noun 2 indicates the category to which Noun 1 belongs. 「どんな」 is always placed before the noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本はどんな国ですか。",
+          "transcription": "にほんはどんなくにですか。",
+          "mean": "What kind of country is Japan?"
+        },
+        {
+          "content": "あなたの恋人はどんな人ですか。",
+          "transcription": "あなたのこいびとはどんなひとですか。",
+          "mean": "What kind of person is your lover?"
+        },
+        {
+          "content": "どんな飲み物が好きですか。",
+          "transcription": "どんなのみものがすきですか。",
+          "mean": "What kind of drink do you like?"
+        },
+        {
+          "content": "どんなスポーツが下手ですか。",
+          "transcription": "どんなすぽーつがへたですか。",
+          "mean": "What sports are you bad at?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. N1 はどんな N2 ですか。\n2. どんな Nが 好き/ 嫌い/ 上手/ 下手 ですか"
+    },
+    {
+      "explain": "Additionally, 「どんな」 is also used to request the listener to choose something from a group that the noun after 「どんな」 presents.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "どんな...ですか => How",
+  "_id": "f2d618ceb0702f781ec83b7d4f41dd82"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 5568,
+  "usages": [
+    {
+      "explain": "「は」is added after a quantifier to indicate the minimum amount that the speaker estimates.",
+      "note": null,
+      "examples": [
+        {
+          "content": "在留資格を取るのに2ヶ月は待ちます。",
+          "transcription": "ざいりゅうしかくをとるのににかげつはまちます。",
+          "mean": "You will have to wait two months to obtain your residence status."
+        },
+        {
+          "content": "N3を合格するのに6ヶ月は勉強します。",
+          "transcription": "エヌさんをごうかくするのにろっかげつはべんきょうします。",
+          "mean": "It takes 6 months of studying to pass N3."
+        },
+        {
+          "content": "日本では結婚式をするのに200万円は要ります。",
+          "transcription": "にほんではけっこんしきをするのににひゃくまんえんはいります。",
+          "mean": "In Japan, it costs 2 million yen to have a wedding."
+        },
+        {
+          "content": "ローンを全部返すのにこの危険な仕事が1年間は働かないといけません。",
+          "transcription": "ローンをぜんぶかえすのにこのきけんなしごとがいちねんかんははたらかないといけません。",
+          "mean": "I have to work this dangerous job for a year to pay off the loan in full."
+        },
+        {
+          "content": "日本で車の運転免許を取るのに30万円はかかるそうです。",
+          "transcription": "にほんでくるまのうんてんめんきょをとるのにさんじゅうまんえんはかかるそうです。",
+          "mean": "It seems that it costs 300,000 yen to get a driver's license in Japan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity words+は"
+    }
+  ],
+  "title": "は => Minimum/At least",
+  "_id": "a0bcde9931cf4a95b4be0a024484d046"
+}

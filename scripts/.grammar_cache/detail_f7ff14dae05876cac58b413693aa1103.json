@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1810,
+  "usages": [
+    {
+      "explain": "Expressing the meaning \"if based on a certain condition or fact, then...\". The phrase behind it often reflects the speaker's judgment.<br/><br/>In this case, it is not used with 「仮に／もし」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "報告のデータが間違っているとすれば、結論はまったく違うものになるだろう。",
+          "transcription": "ほうこくのでーたがまちがっているとすれば、けつろんはまったくちがうものになるだろう。",
+          "mean": "If the data in the report were incorrect, the conclusions would be completely different."
+        },
+        {
+          "content": "私たちの戦術が敵に知られていたとすれば、チームの誰かが明かしたことになる。",
+          "transcription": "わたしたちのせんじゅつがてきにしられていたとすれば、ちーむのだれかがあかしたことになる。",
+          "mean": "If our tactics were known to the enemy, someone on our team would have revealed them."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nだ + とすれば\nNaだ + とすれば\nA + とすれば\nV + とすれば"
+    }
+  ],
+  "title": "…とすれば => in the case of~; assuming~; if A then B (conditional) ...",
+  "_id": "f7ff14dae05876cac58b413693aa1103"
+}

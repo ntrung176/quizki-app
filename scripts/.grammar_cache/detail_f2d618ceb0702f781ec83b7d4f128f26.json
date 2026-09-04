@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2566,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"remaining quantity, how much is left\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "用事を片づけるにはあと２日で十分です。",
+          "transcription": "ようじをかたづけるにはあとににちでじゅうぶんです。",
+          "mean": "Two more days are enough to get things done."
+        },
+        {
+          "content": "あと三人あればサッカーチームが作れる。",
+          "transcription": "あとさんにんあればさっかーちーむがつくれる。",
+          "mean": "If we need three more people, we can make a soccer team."
+        },
+        {
+          "content": "あと５００メートルでゴールインというところで、その選手はあきらめてしまった。",
+          "transcription": "あとごぜろぜろめーとるでごーるいんというところで、そのせんしゅはあきらめてしまった。",
+          "mean": "With 500 meters to go, the athlete gave up."
+        },
+        {
+          "content": "あと数分で終わりますので、待っていただけますか。",
+          "transcription": "あとすうふんでおわりますので、まっていただけますか。",
+          "mean": "It will be over in a few minutes, so could you please wait?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "あと＋ Quantity word"
+    }
+  ],
+  "title": "あと => remainder; left; also",
+  "_id": "f2d618ceb0702f781ec83b7d4f128f26"
+}

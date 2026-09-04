@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1484,
+  "usages": [
+    {
+      "explain": "When following a noun or clause indicating an extreme situation, with an abnormal degree, it expresses the meaning \"given the situation like this, it's natural for such a thing to happen.\" It often conveys criticism or complaints.",
+      "note": null,
+      "examples": [
+        {
+          "content": "うちの息子ときたひには、暇さえあればゲームしている。",
+          "transcription": "うちのむすこときたひには、ひまさえあればげーむしている。",
+          "mean": "My son and Tahi play games whenever they have free time."
+        },
+        {
+          "content": "山田さんの家族ときたひには 、天気さえよければピクニックに行っている。",
+          "transcription": "やまださんのかぞくときたひには、てんきさえよければぴくにっくにいっている。",
+          "mean": "If the weather is nice, Yamada's family and I often go on picnics."
+        },
+        {
+          "content": "毎日こんな遅刻ときたひには解雇するのは当然だ。",
+          "transcription": "まいにちこんなちこくときたひにはかいこするのはとうぜんだ。",
+          "mean": "It's only natural that you should be fired if you're this late every day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ときたひには"
+    }
+  ],
+  "title": "…ときたひには => when it comes to",
+  "_id": "f7ff14dae05876cac58b4136937d4b5b"
+}

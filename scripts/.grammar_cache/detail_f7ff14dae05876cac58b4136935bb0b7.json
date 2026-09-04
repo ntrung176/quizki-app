@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1248,
+  "usages": [
+    {
+      "explain": "Used to convey \"that’s an exaggeration or inappropriate\" after hearing someone’s assessment of a person or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は坊ちゃんだといっては言い過ぎかもしれない。",
+          "transcription": "かれはぼっちゃんだといってはいいすぎかもしれない。",
+          "mean": "It may be an exaggeration to say that he is a monk."
+        },
+        {
+          "content": "天才といっては褒めすぎかもしれないが、彼女の演技は本当に素敵だった。",
+          "transcription": "てんさいといってはほめすぎかもしれないが、かのじょのえんぎはほんとうにすてきだった。",
+          "mean": "Calling her a genius might be an overstatement, but her acting was truly wonderful."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～といっては"
+    }
+  ],
+  "title": "といっては => If say...",
+  "_id": "f7ff14dae05876cac58b4136935bb0b7"
+}

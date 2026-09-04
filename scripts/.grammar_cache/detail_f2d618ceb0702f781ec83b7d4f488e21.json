@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2994,
+  "usages": [
+    {
+      "explain": "Describes the last event in a series of events being recounted. Slightly literary in nature.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は椅子から立ち上がった。そして窓の方を見た。",
+          "transcription": "かのじょはいすからたちあがった。そしてまどのほうをみた。",
+          "mean": "She got up from her chair. Then I looked toward the window."
+        },
+        {
+          "content": "私は道に迷って、そして、さらに悪いことに、雨が降り出した。",
+          "transcription": "わたしはみちにまよって、そして、さらにわるいことに、あめがふりだした。",
+          "mean": "I got lost, and to make matters worse, it started raining."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そして～"
+    }
+  ],
+  "title": "そして => And (Sequence)",
+  "_id": "f2d618ceb0702f781ec83b7d4f488e21"
+}

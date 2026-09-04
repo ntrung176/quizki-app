@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 905,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"if not...then...\". It is an intimate way of saying 「なければ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この任務は彼でなけりゃ勤まらない。",
+          "transcription": "このにんむはかれでなけりゃつとまらない。",
+          "mean": "This mission cannot be completed without him."
+        },
+        {
+          "content": "間違えなけりゃ勝てたのに。",
+          "transcription": "まちがえなけりゃかてたのに。",
+          "mean": "If I hadn't made a mistake, I would have won."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N・Na + でなけりゃ\nA + くなけりゃ\nV + くなけりゃ"
+    }
+  ],
+  "title": "なけりゃ => If not ...",
+  "_id": "f7ff14dae05876cac58b4136932d6975"
+}

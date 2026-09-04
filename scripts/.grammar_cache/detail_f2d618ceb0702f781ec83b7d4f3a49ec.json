@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2876,
+  "usages": [
+    {
+      "explain": "Use the て-form when wanting to connect verbs together. When connecting two or more verbs, we place these verbs in the order of the actions taking place and use the て-form to connect. The tense of the sentence is determined by the tense of the final verb.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "朝起きて、歯を磨いて、朝ごはんを食べます。",
+          "transcription": "あさおきて、はをみがいて、あさごはんをたべます。",
+          "mean": "Wake up in the morning, brush your teeth, and eat breakfast."
+        },
+        {
+          "content": "昨日ショッピングセンターへ行って、買い物をして、コーヒーを飲みました。",
+          "transcription": "きのうしょっぴんぐせんたーへいって、かいものをして、こーひーをのみました。",
+          "mean": "I went to the shopping center yesterday, did some shopping, and drank coffee."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て, V-て～"
+    }
+  ],
+  "title": "て～て => Connect sentences",
+  "_id": "f2d618ceb0702f781ec83b7d4f3a49ec"
+}

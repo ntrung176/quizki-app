@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 1774,
+  "usages": [
+    {
+      "explain": "■Presenting as a pair two completely opposite events or two similar events, to express the meaning \"whatever action is taken, it's okay / just go ahead\" or to express the meaning that \"no matter what action is chosen, the subsequent event still happens, unrelated to that choice\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "努力しようと怠けようと結果がすべてだ。",
+          "transcription": "どりょくしようとなまけようとけっかがすべてだ。",
+          "mean": "Whether you try hard or slack off, the result is everything."
+        },
+        {
+          "content": "あなたが泣こうとわめこうと、僕には関係ない。",
+          "transcription": "あなたがなこうとわめこうと、ぼくにはかんけいない。",
+          "mean": "It doesn't matter to me whether you cry or scream."
+        },
+        {
+          "content": "行こうとやめようと私の勝手だ。",
+          "transcription": "いこうとやめようとわたしのかってだ。",
+          "mean": "It's up to me whether I go or not."
+        },
+        {
+          "content": "遊ぼうと勉強しようとお好きなようにしてください。",
+          "transcription": "あそぼうとべんきょうしようとおすきなようにしてください。",
+          "mean": "Do whatever you like, play or study."
+        },
+        {
+          "content": "煮て食おうと焼いて食おうとご自由に。",
+          "transcription": "にてくおうとやいてくおうとごじゆうに。",
+          "mean": "Feel free to boil or bake or eat."
+        },
+        {
+          "content": "駆け落ちしようと心中しようと勝手にしろ。",
+          "transcription": "かけおちしようとしんじゅうしようとかってにしろ。",
+          "mean": "Do whatever you want, whether you want to elope or commit suicide."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■V－ようと + V－ようと"
+    }
+  ],
+  "title": "～ようと...ようと => even if; no matter how/what ~",
+  "_id": "f7ff14dae05876cac58b413693a4e144"
+}

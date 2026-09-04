@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 255,
+  "usages": [
+    {
+      "explain": "Using to explain the meaning of a particular object or event.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "試験の結果は７０％、つまり合格ということだ。",
+          "transcription": "しけんのけっかはななぜろぱーせんと、つまりごうかくということだ。",
+          "mean": "The test result was 70%, which means I passed."
+        },
+        {
+          "content": "このことわざの意味は健康を珍重しなければならない。",
+          "transcription": "このことわざのいみはけんこうをちんちょうしなければならない。",
+          "mean": "The meaning of this proverb is that you must value your health."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>～ということ</div>"
+    }
+  ],
+  "title": "ということ => It means that",
+  "_id": "93020c54469e582d6fdb16f7ba47fb38"
+}

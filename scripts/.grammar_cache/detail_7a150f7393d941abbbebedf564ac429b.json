@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5254,
+  "usages": [
+    {
+      "explain": "「それはそうと」is used to transition the conversation to a new topic. The content of the previous and new topics may not be related. It is also used when the speaker wants to mention something they just thought of.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『今日の授業、面白かったね。』『うん、すごくためになった。それはそうと、今度の試験いつだっけ？』",
+          "transcription": "『きょうのじゅぎょう、おもしろかったね。』『うん、すごくためになった。それはそうと、こんどのしけんいつだっけ？』",
+          "mean": "``Today's class was interesting. “Yes, it was very helpful. By the way, when is the next exam? ”"
+        },
+        {
+          "content": "『春になりましたね。それはそうと、田中さんの息子さん、大学受かったでしょうか。』",
+          "transcription": "『はるになりましたね。それはそうと、たなかさんのむすこさん、だいがくうかったでしょうか。』",
+          "mean": "``Spring has arrived. By the way, did Mr. Tanaka's son get accepted to university? ”"
+        },
+        {
+          "content": "『おはようございます。今日はいい天気ですね。』『おはよう。やっと晴れたね。それはそうと、この前お願いした書類はできましたか。』",
+          "transcription": "『おはようございます。きょうはいいてんきですね。』『おはよう。やっとはれたね。それはそうと、このまえおねがいしたしょるいはできましたか。』",
+          "mean": "\"good morning. It's nice weather today, is not it. \"\"good morning. It's finally sunny. By the way, were you able to complete the documents I requested the other day? ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。それはそうと、B"
+    }
+  ],
+  "title": "それはそうと => anyway",
+  "_id": "7a150f7393d941abbbebedf564ac429b"
+}

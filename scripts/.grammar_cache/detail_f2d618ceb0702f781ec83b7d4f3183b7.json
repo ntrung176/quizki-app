@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2808,
+  "usages": [
+    {
+      "explain": "Describe traveling using a method or vehicle.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今朝学校まで歩いて行った。",
+          "transcription": "けさがっこうまであるいていった。",
+          "mean": "I walked to school this morning."
+        },
+        {
+          "content": "この山道ではバイクに乗るが危ないから、歩いて行きましょう。",
+          "transcription": "このさんどうではばいくにのるがあぶないから、あるいていきましょう。",
+          "mean": "It's dangerous to ride a bike on this mountain path, so let's walk."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + いく"
+    }
+  ],
+  "title": "ていく => to start; to continue; to go on",
+  "_id": "f2d618ceb0702f781ec83b7d4f3183b7"
+}

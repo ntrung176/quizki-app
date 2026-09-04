@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 3209,
+  "usages": [
+    {
+      "explain": "When placed after a noun, it expresses the meaning \"composed of those things\". It can also be used in the form 「XとYからなる」.<br/><br/>If used at the end of a sentence, it often takes the form 「...からなっている」, but in formal writing, the form 「...からなる」 can still be used. When modifying a noun, the form is 「...からなるN」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この小説は１５の章からなっている。",
+          "transcription": "このしょうせつはいちごのしょうからなっている。",
+          "mean": "This novel consists of 15 chapters."
+        },
+        {
+          "content": "その委員会は科学者と技術者からなる。",
+          "transcription": "そのいいんかいはかがくしゃとぎじゅつしゃからなる。",
+          "mean": "The committee consists of scientists and engineers."
+        },
+        {
+          "content": "水分子は2個の水素原子と1個酸素原子からなる。",
+          "transcription": "すいぶんこは2このすいそげんしと1こさんそげんしからなる。",
+          "mean": "A water molecule consists of two hydrogen atoms and one oxygen atom."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + からなる"
+    }
+  ],
+  "title": "からなる => Consists of; formed to",
+  "_id": "f7ff14dae05876cac58b413693075392"
+}

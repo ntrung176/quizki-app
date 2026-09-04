@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5284,
+  "usages": [
+    {
+      "explain": "「とは限らない」is used to emphasize the idea: not always what is being talked about is true, sometimes there are exceptions. It is often used with 必ず, 必ずしも, からといって.",
+      "note": null,
+      "examples": [
+        {
+          "content": "相手が弱いチームであっても、必ず勝つとは限らない。",
+          "transcription": "あいてがよわいチームであっても、かならずかつとはかぎらない。",
+          "mean": "Even if your opponent is a weak team, it doesn't necessarily mean you will win."
+        },
+        {
+          "content": "あまり使わない表現だが、必ずしもテストに出ないとは限らない。",
+          "transcription": "あまりつかわないひょうげんだが、かならずしもテストにでないとはかぎらない。",
+          "mean": "Although it is an expression that is not often used, it does not necessarily mean that it will not appear on the test."
+        },
+        {
+          "content": "話題の映画だからといって、おもしろいとは限らない。",
+          "transcription": "わだいのえいがだからといって、おもしろいとはかぎらない。",
+          "mean": "Just because a movie is popular doesn't mean it's interesting."
+        },
+        {
+          "content": "高いものが全て、良いとは限らない。",
+          "transcription": "たかいものがすべて、よいとはかぎらない。",
+          "mean": "Not everything expensive is necessarily good."
+        },
+        {
+          "content": "お金持ちがみんな幸せだとは限らない。",
+          "transcription": "おかねもちがみんなしあわせだとはかぎらない。",
+          "mean": "Not all rich people are happy."
+        },
+        {
+          "content": "日本人でも、みんなが納豆が好きだとは限らない。",
+          "transcription": "にほんじんでも、みんながなっとうがすきだとはかぎらない。",
+          "mean": "Not all Japanese people like natto."
+        },
+        {
+          "content": "週刊誌に書いてあることがいつも真実だとは限らない。",
+          "transcription": "しゅうかんしにかいてあることがいつもしんじつだとはかぎらない。",
+          "mean": "What is written in weekly magazines is not always true."
+        },
+        {
+          "content": "日本語の先生はたくさんいますが、全てが日本人だとは限りません。",
+          "transcription": "にほんごのせんせいはたくさんいますが、すべてがにほんじんだとはかぎりません。",
+          "mean": "There are many Japanese teachers, but not all of them are Japanese."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+とは限らない"
+    }
+  ],
+  "title": "とは限らない => not necessarily so; is not always true",
+  "_id": "2303d347eccb49e5a7dbee3eeec44e76"
+}

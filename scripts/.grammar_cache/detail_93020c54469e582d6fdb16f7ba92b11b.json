@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 3040,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning that despite trying hard or making efforts, the result is not as expected or hoped for.",
+      "note": null,
+      "examples": [
+        {
+          "content": "頑張って練習したかいもなく簡単に負けてしまった。",
+          "transcription": "がんばってれんしゅうしたかいもなくかんたんにまけてしまった。",
+          "mean": "Even though I practiced hard, I lost easily."
+        },
+        {
+          "content": "超勤したかいもなく全部パチンコでなくしてしまった。",
+          "transcription": "ちょうきんしたかいもなくぜんぶパチンコでなくしてしまった。",
+          "mean": "I lost everything to a pachinko machine even though I was working extra hours."
+        },
+        {
+          "content": "努力のかいもなく、失敗した。",
+          "transcription": "どりょくのかいもなく、しっぱいした。",
+          "mean": "I failed without much effort."
+        },
+        {
+          "content": "がんばったかいもなく、試験に落ちた。",
+          "transcription": "がんばったかいもなく、しけんにおちた。",
+          "mean": "Despite my efforts, I failed the exam."
+        },
+        {
+          "content": "この仕事に出会うまでは、生きがいもなく毎日を過ごしていた。",
+          "transcription": "このしごとにであうまでは、いきがいもなくまいにちをすごしていた。",
+          "mean": "Until I found this job, I was spending my days without any purpose in life."
+        },
+        {
+          "content": "応援したかいもなく、うちの高校は負けてしまった。",
+          "transcription": "おうえんしたかいもなく、うちのこうこうはまけてしまった。",
+          "mean": "Our high school lost without any support."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vます ・Vた・Nの ＋ かいもなく"
+    }
+  ],
+  "title": "～かいもなく／～がいもなく      => despite; even though ~. I tried hard / hard but unfortunately ~",
+  "_id": "93020c54469e582d6fdb16f7ba92b11b"
+}

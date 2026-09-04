@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 649,
+  "usages": [
+    {
+      "explain": "✦Used to make conjectures, implying that even with deductions or slight adjustments, the quantity or degree of the object still cannot become significant or noteworthy.<br/>✦Often used with phrases indicating amount, degree, etc. Cannot be used when the speaker presents the event as a \"fact\" (to affirm) rather than as a speculation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あれはそんなに高くないと思うよ。たかだか3000円ぐらいのもんだろう。",
+          "transcription": "あれはそんなにたかくないとおもうよ。たかだか3000えんぐらいのもんだろう。",
+          "mean": "I don't think that is that expensive. It's probably around 3000 yen at most."
+        },
+        {
+          "content": "今度の出張はそんなに長くならないでしょう。のびたとしても、たかだか一週間程度のものだと思います。",
+          "transcription": "こんどのしゅっちょうはそんなにながくならないでしょう。のびたとしても、たかだかいちしゅうかんていどのものだとおもいます。",
+          "mean": "My next business trip won't be so long. Even if it does last, I think it will only last for about a week at most."
+        },
+        {
+          "content": "ちょっとぐらい遅刻してもしかられないよ。あの先生なら、たかだか「これから気をつけてください」と言う程度だと思うよ。",
+          "transcription": "ちょっとぐらいちこくしてもしかられないよ。あのせんせいなら、たかだか「これからきをつけてください」というていどだとおもうよ。",
+          "mean": "I can't forgive myself for being a little late. I think that teacher would just say, \"Please be careful from now on.\""
+        },
+        {
+          "content": "長生きしたとしてもたかだか90年の人生だ。私は、一瞬一瞬が生の充実感で満たされているような、そんな人生を送りたいと思っている。",
+          "transcription": "ながいきしたとしてもたかだか90ねんのじんせいだ。わたしは、いっしゅんいっしゅんがなまのじゅうじつかんでみたされているような、そんなじんせいをおくりたいとおもっている。",
+          "mean": "Even if he lives a long time, he will only live for 90 years. I want to live a life where every moment is filled with a sense of fulfillment."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～たかだか => At best...",
+  "_id": "f7ff14dae05876cac58b4136930adabd"
+}

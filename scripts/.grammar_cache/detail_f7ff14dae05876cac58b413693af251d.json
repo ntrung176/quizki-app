@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1853,
+  "usages": [
+    {
+      "explain": "Expressing things that are gradually disappearing or moving out of sight of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "桜大学では、毎年二千名の学生が卒業していく。",
+          "transcription": "さくらだいがくでは、まいとしにせんめいのがくせいがそつぎょうしていく。",
+          "mean": "Sakura University graduates 2,000 students every year."
+        },
+        {
+          "content": "氷がだんだん水に溶けていく。",
+          "transcription": "こおりがだんだんみずにとけていく。",
+          "mean": "The ice gradually melts into water."
+        },
+        {
+          "content": "この村では毎年癌で多くの人が亡くなっていく。",
+          "transcription": "このむらではまいとしがんでおおくのひとがなくなっていく。",
+          "mean": "Many people die from cancer every year in this village."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + いく"
+    }
+  ],
+  "title": "ていく => ...lose, ...go (eliminate)",
+  "_id": "f7ff14dae05876cac58b413693af251d"
+}

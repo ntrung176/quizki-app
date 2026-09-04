@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1101,
+  "usages": [
+    {
+      "explain": "Expressing the continuation from the past until now is no longer possible.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もはやこの世の人でない。",
+          "transcription": "もはやこのよのひとでない。",
+          "mean": "He is no longer of this world."
+        },
+        {
+          "content": "もはや子供ではない。",
+          "transcription": "もはやこどもではない。",
+          "mean": "He is no longer a child."
+        },
+        {
+          "content": "彼はもはや武士ではない。",
+          "transcription": "かれはもはやぶしではない。",
+          "mean": "He is no longer a samurai."
+        },
+        {
+          "content": "長年彼のうそにだまされてきて、もはやだれ一人として彼を信じる者はなかった。",
+          "transcription": "ながねんかれのうそにだまされてきて、もはやだれいちにんとしてかれをしんじるものはなかった。",
+          "mean": "After years of being fooled by his lies, no one believed him anymore."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もはや～ない"
+    }
+  ],
+  "title": "もはや～ない => no longer; not anymore",
+  "_id": "f7ff14dae05876cac58b413693480b54"
+}

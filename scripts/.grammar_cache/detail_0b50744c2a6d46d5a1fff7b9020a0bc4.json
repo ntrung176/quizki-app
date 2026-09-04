@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5113,
+  "usages": [
+    {
+      "explain": "「でも」 expresses the strong determination of the speaker, indicating that they are willing to go to extreme measures if necessary in order to accomplish something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "家を売ってでも留学に行きたいです。",
+          "transcription": "いえをうってでもりゅうがくにいきたいです。",
+          "mean": "I want to go study abroad even if I have to sell my house."
+        },
+        {
+          "content": "どんな手を使ってでも勝ちとってみせる。",
+          "transcription": "どんなてをつかってでもかちとってみせる。",
+          "mean": "I'll win using whatever means it takes."
+        },
+        {
+          "content": "多少無理をしてでもこの取引を成功させたい。",
+          "transcription": "たしょうむりをしてでもこのとりひきをせいこうさせたい。",
+          "mean": "I want to make this transaction a success, even if it's a little difficult."
+        },
+        {
+          "content": "仕事を捨ててでも好きな彼女と結婚したいです。",
+          "transcription": "しごとをすててでもすきなかのじょとけっこんしたいです。",
+          "mean": "I want to marry the girl I love even if it means giving up my job."
+        },
+        {
+          "content": "どうしてもこの絵が欲しい。借金してでも買いたい。",
+          "transcription": "どうしてもこのえがほしい。しゃっきんしてでもかいたい。",
+          "mean": "I really want this picture. I want to buy it even if I have to borrow money."
+        },
+        {
+          "content": "芸能人とデートできるなら、100万円払ってでもしたい。",
+          "transcription": "げいのうじんとデートできるなら、ひゃくまんえんはらってでもしたい。",
+          "mean": "If I could go on a date with a celebrity, I would pay 1 million yen to do it."
+        },
+        {
+          "content": "この仕事は徹夜してでも完成させろと、上司に命じられた。",
+          "transcription": "このしごとはてつやしてでもかんせいさせろと、じょうしにめいじられた。",
+          "mean": "My boss ordered me to complete this work even if it meant staying up all night."
+        },
+        {
+          "content": "大好きなアーティストのコンサートなので、高い金を払ってでも行きたい。",
+          "transcription": "だいすきなアーティストのコンサートなので、たかいかねをはらってでもいきたい。",
+          "mean": "It's a concert by my favorite artist, so I want to go there even if I pay a lot of money."
+        },
+        {
+          "content": "法律に反することをしてでも金儲けをしよう、という考えには賛成できない。",
+          "transcription": "ほうりつにはんすることをしてでもかねもうけをしよう、というかんがえにはさんせいできない。",
+          "mean": "I don't agree with the idea of ​​trying to make money by doing things that are against the law."
+        },
+        {
+          "content": "納期が明日までなので、何としてでも今日中に終わらせる必要がある。",
+          "transcription": "のうきがあしたまでなので、なんとしてでもきょうじゅうにおわらせるひつようがある。",
+          "mean": "The deadline is tomorrow, so I need to finish it today no matter what."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+でも"
+    }
+  ],
+  "title": "でも => Even if ... still",
+  "_id": "0b50744c2a6d46d5a1fff7b9020a0bc4"
+}

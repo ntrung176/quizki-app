@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2202,
+  "usages": [
+    {
+      "explain": "「通し（どおし）」describes an action or state that lasts throughout a certain period of time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その犬は夜中に吠え通しだった。",
+          "transcription": "そのいぬはやちゅうにほえとおしだった。",
+          "mean": "The dog kept barking all night."
+        },
+        {
+          "content": "彼らは朝ずっとしゃべり通しだった。",
+          "transcription": "かれらはあさずっとしゃべりとおしだった。",
+          "mean": "They talked all morning."
+        },
+        {
+          "content": "プロジェクトを完了するために、全社は２４時間通しで働いていた。",
+          "transcription": "ぷろじぇくとをかんりょうするために、ぜんしゃはによんじかんとおしではたらいていた。",
+          "mean": "The entire company worked around the clock to complete the project."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます・N + 通し"
+    }
+  ],
+  "title": "...どおし => Throughout",
+  "_id": "f7ff14dae05876cac58b413693e0b122"
+}

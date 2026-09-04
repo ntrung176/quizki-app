@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5288,
+  "usages": [
+    {
+      "explain": "「上は」expresses the idea that once in a situation (V) in the first clause, the action in the second clause is natural, the only way to solve the problem, something that should or must be done... This structure is used to show determination, readiness of the speaker or to help the speaker give advice to others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "キャプテンに選ばれた上は、頑張るしかない。",
+          "transcription": "キャプテンにえらばれたうえは、がんばるしかない。",
+          "mean": "After being chosen as captain, I have no choice but to do my best."
+        },
+        {
+          "content": "入学する上は、卒業したい。",
+          "transcription": "にゅうがくするうえはそつぎょうしたい。",
+          "mean": "Before enrolling, I want to graduate."
+        },
+        {
+          "content": "受験手続きが完了した上は、全力をつくすつもりだ。",
+          "transcription": "じゅけんてつづきがかんりょうしたうえはぜんりょくをつくすつもりだ。",
+          "mean": "Once the entrance exam procedures are complete, I plan to do my best."
+        },
+        {
+          "content": "行くと約束した上は、行かなければならない。",
+          "transcription": "いくとやくそくしたうえはいかなければならない。",
+          "mean": "Since you promised to go, you must go."
+        },
+        {
+          "content": "試合に出場する上は、優勝を目指すべきです。",
+          "transcription": "しあいにしゅつじょうするうえは、ゆうしょうをめざすべきです。",
+          "mean": "When you participate in a match, you should aim to win."
+        },
+        {
+          "content": "兄が死んだ。こうなった上は、私が跡を継ぐしかないだろう。",
+          "transcription": "あにがしんだ。こうなったうえは、わたしがあとをつぐしかないだろう。",
+          "mean": "My brother died. If this happens, I will have no choice but to follow in his footsteps."
+        },
+        {
+          "content": "大勢の方からご推薦をいただいた上は、当選するために全力で戦う覚悟です。",
+          "transcription": "おおぜいのかたからごすいせんをいただいたうえは、とうせんするためにぜんりょくでたたかうかくごです。",
+          "mean": "Having received nominations from so many people, I am determined to fight with all my might to win."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+上は<br/> Vた+上は"
+    }
+  ],
+  "title": "上は => now that; since; as long as ~",
+  "_id": "2cfb10b34f044ed18458cb17e733b86b"
+}

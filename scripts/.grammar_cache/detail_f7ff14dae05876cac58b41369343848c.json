@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1067,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"roughly that size or more\". [からある] is often used when referring to weight, length, size, and [からする] when referring to prices.",
+      "note": null,
+      "examples": [
+        {
+          "content": "スマホ産業は好調で200ドルからする携帯が飛ぶように売れている。",
+          "transcription": "すまほさんぎょうはこうちょうで200どるからするけいたいがとぶようにうれている。",
+          "mean": "The smartphone industry is booming, with phones starting at $200 selling like hotcakes."
+        },
+        {
+          "content": "その種類の切手は今では珍しくて、1枚が400ドルからしている。",
+          "transcription": "そのしゅるいのきってはいまではめずらしくて、1まいが400どるからしている。",
+          "mean": "That type of stamp is now rare and costs starting at $400 each."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + からする"
+    }
+  ],
+  "title": "からする => at least, become",
+  "_id": "f7ff14dae05876cac58b41369343848c"
+}

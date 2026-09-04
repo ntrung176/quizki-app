@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2638,
+  "usages": [
+    {
+      "explain": "This is how 「V-て」, 「Vてくれ」change to negative form to request not to do something. Used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "病院で携帯を使わないでくれ。",
+          "transcription": "びょういんでけいたいをつかわないでくれ。",
+          "mean": "Please don't use your cell phone in the hospital."
+        },
+        {
+          "content": "もう嘘をつかないでくれ。",
+          "transcription": "もううそをつかないでくれ。",
+          "mean": "Please don't lie anymore."
+        },
+        {
+          "content": "この秘密を明かさないでくれ。",
+          "transcription": "このひみつをあかさないでくれ。",
+          "mean": "Please don't reveal this secret."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ないで + くれ"
+    }
+  ],
+  "title": "ないでくれ => please don't",
+  "_id": "f2d618ceb0702f781ec83b7d4f1befca"
+}

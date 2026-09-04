@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5380,
+  "usages": [
+    {
+      "explain": "「かもしれない」 is used to express the speaker's speculation or guess. This speculation has little basis, certainty, and is about 50% likely, lower than 「だろう」. When used with 「もしかすると」 or 「もしかしたら」, the likelihood is even lower.<br/>\n- 「もしかすると」 is used in both written and spoken language.<br/>\n- 「もしかしたら」 is typically used in spoken language.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "もしかすると彼の話は嘘かもしれない。",
+          "transcription": "もしかするとかれのはなしはうそかもしれない。",
+          "mean": "Maybe his story is a lie."
+        },
+        {
+          "content": "もしかしたら明日行けないかもしれない。",
+          "transcription": "もしかしたら、あしたいけないかもしれない。",
+          "mean": "Maybe I can't go tomorrow."
+        },
+        {
+          "content": "もしかするとあそこに座っている人は有名な人かもしれない。",
+          "transcription": "もしかするとあそこにすわっているひとはゆうめいなひとかもしれない。",
+          "mean": "Maybe the person sitting over there is famous."
+        },
+        {
+          "content": "もしかするとそれは偽物かもしれない。",
+          "transcription": "もしかするとそれはにせものかもしれない。",
+          "mean": "Maybe it's fake."
+        },
+        {
+          "content": "もしかすると明日は忙しいかもしれない。",
+          "transcription": "もしかするとあしたはいそがしいかもしれない。",
+          "mean": "Maybe I'll be busy tomorrow."
+        },
+        {
+          "content": "清水さんは家を買ったばかりなのに、車まで買うそうだ。もしかしたら宝くじに当たったかもしれない。",
+          "transcription": "しみずさんはいえをかったばかりなのに、くるままでかうそうだ。もしかしたらたくじにあたったかもしれない。",
+          "mean": "Mr. Shimizu has just bought a house, but he seems to be buying a car as well. Maybe I won the lottery."
+        },
+        {
+          "content": "トムさんは高そうなギターを持っているし、もしかしたらギターが上手かもしれない。",
+          "transcription": "トムさんはたかそうなギターをもっているし、もしかしたらギターがじょうずかもしれない。",
+          "mean": "Tom has an expensive-looking guitar, and he might be good at it."
+        },
+        {
+          "content": "もしかしたら昨日彼は病気だったかもしれない。",
+          "transcription": "もしかしたらきのうかれはびょうきだったかもしれない。",
+          "mean": "Maybe he was sick yesterday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もしかすると / もしかしたら+V (formal form)+かもしれない<br/>もしかすると / もしかしたら+Aい (formal form)+かもしれない<br/>もしかすると / もしかしたら+Aな (formal form)+かもしれない<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>)<br/>\n もしかすると / もしかしたら+N (formal form)+かもしれない<br/>(In this particular case: Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "もしかすると/もしかしたら～かもしれない => perhaps; maybe; perchance; by any chance ~",
+  "_id": "7e84011b1d774d14962cd3058b00964c"
+}

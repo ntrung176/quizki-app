@@ -1,0 +1,33 @@
+{
+  "level": "N5",
+  "mobileId": 2931,
+  "usages": [
+    {
+      "explain": "Every (quantity) / Each...",
+      "note": null,
+      "examples": [
+        {
+          "content": "一人に三つずつりんごをあげましょう。",
+          "transcription": "ひとりにみっつずつりんごをあげましょう。",
+          "mean": "Give each person three apples."
+        },
+        {
+          "content": "三人ずつでチームを作った。",
+          "transcription": "さんにんずつでちーむをつくった。",
+          "mean": "We formed teams of three people each."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + ずつ"
+    },
+    {
+      "explain": "Note: This word is used to express the meaning \"(divide) evenly a quantity into each...\" or \"repeat nearly the same quantity\".",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ずつ => a piece; each; at a time",
+  "_id": "f2d618ceb0702f781ec83b7d4f40e800"
+}

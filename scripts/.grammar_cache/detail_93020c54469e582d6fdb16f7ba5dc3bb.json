@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3029,
+  "usages": [
+    {
+      "explain": "When we want to talk about the time when an action occurs, we add the particle 「に」 after the noun indicating the time. We use 「に」 for actions that occur in a short period of time. 「に」 is used when the noun indicates a specific time with a number attached, and it is not used when there is no accompanying number. However, in the case of days of the week, 「に」 can be used or omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今朝、6 時半に起きました。",
+          "transcription": "けさ、6じはんにおきました。",
+          "mean": "I woke up at 6:30 this morning."
+        },
+        {
+          "content": "8月15日に日本へ行きます。",
+          "transcription": "8つき15にちににっぽんへいきます。",
+          "mean": "I'm going to Japan on August 15th."
+        },
+        {
+          "content": "今週末「に」友達のうちへ行きます。",
+          "transcription": "こんしゅうまつ「に」ともだちのうちへいきます。",
+          "mean": "I'm going to my friend's house this weekend."
+        }
+      ],
+      "mean": ": At (time)",
+      "synopsis": "N（時間） に V"
+    }
+  ],
+  "title": "～ に     => At (time)",
+  "_id": "93020c54469e582d6fdb16f7ba5dc3bb"
+}

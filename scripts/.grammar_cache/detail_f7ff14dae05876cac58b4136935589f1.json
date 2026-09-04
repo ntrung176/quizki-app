@@ -1,0 +1,21 @@
+{
+  "level": "N2",
+  "mobileId": 1202,
+  "usages": [
+    {
+      "explain": "Expresses the idea that although it is not clear where, there is an impression or feeling like that. It can also be said as 「どこかしら」 or 「どこか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女にはどことなく神秘的なところがある。",
+          "transcription": "かのじょにはどことなくしんぴてきなところがある。",
+          "mean": "There's something mysterious about her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どことなく～"
+    }
+  ],
+  "title": "どことなく => Somewhere",
+  "_id": "f7ff14dae05876cac58b4136935589f1"
+}

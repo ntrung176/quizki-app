@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1561,
+  "usages": [
+    {
+      "explain": "Used when the event described in the latter part of the sentence is more important or at a higher level, or has a special significance compared to the event described in the first part.",
+      "note": null,
+      "examples": [
+        {
+          "content": "余人はいざ知らず僕だけはかまわぬ。",
+          "transcription": "よにんはいざしらずぼくだけはかまわぬ。",
+          "mean": "The rest of us don't know about it, but I don't care."
+        },
+        {
+          "content": "両親はいざしらず、弟の結婚を許すわけにはいかない。",
+          "transcription": "りょうしんはいざしらず、おとうとのけっこんをゆるすわけにはいかない。",
+          "mean": "My parents can't allow my younger brother to get married without their knowledge."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+は+いざしらず（いざ知らず）"
+    }
+  ],
+  "title": "いざしらず => I don't know about … but; it may be possible for … but ~ ...",
+  "_id": "f7ff14dae05876cac58b41369388a358"
+}

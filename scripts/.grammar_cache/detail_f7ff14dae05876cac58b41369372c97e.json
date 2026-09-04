@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1415,
+  "usages": [
+    {
+      "explain": "からには expresses the meaning \"since it has come to this situation, we must see it through to the end.\" It is used with words that imply responsibility or mental preparation for the situation. This pattern is often used to express the speaker's will or desire. It is formal and has a similar meaning to [...うえは], [...以上は].",
+      "note": null,
+      "examples": [
+        {
+          "content": "一度引き受けたからには、責任を持って最後までやるべきだと思う。",
+          "transcription": "いちどひきうけたからには、せきにんをもってさいごまでやるべきだとおもう。",
+          "mean": "I think that once you accept a job, you should take responsibility and see it through to the end."
+        },
+        {
+          "content": "学校の代表に選ばれたからには、全力を尽くして頑張るつもりだ。",
+          "transcription": "がっこうのだいひょうにえらばれたからには、ぜんりょくをつくしてがんばるつもりだ。",
+          "mean": "Now that I have been selected to represent my school, I intend to do my best."
+        },
+        {
+          "content": "証拠がないからには、彼を犯人として逮捕することはできないはずだ。",
+          "transcription": "しょうこがないからには、かれをはんにんとしてたいほすることはできないはずだ。",
+          "mean": "Without evidence, he should not be arrested as the culprit."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naである・Nである + からには"
+    }
+  ],
+  "title": "からには => now that; since; so long as; because ~",
+  "_id": "f7ff14dae05876cac58b41369372c97e"
+}

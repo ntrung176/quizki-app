@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 1270,
+  "usages": [
+    {
+      "explain": "✦ This way of speaking repeats the same adjective or verb twice. <br/>✦ This expression contrasts two events to convey that choosing either of the two results in the same outcome.  <br/>✦ Sometimes it implies \"although there are issues, the obstacles are insignificant, or it will be resolved anyway.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "金というのはあったらあったで使うし、なかったらないで何とかなるものだ。",
+          "transcription": "きむというのはあったらあったでつかうし、なかったらないでなんとかなるものだ。",
+          "mean": "When you have money, you use it, and when you don't have it, you can manage without it."
+        },
+        {
+          "content": "自動車はあれば便利だが、なかったらなかったで何とかなるものだ。",
+          "transcription": "じどうしゃはあればべんりだが、なかったらなかったでなんとかなるものだ。",
+          "mean": "Having a car is convenient, but if you don't have one, you can do without it."
+        },
+        {
+          "content": "母は寒がりで冬が苦手だが、それでは夏が好きかというとそうではない。暑かったら暑かったで文句を言っている。",
+          "transcription": "はははかんがりでふゆがにがてだが、それではなつがすきかというとそうではない。あつかったらあつかったでもんくをいっている。",
+          "mean": "My mother is cold and doesn't like winter, but that doesn't mean she likes summer. If it's hot, I'm complaining because it's hot."
+        },
+        {
+          "content": "息子には大学に受かってほしいが、受かったら受かったでお金が要って大変だ。",
+          "transcription": "むすこにはだいがくにうかってほしいが、うかったらうかったでおかねがいってたいへんだ。",
+          "mean": "I want my son to be accepted into university, but if he does, he will have to pay for it and it will be tough."
+        },
+        {
+          "content": "平社員のときは給料が少なくて困ったけど、昇進したらしたでつきあいも増えるしやっぱり金はたまらない。",
+          "transcription": "ひらしゃいんのときはきゅうりょうがすくなくてこまったけど、しょうしんしたらしたでつきあいもふえるしやっぱりきんはたまらない。",
+          "mean": "When I was a regular employee, I had a hard time with the low salary, but once I got promoted, I started to have more friends and the money was worth it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦A-かったら + A-いで </div><div>✦A-かったら + A-かったで </div><div>✦V-たら + V-たで</div>"
+    }
+  ],
+  "title": "～ たら … で => if / in the case… of course / should ~",
+  "_id": "f7ff14dae05876cac58b4136935e9d94"
+}

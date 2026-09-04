@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 720,
+  "usages": [
+    {
+      "explain": "✦ It's a metaphorical expression with a poetic touch. It uses a well-known name that everyone knows to express the feeling that such a comparison is appropriate. Sometimes it's also said as 「...ともいうべき」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そこは東洋のパリとでもいうべき優雅な雰囲気のある町である。",
+          "transcription": "そこはとうようのパリとでもいうべきゆうがなふんいきのあるまちである。",
+          "mean": "It is a town with an elegant atmosphere that could be called the Paris of the East."
+        },
+        {
+          "content": "第二のモハメッド・アリとでもいうべきボクサーが現れた。",
+          "transcription": "だいにのモハメッド・アリとでもいうべきボクサーがあらわれた。",
+          "mean": "A boxer who could be called the second Muhammad Ali has emerged."
+        },
+        {
+          "content": "彼は映画の神様とでもいうべき存在である。",
+          "transcription": "かれはえいがのかみさまとでもいうべきそんざいである。",
+          "mean": "He can be called the god of movies."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + とでもいうべき + N"
+    }
+  ],
+  "title": "とでもいうべき => It must be said, it can be said",
+  "_id": "f7ff14dae05876cac58b41369313d965"
+}

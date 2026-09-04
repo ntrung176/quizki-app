@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5468,
+  "usages": [
+    {
+      "explain": "「ように言う/頼む/注意する/伝える」is used to indirectly convey the content of an instruction, request, advice...",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中さんに、私の部屋に来るように言ってください。",
+          "transcription": "たなかさんに、わたしのへやにくるようにいってください。",
+          "mean": "Please tell Mr. Tanaka to come to my room."
+        },
+        {
+          "content": "妻に、家ではたばこを吸わないように言われています。",
+          "transcription": "つまに、うちではたばこをすわないようにいわれています。",
+          "mean": "My wife tells me not to smoke at home."
+        },
+        {
+          "content": "鈴木さんに、あまり無理をしないように言ってください。",
+          "transcription": "すずきさんに、あまりむりをしないようにいってください。",
+          "mean": "Please tell Mr. Suzuki not to push himself too hard."
+        },
+        {
+          "content": "この資料を50部コピーするように頼まれました。",
+          "transcription": "このしりょうをごじゅうぶコピーするようにたのまれました。",
+          "mean": "I have been asked to make 50 copies of this material."
+        },
+        {
+          "content": "学生達に辞書を持ってくるように言うのを忘れました。",
+          "transcription": "がくせいたちにじしょをもってくるようにいうのをわすれました。",
+          "mean": "I forgot to tell the students to bring dictionaries."
+        },
+        {
+          "content": "学生に図書館で物を食べないように注意した。",
+          "transcription": "がくせいにとしょかんでものをたべないようにちゅういした。",
+          "mean": "I warned students not to eat in the library."
+        },
+        {
+          "content": "ナナちゃんに、放課後職員室に来るように伝えてもらえますか。",
+          "transcription": "ナナちゃんに、ほうかごしょくいんしつにくるようにつたえてもらえますか。",
+          "mean": "Could you please tell Nana-chan to come to the staff room after school?"
+        },
+        {
+          "content": "そのスパイは機密文書を盗んでくるように命令された。",
+          "transcription": "そのスパイはきみつぶんしょをぬすんでくるようにめいれいされた。",
+          "mean": "The spy was ordered to steal classified documents."
+        },
+        {
+          "content": "この仕事を手伝ってくれるように彼にお願いしてみた。",
+          "transcription": "このしごとをてつだってくれるようにかれにおねがいしてみた。",
+          "mean": "I asked him to help me with this task."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる+よう(に)+言う / 頼む / 注意する / 伝える<br/> Vない+よう(に)+言う / 頼む / 注意する / 伝える"
+    }
+  ],
+  "title": "ように言う/頼む/注意する/伝える => to convey; to report; to transmit; to communicate; to tell; to impart; to propagate; to teach.",
+  "_id": "606e33dc239544d29ed57356cac4bebf"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2841,
+  "usages": [
+    {
+      "explain": "Describes a state that has not reached the stage indicated by the noun. It implies \"not reaching the level that, if normal, would naturally be reached.\"<br/>Often used to criticize, condemn unusual events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは常識以前の問題だ。知らない方がおかしいのだ。",
+          "transcription": "これはじょうしきいぜんのもんだいだ。しらないほうがおかしいのだ。",
+          "mean": "This is a problem that goes beyond common sense. It's weirder if you don't know."
+        },
+        {
+          "content": "挨拶がきちんとできるかどうかは、能力以前の話だ。ですから、いくら仕事ができても礼儀を知らないような人はお断りだ。",
+          "transcription": "あいさつがきちんとできるかどうかは、のうりょくいぜんのはなしだ。ですから、いくらしごとができてもれいぎをしらないようなひとはおことわりだ。",
+          "mean": "Whether or not you can greet someone properly is more than just your ability. Therefore, no matter how good the job is, we do not accept people who do not have good manners."
+        },
+        {
+          "content": "応募者の志望動機や要望は面接以前の段階での調査項目だ。面接ではもっとほかのことを質問するべきだろう。",
+          "transcription": "おうぼしゃのしぼうどうきやようぼうはめんせついぜんのだんかいでのちょうさこうもくだ。めんせつではもっとほかのことをしつもんするべきだろう。",
+          "mean": "Applicants' motivations and requests are surveyed prior to the interview. You should probably ask more questions during the interview."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + いぜん"
+    }
+  ],
+  "title": "... いぜん => Before talking about... (Stage)",
+  "_id": "f2d618ceb0702f781ec83b7d4f364c3a"
+}

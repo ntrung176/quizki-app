@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 836,
+  "usages": [
+    {
+      "explain": "This expression has a classical feel, reminiscent of [...ないうちに].",
+      "note": null,
+      "examples": [
+        {
+          "content": "2, 3分も歩かないうちに雨が降り出した。",
+          "transcription": "2,3ふんもあるかないうちにあめがふりだした。",
+          "mean": "It started raining within a few minutes of walking."
+        },
+        {
+          "content": "1分歩くか歩かないうちに彼と出会った。",
+          "transcription": "1ふんあるくかあるかないうちにかれとであった。",
+          "mean": "I met him within a minute or so of walking."
+        },
+        {
+          "content": "その会社に就職して３年も経たないうちに彼は重役になった。",
+          "transcription": "そのかいしゃにしゅうしょくしてさんねんもたたないうちにかれはじゅうやくになった。",
+          "mean": "He had not been employed by the company three years before he become adirector."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ぬうちに"
+    }
+  ],
+  "title": "～ぬうちに => While not....; before...",
+  "_id": "f7ff14dae05876cac58b413693246fe0"
+}

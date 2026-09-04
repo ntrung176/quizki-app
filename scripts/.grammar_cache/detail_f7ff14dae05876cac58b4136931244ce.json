@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 708,
+  "usages": [
+    {
+      "explain": "✦It expresses the judgment that \"it's not appropriate anymore.\" It's often used in the form of 「いまさら／いまごろ、…でもあるまい」(it's too late for...), indicating that the time has passed, and it's no longer suitable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "仕事を紹介して下さる人もあるが、私ももう70だ。この歳になって、いまさら会社勤めでもあるまい。",
+          "transcription": "しごとをしょうかいしてくださるひともあるが、わたしももう70だ。このとしになって、いまさらかいしゃつとめでもあるまい。",
+          "mean": "Some people have offered me jobs, but I'm already 70. At this age, I don't think I'm still working at a company."
+        },
+        {
+          "content": "自分から家を出ておきながら、今ごろになって、同居でもあるまい。",
+          "transcription": "じぶんからいえをでておきながら、いまごろになって、どうきょでもあるまい。",
+          "mean": "Even though I had left my house, I was now living with him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + でもあるまい"
+    }
+  ],
+  "title": "～でもあるまい => It’s not like; it isn’t as if ~",
+  "_id": "f7ff14dae05876cac58b4136931244ce"
+}

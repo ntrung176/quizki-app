@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1741,
+  "usages": [
+    {
+      "explain": "With the form 「XもXならYもYだ」expresses criticism that both sides have issues.",
+      "note": null,
+      "examples": [
+        {
+          "content": "主も主なら家来も家来だ。",
+          "transcription": "あるじもあるじならけらいもけらいだ。",
+          "mean": "If the master is the master, the servants are also servants."
+        },
+        {
+          "content": "先生も先生なら学生も学生だ。",
+          "transcription": "せんせいもせんせいならがくせいもがくせいだ。",
+          "mean": "If a teacher is a teacher, a student is also a student."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + も + N + なら"
+    }
+  ],
+  "title": "…も…なら => If N1 is.. then N2.. as well",
+  "_id": "f7ff14dae05876cac58b4136939fbedf"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5328,
+  "usages": [
+    {
+      "explain": "「だけでなく」is used to express the meaning \"not only A but also B\". It is often accompanied by も.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君だけでなく、僕も悪かった。",
+          "transcription": "きみだけでなく、ぼくもわるかった。",
+          "mean": "It wasn't just you, it was my fault too."
+        },
+        {
+          "content": "彼は医者だっただけでなく、作家でもあった。",
+          "transcription": "かれはいしゃだっただけでなく、さっかでもあった。",
+          "mean": "He was not only a doctor, but also a writer."
+        },
+        {
+          "content": "彼は知識だけではなく、経験も豊かである。",
+          "transcription": "かれはちしきだけではなく、けいけんもゆたかである。",
+          "mean": "He is not only knowledgeable but also has a wealth of experience."
+        },
+        {
+          "content": "あの人は歌が上手なだけでなく、自分で曲も作る。",
+          "transcription": "あのひとはうたがじょうずなだけでなく、じぶんできょくもつくる。",
+          "mean": "Not only is he a good singer, he also writes his own songs."
+        },
+        {
+          "content": "祖母は日本語が上手だっただけでなく、英語もペラペラだった。",
+          "transcription": "そぼはにほんごがじょうずだっただけでなく、えいごもペラペラだった。",
+          "mean": "My grandmother was not only good at Japanese, but also fluent in English."
+        },
+        {
+          "content": "ここのレストランはどれも安いだけでなく、美味しい。",
+          "transcription": "ここのレストランはどれもやすいだけでなく、おいしい。",
+          "mean": "All the restaurants here are not only cheap, but also delicious."
+        },
+        {
+          "content": "彼らは抗議を無視しただけでなく、記者に嘘をついた。",
+          "transcription": "かれらはこうぎをむししただけでなく、きしゃにうそをついた。",
+          "mean": "Not only did they ignore the protests, they lied to reporters."
+        },
+        {
+          "content": "図書館では本が借りられるだけでなく、勉強もできる。",
+          "transcription": "としょかんではほんがかりられるだけでなく、べんきょうもできる。",
+          "mean": "At the library, you can not only borrow books, but also study."
+        },
+        {
+          "content": "肉だけじゃなく、野菜もしっかり食べなさい。",
+          "transcription": "にくだけじゃなく、やさいもしっかりたべなさい。",
+          "mean": "Eat plenty of vegetables as well as meat."
+        },
+        {
+          "content": "ジョンさんは宿題をしなかっただけじゃなく、 授業にも遅れてきたので、 職員室に呼び出されました。",
+          "transcription": "ジョンさんはしゅくだい をしなかっただけじゃなく、じゅぎょうにもおく れてきたので、しょくいんしつによびだされました。",
+          "mean": "Not only did John not do his homework, he was late for class, so he was called to the staff room."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+だけで(は)なく<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>な/A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>/Nである)"
+    }
+  ],
+  "title": "だけで(は)なく => not only… but also ~",
+  "_id": "2f03c677d8094a218391c7cdce4ccd26"
+}

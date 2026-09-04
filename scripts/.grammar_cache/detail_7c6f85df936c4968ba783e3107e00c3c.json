@@ -1,0 +1,96 @@
+{
+  "level": "N3",
+  "mobileId": 5394,
+  "usages": [
+    {
+      "explain": "「に対して」\"<br/>\n1. It indicates the target or recipient of an action, emotion, or attitude in the following clause. It can be translated as \"to\" or \"toward\".<br/>\n2. It expresses a contrast or opposition between the noun followed by \"に対して\" and another contrasting noun. It can be translated as \"contrary to\" or \"in contrast to\".<br/>\n3. It indicates a corresponding quantity for each item mentioned. It can be translated as \"for each\" or \"per\".<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中先生は生徒に対して厳しい。",
+          "transcription": "たなかせんせいはせいとにたいしてきびしい。",
+          "mean": "Mr. Tanaka is strict with his students."
+        },
+        {
+          "content": "彼は女性に対しては親切に指導してくれる。",
+          "transcription": "かれはじょせいにたいしてはしんせつにしどうしてくれる。",
+          "mean": "He kindly guides women."
+        },
+        {
+          "content": "駅員は乗客に対して電車が遅れている理由を説明した。",
+          "transcription": "えきいんはじょうきゃくにたいしてでんしゃがおくれているりゆうをせつめいした。",
+          "mean": "The station staff explained to the passengers why the train was delayed."
+        },
+        {
+          "content": "小さい子供に対しては、感情的になってはいけない。",
+          "transcription": "ちいさいこどもにたいしては、かんじょうてきになってはいけない。",
+          "mean": "Don't get emotional with small children."
+        },
+        {
+          "content": "お客様に対しては、敬語を使うようにしています。",
+          "transcription": "おきゃくさまにたいしては、けいごをつかうようにしています。",
+          "mean": "I try to use honorific language when speaking to customers."
+        },
+        {
+          "content": "彼女は誰に対しても親切です。",
+          "transcription": "かのじょはだれにたいしてもしんせつです。",
+          "mean": "She is kind to everyone."
+        },
+        {
+          "content": "犯罪者に対する刑罰は、もっと重くすべきかもしれない。",
+          "transcription": "はんざいしゃにたいするけいばつは、もっとおもくすべきかもしれない。",
+          "mean": "Perhaps the punishment for criminals should be more severe."
+        },
+        {
+          "content": "親に対する感謝の気持ちを手紙に書きました。",
+          "transcription": "おやにたいするかんしゃのきもちをてがみにかきました。",
+          "mean": "I wrote a letter expressing my gratitude to my parents."
+        },
+        {
+          "content": "好きな人に対しての気持ちが抑えられない。",
+          "transcription": "すきなひとにたいしてのきもちがおさえられない。",
+          "mean": "I can't control my feelings for the person I love."
+        },
+        {
+          "content": "おしゃべり好きな長女に対して、次女はおとなしいタイプです。",
+          "transcription": "おしゃべりすきなちょうじょにたいして、じじょはおとなしいタイプです。",
+          "mean": "While my eldest daughter is talkative, my second daughter is a quiet type."
+        },
+        {
+          "content": "今回の試験の平均点が60点だった1組に対して、2組の平均点は80点もあった。",
+          "transcription": "こんかいのしけんのへいきんてんがろくじゅってんだったいちくみにたいして、にくみのへいきんてんははちじゅってんもあった。",
+          "mean": "The average score for this exam was 60 points for the first group, while the average score for the second group was 80 points."
+        },
+        {
+          "content": "募集定員10人に対して、応募人数は100人でした。合格するのは難しいです。",
+          "transcription": "ぼしゅうていいんじゅうにんにたいして、おうぼにんずうはひゃくにんでした。ごうかくするのはむずかしいです。",
+          "mean": "The number of applicants was 100 for the recruitment capacity of 10 people. It's difficult to pass."
+        },
+        {
+          "content": "醤油1に対し砂糖2の割合で混ぜ合わせてください。",
+          "transcription": "しょうゆ1にたいしさとう2のわりあいでまぜあわせてください。",
+          "mean": "Mix 1 part soy sauce to 2 parts sugar."
+        },
+        {
+          "content": "トマトには可食部100gに対し約5mgのリコピンが含まれているといわれる。",
+          "transcription": "トマトにはかしょくぶひゃくグラムにたいしやくごミリグラムのリコピンがふくまれているといわれる。",
+          "mean": "It is said that 100g of edible tomatoes contain about 5mg of lycopene."
+        },
+        {
+          "content": "教授1人に対する年間の研究補助金は10万ドルである。",
+          "transcription": "きょうじゅ1にんにたいするねんかんのけんきゅうほじょきんは10まんどるである。",
+          "mean": "The annual research grant for each professor is $100,000."
+        },
+        {
+          "content": "学生15人に対して教師1人が配置されている。",
+          "transcription": "がくせいじゅうごにんにたいしてきょうしひとりがはいちされている。",
+          "mean": "There is one teacher for every 15 students."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+対して / 対し / 対しては / 対しても / 対するN' / 対してのN'"
+    }
+  ],
+  "title": "に対して =>  towards; against; regarding; in contrast with ~​",
+  "_id": "7c6f85df936c4968ba783e3107e00c3c"
+}

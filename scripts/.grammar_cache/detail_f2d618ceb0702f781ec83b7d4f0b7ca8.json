@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2517,
+  "usages": [
+    {
+      "explain": "「 いただきます」is a humble language used instead of 「 もらいます」, implying modesty and humility of the recipient towards the giver when receiving something from someone older, higher in social status (except for family members), or less familiar, or when wanting to show respect to the giver.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ハーさんからその答えをいただきました。",
+          "transcription": "はーさんからそのこたえをいただきました。",
+          "mean": "I received the answer from Mr. Har."
+        },
+        {
+          "content": "誕生日にたくさんのプレゼントをいただきました。",
+          "transcription": "たんじょうびにたくさんのぷれぜんとをいただきました。",
+          "mean": "I received many presents on my birthday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "(N1 に) N2 をいただきます."
+    },
+    {
+      "explain": "Note: When receiving something from a superior or someone above, using this expression will demonstrate one's humility, creating a better impression. This word is also used before meals 「 いただきます」 -「 ごしそうさまでした」. The subject of this verb is always 「私(わたし)」(I).",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いただきます => to receive",
+  "_id": "f2d618ceb0702f781ec83b7d4f0b7ca8"
+}

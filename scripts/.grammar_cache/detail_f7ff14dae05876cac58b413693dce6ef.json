@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2177,
+  "usages": [
+    {
+      "explain": "Used to decline someone's invitation. Equivalent to 「 けっこうです」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A: ビールはもう一杯いかがですか。 B: いいです。",
+          "transcription": "A: びーるはもういっぱいいかがですか。 B: いいです。",
+          "mean": "A: Would you like another beer? B: Yes."
+        },
+        {
+          "content": "A: (スーツケースを)お持ちしましょうか。B: いいです。",
+          "transcription": "A: (すーつけーすを)おもちしましょうか。B: いいです。",
+          "mean": "A: Shall I bring (my suitcase)? B: Yes."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いい => (Refuse) enough",
+  "_id": "f7ff14dae05876cac58b413693dce6ef"
+}

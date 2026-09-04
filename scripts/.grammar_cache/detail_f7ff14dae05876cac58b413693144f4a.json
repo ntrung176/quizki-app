@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 724,
+  "usages": [
+    {
+      "explain": "✦ It means \"to happen all at once like that\". It is mainly used with words related to bad weather such as rain, wind, storm, cold, or nouns indicating social situations such as economic recession, yen appreciation. <br/>✦ Used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山は嵐のような天候になり、小さな山小屋は、おりからの風にあおられて簡単に吹き飛んでしまった。",
+          "transcription": "やまはあらしのようなてんこうになり、ちいさなやまごやは、おりからのかぜにあおられてかんたんにふきとんでしまった。",
+          "mean": "The weather in the mountains was stormy, and the small mountain hut was easily blown away by the wind from the cage."
+        },
+        {
+          "content": "最近、ホームレスの人が増えているが、おりからの寒波で凍死した人もいるそうだ。",
+          "transcription": "さいきん、ホームレスのひとがふえているが、おりからのかんぱでとうししたひともいるそうだ。",
+          "mean": "The number of homeless people has been increasing recently, and some people have reportedly froze to death due to the cold waves coming from their cages."
+        },
+        {
+          "content": "もともと女子の就職状況は男子より悪かったが、今年はおりからの不況でますます女性には不利になっている。",
+          "transcription": "もともとじょしのしゅうしょくじょうきょうはだんしよりわるかったが、ことしはおりからのふきょうでますますじょせいにはふりになっている。",
+          "mean": "The employment situation for women has always been worse than for men, but this year's economic downturn has made the situation even worse for women."
+        },
+        {
+          "content": "海外旅行ブームがますます盛んになっているところへ、おりからの円高で、連休の海外旅行客は40万人を越えるそうだ。",
+          "transcription": "かいがいりょこうブームがますますさかんになっているところへ、おりからのえんだかで、れんきゅうのかいがいりょこうきゃくは40まんにんをこえるそうだ。",
+          "mean": "The overseas travel boom is becoming more and more popular, and with the recent appreciation of the yen, the number of overseas travelers over the holidays is expected to exceed 400,000."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦おりからの + N"
+    }
+  ],
+  "title": "～おりからの ... => when; at the time; on the occasion ~",
+  "_id": "f7ff14dae05876cac58b413693144f4a"
+}

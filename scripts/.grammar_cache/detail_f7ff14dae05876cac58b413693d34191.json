@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 2108,
+  "usages": [
+    {
+      "explain": "Used after verbs of speech, thought, or comparison, such as 「言う」(to say), 「見る」(to see), 「考える」(to think), and 「比べる」(to compare), to introduce that the following statement is from a particular viewpoint or stance. In this usage, 「と」 can often be replaced by 「たら」, 「ば」, or 「なら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "正直に言うと、その問題についてはあまりよく分からないのです。",
+          "transcription": "しょうじきにいうと、そのもんだいについてはあまりよくわからないのです。",
+          "mean": "To be honest, I don't really know much about that issue."
+        },
+        {
+          "content": "両親に言わせると、最近の若者は行儀が悪くなっているようだ。",
+          "transcription": "りょうしんにいわせると、さいきんのわかものはぎょうぎがわるくなっているようだ。",
+          "mean": "According to my parents, young people these days seem to be behaving badly."
+        },
+        {
+          "content": "実用的な点からみると、あまり使いやすいアパートではない。",
+          "transcription": "じつようてきなてんからみると、あまりつかいやすいあぱーとではない。",
+          "mean": "From a practical point of view, it is not a very convenient apartment."
+        },
+        {
+          "content": "今となって考えてみると、先生の言うことももっともだ。",
+          "transcription": "いまとなってかんがえてみると、せんせいのいうことももっともだ。",
+          "mean": "When I think about it now, what the teacher said makes sense."
+        },
+        {
+          "content": "昨年に比べると、今年は桜の開花がちょっと早いようだ。",
+          "transcription": "さくねんにくらべると、ことしはさくらのかいかがちょっとはやいようだ。",
+          "mean": "Compared to last year, the cherry blossoms seem to bloom a little earlier this year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…と is considered an introduction"
+    }
+  ],
+  "title": "と => Introduction",
+  "_id": "f7ff14dae05876cac58b413693d34191"
+}

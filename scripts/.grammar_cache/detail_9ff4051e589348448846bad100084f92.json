@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5235,
+  "usages": [
+    {
+      "explain": "「っぽい」<br/>1. Goes with a noun:<br/>1.1. Indicates a person or thing giving a similar feeling (in terms of quality/appearance) to a certain type of person, state, or thing.<br/>\nDifference between 「っぽい」and 「みたい」:<br/> 「っぽい」often compares two similar people/things (adults - children; dogs - cats...).<br/> 「みたい」can compare two unrelated people/things.<br>1.2. Indicates an object containing various elements (colors, components...).<br><br/>2. Goes with an adjective: Indicates a person or thing that seems to have a certain quality. Usually has a negative connotation and only goes with certain adjectives.<br/><br/>3. Goes with a verb: Describes a tendency in personality or behavior that occurs in a person. Usually has a negative connotation and only goes with certain verbs.</br></br>",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの小学生は大人っぽいです。",
+          "transcription": "あのしょうがくせいはおとなっぽいです。",
+          "mean": "That elementary school student looks like an adult."
+        },
+        {
+          "content": "なんだか熱っぽいわ。風邪でも引いたのかしら。",
+          "transcription": "なんだかねつっぽいわ。かぜでもひいたのかしら。",
+          "mean": "I feel kind of feverish. Maybe I caught a cold."
+        },
+        {
+          "content": "彼は子供っぽいだ。すぐに怒るし、考え方も子供だ。",
+          "transcription": "かれはこどもっぽいだ。すぐにおこるし、かんがえかたもこどもだ。",
+          "mean": "He's childish. He gets angry easily and thinks like a child."
+        },
+        {
+          "content": "あの男っぽい女は誰だ？",
+          "transcription": "あのおとこっぽいおんなはだれだ？",
+          "mean": "Who is that manly woman?"
+        },
+        {
+          "content": "逃げたのは黒っぽい車でした。",
+          "transcription": "にげたのはくろっぽいくるまでした。",
+          "mean": "The car that fled was a black one."
+        },
+        {
+          "content": "この牛乳は水っぽくて、美味しくない。",
+          "transcription": "このぎゅうにゅうはみずっぽくて、おいしくない。",
+          "mean": "This milk is watery and not tasty."
+        },
+        {
+          "content": "朝起きると顔が油っぽいです。よく顔を洗ってから会社に行きます。",
+          "transcription": "あさおきるとかおがあぶらっぽいです。よくかおをあらってからかいしゃにいきます。",
+          "mean": "When I wake up in the morning, my face is oily. I wash my face well before going to work."
+        },
+        {
+          "content": "このコート、デザインはいいけれど、生地が安っぽいね。",
+          "transcription": "このコート、デザインはいいけれど、きじがやすっぽいね。",
+          "mean": "This coat has a nice design, but the fabric feels cheap."
+        },
+        {
+          "content": "年を取ると、忘れっぽくなる。",
+          "transcription": "としをとると、わすれっぽくなる。",
+          "mean": "As we get older, we become more forgetful."
+        },
+        {
+          "content": "彼は飽きっぽく、何をやっても長続きしない。",
+          "transcription": "かれはあきっぽく、なにをやってもながつづきしない。",
+          "mean": "He gets bored easily and doesn't last long no matter what he does."
+        },
+        {
+          "content": "部長は怒りっぽい性格で、部下がほんの小さなミスをしただけで激怒する。",
+          "transcription": "ぶちょうはおこりっぽいせいかくで、ぶかがほんのちいさなミスをしただけでげきどする。",
+          "mean": "The manager has a quick temper and gets angry when his subordinates make even the smallest mistake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+っぽい<br/>A<s>い</s>+っぽい<br/>V<s>ます</s>+っぽい<br/>"
+    }
+  ],
+  "title": "っぽい => seems like; somewhat; -ish; easily does; often does ~",
+  "_id": "9ff4051e589348448846bad100084f92"
+}

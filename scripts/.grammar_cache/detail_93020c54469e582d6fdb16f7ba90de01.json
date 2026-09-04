@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3116,
+  "usages": [
+    {
+      "explain": "✦ Used in cases where even if A cannot be done, at the very least or minimally B must be achieved (B being a subset of A), or even if it's not A, at least B is accomplished (B has a narrower meaning than A).",
+      "note": null,
+      "examples": [
+        {
+          "content": "息子には、毎日3時間勉強しろとは言わないまでも、宿題ぐらいはやってほしい.",
+          "transcription": "むすこには、まいにち3じかんべんきょうしろとはいわないまでも、しゅくだいぐらいはやってほしい.",
+          "mean": "I won't tell my son to study for three hours a day, but I do want him to do at least his homework."
+        },
+        {
+          "content": "次のテストでは、クラスで1番とは言わないまでも、合格点はほしい。",
+          "transcription": "つぎのてすとでは、くらすで1ばんとはいわないまでも、ごうかくてんはほしい。",
+          "mean": "On the next test, I want to get a passing score, if not the best in the class."
+        },
+        {
+          "content": "うちの両親は離婚とは行かないまでも、ずっと仲が悪い。",
+          "transcription": "うちのりょうしんはりこんとはいかないまでも、ずっとなかがわるい。",
+          "mean": "My parents haven't gotten along well, even if they haven't gotten divorced."
+        },
+        {
+          "content": "１ヵ月も休めないまでも、１週間ぐらいは仕事を休みたいなあ。",
+          "transcription": "１ヵげつもやすめないまでも、１しゅうかんぐらいはしごとをやすみたいなあ。",
+          "mean": "Even if I can't take a month off, I'd like to take at least a week off from work."
+        },
+        {
+          "content": "重いとは言えないまでも、女性一人に荷物を持たせるのは気の毒です。",
+          "transcription": "おもいとはいえないまでも、じょせいひとりににもつをもたせるのはきのどくです。",
+          "mean": "Although it can't be called heavy, it's a shame to have a woman carry all the luggage."
+        }
+      ],
+      "mean": "✦not to say; although it does not reach the level of ~",
+      "synopsis": "✦Vない → ないまでも"
+    }
+  ],
+  "title": "～ないまでも      => not to say; although it does not reach the level of ~",
+  "_id": "93020c54469e582d6fdb16f7ba90de01"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1149,
+  "usages": [
+    {
+      "explain": "✦Indicates the meaning of \"trying something to see if it's good or bad\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "先月できたレストランはおいしいという評判だ。ためしに一度行ってみよう。",
+          "transcription": "せんげつできたレストランはおいしいというひょうばんだ。ためしにいちどいってみよう。",
+          "mean": "The restaurant that opened last month has a reputation for being delicious. Let's try it once."
+        },
+        {
+          "content": "テレビで宣伝していたシャンプー、ためしに買ってみましょう。",
+          "transcription": "テレビでせんでんしていたシャンプー、ためしにかってみましょう。",
+          "mean": "Let's try out and buy the shampoo that was advertised on TV."
+        },
+        {
+          "content": "新発売のインスタントラーメンためしに買ってみたがおいしくなかった。",
+          "transcription": "しんはつばいのインスタントラーメンためしにかってみたがおいしくなかった。",
+          "mean": "I bought the newly released instant ramen to try it out, but it didn't taste good."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦ためしに V + てみる"
+    }
+  ],
+  "title": "～ためしに…てみる => to attempt, to test, to try out",
+  "_id": "f7ff14dae05876cac58b4136934e7286"
+}

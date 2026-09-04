@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5200,
+  "usages": [
+    {
+      "explain": "「にこたえ(て)」expresses responding to someone's desires, requests, support, etc. The accompanying noun (N) is often 期待 (expectation), 要望 (request), 希望 (hope), アンコール (encore)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "客の意見にこたえて、営業時間を延長する。",
+          "transcription": "きゃくのいけんにこたえて、えいぎょうじかんをえんちょうする。",
+          "mean": "In response to customer feedback, we will extend our business hours."
+        },
+        {
+          "content": "親の期待にこたえ、頑張った。",
+          "transcription": "おやのきたいにこたえ、がんばった。",
+          "mean": "I did my best to live up to my parents' expectations."
+        },
+        {
+          "content": "多くのファンの声援にこたえる完璧な完璧なパーフォーマンスを見せた。",
+          "transcription": "おおくのファンのせいえんにこたえるかんぺきなパーフォーマンスをみせた。",
+          "mean": "They showed a flawless performance that responded to the cheers of many fans."
+        },
+        {
+          "content": "その選手は両親の期待にこたえて、みごとに完走した。",
+          "transcription": "そのせんしゅはりょうしんのきたいにこたえて、みごとにかんそうした。",
+          "mean": "The athlete completed the race admirably, living up to his parents' expectations."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にこたえて<br/> N+にこたえ<br/> N+にこたえるN’"
+    }
+  ],
+  "title": "にこたえ(て) => in response to ~",
+  "_id": "a0fcfe518f6d43d38f89c2d045cbce23"
+}

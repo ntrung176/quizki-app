@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1702,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's acknowledgment of information or events they have received.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いいスーパーだとは聞いていたが、なるほどサービスもいいし品物も豊富だ。",
+          "transcription": "いいすーぱーだとはきいていたが、なるほどさーびすもいいししなものもほうふだ。",
+          "mean": "I've heard that it's a good supermarket, and I see that the service is good and the products are plentiful."
+        },
+        {
+          "content": "なるほど、日本というのは素晴らしい国だ。",
+          "transcription": "なるほど、にっぽんというのはすばらしいくにだ。",
+          "mean": "I see, Japan is a wonderful country."
+        },
+        {
+          "content": "夕べは久しぶりに小学校時代の友人に会ってきたよ。なるほど、嬉しそうにしていたんですね。",
+          "transcription": "ゆうべはひさしぶりにしょうがっこうじだいのゆうじんにあってきたよ。なるほど、うれしそうにしていたんですね。",
+          "mean": "In the evening, I met up with a friend from elementary school for the first time in a while. I see, he looked happy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なるほど"
+    }
+  ],
+  "title": "なるほど => I see; that's right; indeed",
+  "_id": "f7ff14dae05876cac58b4136939aa9f1"
+}

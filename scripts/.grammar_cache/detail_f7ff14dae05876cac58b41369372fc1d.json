@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 1416,
+  "usages": [
+    {
+      "explain": "振り（ぶり）follows a word indicating a period of time to express that something has been done after a long time. It can also be used for a short period, but it must feel long to the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は5週間ぶりに出社した。",
+          "transcription": "かれは5しゅうかんぶりにしゅっしゃした。",
+          "mean": "He went to work for the first time in five weeks."
+        },
+        {
+          "content": "10年振りの最強の嵐だ。",
+          "transcription": "10ねんふりのさいきょうのあらしだ。",
+          "mean": "This is the strongest storm in 10 years."
+        },
+        {
+          "content": "一週間ぶりに風呂に入った。",
+          "transcription": "いちしゅうかんぶりにふろにはいった。",
+          "mean": "I took a bath for the first time in a week."
+        },
+        {
+          "content": "遭難者は15日ぶりに救出された。",
+          "transcription": "そうなんしゃは15にちぶりにきゅうしゅつされた。",
+          "mean": "The victim was rescued after 15 days."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 振り\nVます + 振り"
+    }
+  ],
+  "title": "…振り => After (a long time)",
+  "_id": "f7ff14dae05876cac58b41369372fc1d"
+}

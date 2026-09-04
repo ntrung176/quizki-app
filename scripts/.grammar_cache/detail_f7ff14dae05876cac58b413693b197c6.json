@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1871,
+  "usages": [
+    {
+      "explain": "Expresses that there is not much time left until the event happens. In terms of time, 「もうすぐ」is longer than 「すぐ」. It is often used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生はもうすぐ来ます。",
+          "transcription": "せんせいはもうすぐきます。",
+          "mean": "The teacher will be here soon."
+        },
+        {
+          "content": "もうすぐお正月ですね。",
+          "transcription": "もうすぐおしょうがつですね。",
+          "mean": "It's almost New Year's Day."
+        },
+        {
+          "content": "もうすぐこの空き地に５０階建てのビルが建つそうだ。",
+          "transcription": "もうすぐここにごぜろかいだてのびるがたつそうだ。",
+          "mean": "It seems that a 50-story building will soon be built on this vacant lot."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もうすぐ"
+    }
+  ],
+  "title": "もうすぐ => soon; shortly; before long; nearly; almost",
+  "_id": "f7ff14dae05876cac58b413693b197c6"
+}

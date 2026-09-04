@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 2992,
+  "usages": [
+    {
+      "explain": "Describes an action, effect that is repeated or occurs frequently over a long period of time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "毎年、飲酒運転で事故が起こっている。",
+          "transcription": "まいとし、いんしゅうんてんでじこがおこっている。",
+          "mean": "Every year, accidents occur due to drunk driving."
+        },
+        {
+          "content": "毎朝、会社へ行く前に、ジョギングをしている。",
+          "transcription": "まいあさ、かいしゃへいくまえに、じょぎんぐをしている。",
+          "mean": "I go jogging every morning before going to work."
+        },
+        {
+          "content": "この本屋で新聞や雑誌をよく注文している。",
+          "transcription": "このほんやでしんぶんやざっしをよくちゅうもんしている。",
+          "mean": "I often order newspapers and magazines from this bookstore."
+        },
+        {
+          "content": "山田さんはアルバイトをしながら、大学へ通っているそうだ。",
+          "transcription": "やまださんはあるばいとをしながら、だいがくへとおっているそうだ。",
+          "mean": "Mr. Yamada seems to be attending university while working part-time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ている"
+    }
+  ],
+  "title": "ている => Repeat",
+  "_id": "f2d618ceb0702f781ec83b7d4f484c05"
+}

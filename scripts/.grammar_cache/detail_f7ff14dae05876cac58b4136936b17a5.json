@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1358,
+  "usages": [
+    {
+      "explain": "Expresses the idea that the problem will be solved naturally or can be solved by some method.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなに緊張しなくても、どうにかなるよ。",
+          "transcription": "そんなにきんちょうしなくても、どうにかなるよ。",
+          "mean": "You don't have to be so nervous, everything will be okay."
+        },
+        {
+          "content": "大丈夫、部長に頼めばどうにかなるよ",
+          "transcription": "だいじょうぶ、ぶちょうにたのめばどうにかなるよ",
+          "mean": "It's okay, just ask the manager and we'll take care of it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうにかなる～"
+    }
+  ],
+  "title": "どうにかなる => somehow manage do something about",
+  "_id": "f7ff14dae05876cac58b4136936b17a5"
+}

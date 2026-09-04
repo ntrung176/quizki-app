@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2207,
+  "usages": [
+    {
+      "explain": "Used when the speaker remembers a certain name but is not sure if it's correct.",
+      "note": null,
+      "examples": [
+        {
+          "content": "桜とかなんとかいうレストランで会うと言っていました。",
+          "transcription": "さくらとかなんとかいうれすとらんであうといっていました。",
+          "mean": "They said they would meet at a restaurant called Sakura or something."
+        },
+        {
+          "content": "佐藤とかなんとかいう女の人が訪ねてきましたよ。",
+          "transcription": "さとうとかなんとかいうおんなのひとがたずねてきましたよ。",
+          "mean": "A woman named Sato or something came to visit me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + とかなんとかいう + N"
+    }
+  ],
+  "title": "とかなんとかいう => ... It's called ... or something",
+  "_id": "f7ff14dae05876cac58b413693e14fcb"
+}

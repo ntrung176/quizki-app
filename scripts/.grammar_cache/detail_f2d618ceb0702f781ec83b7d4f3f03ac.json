@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2917,
+  "usages": [
+    {
+      "explain": "Used to talk about an attribute of the topic indicated by 「は」. Noun 1 is the topic of the sentence. Noun 2 is the subject qualified by the adjective.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ベトナムは食べ物が美味しいです。",
+          "transcription": "べとなむはたべものがおいしいです。",
+          "mean": "Food in Vietnam is delicious."
+        },
+        {
+          "content": "象は耳が大きいです。",
+          "transcription": "ぞうはみみがおおきいです。",
+          "mean": "Elephants have big ears."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 は N2 が A-い/ Na-な"
+    }
+  ],
+  "title": "は...が... => Something like that",
+  "_id": "f2d618ceb0702f781ec83b7d4f3f03ac"
+}

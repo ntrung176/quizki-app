@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1975,
+  "usages": [
+    {
+      "explain": "Used to limit the scope. If you want to express the idea of \"choosing something from within that scope,\" we have a synonymous expression [Nのなか].",
+      "note": null,
+      "examples": [
+        {
+          "content": "この冷蔵庫がすべてのうちで一番よい。",
+          "transcription": "このれいぞうこがすべてのうちでいちばんよい。",
+          "mean": "This refrigerator is the best of all."
+        },
+        {
+          "content": "二つのうちから一つ選ぶことが出来る。",
+          "transcription": "ふたつのうちからひとつえらぶことができる。",
+          "mean": "You can choose one out of the two."
+        },
+        {
+          "content": "あの本のうち、三冊は私のです。",
+          "transcription": "あのほんのうち、さんさつはわたしのです。",
+          "mean": "Three of those books are mine."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (scope) の＋うちで/ うちから"
+    }
+  ],
+  "title": "うち (で/ から) => Among, within...",
+  "_id": "f7ff14dae05876cac58b413693c0eab5"
+}

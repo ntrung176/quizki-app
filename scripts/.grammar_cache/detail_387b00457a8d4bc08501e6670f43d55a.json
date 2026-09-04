@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5434,
+  "usages": [
+    {
+      "explain": "「といいなあ/たらいいなあ/ばいいなあ」is an exclamation expressing personal wishes or desires. It's used to convey a personal hope or wish.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日、雨が降らないといいなあ。",
+          "transcription": "あした、あめがふらないといいなあ。",
+          "mean": "I hope it doesn't rain tomorrow."
+        },
+        {
+          "content": "もっと日本語がうまく話せたらいいなあ。",
+          "transcription": "もっとにほんごがうまくはなせたらいいなあ。",
+          "mean": "I wish I could speak Japanese better."
+        },
+        {
+          "content": "またおしゃべりできる機会があるといいなあ。",
+          "transcription": "またおしゃべりできるきかいがあるといいなあ。",
+          "mean": "I hope we have a chance to talk again."
+        },
+        {
+          "content": "明日は富士山に登るんです。よく晴ればいいなあ。",
+          "transcription": "あしたはふじさんにのぼるんです。よくはればいいなあ。",
+          "mean": "Tomorrow I will climb Mt. Fuji. I hope it's sunny."
+        },
+        {
+          "content": "来年にもう少し給料を上げてくれたらいいなあ。",
+          "transcription": "らいねんにもうすこしきゅうりょうをあげてくれたらいいなあ。",
+          "mean": "I hope they raise my salary a little more next year."
+        },
+        {
+          "content": "週末はデパートに行こう。可愛い服が売っているといいなあ。",
+          "transcription": "しゅうまつはデパートにいこう。かわいいふくがうっているといいなあ。",
+          "mean": "Let's go to a department store on the weekend. I hope they sell cute clothes."
+        },
+        {
+          "content": "彼の誕生日にネクタイを買った。喜んでくれるといいなあ。",
+          "transcription": "かれのたんじょうびにネクタイをかった。よろこんでくれるといいなあ。",
+          "mean": "I bought him a tie for his birthday. I hope you like it."
+        },
+        {
+          "content": "あなたみたいにスポーツができるといいなあと友達に言われました。",
+          "transcription": "あなたみたいにスポーツができるといいなあとともだちにいわれました。",
+          "mean": "My friend told me that I wish I could play sports like you."
+        },
+        {
+          "content": "ジャケットを着ないで遊びに行ったのね。風邪を引かなければいいなあ。",
+          "transcription": "ジャケットをきないであそびにいったのね。かぜをひかなければいいなあ。",
+          "mean": "You went out without wearing a jacket. I hope I don't catch a cold."
+        },
+        {
+          "content": "電車が遅れているから、タクシーで行きましょう。飛行機に間に合ったらいいなあ。",
+          "transcription": "でんしゃがおくれているから、タクシーでいきましょう。ひこうきにまにあったらいいなあ。",
+          "mean": "The train is delayed, so let's take a taxi. I hope I can catch the plane in time."
+        },
+        {
+          "content": "クリスマスまでに彼女ができるといいのになあ。",
+          "transcription": "クリスマスまでにかのじょができるといいのになあ。",
+          "mean": "I hope I can have a girlfriend by Christmas."
+        },
+        {
+          "content": "明日は僕の嫌いな運動会かあ。雨だったらいいのになあ。",
+          "transcription": "あしたはぼくのきらいなうんどうかいかあ。あめだったらいいのになあ。",
+          "mean": "Tomorrow is the sports day that I hate. I wish it was raining."
+        }
+      ],
+      "mean": null,
+      "synopsis": "conditional form (と/たら/ば)+いい(のに)なあ"
+    }
+  ],
+  "title": "といいなあ/たらいいなあ/ばいいなあ => it would be nice if; should; I hope ~",
+  "_id": "387b00457a8d4bc08501e6670f43d55a"
+}

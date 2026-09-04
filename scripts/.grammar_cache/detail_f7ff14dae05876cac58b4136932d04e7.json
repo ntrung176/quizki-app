@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 902,
+  "usages": [
+    {
+      "explain": "Expresses a meaning contrary to reality: if the event does not happen as expected, the outcome would be different. Often used at the end of a sentence with 「だろう」「はずだ」「のに」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生が助けてくれなければ、この論文は完成しなかっただろう。",
+          "transcription": "せんせいがたすけてくれなければ、このろんぶんはかんせいしなかっただろう。",
+          "mean": "Without the teacher's help, this thesis would not have been completed."
+        },
+        {
+          "content": "金目当てでなければ、彼はあんなに年をとった女の人と結婚しなかったに違いない。",
+          "transcription": "きむめあてでなければ、かれはあんなにとしをとったおんなのひととけっこんしなかったにちがいない。",
+          "mean": "If he wasn't looking for money, he probably wouldn't have married such an old woman."
+        },
+        {
+          "content": "間違えなければ勝てたはずなのに。",
+          "transcription": "まちがえなければかてたはずなのに。",
+          "mean": "If I hadn't made a mistake, I should have won."
+        },
+        {
+          "content": "風を引かなければ旅行に行けたのに。",
+          "transcription": "かぜをひかなければりょこうにいけたのに。",
+          "mean": "I could have gone on a trip if the wind hadn't caught me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Na + でなければ～た A + くなければ～た V + なければ～た"
+    }
+  ],
+  "title": "なければ～た => If only it weren't... then...",
+  "_id": "f7ff14dae05876cac58b4136932d04e7"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1554,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's regret about something that happened in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんの言葉を信じるほうがよかった。",
+          "transcription": "やまださんのことばをしんじるほうがよかった。",
+          "mean": "I should have believed Mr. Yamada's words."
+        },
+        {
+          "content": "彼女はそのことを知らないほうがよかった。",
+          "transcription": "かのじょはそのことをしらないほうがよかった。",
+          "mean": "It was better for her not to know that."
+        },
+        {
+          "content": "この急速減量の薬を飲まないほうがよかった。今は痩せたが、調子が悪くなった。",
+          "transcription": "このきゅうそくげんりょうのくすりをのまないほうがよかった。いまはやせたが、ちょうしがわるくなった。",
+          "mean": "It was better not to take this rapid weight loss drug. I have lost weight now, but my condition has worsened."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + ほうがよかった\nNa + なほうがよかった\nA／V + ほうがよかった"
+    }
+  ],
+  "title": "…ほうがよかった => If only (Regret)",
+  "_id": "f7ff14dae05876cac58b41369387b5a1"
+}

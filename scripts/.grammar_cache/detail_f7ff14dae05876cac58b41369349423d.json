@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1110,
+  "usages": [
+    {
+      "explain": "Expressing the idea of \"trying to find a way to do something\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "早くどうにかしないと、計画より遅れてしまうよ。",
+          "transcription": "はやくどうにかしないと、けいかくよりおくれてしまうよ。",
+          "mean": "If we don't do something soon, we'll be behind schedule."
+        },
+        {
+          "content": "こんな長い停電をどうにかしないと困るよ。",
+          "transcription": "こんなながいていでんをどうにかしないとこまるよ。",
+          "mean": "It will be a problem if we don't do something about such a long power outage."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうにかする～"
+    }
+  ],
+  "title": "どうにかする => find a way to",
+  "_id": "f7ff14dae05876cac58b41369349423d"
+}

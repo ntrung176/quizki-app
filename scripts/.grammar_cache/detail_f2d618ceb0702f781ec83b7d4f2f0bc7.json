@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2785,
+  "usages": [
+    {
+      "explain": "Describes the speaker's state of uncertainty about whether they will perform that action or not, or if they haven't decided yet.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうしようかな。",
+          "transcription": "どうしようかな。",
+          "mean": "What should I do?"
+        },
+        {
+          "content": "今どこへ行こうかか。",
+          "transcription": "いまどこへいこうかか。",
+          "mean": "Where shall I go now?"
+        },
+        {
+          "content": "これからどうやって暮らして行こうか。",
+          "transcription": "これからどうやってくらしていこうか。",
+          "mean": "How should I live from now on?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-よう + か"
+    },
+    {
+      "explain": "Note: Besides the particle 「か」, there are also cases when attaching words like 「かな」,「かしら」. 「かな」,「かしら」 are forms of monologue speech, difficult to use in formal situations, so it's often not used in forms like 「ましょうかな／ましょうかしら」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ようか => Whether or not; considering options",
+  "_id": "f2d618ceb0702f781ec83b7d4f2f0bc7"
+}

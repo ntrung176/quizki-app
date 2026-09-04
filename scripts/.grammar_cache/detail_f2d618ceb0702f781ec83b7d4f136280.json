@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2574,
+  "usages": [
+    {
+      "explain": "Expresses various meanings such as coercion, command...",
+      "note": null,
+      "examples": [
+        {
+          "content": "犯人が一人の銀行員に現金を用意させた。",
+          "transcription": "はんにんがひとりのぎんこういんにげんきんをよういさせた。",
+          "mean": "The criminal had a bank employee prepare cash."
+        },
+        {
+          "content": "佐藤先生が生徒に本を読ませた。",
+          "transcription": "さとうせんせいがせいとにほんをよませた。",
+          "mean": "Mr. Sato had the students read a book."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + が + N + に + N + をV-させる"
+    }
+  ],
+  "title": "NがNにNをV-させる => N makes/lets/allows N to do V to N",
+  "_id": "f2d618ceb0702f781ec83b7d4f136280"
+}

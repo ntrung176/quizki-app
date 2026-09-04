@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2560,
+  "usages": [
+    {
+      "explain": "Used to ask someone to do something for you. Often pronounced with a rising intonation. There are also cases where (か) is omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お砂糖、取ってくれない。",
+          "transcription": "おさとう、とってくれない。",
+          "mean": "You won't take the sugar."
+        },
+        {
+          "content": "ちょっと荷物を持ってくれませんか。",
+          "transcription": "ちょっとにもつをもってくれませんか。",
+          "mean": "Could you please carry my luggage for me?"
+        },
+        {
+          "content": "この小説を貸してくれないか。",
+          "transcription": "このしょうせつをかしてくれないか。",
+          "mean": "Could you lend me this novel?"
+        },
+        {
+          "content": "明日は午前九時までに来てくれませんか。",
+          "transcription": "あしたはごぜんきゅうじまでにきてくれませんか。",
+          "mean": "Could you come by 9 a.m. tomorrow?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + てくれない(か)"
+    }
+  ],
+  "title": "てくれない(か) => Won't you?, Will you?, Could you?, Can you?, Would you?",
+  "_id": "f2d618ceb0702f781ec83b7d4f119fd2"
+}

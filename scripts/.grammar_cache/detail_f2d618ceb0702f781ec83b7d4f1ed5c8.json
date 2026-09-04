@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2665,
+  "usages": [
+    {
+      "explain": "Used to transform a question with an interrogative word into a noun phrase, then integrate it into another part of the sentence. When preceded by「 か」, the predicate must be in its normal form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今晩のパーティーに誰を招待したか忘れてしまった。",
+          "transcription": "こんばんのぱーてぃーにだれをしょうたいしたかわすれてしまった。",
+          "mean": "I forgot who I invited to the party tonight."
+        },
+        {
+          "content": "人生において重大なのは、何をやったかではなく、いかに生きたかということであろう。",
+          "transcription": "じんせいにおいてじゅうだいなのは、なにをやったかではなく、いかにいきたかということであろう。",
+          "mean": "What matters in life is not what you do, but how you live."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative word...か"
+    }
+  ],
+  "title": "...か => question particle",
+  "_id": "f2d618ceb0702f781ec83b7d4f1ed5c8"
+}

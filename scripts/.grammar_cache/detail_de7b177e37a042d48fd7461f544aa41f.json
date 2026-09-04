@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5295,
+  "usages": [
+    {
+      "explain": "「わずかに」expresses a quantity, degree, value, or time that the speaker considers to be small or insignificant. It often accompanies a counter.",
+      "note": null,
+      "examples": [
+        {
+          "content": "バスの中にはわずかに5人しか居なかった。",
+          "transcription": "バスのなかにはわずかにごにんしかいなかった。",
+          "mean": "There were only five people on the bus."
+        },
+        {
+          "content": "道はここでわずかに右に曲がっている。",
+          "transcription": "みちはここでわずかにみぎにまがっている。",
+          "mean": "The road curves slightly to the right here."
+        },
+        {
+          "content": "財布の中に残っていたお金はわずかに500円だった。",
+          "transcription": "さいふのなかにのこっていたおかねはわずかにごひゃくえんだった。",
+          "mean": "The only money left in my wallet was 500 yen."
+        },
+        {
+          "content": "私は学校へわずかに2ヶ月しか行っていません。",
+          "transcription": "わたしはがっこうへわずかににかげつしかいっていません。",
+          "mean": "I have only been to school for two months."
+        },
+        {
+          "content": "そのコンサートの出席者はわずかに6人だった。",
+          "transcription": "そのコンサートのしゅっせきしゃはわずかにろくにんだった。",
+          "mean": "There were only six people in attendance at that concert."
+        },
+        {
+          "content": "わずかに1時間でそんなに難しい問題を成し遂げた。",
+          "transcription": "わずかにいちじかんでそんなにむずかしいもんだいをなしとげた。",
+          "mean": "He completed such a difficult problem in just one hour."
+        },
+        {
+          "content": "わずかに4日間でそんなにたくさんの仕事をしたとは驚きだ。",
+          "transcription": "わずかによっかかんでそんなにたくさんのしごとをしたとはおどろきだ。",
+          "mean": "It's amazing how much work was done in just 4 days."
+        },
+        {
+          "content": "私の会社の社員の数は３年前と比べると、わずかに減った。",
+          "transcription": "わたしのかいしゃのしゃいんのかずはさんねんまえとくらべると、わずかにへった。",
+          "mean": "The number of employees at my company has decreased slightly compared to three years ago."
+        }
+      ],
+      "mean": null,
+      "synopsis": "わずかに+Sentence"
+    }
+  ],
+  "title": "わずかに => slightly; only; barely; narrowly ~",
+  "_id": "de7b177e37a042d48fd7461f544aa41f"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1664,
+  "usages": [
+    {
+      "explain": "Used after a clause to indicate speculation, as if the speaker is sharing the same feelings, emotions as the subject being discussed, about an event that cannot be known at the current time and place.",
+      "note": null,
+      "examples": [
+        {
+          "content": "長い間会っていないが、佐藤さんの子供さんもさぞ大きくなったことだろう。",
+          "transcription": "ながいまあっていないが、さとうさんのこどもさんもさぞおおきくなったことだろう。",
+          "mean": "Although we haven't seen each other for a long time, Mr. Sato's children must have grown up quite a bit."
+        },
+        {
+          "content": "平野部でこんなに降っているのだから、山岳部ではきっとひどい雪になっていることだろう。",
+          "transcription": "へいやぶでこんなにふっているのだから、さんがくぶではきっとひどいゆきになっていることだろう。",
+          "mean": "If it's raining so much in the plains, it must be snowing heavily in the mountains."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na + な/である + ことだろう\nA-い+ ことだろう \nV-る/ V-た/ V-ない + ことだろう"
+    }
+  ],
+  "title": "ことだろう => Perhaps...",
+  "_id": "f7ff14dae05876cac58b413693952f35"
+}

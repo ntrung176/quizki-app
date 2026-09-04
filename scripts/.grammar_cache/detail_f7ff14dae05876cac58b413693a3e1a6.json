@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1768,
+  "usages": [
+    {
+      "explain": "Used to emphasize the reason leading to a certain event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "だからこそ、バイクで行くなと言ったんだ。",
+          "transcription": "だからこそ、ばいくでいくなといったんだ。",
+          "mean": "That's why I told you not to go by bike."
+        },
+        {
+          "content": "だからこそ、彼は会社を辞めると決めた。",
+          "transcription": "だからこそ、かれはかいしゃをやめるときめた。",
+          "mean": "That's why he decided to quit the company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だからこそ～"
+    }
+  ],
+  "title": "だからこそ => precisely because ~",
+  "_id": "f7ff14dae05876cac58b413693a3e1a6"
+}

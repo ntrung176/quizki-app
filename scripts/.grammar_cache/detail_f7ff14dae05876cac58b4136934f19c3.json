@@ -1,0 +1,43 @@
+{
+  "level": "N1",
+  "mobileId": 1155,
+  "usages": [
+    {
+      "explain": "✦Note: Usually follows the negative form of the verb, but in the case of 「いつ死ぬともかぎらない」 below, it is an exception that goes with the affirmative form, expressing the meaning \"not knowing when one will die\". Example: 人間いつ死ぬともかぎらないのだから、やりたいことはやりたい時にやった方がいい。 Since one doesn't know when they will die, it's better to do what they want when they want.",
+      "note": null,
+      "examples": [
+        {
+          "content": "戦争のことだから日本が負けないとも限らない。",
+          "transcription": "せんそうのことだからにっぽんがまけないともかぎらない。",
+          "mean": "Just because it's a war doesn't mean Japan won't lose."
+        },
+        {
+          "content": "<div>本当でないとも限らない。<br></div>",
+          "transcription": "ほんとうでないともかぎらない。",
+          "mean": "&lt;div&gt;It doesn't necessarily have to be true. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "間違えないとも限らないので、もう一度確認した方がいい。",
+          "transcription": "まちがえないともかぎらないので、もういちどかくにんしたほうがいい。",
+          "mean": "There is no guarantee that you will make a mistake, so it is better to check it again."
+        },
+        {
+          "content": "事故じゃないとも限らないし、ちょっと電話を入れてみた方がいいかもしれない。",
+          "transcription": "じこじゃないともかぎらないし、ちょっとでんわをいれてみたほうがいいかもしれない。",
+          "mean": "It doesn't necessarily mean it's not an accident, so it might be a good idea to make a phone call."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": null,
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～ ないともかぎらない => ～ It's unlikely... won't",
+  "_id": "f7ff14dae05876cac58b4136934f19c3"
+}

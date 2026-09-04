@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3101,
+  "usages": [
+    {
+      "explain": "✦ Whether it's said as ~ or said as ~ (Can be said in any way, no matter how you think about it, it's still a common issue)",
+      "note": null,
+      "examples": [
+        {
+          "content": "課長に叱られたとき、恥ずかしいというか、悔しいというか、言い表せない気持ちだった。",
+          "transcription": "かちょうにしかられたとき、はずかしいというか、くやしいというか、いいあらわせないきもちだった。",
+          "mean": "When I was scolded by the section manager, I felt embarrassed, frustrated, or something I couldn't express."
+        },
+        {
+          "content": "わたしは合格したが、親友は不合格だった。うれしいというか、残念というか、複雑な気持ちだ。",
+          "transcription": "わたしはごうかくしたが、しんゆうはふごうかくだった。うれしいというか、ざんねんというか、ふくざつなきもちだ。",
+          "mean": "I passed the exam, but my best friend didn't. I have mixed feelings about it, whether I'm happy or sad."
+        },
+        {
+          "content": "君は人の影響を受けやすいというか、自分の考えがないというか、信念がないのかね。",
+          "transcription": "きみはひとのえいきょうをうけやすいというか、じぶんのかんがえがないというか、しんねんがないのかね。",
+          "mean": "Are you easily influenced by others, or do you have no ideas of your own, or do you have no beliefs?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦N + というか + N + というか</div><div>✦いadj + というか + いadj + というか</div>"
+    }
+  ],
+  "title": "～というか~というか／～といおうか～といおうか      => (I’m not sure if it’s) A or B, Or perhaps, Or maybe",
+  "_id": "93020c54469e582d6fdb16f7ba9aed40"
+}

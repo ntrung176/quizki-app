@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5553,
+  "usages": [
+    {
+      "explain": "ていた is used to:<br/>1. Describe an action that was ongoing at a point in the past.<br/>2. Describe a state (as a result of an action or not) that occurred in the past.<br/>3. Describe a habit, custom, or repeated behavior over a long period in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私が帰宅した時、子供はテレビを見ていた。",
+          "transcription": "わたしがきたくしたとき、こどもはテレビをみていた。",
+          "mean": "The child was watching TV when I came home."
+        },
+        {
+          "content": "昨日の午後2時ごろ、部屋で手紙を書いていた。",
+          "transcription": "きのうのごごにじごろ、へやでてがみをかいていた。",
+          "mean": "I was writing a letter in my room around 2pm yesterday."
+        },
+        {
+          "content": "あの白い車は昼ごろにはなかったけど、夕方4時ごろにはここに止まっていました。",
+          "transcription": "あのしろいくるまはひるごろにはなかったけど、ゆうがたよじごろにはここにとまっていました。",
+          "mean": "That white car wasn't there around noon, but it was parked here around 4pm."
+        },
+        {
+          "content": "うちへ帰った時、愛犬のモモはもう死んでいた。",
+          "transcription": "うちへかえったとき、あいけんのモモはもうしんでいた。",
+          "mean": "When I returned home, my dog ​​Momo was already dead."
+        },
+        {
+          "content": "去年の6月から12月まで、ある日本語学校で日本語を勉強していた。",
+          "transcription": "きょねんのろくがつからじゅうにがつまで、あるにほんごがっこうでにほんごをべんきょうしていた。",
+          "mean": "From June to December last year, I studied Japanese at a Japanese language school."
+        },
+        {
+          "content": "この川はしばしば氾濫を起こしていた。",
+          "transcription": "このかわはしばしばはんらんをおこしていた。",
+          "mean": "This river often flooded."
+        },
+        {
+          "content": "マラソンがブームになるころには、彼はもう何回か大会に出場していた。",
+          "transcription": "マラソンがブームになるころには、かれはもうなんかいかたいかいにしゅつじょうしていた。",
+          "mean": "By the time marathons became popular, he had already competed in several events."
+        },
+        {
+          "content": "子供の頃、毎晩8時に寝ていました。",
+          "transcription": "こどものころ、まいばんはちじにねていました。",
+          "mean": "When I was a kid, I went to bed at 8 o'clock every night."
+        },
+        {
+          "content": "高校生の頃、毎晩寝る前に漫画を読んでいました。",
+          "transcription": "こうこうせいのころ、まいばんねるまえにまんがをよんでいました。",
+          "mean": "When I was in high school, I read manga every night before going to bed."
+        },
+        {
+          "content": "私が前に勤めていた会社では、社長は毎朝ブラックコーヒーを飲んでいました。",
+          "transcription": "わたしがまえにつとめていたかいしゃでは、しゃちょうはまいあさブラックコーヒーをのんでいました。",
+          "mean": "At the company I worked for before, the president drank black coffee every morning."
+        },
+        {
+          "content": "あなたが来るって聞いていなかったよ。",
+          "transcription": "あなたがくるってきいていなかったよ。",
+          "mean": "I didn't hear you were coming."
+        },
+        {
+          "content": "花子さんから電話があった時、太郎さんはまだ帰っていなかった。",
+          "transcription": "はなこさんからでんわがあったとき、たろうさんはまだかえっていなかった。",
+          "mean": "When Hanako-san called him, Taro-san had not yet returned home."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+いた<br/> Vて+いなかった"
+    }
+  ],
+  "title": "ている => Being... (past)",
+  "_id": "fc9d38a3089747d8967527135b2097b5"
+}

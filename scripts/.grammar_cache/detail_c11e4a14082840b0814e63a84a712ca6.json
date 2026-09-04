@@ -1,0 +1,81 @@
+{
+  "level": "N3",
+  "mobileId": 5441,
+  "usages": [
+    {
+      "explain": "「というのは」is used to provide a definition/explanation or to quote something. In casual speech, it's often shortened to「っていうのは」.<br/>\n「とは」is used to provide a definition for something. In casual speech, it's often shortened to「って」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "デジカメというのはデジタルカメラを短くした言い方です。",
+          "transcription": "デジカメというのはデジタルカメラをみじかくしたいいかたです。",
+          "mean": "Digital camera is a shortened term for digital camera."
+        },
+        {
+          "content": "『電車でカクテイっていうのは何のことですか。』『各駅に停車する電車のことです。』",
+          "transcription": "『でんしゃでカクテイっていうのはなんのことですか。』『かくえきにていしゃするでんしゃのことです。』",
+          "mean": "``What do you mean by kakutei on the train? ``A train that stops at each station.'' ”"
+        },
+        {
+          "content": "禁煙というのはたばこを吸ってはいけないということです。",
+          "transcription": "きんえんというのはたばこをすってはいけないということです。",
+          "mean": "No smoking means that you must not smoke."
+        },
+        {
+          "content": "バイトっていうのはアルバイトのことです。",
+          "transcription": "バイトっていうのはアルバイトのことです。",
+          "mean": "A part-time job is a part-time job."
+        },
+        {
+          "content": "私が会社を辞めるというのは冗談ですよ。",
+          "transcription": "わたしがかいしゃをやめるというのはじょうだんですよ。",
+          "mean": "It's a joke that I'm leaving the company."
+        },
+        {
+          "content": "田中さんが転勤するというのは、前から決まっていたそうです。",
+          "transcription": "たなかさんがてんきんするというのは、まえからきまっていたそうです。",
+          "mean": "It was apparently decided long ago that Mr. Tanaka would be transferred."
+        },
+        {
+          "content": "マックとはマクドナルドのことだ。",
+          "transcription": "マックとはマクドナルドのことだ。",
+          "mean": "Mac stands for McDonald's."
+        },
+        {
+          "content": "来日とは日本に来るという意味だ。",
+          "transcription": "らいにちとはにほんにくるといういみだ。",
+          "mean": "Arrival means to come to Japan."
+        },
+        {
+          "content": "スタバとはスターバックスのことだ。",
+          "transcription": "スタバとはスターバックスのことだ。",
+          "mean": "Starbucks means Starbucks."
+        },
+        {
+          "content": "人生とは楽もあれば、苦もある。",
+          "transcription": "じんせいとはらくもあれば、くもある。",
+          "mean": "Life is both easy and painful."
+        },
+        {
+          "content": "田中さんが会社を辞めるとは、新しい人が入るということですか。",
+          "transcription": "たなかさんがかいしゃをやめるとは、あたらしいひとがはいるということですか。",
+          "mean": "When Mr. Tanaka leaves the company, does that mean a new person will join?"
+        },
+        {
+          "content": "スモアっていったい何だ？",
+          "transcription": "スモアっていったいなんだ？",
+          "mean": "What on earth is a s'more?"
+        },
+        {
+          "content": "コンビニってコンビニエンスストアのことだ。",
+          "transcription": "コンビニってコンビニエンスストアのことだ。",
+          "mean": "A convenience store is a convenience store."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence (formal form) / N+というのは / っていうのは<br/>Sentence (formal form) / N+とは / って"
+    }
+  ],
+  "title": "というのは/とは => this means; the meaning of … is; because; that is to say ~",
+  "_id": "c11e4a14082840b0814e63a84a712ca6"
+}

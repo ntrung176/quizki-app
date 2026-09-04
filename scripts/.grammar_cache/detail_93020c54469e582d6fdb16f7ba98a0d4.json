@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3083,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は文句言いづめだ。",
+          "transcription": "かれはもんくいいづめだ。",
+          "mean": "He complains a lot."
+        },
+        {
+          "content": "今週はずっと働きづめだった。",
+          "transcription": "こんしゅうはずっとはたらきづめだった。",
+          "mean": "I've been working hard this week."
+        }
+      ],
+      "mean": "full of",
+      "synopsis": "✦Vます(ます is obmitted) ＋ づめだ"
+    }
+  ],
+  "title": "～づめだ      => full of",
+  "_id": "93020c54469e582d6fdb16f7ba98a0d4"
+}

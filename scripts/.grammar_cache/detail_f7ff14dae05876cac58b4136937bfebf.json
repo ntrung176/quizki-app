@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1474,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"stipulating that..., considering that...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "会議には、関係者全員が必ず出席することとする。欠席は許可しない。",
+          "transcription": "かいぎには、かんけいしゃぜんいんがかならずしゅっせきすることとする。けっせきはきょかしない。",
+          "mean": "All interested parties must attend the meeting. Absences will not be allowed."
+        },
+        {
+          "content": "この度の環境法修正は喜ぶべきこととして受け止められている。",
+          "transcription": "このたびのかんきょうほうしゅうせいはよろこぶべきこととしてうけとめられている。",
+          "mean": "The recent amendments to environmental laws are being seen as something to be happy about."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～こととする"
+    }
+  ],
+  "title": "... こととする => to decide on",
+  "_id": "f7ff14dae05876cac58b4136937bfebf"
+}

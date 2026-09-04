@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 980,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"even if one were to do ..., still wouldn't ...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "今さら説明したところで彼女は許してくれないと思う。",
+          "transcription": "いまさらせつめいしたところでかのじょはゆるしてくれないとおもう。",
+          "mean": "I don't think she will forgive me if I explain it now."
+        },
+        {
+          "content": "今さら、戻ったところで、彼はもう君を愛しないようになった。&amp;nbsp;",
+          "transcription": "いまさら、もどったところで、かれはもうきみをあいしないようになった。",
+          "mean": "If you go back now, he won't love you anymore. &amp;amp;nbsp;"
+        },
+        {
+          "content": "この問題をいまさら議論したところで無意味でしょう。",
+          "transcription": "このもんだいをいまさらぎろんしたところでむいみでしょう。",
+          "mean": "It would be pointless to discuss this issue now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いまさら + V-た + ところで"
+    }
+  ],
+  "title": "いまさら  ...  ところで => Now even if... no matter what...",
+  "_id": "f7ff14dae05876cac58b4136933779f1"
+}

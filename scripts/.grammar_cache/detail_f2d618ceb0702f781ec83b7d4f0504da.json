@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2467,
+  "usages": [
+    {
+      "explain": "Used to indirectly request someone to perform an action. By adding the particle 「か」, it adds the nuance of \"the speaker has just thought of this\" or \"adding to the speaker's hesitation\"; and the one-sided request also becomes more polite compared to without this particle. It's often used by people in higher positions in society when speaking to those below them.",
+      "note": null,
+      "examples": [
+        {
+          "content": "コーヒーを一杯もらおうか。",
+          "transcription": "こーひーをいっぱいもらおうか。",
+          "mean": "Would you like me to get you a cup of coffee?"
+        },
+        {
+          "content": "この資料をコピーしてもらおうか。",
+          "transcription": "このしりょうをこぴーしてもらおうか。",
+          "mean": "May I have a copy of this document?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－てもらおうか"
+    }
+  ],
+  "title": "...もらおうか => get / make / induce (someone) to do (something), could you please... help me",
+  "_id": "f2d618ceb0702f781ec83b7d4f0504da"
+}

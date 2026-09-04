@@ -1,0 +1,76 @@
+{
+  "level": "N2",
+  "mobileId": 5282,
+  "usages": [
+    {
+      "explain": "「とともに」\n1. Indicates that the state of the first clause changes, and the state of the second clause changes accordingly. The change of these two states is in the same direction.<br/>\n2. Indicates that the actions of the first and second clauses occur simultaneously. The two clauses are equal in status and not necessarily causally related.<br/>\n3. Expresses the meaning of \"along with\" or \"together with\". Although similar to 一緒に and と,「とともに」is slightly different in that it implies \"mutual support\" rather than simply accompanying.\nThe kanji for「とともに」is 「と共に」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "自動車が普及するとともに、交通事故も増加した。",
+          "transcription": "じどうしゃがふきゅうするとともに、こうつうじこもぞうかした。",
+          "mean": "As automobiles became more popular, traffic accidents also increased."
+        },
+        {
+          "content": "温度が上がるとともに、湿度も上がった。",
+          "transcription": "おんどがあがるとともに、しつどもあがった。",
+          "mean": "As the temperature rose, so did the humidity."
+        },
+        {
+          "content": "経済成長とともに、国民の生活も豊かになった。",
+          "transcription": "けいざいせいちょうとともに、こくみんのせいかつもゆたかになった。",
+          "mean": "Along with economic growth, people's lives also became richer."
+        },
+        {
+          "content": "彼は医者であるとともに、弁護士でもあるすごい人物です。",
+          "transcription": "かれはいしゃであるとともに、べんごしでもあるすごいじんぶつです。",
+          "mean": "He is an amazing person who is both a doctor and a lawyer."
+        },
+        {
+          "content": "彼らは卒業するとともに、結婚した。",
+          "transcription": "かれらはそつぎょうするとともに、けっこんした。",
+          "mean": "They graduated and got married."
+        },
+        {
+          "content": "娘の結婚は、嬉しさとともに寂しさも感じる。",
+          "transcription": "むすめのけっこんは、うれしさとともにさびしさもかんじる。",
+          "mean": "When my daughter gets married, I feel both joy and sadness."
+        },
+        {
+          "content": "この靴は丈夫であるとともにデザインも良いので、売れると思う。",
+          "transcription": "このくつはじょうぶであるとともにデザインもよいので、うれるとおもう。",
+          "mean": "These shoes are durable and have a good design, so I think they will sell well."
+        },
+        {
+          "content": "娘は結婚した。嬉しいとともに、寂しくもある。",
+          "transcription": "むすめはけっこんした。うれしいとともに、さびしくもある。",
+          "mean": "My daughter got married. I'm happy, but also sad."
+        },
+        {
+          "content": "家族とともに来日した。",
+          "transcription": "かぞくとともにらいにちした。",
+          "mean": "I came to Japan with my family."
+        },
+        {
+          "content": "お正月は家族とともに過ごしたい。",
+          "transcription": "おしょうがつはかぞくとともにすごしたい。",
+          "mean": "I want to spend New Year's with my family."
+        },
+        {
+          "content": "彼とともにこの会社をここまで大きくしてきました。",
+          "transcription": "かれとともにこのかいしゃをここまでおおきくしてきました。",
+          "mean": "Together with him, we have grown this company to this extent."
+        },
+        {
+          "content": "私はその犯人から、姉とともに命からがら逃げだした。",
+          "transcription": "わたしはそのはんにんから、あねとともにいのちからがらにげだした。",
+          "mean": "I, along with my sister, ran for our lives from the criminal."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. V (root form)+とともに <br/> N+とともに<br/>\n2. V (root form)+とともに<br/>\n Aい+とともに<br/>\n A<s>な</s>である+とともに<br/>\n Nである+とともに<br/>\n3. N+とともに"
+    }
+  ],
+  "title": "とともに => together with; at the same time as; as well as ~",
+  "_id": "93da9609f0fe4cd2a829fd75fd446709"
+}

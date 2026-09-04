@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 753,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"not only related to this case, but also often happens in other cases\". Usually used for negative matters.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人が遅刻するのは今日にかぎったことではない。",
+          "transcription": "あのひとがちこくするのはきょうにかぎったことではない。",
+          "mean": "It's not just today that that person is late."
+        },
+        {
+          "content": "レポートのできが悪いのはこの学生にかぎったことではない。",
+          "transcription": "レポートのできがわるいのはこのがくせいにかぎったことではない。",
+          "mean": "This student is not alone in having poor reports."
+        },
+        {
+          "content": "日本の物価の高さはなにも食料品にかぎったことではない。",
+          "transcription": "にっぽんのぶっかのたかさはなにもしょくりょうひんにかぎったことではない。",
+          "mean": "Japan's high prices are not limited to food."
+        },
+        {
+          "content": "エンジンの故障が多いのはこの車種に限ったことではないらしく、同じメーカーの他の車種でも同じようなど　ラブルが起こっているということだ。",
+          "transcription": "エンジンのこしょうがおおいのはこのしゃしゅにかぎったことではないらしく、おなじメーカーのほかのしゃしゅでもおなじようなどラブルがおこっているということだ。",
+          "mean": "It seems that this type of car is not the only one that has many engine failures; similar problems are occurring in other car models from the same manufacturer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + にかぎったことではない"
+    }
+  ],
+  "title": "～にかぎったことではない => not limited to only ~",
+  "_id": "f7ff14dae05876cac58b413693187191"
+}

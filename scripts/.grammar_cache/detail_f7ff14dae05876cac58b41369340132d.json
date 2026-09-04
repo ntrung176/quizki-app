@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1042,
+  "usages": [
+    {
+      "explain": "Used to request, ask someone to do something. This is a polite way of speaking used by men.",
+      "note": null,
+      "examples": [
+        {
+          "content": "字が分からないから、この手紙を読んでくれまいか。",
+          "transcription": "じがわからないから、このてがみをよんでくれまいか。",
+          "mean": "I don't understand the handwriting, so could you please read this letter?"
+        },
+        {
+          "content": "英語が上手じゃないから、この文章を翻訳してくれまいか。",
+          "transcription": "えいごがじょうずじゃないから、このぶんしょうをほんやくしてくれまいか。",
+          "mean": "I'm not good at English, so could you please translate this sentence for me?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + くれまいか"
+    }
+  ],
+  "title": "くれまいか => to do a favor; request a favor; do something for ...",
+  "_id": "f7ff14dae05876cac58b41369340132d"
+}

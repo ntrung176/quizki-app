@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5095,
+  "usages": [
+    {
+      "explain": "「ずじまい」expresses the idea of intending to do something, planning to do something, needing to do something, but ultimately not doing it, being unable to do it. It conveys the feelings of regret and disappointment of the speaker. It is used with the past tense and not to describe something that can be done again. It is often accompanied by 結局 or とうとう.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの映画はぜひ見たいと思っていたが、忙しくて結局見ずじまいだった。",
+          "transcription": "あのえいがはぜひみたいとおもっていたが、いそがしくてけっきょくみずじまいだった。",
+          "mean": "I really wanted to see that movie, but I was busy and ended up not seeing it."
+        },
+        {
+          "content": "彼がなぜ会社を辞めたのか気になっていたが、とうとう聞かずじまいだった。",
+          "transcription": "かれがなぜかいしゃをやめたのかきになっていたが、とうとうきかずじまいだった。",
+          "mean": "I was curious about why he left the company, but in the end I just couldn't stop asking."
+        },
+        {
+          "content": "やりたいことは山ほどあったが、結局、何も出来ずじまいでこの歳になった。",
+          "transcription": "やりたいことはやまほどあったが、けっきょく、なにもできずじまいでこのとしになった。",
+          "mean": "There were so many things I wanted to do, but in the end, I reached this age without being able to do anything."
+        },
+        {
+          "content": "釈明の記者会見が開かれたが、結局、社長は謝罪の言葉は言わずじまいだった。",
+          "transcription": "しゃくめいのきしゃかいけんがひらかれたが、けっきょく、しゃちょうはしゃざいのことばはいわずじまいだった。",
+          "mean": "A press conference was held to provide an explanation, but in the end, the president did not apologize."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ない</s>ずじまい"
+    }
+  ],
+  "title": "ずじまい => ended up not doing ~",
+  "_id": "6df54a5d264840b7bd97155b921c0588"
+}

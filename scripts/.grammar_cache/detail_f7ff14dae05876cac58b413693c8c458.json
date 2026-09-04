@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2035,
+  "usages": [
+    {
+      "explain": "Used to modify nouns. This word is used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私が知るところの限りでは、山田さんはそのことをしませんでした。",
+          "transcription": "わたしがしるところのかぎりでは、やまださんはそのことをしませんでした。",
+          "mean": "As far as I know, Mr. Yamada did not do that."
+        },
+        {
+          "content": "彼女が目指すところの理想的な世界とは、人種、国籍を問わずすべての人が平等に暮らす世界である。",
+          "transcription": "かのじょがめざすところのりそうてきなせかいとは、じんしゅ、こくせきをとわずすべてのひとがびょうどうにくらすせかいである。",
+          "mean": "The ideal world she aspires to is one in which all people live equally, regardless of race or nationality."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/V-ている + ところ + の + N"
+    }
+  ],
+  "title": "...ところのN => But...",
+  "_id": "f7ff14dae05876cac58b413693c8c458"
+}

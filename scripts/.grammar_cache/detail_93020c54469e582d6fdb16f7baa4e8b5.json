@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3182,
+  "usages": [
+    {
+      "explain": "✦ Indicates the reason or cause of an issue/condition leading to the subsequent result...",
+      "note": null,
+      "examples": [
+        {
+          "content": "悪天候ゆえに旅行は延期された。",
+          "transcription": "あくてんこうゆえにりょこうはえんきされた。",
+          "mean": "The trip was postponed due to bad weather."
+        },
+        {
+          "content": "何ゆえにうそをついたのか。",
+          "transcription": "なにゆえにうそをついたのか。",
+          "mean": "Why did you lie?"
+        },
+        {
+          "content": "貧しいがゆえに十分な教育を受けられない人がいる。",
+          "transcription": "まずしいがゆえにじゅうぶんなきょういくをうけられないひとがいる。",
+          "mean": "There are people who cannot receive adequate education because they are poor."
+        },
+        {
+          "content": "彼が交通規則を守らなかったがゆえに、事故が起きてしまった。",
+          "transcription": "かれがこうつうきそくをまもらなかったがゆえに、じこがおきてしまった。",
+          "mean": "The accident occurred because he did not follow the traffic rules."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V(formal form) + （が）ゆえ（に）/（が）ゆえの</div><div>✦N + （である） + （が）ゆえ（に）/（が）ゆえの</div><div>✦なA + （である） + （が）ゆえ（に）/（が）ゆえの</div><div>✦いA + （が）ゆえ（に）/（が）ゆえの</div>"
+    }
+  ],
+  "title": "～ゆえに      => therefore; consequently​; because of; due to ~",
+  "_id": "93020c54469e582d6fdb16f7baa4e8b5"
+}

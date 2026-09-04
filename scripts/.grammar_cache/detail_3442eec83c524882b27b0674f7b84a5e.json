@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5279,
+  "usages": [
+    {
+      "explain": "「とっくに」 expresses an event that has already been completed, finished at a certain point in the past. This structure is similar to 「すでに」but emphasizes more on the timing of completion, indicating that the event has been done for a long time. 「すでに」 is commonly used in writing, while 「とっくに」 is more often used in everyday conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はとっくに帰りました。",
+          "transcription": "かれはとっくにかえりました。",
+          "mean": "He returned home a long time ago."
+        },
+        {
+          "content": "寝る時間はとっくに過ぎたよ。",
+          "transcription": "ねるじかんはとっくにすぎたよ。",
+          "mean": "It's long past time for bed."
+        },
+        {
+          "content": "そのお菓子はとっくに賞味期限を過ぎていた。",
+          "transcription": "そのおかしはとっくにしょうみきげんをすぎていた。",
+          "mean": "The sweets were long past their expiration date."
+        },
+        {
+          "content": "子供が出来たから、彼はたばこをとっくに辞めた。",
+          "transcription": "こどもができたから、かれはたばこをとっくにやめた。",
+          "mean": "He quit smoking long ago after having a child."
+        },
+        {
+          "content": "私は出かけるの準備がとっくに出来ていたよ。",
+          "transcription": "わたしはでかけるのじゅんびがとっくにできていたよ。",
+          "mean": "I was already ready to go out."
+        },
+        {
+          "content": "そうしていなかったら、僕はとっくに死んでいたよ。",
+          "transcription": "そうしていなかったら、ぼくはとっくにしんでいたよ。",
+          "mean": "If I hadn't done that, I would have died a long time ago."
+        },
+        {
+          "content": "君は真面目に練習していたら、とっくにプロになってただろう。",
+          "transcription": "きみはまじめにれんしゅうしていたら、とっくにプロになってただろう。",
+          "mean": "If you had practiced seriously, you would have become a pro long ago."
+        },
+        {
+          "content": "途中で自転車がパンクして学校まで走って行ったが、ベルはとっくに鳴っていた。",
+          "transcription": "とちゅうでじてんしゃがパンクしてがっこうまではしっていったが、ベルはとっくになっていた。",
+          "mean": "My bicycle got a flat tire on the way, so I ran to school, but the bell had already rung."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とっくに+Vた"
+    }
+  ],
+  "title": "とっくに => long ago; already; a long time ago",
+  "_id": "3442eec83c524882b27b0674f7b84a5e"
+}

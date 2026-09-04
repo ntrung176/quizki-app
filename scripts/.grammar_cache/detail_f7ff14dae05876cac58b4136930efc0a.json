@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 683,
+  "usages": [
+    {
+      "explain": "✦It usually follows negative structures to express that no matter what method is used, it cannot be done.<div>●Expresses the idea \"If X is like that, then Y must be even more so, it's only natural\" when comparing X to something greater than X.<div>「ましてや」is a slightly formal expression, often used in written language.</div></div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "こうむし暑くては、どうにもやりきれない。",
+          "transcription": "こうむしあつくては、どうにもやりきれない。",
+          "mean": "If it's hot and humid, I can't do anything about it."
+        },
+        {
+          "content": "彼の怠惰な性格は、どうにも直しようがない。",
+          "transcription": "かれのたいだなせいかくは、どうにもなおしようがない。",
+          "mean": "His lazy personality cannot be cured."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦どうにも…ない emphasizes negative meaning."
+    }
+  ],
+  "title": "～どうにも…ない => not … by any means; no matter how hard one tries, cannot ~",
+  "_id": "f7ff14dae05876cac58b4136930efc0a"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1658,
+  "usages": [
+    {
+      "explain": "It's used to emphasize the degree of the person or thing being referred to.",
+      "note": null,
+      "examples": [
+        {
+          "content": "姉妹は三人とも可愛いが、長女はとりわけ美しい。",
+          "transcription": "しまいはさんにんともかわいいが、ちょうじょはとりわけうつくしい。",
+          "mean": "All three sisters are cute, but the eldest is especially beautiful."
+        },
+        {
+          "content": "あの子は野菜、とりわけ人参が嫌いだ。",
+          "transcription": "あのこはやさい、とりわけにんじんがきらいだ。",
+          "mean": "That child hates vegetables, especially carrots."
+        },
+        {
+          "content": "彼女は旅行がとりわけ好きだ。",
+          "transcription": "かのじょはりょこうがとりわけすきだ。",
+          "mean": "She especially likes traveling."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とりわけ～"
+    }
+  ],
+  "title": "とりわけ => especially; above all ~",
+  "_id": "f7ff14dae05876cac58b413693945698"
+}

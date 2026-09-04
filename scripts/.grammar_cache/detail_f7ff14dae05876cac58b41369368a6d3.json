@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1342,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"if unfortunate, perhaps\". Used in situations that could lead to negative outcomes, conveying the speaker's concern and uncertainty.",
+      "note": null,
+      "examples": [
+        {
+          "content": "へたをすると、今度の試験は不合格かもしれない。",
+          "transcription": "へたをすると、こんどのしけんはふごうかくかもしれない。",
+          "mean": "If I get tired of it, I might fail the next exam."
+        },
+        {
+          "content": "インフルエンザのような通常の病気でもへたをすると命とりになることがある。",
+          "transcription": "いんふるえんざのようなつうじょうのびょうきでもへたをするといのちとりになることがある。",
+          "mean": "Even common illnesses like the flu can be fatal if you get sick."
+        }
+      ],
+      "mean": null,
+      "synopsis": "へたをすると ～"
+    }
+  ],
+  "title": "へたをすると => if one is unlucky; if one is careless; if things don't go well",
+  "_id": "f7ff14dae05876cac58b41369368a6d3"
+}

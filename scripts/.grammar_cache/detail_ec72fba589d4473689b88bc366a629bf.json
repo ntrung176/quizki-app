@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5245,
+  "usages": [
+    {
+      "explain": "「次第だ」is used to present the reason or cause of an event. Because it is typically used in formal contexts, it is often in the polite form「次第です」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日時の変更について、改めてお知らせする次第です。",
+          "transcription": "にちじのへんこうについて、あらためておしらせするしだいです。",
+          "mean": "We will notify you again of any changes to the date and time."
+        },
+        {
+          "content": "先日の会議の内容は、のちほど書面にてご報告する次第です。",
+          "transcription": "せんじつのかいぎのないようは、のちほどしょめんにてごほうこくするしだいです。",
+          "mean": "The contents of the meeting the other day will be reported in writing later."
+        },
+        {
+          "content": "このような事情から利用規則を改正する次第です。",
+          "transcription": "このようなじじょうからりようきそくをかいせいするしだいです。",
+          "mean": "Due to these circumstances, we have decided to revise the usage rules."
+        },
+        {
+          "content": "このようなミスが起きてしまい、深く反省している次第です。",
+          "transcription": "このようなミスがおきてしまい、ふかくはんせいしているしだいです。",
+          "mean": "A mistake like this occurred, and I am deeply reflecting on it."
+        },
+        {
+          "content": "この度アメリカ政府の招きにより親善大使としてアメリカへ来た次第です。",
+          "transcription": "このたびあめりかせいふのまねきによりしんぜんたいしとしてあめりかへきたしだいです。",
+          "mean": "At the invitation of the American government, I have come to the United States as a goodwill ambassador."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) / Vた / Vている+次第だ"
+    }
+  ],
+  "title": "次第だ => depending on; so ~",
+  "_id": "ec72fba589d4473689b88bc366a629bf"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1354,
+  "usages": [
+    {
+      "explain": "<div>✦Structure used to express an impression or judgment about something or someone, based on how it is perceived. It is usually followed by a generalizing judgment.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "この部屋は、仕事場というか物置というか、とにかく仕事に必要な物が全部おいてあるんです。",
+          "transcription": "このへやは、しごとばというかものおきというか、とにかくしごとにひつようなものがぜんぶおいてあるんです。",
+          "mean": "This room is more like a workspace or a storeroom, where I keep all the things I need for work."
+        },
+        {
+          "content": "彼女の行動は大胆というか、無邪気というか、みんなを困惑させた。",
+          "transcription": "かのじょのこうどうはだいたんというか、むじゃきというか、みんなをこんわくさせた。",
+          "mean": "Her actions were bold, or rather innocent, and confused everyone."
+        },
+        {
+          "content": "そのときの彼の表情は、悲壮というか、雄々しいというか、言葉にはしがたいものがあった。",
+          "transcription": "そのときのかれのひょうじょうは、ひそうというか、おおしいというか、ことばにはしがたいものがあった。",
+          "mean": "The expression on his face at that moment was tragic, or brave, something that cannot be described in words."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div><div>✦Noun + というか + Noun + というか</div><div>✦いadj + というか + いadj + というか</div></div>"
+    }
+  ],
+  "title": "～というか....というか => (I’m not sure if it’s) A or B",
+  "_id": "f7ff14dae05876cac58b4136936a6f59"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2062,
+  "usages": [
+    {
+      "explain": "Indicates that something happens following a previously mentioned event. It is often used to describe something that happens last in a sequence of events. It can almost always be replaced by 「そして」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "提出の前に、論文を全部チェックした。そうして、安心を感じた。",
+          "transcription": "ていしゅつのまえに、ろんぶんをぜんぶちぇっくした。そうして、あんしんをかんじた。",
+          "mean": "I checked the entire paper before submitting it. Then I felt safe."
+        },
+        {
+          "content": "次のキャンペーンを展開する時間や場所について相談した。そうして、会議を終わった。",
+          "transcription": "つぎのきゃんぺーんをてんかいするじかんやばしょについてそうだんした。そうして、かいぎをおわった。",
+          "mean": "We discussed the time and place for the next campaign. With that, the meeting ended."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そうして denotes the next thing that will happen after an event presented before."
+    }
+  ],
+  "title": "そうして => and, like that",
+  "_id": "f7ff14dae05876cac58b413693ccb303"
+}

@@ -1,0 +1,21 @@
+{
+  "level": "N4",
+  "mobileId": 2534,
+  "usages": [
+    {
+      "explain": "Used to praise someone, express the desire to be like them.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのスカートはいいですね。よく似合ってますよ。",
+          "transcription": "そのすかーとはいいですね。よくにあってますよ。",
+          "mean": "That skirt is nice. It suits you well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Subject of praise... いい"
+    }
+  ],
+  "title": "いい => Good, beautiful, like (right) (Praise)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0dc3e5"
+}

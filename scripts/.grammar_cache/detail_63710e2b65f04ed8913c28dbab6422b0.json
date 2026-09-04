@@ -1,0 +1,91 @@
+{
+  "level": "N3",
+  "mobileId": 5336,
+  "usages": [
+    {
+      "explain": "「がる」is used to express emotions, feelings, desires that are shown through the facial expressions and actions of others, not oneself.<br/>\n\nBecause the emotions, feelings, and desires are observed through the facial expressions and actions,「がる」sometimes carries the meaning: the person being talked about appears to be that way, but it may not be what they truly feel. This meaning needs to be understood based on the context.<br/>\n\nNotes:<br/>\n- This structure is essentially a verbification of adjectives, so the particle が goes with the adjective. When used with adjectives like 「ほしい」or「たい」, it changes to を when used with「がる」.<br/>\n- There are some adjectives that do not describe emotions or feelings but still go with「がる」such as: 新しがる、重宝がる、強がる、粋がる...<br/>\n- Comparison between「がる」and「がっている」:「がる」expresses emotions, feelings that frequently happen or have become a habit.「がっている」expresses temporary emotions, feelings happening at the moment.<br/>\n-「がる」is primarily used for third persons, but the speaker can also use it for themselves, when objectively looking at themselves from a third person's perspective. For example:<br/>\n   父が亡くなったのは辛いけど、いつまでも悲しがっているわけにはいかない。 (It's hard that my father passed away, but I can't keep being sad forever.)",
+      "note": null,
+      "examples": [
+        {
+          "content": "恥ずかしがらないで、前に出てきてください。",
+          "transcription": "はずかしがらないで、まえにでてきてください。",
+          "mean": "Don't be shy, come forward."
+        },
+        {
+          "content": "失敗を怖がらないで。",
+          "transcription": "しっぱいをこわがらないで。",
+          "mean": "Don't be afraid of failure."
+        },
+        {
+          "content": "これは子供の見たがっていたアニメ映画です。",
+          "transcription": "これはこどものみたがっていたアニメえいがです。",
+          "mean": "This is an animated movie that my kids wanted to see."
+        },
+        {
+          "content": "田中さんが、あなたに会いたがっていましたよ。",
+          "transcription": "たなかさんが、あなたにあいたがっていましたよ。",
+          "mean": "Tanaka-san wanted to meet you."
+        },
+        {
+          "content": "兄は来られなくて、とても残念がっていました。",
+          "transcription": "あにはこられなくて、とてもざんねんがっていました。",
+          "mean": "My brother couldn't come and was very disappointed."
+        },
+        {
+          "content": "あの子は、このケーキを食べたがっているみたい。",
+          "transcription": "あのこは、このケーキをたべたがっているみたい。",
+          "mean": "It seems like that child wants to eat this cake."
+        },
+        {
+          "content": "両親が寂しがっているので、春休みに国へ帰ります。",
+          "transcription": "りょうしんがかなしがっているので、はるやすみにくにへかえります。",
+          "mean": "I miss my parents, so I'm going back to my country for spring break."
+        },
+        {
+          "content": "私が住んでいるマンションに住みたがっている学生が多い。",
+          "transcription": "わたしがすんでいるマンションにすみたがっているがくせいがおおい。",
+          "mean": "Many students want to live in the apartment where I live."
+        },
+        {
+          "content": "田中さん、お化け屋敷入る時怖がってたけど、実は怖いの大好きなんだよ。",
+          "transcription": "たなかさん、おばけやしきはいるときこわがってたけど、じつはこわいのだいすきなんだよ。",
+          "mean": "Tanaka-san, I was scared when I entered a haunted house, but I actually love scary things."
+        },
+        {
+          "content": "そういえば、木村さんはこの本を欲しがっていたよね。",
+          "transcription": "そういえば、きむらさんはこのほんをほしがっていたよね。",
+          "mean": "Come to think of it, Mr. Kimura wanted this book."
+        },
+        {
+          "content": "娘は新しい物を見ると、すぐに欲しがる。",
+          "transcription": "むすめはあたらしいものをみると、すぐにほしがる。",
+          "mean": "When my daughter sees something new, she immediately wants it."
+        },
+        {
+          "content": "彼女は暗い場所に行くと、すぐに怖がる。",
+          "transcription": "かのじょはくらいばしょにいくと、すぐにこわがる。",
+          "mean": "She gets scared easily when she goes to dark places."
+        },
+        {
+          "content": "あの学生はみんなの前で自己紹介をする時、必ず恥ずかしがる。",
+          "transcription": "あのがくせいはみんなのまえでじこしょうかいをするとき、かならずはずかしがる。",
+          "mean": "That student always gets shy when he introduces himself in front of everyone."
+        },
+        {
+          "content": "うちの犬は病院に行くのを嫌がる。",
+          "transcription": "うちのいぬはびょういんにいくのをいやがる。",
+          "mean": "My dog ​​doesn't like going to the hospital."
+        },
+        {
+          "content": "彼は一人でこの仕事をするのを嫌がるだろう。",
+          "transcription": "かれはひとりでこのしごとをするのをいやがるだろう。",
+          "mean": "He won't like doing this job alone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s> / A<s>な</s> / Vた<s>い</s>+がる<br/> A<s>い</s> / A<s>な</s> / Vた<s>い</s>+がっている<br/> A<s>い</s> / A<s>な</s> / Vた<s>い</s>+がらないで"
+    }
+  ],
+  "title": "がる => to show signs of; to appear; to feel, to think ~",
+  "_id": "63710e2b65f04ed8913c28dbab6422b0"
+}

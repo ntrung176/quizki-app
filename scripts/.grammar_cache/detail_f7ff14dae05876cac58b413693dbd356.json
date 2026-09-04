@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 2167,
+  "usages": [
+    {
+      "explain": "✦Used after a noun referring to something not very useful, it expresses the meaning that even that value is absent.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あまりにばかばかしい話で、冗談にもならない。",
+          "transcription": "あまりにばかばかしいはなしで、じょうだんにもならない。",
+          "mean": "It's so ridiculous that it's not even a joke."
+        },
+        {
+          "content": "こんなに細い木では焚きつけにもならない。",
+          "transcription": "こんなにほそいきではたきつけにもならない。",
+          "mean": "A tree this thin cannot even be used as a kindling."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N+にもならない"
+    }
+  ],
+  "title": "～にもならない => ～It's not worth it",
+  "_id": "f7ff14dae05876cac58b413693dbd356"
+}

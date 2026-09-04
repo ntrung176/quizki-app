@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1610,
+  "usages": [
+    {
+      "explain": "Repeats the same verb to express the idea \"cannot do even the things that are usually naturally doable\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "寝坊したので、朝ごはんを食べるものも食べないであわてて学校へ行った。",
+          "transcription": "ねぼうしたので、あさごはんをたべるものもたべないであわててがっこうへいった。",
+          "mean": "I overslept, so I hurried to school without eating anything for breakfast."
+        },
+        {
+          "content": "彼らは彼の前に出たらすっかり気をのまれて、言いたいと思っていたことも全然言えなかった。",
+          "transcription": "かれらはかれのまえにでたらすっかりきをのまれて、いいたいとおもっていたこともぜんぜんいえなかった。",
+          "mean": "When they appeared in his presence, they were so taken aback that they were unable to say anything they had wanted to say."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...もの/...ことも + V-ない"
+    }
+  ],
+  "title": "...もの (こと) も...ない => Leave it as is",
+  "_id": "f7ff14dae05876cac58b4136938f10a0"
+}

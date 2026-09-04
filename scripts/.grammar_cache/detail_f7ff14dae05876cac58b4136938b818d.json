@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1583,
+  "usages": [
+    {
+      "explain": "Describes an unintentional action that naturally evolves in a positive direction.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今月になって、証券市場が持ち直した。",
+          "transcription": "こんげつになって、しょうけんしじょうがもちなおした。",
+          "mean": "This month, the stock market has picked up."
+        },
+        {
+          "content": "被害者はだんだん持ち直している。",
+          "transcription": "ひがいしゃはだんだんもちなおしている。",
+          "mean": "The victims are gradually recovering."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます + なおす"
+    }
+  ],
+  "title": "なおす => to do something again; to do over",
+  "_id": "f7ff14dae05876cac58b4136938b818d"
+}

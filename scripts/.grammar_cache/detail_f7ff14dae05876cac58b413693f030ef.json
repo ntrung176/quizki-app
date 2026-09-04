@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2311,
+  "usages": [
+    {
+      "explain": "Repeating the same noun to depict the most typical image of a person or thing represented by that noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "英雄らしい英雄ってどんな人のことですか。",
+          "transcription": "えいゆうらしいえいゆうってどんなひとのことですか。",
+          "mean": "What kind of person is a heroic hero?"
+        },
+        {
+          "content": "彼は本当に父親らしい父親ですね。",
+          "transcription": "かれはほんとうにちちおやらしいちちおやですね。",
+          "mean": "He's a really fatherly father."
+        },
+        {
+          "content": "最近サッカーの試合らしいサッカーの試合がなかった。",
+          "transcription": "さいきんさっかーのしあいらしいさっかーのしあいがなかった。",
+          "mean": "There hasn't been a soccer game that looks like a soccer game lately."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + らしい + N"
+    }
+  ],
+  "title": "らしい => It looks like",
+  "_id": "f7ff14dae05876cac58b413693f030ef"
+}

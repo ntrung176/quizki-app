@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2658,
+  "usages": [
+    {
+      "explain": "The nouns used in this case are natural phenomena or incidents like 事故（accident）、地震（earthquake）、火事（fire）...<br/>The predicate also has many limitations in usage, not using expressions with attention.",
+      "note": null,
+      "examples": [
+        {
+          "content": "地震で土手が崩れた。",
+          "transcription": "じしんでどてがくずれた。",
+          "mean": "The embankment collapsed due to the earthquake."
+        },
+        {
+          "content": "彼は交通事故で死んでしまった。",
+          "transcription": "かれはこうつうじこでしんでしまった。",
+          "mean": "He died in the traffic accident."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + で"
+    }
+  ],
+  "title": "...で => Indicates cause",
+  "_id": "f2d618ceb0702f781ec83b7d4f1dec1b"
+}

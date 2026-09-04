@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 911,
+  "usages": [
+    {
+      "explain": "Followed by a question word to pose a question to the listener. This is a somewhat old-fashioned way of speaking, used only in spoken language and often by older men.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼誰だい。",
+          "transcription": "かれだれだい。",
+          "mean": "Who is he?"
+        },
+        {
+          "content": "いつ行くだい。",
+          "transcription": "いついくだい。",
+          "mean": "When are you going?"
+        },
+        {
+          "content": "どうだい。",
+          "transcription": "どうだい。",
+          "mean": "What do you think?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative word + だい"
+    }
+  ],
+  "title": "... だい => Who, what, why",
+  "_id": "f7ff14dae05876cac58b4136932e4263"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 851,
+  "usages": [
+    {
+      "explain": "This signifies the premise of judgment. Synonymous with [からして], [からみて].",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼から連絡がこないからといって、そんなに心配することないよ。",
+          "transcription": "かれかられんらくがこないからといって、そんなにしんぱいすることないよ。",
+          "mean": "Don't worry too much if you haven't heard from him."
+        },
+        {
+          "content": "<div><br></div><div>日本人だからといって、すべて日本文化について知っているわけではない。</div>",
+          "transcription": "にっぽんじんだからといって、すべてにっぽんぶんかについてしっているわけではない。",
+          "mean": "&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Just because you're Japanese doesn't mean you know everything about Japanese culture. &lt;/div&gt;"
+        },
+        {
+          "content": "<div>説明を聞いたからといってすぐにできるというものでもない。</div><div><br></div>",
+          "transcription": "せつめいをきいたからといってすぐにできるというものでもない。",
+          "mean": "&lt;div&gt;Just because you hear the explanation doesn't mean you can do it right away. &lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "あの人の性格から言って、そんなことで納得するはずがないよ。",
+          "transcription": "あのひとのせいかくからいって、そんなことでなっとくするはずがないよ。",
+          "mean": "Judging from that person's personality, there's no way he'd agree with that."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■V (formal form) + からといって</div><div>■N + だからといって</div><div>■いadj + からといって</div><div>■なadj + だからといって</div>"
+    }
+  ],
+  "title": "～からいって => just because; even if; even though ~",
+  "_id": "f7ff14dae05876cac58b413693264839"
+}

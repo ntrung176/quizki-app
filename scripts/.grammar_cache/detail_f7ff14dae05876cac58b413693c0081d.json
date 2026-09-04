@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1969,
+  "usages": [
+    {
+      "explain": "✦It is a way of conveying information, more formal than 「～だそうだ」.<br/>✦The preceding phrase often uses 「～では」、「～によると」、「～によれば」, etc., to refer to the source of information.<br/>✦This pattern is also commonly used in letters or to express personal viewpoints.<br/>✦Following verbs indicating speech or communication such as 「聞く」、「話す」、「伝える」, etc., it expresses the content that is being conveyed.<br/>✦At the end of the sentence, it is often accompanied by 「とのことだ」, commonly used in news announcements.",
+      "note": null,
+      "examples": [
+        {
+          "content": "朝の天気予報にはおそくなって雷雨があるとのことだった。",
+          "transcription": "あさのてんきよほうにはおそくなってらいうがあるとのことだった。",
+          "mean": "The morning forecast predicted thunder showers later in the day."
+        },
+        {
+          "content": "ラジオによると、北海で嵐が起こるとのことだ。",
+          "transcription": "ラジオによると、ほっかいであらしがおこるとのことだ。",
+          "mean": "According to the radio, a storm is imminent in the North."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V-る / V-た / V-ない + とのことだA-い / A-な（だ）+ とのことだ N-だ + とのことだ"
+    }
+  ],
+  "title": "とのことだ => I heard; it means that; in other words ~",
+  "_id": "f7ff14dae05876cac58b413693c0081d"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 3105,
+  "usages": [
+    {
+      "explain": "This sentence pattern is used to express the speaker's intention and indicates that the speaker's intention was formed before speaking and is still ongoing. It is used for the first person.",
+      "note": "The sentence pattern 「V意向形と思っています」can be used to express the intention of a third person.<br>\n彼女（かのじょ）は外国（がいこく）で働（はたら）こうと思（おも）っています。<br>\nShe intends to work abroad.",
+      "examples": [
+        {
+          "content": "今年の夏休みに海に泳ぎに行こうと思う。",
+          "transcription": "ことしのなつやすみにうみにおよぎにいこうとおもう。",
+          "mean": "I'm thinking of going swimming in the sea this summer vacation."
+        },
+        {
+          "content": "体調が悪くて病院に行こうと思う。",
+          "transcription": "たいちょうがわるくてびょういんにいこうとおもう。",
+          "mean": "I'm not feeling well and want to go to the hospital."
+        },
+        {
+          "content": "私も彼女のように努力しようと思う。",
+          "transcription": "わたしもかのじょのようにどりょくしようとおもう。",
+          "mean": "I will try my best to be like her."
+        },
+        {
+          "content": "もっといい仕事が見つかれば、この仕事をやめようと思う。",
+          "transcription": "もっといいしごとがみつかれば、このしごとをやめようとおもう。",
+          "mean": "I'm thinking of quitting this job if I can find a better job."
+        }
+      ],
+      "mean": ": tend to, be about to…",
+      "synopsis": "～Ｖ意向形 と思う"
+    }
+  ],
+  "title": "～とおもう（～と思う）      => tend to, be about to…",
+  "_id": "93020c54469e582d6fdb16f7ba64034d"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1188,
+  "usages": [
+    {
+      "explain": "✦ Used in the form of \"べからざるN\" (an N that cannot ...), which is a literary expression for \"べきでないN\" (an N that should not ...).<br/>✦ By stating that the behavior or condition is \"not right, not good,\" it implies the meaning \"an N that cannot be ...,\" \"an N that is not allowed to ...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "川端康成は日本の文学史上、欠くべからざる作家だ。",
+          "transcription": "かわばたやすなりはにっぽんのぶんがくしじょう、かくべからざるさっかだ。",
+          "mean": "Yasunari Kawabata is an indispensable writer in the history of Japanese literature."
+        },
+        {
+          "content": "大臣の地位を利用して、企業から多額の金を受け取るなどは、政治家として許すべからざる犯罪行為である。",
+          "transcription": "だいじんのちいをりようして、きぎょうからたがくのきんをうけとるなどは、せいじかとしてゆるすべからざるはんざいこういである。",
+          "mean": "Using his position as a minister to accept large sums of money from companies is a criminal act that should not be tolerated by a politician."
+        },
+        {
+          "content": "いかなる理由があったにせよ、警官が一般市民に暴行を加えるなど、あり得べからざる異常事態だ。",
+          "transcription": "いかなるりゆうがあったにせよ、けいかんがいっぱんしみんにぼうこうをくわえるなど、ありうべからざるいじょうじたいだ。",
+          "mean": "Regardless of the reason, a police officer assaulting an ordinary citizen is an abnormal situation that should never happen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vる + べからざる"
+    }
+  ],
+  "title": "～べからざる => must not; should not; do not ~",
+  "_id": "f7ff14dae05876cac58b413693539444"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1297,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"doing so will provoke opposition or cause difficulties from others, so it is not decided or should not be done.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "借金まで、あえて留学しようとは思わない。",
+          "transcription": "しゃっきんまで、あえてりゅうがくしようとはおもわない。",
+          "mean": "I don't even think about studying abroad because of the debt."
+        },
+        {
+          "content": "みんなに排斥されるまで、あえて自分の観点を肯定することもないじゃないか。",
+          "transcription": "みんなにはいせきされるまで、あえてじぶんのかんてんをこうていすることもないじゃないか。",
+          "mean": "You don't dare to affirm your point of view until you are ostracized by everyone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あえて～ない"
+    }
+  ],
+  "title": "あえて～ない => Not trying to find a way",
+  "_id": "f7ff14dae05876cac58b41369362e49d"
+}

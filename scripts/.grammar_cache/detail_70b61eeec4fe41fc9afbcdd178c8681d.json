@@ -1,0 +1,76 @@
+{
+  "level": "N2",
+  "mobileId": 5280,
+  "usages": [
+    {
+      "explain": "「ところ」expresses the idea of just as something (V) is about to/happening/has just happened, another event interrupts. The particle used with 「ところ」depends on the verb that follows. Specifically:<br/>\n\n- 「ところを」: is often followed by verbs meaning \"see, discover\" such as 見る (to see), 見つける (to find), 見つかる (to be found), 発見する (to discover); or verbs meaning \"to stop, catch, attack, help\" such as 呼び止める (to call out to stop), 捕まえる (to catch), 捕まる (to be caught), 襲う (to attack), 助ける (to help).<br/>\n  \n- 「ところに/ところへ」: is often followed by verbs like 行く (to go), 来る (to come), 入れる (to put in), 通りかかる (to pass by), 電話がかかる (to receive a phone call).",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼が知らない女とデートしているところを見てしまった。",
+          "transcription": "かれがしらないおんなとデートしているところをみてしまった。",
+          "mean": "I saw him go on a date with a woman he didn't know."
+        },
+        {
+          "content": "登山道に倒れているところを発見された男性は、73歳の男性である。",
+          "transcription": "とざんどうにたおれているところをはっけんされただんせいは、ななじゅうさんさいのだんせいである。",
+          "mean": "The man who was found collapsed on the mountain trail is a 73-year-old man."
+        },
+        {
+          "content": "その犯人は、空家に隠れていたところを捕まった。",
+          "transcription": "そのはんにんは、あきやにかくれていたところをつかまった。",
+          "mean": "The culprit was caught hiding in a vacant house."
+        },
+        {
+          "content": "彼は道路を猛スピードで走っていたところを警察に止められた。",
+          "transcription": "かれはどうろをもうスピードではしっていたところをけいさつにとめられた。",
+          "mean": "He was stopped by the police as he was speeding down the road."
+        },
+        {
+          "content": "昼休憩をとろうとしたところに、ちょうど仕事の電話がかかってきた。",
+          "transcription": "ひるきゅうけいをとろうとしたところに、ちょうどしごとのでんわがかかってきた。",
+          "mean": "Just as I was about to take my lunch break, I received a work call."
+        },
+        {
+          "content": "盗んだ金を持ってドアを出たところに、警察が来た。",
+          "transcription": "ぬすんだかねをもってドアをでたところに、けいさつがきた。",
+          "mean": "As I walked out the door with the stolen money, the police arrived."
+        },
+        {
+          "content": "帰宅したところに宅配便屋さんが荷物を持ってきた。",
+          "transcription": "きたくしたところにたくはいびんやさんがにもつをもってきた。",
+          "mean": "When I got home, the courier brought my package."
+        },
+        {
+          "content": "ちょうどその場所を通り過ぎたところに、上から植木鉢が落ちてきた。",
+          "transcription": "ちょうどそのばしょをとおりすぎたところに、うえからうえきばちがおちてきた。",
+          "mean": "Just as I was passing by, a flowerpot fell from above."
+        },
+        {
+          "content": "ちょうど急いでいたところへ、運よくタクシーが通りかかった。",
+          "transcription": "ちょうどいそいでいたところへ、うんよくタクシーがとおりかかった。",
+          "mean": "As luck would have it, a taxi passed by just as I was in a hurry."
+        },
+        {
+          "content": "私がちょうど困っていたところへ、救いの手を差し伸べてくれたのがあの人です。",
+          "transcription": "わたしがちょうどこまっていたところへ、すくいのてをさしのべてくれたのがあのひとです。",
+          "mean": "He was the one who extended a helping hand when I was in trouble."
+        },
+        {
+          "content": "ちょうど出かけようとしていたところへ、客が来た。",
+          "transcription": "ちょうどでかけようとしていたところへ、きゃくがきた。",
+          "mean": "Just as I was about to leave, a customer arrived."
+        },
+        {
+          "content": "道に迷って困っていたところへ、警察が通りかかった。",
+          "transcription": "みちにまよってこまっていたところへ、けいさつがとおりかかった。",
+          "mean": "I was lost and in trouble when the police passed by."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) / Vた / Vている / Vていた+ところを / ところに / ところへ"
+    }
+  ],
+  "title": "ところを/ところに/ところへ => Right on time/At the right time",
+  "_id": "70b61eeec4fe41fc9afbcdd178c8681d"
+}

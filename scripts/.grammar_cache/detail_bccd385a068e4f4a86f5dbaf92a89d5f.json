@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5557,
+  "usages": [
+    {
+      "explain": "「てよかった」is used to express a feeling of joy, relief, or satisfaction after doing something. Although it is in the past form, here it expresses the present feelings of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "行ってよかった！",
+          "transcription": "いってよかった！",
+          "mean": "I'm glad I went!"
+        },
+        {
+          "content": "これを買ってよかった。",
+          "transcription": "これをかってよかった。",
+          "mean": "I'm glad I bought this."
+        },
+        {
+          "content": "君が無事に帰ってよかった。",
+          "transcription": "きみがぶじにかえってよかった。",
+          "mean": "I'm glad you got home safely."
+        },
+        {
+          "content": "この世に生まれてよかった。",
+          "transcription": "このよにうまれてよかった。",
+          "mean": "I'm glad I was born in this world."
+        },
+        {
+          "content": "私はあなたと出会えてよかった。",
+          "transcription": "わたしはあなたとであえてよかった。",
+          "mean": "I'm glad I met you."
+        },
+        {
+          "content": "財布を見つかってよかったですね。",
+          "transcription": "さいふをみつかってよかったですね。",
+          "mean": "I'm glad you found your wallet."
+        },
+        {
+          "content": "私は今日一日が無事に過ごせてよかった。",
+          "transcription": "わたしはきょういちにちがぶじにすごせてよかった。",
+          "mean": "I'm glad that I was able to spend the day safely."
+        },
+        {
+          "content": "君と連絡できてよかった。2時間遅れて心配したよ。",
+          "transcription": "きみとれんらくできてよかった。にじかんおくれてしんぱいしたよ。",
+          "mean": "I'm glad I was able to contact you. I was worried because I was two hours late."
+        },
+        {
+          "content": "あなたは元気になってよかったです。ずっと心配したよ。",
+          "transcription": "あなたはげんきになってよかったです。ずっとしんぱいしたよ。",
+          "mean": "I'm glad you're okay. I was worried the whole time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+よかった"
+    }
+  ],
+  "title": "てよかった => I’m glad that ~",
+  "_id": "bccd385a068e4f4a86f5dbaf92a89d5f"
+}

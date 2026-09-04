@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 5650,
+  "usages": [
+    {
+      "explain": "「や」is a particle used to list nouns. While the particle「と」is used to list all items, the particle「や」is used to list representative items (at least two nouns). You can add the particle「など」after the last noun to indicate that there are other items besides the ones listed.",
+      "note": null,
+      "examples": [
+        {
+          "content": "箱の中に手紙や写真があります。",
+          "transcription": "はこのなかにてがみやしゃしんがあります。",
+          "mean": "There are letters and photos inside the box."
+        },
+        {
+          "content": "私は週末に漫画や雑誌を読みます。",
+          "transcription": "わたしはしゅうまつにまんがやざっしをよみます。",
+          "mean": "I read manga and magazines on the weekends."
+        },
+        {
+          "content": "母はよくデパートやスーパーで買い物をします。",
+          "transcription": "はははよくデパートやスーパーでかいものをします。",
+          "mean": "My mother often shops at department stores and supermarkets."
+        },
+        {
+          "content": "郵便局やコンビニの前にポストがあります。",
+          "transcription": "ゆうびんきょくやコンビニのまえにポストがあります。",
+          "mean": "There are mailboxes in front of post offices and convenience stores."
+        },
+        {
+          "content": "私の部屋にテレビやベッドなどがあります。",
+          "transcription": "わたしのへやにテレビやベッドなどがあります。",
+          "mean": "My room has a TV, bed, etc."
+        },
+        {
+          "content": "お昼に時間がないですから、よくパンや卵焼きなどを食べます。",
+          "transcription": "おひるにじかんがないですから、よくパンやたまごやきなどをたべます。",
+          "mean": "I don't have much time for lunch, so I often eat bread or fried eggs."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1+や+N2"
+    }
+  ],
+  "title": "や => and; or",
+  "_id": "b02af01ceaf14ee9bc69989446d78999"
+}

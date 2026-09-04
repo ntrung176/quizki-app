@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5520,
+  "usages": [
+    {
+      "explain": "「なさい」is used to give requests or commands to the listener. This structure is often used in situations like parents speaking to children, teachers speaking to students, and not used with superiors.<br/> Since it has a gentler tone than 「てください」,「なさい」is preferred by women over 「てください」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "まず、質問に答えなさい。",
+          "transcription": "まず、しつもんにこたえなさい。",
+          "mean": "First, answer the question."
+        },
+        {
+          "content": "うるさいだよ。静かにしなさい！",
+          "transcription": "うるさいだよ。しずかにしなさい！",
+          "mean": "It's noisy. be quiet!"
+        },
+        {
+          "content": "明日の9時に私に電話しなさい！",
+          "transcription": "あしたのくじにわたしにでんわしなさい！",
+          "mean": "Call me tomorrow at 9 o'clock!"
+        },
+        {
+          "content": "野菜は体にいいから、もっと食べなさい！",
+          "transcription": "やさいはからだにいいから、もっとたべなさい！",
+          "mean": "Vegetables are good for you, so eat more!"
+        },
+        {
+          "content": "分からなかったら先生に聞きなさい。",
+          "transcription": "わからなかったらせんせいにききなさい。",
+          "mean": "If you don't understand, ask your teacher."
+        },
+        {
+          "content": "明日、学校に行くから、早く寝なさい！",
+          "transcription": "あした、がっこうにいくから、はやくねなさい！",
+          "mean": "I'm going to school tomorrow, so go to bed early!"
+        },
+        {
+          "content": "人からされたいと思うことを、自ら人にしなさい。",
+          "transcription": "ひとからされたいとおもうことを、みずからひとにしなさい。",
+          "mean": "Treat others as you would like others to do to you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+なさい"
+    }
+  ],
+  "title": "なさい => do this (soft/firm command)",
+  "_id": "a16b1818e88642d385cb8de3aaf27737"
+}

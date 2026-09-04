@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1677,
+  "usages": [
+    {
+      "explain": "Meaning: already...",
+      "note": null,
+      "examples": [
+        {
+          "content": "もはや意味はありません。",
+          "transcription": "もはやいみはありません。",
+          "mean": "It doesn't make sense anymore."
+        },
+        {
+          "content": "もはやお父さんより上手ですね。",
+          "transcription": "もはやおとうさんよりじょうずですね。",
+          "mean": "He's better than his father now."
+        },
+        {
+          "content": "彼が来たから，君はもはや行くまでもない．",
+          "transcription": "かれがきたから，きみはもはやいくまでもない．",
+          "mean": "Now that he has come, you have no need to go."
+        },
+        {
+          "content": "保守か革新かという論点はもはや時代遅れだ。",
+          "transcription": "ほしゅかかくしんかというろんてんはもはやじだいおくれだ。",
+          "mean": "The issue of conservatism versus innovation is now outdated."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もはや ～"
+    }
+  ],
+  "title": "もはや ～ => already; now; no longer; not anymore",
+  "_id": "f7ff14dae05876cac58b41369396cd0c"
+}

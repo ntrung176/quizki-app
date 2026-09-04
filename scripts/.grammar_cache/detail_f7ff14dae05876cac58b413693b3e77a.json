@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1889,
+  "usages": [
+    {
+      "explain": "Used when asking someone to do something beneficial for a third party. If the third party is on the speaker's side, 「...てやってくれ/くれないか/ください」is often used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "すしを作りすぎたので、叔父さんに持って行ってあげて下さい。",
+          "transcription": "すしをつくりすぎたので、おじさんにもっていってあげてください。",
+          "mean": "I made too much sushi, so please take it to your uncle."
+        },
+        {
+          "content": "山田さん、今週の土曜日、暇だったら花春子ちゃんを迎えに行ってあげてくれない？私、約束があってどうしても行けないのよ。",
+          "transcription": "やまださん、こんしゅうのどようび、ひまだったらはなはるこちゃんをむかえにいってあげてくれない？わたし、やくそくがあってどうしてもいけないのよ。",
+          "mean": "Mr. Yamada, if you are free this Saturday, could you please pick up Hanaharuko-chan? I have a commitment so I just can't go."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V- て + あげてくれ（ないか） <br/>V- て + あげてください<br/>"
+    }
+  ],
+  "title": "てあげてくれ => to do for; to do a favor",
+  "_id": "f7ff14dae05876cac58b413693b3e77a"
+}

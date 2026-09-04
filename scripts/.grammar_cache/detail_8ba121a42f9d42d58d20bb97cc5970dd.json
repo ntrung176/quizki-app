@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5345,
+  "usages": [
+    {
+      "explain": "「か何か」is used when the speaker cannot specify exactly what they are talking about, only knowing that it is something similar. This structure is sometimes also used to suggest options to the listener.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は病気か何かだろう。",
+          "transcription": "かれはびょうきかなにかだろう。",
+          "mean": "He must be sick or something."
+        },
+        {
+          "content": "オレンジジュースか何か欲しいな。",
+          "transcription": "オレンジジュースかなにかほしいな。",
+          "mean": "I want an orange juice or something."
+        },
+        {
+          "content": "私はアイスクリームか何か食べたいです。",
+          "transcription": "わたしはアイスクリームかなにかたべたいです。",
+          "mean": "I want to eat ice cream or something."
+        },
+        {
+          "content": "昼ご飯はサンドイッチか何かを作ってあげましょうか。",
+          "transcription": "ひるごはんはサンドイッチかなにかをつくってあげましょうか。",
+          "mean": "Shall I make you a sandwich or something for lunch?"
+        },
+        {
+          "content": "お急ぎでなかったら、お茶か何かいかがですか。",
+          "transcription": "おいそぎでなかったら、おちゃかなにかいかがですか。",
+          "mean": "How about cup of tea or something, if you aren't in a hurry?"
+        },
+        {
+          "content": "彼は病気か何かだったのですか。頭がちょっとおかしいだね。",
+          "transcription": "かれはびょうきかなにかだったのですか。あたまがちょっとおかしいだね。",
+          "mean": "Was he sick or something? You're a little crazy."
+        },
+        {
+          "content": "帰りは寒いから上着か何かを持っていった方がいいよ 。",
+          "transcription": "かえりはさむいからうわぎかなにかをもっていったほうがいいよ 。",
+          "mean": "It will be cold on the way home, so you should bring a jacket or something."
+        },
+        {
+          "content": "彼女は家で倒れて入院したそうです。お見舞いには花か何かを持って行こうか。",
+          "transcription": "かのじょはいえでたおれてにゅういんしたそうです。おみまいにははなかなにかをもっていこうか。",
+          "mean": "Apparently she collapsed at home and was hospitalized. Should I bring flowers or something to visit?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+か何か"
+    }
+  ],
+  "title": "か何か => or something",
+  "_id": "8ba121a42f9d42d58d20bb97cc5970dd"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3050,
+  "usages": [
+    {
+      "explain": "✦ Used when you want to emphasize a particular point.",
+      "note": null,
+      "examples": [
+        {
+          "content": "台風が来るのに山に登るとは、危険極まる。<br>",
+          "transcription": "たいふうがくるのにやまにのぼるとは、きけんきわまる。<br>",
+          "mean": "Climbing a mountain when a typhoon is coming is extremely dangerous. &lt;br&gt;"
+        },
+        {
+          "content": "私が書いた文章には誤字が多く、恥ずかしいこと極まりない。",
+          "transcription": "わたしがかいたぶんしょうにはごじがおおく、はずかしいこときわまりない。",
+          "mean": "There are many typos in the sentences I have written, which is extremely embarrassing."
+        },
+        {
+          "content": "わたしは、彼の失礼きわまりない態度に我慢できなかった。",
+          "transcription": "わたしは、かれのしつれいきわまりないたいどにがまんできなかった。",
+          "mean": "I couldn't stand his extremely rude attitude."
+        },
+        {
+          "content": "昨日見た映画は、平凡極まる内容だった",
+          "transcription": "きのうみたえいがは、へいぼんきわまるないようだった",
+          "mean": "The movie I saw yesterday was extremely mediocre."
+        },
+        {
+          "content": "平凡極まりないが、私にとって大切なものは家族と健康だ。",
+          "transcription": "へいぼんきわまりないが、わたしにとってたいせつなものはかぞくとけんこうだ。",
+          "mean": "It may be an extremely ordinary thing, but what is important to me is my family and health."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Aな ＋ 極まる／極まりない"
+    }
+  ],
+  "title": "～きわまる／きわまりない（～極まる／極まりない）      => extremely; very ~",
+  "_id": "93020c54469e582d6fdb16f7ba9143e7"
+}

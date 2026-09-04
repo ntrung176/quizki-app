@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5521,
+  "usages": [
+    {
+      "explain": "「なさる」is the honorific form of the verbs する and なす, used to show respect when talking about the actions of someone of higher status.<br/>\n\nThe polite form of 「なさる」is often なさいます. The imperative form has two forms, なさい is the common way, while なされ is an older form.<br/>\n\nFor verbs in group III, ご is used when the words are pure Sino-Japanese readings (onyomi) like 説明 (explanation), 解決 (solution), and お is used for others like 仕事 (work), 電話 (phone call)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうかなさいましたか。",
+          "transcription": "どうかなさいましたか。",
+          "mean": "What did you do?"
+        },
+        {
+          "content": "お飲み物は何になさいますか。",
+          "transcription": "おのみものはなにになさいますか。",
+          "mean": "What would you like to drink?"
+        },
+        {
+          "content": "どうぞ、お好きなようになさってください。",
+          "transcription": "どうぞ、おすきなようになさってください。",
+          "mean": "Please do as you please."
+        },
+        {
+          "content": "今年の夏休みはどうなさるつもりですか。",
+          "transcription": "今年のなつやすみはどうなさるつもりですか。",
+          "mean": "What are you planning to do on your summer vacation this year?"
+        },
+        {
+          "content": "その損を私のせいになさろうとするんですか。",
+          "transcription": "そのそんを私のせいになさろうとするんですか。",
+          "mean": "Are you trying to blame me for that loss?"
+        },
+        {
+          "content": "お気になさらないでください。彼は普段から無口なので。",
+          "transcription": "お気になさらないでください。彼はふだんからむくちなので。",
+          "mean": "Please don't worry. Because he's usually quiet."
+        },
+        {
+          "content": "先生はふと寂しそうな表情をなさった。",
+          "transcription": "せんせいはふとさびしそうなひょうじょうをなさった。",
+          "mean": "The teacher suddenly looked sad."
+        },
+        {
+          "content": "本日の社長のご決定には誠に失望いたしました。報告書をご一読なされば、かならずやことの重大性をご賢察なさるものと期待しておりましたのに。",
+          "transcription": "ほんじつのしゃちょうのごけっていにはまことにしつぼういたしました。ほうこくしょをごいちどくなされば、かならずやことのじゅうだいせいをごけんさつなさるものときたいしておりましたのに。",
+          "mean": "I am truly disappointed in the president's decision today. I had hoped that once you read the report, you would understand the seriousness of the matter."
+        },
+        {
+          "content": "この提案なら先方もきっとご満足なさるはずです。",
+          "transcription": "このていあんならせんぽうもきっとごまんぞくなさるはずです。",
+          "mean": "I'm sure the other party will be satisfied with this proposal."
+        },
+        {
+          "content": "これからどんなお仕事をなさるのですか。",
+          "transcription": "これからどんなおしごとをなさるのですか。",
+          "mean": "What kind of work will you do from now on?"
+        },
+        {
+          "content": "今度の展示会にはお出なさいますか。",
+          "transcription": "こんどのてんじかいにはおでなさいますか。",
+          "mean": "Will you be attending the next exhibition?"
+        },
+        {
+          "content": "上級管理職の人事は、すべて社長みずからお決めなさいます。人事部はその決定をお伝えするだけです。",
+          "transcription": "じょうきゅうかんりしょくのじんじは、すべてしゃちょうみずからおきめなさいます。じんじぶはそのけっていをおつたえするだけです。",
+          "mean": "All personnel decisions for senior management are made by the president himself. Human Resources will simply communicate its decision."
+        }
+      ],
+      "mean": null,
+      "synopsis": "する/なす ➔ なさる<br/>\n おV (I, II)<s>ます</s>+なさる<br/>\nお/ごV (III)<s>します</s>+なさる"
+    }
+  ],
+  "title": "なさる => to do (honorific)",
+  "_id": "763f2c1a8c464e4eb98d97ff2467885d"
+}

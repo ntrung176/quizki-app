@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 2436,
+  "usages": [
+    {
+      "explain": "These are used to give commands, warnings, or convey messages from signs and notices. Additionally, they can be used to give advice.",
+      "note": null,
+      "examples": [
+        {
+          "content": "研究室には土足ではいらないこと。",
+          "transcription": "けんきゅうしつにはどそくではいらないこと。",
+          "mean": "You don't need to wear shoes in the laboratory."
+        },
+        {
+          "content": "届書を書く前に注意書きをよく読むこと。",
+          "transcription": "とどけしょをかくまえにちゅういがきをよくよむこと。",
+          "mean": "Please read the notes carefully before writing the notification."
+        },
+        {
+          "content": "期末レポートは、必ず400字詰めの原稿用紙を使用することとする。",
+          "transcription": "きまつれぽーとは、かならず400じづめのげんこうようしをしようすることとする",
+          "mean": "Final reports must be written on manuscript paper with 400 characters."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る / V-ない ＋ こと"
+    },
+    {
+      "explain": "This structure is often written in texts. Sometimes at the end of a sentence, 「こととする」 is used.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "こと => (must) do",
+  "_id": "f2d618ceb0702f781ec83b7d4f008dd6"
+}

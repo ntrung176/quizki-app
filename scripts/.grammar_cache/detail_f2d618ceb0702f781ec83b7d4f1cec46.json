@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2649,
+  "usages": [
+    {
+      "explain": "After emphasizing a clause with the particle に to express multiple meanings, now one adds the particle も with the meaning \"not only with that, but also with something else.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんな物は毒にも薬にも成らぬ。",
+          "transcription": "こんなものはどくにもくすりにもならぬ。",
+          "mean": "This kind of thing is neither poison nor medicine."
+        },
+        {
+          "content": "ミンさんにもよろしくお伝えください。",
+          "transcription": "みんさんにもよろしくおつたえください。",
+          "mean": "Please give my regards to Min as well."
+        },
+        {
+          "content": "大阪にも強い地震が起きた。",
+          "transcription": "おおさかにもつよいじしんがおきた。",
+          "mean": "A strong earthquake also occurred in Osaka."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にも"
+    }
+  ],
+  "title": "にも => also, too, not ... either, as well, even",
+  "_id": "f2d618ceb0702f781ec83b7d4f1cec46"
+}

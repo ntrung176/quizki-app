@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5324,
+  "usages": [
+    {
+      "explain": "「ぶりに」is used after a noun indicating a period of time to express the idea of \"after how long (N), doing something again that hasn't been done for a while.\" Sometimes the period of time N can be very short, but the speaker feels it has been a long time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日、やく2週間ぶりに雨が降った。",
+          "transcription": "きょう、やくにしゅうかんぶりにあめがふった。",
+          "mean": "It rained today for the first time in almost two weeks."
+        },
+        {
+          "content": "この街に帰ってくるのはもう10年ぶりだなあ。",
+          "transcription": "このまちにかえってくるのはもうじゅうねんぶりだなあ。",
+          "mean": "It's been 10 years since I came back to this city."
+        },
+        {
+          "content": "最近はずっと忙しかったが、今日は久しぶりにゆっくり休むことが出来た。",
+          "transcription": "さいきんはずっといそがしかったが、きょうはひさしぶりにゆっくりやすむことができた。",
+          "mean": "I've been busy lately, but today I was able to get some rest for the first time in a while."
+        },
+        {
+          "content": "先週からずっと雨が降った。1週間ぶりにようやく晴れてきた。",
+          "transcription": "せんしゅうからずっとあめがふった。いっしゅうかんぶりにようやくはれてきた。",
+          "mean": "It's been raining since last week. It's finally sunny for the first time in a week."
+        },
+        {
+          "content": "高校を卒業してから、2年ぶりにクラスメイトに会った。",
+          "transcription": "こうこうをそつぎょうしてから、にねんぶりにクラスメイトにあった。",
+          "mean": "After graduating from high school, I met my classmates for the first time in two years."
+        },
+        {
+          "content": "今日、3ヶ月ぶりにまた北海道へ出張しに行ってきました。",
+          "transcription": "きょう、さんかげつぶりにまたほっかいどうへしゅっちょうしにいってきました。",
+          "mean": "Today, I went on a business trip to Hokkaido again for the first time in three months."
+        },
+        {
+          "content": "５年ぶりに帰国したら、すっかり変わった地元の様子に驚かされた。",
+          "transcription": "ごねんぶりにきこくしたら、すっかりかわったじもとのようすにおどろかされた。",
+          "mean": "When I returned to Japan for the first time in five years, I was surprised to see how much my hometown had changed."
+        },
+        {
+          "content": "台風で電車が不通になっていたが、10時間ぶりに運転を始めたそうだ。",
+          "transcription": "たいふうででんしゃがふつうになっていたが、じゅうねんぶりにうんてんをはじめたそうだ。",
+          "mean": "Trains had been suspended due to the typhoon, but apparently they have resumed operation for the first time in 10 hours."
+        },
+        {
+          "content": "父はうちで倒れて入院したが、意識がなかった。2日ぶりに意識を回復した。",
+          "transcription": "ちちはうちでたおれてにゅういんしたが、いしきがなかった。ふつかぶりにいしきをかいふくした。",
+          "mean": "My father collapsed at home and was hospitalized, but he was unconscious. He regained consciousness for the first time in two days."
+        },
+        {
+          "content": "お酒を飲む時、僕の顔はあまり赤くならない。以前に赤くなったのは半年ぶりだったよ。",
+          "transcription": "おさけをのむとき、ぼくのかおはあまりあかくならない。いぜんにあかくなったのははんねんぶりだったよ。",
+          "mean": "When I drink alcohol, my face doesn't get too red. It had been half a year since I last turned red."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (time)+ぶり(に)"
+    }
+  ],
+  "title": "ぶりに => for the first time in (period of time)",
+  "_id": "438e3ee646f441b3a3d943a905848d1f"
+}

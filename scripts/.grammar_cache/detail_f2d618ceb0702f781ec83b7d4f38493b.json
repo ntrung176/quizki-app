@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2855,
+  "usages": [
+    {
+      "explain": "Describes the inside of a space.",
+      "note": null,
+      "examples": [
+        {
+          "content": "居間の中には誰がいるの。",
+          "transcription": "いまのなかにはだれがいるの。",
+          "mean": "Who is in the living room?"
+        },
+        {
+          "content": "冷蔵庫の中にヨーグルトがありますよ。",
+          "transcription": "れいぞうこのなかによーぐるとがありますよ。",
+          "mean": "There's yogurt in the refrigerator."
+        },
+        {
+          "content": "箱の中から蛙が急に飛び出した。",
+          "transcription": "はこのなかからかえるがきゅうにとびだした。",
+          "mean": "A frog suddenly jumped out from inside the box."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + のなか"
+    }
+  ],
+  "title": "のなか => in, among ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f38493b"
+}

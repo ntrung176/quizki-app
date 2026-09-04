@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2288,
+  "usages": [
+    {
+      "explain": "Used to emphasize the noun preceding it. It has a similar meaning to 「でも」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんな易しい方程式は中学生だって解ける。",
+          "transcription": "こんなやさしいほうていしきはちゅうがくせいだってとける。",
+          "mean": "Even junior high school students can solve such easy equations."
+        },
+        {
+          "content": "この問題は専門家だって間違うことはある。",
+          "transcription": "このもんだいはせんもんかだってまちがうことはある。",
+          "mean": "Even experts can make mistakes on this question."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だって"
+    }
+  ],
+  "title": "... だって => Even ..., for example, (interrogative term) but not ...",
+  "_id": "f7ff14dae05876cac58b413693eca86f"
+}

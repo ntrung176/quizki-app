@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2378,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"I've had that emotion before, and now, due to a certain event, that emotion rushes back.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "祖母が亡くなって2年たつが、今さらながらもっと長生きしてくれたらよかったのにと残念に思う。",
+          "transcription": "そぼがなくなって2ねんたつが、いまさらながらもっとながいきしてくれたらよかったのにとざんねんにおもう。",
+          "mean": "It's been two years since my grandmother passed away, but now I feel sad and wish she had lived longer."
+        },
+        {
+          "content": "今さらながら木村さんの賢さには感心する。",
+          "transcription": "いまさらながらきむらさんのかしこさにはかんしんする。",
+          "mean": "Even now, I am impressed by Mr. Kimura's wisdom."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Expressing feelings from the past that still persist in the present."
+    }
+  ],
+  "title": "いまさらながら => Still ... now",
+  "_id": "f7ff14dae05876cac58b413693f8cb81"
+}

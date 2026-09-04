@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1851,
+  "usages": [
+    {
+      "explain": "Emphasizes the negative meaning regarding the highlighted matter with「など」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼などと話したくない。",
+          "transcription": "かれなどとはなしたくない。",
+          "mean": "I don't want to talk to him."
+        },
+        {
+          "content": "反対するなどと言っていない。",
+          "transcription": "はんたいするなどといっていない。",
+          "mean": "I'm not saying I'm against it."
+        },
+        {
+          "content": "そんなわがままな人などと一緒に働きたくない。",
+          "transcription": "そんなわがままなひとなどといっしょにはたらきたくない。",
+          "mean": "I don't want to work with such a selfish person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "など～ない"
+    }
+  ],
+  "title": "など～ない => Not...at all",
+  "_id": "f7ff14dae05876cac58b413693aeef59"
+}

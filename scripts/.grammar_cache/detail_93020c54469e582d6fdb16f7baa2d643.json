@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3162,
+  "usages": [
+    {
+      "explain": "✦ An action or situation that is definitely impossible to happen, or not allowed to happen.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "経営者にとって決断力は欠くべからざるものである。",
+          "transcription": "けいえいしゃにとってけつだんりょくはかくべからざるものである。",
+          "mean": "Decision-making ability is essential for managers."
+        },
+        {
+          "content": "芝生に立ち入るべからず。",
+          "transcription": "しばふにたちいるべからず。",
+          "mean": "Do not enter the lawn."
+        },
+        {
+          "content": "政治家がその地位を利用して私腹を肥やすのは、許すべからざる犯罪だ。",
+          "transcription": "せいじかがそのちいをりようしてしふくをこやすのは、ゆるすべからざるはんざいだ。",
+          "mean": "It is an unforgivable crime for politicians to use their positions to enrich their own pockets."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vる ＋ べからず"
+    }
+  ],
+  "title": "～べからず      => must not; should not; do not ~",
+  "_id": "93020c54469e582d6fdb16f7baa2d643"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5298,
+  "usages": [
+    {
+      "explain": "「をはじめ」is used to give a typical example or representative example (N). Following it are similar things or actions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "会議には中国をはじめ、アジアの国々が参加した。",
+          "transcription": "かいぎにはちゅうごくをはじめ、アジアのくにぐにがさんかした。",
+          "mean": "The conference was attended by countries from Asia, including China."
+        },
+        {
+          "content": "我国では、野球をはじめとして、サッカーやテニスなど、様々なスポーツが盛んである。",
+          "transcription": "わがくにでは、やきゅうをはじめとして、サッカーやテニスなど、さまざまなスポーツがさかんである。",
+          "mean": "In our country, various sports such as baseball, soccer, and tennis are popular."
+        },
+        {
+          "content": "当店ではヘッドスパをはじめとするリラクゼーションサービスを提供しています。",
+          "transcription": "とうてんではヘッドスパをはじめとするリラクゼーションサービスをていきょうしています。",
+          "mean": "Our store offers relaxation services including head spa."
+        },
+        {
+          "content": "京都には金閣寺をはじめとして名所が多いだ。",
+          "transcription": "きょうとにはきんかくじをはじめとしてめいしょがおおいだ。",
+          "mean": "There are many famous places in Kyoto, including Kinkaku-ji Temple."
+        },
+        {
+          "content": "国会議員をはじめとする視察団が被災地を訪れた。",
+          "transcription": "こっかいぎいんをはじめとするしさつだんがひさいちをおとずれた。",
+          "mean": "An inspection team including members of the Diet visited the disaster area."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+はじめ<br/> Nを+はじめとして<br/> Nを+はじめとするN"
+    }
+  ],
+  "title": "をはじめ => for example; starting with ~",
+  "_id": "e5e3c850d5a7409f87b8d02e3748ed5f"
+}

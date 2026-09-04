@@ -1,0 +1,81 @@
+{
+  "level": "N2",
+  "mobileId": 5107,
+  "usages": [
+    {
+      "explain": "「だけ(のことは)あって/だけのことはある」indicates that something is worth it, or as expected, when considering its reason or cause (V/A/N), while also showing the speaker's agreement or impression of its worthiness.<br/>\n\nThe phrase 「だけ(のことは)あって」 expresses the reason or cause. The following clause describes a resulting state or positive evaluation.<br/>\n\nThe phrase 'だけのことはある' expresses the reason or cause. The preceding clause describes a resulting state or positive evaluation.<br/>\n\nThese structures often go with 「さすが(に)」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は歴史が好きなだけのことはあって、点数はいつも高いだ。",
+          "transcription": "かのじょはれきしがすきなだけのことはあって、てんすうはいつもたかいだ。",
+          "mean": "She loves history and always gets high marks."
+        },
+        {
+          "content": "ここは一流ホテルだけあって、快適だ。",
+          "transcription": "ここはいちりゅうホテルだけあって、かいてきだ。",
+          "mean": "This is a first-class hotel, so it's comfortable."
+        },
+        {
+          "content": "このアパートは駅に近いだけあって、やっぱり家賃も高い。",
+          "transcription": "このアパートはえきにちかいだけあって、やっぱりやちんもたかい。",
+          "mean": "This apartment is close to the station, so the rent is high."
+        },
+        {
+          "content": "春子さんはアメリカに留学しただけあって、英語がうまいね。",
+          "transcription": "はるこさんはアメリカにりゅうがくしただけあって、えいごがうまいね。",
+          "mean": "Haruko-san studied in America, so she speaks English well."
+        },
+        {
+          "content": "この場所は有名なだけあって、たくさんの観光客がいる。",
+          "transcription": "このばしょはゆうめいなだけあって、たくさんのかんこうきゃくがいる。",
+          "mean": "This place is famous and there are many tourists."
+        },
+        {
+          "content": "さすがに熱心なだけあって、中村さんのテニスはたいしたもんだ。",
+          "transcription": "さすがにねっしんなだけあって、なかむらさんのてにすはたいしたもんだ。",
+          "mean": "As expected, Mr. Nakamura's tennis is very good, as he is very passionate about it."
+        },
+        {
+          "content": "さすがからだが大きいだけあって、山下さんは力があるねえ。",
+          "transcription": "さすがからだがおおきいだけあって、やましたさんはちからがあるねえ。",
+          "mean": "Mr. Yamashita has a lot of strength, as expected from his large body."
+        },
+        {
+          "content": "料理教室に通っているだけあって、彼女の作る料理はとても美味しい。",
+          "transcription": "りょうりきょうしつにかよっているだけあって、かのじょのつくるりょうりはとてもおいしい。",
+          "mean": "Since she is attending a cooking class, the dishes she makes are very delicious."
+        },
+        {
+          "content": "これは美味しい。並んで買っただけのことはある。",
+          "transcription": "これはおいしい。ならんでかっただけのことはある。",
+          "mean": "This is delicious. Sometimes I just lined up and bought something."
+        },
+        {
+          "content": "この椅子は丈夫だ。高かっただけのことはある。",
+          "transcription": "このいすはじょうぶだ。たかかっただけのことはある。",
+          "mean": "This chair is durable. It's just that it was expensive."
+        },
+        {
+          "content": "あの政治家はとても信頼されている。さすが昔から正直だっただけのことはある。",
+          "transcription": "あのせいじかはとてもしんらいされている。さすがむかしからしょうじきだっただけのことはある。",
+          "mean": "That politician is very trusted. As expected, I have always been honest."
+        },
+        {
+          "content": "他のチームに簡単に勝てた。さすがに全国チャンピオンだけのことはある。",
+          "transcription": "たのちーむにかんたんにかてた。さすがにぜんこくちゃんぴおんだけのことはある。",
+          "mean": "We easily beat the other teams. As expected, there are things that only happen to national champions."
+        },
+        {
+          "content": "佐藤さんは東京大学に合格した。さすがに一生懸命勉強しているだけのことはあるね。",
+          "transcription": "さとうさんはとうきょうだいがくにごうかくした。さすがにいっしょうけんめいべんきょうしているだけのことはあるね。",
+          "mean": "Mr. Sato was accepted to the University of Tokyo. It's just that I'm studying hard."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vた+だけ(のことは)あって / だけのことはある<br/>Aい/ A<s>い</s>かった+だけ(のことは)あって / だけのことはある<br/>Aな/A<s>な</s>だった+だけ(のことは)あって / だけのことはある<br> N/Nだった+だけ(のことは)あって / だけのことはある</br>"
+    }
+  ],
+  "title": "だけ(のことは)あって/だけのことはある => no wonder; as expected of; not ... for nothing; not ... with nothing to show for it",
+  "_id": "48201744ff294165a5fe1d21adb8609c"
+}

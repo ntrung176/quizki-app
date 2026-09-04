@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5103,
+  "usages": [
+    {
+      "explain": "「ばかりはいられない」expresses the idea of not being able to stay in that state forever, not being able to keep doing just that action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう親に頼ってばかりはいられない。",
+          "transcription": "もうおやにたよってばかりはいられない。",
+          "mean": "I can no longer rely on my parents."
+        },
+        {
+          "content": "どんなに辛くても、泣いてばかりもいられない。",
+          "transcription": "どんなにつらくても、ないてばかりもいられない。",
+          "mean": "No matter how painful it is, I can't keep crying."
+        },
+        {
+          "content": "今日の試合に勝ったからといって、喜んでばかりはいられない。",
+          "transcription": "きょうのしあいにかったからといって、よろこんでばかりはいられない。",
+          "mean": "We can't just be happy just because we won today's match."
+        },
+        {
+          "content": "先輩に聞いてばかりはいられない。自分でできるようにならないと。",
+          "transcription": "せんぱいにきいてばかりはいられない。じぶんでできるようにならないと。",
+          "mean": "I can't just listen to my seniors. I need to be able to do it myself."
+        },
+        {
+          "content": "苦手なことを避けてばかりはいられない。チャレンジしてみよう。",
+          "transcription": "にがてなことをさけてばかりはいられない。チャレンジしてみよう。",
+          "mean": "You can't just avoid things you're not good at. Let's try the challenge."
+        },
+        {
+          "content": "連休だけれど、もうすぐ試験があるから、遊んでばかりはいられない。",
+          "transcription": "れんきゅうだけれど、もうすぐしけんがあるから、あそんでばかりはいられない。",
+          "mean": "It's a long holiday, but I have an exam soon, so I can't just play around."
+        },
+        {
+          "content": "体の調子が悪いからといって、このまま会社を休んでばかりもいられない。",
+          "transcription": "からだのちょうしがわるいからといって、このままかいしゃをやすんでばかりもいられない。",
+          "mean": "I can't just keep taking time off from work just because I'm not feeling well."
+        },
+        {
+          "content": "面白いからと言って、漫画を読んでばかりはいられない。新聞も読まなければならない。",
+          "transcription": "おもしろいからといって、マンガをよんでばかりはいられない。しんぶんもよまなければならない。",
+          "mean": "You can't just read manga just because it's interesting. I also have to read the newspaper."
+        },
+        {
+          "content": "部下の失敗を責めてばかりはいられない。上司として対策を考えねばと思っている。",
+          "transcription": "ぶかのしっぱいをせめてばかりはいられない。じょうしとしてたいさくをかんがえねばとおもっている。",
+          "mean": "You can't just blame your subordinates for their failures. As a boss, I think I need to think about countermeasures."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+ばかりはいられない<br/> Vて+ばかりもいられない"
+    }
+  ],
+  "title": "ばかりはいられない => can’t keep doing ~",
+  "_id": "3340fdf5cc264b07b37857ca9d04bb62"
+}

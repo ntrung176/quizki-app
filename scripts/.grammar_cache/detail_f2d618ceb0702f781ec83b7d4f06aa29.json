@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2480,
+  "usages": [
+    {
+      "explain": "This expression combines the causative form with 「 あげる」(ageru), to convey the meaning of allowing or letting someone do what they want.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなにこのプロジェクトをやりたいのなら、やらせてあげましょう。",
+          "transcription": "そんなにこのぷろじぇくとをやりたいのなら、やらせてあげましょう。",
+          "mean": "If you really want to do this project, let's do it."
+        },
+        {
+          "content": "昨夜、ずいぶん遅くまで勉強をしていたようだから、もう少し休ませてあげましょう。",
+          "transcription": "さくや、ずいぶんおそくまでべんきょうをしていたようだから、もうすこしやすませてあげましょう。",
+          "mean": "It seems like you studied quite late last night, so let's give you some rest."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-させてあげる"
+    }
+  ],
+  "title": "させてあげる => (Allow)",
+  "_id": "f2d618ceb0702f781ec83b7d4f06aa29"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1929,
+  "usages": [
+    {
+      "explain": "This phrase is placed at the beginning of a sentence or clause to express the meaning “this is something everyone knows, no need to say, but...”. It is used as a preface to reconfirm something that is commonly known.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私などが言うまでもなく、山下さんの芸術的な才能はこれまでの画家には不可能だった新しいものを生み出している。",
+          "transcription": "わたしなどがいうまでもなく、やましたさんのげいじゅつてきなさいのうはこれまでのがかにはふかのうだったあたらしいものをうみだしている。",
+          "mean": "Needless to say, Mr. Yamashita's artistic talent is creating new things that were impossible for previous painters."
+        },
+        {
+          "content": "言うまでもなく日本の首都は東京だが、意外にも法律でそれは制定されていない。",
+          "transcription": "いうまでもなくにっぽんのしゅとはとうきょうだが、いがいにもほうりつでそれはせいていされていない。",
+          "mean": "Needless to say, Tokyo is the capital of Japan, but surprisingly, this is not enacted by law."
+        },
+        {
+          "content": "欠勤率を4%まで改善させ、年度の目標をクリアした。しかし言うまでもなく欠勤率0%が真の目標だ。",
+          "transcription": "けっきんりつを4%までかいぜんさせ、ねんどのもくひょうをくりあした。しかしいうまでもなくけっきんりつ0%がしんのもくひょうだ。",
+          "mean": "We improved the absenteeism rate to 4% and met our annual goals. However, it goes without saying that the true goal is to have an absenteeism rate of 0%."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いうまでもなく => there's no need to; it's not necessary to ~",
+  "_id": "f7ff14dae05876cac58b413693b9f722"
+}

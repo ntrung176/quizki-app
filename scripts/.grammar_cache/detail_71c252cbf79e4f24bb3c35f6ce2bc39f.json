@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5415,
+  "usages": [
+    {
+      "explain": "「しかない」emphasizes the lack of options or choices, indicating that there is no other way or method except to do the specific action mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "出来るまで、やるしかない。",
+          "transcription": "できるまで、やるしかない。",
+          "mean": "I have no choice but to do it until I can do it."
+        },
+        {
+          "content": "治せないから、新しいのを買うしかない。",
+          "transcription": "なおせないから、あたらしいのをかうしかない。",
+          "mean": "I can't fix it, so I have no choice but to buy a new one."
+        },
+        {
+          "content": "バスも電車も止まってしまったから、歩くしかない。",
+          "transcription": "バスもでんしゃもとまってしまったから、あるくしかない。",
+          "mean": "Buses and trains have stopped, so I have no choice but to walk."
+        },
+        {
+          "content": "鍵を忘れたので母が帰るまで待つしかない。",
+          "transcription": "かぎをわすれたのでははがかえるまでまつしかない。",
+          "mean": "I forgot my key, so I have no choice but to wait until my mother gets home."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+しかない"
+    }
+  ],
+  "title": "しかない => have no choice but ~",
+  "_id": "71c252cbf79e4f24bb3c35f6ce2bc39f"
+}

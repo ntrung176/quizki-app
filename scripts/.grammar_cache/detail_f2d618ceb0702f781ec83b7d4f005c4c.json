@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2434,
+  "usages": [
+    {
+      "explain": "To emphasize the impossibility of accomplishing a simple task that should be easily achievable.<br/><br/>\nThis expression typically implies: if they can't manage something simple, then larger tasks are surely out of the question, and it reflects the speaker's dissatisfaction or criticism.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう十八歳なのに、ご飯をひとつ炊くことも出来ない。",
+          "transcription": "もうじゅうはちさいなのに、ごはんをひとつたくこともできない。",
+          "mean": "Even though I'm already 18 years old, I can't even cook a single meal."
+        },
+        {
+          "content": "まだそんなに若いのに、2キロメートルひとつ走ることもできない。",
+          "transcription": "まだそんなにわかいのに、2きろめーとるひとつはしることもできない。",
+          "mean": "Even though he's still so young, he can't even run 2 kilometers."
+        },
+        {
+          "content": "彼は高校生なのに、こんなに簡単な英語の言葉ひとつ発音できない。",
+          "transcription": "かれはこうこうせいなのに、こんなにかんたんなえいごのことばひとつはつおんできない。",
+          "mean": "Although he is a high school student, he cannot pronounce even one simple English word."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ひとつ～できない"
+    }
+  ],
+  "title": "ひとつ…できない => cannot do the bigger things",
+  "_id": "f2d618ceb0702f781ec83b7d4f005c4c"
+}

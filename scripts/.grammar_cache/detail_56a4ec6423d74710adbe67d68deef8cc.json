@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5504,
+  "usages": [
+    {
+      "explain": "The word 「頃」in Japanese always accompanies a specific time frame or point in time, used to describe around that time or at that specific moment when something has happened or will happen. When directly preceding a noun (without の), 「頃」is read as ごろ (goro), and in other cases, it is read as ころ (koro).",
+      "note": null,
+      "examples": [
+        {
+          "content": "夕食は何時頃になさいますか。",
+          "transcription": "ゆうしょくはいつごろになさいますか。",
+          "mean": "What time do you have dinner?"
+        },
+        {
+          "content": "私はこの頃とても忙しいです。",
+          "transcription": "わたしはこのころとてもいそがしいです。",
+          "mean": "I'm very busy these days."
+        },
+        {
+          "content": "夜8時頃うちに来てもらえるの？",
+          "transcription": "よるはちじごろうちにきてもらえるの？",
+          "mean": "Can you come to my house around 8pm?"
+        },
+        {
+          "content": "私は若い頃初めての一人旅をしました。",
+          "transcription": "わたしはわかいころはじめてのひとりたびをしました。",
+          "mean": "I took my first solo trip when I was young."
+        },
+        {
+          "content": "じゃ、僕は9時半頃迎えに来ればいいですね。",
+          "transcription": "じゃ、ぼくはくじはんごろむかえにくればいいですね。",
+          "mean": "Well, I think you should come pick me up around 9:30."
+        },
+        {
+          "content": "あなたは子供の頃いじめにあったことはある？",
+          "transcription": "あなたはこどものころいじめにあったことはある？",
+          "mean": "Were you ever bullied as a child?"
+        },
+        {
+          "content": "それは私が少年の頃に歌ったたいへん古い歌だった。",
+          "transcription": "それはわたしがしょうねんのころにうたったたいへんふるいうただった。",
+          "mean": "It was a very old song that I sang when I was a boy."
+        },
+        {
+          "content": "私は子供の頃学校へ行かず、両親と一緒にずっと移動性活をしていた。",
+          "transcription": "わたしはこどものころがっこうへいかず、りょうしんといっしょにずっといどうせいかつをしていた。",
+          "mean": "When I was a child, I didn't go to school and lived a nomadic life with my parents."
+        },
+        {
+          "content": "私たちは朝７時に出勤します。それからずっと仕事で、夜１０時半頃に店を出ます。",
+          "transcription": "わたしたちはあさしちじにしゅっきんします。それからずっとしごとで、よるじゅうじはんごろにみせをでます。",
+          "mean": "We go to work at 7am. I've been working since then and leave the store around 10:30pm."
+        },
+        {
+          "content": "小さな頃から家族で訪れていて大切な思い出の場所です。",
+          "transcription": "ちいさなころからかぞくでおとずれていてたいせつなおもいでのばしょです。",
+          "mean": "It's a place I've been visiting with my family since I was little, and it's a place I have fond memories of."
+        },
+        {
+          "content": "子供の時一緒に遊んでいた頃から彼女を愛していたんだ。",
+          "transcription": "こどものときいっしょにあそんでいたころからかのじょをあいしていたんだ。",
+          "mean": "I've loved her ever since we played together as children."
+        },
+        {
+          "content": "アパートに帰りつく頃には、強い雨がこの街に叩きつけていた。",
+          "transcription": "アパートにかえりつくころには、つよいあめがこのまちにたたきつけていた。",
+          "mean": "By the time I got back to my apartment, heavy rain was pounding the city."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)/Aい/Aな+<ruby><rb>頃</rb><rp>(</rp><rt>ころ</rt><rp>)</rp></ruby>\n<br/> Nの+<ruby><rb>頃</rb><rp>(</rp><rt>ころ</rt><rp>)</rp></ruby><br/>\n N (time)+<ruby><rb>頃</rb><rp>(</rp><rt>ごろ</rt><rp>)</rp></ruby>"
+    }
+  ],
+  "title": "頃 (ころ/ごろ) =>  around; about; when",
+  "_id": "56a4ec6423d74710adbe67d68deef8cc"
+}

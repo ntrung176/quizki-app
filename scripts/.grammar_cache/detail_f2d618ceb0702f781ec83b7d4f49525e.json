@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2999,
+  "usages": [
+    {
+      "explain": "Indicates an extremely short duration of time or distance. In the case of time, can be used with 「に」at the end.",
+      "note": null,
+      "examples": [
+        {
+          "content": "眼底出血が認められた場合はすぐに精密検査を受けてください。",
+          "transcription": "がんていしゅっけつがみとめられたばあいはすぐにせいみつけんさをうけてください。",
+          "mean": "If fundus hemorrhage is observed, please have a thorough examination immediately."
+        },
+        {
+          "content": "春はすぐそこまで来ている。",
+          "transcription": "はるはすぐそこまできている。",
+          "mean": "Spring is just around the corner."
+        },
+        {
+          "content": "京都駅に着いてすぐ先生に電話した。",
+          "transcription": "きょうとえきについてすぐせんせいにでんわした。",
+          "mean": "I called my teacher as soon as I arrived at Kyoto Station."
+        }
+      ],
+      "mean": null,
+      "synopsis": "すぐ is a conjunction"
+    }
+  ],
+  "title": "すぐ => Right now",
+  "_id": "f2d618ceb0702f781ec83b7d4f49525e"
+}

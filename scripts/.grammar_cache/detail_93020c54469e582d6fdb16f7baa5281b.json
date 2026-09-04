@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3189,
+  "usages": [
+    {
+      "explain": "✦ Used with the meaning that N is the only thing for an action/activity. However, the phrase 「なにをおいても」 has the meaning of [no matter how the situation/circumstances are]",
+      "note": null,
+      "examples": [
+        {
+          "content": "次のプロジェクトを任せられるのは、君をおいてほかにいないんだ。頼むよ。",
+          "transcription": "つぎのぷろじぇくとをまかせられるのは、きみをおいてほかにいないんだ。たのむよ。",
+          "mean": "There's no one else I can entrust with my next project but you. I'm begging you."
+        },
+        {
+          "content": "過去から学び、自分の能力を高める方法は、読書をおいてほかにない。<br>",
+          "transcription": "かこからまなび、じぶんののうりょくをたかめるほうほうは、どくしょをおいてほかにない。<br>",
+          "mean": "There is no other way to learn from the past and improve your abilities than by reading. &lt;br&gt;"
+        },
+        {
+          "content": "次に社長になるのは、あの人をおいて他に考えられない。",
+          "transcription": "つぎにしゃちょうになるのは、あのひとをおいてたにかんがえられない。",
+          "mean": "I can't think of anyone else to become president next."
+        }
+      ],
+      "mean": "only; can only be; there is no alternative, only ~",
+      "synopsis": "✦N をおいて～ない"
+    }
+  ],
+  "title": "～をおいて～ない      => only; can only be; there is no alternative, only ~",
+  "_id": "93020c54469e582d6fdb16f7baa5281b"
+}

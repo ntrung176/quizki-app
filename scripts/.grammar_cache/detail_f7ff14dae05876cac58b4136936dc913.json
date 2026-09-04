@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1376,
+  "usages": [
+    {
+      "explain": "Conveys the idea that \"one cannot do something in a general sense, but must consider other situations and conditions\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "イスラエル人は頭がいいと一概には言えない。",
+          "transcription": "いすらえるじんはあたまがいいといちがいにはいえない。",
+          "mean": "It is difficult to say that Israelis are smart."
+        },
+        {
+          "content": "親は一概に子供に観点を押しつけないほうがいい。",
+          "transcription": "おやはいちがいにこどもにかんてんをおしつけないほうがいい。",
+          "mean": "Parents should not force their viewpoints on their children."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いちがいに + Vない"
+    }
+  ],
+  "title": "いちがいに…ない => Impossible... in general",
+  "_id": "f7ff14dae05876cac58b4136936dc913"
+}

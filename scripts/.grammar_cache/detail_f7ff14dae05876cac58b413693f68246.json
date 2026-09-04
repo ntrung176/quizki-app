@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2362,
+  "usages": [
+    {
+      "explain": "Paired with conditional forms like \"ば\" or \"たら\" to describe a situation that has already formed, if that situation occurs, contrary to reality.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昔だったらそんな不敬な発言をする人間は、投獄されているところだ。",
+          "transcription": "むかしだったらそんなふけいなはつげんをするにんげんは、とうごくされているところだ。",
+          "mean": "In the past, people who made such profane statements would have been thrown in jail."
+        },
+        {
+          "content": "先生がこのことを知ったら怒っているところだ。",
+          "transcription": "せんせいがこのことをしったらおこっているところだ。",
+          "mean": "If the teacher found out about this, he would be angry."
+        },
+        {
+          "content": "注意していただかなければ、間違えていたところだ。",
+          "transcription": "ちゅういしていただかなければ、まちがえていたところだ。",
+          "mean": "If I hadn't been careful, I would have made a mistake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～たら + V + ところだ"
+    }
+  ],
+  "title": "… たら... ところだ => if… (counterfactual condition), then would be ~",
+  "_id": "f7ff14dae05876cac58b413693f68246"
+}

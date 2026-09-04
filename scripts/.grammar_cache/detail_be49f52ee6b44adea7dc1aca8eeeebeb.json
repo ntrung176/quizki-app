@@ -1,0 +1,66 @@
+{
+  "level": "N5",
+  "mobileId": 5631,
+  "usages": [
+    {
+      "explain": "「たことがある」is used to describe an experience, meaning \"have done something before.\" To express \"have never done something,\" we use「たことがない」.<br/>\n\nWhile it is mainly used with verbs, this structure can also be used with nouns in the form of「Nだったことがある/ない」.<br/>\n\nNote: It is not used to talk about things that happened in the recent past (yesterday, last week...) or things that happen regularly, daily.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は日本へ行ったことがある。",
+          "transcription": "わたしはにっぽんへいったことがある。",
+          "mean": "I have been to Japan."
+        },
+        {
+          "content": "私は寿司を食べたことがあります。",
+          "transcription": "わたしはすしをたべたことがあります。",
+          "mean": "I have eaten sushi."
+        },
+        {
+          "content": "彼に3回会ったことがある。",
+          "transcription": "かれにさんかいあったことがある。",
+          "mean": "I've met him three times."
+        },
+        {
+          "content": "日本語能力試験を受たことがある。",
+          "transcription": "にほんごのうりょくしけんをうけたことがある。",
+          "mean": "I have taken the Japanese Language Proficiency Test."
+        },
+        {
+          "content": "ロンドンへ旅行をしたことがない。",
+          "transcription": "ロンドンへりょこうをしたことがない。",
+          "mean": "I've never traveled to London."
+        },
+        {
+          "content": "一度も着物を着たことがない。",
+          "transcription": "いちどもきものをきたことがない。",
+          "mean": "I have never worn a kimono."
+        },
+        {
+          "content": "私は飛行機に乗ったことがない。",
+          "transcription": "わたしはひこうきにのったことがない。",
+          "mean": "I've never flown in an airplane."
+        },
+        {
+          "content": "一度も彼女の手を握ったことがない。",
+          "transcription": "いちどもかのじょのてをにぎったことがない。",
+          "mean": "I've never held her hand."
+        },
+        {
+          "content": "スペイン語のテストが０点だったことがある。",
+          "transcription": "スペインごのテストがれいてんだったことがある。",
+          "mean": "I once got a 0 point on a Spanish test."
+        },
+        {
+          "content": "映画に行ったら満席だったことがある。",
+          "transcription": "えいがにいったらまんせきだったことがある。",
+          "mean": "I once went to a movie and it was packed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた+ことがある<br/> Vた+ことがない<br/>\nNだった+ことがある<br/>Nだった+ことがない"
+    }
+  ],
+  "title": "たことがある => to have done something before; used to",
+  "_id": "be49f52ee6b44adea7dc1aca8eeeebeb"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2845,
+  "usages": [
+    {
+      "explain": "Placed at the beginning of a sentence to signal that the following event has a contrasting content with the event mentioned before. This is a more conversational style, more informal than 「しかし」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんは悪い人だと言われている。でも、私はそう信じていない。",
+          "transcription": "やまださんはわるいひとだといわれている。でも、わたしはそうしんじていない。",
+          "mean": "Mr. Yamada is said to be a bad person. But I don't believe so."
+        },
+        {
+          "content": "佐藤さんは百万長者と結婚した。でも、彼女は幸せじゃなさそうだ。",
+          "transcription": "さとうさんはひゃくまんちょうじゃとけっこんした。でも、かのじょはしあわせじゃなさそうだ。",
+          "mean": "Mr. Sato married a millionaire. But she doesn't seem happy."
+        },
+        {
+          "content": "友達は旅行に行った。でも、私は出張で行けなかった。",
+          "transcription": "ともだちはりょこうにいった。でも、わたしはしゅっちょうでいけなかった。",
+          "mean": "My friend went on a trip. But I couldn't go because I was on business."
+        }
+      ],
+      "mean": null,
+      "synopsis": "でも～"
+    }
+  ],
+  "title": "でも => But...",
+  "_id": "f2d618ceb0702f781ec83b7d4f36ee31"
+}

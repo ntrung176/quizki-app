@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2015,
+  "usages": [
+    {
+      "explain": "The adverb やっぱり means \"of course, surely, indeed\". Used when the speaker strongly believes in their speculation. In writing, やはり is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やっぱり夏に冷たいビールを飲むのは最高だ。",
+          "transcription": "やっぱりなつにつめたいびーるをのむのはさいこうだ。",
+          "mean": "After all, drinking cold beer in the summer is the best."
+        },
+        {
+          "content": "いろいろな国へ行ったがやっぱり日本は景色が一番いい。",
+          "transcription": "いろいろなくにへいったがやっぱりにっぽんはけしきがいちばんいい。",
+          "mean": "I've been to many countries, but Japan still has the best scenery."
+        }
+      ],
+      "mean": null,
+      "synopsis": "やっぱり + ..."
+    }
+  ],
+  "title": "やっぱり => as I thought, absolutely; even so; either way; after all; nonetheless; in any event; all the same",
+  "_id": "f7ff14dae05876cac58b413693c65d82"
+}

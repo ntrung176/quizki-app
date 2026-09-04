@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1901,
+  "usages": [
+    {
+      "explain": "Describes a hypothetical condition \"if the situation were like that\". Based on the words or situation of the interlocutor at that time to express one's opinion or to rely on or advise the interlocutor.",
+      "note": null,
+      "examples": [
+        {
+          "content": "熱があるなら、早く帰って休んだほうがいいよ。",
+          "transcription": "ねつがあるなら、はやくかえってやすんだほうがいいよ。",
+          "mean": "If you have a fever, you should go home early and rest."
+        },
+        {
+          "content": "彼女のことがそんなに好きなら告白したらいい。",
+          "transcription": "かのじょのことがそんなにすきならこくはくしたらいい。",
+          "mean": "If you love her that much, you should confess."
+        },
+        {
+          "content": "そんなに痛いなら、医者に会いに行ったほうがいい。",
+          "transcription": "そんなにいたいなら、いしゃにあいにいったほうがいい。",
+          "mean": "If it hurts that much, you should go see a doctor."
+        },
+        {
+          "content": "買い物に行くなら、ついでに歯ブラシを買って来てちょうだい。",
+          "transcription": "かいものにいくのなら、ついでにはぶらしをかってきてちょうだい。",
+          "mean": "If you're going shopping, please buy me a toothbrush while you're at it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N / Na + なら <br/>N / Na だった + (の)なら <br/>A-い / A-かった + (の)なら <br/>V-る / V-た + (の)なら"
+    }
+  ],
+  "title": "(の) なら => if; in the case that ~",
+  "_id": "f7ff14dae05876cac58b413693b55d48"
+}

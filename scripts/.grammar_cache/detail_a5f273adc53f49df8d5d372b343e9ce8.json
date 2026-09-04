@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5181,
+  "usages": [
+    {
+      "explain": "「向け」indicates something that is created or designed for N1, aimed at target N1. N1 is typically a noun representing a person, and the verb that follows often expresses designing, creating, setting up, etc., such as 作る (to make), デザインする (to design), 設定する (to set up). It means 'For/Aimed at...'<br/>\n「向き」indicates something that is not specifically created for N1, not aimed at target N1, but is suitable for N1. It means 'Suitable for...'\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは初心者向けの教科書です。",
+          "transcription": "それはしょしんしゃむけのきょうかしょです。",
+          "mean": "It is a textbook for beginners."
+        },
+        {
+          "content": "この製品の生産は、国内向けも、海外輸出向けも、ともに、増加した。",
+          "transcription": "このせいひんのせいさんは、こくないむけも、かいがいゆしゅつむけも、ともに、ぞうかした。",
+          "mean": "Production of this product increased both for domestic use and for export overseas."
+        },
+        {
+          "content": "これは留学生向けに書かれた本です。",
+          "transcription": "これはりゅうがくせいむけにかかれたほんです。",
+          "mean": "This is a book written for international students."
+        },
+        {
+          "content": "団体のお客さま向けに、割引チケットも販売しております。",
+          "transcription": "だんたいのおきゃくさまむけに、わりびきチケットもはんばいしております。",
+          "mean": "We also sell discounted tickets for groups."
+        },
+        {
+          "content": "こっちのコースはなだらかで初心者向けです。",
+          "transcription": "こっちのコースはなだらかでしょしんしゃむけです。",
+          "mean": "This course is gentle and suitable for beginners."
+        },
+        {
+          "content": "この店の料理は、量が少なく見た目がきれいなので、女性向きだ。",
+          "transcription": "このみせのりょうりは、りょうがすくなくみためがきれいなので、じょせいむきだ。",
+          "mean": "The food at this restaurant is small in quantity and looks beautiful, so it is suitable for women."
+        },
+        {
+          "content": "この柔軟剤は、柔軟剤のにおいが苦手な人向きのものだから、安心して。",
+          "transcription": "このじゅうなんざいは、じゅうなんざいのにおいがにがてなひとむきのものだから、あんしんして。",
+          "mean": "Don't worry, this fabric softener is for people who don't like the smell of fabric softener."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1+向けだ / 向けに / 向けのN2<br/> N1+向きだ / 向きに / 向きのN2"
+    }
+  ],
+  "title": "向け/向き => to be suitable for",
+  "_id": "a5f273adc53f49df8d5d372b343e9ce8"
+}

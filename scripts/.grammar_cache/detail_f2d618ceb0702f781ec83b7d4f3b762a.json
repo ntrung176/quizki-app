@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 2887,
+  "usages": [
+    {
+      "explain": "✦ Used with the form 「V ーば、これまでだ」 to express the meaning of 「これでおわりだ」 (that's it, it's over).",
+      "note": null,
+      "examples": [
+        {
+          "content": "もはや、これまでだ。",
+          "transcription": "もはや、これまでだ。",
+          "mean": "That's all for now."
+        },
+        {
+          "content": "どんなに美しい花でも、散ってしまえばこれまでだ。",
+          "transcription": "どんなにうつくしいはなでも、ちってしまえばこれまでだ。",
+          "mean": "No matter how beautiful a flower is, once it falls, that's it."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "これまでだ => only; just; nothing else",
+  "_id": "f2d618ceb0702f781ec83b7d4f3b762a"
+}

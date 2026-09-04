@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1761,
+  "usages": [
+    {
+      "explain": "Indicates the speaker's speculation \"possibly like that\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "このままでは、私たちのチームはあるいは負けるかもしれない。",
+          "transcription": "このままでは、わたしたちのちーむはあるいはまけるかもしれない。",
+          "mean": "At this rate, our team might lose."
+        },
+        {
+          "content": "彼の明かしたことは、あるいは嘘かもしれない。",
+          "transcription": "かれのあかしたことは、あるいはうそかもしれない。",
+          "mean": "What he revealed may be a lie."
+        },
+        {
+          "content": "これで、実験は三度目だが、今回はあるいは失敗かもしれない。",
+          "transcription": "これで、じっけんはさんどめだが、こんかいはあるいはしっぱいかもしれない。",
+          "mean": "This is the third time I've tried the experiment, but this time it might be a failure."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あるいは + V・A・Na・N + かもしれない"
+    }
+  ],
+  "title": "あるいは～かもしれない => Or maybe... perhaps",
+  "_id": "f7ff14dae05876cac58b413693a28753"
+}

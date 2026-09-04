@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2017,
+  "usages": [
+    {
+      "explain": "This is a way of saying that Y, or both X and Y, in the sentence pattern [X (の) なら Y] are contrary to the truth.",
+      "note": null,
+      "examples": [
+        {
+          "content": "電話をくれるのなら、午前に連絡してほしかった。",
+          "transcription": "でんわをくれるのなら、ごぜんにれんらくしてほしかった。",
+          "mean": "If you were going to call me, I wanted you to call me in the morning."
+        },
+        {
+          "content": "町に来ていたのなら、電話してくれればよかったのに。",
+          "transcription": "まちにきていたのなら、でんわしてくれればよかったのに。",
+          "mean": "I wish you had called me if you were in town."
+        },
+        {
+          "content": "彼女が来るのなら、この夜会には来なかったんだが。",
+          "transcription": "かのじょがくるのなら、このやかいにはこなかったんだが。",
+          "mean": "If she was coming, she wouldn't have come to this soiree."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N / Na + なら <br/>N / Na だった + (の)なら <br/>A-い / A-かった + (の)なら <br/>V-る / V-た + (の)なら"
+    }
+  ],
+  "title": "(の) なら => If ... then it would have (Counterfactual condition)",
+  "_id": "f7ff14dae05876cac58b413693c69f46"
+}

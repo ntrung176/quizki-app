@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5476,
+  "usages": [
+    {
+      "explain": "「だけで」is used to express the idea that simply by doing or thinking about something, an emotion is immediately generated or a result is achieved. The verb before 「だけで」, whether in dictionary form or た form, carries the same meaning.<br/>\nCommonly used verbs with 「だけで」 include: 考える (to think), 聞く (to listen), 思う (to think), 想像する (to imagine), etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あなたに会うだけで元気になる。",
+          "transcription": "あなたにあうだけでげんきになる。",
+          "mean": "Just seeing you makes me feel better."
+        },
+        {
+          "content": "あなたの写真を見るだけで嬉しい。",
+          "transcription": "あなたのしゃしんをみるだけでうれしい。",
+          "mean": "I'm happy just looking at your photos."
+        },
+        {
+          "content": "お化けを見たなんて、想像するだけでこわい。",
+          "transcription": "おばけをみたなんて、そうぞうするだけでこわい。",
+          "mean": "Just thinking about seeing a ghost is scary."
+        },
+        {
+          "content": "初デートのことを思い出すだけで恥ずかしくなる。",
+          "transcription": "はつデートのことをおもいだすだけではずかしくなる。",
+          "mean": "Just remembering our first date makes me feel embarrassed."
+        },
+        {
+          "content": "一目見ただけで、俺に必要なことはすべて分かった。",
+          "transcription": "ひとめみただけで、おれにひつようなことはすべてわかった。",
+          "mean": "At first glance, I knew everything I needed."
+        },
+        {
+          "content": "安定した収入を得るだけでは満足できなかった。",
+          "transcription": "あんていしたしゅうにゅうをえるだけではまんぞくできなかった。",
+          "mean": "Just having a steady income wasn't enough."
+        },
+        {
+          "content": "留学生の生活の苦労を聞くだけで、日本に留学している娘のことを心配する。",
+          "transcription": "りゅうがくせいのせいかつのくろうをきくだけで、にほんにりゅうがくしているむすめのことをしんぱいする。",
+          "mean": "Just hearing about the hardships of international students' lives makes me worry about my daughter, who is studying in Japan."
+        },
+        {
+          "content": "彼女のことを思うだけでドキドキする。",
+          "transcription": "かのじょのことをおもうだけでドキドキする。",
+          "mean": "My heart flutters just thinking about her."
+        },
+        {
+          "content": "宿題のことを考えるだけでやる気がなくなります。",
+          "transcription": "しゅくだいのことをかんがえるだけでやるきがなくなります。",
+          "mean": "Just thinking about homework makes me feel unmotivated."
+        },
+        {
+          "content": "愛情だけでは生きてはいけない。",
+          "transcription": "あいじょうだけではいきてはいけない。",
+          "mean": "You cannot live by love alone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)/Vた+だけで<br/> N+だけで"
+    }
+  ],
+  "title": "だけで => just by; just by doing; with only",
+  "_id": "e7752398b3f147fa96af8aced5de66da"
+}

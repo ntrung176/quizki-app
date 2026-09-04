@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5316,
+  "usages": [
+    {
+      "explain": "「上げる」expresses the completion or finishing of a creative, constructive, or developmental task that has been ongoing for a certain period of time. It often accompanies verbs that indicate creation, construction, processing, or development, such as \"作る\" (to make), \"できる\" (to accomplish), \"書く\" (to write), \"育てる\" (to raise).",
+      "note": null,
+      "examples": [
+        {
+          "content": "やっとレポートを書き上げた。",
+          "transcription": "やっとレポートをかきあげた。",
+          "mean": "I finally finished writing the report."
+        },
+        {
+          "content": "ケーキが焼き上がりましたよ。",
+          "transcription": "ケーキがやきあがりましたよ。",
+          "mean": "The cake is baked."
+        },
+        {
+          "content": "姉はプレゼントにするマフラーを一晩で編み上げた。",
+          "transcription": "あねはプレゼントにするマフラーをひとばんであみあげた。",
+          "mean": "My sister knitted a scarf to give as a present in one night."
+        },
+        {
+          "content": "出来上がった料理を、お客さんのところに運ぶのが私の仕事です。",
+          "transcription": "できあがったりょうりを、おきゃくさんのところにはこぶのがわたしのしごとです。",
+          "mean": "My job is to transport the finished dishes to the customers."
+        },
+        {
+          "content": "この粉を練り上げると、美味しい和菓子になります。",
+          "transcription": "このこなをねりあげると、おいしいわがしになります。",
+          "mean": "When this powder is kneaded, it becomes delicious Japanese sweets."
+        },
+        {
+          "content": "研究のレポートを一日で書き上げた。",
+          "transcription": "けんきゅうのレポートをいちにちでかきあげた。",
+          "mean": "I wrote a research report in one day."
+        },
+        {
+          "content": "この会社は新製品を作り上げた。",
+          "transcription": "このかいしゃはしんせいひんをつくりあげた。",
+          "mean": "This company has created a new product."
+        },
+        {
+          "content": "みんなの意見を取り入れて、とてもいいプランが出来上がった。",
+          "transcription": "みんなのいけんをとりいれて、とてもいいプランができあがった。",
+          "mean": "After incorporating everyone's opinions, we came up with a very good plan."
+        },
+        {
+          "content": "注文していた年賀状が刷り上がった。",
+          "transcription": "ちゅうもんしていたねんがじょうがすりあがった。",
+          "mean": "The New Year's cards I ordered have been printed."
+        },
+        {
+          "content": "スパゲッティを茹で上がったら、素早くソースを絡めます。",
+          "transcription": "スパゲッティをゆであがったら、すばやくソースをからめます。",
+          "mean": "Once the spaghetti is cooked, quickly coat it with the sauce."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (を) V<s>ます</s>+上げる<br/> N (が) V<s>ます</s>+上がる"
+    }
+  ],
+  "title": "上げる => to finish doing ~",
+  "_id": "04fb2250f2fe4e558fa9ef7b4230814c"
+}

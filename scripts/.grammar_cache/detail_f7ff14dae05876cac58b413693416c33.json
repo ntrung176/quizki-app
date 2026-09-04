@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1051,
+  "usages": [
+    {
+      "explain": "Followed by adjectives or verbs. Use the form \"(Xより) Yのほうがよほど\" to compare two events, indicating that Y has a much higher level. Often implies a desire for event Y to occur.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あんな人に物を貸すくらいなら、捨てたほうがよほどいい。",
+          "transcription": "あんなひとにものをかすくらいなら、すてたほうがよほどいい。",
+          "mean": "Rather than lend something to someone like that, it's much better to throw it away."
+        },
+        {
+          "content": "満員電車での通勤より、自転車通勤のほうがよほど楽ですよ。",
+          "transcription": "まんいんでんしゃでのつうきんより、じてんしゃつうきんのほうがよほどらくですよ。",
+          "mean": "Commuting by bicycle is much easier than commuting on a crowded train."
+        },
+        {
+          "content": "つまらない飲み会に行って高いお金を払うより、家でゲームをしていたほうがよほど楽しいです。",
+          "transcription": "つまらないのみかいにいってたかいおかねをはらうより、いえでげーむをしていたほうがよほどたのしいです。",
+          "mean": "It's much more fun to play games at home than to go to boring drinking parties and pay a lot of money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ほうがよほど～"
+    }
+  ],
+  "title": "…ほうがよほど... => very; greatly; much; to a large extent",
+  "_id": "f7ff14dae05876cac58b413693416c33"
+}

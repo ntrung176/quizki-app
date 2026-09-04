@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 395,
+  "usages": [
+    {
+      "explain": "Going along with interrogative words like 「なに」,「だれ」to express the meaning \"no matter what the case may be, ...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "何にしても年内に留学しなければならない。",
+          "transcription": "なににしてもねんないにりゅうがくしなければならない。",
+          "mean": "No matter what, I have to study abroad within the year."
+        },
+        {
+          "content": "誰にしてもそんな仕事を引き受けたくない。",
+          "transcription": "だれにしてもそんなしごとをひきうけたくない。",
+          "mean": "I don't want anyone to take on such a job."
+        },
+        {
+          "content": "何をするにしても、徹底的に考えてからしなさい。",
+          "transcription": "なにをするにしても、てっていてきにかんがえてからしなさい。",
+          "mean": "Whatever you do, think it through thoroughly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative words + にしても"
+    }
+  ],
+  "title": "にしても => even if; even though; regardless of ~",
+  "_id": "93020c54469e582d6fdb16f7ba5868ae"
+}

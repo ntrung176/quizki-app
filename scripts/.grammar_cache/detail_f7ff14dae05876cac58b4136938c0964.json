@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1587,
+  "usages": [
+    {
+      "explain": "The end of the sentence will take the form of V-るところだ, V-るところだった, V-ていたところだ, V-ていたところだった... The form ...ばV-るところだ is a hypothetical expression of an action that has not yet been done, but would be done immediately if circumstances changed, becoming X. The form ...ばV-ていたところだ is used to describe a situation in the past that could have happened, with the intention of saying \"if circumstances had been different, it would definitely have been done like that / it would have become like that\". The form ...ばV-ていたところだった is used in cases where you want to say that \"a certain event that was sure to happen has been avoided at the last minute, if circumstances had been different\", with the implication that \"it's lucky to have avoided a bad outcome\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう少し若ければ、私が海外旅行をするところだ。",
+          "transcription": "もうすこしわかければ、わたしがかいがいりょこうをするところだ。",
+          "mean": "If I were a little younger, I would travel abroad."
+        },
+        {
+          "content": "あのとき、あの列車に乗っていれば私も事故に巻き込まれていたところだ。",
+          "transcription": "あのとき、あのれっしゃにのっていればわたしもじこにまきこまれていたところだ。",
+          "mean": "If I had been on that train at that time, I would have been involved in an accident."
+        },
+        {
+          "content": "今日の授業は突然休講になったらしい。吉田が電話をしてくれなければ、もう少しで学校に行くところだった。",
+          "transcription": "きょうのじゅぎょうはとつぜんきゅうこうになったらしい。よしだがでんわをしてくれなければ、もうすこしでがっこうにいくところだった。",
+          "mean": "It seems that today's class was suddenly canceled. If Yoshida hadn't called me, I would have almost left for school."
+        },
+        {
+          "content": "注意していただかなければ、行っていたところでした。",
+          "transcription": "ちゅういしていただかなければ、おこなっていたところでした。",
+          "mean": "If you hadn't warned me, I would have left."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば…ところだ（った）"
+    }
+  ],
+  "title": "…ば…ところだ（った） => If… (counterfactual condition), then would be ~",
+  "_id": "f7ff14dae05876cac58b4136938c0964"
+}

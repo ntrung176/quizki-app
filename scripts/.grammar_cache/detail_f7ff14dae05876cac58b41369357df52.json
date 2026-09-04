@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1220,
+  "usages": [
+    {
+      "explain": "Used to speculate about past events. Similar to [た だろう], but with [ではなかったか], the speaker's level of certainty is lower.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はそんなことがあったのは考えもしなかったのではなかったか。",
+          "transcription": "かれはそんなことがあったのはかんがえもしなかったのではなかったか。",
+          "mean": "He probably had no idea that such a thing happened."
+        },
+        {
+          "content": "先史人にとってはこの樹皮は薬なのではなかったか。",
+          "transcription": "せんしじんにとってはこのじゅひはくすりなのではなかったか。",
+          "mean": "Wasn't this bark a medicine for prehistoric people?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na な + のではなかったか\nA／V + のではなかったか"
+    }
+  ],
+  "title": "…のではなかったか => Wasn't it…?",
+  "_id": "f7ff14dae05876cac58b41369357df52"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1315,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"in such a case...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "もし、私が留学するとなったら、両親は銀行から相当の借金をしなければならない。",
+          "transcription": "もし、わたしがりゅうがくするとなったら、りょうしんはぎんこうからそうとうのしゃっきんをしなければならない。",
+          "mean": "If I were to study abroad, my parents would have to borrow a considerable amount from the bank."
+        },
+        {
+          "content": "その任務を引き受ける人が誰もいないとなったら、私がやるしかない。",
+          "transcription": "そのにんむをひきうけるひとがだれもいないとなったら、わたしがやるしかない。",
+          "mean": "If there is no one else to take on the task, I have no choice but to do it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na（だ）+ となったら\nA／V + となったら"
+    }
+  ],
+  "title": "… となったら => If...",
+  "_id": "f7ff14dae05876cac58b413693651b21"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5221,
+  "usages": [
+    {
+      "explain": "The 「のことだから」expresses the speaker's judgment about a person or group (N), based on their known characteristics or habitual behavior.<br/>\nWhen both the speaker and the listener are familiar with N, the description of N's character or behavior can be omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "朝寝坊の彼のことだから、今日も遅れてくるだろう。",
+          "transcription": "あさねぼうのかれのことだから、きょうもおくれてくるだろう。",
+          "mean": "Since he is late in the morning, he will probably be late again today."
+        },
+        {
+          "content": "ケチなあの人のことだから、こんな高いものを買うわけはない。",
+          "transcription": "ケチなあのひとのことだから、こんなたかいものをかうわけはない。",
+          "mean": "I'm talking about that stingy person, so there's no way he'd buy something this expensive."
+        },
+        {
+          "content": "母のことだから、いつも私のことを心配していると思う。",
+          "transcription": "ははのことだから、いつもわたしのことをしんぱいしているとおもう。",
+          "mean": "I think she's always worried about me because it's about my mother."
+        },
+        {
+          "content": "彼のことだから、きっと最後まで頑張りぬくと思います。",
+          "transcription": "かれのことだから、きっとさいごまでがんばりぬくとおもいます。",
+          "mean": "Since it's about him, I'm sure he'll do his best until the end."
+        },
+        {
+          "content": "真面目な木村さんのことだから、約束は守るに違いない。",
+          "transcription": "まじめなきむらさんのことだから、やくそくはまもるにちがいない。",
+          "mean": "Mr. Kimura is serious, so I'm sure he will keep his promise."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+のことだから"
+    }
+  ],
+  "title": "のことだから => because; since ~",
+  "_id": "5b6b680c1ad34e55a9d25cb653a9b8eb"
+}

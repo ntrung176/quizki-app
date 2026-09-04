@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3234,
+  "usages": [
+    {
+      "explain": "Often accompanied by speculative words like \"そうだ\", \"ようだ\", \"らしい\" to describe a vague, speculative mood of the speaker about something not yet known clearly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女がどうやら財布を家に忘れた。",
+          "transcription": "かのじょがどうやらさいふをいえにわすれた。",
+          "mean": "Apparently she forgot her wallet at home."
+        },
+        {
+          "content": "向こうから走っていてくる人はどうやら小林さんのようだ。",
+          "transcription": "むこうからはしっていてくるひとはどうやらこばやしさんのようだ。",
+          "mean": "The person running from the other side seems to be Mr. Kobayashi."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうやら～そうだ"
+    }
+  ],
+  "title": "どうやら～そうだ  => look like; appear; seem; feel like",
+  "_id": "93020c54469e582d6fdb16f7ba72f4da"
+}

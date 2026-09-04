@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1402,
+  "usages": [
+    {
+      "explain": "Used to express a request or report something to the listener.<br/><br/>This is a more formal version of 「ついては」, used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "来月大切な会議が行われます。つきましては我が社は参加者を選ばなければならない。",
+          "transcription": "らいげつたいせつなかいぎがおこなわれます。つきましてはわがしゃはさんかしゃをえらばなければならない。",
+          "mean": "An important meeting will be held next month. Therefore, our company must select participants."
+        },
+        {
+          "content": "あすお客様がいらっしゃいます。つきましては今日よく準備しなければならない。",
+          "transcription": "あすおきゃくさまがいらっしゃいます。つきましてはきょうよくじゅんびしなければならない。",
+          "mean": "We have a customer tomorrow. Therefore, we must prepare well today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "つきましては ～"
+    }
+  ],
+  "title": "つきましては => about; concerning; regarding",
+  "_id": "f7ff14dae05876cac58b41369370e058"
+}

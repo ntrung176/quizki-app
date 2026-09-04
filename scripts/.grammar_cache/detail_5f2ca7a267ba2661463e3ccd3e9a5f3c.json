@@ -1,0 +1,125 @@
+{
+  "level": "N5",
+  "mobileId": 3027,
+  "usages": [
+    {
+      "explain": "「は」 is used in the following cases:<br/>\n1. Used to indicate the topic of the sentence.<br/>\n2. Used to elevate a component as the topic of the sentence.<br/>\n3. Used in sentences with a predicate that is a question word.<br/>\n4. Used in sentences talking about an ongoing event in front of the speaker, or a law, custom, rule, or some inherent property (something that is defined).<br/>\n5. Used in sentences to express comparison, distinction, or choice.<br/>\n6. Used in sentences to indicate reason or cause.<br/>\n7. Used to emphasize a certain degree or limit (with numbers or words, は often accompanies to indicate \"to that extent or more\" (especially in talking about prices).<br/>\n8. Used to emphasize an action that has been repeated many times.<br/>\n9. Additionally, in proverbs, in some cases, the particle は can be used with a verb.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は医者です。",
+          "transcription": "かのじょはいしゃです。",
+          "mean": "she is a doctor"
+        },
+        {
+          "content": "木村さんは家族にこの手紙を書いた。この手紙は木村さんが家族に書いた。",
+          "transcription": "きむらさんはかぞくにこのてがみをかいた。このてがみはきむらさんがかぞくにかいた。",
+          "mean": "Mr. Kimura wrote this letter to his family. This letter was written by Kimura to his family."
+        },
+        {
+          "content": "あなたの鍵はどれですか。",
+          "transcription": "あなたのかぎはどれですか。",
+          "mean": "Which is your key?"
+        },
+        {
+          "content": "水は摂氏100度で沸騰します。",
+          "transcription": "みずはせっし100どでふっとうします。",
+          "mean": "Water boils at 100 degrees Celsius."
+        },
+        {
+          "content": "父は医者で、 母は歌手だ。",
+          "transcription": "ちちはいしゃで、はははかしゅだ。",
+          "mean": "My father is a doctor and my mother is a singer."
+        },
+        {
+          "content": "象は耳が大きい。",
+          "transcription": "ぞうはみみがおおきい。",
+          "mean": "Elephants have big ears."
+        },
+        {
+          "content": "会社を休んだのは風邪を引いたからです。",
+          "transcription": "かいしゃをやすんだのはかぜをひいたからです。",
+          "mean": "I took a day off from work because I caught a cold."
+        },
+        {
+          "content": "一昨日まではこのテレビは壊れていなかった。",
+          "transcription": "おとといまではこのてれびはこわれていなかった。",
+          "mean": "This TV was not broken until the day before yesterday."
+        },
+        {
+          "content": "毎年スイスへ行っては、研究の資料を集めて帰ってくる。",
+          "transcription": "まいとしすいすへいっては、けんきゅうのしりょうをあつめてかえってくる。",
+          "mean": "Every year, he goes to Switzerland and returns after collecting research materials."
+        },
+        {
+          "content": "海が青い。",
+          "transcription": "うみがあおい。",
+          "mean": "The sea is blue."
+        },
+        {
+          "content": "椅子の上に傘があります。",
+          "transcription": "いすのうえにかさがあります。",
+          "mean": "There is an umbrella on the chair."
+        },
+        {
+          "content": "私は辛いものが好きです。",
+          "transcription": "わたしはつらいものがすきです。",
+          "mean": "I like spicy food."
+        },
+        {
+          "content": "どれがあなたの鍵ですか。",
+          "transcription": "どれがあなたのかぎですか。",
+          "mean": "Which is your key?"
+        },
+        {
+          "content": "あ、鞄がない。",
+          "transcription": "あ、かばんがない。",
+          "mean": "Oh, I don't have a bag."
+        },
+        {
+          "content": "雨が降りそうなので試合は中止します。",
+          "transcription": "あめがおりそうなのでしあいはちゅうしします。",
+          "mean": "The game will be canceled because it looks like it's going to rain."
+        },
+        {
+          "content": "彼女はたくさん食べていたが、なかなか太くならない。",
+          "transcription": "かのじょはたくさんたべていたが、なかなかふとくならない。",
+          "mean": "Although she was eating a lot, she was having trouble gaining weight."
+        },
+        {
+          "content": "一昨日の問題なんですが、これから説明します。",
+          "transcription": "おとといのもんだいなんですが、これからせつめいします。",
+          "mean": "This is a problem from yesterday, but I will explain it now."
+        },
+        {
+          "content": "鈴木君は大学に合格していたら、電話します。",
+          "transcription": "すずきくんはだいがくにごうかくしていたら、でんわします。",
+          "mean": "Suzuki-kun, if you are accepted to university, I will call you."
+        },
+        {
+          "content": "鈴木君が大学に合格していたら、電話します。",
+          "transcription": "すずきくんがだいがくにごうかくしていたら、でんわします。",
+          "mean": "If Suzuki-kun is accepted to university, I will call you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...は, ...が"
+    },
+    {
+      "explain": "「が」is used in the following cases:<br/>\n1. Used to indicate the subject of an action, deed, characteristic, or state (often in declarative sentences, recounting an event, fact, or describing things seen in front of one's eyes, where the speaker does not interject their judgment but simply recounts the event or phenomenon as it is).<br/>\n2. Used to indicate the subject in an existential sentence.<br/>\n3. Indicates the \"target\" in a sentence indicating a state (meaning the object of emotions, feelings, abilities, hopes...).<br/>\n4. Used in sentences with a predicate that is a question word.<br/>\n5. Used in sentences narrating a newly discovered event or issue.<br/>\n6. Used in sentences with both a topic and a subject (the particle が marks the subject).<br/>\n7. Indicates the object being compared in a sentence.<br/>\n8. Indicates the subject in subordinate clauses.<br/>\n9. Used as a conjunction to connect two clauses with contrasting or opposing meanings.<br/>\n10. Used in the introductory part of a sentence.<br/>\n11. Additionally, the particle が is used in certain idiomatic expressions or proverbs.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": "In summary, unlike the particle は (wa), the particle が (ga) is a particle specifically used to indicate various grammatical relationships, simply showing the relationship between the subject and the predicate. Specifically, the particle が (ga) functions to indicate the \"subject\" - the entity that actually performs or possesses the actions, qualities, or states described by the predicate.<br/>\nTherefore, sentences with the particle が (ga) often become \"topicless\" sentences, simply describing events or explaining situations, processes... without expressing judgments like sentences with the particle は (wa).<br/>\nFurthermore, the particle は (wa) has a broad scope of influence, extending to the verb at the end of the sentence (example 1), while the particle が (ga) only affects the nearest verb (example 2).",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "..は, ...が  => Compare は and が",
+  "_id": "5f2ca7a267ba2661463e3ccd3e9a5f3c"
+}

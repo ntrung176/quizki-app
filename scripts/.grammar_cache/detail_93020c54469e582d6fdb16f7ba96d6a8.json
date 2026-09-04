@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3062,
+  "usages": [
+    {
+      "explain": "✦ Not wanting something to happen but seeing something resembling it. Similar to the pattern ～めく often used with a negative connotation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "脅迫じみた言い方はやめなさい。",
+          "transcription": "きょうはくじみたいいかたはやめなさい。",
+          "mean": "Stop speaking in a threatening manner."
+        },
+        {
+          "content": "まだ若いのに、どうしてそんな年寄りじみたことを言うんだ。",
+          "transcription": "まだわかいのに、どうしてそんなとしよりじみたことをいうんだ。",
+          "mean": "You're still young, so why do you say such old-fashioned things?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N ＋ じみた ＋N"
+    }
+  ],
+  "title": "～じみる      => to become; to appear like; to look like; tainted with ~",
+  "_id": "93020c54469e582d6fdb16f7ba96d6a8"
+}

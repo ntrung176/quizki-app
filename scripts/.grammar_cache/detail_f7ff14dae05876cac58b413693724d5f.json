@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1412,
+  "usages": [
+    {
+      "explain": "Expresses the basis of a judgment.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんの言い方から見て、私は彼女に嫌われているようだ。",
+          "transcription": "さとうさんのいいかたからみて、わたしはかのじょにきらわれているようだ。",
+          "mean": "Judging from the way Sato-san says it, it seems like she hates me."
+        },
+        {
+          "content": "あの態度から見て、彼はあきらめる考えがまったくないようだ。",
+          "transcription": "あのたいどからみて、かれはあきらめるかんがえがまったくないようだ。",
+          "mean": "Judging by his attitude, it seems like he has no intention of giving up."
+        },
+        {
+          "content": "その時の表情から見て、部長は大変怒っていたはずだ。",
+          "transcription": "そのときのひょうじょうからみて、ぶちょうはたいへんおこっていたはずだ。",
+          "mean": "Judging from the expression on his face at that time, the manager must have been very angry."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + からみて"
+    }
+  ],
+  "title": "... からみて => from the point of view of; by the look of; judging from ~",
+  "_id": "f7ff14dae05876cac58b413693724d5f"
+}

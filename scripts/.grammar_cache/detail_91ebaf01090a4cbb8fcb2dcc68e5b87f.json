@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5407,
+  "usages": [
+    {
+      "explain": "「らしい」is used to express that the subject being discussed exhibits typical characteristics of N.<br/>\n\nComparing 「らしい」and 「みたい」:The subject and object of comparison for 「みたい」 are two things with completely different natures, but they share some similarity.\nFor 「らしい」, the subject and object of comparison share the same nature, and the subject is exhibiting the characteristic of the object.\nFor example:\n「今日は暖かくて春みたいな日だ。」\nToday is warm like a spring day. (The day is not actually spring, but it has the warmth characteristic of spring.)\n「今日は暖かくて春らしい日だ。」\nToday is warm like a spring day. (Today is actually a spring day, and it exhibits the typical warmth of spring.)",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は春らしい暖かい日ですね。",
+          "transcription": "きょうははるらしいあたたかいひですね。",
+          "mean": "Today is a warm spring day."
+        },
+        {
+          "content": "私は女性らしい洋服はあまり着ない。",
+          "transcription": "わたしはじょせいらしいようふくはあまりきない。",
+          "mean": "I don't often wear feminine clothes."
+        },
+        {
+          "content": "明日はよく晴れて秋らしい天気になるでしょう。",
+          "transcription": "あしたはよくはれてあきらしいてんきになるでしょう。",
+          "mean": "It will be sunny and autumn-like tomorrow."
+        },
+        {
+          "content": "途中で諦めるのは私らしくない。",
+          "transcription": "とちゅうであきらめるのはわたしらしくない。",
+          "mean": "It's not like me to give up halfway."
+        },
+        {
+          "content": "私は今まで、病気らしい病気をしたことがありません。",
+          "transcription": "わたしはいままで、びょうきらしいびょうきをしたことがありません。",
+          "mean": "I have never had any kind of illness until now."
+        },
+        {
+          "content": "遊んでばかりいないで、もっと学生らしく勉強しなさい。",
+          "transcription": "あんでばかりいないで、もっとがくせいらしくべんきょうしなさい。",
+          "mean": "Don't just play around, study more like a student."
+        },
+        {
+          "content": "この会社にいても自分らしく働くことは難しいから、自分の会社を作ろうと思っている。",
+          "transcription": "このかいしゃにいてもじぶんらしくはたらくことはむずかしいから、じぶんのかいしゃをつくろうとおもっている。",
+          "mean": "I'm thinking of starting my own company because it's difficult to work as myself in this company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+らしい"
+    }
+  ],
+  "title": "らしい => it seems like; I heard; apparently ~",
+  "_id": "91ebaf01090a4cbb8fcb2dcc68e5b87f"
+}

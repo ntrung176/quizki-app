@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5547,
+  "usages": [
+    {
+      "explain": "「そうだ」<br/>\n\n1. When used with a verb, it expresses the speaker's prediction based on observation, that something is likely to happen.<br/>\n2. When used with an adjective, it indicates how something appears or looks on the surface.<br/>\nWhen modifying a noun, 「そうだ」becomes 「そうな」. When modifying a verb, 「そうだ」becomes 「そうに」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨が降らなそうだ。",
+          "transcription": "あめがふらなそうだ。",
+          "mean": "It doesn't seem like it's going to rain."
+        },
+        {
+          "content": "あ、車が壁にぶつかりそうだ。",
+          "transcription": "あ、くるまがかべにぶつかりそうだ。",
+          "mean": "Oh, the car looks like it's going to hit a wall."
+        },
+        {
+          "content": "そのケーキは美味しそうですね。ちょっと食たべてもいいですか。",
+          "transcription": "そのケーキはおいしそうですね。ちょっとたべてもいいですか。",
+          "mean": "That cake looks delicious. May I have something to eat?"
+        },
+        {
+          "content": "嬉しくなさそうですね。どうしたんですか。",
+          "transcription": "うれしくなさそうですね。どうしたんですか。",
+          "mean": "You don't seem happy. What happened."
+        },
+        {
+          "content": "元気じゃなさそうですね。大丈夫ですか。",
+          "transcription": "げんきじゃなさそうですね。だいじょうぶですか。",
+          "mean": "You don't seem to be feeling well. OK."
+        },
+        {
+          "content": "彼は真面目そうだね。",
+          "transcription": "かれはまじめそうだね。",
+          "mean": "He seems serious."
+        },
+        {
+          "content": "雨が降りそうなときは、洗濯しません。",
+          "transcription": "あめがふりそうなときは、せんたくしません。",
+          "mean": "I don't wash clothes when it looks like it's going to rain."
+        },
+        {
+          "content": "あの曲を聞くと、いつも涙が出そうになる。",
+          "transcription": "あのきょくをきくと、いつもなみだがでそうになる。",
+          "mean": "Whenever I hear that song, I feel like crying."
+        },
+        {
+          "content": "あの人は誰ですか。とても優しそうな人ですね。",
+          "transcription": "あのひとはだれですか。とてもやさしそうなひとですね。",
+          "mean": "Who is that person. He seems like a very kind person."
+        },
+        {
+          "content": "子供たちは楽しそうに遊んでいます。",
+          "transcription": "こどもたちはたのしそうにあそんでいます。",
+          "mean": "The children are playing happily."
+        },
+        {
+          "content": "大事そうな物は捨てないでください。",
+          "transcription": "だいじそうなものはすてないでください。",
+          "mean": "Don't throw away anything that seems important."
+        },
+        {
+          "content": "彼女はどんな仕事でも簡単そうにやるから、羨ましいだ。",
+          "transcription": "かのじょはどんなしごとでもかんたんそうにやるから、うらやましいだ。",
+          "mean": "I'm jealous of her because she can do any job with ease."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Affirmative form: V<s>ます</s>/A<s>い</s>/A<s>な</s>+そうだ<br/>Negative form: Vな<s>い</s>+そうだ<br/> A<s>い</s>くな+さそうだ<br/> A<s>な</s>じゃな+さそうだ"
+    }
+  ],
+  "title": "そうだ => It looks like / appears like; seeming ~",
+  "_id": "c787d9ad185147ca9ca473781f17a57b"
+}

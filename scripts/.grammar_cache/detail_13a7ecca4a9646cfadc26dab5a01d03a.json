@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5330,
+  "usages": [
+    {
+      "explain": "「だけど」 is a conjunction used to indicate that the following clause has content contrary to what was predicted in the previous clause. In other words, the two clauses have contrasting meanings. <br/>「だけど」is synonymous with 「けれど」 and 「しかし」 but is not used in formal contexts.",
+      "note": null,
+      "examples": [
+        {
+          "content": "よくカラオケに行く。だけど、歌は下手だ。",
+          "transcription": "よくカラオケにいく。だけど、うたはへただ。",
+          "mean": "I often go to karaoke. But I'm not good at singing."
+        },
+        {
+          "content": "野菜は好きじゃない。だけど、体にいいから食べる。",
+          "transcription": "やさいはすきじゃない。だけど、からにいいからたべる。",
+          "mean": "I don't like vegetables. But I eat it because it's good for me."
+        },
+        {
+          "content": "日本語をもっと勉強したい。だけど、仕事で忙しいからあまり時間がない。",
+          "transcription": "にほんごをもっとべんきょうしたい。だけど、しごとでいそがしいからあまりじかんがない。",
+          "mean": "I want to study Japanese more. But I don't have much time because I'm busy with work."
+        },
+        {
+          "content": "彼は日本人です。だけど、あまり漢字を書かないから、漢字が苦手だそうです。",
+          "transcription": "かれはにほんじんです。だけど、あまりかんじをかかないから、かんじがにがてだそうです。",
+          "mean": "He is Japanese. However, he doesn't write kanji very often, so he's not good at kanji."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。 だけど、B"
+    }
+  ],
+  "title": "だけど => but; however; although; regarding ~",
+  "_id": "13a7ecca4a9646cfadc26dab5a01d03a"
+}

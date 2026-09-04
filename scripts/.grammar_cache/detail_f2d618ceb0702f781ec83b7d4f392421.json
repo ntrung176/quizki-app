@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2863,
+  "usages": [
+    {
+      "explain": "V-ませんでした is the past negative form of V-ます.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨日、宿題をしませんでした。",
+          "transcription": "きのう、しゅくだいをしませんでした。",
+          "mean": "I didn't do my homework yesterday."
+        },
+        {
+          "content": "昨日早く寝ませんでした。",
+          "transcription": "きのうはやくねませんでした。",
+          "mean": "I didn't go to bed early yesterday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ませんでした"
+    }
+  ],
+  "title": "ませんでした => Did not...",
+  "_id": "f2d618ceb0702f781ec83b7d4f392421"
+}

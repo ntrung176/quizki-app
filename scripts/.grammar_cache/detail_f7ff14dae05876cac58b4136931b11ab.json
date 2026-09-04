@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 773,
+  "usages": [
+    {
+      "explain": "✦ This is a literary expression of [...でも], [...としても/ としたって], [...たところで], etc. It's rarely used in spoken language. In many cases, it's used with [いくら], [どんなに], [たとえ], etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いくら愚か者だとて、そのくらいのことはわきまえていてもよさそうなものだが。",
+          "transcription": "いくらおろかものだとて、そのくらいのことはわきまえていてもよさそうなものだが。",
+          "mean": "No matter how foolish you are, it would be good for you to know that much."
+        },
+        {
+          "content": "たとえ病気だとて試合は休むわけにはいくまい。",
+          "transcription": "たとえびょうきだとてしあいはやすむわけにはいくまい。",
+          "mean": "Even if I'm sick, I can't afford to miss the game."
+        },
+        {
+          "content": "いくら頼んだとて、聞き入れてはもらえまい。",
+          "transcription": "いくらたのんだとて、ききいれてはもらえまい。",
+          "mean": "No matter how much I ask, they won't listen."
+        },
+        {
+          "content": "どんなに後悔したとて、失われたものは再び元に戻ることはないのである。",
+          "transcription": "どんなにこうかいしたとて、うしなわれたものはふたたびもとにもどることはないのである。",
+          "mean": "No matter how much you regret something, what was lost will never be regained."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N-だ + とて\nV-た + とて"
+    }
+  ],
+  "title": "～とて => even; even if/though ~",
+  "_id": "f7ff14dae05876cac58b4136931b11ab"
+}

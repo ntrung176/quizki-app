@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1532,
+  "usages": [
+    {
+      "explain": "Expresses the earliest origins of a certain event. Often accompanied by nouns indicating the beginning.",
+      "note": null,
+      "examples": [
+        {
+          "content": "母が賭博をしたことが、家族の苦労のそもそもの起源だった。",
+          "transcription": "ははがとばくをしたことが、かぞくのくろうのそもそものきげんだった。",
+          "mean": "Her mother's gambling was the origin of her family's troubles."
+        },
+        {
+          "content": "そもそもの起こりは、妹が留学したいと言い出したことだった。",
+          "transcription": "そもそものおこりは、いもうとがりゅうがくしたいといいだしたことだった。",
+          "mean": "It all started when my younger sister announced that she wanted to study abroad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そもそもの N"
+    }
+  ],
+  "title": "そもそもの... => ...First, truly, first of all (due to)",
+  "_id": "f7ff14dae05876cac58b41369384b160"
+}

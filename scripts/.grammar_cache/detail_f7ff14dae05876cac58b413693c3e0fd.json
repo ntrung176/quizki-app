@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1996,
+  "usages": [
+    {
+      "explain": "Describes something or someone far away moving closer to the speaker's area.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先週アメリカに帰って来ました。",
+          "transcription": "せんしゅうあめりかにかえってきました。",
+          "mean": "I came back to America last week."
+        },
+        {
+          "content": "駅から戻ってくるのに二時間かかった。",
+          "transcription": "えきからもどってくるのににじかんかかった。",
+          "mean": "It took me two hours to return from the station."
+        },
+        {
+          "content": "虎がゆっくりとこちらに向かって来ます。",
+          "transcription": "とらがゆっくりとこちらにむかってきます。",
+          "mean": "The tiger is slowly coming towards you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て+ くる"
+    }
+  ],
+  "title": "てくる => ...Approaching (Movement toward proximity)",
+  "_id": "f7ff14dae05876cac58b413693c3e0fd"
+}

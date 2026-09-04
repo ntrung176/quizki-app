@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 748,
+  "usages": [
+    {
+      "explain": "✦ Expresses intention.<br/>✦ It is a formal way of speaking, with a written style. Besides writing, it is also often used in broadcasting or news reading.",
+      "note": null,
+      "examples": [
+        {
+          "content": "≪ニュース≫JR東海道線は、明朝6時には回復する見込みです。",
+          "transcription": "≪にゅーす≫JRとうかいどうせんは、みょうちょう6ときにはかいふくするみこみです。",
+          "mean": "&lt;News&gt; JR Tokaido Line is expected to recover by 6am tomorrow morning."
+        },
+        {
+          "content": "残念ですが、電車が遅れる見込みです。",
+          "transcription": "ざんねんですが、でんしゃがおくれるみこみです。",
+          "mean": "Unfortunately, the train is expected to be delayed."
+        },
+        {
+          "content": "明日の株価は、下がる見込みです。",
+          "transcription": "あしたのかぶかは、さがるみこみです。",
+          "mean": "Stock prices are expected to fall tomorrow."
+        },
+        {
+          "content": "来年から消費税が１０％になる見込みです。",
+          "transcription": "らいねんからしょうひぜいがいちぜろぱーせんとになるみこみです。",
+          "mean": "The consumption tax is expected to increase to 10% from next year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Nの + みこみだ<br/>✦ V－る + みこみだ"
+    }
+  ],
+  "title": "～みこみだ => ～Expected",
+  "_id": "f7ff14dae05876cac58b413693178807"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2889,
+  "usages": [
+    {
+      "explain": "Used to present a conclusion drawn as a result of the event expressed in the previous sentence, with this event serving as the cause, reason, or basis of that conclusion. Following it are various types of sentences. Not only are there types of sentences presenting facts, but also those indicating speculation, reliance, persuasion, etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "踏切で事故があった。だから、遅刻してしまった。",
+          "transcription": "ふみきりでじこがあった。だから、ちこくしてしまった。",
+          "mean": "There was an accident at a railroad crossing. That's why I was late."
+        },
+        {
+          "content": "この時計は高価なものだ。だから時間が正確なはずだ。",
+          "transcription": "このとけいはこうかなものだ。だからじかんがせいかくなはずだ。",
+          "mean": "This watch is expensive. So the time must be accurate."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Used to present a conclusion drawn as a result of the event expressed in the preceding clause, which serves as the cause, reason, or basis for that conclusion."
+    }
+  ],
+  "title": "だから => because; therefore (Conclusion)",
+  "_id": "f2d618ceb0702f781ec83b7d4f3bb964"
+}

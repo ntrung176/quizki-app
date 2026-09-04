@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 703,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "徳女は30才にもなって、親がかりで留学した。",
+          "transcription": "とくおんなは30さいにもなって、おやがかりでりゅうがくした。",
+          "mean": "When Tokume turned 30, she went to study abroad with her parents."
+        },
+        {
+          "content": "男は「君はバラのように美しいね」などと、芝居がかりのせりふを吐いた。",
+          "transcription": "おとこは「きみはバラのようにうつくしいね」などと、しばいがかりのせりふをはいた。",
+          "mean": "The man said, ``You're as beautiful as a rose,'' in a theatrical manner."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Expressing judgment and evaluation of an issue that the person talking about has witnessed or knows about"
+    }
+  ],
+  "title": "～ がかり => similar to ...,dependent on ...",
+  "_id": "f7ff14dae05876cac58b41369311c5c9"
+}

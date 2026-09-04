@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 904,
+  "usages": [
+    {
+      "explain": "Expresses the situation where one has to go through many changes before something becomes a reality.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私たちはついに鍵を見つけた。",
+          "transcription": "わたしたちはついにかぎをみつけた。",
+          "mean": "We found the key at last."
+        },
+        {
+          "content": "ついに彼女は問題を解決した。",
+          "transcription": "ついにかのじょはもんだいをかいけつした。",
+          "mean": "At last, she solved the problem."
+        },
+        {
+          "content": "ついに彼は目的を達成した。",
+          "transcription": "ついにかれはもくてきをたっせいした。",
+          "mean": "Finally, he achieved his goal."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ついに + V-た"
+    }
+  ],
+  "title": "ついに => finally; at last; in the end ~",
+  "_id": "f7ff14dae05876cac58b4136932d54cf"
+}

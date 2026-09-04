@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2708,
+  "usages": [
+    {
+      "explain": "It attaches after verbs that express speaking, thinking, comparing, etc., to predict or explain \"how a judgment or statement is based on what viewpoint or stance.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "50年前と比べれば、ベトナム人もずいぶん背が高くなったと言える。",
+          "transcription": "50ねんまえとくらべれば、べとなむじんもずいぶんせがたかくなったといえる。",
+          "mean": "Compared to 50 years ago, it can be said that Vietnamese people have become much taller."
+        },
+        {
+          "content": "現在はウォン高なので、国内旅行よりも海外旅行の方が安くつくらしい。考えてみればおかしな話である。",
+          "transcription": "げんざいはうぉんだかなので、こくないりょこうよりもかいがいりょこうのほうがやすくつくらしい。かんがえてみればおかしなはなしである。",
+          "mean": "Currently, the won is strong, so it seems cheaper to travel overseas than to travel domestically. It's a strange story if you think about it."
+        },
+        {
+          "content": "思えば、成功するまでのこの20年は長い年月だった。",
+          "transcription": "おもえば、せいこうするまでのこの20ねんはながいとしつきだった。",
+          "mean": "Now that I think about it, the past 20 years have been a long time for me to achieve success."
+        }
+      ],
+      "mean": null,
+      "synopsis": "… ば ＜opinion＞"
+    }
+  ],
+  "title": "… ば .... => If....",
+  "_id": "f2d618ceb0702f781ec83b7d4f24fe83"
+}

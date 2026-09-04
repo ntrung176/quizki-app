@@ -1,0 +1,56 @@
+{
+  "level": "N1",
+  "mobileId": 5078,
+  "usages": [
+    {
+      "explain": "The word 「手前」, when used with a verb, expresses the idea that in the given situation (V), the speaker has no choice but to take a certain action to protect their own dignity, otherwise they would feel ashamed. It can be translated as \"due to,\" \"owing to,\" or \"because of.\"\n\nWhen 「手前」is used with a noun, it indicates that in front of N, the speaker has already/will take a certain appropriate action related to N. It can be translated as \"in the presence of\" or \"before.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "いつも色々と面倒を見てもらっている手前、彼の頼みを断ることはできない。",
+          "transcription": "いつもいろいろとめんどうをみてもらっているてまえ、かれのたのみをことわることはできない。",
+          "mean": "Since he always takes care of me, I can't refuse his requests."
+        },
+        {
+          "content": "必ず行くと言った手前、休むわけにはいかない。",
+          "transcription": "かならずいくといったてまえ、やすむわけにはいかない。",
+          "mean": "I couldn't afford to take a break before I said I would definitely go."
+        },
+        {
+          "content": "約束した手前、たとえ雪が降っても行かないわけにはいかない。",
+          "transcription": "やくそくしたてまえ、たとえゆきがふってもいかないわけにはいかない。",
+          "mean": "I have no choice but to go even if it snows just before I promised."
+        },
+        {
+          "content": "CHANELのイメージキャラクターになる手前、LVのバッグを持ってパーティーに行くのは常識外れではあるまいか。",
+          "transcription": "シャネルのイメージキャラクターになる手てまえ、ルイヴィトンのバッグをもってパーティーにいくのはじょうしきはずれではあるまいか。",
+          "mean": "Before becoming CHANEL's image character, isn't it unconventional for her to carry an LV bag to a party?"
+        },
+        {
+          "content": "社長にごちそうになった手前、味を聞かれても、まずかったとは言えない。",
+          "transcription": "しゃちょうにごちそうになったてまえ、あじをきかれても、まずかったとはいえない。",
+          "mean": "When the president asked me about the taste before the feast, I couldn't say it was bad."
+        },
+        {
+          "content": "子供の手前、仲直りしたふりをしたが、夜中に再び夫婦喧嘩を始まった。",
+          "transcription": "こどものてまえ、なかなおりしたふりをしたが、よなかにふたたびふうふげんかをはじまった。",
+          "mean": "In front of the child, the couple pretended to have reconciled, but in the middle of the night the couple started fighting again."
+        },
+        {
+          "content": "子供達の手前、この事を知らないとは言えない。",
+          "transcription": "こどもたちのてまえ、このことをしらないとはいえない。",
+          "mean": "I can't say that I don't know this before my children."
+        },
+        {
+          "content": "残業している上司の手前、仕事が終わっても帰りづらい。",
+          "transcription": "ざんぎょうしているじょうしのてまえ、（しごとがおわってもかえりづらい。",
+          "mean": "My boss is working overtime, so it's hard to go home after work."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた/Vる/Vている+手前<br/>Nの+手前"
+    }
+  ],
+  "title": "手前 => considering; before; in front of; one’s standpoint",
+  "_id": "57a2ee8c756e49328e81c84b4d294c48"
+}

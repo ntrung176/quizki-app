@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2046,
+  "usages": [
+    {
+      "explain": "Describes someone doing something for the speaker or those in the speaker's group. In this structure, the subject is the person performing the action and has a somewhat distant or superior relationship to the speaker. This is a respectful form of 「V-てくれる」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "友達のお父さんはバイクを直して下さいました。",
+          "transcription": "ともだちのおとうさんはばいくをなおしてくださいました。",
+          "mean": "My friend's father fixed the bike for me."
+        },
+        {
+          "content": "部長はこの時計を買って下さいました。",
+          "transcription": "ぶちょうはこのとけいをかってくださいました。",
+          "mean": "The manager bought this watch for me."
+        },
+        {
+          "content": "先生は日本語を教えて下さいました。",
+          "transcription": "せんせいはにほんごをおしえてくださいました。",
+          "mean": "The teacher taught me Japanese."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + くださる"
+    }
+  ],
+  "title": "てくださる => to give",
+  "_id": "f7ff14dae05876cac58b413693ca226e"
+}

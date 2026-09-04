@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2283,
+  "usages": [
+    {
+      "explain": "It's accompanied by negative forms to express \"absolutely not...\". It has a similar meaning to 「ぜんぜん...ない」、「まったく...ない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は英語はまるで話せない。",
+          "transcription": "わたしはえいごはまるではなせない。",
+          "mean": "I can't speak English at all."
+        },
+        {
+          "content": "彼は仕事のことはまるでしゃべらない。",
+          "transcription": "かれはしごとのことはまるでしゃべらない。",
+          "mean": "He is very close about his work."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まるで...ない"
+    }
+  ],
+  "title": "まるで...ない => Absolutely not...",
+  "_id": "f7ff14dae05876cac58b413693ebda7a"
+}

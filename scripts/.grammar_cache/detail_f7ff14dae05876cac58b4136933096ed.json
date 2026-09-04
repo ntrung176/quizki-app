@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 928,
+  "usages": [
+    {
+      "explain": "Expresses a high frequency of doing something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の朝食は、たいていインスタントラーメンだ。",
+          "transcription": "わたしのちょうしょくは、たいていいんすたんとらーめんだ。",
+          "mean": "My breakfast is usually instant noodles."
+        },
+        {
+          "content": "彼女は夜にはたいてい家にいる。",
+          "transcription": "かのじょはよるにはたいていいえにいる。",
+          "mean": "She is usually at home at night."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たいてい～"
+    }
+  ],
+  "title": "たいてい => mostly; ordinarily; usually; generally​",
+  "_id": "f7ff14dae05876cac58b4136933096ed"
+}

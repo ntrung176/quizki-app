@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 840,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"no matter what method you use, no matter how you think about it, it cannot be achieved\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私には漢字はとうてい書くことができない。",
+          "transcription": "わたしにはかんじはとうていかくことができない。",
+          "mean": "I can't really write kanji."
+        },
+        {
+          "content": "彼は彼女に愛の気持ちをとうてい伝えられない。",
+          "transcription": "かれはかのじょにあいのきもちをとうていつたえられない。",
+          "mean": "He is unable to express his feelings of love to her."
+        },
+        {
+          "content": "私のともだちは東京のアパートの家賃はとうてい払えない。。",
+          "transcription": "わたしのともだちはとうきょうのあぱーとのやちんはとうていはらえない。。",
+          "mean": "My friend can never pay the rent for his apartment in Tokyo. ."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦とうてい…ない used in writing."
+    }
+  ],
+  "title": "～とうてい…ない => can't possibly~; there's no way~",
+  "_id": "f7ff14dae05876cac58b41369324e0a6"
+}

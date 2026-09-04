@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5495,
+  "usages": [
+    {
+      "explain": "「かどうか」is used to embed a yes-or-no question form, \"whether or not,\" into a sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "弱いかどうかとはまったく関係ない。",
+          "transcription": "よわいかどうかとはまったくかんけいない。",
+          "mean": "It has nothing to do with being weak or not."
+        },
+        {
+          "content": "行くかどうか後で電話で知らせます。",
+          "transcription": "いくかどうかあとででんわでしらせます。",
+          "mean": "I'll call you later to let you know if I'm going."
+        },
+        {
+          "content": "犯人が捕まったかどうか、知ってる？",
+          "transcription": "はんにんがつかまったかどうか、しってる？",
+          "mean": "Do you know if the culprit was caught?"
+        },
+        {
+          "content": "この計画は成功できるかどうか心配です。",
+          "transcription": "このけいかくはせいこうできるかどうかしんぱいです。",
+          "mean": "I'm worried whether this plan will be successful."
+        },
+        {
+          "content": "美味しいかどうか食べなければ分からない。",
+          "transcription": "おいしいかどうかたべなければわからない。",
+          "mean": "You won't know if it's delicious until you try it."
+        },
+        {
+          "content": "彼がこのプレゼントを喜ぶかどうか分かりません。",
+          "transcription": "かれがこのプレゼントをよろこぶかどうかわかりません。",
+          "mean": "I don't know if he will like this present."
+        },
+        {
+          "content": "田中さんが大学を卒業できたかどうか知っていますか。",
+          "transcription": "たなかさんがだいがくをそつぎょうできたかどうかしっていますか。",
+          "mean": "Do you know whether Mr. Tanaka was able to graduate from university?"
+        },
+        {
+          "content": "名前を書いたかどうか、もう一度チェックしてください。",
+          "transcription": "なまえをかいたかどうか、もういちどチェックしてください。",
+          "mean": "Please check again if you have written your name."
+        },
+        {
+          "content": "両親が死んだ時、自分が車の中にいたかどうかさえ思い出せない。",
+          "transcription": "りょうしんがしんだとき、じぶんがくるまのなかにいたかどうかさえおもいだせない。",
+          "mean": "I can't even remember if I was in the car when my parents died."
+        },
+        {
+          "content": "この商品は安全かどうか調べてください。",
+          "transcription": "このしょうひんはあんぜんかどうかしらべてください。",
+          "mean": "Find out if this product is safe."
+        },
+        {
+          "content": "あの人は日本人かどうか分かりません。",
+          "transcription": "あのひとはにほんじんかどうかわかりません。",
+          "mean": "I don't know if that person is Japanese or not."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+かどうか<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/>\n Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "かどうか => whether or not ~",
+  "_id": "4f4c33517ccd4614ae02364b80958540"
+}

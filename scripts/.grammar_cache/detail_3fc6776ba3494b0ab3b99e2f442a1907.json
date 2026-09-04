@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5057,
+  "usages": [
+    {
+      "explain": "「なくして(は)～ない」expresses the idea that without the first clause, the second clause cannot be achieved.<br/>\nYou can replace the phrase 「なくして(は)」 with 「なしに(は)」 without changing the meaning.",
+      "note": null,
+      "examples": [
+        {
+          "content": "努力なくして成功はあり得ない。",
+          "transcription": "どりょくなくしてせいこうはありえない。",
+          "mean": "Success is impossible without effort."
+        },
+        {
+          "content": "市民の協力なくしては、オリンピックは開催できない。",
+          "transcription": "しみんのきょうりょくなくしては、オリンピックはかいさいできない。",
+          "mean": "The Olympics cannot be held without the cooperation of citizens."
+        },
+        {
+          "content": "夫と子供の理解なくしては、研究を続けることはできませんでした。",
+          "transcription": "おっととこどものりかいなくしては、けんきゅうをつづけることはできませんでした。",
+          "mean": "I would not be able to continue my research without the understanding of my husband and children."
+        },
+        {
+          "content": "本人のやる気なくしては、治療の意味がありません。",
+          "transcription": "ほんにんのやるきなくしては、ちりょうのいみがありません。",
+          "mean": "There is no point in treatment without the patient's motivation."
+        },
+        {
+          "content": "いいリーダーなくして、チームは勝てない。",
+          "transcription": "いいリーダーなくして、チームはかてない。",
+          "mean": "A team cannot win without a good leader."
+        },
+        {
+          "content": "原因の解明なくして、次の事故は防げない。",
+          "transcription": "げんいんのかいめいなくして、つぎのじこはふせげない。",
+          "mean": "Unless we understand the cause, we will not be able to prevent the next accident."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+なくして(は)+Vない"
+    }
+  ],
+  "title": "なくして(は)～ない => cannot do without ~",
+  "_id": "3fc6776ba3494b0ab3b99e2f442a1907"
+}

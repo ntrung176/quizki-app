@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5164,
+  "usages": [
+    {
+      "explain": "「ことに」comes after an adjective or verb expressing emotion or feeling to convey the speaker's feelings about a presented matter.",
+      "note": null,
+      "examples": [
+        {
+          "content": "嬉しいことに、スピーチ大会の代表に選ばれた。",
+          "transcription": "うれしいことに、スピーチたいかいのだいひょうにえらばれた。",
+          "mean": "I was happy to be selected as a representative for the speech competition."
+        },
+        {
+          "content": "惜しいことに、Aチームは1点差で負けた。",
+          "transcription": "おしいことに、エーチームはいってんさでまけた。",
+          "mean": "Unfortunately, Team A lost by one point."
+        },
+        {
+          "content": "残念なことに、楽しみにしていたキャンプが雨で中止になった。",
+          "transcription": "ざんねんなことに、たのしみにしていたキャンプがあめでちゅうしになった。",
+          "mean": "Unfortunately, the camping trip I was looking forward to was canceled due to rain."
+        },
+        {
+          "content": "驚いたことに、そのコンサートのチケットは15分で売り切れたそうだ。",
+          "transcription": "おどろいたことに、そのコンサートのチケットはじゅうごふんでうりきれたそうだ。",
+          "mean": "To his surprise, tickets for the concert sold out in 15 minutes."
+        },
+        {
+          "content": "不幸なことに、友人の母が亡くなったのです。",
+          "transcription": "ふこうなことに、ゆうじんのははがなくなったのです。",
+          "mean": "Unfortunately, my friend's mother passed away."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた/Aい/Aな+ことに"
+    }
+  ],
+  "title": "ことに => emphasize speaker's feelings; to my (surprise/etc)",
+  "_id": "9c48ab6c051242ef813a7e639c815506"
+}

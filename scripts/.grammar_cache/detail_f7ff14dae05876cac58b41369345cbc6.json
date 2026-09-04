@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1084,
+  "usages": [
+    {
+      "explain": "✦This is a less definitive way of speaking compared to 「といえる」.<br/>✦Typically followed by contrasting content or implied contrast.<br/>✦「といえなくもない」is an affirmative statement in a somewhat negative sense.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この会社に入った当初は、仕事のあまりのきつさにどうなることかと思ったが、今では慣れてきたと言えなくもない。すくなくとも、前ほどは疲れなくなった。",
+          "transcription": "このかいしゃにはいったとうしょは、しごとのあまりのきつさにどうなることかとおもったが、いまではなれてきたといえなくもない。すくなくとも、まえほどはつかれなくなった。",
+          "mean": "When I first joined this company, I was worried about what would happen to me because the work was so demanding, but now I can say that I have gotten used to it. At least I'm not as tired as before."
+        },
+        {
+          "content": "問題の解決を後世に託して終了したとも言えなくはない。",
+          "transcription": "もんだいのかいけつをこうせいにたくしてしゅうりょうしたともいえなくはない。",
+          "mean": "It cannot be said that the process ended by entrusting the solution of the problem to future generations."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～といえなくもない => It can be said that ~",
+  "_id": "f7ff14dae05876cac58b41369345cbc6"
+}

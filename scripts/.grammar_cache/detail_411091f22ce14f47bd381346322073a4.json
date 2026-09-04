@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5455,
+  "usages": [
+    {
+      "explain": "「わけだ」is used to express understanding and satisfaction with the reason why something happened the way it did. The reason is presented in the sentence before or after「わけだ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "暑いわけだ。気温が36度もある。",
+          "transcription": "あついわけだ。きおんがさんじゅうろくどもある。",
+          "mean": "That's why it's hot. The temperature is 36 degrees."
+        },
+        {
+          "content": "『田中さん、彼女に振られたらしいよ。』『なるほど、それで、元気がないわけだ。』",
+          "transcription": "『たなかさん、かのじょにふられたらしいよ。』『なるほど、それで、げんきがないわけだ。』",
+          "mean": "``Tanaka-san, it seems like your girlfriend dumped you. 'I see, that's why you're not feeling well. ”"
+        },
+        {
+          "content": "こんなところで工事をしたのか。渋滞するわけだ。",
+          "transcription": "こんなところでこうじをしたのか。じゅうたいするわけだ。",
+          "mean": "Did you do any construction work here? There will be traffic jams."
+        },
+        {
+          "content": "あ、顔にご飯粒がついていたんだ。みんなにクスクス笑われていたわけだ。",
+          "transcription": "あ、かおにごはんつぶがついていたんだ。みんなにクスクスわらわれていたわけだ。",
+          "mean": "Oh, there were grains of rice on my face. Everyone was laughing out loud."
+        },
+        {
+          "content": "寒いわけだ。窓が少し開いているよ。",
+          "transcription": "さむいわけだ。まどがすこしあいているよ。",
+          "mean": "That's why it's cold. The window is slightly open."
+        },
+        {
+          "content": "夕べ雨が降っていたから、道が濡れているわけだ。",
+          "transcription": "ゆうべうがふっていたから、みちがぬれているわけだ。",
+          "mean": "It was raining last night, so the road was wet."
+        },
+        {
+          "content": "息子は細菌ゲームをしてばかりいるから、成績が悪くなるわけだ。",
+          "transcription": "むすこはさいきんゲームをしてばかりいるから、せいせきがわるくなるわけだ。",
+          "mean": "My son keeps playing germ games, which is why his grades are getting worse."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+わけだ<br/>Aい (formal form)+わけだ<br/>Aな (formal form)+わけだ<br>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)</br>"
+    }
+  ],
+  "title": "わけだ => for that reason; no wonder; as you’d expect; the fact is; so you mean ~",
+  "_id": "411091f22ce14f47bd381346322073a4"
+}

@@ -1,0 +1,81 @@
+{
+  "level": "N4",
+  "mobileId": 5563,
+  "usages": [
+    {
+      "explain": "「とか～とか」<br/>\n1. Similar to the structure「や～や」, it is used to give examples. However, compared to「や～や」, this structure is used more in conversations and can follow the last noun in the example series. Because it is more colloquial than「や～や」, it's best not to use「とか～とか」with superiors to avoid disrespect. It's also possible to use just one「とか」. When modifying a noun, the structure takes forms like 「とか～とかのN」「とか～とかといったN」「とか～とかいうN」. \"Such as/Or like...\".<br/>\n\n2. Helps the speaker express criticism when the subject is indecisive in action or attitude, sometimes doing this, sometimes doing that. In this case, the pair of words with「とか～とか」must have contrasting meanings. \"Sometimes... and sometimes...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "疲れたときはたくさん食べますよ。肉とか魚とか...",
+          "transcription": "つかれたときはたくさんたべますよ。にくとかさかなとか...",
+          "mean": "I eat a lot when I'm tired. Meat, fish..."
+        },
+        {
+          "content": "ギータとかピアノとかの楽器が出来るようになりたいです。",
+          "transcription": "ギータとかピアノとかのがっきができるようになりたいです。",
+          "mean": "I want to be able to play musical instruments like the guitar and piano."
+        },
+        {
+          "content": "ラーメンとかうどんとかの麵類はあまり好きじゃありません。",
+          "transcription": "ラーメンとかうどんとかのめんるいはあまりすきじゃありません。",
+          "mean": "I don't really like noodles like ramen or udon."
+        },
+        {
+          "content": "文法の質問なら、田中さんとか木村さんとかに聞いてもいいですよ。",
+          "transcription": "ぶんぽうのしつもんなら、たなかさんとかきむらさんとかにきいてもいいですよ。",
+          "mean": "If you have questions about grammar, you can ask Mr. Tanaka or Mr. Kimura."
+        },
+        {
+          "content": "毎日、10分とかでもいいので、運動したほうがいいですよ。",
+          "transcription": "まいにち、じゅっぷんとかでもいいので、うんどうしたほうがいいですよ。",
+          "mean": "It's a good idea to exercise, even if it's just for 10 minutes every day."
+        },
+        {
+          "content": "お茶とかの飲み物は寝る前に飲まないようにしています。",
+          "transcription": "おちゃとかののみものはねるまえにのまないようにしています。",
+          "mean": "I try not to drink tea or other drinks before going to bed."
+        },
+        {
+          "content": "分からないときは、インターネットで調べるとか人に聞くとかする。",
+          "transcription": "わからないときは、インターネットでしらべるとかひとにきくとかする。",
+          "mean": "When I don't know, I look it up on the internet or ask people."
+        },
+        {
+          "content": "留学生活は楽しいけど、大変だとか寂しいとか聞いたよ。",
+          "transcription": "りゅうがくせいかつはたのしいけど、たいへんだとかさびしいとかきいたよ。",
+          "mean": "I've heard that studying abroad is fun, but it can also be difficult and lonely."
+        },
+        {
+          "content": "田中さんが悪いとか、鈴木さんがやったとか、そんなことは正直どうでもいい。",
+          "transcription": "たなかさんがわるいとか、すずきさんがやったとか、そんなことはしょうじきどうでもいい。",
+          "mean": "Honestly, I don't care if Tanaka-san was at fault or Suzuki-san did it."
+        },
+        {
+          "content": "好きだとか嫌いだとか言ってないで、全部食べなさい！",
+          "transcription": "すきだとかきらいだとかいってないで、ぜんぶたべなさい！",
+          "mean": "Don't say you like it or dislike it, just eat it all!"
+        },
+        {
+          "content": "行くとか行かないとかころころ意見を変えないで、さっさと決めなさい！",
+          "transcription": "いくとかいかないとかころころいけんをかえないで、さっさときめなさい！",
+          "mean": "Don't keep changing your opinion about whether to go or not, decide quickly!"
+        },
+        {
+          "content": "妹は留学したいとかしたくないとか、いつも言うことが変わる。",
+          "transcription": "いもうとはりゅうがくしたいとかしたくないとか、いつもいうことがかわる。",
+          "mean": "My sister always says different things, like whether she wants to study abroad or not."
+        },
+        {
+          "content": "彼らは付き合っているとかもう別れたとか、いつまでたっても態度がはっきりしない。",
+          "transcription": "かれらはつきあっているとかもうわかれたとか、いつまでたってもたいどがはっきりしない。",
+          "mean": "Whether they are dating or have broken up, their attitude remains unclear."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1+とか N2+とか<br/>\nV/Aい/Aな/N (formal form)+とか V/Aい/Aな/N (formal form)+とか<br/>"
+    }
+  ],
+  "title": "とか～とか => among other things; such as; like ~",
+  "_id": "c7afe5dbc6814524895e9b67cd9702f6"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1639,
+  "usages": [
+    {
+      "explain": "Accompanied by phrases expressing the state or nature of a person or thing to convey surprise or emotion. In the case of ナ-adjectives, 「な」 can be used. This is used in spoken language, typically by women. Young people of both genders generally do not use this form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "まあ、かわいい犬だこと。",
+          "transcription": "まあ、かわいいいぬだこと。",
+          "mean": "Well, it's a cute dog."
+        },
+        {
+          "content": "あら、ドレスが素敵なこと。お母さんに買ってもらったの？",
+          "transcription": "あら、どれすがすてきなこと。おかあさんにかってもらったの？",
+          "mean": "Oh, how lovely the dress is. Did your mom buy it for you?"
+        },
+        {
+          "content": "世間で暮らしていくことが難しいこと。",
+          "transcription": "せけんでくらしていくことがむずかしいこと。",
+          "mean": "It's difficult to live in the world."
+        },
+        {
+          "content": "この黄色い猫、見てよ。よく太っていること。",
+          "transcription": "このきいろいねこ、みてよ。よくふとっていること。",
+          "mean": "Look at this yellow cat. Being fat."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nだ + こと\nNaだ/な + こと\nA-い + こと\nV-ている + こと"
+    }
+  ],
+  "title": "こと => How, too",
+  "_id": "f7ff14dae05876cac58b413693922e00"
+}

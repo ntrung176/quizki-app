@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5560,
+  "usages": [
+    {
+      "explain": "「丁寧語」(teineigo) is a way of expressing things, events in a polite, refined manner, thereby showing respect for the story and the listener.<br/>This is also the difference of「丁寧語」from「尊敬語」(sonkeigo - honorific language) and「謙譲語」(kenjougo - humble language) - two ways of expressing respect by elevating others or humbling oneself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "電話は階段の横にございます。",
+          "transcription": "でんわはかいだんのよこにございます。",
+          "mean": "The phone is next to the stairs."
+        },
+        {
+          "content": "ご質問はございますか。",
+          "transcription": "ごしつもんはございますか。",
+          "mean": "Do you have any questions?"
+        },
+        {
+          "content": "お手元に資料を用意してございます。",
+          "transcription": "おてもとにしりょうをよういしてございます。",
+          "mean": "We have the materials on hand."
+        },
+        {
+          "content": "婦人の服の売り場は3階でございます。",
+          "transcription": "ふじんのふくのうりばはさんかいでございます。",
+          "mean": "The women's clothing department is on the third floor."
+        },
+        {
+          "content": "この件に関しましては、ただ今確認中でございます。",
+          "transcription": "このけんにかんしましては、ただいまかくにんちゅうでございます。",
+          "mean": "We are currently investigating this matter."
+        },
+        {
+          "content": "お飲み物は何がよろしいでしょうか。",
+          "transcription": "おのみものはなにがよろしいでしょうか。",
+          "mean": "What kind of drink would you like?"
+        },
+        {
+          "content": "このパンフレットをいただいてもよろしいでしょうか。",
+          "transcription": "このパンフレットをいただいてもよろしいでしょうか。",
+          "mean": "May I receive this pamphlet?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "あります ➔ ございます<br/> です ➔ でございます<br/> いいですか ➔ よろしいでしょうか<br/>v.v"
+    }
+  ],
+  "title": "丁寧語 => polite form",
+  "_id": "b829a7062d684f7982856be72b087b0f"
+}

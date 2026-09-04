@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 862,
+  "usages": [
+    {
+      "explain": "✦ This is a pattern describing the manner of repeating actions, by repeating the continuative form of verbs. Such as 「食べ食べ」,「飲み飲み」. For verbs like 「する」,「みる」, the continuative form is an isolated syllable like 「し」,「み」, then add 「い」 to it, becomes 「しいしい」,「みいみい」. Used in cases where alongside that, there is another action carried out simultaneously, in the form of 「しいしい...する」. This is an old-fashioned way of speaking, somewhat idiomatic. In spoken language, 「ながら」 is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "女は遠慮しいしい部屋の片隅に座った。",
+          "transcription": "おんなはえんりょしいしいへやのかたすみにすわった。",
+          "mean": "The woman sat in a modest corner of the room."
+        },
+        {
+          "content": "男は大きなハンカチで汗をふきふき坂を登ってきた。。",
+          "transcription": "おとこはおおきなハンカチであせをふきふきざかをのぼってきた。 。",
+          "mean": "The man came up the hill wiping off his sweat with a large handkerchief. ."
+        },
+        {
+          "content": "子供たちはもらったばかりのあめをなめなめ老人についていった",
+          "transcription": "こどもたちはもらったばかりのあめをなめなめろうじんについていった",
+          "mean": "The children licked the candy they had just received and followed the old man."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～しいしい => Every once in a while... (Repeat situation)",
+  "_id": "f7ff14dae05876cac58b41369327aff8"
+}

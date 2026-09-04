@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 625,
+  "usages": [
+    {
+      "explain": "●Expresses the meaning \"If, or, even though the situation is at a higher level than the current state\". Often implies \"the current state is already at a significant level.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "これ以上雨が降れば、川が氾濫してしまう。",
+          "transcription": "これいじょうあめがふれば、かわがはんらんしてしまう。",
+          "mean": "If it rains any more, the river will flood."
+        },
+        {
+          "content": "これ以上待てば時間を浪費するばかりだ。",
+          "transcription": "これいじょうまてばじかんをろうひするばかりだ。",
+          "mean": "If you wait any longer, you will only be wasting your time."
+        },
+        {
+          "content": "これ以上は無理です。",
+          "transcription": "これいじょうはむりです。",
+          "mean": "No more is possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "●これ以上 + V-ば"
+    }
+  ],
+  "title": "～これ以上...ば => if ~ any more than this",
+  "_id": "f7ff14dae05876cac58b4136930794c7"
+}

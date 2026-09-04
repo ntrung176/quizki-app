@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1967,
+  "usages": [
+    {
+      "explain": "Used when the recipient receives a question or situation without knowing how to respond, as in example 1, or not knowing how to judge it properly, as in example 2. Especially, the expression using only the word 「さあ」, to convey a meaning as in example 1, can only be used with a familiar interlocutor.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：あの女の人、だれ？B：さあ（、知りません）。",
+          "transcription": "A：あのおんなのひと、だれ？B：さあ（、しりません）。",
+          "mean": "A: Who is that woman? B: Well (I don't know)."
+        },
+        {
+          "content": "A：明日は休み。あなたはどうする？B：さあ、どうしようかな。",
+          "transcription": "A：あしたはやすみ。あなたはどうする？B：さあ、どうしようかな。",
+          "mean": "A: Tomorrow is a day off. what do you do B: Now, what should we do?"
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "さあ => well (negative meaning)",
+  "_id": "f7ff14dae05876cac58b413693bfd7e7"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 983,
+  "usages": [
+    {
+      "explain": "Used to list examples with the implication that these are not the only ones, but there are also others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "京都とか鎌倉といった古い町には寺が多い。",
+          "transcription": "きょうととかかまくらといったふるいまちにはてらがおおい。",
+          "mean": "There are many temples in old towns such as Kyoto and Kamakura."
+        },
+        {
+          "content": "私はケーキ、ポテトチップス、ハンバーガーといったカロリーの高いものが大好きなんです。",
+          "transcription": "わたしはけーき、ぽてとちっぷす、はんばーがーといったかろりーのたかいものがだいすきなんです。",
+          "mean": "I love high-calorie foods like cake, potato chips, and hamburgers."
+        },
+        {
+          "content": "この大学には、中国、日本、韓国といったアジアの国々からの留学生が多い。",
+          "transcription": "このだいがくには、ちゅうごく、にっぽん、かんこくといったあじあのくにぐにからのりゅうがくせいがおおい。",
+          "mean": "This university has many international students from Asian countries such as China, Japan, and South Korea."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1, N2,…といった"
+    }
+  ],
+  "title": "...といった => like; such as ~",
+  "_id": "f7ff14dae05876cac58b4136933801b9"
+}

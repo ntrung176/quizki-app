@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3192,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate a certain situation progressing positively and remarkably after a starting point or factor.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんの発言を皮切りにして、会議は大混乱となった。",
+          "transcription": "やまださんのはつげんをかわきりにして、かいぎはだいこんらんとなった。",
+          "mean": "After Mr. Yamada's remarks, the meeting descended into chaos."
+        },
+        {
+          "content": "国防費を皮切りに種々の予算が見直され始めた。",
+          "transcription": "こくぼうひをかわきりにしゅじゅのよさんがみなおされはじめた。",
+          "mean": "Various budgets have begun to be reviewed, starting with defense spending."
+        },
+        {
+          "content": "今回のコンサートは、福岡を皮切りに全国12カ所で行われます。",
+          "transcription": "こんかいのコンサートは、ふくおかをかわきりにぜんこく12カしょでおこわれます。",
+          "mean": "This concert will be held in 12 locations nationwide, starting in Fukuoka."
+        }
+      ],
+      "mean": "One after another; starting with ~",
+      "synopsis": "✦N を皮切りに"
+    }
+  ],
+  "title": "～をかわきりに（～を皮切りに）      => One after another; starting with ~",
+  "_id": "93020c54469e582d6fdb16f7baa55449"
+}

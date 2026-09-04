@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2993,
+  "usages": [
+    {
+      "explain": "Describes events happening sequentially over time. Used in spoken language. Often used after the て form of a verb as 「Vて、それから」(doing something, and then).",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "先月香港に行って、それからシンガポールを訪ねた。",
+          "transcription": "せんげつほんこんにいって、それからしんがぽーるをたずねた。",
+          "mean": "I went to Hong Kong last month and then visited Singapore."
+        },
+        {
+          "content": "彼女は皿を洗って、それから拭いた。",
+          "transcription": "かのじょはさらをあらって、それからふいた。",
+          "mean": "She washed the dishes and then wiped them."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それから～"
+    }
+  ],
+  "title": "それから => Afterward, from that",
+  "_id": "f2d618ceb0702f781ec83b7d4f4871ad"
+}

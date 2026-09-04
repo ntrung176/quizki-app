@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1364,
+  "usages": [
+    {
+      "explain": "Indicates the ability to transform a disadvantageous situation into a favorable one, or \"although not fully, still manageable\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "100ドルあればなんとかなるだろう。",
+          "transcription": "100どるあればなんとかなるだろう。",
+          "mean": "I'm sure $100 will do the trick."
+        },
+        {
+          "content": "元気を出せ。そのうちになんとかなる。",
+          "transcription": "げんきをだせ。そのうちになんとかなる。",
+          "mean": "Cheer up. I'll figure it out eventually."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとかなる ～"
+    }
+  ],
+  "title": "なんとかなる => to be able to manage somehow or another",
+  "_id": "f7ff14dae05876cac58b4136936bd90a"
+}

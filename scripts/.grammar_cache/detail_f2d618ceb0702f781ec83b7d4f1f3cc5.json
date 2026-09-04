@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2670,
+  "usages": [
+    {
+      "explain": "Comes after verbs or adjectives to express meanings like 「大きいもの」 (big things), 「私が作ったもの」 (things I made), etc...",
+      "note": null,
+      "examples": [
+        {
+          "content": "このアパートはちょっと狭すぎますね。もう少し広いのはありませんか。",
+          "transcription": "このあぱーとはちょっとせますぎますね。もうすこしひろいのはありませんか。",
+          "mean": "This apartment is a little too small. Isn't there something a little wider?"
+        },
+        {
+          "content": "このコンピューターは大きすぎ使いにくい。もっと小さくて便利なのを探さなくてはならない。",
+          "transcription": "このこんぴゅーたーはおおきすぎつかいにくい。もっとちいさくてべんりなのをさがさなくてはならない。",
+          "mean": "This computer is too big and difficult to use. I'll have to look for something smaller and more convenient."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい + の\nNaな + の\nVる／ Vた／ Vない + の"
+    }
+  ],
+  "title": ".... の => possessive particle",
+  "_id": "f2d618ceb0702f781ec83b7d4f1f3cc5"
+}

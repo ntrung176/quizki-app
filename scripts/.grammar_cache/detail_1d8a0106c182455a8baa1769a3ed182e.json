@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5315,
+  "usages": [
+    {
+      "explain": "「ずにはいられない」expresses the idea that the subject cannot help but do an action or express a certain emotion.<br/>The subject here is mostly a person. And because it expresses subjective emotions, when the subject is not the speaker, the sentence will end with structures like 「ようだ」or 「らしい」...<br/>「ないではいられない」is a more formal and serious version of this expression, often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "職場で嫌なことがあると、酒を飲まずにはいられない。",
+          "transcription": "しょくばでいやなことがあると、さけをのまずにはいられない。",
+          "mean": "When something bad happens at work, I can't help but drink alcohol."
+        },
+        {
+          "content": "あの映画を見たら、誰でも感動せずにはいられないだろう。",
+          "transcription": "あのえいがをみたら、だれでもかんどうせずにはいられないだろう。",
+          "mean": "Anyone who saw that movie could not help but be moved."
+        },
+        {
+          "content": "おかしくて、笑わずにはいられない。",
+          "transcription": "おかしくて、わらわずにはいられない。",
+          "mean": "It's so funny, I can't help but laugh."
+        },
+        {
+          "content": "そんなことを聞いては失礼かとも思ったが、どうしても聞かずにはいられなかった。",
+          "transcription": "そんなことをきいてはしつれいかともおもったが、どうしてもきかずにはいられなかった。",
+          "mean": "I thought it would be rude to ask such a question, but I couldn't help but ask."
+        },
+        {
+          "content": "車の多い道路で遊んでいる子供を見て、注意せずにはいられない。",
+          "transcription": "くるまのおおいどうろであそんでいるこどもをみて、ちゅういせずにはいられない。",
+          "mean": "When I see children playing on a road full of cars, I can't help but be careful."
+        },
+        {
+          "content": "彼の話を聞いて、笑わずにはいられない。",
+          "transcription": "かれのはなしをきいて、わらわずにはいられない。",
+          "mean": "I can't help but laugh when I hear his story."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ない</s>ず ✚ にはいられない<br/> しない ➔ せず"
+    }
+  ],
+  "title": "ずにはいられない => can’t help but feel; can’t help but do; must do ~",
+  "_id": "1d8a0106c182455a8baa1769a3ed182e"
+}

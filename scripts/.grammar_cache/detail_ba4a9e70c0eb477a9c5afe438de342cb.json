@@ -1,0 +1,81 @@
+{
+  "level": "N2",
+  "mobileId": 5310,
+  "usages": [
+    {
+      "explain": "「ようでは」expresses the idea that if things continue in the current state, an unfavorable outcome will occur. This structure conveys a negative evaluation from the speaker, used for warning, advice, criticism, or reproach towards others. The clause after it often includes negative expressions like いけない (not good), 無理 (impossible), 困る (troublesome)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "この問題が解決できないようでは困るよ。",
+          "transcription": "このもんだいがかいけつできないようではこまるよ。",
+          "mean": "I'm worried if this problem can't be resolved."
+        },
+        {
+          "content": "この問題が分からないようでは、N2には合格できないよ。",
+          "transcription": "このもんだいがわからないようでは、エヌににはごうかくできないよ。",
+          "mean": "If you don't understand this question, you won't be able to pass N2."
+        },
+        {
+          "content": "試験の前の日に勉強を始めるようでは、合格はできない。",
+          "transcription": "しけんのまえのひにべんきょうをはじめるようでは、ごうかくはできない。",
+          "mean": "You won't pass if you start studying the day before the exam."
+        },
+        {
+          "content": "最初の日から、仕事に遅刻するようでは、悪い印象になるよ。",
+          "transcription": "さいしょのひから、しごとにちこくするようではわるいいんしょうになるよ。",
+          "mean": "Being late for work from the first day will give a bad impression."
+        },
+        {
+          "content": "自分の管理もできないようでは、人の上に立つこともできない。",
+          "transcription": "じぶんのかんりもできないようでは、ひとのうえにたつこともできない。",
+          "mean": "If you can't manage yourself, you can't stand above others."
+        },
+        {
+          "content": "報告書にこんなにミスがあるようでは、君に仕事を任せられない。",
+          "transcription": "ほうこくしょにこんなにミスがあるようでは、きみにしごとをまかせられない。",
+          "mean": "I can't entrust you with the job if there are so many mistakes in the report."
+        },
+        {
+          "content": "小さな失敗をいちいち気にするようでは、この会社ではやっていけないよ。",
+          "transcription": "ちいさなしっぱいをいちいちきにするようでは、このかいしゃではやっていけないよ。",
+          "mean": "You can't survive in this company if you worry about every little mistake."
+        },
+        {
+          "content": "勝負において、相手のミスを願うようでは、プロにはなれない。",
+          "transcription": "しょうぶにおいて、あいてのミスをねがうようでは、プロにはなれない。",
+          "mean": "You can't become a professional if you hope for your opponent's mistakes in a match."
+        },
+        {
+          "content": "敬語がちゃんと使えないようでは、接客の仕事はできない。",
+          "transcription": "けいごがちゃんとつかえないようでは、せっきゃくのしごとはできない。",
+          "mean": "If you can't use honorific language properly, you won't be able to work in customer service."
+        },
+        {
+          "content": "寄付の手続きがこんなに面倒なようでは、寄付をする人が少なくなってしまう。",
+          "transcription": "きふのてつづきがこんなにめんどうなようでは、きふをするひとがすくなくなってしまう。",
+          "mean": "If the donation process is so complicated, fewer people will donate."
+        },
+        {
+          "content": "虫が駄目なようでは、田舎ではやっていけないよ。",
+          "transcription": "むしがだめなようでは、いなかではやっていけないよ。",
+          "mean": "We can't survive in the countryside if insects are no good."
+        },
+        {
+          "content": "一族の者同士が仲が悪いようでは、どんなに信心しても神仏の助けは得られない。",
+          "transcription": "いちぞくのものどうしがなかがわるいようでは、どんなにしんじんしてもしんぶつのたすけはえられない。",
+          "mean": "If members of your family do not get along well with each other, no matter how much faith you have, you will not be able to receive help from the gods and Buddha."
+        },
+        {
+          "content": "たくさん書いていますが、このように適当な内容であるようでは、評価はつきません。",
+          "transcription": "たくさんかいていますが、このようにてきとうなないようであるようでは、ひょうかはつきません。",
+          "mean": "I've written a lot, but if the content seems random like this, I won't get a rating."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vている/Vない+ようでは<br/>Aい+ようでは<br/>Aな/A<s>な</s>である+ようでは<br/>Nである+ようでは"
+    }
+  ],
+  "title": "ようでは =>  if ~ (bad result)",
+  "_id": "ba4a9e70c0eb477a9c5afe438de342cb"
+}

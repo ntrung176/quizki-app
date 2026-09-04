@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2383,
+  "usages": [
+    {
+      "explain": "This is a warning phrase, pointing out a negative aspect of the other person and advising them to change their attitude.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなにゲームばかりしていては目が悪くなってしまうよ。",
+          "transcription": "そんなにげーむばかりしていてはめがわるくなってしまうよ。",
+          "mean": "If you play games so much, your eyesight will get worse."
+        },
+        {
+          "content": "そんなに甘いものばかり食べていては、太りますよ。",
+          "transcription": "そんなにあまいものばかりたべていては、ふとりますよ。",
+          "mean": "If you eat only that much sweet food, you'll gain weight."
+        },
+        {
+          "content": "そんなに他人に頼っていては、成長できませんよ。",
+          "transcription": "そんなにたにんにたよっていては、せいちょうできませんよ。",
+          "mean": "You can't grow if you rely on others that much."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + いては"
+    }
+  ],
+  "title": "ていては => If one keeps doing something",
+  "_id": "f7ff14dae05876cac58b413693f96cf8"
+}

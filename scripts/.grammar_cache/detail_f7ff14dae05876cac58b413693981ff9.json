@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 1686,
+  "usages": [
+    {
+      "explain": "Expresses the cause or reason for a good outcome.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いい仕事が見つかったのは、日本語が上手なおかげだ。",
+          "transcription": "いいしごとがみつかったのは、にほんごがじょうずなおかげだ。",
+          "mean": "I was able to find a good job thanks to my good Japanese."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな・Nの + おかげだ"
+    }
+  ],
+  "title": "おかげだ => thanks to...",
+  "_id": "f7ff14dae05876cac58b413693981ff9"
+}

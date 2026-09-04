@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 735,
+  "usages": [
+    {
+      "explain": "✦ Expresses a meaning very close, almost identical to what the noun represents.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その着物は限りなく白に近い紫だった。",
+          "transcription": "そのきものはかぎりなくしろにちかいむらさきだった。",
+          "mean": "The kimono was purple, almost white."
+        },
+        {
+          "content": "その真珠のネックレスは限りなく本物に近い偽物で、見ただけでは偽物であることがわからない。",
+          "transcription": "そのしんじゅのネックレスはかぎりなくほんものにちかいにせもので、みただけではにせものであることがわからない。",
+          "mean": "The pearl necklace is a fake so close to the real thing that you can't tell it's a fake just by looking at it."
+        },
+        {
+          "content": "キムさんの日本語の発音は限りなく日本人に近いが、注意して聞くとやはり韓国語の影響が残っている。",
+          "transcription": "キムさんのにほんごのはつおんはかぎりなくにっぽんじんにちかいが、ちゅういしてきくとやはりかんこくごのえいきょうがのこっている。",
+          "mean": "Kim's Japanese pronunciation is very close to Japanese, but if you listen carefully, you can still hear the influence of Korean."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦かぎりなく + N + にちかい"
+    }
+  ],
+  "title": "～かぎりなく ... にちかい => Almost, near, like, almost like N...",
+  "_id": "f7ff14dae05876cac58b41369315e0e1"
+}

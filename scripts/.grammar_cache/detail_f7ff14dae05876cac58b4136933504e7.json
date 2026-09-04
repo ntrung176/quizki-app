@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 963,
+  "usages": [
+    {
+      "explain": "Expresses strong determination to carry out a certain task.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は命にかけてもこの任務を絶対に果たします。",
+          "transcription": "わたしはいのちにかけてもこのにんむをぜったいにはたします。",
+          "mean": "I will absolutely fulfill this mission even if it means my life."
+        },
+        {
+          "content": "名誉にかけても君との約束を守ります。",
+          "transcription": "めいよにかけてもきみとのやくそくをまもります。",
+          "mean": "I will keep my promise to you, even if it means risking my honor."
+        },
+        {
+          "content": "弁護士の名誉にかけてもあなたの権利を守ります。",
+          "transcription": "べんごしのめいよにかけてもあなたのけんりをまもります。",
+          "mean": "I will protect your rights even if my reputation as a lawyer is at stake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にかけて (も)"
+    }
+  ],
+  "title": "にかけて (も) => swear an oath of honour",
+  "_id": "f7ff14dae05876cac58b4136933504e7"
+}

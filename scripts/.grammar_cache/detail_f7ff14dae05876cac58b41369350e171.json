@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1167,
+  "usages": [
+    {
+      "explain": "Expressing the idea \"the situation has reached its peak\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "一週間にわたって雨が降らないので、路面も干上がってしまった。&amp;nbsp;<br><br>",
+          "transcription": "いちしゅうかんにわたってあめがふらないので、ろめんもひあがってしまった。",
+          "mean": "There had been no rain for a week, so the roads were dry. &amp;amp;nbsp;&lt;br&gt;&lt;br&gt;"
+        },
+        {
+          "content": "銀行員は強盗犯に背中にナイフを突きつけられて震え上がった。",
+          "transcription": "ぎんこういんはごうとうはんにせなかにないふをつきつけられてふるえあがった。",
+          "mean": "A bank employee was horrified when a robber thrust a knife into his back."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます＋あがる"
+    }
+  ],
+  "title": "あがる => so... (Extreme level)",
+  "_id": "f7ff14dae05876cac58b41369350e171"
+}

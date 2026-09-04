@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2686,
+  "usages": [
+    {
+      "explain": "Used to ask someone to do something for the speaker. The plain form is used for close relationships, while the polite form is used for a wider range of relationships.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょっとエアコンをつけてもらえる。",
+          "transcription": "ちょっとえあこんをつけてもらえる。",
+          "mean": "You can turn on the air conditioner for a while."
+        },
+        {
+          "content": "ちょっと消しゴム貸してもらえますか。",
+          "transcription": "ちょっとけしごむかしてもらえますか。",
+          "mean": "Could you lend me your eraser for a moment?"
+        },
+        {
+          "content": "ちょっと五万ドン貸してもらえない。",
+          "transcription": "ちょっとごまんどんかしてもらえない？",
+          "mean": "I can't ask you to lend me 50,000 dong."
+        },
+        {
+          "content": "ここは病院なんですから、喫煙をやめてもらえませんか。",
+          "transcription": "ここはびょういんなんですから、きつえんをやめてもらえませんか。",
+          "mean": "This is a hospital, so could you please stop smoking?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + もらえるか\n<br/>V-て + もらえないか"
+    }
+  ],
+  "title": "てもらえるか => Could you please...?",
+  "_id": "f2d618ceb0702f781ec83b7d4f21e984"
+}

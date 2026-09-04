@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2898,
+  "usages": [
+    {
+      "explain": "好き（すき）is used to express someone liking something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は日本料理が好きです。",
+          "transcription": "わたしはにっぽんりょうりがすきです。",
+          "mean": "I like Japanese cuisine."
+        },
+        {
+          "content": "彼はサッカーを見ることが好きです。",
+          "transcription": "かれはさっかーをみることがすきです。",
+          "mean": "He likes watching soccer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + が + 好きだ"
+    }
+  ],
+  "title": "すき => to like...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3d0634"
+}

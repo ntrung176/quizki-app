@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5140,
+  "usages": [
+    {
+      "explain": "「ようか～まいか」expresses the speaker's hesitation or uncertainty between two choices, whether to do something or not.",
+      "note": null,
+      "examples": [
+        {
+          "content": "本当のことを話そうか話すまいか迷ったが、結局全部話した。",
+          "transcription": "ほんとうのことをはなそうかはなすまいかまよったが、けっきょくぜんぶはなした。",
+          "mean": "I was unsure whether to tell him the truth or not, but in the end I told him everything."
+        },
+        {
+          "content": "食べたいけど、太りたくないし、食べようか食べるまいか考えているところです。",
+          "transcription": "たべたいけど、ふとりたくないし、たべようかたべるまいかかんがえているところです。",
+          "mean": "I want to eat, but I don't want to gain weight, and I'm thinking about whether I should eat or not."
+        },
+        {
+          "content": "パーティーに行こうか行くまいか考えています。",
+          "transcription": "パーティーにいこうかいくまいかかんがえています。",
+          "mean": "I'm thinking about whether to go to the party or not."
+        },
+        {
+          "content": "事実を言おうか言うまいかと、廊下を行きつ戻りつ考えた。",
+          "transcription": "じじつをいおうかいうまいかと、ろうかをいきつもどりつかんがえた。",
+          "mean": "I paced up and down the hallway, wondering whether I should tell the truth or not."
+        },
+        {
+          "content": "この季節には、傘を持って行こうか行くまいかと毎朝迷ってしまう。",
+          "transcription": "このきせつには、かさをもっていこうかいくまいかとまいあさまよってしまう。",
+          "mean": "During this season, I find myself wondering every morning whether to bring an umbrella or not."
+        },
+        {
+          "content": "９月に大切な試験があるので、夏休みに国へ帰ろうか帰るまいか、考えています。",
+          "transcription": "くがつにたいせつなしけんがあるので、なつやすみにくにへかえろうかかえるまいか、かんがえています。",
+          "mean": "I have an important exam in September, so I'm thinking about whether I should go back to my country for the summer vacation or not."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (volitional form) か V (root form) まいか"
+    }
+  ],
+  "title": "ようか～まいか => whether or not; considering options",
+  "_id": "4a31213c61b34427bec2ce55fceb1e0a"
+}

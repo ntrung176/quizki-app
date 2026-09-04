@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1384,
+  "usages": [
+    {
+      "explain": "Used with negative forms to express \"nothing particularly worth mentioning\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "古典建築の展覧会に行ったが、これといって印象的な作品には出会わなかった。",
+          "transcription": "こてんけんちくのてんらんかいにいったが、これといっていんしょうてきなさくひんにはであわなかった。",
+          "mean": "I went to an exhibition of classical architecture, but I didn't come across any particularly impressive works."
+        },
+        {
+          "content": "初めてスカイダイビングをするので少し緊張だったが、これといって事故もなく無事に着陸できた。",
+          "transcription": "はじめてすかいだいびんぐをするのですこしきんちょうだったが、これといってじこもなくぶじにちゃくりくできた。",
+          "mean": "I was a little nervous as it was my first time skydiving, but I was able to land safely without any incidents."
+        }
+      ],
+      "mean": null,
+      "synopsis": "これといって～ない"
+    }
+  ],
+  "title": "これといって…ない => Not... worth mentioning, not... special",
+  "_id": "f7ff14dae05876cac58b4136936eb68e"
+}

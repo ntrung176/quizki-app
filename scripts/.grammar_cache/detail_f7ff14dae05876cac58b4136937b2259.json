@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1466,
+  "usages": [
+    {
+      "explain": "Used to confirm information about a person, thing, or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "FIFAというと､国際サッカー連盟のことですか。",
+          "transcription": "FIFAというと､こくさいさっかーれんめいのことですか。",
+          "mean": "When you say FIFA, do you mean the International Federation of Football?"
+        },
+        {
+          "content": "山田さんというと、あの歯医者の山田のことですか。",
+          "transcription": "やまださんというと、あのはいしゃのやまだのことですか。",
+          "mean": "When you say Mr. Yamada, do you mean that dentist Yamada?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "というと～のことですか"
+    }
+  ],
+  "title": "というと…のことですか => I heard; it means that; in other words ~",
+  "_id": "f7ff14dae05876cac58b4136937b2259"
+}

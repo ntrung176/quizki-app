@@ -1,0 +1,33 @@
+{
+  "level": "N2",
+  "mobileId": 1389,
+  "usages": [
+    {
+      "explain": "Used to indicate the cause or reason for the mentioned situation. The following sentence usually ends with […からだ/のだ].",
+      "note": null,
+      "examples": [
+        {
+          "content": "申しわけありませんが、明日お休みをいただけないでしょうか。というのは、病院へ子供をつれて行くんです。",
+          "transcription": "もうしわけありませんが、あしたおやすみをいただけないでしょうか。というのは、びょういんへこどもをつれていくんです。",
+          "mean": "I'm sorry, but could you please take the day off tomorrow? That's because I'm taking my child to the hospital."
+        },
+        {
+          "content": "週末はちょっと都合が悪いんです。というのは、東京で国際会議出ることになっているものですから。",
+          "transcription": "しゅうまつはちょっとつごうがわるいんです。というのは、とうきょうでこくさいかいぎでることになっているものですから。",
+          "mean": "Weekends are a little inconvenient. This is because I am scheduled to attend an international conference in Tokyo."
+        }
+      ],
+      "mean": null,
+      "synopsis": "というのは～"
+    },
+    {
+      "explain": "Note: This expression is similar to [なぜなら], but is used to further explain the situation without needing a clear cause-and-effect relationship, and is commonly used in spoken language.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "というのは => this means; the meaning of …",
+  "_id": "f7ff14dae05876cac58b4136936f2bea"
+}

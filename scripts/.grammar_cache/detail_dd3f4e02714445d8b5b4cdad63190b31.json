@@ -1,0 +1,76 @@
+{
+  "level": "N2",
+  "mobileId": 5311,
+  "usages": [
+    {
+      "explain": "「ようがない」is used to express that there is no way to solve or complete something.<br/>\nNote: With group III verbs like 修復する (to repair), 改善する (to improve), etc., you can also use the structure「V<s>します</s>　+　のしようがない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何と言ったらいいのか、言いようがない。",
+          "transcription": "なんといったらいいのか、いいようがない。",
+          "mean": "I don't know what to say."
+        },
+        {
+          "content": "この作文は、日本語がめちゃくちゃで直しようがない。",
+          "transcription": "このさくぶんは、にほんごがめちゃくちゃでなおしようがない。",
+          "mean": "The Japanese in this essay is so messed up that there's no way to fix it."
+        },
+        {
+          "content": "交通機関がストップすると、会社へは行きようがない。",
+          "transcription": "こうつうきかんがストップすると、かいしゃへはいきようがない。",
+          "mean": "When transportation stops, there is no way to go to work."
+        },
+        {
+          "content": "先日見た名古屋城はたとえようがない美しさだった。",
+          "transcription": "せんじつみたなごやじょうはたとえようがないうつくしさだった。",
+          "mean": "The Nagoya Castle I saw the other day was indescribably beautiful."
+        },
+        {
+          "content": "こんなところで地震が起きたら、逃げようがない。",
+          "transcription": "こんなところでじしんがおきたら、にげようがない。",
+          "mean": "If an earthquake were to occur in a place like this, there would be no way to escape."
+        },
+        {
+          "content": "人柄の良さなんて、初対面では実際分かりようもない。",
+          "transcription": "ひとがらのよさなんて、しょたいめんではじっさいわかりようもない。",
+          "mean": "You can't really tell how nice a person is when you meet someone for the first time."
+        },
+        {
+          "content": "ミサイルが本当に発射されたかなんて国民は確認しようもない。",
+          "transcription": "ミサイルがほんとうにはっしゃされたかなんてこくみんはかくにんしようもない。",
+          "mean": "The public has no way of confirming whether the missile was actually launched."
+        },
+        {
+          "content": "言葉にしようのない感情が渦巻いている。",
+          "transcription": "ことばにしようのないかんじょうがうずまいている。",
+          "mean": "I am filled with emotions that cannot be expressed in words."
+        },
+        {
+          "content": "君達は救いようのない馬鹿だ。",
+          "transcription": "きみたちはすくいようのないばかだ。",
+          "mean": "You guys are irredeemable idiots."
+        },
+        {
+          "content": "僕は電話もないし、祖父が手紙も読めないし、連絡のしようがない。",
+          "transcription": "ぼくはでんわもないし、そふがてがみもよめないし、れんらくのしようがない。",
+          "mean": "I don't have a phone, and my grandfather can't read his letters, so there's no way to contact him."
+        },
+        {
+          "content": "それは否定のしようがない。",
+          "transcription": "それはひていのしようがない。",
+          "mean": "There's no denying that."
+        },
+        {
+          "content": "彼の発言は他に解釈のしようがない。",
+          "transcription": "かれのはつげんはたにかいしゃくのしようがない。",
+          "mean": "His remarks allow of no other interpretation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>よう+がない<br/> V<s>ます</s>よう+もない<br/> V<s>ます</s>よう+のないN"
+    }
+  ],
+  "title": "ようがない => There is no way to; it's impossible to ~",
+  "_id": "dd3f4e02714445d8b5b4cdad63190b31"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2896,
+  "usages": [
+    {
+      "explain": "When 「です」 is placed at the end of a sentence, it shows the speaker's polite attitude toward the listener. When using 「です」 at the end of a sentence, for adjectives with the な ending, the 「な」 is removed, and for adjectives with the い ending, the 「い」 remains unchanged.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤先生は親切です。",
+          "transcription": "さとうせんせいはしんせつです。",
+          "mean": "Professor Sato is kind."
+        },
+        {
+          "content": "ナイル川は長いです。",
+          "transcription": "ないるがわはながいです。",
+          "mean": "The Nile is long."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+は+ Na-な です\nN+ は +A-い です"
+    }
+  ],
+  "title": "は...です => to be",
+  "_id": "f2d618ceb0702f781ec83b7d4f3cc6df"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 629,
+  "usages": [
+    {
+      "explain": "✦Indicates the meaning of \"corresponding to that level\" or \"in proportion to that extent\". Often used in the form of \"...V-ばV-たぶんだけ\", \"...V-ば、そのぶんだけ\" (The more V, the more...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "1年間の休職の分だけ、仕事がたまっていた。",
+          "transcription": "1ねんかんのきゅうしょくのぶんだけ、しごとがたまっていた。",
+          "mean": "I had accumulated a lot of work due to my year-long absence from work."
+        },
+        {
+          "content": "外で元気な分、彼は家ではおとなしい。",
+          "transcription": "そとでげんきなぶん、かれはいえではおとなしい。",
+          "mean": "Although he is active outside, he is quiet at home."
+        },
+        {
+          "content": "食べれば食べたぶん（だけ）太る。",
+          "transcription": "たべればたべたぶん（だけ）ふとる。",
+          "mean": "The more you eat, the more you will gain weight."
+        },
+        {
+          "content": "早く始めれば、その分（だけ）仕事が早く終わる。",
+          "transcription": "はやくはじめれば、そのぶん（だけ）しごとがはやくおわる。",
+          "mean": "The earlier you start, the sooner you can finish your work."
+        },
+        {
+          "content": "彼を信頼していたぶん（だけ）裏切られたときのショックも大きかった。",
+          "transcription": "かれをしんらいしていたぶん（だけ）うらぎられたときのショックもおおきかった。",
+          "mean": "It was a huge shock when I trusted him and was betrayed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + の + ぶん✦Na + なぶん<br/>✦A + なぶんV + ぶん"
+    }
+  ],
+  "title": "～ぶん (だけ) => in proportion to; just as much as",
+  "_id": "f7ff14dae05876cac58b4136930810d2"
+}

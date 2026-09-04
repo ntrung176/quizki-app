@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5127,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>気味</rb><rp>(</rp><rt>ぎみ</rt><rp>)</rp></ruby>」indicates that the subject brings about a slight feeling or sense (about mood, physical condition, state...) that is different from normal, often in a negative sense. This feeling is often accompanied by adverbs indicating a low degree, such as ちょっと (a little), 少し (a bit), やや (somewhat).",
+      "note": null,
+      "examples": [
+        {
+          "content": "残業続きで疲れ気味だ。",
+          "transcription": "ざんぎょうつづきでつかれぎみだ。",
+          "mean": "I'm feeling tired from working overtime."
+        },
+        {
+          "content": "新入社員は緊張気味の顔をしていた。",
+          "transcription": "しんにゅうしゃいんはきんちょうぎみのかおをしていた。",
+          "mean": "The new employee looked nervous."
+        },
+        {
+          "content": "彼女は離婚してから少しヒステリー気味です。",
+          "transcription": "かのじょはりこんしてからすこしヒステリーぎみです。",
+          "mean": "She has been a little hysterical since her divorce."
+        },
+        {
+          "content": "あの人はどうも焦り気味です。",
+          "transcription": "あのひとはどうもあせりぎみです。",
+          "mean": "That person seems very impatient."
+        },
+        {
+          "content": "相手チームに押され気味。",
+          "transcription": "あいてチームにおされぎみ。",
+          "mean": "I feel like I'm being pushed by the other team."
+        },
+        {
+          "content": "物価が上がり気味。",
+          "transcription": "ぶっかがあがりぎみ。",
+          "mean": "Prices seem to be rising."
+        },
+        {
+          "content": "この時計は遅れ気味だ。",
+          "transcription": "このとけいはおくれぎみだ。",
+          "mean": "This clock is running late."
+        },
+        {
+          "content": "窓を閉めてもかまいませんか。少し風邪気味なもんですので。",
+          "transcription": "まどをしめてもかまいませんか。すこしかぜぎみなもんですので。",
+          "mean": "Would you mind if I shut the window? I have a slight cold."
+        },
+        {
+          "content": "最近太り気味なので、運動しないといけません。",
+          "transcription": "さいきんふとりぎみなので、うんどうしないといけません。",
+          "mean": "I've been gaining weight lately, so I have to exercise."
+        },
+        {
+          "content": "君は痩せり気味ですね。たくさん食べてください。",
+          "transcription": "きみはやせりぎみですね。たくさんたべてください。",
+          "mean": "You look thin. Please eat a lot."
+        },
+        {
+          "content": "彼女は少し心配気味です。",
+          "transcription": "かのじょはすこししんぱいぎみです。",
+          "mean": "She's a little worried."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+<ruby><rb>気味</rb><rp>(</rp><rt>ぎみ</rt><rp>)</rp></ruby><br/>N+<ruby><rb>気味</rb><rp>(</rp><rt>ぎみ</rt><rp>)</rp></ruby>"
+    }
+  ],
+  "title": "気味 =>  -like; -looking; -looked; tending to ~",
+  "_id": "afa7aee3ee9440189971651937cae177"
+}

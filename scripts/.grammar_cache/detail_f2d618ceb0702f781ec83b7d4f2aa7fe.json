@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2757,
+  "usages": [
+    {
+      "explain": "Describes moving away from the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "車は夜の闇へと消えていった。",
+          "transcription": "くるまはよるのやみへときえていった。",
+          "mean": "The car disappeared into the darkness of the night."
+        },
+        {
+          "content": "彼は慌てて、橋のほうに走っていきました。",
+          "transcription": "かれはあわてて、はしのほうにはしっていきました。",
+          "mean": "He panicked and ran towards the bridge."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + いく"
+    }
+  ],
+  "title": "ていく => to start; to continue; to go on (move away)",
+  "_id": "f2d618ceb0702f781ec83b7d4f2aa7fe"
+}

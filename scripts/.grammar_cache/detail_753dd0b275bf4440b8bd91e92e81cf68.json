@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5105,
+  "usages": [
+    {
+      "explain": "「ちっとも～ない」is a negative expression used to emphasize \"not at all\" or \"not even a bit.\" It is often used in spoken language and is more casual than 「すこしも～ない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は酒をちっとも飲まない。",
+          "transcription": "かれはさけをちっとものまない。",
+          "mean": "He doesn't drink at all."
+        },
+        {
+          "content": "この商品はちっとも売れない。",
+          "transcription": "このしょうひんはちっともうれない。",
+          "mean": "This product won't sell at all."
+        },
+        {
+          "content": "彼は父親の言うことをちっとも聞かない。",
+          "transcription": "かれはちちおやのいうことをちっともきかない。",
+          "mean": "He never listens to what his father says."
+        },
+        {
+          "content": "彼は女の子の気持ちなんかちっとも分からない。",
+          "transcription": "かれはおんなのこのきもちなんかちっともわからない。",
+          "mean": "He doesn't understand a girl's feelings at all."
+        },
+        {
+          "content": "彼の言う事は何の事かちっとも分からない。",
+          "transcription": "かれのいうことはなんのことかちっともわからない。",
+          "mean": "I have no idea what he's saying."
+        },
+        {
+          "content": "休みの日なのに、兄はゲームを夢中でちっとも遊んでくれない。",
+          "transcription": "やすみのひなのに、あにはゲームをむちゅうでちっともあそんでくれない。",
+          "mean": "Even though it's my day off, my brother is so engrossed in his games that he doesn't play at all."
+        },
+        {
+          "content": "列車で出される食事は、ちっとも好きじゃなかったんです。",
+          "transcription": "れっしゃでだされるしょくじは、ちっともすきじゃなかったんです。",
+          "mean": "I didn't like the food served on trains at all."
+        },
+        {
+          "content": "俺の妻は英語をちっとも知らない。彼女は日本語しか話せない。",
+          "transcription": "おれのつまはえいごをちっともしらない。かのじょはにほんごしかはなせない。",
+          "mean": "My wife doesn't know any English. She can only speak Japanese."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ちっとも+Vない<br/> ちっとも+A<s>い</s>くない<br/> ちっとも+A<s>な</s>じゃない<br/> ちっとも+Nじゃない"
+    }
+  ],
+  "title": "ちっとも～ない =>  (not) at all; (not) in the least ~",
+  "_id": "753dd0b275bf4440b8bd91e92e81cf68"
+}

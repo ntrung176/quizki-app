@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1018,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"if encountering such a situation then...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "だとすると、桜の開花はいつもより遅くなるでしょうね。",
+          "transcription": "だとすると、さくらのかいかはいつもよりおそくなるでしょうね。",
+          "mean": "If so, the cherry blossoms will bloom later than usual."
+        },
+        {
+          "content": "だとすると、道路は今日空いているだろう。",
+          "transcription": "だとすると、どうろはきょうあいているだろう。",
+          "mean": "If so, the road would be empty today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だとすると～"
+    }
+  ],
+  "title": "だとすると => In the case of~; assuming~; if A then B (conditional)",
+  "_id": "f7ff14dae05876cac58b4136933c8d74"
+}

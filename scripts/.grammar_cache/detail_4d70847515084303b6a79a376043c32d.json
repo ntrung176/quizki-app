@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5302,
+  "usages": [
+    {
+      "explain": "「をもとに」expresses the idea of using something (N) as a basis, source of information, suggestion, etc. This basis, source of information, or suggestion is usually abstract rather than a specific material object. The following clause often contains a verb phrase that indicates the creation of something new.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この小説は事実をもとに書かれた。",
+          "transcription": "このしょうせつはじじつをもとにかかれた。",
+          "mean": "This novel was written based on fact."
+        },
+        {
+          "content": "漢字をもとにしてひらがなとカタカナが作られました。",
+          "transcription": "かんじをもとにして、ひらがなとカタカナがつくられました。",
+          "mean": "Hiragana and katakana were created based on kanji."
+        },
+        {
+          "content": "この映画は実際にあった話をもとに作られた。",
+          "transcription": "このえいがはじっさいにあったはなしをもとにつくられた。",
+          "mean": "This movie was made based on a true story."
+        },
+        {
+          "content": "ファンの人気投票をもとに審査し、今年の歌のベストテンが決まります。",
+          "transcription": "ファのにんきとうひょうをもとにしんさし、ことしのうたのベストテンがきまります。",
+          "mean": "This year's top ten songs will be determined based on fan popularity votes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+もとに<br/> Nを+もとにして"
+    }
+  ],
+  "title": "をもとに => based on; derived from; building on; beginning with ~",
+  "_id": "4d70847515084303b6a79a376043c32d"
+}

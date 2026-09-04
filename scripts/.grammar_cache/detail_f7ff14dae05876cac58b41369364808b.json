@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1310,
+  "usages": [
+    {
+      "explain": "Used to present typical characteristics and confirm information about the mentioned object or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本の食べ物と言えば、すしが一番有名だと思います。",
+          "transcription": "にっぽんのたべものといえば、すしがいちばんゆうめいだとおもいます。",
+          "mean": "When it comes to Japanese food, I think sushi is the most famous."
+        },
+        {
+          "content": "夏の果物と言うと、やっぱりスイカですね。",
+          "transcription": "なつのくだものというと、やっぱりすいかですね。",
+          "mean": "When you think of summer fruits, it's definitely watermelon."
+        },
+        {
+          "content": "京都といったら、お寺をイメージします。",
+          "transcription": "きょうとといったら、おてらをいめーじします。",
+          "mean": "When you think of Kyoto, you imagine a temple."
+        },
+        {
+          "content": "身分を証明する書類といえば、パスポートでもいいですか。",
+          "transcription": "みぶんをしょうめいするしょるいといえば、ぱすぽーとでもいいですか。",
+          "mean": "Speaking of documents to prove my identity, can I use a passport?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + といえば/というと/といったら"
+    }
+  ],
+  "title": "といえば / というと / といったら => if it were the case that…, then certainly; if one were to speak of… then certainly",
+  "_id": "f7ff14dae05876cac58b41369364808b"
+}

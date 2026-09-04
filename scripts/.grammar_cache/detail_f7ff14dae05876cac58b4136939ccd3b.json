@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1716,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"no matter how it is said...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "いくら紙よりは保存性がよいといっても、石や木は永遠不滅のものではない。",
+          "transcription": "いくらかみよりはほぞんせいがよいといっても、いしやきはえいえんふめつのものではない。",
+          "mean": "Even though they are better preserved than paper, stone and wood are not immortal."
+        },
+        {
+          "content": "いくら野菜が嫌いだと言っても、健康のために毎日食べることだ。",
+          "transcription": "いくらやさいがきらいだといっても、けんこうのためにまいにちたべることだ。",
+          "mean": "No matter how much you hate vegetables, you should eat them every day for your health."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いくら Na だといってもいくら A－ いといっても"
+    }
+  ],
+  "title": "いくら…といっても => no matter how ~",
+  "_id": "f7ff14dae05876cac58b4136939ccd3b"
+}

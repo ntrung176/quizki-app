@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2244,
+  "usages": [
+    {
+      "explain": "It expresses the idea of \"change\" or \"exchange\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "次の文を過去形の文に書き換えなさい。",
+          "transcription": "つぎのぶんをかこがたのぶんにかきかえなさい。",
+          "mean": "Rewrite the following sentences in past tense."
+        },
+        {
+          "content": "乗り換えは必要ですか。",
+          "transcription": "のりかえはひつようですか。",
+          "mean": "Do I need to transfer?"
+        },
+        {
+          "content": "炊飯器の調子がおかしい。修理するより買い換えるほうがいいかな。",
+          "transcription": "すいはんきのちょうしがおかしい。しゅうりするよりかいかえるほうがいいかな。",
+          "mean": "Something is wrong with the rice cooker. Is it better to buy a new one than to repair it?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます + かえる (換える)"
+    }
+  ],
+  "title": "...かえる (換える) => to change; to alter; to transform; to convert; to turn",
+  "_id": "f7ff14dae05876cac58b413693e6862c"
+}

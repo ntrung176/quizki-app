@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1452,
+  "usages": [
+    {
+      "explain": "抜きに...れない（ぬきに...れない）expresses the meaning \"without something, it's impossible to...\". It accompanies verbs in potential form or negative words.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんな大切なことは社長抜きに決められない。",
+          "transcription": "こんなたいせつなことはしゃちょうぬきにきめられない。",
+          "mean": "Important decisions like this cannot be made without the president."
+        },
+        {
+          "content": "このチームはキャプテン抜きに戦えないと思う。",
+          "transcription": "このちーむはきゃぷてんぬきにたたかえないとおもう。",
+          "mean": "I don't think this team can compete without its captain."
+        },
+        {
+          "content": "彼抜きに今回の勝利は不可能だった。",
+          "transcription": "かれぬきにこんかいのしょうりはふかのうだった。",
+          "mean": "This victory would not have been possible without him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 抜きに… + V- れない"
+    }
+  ],
+  "title": "抜きに...れない => without; leaving out; cutting out ~",
+  "_id": "f7ff14dae05876cac58b413693790a83"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2540,
+  "usages": [
+    {
+      "explain": "This is a way of expression in writing for the pattern 「...もしないで」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は一日中食事もとらずに仕事に熱中している。",
+          "transcription": "かのじょはいちにちちゅうしょくじもとらずにしごとにねっちゅうしている。",
+          "mean": "She is engrossed in work without eating all day."
+        },
+        {
+          "content": "嫁にも行かずに老母の世話をするとはしおらしい。",
+          "transcription": "よめにもいかずにろうぼのせわをするとはしおらしい。",
+          "mean": "It seems strange that he would take care of his old mother without going to his wife."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…も...Vずに"
+    }
+  ],
+  "title": "…も...ずに => without doing something",
+  "_id": "f2d618ceb0702f781ec83b7d4f0e9f98"
+}

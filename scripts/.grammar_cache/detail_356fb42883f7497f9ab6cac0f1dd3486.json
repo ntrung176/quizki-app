@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5292,
+  "usages": [
+    {
+      "explain": "「はともかく」expresses the idea of not needing to rush to consider N1, but instead focusing on N2, temporarily putting aside N1 and prioritizing N2.",
+      "note": null,
+      "examples": [
+        {
+          "content": "母の料理は見た目はともかく、味は美味しい。",
+          "transcription": "ははのりょうりはみためはともかく、あじはおいしい。",
+          "mean": "Regardless of how it looks, my mother's cooking tastes delicious."
+        },
+        {
+          "content": "値段はともかく、デザインのほうが気に入った。",
+          "transcription": "ねだんはともかく、デザインのほうがきにはいった。",
+          "mean": "Regardless of the price, I liked the design."
+        },
+        {
+          "content": "自習するのは早く進めることはともかく情報が集め能力も練習される。",
+          "transcription": "じしゅうするのははやくすすめることはともかくじょうほうがあつめのうりょくもれんしゅうされる。",
+          "mean": "Self-studying not only allows you to progress quickly, but also allows you to gather information and practice your skills."
+        },
+        {
+          "content": "勝敗はともかくとして、一生懸命頑張ろう。",
+          "transcription": "しょうはいはともかくとして、いっしょうけんめいがんばろう。",
+          "mean": "Regardless of whether we win or lose, let's do our best."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 はともかく (として) N2 は/が"
+    }
+  ],
+  "title": "はともかく => anyhow; anyway; regardless; in any case; whether or not ~",
+  "_id": "356fb42883f7497f9ab6cac0f1dd3486"
+}

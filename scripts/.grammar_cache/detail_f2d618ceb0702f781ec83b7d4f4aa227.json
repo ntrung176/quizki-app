@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3010,
+  "usages": [
+    {
+      "explain": "In Japanese, the suffix 「さん」is placed after the name of the listener to show respect when addressing that person. The suffix 「さん」is not used with oneself. If you already know the name of the listener, do not use「あなた」, but use 「さん」to address that person.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人は佐藤さんです。",
+          "transcription": "あのひとはさとうさんです。",
+          "mean": "That person is Mr. Sato."
+        },
+        {
+          "content": "山田さんはいつ国へ帰りますか。",
+          "transcription": "やまださんはいつこくへかえりますか。",
+          "mean": "When will Mr. Yamada return to his country?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Name + さん"
+    }
+  ],
+  "title": "さん => Mr., Mrs., Ms.",
+  "_id": "f2d618ceb0702f781ec83b7d4f4aa227"
+}

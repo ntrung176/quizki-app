@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3014,
+  "usages": [
+    {
+      "explain": "Describes the action of giving or presenting something to oneself or someone in the same group (family, relatives, spouses, siblings).",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんは私に本をくれました。",
+          "transcription": "やまださんはわたしにほんをくれました。",
+          "mean": "Mr. Yamada gave me a book."
+        },
+        {
+          "content": "佐藤さんは弟にあめをくれました。",
+          "transcription": "さとうさんはおとうとにあめをくれました。",
+          "mean": "Mr. Sato gave his younger brother some candy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "[Giver] は [Receiver] に [Thing] をくれる"
+    }
+  ],
+  "title": "をくれる => to do a favor; request a favor; do something for ...",
+  "_id": "f2d618ceb0702f781ec83b7d4f4b1d7c"
+}

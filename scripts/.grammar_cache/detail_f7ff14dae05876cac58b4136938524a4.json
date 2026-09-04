@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1535,
+  "usages": [
+    {
+      "explain": "Used after an emotional or sensory adjective to convey the meaning that someone appears to be in that state.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの子はいつも怖そうにしている。",
+          "transcription": "あのこはいつもこわそうにしている。",
+          "mean": "That child always looks scared."
+        },
+        {
+          "content": "お祖母さんは元気そうにしていたので、安心した。",
+          "transcription": "おばあさんはげんきそうにしていたので、あんしんした。",
+          "mean": "My grandmother seemed to be doing well, so I felt relieved."
+        },
+        {
+          "content": "彼は厚いセーターを着て暑そうにしていた。",
+          "transcription": "かれはあついせーたーをきてあつそうにしていた。",
+          "mean": "He looked hot wearing a thick sweater."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aナ ＋そうにしている\nAイ ＋そうにしている"
+    }
+  ],
+  "title": "... そうにしている => to look ～, to seem～",
+  "_id": "f7ff14dae05876cac58b4136938524a4"
+}

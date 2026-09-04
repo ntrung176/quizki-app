@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5378,
+  "usages": [
+    {
+      "explain": "「もし～たなら」is used to present a hypothetical situation and its consequence. Since it's hypothetical, both the preceding and following clauses are in the past tense.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もし試験を受けていたなら、合格していたと思う。",
+          "transcription": "もししけんを受けていたなら、ごうかくしていたとおもう。",
+          "mean": "If I had taken the exam, I think I would have passed."
+        },
+        {
+          "content": "もし彼が社長でなかったなら、会社はつぶれていたと思う。",
+          "transcription": "もしかれがしゃちょうでなかったなら、かいしゃはつぶれていたとおもう。",
+          "mean": "If he wasn't the president, I think the company would have gone bankrupt."
+        },
+        {
+          "content": "もし留学しなかったなら、今頃は国で結婚しているだろう。",
+          "transcription": "もしりゅうがくしなかったなら、いまごろはくにでけっこんしているだろう。",
+          "mean": "If I hadn't studied abroad, I would have gotten married in my country by now."
+        },
+        {
+          "content": "もしあの飛行機に乗っていたら、死んでいたでしょう。",
+          "transcription": "もしあのひこうきにのっていたら、しんでいたでしょう。",
+          "mean": "If I had been on that plane, I would have died."
+        },
+        {
+          "content": "もし彼女のことが好きだったら、あの時車で家まで送っていただろう。",
+          "transcription": "もしかのじょのことがすきだったら、あのときくるまでいえまでおくっていただろう。",
+          "mean": "If I had loved her, I would have given her a ride home then."
+        },
+        {
+          "content": "もし悲しかったら、この歌を聞いていなかった。",
+          "transcription": "もしかなしかったら、このうたをきいていなかった。",
+          "mean": "If I was sad, I wouldn't have listened to this song."
+        },
+        {
+          "content": "もし宝くじが当たっていたら、ヨットが買えただろう。",
+          "transcription": "もしたからくじがあたっていたら、ヨットがかえただろう。",
+          "mean": "If I had won the lottery, I would have bought a yacht."
+        },
+        {
+          "content": "もし僕は魚だったなら、涙の中で泳ぎたがる。",
+          "transcription": "もしぼくはさかなだったなら、なみだのなかでおよぎたがる。",
+          "mean": "If I were a fish, I'd want to swim in my tears."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もし+Vた(な)ら<br/>もし+A<s>い</s>かった(な)ら<br/>もし+A<s>な</s>だった(な)ら<br/>もし+Nだった(な)ら"
+    }
+  ],
+  "title": "もし～たなら => if; in the case; supposing ~",
+  "_id": "d7e734cd340c4f4ea49267b43aee6f1e"
+}

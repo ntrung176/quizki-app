@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5489,
+  "usages": [
+    {
+      "explain": "「ばいいですか」is similar to the pattern 「たらいいですか」and is used when the speaker wants the listener to give instructions or advice on how to do something, or about what needs to be done or should be done in a certain situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は何時に家を出ればいいですか。",
+          "transcription": "あしたはなんじにいえをでればいいですか。",
+          "mean": "What time should I leave home tomorrow?"
+        },
+        {
+          "content": "彼女に会うときは何を言えばいいですか。",
+          "transcription": "かのじょにあうときはなにをいえばいいですか。",
+          "mean": "What should I say when I meet her?"
+        },
+        {
+          "content": "この漫画はいつまで返せばいいですか。",
+          "transcription": "このまんがはいつまでかえせばいいですか。",
+          "mean": "When should I return this manga?"
+        },
+        {
+          "content": "日本で道に迷ったらどうすればいいですか。",
+          "transcription": "にほんでみちにまよったらどうすればいいですか。",
+          "mean": "What should I do if I get lost in Japan?"
+        },
+        {
+          "content": "本を借りたいんですが、どうすればいいですか。",
+          "transcription": "ほんをかりたいんですが、どうすればいいですか。",
+          "mean": "I want to borrow a book, what should I do?"
+        },
+        {
+          "content": "東京に行きたいんですが、どんな電車で行けばいいですか。",
+          "transcription": "とうきょうにいきたいんですが、どんなでんしゃでいけばいいですか。",
+          "mean": "I want to go to Tokyo, but what kind of train should I take?"
+        },
+        {
+          "content": "安いスーツを買いたいんですが、どこで買えばいいですか。",
+          "transcription": "やすいスーツをかいたいんですが、どこでかえばいいですか。",
+          "mean": "I want to buy a cheap suit, but where can I buy it?"
+        },
+        {
+          "content": "家族にお金を送りたいので、どんな銀行を使えばいいですか。",
+          "transcription": "かぞくにおかねをおくりたいので、どんなぎんこうをつかえばいいですか。",
+          "mean": "I want to send money to my family, so what bank should I use?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (conditional form)+いいですか"
+    }
+  ],
+  "title": "ばいいですか => should; can; it'd be good if ~",
+  "_id": "a0d132f7c20a443bbb8ff37854bacb1c"
+}

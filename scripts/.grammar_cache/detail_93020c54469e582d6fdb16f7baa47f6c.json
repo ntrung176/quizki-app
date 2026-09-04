@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3176,
+  "usages": [
+    {
+      "explain": "<div>✦ Describes a feeling of dissatisfaction, surprise with unexpected outcomes.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "早く返事すればいいものを、すぐメールを送らないから先方に怒られるんだよ。",
+          "transcription": "はやくへんじすればいいものを、すぐめーるをおくらないからせんぽうにおこられるんだよ。",
+          "mean": "I should have replied quickly, but if I don't send an email right away, the other person gets mad at me."
+        },
+        {
+          "content": "もっと練習すればいいものを、遊んでるから試合で負けるんだよ。",
+          "transcription": "もっとれんしゅうすればいいものを、あそんでるからしあいでまけるんだよ。",
+          "mean": "You should practice more, but you lose in games because you play around."
+        },
+        {
+          "content": "そんな危険な所なら大事故にあうものを、この程度のけがで済んでよかったと思いなさい。",
+          "transcription": "そんなきけんなところならだいじこにあうものを、このていどのけがですんでよかったとおもいなさい。",
+          "mean": "You should be glad that you escaped with only this level of injury, as you would have had a serious accident in such a dangerous place."
+        }
+      ],
+      "mean": "But, Although, If only, I wish I had",
+      "synopsis": "✦普通形[Nな] ＋ ものを"
+    }
+  ],
+  "title": "～ものを      => But, Although, If only, I wish I had",
+  "_id": "93020c54469e582d6fdb16f7baa47f6c"
+}

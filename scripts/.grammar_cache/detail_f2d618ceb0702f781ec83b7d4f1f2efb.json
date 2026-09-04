@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2669,
+  "usages": [
+    {
+      "explain": "Used as a な-form adjective or noun with the meaning \"like that, such, that kind of.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなに大きな蚊がいないよ。",
+          "transcription": "そんなにおおきなかがいないよ。",
+          "mean": "There aren't that many mosquitoes."
+        },
+        {
+          "content": "僕はそんな雑誌を読まない。",
+          "transcription": "ぼくはそんなざっしをよまない。",
+          "mean": "I don't read those magazines."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そんな + N\nそんなに + Na"
+    },
+    {
+      "explain": "Note: Besides そんな, there are also こんな, あんな with similar usage. This word is formed from そのような, このような, あのような with a similar meaning.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "そんな => Like that",
+  "_id": "f2d618ceb0702f781ec83b7d4f1f2efb"
+}

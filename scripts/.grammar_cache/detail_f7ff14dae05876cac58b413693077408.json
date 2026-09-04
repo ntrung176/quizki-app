@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 624,
+  "usages": [
+    {
+      "explain": "✦This expresses the meaning \"compared to a worse situation, then being at this level can still be considered fortunate, something to be thankful for.\"<br/>✦ It is used with nouns that denote limitations or constraints, such as 「救い」(rescue), 「さぐさめ」(comfort). For example, the phrase can convey the idea of \"though it may not be complete, it is an expression of gratitude.\"<br/>✦Sometimes used in the form せめて...もの (at the very least, there is...)",
+      "note": null,
+      "examples": [
+        {
+          "content": "けがをしなかったのがせめてもの心やりだ。<br>",
+          "transcription": "けがをしなかったのがせめてものこころやりだ。<br>",
+          "mean": "At least it was a matter of compassion that no one was injured. &lt;br&gt;"
+        },
+        {
+          "content": "パスポートをとられなかったのが、せめてものなぐさめだ。",
+          "transcription": "ぱすぽーとをとられなかったのが、せめてものなぐさめだ。",
+          "mean": "At least it's a solace that they didn't take my passport."
+        },
+        {
+          "content": "せめてものお礼のしるしにこれを受け取ってください。",
+          "transcription": "せめてものおれいのしるしにこれをうけとってください。",
+          "mean": "Please accept this as a token of my gratitude."
+        },
+        {
+          "content": "誰かが手伝ってくれたら、せめて「ありがとう」ぐらいは言ったって良さそうなものだったのに。",
+          "transcription": "だれかがてつだってくれたら、せめて「ありがとう」ぐらいはいったってよさそうなものだったのに。",
+          "mean": "You might at least have said, \"Thank you\", when someone helped you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦せめてものN"
+    }
+  ],
+  "title": "～せめてもの => at least, at most",
+  "_id": "f7ff14dae05876cac58b413693077408"
+}

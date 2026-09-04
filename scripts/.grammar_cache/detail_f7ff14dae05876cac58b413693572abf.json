@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1213,
+  "usages": [
+    {
+      "explain": "Used to convey information heard from another source. It has a similar meaning to 「…とか聞いている」,「とのことだ」,「そうだ」, etc.<br/>However, with 「とやら」, the speaker's memory is unclear, and it emphasizes that the references provided are not very accurate. It is hardly used in everyday conversation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんのレポートを読んで、社長が大変怒っていたとやら。",
+          "transcription": "さとうさんのれぽーとをよんで、しゃちょうがたいへんおこっていたとやら。",
+          "mean": "I heard that the president was very angry after reading Mr. Sato's report."
+        },
+        {
+          "content": "先月山田さんの夫婦は離婚したとやら。",
+          "transcription": "せんげつやまださんのふうふはりこんしたとやら。",
+          "mean": "Mr. Yamada and his wife got divorced last month."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～とやら"
+    }
+  ],
+  "title": "…とやら => heard that~",
+  "_id": "f7ff14dae05876cac58b413693572abf"
+}

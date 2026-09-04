@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 586,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女に愛をこめて手紙を書きました。",
+          "transcription": "かのじょにあいをこめててがみをかきました。",
+          "mean": "I wrote a letter to her with love."
+        },
+        {
+          "content": "怒りをこめて、核実験反対の署名をした。",
+          "transcription": "いかりをこめて、かくじっけんはんたいのしょめいをした。",
+          "mean": "In anger, he signed a petition opposing nuclear tests."
+        },
+        {
+          "content": "心をこめて、このカードを作った。",
+          "transcription": "こころをこめて、このかーどをつくった。",
+          "mean": "I made this card with all my heart."
+        }
+      ],
+      "mean": "✦ 気持ちをその中に入れて <br/>Sending thoughts and feelings into ~",
+      "synopsis": "✦N + をこめて"
+    }
+  ],
+  "title": "～をこめて => filled with; full of",
+  "_id": "93020c54469e582d6fdb16f7ba4c35ff"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3124,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "僕なりの考えはある。",
+          "transcription": "ぼくなりのかんがえはある。",
+          "mean": "I have my own thoughts."
+        },
+        {
+          "content": "クリスマスに子供なりに考えたプレゼントを私にくれた。",
+          "transcription": "クリスマスにこどもなりにかんがえたプレゼントをわたしにくれた。",
+          "mean": "For Christmas, he gave me a present that he thought up in a childish way."
+        },
+        {
+          "content": "貧しいなら貧しいなりの生活をしなければならない。",
+          "transcription": "まずしいならまずしいなりのせいかつをしなければならない。",
+          "mean": "If you are poor, you must live a poor life."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦Noun + なりに/なりの<br/></div><div>✦いadj + なりに/なりの</div>"
+    }
+  ],
+  "title": "～なりに／～なりの      => suitable; in one's own way / style",
+  "_id": "93020c54469e582d6fdb16f7ba9efeda"
+}

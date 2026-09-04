@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1815,
+  "usages": [
+    {
+      "explain": "Used to express that something is most suitable or best in that situation, indirectly serving as a warning or command. Used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "医者になりたければ、もっと熱心に勉強することだ。",
+          "transcription": "いしゃになりたければ、もっとねっしんにべんきょうすることだ。",
+          "mean": "If you want to become a doctor, study harder."
+        },
+        {
+          "content": "学習に集中するためには、勉強に必要のないものは、机の上に置かないことです。",
+          "transcription": "がくしゅうにしゅうちゅうするためには、べんきょうにひつようのないものは、つくえのうえにおかないことです。",
+          "mean": "In order to concentrate on studying, keep things that are not necessary for studying away from your desk."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/V-ない + ことだ"
+    }
+  ],
+  "title": "... ことだ => should",
+  "_id": "f7ff14dae05876cac58b413693aaa39c"
+}

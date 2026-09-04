@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1575,
+  "usages": [
+    {
+      "explain": "The meaning is \"contrary to...\". Used in cases of comparing two contrasting events like examples (1), (2), or talking about changing states inversely proportional as in example (3).",
+      "note": null,
+      "examples": [
+        {
+          "content": "兄は友だちと騒ぐのが好きだが、私は兄と反対に静かに音楽でも聞いている方が好きだ。",
+          "transcription": "あにはともだちとさわぐのがすきだが、わたしはあにとはんたいにしずかにおんがくでもきいているほうがすきだ。",
+          "mean": "My brother likes to make noise with his friends, but contrary to him, I prefer to listen to music quietly."
+        },
+        {
+          "content": "私の部屋は南むきで陽あたりがいいが、うるさい。それとは反対に両親の部屋は、陽あたりは悪いが静かだ。",
+          "transcription": "わたしのへやはみなみむきでひあたりがいいが、うるさい。それとははんたいにりょうしんのへやは、ひあたりはわるいがしずかだ。",
+          "mean": "My room faces south and gets lots of sunlight, but it's noisy. My parents' room, on the other hand, has less sunlight but is quieter."
+        },
+        {
+          "content": "姉が有名になっていくのとは反対に、弟の人気は衰えてきた。",
+          "transcription": "あねがゆうめいになっていくのとははんたいに、おとうとのにんきはおとろえてきた。",
+          "mean": "While the older sister has become famous, the younger brother's popularity has declined."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…と (は) はんたい (反対)に => opposition; resistance; antagonism; objection; dissent",
+  "_id": "f7ff14dae05876cac58b4136938a5c31"
+}

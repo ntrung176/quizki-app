@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 2104,
+  "usages": [
+    {
+      "explain": "Used when agreeing with the person you are talking to. Although used in spoken language, it is an old-fashioned expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：結局、この計画が成功するかしないかは、市民の方々がどう反応するかにかかっているわけですね。B：いかにもその通りです。ですから、予測がつかないと言っているのですよ。",
+          "transcription": "A：けっきょく、このけいかくがせいこうするかしないかは、しみんのかたがたがどうはんのうするかにかかっているわけですね。B：いかにもそのとうりです。ですから、よそくがつかないといっているのですよ。",
+          "mean": "A: In the end, the success or failure of this plan depends on how the citizens react. B: That's exactly right. That's why I say it's unpredictable."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いかにも is a conjunction."
+    }
+  ],
+  "title": "いかにも => indeed; really; truly; just (like); very; extremely ~",
+  "_id": "f7ff14dae05876cac58b413693d28c28"
+}

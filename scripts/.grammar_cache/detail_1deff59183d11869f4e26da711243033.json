@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3263,
+  "usages": [
+    {
+      "explain": "✦Expressing means or methods. Commonly used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その将軍は知略をもって、あらゆる敵をなぎ倒した。",
+          "transcription": "そのしょうぐんはちりゃくをもって、あらゆるてきをなぎたおした。",
+          "mean": "With his wits, the general defeated all his enemies."
+        },
+        {
+          "content": "真心をもって人を助けることは、自分を救うことになる。",
+          "transcription": "まごころをもってひとをたすけることは、じぶんをすくうことになる。",
+          "mean": "When you help others with sincerity, you save yourself."
+        },
+        {
+          "content": "責任をもって取引させて頂きます。",
+          "transcription": "せきにんをもってとりひきさせていただきます。",
+          "mean": "We will trade responsibly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N＋をもって"
+    }
+  ],
+  "title": "をもって => by means of; with; on / at / as of (time)​",
+  "_id": "1deff59183d11869f4e26da711243033"
+}

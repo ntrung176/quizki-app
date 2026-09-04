@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2553,
+  "usages": [
+    {
+      "explain": "Used to indicate a range for comparison among three or more things.",
+      "note": null,
+      "examples": [
+        {
+          "content": "3人兄弟の中では、長男が一番背が高い。",
+          "transcription": "3にんきょうだいのなかでは、ちょうなんがいちばんせがたかい。",
+          "mean": "Among the three siblings, the eldest is the tallest."
+        },
+        {
+          "content": "サッカーとテニスと野球の中で、野球が一番好きだ。",
+          "transcription": "さっかーとてにすとやきゅうのなかで、やきゅうがいちばんすきだ。",
+          "mean": "Out of soccer, tennis, and baseball, I like baseball the most."
+        },
+        {
+          "content": "この中で一番高いものはどれですか。",
+          "transcription": "このなかでいちばんたかいものはどれですか。",
+          "mean": "Which of these is the highest?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + のなかで"
+    }
+  ],
+  "title": "のなかで => in; among ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f104f6b"
+}

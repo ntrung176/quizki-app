@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1638,
+  "usages": [
+    {
+      "explain": "■ Used when drawing a natural conclusion from the situation or reality to give an explanation or justification. <br/> ■ Because there is a reason, it is natural to say so.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女のお父さんは歌手ですか。それで、彼女も歌うが上手だというわけなんですね。",
+          "transcription": "かのじょのおとうさんはかしゅですか。それで、かのじょもうたうがじょうずだというわけなんですね。",
+          "mean": "Is her father a singer? So she's also a good singer."
+        },
+        {
+          "content": "イギリスとは時差が8時間あるから、日本が１１時ならイギリスは３時というわけだ。",
+          "transcription": "イギリスとはじさが8じかんあるから、にっぽんがいちいちじならイギリスはさんじというわけだ。",
+          "mean": "There is an 8 hour time difference with the UK, so if it's 11 o'clock in Japan, it's 3 o'clock in the UK."
+        },
+        {
+          "content": "その男は顔を見られないように隠していたというわけですね。",
+          "transcription": "そのおとこはかおをみられないようにかくしていたというわけですね。",
+          "mean": "The man was hiding his face so that no one could see it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■V-る / V-た / V-ない ＋というわけだ </div><div>■A-な（だ)＋というわけだ </div><div>■N（ だ) ＋というわけだ</div>"
+    }
+  ],
+  "title": "～というわけだ => This means~",
+  "_id": "f7ff14dae05876cac58b413693921799"
+}

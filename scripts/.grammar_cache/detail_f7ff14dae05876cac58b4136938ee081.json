@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1608,
+  "usages": [
+    {
+      "explain": "Follows words indicating quantities to express an approximate, rough amount. <br/>It can be used to indicate an approximate length of time, number of days, etc., but cannot be used for points in time, dates, etc., i.e., time quantities without duration. <br/>With the meaning of approximate quantity, it can be replaced with 「くらい」、「ぐらい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "準備には二日ほどかかります。",
+          "transcription": "じゅんびにはににちほどかかります。",
+          "mean": "It will take about two days to prepare."
+        },
+        {
+          "content": "小論を完成するまでに5時間ほどかかります。",
+          "transcription": "しょうろんをかんせいするまでに5じかんほどかかります。",
+          "mean": "It will take approximately 5 hours to complete the essay."
+        },
+        {
+          "content": "砂糖を100グラムほど入れてください。",
+          "transcription": "さとうを100ぐらむほどいれてください。",
+          "mean": "Add about 100 grams of sugar."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + ほど"
+    }
+  ],
+  "title": "ほど… => About (approximately)",
+  "_id": "f7ff14dae05876cac58b4136938ee081"
+}

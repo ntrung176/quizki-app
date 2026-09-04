@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1865,
+  "usages": [
+    {
+      "explain": "This sentence pattern uses the verb 「持つ」which is used in expressions like 「ものを持つ」(to hold something), 「手に持つ」(to hold in one's hand), but when used together with abstract nouns like 「自信」(confidence), 「確信」(conviction), it conveys the meaning \"to be accompanied by that\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は自信をもって試験を受けてね。",
+          "transcription": "あしたはじしんをもってしけんをうけてね。",
+          "mean": "Take the test tomorrow with confidence."
+        },
+        {
+          "content": "私は、そのとき確信をもって、彼が言うとおりにした。",
+          "transcription": "わたしは、そのときかくしんをもって、かれがいうとおりにした。",
+          "mean": "I was confident then and did as he said."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + をもって"
+    }
+  ],
+  "title": "をもって => with...",
+  "_id": "f7ff14dae05876cac58b413693b0d8b0"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5171,
+  "usages": [
+    {
+      "explain": "「もかまわず」expresses the subject performing an action without caring, paying attention, or being concerned about the usual things they would normally care about. It does not imply any intention or desire on the part of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は人目も構わず、子供のように泣いた。",
+          "transcription": "かのじょはひとめもかまわず、こどものようにないた。",
+          "mean": "She cried like a child, without caring what others saw."
+        },
+        {
+          "content": "彼は靴が脱げるのも構わず、走り続けた。",
+          "transcription": "かれはくつがにげるのもかまわず、はしりつづけた。",
+          "mean": "He kept running, not caring that his shoes came off."
+        },
+        {
+          "content": "先ほどから閉店時間が過ぎているのも構わず、あの客達は一向に帰ろうとしない。",
+          "transcription": "さきほどからへいてんじかんがすぎているのもかまわず、あのきゃくたちはいっこうにかえろうとしない。",
+          "mean": "It didn't matter that the closing time had already passed, those customers made no attempt to leave."
+        },
+        {
+          "content": "彼は体調が悪いのも構わず、会社に出勤するので、風邪をうつされないか心配です。",
+          "transcription": "かれはたいちょうがわるいのもかまわず、かいしゃにしゅっきんするので、かぜをうつされないかしんぱいです。",
+          "mean": "He doesn't care if he's sick and goes to work, so I'm worried about catching a cold."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nであるの/Nなの/N+も構わず<br/>Vるの+も構わず<br/>Aいの+も構わず<br/>A<s>な</s>であるの/Aなの+も構わず"
+    }
+  ],
+  "title": "も構わず => without caring; without worrying about ~",
+  "_id": "60fc4f30697146bb8010f5141efdb7d8"
+}

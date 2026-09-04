@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1070,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"not necessary to the extent of having to do that\", \"not necessary at all\".",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "検査では何も異常は見つかりませんでした。すっかり元気になりましたから、ご心配には及びません。",
+          "transcription": "けんさではなにもいじょうはみつかりませんでした。すっかりげんきになりましたから、ごしんぱいにはおよびません。",
+          "mean": "No abnormalities were found during the examination. I've recovered completely, so there's no need to worry."
+        },
+        {
+          "content": "帰り道は分かっていて、心配には及びません。",
+          "transcription": "かえりみちはわかっていて、しんぱいにはおよびません。",
+          "mean": "I know my way home, so don't worry."
+        },
+        {
+          "content": "その話は知っているので説明するには及びません。",
+          "transcription": "そのはなしはしっているのでせつめいするにはおよびません。",
+          "mean": "I don't need to explain it because I already know the story."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■ N+にはおよばない </div><div>■ Vる+にはおよばない</div>"
+    }
+  ],
+  "title": "～にはおよばない => there is no need to; unnecessary; no match for ~",
+  "_id": "f7ff14dae05876cac58b41369343e377"
+}

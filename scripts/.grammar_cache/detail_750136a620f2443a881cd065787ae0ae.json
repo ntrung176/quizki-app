@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5214,
+  "usages": [
+    {
+      "explain": "「につき」<br/>\n1. Expresses the cause or reason (N) for an event or action. This is a formal way of speaking, often used in formal contexts such as announcements... \"Because...\"<br/>\n2. Indicates the quantity corresponding to each object N. In spoken language, this structure is often omitted. \"For each...\"<br/>\n3. A more formal form of 「について」, used to indicate the subject/topic (N) that the following action (such as speaking, listening, thinking, researching...) is aimed at. \"Regarding...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "この機械はただ今調整中につき、ご使用になれません。",
+          "transcription": "このきかいはただいまちょうせいちゅうにつき、ごしようになれません。",
+          "mean": "This machine is currently undergoing adjustment and cannot be used."
+        },
+        {
+          "content": "本日は祭日につき、休業させていただきます。",
+          "transcription": "ほんじつはさいじつにつき、きゅうぎょうさせていただきます。",
+          "mean": "We will be closed today as it is a national holiday."
+        },
+        {
+          "content": "雨天につき、試合は延期いたします。",
+          "transcription": "うてんにつき、しあいはえんきいたします。",
+          "mean": "Due to rain, the game will be postponed."
+        },
+        {
+          "content": "店内改装につき、しばらく休業いたします。",
+          "transcription": "てんないかいそうにつき、しばらくきゅうぎょういたします。",
+          "mean": "The store will be closed for a while due to renovations."
+        },
+        {
+          "content": "昼休みにつき、事務所は2時まで休みです。",
+          "transcription": "ひるやすみにつき、じむしょはにじまでやすみです。",
+          "mean": "The office will be closed until 2pm during the lunch break."
+        },
+        {
+          "content": "この駐車場は1日につき1500円かかります。",
+          "transcription": "このちゅうしゃじょうはいちにちにつきせんごひゃくえんかかります。",
+          "mean": "This parking lot costs 1500 yen per day."
+        },
+        {
+          "content": "本日の資料は1人につき2部までお持ち帰りいただけます。",
+          "transcription": "ほんじつのしりょうはひとりにつきにぶまでおもちかえりいただけます。",
+          "mean": "Each person may take home two copies of today's materials."
+        },
+        {
+          "content": "スタンプ10個につき5百円値引きいたします。",
+          "transcription": "スタンプじゅっこにつきごひゃくえんねびきいたします。",
+          "mean": "We will give you a discount of 500 yen for every 10 stamps."
+        },
+        {
+          "content": "参考資料につき、一部誤記がございましたので修正しました。",
+          "transcription": "さんこうしりょうにつき、いちぶごきがございましたのでしゅうせいしました。",
+          "mean": "There were some errors in the reference materials, so we have corrected them."
+        },
+        {
+          "content": "新しい事業計画につき、これからご説明いたします。",
+          "transcription": "あたらしいじぎょうけいかくにつき、これからごせつめいいたします。",
+          "mean": "I would like to explain our new business plan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+につき"
+    }
+  ],
+  "title": "につき => due to; because of; per; each",
+  "_id": "750136a620f2443a881cd065787ae0ae"
+}

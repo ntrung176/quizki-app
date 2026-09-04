@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2523,
+  "usages": [
+    {
+      "explain": "Used as an introductory phrase when politely asking someone to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "婚姻手続きについて聞きたいんですが、何番の窓口でしょうか。",
+          "transcription": "こんいんてつづきについてききたいんですが、なんばんのまどぐちでしょうか。",
+          "mean": "I would like to ask about the marriage procedures, which counter should I contact?"
+        },
+        {
+          "content": "すいません、ちょっと聞きたいんですが、問題10番の答えはなんですか？",
+          "transcription": "すいません、ちょっとききたいんですが...もんだい10ばんのこたえはなんですか？",
+          "mean": "Excuse me, I just wanted to ask, what is the answer to question number 10?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-たいんですが"
+    }
+  ],
+  "title": "...たいんですが => want",
+  "_id": "f2d618ceb0702f781ec83b7d4f0c6cb0"
+}

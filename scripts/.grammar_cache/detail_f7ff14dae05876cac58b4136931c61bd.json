@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 783,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"anything or anyone resembling that thing or person\". When talking about places, we have the expression [...なりどこなり].",
+      "note": null,
+      "examples": [
+        {
+          "content": "チューリップなりなんなり、少し目立つ花を買ってきて下さい。",
+          "transcription": "チューリップなりなんなり、すこしめだつはなをかってきてください。",
+          "mean": "Please buy some flowers that stand out, such as tulips."
+        },
+        {
+          "content": "ここは私が支払いますからコーヒーなりなんなり好きなものを注文して下さい。",
+          "transcription": "ここはわたしがしはらいますからコーヒーなりなんなりすきなものをちゅうもんしてください。",
+          "mean": "I'll pay here, so please order coffee or whatever you like."
+        },
+        {
+          "content": "転地療養するなり何なりして少し体を休めたほうがいい。",
+          "transcription": "てんちりょうようするなりなになりしてすこしからだをやすめたほうがいい。",
+          "mean": "It would be better to take some time off and get some rest."
+        },
+        {
+          "content": "この部屋は寒そうだから、カーペットを入れるなり何なりしなければいけないね。",
+          "transcription": "このへやはさむそうだから、カーペットをいれるなりなになりしなければいけないね。",
+          "mean": "This room looks cold, so I'm going to have to do something about putting in some carpet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N／V + なりなんなり"
+    }
+  ],
+  "title": "...なりなんなり... => any,anything,whatever",
+  "_id": "f7ff14dae05876cac58b4136931c61bd"
+}

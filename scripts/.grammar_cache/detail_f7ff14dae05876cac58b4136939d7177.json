@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1720,
+  "usages": [
+    {
+      "explain": "Indicates a very small quantity.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もうミルクはいくらも残っていない。",
+          "transcription": "もうみるくはいくらものこっていない。",
+          "mean": "There's not much milk left."
+        },
+        {
+          "content": "いくらも儲けは無い。",
+          "transcription": "いくらももうけはない。",
+          "mean": "There is no profit to be made."
+        },
+        {
+          "content": "銀行までは歩いていくらもかからなかった。",
+          "transcription": "ぎんこうまではあるいていくらもかからなかった。",
+          "mean": "It didn't take long to walk to the bank."
+        },
+        {
+          "content": "彼にとって、この世ですることはもういくらも残ってはいなかった。",
+          "transcription": "かれにとって、このよですることはもういくらものこってはいなかった。",
+          "mean": "There wasn't much left for him to do in this world."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いくらも…ない => there is only a few/ little…",
+  "_id": "f7ff14dae05876cac58b4136939d7177"
+}

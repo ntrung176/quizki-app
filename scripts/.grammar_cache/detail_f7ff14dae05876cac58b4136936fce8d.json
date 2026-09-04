@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1394,
+  "usages": [
+    {
+      "explain": "Expresses an emotion so strong that it cannot be controlled.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "喉が乾いてたまらない。",
+          "transcription": "のどがかわいてたまらない。",
+          "mean": "My throat is unbearably dry."
+        },
+        {
+          "content": "彼女のことが心配でたまらない。",
+          "transcription": "かのじょのことがしんぱいでたまらない。",
+          "mean": "I can't help but worry about her."
+        },
+        {
+          "content": "買ったばかりの携帯をなくしてしまったので、悲しくてたまらない。",
+          "transcription": "かったばかりのけいたいをなくしてしまったので、かなしくてたまらない。",
+          "mean": "I lost the cell phone I just bought, so I'm feeling sad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて・Aくて・Naで + たまらない"
+    }
+  ],
+  "title": "たまらない => can not bear",
+  "_id": "f7ff14dae05876cac58b4136936fce8d"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 859,
+  "usages": [
+    {
+      "explain": "Therefore, because of that. Grammatical structures of a similar kind: 「…が原因で／理由で」, 「…のため」",
+      "note": null,
+      "examples": [
+        {
+          "content": "悪天候ゆえに旅行は延期された。",
+          "transcription": "あくてんこうゆえにりょこうはえんきされた。",
+          "mean": "The trip was postponed due to bad weather."
+        },
+        {
+          "content": "成功のゆえに慢心することもあるもの。",
+          "transcription": "せいこうのゆえにまんしんすることもあるもの。",
+          "mean": "Success can sometimes lead to arrogance."
+        },
+        {
+          "content": "彼は汚職の故に失脚した．",
+          "transcription": "かれはおしょくのゆえにしっきゃくした．",
+          "mean": "He was ousted because of corruption."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na・N （が/の）＋ゆえ(に)"
+    }
+  ],
+  "title": "ゆえに => therefore; consequently​; because of; due to ~",
+  "_id": "f7ff14dae05876cac58b413693275b2d"
+}

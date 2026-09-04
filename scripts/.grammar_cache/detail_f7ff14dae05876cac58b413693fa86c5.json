@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2390,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"due to that reason, because of that, ...\" Followed by events considered as the result of that reason. This is a more formal expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "開票の結果、会長には小林さんが選出された。",
+          "transcription": "かいひょうのけっか、かいちょうにはこばやしさんがせんしゅつされた。",
+          "mean": "As a result of the vote counting, Mr. Kobayashi was elected as the chairman."
+        },
+        {
+          "content": "捜査した結果、彼は犯人だと分かった。",
+          "transcription": "そうさしたけっか、かれははんにんだとわかった。",
+          "mean": "After investigation, he was found to be the culprit."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + のけっか\nVた + けっか"
+    }
+  ],
+  "title": "けっか => as a result of; after ~",
+  "_id": "f7ff14dae05876cac58b413693fa86c5"
+}

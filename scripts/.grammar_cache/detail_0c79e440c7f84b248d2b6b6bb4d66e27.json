@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5296,
+  "usages": [
+    {
+      "explain": "「わけだ 」 is used to affirm and emphasize that what one is presenting is a truth based on logic or a logical conclusion.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ジョンさんはお母さんが日本人ですから、日本語が上手なわけだ。",
+          "transcription": "ジョンさんはおかあさんがにほんじんですから、にほんごがじょうずなわけだ。",
+          "mean": "John's mother is Japanese, so he can speak Japanese well."
+        },
+        {
+          "content": "あんなに食べたら太るわけだ。",
+          "transcription": "あんなにたべたらふとるわけだ。",
+          "mean": "If you eat that much, you'll gain weight."
+        },
+        {
+          "content": "彼女は動物が嫌いだから、犬を飼ったことがないわけだ。",
+          "transcription": "かのじょはどうぶつがきらいだから、いぬをかったことがないわけだ。",
+          "mean": "She doesn't like animals, which is why she's never had a dog."
+        },
+        {
+          "content": "手紙を出し忘れていたと父は言った。いくら待っても届かないわけだ。",
+          "transcription": "てがみをだしわすれていたとちちはいった。いくらまってもとどかないわけだ。",
+          "mean": "My father said that he had forgotten to send the letter. No matter how long I wait, it won't arrive."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+わけだ<br/>Aい (formal form)+わけだ<br/>Aな (formal form)+わけだ<br>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)</br>"
+    }
+  ],
+  "title": "わけだ => for that reason; no wonder; as you’d expect; the fact is; so you mean ~",
+  "_id": "0c79e440c7f84b248d2b6b6bb4d66e27"
+}

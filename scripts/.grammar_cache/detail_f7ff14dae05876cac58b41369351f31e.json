@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1176,
+  "usages": [
+    {
+      "explain": "Expressing the idea \"it's as if something like that happened...\". It's often followed by negative events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "宿題を忘れようものなら、あの怖い先生に叱られる。",
+          "transcription": "しゅくだいをわすれようものなら、あのこわいせんせいにしかられる。",
+          "mean": "If you forget your homework, that scary teacher will scold you."
+        },
+        {
+          "content": "妻は「セール」の文字を見ようものなら、すぐにその店へ走り出す。",
+          "transcription": "つまは「せーる」のもじをみようものなら、すぐにそのみせへはしりだす。",
+          "mean": "If my wife sees the word ``SALE,'' she immediately runs to the store."
+        },
+        {
+          "content": "恋人に電話するのを忘れようものなら浮気しているとすぐに疑われる。",
+          "transcription": "こいびとにでんわするのをわすれようものならうわきしているとすぐにうたがわれる。",
+          "mean": "If you forget to call your lover, you will immediately suspect that he is cheating on you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-よう + ものなら"
+    }
+  ],
+  "title": "... ものなら => If I/we could; if [A] is possible, then [B]; if one can do something, then ~",
+  "_id": "f7ff14dae05876cac58b41369351f31e"
+}

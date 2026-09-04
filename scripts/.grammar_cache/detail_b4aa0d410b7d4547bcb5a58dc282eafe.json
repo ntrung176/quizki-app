@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5603,
+  "usages": [
+    {
+      "explain": "「から」indicates the starting point and「まで」indicates the ending point of a period of time or a distance in space.「から」and「まで」do not necessarily have to be used together; they can be used separately.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は電車で東京から大阪まで行きます。",
+          "transcription": "わたしはでんしゃでとうきょうからおおさかまでいきます。",
+          "mean": "I will go from Tokyo to Osaka by train."
+        },
+        {
+          "content": "ダナンからフェまでバスで2時間くらいかかります。",
+          "transcription": "ダナンからフェまでバスでにじかんくらいかかります。",
+          "mean": "It takes about 2 hours by bus from Da Nang to Fe."
+        },
+        {
+          "content": "朝の会議は7時から10時まで行います。",
+          "transcription": "あさのかいぎはしちじからじゅうじまでおこないます。",
+          "mean": "The morning meeting will be held from 7am to 10am."
+        },
+        {
+          "content": "銀行は午前9時から午後6時までです。",
+          "transcription": "ぎんこうはごぜんくじからごごろくじまでです。",
+          "mean": "Banks are open from 9 a.m. to 6 p.m."
+        },
+        {
+          "content": "昼休みは12時から12時50分までです。",
+          "transcription": "ひるやすみはじゅうにじからじゅうにじごじゅっぷんまでです。",
+          "mean": "Lunch break is from 12:00 to 12:50."
+        },
+        {
+          "content": "明日から頑張ります。",
+          "transcription": "あしたからがんばります。",
+          "mean": "I'll do my best starting tomorrow."
+        },
+        {
+          "content": "大阪まで飛行機に乗った。",
+          "transcription": "おおさかまでひこうきにのった。",
+          "mean": "I took a plane to Osaka."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 から N2 まで"
+    }
+  ],
+  "title": "から～まで => from ~ to",
+  "_id": "b4aa0d410b7d4547bcb5a58dc282eafe"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2259,
+  "usages": [
+    {
+      "explain": "This expression means \"light, not very important, trivial\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "昔はちょっとした映画俳優だった。",
+          "transcription": "むかしはちょっとしたえいがはいゆうだった。",
+          "mean": "He used to be a small-time movie actor."
+        },
+        {
+          "content": "ちょっとしたことでも理解に苦しむことがあるのよ。",
+          "transcription": "ちょっとしたことでもりかいにくるしむことがあるのよ。",
+          "mean": "Even the smallest things can be difficult to understand."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ちょっとした + N"
+    }
+  ],
+  "title": "ちょっとした ... => Just simply ..., nothing special (downplaying)",
+  "_id": "f7ff14dae05876cac58b413693e884c9"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2544,
+  "usages": [
+    {
+      "explain": "Used when talking about changes over time, such as changes in seasons, the beginning or end of events, or when the speaker implies that there are similar things besides what's mentioned, to gently raise an issue.",
+      "note": null,
+      "examples": [
+        {
+          "content": "長い冬休みも終わり、来週の月曜日からまた学校が始まります。",
+          "transcription": "ながいふゆやすみもおわり、らいしゅうのげつようびからまたがっこうがはじまります。",
+          "mean": "The long winter break is over, and school starts again next Monday."
+        },
+        {
+          "content": "吉田さんのきげんも直って、平和な空気が戻った。",
+          "transcription": "よしださんのきげんもなおって、へいわなくうきがもどった。",
+          "mean": "Mr. Yoshida's anxiety has improved, and a peaceful atmosphere has returned."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + も"
+    }
+  ],
+  "title": "…も => Also...(Open the article, state the topic)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0f0d05"
+}

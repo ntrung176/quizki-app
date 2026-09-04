@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5451,
+  "usages": [
+    {
+      "explain": "「つもりだった」<br/>\n\n1. Indicates the speaker's intention to do something, but the result was not carried out. \"Was planning to...\"<br/>\n2. Expresses the speaker's belief or assumption that something was a certain way, but in reality it was not, or others didn't think so. \"Thought that...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨日は買い物に行くつもりでしたが、頭が痛かったので、ずっと家にいました。",
+          "transcription": "きのうはかいものにいくつもりでしたが、あたまがいたかったので、ずっとうちにいました。",
+          "mean": "I was going to go shopping yesterday, but I had a headache, so I stayed at home."
+        },
+        {
+          "content": "お菓子を食べないつもりでしたが、つい食べてしまいました。",
+          "transcription": "おかしをたべないつもりでしたが、ついたべてしまいました。",
+          "mean": "I didn't intend to eat sweets, but I ended up eating them."
+        },
+        {
+          "content": "手紙をポストに入れるつもりでしたが、忘れました。",
+          "transcription": "てがみをポストにいれるつもりでしたが、わすれました。",
+          "mean": "I was going to put the letter in the mailbox, but I forgot."
+        },
+        {
+          "content": "用事があったので、パーティーには行かないつもりでしたが、行けるようになりました。",
+          "transcription": "ようじがあったので、パーティーにはいかないつもりでしたが、いけるようになりました。",
+          "mean": "I had something to do, so I wasn't planning on going to the party, but now I can."
+        },
+        {
+          "content": "朝まで寝ずに勉強するつもりだったのに、寝てしまった。",
+          "transcription": "あさまでねずにべんきょうするつもりだったのに、ねてしまった。",
+          "mean": "I was planning to stay up until morning and study, but I ended up falling asleep."
+        },
+        {
+          "content": "佐藤さんともう親友になったつもりだったが、彼女はそう思っていないようだ。",
+          "transcription": "さとうさんともうしんゆうになったつもりだったが、かのじょはそうおもっていないようだ。",
+          "mean": "I thought I had become best friends with Mr. Sato, but she doesn't seem to think so."
+        },
+        {
+          "content": "まだ若いつもりだったが、歩くとすぐ腰が痛くなってしまう。",
+          "transcription": "まだわかいつもりだったが、あるくとすぐこしがいたくなってしまう。",
+          "mean": "I thought I was still young, but my lower back started hurting as soon as I walked."
+        },
+        {
+          "content": "眼鏡はここに置いたつもりだったのに、ない。",
+          "transcription": "めがねはここにおいたつもりだったのに、ない。",
+          "mean": "I thought I left my glasses here, but they aren't there."
+        },
+        {
+          "content": "元気なつもりだったが、犬の散歩に行っただけで疲れてしまうとは、私も年をとったものだ…",
+          "transcription": "げんきなつもりだったが、いぬのさんぽにいっただけでつかれてしまうとは、わたしもとしをとったものだ…",
+          "mean": "I thought I was doing well, but I'm old enough to feel tired just by going for a walk with my dog..."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. V (root form)+つもりだった<br/> Vない+つもりだった<br/><br/>\n2. Vた/Vている+つもりだった<br/>\n Aい/Aな+つもりだった<br/>\n Nの+つもりだった"
+    }
+  ],
+  "title": "つもりだった => I thought I~; I believe I~; was planning to~; was intending to ~",
+  "_id": "b50e3657fee3467dba0b3d4843bcf820"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2781,
+  "usages": [
+    {
+      "explain": "Used with the form (X ば Y) to express the meaning of \"due to situation X, people have come to recognize Y differently\". In this way of speaking, たら and と are commonly used. However, ば is limited to slightly old-fashioned and literary usage, such as in poetry or novels. If used in spoken language, it's often in the form V-てみれば, expressing the feeling of acknowledging that \"it makes sense\", \"indeed, that seems reasonable\", after learning the truth.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は変わり者だという評判だったが、会ってみれば、うわさほどのことはなかった。",
+          "transcription": "かのじょはかわりものだというひょうばんだったが、あってみれば、うわさほどのことはなかった。",
+          "mean": "She had a reputation for being eccentric, but when I met her, it was nothing like the rumors."
+        },
+        {
+          "content": "このプロジェクトを始める前は心配だったが、すべてが終わってみれば、それほど大したことではなかったと思う。",
+          "transcription": "このぷろじぇくとをはじめるまえはしんぱいだったが、すべてがおわってみれば、それほどたいしたことではなかったとおもう。",
+          "mean": "I was worried before starting this project, but now that it's all said and done, I don't think it was that big of a deal."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば + determined conditions"
+    }
+  ],
+  "title": "…ば .... => If...",
+  "_id": "f2d618ceb0702f781ec83b7d4f2e3187"
+}

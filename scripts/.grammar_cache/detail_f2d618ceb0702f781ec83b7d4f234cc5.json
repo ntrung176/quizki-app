@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2698,
+  "usages": [
+    {
+      "explain": "Used together with 「あったでしょうか」,「あろうか」to express an approximate quantity based on the subjective judgment of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "以前、この公園に大きな木があった。高さは５メートルもあっただろうか。",
+          "transcription": "いぜん、このこうえんにおおきなきがあった。たかさはごめーとるもあっただろうか。",
+          "mean": "There used to be a big tree in this park. It was probably 5 meters high."
+        },
+        {
+          "content": "直径４センチもあろうかという氷の雹が降ってきた。",
+          "transcription": "ちょっけいよんせんちもあろうかというこおりのひょうがふってきた。",
+          "mean": "Ice hailstones with diameters of up to 4 cm were falling."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity words + も…か"
+    }
+  ],
+  "title": "も…か => Probably about...",
+  "_id": "f2d618ceb0702f781ec83b7d4f234cc5"
+}

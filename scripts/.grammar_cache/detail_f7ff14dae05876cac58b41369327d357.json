@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 863,
+  "usages": [
+    {
+      "explain": "■ Expresses the meaning that after one event occurs, usually people think that another event will follow, but in reality, it still does not happen.<br/>■ Similar meaning to 「...したまま」.<br/>■ This is an archaic expression, rarely used in conversation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はお辞儀をしたなり何も言わずに部屋を出て行った。",
+          "transcription": "かのじょはおじぎをしたなりなにもいわずにへやをでていった。",
+          "mean": "She bowed and left the room without saying a word."
+        },
+        {
+          "content": "住民の反対にあって、工事は中断されたなり解決のめどもついていない。",
+          "transcription": "じゅうみんのはんたいにあって、こうじはちゅうだんされたなりかいけつのめどもついていない。",
+          "mean": "Due to opposition from residents, the construction work has been halted and there is no prospect of a resolution."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + たなり"
+    }
+  ],
+  "title": "～V + たなり => While... ~ing, Remaining, Not or ever since, Keep or leave",
+  "_id": "f7ff14dae05876cac58b41369327d357"
+}

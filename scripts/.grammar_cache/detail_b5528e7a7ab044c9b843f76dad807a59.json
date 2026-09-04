@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5233,
+  "usages": [
+    {
+      "explain": "「恐れがある」expresses the possibility of an unexpected event (often a negative event) occurring. This structure has a formal tone and is commonly used in news reports, editorials, etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "早く手術しないと、手遅れになる恐れがある。",
+          "transcription": "はやくしゅじゅつしないと、ておくれになるおそれがある。",
+          "mean": "If surgery is not performed quickly, it may be too late."
+        },
+        {
+          "content": "台風がこのまま北上すると、日本に上陸する恐れがある。",
+          "transcription": "たいふうがこのままほくじょうすると、にほんにじょうりくするおそれがある。",
+          "mean": "If the typhoon continues northward, there is a risk that it will make landfall in Japan."
+        },
+        {
+          "content": "こんなに赤字が続くと、この会社は倒産の恐れがある。",
+          "transcription": "こんなにあかじがつづくと、このかいしゃはとうさんのおそれがある。",
+          "mean": "If this deficit continues, this company is at risk of going bankrupt."
+        },
+        {
+          "content": "この病気は伝染の恐れがありません。",
+          "transcription": "このびょうきはでんせんのおそれがありません。",
+          "mean": "This disease is not contagious."
+        },
+        {
+          "content": "この種の鳥は、絶滅の恐れがあると言われている。",
+          "transcription": "このしゅのとりは、ぜつめつのおそれがあるといわれている。",
+          "mean": "This species of bird is said to be at risk of extinction."
+        },
+        {
+          "content": "この巨大プロジェクト  は、地元経済に多大な被害をもたらす恐れがある。",
+          "transcription": "このきょだいプロジェクトは、じもとけいざいにただいなひがいをもたらすおそれがある。",
+          "mean": "This huge project threatens to cause significant damage to the local economy."
+        },
+        {
+          "content": "このテレビドラマは子供に悪い影響を与える恐れがある。",
+          "transcription": "このテレビドラマはこどもにわるいえいきょうをあたえるおそれがある。",
+          "mean": "This TV drama may have a bad influence on children."
+        },
+        {
+          "content": "大雨が降ると、あの橋は  壊れる恐れがある。",
+          "transcription": "おおあめがふると、あのはしはこわれるおそれがある。",
+          "mean": "If it rains heavily, there is a risk that that bridge will collapse."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+恐れがある<br/> Nの+恐れがある"
+    }
+  ],
+  "title": "恐れがある => it is feared that; to be in danger of; to be liable to; possibility of; risk of ~",
+  "_id": "b5528e7a7ab044c9b843f76dad807a59"
+}

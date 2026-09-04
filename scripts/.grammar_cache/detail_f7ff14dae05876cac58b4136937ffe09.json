@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1501,
+  "usages": [
+    {
+      "explain": "Expresses a feeling of worry or fear about an unwanted event, that \"if that happens, it would be disastrous\".<br/><br/>It often uses the form 「といけないので／から／と思って」(because/ I think if... then it's disastrous). It's followed by words expressing preparation to prevent something bad from happening.",
+      "note": null,
+      "examples": [
+        {
+          "content": "風を引くといけないから、暖かい服を着たほうがいい。",
+          "transcription": "かぜをひくといけないから、あたたかいふくをきたほうがいい。",
+          "mean": "It's better to wear warm clothes because you'll have to catch the wind."
+        },
+        {
+          "content": "子供が寂しがるといけないので、おもちゃで遊ばせておきました。",
+          "transcription": "こどもがさびしがるといけないので、おもちゃであそばせておきました。",
+          "mean": "I didn't want my child to get lonely, so I let him play with his toys."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる + といけない + から／ので"
+    }
+  ],
+  "title": "...といけない => If ... then it would be troublesome",
+  "_id": "f7ff14dae05876cac58b4136937ffe09"
+}

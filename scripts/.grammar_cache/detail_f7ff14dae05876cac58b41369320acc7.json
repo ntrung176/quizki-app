@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 811,
+  "usages": [
+    {
+      "explain": "✦ When used with a noun repeated twice, expressions of reason such as [だから] or [ので・し・だもの・もので] appear afterwards. <br/> ✦ In many cases, it conveys a negative evaluation of the object represented by the noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "時期が時期だから果物の値段がとても高い。",
+          "transcription": "じきがじきだからくだもののねだんがとてもたかい。",
+          "mean": "The price of fruits is very high due to the season."
+        },
+        {
+          "content": "夏が夏だから暑いはずだよ。",
+          "transcription": "なつがなつだからあついはずだよ。",
+          "mean": "It's summer, so it must be hot."
+        },
+        {
+          "content": "状況が状況であるから、皆緊張した。",
+          "transcription": "じょうきょうがじょうきょうであるから、かいきんちょうした。",
+          "mean": "Everyone was nervous because of the situation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N が N だから"
+    }
+  ],
+  "title": "～が ... だから => Because..so (Emphasis)",
+  "_id": "f7ff14dae05876cac58b41369320acc7"
+}

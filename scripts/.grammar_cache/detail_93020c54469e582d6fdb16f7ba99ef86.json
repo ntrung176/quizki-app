@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 3229,
+  "usages": [
+    {
+      "explain": "Expresses the determination of wanting to prove oneself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今度きっと勝ってみせる。",
+          "transcription": "こんどきっとかってみせる。",
+          "mean": "I'm sure I'll win this time."
+        },
+        {
+          "content": "私は小説を書いて賞をとってみせる。",
+          "transcription": "わたしはしょうせつをかいてしょうをとってみせる。",
+          "mean": "I will write a novel and win an award."
+        },
+        {
+          "content": "将来必ず有名なサッカー選手になってみせる。",
+          "transcription": "しょうらいかならずゆうめいなさっかーせんしゅになってみせる。",
+          "mean": "I'm sure he will become a famous soccer player in the future."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + みせる"
+    }
+  ],
+  "title": "てみせる  => I’ll do my best; I'll definitely do; I'll show you",
+  "_id": "93020c54469e582d6fdb16f7ba99ef86"
+}

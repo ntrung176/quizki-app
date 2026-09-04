@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 2349,
+  "usages": [
+    {
+      "explain": "At the end of the sentence, the verb is often in the タ form, expressing a repeated action, a habit in the past of a certain object or person. It often goes with the form 「たものだ」to express reminiscence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "子供のころ、天気がいいと、祖父とよく散歩をしたものだ。",
+          "transcription": "こどものころ、てんきがいいと、そふとよくさんぽをしたものだ。",
+          "mean": "When I was a child, I would often go for walks with my grandfather when the weather was nice."
+        },
+        {
+          "content": "週末に一家で買い物に出ると、必ずデパートの食堂でお昼を食べた。",
+          "transcription": "しゅうまつにいっかでかいものにでると、かならずでぱーとのしょくどうでおひるをたべた。",
+          "mean": "When my family went shopping on the weekends, we always ate lunch at the department store cafeteria."
+        },
+        {
+          "content": "祖父母のところに行くと、必ずおこづかいをもらったものだ。",
+          "transcription": "そふぼのところにいくと、かならずおこづかいをもらったものだ。",
+          "mean": "Whenever I visited my grandparents, they always gave me an allowance."
+        },
+        {
+          "content": "大学生のころは、試験が始まるとお腹が痛くなったものだ。",
+          "transcription": "だいがくせいのころは、しけんがはじまるとおなかがいたくなったものだ。",
+          "mean": "When I was a university student, I would feel sick to my stomach when exams started."
+        },
+        {
+          "content": "大阪のおじさんが遊びに来ると、娘たちはいつも大喜びをした。",
+          "transcription": "おおさかのおじさんがあそびにくると、むすめたちはいつもだいよろこびをした。",
+          "mean": "The girls were always overjoyed when an old man from Osaka came to visit."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…と…た(ものだ） => As soon as ... then",
+  "_id": "f7ff14dae05876cac58b413693f4d9f1"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5313,
+  "usages": [
+    {
+      "explain": "「ざるを得ない」 expresses the idea of \"having no choice but to do something\" , \"being compelled to do something despite not wanting to or liking it.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "嫌な仕事でも、生活のためには続けざるを得ない。",
+          "transcription": "いやなしごとでも、せいかつのためにはつづけざるをえない。",
+          "mean": "Even if you hate your job, you have no choice but to continue doing it to make a living."
+        },
+        {
+          "content": "この戦争は間違いだったと言わざるを得ない。",
+          "transcription": "このせんそうはまちがいだったといわざるをえない。",
+          "mean": "I have to say that this war was a mistake."
+        },
+        {
+          "content": "その計画は不可能だと言わざるを得ない。",
+          "transcription": "そのけいかくはふかのうだといわざるをえない。",
+          "mean": "I have to say that that plan is impossible."
+        },
+        {
+          "content": "エコノミークラスを予約したかったが、どこも空席がないので、ビジネスクラスを予約せざるを得ない。",
+          "transcription": "エコノミークラスをよやくしたかったが、どこもくうせきがないので、ビジネスクラスをよやくせざるをえない。",
+          "mean": "I wanted to book economy class, but there were no seats available anywhere, so I had no choice but to book business class."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vない ➔ V<s>ない</s>ざるを得ない<br/>しない ➔ せざるを得ない"
+    }
+  ],
+  "title": "ざるを得ない => cannot help (doing); have no choice but to ~",
+  "_id": "7f34a586340d4b579b0917654eb47a5d"
+}

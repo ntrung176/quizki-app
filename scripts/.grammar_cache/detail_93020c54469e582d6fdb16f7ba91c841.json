@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3131,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate that doing something is very easy.",
+      "note": "✦Usually only goes with two verbs: “想像する” and “察する”.",
+      "examples": [
+        {
+          "content": "オスカー受賞者の喜びは、察するにかたくない。",
+          "transcription": "おすかーじゅしょうしゃのよろこびは、さっするにかたくない。",
+          "mean": "It's hard to imagine the Oscar winner's joy."
+        },
+        {
+          "content": "<div>&amp;nbsp;父がわたしの変りようを見て、どんなに驚ろいたか想像そにかたくない。</div><div><br></div>",
+          "transcription": "ちちがわたしのかわりようをみて、どんなにおどろきろいたかそうぞうそにかたくない。",
+          "mean": "&lt;div&gt;&amp;amp;nbsp;I can't imagine how surprised my father was when he saw how I had changed. &lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "文化や習慣の異なる外国での暮らしがいかに大変かは、想像にかたくない。",
+          "transcription": "ぶんかやしゅうかんのことなるがいこくでのくらしがいかにたいへんかは、そうぞうにかたくない。",
+          "mean": "It is hard to imagine how difficult it is to live in a foreign country with different cultures and customs."
+        },
+        {
+          "content": "長年の努力が実った彼の喜びようは察するにかたくない。",
+          "transcription": "ながねんのどりょくがみのったかれのよろこびようはさっするにかたくない。",
+          "mean": "It was easy to see how happy he was that his years of hard work had finally paid off."
+        },
+        {
+          "content": "そのとき、彼かれがどんなにつらかったかは察さっするにかたくない。",
+          "transcription": "そのとき、かれかれがどんなにつらかったかはさっしさっするにかたくない。",
+          "mean": "It was hard to imagine how painful he must have been at that time."
+        }
+      ],
+      "mean": "✦easy to do; it's not hard to ~",
+      "synopsis": "<div>✦V (root form)+ にかたくない<br/></div><div>✦Noun + にかたくない</div>"
+    }
+  ],
+  "title": "～にかたくない      => easy to do; it's not hard to ~",
+  "_id": "93020c54469e582d6fdb16f7ba91c841"
+}

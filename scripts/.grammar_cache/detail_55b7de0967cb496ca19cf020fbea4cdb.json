@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5508,
+  "usages": [
+    {
+      "explain": "「急に」in Japanese is used to describe a sudden event that occurs unexpectedly, outside the intentions of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は急に涼しくなった。",
+          "transcription": "きょうはきゅうにすずしくなった。",
+          "mean": "It suddenly became cool today."
+        },
+        {
+          "content": "その子は急に泣き出した。",
+          "transcription": "そのこはきゅうになきだした。",
+          "mean": "The child burst out crying."
+        },
+        {
+          "content": "彼の病気が急に悪くなった。",
+          "transcription": "かれのびょうきがきゅうにわるくなった。",
+          "mean": "His illness suddenly worsened."
+        },
+        {
+          "content": "急に雨が降り始めました。",
+          "transcription": "きゅうにあめがふりはじめました。",
+          "mean": "It suddenly started raining."
+        },
+        {
+          "content": "その車は急に右に曲がった。",
+          "transcription": "そのくるまはきゅうにみぎにまがった。",
+          "mean": "The car turned sharply to the right."
+        },
+        {
+          "content": "おばあさんが急に亡くなって、とても悲しいです。",
+          "transcription": "おばあさんがきゅうになくなって、とてもかなしいです。",
+          "mean": "I am very sad that my grandmother passed away suddenly."
+        },
+        {
+          "content": "急にお腹が痛くなりましたから、家に帰ります。",
+          "transcription": "きゅうにおなかがいたくなりましたから、いえにかえります。",
+          "mean": "I suddenly feel sick to my stomach, so I'm going home."
+        },
+        {
+          "content": "昨日から急に寒くなりましたね。ストーブを使い始めましょう。",
+          "transcription": "きのうからきゅうにさむくなりましたね。ストーブをつかいはじめましょう。",
+          "mean": "It's suddenly gotten cold since yesterday. Let's start using the stove."
+        }
+      ],
+      "mean": null,
+      "synopsis": "急に+Sentence"
+    }
+  ],
+  "title": "急に => quickly; immediately; hastily; suddenly; abruptly; unexpectedly ~",
+  "_id": "55b7de0967cb496ca19cf020fbea4cdb"
+}

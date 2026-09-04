@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 1887,
+  "usages": [
+    {
+      "explain": "Describes a situation in which an action takes place.",
+      "note": null,
+      "examples": [
+        {
+          "content": "強い日差しの中をジョギングした。",
+          "transcription": "つよいひざしのなかをじょぎんぐした。",
+          "mean": "I jogged in the strong sunlight."
+        },
+        {
+          "content": "大雨が降る中を一時間も歩き回った。",
+          "transcription": "おおあめがふるなかをいちじかんもあるきまわった。",
+          "mean": "We walked around for an hour in the heavy rain."
+        },
+        {
+          "content": "お忙しい中をわざわざ手伝っていただき、本当にありがとうございます。",
+          "transcription": "おいそがしいちゅうをわざわざてつだっていただき、ほんとうにありがとうございます。",
+          "mean": "Thank you very much for taking the time out of your busy schedule to help me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + のなかを\nA + いなかを\nV + るなかを"
+    }
+  ],
+  "title": "なかを => In this situation...",
+  "_id": "f7ff14dae05876cac58b413693b3ad73"
+}

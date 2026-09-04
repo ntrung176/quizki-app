@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1460,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"not the right time or circumstances to do something.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "会社の困難発生で旅行どころのさわぎではない。",
+          "transcription": "かいしゃのこんなんはっせいでりょこうどころのさわぎではない。",
+          "mean": "Due to the company's difficulties, I am no longer excited about traveling."
+        },
+        {
+          "content": "金がないから贅沢どころのさわぎではない。",
+          "transcription": "きむがないからぜいたくどころのさわぎではない。",
+          "mean": "Since I don't have money, it's not a luxury."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + どころのさわぎではない"
+    }
+  ],
+  "title": "どころのさわぎではない => This is not the time to do things...",
+  "_id": "f7ff14dae05876cac58b4136937a2404"
+}

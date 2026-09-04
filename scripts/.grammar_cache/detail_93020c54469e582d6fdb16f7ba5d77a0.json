@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 3084,
+  "usages": [
+    {
+      "explain": "☞ Describing the place where an action takes place ☞ Describing the location where an event occurs ☞ Describing the cause ☞ Describing the method, technique, or means ☞ Describing what something is made of ☞ Describing a limited period of time",
+      "note": null,
+      "examples": [
+        {
+          "content": "姫路で岡山行きの列車に乗り換える。",
+          "transcription": "ひめじでおかやまいきのれっしゃにのりかえる。",
+          "mean": "At Himeji, change to the train bound for Okayama."
+        },
+        {
+          "content": "明後日は体育館でスポーツ大会があります。",
+          "transcription": "あさってはたいいくかんですぽーつたいかいがあります。",
+          "mean": "There will be a sports tournament at the gym the day after tomorrow."
+        },
+        {
+          "content": "事故でバスが止まっています。",
+          "transcription": "じこでばすがとまっています。",
+          "mean": "The bus is stopped due to an accident."
+        },
+        {
+          "content": "その機械は電気で動く。",
+          "transcription": "そのきかいはでんきでうごく。",
+          "mean": "The machine runs on electricity."
+        },
+        {
+          "content": "このクリームでおいしいケーキを作ります。",
+          "transcription": "このくりーむでおいしいけーきをつくります。",
+          "mean": "Make delicious cakes with this cream."
+        },
+        {
+          "content": "このプロジェクトは一ヶ月で終りますか。",
+          "transcription": "このぷろじぇくとはいっかげつでおわりますか。",
+          "mean": "Will this project be completed in one month?"
+        }
+      ],
+      "mean": ": At, in, because, by, with (period of time)",
+      "synopsis": "～ で"
+    }
+  ],
+  "title": "～で      => At, in, because, by, with (period of time)",
+  "_id": "93020c54469e582d6fdb16f7ba5d77a0"
+}

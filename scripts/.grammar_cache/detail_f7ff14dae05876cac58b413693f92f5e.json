@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2381,
+  "usages": [
+    {
+      "explain": "Using the same verb before and after \"ところまで\" to express an action reaching its extreme point.",
+      "note": null,
+      "examples": [
+        {
+          "content": "泣くところまで泣いてしまった。",
+          "transcription": "なくところまでないてしまった。",
+          "mean": "I cried to the point of crying."
+        },
+        {
+          "content": "とにかく、頑張れるところまで頑張ってみよう。",
+          "transcription": "とにかく、がんばれるところまでがんばってみよう。",
+          "mean": "Anyway, let's try as hard as we can."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + ところまで + V"
+    }
+  ],
+  "title": "ところまで => As long as ...",
+  "_id": "f7ff14dae05876cac58b413693f92f5e"
+}

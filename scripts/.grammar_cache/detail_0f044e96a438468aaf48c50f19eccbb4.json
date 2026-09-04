@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5079,
+  "usages": [
+    {
+      "explain": "「とあれば」 expresses that if in a particular situation as stated in the first clause, then the action in the second clause is necessary or inevitable. This structure often conveys the strong determination or will of the speaker.<br/>There is a related structure commonly used as 「のためとあれば」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "娘のためとあれば、どんなことでもします。",
+          "transcription": "むすめのためとあれば、どんなことでもします。",
+          "mean": "I would do anything for my daughter."
+        },
+        {
+          "content": "いいものを安く買えるとあれば、遠くの店でも喜んで行きます。",
+          "transcription": "いいものをやすくかえるとあれば、とおくのみせでもよろこんでいきます。",
+          "mean": "If I can buy something good at a low price, I'm willing to go to a store far away."
+        },
+        {
+          "content": "父は、たとえ日曜であっても、仕事とあればどこへでも行く。",
+          "transcription": "ちちは、たとえにちようであっても、しごととあればどこへでもいく。",
+          "mean": "My father goes wherever he has to work, even if it's Sunday."
+        },
+        {
+          "content": "彼女の頼みとあれば、手伝ってあげないわけにはいかない。",
+          "transcription": "かのじょのたのみとあれば、てつだってあげないわけにはいかない。",
+          "mean": "If she asks, I have no choice but to help."
+        },
+        {
+          "content": "ユニクロの激安セールとあれば、大勢の人が集まるだろう。",
+          "transcription": "ユニクロのげきやすセールとあれば、おおぜいのひとがあつまるだろう。",
+          "mean": "Uniqlo's super cheap sale will probably attract a lot of people."
+        },
+        {
+          "content": "かわいくて性格もいいとあれば、モテて当然だよ。",
+          "transcription": "かわいくてせいかくもいいとあれば、モテてとうぜんだよ。",
+          "mean": "If you're cute and have a good personality, it's only natural that you'll be popular."
+        },
+        {
+          "content": "必要とあれば国家は全力をあげて君を後援する。",
+          "transcription": "ひつようとあれば、こっかはぜんりょくをあげてきみをこうえんする。",
+          "mean": "If necessary, the state will do everything in its power to support you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+とあれば<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/> Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "とあれば => If it is the case that; If ~",
+  "_id": "0f044e96a438468aaf48c50f19eccbb4"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5203,
+  "usages": [
+    {
+      "explain": "「に応じて」describes something changing or being adjusted to correspond, respond, or fit with the preceding event (N).<br/>\n「に応じ」is the spoken or written form of 「に応じて」used in formal or written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "本校では学生のレベルに応じてクラス分けを行います。",
+          "transcription": "ほんこうではがくせいのレベルにおうじてクラスわけをおこないます。",
+          "mean": "At our school, students are divided into classes according to their level."
+        },
+        {
+          "content": "非常時には状況に応じて柔軟に対処することが必要だ。",
+          "transcription": "ひじょうじにはじょうきょうにおうじてじゅうなんにたいしょすることがひつようだ。",
+          "mean": "In times of emergency, it is necessary to respond flexibly depending on the situation."
+        },
+        {
+          "content": "学習目的の多様化に応じ、教授法や教材にも工夫が求められる。",
+          "transcription": "がくしゅうもくてきのたようかにおうじ、きょうじゅほうやきょうざいにもくふうがもとめられる。",
+          "mean": "In response to the diversification of learning objectives, innovations are required in teaching methods and teaching materials."
+        },
+        {
+          "content": "当ホテルではお客様一人一人のニーズに応じたサービスを提供いたします。",
+          "transcription": "とうホテルではおきゃくさまひとりひとりのニーズにおうじたサービスをていきょういたします。",
+          "mean": "Our hotel provides services tailored to each customer's individual needs."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に応じて<br/> N+に応じ<br/> N+に応じたN'"
+    }
+  ],
+  "title": "に応じて => depending on; in accordance with ~",
+  "_id": "527ed023c3904f0a864d77eea9bd69a1"
+}

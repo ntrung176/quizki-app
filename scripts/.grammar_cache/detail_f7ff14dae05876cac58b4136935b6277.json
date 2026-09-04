@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1246,
+  "usages": [
+    {
+      "explain": "This structure combines the causative form with 「おく」to convey the meaning \"let someone do as they wish.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女に勝手に文句を言わせておきなさい。",
+          "transcription": "かのじょにかってにもんくをいわせておきなさい。",
+          "mean": "Let her complain on her own."
+        },
+        {
+          "content": "子供を好きかってにさせておかないほうがいい。",
+          "transcription": "こどもをすきかってにさせておかないほうがいい。",
+          "mean": "It's better not to let your child do whatever he wants."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-させて + おく"
+    }
+  ],
+  "title": "させておく => Leave it alone, don't interfere",
+  "_id": "f7ff14dae05876cac58b4136935b6277"
+}

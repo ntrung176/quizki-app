@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1933,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's wish or desire, hoping for something. The sentence often ends with words like 「のに、なあ、のだが」. When the current situation does not match the desired state or the wish cannot be fulfilled, this phrase expresses the feeling of regret or disappointment.",
+      "note": null,
+      "examples": [
+        {
+          "content": "毎日が土曜日だったらいいのに。",
+          "transcription": "まいにちがどようびだったらいいのに。",
+          "mean": "Seven days of Saturday is all that I need."
+        },
+        {
+          "content": "もっと時間があったらいいのだが。",
+          "transcription": "もっとじかんがあったらいいのだが。",
+          "mean": "I wish we had more time."
+        },
+        {
+          "content": "鳥のように空を飛べたらいいのになあ。",
+          "transcription": "とりのようにそらをとべたらいいのになあ。",
+          "mean": "I wish I could fly like a bird."
+        },
+        {
+          "content": "私は彼が夫だったらいいなあと思います。",
+          "transcription": "わたしはかれがおっとだったらいいなあとおもいます。",
+          "mean": "I wish he were my husband."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "… たらいい => it would be nice if; should; I hope ~",
+  "_id": "f7ff14dae05876cac58b413693ba6029"
+}

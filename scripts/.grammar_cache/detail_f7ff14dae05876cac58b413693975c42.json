@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 1680,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's reaction to a statement made by a third party.",
+      "note": null,
+      "examples": [
+        {
+          "content": "難病 だということなら知らせてくれるはずがない。",
+          "transcription": "なんびょうだということならしらせてくれるはずがない。",
+          "mean": "If it was an incurable disease, there was no way they would let me know."
+        },
+        {
+          "content": "自分で運転するということなら、運転させてみてはどうか。",
+          "transcription": "じぶんでうんてんするということなら、うんてんさせてみてはどうか。",
+          "mean": "If you're going to drive it yourself, why not let me drive it?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "ということなら"
+    },
+    {
+      "explain": "Note: The usage of the broad form is similar to 「というのなら」, but 「というのなら」can be used to respond to the statements of both the second person present before oneself and the third person, meaning \"if you say so\" or \"if he/she says so\". On the other hand, 「ということなら」usually only responds to the speech of the third person.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ということなら => If he says so~",
+  "_id": "f7ff14dae05876cac58b413693975c42"
+}

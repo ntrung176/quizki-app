@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2923,
+  "usages": [
+    {
+      "explain": "「どこか」 means \"somewhere\", \"anywhere\". The particles 「へ」 and 「を」 can be omitted after 「どこか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "夏休みはどこか (へ) 行きます。",
+          "transcription": "なつやすみはどこか(へ)いきます。",
+          "mean": "I'm going somewhere during my summer vacation."
+        },
+        {
+          "content": "今週末、どこかに行きませんか。",
+          "transcription": "こんしゅうまつ、どこかにいきませんか。",
+          "mean": "Would you like to go somewhere this weekend?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "どこか + V"
+    }
+  ],
+  "title": "どこか => somewhere",
+  "_id": "f2d618ceb0702f781ec83b7d4f400439"
+}

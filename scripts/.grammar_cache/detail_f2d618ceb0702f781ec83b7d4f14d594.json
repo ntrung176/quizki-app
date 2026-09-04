@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2588,
+  "usages": [
+    {
+      "explain": "Verb 1 expresses a purpose or goal, Verb 2 expresses an intentional action to approach or achieve that goal (purpose).\nBefore 「ように」 is a verb that does not express intention (For example, potential verbs like 「わかります」、「みえます」、「きこえます」、「なります」) and is placed in the non-past or negative form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "列車に間に合うように早く起きる。",
+          "transcription": "れっしゃにまにあうようにはやくおきる。",
+          "mean": "Wake up early to catch the train."
+        },
+        {
+          "content": "二度と同じ誤りをしないように注意してください。",
+          "transcription": "にどとおなじあやまりをしないようにちゅういしてください。",
+          "mean": "Be careful not to make the same mistake again."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1-る + ように、V2\nV1-ない + ように、V2"
+    }
+  ],
+  "title": "...ように... => in order to, so that ~. you ...",
+  "_id": "f2d618ceb0702f781ec83b7d4f14d594"
+}

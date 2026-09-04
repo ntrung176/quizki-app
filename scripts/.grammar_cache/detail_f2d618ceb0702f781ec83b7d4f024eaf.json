@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2450,
+  "usages": [
+    {
+      "explain": "This phrase is used to add the speaker's viewpoint or evaluation about something previously mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "忙しいのは疲れるが、暇もまたつまらない。",
+          "transcription": "いそがしいのはつかれるが、ひまもまたつまらない。",
+          "mean": "Being busy is tiring, but free time is also boring."
+        },
+        {
+          "content": "王様でも、彼もまた人間だ。嬉しい時もあれば悲しい時もある。",
+          "transcription": "おうさまでも、かれもまたにんげんだ。うれしいときもあればかなしいときもある。",
+          "mean": "Even though he is a king, he is also a human being. There are times when I am happy and times when I am sad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + もまた\nNaなの + もまた\nA/V + のもまた"
+    }
+  ],
+  "title": "...もまた => once again, also, again",
+  "_id": "f2d618ceb0702f781ec83b7d4f024eaf"
+}

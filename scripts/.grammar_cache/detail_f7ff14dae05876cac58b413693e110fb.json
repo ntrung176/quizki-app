@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2205,
+  "usages": [
+    {
+      "explain": "Describing the state of \"to the extent that one cannot imagine how it could be.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "なんとも申し訳ない犯罪を犯してしまった。",
+          "transcription": "なんとももうしわけないはんざいをおかしてしまった。",
+          "mean": "I have committed a crime that I am sorry for."
+        },
+        {
+          "content": "彼はなんとも馬鹿なことをしたものだ。",
+          "transcription": "かれはなんともばかなことをしたものだ。",
+          "mean": "What a stupid thing he did."
+        },
+        {
+          "content": "彼女の裏切りには、何とも腹がたって仕方がない。",
+          "transcription": "かのじょのうらぎりには、なんともはらがたってしかたがない。",
+          "mean": "I can't help but feel angry at her betrayal."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとも～"
+    }
+  ],
+  "title": "なんとも => Unimaginable",
+  "_id": "f7ff14dae05876cac58b413693e110fb"
+}

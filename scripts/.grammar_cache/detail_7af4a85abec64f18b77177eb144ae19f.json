@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5184,
+  "usages": [
+    {
+      "explain": "「ながら」is used to express the idea that despite something being true in the first part (A/N/V), the reality in the second part contrasts with what might be expected based on the first part. This structure emphasizes the content of the second part.<br/>「ながらも」is stronger and more emphatic than「ながら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "悪いことと知りながら、盗みを繰り返した。",
+          "transcription": "わるいこととしりながら、ぬすみをくりかえした。",
+          "mean": "Even though I knew it was wrong, I repeatedly stole."
+        },
+        {
+          "content": "その話を聞きながら、彼は知らないと言った。",
+          "transcription": "そのはなしをききながら、かれはしらないといった。",
+          "mean": "While listening to the story, he said he didn't know."
+        },
+        {
+          "content": "彼は大学に合格しながら、授業料を払えず、入学出来なかった。",
+          "transcription": "かれはだいがくにごうかくしながら、じゅぎょうりょうをはらえず、にゅうがくできなかった。",
+          "mean": "Although he was accepted into the university, he was unable to pay the tuition fees and was unable to enroll."
+        },
+        {
+          "content": "残念ながらこの話はなかったことにしていただきたい。",
+          "transcription": "ざんねんながらこのはなしはなかったことにしていただきたい。",
+          "mean": "Unfortunately, I would like to pretend that this story never happened."
+        },
+        {
+          "content": "彼はカレーが嫌いながらも、我慢して完食しました。",
+          "transcription": "かれはカレーがきらいながらも、がまんしてかんしょくしました。",
+          "mean": "Even though he didn't like curry, he resisted and finished it all."
+        },
+        {
+          "content": "私の家は狭いながらも、家族みんなで暮らせるので幸せです。",
+          "transcription": "わたしのいえはせまいながらも、かぞくみんなでくらせるのでしあわせです。",
+          "mean": "Although my house is small, I am happy because I can live there with my family."
+        },
+        {
+          "content": "息子達の成長は嬉しいながらも、親から離れて行く寂しさもあります。",
+          "transcription": "むすこたちのせいちょうはうれしいながらも、おやからはなれていくさびしさもあります。",
+          "mean": "Although I am happy to see my sons growing up, I also feel sad about them being separated from their parents."
+        },
+        {
+          "content": "このカメラは小型ながら、性能は実にいい。",
+          "transcription": "このカメラはこがたながら、せいのうはじつにいい。",
+          "mean": "Although this camera is small, its performance is really good."
+        },
+        {
+          "content": "あの女の子は小学生ながら、料理がとても上手です。",
+          "transcription": "あのおんなのこはしょうがくせいながら、りょうりがとてもじょうずです。",
+          "mean": "Although that girl is an elementary school student, she is a very good cook."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+ながら(も)<br/>Aい+ながら(も)<br/> A<s>な</s>+ながら(も)<br> N+ながら(も)<br/></br>"
+    }
+  ],
+  "title": "ながら(も) => but; although; despite ~.",
+  "_id": "7af4a85abec64f18b77177eb144ae19f"
+}

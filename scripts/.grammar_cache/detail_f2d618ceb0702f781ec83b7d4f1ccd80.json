@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2648,
+  "usages": [
+    {
+      "explain": "This structure is used to describe the state of an object after something has happened, and at the present moment (the time of speaking), the result of that action still exists and is visible to the speaker. The emphasis here is on the action itself and the purpose of carrying out that action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それがみんな青く塗ってあります。",
+          "transcription": "それがみんなあおくぬってあります。",
+          "mean": "All of them are painted blue."
+        },
+        {
+          "content": "店には善い品が備えてあります。",
+          "transcription": "みせにはよいしながそなえてあります。",
+          "mean": "The store has good items."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 に N2 が V-てあります"
+    },
+    {
+      "explain": "Note: It is important to distinguish the difference between 「V-てあります」 and 「V-ています」.\n「V- てあります」: The verbs used in this pattern are transitive verbs.\n「V-ています」: The verbs used in this pattern are intransitive verbs.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "に...がV-てあります => Object status",
+  "_id": "f2d618ceb0702f781ec83b7d4f1ccd80"
+}

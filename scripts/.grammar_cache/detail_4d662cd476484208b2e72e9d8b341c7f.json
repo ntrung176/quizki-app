@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5312,
+  "usages": [
+    {
+      "explain": "「要するに」is used to summarize the main point from the content presented before, or to inquire about the focus of the other person's words.",
+      "note": null,
+      "examples": [
+        {
+          "content": "試合に大負けした。要するに、相手のチームと力の差がありすぎたということだ。",
+          "transcription": "しあいにおおまけした。ようするに、あいてのチームとちからのさがありすぎたということだ。",
+          "mean": "I lost the match badly. In short, the difference in strength between them and the opposing team was too great."
+        },
+        {
+          "content": "彼は一度も入賞しなかった。要するに才能がなかったということだ。",
+          "transcription": "かれはいちどもにゅうしょうしなかった。ようするにさいのうがなかったということだ。",
+          "mean": "He never won a prize. In short, he had no talent."
+        },
+        {
+          "content": "要するに人生は短い。",
+          "transcription": "ようするにじんせいはみじかい。",
+          "mean": "In a word, life is short."
+        },
+        {
+          "content": "要するに君は何を言いたいのかね。",
+          "transcription": "ようするにきみはなにをいいたいのかね。",
+          "mean": "In short, what do you want to say?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Paragraph/Sentence 1。 要するに ✚ Sentence 2"
+    }
+  ],
+  "title": "要するに => in short; in a word; to sum up; to put it simply ~",
+  "_id": "4d662cd476484208b2e72e9d8b341c7f"
+}

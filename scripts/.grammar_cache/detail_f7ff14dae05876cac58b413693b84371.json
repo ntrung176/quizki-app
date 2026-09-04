@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1919,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"it cannot be done unless...\". Used in situations where the speaker hopes the preceding statement will be realized or to indicate that something is necessary.",
+      "note": null,
+      "examples": [
+        {
+          "content": "我慢強い人でなくてはこの仕事はしにくい。",
+          "transcription": "がまんづよいひとでなくてはこのしごとはしにくい。",
+          "mean": "This job is difficult to do unless you are patient."
+        },
+        {
+          "content": "どんなに成功しても友達がなくては幸せだとは言えない。",
+          "transcription": "どんなにせいこうしてもともだちがなくてはしあわせだとはいえない。",
+          "mean": "No matter how successful you are, you can't say you're happy without friends."
+        },
+        {
+          "content": "子供がいなくては、生きていけない。",
+          "transcription": "こどもがいなくては、いきていけない。",
+          "mean": "I can't live without children."
+        },
+        {
+          "content": "してみなくては分からない。",
+          "transcription": "してみなくてはわからない。",
+          "mean": "You won't know until you try."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-なくては<br/>A-くなくては<br/>Na・N でなくては"
+    }
+  ],
+  "title": "なくては => If not... then no...",
+  "_id": "f7ff14dae05876cac58b413693b84371"
+}

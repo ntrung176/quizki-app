@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5128,
+  "usages": [
+    {
+      "explain": "「逆に」is an adverb that expresses the contrast in viewpoints, events, or situations between the clause after it and the clause before it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "天気予報と逆に、雨が降り続いている。",
+          "transcription": "てんきよほうとぎゃくに、あめがふりつづいている。",
+          "mean": "Contrary to the weather forecast, it continues to rain."
+        },
+        {
+          "content": "彼はゲームが大好きだが、逆に弟さんは嫌いだ。",
+          "transcription": "かれはゲームがだいすきだが、ぎゃくにおとうとさんはきらいだ。",
+          "mean": "He loves games, but his younger brother hates them."
+        },
+        {
+          "content": "私達の期待とは逆に、今年の売り上げは増えなかった。",
+          "transcription": "わたしたちのきたいとはぎゃくに、ことしのうりあげはふえなかった。",
+          "mean": "Contrary to our expectations, sales did not increase this year."
+        },
+        {
+          "content": "娘はスポーツが好きだが、逆に息子はスポーツが嫌いだ。",
+          "transcription": "むすめはスポーツがすきだが、ぎゃくにむすこはスポーツがきらいだ。",
+          "mean": "My daughter likes sports, but my son hates sports."
+        },
+        {
+          "content": "薬によっては、役に立つどころか逆に害になるものもある。",
+          "transcription": "くすりによっては、やくにたつどころかぎゃくにがいになるものもある。",
+          "mean": "Some medicines will do you more harm than good."
+        },
+        {
+          "content": "今回の試験は自信が満々で合格できると思っていたけど、逆に落ちた。",
+          "transcription": "こんかいのしけんはじしんがまんまんでごうかくできるとおもっていたけど、ぎゃくにおちた。",
+          "mean": "I was full of confidence and thought I would pass this exam, but instead I failed."
+        },
+        {
+          "content": "私はストレスがたまると食欲がなくなるではなく、逆に何か食べないと気が済まなくなる。",
+          "transcription": "わたしはストレスがたまるとしょくよくがなくなるではなく、ぎゃくになにかたべないときがすまなくなる。",
+          "mean": "When I get stressed out, I don't lose my appetite; on the contrary, I feel like I have to eat something."
+        },
+        {
+          "content": "彼女は窓の後ろまで下がった。彼は逆に前に出た。",
+          "transcription": "かのじょはまどのうしろまでさがった。かれはぎゃくにまえにでた。",
+          "mean": "She stepped back behind the window. He stepped forward instead."
+        },
+        {
+          "content": "本によっては、有益どころか逆に害になるものもある。",
+          "transcription": "ほんによっては、ゆうえきどころかぎゃくにがいになるものもある。",
+          "mean": "Some books can do more harm than good."
+        }
+      ],
+      "mean": null,
+      "synopsis": "逆に+Sentence"
+    }
+  ],
+  "title": "逆に => conversely; on the contrary ~",
+  "_id": "c9d3e5bd738f40f693354d088726319b"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 739,
+  "usages": [
+    {
+      "explain": "✦ Used in writing with the meaning of \"not even... \", \"not... at all\".<br/>✦ Also used in affirmative form, meaning \"just... is enough\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "夏の暑い日、風のなく、木々の葉は微動だにしない。",
+          "transcription": "なつのあついひ、かぜのなく、きぎのははびどうだにしない。",
+          "mean": "On a hot summer day, there is no wind, and the leaves on the trees do not move at all."
+        },
+        {
+          "content": "衛兵は直立不動のまま、微動だにしない。",
+          "transcription": "えいへいはちょくりつふどうのまま、びどうだにしない。",
+          "mean": "The guard remained upright, not moving in the slightest."
+        },
+        {
+          "content": "そんな危険をおかすなんて考えるだに恐ろしい。",
+          "transcription": "そんなきけんをおかすなんてかんがえるだにおそろしい。",
+          "mean": "It's scary to think of taking such a risk."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + だにしない"
+    }
+  ],
+  "title": "～だにしない => Even; not even ~",
+  "_id": "f7ff14dae05876cac58b413693166fd4"
+}

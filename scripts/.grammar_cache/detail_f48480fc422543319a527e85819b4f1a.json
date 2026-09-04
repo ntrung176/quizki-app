@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5571,
+  "usages": [
+    {
+      "explain": "「やっと」helps the speaker express the feeling: after going through much difficulty, hardship, or spending a lot of time, finally achieving one's own desire. It shows the speaker's light-heartedness, joy. Mostly used with the form「やっとVた」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やっとレポートを書き上げた。",
+          "transcription": "やっとレポートをかきあげた。",
+          "mean": "I finally finished writing the report."
+        },
+        {
+          "content": "私はやっと家に帰ることが出来る。",
+          "transcription": "わたしはやっとうちにかえることができる。",
+          "mean": "I can finally go home."
+        },
+        {
+          "content": "社長の長い話がやっと終わった。",
+          "transcription": "しゃちょうのながいはなしがやっとおわった。",
+          "mean": "The president's long talk has finally come to an end."
+        },
+        {
+          "content": "やっと自転車に乗れるようになりました。",
+          "transcription": "やっとじてんしゃにのれるようになりました。",
+          "mean": "I can finally ride a bicycle."
+        },
+        {
+          "content": "夏休みの宿題がやっと終わりました。",
+          "transcription": "なつやすみのしゅくだいがやっとおわりました。",
+          "mean": "I have finally finished my summer vacation homework."
+        },
+        {
+          "content": "1時間も待って、注文した料理がやっと来ました。",
+          "transcription": "いちじかんもまって、ちゅうもんしたりょうりがやっときました。",
+          "mean": "After waiting for an hour, the food I ordered finally arrived."
+        },
+        {
+          "content": "彼はやっと自分で500メートルを泳げるようになりました。",
+          "transcription": "かれはやっとじぶんでごひゃくメートルをおよげるようになりました。",
+          "mean": "He was finally able to swim 500 meters on his own."
+        },
+        {
+          "content": "『おはようございます。今日はいい天気ですね。』『おはよう。やっと晴れたね。』",
+          "transcription": "『おはようございます。きょうはいいてんきですね。』『おはよう。やっとはれたね。』",
+          "mean": "\"good morning. It's nice weather today, is not it. \"\"good morning. It's finally sunny. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "やっと+Sentence"
+    }
+  ],
+  "title": "やっと => Eventually...",
+  "_id": "f48480fc422543319a527e85819b4f1a"
+}

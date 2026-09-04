@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1236,
+  "usages": [
+    {
+      "explain": "Expresses a critical attitude, indicating \"it's you who created the cause of the situation being discussed.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "そもそもあなたが責任を持たなければならない。",
+          "transcription": "そもそもあなたがせきにんをもたなければならない。",
+          "mean": "You have to take responsibility in the first place."
+        },
+        {
+          "content": "そもそもあなたがこの方法を選んだんじゃないか。",
+          "transcription": "そもそもあなたがこのほうほうをえらんだんじゃないか。",
+          "mean": "You probably chose this method in the first place."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そもそも～"
+    }
+  ],
+  "title": "そもそも => Most accidents, after all",
+  "_id": "f7ff14dae05876cac58b4136935a0d56"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2393,
+  "usages": [
+    {
+      "explain": "Placed at the beginning of a sentence to show the attitude after receiving new information. Followed by expressions indicating commands, requests, or permissions.<br/>それでは is formed by adding the demonstrative pronoun \"それ\" before \"では\", which in most cases can be replaced by \"では\". This is a formal expression; in casual conversation, people use \"それじゃ(あ)\" or \"じゃ(あ)\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "仕事はもう終わりました。それでは、帰ってもいいです。",
+          "transcription": "しごとはもうおわりました。それでは、かえってもいいです。",
+          "mean": "Work is already done. Well then, you can go home."
+        },
+        {
+          "content": "みんなが帰ってしまいました。それでは、話し合いましょう。",
+          "transcription": "みんながかえってしまいました。それでは、はなしあいましょう。",
+          "mean": "Everyone has gone home. So let's discuss."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それでは～"
+    }
+  ],
+  "title": "それでは => In that case..., so... (Expressing an attitude)",
+  "_id": "f7ff14dae05876cac58b413693facd7e"
+}

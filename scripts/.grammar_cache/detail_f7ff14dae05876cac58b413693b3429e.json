@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1884,
+  "usages": [
+    {
+      "explain": "Used when presenting a topic and then discussing its meaning, definition, or giving an evaluation about it. This expression is commonly used in casual conversations. In cases of discussing meaning, it's equivalent to 「Nとは」in formal writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "FAOって、何のことですか。",
+          "transcription": "FAOって、なんのことですか。",
+          "mean": "What does FAO mean?"
+        },
+        {
+          "content": "ワイザーボールって、どんなスポーツですか。",
+          "transcription": "わいざーぼーるって、どんなすぽーつですか。",
+          "mean": "What kind of sport is wiseball?"
+        },
+        {
+          "content": "山下さんって、商社に勤めているんですよ。",
+          "transcription": "やましたさんって、しょうしゃにつとめているんですよ。",
+          "mean": "Mr. Yamashita works for a trading company."
+        },
+        {
+          "content": "中村部長って、ほんとうにやさしい人ですね。",
+          "transcription": "なかむらぶちょうって、ほんとうにやさしいひとですね。",
+          "mean": "Manager Nakamura is a really kind person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nって\nAって\nV (の) って"
+    }
+  ],
+  "title": "…って => named, called ~",
+  "_id": "f7ff14dae05876cac58b413693b3429e"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5326,
+  "usages": [
+    {
+      "explain": "「ちゃった」is a shortened form of てしまった (te shimatta), used in spoken language to convey the following meanings:\n<br/>1. Completion of an action. (\"I've done...\")\n<br/>2.  Regret about something that has happened; expressing that something has been done that shouldn't have been done. (\"Oops, I've done it again...\")\n<br/><br/>「ちゃう」is a shortened form of てしまう (te shimau), also used in spoken language, with the following meanings:<br/>1. About to or going to complete an action. (\"I'm gonna...\")\n<br/>2.  Regret or disappointment about something that will happen in the future, or something that often happens. (\"I'm gonna mess up again...\")\n<br/>3.  Requesting or inviting someone to do something. (\"Come on, do it!\")",
+      "note": null,
+      "examples": [
+        {
+          "content": "あ、バス、行っちゃった。",
+          "transcription": "あ、バス、いっちゃった。",
+          "mean": "Ah, the bus is gone."
+        },
+        {
+          "content": "あなたが好きになっちゃった。",
+          "transcription": "あなたがすきになっちゃった。",
+          "mean": "I've fallen in love with you."
+        },
+        {
+          "content": "そんなに食べると太っちゃうよ！",
+          "transcription": "そんなにたべるとふとっちゃうよ！",
+          "mean": "If you eat that much, you'll gain weight!"
+        },
+        {
+          "content": "試験が終わった！今日は飲んじゃおう！",
+          "transcription": "しけんがおわった！きょうはのんじゃおう！",
+          "mean": "The exam is over! Let's drink today!"
+        },
+        {
+          "content": "起きないとと思ったのにまた寝ちゃった。",
+          "transcription": "おきないととおもったのにまたねちゃった。",
+          "mean": "I thought I had to wake up, but I fell asleep again."
+        },
+        {
+          "content": "『あれ？ここにあったチョコレートは？』 『あ、食べちゃった。行けなかった？』",
+          "transcription": "『あれ？ここにあったチョコレートは？』 『あ、たべちゃった。いけなかった？』",
+          "mean": "\"that? What chocolate was here? ” “Oh, I ate it. Couldn't go? ”"
+        },
+        {
+          "content": "ちゃんと世話をしないと金魚が死んじゃう。",
+          "transcription": "ちゃんとせわをしないときんぎょがしんじゃう。",
+          "mean": "Your goldfish will die if you don't take care of it properly."
+        },
+        {
+          "content": "姉の大好きなガラスカップを割っちゃった。",
+          "transcription": "あねのだいすきなガラスカップをわっちゃった。",
+          "mean": "I broke my sister's favorite glass cup."
+        },
+        {
+          "content": "早く行こう！遅れたら先生に怒られちゃうよ。",
+          "transcription": "はやくいこう！おくれたらせんせいにおこられちゃうよ。",
+          "mean": "Let's go quickly! If you're late, your teacher will get angry."
+        },
+        {
+          "content": "あ、大変だ。急いで来たから財布を忘れちゃった。",
+          "transcription": "あ、たいへんだ。いそいできたからさいふをわすれちゃった。",
+          "mean": "Ah, that's tough. I came in a hurry so I forgot my wallet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>てしまった</s>+ちゃった<br/> V<s>でしまった</s>+じゃった<br/>V<s>てしまう</s>+ちゃう<br/> V<s>でしまう</s>+じゃう"
+    }
+  ],
+  "title": "ちゃった => to do something by accident, to finish completely",
+  "_id": "35188d69a6674a86a5da464eb7f592ae"
+}

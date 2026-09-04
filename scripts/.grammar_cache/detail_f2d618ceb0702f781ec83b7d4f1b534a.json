@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2633,
+  "usages": [
+    {
+      "explain": "Used to invite the listener to perform an action together with the speaker. It is often spoken with a gentle tone, but when spoken with a rising tone, it implies a stronger demand.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一緒に帰ろうか。",
+          "transcription": "いっしょにかえろうか。",
+          "mean": "Shall we go home together?"
+        },
+        {
+          "content": "私と買い物に行きましょうか。",
+          "transcription": "わたしとかいものにいきましょうか。",
+          "mean": "Shall we go shopping with me?"
+        },
+        {
+          "content": "どこかで遊びに行きましょうか。",
+          "transcription": "どこかであそびにいきましょうか。",
+          "mean": "Shall we go play somewhere?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-よう + か"
+    }
+  ],
+  "title": "ようか => whether or not; considering options",
+  "_id": "f2d618ceb0702f781ec83b7d4f1b534a"
+}

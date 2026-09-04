@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2286,
+  "usages": [
+    {
+      "explain": "Used to indicate one of the reasons for an event. Often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女の性格が暴力的なのは、ひとつには辛い子供時代を送ったためである。",
+          "transcription": "かのじょのせいかくがぼうりょくてきなのは、ひとつにはつらいこどもじだいをおくったためである。",
+          "mean": "One of the reasons why she has a violent personality is because she had a difficult childhood."
+        },
+        {
+          "content": "博物館が建たなかったのはひとつには予算不足のためである。",
+          "transcription": "はくぶつかんがたたなかったのはひとつにはよさんふそくのためである。",
+          "mean": "One of the reasons why the museum was not built was due to a lack of funding."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ひとつには Nの + ためである\nひとつには Vる/ Vた + ためである"
+    }
+  ],
+  "title": "ひとつには…ためである => Partly because of ...",
+  "_id": "f7ff14dae05876cac58b413693ec4c48"
+}

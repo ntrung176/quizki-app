@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1403,
+  "usages": [
+    {
+      "explain": "Expresses a situation that, after undergoing many developments, has finally reached a certain conclusion. This is a literary expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この病気は恐ろしくて、突然全身が出血し、ついには死亡する。",
+          "transcription": "このびょうきはおそろしくて、とつぜんぜんしんがしゅっけつし、ついにはしぼうする。",
+          "mean": "This disease is frightening and causes sudden bleeding all over the body and eventually death."
+        },
+        {
+          "content": "全社は昼となく夜となく働いて、ついには計画に間に合った。",
+          "transcription": "ぜんしゃはひるとなくよるとなくはたらいて、ついにはけいかくにまにあった。",
+          "mean": "The entire company worked day and night to finally meet the plan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ついには ～"
+    }
+  ],
+  "title": "ついには => finally; at last; in the end ~",
+  "_id": "f7ff14dae05876cac58b41369370faec"
+}

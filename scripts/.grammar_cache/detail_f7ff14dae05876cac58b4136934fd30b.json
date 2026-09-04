@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1160,
+  "usages": [
+    {
+      "explain": "This is a sentence pattern emphasizing that \"someone or something is N\", but it often implies a somewhat low evaluation of the objects represented by N, indicating their value is only that much. It can be replaced by 「にすぎない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は都合が悪いと言っているが、それは口実でしかない。",
+          "transcription": "かれはつごうがわるいといっているが、それはこうじつでしかない。",
+          "mean": "He says it's not convenient, but that's just an excuse."
+        },
+        {
+          "content": "彼は社長ですが、両親の目から見るといつまでも子供でしかない。",
+          "transcription": "かれはしゃちょうですが、りょうしんのめからみるといつまでもこどもでしかない。",
+          "mean": "Although he is the company president, he will always be a child in the eyes of his parents."
+        },
+        {
+          "content": "どんなに偉い人でも死ぬときは一人の人間でしかない。",
+          "transcription": "どんなにえらいひとでもしぬときはいちにんのにんげんでしかない。",
+          "mean": "No matter how great a person is, when they die, they are just one person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + でしかない"
+    }
+  ],
+  "title": "... でしかない => merely; nothing but; no more than; there is only ~",
+  "_id": "f7ff14dae05876cac58b4136934fd30b"
+}

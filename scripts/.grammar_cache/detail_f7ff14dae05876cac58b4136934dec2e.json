@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1145,
+  "usages": [
+    {
+      "explain": "範囲で（はんいで）describes the scope, limit of an action, or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それについて、私の分かる範囲で答えます。<br>",
+          "transcription": "それについて、わたしのわかるはんいでこたえます。",
+          "mean": "I'll answer that to the best of my knowledge. &lt;br&gt;"
+        },
+        {
+          "content": "ここから歩いて15分ぐらいの範囲で、郵便局はありませんか。",
+          "transcription": "ここからあるいて15ふんぐらいのはんいで、ゆうびんきょくはありませんか。",
+          "mean": "Is there a post office within a 15 minute walk from here?"
+        },
+        {
+          "content": "今朝、東京で地震がありました。半径20キロから30キロの範囲で、被害があったもようです。",
+          "transcription": "けさ、とうきょうでじしんがありました。はんけい20きろから30きろのはんいで、ひがいがあったもようです。",
+          "mean": "There was an earthquake in Tokyo this morning. It appears that damage was caused in a radius of 20 to 30 km."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + はんいで\nN + から + N + の + はんいで\nV + はんいで"
+    }
+  ],
+  "title": ".... はんいで => In scope",
+  "_id": "f7ff14dae05876cac58b4136934dec2e"
+}

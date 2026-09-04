@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3107,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "母親とて、彼の本当の気持ちは理解できないだろう。",
+          "transcription": "ははおやとて、かれのほんとうのきもちはりかいできないだろう。",
+          "mean": "Even his mother will never understand his true feelings."
+        },
+        {
+          "content": "子供が風邪を引いたからとて、仕事を休むわけにはいかない。",
+          "transcription": "こどもがかぜをひいたからとて、しごとをやすむわけにはいかない。",
+          "mean": "I can't afford to miss work just because my child has a cold."
+        },
+        {
+          "content": "慣れねこととて失礼がありましたこと、お許しください。",
+          "transcription": "なれねこととてしつれいがありましたこと、おゆるしください。",
+          "mean": "Please forgive me for being so rude."
+        },
+        {
+          "content": "みんなわたしを頼りにしているらしいが、わたしとてこんなに長期の海外旅行は初めてで、不安なのだ。",
+          "transcription": "みんなわたしをたよりにしているらしいが、わたしとてこんなにちょうきのかいがいりょこうははじめてで、ふあんなのだ。",
+          "mean": "It seems like everyone is counting on me, but it's my first time traveling overseas for such a long period of time, so I'm nervous."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～とて      => even; even if/though",
+  "_id": "93020c54469e582d6fdb16f7ba9cb6fd"
+}

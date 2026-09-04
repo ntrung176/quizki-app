@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5073,
+  "usages": [
+    {
+      "explain": "「にもまして」expresses the idea that while something (N) already has a certain quality, the subsequent event or thing (the clause after にもまして) is even more prominent in that quality. This structure emphasizes the degree of the quality of the event or thing in the second clause.<br/>\n\nHere, N can be not only common nouns but also interrogative words like 誰 (who), いつ (when), どこ (where), なに (what), etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "久しぶりに会った彼女は、以前にもまして美しかった。",
+          "transcription": "ひさしぶりにあったかのじょは、いぜんにもましてうつくしかった。",
+          "mean": "It's been a long time since I met her, and she was more beautiful than ever."
+        },
+        {
+          "content": "今日は平日なのに、いつにもましてお客さんが多い。",
+          "transcription": "きょうはへいじつなのに、いつにもましておきゃくさんがおおい。",
+          "mean": "Even though today is a weekday, there are more customers than usual."
+        },
+        {
+          "content": "今日の山田くんは、いつにもましてケチだ。",
+          "transcription": "きょうのやまだくんは、いつにもましてケチだ。",
+          "mean": "Today, Yamada-kun is more stingy than ever."
+        },
+        {
+          "content": "頑張って勉強したことが、何にもまして大切なんだよ。",
+          "transcription": "がんばってべんきょうしたことが、なににもましてたいせつなんだよ。",
+          "mean": "Studying hard is more important than anything else."
+        },
+        {
+          "content": "夏の暑さにもまして嫌なのは、湿気だ。",
+          "transcription": "なつのあつさにもましていやなのは、しっけだ。",
+          "mean": "What I hate even more than the summer heat is the humidity."
+        },
+        {
+          "content": "彼女は、誰にもまして親切だ。",
+          "transcription": "かのじょは、だれにもましてしんせつだ。",
+          "mean": "She is kinder than anyone else."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にもまして"
+    }
+  ],
+  "title": "にもまして => more than…; above ~",
+  "_id": "6ae9f42fe1d04d85ba372a3c34dc33ed"
+}

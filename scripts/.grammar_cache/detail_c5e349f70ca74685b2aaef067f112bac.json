@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5550,
+  "usages": [
+    {
+      "explain": "「てある」indicates:<br/>\n\n1. The state of an object, which is the result of a deliberate action by someone. This person's identity is either unknown or not mentioned to emphasize the state being discussed. The verb V here is a transitive verb, showing the action of that person. The noun N2 before the particle が indicates the object.<br/>\nComparison with 「ている」:<br/>\n- Similarity: Both describe the state of an object.<br/>\n- Difference: 「てある」is used with transitive verbs, indicating that the state is deliberately arranged; on the other hand, 「ている」is used with intransitive verbs, simply describing the state. Therefore, objective causes from nature and animals will be described using 「ている」.<br/>\n2. The state of readiness or preparation of an object or event. The verb V here is still a transitive verb, but the subject of the action is understood to be the speaker. The object or event N2 is placed before the particle を, and if it becomes the topic of the sentence, it is placed before the particle は.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "財布にお金が入れてある。",
+          "transcription": "さいふにおかねがいれてある。",
+          "mean": "I have money in my wallet."
+        },
+        {
+          "content": "黒板に私の名前が書いてある。",
+          "transcription": "こくばんにわたしのなまえがかいてある。",
+          "mean": "My name is written on the blackboard."
+        },
+        {
+          "content": "机の前の壁にはカレンダーが張ってあった。写真も絵も何もない数字だけのカレンダーだった。",
+          "transcription": "つくえのまえのかべにはカレンダーがはってあった。しゃしんもえもなにもないすうじだけのカレンダーだった。",
+          "mean": "A calendar was posted on the wall in front of the desk. It was a calendar with no photos or pictures, just numbers."
+        },
+        {
+          "content": "あなたの秘密は厳重に保管してあります。",
+          "transcription": "あなたのひみつはげんじゅうにほかんしてあります。",
+          "mean": "Your secret is kept in strict confidence."
+        },
+        {
+          "content": "このケーキは甘くならないように、砂糖は少なくしてある。",
+          "transcription": "このケーキはあまくならないように、さとうはすくなくしてある。",
+          "mean": "I used less sugar to keep this cake from being too sweet."
+        },
+        {
+          "content": "そのことは書いた手紙の中にも注意してありました。",
+          "transcription": "そのことはかいたてがみのなかにもちゅういしてありました。",
+          "mean": "I also noted this in the letter I wrote."
+        },
+        {
+          "content": "ビールを買ってあるから、友達が急に家に来ても大丈夫だ。",
+          "transcription": "ビールをかってあるから、ともだちがきゅうにいえにきてだいじょうぶだ。",
+          "mean": "I bought some beer, so I don't have to worry about my friends coming over unexpectedly."
+        },
+        {
+          "content": "料理を作ってあるから、今日は家で食べる。",
+          "transcription": "りょうりをつくってあるから、きょうはいえでたべる。",
+          "mean": "I've already cooked the food, so I'll eat it at home today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "(N1 に) N2 が+Vてある<br/> N2 は/を (N1 に)+Vてある"
+    }
+  ],
+  "title": "てある => is/has been done (resulting state)",
+  "_id": "c5e349f70ca74685b2aaef067f112bac"
+}

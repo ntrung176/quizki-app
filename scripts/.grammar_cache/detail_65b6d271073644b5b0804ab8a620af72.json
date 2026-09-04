@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5190,
+  "usages": [
+    {
+      "explain": "「ねばならない/ねばならぬ/ねば」express the idea of \"must\" or \"have to\" do something.<br/>\nThey are synonymous with 「なければならない」and carry a sense of obligation, compulsion, or command, but due to their stiffness and old-fashioned nature, they are hardly used in everyday conversation. Instead, they are mainly found in movies, old literature, or settings from the past.<br/>\n「ねばならぬ」is an older form of expression, and 「ねば」is a shortened form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ビザが切れたので、国に帰らねばならない。",
+          "transcription": "ビザがきれたので、くににかえらねばならない。",
+          "mean": "My visa has expired, so I have to return to my country."
+        },
+        {
+          "content": "それが真実であることを確かめねばならない。",
+          "transcription": "それがしんじつであることをたしかめねばならない。",
+          "mean": "I have to make sure it's true."
+        },
+        {
+          "content": "国民はもう少し政治に関心を持たねばならない。",
+          "transcription": "こくみんはもうすこしせいじにかんしんをもたねばならない。",
+          "mean": "People need to be a little more interested in politics."
+        },
+        {
+          "content": "ご飯を食べるときは、手を洗わねばならない。",
+          "transcription": "ごはんをたべるときは、てをあらわねばならない。",
+          "mean": "When eating rice, you must wash your hands."
+        },
+        {
+          "content": "優勝出来るように頑張らねばならない。",
+          "transcription": "ゆうしょうできるようにがんばらねばならない。",
+          "mean": "We have to do our best to win."
+        },
+        {
+          "content": "明後日までにこの仕事をやってしまわねばならぬ。",
+          "transcription": "みょうごにちまでにこのしごとをやってしまわねばならぬ。",
+          "mean": "I must get my work done by the day after tomorrow."
+        },
+        {
+          "content": "この試合、絶対勝たねば。",
+          "transcription": "このしあい、ぜったいかたねば。",
+          "mean": "We must definitely win this match."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ない</s>+ねばならない / ねばならぬ / ねば"
+    }
+  ],
+  "title": "ねばならない/ねばならぬ/ねば => have to do; must; should ~",
+  "_id": "65b6d271073644b5b0804ab8a620af72"
+}

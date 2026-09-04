@@ -1,0 +1,81 @@
+{
+  "level": "N3",
+  "mobileId": 5335,
+  "usages": [
+    {
+      "explain": "The 「ごとに」expresses the idea that after every occurrence of an event, after a period of time, or after a distance, an action will repeat as a rule.",
+      "note": null,
+      "examples": [
+        {
+          "content": "バスは10分ごとに通っている。",
+          "transcription": "バスはじゅっぷんごとにかよっている。",
+          "mean": "Buses run every 10 minutes."
+        },
+        {
+          "content": "彼は土曜ごとに恋人に会っている。",
+          "transcription": "かれはどようごとにこいびとにあっている。",
+          "mean": "He meets his girlfriend every Saturday."
+        },
+        {
+          "content": "地球は24時間ごとに1回自転する。",
+          "transcription": "ちきゅうはにじゅうよんじかんごとにいっかいじてんする。",
+          "mean": "The Earth rotates once every 24 hours."
+        },
+        {
+          "content": "オリンピックは4年ごとに開催される。",
+          "transcription": "オリンピックはよねんごとにかいさいされる。",
+          "mean": "The Olympics are held every four years."
+        },
+        {
+          "content": "彼は6か月ごとに新作の小説を出している。",
+          "transcription": "かれはろっかげつごとにしんさくのしょうせつをだしている。",
+          "mean": "He publishes a new novel every six months."
+        },
+        {
+          "content": "山間部の天気は一時間ごとにでも一変する。",
+          "transcription": "さんかんぶのてんきはいちじかんごとにでもいっぺんする。",
+          "mean": "The weather in the mountains can change dramatically even hourly."
+        },
+        {
+          "content": "このシステムは半年ごとにアップデートされる。",
+          "transcription": "このシステムははんとしごとにアップデートされる。",
+          "mean": "This system is updated every six months."
+        },
+        {
+          "content": "列車が到着するごとにホームは人で溢れている。",
+          "transcription": "れっしゃがとうちゃくするごとにホームはひとであふれている。",
+          "mean": "Every time a train arrives, the platform is filled with people."
+        },
+        {
+          "content": "私の会社では2年ごとにパソコンを新しいものに交換する。",
+          "transcription": "わたしのかいしゃではにねんごとにパソコンをあたらしいものにこうかんする。",
+          "mean": "At my company, we replace our computers with new ones every two years."
+        },
+        {
+          "content": "私が働くコンビニでは1時間ごとにおでんやフライドチキンなど、食べ物の品質をチェックしている。",
+          "transcription": "わたしがはたらくコンビニではいちじかんごとにおでんやフライドチキンなど、たべもののひんしつをチェックしている。",
+          "mean": "At the convenience store where I work, we check the quality of food such as oden and fried chicken every hour."
+        },
+        {
+          "content": "この道路は500メートルごとに距離を知らせる標識があります。",
+          "transcription": "このどうろはごひゃくメートルごとにきょりをしらせるひょうしきがあります。",
+          "mean": "This road has distance signs every 500 meters."
+        },
+        {
+          "content": "人は失敗するごとに成長していくものだ。",
+          "transcription": "ひとはしっぱいするごとにせいちょうしていくものだ。",
+          "mean": "People grow with each failure."
+        },
+        {
+          "content": "5キロ歩くごとに10分休憩しましょう。",
+          "transcription": "ごキロあるくごとにじゅっぷんきゅうけいしましょう。",
+          "mean": "Take a 10-minute break every 5 kilometers you walk."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) / N+ごとに"
+    }
+  ],
+  "title": "ごとに => each; every; at intervals of ~",
+  "_id": "5b6890b0c050485cad8a23edd54ca222"
+}

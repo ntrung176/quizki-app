@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2147,
+  "usages": [
+    {
+      "explain": "Following 「ような」 are nouns like 「気」, 「感じ」, 「予感」..., indicating the meaning \"feeling like..., having a hunch..., feeling as if...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "事故が起こったような予感がした。",
+          "transcription": "じこがおこったようなよかんがした。",
+          "mean": "I had a feeling that an accident had occurred."
+        },
+        {
+          "content": "そのワインのグラスを飲んだら、何だか体が悪くなったような感じだ。",
+          "transcription": "そのわいんのぐらすをのんだら、なんだかからだがわるくなったようなかんじだ。",
+          "mean": "After drinking that glass of wine, I feel like I've gotten sick."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な・N-の + ような感じがする"
+    }
+  ],
+  "title": "ような感じがする => have a feeling that; feels like; seems like; think that ~",
+  "_id": "f7ff14dae05876cac58b413693d9b71d"
+}

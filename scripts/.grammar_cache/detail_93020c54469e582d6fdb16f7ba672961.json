@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 3146,
+  "usages": [
+    {
+      "explain": "☞ Used as a noun<br/>☞ Often followed by verbs like つかう (to use), いい (good), べんりだ (convenient), 役に立つ (to be useful), and the expression 「時間がかかる」(takes time).",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのハンマーは釘を打つのにつかいます。",
+          "transcription": "そのはんまーはくぎをうつのにつかいます。",
+          "mean": "The hammer is used to drive nails."
+        },
+        {
+          "content": "このスマットフォンは外国語を勉強するのに役にたちます。",
+          "transcription": "このすまっとふぉんはがいこくごをべんきょうするのにやくにたちます。",
+          "mean": "This smart phone is useful for studying foreign languages."
+        },
+        {
+          "content": "新しいパートナーを探すのに時間がかかります。",
+          "transcription": "あたらしいぱーとなーをさがすのにじかんがかかります。",
+          "mean": "It takes time to find a new partner."
+        },
+        {
+          "content": "6千円あればこの辞書を買うのに十分です。",
+          "transcription": "6せんえんあればこのじしょをかうのにじゅうぶんです。",
+          "mean": "6,000 yen is enough to buy this dictionary."
+        },
+        {
+          "content": "あなたはそのプロジェクトを実行するのに少々苦労する。",
+          "transcription": "あなたはそのぷろじぇくとをじっこうするのにしょうしょうくろうする。",
+          "mean": "You will have some difficulty implementing the project."
+        }
+      ],
+      "mean": ": to (do something); in order to ~",
+      "synopsis": "Vる／N ＋ のに"
+    }
+  ],
+  "title": "～のに      => to (do something); in order to ~",
+  "_id": "93020c54469e582d6fdb16f7ba672961"
+}

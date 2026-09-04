@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2409,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"to a degree that is not so high as to reach that level.\"",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "読書が好きですが、徹夜で読むというほどではない。",
+          "transcription": "どくしょがすきですが、てつやでよむというほどではない。",
+          "mean": "I like reading, but I don't stay up all night reading."
+        },
+        {
+          "content": "日本語は話せますが、通訳ができるというほどではありません。",
+          "transcription": "にほんごははなせますが、つうやくができるというほどではありません。",
+          "mean": "I can speak Japanese, but I'm not good enough to be an interpreter."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na + というほどではない\nA／V + というほどではない"
+    }
+  ],
+  "title": "…というほどではない => the extent of something is not as much as you would call ～",
+  "_id": "f7ff14dae05876cac58b413693fc9a04"
+}

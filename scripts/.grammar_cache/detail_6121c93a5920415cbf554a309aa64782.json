@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5216,
+  "usages": [
+    {
+      "explain": "「にわたって」indicates an action or state occurring over a period of time or throughout a certain space.<br/>\n「にわたって」and 「にかけて」have similar meanings, but they differ in:<br/>\n- 「にかけて」specifically indicates the starting and ending points of the time/space range (～から～にかけて).<br/>\n- 「にわたって」does not specify the exact starting and ending points of the time/space range, instead it indicates the whole duration or span of that time/space.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この台風の影響で、関東地方は広い範囲にわたって大雨となるでしょう。",
+          "transcription": "このたいふうのえいきょうで、かんとうちほうはひろいはんいにわたっておおあめとなるでしょう。",
+          "mean": "The effects of this typhoon will cause heavy rain over a wide area in the Kanto region."
+        },
+        {
+          "content": "我が社は20年間にわたり、この薬の研究開発に努めてきた。",
+          "transcription": "わがしゃはにじゅうねんかんにわたり、このくすりのけんきゅうかいはつにつとめてきた。",
+          "mean": "Our company has been working hard to research and develop this drug for 20 years."
+        },
+        {
+          "content": "祭りは3日間にわたって続いた。",
+          "transcription": "まつりはみっかかんにわたってつづいた。",
+          "mean": "The festival lasted for three days."
+        },
+        {
+          "content": "2キロメートルにわたって桜の木が植えられている。",
+          "transcription": "にキロメートルにわたってさくらのきがうえられている。",
+          "mean": "Cherry blossom trees are planted for 2 kilometers."
+        },
+        {
+          "content": "その国との400年にわたる交流について調べる。",
+          "transcription": "そのくにとのよんひゃくねんにわたるこうりゅうについてしらべる。",
+          "mean": "Find out about 400 years of exchange with that country."
+        },
+        {
+          "content": "兄は7時間にわたる大手術を受けた。",
+          "transcription": "あにはしちじかんにわたるだいしゅじゅつをうけた。",
+          "mean": "My brother underwent a major surgery that lasted seven hours."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にわたって<br/> N+にわたり<br/> N+にわたるN'"
+    }
+  ],
+  "title": "にわたって => throughout; over a period of ~",
+  "_id": "6121c93a5920415cbf554a309aa64782"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2228,
+  "usages": [
+    {
+      "explain": "Formal and polite expression of \"どちらも\", \"どれも\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "各タイル１〜５はいずれも同一寸法のものである。",
+          "transcription": "かくたいるいち〜ごはいずれもどういちすんぽうのものである。",
+          "mean": "Each tile 1-5 has the same size."
+        },
+        {
+          "content": "彼らはいずれも憂国の至情に燃えていた。",
+          "transcription": "かれらはいずれもゆうこくのしじょうにもえていた。",
+          "mean": "They were all passionate about patriotism."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いずれも => both,either,any,all,every",
+  "_id": "f7ff14dae05876cac58b413693e47c4e"
+}

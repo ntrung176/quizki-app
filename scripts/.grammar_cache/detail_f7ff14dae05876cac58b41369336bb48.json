@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 975,
+  "usages": [
+    {
+      "explain": "Describes an ambiguous state regarding an action or event. In many cases, it carries a tone of criticism or condemnation towards that action or event. <br/>In modern language, 「とやかく」is more common.",
+      "note": null,
+      "examples": [
+        {
+          "content": "起こったことをとかく心配しでも仕方がない。",
+          "transcription": "おこったことをとかくこころはいしでもしかたがない。",
+          "mean": "There's no use worrying about what happened."
+        },
+        {
+          "content": "会社には彼女についてとかくの噂が広がっている。",
+          "transcription": "かいしゃにはかのじょについてとかくのうわさがひろがっている。",
+          "mean": "Rumors about her are spreading around the company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とかく ～"
+    }
+  ],
+  "title": "とかく => anyway, anyhow",
+  "_id": "f7ff14dae05876cac58b41369336bb48"
+}

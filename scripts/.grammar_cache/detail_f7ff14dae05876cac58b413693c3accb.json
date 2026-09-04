@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1995,
+  "usages": [
+    {
+      "explain": "Expresses a change or an action extending from the past to the present.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この習慣は二百年も続いて来たのだ。",
+          "transcription": "このしゅうかんはにひゃくねんもつづいてきたのだ。",
+          "mean": "This custom has continued for two hundred years."
+        },
+        {
+          "content": "彼は３０歳のときからずっとこの会社で働いて来ました。",
+          "transcription": "かれはさんぜろさいのときからずっとこのかいしゃではたらいてきました。",
+          "mean": "He has been working at this company since he was 30 years old."
+        },
+        {
+          "content": "いままで両親伝来の家を守り続けて来たが、賭博で借金なので買わなければならなくなった。",
+          "transcription": "いままでりょうしんでんらいのいえをまもりつづけてきたが、とばくでしゃっきんなのでかわなければならなくなった。",
+          "mean": "Until now, he has kept the house that was inherited from his parents, but due to gambling debts, he had to buy it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + くる"
+    }
+  ],
+  "title": "てくる => to continue to now",
+  "_id": "f7ff14dae05876cac58b413693c3accb"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1672,
+  "usages": [
+    {
+      "explain": "Used to present a conjecture based on the speaker's direct experience. At the end of the sentence, 「らしい/ようだ/にちがいない」 are often used. Sometimes, forms like 「...ところから」 or 「...ところからみて」 are also used. 高級車に乗っているところから、相当の金持ちだと思われる. Judging from the fact that he drives a luxury car, he is likely quite wealthy.",
+      "note": null,
+      "examples": [
+        {
+          "content": "楽しい顔をしているところを見ると、まだ不合格のことを知らせられていないのだろう。",
+          "transcription": "たのしいかおをしているところをみると、まだふごうかくのことをしらせられていないのだろう。",
+          "mean": "Judging by the happy faces on their faces, I guess they haven't been informed of their failure yet."
+        },
+        {
+          "content": "大勢の客が行列しているところを見ると、ケーキ屋はとても美味しいようだ。",
+          "transcription": "たいせいのきゃくがぎょうれつしているところをみると、けーきやはとてもおいしいようだ。",
+          "mean": "Judging from the large number of customers queuing up, the cake shop seems to be very delicious."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ている + ところをみると"
+    }
+  ],
+  "title": "... ところをみると => judging from; seeing that ~",
+  "_id": "f7ff14dae05876cac58b41369395fe53"
+}

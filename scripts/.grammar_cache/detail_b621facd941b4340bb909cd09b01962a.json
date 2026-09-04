@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 5637,
+  "usages": [
+    {
+      "explain": "「てから」indicates the order of two actions. Action 2 is done after action 1 is completed. The relationship between action 1 and action 2 is very close, meaning action 2 can only be done after action 1 is finished.",
+      "note": null,
+      "examples": [
+        {
+          "content": "コンサートが終わってから、レストランで食事しました。",
+          "transcription": "コンサートがおわってから、レストランでしょくじしました。",
+          "mean": "After the concert, we went to a restaurant."
+        },
+        {
+          "content": "食事をしてから、薬を飲みます。",
+          "transcription": "しょくじをしてから、くすりをのみます。",
+          "mean": "After eating, I take my medicine."
+        },
+        {
+          "content": "この資料を見てから、返事してください。",
+          "transcription": "このしりょうをみてから、へんじしてください。",
+          "mean": "Please look at this material before responding."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1て+から、V2"
+    }
+  ],
+  "title": "てから => after doing ~",
+  "_id": "b621facd941b4340bb909cd09b01962a"
+}

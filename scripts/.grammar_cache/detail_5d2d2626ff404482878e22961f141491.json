@@ -1,0 +1,101 @@
+{
+  "level": "N5",
+  "mobileId": 5589,
+  "usages": [
+    {
+      "explain": "The 「がある」is used for the following purposes:<br/>\n1. Announcing the existence of an object, subject, location...: These objects, subjects, or locations are not living things and do not move. They will be the subject of the sentence and are marked with the particle が.<br/>\nWhen wanting to indicate the existence of something at a specific location, we add a noun indicating that location with the particle に. Example: テーブルにペンがあります。 (There is a pen on the table.)<br/>\n\n2. Indicating possession by a subject: When wanting to convey that a subject possesses something, this is also the use of 「がある」. This something is typically not a living thing.\nExample: 彼はお金がたくさんあります。 (He has a lot of money.)<br/>\n\n3. Indicating that an event will or has occurred at a specific location: When wanting to convey that an event will or has occurred at a specific location, 「がある」can also be used. The noun N before が indicates the event, and the noun indicating the location is followed by the particle で.\nExample: メキシコでメキシコとブラジルのサッカーの試合があります。 (There will be a soccer match between Mexico and Brazil in Mexico.)<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "お皿の上にパンがあります。",
+          "transcription": "おさらのうえにパンがあります。",
+          "mean": "There is bread on the plate."
+        },
+        {
+          "content": "あそこに大きい池があります。",
+          "transcription": "あそこにおおきいいけがあります。",
+          "mean": "There's a big pond over there."
+        },
+        {
+          "content": "郵便局の前にポストがあります。",
+          "transcription": "ゆうびんきょくのまえにポストがあります。",
+          "mean": "There is a mailbox in front of the post office."
+        },
+        {
+          "content": "箱の中に写真と手紙があります。",
+          "transcription": "はこのなかにしゃしんとてがみがあります。",
+          "mean": "There are photos and letters inside the box."
+        },
+        {
+          "content": "私の机の上に本があります。",
+          "transcription": "わたしのつくえのうえにほんがあります。",
+          "mean": "There is a book on my desk."
+        },
+        {
+          "content": "本棚の近くにカレンダーがあります。",
+          "transcription": "ほんだなのちかくにカレンダーがあります。",
+          "mean": "There is a calendar near the bookshelf."
+        },
+        {
+          "content": "彼の財布の中に家族の写真があります。",
+          "transcription": "かれのさいふのなかにかぞくのしゃしんがあります。",
+          "mean": "There is a family photo in his wallet."
+        },
+        {
+          "content": "駅の前に韓国のレストランがあります。",
+          "transcription": "えきのまえにかんこくのレストランがあります。",
+          "mean": "There is a Korean restaurant in front of the station."
+        },
+        {
+          "content": "たくさんの宿題があります。",
+          "transcription": "たくさんのしゅくだいがあります。",
+          "mean": "I have a lot of homework."
+        },
+        {
+          "content": "言いたいことがありますか。",
+          "transcription": "いいたいことがありますか。",
+          "mean": "Do you have something to say?"
+        },
+        {
+          "content": "今夜用事があるから、パーティーに行けない。",
+          "transcription": "こんやようじがあるから、パーティーにいけない。",
+          "mean": "I have something to do tonight, so I can't go to the party."
+        },
+        {
+          "content": "彼はお金があるから、新しい車が買えます。",
+          "transcription": "かれはおかねがあるから、あたらしいくるまがかえます。",
+          "mean": "He has money so he can buy a new car."
+        },
+        {
+          "content": "先週お金がぜんぜんなかった。",
+          "transcription": "せんしゅうおかねがぜんぜんなかった。",
+          "mean": "I didn't have any money last week."
+        },
+        {
+          "content": "神戸で大きい地震がありました。",
+          "transcription": "こうべでおおきいじしんがありました。",
+          "mean": "There was a big earthquake in Kobe."
+        },
+        {
+          "content": "今日ホテルでパーティーがあります。",
+          "transcription": "きょうホテルでパーティーがあります。",
+          "mean": "There is a party at the hotel today."
+        },
+        {
+          "content": "昨日東大で経済学のセミナーがありました。",
+          "transcription": "きのうとうだいでけいざいがくのセミナーがありました。",
+          "mean": "There was an economics seminar at the University of Tokyo yesterday."
+        },
+        {
+          "content": "むかしむかしあるところに、死体がありました。",
+          "transcription": "むかしむかしあるところに、したいがありました。",
+          "mean": "Once upon a time, there was a dead body."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nが あります / ある<br/>\nNが ありません / ない"
+    }
+  ],
+  "title": "がある => There is; is (non-living things)",
+  "_id": "5d2d2626ff404482878e22961f141491"
+}

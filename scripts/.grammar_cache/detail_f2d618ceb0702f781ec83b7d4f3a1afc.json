@@ -1,0 +1,33 @@
+{
+  "level": "N5",
+  "mobileId": 2873,
+  "usages": [
+    {
+      "explain": "Used to connect the adjective stem い with a noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この食べ物は不味くて、高いです。",
+          "transcription": "このたべものはまずくて、たかいです。",
+          "mean": "This food is tasteless and expensive."
+        },
+        {
+          "content": "彼女のスピーチは短くて要領を得ていた。",
+          "transcription": "かのじょのすぴーちはみじかくてようりょうをえていた。",
+          "mean": "Her speech was short and to the point."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい+ くて"
+    },
+    {
+      "explain": "Note: いい➔よくて",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "くて => Adjective and adjective",
+  "_id": "f2d618ceb0702f781ec83b7d4f3a1afc"
+}

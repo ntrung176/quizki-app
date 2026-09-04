@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2716,
+  "usages": [
+    {
+      "explain": "This is the written style of 「だろうか」, expressing conjecture or doubt. It is often used in plain form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "紹介としては、次のようなことが言えようか。",
+          "transcription": "しょうかいとしては、つぎのようなことがいえようか。",
+          "mean": "As an introduction, I would like to say the following."
+        },
+        {
+          "content": "こんな貧しい人間がこの世にあろうか。",
+          "transcription": "こんなまずしいにんげんがこのよにあろうか。",
+          "mean": "Is there such a poor person in this world?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-よう + か"
+    }
+  ],
+  "title": "ようか => maybe or not, whether or not; considering options",
+  "_id": "f2d618ceb0702f781ec83b7d4f266af2"
+}

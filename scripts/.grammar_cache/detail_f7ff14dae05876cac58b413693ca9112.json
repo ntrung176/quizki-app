@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2049,
+  "usages": [
+    {
+      "explain": "Firstly, mention a certain event, then present the cause or reason for that event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "物が落ちるのは引力のためだ。",
+          "transcription": "ものがおちるのはいんりょくのためだ。",
+          "mean": "Objects fall because of gravity."
+        },
+        {
+          "content": "彼の一見痴鈍らしいのは長く脳病を煩ったためだ。",
+          "transcription": "かれのいっけんちどんらしいのはながくのうびょうをわずらったためだ。",
+          "mean": "His apparent retardation is due to a long period of brain disease."
+        },
+        {
+          "content": "彼女がそうしたのは私のためではなく自分のためだ。",
+          "transcription": "かのじょがそうしたのはわたしのためではなくじぶんのためだ。",
+          "mean": "She did it for herself, not me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない + のは V-た/ Nの + ためだ"
+    }
+  ],
+  "title": "のは…ためだ => for; in order to; for the benefit of; because of; as a result of ~",
+  "_id": "f7ff14dae05876cac58b413693ca9112"
+}

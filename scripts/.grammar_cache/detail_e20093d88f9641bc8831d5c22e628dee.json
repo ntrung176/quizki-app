@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 5619,
+  "usages": [
+    {
+      "explain": "「なくてもいい」expresses the idea of \"it's okay not to do something (V).\" In formal writing such as official documents, newspapers, or in formal spoken language, it can be replaced with 「なくともよい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あした来なくてもいいです。",
+          "transcription": "あしたこなくてもいいです。",
+          "mean": "It doesn't have to come tomorrow."
+        },
+        {
+          "content": "好きじゃないものは食べなくてもいいです。",
+          "transcription": "すきじゃないものはたべなくてもいいです。",
+          "mean": "You don't have to eat anything you don't like."
+        },
+        {
+          "content": "電気を消さなくてもいいですよ。私はまだ帰りませんから。",
+          "transcription": "でんきをけさなくてもいいですよ。わたしはまだかえりませんから。",
+          "mean": "You don't have to turn off the lights. I'm not going home yet."
+        },
+        {
+          "content": "明日は授業がないので、学校に行かなくてもいいよ。",
+          "transcription": "あしたはじゅぎょうがないので、がっこうにいかなくてもいいよ。",
+          "mean": "There's no class tomorrow, so you don't have to go to school."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vな<s>い</s>くて+もいい"
+    }
+  ],
+  "title": "なくてもいい => don't have to; it's OK to not do",
+  "_id": "e20093d88f9641bc8831d5c22e628dee"
+}

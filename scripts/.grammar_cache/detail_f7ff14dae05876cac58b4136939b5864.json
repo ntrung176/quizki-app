@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1707,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: right after the action before ends, the subsequent action also occurs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "必死で走り、飛び乗ったところで電車のドアが閉まった。",
+          "transcription": "ひっしではしり、とびのったところででんしゃのどあがしまった。",
+          "mean": "I ran for my life and just as I jumped on the train, the door closed."
+        },
+        {
+          "content": "レポートの最後の一行を書いたところで、突然気絶した。",
+          "transcription": "れぽーとのさいごのいっこうをかいたところで、とつぜんきぜつした。",
+          "mean": "As I wrote the last line of my report, I suddenly passed out."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + ところで"
+    }
+  ],
+  "title": "ところで => by the way ~",
+  "_id": "f7ff14dae05876cac58b4136939b5864"
+}

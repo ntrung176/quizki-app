@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5653,
+  "usages": [
+    {
+      "explain": "「ぜひ」 is used to express determination or strong desire to overcome difficulties to do something. It is also used to show the earnestness of the speaker when requesting someone to do something.<br/>\n\nIt does not typically accompany negative statements.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このスイカとても甘いですよ。ぜひ、奥さんと食べてみてください。",
+          "transcription": "このスイカとてもあまいですよ。ぜひ、おくさんとたべてみてください。",
+          "mean": "This watermelon is very sweet. Please try it with your wife."
+        },
+        {
+          "content": "ぜひうちへ遊びに来てください。",
+          "transcription": "ぜひうちへあそびにきてください。",
+          "mean": "Please come and visit us."
+        },
+        {
+          "content": "日本に来たら、ぜひ連絡してください。",
+          "transcription": "にほんにきたら、ぜひれんらくしてください。",
+          "mean": "Please feel free to contact me if you come to Japan."
+        },
+        {
+          "content": "今度来るときはぜひ、彼氏も連れて来てください。",
+          "transcription": "こんどくるときはぜひ、かれしもつれてきてください。",
+          "mean": "Next time you come, please bring your boyfriend too."
+        },
+        {
+          "content": "木村先生のサイトは役に立つから、ぜひ見てください。",
+          "transcription": "きむらせんせいのサイトはやくにたつから、ぜひみてください。",
+          "mean": "Professor Kimura's website is useful, so please take a look."
+        },
+        {
+          "content": "大学を卒業するまでに、ぜひ一度日本に行ってみたいです。",
+          "transcription": "だいがくをそつぎょうするまでに、ぜひいちどにほんにいってみたいです。",
+          "mean": "I would like to visit Japan at least once before I graduate from university."
+        },
+        {
+          "content": "ベトナムに旅行したら、ぜひフォーを食べてみたいです。",
+          "transcription": "ベトナムにりょこうしたら、ぜひフォーをたべてみたいです。",
+          "mean": "When I travel to Vietnam, I definitely want to try Pho."
+        },
+        {
+          "content": "ぜひ沖縄へ行きたいです。",
+          "transcription": "ぜひおきなわへいきたいです。",
+          "mean": "I would love to go to Okinawa."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ぜひ+Sentence"
+    }
+  ],
+  "title": "ぜひ => by all means; certainly; definitely ~",
+  "_id": "d81074e2b8a24081a06e436d3f0f948f"
+}

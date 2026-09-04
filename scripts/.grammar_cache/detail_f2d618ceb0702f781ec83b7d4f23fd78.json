@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2702,
+  "usages": [
+    {
+      "explain": "Used to express uncertainty about the price.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このカメラはいくらですか。",
+          "transcription": "このかめらはいくらですか。",
+          "mean": "How much is this camera?"
+        },
+        {
+          "content": "広島まで往復いくらですか。",
+          "transcription": "ひろしままでおうふくいくらですか。",
+          "mean": "How much is the round trip to Hiroshima?"
+        },
+        {
+          "content": "それの正しい価格はいくらですか。",
+          "transcription": "それのただしいかかくはいくらですか。",
+          "mean": "What is the correct price for it?"
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いくら => no matter how (Question)",
+  "_id": "f2d618ceb0702f781ec83b7d4f23fd78"
+}

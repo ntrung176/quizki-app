@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3248,
+  "usages": [
+    {
+      "explain": "Used to describe two equivalent, corresponding objects or events. Often used in definitions, explanations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "1マイルは約1,600メートルにあたる。",
+          "transcription": "1まいるはやく1,600めーとるにあたる。",
+          "mean": "One mile is approximately 1,600 meters."
+        },
+        {
+          "content": "今年、私の誕生日は日曜日にあたる。",
+          "transcription": "ことし、わたしのたんじょうびはにちようびにあたる",
+          "mean": "This year, my birthday falls on a Sunday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + に当たる （にあたる）"
+    }
+  ],
+  "title": "にあたる  => relating to ~, to do with ~, that is ~",
+  "_id": "93020c54469e582d6fdb16f7ba818d25"
+}

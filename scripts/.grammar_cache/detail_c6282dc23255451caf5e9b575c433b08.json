@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5305,
+  "usages": [
+    {
+      "explain": "「を<ruby><rb>通</rb><rp>(</rp><rt>つう</rt><rp>)</rp></ruby>じて/を<ruby><rb>通</rb><rp>(</rp><rt>とお</rt><rp>)</rp></ruby>して」<br/>\n1. Expresses the idea: through the means/intermediary N (person or thing) to accomplish something. This is often used to convey information, grasp a story, establish relationships... This structure is not used to describe \"going through\" transportation means. \"Through...\"<br/>\n   * Comparison between 「を<ruby><rb>通</rb><rp>(</rp><rt>つう</rt><rp>)</rp></ruby>じて」and 「を<ruby><rb>通</rb><rp>(</rp><rt>とお</rt><rp>)</rp></ruby>して」:<br/>\n   - 「を<ruby><rb>通</rb><rp>(</rp><rt>つう</rt><rp>)</rp></ruby>じて」leans towards describing actions with a spontaneous, casual nature. It is more formal than 「を<ruby><rb>通</rb><rp>(</rp><rt>とお</rt><rp>)</rp></ruby>して」 and is often used in writing.<br/>\n   - 「を<ruby><rb>通</rb><rp>(</rp><rt>つう</rt><rp>)</rp></ruby>じて」leans towards describing actions with an active nature.<br/><br/>\n2. Expresses the idea: \"throughout the period N\". N is a noun indicating time. \"Throughout...\"<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "友人を通じて、彼と知り合った。",
+          "transcription": "ゆうじんをつうじて、かれとしりあった。",
+          "mean": "I met him through a friend."
+        },
+        {
+          "content": "テレビのニュースを通じて、その事件を知った。",
+          "transcription": "テレビのニュースをつうじて、そのじけんをしった。",
+          "mean": "I learned about the incident through the TV news."
+        },
+        {
+          "content": "社長は忙しいから秘書を通じて頼んだ方がいい。",
+          "transcription": "ちゃちょうはいそがしいからひしょをつうじてたのんだほうがいい。",
+          "mean": "The president is busy, so it would be better to ask through his secretary."
+        },
+        {
+          "content": "世界一周の旅を通して、色々な国の文化や習慣を学びました。",
+          "transcription": "せかいいっしゅうのたびをとおして、いろいろなくにのぶんかやしゅうかんをまなびました。",
+          "mean": "By traveling around the world, I learned about the cultures and customs of many different countries."
+        },
+        {
+          "content": "最近の若い人の中にはインターネットを通して、彼氏、彼女を見つける人もいます。",
+          "transcription": "さいきんのわるいひとのなかにはインターネットをとおして、かれし、かのじょをみつけるひともいます。",
+          "mean": "Some young people these days find boyfriends and girlfriends through the Internet."
+        },
+        {
+          "content": "この国は一年を通じて暖かい。",
+          "transcription": "このくにはいちねんをつうじてあたたかい。",
+          "mean": "This country is warm all year round."
+        },
+        {
+          "content": "二日間を通じてこの会議で色々な意見が交換された。",
+          "transcription": "ふつかかんをつうじてこのかいぎでいろいろないけんがこうかんされた。",
+          "mean": "A variety of opinions were exchanged during the two-day meeting."
+        },
+        {
+          "content": "この一週間を通して外に出たのは一度だけだった。",
+          "transcription": "このいちしゅうかんをとおしてそとにでたのはいちどだけだった。",
+          "mean": "I only went outside once all week."
+        },
+        {
+          "content": "この辺りは四季を通して観光客の絶えることはない。",
+          "transcription": "このあたりはしきをとおしてかんこうきゃくのたえることはない。",
+          "mean": "There is no shortage of tourists in this area throughout the year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+<ruby><rb>通</rb><rp>(</rp><rt>つう</rt><rp>)</rp></ruby>じて<br/> Nを+<ruby><rb>通</rb><rp>(</rp><rt>とお</rt><rp>)</rp></ruby>して"
+    }
+  ],
+  "title": "を通じて/を通して => through; via; throughout; by ~",
+  "_id": "c6282dc23255451caf5e9b575c433b08"
+}

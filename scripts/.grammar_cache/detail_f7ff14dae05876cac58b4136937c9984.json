@@ -1,0 +1,21 @@
+{
+  "level": "N2",
+  "mobileId": 1479,
+  "usages": [
+    {
+      "explain": "たまえ is the imperative form of \"たまう,\" with a similar meaning to \"please.\"<br/><br/>This expression is often used by men when speaking to those beneath them, implying command but carrying a sense of intimacy.<br/><br/>This manner of speaking was widely used during the Edo period.",
+      "note": null,
+      "examples": [
+        {
+          "content": "急ぎたまえ。",
+          "transcription": "いそぎたまえ。",
+          "mean": "Hurry!"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます + たまえ"
+    }
+  ],
+  "title": "たまえ => do~; order somebody to do something",
+  "_id": "f7ff14dae05876cac58b4136937c9984"
+}

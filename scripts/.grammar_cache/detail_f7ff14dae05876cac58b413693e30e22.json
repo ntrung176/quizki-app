@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2219,
+  "usages": [
+    {
+      "explain": "This expression has the conversational tone of 'そうしたら'. It's less common in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先週の土曜日に図書館に行ったのよ。そしたらばったり小林さんに会っちゃって。",
+          "transcription": "せんしゅうのどようびにとしょかんにいったのよ。そしたらばったりこばやしさんにあっちゃって。",
+          "mean": "I went to the library last Saturday. Then I happened to meet Mr. Kobayashi."
+        },
+        {
+          "content": "一日に英語を1時間勉強しなさい。そしたら、上達しますよ。",
+          "transcription": "いちにちにえいごを1じかんべんきょうしなさい。そしたら、じょうたつしますよ。",
+          "mean": "Study English for one hour a day. Then you'll improve."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そしたら～"
+    }
+  ],
+  "title": "そしたら => And at that time, just do it that way",
+  "_id": "f7ff14dae05876cac58b413693e30e22"
+}

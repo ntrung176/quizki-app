@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5365,
+  "usages": [
+    {
+      "explain": "「てくれと」is used to talk about being asked by someone to do something, either as a request or a reminder to do or not do something.<br/> It is often used in casual conversations, not as formal as「なと」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "友達に、田中さんの電話番号を教えてくれと頼まれた。",
+          "transcription": "ともだちに、たなかさんのでんわばんごうをおしえてくれとたのまれた。",
+          "mean": "My friend asked me to give him Tanaka's phone number."
+        },
+        {
+          "content": "大家に玄関の前に自転車を置かないでくれと言われた。",
+          "transcription": "おおやにげんかんのまえにじてんしゃをおかないでくれといわれた。",
+          "mean": "My landlord asked me not to leave my bicycle in front of the front door."
+        },
+        {
+          "content": "このことは誰にも言わないでくれと言われたんです。",
+          "transcription": "このことはだれにもいわないでくれといわれたんです。",
+          "mean": "I was asked not to tell anyone about this."
+        },
+        {
+          "content": "夜遅く大きい音でテレビを見ないでくれと言われた。",
+          "transcription": "よるおそくおおきいおとでテレビをみないでくれといわれた。",
+          "mean": "I was told not to watch TV at high volume late at night."
+        },
+        {
+          "content": "友人にお金を貸してくれと頼まれた。",
+          "transcription": "ゆうじんにおかねをかしてくれとたのまれた。",
+          "mean": "A friend asked me to lend him some money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vてくれと+頼まれる / 言われる<br/> Vないでくれと+頼まれる / 言われる"
+    }
+  ],
+  "title": "てくれと => to do a favor; do something for someone",
+  "_id": "1ea09776fcd847e9b29fb82b34911bb9"
+}

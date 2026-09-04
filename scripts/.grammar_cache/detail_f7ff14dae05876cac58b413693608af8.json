@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1283,
+  "usages": [
+    {
+      "explain": "Has a meaning similar to 「まもなく」 (soon) or 「そのうちに」 (before long). It is used with the nuance that \"due to a natural change, it has become such a result.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "人類が火星に行ける日はやがて来るだろう。",
+          "transcription": "じんるいがかせいにいけるひはやがてくるだろう。",
+          "mean": "The day will come when humans can go to Mars."
+        },
+        {
+          "content": "やがて公園の桜の花が咲くでしょう。",
+          "transcription": "やがてこうえんのさくらのはながさくでしょう。",
+          "mean": "The cherry blossoms in the park will soon bloom."
+        },
+        {
+          "content": "やがて厳しい北風が吹き始めるだろう。",
+          "transcription": "やがてきびしいきたかぜがふきはじめるだろう。",
+          "mean": "By and by the bitter north wind begin to blow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "やがて"
+    }
+  ],
+  "title": "やがて => before long; soon; almost; eventually ~",
+  "_id": "f7ff14dae05876cac58b413693608af8"
+}

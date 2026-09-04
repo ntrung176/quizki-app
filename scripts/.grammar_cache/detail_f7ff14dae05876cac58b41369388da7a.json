@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1563,
+  "usages": [
+    {
+      "explain": "Follows a phrase discussing a certain matter and expresses the feeling that the occurrence of that matter is natural. Often includes reasons or explanations as to why it is considered natural.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あんなひどいことを言われては、田中さんが怒るのも無理はない。",
+          "transcription": "あんなひどいことをいわれては、たなかさんがおこるのもむりはない。",
+          "mean": "It's no wonder Mr. Tanaka gets angry after hearing such horrible things said to him."
+        },
+        {
+          "content": "うちの子はゲームばかりしている。ゲームばかりしていては学業成蹟が悪いのも無理はない。",
+          "transcription": "うちのこはげーむばかりしている。げーむばかりしていてはがくぎょうなるあとがわるいのもむりはない。",
+          "mean": "My child only plays games. It's no wonder that if you play games all the time, your academic performance will be poor."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…のも無理 (は) ない => It's natural for...",
+  "_id": "f7ff14dae05876cac58b41369388da7a"
+}

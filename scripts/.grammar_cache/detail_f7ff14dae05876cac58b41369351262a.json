@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1169,
+  "usages": [
+    {
+      "explain": "This is a conditional form of 「ようだ」which indicates \"if that's the case...\". It's also used in writing as 「...ようであれば」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何か問題があるようだったら、私にご連絡ください。",
+          "transcription": "なにかもんだいがあるようだったら、わたしにごれんらくください。",
+          "mean": "If you see any problems, please contact me."
+        },
+        {
+          "content": "明日天気がいいようだったら、海を見に行きませんんが",
+          "transcription": "あしたてんきがいいようだったら、うみをみにいきませんんが",
+          "mean": "If the weather looks nice tomorrow, I won't go see the sea."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な・N-の + ようだったら"
+    }
+  ],
+  "title": "ようだったら => If...",
+  "_id": "f7ff14dae05876cac58b41369351262a"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5366,
+  "usages": [
+    {
+      "explain": "「くせに」is used to express a situation or result that goes against the speaker's thoughts or expectations, often with a negative connotation. It conveys the speaker's anger, reproach, or disdain towards the subject mentioned. Due to its critical and condemning nature, this pattern is not used to refer to oneself and is less common in formal conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "知っているくせに教えてくれない。",
+          "transcription": "しっているくせにおしえてくれない。",
+          "mean": "Even though he knows, he won't tell me."
+        },
+        {
+          "content": "出来るくせにやろうとしない。",
+          "transcription": "できるくせにやろうとしない。",
+          "mean": "Even though I can do it, I don't want to do it."
+        },
+        {
+          "content": "もう嘘はつかないって言ったくせに。何回目よ！",
+          "transcription": "もううそはつかないっていったくせに。なんかいめよ！",
+          "mean": "Even though I said I won't lie anymore. How many times!"
+        },
+        {
+          "content": "彼は体が大きいくせに何もできない。",
+          "transcription": "かれはからだがおおきいくせになにもできない。",
+          "mean": "Even though he's big, he can't do anything."
+        },
+        {
+          "content": "彼は若いくせにすぐ疲れたと言う。",
+          "transcription": "かれはわかいくせにすぐつかれたという。",
+          "mean": "Although he is young, he says he gets tired easily."
+        },
+        {
+          "content": "元気なくせに病気のふりをしている。",
+          "transcription": "げんきなくせにびょうきのふりをしている。",
+          "mean": "He pretends to be sick even though he is fine."
+        },
+        {
+          "content": "工藤さんは日本人のくせに日本語が変なんだよな。",
+          "transcription": "くどうさんはにほんじんのくせににほんごがへんなんだよな。",
+          "mean": "Even though Mr. Kudo is Japanese, his Japanese is strange."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V(formal form)+くせに<br/>Aい/Aな+くせに<br/>Nの+くせに"
+    }
+  ],
+  "title": "くせに => and yet; though; in spite of; despite ~",
+  "_id": "97b371cdd9d54d49a653f2d421b24f82"
+}

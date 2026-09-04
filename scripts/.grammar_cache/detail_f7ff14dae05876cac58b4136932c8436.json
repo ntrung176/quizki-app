@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 898,
+  "usages": [
+    {
+      "explain": "● Used when wanting to emphasize that due to the circumstances, one cannot do something or to justify something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "急に仕事が入って、飲みに行きたくても行けないのだ。",
+          "transcription": "きゅうにしごとがはいって、のみにいきたくてもいけないのだ。",
+          "mean": "I suddenly got a job and couldn't go out for drinks even if I wanted to."
+        },
+        {
+          "content": "お母さんに「ダメ」と言われたので行きたくてもいけない。",
+          "transcription": "おかあさんに「だめ」といわれたのでいきたくてもいけない。",
+          "mean": "I couldn't go even if I wanted to because my mom told me no."
+        },
+        {
+          "content": "彼と別れたので会いたくても会えない。",
+          "transcription": "かれとわかれたのであいたくてもあえない。",
+          "mean": "Since I broke up with him, I can't meet him even if I want to."
+        }
+      ],
+      "mean": "Even if I want to... I can't...",
+      "synopsis": "V－たくて + も + V + れない"
+    }
+  ],
+  "title": "～ても ... れない => Even if I want to... I can't...",
+  "_id": "f7ff14dae05876cac58b4136932c8436"
+}

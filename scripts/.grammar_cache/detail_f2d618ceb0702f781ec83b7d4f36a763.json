@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 2843,
+  "usages": [
+    {
+      "explain": "Expresses the idea: \"Just experiencing something once, even if similar things happen, you can handle it.\" It implies \"No need to do it twice.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "このような試合は一度参加したら、他の試合は絶対に勝ちます。",
+          "transcription": "このようなしあいはいちどさんかしたら、たのしあいはぜったいにかちます。",
+          "mean": "Once you participate in a match like this, you will definitely win the other matches."
+        },
+        {
+          "content": "私は上手な歌手は一度聞けばわかる。",
+          "transcription": "わたしはじょうずなかしゅはいちどきけばわかる。",
+          "mean": "I can tell a good singer just by listening to it once."
+        },
+        {
+          "content": "一度作ってみたらすぐに作り方がわかります。",
+          "transcription": "いちどつくってみたらすぐにつくりかたがわかります。",
+          "mean": "Once you try it, you'll know how to make it right away."
+        },
+        {
+          "content": "一度見ればたくさんだ。",
+          "transcription": "いちどみればたくさんだ。",
+          "mean": "It's a lot once you see it."
+        },
+        {
+          "content": "一度言えばわかるじゃないか。",
+          "transcription": "いちどいえばわかるじゃないか。",
+          "mean": "Once you say it, you'll understand."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いちど V－ば／V－たら"
+    }
+  ],
+  "title": "いちど　....  ば／... たら => Just... once",
+  "_id": "f2d618ceb0702f781ec83b7d4f36a763"
+}

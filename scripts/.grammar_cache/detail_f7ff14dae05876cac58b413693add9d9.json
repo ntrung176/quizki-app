@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1842,
+  "usages": [
+    {
+      "explain": "Expressing that something takes a long time or finally gets done.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お正月もとうとう終わってしまった。",
+          "transcription": "おしょうがつもとうとうおわってしまった。",
+          "mean": "The New Year is finally over."
+        },
+        {
+          "content": "５年の歳月をかけて、そのプロジェクトはとうとう完成した。",
+          "transcription": "ごねんのさいげつをかけて、そのぷろじぇくとはとうとうかんせいした。",
+          "mean": "After five years, the project was finally completed."
+        },
+        {
+          "content": "長い時間病気と闘っていた彼も、とうとう亡くなった。",
+          "transcription": "ながいじかんびょうきとたたかっていたかれも、とうとうなくなった。",
+          "mean": "He had been battling illness for a long time and finally passed away."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とうとう + V-た"
+    }
+  ],
+  "title": "とうとう => Eventually, finally...",
+  "_id": "f7ff14dae05876cac58b413693add9d9"
+}

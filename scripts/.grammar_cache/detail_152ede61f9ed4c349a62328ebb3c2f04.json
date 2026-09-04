@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5414,
+  "usages": [
+    {
+      "explain": "「しばらく」 is used to express the idea of: during this time/in a short period of time, some action has been/will be taken, or something has happened. \"A short period of time\" here can be measured in minutes, hours, or days, depending on the speaker's perception.",
+      "note": null,
+      "examples": [
+        {
+          "content": "しばらくここで待ってください。",
+          "transcription": "しばらくここでまってください。",
+          "mean": "Please wait here for a while."
+        },
+        {
+          "content": "こんにちは。しばらくですね！",
+          "transcription": "こんにちは。しばらくですね！",
+          "mean": "Hello. It’s been a while!"
+        },
+        {
+          "content": "私はしばらく暇です。",
+          "transcription": "わたしはしばらくひまです。",
+          "mean": "I have some free time."
+        },
+        {
+          "content": "しばらく考える時間をください。",
+          "transcription": "しばらくかんがえるじかんをください。",
+          "mean": "Please give me some time to think about it."
+        },
+        {
+          "content": "しばらくお待ちくださいますか。",
+          "transcription": "しばらくおまちくださいますか。",
+          "mean": "Could you please wait a moment?"
+        },
+        {
+          "content": "来年からしばらく海外に住むつもりです。",
+          "transcription": "らいねんからしばらくかいがいにすむつもりです。",
+          "mean": "I'm planning to live abroad for a while starting next year."
+        },
+        {
+          "content": "祖父はしばらく前に亡くなりました。",
+          "transcription": "そふはしばらくまえになくなりました。",
+          "mean": "My grandfather passed away a while ago."
+        },
+        {
+          "content": "しばらく海外に行いくので、ペットを預かってくれませんか。",
+          "transcription": "しばらくかいがいにいいくので、ペットをあずかってくれませんか。",
+          "mean": "I'm going overseas for a while, so could you leave my pet with me?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "しばらく+Sentence"
+    }
+  ],
+  "title": "しばらく => for a moment; for a while; for the time being",
+  "_id": "152ede61f9ed4c349a62328ebb3c2f04"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1048,
+  "usages": [
+    {
+      "explain": "Almost synonymous with \"じつは\" (actually), but less commonly used as an introductory phrase in cases of request or reliance. Often used when confiding or when asked for reasons or explanations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "実を言うと、私は彼女が好きじゃない。",
+          "transcription": "みをいうと、わたしはかのじょがすきじゃない。",
+          "mean": "To tell you the truth, I don't like her."
+        },
+        {
+          "content": "実を言うと、彼らは夫婦じゃない。",
+          "transcription": "みをいうと、かれらはふうふじゃない。",
+          "mean": "To tell the truth, they are not a couple."
+        }
+      ],
+      "mean": null,
+      "synopsis": "実を言うと（じつをいうと）～"
+    }
+  ],
+  "title": "じつをいうと => Frankly speaking",
+  "_id": "f7ff14dae05876cac58b4136934111b4"
+}

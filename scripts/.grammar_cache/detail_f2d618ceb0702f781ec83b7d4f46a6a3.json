@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2977,
+  "usages": [
+    {
+      "explain": "This is a structure listing multiple conditions, to express the meaning that if any of those conditions are met, the result will be the same.",
+      "note": null,
+      "examples": [
+        {
+          "content": "3を三乗すると9になりますが､-3を三乗しても9になります。",
+          "transcription": "3をさんじょうすると9になりますが､-3をさんじょうしても9になります。",
+          "mean": "If you raise 3 to the third power, you get 9, but if you raise -3 to the third power, you get 9."
+        },
+        {
+          "content": "船で行くと料金は片道5千円ぐらいですが､汽車で行っても費用はだいたい同じです。",
+          "transcription": "ふねでいくとりょうきんはかたみち5せんえんぐらいですが､きしゃでおこなってもひようはだいたいおなじです。",
+          "mean": "If you go by boat, the one-way fare is about 5,000 yen, but if you go by train, the cost is about the same."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vても<br/>Aくても<br/>Naでも<br/>Nでも"
+    }
+  ],
+  "title": "ても => Although... also... (equal condition)",
+  "_id": "f2d618ceb0702f781ec83b7d4f46a6a3"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1754,
+  "usages": [
+    {
+      "explain": "Expresses permission or approval. Used in conversations to grant permission or ask for permission from the other party. Similar in meaning to 「てもいい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのコンサートにはすこしぐらい遅刻してもかまわない。",
+          "transcription": "そのこんさーとにはすこしぐらいちこくしてもかまわない。",
+          "mean": "I don't mind being a little late for the concert."
+        },
+        {
+          "content": "この履歴書は日本語で書いても、ベトナム語で書いてもかまいません。",
+          "transcription": "このりれきしょはにほんごでかいても、べとなむごでかいてもかまいません。",
+          "mean": "This resume can be written in Japanese or Vietnamese."
+        },
+        {
+          "content": "すみません、ここに車を駐車していてもかまいませんか。",
+          "transcription": "すみません、ここにくるまをちゅうしゃしていてもかまいませんか。",
+          "mean": "Excuse me, is it okay if I park my car here?"
+        },
+        {
+          "content": "今週はできないのなら、来週で提出してもかまいません。",
+          "transcription": "こんしゅうはできないのなら、らいしゅうでていしゅつしてもかまいません。",
+          "mean": "If you can't do it this week, you can submit it next week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-てもかまわない"
+    }
+  ],
+  "title": "てもかまわない => it doesn't matter ...",
+  "_id": "f7ff14dae05876cac58b413693a1b23b"
+}

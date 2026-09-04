@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1671,
+  "usages": [
+    {
+      "explain": "Expresses the feeling of \"not understanding why things turned out that way\". Following are often expressions with negative connotations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "息子のことがどうも心配だった。",
+          "transcription": "むすこのことがどうもしんぱいだった。",
+          "mean": "I was really worried about my son."
+        },
+        {
+          "content": "彼女が言ったことは、どうもよく分からない。",
+          "transcription": "かのじょがいったことは、どうもよくわからない。",
+          "mean": "I don't really understand what she said."
+        },
+        {
+          "content": "一生懸命頑張っていたが、どうも成績はまだ悪かった。",
+          "transcription": "いっしょうけんめいがんばっていたが、どうもせいせきはまだわるかった。",
+          "mean": "I tried my best, but somehow my grades were still bad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうも～"
+    }
+  ],
+  "title": "どうも => Not sure...",
+  "_id": "f7ff14dae05876cac58b41369395ec34"
+}

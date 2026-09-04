@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2839,
+  "usages": [
+    {
+      "explain": "Used to indicate something that cannot be clearly described. Often used as an adverb, but can also be used with a particle. In casual speech, it becomes [なんか].",
+      "note": null,
+      "examples": [
+        {
+          "content": "冷蔵庫に何か入っているから、喉が乾いたら飲みなさい。",
+          "transcription": "れいぞうこになにかはいっているから、のどがかわいたらのみなさい。",
+          "mean": "There's something in the fridge, so drink it if you're thirsty."
+        },
+        {
+          "content": "何か問題はありませんか。",
+          "transcription": "なにかもんだいはありませんか。",
+          "mean": "Is there any problem?"
+        },
+        {
+          "content": "犯人の手に何か鋭い物が切ったような跡がある。",
+          "transcription": "はんにんのてになにかするどいものがきったようなあとがある。",
+          "mean": "There are marks on the criminal's hands, as if they were cut by something sharp."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにか"
+    }
+  ],
+  "title": "なにか => something/anything/whatever",
+  "_id": "f2d618ceb0702f781ec83b7d4f35e283"
+}

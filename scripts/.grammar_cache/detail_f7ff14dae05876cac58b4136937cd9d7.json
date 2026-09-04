@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1481,
+  "usages": [
+    {
+      "explain": "This grammar pattern uses the structure 「それなら / それじゃ / じゃ...わけだ」to present the listener's conclusion after receiving information from the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんは４年アメリカに留学していたそうですよ。それなら、英語は上手なわけですね。",
+          "transcription": "やまださんはよんねんあめりかにりゅうがくしていたそうですよ。それなら、えいごはじょうずなわけですね。",
+          "mean": "Mr. Yamada apparently studied abroad in America for four years. Then your English is good."
+        },
+        {
+          "content": "彼は来月から退職するそうですよ。それじゃ、彼はこれから<br>仕事の責任から開放されるわけですね。",
+          "transcription": "かれはらいげつからたいしょくするそうですよ。それじゃ、かれはこれから<br>しごとのせきにんからかいほうされるわけですね。",
+          "mean": "It seems that he will retire from next month. Well then, he will be freed from his work responsibilities from now on."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<p><span major-latin;mso-ansi-language:fr\"=\"\" mso-ascii-theme-font:major-latin;mso-hansi-theme-font:major-latin;mso-bidi-theme-font:=\"\" new=\"\" roman\",\"serif\";=\"\" times=\"\">V</span><span mincho\";=\"\" mincho\";mso-ascii-font-family:\"times=\"\" ms=\"\" mso-ascii-theme-font:major-latin;mso-fareast-font-family:\"ms=\"\" mso-bidi-theme-font:major-latin;mso-ansi-language:fr\"=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\"times=\"\" mso-hansi-theme-font:major-latin;mso-bidi-font-family:\"times=\"\" new=\"\" roman\";=\"\">・</span><span major-latin;mso-ansi-language:fr\"=\"\" mso-ascii-theme-font:major-latin;mso-hansi-theme-font:major-latin;mso-bidi-theme-font:=\"\" new=\"\" roman\",\"serif\";=\"\" times=\"\"> A </span><span mincho\";=\"\" mincho\";mso-ascii-font-family:\"times=\"\" ms=\"\" mso-ascii-theme-font:major-latin;mso-fareast-font-family:\"ms=\"\" mso-bidi-theme-font:major-latin;mso-ansi-language:fr\"=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\"times=\"\" mso-hansi-theme-font:major-latin;mso-bidi-font-family:\"times=\"\" new=\"\" roman\";=\"\">・</span><span major-latin;mso-ansi-language:fr\"=\"\" mso-ascii-theme-font:major-latin;mso-hansi-theme-font:major-latin;mso-bidi-theme-font:=\"\" new=\"\" roman\",\"serif\";=\"\" times=\"\">Na</span><span mincho\";=\"\" mincho\";mso-ascii-font-family:\"times=\"\" ms=\"\" mso-ascii-theme-font:major-latin;mso-fareast-font-family:\"ms=\"\" mso-bidi-theme-font:major-latin;mso-ansi-language:fr\"=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\"times=\"\" mso-hansi-theme-font:major-latin;mso-bidi-font-family:\"times=\"\" new=\"\" roman\";=\"\">な・</span><span major-latin;mso-ansi-language:fr\"=\"\" mso-ascii-theme-font:major-latin;mso-hansi-theme-font:major-latin;mso-bidi-theme-font:=\"\" new=\"\" roman\",\"serif\";=\"\" times=\"\"> N</span><span mincho\";=\"\" mincho\";mso-ascii-font-family:\"times=\"\" ms=\"\" mso-ascii-theme-font:major-latin;mso-fareast-font-family:\"ms=\"\" mso-bidi-theme-font:major-latin;mso-ansi-language:fr\"=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\"times=\"\" mso-hansi-theme-font:major-latin;mso-bidi-font-family:\"times=\"\" new=\"\" roman\";=\"\">の</span><span major-latin;mso-ansi-language:fr\"=\"\" mso-ascii-theme-font:major-latin;mso-hansi-theme-font:major-latin;mso-bidi-theme-font:=\"\" new=\"\" roman\",\"serif\";=\"\" times=\"\"> </span><span major-latin;mso-hansi-theme-font:major-latin;mso-bidi-theme-font:major-latin;=\"\" mso-ansi-language:fr\"=\"\" new=\"\" roman\",\"serif\";mso-ascii-theme-font:=\"\" times=\"\">+ </span><span mincho\";=\"\" mincho\";mso-ascii-font-family:\"times=\"\" ms=\"\" mso-ascii-theme-font:major-latin;mso-fareast-font-family:\"ms=\"\" mso-bidi-theme-font:major-latin;mso-ansi-language:fr\"=\"\" mso-fareast-theme-font:minor-fareast;mso-hansi-font-family:\"times=\"\" mso-hansi-theme-font:major-latin;mso-bidi-font-family:\"times=\"\" new=\"\" roman\";=\"\">わけだ</span><span major-latin;mso-ansi-language:fr\"=\"\" mso-ascii-theme-font:major-latin;mso-hansi-theme-font:major-latin;mso-bidi-theme-font:=\"\" new=\"\" roman\",\"serif\";=\"\" times=\"\"><o:p></o:p></span></p>"
+    }
+  ],
+  "title": "わけだ => for that reason; no wonder; as you'd expect; the fact is; so you mean ~.",
+  "_id": "f7ff14dae05876cac58b4136937cd9d7"
+}

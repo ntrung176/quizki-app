@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 5600,
+  "usages": [
+    {
+      "explain": "「じゃない/ではない」is the negation form of 「だ」, used to indicate that someone, something, or some event \"is not...\".\n「じゃない」is commonly used in everyday communication, while 「ではない」is used in writing or formal speeches.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は大学生じゃない。",
+          "transcription": "わたしはだいがくせいじゃない。",
+          "mean": "I'm not a college student."
+        },
+        {
+          "content": "リナさんは韓国人ではない。",
+          "transcription": "リナさんはかんこくじんではない。",
+          "mean": "Lina is not Korean."
+        },
+        {
+          "content": "彼女はそんなつもりじゃなかったよ。",
+          "transcription": "かのじょはそんなつもりじゃなかったよ。",
+          "mean": "She didn't mean it that way."
+        },
+        {
+          "content": "私の姉は日本語の先生じゃありません。",
+          "transcription": "わたしのあねはにほんごのせんせいじゃありません。",
+          "mean": "My sister is not a Japanese teacher."
+        },
+        {
+          "content": "私は本当にわざとではありませんでした。",
+          "transcription": "わたしはほんとうにわざとではありませんでした。",
+          "mean": "I really wasn't on purpose."
+        },
+        {
+          "content": "私の彼氏は日本人じゃないよ。彼はアメリカ人です。",
+          "transcription": "わたしのかれしはにほんじんじゃないよ。かれはアメリカじんです。",
+          "mean": "My boyfriend isn't Japanese. he is an american."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+じゃない / じゃありません<br/> N+ではない / ではありません"
+    }
+  ],
+  "title": "じゃない/ではない =>  to not be (am not; is not; are not)",
+  "_id": "971d88d159c24e9882bf77e6bfd147d1"
+}

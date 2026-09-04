@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1633,
+  "usages": [
+    {
+      "explain": "Used when asking someone to do something for a person associated with the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "すみませんが、ちょっと山田の論文を直してやってもらえるか。",
+          "transcription": "すみませんが、ちょっとやまだのろんぶんをなおしてやってもらえるか。",
+          "mean": "Excuse me, but could you please correct Yamada's paper?"
+        },
+        {
+          "content": "息子に数学を教えてやってもらえないかしら。",
+          "transcription": "むすこにすうがくをおしえてやってもらえないかしら。",
+          "mean": "I wonder if you could teach my son mathematics."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + やってもらえるか<br/>V-て + やってもらえないか<br/>"
+    }
+  ],
+  "title": "てやってもらえるか => Could you please... help me?",
+  "_id": "f7ff14dae05876cac58b413693917977"
+}

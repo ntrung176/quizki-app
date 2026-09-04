@@ -1,0 +1,50 @@
+{
+  "level": "N5",
+  "mobileId": 2971,
+  "usages": [
+    {
+      "explain": "Points to the destination, the place of existence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょうど空港に到着したところです。",
+          "transcription": "ちょうどくうこうにとうちゃくしたところです。",
+          "mean": "I have just arrived at the airport."
+        },
+        {
+          "content": "その学校は町を見下ろす丘の上にある。",
+          "transcription": "そのがっこうはまちをみおろすおかのうえにある。",
+          "mean": "The school is located on a hill overlooking the town."
+        },
+        {
+          "content": "電車の中で偶然彼女に会った。",
+          "transcription": "でんしゃのなかでぐうぜんかのじょにあった。",
+          "mean": "I met her by chance on a train."
+        },
+        {
+          "content": "両親へ久しぶりに手紙を送りました。",
+          "transcription": "りょうしんへひさしぶりにてがみをおくりました。",
+          "mean": "I sent a letter to my parents for the first time in a while."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + に"
+    },
+    {
+      "explain": "Indicates the direction towards an object.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": "To give.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "に => Auxiliary words",
+  "_id": "f2d618ceb0702f781ec83b7d4f45d312"
+}

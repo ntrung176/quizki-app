@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2090,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's feeling of surprise about something repeatedly happening. It is often used for negative events. This is a more emphatic way of saying 「また」, but it feels more formal, so it is typically used in writing or news reports.",
+      "note": null,
+      "examples": [
+        {
+          "content": "またしてもうつ病で自殺が発覚した。",
+          "transcription": "またしてもうつびょうでじさつがはっかくした。",
+          "mean": "Once again, it was discovered that he committed suicide due to depression."
+        },
+        {
+          "content": "またしても彼に騙されてしまった。",
+          "transcription": "またしてもかれにだまされてしまった。",
+          "mean": "I was fooled by him again."
+        }
+      ],
+      "mean": null,
+      "synopsis": "またしても"
+    }
+  ],
+  "title": "またしても => again; once again; yet again",
+  "_id": "f7ff14dae05876cac58b413693d05018"
+}

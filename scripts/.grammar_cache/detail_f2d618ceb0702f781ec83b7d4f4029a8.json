@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2925,
+  "usages": [
+    {
+      "explain": "これ/それ/あれ are demonstrative pronouns, used as nouns and not followed by another noun immediately. 「これ」 is used to indicate something near the speaker and far from the listener. 「それ」 is used to indicate something near the listener and far from the speaker. 「あれ」 is used to indicate something far from both the speaker and the listener.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これはペンです。",
+          "transcription": "これはぺんです。",
+          "mean": "this is a pen."
+        },
+        {
+          "content": "あれは木です。",
+          "transcription": "あれはきです。",
+          "mean": "That's a tree."
+        }
+      ],
+      "mean": null,
+      "synopsis": "これ/それ/あれ"
+    }
+  ],
+  "title": "これ/それ/あれ => this/that",
+  "_id": "f2d618ceb0702f781ec83b7d4f4029a8"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 938,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"although it seems like that on the surface, in reality, it's uncertain\". It is a formal way of speaking, with a written language style.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らはまるで踊っているかのように見える。",
+          "transcription": "かれらはまるでおどっているかのようにみえる。",
+          "mean": "They look as if they are dancing."
+        },
+        {
+          "content": "彼は少し狂っているかのように見える。",
+          "transcription": "かれはすこしくるっているかのようにみえる。",
+          "mean": "He looks a little crazy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない + かのように見える（みえる）"
+    }
+  ],
+  "title": "...かのように見える => to look; to seem; to appear ~",
+  "_id": "f7ff14dae05876cac58b413693320414"
+}

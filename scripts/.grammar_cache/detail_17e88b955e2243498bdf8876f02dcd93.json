@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5264,
+  "usages": [
+    {
+      "explain": "「ただし」is used to add a condition, exception, or important point to the content of the previous sentence from an objective standpoint. It is often used in formal writing or speaking.<br/>「ただ」is used to add a condition, exception, or detail that the speaker is concerned about, pays attention to, or wants others to pay attention to. It is often used in casual everyday speech.",
+      "note": null,
+      "examples": [
+        {
+          "content": "全商品3割引です。ただし、この棚の商品は除きます。",
+          "transcription": "ぜんしょうひんさんわりびきです。ただし、このたなのしょうひんはのぞきます。",
+          "mean": "30% discount on all products. However, products on this shelf are excluded."
+        },
+        {
+          "content": "明日は9時に集合です。ただし、雨の場合は中止です。",
+          "transcription": "あしたはくじにしゅうごうです。ただし、あめのばあいはちゅうしです。",
+          "mean": "We will meet tomorrow at 9 o'clock. However, in case of rain, it will be canceled."
+        },
+        {
+          "content": "社員募集。ただし、既婚者の方に限ります。",
+          "transcription": "しゃいんぼしゅう。ただし、きこんしゃのかたにかぎります。",
+          "mean": "Recruiting employees. However, this is limited to married people."
+        },
+        {
+          "content": "僕は構わない。ただ、妻が何と言うか。",
+          "transcription": "ぼくはかまわない。ただ、つまがなんというか。",
+          "mean": "I don't care. But what will my wife say?"
+        },
+        {
+          "content": "品はいい。ただ、値段が高すぎる。",
+          "transcription": "ひんはいい。ただ、ねだんがたかすぎる。",
+          "mean": "The quality is good. However, the price is too high."
+        },
+        {
+          "content": "木村さんは能力・性格ともに申し分ない。ただ、少し経験が不足している。",
+          "transcription": "きむらさんはのうりょく・せいかくともにもうしぶんない。ただ、すこしけいけんがふそくしている。",
+          "mean": "Mr. Kimura has an impeccable ability and personality. However, I lack some experience."
+        },
+        {
+          "content": "一緒にお買い物に行ってもいいよ。ただ大人しくしててね。",
+          "transcription": "いっしょにおかいものにいってもいいよ。ただ、おとなしくしててね。",
+          "mean": "You can go shopping together. Just be quiet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。ただし、B<br/> A。ただ、 B"
+    }
+  ],
+  "title": "ただし/ただ => right; correct.",
+  "_id": "17e88b955e2243498bdf8876f02dcd93"
+}

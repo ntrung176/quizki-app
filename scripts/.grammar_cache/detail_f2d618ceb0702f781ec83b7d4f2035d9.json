@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2674,
+  "usages": [
+    {
+      "explain": "Firstly, mention a certain event, then present the reason or cause of that event.<br/>\nThis is a way to express reasons, shifting from the form \"XからY\" to \"YのはXからだ\". The \"から\" in this pattern cannot be replaced with \"ので\". The part \"Yのは\" in \"YのはXからだ\" is omitted when the context is clear.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼が試験に失敗したのは、体の調子が悪かったからだ。",
+          "transcription": "かれがしけんにしっぱいしたのは、からだのちょうしがわるかったからだ。",
+          "mean": "He failed the exam because he was not feeling well."
+        },
+        {
+          "content": "神戸に行ったのは事故の原因をたしかめたかったからです。",
+          "transcription": "こうべにいったのはじこのげんいんをたしかめたかったからです。",
+          "mean": "I went to Kobe because I wanted to find out the cause of the accident."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Na-だ + から V-る/ V-た/ V-ない + から A-い+ から"
+    }
+  ],
+  "title": "のは…からだ => The reason... is because...",
+  "_id": "f2d618ceb0702f781ec83b7d4f2035d9"
+}

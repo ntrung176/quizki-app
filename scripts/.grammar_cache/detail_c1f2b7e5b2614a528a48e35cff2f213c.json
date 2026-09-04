@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5492,
+  "usages": [
+    {
+      "explain": "「いただけませんか」is used to politely request someone to do something for you. This phrase is more formal and polite than 「～てください」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お金を貸していただけませんか。",
+          "transcription": "おかねをかしていただけませんか。",
+          "mean": "Would you lend me some money?"
+        },
+        {
+          "content": "荷物を持ってきていただけませんか。",
+          "transcription": "にもつをもってきていただけませんか。",
+          "mean": "Could you please bring my luggage?"
+        },
+        {
+          "content": "もう少しゆっくり話していただけませんか。",
+          "transcription": "もうすこしゆっくりはなしていただけませんか。",
+          "mean": "Could you please speak a little slower?"
+        },
+        {
+          "content": "炊飯器の使い方を教えていただけませんか。",
+          "transcription": "すいはんきのつかいかたをおしえていただけませんか。",
+          "mean": "Could you please teach me how to use the rice cooker?"
+        },
+        {
+          "content": "先生、この漢字の読み方を教えていただけませんか。",
+          "transcription": "せんせい、このかんじのよみかたをおしえていただけませんか。",
+          "mean": "Teacher, could you please tell me how to read this kanji?"
+        },
+        {
+          "content": "銀行へ行きたいんですが、道を教えていただけませんか。",
+          "transcription": "ぎんこうへいきたいんですが、みちをおしえていただけませんか。",
+          "mean": "I want to go to the bank, could you tell me the way?"
+        },
+        {
+          "content": "シャワーが壊れているようなので、部屋を変えていただけませんか。",
+          "transcription": "シャワーがこわれているようなので、へやをかえていただけませんか。",
+          "mean": "The shower seems to be broken, so could you please change the room?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+いただけませんか"
+    }
+  ],
+  "title": "いただけませんか => could you please ~",
+  "_id": "c1f2b7e5b2614a528a48e35cff2f213c"
+}

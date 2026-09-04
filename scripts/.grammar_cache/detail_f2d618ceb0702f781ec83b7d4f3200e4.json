@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2812,
+  "usages": [
+    {
+      "explain": "Explain more specifically about the things mentioned earlier. Adjectives commonly used in this pattern are 「むずかしい」「やさしい」「おもしろい」「たのしい」「きけんな」「たいへん」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ピアノを弾くのはとても面白いです。",
+          "transcription": "ぴあのをひくのはとてもおもしろいです。",
+          "mean": "Playing the piano is very interesting."
+        },
+        {
+          "content": "漢字を書くのはとても難しいです。",
+          "transcription": "かんじをかくのはむずかしいです。",
+          "mean": "Writing kanji is very difficult."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + のは + A(い/ない) +です"
+    }
+  ],
+  "title": "... のは ...です => [A] is [B]; the reason for [A] is [B]",
+  "_id": "f2d618ceb0702f781ec83b7d4f3200e4"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1691,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: if a certain point in time is taken as a standard, then after that point, an action or change will continue to progress towards the future.",
+      "note": null,
+      "examples": [
+        {
+          "content": "国へ帰っても日本語の勉強を続けて行くつもりだ。",
+          "transcription": "くにへかえってもにほんごのべんきょうをつづけていくつもりだ。",
+          "mean": "I plan to continue studying Japanese even when I return to my country."
+        },
+        {
+          "content": "今日から七月だ。だんだん暑くなって行く。",
+          "transcription": "きょうからしちがつだ。だんだんあつくなっていく。",
+          "mean": "It's July from today. It's getting hotter and hotter."
+        },
+        {
+          "content": "日本ではさらに高齢者の数が増加して行くことが予想される。",
+          "transcription": "にっぽんではさらにこうれいしゃのかずがぞうかしていくことがよそうされる。",
+          "mean": "In Japan, the number of elderly people is expected to increase further."
+        },
+        {
+          "content": "夕方から雨が強くなっていく。",
+          "transcription": "ゆうがたからあめがつよくなっていく。",
+          "mean": "The rain becomes heavier from the evening."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + いく"
+    }
+  ],
+  "title": "ていく => to continue; to go on",
+  "_id": "f7ff14dae05876cac58b41369398b6ff"
+}

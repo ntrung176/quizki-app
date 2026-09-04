@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 5417,
+  "usages": [
+    {
+      "explain": "「そのために」is a conjunction that connects two sentences. The first sentence presents the cause or reason leading to the event or action in the second sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "隣の駅で事故があったらしい。そのために、電車が遅れている。",
+          "transcription": "となりのえきでじこがあったらしい。そのために、でんしゃがおくれている。",
+          "mean": "Apparently there was an accident at the station next door. That's why the train is delayed."
+        },
+        {
+          "content": "留学するつもりだ。そのために、バイトしてお金を貯めている。",
+          "transcription": "りゅうがくするつもりだ。そのために、バイトしておかねをためている。",
+          "mean": "I'm planning to study abroad. For that purpose, I am saving money by working part-time."
+        },
+        {
+          "content": "彼はもともと心臓が悪かった。そのため、あのニュースを聞いたショックで急死したらしい。",
+          "transcription": "かれはもともとしんぞうがわるかった。そのため、あのニュースをきいたショックできゅうししたらしい。",
+          "mean": "He originally had a bad heart. Therefore, it seems that he died suddenly from the shock of hearing the news."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。そのため (に)、B"
+    }
+  ],
+  "title": "そのため(に) => hence; for that reason; because of ~",
+  "_id": "d94b5df9033643049918ec563001e9c9"
+}

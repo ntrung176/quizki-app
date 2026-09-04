@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5502,
+  "usages": [
+    {
+      "explain": "「禁止形」 is a verb form used to give commands, instructing others not to perform a certain action. This form carries a strong tone of imposition or threat, so its usage is quite limited. Here are some contexts where the prohibitive form can be used:<br/>\n- Everyday conversations: In most cases, this form is used by men. Men in a higher position or older age may use it when speaking to those beneath them, such as a father to a child, a superior to a subordinate, etc. When men speak to each other, the softening particle よ is sometimes added at the end of the sentence to make it gentler.<br/>\n\n- When there is little concern for the feelings of the person being communicated to. For example, when giving instructions in a workshop, in emergency situations like fires, earthquakes, etc. Even in these cases, the users are typically men in higher positions.<br/>\n\n- When shouting slogans or cheering during rehearsals, school sports activities, club activities, etc. In these cases, the users are often women.<br/>\n\n- When emphasizing simplicity for effective communication, such as in traffic signs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ビールを飲むな。",
+          "transcription": "ビールをのむな。",
+          "mean": "Don't drink beer."
+        },
+        {
+          "content": "ここでゴミを捨てるな。",
+          "transcription": "ここでゴミをすてるな。",
+          "mean": "Don't throw trash here."
+        },
+        {
+          "content": "ここに自転車を止めるな。",
+          "transcription": "ここにじてんしゃをとめるな。",
+          "mean": "Don't park your bike here."
+        },
+        {
+          "content": "電車の中に飲食をするな。",
+          "transcription": "でんしゃのなかにいんしょくをするな。",
+          "mean": "Don't eat or drink on the train."
+        },
+        {
+          "content": "授業のときは、携帯電話を使うな。",
+          "transcription": "じゅぎょうのときは、けいたいでんわをつかうな。",
+          "mean": "Don't use your cell phone during class."
+        },
+        {
+          "content": "あそこの建物は古いから入るな。",
+          "transcription": "あそこのたてものはふるいからはいるな。",
+          "mean": "Don't go into that building because it's old."
+        },
+        {
+          "content": "この部屋ではたばこを吸うな。",
+          "transcription": "このへやではたばこをすうな。",
+          "mean": "Don't smoke in this room."
+        },
+        {
+          "content": "ここに来るな。",
+          "transcription": "ここにくるな。",
+          "mean": "Don't come here."
+        },
+        {
+          "content": "じろじろ見るな。",
+          "transcription": "じろじろみるな。",
+          "mean": "Don't stare."
+        },
+        {
+          "content": "物を落とすな。",
+          "transcription": "ものをおとすな。",
+          "mean": "Don't drop things."
+        },
+        {
+          "content": "部屋に入るな。",
+          "transcription": "へやにはいるな。",
+          "mean": "Don't enter the room."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group 1: (い)ます ➔ (う)な (VD: 行きます ➔ 行くな)<br/> Group 2: (え)ます ➔ (え)るな (Ex: 食べます ➔ 食べるな)<br/>Group 3: します ➔ するな (Ex: 勉強します ➔ 勉強するな)<br/> きます ➔ くるな (Ex: 学校へきます ➔ 学校へくるな)"
+    }
+  ],
+  "title": "禁止形 => Negative imperative form",
+  "_id": "5390ad8eed51409386b975e7a2811c6a"
+}

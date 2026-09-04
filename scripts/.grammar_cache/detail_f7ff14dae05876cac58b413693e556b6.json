@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 2234,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"with a certain way of doing things required\". Used in various situations, with specific meanings depending on context.",
+      "note": null,
+      "examples": [
+        {
+          "content": "中山先生はいつもみんながちゃんと席につくまで話し始めない。",
+          "transcription": "なかやませんせいはいつもみんながちゃんとせきにつくまではなしはじめない。",
+          "mean": "Mr. Nakayama always doesn't start speaking until everyone is properly seated."
+        },
+        {
+          "content": "母方の祖母は耳が遠いと言っているが本当は何でもちゃんと聞こえている。",
+          "transcription": "ははかたのそぼはみみがとおいといっているがほんとうはなにでもちゃんときこえている。",
+          "mean": "My maternal grandmother says she is hard of hearing, but she can actually hear everything."
+        },
+        {
+          "content": "親戚の人にあったらちゃんと挨拶するように両親に言われた。",
+          "transcription": "しんせきのひとにあったらちゃんとあいさつするようにりょうしんにいわれた。",
+          "mean": "My parents told me to greet my relatives properly when I meet them."
+        },
+        {
+          "content": "彼が賄賂をもらっていたことは僕がちゃんと知っている。",
+          "transcription": "かれがわいろをもらっていたことはぼくがちゃんとしっている。",
+          "mean": "I know for sure that he took bribes."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ちゃんと => Clear, neat, dignified, complete",
+  "_id": "f7ff14dae05876cac58b413693e556b6"
+}

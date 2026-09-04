@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5160,
+  "usages": [
+    {
+      "explain": "「から～にかけて」is used to describe a range of time/space. The starting and ending points of this time/space range are vague and not specific.<br/>\n<br/>Notes:<br/>\n1. Events occurring within this time/space range must be continuous.<br/>\n2. In practical usage, N1から can be omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は、2007年から2009年にかけて、ロンドンに住んでいました。",
+          "transcription": "わたしは、にせんななねんからにせんきゅうねんにかけて、ロンドンにすんでいました。",
+          "mean": "I lived in London from 2007 to 2009."
+        },
+        {
+          "content": "この駅からあそこの通りにかけて、再開発されるそうです。",
+          "transcription": "このえきからあそこのどおりにかけて、さいかいはつされるそうです。",
+          "mean": "It seems that the area from this station to that street will be redeveloped."
+        },
+        {
+          "content": "梅雨から夏にかけて、日本は暑くて過ごしにくい。",
+          "transcription": "つゆからなつにかけて、にほんはあつくてすごしにくい。",
+          "mean": "From the rainy season to summer, Japan is hot and uncomfortable."
+        },
+        {
+          "content": "この花は春から秋にかけて咲き続ける。",
+          "transcription": "このはなははるからあきにかけてさきつづける。",
+          "mean": "This flower continues to bloom from spring to autumn."
+        },
+        {
+          "content": "午後にかけて、関東地方の一部で最高気温が30度を超えそうです。",
+          "transcription": "ごごにかけて、かんとうちほうのいちぶでさいこうきおんがさんじゅうどをこえそうです。",
+          "mean": "By the afternoon, the maximum temperature is likely to exceed 30 degrees in parts of the Kanto region."
+        },
+        {
+          "content": "毎週金曜日に入荷し、週末にかけて販売いたします。",
+          "transcription": "まいしゅうきんようびいににゅうかし、しゅうまつにかけてはんばいいたします。",
+          "mean": "Items arrive every Friday and will be on sale over the weekend."
+        },
+        {
+          "content": "明日は昼から夕方にかけて雨でしょう。",
+          "transcription": "あしたはひるからゆうがたにかけてあめでしょう。",
+          "mean": "It will rain tomorrow from noon to evening."
+        },
+        {
+          "content": "九州から本州にかけて梅雨入りました。",
+          "transcription": "きゅうしゅうからほんしゅうにかけてつゆはいりました。",
+          "mean": "The rainy season has begun from Kyushu to Honshu."
+        },
+        {
+          "content": "2月から4月にかけて、花粉が飛ぶそうです。",
+          "transcription": "にがつからしがつにかけて、かふんがとぶそうです。",
+          "mean": "Pollen is said to fly from February to April."
+        },
+        {
+          "content": "この服は春から夏にかけて、多くの人に着られています。",
+          "transcription": "このふくははるからなつにかけて、おおくのひとにきられています。",
+          "mean": "This clothing is worn by many people from spring to summer."
+        },
+        {
+          "content": "熊本県から大分県にかけて、大地震が起きました。",
+          "transcription": "くまもとけんからおおいたけんにかけて、だいじしんがおきました。",
+          "mean": "A major earthquake occurred from Kumamoto Prefecture to Oita Prefecture."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 から N2 にかけて"
+    }
+  ],
+  "title": "から～にかけて => through; from [A] to [B]",
+  "_id": "492606cb9d4a4275ac0332abc708f5f3"
+}

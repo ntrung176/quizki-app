@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 5250,
+  "usages": [
+    {
+      "explain": "The phrase 「それなのに」 is a conjunction used to connect two sentences. It indicates an unexpected result contrary to what the speaker might have predicted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この時計は高かった。それなのに、すぐに壊れた。",
+          "transcription": "このとけいはたかかった。それなのに、すぐにこわれた。",
+          "mean": "This watch was expensive. However, it broke immediately."
+        },
+        {
+          "content": "一生懸命勉強している。それなのに、成績はよくならない。",
+          "transcription": "いっしょうけんめいべんきょうしている。それなのに、せいせきはよくならない。",
+          "mean": "I'm studying hard. However, the results are not good."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。それなのに、 B"
+    }
+  ],
+  "title": "それなのに => and yet; despite this; but even so ~",
+  "_id": "574d090892694da09040def91e5f695d"
+}

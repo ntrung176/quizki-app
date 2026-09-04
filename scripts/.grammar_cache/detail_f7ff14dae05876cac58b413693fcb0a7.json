@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2410,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"there is no outstanding point worth mentioning.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "何ということもなく、彼女の大学時代が穏やかに過ぎた。",
+          "transcription": "なにということもなく、かのじょのだいがくじだいがおだやかにすぎた。",
+          "mean": "Her college years passed peacefully."
+        },
+        {
+          "content": "彼は何ということもないサラリーマンだ。",
+          "transcription": "かれはなにということもないさらりーまんだ。",
+          "mean": "He is just an office worker."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんということもない"
+    }
+  ],
+  "title": "なんということもない => Nothing worth mentioning",
+  "_id": "f7ff14dae05876cac58b413693fcb0a7"
+}

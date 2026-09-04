@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2538,
+  "usages": [
+    {
+      "explain": "This expresses the meaning \"either one is fine\" or \"either one is acceptable.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "登録してもいい。また、登録しなくてもいい。",
+          "transcription": "とうろくしてもいい。また、とうろくしなくてもいい。",
+          "mean": "You can register. Also, you don't have to register."
+        },
+        {
+          "content": "履歴書は直接出すこと。また、メールで送ってもいい。",
+          "transcription": "りれきしょはちょくせつだすこと。また、めーるでおくってもいい。",
+          "mean": "Submit your resume directly. You can also send it by email."
+        }
+      ],
+      "mean": null,
+      "synopsis": "また～"
+    }
+  ],
+  "title": "また => (Choose) or",
+  "_id": "f2d618ceb0702f781ec83b7d4f0e504c"
+}

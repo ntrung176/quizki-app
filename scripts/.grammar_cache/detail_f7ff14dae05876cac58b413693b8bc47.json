@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1921,
+  "usages": [
+    {
+      "explain": "Used to acknowledge the statement in the previous clause but then assert the statement in the following clause, often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いかに才能のある画家であるとはいえ、こんなに難解な作品ばかりでは一般の人には理解してはもらえないだろう。",
+          "transcription": "いかにさいのうのあるがかであるとはいえ、こんなになんかいなさくひんばかりではいっぱんのひとにはりかいしてはもらえないだろう。",
+          "mean": "No matter how talented a painter he is, it is unlikely that the general public will understand his works, which are so difficult to understand."
+        },
+        {
+          "content": "いかに失業したためとはいえ、家賃を滞納してはいけません。",
+          "transcription": "いかにしつぎょうしたためとはいえ、やちんをたいのうしてはいけません。",
+          "mean": "No matter how much you lose your job, you should never fall behind on your rent."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いかに … とはいえ => What ever...",
+  "_id": "f7ff14dae05876cac58b413693b8bc47"
+}

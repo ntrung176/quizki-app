@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5084,
+  "usages": [
+    {
+      "explain": "「というところだ/といったところだ」expresses the subjective estimation or assessment of the speaker, indicating that a quantity is \"around that much\" or a situation is \"around that level.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "勉強時間は2，3時間というところだ。",
+          "transcription": "べんきょうじかんはに、さんじかんというところだ。",
+          "mean": "The study time is about 2 to 3 hours."
+        },
+        {
+          "content": "家族だけで式を行う予定なので、招待客は多くて20人といったところです。",
+          "transcription": "かぞくだけでしきをおこなうよていなので、しょうたいきゃくはおおくてにじゅうにんといったところです。",
+          "mean": "The ceremony will be held with only family members, so there will be at most 20 guests."
+        },
+        {
+          "content": "ゴールデンウィークは人が多いので、旅行はしません。せいぜいレストランで食事するというところです。",
+          "transcription": "ゴールデンウィークはひとがおおいのでりょこうはしません。せいぜいレストランでしょくじするというところです。",
+          "mean": "There are a lot of people during Golden Week, so I don't travel. At the most, it's like eating at a restaurant."
+        },
+        {
+          "content": "『例の書類はできましたか。』『はい、あとはもう一度見直せばいいといったところです。』",
+          "transcription": "『れいのしょるいはできましたか。』『はい、あとはもういちどみなおせばいいといったところです。』",
+          "mean": "``Did you complete the example document? ``Yes, all you have to do is look at it again.'' ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word+というところだ / といったところだ<br/> V (root form)+というところだ / といったところだ"
+    }
+  ],
+  "title": "というところだ/といったところだ => at the most; no more than​; at best; roughl",
+  "_id": "d2d35227a9a44e3caa0b8d586fb9377e"
+}

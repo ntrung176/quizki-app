@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1135,
+  "usages": [
+    {
+      "explain": "Expressing the speaker's uncertainty or doubt about something, whether it exists or not.",
+      "note": null,
+      "examples": [
+        {
+          "content": "受け入れるか受け入れないか決めて下さい。",
+          "transcription": "うけいれるかうけいれないかきめてください。",
+          "mean": "Please decide whether to accept it or not."
+        },
+        {
+          "content": "その科目は難しいか難しくないか分からない。",
+          "transcription": "そのかもくはむずかしいかむずかしくないかわからない。",
+          "mean": "I don't know if the subject is difficult or not."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～か～ないか"
+    }
+  ],
+  "title": "…か…ないか => whether... or not",
+  "_id": "f7ff14dae05876cac58b4136934caf42"
+}

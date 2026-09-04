@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1130,
+  "usages": [
+    {
+      "explain": "向き（むき） follows a noun indicating direction or orientation to express the meaning \"facing towards...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の部屋は南向きなので日がよく当たる。",
+          "transcription": "わたしのへやはみなみむきなのでひがよくあたる。",
+          "mean": "My room faces south, so it gets a lot of sunlight."
+        },
+        {
+          "content": "この問題について前向きに考えたいと思う。",
+          "transcription": "このもんだいについてまえむきにかんがえたいとおもう。",
+          "mean": "I would like to think positively about this issue."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 向き"
+    }
+  ],
+  "title": "むき => facing towards",
+  "_id": "f7ff14dae05876cac58b4136934c1b42"
+}

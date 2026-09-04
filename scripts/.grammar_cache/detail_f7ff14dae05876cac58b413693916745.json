@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1632,
+  "usages": [
+    {
+      "explain": "Expressing a polite request or suggestion. The sentence usually does not end abruptly but uses words like 「けど」 or 「が」 to soften the suggestion.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今週末、暇だったら、パソコンの修理に来てもらえると嬉しいんですけど。",
+          "transcription": "こんしゅうまつ、ひまだったら、ぱそこんのしゅうりにきてもらえるとうれしいんですけど。",
+          "mean": "If you have free time this weekend, I would be happy if you could come and repair my computer."
+        },
+        {
+          "content": "出荷の時間をもう少しずらしてもらえると、ありがたいですが。",
+          "transcription": "しゅっかのじかんをもうすこしずらしてもらえると、ありがたいですが。",
+          "mean": "I would appreciate it if you could postpone the shipping time a little more."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + もらえるとありがたい\n <br/>Vて + もらえるとうれしい<br/>"
+    }
+  ],
+  "title": "てもらえるとありがたい => grateful, thankful if...",
+  "_id": "f7ff14dae05876cac58b413693916745"
+}

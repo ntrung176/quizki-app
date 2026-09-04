@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1641,
+  "usages": [
+    {
+      "explain": "This is a way of speaking where 「Nとして」adds meaning to the noun N.",
+      "note": null,
+      "examples": [
+        {
+          "content": "政治家としてではなく、父親としての観点から発言したいと思う。",
+          "transcription": "せいじかとしてではなく、ちちおやとしてのかんてんからはつげんしたいとおもう。",
+          "mean": "I would like to speak from my perspective as a father, not as a politician."
+        },
+        {
+          "content": "組織代表としての責任を強く感じ、一生懸命頑張ります。",
+          "transcription": "そしきだいひょうとしてのせきにんをつよくかんじ、いっしょうけんめいがんばります。",
+          "mean": "I feel a strong sense of responsibility as the representative of the organization and will do my best."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + としての + N"
+    }
+  ],
+  "title": "... としての... => ...as a...",
+  "_id": "f7ff14dae05876cac58b413693926731"
+}

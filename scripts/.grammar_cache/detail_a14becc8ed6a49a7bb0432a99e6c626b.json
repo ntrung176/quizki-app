@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5530,
+  "usages": [
+    {
+      "explain": "「ので」indicates a reason or cause. If after 「から」is a subjective result, emphasizing the speaker's opinion, then after 「ので」is an objective result, a natural consequence. Since 「ので」has the function of reducing the subjectivity of the speaker's opinion, making it more acceptable to the listener, it is often used to give reasons when making requests, asking for favors, or in reasoning.",
+      "note": null,
+      "examples": [
+        {
+          "content": "用事があるので、お先に失礼します。",
+          "transcription": "ようじがあるので、おさきにしつれいします。",
+          "mean": "I have something to do, so please excuse me in advance."
+        },
+        {
+          "content": "間違えましたので、違うものを送りますね。",
+          "transcription": "まちがえましたので、ちがうものをおくりますね。",
+          "mean": "I made a mistake, so I will send you a different one."
+        },
+        {
+          "content": "ちょっと寒いので、窓を閉めてもいいですか。",
+          "transcription": "ちょっとさむいので、まどをしめてもいいですか。",
+          "mean": "It's a bit cold, so can I close the window?"
+        },
+        {
+          "content": "雨が降っていたので、試合が中止になりました。",
+          "transcription": "あめがふっていたので、しあいがちゅうしになりました。",
+          "mean": "The match was canceled because it was raining."
+        },
+        {
+          "content": "彼女がとてもきれいなので、すぐ好きになりました。",
+          "transcription": "かのじょがとてもきれいなので、すぐすきになりました。",
+          "mean": "I fell in love with her right away because she was so pretty."
+        },
+        {
+          "content": "洗濯機が壊れたので、新しいのを買いに行ってきた。",
+          "transcription": "せんたくきがこわれたので、あたらしいのをかいにいってきた。",
+          "mean": "My washing machine broke, so I went to buy a new one."
+        },
+        {
+          "content": "台風が来るので、明日のクラスに来なくていいです。",
+          "transcription": "たいふうがくるので、あしたのクラスにこなくていいです。",
+          "mean": "There's a typhoon coming, so you don't have to come to class tomorrow."
+        },
+        {
+          "content": "日本語が分からないので、英語で話していただけませんか。",
+          "transcription": "にほんごがわからないので、えいごではなしていただけませんか。",
+          "mean": "I don't understand Japanese, so could you speak to me in English?"
+        },
+        {
+          "content": "私は日本人なので、英語が苦手です。",
+          "transcription": "わたしはにほんじんなので、えいごがにがてです。",
+          "mean": "I'm Japanese, so I'm not good at English."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+ので<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br/> Nだ ➔ N<s>だ</s>な)"
+    }
+  ],
+  "title": "ので => because of; given that; since ~ (explains reason for action)",
+  "_id": "a14becc8ed6a49a7bb0432a99e6c626b"
+}

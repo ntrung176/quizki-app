@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1772,
+  "usages": [
+    {
+      "explain": "■  In this structure, the verb is usually intentional, expressing the meaning 'although really wanting to do it, it cannot be done'. <br/>■  In both the preceding and following positions, the same verb is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "眠くて、起きようにも起きられない。",
+          "transcription": "ねむくて、おきようにもおきられない。",
+          "mean": "I'm so sleepy that I can't wake up even if I try."
+        },
+        {
+          "content": "この問題がややこしくて考えようにも考えられない。",
+          "transcription": "このもんだいがややこしくてかんがえようにもかんがえられない。",
+          "mean": "This problem is so complicated that I can't even think about it."
+        },
+        {
+          "content": "風が強すぎて走ろうにも走れない。",
+          "transcription": "かぜがつよすぎてはしろうにもはしれない。",
+          "mean": "The wind is so strong that I can't even run."
+        },
+        {
+          "content": "雨が降っているので、外で遊ぽうにも遊べない。",
+          "transcription": "あめがふっているので、そとで遊[?]ぽうにもあそべない。",
+          "mean": "It's raining, so I can't play outside."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■V－ようにも + V－れない"
+    }
+  ],
+  "title": "～ようにも...れない => even if I wanted to… I couldn't ~",
+  "_id": "f7ff14dae05876cac58b413693a49cf7"
+}

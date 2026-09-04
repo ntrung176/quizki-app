@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5572,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>予定</rb><rp>(</rp><rt>よてい</rt><rp>)</rp></ruby>だ」expresses a plan, schedule, or arrangement that has been decided, rather than just the intention of the speaker. It is not used for daily activities.",
+      "note": null,
+      "examples": [
+        {
+          "content": "新しい携帯を買う予定です。",
+          "transcription": "あたらしいけいたいをかうよていです。",
+          "mean": "I'm planning to buy a new mobile phone."
+        },
+        {
+          "content": "来週に中国に行く予定です。",
+          "transcription": "らいしゅうにちゅうごくにいくよていです。",
+          "mean": "I'm planning to go to China next week."
+        },
+        {
+          "content": "旅行は1週間ぐらいの予定です。",
+          "transcription": "りょこうはいっしゅうかんぐらいのよていです。",
+          "mean": "The trip is scheduled to last about a week."
+        },
+        {
+          "content": "明日の午後に書類を送る予定です。",
+          "transcription": "あしたのごごにしょるいをおくるよていです。",
+          "mean": "I plan to send the documents tomorrow afternoon."
+        },
+        {
+          "content": "来月から、他の部署へ異動の予定です。",
+          "transcription": "らいげつから、ほかのぶしょへいどうのよていです。",
+          "mean": "Starting next month, I will be transferred to another department."
+        },
+        {
+          "content": "7月の終わりにドイツへ出張する予定です。",
+          "transcription": "しちがつのおわりにドイツへしゅっちょうするよていです。",
+          "mean": "I am planning to go on a business trip to Germany at the end of July."
+        },
+        {
+          "content": "次のテストは12月5日の予定です。皆さんは頑張ってくださいね。",
+          "transcription": "つぎのテストはじゅうにがついつかのよていです。みなさんはがんばってくださいね。",
+          "mean": "The next test is scheduled for December 5th. Good luck everyone!"
+        },
+        {
+          "content": "僕達は来年、結婚する予定です。詳しく後でお知らせしますね。",
+          "transcription": "ぼくたちはらいねん、けっこんするよていです。くわしくあとでおしらせしますね。",
+          "mean": "We are planning to get married next year. I'll let you know more details later."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる+予定だ<br/> Nの+予定だ"
+    }
+  ],
+  "title": "予定だ => plan to, intend to",
+  "_id": "1e18b133e54c4c4892793f4a2f8b46c2"
+}

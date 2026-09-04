@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2160,
+  "usages": [
+    {
+      "explain": "Using the pattern 「XはY（とおなじ）くらい...」 expresses the meaning \"X and Y are at the same level.\" 「ほど」 does not have this usage.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：物価は中国と比べてどうですか。B：あまり変わりませんよ。中国と同じくらいです。",
+          "transcription": "A：ぶっかはちゅうごくとくらべてどうですか。B：あまりかわりませんよ。ちゅうごくとおなじくらいです。",
+          "mean": "A: How do prices compare to China? B: It doesn't change much. It's about the same as China."
+        },
+        {
+          "content": "豚小屋と同じくらい不潔である。",
+          "transcription": "ぶたこやとおなじくらいふけつである。",
+          "mean": "It's as filthy as a pigsty."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + くらい"
+    }
+  ],
+  "title": "Nくらい => about; approximately N",
+  "_id": "f7ff14dae05876cac58b413693db16e0"
+}

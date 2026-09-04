@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5626,
+  "usages": [
+    {
+      "explain": "「のが下手」 indicates that the subject is bad at, not skilled at something. This is expressed by placing a verb before 「のが下手」. The particle の functions to turn the verb into a noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "姉は歌うのが下手だ。",
+          "transcription": "あねはうたうのがへただ。",
+          "mean": "My sister is not good at singing."
+        },
+        {
+          "content": "彼は箸を使うのが下手だ。",
+          "transcription": "かれははしをつかうのがへただ。",
+          "mean": "He is bad at using chopsticks."
+        },
+        {
+          "content": "漢字を覚えるのが下手です。",
+          "transcription": "かんじをおぼえるのがへたです。",
+          "mean": "I'm bad at memorizing kanji."
+        },
+        {
+          "content": "母は料理を作るのが下手です。",
+          "transcription": "はははりょうりをつくるのがへたです。",
+          "mean": "My mother is not good at cooking."
+        },
+        {
+          "content": "私はスキーをするのが下手です。",
+          "transcription": "わたしはスキーをするのがへたです。",
+          "mean": "I'm not good at skiing."
+        },
+        {
+          "content": "彼女はバランスを取るのが下手です。",
+          "transcription": "かのじょはバランスをとるのがへたです。",
+          "mean": "She is bad at balancing."
+        },
+        {
+          "content": "私は道を覚えるのが下手です。",
+          "transcription": "わたしはみちをおぼえるのがへたです。",
+          "mean": "I'm bad at remembering directions."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+のが下手"
+    }
+  ],
+  "title": "のが下手 => to be bad at doing something",
+  "_id": "146b23a4b1fa498b8d758154493d38f4"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5143,
+  "usages": [
+    {
+      "explain": "「か～ないかのうちに」 is often used to describe the occurrence of two actions almost simultaneously, where it's unclear if the first action has ended before the second one happens.<br/>\nThe nuance of \"almost simultaneously\" in this structure is stronger than 「かと思うと」 and \"「かと思ったら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "授業が終わるか終わらないかのうちに彼は教室を出た。",
+          "transcription": "じゅぎょうがおわるかおわらないかのうちにかれはきょうしつをでた。",
+          "mean": "He left the classroom before the lesson was over."
+        },
+        {
+          "content": "布団に入るか入らないかのうちに眠ってしまった。",
+          "transcription": "ふとんにはいるかはいらないかのうちにねむってしまった。",
+          "mean": "I fell asleep before I could even get into the futon."
+        },
+        {
+          "content": "いただきますと言うか言わないかのうちに食べ始めた。",
+          "transcription": "いただきますというかいわないかのうちにたべはじめた。",
+          "mean": "I started eating before I could even say itadakimasu."
+        },
+        {
+          "content": "彼が電車が止まるか止まらないかのうちにホームに飛び降りた。",
+          "transcription": "かれがでんしゃがとまるかとまらないかのうちにホームにとびおりた。",
+          "mean": "He jumped onto the platform before the train stopped."
+        },
+        {
+          "content": "ベルが鳴るか鳴らないかのうちに先生が教室に入ってきた。",
+          "transcription": "ベルがなるかならないかのうちにせんせいがきょうしつにはいってきた。",
+          "mean": "The teacher came into the classroom before the bell rang or not."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1るか V1ないか のうちに V2"
+    }
+  ],
+  "title": "か～ないかのうちに => right after; as soon as",
+  "_id": "7becaa4094f948b2bb272bf307351c48"
+}

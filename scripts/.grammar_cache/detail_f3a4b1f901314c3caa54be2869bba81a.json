@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5167,
+  "usages": [
+    {
+      "explain": "「まい」expresses the strong will of the speaker, that they absolutely, definitely will not do something. It is often accompanied by phrases like もう、二度と、決して...",
+      "note": null,
+      "examples": [
+        {
+          "content": "あんなひどいところ、二度と行くまい。",
+          "transcription": "あんなひどいところ、にどといくまい。",
+          "mean": "I'll never go to such a horrible place again."
+        },
+        {
+          "content": "海外旅行では、絶対に買った水以外は飲むまいと思った。",
+          "transcription": "かいがいりょこうでは、ぜったいにかったみずいがいはのむまいとおもった。",
+          "mean": "When traveling overseas, I decided to never drink anything other than the water I bought."
+        },
+        {
+          "content": "秘密をばらされた…もう決して彼には秘密を言うまい。",
+          "transcription": "ひみつをばらされた…もうけっしてかれにはひみつをいうまい。",
+          "mean": "My secret was revealed... I will never tell him my secret again."
+        },
+        {
+          "content": "こんなばかな失敗は二度とするまい。",
+          "transcription": "こんなばかなしっぱいはにどとするまい。",
+          "mean": "I will never make such a stupid mistake again."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group 1: V (root form)+まい (VD: 行きます ➔ 行くまい)<br/>Group 2: V<s>ます</s>+まい (VD: 食べます ➔ 食べまい)<br/>Group 3: します ➔ すまい / するまい<br/> きます ➔ こまい / くるまい"
+    }
+  ],
+  "title": "まい => Absolutely not",
+  "_id": "f3a4b1f901314c3caa54be2869bba81a"
+}

@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5538,
+  "usages": [
+    {
+      "explain": "「さすが」expresses the speaker's acknowledgment that something is as expected or evaluated positively, while also showing the speaker's impression, admiration, or approval of that event. In this sense, 「さすが」can take forms like さすが、さすがは、さすがだ、さすがに... Additionally, you may encounter 「さすが」used in conjunction with structures like 「だけに」、「だけのことはある」、or 「だけあって」. <br/>\nIn the form of さすがに, 「さすが」has another meaning: to acknowledge an event but still have conflicting emotions about it. In other words, the speaker cannot fully accept that event. <br/>\n「さすが」is commonly used in spoken language. <br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "さすがに大都市だけあって、いい本屋がたくさんあります。",
+          "transcription": "さすがにだいとしだけあって、いいほんやがたくさんあります。",
+          "mean": "As expected from a big city, there are many good bookstores."
+        },
+        {
+          "content": "彼は若いころから日本に住んでいただけのことはあって、さすが日本語が上手だね。",
+          "transcription": "かれはわかいころからにほんにすんでいただけのことはあって、さすがにほんごがじょうずだね。",
+          "mean": "He has lived in Japan since he was young, and as expected, he is good at Japanese."
+        },
+        {
+          "content": "わ〜、このケーキすごく美味しい！さすがお母さん！",
+          "transcription": "わ〜、このけーきすごくおいしい！さすがおかあさん！",
+          "mean": "Wow, this cake is so delicious! As expected of a mother!"
+        },
+        {
+          "content": "こんなに難しい漢字が読めるとはさすがだ。",
+          "transcription": "こんなにむずかしいかんじがよめるとはさすがだ。",
+          "mean": "It's amazing that you can read such difficult kanji."
+        },
+        {
+          "content": "『彼は満点でN１に合格したらしいよ。』『へえ、さすがだね。』",
+          "transcription": "『かれはまんてんでエヌいちにごうかくしたらしいよ。』『へえ、さすがだね。』",
+          "mean": "``It seems he passed N1 with a perfect score. ” “Wow, that’s to be expected. ”"
+        },
+        {
+          "content": "さすがは紳士の行為だ。",
+          "transcription": "さすがはしんしのこういだ。",
+          "mean": "As expected of a gentleman's act."
+        },
+        {
+          "content": "さすがにこういうところには住みたくないな。",
+          "transcription": "さすがにこういうところにはすみたくないな。",
+          "mean": "I don't really want to live in a place like this."
+        },
+        {
+          "content": "味は良いが、これだけ多いとさすがに飽きる。",
+          "transcription": "あじはよいが、これだけおおいとさすがにあきる。",
+          "mean": "It tastes good, but with so much of it, it gets boring."
+        }
+      ],
+      "mean": null,
+      "synopsis": "さすが～<br/>さすがは～<br/>さすがだ<br/>さすがに～"
+    }
+  ],
+  "title": "さすが => as one would expect; as is to be expected; even ~",
+  "_id": "c41eda0f96824895b5f4b66379770e01"
+}

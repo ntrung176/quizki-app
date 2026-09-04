@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1960,
+  "usages": [
+    {
+      "explain": "It is a weak affirmative expression meaning \"I think perhaps that is the case\". Used when stating uncertain things, adding a touch of doubt. Often accompanied by feelings of worry or fear in many cases.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女があの男の人と結婚したなんて、何かの間違いではないか。",
+          "transcription": "かのじょがあのおとこのひととけっこんしたなんて、なにかのまちがいではないか。",
+          "mean": "Isn't it some kind of mistake that she married that man?"
+        },
+        {
+          "content": "この料理はちょっと塩辛くない。",
+          "transcription": "このりょうりはちょっとしおからくない。",
+          "mean": "This dish is not too salty."
+        },
+        {
+          "content": "毎日そんなに徹夜したら病気にならないか。",
+          "transcription": "まいにちそんなにてつやしたらびょうきにならないか。",
+          "mean": "If I stay up all night that long every day, won't I get sick?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ないか <br/>A + くないか<br/>Na・N + ではないか<br/>"
+    }
+  ],
+  "title": "ない (か) =>  right? isn't it?",
+  "_id": "f7ff14dae05876cac58b413693bec226"
+}

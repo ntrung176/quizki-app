@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1843,
+  "usages": [
+    {
+      "explain": "<div>✦ It conveys the idea of \"it must be done because it's obvious, it's a given\". It's an imperative expression.<div></div></div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "学生はすべからく勉強に励むべし。",
+          "transcription": "がくせいはすべからくべんきょうにはげむべし。",
+          "mean": "Students should study hard."
+        },
+        {
+          "content": "今度の試験は、よほど難しかったらしく、クラスで一番良くできる生徒でも60点しかとれなかった。後は推して知るべしだ。",
+          "transcription": "こんどのしけんは、よほどむずかしかったらしく、クラスでいちばんよくできるせいとでも60てんしかとれなかった。ごはおしてしるべしだ。",
+          "mean": "The exam this time seemed to be extremely difficult, and even the best student in the class only got a 60 point. You'll have to guess the rest."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦Vる + べし<br/></div>"
+    }
+  ],
+  "title": "～べし => need, of course",
+  "_id": "f7ff14dae05876cac58b413693adf852"
+}

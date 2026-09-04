@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2794,
+  "usages": [
+    {
+      "explain": "Used together with expressions indicating time, age, and to convey the meaning of \"reached the necessary point\". Often implies that the time has come sooner than expected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "おしゃべりに夢中になっていたら、もう10時だ。",
+          "transcription": "おしゃべりにむちゅうになっていたら、もう10じだ。",
+          "mean": "By the time I was absorbed in chatting, it was already 10 o'clock."
+        },
+        {
+          "content": "暦の上ではもう秋なのに、まだ暑い。",
+          "transcription": "こよみのうえではもうあきなのに、まだあつい。",
+          "mean": "Even though it's already autumn according to the calendar, it's still hot."
+        },
+        {
+          "content": "彼はもう１８歳だから、十分刑事責任をとれる。",
+          "transcription": "かれはもういちはちさいだから、じゅうぶんけいじせきにんをとれる。",
+          "mean": "Since he is already 18 years old, he can be held criminally responsible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もう＋ time/age"
+    }
+  ],
+  "title": "もう => Already... (time/age)",
+  "_id": "f2d618ceb0702f781ec83b7d4f302d08"
+}

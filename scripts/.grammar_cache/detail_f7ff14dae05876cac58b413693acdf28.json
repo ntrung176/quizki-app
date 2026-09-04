@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1834,
+  "usages": [
+    {
+      "explain": "Used to request someone to do something. Typically, women and children use this expression to ask close relatives. It's not impolite, but it shouldn't be used in formal situations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田くん、ちょっと立ち上がってちょうだい。",
+          "transcription": "やまだくん、ちょっとたちあがってちょうだい。",
+          "mean": "Yamada-kun, please stand up for a moment."
+        },
+        {
+          "content": "彼女は「小林さん、ちょっと見てちょうだい」と言って、私を木のところへ連れて行った。",
+          "transcription": "かのじょは「こばやしさん、ちょっとみてちょうだい」といって、わたしをきのところへつれていった。",
+          "mean": "She said, ``Mr. Kobayashi, please take a look,'' and led me to a tree."
+        },
+        {
+          "content": "「ゲームばかりしているのは止めてちょうだい」と姉に言われた。",
+          "transcription": "「げーむばかりしているのはとめてちょうだい」とあねにいわれた。",
+          "mean": "``Please stop playing games all the time,'' my sister told me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + ちょうだい"
+    }
+  ],
+  "title": "てちょうだい => Please help me...",
+  "_id": "f7ff14dae05876cac58b413693acdf28"
+}

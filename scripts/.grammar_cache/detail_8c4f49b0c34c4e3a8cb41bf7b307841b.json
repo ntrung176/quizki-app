@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5329,
+  "usages": [
+    {
+      "explain": "「だけしか～ない」expresses the strong idea of \"only that much, nothing else besides.\" It emphasizes the limitation or scarcity of something more strongly than just using 「だけ」alone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今は君だけしか信じない。",
+          "transcription": "いまはきみだけしかしんじない。",
+          "mean": "I only believe in you now."
+        },
+        {
+          "content": "このコンサートは社員だけしか入れません。",
+          "transcription": "このコンサートはしゃいんだけしかはいれません。",
+          "mean": "This concert is only open to employees."
+        },
+        {
+          "content": "このクラスでは日本語だけしか使わない。",
+          "transcription": "このクラスではにほんごだけしかつかわない。",
+          "mean": "In this class, we will only use Japanese."
+        },
+        {
+          "content": "ああ、たい焼きは1つだけしか残っていないだ。",
+          "transcription": "ああ、たいやきはひとつだけしかのこっていないだ。",
+          "mean": "Oh, there's only one taiyaki left."
+        },
+        {
+          "content": "ベトナムの魚醤はここにだけしかないよ。",
+          "transcription": "ベトナムのぎょしょうはここにだけしかないよ。",
+          "mean": "Vietnamese fish sauce is only available here."
+        },
+        {
+          "content": "今日はお客様が1人だけしか来ませんでした。",
+          "transcription": "きょうはおきゃくさまがひとりだけしかきませんでした。",
+          "mean": "Only one customer came today."
+        },
+        {
+          "content": "私は日本に1年間来たけどひらがなだけしか書けない。",
+          "transcription": "わたしはにほんにいちねんかんきたけどひらがなだけしかかけない。",
+          "mean": "I came to Japan for a year, but I can only write hiragana."
+        },
+        {
+          "content": "昨日、仕事が忙しくて、2時間だけしか寝られなかった。",
+          "transcription": "きのう、しごとがいそがしくて、にじかんだけしかねられなかった。",
+          "mean": "I was busy with work yesterday, so I could only sleep for two hours."
+        },
+        {
+          "content": "今日の飲み会は、話してばかりで1杯だけしか飲まなかった。",
+          "transcription": "きょうののみかいは、はなしてばかりでいっぱいだけしかのまなかった。",
+          "mean": "At today's drinking party, we just talked and only drank one drink."
+        },
+        {
+          "content": "新しいセーターを買いたいですが、財布の中に500円だけしか入ってないだ。",
+          "transcription": "あたらしいセーターをかいたいですが、さいふのなかにごひゃくえんだけしかはいってないだ。",
+          "mean": "I want to buy a new sweater, but I only have 500 yen in my wallet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N ✚ だけしか ✚ Vない"
+    }
+  ],
+  "title": "だけしか～ない => only",
+  "_id": "8c4f49b0c34c4e3a8cb41bf7b307841b"
+}

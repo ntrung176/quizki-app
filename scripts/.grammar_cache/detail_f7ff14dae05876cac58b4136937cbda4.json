@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1480,
+  "usages": [
+    {
+      "explain": "It is used to supplement or provide contrasting information to the preceding clause. Typically used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "医者にして盲腸はどこにあるか知らない。",
+          "transcription": "いしゃにしてもうちょうはどこにあるかしらない。",
+          "mean": "Even though I'm a doctor, I don't know where the appendix is."
+        },
+        {
+          "content": "彼は数学者にして有名な詩人でもある。",
+          "transcription": "かれはすうがくしゃにしてゆうめいなしじんでもある。",
+          "mean": "He is also a mathematician and a famous poet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にして"
+    }
+  ],
+  "title": "にして => At, Over, In, Only (after, when, or because)",
+  "_id": "f7ff14dae05876cac58b4136937cbda4"
+}

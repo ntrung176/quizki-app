@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 726,
+  "usages": [
+    {
+      "explain": "■ Expresses the meaning of choosing a behavior. At the end of the sentence, it's a way of saying \"you should...\", \"I want you to...\", \"there should be a clear attitude in choosing which one\".<br/>■ Because it implies a forced choice, using it incorrectly can be impolite.",
+      "note": null,
+      "examples": [
+        {
+          "content": "行くなり行かないなりはっきり決めてほしい。",
+          "transcription": "いくなりいかないなりはっきりきめてほしい。",
+          "mean": "I want you to make a clear decision whether to go or not."
+        },
+        {
+          "content": "やるなりやらないなり、はっきりした態度をとらなければならない。",
+          "transcription": "やるなりやらないなり、はっきりしたたいどをとらなければならない。",
+          "mean": "You have to take a clear stance whether you do it or not."
+        },
+        {
+          "content": "来るなり来ないなりをきちんと連絡してもらわなければ困ります。",
+          "transcription": "くるなりこないなりをきちんとれんらくしてもらわなければこまります。",
+          "mean": "We will be in trouble if we don't have them properly inform us whether they are coming or not."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■V-る + なり + V-ない + なり"
+    }
+  ],
+  "title": "...なり...なり =>  [A] or [B] or~",
+  "_id": "f7ff14dae05876cac58b413693149847"
+}

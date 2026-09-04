@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5317,
+  "usages": [
+    {
+      "explain": "「合う」 indicates that the subject performs action V (preceding 「合う」) together with someone else.",
+      "note": null,
+      "examples": [
+        {
+          "content": "2人は愛し合っている。",
+          "transcription": "ふたりはあいしあっている。",
+          "mean": "The two are in love."
+        },
+        {
+          "content": "その2人はいつも競い合っている。",
+          "transcription": "そのふたりはいつもきそいあっている。",
+          "mean": "The two are always competing."
+        },
+        {
+          "content": "私達はお互い助け合うべきだ。",
+          "transcription": "わたしたちはおたがいたすけあうべきだ。",
+          "mean": "We should help each other."
+        },
+        {
+          "content": "彼女は仲間とうまく付き合っている。",
+          "transcription": "かのじょはなかまとうまくつきあっている。",
+          "mean": "She gets along well with her peers."
+        },
+        {
+          "content": "私達はその件について話し合いましょう。",
+          "transcription": "わたしたちはそのけんについてはなしあいましょう。",
+          "mean": "Let's discuss the matter."
+        },
+        {
+          "content": "テストの結果が返ってきて、点数を見せ合った。",
+          "transcription": "テストのけっかがかえってきて、てんすうをみせあった。",
+          "mean": "When the test results came back, we showed each other our scores."
+        },
+        {
+          "content": "チームだから、困ったときは助け合いましょう。",
+          "transcription": "チームだから、こまったときはたすけあいましょう。",
+          "mean": "We are a team, so let's help each other when we are in trouble."
+        },
+        {
+          "content": "隣の人と相談し合って答えを考えてください。",
+          "transcription": "となりのひととそうだんしあってこたえをかんがえてください。",
+          "mean": "Please discuss the answer with your neighbor."
+        },
+        {
+          "content": "問題が起きたときは、どうすべきかみんなで話し合いましょう。",
+          "transcription": "もんだいがおきたときは、どうすべきかみんなではなしあいましょう。",
+          "mean": "When a problem occurs, let's all discuss what to do."
+        },
+        {
+          "content": "このプロジェクトが完成したら、ゆっくり休めるから頑張り合いましょう！",
+          "transcription": "このプロジェクトがかんせいしたら、ゆっくりやすめるからがんばりあいましょう！",
+          "mean": "Once this project is completed, you can take a break, so let's work together!"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+合う"
+    }
+  ],
+  "title": "合う => do something together",
+  "_id": "06639defa6ed48b5908aa8a0f225bc6e"
+}

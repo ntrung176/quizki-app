@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3123,
+  "usages": [
+    {
+      "explain": "✦ The pattern Aならでは expresses the meaning of \"unique to A, there is nothing else but A.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "今年の夏は東北に旅行に行って、その土地ならではの料理を食べてみたい。",
+          "transcription": "ことしのなつはとうほくにりょこうにいって、そのとちならではのりょうりをたべてみたい。",
+          "mean": "I want to travel to Tohoku this summer and try the cuisine unique to that region."
+        },
+        {
+          "content": "見送りに来ないのは、父ならではの優しさだ。会えば別れがたくなってしまうから。",
+          "transcription": "みおくりにこないのは、ちちならではのやさしさだ。あえばわかれがたくなってしまうから。",
+          "mean": "The fact that he didn't come to see her off was a gesture of kindness that only a father could have. Because once we meet, it will be hard to say goodbye."
+        },
+        {
+          "content": "おじいさんのカメラはとても古いが、古いカメラならではの味のある写真が撮れる。",
+          "transcription": "おじいさんのかめらはとてもふるいが、ふるいかめらならではのあじのあるしゃしんがとれる。",
+          "mean": "Although my grandfather's camera is very old, it can take pictures with the unique taste that only an old camera can provide."
+        },
+        {
+          "content": "スキージャンプは雪国ならではのスポーツだ。",
+          "transcription": "スキージャンプはゆきぐにならではのスポーツだ。",
+          "mean": "Ski jumping is a sport unique to snowy countries."
+        },
+        {
+          "content": "当レストランならではの料理をお楽しみください。",
+          "transcription": "とうレストランならではのりょうりをおたのしみください。",
+          "mean": "Enjoy the unique cuisine of our restaurant."
+        }
+      ],
+      "mean": "✦distinctive of; characteristic of; uniquely applying to; special to ~",
+      "synopsis": "<div>✦ N＋ならでは </div><div>✦ N1＋ならでは＋の＋N2</div>"
+    }
+  ],
+  "title": "～ならでは（の）   => distinctive of; characteristic of; uniquely applying to; special to ~",
+  "_id": "93020c54469e582d6fdb16f7ba8e8e93"
+}

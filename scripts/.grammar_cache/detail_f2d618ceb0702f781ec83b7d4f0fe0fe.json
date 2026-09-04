@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2549,
+  "usages": [
+    {
+      "explain": "Used to indicate a name or a way of calling.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人は名前を上田清といいます。",
+          "transcription": "あのひとはなまえをうえだきよしといいます。",
+          "mean": "That person's name is Kiyoshi Ueda."
+        },
+        {
+          "content": "年の最初の日を元日と言います。",
+          "transcription": "としのさいしょのひをがんじつといいます。",
+          "mean": "The first day of the year is called New Year's Day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N を N という"
+    }
+  ],
+  "title": "... を ... という => called; named; that ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f0fe0fe"
+}

@@ -1,0 +1,81 @@
+{
+  "level": "N5",
+  "mobileId": 5593,
+  "usages": [
+    {
+      "explain": "「(の中)で～が一番～です」expresses the idea that within a group of objects/places/people/times (N1), there is one object (N2) that is the most (adjective A).<br/>\n\n「(の中)で～が一番～ですか」is a question asking the listener to choose from a group of objects/places/people/times (N1), which one (N2) has the highest degree of a certain quality (A). The interrogative word will change based on the group of objects being discussed.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本で北海道が一番寒いです。",
+          "transcription": "にほんでほっかいどうがいちばんさむいです。",
+          "mean": "Hokkaido is the coldest in Japan."
+        },
+        {
+          "content": "家族で弟が一番背が高いです。",
+          "transcription": "かぞくでおとうとがいちばんせがたかいです。",
+          "mean": "My younger brother is the tallest in my family."
+        },
+        {
+          "content": "日本の四季で秋が一番好きです。",
+          "transcription": "にほんのしきであきがいちばんすきです。",
+          "mean": "Of the four seasons in Japan, autumn is my favorite."
+        },
+        {
+          "content": "野菜の中でブロッコリーが一番嫌いです。",
+          "transcription": "やさいのなかでブロッコリーがいちばんきらいです。",
+          "mean": "Of all the vegetables, I hate broccoli the most."
+        },
+        {
+          "content": "クラスで雪ちゃんが一番可愛いです。",
+          "transcription": "クラスでゆきちゃんがいちばんかわいいです。",
+          "mean": "Yuki-chan is the cutest in the class."
+        },
+        {
+          "content": "僕の家族の中で母が一番優しいですよ。",
+          "transcription": "ぼくのかぞくのなかでははがいちばんやさしいですよ。",
+          "mean": "My mother is the kindest person in my family."
+        },
+        {
+          "content": "午前中が一番調子がいいです。",
+          "transcription": "ごぜんちゅうがいちばんちょうしがいいです。",
+          "mean": "I feel best in the morning."
+        },
+        {
+          "content": "その学校へ行くのは地下鉄が一番早いです。",
+          "transcription": "そのがっこうへいくのはちかてつがいちばんはやいです。",
+          "mean": "The fastest way to get to that school is by subway."
+        },
+        {
+          "content": "私は冬が一番好きだ。",
+          "transcription": "わたしはふゆがいちばんすきだ。",
+          "mean": "I like winter the most."
+        },
+        {
+          "content": "日本の料理の中で何が一番好きですか。",
+          "transcription": "にほんのりょうりのなかでなにがいちばんすきですか。",
+          "mean": "What do you like most about Japanese cuisine?"
+        },
+        {
+          "content": "クラスの中で誰が一番頭がいいですか。",
+          "transcription": "クラスのなかでだれがいちばんあたまがいいですか。",
+          "mean": "Who is the smartest in the class?"
+        },
+        {
+          "content": "世界でどこが一番安全ですか。",
+          "transcription": "せかいでどこがいちばんあんぜんですか。",
+          "mean": "Where is the safest place in the world?"
+        },
+        {
+          "content": "一年でいつが一番寒いですか。",
+          "transcription": "いちねんでいつがいちばんさむいですか。",
+          "mean": "When is the coldest time of the year?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1(の中)で N2 が一番 Aい/A<s>な</s> です<br/>\nN1(の中)で 何/どこ/誰/いつ が一番 Aい/A<s>な</s> ですか"
+    }
+  ],
+  "title": "(の中)で～が一番～です => out of this group, [A] is best",
+  "_id": "35216f55800245b69f79afc8cca7db08"
+}

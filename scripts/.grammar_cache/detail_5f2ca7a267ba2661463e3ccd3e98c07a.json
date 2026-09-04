@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3237,
+  "usages": [
+    {
+      "explain": "To express the meaning \"besides, apart from...\"",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "付加価値税とは別にいただきます。",
+          "transcription": "ふかかちぜいとはべつにいただきます。",
+          "mean": "It will be charged separately from value added tax."
+        },
+        {
+          "content": "電車はすごく込んでいたので、同僚とは別に座ることにした。",
+          "transcription": "でんしゃはすごくこんでいたので、どうりょうとはべつにすわることにした。",
+          "mean": "The train was very crowded, so I decided to sit separately from my colleagues."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + のとはべつに <br/>N + とはべつに"
+    }
+  ],
+  "title": "とはべつに =>  in addition to; apart from.",
+  "_id": "5f2ca7a267ba2661463e3ccd3e98c07a"
+}

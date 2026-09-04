@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1381,
+  "usages": [
+    {
+      "explain": "一口に…と言っても（ひとくちに…といっても）expresses the meaning: although it is often simplified in speech, in reality, it is very complicated.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一口に中国と言っても、広大で、色々な文化や民族がある国です。",
+          "transcription": "ひとくちにちゅうごくといっても、こうだいで、いろいろなぶんかやみんぞくがあるくにです。",
+          "mean": "China is a vast country with many different cultures and ethnic groups."
+        },
+        {
+          "content": "一口にランと言っても、実に多様な種類があります。",
+          "transcription": "ひとくちにらんといっても、じつにたようなしゅるいがあります。",
+          "mean": "There are actually a wide variety of types of orchids."
+        }
+      ],
+      "mean": null,
+      "synopsis": "一口に…と言っても"
+    }
+  ],
+  "title": "一口に…といっても => Although in general...",
+  "_id": "f7ff14dae05876cac58b4136936e5c93"
+}

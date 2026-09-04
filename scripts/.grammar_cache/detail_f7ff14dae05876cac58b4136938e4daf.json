@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1604,
+  "usages": [
+    {
+      "explain": "Uses the speculative form of 「よい」to express the meaning: it might be okay, probably no problem. As in example 2, the form 「...がよかろう」 is also used as permission. Young people rarely use this in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうせもう遅いんだから、ここには泊まればよかろう。",
+          "transcription": "どうせもうおそいんだから、ここにはとまればよかろう。",
+          "mean": "It's already late anyway, so I guess I'll just stay here for the night."
+        },
+        {
+          "content": "重い家具を持つのは男たちに任せたらよかろう。",
+          "transcription": "おもいかぐをもつのはおとこたちにまかせたらよかろう。",
+          "mean": "It would be better to leave the lifting of heavy furniture to the men."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Use the speculative form of 「よい」."
+    }
+  ],
+  "title": "よかろう => it's okay to have, it's fine even ...",
+  "_id": "f7ff14dae05876cac58b4136938e4daf"
+}

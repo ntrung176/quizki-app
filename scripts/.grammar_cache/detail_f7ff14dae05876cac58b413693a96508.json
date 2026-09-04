@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1805,
+  "usages": [
+    {
+      "explain": "気にもならない（きにもならない）expresses the meaning \"not to have the mind to do something\". In many cases, it is used with a negative connotation meaning \"that thing is of such low value that it's not worth doing\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼があまりに悲しくて、泣く気にもならない。",
+          "transcription": "かれがあまりにかなしくて、なくきにもならない。",
+          "mean": "He's so sad that I don't even feel like crying."
+        },
+        {
+          "content": "彼女の考え方があまりに子供っぽいので、怒る気にもならない。",
+          "transcription": "かのじょのかんがえかたがあまりにこどもっぽいので、おこるきにもならない。",
+          "mean": "Her way of thinking is so childish that I don't even feel like getting angry at her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る ＋気にもならない"
+    }
+  ],
+  "title": "気にもならない => it's no use; can't do",
+  "_id": "f7ff14dae05876cac58b413693a96508"
+}

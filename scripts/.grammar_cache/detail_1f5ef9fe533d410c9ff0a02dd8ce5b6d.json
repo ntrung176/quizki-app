@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5187,
+  "usages": [
+    {
+      "explain": "「ないものか」 expresses a strong desire or wish to accomplish an action or to have a change occur. This desire is strong, while the action or change is difficult to achieve or unlikely to happen.<br/> This structure is often accompanied by \"どうにか\" (somehow), \"何とか\" (somehow), \"もう少し\" (a little more), etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "最近、変なメールがたくさん来る。どうにかならないものか。",
+          "transcription": "さいきん、へんなメールがたくさんくる。どうにかならないものか。",
+          "mean": "I've been receiving a lot of strange emails lately. Is it something that can't be helped?"
+        },
+        {
+          "content": "デジカメが壊れた。何とか直らないものだろうか。",
+          "transcription": "デジカメがこわれた。なんとかなおらないものだろうか。",
+          "mean": "My digital camera broke. Is there something that can't be fixed?"
+        },
+        {
+          "content": "この混雑は何とかならないものか。",
+          "transcription": "このこんざつはなんとかならないものか。",
+          "mean": "Is there something that can be done about this congestion?"
+        },
+        {
+          "content": "この橋が早く完成しないものか。",
+          "transcription": "このはしがはやくかんせいしないものか。",
+          "mean": "Is this bridge not going to be completed soon?"
+        },
+        {
+          "content": "この匂い、何とかならないものか。",
+          "transcription": "このにおい、なんとかならないものか。",
+          "mean": "Is there something wrong with this smell?"
+        },
+        {
+          "content": "この問題をどうにかして解決できないものか。",
+          "transcription": "このもんだいをどうにかしてかいけつできないものか。",
+          "mean": "Is there no way to solve this problem?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vない+もの(だろう)か<br/> V(potential form)ない+もの(だろう)か"
+    }
+  ],
+  "title": "ないものか => isn't there; can’t we…?; can’t I…?",
+  "_id": "1f5ef9fe533d410c9ff0a02dd8ce5b6d"
+}

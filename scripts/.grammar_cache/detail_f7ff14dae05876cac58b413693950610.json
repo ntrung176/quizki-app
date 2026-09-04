@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1662,
+  "usages": [
+    {
+      "explain": "It expresses the meaning \"completely unexpected\", \"beyond prediction\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "学生は時々とんでもない質問をして先生を困らせることがある。",
+          "transcription": "がくせいはときどきとんでもないしつもんをしてせんせいをこまらせることがある。",
+          "mean": "Students sometimes ask ridiculous questions and annoy the teacher."
+        },
+        {
+          "content": "海上に競技場を建てるとは、とんでもないアイデアだ。",
+          "transcription": "かいじょうにきょうぎじょうをたてるとは、とんでもないあいであだ。",
+          "mean": "Building a stadium on the ocean is an outrageous idea."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とんでもない + N"
+    }
+  ],
+  "title": "とんでもない => unthinkable; unexpected; absurd; outrageous; preposterous; terrible",
+  "_id": "f7ff14dae05876cac58b413693950610"
+}

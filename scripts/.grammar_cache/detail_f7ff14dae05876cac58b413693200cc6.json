@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 808,
+  "usages": [
+    {
+      "explain": "✦ When used with a noun, it conveys the characteristics of that object. The number of nouns used is very limited. It is also used with the form [Nがかっている].",
+      "note": null,
+      "examples": [
+        {
+          "content": "前田さんは青みがかった紫色のとてもきれいなワンピースを看ていた。",
+          "transcription": "まえださんはあおみがかったむらさきいろのとてもきれいなわんぴーすをみていた。",
+          "mean": "Maeda-san was looking at a very beautiful bluish-purple dress."
+        },
+        {
+          "content": "その絵は背景が赤みがかった空色で、まるで夕暮れの空のようだ。",
+          "transcription": "そのえははいけいがあかみがかったそらいろで、まるでゆうぐれのそらのようだ。",
+          "mean": "The background of the painting is a reddish sky blue, resembling the sky at dusk."
+        },
+        {
+          "content": "山本は考えることが左がかっている（二左翼的だ）。",
+          "transcription": "やまもとはかんがえることがひだりがかっている（にさよくてきだ） 。",
+          "mean": "Yamamoto's thinking leans toward the left (he's a left-winger)."
+        },
+        {
+          "content": "あいつの行動はどこか芝居がかっていて、こっけいだ。",
+          "transcription": "あいつのこうどうはどこかしばいがかっていて、こっけいだ。",
+          "mean": "His actions are somehow theatrical and comical."
+        },
+        {
+          "content": "その人は、村では神がかった存在として尊敬されおそれられている。",
+          "transcription": "そのひとは、むらではかみがかったそんざいとしてそんけいされおそれられている。",
+          "mean": "That person is respected and feared as a divine being in the village."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + がかった + N"
+    }
+  ],
+  "title": "～がかる => close to, leaning towards...",
+  "_id": "f7ff14dae05876cac58b413693200cc6"
+}

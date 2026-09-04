@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 900,
+  "usages": [
+    {
+      "explain": "■ Indicates the meaning: a certain state or action remains unchanged.<br/>■ Equivalent to the structure: ～しないでそのまま",
+      "note": null,
+      "examples": [
+        {
+          "content": "禁煙を始めたが、吸わずにいるとだんだんイライラしてくる。",
+          "transcription": "きんえんをはじめたが、すわずにいるとだんだんイライラしてくる。",
+          "mean": "I've started to quit smoking, but I'm getting more and more irritated when I don't smoke."
+        },
+        {
+          "content": "家族に連絡できずにいます。",
+          "transcription": "かぞくにれんらくできずにいます。",
+          "mean": "I have not been able to contact my family."
+        },
+        {
+          "content": "好きな人にメールを出さないでいます。",
+          "transcription": "すきなひとにめーるをださないでいます。",
+          "mean": "I don't send emails to people I like."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ないでいる／～ずにいる"
+    }
+  ],
+  "title": "～ないでいる／～ずにいる => ～Still not...",
+  "_id": "f7ff14dae05876cac58b4136932cafc6"
+}

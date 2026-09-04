@@ -1,0 +1,81 @@
+{
+  "level": "N5",
+  "mobileId": 5625,
+  "usages": [
+    {
+      "explain": "「に/へ」are particles indicating the destination or direction towards which an action (V) is directed. The noun (N) before 「に/へ」 indicates a location, person, or direction, while the verb (V) after 「に/へ」 shows movement.<br/>\n\nWhen the destination or direction qualifies a noun (N'), they are used with 「へ」. For example:<br/>\n〇　父への手紙、海への道<br/>\n✖　父にの手紙、海にの道<br/>\n\nWhen the noun (N') is an abstract concept (love, idea, etc.), the destination or direction also uses 「へ」. For example:<br/>\n〇　故郷への想い、彼女への恋<br/>\n✖　故郷にの想い、彼女にの恋",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本に戻りたい。",
+          "transcription": "にほんにもどりたい。",
+          "mean": "I want to return to Japan."
+        },
+        {
+          "content": "どこへ行ったんですか。",
+          "transcription": "どこへいったんですか。",
+          "mean": "Where did you go?"
+        },
+        {
+          "content": "家へ向かっているところです。",
+          "transcription": "いえへむかっているところです。",
+          "mean": "I'm on my way home."
+        },
+        {
+          "content": "日本に来たことがありますか。",
+          "transcription": "にほんにきたことがありますか。",
+          "mean": "Have you ever been to Japan."
+        },
+        {
+          "content": "どうやって学校に通っていますか。",
+          "transcription": "どうやってがっこうにかよっていますか。",
+          "mean": "How do you go to school?"
+        },
+        {
+          "content": "そこへ行くには車で6時間かかる。",
+          "transcription": "そこへいくにはくるまでろくじかんかかる。",
+          "mean": "It takes six hours to get there by car."
+        },
+        {
+          "content": "東に行きましょう。",
+          "transcription": "ひがしにいきましょう。",
+          "mean": "Let's go east."
+        },
+        {
+          "content": "台風は北西に向かって移動しています。",
+          "transcription": "たいふうはほくせいにむかっていどうしています。",
+          "mean": "The typhoon is moving toward the northwest."
+        },
+        {
+          "content": "空港への道が封鎖された。",
+          "transcription": "くうこうへのみちがふうさされた。",
+          "mean": "The road to the airport was blocked."
+        },
+        {
+          "content": "これは父への手紙ですよ。",
+          "transcription": "これはちちへのてがみですよ。",
+          "mean": "This is a letter to my father."
+        },
+        {
+          "content": "彼らは東京への旅を一時中断した。",
+          "transcription": "かれらはとうきょうへのたびをいちじちゅうだんした。",
+          "mean": "They temporarily suspended their trip to Tokyo."
+        },
+        {
+          "content": "この本で政治への関心が目覚めた。",
+          "transcription": "このほんでせいじへのかんしんがめざめた。",
+          "mean": "This book awakened my interest in politics."
+        },
+        {
+          "content": "私達の国への愛情は不滅なものです。",
+          "transcription": "わたしたちのくにへのあいじょうはふめつなものです。",
+          "mean": "Our love for our country is undying."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N に/へ+V (formal form)<br/>\nN への N'"
+    }
+  ],
+  "title": "に/へ => to (indicates direction / destination)",
+  "_id": "35847a2338a34422a683eaa02c9eafa3"
+}

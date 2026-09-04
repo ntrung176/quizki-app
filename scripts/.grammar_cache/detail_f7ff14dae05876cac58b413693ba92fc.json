@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1934,
+  "usages": [
+    {
+      "explain": "Indicates a concession that, although it may not be the best solution, it is acceptable if compromised. <br/>Additionally, the structure can also indicate a possible range when there are multiple choices for doing something. <br/>It has a similar meaning to 「てもいい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "身分証明書がなければ、運転免許でもかまわないです。",
+          "transcription": "みぶんしょうめいしょがなければ、うんてんめんきょでもかまわないです。",
+          "mean": "If you don't have an ID, a driver's license is fine."
+        },
+        {
+          "content": "面白ければ、大変な仕事でもかまわない。",
+          "transcription": "おもしろければ、たいへんなしごとでもかまわない。",
+          "mean": "I don't mind hard work as long as it's fun."
+        },
+        {
+          "content": "家賃が高くてもかまわないから、駅から近いところに住みたいと思う。",
+          "transcription": "やちんがたかくてもかまわないから、えきからちかいところにすみたいとおもう。",
+          "mean": "I don't mind the high rent, so I want to live close to the station."
+        },
+        {
+          "content": "直接でも、メールでもかまわないから、書類を提出してみてください。",
+          "transcription": "ちょくせつでも、めーるでもかまわないから、しょるいをていしゅつしてみてください。",
+          "mean": "Please feel free to submit your documents either in person or by email."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-くてももかまわない<br/>Na・N でもかまわない"
+    }
+  ],
+  "title": "てもかまわない => it doesn't matter ...",
+  "_id": "f7ff14dae05876cac58b413693ba92fc"
+}

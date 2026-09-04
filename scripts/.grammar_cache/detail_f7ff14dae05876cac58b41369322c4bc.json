@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 824,
+  "usages": [
+    {
+      "explain": "Comes after a noun, used to limit the scope with the meaning \"only ...\". This is a literary expression, in spoken language often replaced with 「だけ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このクラブは会員のみ入れます。",
+          "transcription": "このくらぶはかいいんのみいれます。",
+          "mean": "This club is open to members only."
+        },
+        {
+          "content": "英雄のみが賞賛に値する。",
+          "transcription": "えいゆうのみがしょうさんにあたいする。",
+          "mean": "Only heroes deserve praise."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + のみ"
+    }
+  ],
+  "title": "のみ => only; nothing but​",
+  "_id": "f7ff14dae05876cac58b41369322c4bc"
+}

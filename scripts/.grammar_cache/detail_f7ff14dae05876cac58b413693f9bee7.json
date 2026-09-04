@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2385,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"even if you do that action now, it's too late, it's useless.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "注していた機械が、今ごろになってやっと届いた。",
+          "transcription": "さしていたきかいが、いまごろになってやっととどいた。",
+          "mean": "The machine I ordered finally arrived around now."
+        },
+        {
+          "content": "今ごろになってホテルの予約をしようと思ってももう遅いよ。",
+          "transcription": "いまごろになってほてるのよやくをしようとおもってももうおそいよ。",
+          "mean": "Even if you want to make a hotel reservation by now, it's already too late."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いまごろになって => Only now ...",
+  "_id": "f7ff14dae05876cac58b413693f9bee7"
+}

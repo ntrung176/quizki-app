@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 2248,
+  "usages": [
+    {
+      "explain": "It's used to express a somewhat vague or uncertain timeframe, to the extent that it's not clear whether the event has occurred or not, by placing together both the affirmative and negative forms of the same verb.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女が朝食を食べ終わるか終わらないうちにお医者さんが来た。",
+          "transcription": "かのじょがちょうしょくをたべおわるかおわらないうちにおいしゃさんがきた。",
+          "mean": "The doctor came before she had finished eating breakfast."
+        },
+        {
+          "content": "家を出るか出ないかのうちに雨が降り出した。",
+          "transcription": "いえをでるかでないかのうちにあめがふりだした。",
+          "mean": "I had hardly left home when it began raining."
+        },
+        {
+          "content": "去年けんと君に会ったのは、たしか冬休みに入るか入らないかの頃だったと思います。",
+          "transcription": "きょねんけんとくんにあったのは、たしかふゆやすみにはいるかはいらないかのころだったとおもいます。",
+          "mean": "I think when I met Ken and you last year, it was around the time when I was about to start my winter vacation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる +か + Vない +(か）\nVた + か +Vない + (か）"
+    },
+    {
+      "explain": "In cases where there's an event in the past, as in example (3), it can also be expressed as 「入ったか入らないか」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…か…ない (か) => Around ..., sometimes V, not fully V",
+  "_id": "f7ff14dae05876cac58b413693e70784"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2611,
+  "usages": [
+    {
+      "explain": "以前（いぜん）expresses the meaning \"quite a while ago\". It has a more formal tone than 前 (まえ). It can be used as an adverb or a noun in a sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は以前、その近くに住んでいた。",
+          "transcription": "かのじょはいぜん、そのちかくにすんでいた。",
+          "mean": "She used to live nearby."
+        },
+        {
+          "content": "以前その人に会ったような気がする。",
+          "transcription": "いぜんそのひとにあったようなきがする。",
+          "mean": "I feel like I've met that person before."
+        },
+        {
+          "content": "私は以前大酒飲みだった。",
+          "transcription": "わたしはいぜんだいさけのみだった。",
+          "mean": "I used to be a heavy drinker."
+        },
+        {
+          "content": "以前僕はアフリカへ行ったことがある。",
+          "transcription": "いぜんぼくはあふりかへいったことがある。",
+          "mean": "I've been to Africa before."
+        }
+      ],
+      "mean": null,
+      "synopsis": "以前"
+    }
+  ],
+  "title": "いぜん => ago, since",
+  "_id": "f2d618ceb0702f781ec83b7d4f17dee7"
+}

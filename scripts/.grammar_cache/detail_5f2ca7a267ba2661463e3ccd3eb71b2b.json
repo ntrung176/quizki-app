@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3026,
+  "usages": [
+    {
+      "explain": "Used to emphasize the speaker's emotions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんな良いチャンスを逃すのはとてももったいないことだ。",
+          "transcription": "そんなよいちゃんすをのがすのはとてももったいないことだ。",
+          "mean": "It would be a shame to miss such a good opportunity."
+        },
+        {
+          "content": "定年退職後はアジア旅行ですか。まあ、それは結構なことですね。",
+          "transcription": "ていねんたいしょくごはあじありょこうですか。まあ、それはけっこうなことですね。",
+          "mean": "Are you planning to travel to Asia after you retire? Well, that's a good thing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A・Naな + ことだ"
+    }
+  ],
+  "title": "...ことだ => emphasize some important thing",
+  "_id": "5f2ca7a267ba2661463e3ccd3eb71b2b"
+}

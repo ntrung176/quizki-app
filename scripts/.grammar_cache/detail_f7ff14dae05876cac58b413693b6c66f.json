@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1912,
+  "usages": [
+    {
+      "explain": "This is a familiar way of saying 「できるだけ」、「なるべく」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このプロジェクトはなるたけ早く展開して下さい。",
+          "transcription": "このぷろじぇくとはなるたけはやくてんかいしてください。",
+          "mean": "Please develop this project as soon as possible."
+        },
+        {
+          "content": "この機械は壊れやすいだから、なるたけ注意深く<br>使ってね。",
+          "transcription": "このきかいはこわれやすいだから、なるたけちゅういぶかく<br>つかってね。",
+          "mean": "This machine is fragile, so please use it carefully."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なるたけ is used in spoken language."
+    }
+  ],
+  "title": "なるたけ => as much as possible",
+  "_id": "f7ff14dae05876cac58b413693b6c66f"
+}

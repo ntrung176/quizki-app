@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 2374,
+  "usages": [
+    {
+      "explain": "Used to emphasize the speaker's negative assertion, \"it's not like that.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんと仲良くやっているね。とんでもない、けんかしているよ。",
+          "transcription": "さとうさんとなかよくやっているね。とんでもない、けんかしているよ。",
+          "mean": "You and Sato-san get along well. No way, we're fighting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とんでもない～"
+    }
+  ],
+  "title": "とんでもない => unthinkable; unexpected; absurd; outrageous; preposterous; terrible",
+  "_id": "f7ff14dae05876cac58b413693f820da"
+}

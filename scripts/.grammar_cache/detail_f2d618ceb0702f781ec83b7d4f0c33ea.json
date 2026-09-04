@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2521,
+  "usages": [
+    {
+      "explain": "Pronounced with a flat tone or lowered tone at the end of the sentence, used when women want to give orders or prohibitions, with a gentle tone, to their subordinates.",
+      "note": null,
+      "examples": [
+        {
+          "content": "病気なんだから、ベッドで静かに寝ているの。",
+          "transcription": "びょうきなんだから、べっどでしずかにねているの。",
+          "mean": "I'm sick, so I'm sleeping quietly in bed."
+        },
+        {
+          "content": "子供の時は、母に「男の子はこんなことで泣かないの」とよく言われた。",
+          "transcription": "こどものときは、ははに「おとこのこはこんなことでなかないの」とよくいわれた。",
+          "mean": "When I was a child, my mother often told me, ``Boys don't cry over things like this.''"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-ない + の"
+    }
+  ],
+  "title": "... の => Let's...",
+  "_id": "f2d618ceb0702f781ec83b7d4f0c33ea"
+}

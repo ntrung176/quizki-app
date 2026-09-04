@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1922,
+  "usages": [
+    {
+      "explain": "Emphasizes the idea in the following part.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いかに工夫をこらしても、家族は私のケーキには何の関心も示さない。",
+          "transcription": "いかにくふうをこらしても、かぞくはわたしのけーきにはなにのかんしんもしめさない。",
+          "mean": "No matter how much I try, my family doesn't show any interest in my cakes."
+        },
+        {
+          "content": "いかに金持ちでも徒食するものでない。",
+          "transcription": "いかにかねもちでもとしょくするものでない。",
+          "mean": "No matter how rich you are, don't waste your money."
+        },
+        {
+          "content": "いかに成功に近くても失敗は失敗だ。",
+          "transcription": "いかにせいこうにちかくてもしっぱいはしっぱいだ。",
+          "mean": "A failure is a failure no matter how close you are to success."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いかに N／Na でも\nいかに A－くても\nいかに V－ても"
+    }
+  ],
+  "title": "いかに…ても => No matter how",
+  "_id": "f7ff14dae05876cac58b413693b8ea18"
+}

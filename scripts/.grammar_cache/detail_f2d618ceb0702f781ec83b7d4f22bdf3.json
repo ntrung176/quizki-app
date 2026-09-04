@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2693,
+  "usages": [
+    {
+      "explain": "けれども functions as a conjunction to connect two clauses.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの女の人はとても裕福だけれども、幸福ではない。",
+          "transcription": "あのおんなのひとはとてもゆうふくだけれども、こうふくではない。",
+          "mean": "That woman is very wealthy, but she is not happy."
+        },
+        {
+          "content": "彼女は話すのが下手だ。けれども、彼女の話し方には説得力がある。",
+          "transcription": "かのじょははなすのがへただ。けれども、かのじょのはなしかたにはせっとくりょくがある。",
+          "mean": "She's not good at speaking. However, her way of speaking is persuasive."
+        },
+        {
+          "content": "この研究結果は正式には発表されていないんですけれども、近いうちに大きな関心を呼ぶことになると思います。",
+          "transcription": "このけんきゅうけっかはせいしきにははっぴょうされていないんですけれども、ちかいうちにおおきなかんしんをよぶことになるとおもいます。",
+          "mean": "Although the results of this research have not been officially announced, I think they will generate a lot of interest in the near future."
+        }
+      ],
+      "mean": null,
+      "synopsis": "けれども functions like a conjunction used to connect two clauses."
+    },
+    {
+      "explain": "Note: Similar to 「けれど」. If it comes after the polite form, it can be used in formal contexts like conferences...",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "けれども => but; however; although ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f22bdf3"
+}

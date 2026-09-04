@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2463,
+  "usages": [
+    {
+      "explain": "Used by repeating the noun in the form [X は Xで]. It's used to talk about X in comparison to something else.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女の言うことなど気にせず、君は君で自分が正しいと思ったことをやればいいのだ。",
+          "transcription": "かのじょのいうことなどきにせず、きみはきみでじぶんがただしいとおもったことをやればいいのだ。",
+          "mean": "Don't worry about what she says, just do what you think is right."
+        },
+        {
+          "content": "兄はオリンピックで金メダルを取り、弟は弟で、初めて書いた小説が文藝賞を受賞した。",
+          "transcription": "あにはおりんぴっくできんめだるをとり、おとうとはおとうとで、はじめてかいたしょうせつがぶんげいしょうをじゅしょうした。",
+          "mean": "My older brother won a gold medal at the Olympics, and my younger brother won a literary award for the first novel he wrote."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N は N で"
+    }
+  ],
+  "title": "... は ... で => ... is ..., .... no less",
+  "_id": "f2d618ceb0702f781ec83b7d4f0437ec"
+}

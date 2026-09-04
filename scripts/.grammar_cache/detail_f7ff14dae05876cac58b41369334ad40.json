@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 961,
+  "usages": [
+    {
+      "explain": "✦ Follows a clause to express the meaning \"having an attitude as if one wants to say something\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "お前は黙っていろと言わんばかりに、兄は私をにらみつけた。",
+          "transcription": "おまえはだまっていろといわんばかりに、あにはわたしをにらみつけた。",
+          "mean": "My brother glared at me, as if to tell me to shut up."
+        },
+        {
+          "content": "警察は、「お前がやったんだろう」と言わんばかりの態度で、男を尋問した。",
+          "transcription": "けいさつは、 「おまえがやったんだろう」といわんばかりのたいどで、おとこをじんもんした。",
+          "mean": "The police questioned the man as if to say, ``You did it, right?''"
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦といわんばかり: Goes after a clause."
+    }
+  ],
+  "title": "～といわんばかり => as if to say",
+  "_id": "f7ff14dae05876cac58b41369334ad40"
+}

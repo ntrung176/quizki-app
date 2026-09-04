@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1562,
+  "usages": [
+    {
+      "explain": "Expresses the meaning that if something is not done, an undesirable consequence will occur. Often used to urge someone to do something, or to suggest that it would be better to do so.",
+      "note": null,
+      "examples": [
+        {
+          "content": "宿題をしなくちゃ叱られる。",
+          "transcription": "しゅくだいをしなくちゃしかられる。",
+          "mean": "I get scolded for not doing my homework."
+        },
+        {
+          "content": "早く寝なくちゃ。",
+          "transcription": "はやくねなくちゃ。",
+          "mean": "I have to go to bed early."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ない + なくちゃ"
+    }
+  ],
+  "title": "なくちゃ => must do; need to; gotta do ~",
+  "_id": "f7ff14dae05876cac58b41369388bb9b"
+}

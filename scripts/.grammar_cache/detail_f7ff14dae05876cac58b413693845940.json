@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 1529,
+  "usages": [
+    {
+      "explain": "Used to express uncertain speculation by the speaker. This is a formal version of 「ではないだろうか」, often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は帰国したのではあるまいか。",
+          "transcription": "かれはきこくしたのではあるまいか。",
+          "mean": "I wonder if he has returned to Japan."
+        },
+        {
+          "content": "いまでは、彼女のような女性は珍しいのではあるまいか。",
+          "transcription": "いまでは、かのじょのようなじょせいはめずらしいのではあるまいか。",
+          "mean": "Women like her are rare these days."
+        },
+        {
+          "content": "彼は自分が難病にかかるのに気づいたのではあるまいか。",
+          "transcription": "かれはじぶんがなんびょうにかかるのにきづいたのではあるまいか。",
+          "mean": "He must have realized that he was suffering from an incurable disease."
+        },
+        {
+          "content": "彼女は私のことを信じていないのではあるまいか。",
+          "transcription": "かのじょはわたしのことをしんじていないのではあるまいか。",
+          "mean": "Maybe she doesn't believe me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + のではあるまいか <br/>Na・N + (なの) ではあるまいか<br/>"
+    }
+  ],
+  "title": "ではあるまいか => isn't it; I wonder if it's not ~",
+  "_id": "f7ff14dae05876cac58b413693845940"
+}

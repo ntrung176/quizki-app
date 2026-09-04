@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5601,
+  "usages": [
+    {
+      "explain": "「～か、～か」is a question pattern used to ask for the listener's choice or preference between two options. The listener will choose between option 1 or option 2. When answering this type of question, one does not use \"はい\" or \"いいえ\" but simply repeats the chosen option.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは９ですか、6ですか。",
+          "transcription": "これはきゅうですか、ろくですか。",
+          "mean": "Is this 9 or 6?"
+        },
+        {
+          "content": "お茶を飲みますか、ビールを飲みますか。",
+          "transcription": "おちゃをのみますか、ビールをのみますか。",
+          "mean": "Would you like to drink tea or beer?"
+        },
+        {
+          "content": "明日は電車で行きますか、バスで行きますか。",
+          "transcription": "あしたはでんしゃでいきますか、バスでいきますか。",
+          "mean": "Do you want to go by train or bus tomorrow?"
+        },
+        {
+          "content": "今回は当たるか、外れるか。",
+          "transcription": "こんかいはあたるか、はずれるか。",
+          "mean": "Will it hit or miss this time?"
+        },
+        {
+          "content": "やるか、やらないか早く決めてください。",
+          "transcription": "やるか、やらないかはやくきめてください。",
+          "mean": "Please decide quickly whether to do it or not."
+        },
+        {
+          "content": "今日は火曜日ですか、水曜日ですか。",
+          "transcription": "きょうはかようびですか、すいようびですか。",
+          "mean": "Is today Tuesday or Wednesday?"
+        },
+        {
+          "content": "これは本ですか、雑誌ですか。",
+          "transcription": "これはほんですか、ざっしですか。",
+          "mean": "Is this a book or a magazine?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence 1 か、Sentence 2 か"
+    }
+  ],
+  "title": "～か、～か => or",
+  "_id": "c1a1d2736824465cbc34dd663aefa4a3"
+}

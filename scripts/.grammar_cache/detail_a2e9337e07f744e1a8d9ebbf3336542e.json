@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5540,
+  "usages": [
+    {
+      "explain": "「し～し」 is used to:<br/>\n\nConnect clauses or sentences with a shared viewpoint. It's often used to evaluate someone or something.<br/>\nList reasons or causes for an action or event. This action or event will be stated last. 「し～し」 can be used to give just one reason or cause, with the implication that \"there are still other reasons or causes, but they're not stated\".<br/>\nNote: It's not used for listing events in chronological order. For example:<br/>\n✖ I went to Osaka last week and met my friend.<br/>\n〇 I went to Osaka last week. And then, I met my friend.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "お腹が空いたし、のどが渇いたし、何か食べたいです。",
+          "transcription": "おなかがすいたし、のどがかわいたし、なにかたべたいです。",
+          "mean": "I'm hungry, I'm thirsty, and I want to eat something."
+        },
+        {
+          "content": "このコートは色が綺麗だし、好きなデザインだし。買いたいなあ。",
+          "transcription": "このコートはいろがきれいだし、すきなデザインだし。かいたいなあ。",
+          "mean": "This coat has beautiful colors and I like the design. I want to buy it."
+        },
+        {
+          "content": "彼は勉強ができるしスポーツも上手だし、私の好きなタイプだ。",
+          "transcription": "かれはべんきょうができるしスポーツもじょうずだし、わたしのすきなタイプだ。",
+          "mean": "He's good at studying and good at sports, and he's the type of person I like."
+        },
+        {
+          "content": "日本の電車は時間通りに来るし、たくさんあるし、とても便利です。",
+          "transcription": "にほんのでんしゃはじかんどおりにくるし、たくさんあるし、とてもべんりです。",
+          "mean": "Japanese trains are on time, there are a lot of them, and they are very convenient."
+        },
+        {
+          "content": "今日は週末だったし、天気が良かったので、公園は人が多かったです。",
+          "transcription": "きょうはしゅうまつだったし、てんきがよかったので、こうえんはひとがおおかったです。",
+          "mean": "Today was the weekend and the weather was nice, so there were a lot of people in the park."
+        },
+        {
+          "content": "いろんなジャンルを歌いたいし、自分の話も少ししたいなと思っています。",
+          "transcription": "いろんなジャンルをうたいたいし、じぶんのはなしもすこししたいなとおもっています。",
+          "mean": "I want to sing various genres, and I also want to tell a little bit about myself."
+        },
+        {
+          "content": "漢字は多いし、文法は難しいし、私は日本語の勉強があまり好きではありません。",
+          "transcription": "かんじはおおいし、ぶんぽうはむずかしいし、わたしはにほんごのべんきょうがあまりすきではありません。",
+          "mean": "There are a lot of kanji, grammar is difficult, and I don't really like studying Japanese."
+        },
+        {
+          "content": "大阪は美味しい食べ物がたくさんあるし、観光地がたくさんあるし、それでいつも人が多いです。",
+          "transcription": "おおさかはおいしいたべものがたくさんあるし、かんこうちがたくさんあるし、それでいつもひとがおおいです。",
+          "mean": "Osaka has a lot of delicious food and a lot of tourist spots, so it's always crowded with people."
+        },
+        {
+          "content": "頭が痛いし、今夜のパーティーには行けません。",
+          "transcription": "あたまがいたいし、こんやのパーティーにはいけません。",
+          "mean": "My head hurts and I can't go to the party tonight."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)1+し、V/Aい/Aな/N (formal form)2+し"
+    }
+  ],
+  "title": "し～し => and; and what's more ~ (emphasis)",
+  "_id": "a2e9337e07f744e1a8d9ebbf3336542e"
+}

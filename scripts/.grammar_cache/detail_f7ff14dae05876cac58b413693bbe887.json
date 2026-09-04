@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1942,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's feelings of regret or reproach about an unwanted event that occurred differently from what was expected in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あなたは約束を守ると言ったのではなかったか。",
+          "transcription": "あなたはやくそくをまもるといったのではなかったか。",
+          "mean": "Didn't you say you would keep your word?"
+        },
+        {
+          "content": "両方はこれまで平和に協力してきたのではなかったか。",
+          "transcription": "りょうほうはこれまでへいわにきょうりょくしてきたのではなかったか。",
+          "mean": "Haven't the two sides cooperated peacefully up until now?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + のではなかったか <br/>Na・N + (なの)ではなかったか"
+    }
+  ],
+  "title": "ではなかったか => Wasn't it ...?",
+  "_id": "f7ff14dae05876cac58b413693bbe887"
+}

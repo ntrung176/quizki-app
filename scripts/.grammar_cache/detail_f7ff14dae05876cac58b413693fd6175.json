@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2414,
+  "usages": [
+    {
+      "explain": "Used to talk about something in the future. Indicates an unspecified point in the future.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はいつかはきっと自分の間違いに気づくだろう。",
+          "transcription": "かれはいつかはきっとじぶんのまちがいにきづくだろう。",
+          "mean": "I'm sure he will realize his mistake someday."
+        },
+        {
+          "content": "がんばっていれば、いつかは夢が叶うはずだ。",
+          "transcription": "がんばっていれば、いつかはゆめがかなうはずだ。",
+          "mean": "If you work hard, your dreams will come true someday."
+        },
+        {
+          "content": "いつか日本に行くつもりだ。",
+          "transcription": "いつかにほんにいくつもりだ。",
+          "mean": "I'm planning to go to Japan someday."
+        },
+        {
+          "content": "その美術館へいつかは行こうと思いながら、全然行く暇がない。",
+          "transcription": "そのびじゅつかんへいつかはいこうとおもいながら、ぜんぜんいくひまがない。",
+          "mean": "I've always wanted to go to that museum, but I never have time to go."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Used to talk about something in the future."
+    }
+  ],
+  "title": "いつか（は） => sometime; someday; one day",
+  "_id": "f7ff14dae05876cac58b413693fd6175"
+}

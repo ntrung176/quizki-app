@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3099,
+  "usages": [
+    {
+      "explain": "✦N1 also, N2 also (about something, take some examples to say the assessment is the same from any point of view).<br/>✦ Often used to evaluate the good or bad of the problem. <br/><div><br/></div><div>✦Similar grammar:</div><div>+にしても～にしても (ni shitemo~ni shitemo): regardless of whether </div><div>+(よ)うが/(よ)うと (you ga/you to): even if, no matter how/what</div><div>+であれ/であろうと (de aru/de arou to): however/whatever/whoever</div><div>+であれ～であれ (de are~de are): whether A or B</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "このコーヒーは味といい、香りといい、すばらしい。",
+          "transcription": "このコーヒーはあじといい、かおりといい、すばらしい。",
+          "mean": "This coffee has a wonderful taste and aroma."
+        },
+        {
+          "content": "兄といい、弟といい、あそこの兄弟は、人に迷惑をかけてばかりいる。",
+          "transcription": "あにといい、おとうとといい、あそこのきょうだいは、ひとにめいわくをかけてばかりいる。",
+          "mean": "The older brother and the younger brother over there are always causing trouble for people."
+        },
+        {
+          "content": "彼はちょっとした表情といい、話し方といい、死んだ父親によく似てる。",
+          "transcription": "かれはちょっとしたひょうじょうといい、はなしかたといい、しんだちちおやによくにてる。",
+          "mean": "He looks a lot like his late father, both in his facial expressions and the way he speaks."
+        },
+        {
+          "content": "新居は床といい壁といい、とても上質な材料が使ってある。",
+          "transcription": "しんきょはゆかといいかべといい、とてもじょうしつなざいりょうがつかってある。",
+          "mean": "The new house has floors and walls made of very high quality materials."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N1 ＋ といい～N2 ＋ といい"
+    }
+  ],
+  "title": "～といい～といい      => both ... and; not only ... also; whether it be ... or ~",
+  "_id": "93020c54469e582d6fdb16f7ba9ad336"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 711,
+  "usages": [
+    {
+      "explain": "✦It means \"at the same time as...\" or \"immediately after...\". This is an archaic expression used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "「どうして俺なんか生んだんだ」という兄のことばを聞くや、母は顔を真っ赤にしておこりだした。",
+          "transcription": "「どうしておれなんかうんだんだ」というあにのことばをきくや、はははかおをまっかにしておこりだした。",
+          "mean": "When my mother heard my brother say, ``Why did you give birth to me?'' her face turned red and she started to panic."
+        },
+        {
+          "content": "「父死す」の電報を受け取るや、すぐさま彼は汽車に飛び乗った。",
+          "transcription": "「ちちしす」のでんぽうをうけとるや、すぐさまかれはきしゃにとびのった。",
+          "mean": "As soon as he received the telegram that his father was dying, he jumped on the train."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vーる + や"
+    }
+  ],
+  "title": "... るや => at the sight of; upon seeing; right after confirming ~",
+  "_id": "f7ff14dae05876cac58b41369312a56c"
+}

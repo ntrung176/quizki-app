@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1873,
+  "usages": [
+    {
+      "explain": "Pronounced with a rising tone, used when strongly questioning or interrogating someone. Often accompanied by a tone of criticism. This term is used in the spoken language of men, addressing peers or subordinates.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それはなにか。今度の旅に参加しなくてもいいんだな。",
+          "transcription": "それはなにか。こんどのたびにさんかしなくてもいいんだな。",
+          "mean": "What is that? I guess you don't have to join me on this trip."
+        },
+        {
+          "content": "君はなにか、僕は犯人だと言いたいのか。",
+          "transcription": "きみはなにか、ぼくははんにんだといいたいのか。",
+          "mean": "Are you trying to say that I'm a criminal?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにか"
+    }
+  ],
+  "title": "なにか => What does it mean? (Interrogation)",
+  "_id": "f7ff14dae05876cac58b413693b1d967"
+}

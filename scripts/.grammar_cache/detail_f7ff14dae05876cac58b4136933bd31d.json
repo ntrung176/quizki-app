@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1012,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"...as usual, like other things.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "この問題は複雑すぎて一通りの方法では解決できない。",
+          "transcription": "このもんだいはふくざつすぎていちとおりのほうほうではかいけつできない。",
+          "mean": "This problem is too complex to be solved in one way."
+        },
+        {
+          "content": "他のチームがみんな頑張っているのだから、勝とうとすれば、一通りの努力では不十分だ。",
+          "transcription": "たのちーむがみんながんばっているのだから、かとうとすれば、いちとおりのどりょくではふじゅうぶんだ。",
+          "mean": "All the other teams are working hard, so if you want to win, one effort won't be enough."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ひととおり + の + N"
+    }
+  ],
+  "title": "ひととおりの.... => in the same way as; in the way; as (like everyone else)",
+  "_id": "f7ff14dae05876cac58b4136933bd31d"
+}

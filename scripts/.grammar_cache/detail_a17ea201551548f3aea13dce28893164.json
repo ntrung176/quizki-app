@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5482,
+  "usages": [
+    {
+      "explain": "「がする」comes after nouns indicating smells, sounds, sensations, etc., to indicate that the speaker smells, hears, or feels them.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは甘い味がする。",
+          "transcription": "これはあまいあじがする。",
+          "mean": "This tastes sweet."
+        },
+        {
+          "content": "人の声がする。",
+          "transcription": "ひとのこえがする。",
+          "mean": "I hear people's voices."
+        },
+        {
+          "content": "ガスの匂いがする。",
+          "transcription": "ガスのにおいがする。",
+          "mean": "It smells like gas."
+        },
+        {
+          "content": "それは雷のような音がした。",
+          "transcription": "それはかみなりのようなおとがした。",
+          "mean": "It sounded like thunder."
+        },
+        {
+          "content": "このピザは変な味がします。",
+          "transcription": "このピザはへんなあじがします。",
+          "mean": "This pizza tastes strange."
+        },
+        {
+          "content": "何かが倒れる音がした。",
+          "transcription": "なにかがたおれるおとがした。",
+          "mean": "I heard the sound of something falling."
+        },
+        {
+          "content": "隣の家でピアノの音がしている。",
+          "transcription": "となりのいえでピアノのおとがしている。",
+          "mean": "There's a piano playing in the house next door."
+        },
+        {
+          "content": "このクッキーはしょうがの味がする。",
+          "transcription": "このクッキーはしょうがのあじがする。",
+          "mean": "This cookie tastes like ginger."
+        },
+        {
+          "content": "このフルーツはどんな味がする？",
+          "transcription": "このフルーツはどんなあじがする？",
+          "mean": "What does this fruit taste like?"
+        },
+        {
+          "content": "このカレーは本当にいい匂いがする。",
+          "transcription": "このカレーはほんとうにいいにおいがする。",
+          "mean": "This curry smells really good."
+        },
+        {
+          "content": "この景色を見ていると、なんだか夢のような感じがします。",
+          "transcription": "このけしきをみていると、なんだかゆめのようなかんじがします。",
+          "mean": "When I look at this scenery, it feels like a dream."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+がする / がします / がしている"
+    }
+  ],
+  "title": "がする => to smell; hear; or taste",
+  "_id": "a17ea201551548f3aea13dce28893164"
+}

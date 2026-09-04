@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1377,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"if one were to evaluate like that, it probably wouldn't be wrong\". Used for explaining, judging, or evaluating a person or situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは、大会の最強のチームだといってもいいだろう。",
+          "transcription": "かれらは、たいかいのさいきょうのちーむだといってもいいだろう。",
+          "mean": "You could say they are the strongest team in the tournament."
+        },
+        {
+          "content": "小林さんは、彼女の本当の父親だといってもいいだろう。",
+          "transcription": "こばやしさんは、かのじょのほんとうのちちおやだといってもいいだろう。",
+          "mean": "It is safe to say that Mr. Kobayashi is her real father."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～といってもいいだろう"
+    }
+  ],
+  "title": "…といってもいいだろう => you could say; one might say; I'd say ~",
+  "_id": "f7ff14dae05876cac58b4136936ddeae"
+}

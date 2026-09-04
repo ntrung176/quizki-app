@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2092,
+  "usages": [
+    {
+      "explain": "It means 「この次」(next time) or 「別の」(another).",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は時間がないので、占いはまたの機会に行います。",
+          "transcription": "きょうはじかんがないので、うらないはまたのきかいにおこないます。",
+          "mean": "I don't have time today, so I'll do fortune telling another time."
+        },
+        {
+          "content": "彼は数学者だが、またの名を竹内博正といって有名な詩人でもある。",
+          "transcription": "かれはすうがくしゃだが、またのなをたけうちひろまさといってゆうめいなしじんでもある。",
+          "mean": "Although he is a mathematician, he is also a famous poet, also known as Hiromasa Takeuchi."
+        }
+      ],
+      "mean": null,
+      "synopsis": "またの + N"
+    }
+  ],
+  "title": "またの… => again, moreover, in addition",
+  "_id": "f7ff14dae05876cac58b413693d08e34"
+}

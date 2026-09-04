@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1552,
+  "usages": [
+    {
+      "explain": "Expresses the result or state achieved after a long time or after much effort. Besides the verb [なる], verbs indicating change such as [成長する/ 育つ/ 回復する/ 進歩する] (grow, mature, recover, progress) can also be used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いろいろな努力の末に、やっと英語が上手に話せるまでになった。",
+          "transcription": "いろいろなどりょくのすえに、やっとえいごがじょうずにはなせるまでになった。",
+          "mean": "After much effort, I finally became able to speak English well."
+        },
+        {
+          "content": "理学療法の結果、足を動かせるまでになった。",
+          "transcription": "りがくりょうほうのけっか、あしをうごかせるまでになった。",
+          "mean": "After physical therapy, he was able to move his legs again."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V- る + までになる"
+    }
+  ],
+  "title": "までになる => becoming ~",
+  "_id": "f7ff14dae05876cac58b4136938753e9"
+}

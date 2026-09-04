@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1345,
+  "usages": [
+    {
+      "explain": "Follows a noun to express the meaning \"because it is N, it's so wonderful\", \"no one else but N could do it\". <br/>Often used in rallying calls in advertising or promotion for a shop or company.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私たちのレストランならではのユニークなビールをお楽しみください。",
+          "transcription": "わたしたちのれすとらんならではのゆにーくなびーるをおたのしみください。",
+          "mean": "Enjoy our restaurant's unique beers."
+        },
+        {
+          "content": "あの音楽家ならではできる素晴らしい演奏だった。",
+          "transcription": "あのおんがくかならではできるすばらしいえんそうだった。",
+          "mean": "It was a wonderful performance that could only be done by that musician."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ならでは"
+    }
+  ],
+  "title": "ならでは =>  distinctive of; characteristic of; uniquely applying to; special to ~",
+  "_id": "f7ff14dae05876cac58b413693691cb8"
+}

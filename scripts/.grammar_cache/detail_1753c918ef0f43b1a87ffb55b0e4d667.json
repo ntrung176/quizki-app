@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 5646,
+  "usages": [
+    {
+      "explain": "「とても」is an adverb that indicates a high degree, placed before an adjective to modify it. It is always used in affirmative sentences.",
+      "note": null,
+      "examples": [
+        {
+          "content": "北海道はとても寒いです。",
+          "transcription": "ほっかいどうはとてもさむいです。",
+          "mean": "Hokkaido is very cold."
+        },
+        {
+          "content": "これはとても有名な映画です。",
+          "transcription": "これはとてもゆうめいなえいがです。",
+          "mean": "This is a very famous movie."
+        },
+        {
+          "content": "彼女はとても綺麗です。",
+          "transcription": "かのじょはとてもきれいです。",
+          "mean": "she is very beautiful"
+        }
+      ],
+      "mean": null,
+      "synopsis": "とても+Aい<br/>とても+Aな"
+    }
+  ],
+  "title": "とても => very; awfully; exceedingly​",
+  "_id": "1753c918ef0f43b1a87ffb55b0e4d667"
+}

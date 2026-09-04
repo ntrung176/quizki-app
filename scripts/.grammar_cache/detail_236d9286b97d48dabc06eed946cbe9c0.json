@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 5615,
+  "usages": [
+    {
+      "explain": "「もし」emphasizes the assumed condition in conditional sentences \"if... then...\" with 「たら」or 「ば」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もし1億円あったら、色々な国を旅行したいです。",
+          "transcription": "もしいちおくえんあったら、いろいろなくにをりょこうしたいです。",
+          "mean": "If I had 100 million yen, I would like to travel to various countries."
+        },
+        {
+          "content": "もしできれば、窓を開けてもらえますか。",
+          "transcription": "もしできれば、まどをあけてもらえますか。",
+          "mean": "If possible, could you please open the window?"
+        },
+        {
+          "content": "もし空飛ぶ車が開発できたら、私達の生活はどのように変化するのだろう。",
+          "transcription": "もしそらとぶくるまがかいはつできたら、わたしたちのせいかつはどのようにへんかするのだろう。",
+          "mean": "If flying cars were developed, how would our lives change?"
+        },
+        {
+          "content": "もし走れば、あなたはその列車に間に合うでしょう。",
+          "transcription": "もしはしれば、あなたはそのれっしゃにまにあうでしょう。",
+          "mean": "If you run, you will catch the train in time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もし+～たら / ～ば"
+    }
+  ],
+  "title": "もし～たら/もし～ば => if; in the case; supposing ~",
+  "_id": "236d9286b97d48dabc06eed946cbe9c0"
+}

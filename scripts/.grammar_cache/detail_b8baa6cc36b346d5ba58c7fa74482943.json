@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5364,
+  "usages": [
+    {
+      "explain": "「くらい～はない」is used to emphasize the level of something, an event, or a person, indicating that there is nothing equivalent to it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女くらい親切な人はいない。",
+          "transcription": "かのじょくらいしんせつなひとはいない。",
+          "mean": "There is no one as kind as her."
+        },
+        {
+          "content": "今年ほど雪の降った年はなかった。",
+          "transcription": "ことしほどゆきのふったとしはなかった。",
+          "mean": "There has never been a year with as much snow as this year."
+        },
+        {
+          "content": "あの人ほど真面目な人はいない。",
+          "transcription": "あのひとほどまじめなひとはいない。",
+          "mean": "There is no one more serious than that person."
+        },
+        {
+          "content": "フランス語ほど美しい言語はないと私は思う。",
+          "transcription": "フランスごほどうつくしいげんごはないとわたしはおもう。",
+          "mean": "I think there is no language as beautiful as French."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (people)くらい / ほど+N (people) はいない<br/> N (thing)くらい / ほど+N (thing) はない"
+    }
+  ],
+  "title": "くらい～はない => Not to the extent of…",
+  "_id": "b8baa6cc36b346d5ba58c7fa74482943"
+}

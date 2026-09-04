@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 769,
+  "usages": [
+    {
+      "explain": "✦ Used when wanting to express a critical mood that someone has taken advantage of the convenience of the situation to do something undesirable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生がいないのをいいことに朝の授業をサボった。",
+          "transcription": "せんせいがいないのをいいことにあさのじゅぎょうをさぼった。",
+          "mean": "I skipped my morning class, taking advantage of the teacher's absence."
+        },
+        {
+          "content": "誰にも疑われていないのをいいことに、彼女は会社のお金を横領した。",
+          "transcription": "だれにもうたがわれていないのをいいことに、かのじょはかいしゃのおかねをおうりょうした。",
+          "mean": "Taking advantage of the fact that no one suspected her, she embezzled the company's money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない + の + をいいことに"
+    }
+  ],
+  "title": "をいいことに => to take advantage of ~",
+  "_id": "f7ff14dae05876cac58b4136931aa8f4"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2236,
+  "usages": [
+    {
+      "explain": "This is an idiomatic expression used to make suggestions, encourage, or motivate. It's often used in the form of 「V-てみたらどうか」, which has a similar meaning to 「てはどうか」 but leans more towards spoken language. In casual conversation, there are various forms such as 「たらどうなの/どうかしら」 (used by females), 「たらどうなんだ」 (used by males), and 「たらどう」 (used by both genders). When speaking politely, there's the form 「たらいかがですか/いかかでしょうか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "横ちゃんのお見舞いに行ってみたらどうですか。",
+          "transcription": "よこちゃんのおみまいにいってみたらどうですか。",
+          "mean": "Why don't you go visit Yoko-chan?"
+        },
+        {
+          "content": "オーストラリアに留学してみたらどうかと先生に勧められた。",
+          "transcription": "おーすとらりあにりゅうがくしてみたらどうかとせんせいにすすめられた。",
+          "mean": "My teacher suggested that I try studying abroad in Australia."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + たらどうですか"
+    }
+  ],
+  "title": "たらどうですか => why don't you; how about ~",
+  "_id": "f7ff14dae05876cac58b413693e5aa39"
+}

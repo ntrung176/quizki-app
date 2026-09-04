@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 782,
+  "usages": [
+    {
+      "explain": "✦ Almost synonymous with 「といったらない」but only used when referring to things that are judged as bad.<br/>✦ Usually used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この年になってから一人暮らしを始める心細さといったらありはしない。",
+          "transcription": "このとしになってからひとりぐらしをはじめるこころぼそさといったらありはしない。",
+          "mean": "There is no way I would feel nervous about starting to live alone at this age."
+        },
+        {
+          "content": "彼女はこっちが立場上　断れないとわかっていて、わざといやな仕事を押しつけてくるのだ。くやしいといったらありはしない。",
+          "transcription": "かのじょはこっちがたちばじょうことわれないとわかっていて、わざといやなしごとをおしつけてくるのだ。くやしいといったらありはしない。",
+          "mean": "She knows that I can't refuse due to my position, so she purposefully forces me to do unpleasant tasks. I wouldn't say it's disgusting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦N + といったらありはしない <br/></div><div>✦A-い + といったらありはしない</div>"
+    }
+  ],
+  "title": "といったらありはしない => extremely; very; nothing more … than this; as … as it could possibly be; beyond words",
+  "_id": "f7ff14dae05876cac58b4136931c43d9"
+}

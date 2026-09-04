@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1151,
+  "usages": [
+    {
+      "explain": "Describing the meaning \"in normal circumstances it's like this, but in abnormal situations it will be more difficult, serious...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "ただでさえ仕事が忙しいのに、急に同僚が辞めることになった。",
+          "transcription": "ただでさえしごとがいそがしいのに、きゅうにどうりょうがやめることになった。",
+          "mean": "Even though I was already busy with work, my colleague suddenly decided to quit."
+        },
+        {
+          "content": "彼女はただでさえ食事にうるさいんだから、外国へ行ったら、もっと大変になるだろう。",
+          "transcription": "かのじょはただでさえしょくじにうるさいんだから、がいこくへいったら、もっとたいへんになるだろう。",
+          "mean": "She's already picky about food, so it'll be even more difficult if she goes abroad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ただでさえ"
+    }
+  ],
+  "title": "ただでさえ => ordinary; usual... also...",
+  "_id": "f7ff14dae05876cac58b4136934ea540"
+}

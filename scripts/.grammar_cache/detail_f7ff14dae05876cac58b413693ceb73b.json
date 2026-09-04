@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2077,
+  "usages": [
+    {
+      "explain": "Used to express a desire or wish to be allowed or arranged to do something by someone else.",
+      "note": null,
+      "examples": [
+        {
+          "content": "2、3意見を聞かせてもらいたい。",
+          "transcription": "2、3いけんをきかせてもらいたい。",
+          "mean": "I would like to hear a few opinions."
+        },
+        {
+          "content": "貴方が今言ったことについてちょっと訂正させてもらいたい。",
+          "transcription": "あなたがいまいったことについてちょっとていせいさせてもらいたい。",
+          "mean": "I would like to make a slight correction to what you just said."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group I: V-せて / V-せないで ＋ もらいたいGroup II: V-させて / V-させないで＋ もらいたいGroup III: 来る→来させて / 来させないで ＋ もらいたい する→させて / させないで"
+    }
+  ],
+  "title": "（ さ）せてもらいたい => hopes to do something, or to not have to do something, by oneself",
+  "_id": "f7ff14dae05876cac58b413693ceb73b"
+}

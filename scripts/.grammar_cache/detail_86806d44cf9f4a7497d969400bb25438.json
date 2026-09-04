@@ -1,0 +1,91 @@
+{
+  "level": "N4",
+  "mobileId": 5519,
+  "usages": [
+    {
+      "explain": "「て/なくて」in the preceding clause represents the cause, while the following clause represents the result that arises from that cause. This result is outside the speaker's intention, such as a state (e.g., possibility...) or (often) emotions (e.g., happy, sad, worried, relieved, distressed...), so the following clause does not use structures that express the speaker's intention or request to the listener.<br/>\nNote: With「なくて」, even the preceding clause does not use structures indicating intention. It's important to differentiate between「なくて」and「ないで」, and they cannot be interchanged.<br/>Examples:<br/>\n- お金があって、車を買います。✖<br>\n- お金があって、車が買えます。〇<br/>\n- 旅行に行かなくて、悲しいです。✖<br/>\n- 旅行に行けなくて、悲しいです。〇<br/>\n- お金がないで、買えません。✖<br/>\n- お金がなくて、買えません。〇</br>\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "最近、よく遅くまで起きて、ニキビがいっぱい出ました。",
+          "transcription": "さいきん、よくおそくまでおきて、ニキビがいっぱいでました。",
+          "mean": "Lately, I've been staying up late a lot and I've been getting a lot of acne."
+        },
+        {
+          "content": "今日の自転車が壊れて、会社へ遅刻しました。",
+          "transcription": "きょうのじてんしゃがこわれて、かいしゃへちこくしました。",
+          "mean": "My bicycle broke down today, so I was late for work."
+        },
+        {
+          "content": "パソコンの調子が悪くて、仕事が出来なかった。",
+          "transcription": "パソコンのちょうしがわるくて、しごとができなかった。",
+          "mean": "My computer wasn't working properly, so I couldn't work."
+        },
+        {
+          "content": "話が複雑で、よく分かりませんでした。",
+          "transcription": "はなしがふくざつで、よくわかりませんでした。",
+          "mean": "The story was complicated and I didn't understand it well."
+        },
+        {
+          "content": "そのニュースを聞いて、びっくりしました。",
+          "transcription": "そのニュースをきいて、びっくりしました。",
+          "mean": "I was surprised when I heard the news."
+        },
+        {
+          "content": "給料が少なくて、悲しいです。",
+          "transcription": "きゅうりょうがすくなくて、かなしいです。",
+          "mean": "I'm sad because my salary is so low."
+        },
+        {
+          "content": "トムさんのプレゼンテーションが上手で、びっくりしました。",
+          "transcription": "トムさんのプレゼンテーションがじょうずで、びっくりしました。",
+          "mean": "I was surprised at how good Tom's presentation was."
+        },
+        {
+          "content": "遅れて、すみませんでした。",
+          "transcription": "おくれて、すみませんでした。",
+          "mean": "Sorry for being late."
+        },
+        {
+          "content": "教えてくれて、ありがとうございます。",
+          "transcription": "おしえてくれて、ありがとうございます。",
+          "mean": "Thank you for teaching me."
+        },
+        {
+          "content": "お金がなくて、心配です。",
+          "transcription": "おかねがなくてしんぱいです。",
+          "mean": "I don't have money and I'm worried."
+        },
+        {
+          "content": "仕事が終わらなくて、大変でした。",
+          "transcription": "しごとがおわらなくて、たいへんでした。",
+          "mean": "It was hard because I couldn't finish my work."
+        },
+        {
+          "content": "検査の結果、白血病でなくて安心した。",
+          "transcription": "けんさのけっか、はっけつびょうでなくてあんしんした。",
+          "mean": "As a result of the test, I was relieved that I did not have leukemia."
+        },
+        {
+          "content": "なかなか雨が降らなくて、村人の生活は困っている。",
+          "transcription": "なかなかあめがふらなくて、むらびとのせいかつはこまっている。",
+          "mean": "It doesn't rain often, and the villagers' lives are in trouble."
+        },
+        {
+          "content": "彼はヘルメットを被らなくて、事故で死にました。",
+          "transcription": "かれはヘルメットをかぶらなくて、じこでしにました。",
+          "mean": "He was not wearing a helmet and died in an accident."
+        },
+        {
+          "content": "彼女に会えなくて、寂しいです。",
+          "transcription": "かのじょにあえなくて、さびしいです。",
+          "mean": "I miss seeing her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて、～<br/>A<s>い</s>くて、～<br/>A<s>な</s>で、～<br/>Nで、～<br/><br/>\nVなくて、～<br/> A<s>い</s>くなくて、～<br/>A<s>な</s>でなくて/じゃなくて、～<br>Nでなくて/じゃなくて、～</br>"
+    }
+  ],
+  "title": "て/なくて => Because/Because not",
+  "_id": "86806d44cf9f4a7497d969400bb25438"
+}

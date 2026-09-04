@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2765,
+  "usages": [
+    {
+      "explain": "Indicates prohibition. The plain form is used to describe things that are often prohibited, or for men to use with those in lower positions. The polite form 「いけません」 is often used by supervisors in companies, teachers, mothers, etc., when addressing those under their supervision.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その病院の前で車に止めてはいけません。駐車禁止ですから。",
+          "transcription": "そのびょういんのまえでくるまにとめてはいけません。ちゅうしゃきんしですから。",
+          "mean": "Do not park your car in front of the hospital. Parking is prohibited."
+        },
+        {
+          "content": "この薬は、一日に四錠以上飲んではいけないそうだ。",
+          "transcription": "このくすりは、いちにちによんじょういじょうのんではいけないそうだ。",
+          "mean": "It is said that you should not take more than four tablets of this medicine in a day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + はいけません"
+    }
+  ],
+  "title": "... はいけません => must not; may not; cannot",
+  "_id": "f2d618ceb0702f781ec83b7d4f2bdc9a"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3077,
+  "usages": [
+    {
+      "explain": "✦ Implies doing something with a goal in mind, or that something will be suitable for a purpose.",
+      "note": null,
+      "examples": [
+        {
+          "content": "リーダーたらんとする者が、そんな弱気でどうするだ。",
+          "transcription": "リーダーたらんとするものが、そんなよわきでどうするだ。",
+          "mean": "What can someone who wants to be a leader do with such weakness?"
+        },
+        {
+          "content": "このような悪い経済状況の時こそ、優良企業たらんとする強い意見が必要だ。",
+          "transcription": "このようなわるいけいざいじょうきょうのときこそ、ゆうりょうきぎょうたらんとするつよいいけんがひつようだ。",
+          "mean": "In times like these, when economic conditions are bad, we need a strong opinion on how to be a good company."
+        },
+        {
+          "content": "彼女が仕事を辞めたのは、よい母たらんとする意見の表れとも言える。",
+          "transcription": "かのじょがしごとをやめたのは、よいははたらんとするいけんのあらわれともいえる。",
+          "mean": "Her decision to quit her job can also be seen as an expression of her desire to be a good mother."
+        },
+        {
+          "content": "この学校は将来、ビジネス界のリーダーたらんとする若者が集まっている。",
+          "transcription": "このがっこうはしょうらい、ビジネスかいのリーダーたらんとするわかものがあつまっている。",
+          "mean": "This school attracts young people who aspire to become leaders in the business world in the future."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N ＋ たらんとする"
+    }
+  ],
+  "title": "～たらんとする      => want to become, worthy of ~",
+  "_id": "93020c54469e582d6fdb16f7ba981e72"
+}

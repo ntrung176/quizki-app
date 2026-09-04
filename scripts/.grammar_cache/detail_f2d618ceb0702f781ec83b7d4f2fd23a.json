@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2791,
+  "usages": [
+    {
+      "explain": "Expresses the idea that permission or delegation, non-interference, is received as a favor by combining a request form with 「もらう」、「くれる」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "金婚式のお祝いに、子供たちにスイスに行かせてもらった。",
+          "transcription": "きんこんしきのおいわいに、こどもたちにすいすにいかせてもらった。",
+          "mean": "My children took me to Switzerland to celebrate my golden wedding anniversary."
+        },
+        {
+          "content": "あなたのデータを共有させてもらえませんか。",
+          "transcription": "あなたのでーたをきょうゆうさせてもらえませんか。",
+          "mean": "Can I share your data with you?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-させてもらう"
+    }
+  ],
+  "title": "させてもらう => Allow me to do (favor)",
+  "_id": "f2d618ceb0702f781ec83b7d4f2fd23a"
+}

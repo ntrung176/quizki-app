@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1267,
+  "usages": [
+    {
+      "explain": "Expresses the extensive range of an event by mentioning both its starting point and ending point. Used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "頭から爪先に至るまでずぶ濡れだ。",
+          "transcription": "あたまからつまさきにいたるまでずぶぬれだ。",
+          "mean": "I was soaked from head to toe."
+        },
+        {
+          "content": "このキャンペーンは、東京から大阪に至るまで、行われている。",
+          "transcription": "このきゃんぺーんは、とうきょうからおおさかにいたるまで、おこなわれている。",
+          "mean": "This campaign is running from Tokyo to Osaka."
+        },
+        {
+          "content": "この会社では新入社員から会長にいたるまで全員がスーツを着ている。",
+          "transcription": "このかいしゃではしんにゅうしゃいんからかいちょうにいたるまでぜんいんがすーつをきている。",
+          "mean": "Everyone at this company, from new employees to the chairman, wears suits."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 から N2 にいたるまで"
+    }
+  ],
+  "title": "... から... にいたるまで => From... to... all of it",
+  "_id": "f7ff14dae05876cac58b4136935e256b"
+}

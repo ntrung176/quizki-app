@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1225,
+  "usages": [
+    {
+      "explain": "Often used to present a negative prediction in the sense of \"in this situation,\" \"under these conditions.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "これだと、彼に迷惑をかけるんだ。",
+          "transcription": "これだと、かれにめいわくをかけるんだ。",
+          "mean": "This will cause trouble for him."
+        },
+        {
+          "content": "これだと、約束の場所に着くまでまだ1時間かかりそうだ。",
+          "transcription": "これだと、やくそくのばしょにつくまでまだ1じかんかかりそうだ。",
+          "mean": "At this rate, it will probably take another hour to reach the appointed place."
+        }
+      ],
+      "mean": null,
+      "synopsis": "これだと～"
+    }
+  ],
+  "title": "これだと => If/When (it) is this",
+  "_id": "f7ff14dae05876cac58b413693588a97"
+}

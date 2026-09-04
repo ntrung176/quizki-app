@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5444,
+  "usages": [
+    {
+      "explain": "「ところが」is used to express a result or reality (B) that is contrary to the prediction or expectation from the initial situation (A). This result or reality is beyond the control of the speaker and surprises them. This is also the difference between「ところが」and「しかし」, 「けれども」, or「だが」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨夜はコンサートに行くつもりだった。ところが、病気で行けなくなった。",
+          "transcription": "さくやはコンサートにいくつもりだった。ところが、びょうきでいけなくなった。",
+          "mean": "I was going to a concert last night. However, due to illness, I was unable to go."
+        },
+        {
+          "content": "田中さんは私より若いと思っていた。ところが、私より5歳も年上だった。",
+          "transcription": "たなかさんはわたしよりわかいとおもっていた。ところが、わたしよりごさいもとしうえだった。",
+          "mean": "I thought Mr. Tanaka was younger than me. However, he was 5 years older than me."
+        },
+        {
+          "content": "彼は非常に頭がいい。ところが、大学に入れなかった。",
+          "transcription": "かれはひじょうにあたまがいい。ところが、だいがくにはいれなかった。",
+          "mean": "he is very smart. However, I couldn't get into university."
+        },
+        {
+          "content": "みんな彼が勝つと思っていた。ところが、簡単に負けてしまった。",
+          "transcription": "みんなかれがかつとおもっていた。ところが、かんたんにまけてしまった。",
+          "mean": "Everyone thought he would win. However, I lost easily."
+        },
+        {
+          "content": "山田さんの家に電話した。ところが、3日間前から、  出張に行って留守だという。",
+          "transcription": "やまださんのいえにでんわした。ところが、みっかかんまえから、しゅっちょうにいってるすだという。",
+          "mean": "I called Mr. Yamada's house. However, for the past three days, he has been away on a business trip."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。 ところが、 B"
+    }
+  ],
+  "title": "ところが =>  even so; however; even though ~",
+  "_id": "77affa42e174473a8382692a4533a14f"
+}

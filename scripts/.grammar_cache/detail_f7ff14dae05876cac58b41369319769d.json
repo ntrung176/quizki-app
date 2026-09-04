@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 761,
+  "usages": [
+    {
+      "explain": "■ Indicates the meaning \"neither X nor Y\". This is an idiomatic expression. In addition, there are forms like 「ン鳴かず飛ばず」(neither singing nor flying), literally meaning (birds) neither sing nor fly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "飲まず食わずで三日間も山中を歩きつづけた。",
+          "transcription": "のまずくわずでさんにちかんもさんちゅうをあるきつづけた。",
+          "mean": "I continued walking in the mountains for three days without eating or drinking."
+        },
+        {
+          "content": "その時、彼はあわてず騒がず一言「失礼しました」と言って部屋を出ていった。",
+          "transcription": "そのとき、かれはあわてずさわがずいちげん「しつれいしました」といってへやをでていった。",
+          "mean": "At that moment, he didn't panic or make any noise, just said, ``Excuse me,'' and left the room."
+        },
+        {
+          "content": "展覧会に出品されている作品はいずれも負けず劣らずすばらしい。",
+          "transcription": "てんらんかいにしゅっぴんされているさくひんはいずれもまけずおとらずすばらしい。",
+          "mean": "All of the works on display at the exhibition are equally wonderful."
+        },
+        {
+          "content": "独立した子供達とは、つかず離れずのいい関係だ。",
+          "transcription": "どくりつしたこどもたちとは、つかずはなれずのいいかんけいだ。",
+          "mean": "I have a good relationship with my independent children."
+        },
+        {
+          "content": "日本の5月は暑からず、寒からずちょうどいい気候です。",
+          "transcription": "にっぽんの5つきはあつからず、さむからずちょうどいいきこうです。",
+          "mean": "May in Japan has a perfect climate, neither hot nor cold."
+        },
+        {
+          "content": "客は多からず、少なからずほどほどだ。",
+          "transcription": "きゃくはおおからず、すくなからずほどほどだ。",
+          "mean": "There are not many customers, but they are moderate."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■A + からず、A + からず </div><div>■V + ず、V + ず</div>"
+    }
+  ],
+  "title": "…ず、…ず => No... but also no...",
+  "_id": "f7ff14dae05876cac58b41369319769d"
+}

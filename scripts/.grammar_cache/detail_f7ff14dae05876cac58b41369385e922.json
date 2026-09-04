@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1541,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: \"not just that\". This is a formal way of speaking, used in writing.<br/><br/>Additionally, there is the structure「ひとり～のみならず」which is a more formal way of speaking, with a literary connotation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "人口高齢化は、ひとり日本だけでなく先進国の問題でもある。",
+          "transcription": "じんこうこうれいかは、ひとりにっぽんだけでなくせんしんこくのもんだいでもある。",
+          "mean": "Population aging is a problem not only for Japan but also for developed countries."
+        },
+        {
+          "content": "このキャンペーンは、ひとり私たちの組織だけでなく、広く共同体に呼びかけて進めたい。",
+          "transcription": "このきゃんぺーんは、ひとりわたしたちのそしきだけでなく、ひろくきょうどうたいによびかけてすすめたい。",
+          "mean": "We would like to promote this campaign not only by our organization alone, but by appealing to the wider community."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ひとり + N + だけでなく"
+    }
+  ],
+  "title": "ひとり ... だけでなく => not only…, not just…",
+  "_id": "f7ff14dae05876cac58b41369385e922"
+}

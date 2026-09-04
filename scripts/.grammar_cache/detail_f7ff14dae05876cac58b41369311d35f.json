@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 704,
+  "usages": [
+    {
+      "explain": "This phrase \"haven't tried it yet...then...\" expresses a sense of skepticism or criticism. It implies that without trying something, it's impossible to know or judge. It's often used in a slightly accusatory tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "記事を読んでもみないで､何が書いてあったかどうして分かるだろう。",
+          "transcription": "きじをよんでもみないで､なにがかいてあったかどうしてわかるだろう。",
+          "mean": "How can you know what is written in an article without even reading it?"
+        },
+        {
+          "content": "してもみないで､苦情を言うのは止めてください。",
+          "transcription": "してもみないで､くじょうをいうのはとめてください。",
+          "mean": "Please stop complaining without trying."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + もみないで"
+    }
+  ],
+  "title": "てもみないで => How do you know until you try?",
+  "_id": "f7ff14dae05876cac58b41369311d35f"
+}

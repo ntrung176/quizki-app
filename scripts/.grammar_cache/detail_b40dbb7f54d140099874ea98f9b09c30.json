@@ -1,0 +1,81 @@
+{
+  "level": "N4",
+  "mobileId": 5529,
+  "usages": [
+    {
+      "explain": "「のが好き」 indicates that the subject likes doing something. This is expressed with a verb followed by 「のが好き」'.<br/>\n\n「のが嫌い」 indicates that the subject dislikes doing something. This is expressed with a verb followed by「のが嫌い」.<br/>\n\nThe 'の' in this structure functions to turn the verb into a noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "漫画を読むのが好きだ。",
+          "transcription": "まんがをよむのがすきだ。",
+          "mean": "I like reading manga."
+        },
+        {
+          "content": "私は寝るのが好きです。",
+          "transcription": "わたしはねるのがすきです。",
+          "mean": "I like to sleep."
+        },
+        {
+          "content": "君、運動するのが好きだね。",
+          "transcription": "きみ、うんどうするのがすきだね。",
+          "mean": "You like to exercise."
+        },
+        {
+          "content": "妹は料理を作るのが好きです。",
+          "transcription": "いもうとはりょうりをつくるのがすきです。",
+          "mean": "My sister likes to cook."
+        },
+        {
+          "content": "彼女は野球の試合を見るのが好きです。",
+          "transcription": "かのじょはやきゅうのしあいをみるのがすきです。",
+          "mean": "She likes watching baseball games."
+        },
+        {
+          "content": "私は何か食べながら映画を見るのが好きです。",
+          "transcription": "わたしはなにかたべながらえいがをみるのがすきです。",
+          "mean": "I like watching movies while eating something."
+        },
+        {
+          "content": "多くの日本人は大勢の前に自分の意見を表現するのが好きじゃない。",
+          "transcription": "おおくのにほんじんはおおぜいのまえにじぶんのいけんをひょうげんするのがすきじゃない。",
+          "mean": "Many Japanese people don't like expressing their opinions in front of a large number of people."
+        },
+        {
+          "content": "息子は漢字を書くのが好きでした。",
+          "transcription": "むすこはかんじをかくのがすきでした。",
+          "mean": "My son liked writing kanji."
+        },
+        {
+          "content": "私は冗談を言われるのが嫌いです。",
+          "transcription": "わたしはじょうだんをいわれるのがきらいです。",
+          "mean": "I don't like being joked about."
+        },
+        {
+          "content": "勉強は好きですが、試験のために勉強するのは嫌いです。",
+          "transcription": "べんきょうはすきですが、しけんのためにべんきょうするのはきらいです。",
+          "mean": "I like studying, but I don't like studying for exams."
+        },
+        {
+          "content": "私は部屋を掃除するのが嫌いです。",
+          "transcription": "わたしはへやをそうじするのがきらいです。",
+          "mean": "I hate cleaning my room."
+        },
+        {
+          "content": "私は嘘をつかれるのが嫌いです。",
+          "transcription": "わたしはうそをつかれるのがきらいです。",
+          "mean": "I hate being lied to."
+        },
+        {
+          "content": "私は待つのが嫌いです。",
+          "transcription": "わたしはまつのがきらいです。",
+          "mean": "I hate waiting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+のが好き<br/>V (root form)+のが嫌い"
+    }
+  ],
+  "title": "のが好き/のが嫌い => Like (doing something)/Hate (doing something)",
+  "_id": "b40dbb7f54d140099874ea98f9b09c30"
+}

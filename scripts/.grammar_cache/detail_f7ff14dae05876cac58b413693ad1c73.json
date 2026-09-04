@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1836,
+  "usages": [
+    {
+      "explain": "Conveying the meaning of \"rumor or news that others know about\". It often takes the form of 「知るところとなる」and is commonly used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この秘密は、そのうちに周囲の人が知るところなるだろう。",
+          "transcription": "このひみつは、そのうちにしゅういのひとがしるところなるだろう。",
+          "mean": "This secret will soon be known by everyone around you."
+        },
+        {
+          "content": "二人の離婚は隣の人が知るところとなった。",
+          "transcription": "ににんのりこんはとなりのひとがしるところとなった。",
+          "mean": "Their divorce became known to the neighbors."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + ところとなる"
+    }
+  ],
+  "title": "ところとなる => Being perceived by others (Recognized)",
+  "_id": "f7ff14dae05876cac58b413693ad1c73"
+}

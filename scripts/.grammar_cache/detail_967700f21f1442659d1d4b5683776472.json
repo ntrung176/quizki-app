@@ -1,0 +1,91 @@
+{
+  "level": "N3",
+  "mobileId": 5384,
+  "usages": [
+    {
+      "explain": "「ないと/なくちゃ/なきゃ」are used to remind oneself, express determination, or remind others that something (V) must be done.<br/>\nThese are shortened, colloquial forms commonly used in everyday conversation. Specifically:<br/>\n「ないと」is shortened from ないと in 「ないといけない」<br/>\n「なくちゃ」is shortened from なくては in 「なくてはいけない」or 「なくてはならない」<br/>\n「なきゃ」is shortened from なければ in 「なければいけない」or 「なければならない」<br/>\nThe sentence can end directly with「ないと/なくちゃ/なきゃ」or add the possible consequences if the action (V) is not taken.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は早く出かけるから、もう寝ないと。",
+          "transcription": "あしたははやくでかけるから、もうねないと。",
+          "mean": "I'm leaving early tomorrow, so I need to get some sleep."
+        },
+        {
+          "content": "試験まであと1ヶ月だ。頑張って勉強しないと。",
+          "transcription": "しけんまであといっかげつだ。がんばってべんきょうしないと。",
+          "mean": "There's only one month left until the exam. I have to study hard."
+        },
+        {
+          "content": "あ、図書館の本返さないと。",
+          "transcription": "あ、としょかんのほんかえさないと。",
+          "mean": "Oh, I have to return the book from the library."
+        },
+        {
+          "content": "間に合わなくなってしまうよ。早く準備しないと。",
+          "transcription": "まにあわなくなってしまうよ。はやくじゅんびしないと。",
+          "mean": "You won't make it in time. I need to prepare quickly."
+        },
+        {
+          "content": "もう帰らないと。",
+          "transcription": "もうかえらないと。",
+          "mean": "I have to go home now."
+        },
+        {
+          "content": "彼氏を待っているから早く出かけないと。",
+          "transcription": "かれしをまっているからはやくでかけないと。",
+          "mean": "I'm waiting for my boyfriend so I have to leave soon."
+        },
+        {
+          "content": "試験を合格するために、一生懸命勉強しないと。",
+          "transcription": "しけんをごうかくするために、いっしょうけんめいべんきょうしないと。",
+          "mean": "I have to study hard to pass the exam."
+        },
+        {
+          "content": "もうズボンを着られないだ。早くダイエットしないと。",
+          "transcription": "もうズボンをきられないだ。はやくダイエットしないと。",
+          "mean": "I can't wear pants anymore. I need to go on a diet soon."
+        },
+        {
+          "content": "田中さんにメールの返信をしなくちゃ。",
+          "transcription": "たなかさんにメールのへんじをしなくちゃ。",
+          "mean": "I have to reply to Mr. Tanaka's email."
+        },
+        {
+          "content": "来週の月曜日に先生にレポートを出さなくちゃ。",
+          "transcription": "らいしゅうのげつようびにせんせいにレポートをださなくちゃ。",
+          "mean": "I have to submit a report to my teacher next Monday."
+        },
+        {
+          "content": "絶対に勝たなくちゃ！",
+          "transcription": "ぜったいにかたなくちゃ！",
+          "mean": "I definitely have to win!"
+        },
+        {
+          "content": "買いに行かなきゃ。",
+          "transcription": "かいにいかなきゃ。",
+          "mean": "I have to go buy some."
+        },
+        {
+          "content": "あっ、洗濯をしなきゃ。",
+          "transcription": "あっ、せんたくをしなきゃ。",
+          "mean": "Oh, I have to do the laundry."
+        },
+        {
+          "content": "勉強しなきゃ試験に受からないよ。",
+          "transcription": "べんきょうしなきゃしけんにうからないよ。",
+          "mean": "If you don't study, you won't pass the exam."
+        },
+        {
+          "content": "もっと日本語の勉強しなくちゃ、先生に怒られるよ。",
+          "transcription": "もっとにほんごのべんきょうしなくちゃ、せんせいにおこられるよ。",
+          "mean": "If I don't study Japanese more, my teacher will scold me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vないと<br/> Vな<s>い</s>くちゃ<br/>Vな<s>い</s>きゃ"
+    }
+  ],
+  "title": "ないと/なくちゃ/なきゃ => must do; need to; gotta do ~",
+  "_id": "967700f21f1442659d1d4b5683776472"
+}

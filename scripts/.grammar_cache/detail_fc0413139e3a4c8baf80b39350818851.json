@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5494,
+  "usages": [
+    {
+      "explain": "「～か」is used to embed a question into a sentence. The purpose is to convey to the listener about an action related to the content of that question.",
+      "note": null,
+      "examples": [
+        {
+          "content": "結婚祝いは何がいいか話しています。",
+          "transcription": "けっこんいわいはなにがいいかはなしています。",
+          "mean": "We are talking about what would be a good wedding gift."
+        },
+        {
+          "content": "私たちは初めて会ったのはいつか覚ていますか。",
+          "transcription": "わたしたちははじめてあったのはいつかおぼえていますか。",
+          "mean": "Do you remember when we first met?"
+        },
+        {
+          "content": "VN107便は何時に到着するか調べてください。",
+          "transcription": "ブイエヌひゃくななびんはなんじにとうちゃくするかしらべてください。",
+          "mean": "Find out what time flight VN107 will arrive."
+        },
+        {
+          "content": "プレゼントは何がいいか彼女に聞きましょう。",
+          "transcription": "プレゼントはなにがいいかかのじょにききましょう。",
+          "mean": "Ask her what she would like as a present."
+        },
+        {
+          "content": "明日は何時に出発するか先生に聞きましょう。",
+          "transcription": "あしたはなんじにしゅっぱつするかせんせいにききましょう。",
+          "mean": "Ask your teacher what time you will leave tomorrow."
+        },
+        {
+          "content": "春香ちゃんの誕生日はいつか知っていますか。",
+          "transcription": "はるかちゃんのたんじょうびはいつかしっていますか。",
+          "mean": "Do you know when Haruka-chan's birthday is?"
+        },
+        {
+          "content": "今月はベトナムへ行くフライトがあるか調べてください。",
+          "transcription": "こんげつはベトナムへいくフライトがあるかしらべてください。",
+          "mean": "Find out if there are flights to Vietnam this month."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative words+Aい/Aな/N/V (formal form)+か<br/> Interrogative words: いつ、何、どこ v.v"
+    }
+  ],
+  "title": "～か => Right?",
+  "_id": "fc0413139e3a4c8baf80b39350818851"
+}

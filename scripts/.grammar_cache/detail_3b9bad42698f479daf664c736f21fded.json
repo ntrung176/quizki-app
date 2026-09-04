@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5491,
+  "usages": [
+    {
+      "explain": "「いらっしゃる」is an honorific form of the verbs 行く (iku), 来る (kuru), and いる (iru). It is used when speaking to customers, partners, or individuals of higher status or position than the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日のパーティーにいらっしゃいますか。",
+          "transcription": "あしたのパーティーにいらっしゃいますか。",
+          "mean": "Are you coming to the party tomorrow?"
+        },
+        {
+          "content": "私たちと一緒にいらっしゃいませんか。",
+          "transcription": "わたしたちといっしょにいらっしゃいませんか。",
+          "mean": "Would you like to come with us?"
+        },
+        {
+          "content": "校長先生は図書館にいらっしゃいます。",
+          "transcription": "こうちょうせんせいはとしょかんにいらっしゃいます。",
+          "mean": "The principal is in the library."
+        },
+        {
+          "content": "質問のある方はいらっしゃいませんか。",
+          "transcription": "しつもんのあるかたはいらっしゃいませんか。",
+          "mean": "Anyone have any questions?"
+        },
+        {
+          "content": "先生、何時まで学校にいらっしゃいますか。",
+          "transcription": "せんせい、なんじまでがっこうにいらっしゃいますか。",
+          "mean": "Teacher, until what time will you be at school?"
+        },
+        {
+          "content": "来週の月曜日は出張にいらっしゃいますか。",
+          "transcription": "らいしゅうのげつようびはしゅっちょうにいらっしゃいますか。",
+          "mean": "Are you going on a business trip next Monday?"
+        },
+        {
+          "content": "お嬢さんはどちらへ留学にいらっしゃいますか。",
+          "transcription": "おじょうさんはどちらへりゅうがくにいらっしゃいますか。",
+          "mean": "Where is your daughter going to study abroad?"
+        },
+        {
+          "content": "この電車の中にお医者さんはいらっしゃいますか。",
+          "transcription": "このでんしゃのなかにおいしゃさんはいらっしゃいますか。",
+          "mean": "Is there a doctor on this train?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "行く ➔ いらっしゃる<br/> 来る ➔ いらっしゃる<br/>いる ➔ いらっしゃる"
+    }
+  ],
+  "title": "いらっしゃる => to be; to come; to go (polite version)",
+  "_id": "3b9bad42698f479daf664c736f21fded"
+}

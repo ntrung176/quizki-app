@@ -1,0 +1,33 @@
+{
+  "level": "N5",
+  "mobileId": 2899,
+  "usages": [
+    {
+      "explain": "Verbs that require a person as the object (to give, lend, teach). We place the particle 「に」 after the noun indicating the object.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父は母に花をあげました。",
+          "transcription": "ちちはははにはなをあげました。",
+          "mean": "Father gave flowers to mother."
+        },
+        {
+          "content": "私は妹にこの本をあげます。",
+          "transcription": "わたしはいもうとにこのほんをあげます。",
+          "mean": "I will give this book to my sister."
+        }
+      ],
+      "mean": null,
+      "synopsis": "(N1 (people)) は N2 (people) にあげます"
+    },
+    {
+      "explain": "Note: For verbs like 「おくります」 (to send) and 「でんわをかけます」 (to make a phone call), the object can be not only a person but also a location (noun). In such cases, in addition to the particle 「に」, we can also use the particle 「へ」. I call the company.\nWith the verb あげます, 「noun(person)」 is not used as 「わたし」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "にあげます => give, take",
+  "_id": "f2d618ceb0702f781ec83b7d4f3d1f42"
+}

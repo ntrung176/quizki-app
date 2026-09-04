@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5427,
+  "usages": [
+    {
+      "explain": "「たて」is used to describe something that has just been completed or a recent event that is still visible or noticeable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "焼きたてのパンは美味しい。",
+          "transcription": "やきたてのパンはおいしい。",
+          "mean": "Freshly baked bread is delicious."
+        },
+        {
+          "content": "あのスーパーはとりたての新鮮な野菜を売っている。",
+          "transcription": "あのスーパーはとりたてのしんせんなやさいをうっている。",
+          "mean": "That supermarket sells fresh vegetables."
+        },
+        {
+          "content": "このポテトは揚げたてだよ。",
+          "transcription": "このポテトはあげたてだよ。",
+          "mean": "This potato is freshly fried."
+        },
+        {
+          "content": "塗りたてのペンキ。",
+          "transcription": "ぬりたてのペンキ。",
+          "mean": "Fresh paint."
+        },
+        {
+          "content": "私は撮りたての写真を気に入らない。",
+          "transcription": "わたしはとりたてのしゃしんをきにはいらない。",
+          "mean": "I don't like freshly taken photos."
+        },
+        {
+          "content": "洗いたてのシャツ。",
+          "transcription": "あらいたてのシャツ。",
+          "mean": "A freshly washed shirt."
+        },
+        {
+          "content": "彼女は先生になりたてだ。",
+          "transcription": "かのじょはせんせいになりたてだ。",
+          "mean": "She has just become a teacher."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>たて のN<br/> V<s>ます</s>たて だ"
+    }
+  ],
+  "title": "たて => just done; freshly done; newly done. tate ...",
+  "_id": "b389940b467148a9a152f3ec5d12ac0c"
+}

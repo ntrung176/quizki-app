@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1507,
+  "usages": [
+    {
+      "explain": "Expresses an important issue to focus on or do first, temporarily putting aside other matters.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この小説、内容はさておき、タイトルは面白いと思う。",
+          "transcription": "このしょうせつ、ないようはさておき、たいとるはおもしろいとおもう。",
+          "mean": "Aside from the content of this novel, I think the title is interesting."
+        },
+        {
+          "content": "値段はさておき、そのスーツはあなたには似合っていない。",
+          "transcription": "ねだんはさておき、そのすーつはあなたにはにあっていない。",
+          "mean": "Regardless of the price, that suit doesn't suit you."
+        },
+        {
+          "content": "大学進学はさておき、今の彼女には健康の回復は第一だ。",
+          "transcription": "だいがくしんがくはさておき、いまのかのじょにはけんこうのかいふくはだいいちだ。",
+          "mean": "Aside from going to university, her priority now is to recover her health."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + はさておき"
+    }
+  ],
+  "title": "はさておき => setting aside ~",
+  "_id": "f7ff14dae05876cac58b41369380d622"
+}

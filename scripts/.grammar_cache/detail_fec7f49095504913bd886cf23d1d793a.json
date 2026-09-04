@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5450,
+  "usages": [
+    {
+      "explain": "うちに expresses that within an indefinite period, something has occurred or changed. This event is beyond the control of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生の話を聞いているうちに寝てしまった。",
+          "transcription": "せんせいのはなしをきいているうちにねてしまった。",
+          "mean": "I fell asleep while listening to the teacher's story."
+        },
+        {
+          "content": "母が出かけているうちにこっそり冷蔵庫のケーキを食べてしまった。",
+          "transcription": "ははがでかけているうちにこっそりれいぞうこのケーキをたべてしまった。",
+          "mean": "While my mother was out, I secretly ate the cake in the refrigerator."
+        },
+        {
+          "content": "何度も聞いているうちに歌詞を覚えた。",
+          "transcription": "なんどもきいているうちにかしをおぼえた。",
+          "mean": "After listening to it many times, I memorized the lyrics."
+        },
+        {
+          "content": "気がつかないうちに30歳になった。",
+          "transcription": "きがつかないうちにさんじゅっさいになった。",
+          "mean": "Before I knew it, I turned 30."
+        },
+        {
+          "content": "会わないうちに彼は私の身長を超えていた。",
+          "transcription": "あわないうちにかれはわたしのしんちょうをこえていた。",
+          "mean": "Before we met, he was taller than me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vない+うちに<br/> Vている+うちに"
+    }
+  ],
+  "title": "うちに => While...",
+  "_id": "fec7f49095504913bd886cf23d1d793a"
+}

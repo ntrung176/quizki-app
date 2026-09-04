@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3128,
+  "usages": [
+    {
+      "explain": "Describing the frequency of doing something within a period of time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は一週間に2回テニスをします。",
+          "transcription": "わたしはいちしゅうかんに2かいてにすをします。",
+          "mean": "I play tennis twice a week."
+        },
+        {
+          "content": "１か月に2回京都へいきます。",
+          "transcription": "わたしはいっかげつに2かいきょうとへいきます。",
+          "mean": "I go to Kyoto twice a month."
+        }
+      ],
+      "mean": ": Do ~ times in ~ period",
+      "synopsis": "時間＋に＋～回＋V"
+    }
+  ],
+  "title": "～に～かい（～に～回）      => Do ~ times in ~ period",
+  "_id": "93020c54469e582d6fdb16f7ba5fc7af"
+}

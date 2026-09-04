@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5449,
+  "usages": [
+    {
+      "explain": "「つまり」is used to:<br/>\n1. Express the same idea as the preceding clause, but using different words or phrasing. It is similar to 「すなわち」but tends to be more colloquial. It can be translated as \"In other words...\" or \"That is to say...\"<br/>\n2. Summarize the content that has just been said. Similar to 「要するに」and「結局」. It can be translated as \"In summary...\" or \"To sum up...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "父の兄、つまり私の伯父は医者をしている。",
+          "transcription": "ちちのあに、つまりわたしのおじはいしゃをしている。",
+          "mean": "My father's older brother, my uncle, is a doctor."
+        },
+        {
+          "content": "田中さんは携帯もパソコンも持っていない。つまり、メールで連絡はできないのだ。",
+          "transcription": "たなかさんはけいたいもパソコンももっていない。つまり、メールでれんらくはできないのだ。",
+          "mean": "Mr. Tanaka does not have a cell phone or a computer. This means that we cannot contact you via email."
+        },
+        {
+          "content": "彼は獣医、つまり動物のお医者さんです。",
+          "transcription": "かれはじゅうい、つまりどうぶつのおいしゃさんです。",
+          "mean": "He is a veterinarian, an animal doctor."
+        },
+        {
+          "content": "彼女は姉の娘,つまり私にとってはめいです。",
+          "transcription": "かのじょはあねのむすめ,つまりわたしにとってはめいです。",
+          "mean": "She is my sister's daughter, my niece."
+        },
+        {
+          "content": "もう30分以上も話しを聞いているが全く分からない。つまり結論は何だ？",
+          "transcription": "もうさんじゅっぷんいじょうもはなしをきいているがまったくわからない。つまりけつろんはなんだ？",
+          "mean": "I've been listening to him talk for over 30 minutes now, but I don't understand anything at all. So what's the conclusion?"
+        },
+        {
+          "content": "『昨日、遅くまで勉強して、朝起きられなかったんです。』『つまり寝坊したということですね。』",
+          "transcription": "『きのう、おそくまでべんきょうして、あさおきられなかったんです。』『つまりねぼうしたということですね。』",
+          "mean": "``I studied late yesterday and couldn't wake up in the morning. ``That means you overslept.'' ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A つまり B"
+    }
+  ],
+  "title": "つまり => in other words; in summary",
+  "_id": "8c6953649f5b48e1a7acaf7918d7df65"
+}

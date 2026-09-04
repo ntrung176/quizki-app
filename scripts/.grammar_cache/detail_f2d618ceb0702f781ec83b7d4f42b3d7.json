@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2945,
+  "usages": [
+    {
+      "explain": "「そうじゃありません」 is used to answer a question with a noun and confirm that the content of the question is incorrect.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは山田さんのかばんですか。いいえ、そうじゃありません。",
+          "transcription": "これはやまださんのかばんですか。いいえ、そうじゃありません。",
+          "mean": "Is this Mr. Yamada's bag? No, that's not it."
+        },
+        {
+          "content": "それはラジオですか。いいえ、そうじゃありません。",
+          "transcription": "それはらじおですか。いいえ、そうじゃありません。",
+          "mean": "Is that a radio? No, that's not it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～そうじゃありません"
+    }
+  ],
+  "title": "そうじゃありません => Not like that, Not that way",
+  "_id": "f2d618ceb0702f781ec83b7d4f42b3d7"
+}

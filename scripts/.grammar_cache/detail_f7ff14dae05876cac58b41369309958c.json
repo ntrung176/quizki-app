@@ -1,0 +1,21 @@
+{
+  "level": "N1",
+  "mobileId": 640,
+  "usages": [
+    {
+      "explain": "✦Often appears after a fairly long passage, at the beginning of a sentence presenting a conclusion or a result up to that point.<br/>✦Used in serious writing, such as explanations of history. Also known as [かくて].",
+      "note": null,
+      "examples": [
+        {
+          "content": "かくして市民による革命が成し遂げられたのであった。",
+          "transcription": "かくしてしみんによるかくめいがなしとげられたのであった。",
+          "mean": "In this way, the revolution by the citizens was accomplished."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦The following sentence is a sentence expressing conclusions and results."
+    }
+  ],
+  "title": "～かくして => thus...",
+  "_id": "f7ff14dae05876cac58b41369309958c"
+}

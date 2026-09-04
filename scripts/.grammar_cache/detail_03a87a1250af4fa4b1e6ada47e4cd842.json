@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5379,
+  "usages": [
+    {
+      "explain": "「もし～としても/ もし～としたって」is used to express a subjunctive condition, and regardless of that condition, the event in the following clause will still occur. 「もし～としたって」 is commonly used in everyday conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もし休みが取れたとしても、旅行には行かないつもりです。",
+          "transcription": "もしやすみがとれたとしても、りょこうにはいかないつもりです。",
+          "mean": "Even if I get time off, I don't plan on going on a trip."
+        },
+        {
+          "content": "もしお金がたくさんあったとしても、そんなものは買わない。",
+          "transcription": "もしおかねがたくさんあったとしても、そんなものはかわない。",
+          "mean": "Even if I had a lot of money, I wouldn't buy such things."
+        },
+        {
+          "content": "もし決勝戦に残ったとしたって、優勝は難しいでしょう。",
+          "transcription": "もしけっしょうせんにのこったとしたって、ゆうしょうはむずかしいでしょう。",
+          "mean": "Even if they made it to the finals, it would be difficult to win."
+        },
+        {
+          "content": "もしあの会社から採用通知が来たとしても、入らないつもりです。",
+          "transcription": "もしあのかいしゃからさいようつうちがきたとしても、はいらないつもりです。",
+          "mean": "Even if I received a job offer from that company, I would not apply."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もし+V/Aい/Aな/N (formal form)+としても / としたって"
+    }
+  ],
+  "title": "もし～としても/もし～としたって => Assuming; Even if ~",
+  "_id": "03a87a1250af4fa4b1e6ada47e4cd842"
+}

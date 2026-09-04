@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1938,
+  "usages": [
+    {
+      "explain": "Attached to the conjunctive form of a verb, it indicates the meaning of performing actions that affect the target. There are also expressions like「問いかける」(to ask a question),「語りかける」(to tell a story to someone),「誘いかける」(to call for).",
+      "note": null,
+      "examples": [
+        {
+          "content": "遠くから誰かが私に呼びかけているのが聞こえた。",
+          "transcription": "とおくからだれかがわたしによびかけているのがきこえた。",
+          "mean": "I heard someone calling me from a distance."
+        },
+        {
+          "content": "桜ちゃんは、人と目が合うたびにやさしく笑いかけるような、そんな、人を疑うということを知らないような子だったと言う。",
+          "transcription": "さくらちゃんは、ひととめがあうたびにやさしくわらいかけるような、そんな、ひとをうたがうということをしらないようなこだったという。",
+          "mean": "Sakura-chan says that she was the kind of child who didn't know how to be suspicious of others, smiling kindly every time she made eye contact with someone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます + かける"
+    }
+  ],
+  "title": "...かける => Impact",
+  "_id": "f7ff14dae05876cac58b413693bb3654"
+}

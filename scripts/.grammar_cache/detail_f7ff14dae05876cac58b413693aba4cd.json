@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 1824,
+  "usages": [
+    {
+      "explain": "This pattern is often used to talk about habits, rules, or pre-made plans. It emphasizes that the decision has been made by someone else – it's not subjective or voluntary.",
+      "note": null,
+      "examples": [
+        {
+          "content": "75点以上が合格ということになっています。",
+          "transcription": "75てんいじょうがごうかくということになっています。",
+          "mean": "A score of 75 or above is considered passing."
+        },
+        {
+          "content": "この宿題は火曜日に提出することになっている。",
+          "transcription": "このしゅくだいはかようびにていしゅつすることになっている。",
+          "mean": "This homework is due on Tuesday."
+        },
+        {
+          "content": "被告は来週の月曜日に出廷することになる。",
+          "transcription": "ひこくはらいしゅうのげつようびにしゅっていすることになる。",
+          "mean": "The defendant will appear in court next Monday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ということになる <br/>V-る/ V-ない+（という）ことになる"
+    },
+    {
+      "explain": "Note: Only used when showing that something has been decided or arranged beforehand, implying that when a situation occurs, it's natural for it to be like that (If you study at this school, it's natural that you have to speak English...). It doesn't necessarily have to include a decision-making element in the sentence.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "になる => To be prescribed to be, to be arranged to be, to become….",
+  "_id": "f7ff14dae05876cac58b413693aba4cd"
+}

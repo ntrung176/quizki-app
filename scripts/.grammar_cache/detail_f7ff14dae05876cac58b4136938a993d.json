@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1577,
+  "usages": [
+    {
+      "explain": "Used to express a wish or desire to have someone else arrange or permit something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼に質問させて欲しい。",
+          "transcription": "かれにしつもんさせてほしい。",
+          "mean": "I would like to ask him a question."
+        },
+        {
+          "content": "今日は早く帰らせて欲しいんですか。",
+          "transcription": "きょうははやくかえらせてほしいんですか。",
+          "mean": "Do you want me to go home early today?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group I: V-せて / V-せなで + ほしい\nGroup II: V-させて / V-させないで + ほしい\nGroup III: 来る→来させて / 来させないで + ほしい する→させて / させないで"
+    }
+  ],
+  "title": "(さ）せてほしい => Please let me do",
+  "_id": "f7ff14dae05876cac58b4136938a993d"
+}

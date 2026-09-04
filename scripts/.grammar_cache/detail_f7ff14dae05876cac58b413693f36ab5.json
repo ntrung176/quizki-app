@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2339,
+  "usages": [
+    {
+      "explain": "This is an extremely polite way of asking permission, used when speaking to someone of higher status. Other parts of the sentence often employ honorific expressions.<br/><br/>It's a more courteous way of saying \"てもいいですか\" (Is it okay if...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生、この論文を少し見てもよろしいでしょうか。",
+          "transcription": "せんせい、このろんぶんをすこしみてもよろしいでしょうか。",
+          "mean": "Professor, may I take a look at this paper?"
+        },
+        {
+          "content": "部長、三時ごろ、空港へお迎えに参ってもよろしいでしょうか。",
+          "transcription": "ぶちょう、さんじごろ、くうこうへおむかえにまいってもよろしいでしょうか。",
+          "mean": "Director, may I come and pick you up at the airport around 3 o'clock?"
+        },
+        {
+          "content": "履歴書は来週提出してもよろしいでしょうか。",
+          "transcription": "りれきしょはらいしゅうていしゅつしてもよろしいでしょうか。",
+          "mean": "May I submit my resume next week?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + もよろしいでしょうか"
+    }
+  ],
+  "title": "てもよろしいでしょうか => May I...",
+  "_id": "f7ff14dae05876cac58b413693f36ab5"
+}

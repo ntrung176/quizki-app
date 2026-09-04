@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2438,
+  "usages": [
+    {
+      "explain": "以下 (いか) is used to present the content that follows.",
+      "note": null,
+      "examples": [
+        {
+          "content": "以下は彼の話です。",
+          "transcription": "いかはかれのはなしです。",
+          "mean": "The following is his story."
+        },
+        {
+          "content": "理由は以下のとおりである。",
+          "transcription": "りゆうはいかのとおりである。",
+          "mean": "The reasons are as follows."
+        }
+      ],
+      "mean": null,
+      "synopsis": "以下"
+    }
+  ],
+  "title": "以下 => As follows, below",
+  "_id": "f2d618ceb0702f781ec83b7d4f00da45"
+}

@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2798,
+  "usages": [
+    {
+      "explain": "Refers to a specific character or event, expressing the idea \"if X happens, then of course Y will happen\". Since Y is an event that has not yet occurred, the sentence often ends with expressions of speculation or prediction such as 「だろう」、「にちがいない」、「はずだ」、「かもしれない」、「思う」... One might also use 「ば」 to indicate that X is a necessary and sufficient condition for Y to occur.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もし私が両親の立場なら、やっぱり同じように考えるだろう。",
+          "transcription": "もしわたしがりょうしんのたちばなら、やっぱりおなじようにかんがえるだろう。",
+          "mean": "If I were my parents, I would think the same way."
+        },
+        {
+          "content": "こんなに面白ければ、きっと読者がたくさんいると思う。",
+          "transcription": "こんなにおもしろければ、きっとどくしゃがたくさんいるとおもう。",
+          "mean": "If it's this interesting, I'm sure there will be a lot of readers."
+        },
+        {
+          "content": "希望者が多ければ抽選になります。",
+          "transcription": "きぼうしゃがおおければちゅうせんになります。",
+          "mean": "If there are many applicants, a lottery will be held."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...ば + the matter has not been done yet"
+    },
+    {
+      "explain": "Note: If the speaker is quite certain about the occurrence of Y, there are cases where the predicate at the end of the sentence is used in a decisive tone and in the present tense.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "... ば => If...",
+  "_id": "f2d618ceb0702f781ec83b7d4f308fe5"
+}

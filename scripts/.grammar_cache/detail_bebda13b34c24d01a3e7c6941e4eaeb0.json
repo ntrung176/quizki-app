@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5484,
+  "usages": [
+    {
+      "explain": "「始める」expresses the beginning of an action or phenomenon. This action or phenomenon is planned by the speaker, not something unexpected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは食べ始めた。",
+          "transcription": "かれらはたべはじめた。",
+          "mean": "they started eating."
+        },
+        {
+          "content": "雨が降り始めた。",
+          "transcription": "あめがふりはじめた。",
+          "mean": "It began to rain."
+        },
+        {
+          "content": "いつそれをやり始めるの？",
+          "transcription": "いつそれをやりはじめるの？",
+          "mean": "When will you start doing that?"
+        },
+        {
+          "content": "今朝、歯が痛くなり始めた。",
+          "transcription": "けさ、はがいたくなりはじめた。",
+          "mean": "This morning my tooth started hurting."
+        },
+        {
+          "content": "私はまだ走り始めていない。",
+          "transcription": "わたしはまだはしりはじめていない。",
+          "mean": "I haven't started running yet."
+        },
+        {
+          "content": "私はまだ夕食を作り始めていない。",
+          "transcription": "わたしはまだゆうしょくをつくりはじめていない。",
+          "mean": "I haven't started making dinner yet."
+        },
+        {
+          "content": "この状況は変わり始めている。",
+          "transcription": "このじょうきょうはかわりはじめている。",
+          "mean": "This situation is starting to change."
+        },
+        {
+          "content": "私は今年から働き始めたばかりです。",
+          "transcription": "わたしはことしからはたらきはじめたばかりです。",
+          "mean": "I just started working this year."
+        },
+        {
+          "content": "私は再びサイクリングをやり始めた。",
+          "transcription": "わたしはふたたびサイクリングをやりはじめた。",
+          "mean": "I started cycling again."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+はじめる<br/> V<s>ます</s>+はじめた<br/> V<s>ます</s>+はじめている"
+    }
+  ],
+  "title": "始める => to start; to begin to ~",
+  "_id": "bebda13b34c24d01a3e7c6941e4eaeb0"
+}

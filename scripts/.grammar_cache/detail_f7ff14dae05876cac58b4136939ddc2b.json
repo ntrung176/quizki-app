@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1725,
+  "usages": [
+    {
+      "explain": "Often used with the form 「こんなはずではなかった」(wasn't supposed to be like this), expressing disappointment, regret due to reality being contrary to expectations. Also often in the form 「...はずではなかったのに」(wasn't supposed to ..., yet).",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなはずではなかった。",
+          "transcription": "そんなはずではなかった。",
+          "mean": "It wasn't supposed to be that way."
+        },
+        {
+          "content": "彼女はそんな高価なくつを買うはずではなかったのに。",
+          "transcription": "かのじょはそんなこうかなくつをかうはずではなかったのに。",
+          "mean": "She wasn't supposed to buy such expensive shoes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの + はずではなかったNa な + はずではなかったA/ V + はずではなかった"
+    }
+  ],
+  "title": "…はずではなかった => cannot be (impossible)",
+  "_id": "f7ff14dae05876cac58b4136939ddc2b"
+}

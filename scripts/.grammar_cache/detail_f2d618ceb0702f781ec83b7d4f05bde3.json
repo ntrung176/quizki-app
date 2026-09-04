@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2472,
+  "usages": [
+    {
+      "explain": "This describes the speaker's uncertain judgment, \"it cannot be asserted with certainty, but maybe so.\" It's said with an upward intonation. The polite form is 「んじゃありませんか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人、砂糖さんなんじゃない？",
+          "transcription": "あのひと、さとうさんなんじゃない？",
+          "mean": "Isn't that person Mr. Sugar?"
+        },
+        {
+          "content": "リモコン？本棚の上にあるんじゃない？",
+          "transcription": "りもこん？ほんだなのうえにあるんじゃない？",
+          "mean": "Remote controller? Isn't it on the bookshelf?"
+        },
+        {
+          "content": "山田さん？もう来たんじゃない？",
+          "transcription": "やまださん？もうきたんじゃない？",
+          "mean": "Mr. Yamada? Isn't it already here?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んじゃない"
+    }
+  ],
+  "title": "んじゃない => confirmation of information; express surprise towards listener",
+  "_id": "f2d618ceb0702f781ec83b7d4f05bde3"
+}

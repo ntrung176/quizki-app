@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 5076,
+  "usages": [
+    {
+      "explain": "「たりとも～ない」is used with a noun indicating a small quantity (according to the formula \"1 + counter word\". For example: 1日 (1 day), 1秒 (1 second), 1瞬 (1 moment), 1回 (1 time), 1度 (1 degree), 1人 (1 person), 1匹 (1 small animal), 1枚 (1 flat object), 1本 (1 long object)...) followed by a negative-form verb. It is used to emphasize the idea that even a little bit or a small amount is not permitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "テストでは1秒たりとも時間を無駄に使ってはいけません。",
+          "transcription": "テストではいちびょうたりともじかんをむだにつかってはいけません。",
+          "mean": "Don't waste even a second of your time during the test."
+        },
+        {
+          "content": "その店は、1ドルたりとも負けてくれませんよ。",
+          "transcription": "そのみせは、いちドルたりともまけてくれませんよ。",
+          "mean": "That store won't let you lose even a single dollar."
+        },
+        {
+          "content": "恋人に会いたくて、1日たりとも待てない。",
+          "transcription": "こいびとにあいたくて、いちにちたりともまてない。",
+          "mean": "I want to meet my lover and can't wait even a day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+たりとも Vない"
+    }
+  ],
+  "title": "たりとも～ない => not even; not any ~",
+  "_id": "482ce57f1a664bc78a97b038363b3945"
+}

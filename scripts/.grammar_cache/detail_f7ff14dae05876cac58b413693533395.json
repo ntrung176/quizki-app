@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1185,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はいつもに似合わず早く起きた。",
+          "transcription": "かれはいつもににあわずはやくおきた。",
+          "mean": "He woke up unusually early."
+        },
+        {
+          "content": "若い者に似合わず元気が無い。",
+          "transcription": "わかいものににあわずげんきがない。",
+          "mean": "It doesn't suit young people and doesn't have any energy."
+        },
+        {
+          "content": "彼は今度はいつもに似合わずうまくやった。",
+          "transcription": "かれはこんどはいつもににあわずうまくやった。",
+          "mean": "He did an uncharacteristically good job this time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+ににあわず"
+    }
+  ],
+  "title": "～ににあわず (に似合わず ) => ～Different from",
+  "_id": "f7ff14dae05876cac58b413693533395"
+}

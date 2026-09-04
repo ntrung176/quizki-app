@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3045,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "<div>遠い昔から今日に至るまで。<br></div>",
+          "transcription": "<div>とおいむかしからきょうにいたるまで。<br></div>",
+          "mean": "&lt;div&gt;From the distant past to today. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "古代から近世に至るまでの史跡が市内に点在する。",
+          "transcription": "こだいからきんせいにいたるまでのしせきがしないにてんざいする。",
+          "mean": "Historical sites from ancient times to modern times are scattered throughout the city."
+        },
+        {
+          "content": "上は社長から下は雑用係の少年(に至る)まで。",
+          "transcription": "うえはしゃちょうからしたはざつようがかりのしょうねん(にいたる)まで。",
+          "mean": "From the president at the top to the boy in charge of chores at the bottom."
+        },
+        {
+          "content": "山本さんは３０年前から今に至るまで寿司シェフとして勤めています。",
+          "transcription": "やまもとさんは３０ねんまえからいまにいたるまですしシェフとしてつとめています",
+          "mean": "Mr. Yamamoto has been working as a sushi chef for 30 years."
+        }
+      ],
+      "mean": "as far as; up until; everything from ... to ~",
+      "synopsis": "✦～から...に至るまで"
+    }
+  ],
+  "title": "～から...に至るまで（至るまで）      => as far as; up until; everything from ... to ~",
+  "_id": "93020c54469e582d6fdb16f7ba880f9d"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2844,
+  "usages": [
+    {
+      "explain": "Used with expressions indicating attributes, states, and expressing a slightly higher degree than the current level.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう少し頑張れるの。",
+          "transcription": "もうすこしがんばれるの。",
+          "mean": "I can try a little harder."
+        },
+        {
+          "content": "もう少し大きい声で話して下さい。",
+          "transcription": "もうすこしおおきいこえではなしてください。",
+          "mean": "Please speak a little louder."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もうすこし"
+    }
+  ],
+  "title": "もうすこし => A little more (level)",
+  "_id": "f2d618ceb0702f781ec83b7d4f36d726"
+}

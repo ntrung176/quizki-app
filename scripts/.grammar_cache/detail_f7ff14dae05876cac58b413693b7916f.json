@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1916,
+  "usages": [
+    {
+      "explain": "Used to say something differently or to look at something from another perspective, pointing out the essence of the matter.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このコンテストも今年で７回目ということになりますね。",
+          "transcription": "このこんてすともことしでななかいめということになりますね。",
+          "mean": "This year will be the seventh time this contest has been held."
+        },
+        {
+          "content": "山田君は私の父の弟の子供だから、私と山田君はいとこということになる。",
+          "transcription": "やまだくんはわたしのちちのおとうとのこどもだから、わたしとやまだくんはいとこということになる。",
+          "mean": "Yamada-kun is my father's younger brother's child, so Yamada-kun and I are cousins."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ということになる<br/>V-る/ V-ない + ことになる"
+    }
+  ],
+  "title": "ことになる => it turns out that…",
+  "_id": "f7ff14dae05876cac58b413693b7916f"
+}

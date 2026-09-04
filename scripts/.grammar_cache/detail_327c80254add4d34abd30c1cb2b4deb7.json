@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5460,
+  "usages": [
+    {
+      "explain": "「わざと」 indicates that the action being referred to is intentional, purposeful, done deliberately by someone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はわざと間違えた。",
+          "transcription": "かれはわざとまちがえた。",
+          "mean": "He made a mistake on purpose."
+        },
+        {
+          "content": "私は彼がわざとそうしたとは思いません。",
+          "transcription": "わたしはかれがわざとそうしたとはおもいません。",
+          "mean": "I don't think he did it on purpose."
+        },
+        {
+          "content": "それをわざと壊したのではありません。",
+          "transcription": "それをわざとこわしたのではありません。",
+          "mean": "I didn't break it on purpose."
+        },
+        {
+          "content": "彼はわざとその質問に答えなかった。",
+          "transcription": "かれはわざとそのしつもんにこたえなかった。",
+          "mean": "He didn't answer the question on purpose."
+        },
+        {
+          "content": "あなたはわざと私の足を踏んだでしょう？",
+          "transcription": "あなたはわざとわたしのあしをふんだでしょう？",
+          "mean": "You stepped on my foot on purpose, right?"
+        },
+        {
+          "content": "彼はわざとそうしたのだとふと私は思った。",
+          "transcription": "かれはわざとそうしたのだとふとわたしはおもった。",
+          "mean": "It occurred to me that he had done it on purpose."
+        },
+        {
+          "content": "彼女がわざと遅れて来たのはほぼ確かだと私は思っている。",
+          "transcription": "かのじょがわざとおくれてきたのはほぼたしかだとわたしはおもっている。",
+          "mean": "I'm almost certain that she came late on purpose."
+        },
+        {
+          "content": "わざとの可能性がある。",
+          "transcription": "わざとのかのうせいがある。",
+          "mean": "There is a possibility that it was intentional."
+        }
+      ],
+      "mean": null,
+      "synopsis": "わざと+V"
+    }
+  ],
+  "title": "わざと => on purpose; intentionally ~",
+  "_id": "327c80254add4d34abd30c1cb2b4deb7"
+}

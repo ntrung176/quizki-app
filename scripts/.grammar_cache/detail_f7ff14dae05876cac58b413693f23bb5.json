@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2328,
+  "usages": [
+    {
+      "explain": "Used to emphasize a large quantity or a high level.",
+      "note": null,
+      "examples": [
+        {
+          "content": "3時間近くも雨が激しく降っていたが, 突然うそのように晴れ上がった。",
+          "transcription": "3じかんちかくもあめがはげしくふっていたが,とつぜんうそのようにはれあがった。",
+          "mean": "It had been raining heavily for nearly three hours, but suddenly the weather cleared up."
+        },
+        {
+          "content": "私は彼女に30万円も借りている。",
+          "transcription": "わたしはかのじょに30まんえんもかりている。",
+          "mean": "I owe her 300,000 yen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + も"
+    }
+  ],
+  "title": "Từ chỉ số lượng + も => to quantity words",
+  "_id": "f7ff14dae05876cac58b413693f23bb5"
+}

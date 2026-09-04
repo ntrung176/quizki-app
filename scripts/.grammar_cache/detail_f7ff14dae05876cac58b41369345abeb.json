@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1082,
+  "usages": [
+    {
+      "explain": "Follows the verb form 「ば」, where 「ば」has been omitted, to express the meaning \"although ... but ...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "行けども行けども、森林は続く。",
+          "transcription": "いけどもいけども、しんりんはつづく。",
+          "mean": "No matter where we go, the forest continues."
+        },
+        {
+          "content": "声はすれども、誰は見えず。",
+          "transcription": "こえはすれども、だれはみえず。",
+          "mean": "I could hear voices, but I couldn't see anyone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ども"
+    }
+  ],
+  "title": "ども => although, even though",
+  "_id": "f7ff14dae05876cac58b41369345abeb"
+}

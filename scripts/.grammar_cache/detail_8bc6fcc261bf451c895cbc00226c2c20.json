@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5306,
+  "usages": [
+    {
+      "explain": "「よほど」is used to:<br/>\n1. Express an observation or speculation about an event, indicating that the event has occurred/is occurring/will occur to a considerable degree.<br/>\n2. Compare the degree of the event being discussed with a certain standard, indicating that the degree greatly exceeds that standard.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それはよほど前にあった事です。",
+          "transcription": "それはよほどまえにあったことです。",
+          "mean": "That happened a long time ago."
+        },
+        {
+          "content": "彼はよほどのことがなければ気持ちを変えないだろう。",
+          "transcription": "かれはよほどのことがなければきもちをかえないだろう。",
+          "mean": "He won't change his mind unless there's a big deal."
+        },
+        {
+          "content": "仕事があまりにもきついから、よほど会社を辞めようかと思っている。",
+          "transcription": "しごとがあまりにもきついから、よほどかいしゃをやめようかとおもっている。",
+          "mean": "The work is so demanding that I'm seriously considering quitting my job."
+        },
+        {
+          "content": "いつも静かな彼があんなに怒るなんて、よほど嫌なことを言われたんだろう。",
+          "transcription": "いつもしずかなかれがあんなにおこるなんて、よほどいやなことをいわれたんだろう。",
+          "mean": "He must have said something really unpleasant to him, who was always quiet, and got so angry."
+        },
+        {
+          "content": "あいつはよほどお金に困っているらしい。昨日も友達に晩ご飯をおごってもらっていた。",
+          "transcription": "あいつはよほどおかねにこまっているらしい。きのうもともだちにばんごはんをおごってもらっていた。",
+          "mean": "It seems like he's in serious trouble with money. Yesterday, I had a friend buy me dinner."
+        },
+        {
+          "content": "正社員よりアルバイトの方がよほどしっかりしている。",
+          "transcription": "せいしゃいんよりアルバイトのほうがよほどしっかりしている。",
+          "mean": "Part-time jobs are much more reliable than full-time jobs."
+        },
+        {
+          "content": "彼はこれまでよりよほどよく働いております。",
+          "transcription": "かれはこれまでよりよほどよくはたらいております。",
+          "mean": "He is working much better than ever before."
+        },
+        {
+          "content": "そこはここからよほど離れている。",
+          "transcription": "そこはここからよほどはなれている。",
+          "mean": "That place is far away from here."
+        }
+      ],
+      "mean": null,
+      "synopsis": "よほど+Sentence"
+    }
+  ],
+  "title": "よほど => very; greatly; much; to a large extent",
+  "_id": "8bc6fcc261bf451c895cbc00226c2c20"
+}

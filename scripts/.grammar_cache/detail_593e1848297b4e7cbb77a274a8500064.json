@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5234,
+  "usages": [
+    {
+      "explain": "「及び」 is used to list similar things or events. It has a similar meaning to 「と」and 「や」, but because it is more formal, it is often used in writing, such as for listing information or rules.",
+      "note": null,
+      "examples": [
+        {
+          "content": "鉛筆及び紙を持ってきてください。",
+          "transcription": "えんぴつおよびかみをもってきてください。",
+          "mean": "Please bring a pencil and paper."
+        },
+        {
+          "content": "私は兄と外見及び性格が大きく異なる。",
+          "transcription": "わたしはあにとがいけんおよびせいかくがおおきくことなる。",
+          "mean": "My appearance and personality are very different from my brother."
+        },
+        {
+          "content": "教室内での飲食及び喫煙はご遠慮ください。",
+          "transcription": "きょうしつないでのいんしょくおよびきつえんはごえんりょください。",
+          "mean": "Please refrain from eating, drinking, and smoking in the classroom."
+        },
+        {
+          "content": "山本氏は新聞及び雑誌に多くのコラムを書いている。",
+          "transcription": "やまもとしはしんぶんおよびざっしにおおくのコラムをかいている。",
+          "mean": "Mr. Yamamoto writes many columns for newspapers and magazines."
+        },
+        {
+          "content": "試験中は携帯電話及び他の電子機器が使用禁止です。",
+          "transcription": "しけんちゅうはけいたいでんわおよびたのでんしききがしようきんしです。",
+          "mean": "Cell phones and other electronic devices are prohibited during the exam."
+        },
+        {
+          "content": "図書館の中では携帯電話及びゲーム機械を使ってはいけません。",
+          "transcription": "としょかんのなかではけいたいでんわおよびゲームきかいをつかってはいけません。",
+          "mean": "Cell phones and game machines must not be used in the library."
+        },
+        {
+          "content": "お祭りの前日及び前々日は準備のため、休業させていただきます。",
+          "transcription": "おまつりのぜんじつおよびぜんぜんじつはじゅんびのため、きゅうぎょうさせていただきます。",
+          "mean": "We will be closed the day before and the day before the festival due to preparations."
+        },
+        {
+          "content": "安全のために観光する時、地図及びホテルの情報を持っていた方がいい。",
+          "transcription": "あんぜんのためにかんこうするとき、ちずおよびホテルのじょうほうをもっていたほうがいい。",
+          "mean": "For your safety, it's best to have a map and hotel information with you when sightseeing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1+及び+N2"
+    }
+  ],
+  "title": "及び => and; as well as ~",
+  "_id": "593e1848297b4e7cbb77a274a8500064"
+}

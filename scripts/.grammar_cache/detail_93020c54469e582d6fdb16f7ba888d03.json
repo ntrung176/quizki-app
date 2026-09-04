@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3216,
+  "usages": [
+    {
+      "explain": "Describes a sudden occurrence, happening in a short period of time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "悪い噂はたちまち伝わる。",
+          "transcription": "わるいうわさはたちまちつたわる",
+          "mean": "Bad rumors spread quickly."
+        },
+        {
+          "content": "ボートはたちまち沈んだ。",
+          "transcription": "ボートはたちまちしずんだ",
+          "mean": "The boat sank immediately."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たちまち～"
+    }
+  ],
+  "title": "たちまち  => Immediately, Quickly, Suddenly, In a moment or flash",
+  "_id": "93020c54469e582d6fdb16f7ba888d03"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1464,
+  "usages": [
+    {
+      "explain": "Means \"different from...\". Used to compare two people or things.",
+      "note": null,
+      "examples": [
+        {
+          "content": "妹はおとなしい姉と違って、活発だ。",
+          "transcription": "いもうとはおとなしいあねとちがって、かっぱつだ。",
+          "mean": "Unlike her quiet older sister, her younger sister is active."
+        },
+        {
+          "content": "兄と違って私は泳げません。",
+          "transcription": "あにとちがってわたしはおよげません。",
+          "mean": "Unlike my brother, I cannot swim."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + と( は) ちがって\nNa-な + のと (は) ちがって\nA-い + のと (は) ちがって\nV-る/ V-た/ V-ない + のと (は) ちがって"
+    }
+  ],
+  "title": "と違って => different to",
+  "_id": "f7ff14dae05876cac58b4136937ac5f0"
+}

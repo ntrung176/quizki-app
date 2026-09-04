@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5487,
+  "usages": [
+    {
+      "explain": "「ほうがいい」is used to give advice, indicating that it would be better to do something (たほうがいい), or it would be better not to do something (ないほうがいい). These sentence patterns can sometimes come across as forceful or imposing on others, so it's important to consider the context when using them.<br/>\nWhen ほうがいい is used with a verb in the dictionary form, it gives advice from a neutral standpoint, suggesting what is generally considered preferable.\nWhen ほうがいい is used with た, it gives a stronger, more personal advice.<br/>\n「ほうがいい」can also be written in kanji as「方がいい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "暗くなったので、早く帰ったほうがいいです。",
+          "transcription": "くらくなったので、はやくかえったほうがいいです。",
+          "mean": "It's getting dark, so I'd better go home early."
+        },
+        {
+          "content": "夏に水をたくさん飲んだほうがいいです。",
+          "transcription": "なつにみずをたくさんのんだほうがいいです。",
+          "mean": "It is better to drink a lot of water in the summer."
+        },
+        {
+          "content": "そんなに病気だったら、医者に行ったほうがいい。",
+          "transcription": "そんなにびょうきだったら、いしゃにいったほうがいい。",
+          "mean": "If you're that sick, you should go to the doctor."
+        },
+        {
+          "content": "僕が話すより君が直接話したほうがいいと思う。",
+          "transcription": "ぼくがはなすよりきみがちょくせつはなしたほうがいいとおもう。",
+          "mean": "I think it would be better for you to speak directly rather than me."
+        },
+        {
+          "content": "今日は疲れたから、君が早く寝たほうがいいですよ。",
+          "transcription": "きょうはつかれたから、きみがはやくねたほうがいいですよ。",
+          "mean": "I'm tired today, so you should go to bed early."
+        },
+        {
+          "content": "たばこが体に良くないから、吸わないほうがいい。",
+          "transcription": "たばこがからだによくないから、すわないほうがいい。",
+          "mean": "Cigarettes are not good for your health, so it's better not to smoke."
+        },
+        {
+          "content": "このりんごは腐っていたから、食べないほうがいい。",
+          "transcription": "このりんごはくさっていたから、たべないほうがいい。",
+          "mean": "This apple was rotten, so you shouldn't eat it."
+        },
+        {
+          "content": "一人で行かないほうがいい。",
+          "transcription": "ひとりでいかないほうがいい。",
+          "mean": "It's better not to go alone."
+        },
+        {
+          "content": "あすは暖かい服装をするほうがよさそうです。",
+          "transcription": "あすはあたたかいふくそうをするほうがよさそうです。",
+          "mean": "It seems better to wear warm clothes tomorrow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ほうがいい<br/> Vた+ほうがいい<br/> Vない+ほうがいい"
+    }
+  ],
+  "title": "ほうがいい => had better; it'd be better to; should ~",
+  "_id": "e5a64f4b283640ffa127fb6b45625b27"
+}

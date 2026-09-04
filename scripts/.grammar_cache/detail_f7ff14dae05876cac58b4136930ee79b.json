@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 682,
+  "usages": [
+    {
+      "explain": "✦Used as a speculative expression similar to [と思われる]. The form with [もの] is often used in conversations, formal writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "少なくともわたしには二人が泣いているものと思われました。",
+          "transcription": "すくなくともわたしにはににんがないているものとおもわれました。",
+          "mean": "At least it seemed to me that they were both crying."
+        },
+        {
+          "content": "今回の調査で事故の原因が明らかになるものと思われる。",
+          "transcription": "こんかいのちょうさでじこのげんいんがあきらかになるものとおもわれる。",
+          "mean": "It is hoped that this investigation will clarify the cause of the accident."
+        },
+        {
+          "content": "犯人は東京方面へ逃げたものと思われる。",
+          "transcription": "はんにんはとうきょうほうめんへにげたものとおもわれる。",
+          "mean": "The culprit is believed to have fled towards Tokyo."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Used as a speculative expression with the same meaning as [と思われる]."
+    }
+  ],
+  "title": "～ものとおもわれる => to think; to suppose; it is believed that…; it is expected that…",
+  "_id": "f7ff14dae05876cac58b4136930ee79b"
+}

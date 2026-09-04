@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5036,
+  "usages": [
+    {
+      "explain": "「ぶり」is used to describe the appearance, mannerism, state, etc., of a certain object. Usually, in the following clause, the speaker will make a judgment based on the appearance, mannerism, etc., that they have observed.「っぷり」is synonymous with 「ぶり」but adds a stronger nuance to the action. Verbs like 食べる (to eat), 飲む (to drink) often pair with 「っぷり」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先輩の仕事ぶりを見ながら要領を覚えよう。",
+          "transcription": "せんぱいのしごとぶりをみながらようりょうをおぼえよう。",
+          "mean": "Learn the basics by watching your seniors work."
+        },
+        {
+          "content": "社長の話しぶりでは、今年のボーナスはないようだ。",
+          "transcription": "しゃちょうのはなしぶりでは、ことしのボーナスはないようだ。",
+          "mean": "From the way the president talks, it seems like there will be no bonus this year."
+        },
+        {
+          "content": "彼女、飲みっぷりがいいね。相当、酒に強いんだろう。",
+          "transcription": "かのじょ、のみっぷりがいいね。そうとう、さけにつよいんだろう。",
+          "mean": "She drinks well. He must be quite resistant to alcohol."
+        },
+        {
+          "content": "選手の活躍ぶりがテレビで紹介されていた。",
+          "transcription": "せんしゅのかつやくぶりがテレビでしょうかいされていた。",
+          "mean": "The performance of the players was featured on TV."
+        },
+        {
+          "content": "彼の仕事ぶりはかっこいい。",
+          "transcription": "かれのしごとぶりはかっこいい。",
+          "mean": "His work style is cool."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+ぶり<br/> V<s>ます</s>+ぶり<br/> V<s>ます</s>+っぷり"
+    }
+  ],
+  "title": "ぶり => style; manner; way​",
+  "_id": "b6166f70bfa646afb15736ddcb007a18"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2331,
+  "usages": [
+    {
+      "explain": "Utilized to describe remaining time or quantity.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ゴールまで、まだ１０キロはある。",
+          "transcription": "ごーるまで、まだいちぜろきろはある。",
+          "mean": "There is still 10 kilometers to go until the goal."
+        },
+        {
+          "content": "試験までにはまだ時間がたくさんある。",
+          "transcription": "しけんまでにはまだじかんがたくさんある。",
+          "mean": "There is still a lot of time before the exam."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まだ...ある"
+    }
+  ],
+  "title": "まだ...ある => still; not yet",
+  "_id": "f7ff14dae05876cac58b413693f27945"
+}

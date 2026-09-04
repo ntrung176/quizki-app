@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1014,
+  "usages": [
+    {
+      "explain": "Used to urge someone to clarify information they've just received. A polite way to say this is 「といいますと」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "というと、まだ問題があるんですか。",
+          "transcription": "というと、まだもんだいがあるんですか。",
+          "mean": "So, is there still a problem?"
+        },
+        {
+          "content": "というと、そのプロジェクトは中止されるんですか。",
+          "transcription": "というと、そのぷろじぇくとはちゅうしされるんですか。",
+          "mean": "So, will the project be cancelled?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "というと"
+    }
+  ],
+  "title": "というと => speaking of; when you talk of; when you say ~",
+  "_id": "f7ff14dae05876cac58b4136933c1952"
+}

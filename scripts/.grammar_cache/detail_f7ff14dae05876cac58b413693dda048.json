@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 2182,
+  "usages": [
+    {
+      "explain": "Expresses action X being done before action Y according to the pattern 「XてからY」. For example, bathing before eating. The tense of the sentence is determined by the tense of the final verb.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょっと休んでから夕食にしよう。",
+          "transcription": "ちょっとやすんでからゆうしょくにしよう。",
+          "mean": "Let's take a little rest and then have dinner."
+        },
+        {
+          "content": "映画を見に行くのは勉強が終わってからだ。",
+          "transcription": "えいがをみにいくのはべんきょうがおわってからだ。",
+          "mean": "I go to the movies only after I finish studying."
+        },
+        {
+          "content": "国へ帰ってから日本の会社で働いた。",
+          "transcription": "くにへかえってからにっぽんのかいしゃではたらいた。",
+          "mean": "After returning to my country, I worked at a Japanese company."
+        },
+        {
+          "content": "社長はいま会議中なので、十一時になってから連絡して下さい。",
+          "transcription": "しゃちょうはいまかいぎちゅうなので、じゅういちじになってかられんらくしてください。",
+          "mean": "The president is currently in a meeting, so please contact me after eleven o'clock."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-てから"
+    }
+  ],
+  "title": "てから => after doing ~",
+  "_id": "f7ff14dae05876cac58b413693dda048"
+}

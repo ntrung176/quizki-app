@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2145,
+  "usages": [
+    {
+      "explain": "Describes an action or movement upwards, or a state of being directed upwards.",
+      "note": null,
+      "examples": [
+        {
+          "content": "夏休みにみんなで海に行こうという計画が持ち上がった。",
+          "transcription": "なつやすみにみんなでうみにいこうというけいかくがもちあがった。",
+          "mean": "A plan was hatched for everyone to go to the beach during summer vacation."
+        },
+        {
+          "content": "彼は立ち上がって、窓のところまで歩いて行った。",
+          "transcription": "かれはたちあがって、まどのところまであるいていった。",
+          "mean": "He got up and walked to the window."
+        },
+        {
+          "content": "彼は初子の誕生の知らせを聞いて、飛び上がって喜んだ。",
+          "transcription": "かれははつねのたんじょうのしらせをきいて、とびあがってよろこんだ。",
+          "mean": "When he heard the news of the birth of his firstborn, he jumped for joy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます＋あがる"
+    }
+  ],
+  "title": "あがる => ...up (Upwards)",
+  "_id": "f7ff14dae05876cac58b413693d96a36"
+}

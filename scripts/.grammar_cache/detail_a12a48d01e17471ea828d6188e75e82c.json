@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5307,
+  "usages": [
+    {
+      "explain": "「を～として」expresses regarding N1 as N2, considering N1 as N2. It is commonly seen in phrases like ～を目標として (regarding something as a goal), ～を対象として (regarding something as a target), ～をテーマとして (regarding something as a theme), ～を中心として (regarding something as a center)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "今年1年、大学合格を目標として頑張るつもりだ。",
+          "transcription": "ことしいちねん、だいがくごうかくをもくひょうとしてがんばるつもりだ。",
+          "mean": "This year, I plan to work hard with the goal of getting into university."
+        },
+        {
+          "content": "山田氏を団長とする訪米団が結成された。",
+          "transcription": "やまだしをだんちょうとするほうべいだんがけっせいされた。",
+          "mean": "A delegation to the United States was formed with Mr. Yamada as its leader."
+        },
+        {
+          "content": "この奨学金は留学生を対象としたものです。",
+          "transcription": "このしょうがくきんは りゅうがくせいをたいしょうとしたものです。",
+          "mean": "This scholarship is for international students."
+        },
+        {
+          "content": "大学で異文化交流を目的としたサークルを作った。",
+          "transcription": "だいがくでいぶんかこうりゅうをもくてきとしたサークルをつくった。",
+          "mean": "At university, I created a club for the purpose of cross-cultural exchange."
+        },
+        {
+          "content": "この祭りは住民の社会参加を目的として始められた。",
+          "transcription": "このまつりはじゅうみんのしゃかいさんかをもくてきとしてはじめられた。",
+          "mean": "This festival was started with the aim of encouraging residents to participate in society."
+        },
+        {
+          "content": "祖父母は散歩を日課としている。",
+          "transcription": "そふぼはさんぽをにっかとしている。",
+          "mean": "My grandparents have a daily routine of walking."
+        },
+        {
+          "content": "田中さんをリーダーとするサークルを作る。",
+          "transcription": "たなかさんをりーだーとするさーくるをつくる。",
+          "mean": "A circle will be created with Mr. Tanaka as the leader."
+        },
+        {
+          "content": "地球は太陽を中心として回っている。",
+          "transcription": "ちきゅうはたいようをちゅうしんとしてまわっている。",
+          "mean": "The earth revolves around the sun."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1を N2として V<br/> N1を N2とする N<br/> N1を N2とした N"
+    }
+  ],
+  "title": "を～として => as",
+  "_id": "a12a48d01e17471ea828d6188e75e82c"
+}

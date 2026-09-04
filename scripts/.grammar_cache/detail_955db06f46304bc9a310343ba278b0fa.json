@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5056,
+  "usages": [
+    {
+      "explain": "「ものとして」is used to assume that something is a certain way, and then based on that assumption, another action is taken.",
+      "note": null,
+      "examples": [
+        {
+          "content": "中級漢字は出来るものとして、上級漢字のクラスを取った。",
+          "transcription": "ちゅうきゅうかんじはできるものとして、じょうきゅうかんじのクラスをとった。",
+          "mean": "I assumed that I could learn intermediate kanji, so I took an advanced kanji class."
+        },
+        {
+          "content": "安藤さんはもう来ないものとして、会議を始めましょう。",
+          "transcription": "あんどうさんはもうこないものとして、かいぎをはじめましょう。",
+          "mean": "Let's start the meeting assuming that Mr. Ando will not come again."
+        },
+        {
+          "content": "たぶん行けないと思うので、私はいないものとして、話を進めてください。",
+          "transcription": "たぶんいけないとおもうので、わたしはいないものとして、はなしをすすめてください。",
+          "mean": "I probably won't be able to go, so please proceed as if I'm not there."
+        },
+        {
+          "content": "昨日のテストは難しいものとして、勉強したが、実際に受けてみたら全然余裕だった。",
+          "transcription": "きのうのテストはむずかしいものとして、べんきょうしたが、じっさいにうけてみたらぜんぜんよゆうだった。",
+          "mean": "I studied for yesterday's test thinking it would be difficult, but when I actually took it, I was completely comfortable."
+        },
+        {
+          "content": "彼のアイデアは不可能なものとして、誰も彼のアイデアを取り入れようとしなかった。",
+          "transcription": "かれのアイデアはふかのうなものとして、だれもかれのアイデアをとりいれようとしなかった。",
+          "mean": "No one tried to incorporate his ideas, considering them impossible."
+        },
+        {
+          "content": "お供えに故人が好きだったものとして、ビールを選ぶ人もいるのではないでしょうか。",
+          "transcription": "おそなえにこじんがすきだったものとして、ビールをえらぶひともいるのではないでしょうか。",
+          "mean": "Some people may choose beer as an offering because it is something that the deceased loved."
+        },
+        {
+          "content": "文中の空欄が助動詞であるものとして、正しいものはどれか。",
+          "transcription": "ぶんちゅうのくうらんがじょどうしであるものとして、ただしいものはどれか。",
+          "mean": "Assuming that the blank in the sentence is an auxiliary verb, which of the following is correct?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+ものとして<br/>Aい (formal form)+ものとして<br/>Aな (formal form)+ものとして<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>/A<s>だ</s>である)<br>N (formal form)+ものとして<br/>(In this particular case: Nだ ➔ N<s>だ</s>である)</br>"
+    }
+  ],
+  "title": "ものとして => to assume; to suppose; on the presumption that ~",
+  "_id": "955db06f46304bc9a310343ba278b0fa"
+}

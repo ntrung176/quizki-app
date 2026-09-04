@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 2627,
+  "usages": [
+    {
+      "explain": "This structure is used to express a continuous state that remains unchanged. It comes after a noun, the na-adjective, or the i-adjective ナ or イ to express a state that started in the past and continues unchanged up to now. Additionally, when it comes after a verb in the past tense form 「V-た」, it expresses the idea that the action represented by 「V-た」 continues to maintain that state even after it has ended.\nIt is often used in contexts where \"if things were normal, it would naturally happen afterwards, but it hasn't happened yet.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのまちは昔のままだった。",
+          "transcription": "そのまちはむかしのままだった。",
+          "mean": "The town was exactly the same as before."
+        },
+        {
+          "content": "小学生の娘にこの本を買ってやったが、あまり使わないのか、いつまでも新しいままだ。",
+          "transcription": "しょうがくせいのむすめにこのほんをかってやったが、あまりつかわないのか、いつまでもあたらしいままだ。",
+          "mean": "I bought this book for my daughter who is in elementary school, but it's still new forever, probably because she doesn't use it much."
+        },
+        {
+          "content": "彼女は、先週の火曜日からずっと会社を休んだままだ。",
+          "transcription": "かのじょは、せんしゅうのかようびからずっとかいしゃをやすんだままだ。",
+          "mean": "She has been absent from work since last Tuesday."
+        },
+        {
+          "content": "姉は８時ごろに出かけたままだ。",
+          "transcription": "あねははちじごろにでかけたままだ。",
+          "mean": "My sister left around 8 o'clock."
+        },
+        {
+          "content": "彼は、彼の妻に誠実なままだった。",
+          "transcription": "かれは、かれのつまにせいじつなままだった。",
+          "mean": "He remained faithful to his wife."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの + ままだ\nNaな + ままだ\nA - い + ままだ\nV－た + ままだ"
+    }
+  ],
+  "title": "...ままだ => as it is; current state; without changing",
+  "_id": "f2d618ceb0702f781ec83b7d4f1a8e1e"
+}

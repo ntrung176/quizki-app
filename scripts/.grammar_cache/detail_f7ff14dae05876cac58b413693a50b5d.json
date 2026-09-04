@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3184,
+  "usages": [
+    {
+      "explain": "● Meaning: Whether this or not; Whether doing it this way or not, the result is the same. <br/>● The verb before and after is the same verb.",
+      "note": null,
+      "examples": [
+        {
+          "content": "早く出ようが出るまいが、電車が遅れれば遅刻する。",
+          "transcription": "はやくでようがでるまいが、でんしゃがおくれればちこくする。",
+          "mean": "Whether you leave early or not, if the train is late, you will be late."
+        },
+        {
+          "content": "たばこは吸おうが吸うまいが誰でもガンになる。",
+          "transcription": "たばこはすおうがすうまいがだれでもがんになる。",
+          "mean": "Anyone can get cancer whether they smoke or not."
+        },
+        {
+          "content": "あなたが行こうが行くまいが、私は行きます。",
+          "transcription": "あなたがいこうがいくまいが、わたしはいきます。",
+          "mean": "I'm going whether you go or not."
+        }
+      ],
+      "mean": "whether or not; regardless",
+      "synopsis": "The way to conjugate the following verbs <br/>●V(I): Vる ＋まいが <br/>●V(II): remove ます ＋まいが <br/>●V(III):する→ するまい・すまい・しまい来る→ くるまい・こまい"
+    }
+  ],
+  "title": "～ようが...まいが => whether or not; regardless",
+  "_id": "f7ff14dae05876cac58b413693a50b5d"
+}

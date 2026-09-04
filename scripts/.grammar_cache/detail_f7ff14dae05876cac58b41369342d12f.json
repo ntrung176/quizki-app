@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1062,
+  "usages": [
+    {
+      "explain": "Used to highlight the main event among many different events as an example. Implies that there are other similar events besides the one mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "髪を切るなどして、もっと見かけに気を付けてほしい。",
+          "transcription": "かみをきるなどして、もっとみかけにきをつけてほしい。",
+          "mean": "I wish they would take more care of their appearance, such as by cutting their hair."
+        },
+        {
+          "content": "今朝話し合って説得するなどしたのですが、あまり効果はなかったようです。",
+          "transcription": "けさはなしあってせっとくするなどしたのですが、あまりこうかはなかったようです。",
+          "mean": "I tried to talk and persuade him this morning, but it didn't seem to have much effect."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + などする"
+    }
+  ],
+  "title": "などする => such as; things like ~",
+  "_id": "f7ff14dae05876cac58b41369342d12f"
+}

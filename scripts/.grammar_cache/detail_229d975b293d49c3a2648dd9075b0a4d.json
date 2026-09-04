@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5204,
+  "usages": [
+    {
+      "explain": "「において」indicates the location, time, situation in which an event occurs, or the field, aspect in which a statement, discussion... is made. Compared to「で」, 「において」is a more formal expression, often used in writing or formal contexts...",
+      "note": null,
+      "examples": [
+        {
+          "content": "京都において、シンポジウムを行われた。",
+          "transcription": "きょうとにおいて、シンポジウムをおこなわれた。",
+          "mean": "A symposium was held in Kyoto."
+        },
+        {
+          "content": "結果はホームページにおいて発表されます。",
+          "transcription": "けっかはほーむぺーじにおいてはっぴょうされます。",
+          "mean": "The results will be announced on the homepage."
+        },
+        {
+          "content": "当時においては、海外旅行など夢のようなことだった。",
+          "transcription": "とうじにおいては、かいがいりょこうなどゆめのようなことだった。",
+          "mean": "At that time, traveling abroad was a dream."
+        },
+        {
+          "content": "本日10時より、体育館において入学式を行います。",
+          "transcription": "ほんじつじゅうじより、たいいくかんにおいてにゅうがくしきをおこないます。",
+          "mean": "The entrance ceremony will be held at the gymnasium from 10am today."
+        },
+        {
+          "content": "社会における、男女の役割について話し合う。",
+          "transcription": "しゃかいにおける、だんじょのやくわりについてはなしあう。",
+          "mean": "Discuss the roles of men and women in society."
+        },
+        {
+          "content": "何事においても習得するには長い年月と努力が必要だ。",
+          "transcription": "なにごとにおいてもしゅうとくするにはながいねんげつとどりょくがひつようだ。",
+          "mean": "It takes many years and effort to master anything."
+        },
+        {
+          "content": "人生の節目においては、いつでも決断というものを迫られる。",
+          "transcription": "じんせいのふしめにおいては、いつでもけつだんというものをせまられる。",
+          "mean": "At turning points in life, we are always forced to make decisions."
+        },
+        {
+          "content": "国際社会における我国の役割を考える。",
+          "transcription": "こくさいしゃかいにおけるわがくにのやくわりをかんがえる。",
+          "mean": "Think about our country's role in the international community."
+        },
+        {
+          "content": "木村さんの主張には、その点において疑問があります。",
+          "transcription": "きむらさんのしゅちょうには、そのてんにおいてぎもんがあります。",
+          "mean": "Mr. Kimura's assertion is questionable in this respect."
+        },
+        {
+          "content": "橋本さんは、この非常に 丈夫な素材の開発において、重要な役割を担っていた。",
+          "transcription": "はしもとさんは、このひじょうにじょうぶなそざいのかいはつにおいて、じゅうようなやくわりをになっていた。",
+          "mean": "Hashimoto played a key role in developing this extremely durable material."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+において<br/> N+においては<br/> N+においても<br/> N+におけるN'"
+    }
+  ],
+  "title": "において => in; at (place); regarding; as for; in relation to ~",
+  "_id": "229d975b293d49c3a2648dd9075b0a4d"
+}

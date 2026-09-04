@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1128,
+  "usages": [
+    {
+      "explain": "<a>■</a>Often used with the meaning \"It seems like..., tends to be...\"Common nouns used with this structure: 春、謎、冗談...",
+      "note": null,
+      "examples": [
+        {
+          "content": "少しずつ秋めいてきた。",
+          "transcription": "すこしずつあきめいてきた。",
+          "mean": "Autumn is gradually approaching."
+        },
+        {
+          "content": "どことなく謎めいた女性がホールの入り口に立っていた。",
+          "transcription": "どことなくなぞめいたじょせいがほーるのいりくちにたっていた。",
+          "mean": "A somewhat mysterious woman stood at the entrance to the hall."
+        },
+        {
+          "content": "あのやつは、皮肉めいた言い方をした。",
+          "transcription": "あのやつは、ひにくめいたいいかたをした。",
+          "mean": "That guy said it sarcastically."
+        },
+        {
+          "content": "彼の作り物めいた笑いが、嫌いだ",
+          "transcription": "かれのつくりものめいたわらいが、きらいだ",
+          "mean": "I hate his fake smile."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + めく"
+    }
+  ],
+  "title": "めく => seems; show signs of; to have the appearance of ~",
+  "_id": "f7ff14dae05876cac58b4136934be6a5"
+}

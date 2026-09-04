@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 934,
+  "usages": [
+    {
+      "explain": "を契機に（をけいきに）expresses the meaning \"something is a catalyst, a moment leading to change\". This is a term used in written language. This structure can also be used as 「...を契機にして」,「...を契機にとして」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は大学の卒業を契機に独立する。",
+          "transcription": "かれはだいがくのそつぎょうをけいきにどくりつする。",
+          "mean": "He became independent after graduating from university."
+        },
+        {
+          "content": "赤ん坊が出来たことを契機に、夫婦の仲はさらに深まった。",
+          "transcription": "あかんぼうができたことをけいきに、ふうふのなかはさらにふかまった。",
+          "mean": "After having a baby, the couple's relationship grew even stronger."
+        },
+        {
+          "content": "アメリカの参戦を契機にヨーロッパの状況は変わっていた。",
+          "transcription": "あめりかのさんせんをけいきによーろっぱのじょうきょうはかわっていた。",
+          "mean": "The situation in Europe changed with the entry of the United States into the war."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + を契機に"
+    }
+  ],
+  "title": "を契機に => as a good opportunity/chance to",
+  "_id": "f7ff14dae05876cac58b413693319474"
+}

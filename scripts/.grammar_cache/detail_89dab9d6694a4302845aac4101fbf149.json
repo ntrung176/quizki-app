@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5153,
+  "usages": [
+    {
+      "explain": "「からいうと/からいえば/からいって」indicate the perspective, standpoint, viewpoint, aspect, or basis upon which the opinion or statement that follows is based.<br/>\nNote that the \"N\" here cannot be a person or organization. Example: 私からいうと ✖",
+      "note": null,
+      "examples": [
+        {
+          "content": "客の立場からいうと、この店は入口が狭くて入りにくい。しかし、店の側からいえば、管理しやすい。",
+          "transcription": "きゃくのたちばからいうと、このみせはいりぐちがせまくてはいりにくい。しかし、みせのがわからいえば、かんりしやすい。",
+          "mean": "From a customer's perspective, the entrance to this store is narrow and difficult to enter. However, from the store's perspective, it is easy to manage."
+        },
+        {
+          "content": "この作文は、日本語力からいえばまだまだが、内容はいい。",
+          "transcription": "このさくぶんは、にほんごりょくからいえばまだまだが、ないようはいい。",
+          "mean": "This essay has a long way to go in terms of Japanese ability, but the content is good."
+        },
+        {
+          "content": "その点からいうと、リンさんのほうがよさそうです。",
+          "transcription": "そのてんからいうと、リンさんのほうがよさそうです。",
+          "mean": "From that point of view, Rin-san seems better."
+        },
+        {
+          "content": "4人の子供を大学まで行かせることは、我が家の経済状況からいってとても大変です。",
+          "transcription": "よにんのこどもをだいがくまでいかせることは、わがやのけいざいじょうきょうからいってとてもたいへんです。",
+          "mean": "Considering our family's financial situation, it is very difficult to send our four children to university."
+        },
+        {
+          "content": "実力からいって、彼女が入賞することは間違いない。",
+          "transcription": "じつりょくからいって、かのじょがにゅうしょうすることはまちがいない。",
+          "mean": "Judging from her ability, there is no doubt that she will win the prize."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+からいうと<br/> N+からいえば<br/>N+からいって"
+    }
+  ],
+  "title": "からいうと/からいえば/からいって => in terms of; from the point of view of ~",
+  "_id": "89dab9d6694a4302845aac4101fbf149"
+}

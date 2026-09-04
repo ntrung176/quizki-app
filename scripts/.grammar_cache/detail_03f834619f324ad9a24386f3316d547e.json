@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 5165,
+  "usages": [
+    {
+      "explain": "「くせして」expresses a situation or outcome goes against the speaker's thoughts or expectations, typically in a negative way, conveying the speaker's attitude of anger, reproach, or disdain towards the subject or person mentioned. Due to its critical and condemning tone, it is not used to describe oneself. Similar to 「くせに」 but used in casual or intimate conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "知らないくせして、知っているようなことを言うな。",
+          "transcription": "しらないくせして、しっているようなことをいうな。",
+          "mean": "Don't pretend like you know something when you don't know it."
+        },
+        {
+          "content": "大学生のくせして、そんなことも知らないの？",
+          "transcription": "だいがくせいのくせして、そんなこともしらないの？",
+          "mean": "Even though you're a college student, you don't even know that?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V(formal form)+くせして<br/>Aい/Aな+くせして<br/>Nの+くせして"
+    }
+  ],
+  "title": "くせして => Although; Despite the fact that; Even though ~",
+  "_id": "03f834619f324ad9a24386f3316d547e"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5483,
+  "usages": [
+    {
+      "explain": "「がり」is the nominalized form of the verb 「がる」. It can be used to describe desires, personalities, emotional tendencies, physical sensations, not only of others but also of the speaker themselves. This structure should not be used with positive adjectives like 楽しい (enjoyable), 嬉しい (happy)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は怖がりだから、ホラー映画はダメだ。",
+          "transcription": "かのじょはこわがりだから、ホラーえいがはダメだ。",
+          "mean": "Horror movies are no good for her because she's scared."
+        },
+        {
+          "content": "彼は彼女が欲しがりバッグを買ってあげた。",
+          "transcription": "かれはかのじょがほしがりバッグをかってあげた。",
+          "mean": "He bought her the bag she wanted."
+        },
+        {
+          "content": "私は寒がりなので、冬はあまり好きじゃない。",
+          "transcription": "わたしはさむがりなので、ふゆはあまりすきじゃない。",
+          "mean": "I don't really like winter because I'm sensitive to cold."
+        },
+        {
+          "content": "このバンドが解散したら、ファンが悲しがりだろう。",
+          "transcription": "このバンドがかいさんしたら、ファンがかなしがりだろう。",
+          "mean": "If this band broke up, fans would be sad."
+        },
+        {
+          "content": "あんな所に駐車したら、近所の人に迷惑がりよ。",
+          "transcription": "あんなところにちゅうしゃしたら、きんじょのひとにめいわくがりよ。",
+          "mean": "If you park in a place like that, you'll be a nuisance to the neighbors."
+        },
+        {
+          "content": "人々が不安がりなので、政府はその事実を隠していた。",
+          "transcription": "ひとびとがふあんがりなので、せいふはそのじじつをかくしていた。",
+          "mean": "The government hid the fact because people were worried."
+        },
+        {
+          "content": "かっこいい彼をゲットしたら、みんな羨ましがりだろうな。",
+          "transcription": "かっこいいかれをゲットしたら、みんなうらやましがりだろうな。",
+          "mean": "If you get a cool guy, everyone will be jealous."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>+がり<br/> A<s>な</s>+がり"
+    }
+  ],
+  "title": "がり => tend to, sensitive to",
+  "_id": "e276e44e3c164a7b9e40bb045c61d835"
+}

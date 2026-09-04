@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1999,
+  "usages": [
+    {
+      "explain": "Is done, created for a specific purpose. Often used to describe changes in the operation of machinery.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この線を渡るとと、ドアが自動的に開くようになっている。",
+          "transcription": "このせんをわたるとと、どあがじどうてきにひらくようになっている。",
+          "mean": "When you cross this line, the door will open automatically."
+        },
+        {
+          "content": "この家は屋根にも煙突があって、煙が下から出るようになっている。",
+          "transcription": "このいえはやねにもえんとつがあって、けむりがしたからでるようになっている。",
+          "mean": "This house also has a chimney on the roof, so smoke comes out from below."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + ようになっている"
+    }
+  ],
+  "title": "ようになっている =>  to come to be that",
+  "_id": "f7ff14dae05876cac58b413693c4550e"
+}

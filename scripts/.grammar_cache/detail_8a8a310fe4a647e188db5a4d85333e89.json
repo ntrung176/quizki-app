@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5183,
+  "usages": [
+    {
+      "explain": "「ないではいられない」expresses the idea that the subject cannot help but perform an action or reveal an emotion.<br/>\nIn most cases, the subject is a human being. And because it expresses subjective emotions, when the subject is not the speaker themselves, the sentence will end with structures like 「ようだ」「らしい」... <br/>\n「ないではいられない」is commonly used in spoken language, while「ずにはいられない」is more formal and used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "態度の悪い店員に、一言文句を言わないではいられない。",
+          "transcription": "たいどのわるいてんいんに、ひとこともんくをいわないではいられない。",
+          "mean": "I can't help but complain to the store clerk who has a bad attitude."
+        },
+        {
+          "content": "工事の音がうるさくて、耳をふさがないではいられない。",
+          "transcription": "こうじのおとがうるさくて、みみをふさがないではいられない。",
+          "mean": "The construction noise is so loud that I can't help but cover my ears."
+        },
+        {
+          "content": "試験の前だから、勉強しないではいられない。",
+          "transcription": "しけんのまえだから、べんきょうしないではいられない。",
+          "mean": "Since it's before the exam, I can't help but study."
+        },
+        {
+          "content": "この曲を聞くと、歌わないではいられない。",
+          "transcription": "このきょくをきくと、うたわないではいられない。",
+          "mean": "When I hear this song, I can't help but sing."
+        },
+        {
+          "content": "彼のもの真似を見るとおかしくて、笑わないではいられない。",
+          "transcription": "かれのものまねをみるとおかしくて、わらわないではいられない。",
+          "mean": "It's so funny when I see his impersonations that I can't help but laugh."
+        },
+        {
+          "content": "あの映画を見たら、泣かないではいられない。",
+          "transcription": "あのえいがをみたら、なかないではいられない。",
+          "mean": "When I saw that movie, I couldn't help but cry."
+        },
+        {
+          "content": "うちの犬は、人が来ると吠えないではいられないようだ。",
+          "transcription": "うちのいぬは、ひとがくるとほえないではいられないようだ。",
+          "mean": "My dog ​​can't help but bark when people come over."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vないで+はいられない<br/>"
+    }
+  ],
+  "title": "ないではいられない => can't help but feel; can't help but do ~",
+  "_id": "8a8a310fe4a647e188db5a4d85333e89"
+}

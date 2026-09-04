@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5122,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>再</rb><rp>(</rp><rt>ふたた</rt><rp>)</rp></ruby>び」is used to describe an action or state that is repeated. This expression is somewhat formal and stylish, so it is often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はこのような事態を再び起こしたくない。",
+          "transcription": "わたしはこのようなじたいをふたたびおこしたくない。",
+          "mean": "I don't want something like this to happen again."
+        },
+        {
+          "content": "彼女は土曜日の夜に再び熱が出ています。",
+          "transcription": "かのじょはどようびのよるにふたたびねつがでています。",
+          "mean": "She has a fever again on Saturday night."
+        },
+        {
+          "content": "10年後にようやく彼は、再び故郷の町を見た。",
+          "transcription": "じゅうねんごにようやくかれは、ふたたびこきょうのまちをみた。",
+          "mean": "Ten years later, he finally saw his hometown again."
+        },
+        {
+          "content": "私はいつか再びあなたに会えることを願っています。",
+          "transcription": "わたしはいつかふたたびあなたにあえることをねがっています。",
+          "mean": "I hope to see you again someday."
+        },
+        {
+          "content": "今年の旅行は楽しかった。来年の冬再びここに来たい。",
+          "transcription": "ことしのりょこうはたのしかった。らいねんのふゆふたたびここにきたい。",
+          "mean": "This year's trip was fun. I want to come here again next winter."
+        },
+        {
+          "content": "昨日私は、図書館で1ヶ月前に出会った少女と再び会った。",
+          "transcription": "きのうわたしは、としょかんでいっかげつまえにであったしょうじょとふたたびあった。",
+          "mean": "Yesterday I met the girl I met a month ago at the library again."
+        },
+        {
+          "content": "本当に最悪の男だ。二度と再びあの男とは会いたくない。",
+          "transcription": "ほんとうにさいあくのおとこだ。にどとふたたびあのおとことはあいたくない。",
+          "mean": "He really is the worst man. I never want to meet that man again."
+        },
+        {
+          "content": "来週の月曜日からレッスンを再び開始したいですか。",
+          "transcription": "らいしゅうのげつようびからレッスンをふたたびかいししたいですか。",
+          "mean": "Would you like to start lessons again next Monday?"
+        },
+        {
+          "content": "本当にいいの？ここを離れたら再び戻ることはできないよ。",
+          "transcription": "ほんとうにいいの？ここをはなれたらふたたびもどることはできないよ。",
+          "mean": "Is it really good? If you leave here, you can't come back."
+        },
+        {
+          "content": "彼女の両親が事故で亡くなってからピアノを弾かなかった。昨日は再び弾き始めた。",
+          "transcription": "かのじょのりょうしんがじこでなくなってからピアノをひかなかった。きのうはふたたびひきはじめた。",
+          "mean": "She hasn't played the piano since her parents died in an accident. I started playing again yesterday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<ruby><rb>再</rb><rp>(</rp><rt>ふたた</rt><rp>)</rp></ruby>び+Sentence"
+    }
+  ],
+  "title": "再び =>  again; once more",
+  "_id": "991c3c1679d442e9a4ecb562bcd939ee"
+}

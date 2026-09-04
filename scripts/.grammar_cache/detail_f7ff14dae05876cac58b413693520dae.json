@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1177,
+  "usages": [
+    {
+      "explain": "Acts as a conjunction linking sentences. It expresses the idea that \"the subsequent situation differs from the prediction about the preceding situation\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "大学時代はフランス語専攻だった。とはいうものの、フランス語はほとんど話せない。",
+          "transcription": "だいがくじだいはふらんすごせんこうだった。とはいうものの、ふらんすごはほとんどはなせない。",
+          "mean": "In college, I majored in French. However, I can barely speak French."
+        },
+        {
+          "content": "冷凍食品は便利だ。とはいうものの、毎日続くと嫌になる。",
+          "transcription": "れいとうしょくひんはべんりだ。とはいうものの、まいにちつづくといやになる。",
+          "mean": "Frozen foods are convenient. However, if it continues every day, it becomes disgusting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とはいうものの"
+    }
+  ],
+  "title": "とはいうものの => having said that; be that as it may",
+  "_id": "f7ff14dae05876cac58b413693520dae"
+}

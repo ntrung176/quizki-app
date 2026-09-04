@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1074,
+  "usages": [
+    {
+      "explain": "✦Assuming two different situations, then the speaker begins with an inappropriate situation, to express their opinion on the other case. Most of it is then continued with a manner of speaking indicating influence on the object, warning, advice, ... and can be used with the form 「...なら話は別だが」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなに勉強がつまらない（の）なら別だが、自分の心構えについても反省してみてはどうだろうか。",
+          "transcription": "そんなにべんきょうがつまらない（の）ならべつだが、じぶんのこころがまえについてもはんせいしてみてはどうだろうか。",
+          "mean": "It's different if studying is that boring, but why not reflect on your own mindset?"
+        },
+        {
+          "content": "自分のことなら話は別だが、人のことにそんなに気を柔んでも仕方がないだろう。",
+          "transcription": "じぶんのことならはなしはべつだが、ひとのことにそんなにきをやわらんでもしかたがないだろう。",
+          "mean": "It's a different story when it comes to yourself, but there's no point in being so considerate about other people."
+        },
+        {
+          "content": "どうしても嫌なら話は別だが、我慢して今の会社にとどまるのも一つの考えだ。",
+          "transcription": "どうしてもいやならはなしはべつだが、がまんしていまのかいしゃにとどまるのもひとつのかんがえだ。",
+          "mean": "If you really don't like it, that's a different story, but one option is to put up with it and stay with your current company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N／Na + ならべつだが<br/>✦ A／V + （の）ならべつだが"
+    }
+  ],
+  "title": "～の) ならべつだが => if it were ～, it would be different, but...",
+  "_id": "f7ff14dae05876cac58b413693449be1"
+}

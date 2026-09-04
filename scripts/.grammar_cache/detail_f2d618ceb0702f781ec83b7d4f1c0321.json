@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2639,
+  "usages": [
+    {
+      "explain": "Using the humble form of verbs. It is a polite way of speaking. In cases of common use with Sino-Japanese nouns, it often takes the form 「ごNになる」, but limited to some words. If using 「ください」form, it expresses a polite invitation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お茶をお飲みになりませんか。",
+          "transcription": "おちゃをおのみになりませんか。",
+          "mean": "Would you like to have some tea?"
+        },
+        {
+          "content": "彼女はもうタイへお帰りになりました。",
+          "transcription": "かのじょはもうたいへおかえりになりました。",
+          "mean": "She has already returned to Thailand."
+        }
+      ],
+      "mean": null,
+      "synopsis": "おVます +になる"
+    }
+  ],
+  "title": "お...になる => to do (honorific)",
+  "_id": "f2d618ceb0702f781ec83b7d4f1c0321"
+}

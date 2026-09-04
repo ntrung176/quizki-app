@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1273,
+  "usages": [
+    {
+      "explain": "It means \"because I really want to\" or \"because I really don't want to.\" What follows are contents indicating \"therefore, not minding the trouble, even doing things I don’t want to do.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "<p class=\"MsoNormal\">好きな歌手のコンサートを見に行きたいばかりに、病気に託けて休みを取った。</p>",
+          "transcription": "すきなかしゅのこんさーとをみにいきたいばかりに、びょうきにかこつけてやすみをとった。",
+          "mean": "&lt;p class=\"MsoNormal\"&gt;I just wanted to go see my favorite singer's concert, but I decided to take a day off due to illness. &lt;/p&gt;"
+        },
+        {
+          "content": "仕事を早く終わらせたいばかりに、昼休みも取らずに頑張った。",
+          "transcription": "しごとをはやくおわらせたいばかりに、ひるやすみもとらずにがんばった。",
+          "mean": "I worked hard without even taking a lunch break because I wanted to finish my work as quickly as possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V ます + たいばかりに"
+    }
+  ],
+  "title": "... たいばかりに => because I want to…",
+  "_id": "f7ff14dae05876cac58b4136935f0eb8"
+}

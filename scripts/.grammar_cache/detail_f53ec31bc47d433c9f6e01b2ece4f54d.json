@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5173,
+  "usages": [
+    {
+      "explain": "「ものだ」expresses:<br/>1. Something the speaker considers natural, obvious, or the inherent nature of the object, the situation.<br/>2. Something that the speaker considers customary, the right way to behave in general... should be done, thereby indirectly advising, gently warning the listener. Note: The subject in the sentence should not specifically target the listener but rather speak in a general sense to everyone. Not used with superiors.",
+      "note": null,
+      "examples": [
+        {
+          "content": "薬は苦いものだ。",
+          "transcription": "くすりはにがいものだ。",
+          "mean": "Medicine is bitter."
+        },
+        {
+          "content": "砂糖は甘いものだ。",
+          "transcription": "さとうはあまいものだ。",
+          "mean": "Sugar is sweet."
+        },
+        {
+          "content": "本当の友人というのは困ったときに助けてくれるものだ。",
+          "transcription": "ほんとうのゆうじんというのはこまったときにたすけてくれるものだ。",
+          "mean": "A true friend is someone who will help you when you are in trouble."
+        },
+        {
+          "content": "子供というのは普通はピーマンが嫌いなもんですけど、うちの子は大好きなんです。",
+          "transcription": "こどもというのはふつうはピーマンがきらいなもんですけど、うちのこはだいすきなんです。",
+          "mean": "Children usually don't like green peppers, but my child loves them."
+        },
+        {
+          "content": "人の性格はなかなか変わらないものだ。",
+          "transcription": "ひとのせいかくはなかなかかわらないものだ。",
+          "mean": "A person's personality does not change easily."
+        },
+        {
+          "content": "年末は誰でも忙しいものだ。",
+          "transcription": "ねんまつはだれでもいそがしいものだ。",
+          "mean": "The end of the year is busy for everyone."
+        },
+        {
+          "content": "子育ては大変なものだ。",
+          "transcription": "こそだてはたいへんなものだ。",
+          "mean": "Raising children is hard work."
+        },
+        {
+          "content": "冷蔵庫は開けたら、すぐに閉めるものだ。",
+          "transcription": "れいぞうこはあけたら、すぐにしめるものだ。",
+          "mean": "As soon as you open the refrigerator, you close it immediately."
+        },
+        {
+          "content": "学生はよく勉強するものだ。",
+          "transcription": "がくせいはよくべんきょうするものだ。",
+          "mean": "Students study well."
+        },
+        {
+          "content": "相手の家に謝罪に行くときは、手土産の一つでも持っていくものだ。",
+          "transcription": "あいてのいえにしゃざいにいくときは、てみやげのひとつでももっていくものだ。",
+          "mean": "When you go to the other person's house to apologize, you should bring at least one souvenir with you."
+        },
+        {
+          "content": "普通、待ち合わせに遅れそうなときは事前に相手に連絡するものだよ。",
+          "transcription": "ふつう、まちあわせにおくれそうなときはじぜんにあいてにれんらくするものだよ。",
+          "mean": "Normally, if I'm going to be late for a meeting, I'll call the other person in advance."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vない+ものだ/もんだ<br/>Aい/Aくない+ものだ/もんだ<br/>Aな/A<s>な</s>じゃない+ものだ/もんだ"
+    }
+  ],
+  "title": "ものだ => normally; in general; should~; must~ (nature, obvious thing); should (gentle advice)",
+  "_id": "f53ec31bc47d433c9f6e01b2ece4f54d"
+}

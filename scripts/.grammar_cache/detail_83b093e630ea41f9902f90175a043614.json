@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5299,
+  "usages": [
+    {
+      "explain": "「をきっかけに/を契機に」express the idea of considering an event as the reason or catalyst for a change or beginning of something.「をきっかけに」can be used to talk about both significant events and everyday events. Meanwhile,「を契機に」is used to talk about events that the speaker considers significant, and the structure itself carries a sense of formality.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は卒業をきっかけに髪の毛を切った。",
+          "transcription": "かのじょはそつぎょうをきっかけにかみのけをきった。",
+          "mean": "She cut her hair after graduation."
+        },
+        {
+          "content": "彼は就職をきっかけにして、生活を変えた。",
+          "transcription": "かれはしゅうしょくをきっかけにして、せいかつをかえた。",
+          "mean": "After getting a job, he changed his life."
+        },
+        {
+          "content": "これをきっかけに今後ともよろしくお願いいたします。",
+          "transcription": "これをきっかけにこんごともよろしくおねがいいたします。",
+          "mean": "We would like to take this opportunity to thank you for your continued support."
+        },
+        {
+          "content": "大学入学をきっかけに引っ越す。",
+          "transcription": "だいがくにゅうがくをきっかけにひっこす。",
+          "mean": "Moved after entering university."
+        },
+        {
+          "content": "病気をきっかけに酒を辞めた。",
+          "transcription": "びょうきをきっかけにさけをやめた。",
+          "mean": "I quit drinking due to illness."
+        },
+        {
+          "content": "卒業を契機に独立する。",
+          "transcription": "そつぎょうをけいきにどくりつする。",
+          "mean": "Become independent after graduation."
+        },
+        {
+          "content": "昨年の事故をきっかけとして、安全対策が強化された。",
+          "transcription": "さくねんのじこをきっかけとして、あんぜんたいさくがきょうかされた。",
+          "mean": "Safety measures have been strengthened in the wake of last year's accident."
+        },
+        {
+          "content": "会社を辞めたのを契機に、店を開いた。",
+          "transcription": "かいしゃをやめたのをけいきに、みせをひらいた。",
+          "mean": "After quitting his job, he opened a store."
+        },
+        {
+          "content": "D社の過労自殺を契機にして、広告業界が働き方を変える事に取り組んだ。",
+          "transcription": "ディーしゃのかろうじさつをけいきにして、こうこくぎょうかいがはたらきかたをかえることにとりくんだ。",
+          "mean": "In the wake of Company D's suicide from overwork, the advertising industry began working to change its working style."
+        },
+        {
+          "content": "その戦争は大統領の暗殺を契機として始まった。",
+          "transcription": "そのせんそうはだいとうりょうのあんさつをけいきとしてはじまった。",
+          "mean": "The war began with the president's assassination."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N / Vるの / Vたの を+きっかけに<br/> N / Vるの / Vたの を+きっかけとして<br/> N / Vるの / Vたの を+きっかけにして<br/> N / Vるの / Vたの を+<ruby><rb>契機</rb><rp>(</rp><rt>けいき</rt><rp>)</rp></ruby>に<br/> N / Vるの / Vたの を+<ruby><rb>契機</rb><rp>(</rp><rt>けいき</rt><rp>)</rp></ruby>として<br/> N / Vるの / Vたの を+<ruby><rb>契機</rb><rp>(</rp><rt>けいき</rt><rp>)</rp></ruby>にして"
+    }
+  ],
+  "title": "をきっかけに/を契機に => with… as a start; as a result of; taking advantage of",
+  "_id": "83b093e630ea41f9902f90175a043614"
+}

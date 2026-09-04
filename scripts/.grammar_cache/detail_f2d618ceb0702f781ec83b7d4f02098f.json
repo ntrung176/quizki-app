@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2447,
+  "usages": [
+    {
+      "explain": "This phrase describes \"in such a situation, then...\" The following part presents events that happen from that situation or the speaker's impressions. In spoken language, it's often used as [Vんでは], [Vんじゃ].",
+      "note": null,
+      "examples": [
+        {
+          "content": "毎日そんなに遠くから通学しているのでは大変ですね。",
+          "transcription": "まいにちそんなにとおくからつうがくしているのではたいへんですね。",
+          "mean": "It must be difficult to commute such a long distance to school every day."
+        },
+        {
+          "content": "一ヶ月に五万円もかかるのではその部屋が借りられない。",
+          "transcription": "いちかげつにごまんえんもかかるのではそのへやがかりられない。",
+          "mean": "I can't rent that room if it costs 50,000 yen a month."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vの + では"
+    }
+  ],
+  "title": "のでは => if",
+  "_id": "f2d618ceb0702f781ec83b7d4f02098f"
+}

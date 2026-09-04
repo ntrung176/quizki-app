@@ -1,0 +1,71 @@
+{
+  "level": "N5",
+  "mobileId": 5630,
+  "usages": [
+    {
+      "explain": "「たいです」is used to express what oneself wants to do, or to inquire about the listener's desires. <br/>\nNote:<br/>\n- It is not used to talk about the desires of a third person.<br/>\n- It is not used to ask superiors or people who are not very close about their desires.<br/>\n- It is not used to invite the listener to do something. For example, when inviting someone to drink tea, do not say お茶を/が飲みたいですか but say お茶を飲みませんか or お茶はいかがですか.<br/>\n- When the object is marked with the particle を, it can be replaced with が. The general meaning of both sentences is similar, but there is a slight difference in nuance. が emphasizes the object, while を emphasizes the action. For example:<br/>\n+ パンを食べたいです ➔ The speaker wants to perform the action of eating bread.<br/>\n+ パンが食べたいです ➔ The speaker wants to eat, specifically bread.<br/>\nWhen the object is marked with other particles like に、で..., those particles remain unchanged.<br/>\n- The negative and past forms of 「Vたい」 are conjugated similarly to い adjectives.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は日本へ行きたいです。",
+          "transcription": "わたしはにほんへいきたいです。",
+          "mean": "I want to go to Japan."
+        },
+        {
+          "content": "彼女と結婚したいです。",
+          "transcription": "かのじょとけっこんしたいです。",
+          "mean": "I want to marry her."
+        },
+        {
+          "content": "私は『窓ぎわのトットちゃん』の執筆者に会いたいです。",
+          "transcription": "わたしは『まどぎわのトットちゃん』のしっぴつしゃにあいたいです。",
+          "mean": "I would like to meet the author of ``Totto-chan at the Window''."
+        },
+        {
+          "content": "私は沖縄へ行きたいです。",
+          "transcription": "わたしはおきなわへいきたいです。",
+          "mean": "I want to go to Okinawa."
+        },
+        {
+          "content": "『日本で何をしたいですか。』『富士山に登りたいです。』",
+          "transcription": "『にほんでなにをしたいですか。』『ふじさんにのぼりたいです。』",
+          "mean": "``What do you want to do in Japan? ``I want to climb Mt. Fuji.'' ”"
+        },
+        {
+          "content": "アメリカに旅行したいです。",
+          "transcription": "アメリカにりょこうしたいです。",
+          "mean": "I want to travel to America."
+        },
+        {
+          "content": "お寿司が食べたいです。",
+          "transcription": "おすしがたべたいです。",
+          "mean": "I want to eat sushi."
+        },
+        {
+          "content": "桜が見たいです。",
+          "transcription": "さくらがみたいです。",
+          "mean": "I want to see cherry blossoms."
+        },
+        {
+          "content": "難しいですから、日本語を勉強したくないです。",
+          "transcription": "むずかしいですから、にほんごをべんきょうしたくないです。",
+          "mean": "I don't want to study Japanese because it's difficult."
+        },
+        {
+          "content": "彼と別れたくないです。",
+          "transcription": "かれとわかれたくないです。",
+          "mean": "I don't want to break up with him."
+        },
+        {
+          "content": "昔は英語を勉強したくなかったから、勉強しなかった。今は後悔した。",
+          "transcription": "むかしはえいごをべんきょうしたくなかったから、べんきょうしなかった。いまはこうかいした。",
+          "mean": "In the past, I didn't want to study English, so I didn't study it. I regret it now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+たいです"
+    }
+  ],
+  "title": "たいです => want to do something",
+  "_id": "856f37d4cd214746b624563f62df6e20"
+}

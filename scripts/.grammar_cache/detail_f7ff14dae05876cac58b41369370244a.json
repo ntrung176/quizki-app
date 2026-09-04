@@ -1,0 +1,38 @@
+{
+  "level": "N2",
+  "mobileId": 1397,
+  "usages": [
+    {
+      "explain": "Action A just happened and then action B immediately follows. It is used with words indicating actions or changes occurring in a short time (arriving, ending, etc.). <br/><br/>This pattern carries a stronger nuance of \"almost simultaneously\" compared to （か）と思うと and （か）と思ったら.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨がやんだかやまないかのうちに、蝉が鳴き出した。",
+          "transcription": "あめがやんだかやまないかのうちに、せみがなきだした。",
+          "mean": "Before the rain had stopped, the cicadas began to sing."
+        },
+        {
+          "content": "彼女は、６時のベルが鳴るか鳴らないのうちに手を止め、工場を飛び出した。",
+          "transcription": "かのじょは、ろくじのべるがなるかならないのうちにてをとめ、こうじょうをとびだした。",
+          "mean": "She stopped before the six o'clock bell rang or ran out of the factory."
+        },
+        {
+          "content": "息子が出かけるか出かけないかのうちに雨が降り出した。",
+          "transcription": "むすこがでかけるかでかけないかのうちにあめがふりだした。",
+          "mean": "Before my son could go out, it started raining."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる / Vた + か + Vない+ かのうちに"
+    },
+    {
+      "explain": "Note: The verbs in the two clauses are the same.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "かのうちに => right after; as soon as",
+  "_id": "f7ff14dae05876cac58b41369370244a"
+}

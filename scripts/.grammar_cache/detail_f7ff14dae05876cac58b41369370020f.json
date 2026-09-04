@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1396,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: A state that one would normally think no longer exists, yet that state continues even now\"\".\"<br/><br/>This is used in writing, similar to 「今でも」 and 「まだ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "事故の原因はいまだ謎である。",
+          "transcription": "じこのげんいんはいまだなぞである。",
+          "mean": "The cause of the accident is still a mystery."
+        },
+        {
+          "content": "この町は未だ昔の面影を留めている。",
+          "transcription": "このまちはいまだむかしのおもかげをとめている。",
+          "mean": "This town still retains the vestiges of its past."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いまだ ～"
+    }
+  ],
+  "title": "いまだ => still; even now; until this very day",
+  "_id": "f7ff14dae05876cac58b41369370020f"
+}

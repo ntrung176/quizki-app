@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2266,
+  "usages": [
+    {
+      "explain": "It expresses the meaning of \"both A and B are the same\".<br/><br/>When verbs and adjectives are used, the form will be 「A-かろうが」,「V-ようが」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "相手が上司だろうが、部下だろうが、田中さんは遠慮せずに考えることを言う。",
+          "transcription": "あいてがじょうしだろうが、ぶかだろうが、たなかさんはえんりょせずにかんがえることをいう。",
+          "mean": "Whether it's a superior or a subordinate, Mr. Tanaka doesn't hesitate to say what he thinks."
+        },
+        {
+          "content": "内国人だろうが、外国人だろうが、法を守らなければならないのは同じだ。",
+          "transcription": "ないこくじんだろうが、がいこくじんだろうが、ほうをまもらなければならないのはおなじだ。",
+          "mean": "Whether you are a domestic or a foreigner, you must abide by the law."
+        },
+        {
+          "content": "彼女は、竹内さんだろうが、小林さんだろうが、あきらめる者は許さないと言っている。",
+          "transcription": "かのじょは、たけうちさんだろうが、こばやしさんだろうが、あきらめるものはゆるさないといっている。",
+          "mean": "She says she won't forgive anyone who gives up, whether it's Takeuchi or Kobayashi."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だろうが、N + だろうが"
+    }
+  ],
+  "title": "... だろうが、... だろうが => Whether it's ... or ...",
+  "_id": "f7ff14dae05876cac58b413693e9a761"
+}

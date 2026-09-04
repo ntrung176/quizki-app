@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5101,
+  "usages": [
+    {
+      "explain": "ばかりか expresses not only this action, characteristic, object, etc., but also another action, characteristic, object, etc. (at a higher level). <br/>It can denote positive or negative situations. It shows the speaker's surprise or astonishment (stronger than \"ばかりでなく\"), so it often accompanies particles like も, まで, さえ... <br/>The clause following \"ばかりか\" does not go with structures expressing intention, desire, command, or call...",
+      "note": null,
+      "examples": [
+        {
+          "content": "女王は美しいばかりか、心も優しかった。",
+          "transcription": "じょおうはうつくしいばかりか、こころもやさしかった。",
+          "mean": "The queen was not only beautiful, but also kind-hearted."
+        },
+        {
+          "content": "彼は遅刻したばかりか、宿題まで忘れて学校にきた。",
+          "transcription": "かれはちこくしたばかりか、しゅくだいまでわすれてがっこうにきた。",
+          "mean": "Not only was he late, but he also came to school having forgotten his homework."
+        },
+        {
+          "content": "花子さんはスポーツが上手なばかりか、成績も優秀である。",
+          "transcription": "はなこさんはスポーツがじょうずなばかりか、せいせきもゆうしゅうである。",
+          "mean": "Hanako is not only good at sports, but also has excellent grades."
+        },
+        {
+          "content": "このレストランは、味が悪いばかりか、店員の態度も悪いだ。",
+          "transcription": "このレストランは、あじがわるいばかりか、てんいんのたいどもわるいだ。",
+          "mean": "This restaurant not only has bad food, but also the staff's attitude."
+        },
+        {
+          "content": "この子は5歳なのに英語ばかりか、日本語も話せますよ。",
+          "transcription": "このこはごさいなのにえいごばかりか、にほんごもはなせますよ。",
+          "mean": "Although this child is only 5 years old, he can speak not only English but also Japanese."
+        },
+        {
+          "content": "この野菜はビタミンが豊富なばかりか、がんを予防する働きもする。",
+          "transcription": "このやさいはビタミンがほうふなばかりか、がんをよぼうするはたらきもする。",
+          "mean": "Not only is this vegetable rich in vitamins, but it also helps prevent cancer."
+        },
+        {
+          "content": "その人は親切に道を教えてくれたばかりか、そこまで案内してくれた。",
+          "transcription": "そのひとはしんせつにみちをおしえてくれたばかりか、そこまであんないしてくれた。",
+          "mean": "The person not only kindly showed me the way, but also guided me there."
+        },
+        {
+          "content": "薬を飲んでいるのに、咳が止まらないばかりか、ひどくなる一方だ。",
+          "transcription": "くすりをのんでいるのに、せきがとまらないばかりか、ひどくなるいっぽうだ。",
+          "mean": "Even though I'm taking medicine, my cough doesn't stop, and it's only getting worse."
+        },
+        {
+          "content": "今日は何も魚が釣れなかったばかりか、財布まで落としてしまった。",
+          "transcription": "きょうはなにもさかながつれなかったばかりか、さいふまでおとしてしまった。",
+          "mean": "Not only did I not catch any fish today, I even lost my wallet."
+        },
+        {
+          "content": "失業している私に先輩は生活費を貸してくれた。そればかりか、新しい仕事を紹介してくれた。",
+          "transcription": "しつぎょうしているわたしにせんぱいはせいかつひをかしてくれた。そればかりか、あたらしいしごとをしょうかいしてくれた。",
+          "mean": "My senior lent me money for living expenses when I was unemployed. Not only that, but he introduced me to a new job."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/ N (formal form)+ばかりか、～(も/まで/さえ)<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s> / A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s> / N<s>だ</s>である)"
+    }
+  ],
+  "title": "ばかりか => not only… but also; as well as ~",
+  "_id": "fd660ebf071243149cc1df438d2b20c1"
+}

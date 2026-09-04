@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2064,
+  "usages": [
+    {
+      "explain": "To express a sense of disdain, considering the matter mentioned with 「など」 as trivial or insignificant.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなあからさまな嘘など、だれが信じるものか。",
+          "transcription": "そんなあからさまなうそなど、だれがしんじるものか。",
+          "mean": "Who would believe such a blatant lie?"
+        },
+        {
+          "content": "彼を許してなどやるものか。",
+          "transcription": "かれをゆるしてなどやるものか。",
+          "mean": "How can I forgive him?"
+        },
+        {
+          "content": "親の心があなたのような不孝な子供などに分かるものですか。",
+          "transcription": "おやのこころがあなたのようなふこうなこどもなどにわかるものですか。",
+          "mean": "Is it possible for an unfilial child like you to understand the heart of a parent?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "など + Vる + ものか"
+    }
+  ],
+  "title": "など～ものか => No way...",
+  "_id": "f7ff14dae05876cac58b413693cd0b96"
+}

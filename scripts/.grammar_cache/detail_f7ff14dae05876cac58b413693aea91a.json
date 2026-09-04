@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1849,
+  "usages": [
+    {
+      "explain": "It is used when the speaker wants to base their judgment on the content of the story just mentioned, to express their judgment on that matter. <br/>Following this, there are expressions that convey the speaker's judgment or those that give permission, advice, or suggestions. People also say「ということなら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "したくないと言うのなら、してもらわなくてもいい。",
+          "transcription": "したくないというのなら、してもらわなくてもいい。",
+          "mean": "If you say you don't want to do it, you don't have to do it."
+        },
+        {
+          "content": "健康が大切だと言うのなら、タバコを止めなければならない。",
+          "transcription": "けんこうがたいせつだというのなら、たばこをとめなければならない。",
+          "mean": "If your health is important to you, you must stop smoking."
+        }
+      ],
+      "mean": null,
+      "synopsis": "というのなら"
+    }
+  ],
+  "title": "というのなら => If say that",
+  "_id": "f7ff14dae05876cac58b413693aea91a"
+}

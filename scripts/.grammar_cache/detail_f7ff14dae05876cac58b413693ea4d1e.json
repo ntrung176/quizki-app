@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2271,
+  "usages": [
+    {
+      "explain": "It expresses the increasing number of times or quantities gradually, by placing two words together indicating a small quantity but one higher than the other.",
+      "note": null,
+      "examples": [
+        {
+          "content": "作業員は一人、二人と集ってきた。",
+          "transcription": "さぎょういんはいちにん、ににんとつどってきた。",
+          "mean": "Workers gathered together one by one."
+        },
+        {
+          "content": "このコンサートも二回、三回と回を重ねるうちに、だんだんよくなってきた。",
+          "transcription": "このこんさーともにかい、さんかいとかいをかさねるうちに、だんだんよくなってきた。",
+          "mean": "As I held this concert twice or three times, it gradually got better."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word +と"
+    }
+  ],
+  "title": "と => Increase",
+  "_id": "f7ff14dae05876cac58b413693ea4d1e"
+}

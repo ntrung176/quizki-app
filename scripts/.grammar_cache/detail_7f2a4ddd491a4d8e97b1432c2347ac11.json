@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5162,
+  "usages": [
+    {
+      "explain": "「ことから」 is used to indicate the reason or cause of something. It is used in writing, especially in a formal and sophisticated style.",
+      "note": null,
+      "examples": [
+        {
+          "content": "富士山が見えることから、この町は富士見町という名前がついた。",
+          "transcription": "ふじさんがみえることから、このまちはふじみちょうというなまえがついた。",
+          "mean": "The town got its name, Fujimi-cho, because Mt. Fuji can be seen."
+        },
+        {
+          "content": "ここは桜の名所であることから、春には花見客が大勢やってくる。",
+          "transcription": "ここはさくらのめいしょであることから、はるにははなみきゃくがたいせいやってくる。",
+          "mean": "As this is a famous cherry blossom viewing spot, many visitors come to see the cherry blossoms in spring."
+        },
+        {
+          "content": "教室で席がとなりだったことから、友人になった。",
+          "transcription": "きょうしつでせきがとなりだったことから、ゆうじんになった。",
+          "mean": "We became friends because we sat next to each other in class."
+        },
+        {
+          "content": "毛の色が白いことからシロという名前がつけられる犬や猫は多い。",
+          "transcription": "けのいろがしろいことからシロというなまえがつけられるいぬやねこはおおい。",
+          "mean": "Many dogs and cats are given the name Shiro because of their white fur."
+        },
+        {
+          "content": "道がぬれていることから、昨夜雨が降ったことがわかった。",
+          "transcription": "みちがぬれていることから、さくやあめがふったことがわかった。",
+          "mean": "I knew it rained last night because the road was wet."
+        },
+        {
+          "content": "顔がそっくりなことから、双子だと分かってきた。",
+          "transcription": "かおがそっくりなことから、ふたごだとわかってきた。",
+          "mean": "I knew they were twins because they looked alike."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+ことから<br/>Aい (formal form)+ことから<br/> Aな (formal form)+ことから<br>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>な/A<s>だ</s>である)<br/> N (formal form)+ことから<br>(In this particular case: Nだ ➔ N<s>だ</s>である)</br></br>"
+    }
+  ],
+  "title": "ことから => from the fact that ~",
+  "_id": "7f2a4ddd491a4d8e97b1432c2347ac11"
+}

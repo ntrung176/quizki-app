@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2647,
+  "usages": [
+    {
+      "explain": "Indicates the state of an object after something happens and now (at the time of speaking) the result of that action still exists and the speaker can see it. The focus here is on the existence of the mentioned result.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その新聞は壁に貼ってあります。",
+          "transcription": "そのしんぶんはかべにはってあります。",
+          "mean": "The newspaper is pasted on the wall."
+        },
+        {
+          "content": "パスポートは財布の中にしまってあります。",
+          "transcription": "ぱすぽーとはさいふのなかにしまってあります。",
+          "mean": "My passport is in my wallet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 は N2 に V-てあります"
+    },
+    {
+      "explain": "Note: It is important to distinguish the differences between 「V-てあります」 and 「V-ています」.\n「V-てあります」: The verbs used in this pattern are transitive verbs.\n「V-ています」: The verbs used in this pattern are intransitive verbs.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "は...にV-てあります =>  is/has been done (resulting state)",
+  "_id": "f2d618ceb0702f781ec83b7d4f1cc5b7"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2731,
+  "usages": [
+    {
+      "explain": "Expresses various meanings such as coercion, instruction, neglect, etc... This is a form where a sentence with an intransitive verb in the form of 「NがV (intransitive verb)」 transforms into a causative sentence with the form「NがNを/にV-saseru」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は息子をあなたの学校に通わせる事を希望します。",
+          "transcription": "わたしはむすこをあなたのがっこうにかよわせることをきぼうします。",
+          "mean": "I would like to send my son to your school."
+        },
+        {
+          "content": "重要な契約だから、新入社員に行かせるのは心配だ。",
+          "transcription": "じゅうようなけいやくだから、しんにゅうしゃいんにいかせるのはしんぱいだ。",
+          "mean": "It's an important contract, so I'm worried about letting a new employee go."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + が + N + を/に V-させる"
+    }
+  ],
+  "title": "NがNを/にV-させる => Who (N) makes...who (N) do what",
+  "_id": "f2d618ceb0702f781ec83b7d4f27f353"
+}

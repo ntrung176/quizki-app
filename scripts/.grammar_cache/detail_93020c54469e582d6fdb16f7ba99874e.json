@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3091,
+  "usages": [
+    {
+      "explain": "✦ Describes an action done despite feeling hesitant, uncomfortable, but having the courage to do it anyway...",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は自分は天才だと言ってはばからない。",
+          "transcription": "かのじょはじぶんはてんさいだといってはばからない。",
+          "mean": "She doesn't hesitate to say that she is a genius."
+        },
+        {
+          "content": "うそつきと公言してはばからない人。",
+          "transcription": "うそつきとこうげんしてはばからないひと。",
+          "mean": "A person who does not hesitate to declare that he is a liar."
+        },
+        {
+          "content": "これが真実であると私は断言してはばからない。",
+          "transcription": "これがしんじつであるとわたしはだんげんしてはばからない。",
+          "mean": "I have no hesitation in saying that this is true."
+        }
+      ],
+      "mean": "reckless; fearless …",
+      "synopsis": "✦Vて ＋ はばからない"
+    }
+  ],
+  "title": "～てはばからない      => reckless; fearless …",
+  "_id": "93020c54469e582d6fdb16f7ba99874e"
+}

@@ -1,0 +1,91 @@
+{
+  "level": "N4",
+  "mobileId": 5576,
+  "usages": [
+    {
+      "explain": "「ようにする」expresses the decision to make an effort or endeavor to do (Vる) or not do (Vない) something.<br/>\n「ようにしている」expresses the effort to regularly do something, trying to turn something into a habit.<br/>\n「ようにしてください」is used to gently request or remind someone to do something repeatedly as a habit, or to politely remind someone about a future event. It is not used to talk about things that need to be done immediately at the time of speaking. It is not used with superiors.",
+      "note": null,
+      "examples": [
+        {
+          "content": "必ず連絡をとるようにする。",
+          "transcription": "かならずれんらくをとるようにする。",
+          "mean": "Be sure to keep in touch."
+        },
+        {
+          "content": "朝寝坊をしないようにしましょう。",
+          "transcription": "あさねぼうをしないようにしましょう。",
+          "mean": "Try not to oversleep in the morning."
+        },
+        {
+          "content": "忘れ物をしないようにしましょう。",
+          "transcription": "わすれものをしないようにしましょう。",
+          "mean": "Make sure you don't forget anything."
+        },
+        {
+          "content": "今日からお酒を飲まないようにします。",
+          "transcription": "きょうからおさけをのまないようにします。",
+          "mean": "I will stop drinking alcohol from today onwards."
+        },
+        {
+          "content": "明日から仕事に行く前にラニングをするようにします。",
+          "transcription": "あしたからしごとにいくまえにラニングをするようにします。",
+          "mean": "Starting tomorrow, I'll try to go for a run before going to work."
+        },
+        {
+          "content": "健康のために11時前に寝るようにしています。",
+          "transcription": "けんこうのためにじゅういちじまえにねるようにしています。",
+          "mean": "I try to go to bed before 11 o'clock for my health."
+        },
+        {
+          "content": "家を出る時は、電気を消したかどうかを確認するようにしています。",
+          "transcription": "いえをでるときは、でんきをけしたかどうかをかくにんするようにしています。",
+          "mean": "When I leave the house, I make sure to turn off the lights."
+        },
+        {
+          "content": "できるだけ1週間1回家族に電話するようにしている。",
+          "transcription": "できるだけいっしゅうかんいっかいかぞくにでんわするようにしている。",
+          "mean": "I try to call my family once a week if possible."
+        },
+        {
+          "content": "油ものを食べないようにしています。",
+          "transcription": "あぶらものをたべないようにしています。",
+          "mean": "I try not to eat fatty foods."
+        },
+        {
+          "content": "貯金したいから外食しないようにします。",
+          "transcription": "ちょきんしたいからがいしょくしないようにします。",
+          "mean": "I try not to eat out because I want to save money."
+        },
+        {
+          "content": "もっと運動するようにしてください。",
+          "transcription": "もっとうんどうするようにしてください。",
+          "mean": "Try to exercise more."
+        },
+        {
+          "content": "図書館の中で大きい声でしないようにしてください。",
+          "transcription": "としょかんのなかでおおきいこえでしないようにしてください。",
+          "mean": "Please do not speak loudly in the library."
+        },
+        {
+          "content": "病院では静かにするようにしてください。",
+          "transcription": "びょういんではしずかにするようにしてください。",
+          "mean": "Please try to be quiet in the hospital."
+        },
+        {
+          "content": "宿題を忘れないようにしてください。",
+          "transcription": "しゅくだいをわすれないようにしてください。",
+          "mean": "Please don't forget your homework."
+        },
+        {
+          "content": "明日9時に学校に来るようにしてください。",
+          "transcription": "あしたくじにがっこうにくるようにしてください。",
+          "mean": "Please come to school at 9 o'clock tomorrow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる / Vない+ようにする<br/> Vる / Vない+ようにしている<br/> Vる / Vない+ようにしてください"
+    }
+  ],
+  "title": "ようにする/ようにしている/ようにしてください => to try to; to make sure that ~",
+  "_id": "2c0b51d1bab1457f8d58a6f537d02fd1"
+}

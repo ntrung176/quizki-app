@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5303,
+  "usages": [
+    {
+      "explain": "The phrase 「を頼りに」 expresses the idea of relying on something or someone (N) to be able to carry out the action that follows. It is used in spoken language. Similar structures include 「を頼りとして」 and 「を頼りにして」. Some other similar constructions are 「を頼みとして」 and 「を頼みにして」...",
+      "note": null,
+      "examples": [
+        {
+          "content": "地図を頼りに、父に教えてもらった村に行った。",
+          "transcription": "ちずをたよりに、ちちにおしえてもらったむらにいった。",
+          "mean": "Using the map, I went to the village that my father had told me about."
+        },
+        {
+          "content": "祖母はつえを頼りにして歩いている。",
+          "transcription": "そぼはつえをたよりにしてあるいている。",
+          "mean": "My grandmother walks with the help of a cane."
+        },
+        {
+          "content": "入院中、友達が書いてくれた授業のノートを頼りに勉強した。",
+          "transcription": "にゅういんちゅう、ともだちがかいてくれたじゅぎょうのノートをたよりにべんきょうした。",
+          "mean": "While I was in the hospital, I studied with the help of class notes written by my friends."
+        },
+        {
+          "content": "子供のころの記憶を頼りとして、昔住んでいた町を歩きます。",
+          "transcription": "こどものころのきおくをたよりとして、むかしすんでいたまちをあるきます。",
+          "mean": "I walk through the town where I used to live, relying on my childhood memories."
+        },
+        {
+          "content": "作家は自分の想像力を頼りにして書く。",
+          "transcription": "さっかはじぶんのそうぞうりょくをたよりにしてかく。",
+          "mean": "Writers rely on their own imagination when writing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+頼りに <br/> Nを+頼りとして<br/> Nを+頼りにして"
+    }
+  ],
+  "title": "を頼りに => to rely on / with the aid of something",
+  "_id": "7d478fc6cad64cea8360dbd7ae33a3d2"
+}

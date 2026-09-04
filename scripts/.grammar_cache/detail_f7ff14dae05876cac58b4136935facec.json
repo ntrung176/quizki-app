@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1278,
+  "usages": [
+    {
+      "explain": "Forms like 「これ」, 「それ」, 「あれ」, 「どれ」 can be used to express the meaning \"to the extent that ... then ...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はこれだけ頑張ったんだから大学に合格するだろう。",
+          "transcription": "かれはこれだけがんばったんだからだいがくにごうかくするだろう。",
+          "mean": "Since he worked so hard, he will pass the university."
+        },
+        {
+          "content": "あれだけ頼んだのに彼女はまだ断った。",
+          "transcription": "あれだけたのんだのにかのじょはまだことわった。",
+          "mean": "Even though I asked her so much, she still refused."
+        },
+        {
+          "content": "あれだけ勉強しても英語が話せないのは、山田さんに素質がないのだろう。",
+          "transcription": "あれだけべんきょうしてもえいごがはなせないのは、やまださんにそしつがないのだろう。",
+          "mean": "The reason why Yamada can't speak English even after studying so much is probably because he doesn't have the talent."
+        }
+      ],
+      "mean": null,
+      "synopsis": "これだけ～ のだから～"
+    }
+  ],
+  "title": "これだけ … のだから ... => To this extent...",
+  "_id": "f7ff14dae05876cac58b4136935facec"
+}

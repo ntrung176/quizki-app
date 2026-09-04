@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1072,
+  "usages": [
+    {
+      "explain": "Follows words indicating a person or organization to express the meaning \"if thinking or speaking from that perspective\". There are also cases where the polite form is used, similar to 「としましては／いたしましては」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女としては、受け入れる以外に方法がなかったのでしょう。",
+          "transcription": "かのじょとしては、うけいれるいがいにほうほうがなかったのでしょう。",
+          "mean": "She probably had no choice but to accept it."
+        },
+        {
+          "content": "私といたしましては、ご異論はございません。",
+          "transcription": "わたしといたしましては、ごいろんはございません。",
+          "mean": "I have no objections."
+        },
+        {
+          "content": "組織としては、早急に新しい指導者を選出する必要がある。",
+          "transcription": "そしきとしては、そうきゅうにあたらしいしどうしゃをせんしゅつするひつようがある。",
+          "mean": "The organization urgently needs to elect a new leader."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + としては"
+    }
+  ],
+  "title": "... としては => As a, For a, As for",
+  "_id": "f7ff14dae05876cac58b413693444802"
+}

@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5374,
+  "usages": [
+    {
+      "explain": "めったに～ない\" indicates that something rarely happens. Arranged by decreasing frequency: 「あまり～ない」>「ほとんど/めったに～ない >「ぜんぜん/まったく～ない」",
+      "note": null,
+      "examples": [
+        {
+          "content": "ホームシアターがあるので、めったに映画館で映画を見ません。",
+          "transcription": "ホームシアターがあるので、めったにえいがかんでえいがをみません。",
+          "mean": "I rarely watch movies at the theater because I have a home theater."
+        },
+        {
+          "content": "忙しくてめったに休みが取れない。",
+          "transcription": "いそがしくてめったにやすみがとれない。",
+          "mean": "I'm so busy that I rarely get time off."
+        },
+        {
+          "content": "彼女は丈夫でめったに病気をしないのに、インフルエンザにかかったらしい。",
+          "transcription": "かのじょはじょうぶでめったにびょうきをしないのに、インフルエンザにかかったらしい。",
+          "mean": "She seems to have the flu, even though she is a strong person and rarely gets sick."
+        },
+        {
+          "content": "めったにほめない先生に褒められてうれしい。",
+          "transcription": "めったにほめないせんせいにほめられてうれしい。",
+          "mean": "I'm happy to be praised by a teacher who rarely praises me."
+        },
+        {
+          "content": "こんなチャンスはめったにないよ。",
+          "transcription": "こんなチャンスはめったにないよ。",
+          "mean": "Opportunities like this don't come around very often."
+        },
+        {
+          "content": "こんなに大きな地震はめったにありません。",
+          "transcription": "こんなにおおきなじしんはめったにありません。",
+          "mean": "Earthquakes this big are rare."
+        }
+      ],
+      "mean": null,
+      "synopsis": "めったに+Vない<br/> Nは+めったにない"
+    }
+  ],
+  "title": "めったに～ない => hardly; rarely; seldom",
+  "_id": "0b79c1629adf4e66aec57cbf8024a631"
+}

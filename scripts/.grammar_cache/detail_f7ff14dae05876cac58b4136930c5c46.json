@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 663,
+  "usages": [
+    {
+      "explain": "✦Used when the person above is speaking to the person below, emphasizing a question.",
+      "note": null,
+      "examples": [
+        {
+          "content": "めっちゃ高いぞ。大丈夫かい？",
+          "transcription": "めっちゃたかいぞ。だいじょうぶかい？",
+          "mean": "It's very expensive. Are you okay?"
+        },
+        {
+          "content": "これ、なんだい？",
+          "transcription": "これ、なんだい？",
+          "mean": "What is this?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "...い"
+    }
+  ],
+  "title": "...い => element at the end of the sentence",
+  "_id": "f7ff14dae05876cac58b4136930c5c46"
+}

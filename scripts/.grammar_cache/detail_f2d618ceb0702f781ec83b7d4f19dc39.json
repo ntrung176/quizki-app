@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2624,
+  "usages": [
+    {
+      "explain": "Expressing concession that, although not the best solution, if we compromise, it can be done like this. <br/><br/>Additionally, the structure also indicates a range of possibilities, in cases where there are multiple choices for doing something. <br/><br/>It has a similar meaning to 「てもかまわない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "身分証明書がなければ、運転免許でもいいです。",
+          "transcription": "みぶんしょうめいしょがなければ、うんてんめんきょでもいいです。",
+          "mean": "If you don't have an ID, a driver's license will suffice."
+        },
+        {
+          "content": "面白ければ、大変な仕事でもいい。",
+          "transcription": "おもしろければ、たいへんなしごとでもいい。",
+          "mean": "It doesn't matter if the work is hard as long as it's fun."
+        },
+        {
+          "content": "家賃が高くてもいいから、駅から近いところに住みたいと思う。",
+          "transcription": "やちんがたかくてもいいから、えきからちかいところにすみたいとおもう。",
+          "mean": "I don't care if the rent is high, I would like to live near the station."
+        },
+        {
+          "content": "直接でも、メールでもいいから、書類を提出してみてください。",
+          "transcription": "ちょくせつでも、めーるでもいいから、しょるいをていしゅつしてみてください。",
+          "mean": "Please submit your documents either in person or by email."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-くてもいい <br/>Na・N でもいい <br/>"
+    }
+  ],
+  "title": "てもいい => is OK to ~; is alright to ~; may I ~?",
+  "_id": "f2d618ceb0702f781ec83b7d4f19dc39"
+}

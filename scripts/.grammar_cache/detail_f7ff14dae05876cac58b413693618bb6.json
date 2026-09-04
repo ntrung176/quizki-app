@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1289,
+  "usages": [
+    {
+      "explain": "Expresses a strong affirmative assertion, commonly used by young boys.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなこと冗談だい。",
+          "transcription": "そんなことじょうだんだい。",
+          "mean": "That's a joke."
+        },
+        {
+          "content": "このペンは僕のじゃないよ。あれが僕のだい。",
+          "transcription": "このぺんはぼくのじゃないよ。あれがぼくのだい。",
+          "mean": "This pen isn't mine. That's me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na + だい"
+    }
+  ],
+  "title": "…だい => that's (truly) ...",
+  "_id": "f7ff14dae05876cac58b413693618bb6"
+}

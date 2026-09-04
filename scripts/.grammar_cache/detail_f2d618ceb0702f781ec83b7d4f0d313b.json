@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2529,
+  "usages": [
+    {
+      "explain": "Followed by verbs of speech like 「いう」 to roughly express the content of that speech. This is a way to quote a speech, but also implies similar things.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの子は家出をするなどと言って、親を心配させている。",
+          "transcription": "あのこはいえでをするなどといって、おやをしんぱいさせている。",
+          "mean": "That child is making her parents worried by saying that she is running away from home."
+        },
+        {
+          "content": "彼は都会で就職するなどと言って、連絡がなかなかない。",
+          "transcription": "かれはとかいでしゅうしょくするなどといって、れんらくがなかなかない。",
+          "mean": "He said he was looking for a job in the city, so I haven't heard from him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "などと"
+    }
+  ],
+  "title": "などと => such as, things like, the likes of",
+  "_id": "f2d618ceb0702f781ec83b7d4f0d313b"
+}

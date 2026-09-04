@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5548,
+  "usages": [
+    {
+      "explain": "「すぎる」expresses exceeding the allowable limit of an action or a state. Therefore, this structure is often used to talk about things that are not good.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は瘦せすぎるよ。",
+          "transcription": "かのじょはやせすぎるよ。",
+          "mean": "She's too thin."
+        },
+        {
+          "content": "昨日は遊びすぎました。",
+          "transcription": "きのうはあそびすぎました。",
+          "mean": "I played too much yesterday."
+        },
+        {
+          "content": "食べすぎないでください。",
+          "transcription": "たべすぎないでください。",
+          "mean": "Don't eat too much."
+        },
+        {
+          "content": "この牛肉は高すぎます。",
+          "transcription": "このぎゅうにくはたかすぎます。",
+          "mean": "This beef is too expensive."
+        },
+        {
+          "content": "このコーヒーは甘すぎます。",
+          "transcription": "このコーヒーはあますぎます。",
+          "mean": "This coffee is too sweet."
+        },
+        {
+          "content": "この問題は複雑すぎます。",
+          "transcription": "このもんだいはふくざつすぎます。",
+          "mean": "This problem is too complex."
+        },
+        {
+          "content": "彼がたばこを吸いすぎます。",
+          "transcription": "かれがたばこをすいすぎます。",
+          "mean": "He smokes too much."
+        },
+        {
+          "content": "もう昼です。寝すぎました。",
+          "transcription": "もうひるです。ねすぎました。",
+          "mean": "It's already noon. I slept too much."
+        },
+        {
+          "content": "彼は生意気すぎます。それで彼のことがあまり好きじゃない。",
+          "transcription": "かれはなまいきすぎます。それでかれのことがあまりかれきじゃない。",
+          "mean": "He's too cocky. That's why I don't like him very much."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+すぎる<br/> A<s>い</s>+すぎる<br/>A<s>な</s>+すぎる"
+    }
+  ],
+  "title": "すぎる => too much",
+  "_id": "5031fc39822c4a9fad184d8e210a61e3"
+}

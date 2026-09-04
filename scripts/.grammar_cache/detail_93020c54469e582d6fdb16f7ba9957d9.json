@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3089,
+  "usages": [
+    {
+      "explain": "✦ Expresses the idea that the action is natural, appropriate, or obvious.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君のやりかたはもうすこし思慮があってしかるべきだった。",
+          "transcription": "きみのやりかたはもうすこししりょがあってしかるべきだった。",
+          "mean": "You should have been a little more thoughtful in your approach."
+        },
+        {
+          "content": "退学する前に、親と相談してしかるべきだ。",
+          "transcription": "たいがくするまえに、おやとそうだんしてしかるべきだ。",
+          "mean": "You should consult with your parents before expelling your child from school."
+        },
+        {
+          "content": "状況が変わったのだから、会社の経営計画も見直されてしかるべきだ。",
+          "transcription": "じょうきょうがかわったのだから、かいしゃのけいえいけいかくもみなおされてしかるべきだ。",
+          "mean": "Since the situation has changed, the company's business plan should also be reviewed."
+        }
+      ],
+      "mean": "should; appropriate; it is natural to do ~",
+      "synopsis": "✦Vて・Vで Aい→くて Aな→で ＋ しかるべきだ"
+    }
+  ],
+  "title": "～てしかるべきだ      => should; appropriate; it is natural to do ~",
+  "_id": "93020c54469e582d6fdb16f7ba9957d9"
+}

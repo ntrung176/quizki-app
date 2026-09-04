@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2128,
+  "usages": [
+    {
+      "explain": "Expresses the feeling of surprise when something unexpected happens.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんが入院しているとは聞いていたが、まさか癌だとは思わなかった。",
+          "transcription": "さとうさんがにゅういんしているとはきいていたが、まさかがんだとはおもわなかった。",
+          "mean": "I had heard that Mr. Sato had been hospitalized, but I had no idea that he had cancer."
+        },
+        {
+          "content": "まさかそのサッカーのチームが優勝できるとは思いませんでした。",
+          "transcription": "まさかそのさっかーのちーむがゆうしょうできるとはおもいませんでした。",
+          "mean": "I never thought that the soccer team would be able to win."
+        },
+        {
+          "content": "まさかこんな悲惨な事故になるとは誰も想像していなかった。",
+          "transcription": "まさかこんなひさんなじこになるとはだれもそうぞうしていなかった。",
+          "mean": "No one could have imagined that such a tragic accident would occur."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まさか + N + だとはおもわなかった\nまさか + Na +だとはおもわなかった\nまさか + A +とはおもわなかった\nまさか + V + とはおもわなかった"
+    }
+  ],
+  "title": "まさか...とはおもわなかった => never thought that",
+  "_id": "f7ff14dae05876cac58b413693d641b3"
+}

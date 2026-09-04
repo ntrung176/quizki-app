@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5147,
+  "usages": [
+    {
+      "explain": "「甲斐がある」 expresses the idea that after a certain action or effort, there will be or has been a corresponding result, as expected or hoped for. <br/>Note: When it is parsed into「甲斐があって」, sometimes the が can be omitted, resulting in「甲斐あって」. The form「Vる甲斐がある」is less common; instead, people often use「V<s>ます</s>がいがある」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "努力の甲斐あって、希望の大学に合格した。",
+          "transcription": "どりょくのかいあって、きぼうのだいがくにごうかくした。",
+          "mean": "Thanks to my hard work, I was able to get into the university of my choice."
+        },
+        {
+          "content": "素敵な人と結婚出来た。この年まで待った甲斐があった。",
+          "transcription": "すてきなひととけっこんできた。このとしまでまったかいがあった。",
+          "mean": "I got married to a wonderful person. It was worth the wait until this year."
+        },
+        {
+          "content": "こんなに美味しいラーメンが食べられるなら、2時間も列に並んだ甲斐があったと思う。",
+          "transcription": "こんなにおいしいラーメンがたべられるなら、にじかんもれつにならんだかいがあったとおもう。",
+          "mean": "I think it was worth waiting in line for two hours to eat such delicious ramen."
+        },
+        {
+          "content": "毎日水をやった甲斐があって、8月になって花がきれいに咲いた。",
+          "transcription": "まいにちみずをやったかいがあって、はちがつになってはながきれいにさいた。",
+          "mean": "It was worth the watering every day, and the flowers bloomed beautifully in August."
+        },
+        {
+          "content": "この山の上から見る朝日は最高だよ。大変だけど登る甲斐があると思うよ。",
+          "transcription": "このやまのうえからみるあさひはさいこうだよ。たいへんだけどのぼるかいがあるとおもうよ。",
+          "mean": "The sunrise seen from the top of this mountain is the best. It's tough, but I think it's worth the climb."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vた+甲斐がある<br/> Nの+甲斐がある"
+    }
+  ],
+  "title": "甲斐がある => It’s worth one’s efforts to do something",
+  "_id": "1a6132944b1547f9a1aadd9e6f680bdb"
+}

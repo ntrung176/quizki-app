@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5225,
+  "usages": [
+    {
+      "explain": "「のももっともだ」expresses that this is natural, reasonable, and appropriate. This is a refined and literary way of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君が裏切ったのだから、彼女が怒るのももっともだ。",
+          "transcription": "きみがうらぎったのだから、かのじょがおこるのももっともだ。",
+          "mean": "Since you betrayed her, she has every right to be angry."
+        },
+        {
+          "content": "SNSの投稿回数を減らすのももっともだ。彼女は忙しすぎる。",
+          "transcription": "エスエヌエスのとうこうかいすうをへらすのももっともだ。かのじょはいそがしすぎる。",
+          "mean": "It makes sense to reduce the number of times you post on SNS. she is too busy"
+        },
+        {
+          "content": "彼の作った料理が美味しいのももっともだ。10歳から一人で料理をしてきたやつだけのことはある。",
+          "transcription": "かれのつくったりょうりがおいしいのももっともだ。じゅうさいからひとりでりょうりをしてきたやつだけのことはある。",
+          "mean": "No wonder the food he cooks is delicious. There are some things that only happen to people who have been cooking by themselves since they were 10 years old."
+        },
+        {
+          "content": "彼女が海水浴が嫌いなのももっともだ。昔海で溺れかけたことがあるから。",
+          "transcription": "かのじょがかいすいよくがきらいなのももっともだ。むかしうみでおぼれかけたことがあるから。",
+          "mean": "It's no wonder she hates swimming in the sea. I almost drowned at sea once."
+        },
+        {
+          "content": "市民にとって役に立つことに税金をつかってほしいという声はもっともだ。",
+          "transcription": "しみんにとってやくにたつことにぜいきんをつかってほしいというこえはもっともだ。",
+          "mean": "It is reasonable to say that people want their tax dollars to be used for things that are useful to citizens."
+        },
+        {
+          "content": "確かに広告費をかけていないことが、お客がこないもっともな理由だ。",
+          "transcription": "たしかにこうこくひをかけていないことが、おきゃくがこないもっともなりゆうだ。",
+          "mean": "It is true that not spending on advertising is a valid reason for not attracting customers."
+        },
+        {
+          "content": "彼は恋愛なんかより自分の仕事をするのが大好きなんですね。彼が今でも独身なのももっともな話だね。",
+          "transcription": "かれはれんあいなんかよりじぶんのしごとをするのがだいすきなんですね。かれがいまでもどくしんなのももっともなはなしだね。",
+          "mean": "He loves doing his job more than love. No wonder he's still single."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+のも(は) もっともだ / もっともなN'<br/> Aい+のも(は) もっともだ / もっともなN'<br/> Aな+のも(は) もっともだ / もっともなN'<br/>\n N+は もっともだ / もっともなN'"
+    }
+  ],
+  "title": "のももっともだ => no wonder; …is only natural",
+  "_id": "a12a9e83bb2f45fb9de4cbd5befaee42"
+}

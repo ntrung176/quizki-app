@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1502,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"nothing more than that\". Used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "子猫は可愛いことこの上ないものだ。",
+          "transcription": "こねこはかわいいことこのうえないものだ。",
+          "mean": "Kittens are the cutest thing ever."
+        },
+        {
+          "content": "週末は友達が遊びに行く時に、僕は家にいなければならないので、つまらないことこの上ない。",
+          "transcription": "しゅうまつはともだちがあそびにいくときに、ぼくはいえにいなければならないので、つまらないことこのうえない。",
+          "mean": "On the weekends, when my friends go out, I have to stay home, so it's never boring."
+        },
+        {
+          "content": "外国に住んでいるときに、家族を懐かしんで、寂しいことこの上ないものだ。",
+          "transcription": "がいこくにすんでいるときに、かぞくをなつかしんで、さびしいことこのうえないものだ。",
+          "mean": "There is nothing like missing your family and feeling lonely when living in a foreign country."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na な + ことこのうえない\nA-い + ことこのうえない"
+    }
+  ],
+  "title": "ことこのうえない => the most of all; the best; nothing is ...",
+  "_id": "f7ff14dae05876cac58b4136938021d8"
+}

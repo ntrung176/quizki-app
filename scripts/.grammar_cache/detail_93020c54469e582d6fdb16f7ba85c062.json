@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 3202,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: \"once a certain situation begins to change, it will not return to its previous state.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "いったん約束したのであれ場、守らなければならない。",
+          "transcription": "いったんやくそくしたのであれじょう、まもらなければならない。",
+          "mean": "Once you make a promise, you must keep it."
+        },
+        {
+          "content": "いったんタバコを吸い始めると、その悪習を辞めるのは難しい。",
+          "transcription": "いったんたばこをすいはじめると、そのあくしゅうをやめるのはむずかしい。",
+          "mean": "Once you start smoking, it is difficult to quit the bad habit."
+        },
+        {
+          "content": "いったん計画を立てたら、それに従ったほうがいい。",
+          "transcription": "いったんけいかくをたてたら、それにしたがったほうがいい。",
+          "mean": "Once you have a plan, you better stick to it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いったん～ば／と／たら"
+    }
+  ],
+  "title": "いったん～ば／と／たら   => Once you do something",
+  "_id": "93020c54469e582d6fdb16f7ba85c062"
+}

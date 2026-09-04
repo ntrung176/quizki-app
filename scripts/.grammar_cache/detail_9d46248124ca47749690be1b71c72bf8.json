@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5285,
+  "usages": [
+    {
+      "explain": "「つつある」indicates the progression or change of a situation in a certain direction. It is often used with verbs indicating change.",
+      "note": null,
+      "examples": [
+        {
+          "content": "医療はますます進歩しつつある。",
+          "transcription": "いりょうはますますしんぽしつつある。",
+          "mean": "Medical care is becoming more and more advanced."
+        },
+        {
+          "content": "新種のウイルスによる被害は全国に広がりつつある。",
+          "transcription": "しんしゅのウイルスによるひがいはぜんこくにひろがりつつある。",
+          "mean": "The damage caused by the new virus is spreading across the country."
+        },
+        {
+          "content": "景気は徐々に回復しつつある。",
+          "transcription": "けいきはじょじょにかいふくしつつある。",
+          "mean": "The economy is gradually recovering."
+        },
+        {
+          "content": "失われつつある伝統文化を守ろうと努力している人もいる。",
+          "transcription": "うしなわれつつあるでんとうぶんかをまもろうとどりょくしているひともいる。",
+          "mean": "Some people are trying to preserve traditional culture that is disappearing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s> つつある"
+    }
+  ],
+  "title": "つつある =>  to be doing; to be in the process of doing ~",
+  "_id": "9d46248124ca47749690be1b71c72bf8"
+}

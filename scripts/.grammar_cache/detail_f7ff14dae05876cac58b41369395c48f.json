@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1669,
+  "usages": [
+    {
+      "explain": "Attached after a clause with an interrogative word, to seek some explanation either from oneself or from the listener.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何が君を苦しめているのだ。",
+          "transcription": "なにがきみをくるしめているのだ。",
+          "mean": "What is troubling you?"
+        },
+        {
+          "content": "いったい誰が悪いのだ。",
+          "transcription": "いったいだれがわるいのだ。",
+          "mean": "Who is to blame?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Naな + のだ\nA/ V + のだ"
+    }
+  ],
+  "title": "... のだ => Surely",
+  "_id": "f7ff14dae05876cac58b41369395c48f"
+}

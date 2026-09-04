@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5227,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>抜</rb><rp>(</rp><rt>ぬ</rt><rp>)</rp></ruby>く」expresses the effort to overcome difficulties to complete something thoroughly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大変な仕事でも、やり抜く自信があります。",
+          "transcription": "たいへんなしごとでも、やりぬくじしんがあります。",
+          "mean": "I am confident that I can complete even the toughest tasks."
+        },
+        {
+          "content": "彼は諦めずにゴールまで走り抜いた。",
+          "transcription": "かれはあきらめずにゴールまではしりぬいた。",
+          "mean": "He didn't give up and ran all the way to the goal."
+        },
+        {
+          "content": "彼は10年間雨の日も風の日もジョギングをやり抜いた。",
+          "transcription": "かれはじゅうねんかんあめのひもかぜのひもジョギングをやりぬいた。",
+          "mean": "For 10 years, he jogged on both rainy and windy days."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+<ruby><rb>抜</rb><rp>(</rp><rt>ぬ</rt><rp>)</rp></ruby>く"
+    }
+  ],
+  "title": "抜く => to do something from beginning to end",
+  "_id": "adc6c9005cc2426d84c0b005b814d975"
+}

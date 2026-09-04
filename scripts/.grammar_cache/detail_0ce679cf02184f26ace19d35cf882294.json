@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5115,
+  "usages": [
+    {
+      "explain": "「ようではないか/ようじゃないか」is used to invite or urge someone to do something together or to suggest something. It's more assertive than 「Vようか」 and is primarily used by males. Women often use 「ましょう」 instead.<br/>\nThe verb here is in the volitional form.<br/>\nThe polite form of 「ようではないか/ようじゃないか」 is 「ようではありませんか」「ようじゃありませんか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう一度話し合おうではないか。",
+          "transcription": "もういちどはなしあおうではないか。",
+          "mean": "Let's talk again."
+        },
+        {
+          "content": "今日はお祝いだ。みんなで飲もうではないか。",
+          "transcription": "きょうはおいわいだ。みんなでのもうではないか。",
+          "mean": "Today is a celebration. Let's all have a drink."
+        },
+        {
+          "content": "誰もやらないなら、僕がやってみようじゃないか。",
+          "transcription": "だれもやらないなら、ぼくがやってみようじゃないか。",
+          "mean": "If no one else will do it, I'll try it."
+        },
+        {
+          "content": "ちょっと疲れたから、この辺りで少し休憩しようじゃないか。",
+          "transcription": "ちょっとつかれたから、このあたりですこしきゅうけいしようじゃないか。",
+          "mean": "I'm a little tired, so let's take a little break around here."
+        },
+        {
+          "content": "俺が犯人だと言うなら、証拠を見せてもらおうではないか。",
+          "transcription": "おれがはんにんだというなら、しょうこをみせてもらおうではないか。",
+          "mean": "If you say I'm the culprit, why don't you show me the evidence?"
+        },
+        {
+          "content": "売り上げ目標の達成を祝って、乾杯しようじゃありませんか。",
+          "transcription": "うりあげもくひょうのたっせいをいわって、かんぱいしようじゃありませんか。",
+          "mean": "Let's celebrate reaching our sales goals and have a toast!"
+        },
+        {
+          "content": "みんなで力を合わせて、この島の自然を守っていこうではないか。",
+          "transcription": "みんなでちからをあわせて、このしまのしぜんをまもっていこうではないか。",
+          "mean": "Let's all work together to protect the nature of this island."
+        },
+        {
+          "content": "この町を人気になる方法について、一緒に考えようではありませんか。",
+          "transcription": "このまちをにんきになるほうほうについて、いっしょにかんがえようではありませんか。",
+          "mean": "Let's think together about how to make this town popular."
+        },
+        {
+          "content": "今日は昔の思い出を語りながら、お酒を飲もうではありませんか。",
+          "transcription": "きょうはむかしのおもいでをかたりながら、おさけをのもうではありませんか。",
+          "mean": "Today, let's have a drink while talking about old memories."
+        },
+        {
+          "content": "僕達の歌が海外でも通用するかどうか、試してみようじゃありませんか。",
+          "transcription": "ぼくたちのうたがかいがいでもつうようするかどうか、ためしてみようじゃありませんか。",
+          "mean": "Let's try it out and see if our songs will work overseas as well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (volitional form)+ではないか<br/> V (volitional form)+じゃないか"
+    }
+  ],
+  "title": "ようではないか/ようじゃないか => Let’s do (something); Why don’t we ~",
+  "_id": "0ce679cf02184f26ace19d35cf882294"
+}

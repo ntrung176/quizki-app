@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5301,
+  "usages": [
+    {
+      "explain": "「をめぐって」describes the idea \"revolving around the issue/topic N1\", with N1 being the subject of a debate, argument, discussion, etc., where there are conflicting opinions and actions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "憲法改正をめぐって、長い間、論争が続いている。",
+          "transcription": "けんぽうかいせいをめぐって、ながいあいだ、ろんそうがつづいている。",
+          "mean": "There has been a long-standing debate over constitutional amendments."
+        },
+        {
+          "content": "教育制度をめぐる諸問題について話し合う。",
+          "transcription": "きょういくせいどをめぐるしょもんだいについてはなしあう。",
+          "mean": "Discuss various issues surrounding the education system."
+        },
+        {
+          "content": "昨日の会議では新しい計画をめぐって、様々な意見が出された。",
+          "transcription": "きのうのかいぎではあたらしいけいかくをめぐって、さまざまないけんがだされた。",
+          "mean": "At yesterday's meeting, various opinions were expressed regarding the new plan."
+        },
+        {
+          "content": "父の残した土地をめぐって、兄弟喧嘩が続いていく。",
+          "transcription": "ちちののこしたとちをめぐって、きょうだいけんかがつづいていく。",
+          "mean": "Sibling quarrels continue over the land left by their father."
+        },
+        {
+          "content": "人事をめぐって、社内は険悪な雰囲気となった。",
+          "transcription": "じんじをめぐって、しゃないはけんあくなふんいきとなった。",
+          "mean": "There was a tense atmosphere within the company regarding personnel matters."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1を+めぐって<br/> N1を+めぐるN2"
+    }
+  ],
+  "title": "をめぐって => concerning; in regard to ~",
+  "_id": "a0ace2d9261c42d0adb4b8ffb5762181"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1111,
+  "usages": [
+    {
+      "explain": "Describing the action of abandoning one thing to decisively do another when facing a certain issue.",
+      "note": null,
+      "examples": [
+        {
+          "content": "つまらない映画を見る時間を無駄にするよりいっそ家で寝ます。",
+          "transcription": "つまらないえいがをみるじかんをむだにするよりいっそいえでねます。",
+          "mean": "I'd rather sleep at home than waste time watching boring movies."
+        },
+        {
+          "content": "お前は、毎日勉強しながら遊んだら、両親のお金の無駄つかいよりいっそのこと今学校を止めます。",
+          "transcription": "おまえは、まいにちべんきょうしながらあそんだら、りょうしんのおかねのむだつかいよりいっそのことこんがっこうをとめます。",
+          "mean": "If you study and play every day, you should stop going to school now because you are wasting your parents' money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・N + よりいっそ（のこと）"
+    }
+  ],
+  "title": "よりいっそ => I'd rather... than...",
+  "_id": "f7ff14dae05876cac58b413693497ae7"
+}

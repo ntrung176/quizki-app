@@ -1,0 +1,38 @@
+{
+  "level": "N1",
+  "mobileId": 795,
+  "usages": [
+    {
+      "explain": "✦ Carries the meaning of 「非常にうまく」\"extremely well,\" 「みごとに」\"excellently.\" <br/> ✦ Used in contexts of successfully deceiving others or using cunning methods that are not commendable. <br/> ✦ When used in the passive form 「まんまとV－された」, it expresses the speaker's resignation or surprise at being cunningly deceived.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やつにまんまと騙された。",
+          "transcription": "やつにまんまとだまされた。",
+          "mean": "I was totally fooled by that guy."
+        },
+        {
+          "content": "まんまと、してやられた。",
+          "transcription": "まんまと、してやられた。",
+          "mean": "It was done right."
+        },
+        {
+          "content": "犯人は、金をだまし取ることにまんまと成功した。",
+          "transcription": "はんにんは、きんをだましとることにまんまとせいこうした。",
+          "mean": "The culprit was completely successful in stealing the money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦まんまと + V (The action is performed very skillfully and easily)"
+    },
+    {
+      "explain": "✦ (Note) After 「まんまと」, usually only a few verbs with idiomatic connotations are used, such as 「騙す」(to deceive), 「してやる」(to trick), 「一杯くわせる」(to cheat), 「忍び込む」(to sneak in).",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "まんまと => successfully, fairly, artfully, nicely, thoroughly",
+  "_id": "f7ff14dae05876cac58b4136931e207e"
+}

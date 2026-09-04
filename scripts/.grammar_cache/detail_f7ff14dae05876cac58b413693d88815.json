@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 2140,
+  "usages": [
+    {
+      "explain": "■ Expresses the meaning \"depending on the way of thinking or doing.\" <br/>■ When using the form 「V (stem) + ようひとつで」, it means \"just by doing so, the outcome will be decided.\" ■ What follows are often expressions like 「どのようにもできる／どうにでもなる」 (can be done in any way / will become any state), or 「異なる／いろいろだ」 (will differ / there are various types).",
+      "note": null,
+      "examples": [
+        {
+          "content": "気の持ちようで何とでもなることだ。",
+          "transcription": "きのもちようでなんとでもなることだ。",
+          "mean": "You can do whatever you put your mind to."
+        },
+        {
+          "content": "考えようではサラリーマン生活も悪くはない。",
+          "transcription": "かんがえようではサラリーマンせいかつもわるくはない。",
+          "mean": "If you think about it, the life of an office worker isn't so bad."
+        },
+        {
+          "content": "君の気持ちの持ちようひとつできまるんだから。",
+          "transcription": "きみのきもちのもちようひとつできまるんだから。",
+          "mean": "It all comes down to how you feel."
+        },
+        {
+          "content": "物は言いようで角が立つ。",
+          "transcription": "ものはいいようでかくがたつ。",
+          "mean": "He has a lot of things to say and is sharp."
+        },
+        {
+          "content": "仕事はやりようでいくらでも時間を節約できる。",
+          "transcription": "しごとはやりようでいくらでもじかんをせつやくできる。",
+          "mean": "You can save a lot of time by getting work done."
+        },
+        {
+          "content": "馬鹿とはさみは使いよう。",
+          "transcription": "ばかとはさみはつかいよう。",
+          "mean": "Let's use idiots and scissors."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■V(ま is obmitted) + ようで (は)"
+    }
+  ],
+  "title": "～ようで (は) => Depending on ...",
+  "_id": "f7ff14dae05876cac58b413693d88815"
+}

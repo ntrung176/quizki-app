@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5497,
+  "usages": [
+    {
+      "explain": "「かもしれない」is used to express the speaker's speculation or judgment that there is a possibility that something has happened or will happen. <br/>Compared to 「だろう」or 「でしょう」, the certainty of this sentence pattern is much lower.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨が降るかもしれません。",
+          "transcription": "あめがふるかもしれません。",
+          "mean": "It might rain."
+        },
+        {
+          "content": "私が間違っているかもしれません。",
+          "transcription": "わたしがまちがっているかもしれません。",
+          "mean": "I might be wrong."
+        },
+        {
+          "content": "彼はもう寝てしまったかもしれません。",
+          "transcription": "かれはもうねてしまったかもしれません。",
+          "mean": "He may have already fallen asleep."
+        },
+        {
+          "content": "約束の時間に間に合わないかもしれません。",
+          "transcription": "やくそくのじかんにまにあわないかもしれません。",
+          "mean": "You may not be able to make it on time for your appointment."
+        },
+        {
+          "content": "ここよりもあっちのほうが静かかもしれない。",
+          "transcription": "ここよりもあっちのほうがしずかかもしれない。",
+          "mean": "It might be quieter there than here."
+        },
+        {
+          "content": "山田さんが言ったアイデア、ちょっと面白いかもしれないよ。",
+          "transcription": "やまださんがいったアイデア、ちょっとおもしろいかもしれないよ。",
+          "mean": "The idea that Mr. Yamada mentioned might be a little interesting."
+        },
+        {
+          "content": "途中で雨が降るかもしれないから、傘を持っていきましょう。",
+          "transcription": "とちゅうであめがふるかもしれないから、かさをもっていきましょう。",
+          "mean": "It might rain on the way, so bring an umbrella."
+        },
+        {
+          "content": "このカバンの値段が書いてないけど、日本製だから高いかもしれない。",
+          "transcription": "このカバンのねだんがかいてないけど、にほんせいだからたかいかもしれない。",
+          "mean": "There's no price listed for this bag, but it might be expensive since it's made in Japan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい/V (formal form)+かもしれない<br/> A<s>な</s>/N+かもしれない"
+    }
+  ],
+  "title": "かもしれない => might; perhaps; indicates possibility",
+  "_id": "fc706981c7a94be08247b7b741677f14"
+}

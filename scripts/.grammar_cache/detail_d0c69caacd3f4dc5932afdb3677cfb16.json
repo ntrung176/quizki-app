@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5086,
+  "usages": [
+    {
+      "explain": "「ときたら」is used to express dissatisfaction or criticism from the speaker about a certain object, event, person, etc., when mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "吉田さんときたら、遅刻はするし、欠席は多いし、困ったものだ。",
+          "transcription": "よしたさんときたら、ちこくはするし、けっせきはおおいし、こまったものだ。",
+          "mean": "When it comes to Mr. Yoshida, he is always late and frequently absent, which is a problem."
+        },
+        {
+          "content": "今度のボーナスときたら、あまりにも少なくて話にもならない。",
+          "transcription": "こんどのボーナスときたら、あまりにもすくなくてはなしにもならない。",
+          "mean": "When it comes to the next bonus, it's so small that it's not even worth talking about."
+        },
+        {
+          "content": "うちの子供ときたら、勉強なんて全然やらないよ。",
+          "transcription": "うちのこどもときたら、べんきょうなんてぜんぜんやらないよ。",
+          "mean": "When it comes to my kids, they don't study at all."
+        },
+        {
+          "content": "このレストランのサービスときたら、最低だ。",
+          "transcription": "このレストランのサービスときたら、さいていだ。",
+          "mean": "The service at this restaurant is terrible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+ときたら"
+    }
+  ],
+  "title": "ときたら => when it comes to; concerning ~",
+  "_id": "d0c69caacd3f4dc5932afdb3677cfb16"
+}

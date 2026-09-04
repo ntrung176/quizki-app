@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3164,
+  "usages": [
+    {
+      "explain": "✦ Used after a noun indicating a profession or position, to express the meaning: \"Being in that position or having that profession, one should not...\"<br/>\n✦ Followed by a noun indicating an action, behavior, statement, or attitude.<br/>\n✦ Used to criticize someone for an action, behavior, or attitude that is inappropriate given their position, profession, or stance.",
+      "note": "✦The form “するまじき” must be changed to “すまじき” ☞Formal speech used for writing.",
+      "examples": [
+        {
+          "content": "彼のやったことは、人としてあるまじき残酷な行為だ。",
+          "transcription": "かれのやったことは、ひととしてあるまじきざんこくなこういだ。",
+          "mean": "What he did was the most cruel thing a human could do."
+        },
+        {
+          "content": "酒を飲んで車を運転するなど警察官にあるまじき行為だ。",
+          "transcription": "さけをのんでくるまをうんてんするなどけいさつかんにあるまじきこういだ。",
+          "mean": "The act of driving a car while under the influence of alcohol is unbecoming of a police officer."
+        }
+      ],
+      "mean": "should not; must not",
+      "synopsis": "✦Vる ＋ まじき N"
+    }
+  ],
+  "title": "～まじき      => should not; must not",
+  "_id": "93020c54469e582d6fdb16f7ba911c57"
+}

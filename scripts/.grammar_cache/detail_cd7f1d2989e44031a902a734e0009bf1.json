@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5383,
+  "usages": [
+    {
+      "explain": "「もの/もん/んだもの/んだもん」is used to explain the reason or cause that the speaker believes is justified, often accompanied by an attitude of unhappiness, annoyance, disappointment, etc.<br/>\n\nGenerally, 「もの/んだもの」is often used by females, while 「もん/んだもん」can be used by both males and females, including children. When combined with だって, the explanation for the reason will be softer and more gentle in tone.<br/>\n\nThis expression is commonly used in informal conversations such as with family, friends, etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日の試験、出来なかった。勉強しなかったんだもん、仕方がない。",
+          "transcription": "きょうのしけん、できなかった。べんきょうしなかったんだもん、しかたがない。",
+          "mean": "I couldn't pass the test today. I didn't study, so I can't help it."
+        },
+        {
+          "content": "『珍しいね、君が怒るなんて。』『だって、あまりにも失礼なことを言われたんだもん。』",
+          "transcription": "『めずらしいね、きみがおこるなんて。』『だって、あまりにもしつれいなことをいわれたんだもん。』",
+          "mean": "``It's unusual for you to get angry. ``Because you said something so rude to me.'' ”"
+        },
+        {
+          "content": "『いつまでゲームをしているの。』『だって、面白くてやめられないんだもの。』",
+          "transcription": "『いつまでゲームをしているの。』『だって、おもしろくてやめられないんだもの。』",
+          "mean": "``How long have you been playing games? ``Because it's so interesting that I can't put it down.'' ”"
+        },
+        {
+          "content": "『ラーメンを3杯も食べたの？』『だって、お腹がぺこぺこだったんだもん。』",
+          "transcription": "『ラーメンをさんばいもたべたの？』『だって、おなかがぺこぺこだったんだもん。』",
+          "mean": "“Did you eat three bowls of ramen? ``Because I was really hungry.'' ”"
+        },
+        {
+          "content": "『どうして食べないの？』『だって、野菜嫌いなんだもの。』",
+          "transcription": "『どうしてたべないの？』『だって、やさいきらいなんだもの。』",
+          "mean": "“Why aren’t you eating? ``Because I hate vegetables.'' ”"
+        },
+        {
+          "content": "『一口ちょうだい。』『やだ、これ、私の大好物だもん。』",
+          "transcription": "『ひとくちちょうだい。』『やだ、これ、わたしのだいすきものだもん。』",
+          "mean": "``Give me a bite. ” “Oh no, this is my favorite food. ”"
+        },
+        {
+          "content": "だって私女の子だもん。可愛いって言われたいよ。",
+          "transcription": "だってわたしおんなのこだもん。かわいいっていわれたいよ。",
+          "mean": "Because I'm a girl. I want to be called cute."
+        },
+        {
+          "content": "最近ニュース見なくなった。同じ内容ばっかりで見る価値ないもん。",
+          "transcription": "さいきんニュースみなくなった。おなじないようばっかりでみるかちないもん。",
+          "mean": "I haven't been watching the news lately. It's not worth watching because it's all about the same content."
+        },
+        {
+          "content": "先に食べちゃいましたよ。だって、来るのが遅いもの。",
+          "transcription": "さきにたべちゃいましたよ。だって、くるのがおそいもの。",
+          "mean": "I ate it first. Because it comes late."
+        },
+        {
+          "content": "歩いて行きたくはないよ。疲れるもの。",
+          "transcription": "あるいていきたくはないよ。つかれるもの。",
+          "mean": "I don't want to walk. It's tiring."
+        },
+        {
+          "content": "テスト勉強なんてしてないよ。今日、テストがあるって知らなかったもの。",
+          "transcription": "テストべんきょうなんてしてないよ。きょう、テストがあるってしらなかったもの。",
+          "mean": "I don't study for tests. I didn't know there was a test today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+もの / もん<br/>V/Aい/Aな/N (formal form)+んだもの / んだもん<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br> Nだ ➔ N<s>だ</s>な)</br>"
+    }
+  ],
+  "title": "もの/もん/んだもの/んだもん => because; indicates reason/ excuse/ dissatisfaction",
+  "_id": "cd7f1d2989e44031a902a734e0009bf1"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1080,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"cannot ... completely, cannot ... fully\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "ご飯の量が多くて、食べきれないよ。",
+          "transcription": "ごはんのりょうがおおくて、たべきれないよ。",
+          "mean": "There's so much rice that I can't finish it all."
+        },
+        {
+          "content": "この長い小説を1週間で読みきれなかった。",
+          "transcription": "このながいしょうせつを1しゅうかんでよみきれなかった。",
+          "mean": "I couldn't finish reading this long novel in a week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます + きれない"
+    }
+  ],
+  "title": "...きれない => unable to do; too much to finish/complete",
+  "_id": "f7ff14dae05876cac58b413693456597"
+}

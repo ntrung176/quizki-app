@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2110,
+  "usages": [
+    {
+      "explain": "Conveys the meaning \"no matter how difficult, extreme, or unusual it may be.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "いかなる専門を選ぼうとも語学は必要だ。",
+          "transcription": "いかなるせんもんをえらぼうともごがくはひつようだ。",
+          "mean": "No matter what specialty you choose, language skills are necessary."
+        },
+        {
+          "content": "鈴木さんなら、いかなる環境におかれようとも自らの道を歩んで行くことができるであろう。",
+          "transcription": "すずきさんなら、いかなるかんきょうにおかれようともみずからのみちをあゆんでいくことができるであろう。",
+          "mean": "Mr. Suzuki will be able to follow his own path no matter what environment he finds himself in."
+        },
+        {
+          "content": "いかなる仕事であろうとも、仕事に全力をふりしぼってやれば、確かに成功するでしょう。",
+          "transcription": "いかなるしごとであろうとも、しごとにぜんりょくをふりしぼってやれば、たしかにせいこうするでしょう。",
+          "mean": "No matter what kind of work you do, if you put your all into it, you will definitely succeed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いかなる N であろうともいかなる N＋trợ từ＋V－ようとも"
+    }
+  ],
+  "title": "いかなる…とも => whatsoever; whatever",
+  "_id": "f7ff14dae05876cac58b413693d38cb6"
+}

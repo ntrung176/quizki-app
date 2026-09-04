@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 805,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "今度こそ、本当のことを言わせずにはおかないぞ。",
+          "transcription": "こんどこそ、ほんとうのことをいわせずにはおかないぞ。",
+          "mean": "This time, I won't let you tell me the truth."
+        },
+        {
+          "content": "親友に裏切られたのだから、仕返しをせずにはおかない。",
+          "transcription": "しんゆうにうらぎられたのだから、しかえしをせずにはおかない。",
+          "mean": "Since my best friend betrayed me, I have no choice but to take revenge."
+        },
+        {
+          "content": "彼ほどの選手であれば、どのプロ野球球団もスカウトせずにはおかないだろう。",
+          "transcription": "かれほどのせんしゅであれば、どのプロやきゅうきゅうだんもスカウトせずにはおかないだろう。",
+          "mean": "A player of his caliber would have no choice but to be scouted by any professional baseball team."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vない ＋ずにはおかない"
+    }
+  ],
+  "title": "～Vずにはおかない => will definitely/certainly do something; cannot not ~",
+  "_id": "f7ff14dae05876cac58b4136931f87b1"
+}

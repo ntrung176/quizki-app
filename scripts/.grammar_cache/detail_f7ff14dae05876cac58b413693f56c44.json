@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2354,
+  "usages": [
+    {
+      "explain": "Used to suggest the best means or method when someone wants to do something. It's often used in slogans or TV commercials.",
+      "note": null,
+      "examples": [
+        {
+          "content": "時計を買うならスイス製がいい。",
+          "transcription": "とけいをかうならすいすせいがいい。",
+          "mean": "If you're going to buy a watch, it's best to buy one made in Switzerland."
+        },
+        {
+          "content": "すしを食べるなら、このレストランがいいよ。",
+          "transcription": "すしをたべるなら、このれすとらんがいいよ。",
+          "mean": "If you want to eat sushi, this restaurant is good."
+        },
+        {
+          "content": "英語を習うならイギリスかオーストラリアに留学することをすすめたい。",
+          "transcription": "えいごをならうならいぎりすかおーすとらりあにりゅうがくすることをすすめたい。",
+          "mean": "If you want to learn English, I would recommend studying abroad in England or Australia."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる +（の）なら～がいい"
+    }
+  ],
+  "title": "(の) なら～がいい => if; in the case that ..., you should...",
+  "_id": "f7ff14dae05876cac58b413693f56c44"
+}

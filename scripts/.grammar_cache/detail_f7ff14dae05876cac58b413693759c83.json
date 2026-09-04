@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1432,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: \"the matter is not important to that extent\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私にとって給料が高いか安いかはたいした問題ではない。仕事が面白いかどうかは問題だ。",
+          "transcription": "わたしにとってきゅうりょうがたかいかやすいかはたいしたもんだいではない。しごとがおもしろいかどうかはもんだいだ。",
+          "mean": "For me, it doesn't matter whether the salary is high or low. It doesn't matter whether the work is interesting or not."
+        },
+        {
+          "content": "たいしたことではありません。ちょっと家に物を忘れただけです。",
+          "transcription": "たいしたことではありません。ちょっといえにものをわすれただけです。",
+          "mean": "It's no big deal. I just forgot something at home."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たいした + N ではない"
+    }
+  ],
+  "title": "たいした ... ではない => not ... considerable; great; important; significant; a big deal",
+  "_id": "f7ff14dae05876cac58b413693759c83"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1819,
+  "usages": [
+    {
+      "explain": "Comes after a noun referring to a person or organization, to express the meaning \"from that position, from that perspective also...\".<br/><br/>The difference from 「としては」 is that 「としても」 adds the implication \"besides, there are also other organizations or individuals in a similar position\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私としても、この問題は理解できない。",
+          "transcription": "わたしとしても、このもんだいはりかいできない。",
+          "mean": "Even I cannot understand this problem."
+        },
+        {
+          "content": "会長としても、諮問委員会の反論を無視するわけにはいかないだろう。",
+          "transcription": "かいちょうとしても、しもんいいんかいのはんろんをむしするわけにはいかないだろう。",
+          "mean": "Even as chairman, I cannot afford to ignore the advisory committee's objections."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + としても"
+    }
+  ],
+  "title": "...としても => ...Also",
+  "_id": "f7ff14dae05876cac58b413693aaf8d7"
+}

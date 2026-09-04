@@ -1,0 +1,21 @@
+{
+  "level": "N2",
+  "mobileId": 1203,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"there is never a time when...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "このごろ仕事が多すぎて時として暇な時間がない。",
+          "transcription": "このごろしごとがおおすぎてときとしてひまなじかんがない。",
+          "mean": "I have so much work these days that sometimes I don't have free time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ときとして～ない"
+    }
+  ],
+  "title": "ときとして…ない => At no time",
+  "_id": "f7ff14dae05876cac58b41369355ad0d"
+}

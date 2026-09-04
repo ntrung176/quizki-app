@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1305,
+  "usages": [
+    {
+      "explain": "抜きで (ぬきで) means \"excluding that thing\". It can also be used in the form 「Nはぬきで」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "冗談抜きでまじめに考えてください。",
+          "transcription": "じょうだんぬきでまじめにかんがえてください。",
+          "mean": "Please take this seriously and don't joke."
+        },
+        {
+          "content": "挨拶抜きでさっそく会議を始めましょう。",
+          "transcription": "あいさつぬきでさっそくかいぎをはじめましょう。",
+          "mean": "Let's start the meeting without saying hello."
+        },
+        {
+          "content": "花嫁は抜きで結婚式がはじまるはずがない。",
+          "transcription": "はなよめはぬきでけっこんしきがはじまるはずがない。",
+          "mean": "A wedding cannot begin without the bride."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 抜きで"
+    }
+  ],
+  "title": "抜きで => without; leaving out; cutting out ~",
+  "_id": "f7ff14dae05876cac58b41369363e935"
+}

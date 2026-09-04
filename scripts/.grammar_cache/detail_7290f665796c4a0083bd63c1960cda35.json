@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5198,
+  "usages": [
+    {
+      "explain": "「に決まっている」: Used to express the speaker's strong affirmation that something is certain. This is a subjective statement, whether or not the speaker has evidence to back it up, so it's not typically used in public media like newspapers...<br/>\nAdditionally, the structure 「からに決まっている」is often used, helping the speaker express a firm belief about the cause of something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "子供にそんなお菓子を見せたら欲しがるに決まっている。",
+          "transcription": "こどもにそんなおかしをみせたらほしがるにきまっている。",
+          "mean": "If you show your child such sweets, I'm sure they'll want it."
+        },
+        {
+          "content": "こんな暗いところで本を読んだら目に悪くなるに決まっている。",
+          "transcription": "こんなくらいところでほんをよんだらめにわるくなるにきまっている。",
+          "mean": "I'm sure reading a book in such a dark place will hurt my eyes."
+        },
+        {
+          "content": "同じ値段なら、質がいいほうがたくさん売れるに決まっている。",
+          "transcription": "おなじねだんなら、しつがいいほうがたくさんうれるにきまっている。",
+          "mean": "If the price is the same, it is certain that the better quality product will sell in larger quantities."
+        },
+        {
+          "content": "一人で外国へ旅行するなんて、親に反対されるに決まっている。",
+          "transcription": "いちにんでがいこくへりょこうするなんて、おやにはんたいされるにきまっている。",
+          "mean": "I'm sure my parents will object to traveling to a foreign country alone."
+        },
+        {
+          "content": "毎日、一生懸命勉強したから、絶対に合格するに決まっている。",
+          "transcription": "まいにち、いっしょうけんめいべんきょうしたから、ぜったいにごうかくするにきまっている。",
+          "mean": "I studied hard every day, so I'm sure I'll pass."
+        },
+        {
+          "content": "ぜんぜん練習していないんだから、今度の試合は負けるに決まっている。",
+          "transcription": "ぜんぜんれんしゅうしていないんだから、こんどのしあいはまけるにきまっている。",
+          "mean": "I haven't practiced at all, so I'm sure I'll lose the next match."
+        },
+        {
+          "content": "あの選手は今まで誰にも負けたことがないから、優勝するに決まっていますよ。",
+          "transcription": "あのせんしゅはいままでだれにもまけたことがないから、ゆうしょうするにきまっていますよ。",
+          "mean": "That player has never lost to anyone before, so he is certain to win."
+        },
+        {
+          "content": "昨晩3時までお酒を飲んでいたの？それじゃ、朝起きられないに決まっているよ。",
+          "transcription": "さくばんさんじまでおさけをのんでいたの？それじゃ、あさおきられないにきまっているよ。",
+          "mean": "Did you drink until 3 o'clock last night? I'm sure I won't be able to get up in the morning if that happens."
+        },
+        {
+          "content": "ケータイが壊れたのは不良品だったからに決まっている。",
+          "transcription": "ケータイがこわれたのはふりょうひんだったからにきまっている。",
+          "mean": "It is certain that the mobile phone broke because it was a defective product."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+に決まっている<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/> Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "に決まっている => certainly; I’m sure/certain that; it must be the case that ~",
+  "_id": "7290f665796c4a0083bd63c1960cda35"
+}

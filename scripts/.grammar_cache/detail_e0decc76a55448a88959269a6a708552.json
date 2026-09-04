@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5358,
+  "usages": [
+    {
+      "explain": "「ことだ」is used to advise others that something is important or to suggest whether or not they should do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ピアノが上手になりたかったら、毎日練習することですよ。",
+          "transcription": "ピアノがじょうずになりたかったら、まいにちれんしゅうすることですよ。",
+          "mean": "If you want to get better at playing the piano, practice every day."
+        },
+        {
+          "content": "パソコンの使い方を覚えたければ、まず触ってみることだ。",
+          "transcription": "パソコンのつかいかたをおぼえたければ、まずさわってみることだ。",
+          "mean": "If you want to learn how to use a computer, the first thing you should do is try it out."
+        },
+        {
+          "content": "健康のためには十分睡眠をとり、ストレスをためないことだ。",
+          "transcription": "けんこうのためにはじゅうぶんすいみんをとり、ストレスをためないことだ。",
+          "mean": "For your health, get enough sleep and avoid stress."
+        },
+        {
+          "content": "やりたいことがあるなら、とにかくやってみることです。たとえ失敗しても、得ることがたくさんあると思いますよ。",
+          "transcription": "やりたいことがあるなら、とにかくやってみることです。たとえしっぱいしても、えることがたくさんあるとおもいますよ。",
+          "mean": "If there's something you want to do, just do it. Even if you fail, I think you will gain a lot."
+        },
+        {
+          "content": "一度に全部は無理です。毎日少しずつ勉強することです。",
+          "transcription": "いちどにぜんぶはむりです。まいにちすこしずつべんきょうすることです。",
+          "mean": "It's impossible to do everything at once. It's about learning a little bit every day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる+ことだ<br/> Vない+ことだ"
+    }
+  ],
+  "title": "ことだ => should do~ (used for suggestions or giving advice)",
+  "_id": "e0decc76a55448a88959269a6a708552"
+}

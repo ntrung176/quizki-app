@@ -1,0 +1,61 @@
+{
+  "level": "N5",
+  "mobileId": 5618,
+  "usages": [
+    {
+      "explain": "1. Something that is difficult to achieve or doesn't happen easily, often implying it hasn't been achieved or happened as desired.<br/>\n2. Something that is challenging or takes a lot of time to accomplish or occur.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "最近、私はなかなかやる気が出ない。",
+          "transcription": "さいきん、わたしはなかなかやるきがでない。",
+          "mean": "Lately, I've been having a hard time feeling motivated."
+        },
+        {
+          "content": "日本語がなかなか上手にならない。",
+          "transcription": "にほんごがなかなかじょうずにならない。",
+          "mean": "I'm having a hard time getting good at Japanese."
+        },
+        {
+          "content": "コーヒーを飲んだからなか、なか眠れない。",
+          "transcription": "コーヒーをのんだから、なかなかねむれない。",
+          "mean": "I can't sleep well because I drank coffee."
+        },
+        {
+          "content": "風邪がなかなか治らない。",
+          "transcription": "かぜがなかなかなおらない。",
+          "mean": "I can't get over my cold."
+        },
+        {
+          "content": "この問題はなかなか解けない。",
+          "transcription": "このもんだいはなかなかとけない。",
+          "mean": "This problem is difficult to solve."
+        },
+        {
+          "content": "あんな親切な人はなかなかいない。",
+          "transcription": "あんなしんせつなひとはなかなかいない。",
+          "mean": "It's rare to find such kind people."
+        },
+        {
+          "content": "この飲み物はなかなか飲めない珍しい飲み物です。",
+          "transcription": "こののみものはなかなかのめないめずらしいのみものです。",
+          "mean": "This drink is a rare drink that is difficult to drink."
+        },
+        {
+          "content": "試験の時になかなか集中できない。",
+          "transcription": "しけんのときになかなかしゅうちゅうできない。",
+          "mean": "I have a hard time concentrating during exams."
+        },
+        {
+          "content": "こんな美味しい料理は、他のレストランではなかなか食べられません。",
+          "transcription": "こんなおいしいりょうりは、ほかのレストランではなかなかたべられません。",
+          "mean": "You can't easily find such delicious food at other restaurants."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なかなか+Vない"
+    }
+  ],
+  "title": "なかなか～ない => not easy to; struggling to; not able to; can't seem to ~",
+  "_id": "9adfeebdf3f349c3b3d75cbfe520e591"
+}

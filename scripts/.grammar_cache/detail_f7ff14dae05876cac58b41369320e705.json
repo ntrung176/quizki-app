@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 812,
+  "usages": [
+    {
+      "explain": "✦ Explains reasons and causes. <br/> ✦ This is an archaic expression, with a literary quality, formal and dignified style. It is widely used in literature. <br/> ✦ Some common idiomatic forms include [それゆえ] [何ゆえ] [ことゆえ].",
+      "note": null,
+      "examples": [
+        {
+          "content": "小山さんは何度も遅刻するがゆえに、先生に強く叱れた。",
+          "transcription": "こやまさんはなんどもちこくするがゆえに、せんせいにつよくしかれた。",
+          "mean": "Because Mr. Koyama was late many times, his teacher scolded him strongly."
+        },
+        {
+          "content": "事が重大であるが故に、報告の遅れが悔やまれる。",
+          "transcription": "ことがじゅうだいであるがゆえに、ほうこくのおくれがくやまれる。",
+          "mean": "Given the seriousness of the matter, I regret the delay in reporting."
+        },
+        {
+          "content": "親が放任していたが故に非行に走る若者もいる。",
+          "transcription": "おやがほうにんしていたがゆえにひこうにはしるわかものもいる。",
+          "mean": "Some young people become delinquent because their parents neglect them."
+        },
+        {
+          "content": "あの子は母に怒られたが故にしくしく泣いている。",
+          "transcription": "あのこはははにおこられたがゆえにしくしくないている。",
+          "mean": "That child was crying because her mother scolded her."
+        },
+        {
+          "content": "若さ（が）故の過ちもあるのだ。",
+          "transcription": "わかさ（が）ゆえのあやまちもあるのだ。",
+          "mean": "There are also mistakes due to youth."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Ｖ‐る / Ｖた/ Ｖ‐ない＋がゆえ\n<br/>✦なＡだである/Ｎだである＋がゆえ<br/>✦Ａい＋ がゆえ"
+    }
+  ],
+  "title": "～が故 => therefore; consequently​; because of; due to ~",
+  "_id": "f7ff14dae05876cac58b41369320e705"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1930,
+  "usages": [
+    {
+      "explain": "Used at the beginning of a sentence to indicate that this is something everyone already knows.",
+      "note": null,
+      "examples": [
+        {
+          "content": "言うまでもないことだが、健康の方が富より大事だ。",
+          "transcription": "いうまでもないことだが、けんこうのほうがとみよりだいじだ。",
+          "mean": "Needless to say, health is above wealth."
+        },
+        {
+          "content": "言うまでもないことですが、このプロジェクトは皆さんの御協力があって初めて成功するものです。",
+          "transcription": "いうまでもないことですが、このぷろじぇくとはみなさんのごきょうりょくがあってはじめてせいこうするものです。",
+          "mean": "Needless to say, this project will only be successful with your cooperation."
+        },
+        {
+          "content": "言うまでもないことだけど、葬式に派手な服を着て行ってはいけないんだよ。",
+          "transcription": "いうまでもないことだけど、そうしきにはでなふくをきていってはいけないんだよ",
+          "mean": "It goes without saying, but don't wear flashy clothes to a funeral."
+        }
+      ],
+      "mean": null,
+      "synopsis": "言うまでもないことだが / 言うまでもないことですが / 言うまでもないことだけど、～"
+    }
+  ],
+  "title": "いうまでもないことだが => it goes without saying; there is no need to say so, but of course; it is needless to say",
+  "_id": "f7ff14dae05876cac58b413693ba1196"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N5",
+  "mobileId": 5629,
+  "usages": [
+    {
+      "explain": "を is a particle indicating:<br/>1. The target, object affected by the verb V (which is N).<br/>2. The starting point of a movement action.<br/>3. The place/area traversed (not the destination) by a movement action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう宿題をしました。",
+          "transcription": "もうしゅくだいをしました。",
+          "mean": "I've already done my homework."
+        },
+        {
+          "content": "毎日ランニングをします。",
+          "transcription": "まいにちランニングをします。",
+          "mean": "I run every day."
+        },
+        {
+          "content": "魚を食べたことがない。",
+          "transcription": "さかなをたべたことがない。",
+          "mean": "I've never eaten fish."
+        },
+        {
+          "content": "日本語を勉強しています。",
+          "transcription": "にほんごをべんきょうしています。",
+          "mean": "I am learning Japanese."
+        },
+        {
+          "content": "今日は朝ご飯を食べませんでした。",
+          "transcription": "きょうはあさごはんをたべませんでした。",
+          "mean": "I didn't eat breakfast today."
+        },
+        {
+          "content": "来週東京を離れる。",
+          "transcription": "らいしゅうとうきょうをはなれる。",
+          "mean": "I'll be leaving Tokyo next week."
+        },
+        {
+          "content": "お手洗いに行くため、席を立った。",
+          "transcription": "おてあらいにいくため、せきをたった。",
+          "mean": "I got up from my seat to go to the bathroom."
+        },
+        {
+          "content": "バスを降りると、彼に出会った。",
+          "transcription": "バスをおりると、かれにであった。",
+          "mean": "When I got off the bus, I met him."
+        },
+        {
+          "content": "公園を散歩します。",
+          "transcription": "こうえんをさんぽします。",
+          "mean": "Take a walk in the park."
+        },
+        {
+          "content": "交差点を右へ曲がります。",
+          "transcription": "こうさてんをみぎへまがります。",
+          "mean": "Turn right at the intersection."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+を+V"
+    }
+  ],
+  "title": "を => Auxiliary words",
+  "_id": "ffe38c3cc0c24887b828c6f84c0af13f"
+}

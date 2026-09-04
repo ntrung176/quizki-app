@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5211,
+  "usages": [
+    {
+      "explain": "「に<ruby><rb>相違</rb><rp>(</rp><rt>そうい</rt><rp>)</rp></ruby>ない」 expresses the speaker's resolute speculation. It is synonymous with 「に<ruby><rb>違</rb><rp>(</rp><rt>ちが</rt><rp>)</rp></ruby>いない」 but is more formal and often used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これだけの証拠がある以上、犯人はあの男に相違ない。",
+          "transcription": "これだけのしょうこがあるいじょう、はんにんはあのおとこにそういない。",
+          "mean": "With this much evidence, the culprit must be that man."
+        },
+        {
+          "content": "双方が譲歩しなければ、交渉は決裂するに相違ない。",
+          "transcription": "そうほうがじょうほしなければ、こうしょうはけつれつするにそういない。",
+          "mean": "Unless both sides make concessions, the negotiations are bound to break down."
+        },
+        {
+          "content": "今の状況が続けば今年度の収支は赤字になるに相違なく、何らかの対策を立てる必要があります。",
+          "transcription": "いまのじょうきょうがつづけばこんねんどのしゅうしはあかじになるにそういなく、なんらかのたいさくをたてるひつようがあります。",
+          "mean": "If the current situation continues, there is no doubt that this year's balance of payments will be in the red, and we will need to take some measures."
+        },
+        {
+          "content": "今日の判決は彼にとって不満に相違ない。",
+          "transcription": "きょうのはんけつはかれにとってふまんにそういない。",
+          "mean": "Today's verdict is no doubt dissatisfying to him."
+        },
+        {
+          "content": "これは私のものに相違ない。",
+          "transcription": "これはわたしのものにそういない。",
+          "mean": "This must be mine."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+に<ruby><rb>相違</rb><rp>(</rp><rt>そうい</rt><rp>)</rp></ruby>ない<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/> Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "に相違ない => without a doubt; certain; sure",
+  "_id": "1234851bf1154118a14d42efba4d89ee"
+}

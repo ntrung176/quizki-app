@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2710,
+  "usages": [
+    {
+      "explain": "In the form 「X ば…しよう/したい」 if it expresses intention or hope, there will be a limit to using the predicate in the X clause. Generally, if the predicate in the X clause only expresses a state, there's no problem. But if it uses a verb indicating an action or change, the sentence can sometimes become unnatural. When talking about future actions and indicating the chronological order of the effects, the \"ば\" form is not used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もし雪が多く降れば試合は中止しよう。",
+          "transcription": "もしゆきがおおくふればしあいはちゅうししよう。",
+          "mean": "If it snows a lot, we will cancel the game."
+        },
+        {
+          "content": "今週末、天気がよければピクニックに行こうよ。",
+          "transcription": "こんしゅうまつ、てんきがよければぴくにっくにいこうよ。",
+          "mean": "If the weather is nice this weekend, let's go on a picnic."
+        },
+        {
+          "content": "時間があればそこを訪問したい。",
+          "transcription": "じかんがあればそこをほうもんしたい。",
+          "mean": "I would like to visit there if I have time."
+        },
+        {
+          "content": "私はできれば彼に勝ちたい。",
+          "transcription": "わたしはできればかれにかちたい。",
+          "mean": "I want to beat him if possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば + will/desire"
+    }
+  ],
+  "title": "…ば ... => If... then...",
+  "_id": "f2d618ceb0702f781ec83b7d4f257d16"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3147,
+  "usages": [
+    {
+      "explain": "Used to emphasize the degree or quantity of an object, event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の借金は10億ドンにのぼった。",
+          "transcription": "かれのしゃっきんは10おくどんにのぼった。",
+          "mean": "His debt amounted to VND 1 billion."
+        },
+        {
+          "content": "今回の地震の被害額は500万ドルにのぼった。",
+          "transcription": "こんかいのじしんのひがいがくは500まんどるにのぼった。",
+          "mean": "The damage caused by this earthquake amounted to $5 million."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にのぼる"
+    }
+  ],
+  "title": "～のぼる  => To increase",
+  "_id": "93020c54469e582d6fdb16f7ba89b71e"
+}

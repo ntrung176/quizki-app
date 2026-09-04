@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3111,
+  "usages": [
+    {
+      "explain": "✦ Used to express the unclear meaning of whether it's A or B.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どなたは男とも女ともつかねようなかった。",
+          "transcription": "どなたはおとこともおんなともつかねようなかった。",
+          "mean": "You could not be a man or a woman."
+        },
+        {
+          "content": "パンダという動物は、狸とも熊ともつかない動物だね。",
+          "transcription": "ぱんだというどうぶつは、たぬきともくまともつかないどうぶつだね。",
+          "mean": "An animal called a panda is not the same as a raccoon dog or a bear."
+        },
+        {
+          "content": "いすともソファーともつかないもの。<br>",
+          "transcription": "いすともそふぁーともつかないもの。",
+          "mean": "Something that cannot be called a chair or a sofa. &lt;br&gt;"
+        }
+      ],
+      "mean": "whether A or B (shows doubt or uncertainty between the two things)",
+      "synopsis": "✦N1 ＋ とも ＋ N2 ＋ ともつかぬ"
+    }
+  ],
+  "title": "～とも～ともつかぬ／ともつかない      =>  whether A or B (shows doubt or uncertainty between the two things)",
+  "_id": "93020c54469e582d6fdb16f7ba9d2ec9"
+}

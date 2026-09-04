@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 842,
+  "usages": [
+    {
+      "explain": "✦ Expresses the highest or extreme state of something.  <br/>Often used with 光栄 (honor), 恐縮 (humility), and 感激 (gratitude).",
+      "note": null,
+      "examples": [
+        {
+          "content": "大統領にお目にかかれて、実に光栄の至りです。",
+          "transcription": "だいとうりょうにおめにかかれて、じつにこうえいのいたりです。",
+          "mean": "It is truly an honor to meet the President."
+        },
+        {
+          "content": "お二人の晴れやかな門出をお祝いできて、ご同慶の至りです。",
+          "transcription": "おににんのはれやかなかどでをおいわいできて、ごどうけいのいたりです。",
+          "mean": "It is my pleasure to congratulate both of you on your bright start."
+        },
+        {
+          "content": "こんな立派な賞をいただきまして、光栄の至りです。",
+          "transcription": "こんなりっぱなしょうをいただきまして、こうえいのいたりです。",
+          "mean": "It is an honor to receive such a prestigious award."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + のいたり"
+    }
+  ],
+  "title": "～の至り => extremely ~",
+  "_id": "f7ff14dae05876cac58b4136932534a3"
+}

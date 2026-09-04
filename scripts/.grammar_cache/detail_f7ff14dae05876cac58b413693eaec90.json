@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2276,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"besides, there are other options to choose from\".<br/>In the case where an event occurred in the past, this structure means \"Although there could have been other options, I didn't choose them\".<br/>It has a similar meaning to 「てもいい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "砂糖の代わりに、蜂蜜で味をつけてもかまわない。",
+          "transcription": "さとうのかわりに、はちみつであじをつけてもかまわない。",
+          "mean": "You can also flavor it with honey instead of sugar."
+        },
+        {
+          "content": "就職の時、ハノイの企業を選んでもかまわなかったのだが、最終的には、ホーチミンで働く方をとったのだ。",
+          "transcription": "しゅうしょくのとき、はのいのきぎょうをえらんでもかまわなかったのだが、さいしゅうてきには、ほーちみんではたらくほうをとったのだ。",
+          "mean": "When looking for a job, he could have chosen a company in Hanoi, but in the end he decided to work in Ho Chi Minh City."
+        },
+        {
+          "content": "バスで行ってもかまわなかったのだが、オートバイクで送ってくれるというので、乗せてもらった。",
+          "transcription": "ばすでおこなってもかまわなかったのだが、おーとばいくでおくってくれるというので、のせてもらった。",
+          "mean": "I could have gone by bus, but they said they would take me by motorcycle, so I gave them a ride."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + もかまわない"
+    }
+  ],
+  "title": "てもかまわない => it doesn't matter ... (Possibility)",
+  "_id": "f7ff14dae05876cac58b413693eaec90"
+}

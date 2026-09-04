@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2586,
+  "usages": [
+    {
+      "explain": "Expresses two completely opposite things, often about capabilities with the meaning \"this can be done, but that cannot be done\". In this case, the particle used here is 「は」 instead of 「が」; while the particle 「が」 in the middle is used to connect the two clauses with the meaning \"but\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "ひらがなとカタカナは書けますが、漢字は書けません。",
+          "transcription": "ひらがなとかたかなはかけますが、かんじはかけません。",
+          "mean": "I can write hiragana and katakana, but not kanji."
+        },
+        {
+          "content": "野球はできますが、スキーはできません。",
+          "transcription": "やきゅうはできますが、すきーはできません。",
+          "mean": "I can play baseball, but I can't ski."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 は...が, N2 は..."
+    }
+  ],
+  "title": "は...が, は...  => [A] but [B]; however; comparison",
+  "_id": "f2d618ceb0702f781ec83b7d4f14951b"
+}

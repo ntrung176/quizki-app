@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2214,
+  "usages": [
+    {
+      "explain": "Describing a degree of action or state, often through implicit speech or a specific example.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今年の試験はそれほど難しくなかった。",
+          "transcription": "ことしのしけんはそれほどむずかしくなかった。",
+          "mean": "This year's exam wasn't that difficult."
+        },
+        {
+          "content": "足は泣きたいほど痛い。",
+          "transcription": "あしはなきたいほどいたい。",
+          "mean": "My legs hurt so much I want to cry."
+        },
+        {
+          "content": "この料理は飽きるほどたくさん食べた。",
+          "transcription": "このりょうりはあきるほどたくさんたべた。",
+          "mean": "I ate so much of this dish that I got tired of it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ほど\nA-い + ほど\nV-る + ほど"
+    }
+  ],
+  "title": "…ほど => To the extent of...",
+  "_id": "f7ff14dae05876cac58b413693e27619"
+}

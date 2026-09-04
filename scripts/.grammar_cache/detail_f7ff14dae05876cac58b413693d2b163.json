@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2105,
+  "usages": [
+    {
+      "explain": "Used to confirm information and express the desire for the listener to agree with you. The pitch rises at the end of the sentence. 「でしょう」 is the more formal form of 「だろう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は月曜日だろう。",
+          "transcription": "あしたはげつようびだろう。",
+          "mean": "Tomorrow will be Monday."
+        },
+        {
+          "content": "これは山田さんの本だろう。",
+          "transcription": "これはやまださんのほんだろう。",
+          "mean": "This must be Mr. Yamada's book."
+        },
+        {
+          "content": "あなたも京都に行くだろう。",
+          "transcription": "あなたもきょうとにいくだろう。",
+          "mean": "You will also go to Kyoto."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + だろう"
+    }
+  ],
+  "title": "だろう => Is that right? (Reconfirm)",
+  "_id": "f7ff14dae05876cac58b413693d2b163"
+}

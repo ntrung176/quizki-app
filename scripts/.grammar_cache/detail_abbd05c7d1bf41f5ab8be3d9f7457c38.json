@@ -1,0 +1,46 @@
+{
+  "level": "N4",
+  "mobileId": 5562,
+  "usages": [
+    {
+      "explain": "「と伝えていただけませんか」is used to politely ask someone to convey a message. This structure is commonly used in business settings such as phone calls, emails, etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "水上さんに「あとで電話をください」と伝えていただけませんか。",
+          "transcription": "みずかみさんに「あとででんわをください」とつたえていただけませんか。",
+          "mean": "Could you please tell Mr. Mizukami to call me later?"
+        },
+        {
+          "content": "部長に、車の事故で、私は会社に遅れると伝えていただけませんか。",
+          "transcription": "ぶちょうに、くるまのじこで、わたしはかいしゃにおくれるとつたえていただけませんか。",
+          "mean": "Could you please tell the manager that I will be late for work due to a car accident?"
+        },
+        {
+          "content": "安藤さんにミーティングが延長になったと伝えていただけませんか。",
+          "transcription": "あんどうさんにミーティングがえんちょうになったとつたえていただけませんか。",
+          "mean": "Could you please tell Mr. Ando that the meeting has been extended?"
+        },
+        {
+          "content": "すみません、山田さんに「ファックスを送りました」と伝えていただけませんか。",
+          "transcription": "すみません、やまださんに「ファックスをおくりました」とつたえていただけませんか。",
+          "mean": "Excuse me, could you please tell Mr. Yamada that I have sent a fax?"
+        },
+        {
+          "content": "先生に私は仕事が忙しいので、授業を休むと伝えていただけませんか。",
+          "transcription": "せんせいにわたしはしごとがいそがしいので、じゅぎょうをやすむとつたえていただけませんか。",
+          "mean": "Could you please tell the teacher that I will be absent from class because I am busy with work?"
+        },
+        {
+          "content": "すみませんが、渡辺さんに「明日の授業は10時からです」と伝えていただけませんか。",
+          "transcription": "すみませんが、わたなべさんに「あしたのじゅぎょうはじゅうじからです」とつたえていただけませんか。",
+          "mean": "Excuse me, but could you please tell Mr. Watanabe that tomorrow's class starts at 10 o'clock?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Indirect quote (formal form)+と伝えていただけませんか<br/>「Direct quote」+と伝えていただけませんか"
+    }
+  ],
+  "title": "と伝えていただけませんか => Could you tell, Could you convey",
+  "_id": "abbd05c7d1bf41f5ab8be3d9f7457c38"
+}

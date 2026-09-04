@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 3181,
+  "usages": [
+    {
+      "explain": "Expresses the idea of the speaker having to do something reluctantly, without desire.",
+      "note": null,
+      "examples": [
+        {
+          "content": "我々はやむをえず出発を延期した。",
+          "transcription": "われわれはやむをえずしゅっぱつをえんきした",
+          "mean": "We had no choice but to postpone our departure."
+        },
+        {
+          "content": "私は昨日やむをえず外出せざるをえなかった。",
+          "transcription": "わたしはきのうやむをえずがいしゅつせざるをえなかった",
+          "mean": "I had no choice but to go out yesterday."
+        },
+        {
+          "content": "旅行に行く予定だったが病気になったのでやむをえず中止にした。",
+          "transcription": "りょこうにいくよていだったがびょうきになったのでやむをえずちゅうしにした",
+          "mean": "I was planning to go on a trip, but I got sick so I had to cancel."
+        },
+        {
+          "content": "やむをえない理由の場合はお金を後で払ってもいいですよ。",
+          "transcription": "やむをえないりゆうのばあいはおかねをあとではらってもいいですよ",
+          "mean": "If the reason is unavoidable, you can pay the money later."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～やむをえず"
+    }
+  ],
+  "title": "～やむをえず  => unavoidable, no other way to do something",
+  "_id": "93020c54469e582d6fdb16f7ba861ba3"
+}

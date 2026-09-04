@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3012,
+  "usages": [
+    {
+      "explain": "上手（じょうず）is used to describe someone who is good at something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はスポーツが上手です。",
+          "transcription": "かれはすぽーつがじょうずです。",
+          "mean": "He is good at sports."
+        },
+        {
+          "content": "彼女は絵が上手です。",
+          "transcription": "かのじょはえがじょうずです。",
+          "mean": "She is good at drawing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + が + 上手だ"
+    }
+  ],
+  "title": "じょうず => Good at",
+  "_id": "f2d618ceb0702f781ec83b7d4f4ae785"
+}

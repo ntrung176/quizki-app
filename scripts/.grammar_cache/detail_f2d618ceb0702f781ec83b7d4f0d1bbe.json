@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2528,
+  "usages": [
+    {
+      "explain": "Used with interrogative words like 「...か」, 「じゃない？」to express uncertainty about the speaker's judgment. Also, 「もしかすると」, 「もしかして」can be used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もしかしたらあそこに座っている人は有名人か。",
+          "transcription": "もしかしたらあそこにすわっているひとはゆうめいじんか。",
+          "mean": "Maybe the person sitting over there is famous?"
+        },
+        {
+          "content": "もしかしたら彼は会社をやめたじゃない。",
+          "transcription": "もしかしたらかれはかいしゃをやめたじゃない。",
+          "mean": "Maybe he quit the company."
+        },
+        {
+          "content": "もしかしたら彼女は嘘をついたじゃないか。",
+          "transcription": "もしかしたらかのじょはうそをついたじゃないか。",
+          "mean": "Maybe she lied."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もしかしたら…か"
+    }
+  ],
+  "title": "もしかしたら…か => perhaps; maybe; perchance; by any chance ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f0d1bbe"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1666,
+  "usages": [
+    {
+      "explain": "Continues after words like 「つまり」、「要するに」、「私が言いたいのは」... when explaining an event previously mentioned with different words.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私が言いたいのはその問題には簡単な解決策はないということなのだ。",
+          "transcription": "わたしがいいたいのはそのもんだいにはかんたんなかいけつさくはないということなのだ。",
+          "mean": "What I am saying is that there is no easy solution to the problem."
+        },
+        {
+          "content": "要するにあなたの失敗は熱意が欠けていたためなのだ。",
+          "transcription": "ようするにあなたのしっぱいはねついがかけていたためなのだ。",
+          "mean": "In short, your failure was due to a lack of enthusiasm."
+        },
+        {
+          "content": "違いはこうだ。つまり、彼女のほうが君よりよく働くのだ。",
+          "transcription": "ちがいはこうだ。つまり、かのじょのほうがきみよりよくはたらくのだ。",
+          "mean": "Here's the difference. In other words, she works better than you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Naな + のだ\nA/ V + のだ"
+    }
+  ],
+  "title": "... のだ => It's... (Explanation)",
+  "_id": "f7ff14dae05876cac58b41369395523d"
+}

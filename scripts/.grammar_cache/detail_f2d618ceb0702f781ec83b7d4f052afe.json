@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2468,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's speculation. It's often used with verbs that do not express volition such as 「ある」(to exist), 「なる」(to become), or verbs indicating possibility such as 「言える」(can say), 「できる」(can do), 「考えられる」(can be considered). The negative form is 「V-まい」. This is a slightly more formal way of speaking. In spoken language, we use 「だろう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日からは全国的に雨が降ろう。",
+          "transcription": "あしたからはぜんこくてきにあめがくだろう。",
+          "mean": "It will rain all over the country from tomorrow."
+        },
+        {
+          "content": "この問題については以下のようなことが言えよう。",
+          "transcription": "このもんだいについてはいかのようなことがいえよう。",
+          "mean": "Regarding this issue, the following can be said."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-よう"
+    }
+  ],
+  "title": "よう => maybe...",
+  "_id": "f2d618ceb0702f781ec83b7d4f052afe"
+}

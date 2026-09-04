@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 2185,
+  "usages": [
+    {
+      "explain": "Used when advising others that something is important and should be done.",
+      "note": null,
+      "examples": [
+        {
+          "content": "良い学業成績をもらいたい人は宿題をすること。そして授業に遅れないこと。",
+          "transcription": "よいがくぎょうせいせきをもらいたいひとはしゅくだいをすること。そしてじゅぎょうにおくれないこと。",
+          "mean": "If you want to get good academic results, do your homework. And don't be late for class."
+        },
+        {
+          "content": "ロシア語が本当に難しいですから、試験に合格したければ、一生懸命勉強すろことだ。",
+          "transcription": "ろしあごがほんとうにむずかしいですから、しけんにごうかくしたければ、いっしょうけんめいべんきょうすろことだ。",
+          "mean": "Russian is really difficult, so if you want to pass the exam, you should study hard."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-ない ＋ こと"
+    },
+    {
+      "explain": "Note: This structure is imperative, so it is often used by superiors, elders, or parents to advise or command those below them. (For example, a teacher speaking to a student, parents advising their children, etc.).",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "こと => Let's do something…",
+  "_id": "f7ff14dae05876cac58b413693ddf748"
+}

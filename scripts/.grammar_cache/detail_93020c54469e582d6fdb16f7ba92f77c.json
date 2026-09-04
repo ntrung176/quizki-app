@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 3114,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate the necessity of doing something, with no other choice available.",
+      "note": null,
+      "examples": [
+        {
+          "content": "<span style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\">人</span>の心を傷つけてしまったなら、謝らないではすまない。",
+          "transcription": "ひとのこころをきずつけてしまったなら、あやまらないではすまない。",
+          "mean": "If you have hurt someone's heart, I can't help but apologize."
+        },
+        {
+          "content": "うそがばれてしまったら、本当のことを教えないではすまない。",
+          "transcription": "うそがばれてしまったら、ほんとうのことをおしえないではすまない。",
+          "mean": "If your lie is exposed, you don't have to tell them the truth."
+        },
+        {
+          "content": "そのパーティーにみんな出席するのなら、わたしも行かずにはすまない。",
+          "transcription": "そのぱーてぃーにみんなしゅっせきするのなら、わたしもいかずにはすまない。",
+          "mean": "If everyone is going to attend that party, I can't help but go too."
+        },
+        {
+          "content": "いつもクラスで居眠って、注意せずにはすまない。",
+          "transcription": "いつもくらすでいねむって、ちゅういせずにはすまない。",
+          "mean": "I always fall asleep in class and don't pay attention to myself."
+        },
+        {
+          "content": "明日はテストがありますから、いい点を取るために、勉強せずにはすまない。",
+          "transcription": "あしたはてすとがありますから、いいてんをとるために、べんきょうせずにはすまない。",
+          "mean": "I have a test tomorrow, so I have to study to get a good score."
+        },
+        {
+          "content": "この仕事私はせずにはすまない。ほかの人に任せてはだめです。",
+          "transcription": "このしごとわたくしはせずにはすまない。ほかのひとにまかせてはだめです。",
+          "mean": "I can't help but do this job. Don't leave it to others."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V-ない+ ではすまない<br/></div><div>✦V-ない （obmit－ない） + ずにはすまない</div>"
+    }
+  ],
+  "title": "～ないではすまない /  ずにはすまない      => must; will definitely; can't help but to ~",
+  "_id": "93020c54469e582d6fdb16f7ba92f77c"
+}

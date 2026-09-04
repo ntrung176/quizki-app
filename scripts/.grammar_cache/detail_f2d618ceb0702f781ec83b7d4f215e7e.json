@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2682,
+  "usages": [
+    {
+      "explain": "Used with verbs indicating actions or effects, to express the idea that \"the action or effect is ongoing.\" It should be noted that there are verbs that do not convey this meaning. For example, the verb 「行（い）く」is used in the sentence 「彼（かれ）は今（いま）日本に行（い）っている」which means he is currently in Japan, not on the way to Japan.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雪はまだ降っているか。",
+          "transcription": "ゆきはまだふっているか。",
+          "mean": "Is it still snowing?"
+        },
+        {
+          "content": "壁にかかっている絵は曲がっている。",
+          "transcription": "かべにかかっているえはまがっている。",
+          "mean": "The picture on the wall is crooked."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ている"
+    }
+  ],
+  "title": "... ている => Be doing something (continuing something)",
+  "_id": "f2d618ceb0702f781ec83b7d4f215e7e"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N5",
+  "mobileId": 5595,
+  "usages": [
+    {
+      "explain": "「くらい/ぐらい」means \"about/approximately,\" and it is added after a quantifying word (a word indicating quantity) when the speaker cannot provide an exact number and can only estimate.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学校の先生は50人ぐらいいます。",
+          "transcription": "がっこうのせんせいはごじゅうにんぐらいいます。",
+          "mean": "There are about 50 teachers at the school."
+        },
+        {
+          "content": "私の家から駅まで10分ぐらいかかります。",
+          "transcription": "わたしのいえからえきまでじゅっぷんぐらいかかります。",
+          "mean": "It takes about 10 minutes from my house to the station."
+        },
+        {
+          "content": "毎日2時間ぐらい勉強します。",
+          "transcription": "まいにちにじかんぐらいべんきょうします。",
+          "mean": "I study for about 2 hours every day."
+        },
+        {
+          "content": "今日は5時半くらい帰ります。",
+          "transcription": "きょうはごじはんくらいかえります。",
+          "mean": "I'll be home around 5:30 today."
+        },
+        {
+          "content": "1000円くらいなら買えますよ。",
+          "transcription": "せんえんくらいならかえますよ。",
+          "mean": "You can buy it for around 1000 yen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity verbs+くらい / ぐらい"
+    }
+  ],
+  "title": "くらい/ぐらい => approximately, about, almost",
+  "_id": "856224246f6c4fe29d8ff0a50e24b46d"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3175,
+  "usages": [
+    {
+      "explain": "<div>✦ Expresses an event that the speaker himself does not know clearly about.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "帰国した留学生は今何をしているものやら。",
+          "transcription": "りこくしたりゅうがくせいはいまなにをしているものやら。",
+          "mean": "What are international students who have returned to their countries doing now?"
+        },
+        {
+          "content": "営業へ行くと言って出かけたきり帰ってこない。",
+          "transcription": "えいぎょうへいくといってでかけたきりかえってこない。",
+          "mean": "He said he was going to work and never came back."
+        },
+        {
+          "content": "高価な贈り物をもらったが、そんなに親しい相手でもないので喜んでいいものやら。",
+          "transcription": "こうかなおくりものをもらったが、そんなにしたしいあいてでもないのでよろこんでいいものやら。",
+          "mean": "I received an expensive gift, but since I'm not that close to the person, I guess I should be happy with it."
+        }
+      ],
+      "mean": "I wonder...; unsure; I don’t know ~",
+      "synopsis": "<div>✦formal form [Nな] ＋ ものやら<br/></div>"
+    }
+  ],
+  "title": "～ものやら      => I wonder...; unsure; I don’t know ~",
+  "_id": "93020c54469e582d6fdb16f7baa45b50"
+}

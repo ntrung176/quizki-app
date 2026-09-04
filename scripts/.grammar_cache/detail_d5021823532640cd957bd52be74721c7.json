@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5266,
+  "usages": [
+    {
+      "explain": "「ていられない」expresses the idea that (due to an urgent reason) one cannot continue to do something, otherwise it will not be okay. It shows the speaker's anxious and impatient attitude, along with the desire for the current situation to change soon.",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中君、遅いなあ。もう待ってられないから先に行こう。",
+          "transcription": "たなかくん、おそいなあ。もうまってられないからさきにいこう。",
+          "mean": "Tanaka-kun, you're late. I can't wait any longer, so let's go first."
+        },
+        {
+          "content": "忙しくてテレビなんか見てらんない。",
+          "transcription": "いそがしくてテレビなんかみてらんない。",
+          "mean": "I'm too busy to watch TV."
+        },
+        {
+          "content": "風が強くて、立っていられないほどです。",
+          "transcription": "かぜがつよくて、たっていられないほどです。",
+          "mean": "The wind was so strong that I couldn't stand."
+        },
+        {
+          "content": "仕事が予定より遅れている。だから、今度の日曜日は、仕事を休んではいられない。",
+          "transcription": "しごとがよていよりおくれている。だから、こんどのにちようびは、しごとをやすんではいられない。",
+          "mean": "Work is behind schedule. That's why I can't afford to miss work this coming Sunday."
+        },
+        {
+          "content": "明日は早く起きるので、いつものように遅くまで  テレビを見てはいられない。",
+          "transcription": "あしたははやくおきるので、いつものようにおそくまでテレビをみてはいられない。",
+          "mean": "I'll wake up early tomorrow, so I won't be able to watch TV until late like usual."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて(は)いられない<br/>Vてられない<br/> Vてらんない"
+    }
+  ],
+  "title": "ていられない => can't afford to; unable to ~",
+  "_id": "d5021823532640cd957bd52be74721c7"
+}

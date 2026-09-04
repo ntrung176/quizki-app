@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5516,
+  "usages": [
+    {
+      "explain": "「ながら」describes two actions happening simultaneously.<br/>Note:<br/>- Both actions must be performed by the same subject.<br/>\n- The second action (V2) is the main action, while the first action (V1) provides additional information, indicating the state in which the second action is performed. Therefore, it's important to determine which verb should come before and after ながら to avoid confusion in the sentence. Example:<br/>\n✖ 話しながら、歩きましょう。(\"Talking\" is the main action and is done \"while walking,\" so it should come after ながら.)<br/>\n〇 歩きながら、話しましょう。",
+      "note": null,
+      "examples": [
+        {
+          "content": "歩きながら、話しましょう。",
+          "transcription": "あるきながら、はなしましょう。",
+          "mean": "Let's talk while walking."
+        },
+        {
+          "content": "音楽を聞きながら、食事します。",
+          "transcription": "おんがくをききながら、しょくじします。",
+          "mean": "Eat while listening to music."
+        },
+        {
+          "content": "働きながら、日本語を勉強しています。",
+          "transcription": "はたらきながら、にほんごをべんきょうしています。",
+          "mean": "I am studying Japanese while working."
+        },
+        {
+          "content": "母は料理を作りながら、電話をしている。",
+          "transcription": "はははりょうりをつくりながら、でんわをしている。",
+          "mean": "My mother is on the phone while cooking."
+        },
+        {
+          "content": "彼が運転しながら、マップを調べます。",
+          "transcription": "かれがうんてんしながら、マップをしらべます。",
+          "mean": "As he drives, he examines the map."
+        },
+        {
+          "content": "私はたばこを吸いながら、新聞を読みます。",
+          "transcription": "わたしはたばこをすいながら、しんぶんをよみます。",
+          "mean": "I read the newspaper while smoking a cigarette."
+        },
+        {
+          "content": "彼女はハンバーガーを食べながら、宿題をしている。",
+          "transcription": "かのじょはハンバーガーをたべながら、しゅくだいをしている。",
+          "mean": "She is doing her homework while eating a hamburger."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1<s>ます</s> ながら V2"
+    }
+  ],
+  "title": "ながら => while; during; as; to do two things simultaneously.",
+  "_id": "f57c94a7bd7948848f18410a524ac376"
+}

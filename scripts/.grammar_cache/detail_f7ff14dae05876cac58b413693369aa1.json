@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 974,
+  "usages": [
+    {
+      "explain": "Describes a state of speaking loudly and emphatically by presenting two contrasting contents.",
+      "note": null,
+      "examples": [
+        {
+          "content": "行くの行かないのと言い争っている。",
+          "transcription": "いくのいかないのといいあらそっている。",
+          "mean": "They are arguing about whether to go or not."
+        },
+        {
+          "content": "結婚したいのしたくないのとわがままを言う。",
+          "transcription": "けっこんしたいのしたくないのとわがままをいう。",
+          "mean": "I say selfishly whether I want to get married or not."
+        },
+        {
+          "content": "会社を辞めるの辞めないのと悩んでいた。",
+          "transcription": "かいしゃをやめるのやめないのとなやんでいた。",
+          "mean": "I was worried about whether to quit my job or not."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい の + Aくない のとVる の + V-ない のと"
+    }
+  ],
+  "title": "…の…ないの => thinking whether or not to do something...",
+  "_id": "f7ff14dae05876cac58b413693369aa1"
+}

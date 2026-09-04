@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 1196,
+  "usages": [
+    {
+      "explain": "✦ The verb that follows is usually one with the meaning \"to see\" or \"to discover,\" such as 「見る」 (to see), 「見つける」 (to find), 「見つかる」 (to be found), or 「発見する」 (to discover), or verbs with the meaning \"to stop, to arrest, to attack\" or \"to assist,\" such as 「呼び止める」 (to call to stop), 「捕まえる」 (to catch), 「捕まる」 (to be caught), 「襲う」 (to attack), 「助ける」 (to help), etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お母さんは子供が遊んでいるところを家の窓から見ていた。",
+          "transcription": "おかあさんはこどもがあそんでいるところをいえのまどからみていた。",
+          "mean": "The mother was watching her child playing from the window of the house."
+        },
+        {
+          "content": "こっそりタバコを吸っているところを先生に見つかった。",
+          "transcription": "こっそりタバコをすっているところをせんせいにみつかった。",
+          "mean": "My teacher caught me secretly smoking a cigarette."
+        },
+        {
+          "content": "駅前を歩いているところを警官に呼び止められた。",
+          "transcription": "えきまえをあるいているところをけいかんによびとめられた。",
+          "mean": "I was stopped by a police officer as I was walking in front of the station."
+        },
+        {
+          "content": "男は金庫からお金を盗み出そうとしているところを現行犯で逮捕された。",
+          "transcription": "おとこはきんこからおかねをぬすみだそうとしているところをげんこうはんでたいほされた。",
+          "mean": "The man was caught red-handed while trying to steal money from a safe."
+        },
+        {
+          "content": "人々がぐっすり寝込んだところを突然の揺れが襲った。",
+          "transcription": "ひとびとがぐっすりねこんだところをとつぜんのゆれがおそった。",
+          "mean": "A sudden tremor hit the people who were fast asleep."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V + ところを + V"
+    }
+  ],
+  "title": "～ところを... => ～While, at the moment",
+  "_id": "f7ff14dae05876cac58b41369354bcaa"
+}

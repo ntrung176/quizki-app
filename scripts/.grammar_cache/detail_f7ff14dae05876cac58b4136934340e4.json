@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1065,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's emotions to an indefinite extent.",
+      "note": null,
+      "examples": [
+        {
+          "content": "初めての息子が生まれたとき、彼女はどんなに喜んだことか。",
+          "transcription": "はじめてのむすこがうまれたとき、かのじょはどんなによろこんだことか。",
+          "mean": "How happy she was when her first son was born!"
+        },
+        {
+          "content": "大学入試に合格できたら、どんなに嬉しいことか。",
+          "transcription": "だいがくにゅうしにごうかくできたら、どんなにうれしいことか。",
+          "mean": "How happy I would be if I could pass the university entrance exam."
+        },
+        {
+          "content": "この辺の景色はどんなにきれいなことか。",
+          "transcription": "このへんのけしきはどんなにきれいなことか。",
+          "mean": "How beautiful is the scenery around here?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな + ことか"
+    }
+  ],
+  "title": "ことか => how…!; what…!",
+  "_id": "f7ff14dae05876cac58b4136934340e4"
+}

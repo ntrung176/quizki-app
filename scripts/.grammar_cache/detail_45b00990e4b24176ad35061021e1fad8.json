@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5442,
+  "usages": [
+    {
+      "explain": "「ところだった」expresses an event (good or bad) that almost happened. The structure encapsulates the speaker's emotions towards the event (disappointment, anger, regret, relief, etc.). It is often used with expressions like もう少しで、もうちょっとで... (almost, just about to...).\n\nBefore the phrase 「ところだった」, there could be a conditional phrase like「ば」or 「たら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう少しで遅刻するところだった。",
+          "transcription": "もうすこしでちこくするところだった。",
+          "mean": "I was almost going to be late."
+        },
+        {
+          "content": "あと少しで合格するところだったのに...",
+          "transcription": "あとすこしでごうかくするところだったのに...",
+          "mean": "I almost passed the exam..."
+        },
+        {
+          "content": "もう少しで階段から落ちるところだった。",
+          "transcription": "もうすこしでかいだんからおちるところだった。",
+          "mean": "I almost fell down the stairs."
+        },
+        {
+          "content": "もう少しで彼は市会議員に当選するところだった。",
+          "transcription": "もうすこしでかれはしかいぎいんにとうせんするところだった。",
+          "mean": "He was almost elected to the city council."
+        },
+        {
+          "content": "二度寝をしてしまい、テストに間に合わないところだった。",
+          "transcription": "にどねをしてしまい、テストにまにあわないところだった。",
+          "mean": "I fell asleep twice and almost missed the test."
+        },
+        {
+          "content": "気がつくのが遅かったら、あやうく火事になるところだったよ。",
+          "transcription": "きがつくのがおそかったら、あやうくかじになるところだったよ。",
+          "mean": "If I hadn't noticed it too late, it would have almost caused a fire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる / Vない+ところだった"
+    }
+  ],
+  "title": "ところだった => was just about to do something; something almost happened",
+  "_id": "45b00990e4b24176ad35061021e1fad8"
+}

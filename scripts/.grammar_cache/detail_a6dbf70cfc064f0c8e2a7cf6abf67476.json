@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5552,
+  "usages": [
+    {
+      "explain": "「たらいいですか」is similar to the pattern 'ばいいですか' and is used when one wants the listener to provide guidance or advice on how to do something, or what should be done in a particular situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どこでカメラを買ったらいいですか。",
+          "transcription": "どこでカメラをかったらいいですか。",
+          "mean": "Where should I buy a camera?"
+        },
+        {
+          "content": "この本はいつまでに返したらいいですか。",
+          "transcription": "このほんはいつまでにかえしたらいいですか。",
+          "mean": "By when should I return this book?"
+        },
+        {
+          "content": "お腹が痛いんですが、どうしたらいいですか。",
+          "transcription": "おなかがいたいんですが、どうしたらいいですか。",
+          "mean": "My stomach hurts, what should I do?"
+        },
+        {
+          "content": "細かいお金がないんですが、どうしたらいいですか。",
+          "transcription": "こまかいおかねがないんですが、どうしたらいいですか。",
+          "mean": "I don't have a lot of money, what should I do?"
+        },
+        {
+          "content": "日本語の文章に慣れるにはどうしたらいいですか。",
+          "transcription": "にほんごのぶんしょうになれるにはどうしたらいいですか。",
+          "mean": "What should I do to get used to Japanese sentences?"
+        },
+        {
+          "content": "ホテルの予約をキャンセルしたいんですが、どうしたらいいですか。",
+          "transcription": "ホテルのよやくをキャンセルしたいんですが、どうしたらいいですか。",
+          "mean": "I want to cancel my hotel reservation, what should I do?"
+        },
+        {
+          "content": "東京スカイツリーへ行きたいんですが、どの駅で降りたらいいですか。",
+          "transcription": "とうきょうスカイツリーへいきたいんですが、どのえきでおりたらいいですか。",
+          "mean": "I want to go to Tokyo Skytree, but which station should I get off at?"
+        },
+        {
+          "content": "来年、韓国へ旅行に行こうと思っているんですが、どこへ行ったらいいですか。",
+          "transcription": "らいねん、かんこくへりょこうにいこうおもっているんですが、どこへいったらいいですか。",
+          "mean": "I'm thinking of traveling to South Korea next year, but where should I go?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vたら+いいですか"
+    }
+  ],
+  "title": "たらいいですか => what should I do?",
+  "_id": "a6dbf70cfc064f0c8e2a7cf6abf67476"
+}

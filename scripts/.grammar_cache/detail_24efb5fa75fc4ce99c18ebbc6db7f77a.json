@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5337,
+  "usages": [
+    {
+      "explain": "「ごらん」is used to request, suggest someone younger, subordinate, family member, or close friend to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう一度やってごらんなさい。",
+          "transcription": "もういちどやってごらんなさい。",
+          "mean": "Please try again."
+        },
+        {
+          "content": "分からなかったら先生に聞いてごらん。",
+          "transcription": "わからなかったらせんせいにきいてごらん。",
+          "mean": "If you don't understand, ask your teacher."
+        },
+        {
+          "content": "これは美味しいですから、食べてごらん。",
+          "transcription": "これはおいしいですから、たべてごらん。",
+          "mean": "This is delicious, so please try it."
+        },
+        {
+          "content": "二人とも自分を見てごらんなさいよ。",
+          "transcription": "ふたりともじぶんをみてごらんなさいよ。",
+          "mean": "Both of you, please look at yourself."
+        },
+        {
+          "content": "ほら、見てごらん。空に虹が出ているよ。",
+          "transcription": "ほら、みてごらん。そらににじがでているよ。",
+          "mean": "Here, take a look. There's a rainbow in the sky."
+        },
+        {
+          "content": "苦くないからちょっと飲んでごらん。",
+          "transcription": "にがくないからちょっとのんでごらん。",
+          "mean": "It's not bitter, so give it a drink."
+        },
+        {
+          "content": "その言葉を辞書で調べてごらんなさい。",
+          "transcription": "そのことばをじしょでしらべてごらんなさい。",
+          "mean": "Please look up that word in the dictionary."
+        },
+        {
+          "content": "君が彼の立場に立ってごらんなさい。",
+          "transcription": "きみがかれのたちばにたってごらんなさい。",
+          "mean": "I wish you were in his shoes."
+        },
+        {
+          "content": "出来るか出来ないか、とにかくやってごらんなさい。",
+          "transcription": "できるかできないか、とにかくやってごらんなさい。",
+          "mean": "Whether you can do it or not, just try it."
+        },
+        {
+          "content": "この本は面白いですよ！時間があったら読んでごらん。",
+          "transcription": "このほんはおもしろいですよ！じかんがあったらよんでごらん。",
+          "mean": "This book is interesting! Please read it if you have time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+ごらん（なさい）"
+    }
+  ],
+  "title": "ごらん => (please) try to; (please) look",
+  "_id": "24efb5fa75fc4ce99c18ebbc6db7f77a"
+}

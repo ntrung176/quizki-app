@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2911,
+  "usages": [
+    {
+      "explain": "[ても] is used in situations where there is hope for something to happen under certain conditions but it does not happen, or the result is contrary to what was expected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "とても激しく雨が降っても出かけなければならない。",
+          "transcription": "とてもはげしくあめがふってもでかけなければならない。",
+          "mean": "I have to go out even if it rains very heavily."
+        },
+        {
+          "content": "ほしくなくても薬を飲まなければならない。",
+          "transcription": "ほしくなくてもくすりをのまなければならない。",
+          "mean": "I have to take medicine even if I don't want to."
+        },
+        {
+          "content": "静かでも寝ることも出来ない。",
+          "transcription": "しずかでもねることもできない。",
+          "mean": "I can't sleep even if it's quiet."
+        },
+        {
+          "content": "日曜日でも働かなければならない。",
+          "transcription": "にちようびでもはたらかなければならない。",
+          "mean": "I have to work even on Sundays."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vても<br/>Aくても<br/>Naでも<br/>Nでも"
+    }
+  ],
+  "title": "ても => Although...also... (converse conditional)",
+  "_id": "f2d618ceb0702f781ec83b7d4f3e68cf"
+}

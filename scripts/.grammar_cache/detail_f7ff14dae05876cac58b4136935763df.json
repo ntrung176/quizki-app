@@ -1,0 +1,21 @@
+{
+  "level": "N2",
+  "mobileId": 1216,
+  "usages": [
+    {
+      "explain": "Used to express regret or criticize the listener because something contrary to what was stated in the preceding clause has occurred.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これまでは平和に協力してきたのではなかったか。",
+          "transcription": "これまではへいわにきょうりょくしてきたのではなかったか。",
+          "mean": "Haven't we been cooperating peacefully up until now?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na な + のではなかったか\nA／V + のではなかったか"
+    }
+  ],
+  "title": "…のではなかったか => ..., isn't it (Criticism)",
+  "_id": "f7ff14dae05876cac58b4136935763df"
+}

@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 5634,
+  "usages": [
+    {
+      "explain": "「たり～たり」is used for <br/>\n1. Listing two typical actions from a larger group of actions. It can also be used to simply mention one typical action using the structure「V2たりします」.<br/>\n2. When actions 1 and 2 (V1 and V2) are opposite in meaning, this pattern indicates that these two actions occur alternately.<br/>\nIn「たり～たり」, the tense of the verb is shown at the end of the sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日曜日はテニスをしたり、映画を見たりします。",
+          "transcription": "にちようびはテニスをしたり、えいがをみたりします。",
+          "mean": "On Sundays, I play tennis and watch movies."
+        },
+        {
+          "content": "週末は買い物したり、カフェに行ったりします。",
+          "transcription": "しゅうまつはかいものしたり、カフェにいったりします。",
+          "mean": "On the weekends, I go shopping and go to cafes."
+        },
+        {
+          "content": "暇な時、本を読んだりしていますね。",
+          "transcription": "ひまなとき、ほんをよんだりしていますね。",
+          "mean": "In my free time, I like reading books."
+        },
+        {
+          "content": "ナナさんは英語で話したり、日本語で話したりします。",
+          "transcription": "ナナさんはえいごではなしたり、にほんごではなしたりします。",
+          "mean": "Nana-san speaks in English and Japanese."
+        },
+        {
+          "content": "この廊下は人が通ると、電気がついたり消えたりします。",
+          "transcription": "このろうかはひとがとおると、でんきがついたりきえたりします。",
+          "mean": "When people pass through this hallway, the lights turn on and off."
+        },
+        {
+          "content": "昨夜雨が降ったり止んだりしていました。",
+          "transcription": "ゆうべあめがふったりやんだりしていました。",
+          "mean": "It was raining on and off last night."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1たり、V2たり します"
+    }
+  ],
+  "title": "たり～たり => do such things as A and B",
+  "_id": "4d6c59812fda42559455ad97b41d8b17"
+}

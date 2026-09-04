@@ -1,0 +1,33 @@
+{
+  "level": "N2",
+  "mobileId": 1476,
+  "usages": [
+    {
+      "explain": "This is a condensed form of the latter part of the structure 「V-たらどうか」, used to advise the other party on what to do. Pronounced with a rising intonation. Often used in informal conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大変だから辞めたら。",
+          "transcription": "たいへんだからやめたら。",
+          "mean": "It's hard so I quit."
+        },
+        {
+          "content": "そんなに緊張しているなら、すこしお茶を飲んだら。",
+          "transcription": "そんなにきんちょうしているなら、すこしおちゃをのんだら。",
+          "mean": "If you're that nervous, why don't you drink some tea?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-たら"
+    },
+    {
+      "explain": "Note: While it can be replaced by 「V-ば」, when using 「たら」, it truly implies advising the other party, whereas with 「ば」, it carries a sense of indifference, implying that it's okay either way for the speaker.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...たら => if; after; when ~",
+  "_id": "f7ff14dae05876cac58b4136937c37f7"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 2218,
+  "usages": [
+    {
+      "explain": "✦Used to declare the end of an event at a certain point in time. A more formal version of 'をもって' is 'をもちまして'.",
+      "note": null,
+      "examples": [
+        {
+          "content": "本日をもちまして、レストランは閉店いたします。",
+          "transcription": "ほんじつをもちましてれすとらんはへいてんいたします。",
+          "mean": "The restaurant will be closed as of today."
+        },
+        {
+          "content": "第３０回卒業式は、これをもちまして終了いたします。",
+          "transcription": "だいさんぜろかいそつぎょうしきは、これをもちましてしゅうりょういたします。",
+          "mean": "This marks the end of the 30th Graduation Ceremony."
+        },
+        {
+          "content": "これをもちまして、私のスピーチを終わらせていただきます。",
+          "transcription": "これをもちまして、わたしのすぴーちをおわらせていただきます。",
+          "mean": "With this, I would like to conclude my speech."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + をもちまして"
+    }
+  ],
+  "title": "をもって => Since the time...",
+  "_id": "f7ff14dae05876cac58b413693e2f965"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 873,
+  "usages": [
+    {
+      "explain": "昼となく夜となく (ひるとなくよるとなく) expresses the meaning of \"both day and night\", or \"throughout the day\". It is commonly used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "計画に間に合うために全社は昼となく夜となく働いている。",
+          "transcription": "けいかくにまにあうためにぜんしゃはひるとなくよるとなくはたらいている。",
+          "mean": "The entire company is working day and night to meet the plan."
+        },
+        {
+          "content": "母は昼となく夜となく病気の父の世話をしている。",
+          "transcription": "はははひるとなくよるとなくびょうきのちちのせわをしている。",
+          "mean": "My mother takes care of my sick father day and night."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence + 昼となく夜となく"
+    }
+  ],
+  "title": "昼となく夜となく => day and night",
+  "_id": "f7ff14dae05876cac58b413693293c2e"
+}

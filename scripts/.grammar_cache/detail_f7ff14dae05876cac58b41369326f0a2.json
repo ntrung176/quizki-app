@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 856,
+  "usages": [
+    {
+      "explain": "✦ Under the condition that A/ while still being A/ within the scope of A, then B.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "外国語は、毎日練習しないかぎり、上手にはならない。",
+          "transcription": "がいこくごは、まいにちれんしゅうしないかぎり、じょうずにはならない。",
+          "mean": "You won't become good at a foreign language unless you practice it every day."
+        },
+        {
+          "content": "選手たちは優秀をかけて命の限り戦ったが、惜しくも敗れてしまった。",
+          "transcription": "せんしゅたちはゆうしゅうをかけていのちのかぎりたたかったが、おしくもやぶれてしまった。",
+          "mean": "The players fought to the best of their ability, but unfortunately lost."
+        },
+        {
+          "content": "夫婦である限りは、相手にたいして責任を持つべきだ。",
+          "transcription": "ふうふであるかぎりは、あいてにたいしてせきにんをもつべきだ。",
+          "mean": "As long as you are a couple, you should be responsible for your partner."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦ [ふつう] + 限り（かぎり）</div><div>✦Na/ 名 + である + 限り</div><div>✦「A限りB」<br/></div>"
+    }
+  ],
+  "title": "～かぎり => as long as; while… is the case; as far as; while ~",
+  "_id": "f7ff14dae05876cac58b41369326f0a2"
+}

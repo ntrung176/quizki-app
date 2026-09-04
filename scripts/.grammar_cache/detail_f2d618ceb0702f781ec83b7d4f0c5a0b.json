@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2522,
+  "usages": [
+    {
+      "explain": "Used to limit the scope of the story or topic of conversation, then within that scope, the highest-rated item is presented.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本ならやっぱり桜だ。",
+          "transcription": "にっぽんならやっぱりさくらだ。",
+          "mean": "In Japan, it's definitely cherry blossoms."
+        },
+        {
+          "content": "ストレス解消法ならカラオケに限る。",
+          "transcription": "すとれすかいしょうほうならからおけにかぎる。",
+          "mean": "Karaoke is the only way to relieve stress."
+        },
+        {
+          "content": "餅なら、この辺の餅が最高だ。",
+          "transcription": "もちなら、このあたりのもちがさいこうだ。",
+          "mean": "When it comes to mochi, the mochi around here is the best."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + なら + N + だ"
+    }
+  ],
+  "title": "なら～だ => if; in the case that ~  (limit the range of the topic, from that the most evaluated will be given)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0c5a0b"
+}

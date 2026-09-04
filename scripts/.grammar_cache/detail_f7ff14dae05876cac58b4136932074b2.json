@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 810,
+  "usages": [
+    {
+      "explain": "✦ Indicates that regardless of any factor used in the interrogative part of the sentence, the result will inevitably be the same.",
+      "note": null,
+      "examples": [
+        {
+          "content": "だれが電話してきても、取りつがないでください。",
+          "transcription": "だれがでんわしてきても、とりつがないでください。",
+          "mean": "No matter who calls, don't get carried away."
+        },
+        {
+          "content": "どんな仕事でも、彼は快く引き受けてくれる。",
+          "transcription": "どんなしごとでも、かれはこころよくひきうけてくれる。",
+          "mean": "He will gladly accept any job."
+        },
+        {
+          "content": "本は、どこで買っても同じ値段だ。",
+          "transcription": "ほんは、どこでかってもおなじねだんだ。",
+          "mean": "Books cost the same no matter where you buy them."
+        },
+        {
+          "content": "あの人はいつ見ても美しい。",
+          "transcription": "あのひとはいつみてもうつくしい。",
+          "mean": "That person is always beautiful."
+        },
+        {
+          "content": "何をしても、あのショックが忘れられない。",
+          "transcription": "なにをしても、あのショックがわすれられない。",
+          "mean": "No matter what I do, I'll never forget that shock."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Interrogative word + ても"
+    }
+  ],
+  "title": "～ても => even; even if; even though ~",
+  "_id": "f7ff14dae05876cac58b4136932074b2"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2583,
+  "usages": [
+    {
+      "explain": "When quoting the words of a third person, we use 「といいました」, but when we want to convey a message from a third person, we use 「といっていました」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "鈴木さんは「明日会社が休みます」と言っていました。",
+          "transcription": "すずきさんは「あしたかいしゃがやすみます」といっていました。",
+          "mean": "Mr. Suzuki said, ``The company will be closed tomorrow.''"
+        },
+        {
+          "content": "上司は今週末外国へ行くと言っています。",
+          "transcription": "じょうしはこんしゅうまつがいこくへいくといっています。",
+          "mean": "My boss says he's going abroad this weekend."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence’+と言っていました\nV-る/ V-た/ V-ない+と言っていました"
+    }
+  ],
+  "title": "と言っていました => Someone said...",
+  "_id": "f2d618ceb0702f781ec83b7d4f14312e"
+}

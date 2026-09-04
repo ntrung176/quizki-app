@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2359,
+  "usages": [
+    {
+      "explain": "Used with honorific verbs or Sino-Japanese nouns indicating behavior. It's a more formal and polite way of saying \"てくださる\". In cases with Sino-Japanese nouns indicating behavior, it often takes the form \"ごNくださる\", but in the case of \"電話する\", it's used as \"お電話くださる\". The form \"お+V-ます omitting ます+ ください\" can be used to politely invite or request something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日お話しくださる先生は、京都大学の中村先生です。",
+          "transcription": "きょうおはなしくださるせんせいは、きょうとだいがくのなかむらせんせいです。",
+          "mean": "The professor who will be speaking today is Professor Nakamura of Kyoto University."
+        },
+        {
+          "content": "今日ご講演くださる先生は、京都大学の中村先生です。",
+          "transcription": "きょうごこうえんくださるせんせいは、きょうとだいがくのなかむらせんせいです。",
+          "mean": "The professor who will be giving a lecture today is Professor Nakamura of Kyoto University."
+        },
+        {
+          "content": "いつおいでくださっても歓迎いたします。",
+          "transcription": "いつおいでくださってもかんげいいたします。",
+          "mean": "You have a standing invitation to join us."
+        }
+      ],
+      "mean": null,
+      "synopsis": "お Vますくださる\nご N くださる"
+    }
+  ],
+  "title": "お…くださる => Please do ~ (honorific)",
+  "_id": "f7ff14dae05876cac58b413693f629f4"
+}

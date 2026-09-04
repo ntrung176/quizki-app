@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5206,
+  "usages": [
+    {
+      "explain": "「 に先立って」means \"before\" similar to「の前に」, but it is mainly used to express the idea of: before an important or special occasion/event (N), then do something necessary to prepare. This structure is not used to talk about trivial, everyday matters like going to school or work...<br/>「に先立ち」is a more formal form of「に先立って」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "新製品の開発に先立って、アンケート調査を行った。",
+          "transcription": "しんせいひんのかいはつにさきだって、アンケートちょうさをおこなった。",
+          "mean": "Prior to developing a new product, we conducted a questionnaire survey."
+        },
+        {
+          "content": "新しい家電を購入するに先立って、色々な店舗のチラシを比較した。",
+          "transcription": "あたらしいかでんをこうにゅうするにさきだって、いろいろなてんぽのチラシをひかくした。",
+          "mean": "Before purchasing new home appliances, I compared flyers from various stores."
+        },
+        {
+          "content": "開店に先立ち、関係者だけのパーティーが行われた。",
+          "transcription": "かいてんにさきだち、かんけいしゃだけのパーティーがおこなわれた。",
+          "mean": "Prior to the opening, a party was held for only those involved."
+        },
+        {
+          "content": "個人情報を収集するに先立って、その利用目的を明示しなければならない。",
+          "transcription": "こじんじょうほうをしゅうしゅうするにさきだって、そのりようもくてきをめいじしなければならない。",
+          "mean": "Before collecting personal information, the purpose of its use must be clearly stated."
+        },
+        {
+          "content": "留学に先立つ書類を作成します。",
+          "transcription": "りゅうがくにさきだつしょるいをさくせいします。",
+          "mean": "Create documents prior to studying abroad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/V (root form)+に先立って<br/> N/V (root form)+に先立ち<br/> N+に先立つN'"
+    }
+  ],
+  "title": "に先立って => before; prior to ~",
+  "_id": "21f3ef37f63c40559b95005ab8067401"
+}

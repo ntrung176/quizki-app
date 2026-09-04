@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3136,
+  "usages": [
+    {
+      "explain": "■ Expresses negative states like enduring pain, suffering, or hatred.<br/>\n■ Can also be translated as: Regardless, unaffected by harsh, strong external influences.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この材料は火に耐える。",
+          "transcription": "このざいりょうはひにたえる。",
+          "mean": "This material resists fire."
+        },
+        {
+          "content": "どんな天候にも耐える。",
+          "transcription": "どんなてんこうにもたえる。",
+          "mean": "Withstands any weather."
+        },
+        {
+          "content": "高温にたえる構造。",
+          "transcription": "こうおんにたえるこうぞう。",
+          "mean": "Structure that can withstand high temperatures."
+        }
+      ],
+      "mean": "bear doing ~",
+      "synopsis": "<div>■Vる＋ にたえる</div><div>■N ＋ にたえる</div>"
+    }
+  ],
+  "title": "～にたえる (耐える)    => bear doing ~",
+  "_id": "93020c54469e582d6fdb16f7baa05f35"
+}

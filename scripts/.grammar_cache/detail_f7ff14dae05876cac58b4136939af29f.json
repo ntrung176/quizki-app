@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1704,
+  "usages": [
+    {
+      "explain": "Expresses the feeling of \"not knowing the reason, cause\". Often used to explain things contrary to the speaker's will or judgment.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さっきなぜかマイクが入らなかった。",
+          "transcription": "さっきなぜかまいくがはいらなかった。",
+          "mean": "For some reason the mic wasn't working just now."
+        },
+        {
+          "content": "私は今朝はなぜか元気がないようだ。",
+          "transcription": "わたしはけさはなぜかげんきがないようだ。",
+          "mean": "I don't seem to be feeling well this morning for some reason."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なぜか"
+    }
+  ],
+  "title": "なぜか => somehow; for some reason; without knowing why.",
+  "_id": "f7ff14dae05876cac58b4136939af29f"
+}

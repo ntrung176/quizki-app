@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1858,
+  "usages": [
+    {
+      "explain": "Expressing the sequence of doing something before going.",
+      "note": null,
+      "examples": [
+        {
+          "content": "うちで朝ごはんを食べて行きました。",
+          "transcription": "うちであさごはんをたべていきました。",
+          "mean": "I went to have breakfast at my house."
+        },
+        {
+          "content": "上司が任せた任務を済ませて行きます。",
+          "transcription": "じょうしがまかせたにんむをすませていきます。",
+          "mean": "I will complete the tasks assigned to me by my boss."
+        },
+        {
+          "content": "先生の誕生日だから、登校の途中でバースデーケーキを貰って行きました。",
+          "transcription": "せんせいのたんじょうびだから、とうこうのとちゅうでばーすでーけーきをもらっていきました。",
+          "mean": "Since it was my teacher's birthday, I got him a birthday cake on the way to school."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + いく"
+    }
+  ],
+  "title": "ていく => to continue; to go on",
+  "_id": "f7ff14dae05876cac58b413693aff195"
+}

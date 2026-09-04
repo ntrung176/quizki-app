@@ -1,0 +1,61 @@
+{
+  "level": "N5",
+  "mobileId": 5638,
+  "usages": [
+    {
+      "explain": "「てください」is a structure used by the speaker to make a request, give an order, extend an invitation, or give advice to the listener. When speaking to superiors or older individuals, 「てください」is not used in the sense of giving orders.",
+      "note": null,
+      "examples": [
+        {
+          "content": "早く寝てください。",
+          "transcription": "はやくねてください。",
+          "mean": "Please go to bed early."
+        },
+        {
+          "content": "10ページを参照してください。",
+          "transcription": "じゅうページをさんしょうしてください。",
+          "mean": "See page 10."
+        },
+        {
+          "content": "また今度、遊びに来てくださいね。",
+          "transcription": "またこんど、あそびにきてくださいね。",
+          "mean": "Please come visit us again next time."
+        },
+        {
+          "content": "暇な時に、この書類を見てください。",
+          "transcription": "ひまなときに、このしょるいをみてください。",
+          "mean": "Please look at this document at your leisure."
+        },
+        {
+          "content": "あなたが来る時間を教えてください。",
+          "transcription": "あなたがくるじかんをおしえてください。",
+          "mean": "Please tell me what time you will come."
+        },
+        {
+          "content": "ここに住所と名前を書いてください。",
+          "transcription": "ここにじゅうしょとなまえをかいてください。",
+          "mean": "Please write your address and name here."
+        },
+        {
+          "content": "君が落ち着いたら、電話をしてください。",
+          "transcription": "きみがおちついたら、でんわをしてください。",
+          "mean": "Please call me when you have calmed down."
+        },
+        {
+          "content": "すみません、日本語で話してください。",
+          "transcription": "すみません、にほんごではなしてください。",
+          "mean": "Excuse me, please speak in Japanese."
+        },
+        {
+          "content": "安心してください。",
+          "transcription": "あんしんしてください。",
+          "mean": "Set your mind at ease."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+ください"
+    }
+  ],
+  "title": "てください => please do",
+  "_id": "62b6a3b024284ddeb7fb606d855c46bb"
+}

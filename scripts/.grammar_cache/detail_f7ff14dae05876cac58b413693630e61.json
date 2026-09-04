@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1298,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"doing so will cause inconvenience or discomfort to others, but despite that, I still want to do it or should do it\"\". This expression is used to emphasize one's own opinion or thought.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はあえてみなさんに契約条項の検査を提案したいと思います。",
+          "transcription": "わたしはあえてみなさんにけいやくじょうこうのけんさをていあんしたいとおもいます。",
+          "mean": "I would like to suggest that everyone examine the contract terms."
+        },
+        {
+          "content": "大勢の人に反対されたが、それでもあえてこのキャンペーンを展開したいと思います。",
+          "transcription": "たいせいのひとにはんたいされたが、それでもあえてこのきゃんぺーんをてんかいしたいとおもいます。",
+          "mean": "Although many people opposed this, I still wanted to carry out this campaign."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あえて"
+    }
+  ],
+  "title": "あえて => dare to",
+  "_id": "f7ff14dae05876cac58b413693630e61"
+}

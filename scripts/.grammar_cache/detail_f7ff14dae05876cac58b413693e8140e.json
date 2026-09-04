@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 2256,
+  "usages": [
+    {
+      "explain": "It's used to emphasize the negative aspect. Often used when the speaker expresses surprise or disappointment because the other party hasn't done something that would normally be expected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は私に挨拶もしないで通り過ぎた。",
+          "transcription": "かれはわたしにあいさつもしないでとおりすぎた。",
+          "mean": "He passed by without saying hello to me."
+        },
+        {
+          "content": "吉田さんは体の具合でも悪いのか、夕食に手もつけない。",
+          "transcription": "よしださんはからだのぐあいでもわるいのか、ゆうしょくにてもつけない。",
+          "mean": "Mr. Yoshida may not be feeling well, but he can't even touch dinner."
+        },
+        {
+          "content": "弟は、ほんとうに強情だ。あんなにひどく叱られても、泣きもしない。",
+          "transcription": "おとうとは、ほんとうにごうじょうだ。あんなにひどくしかられても、なきもしない。",
+          "mean": "My younger brother is really stubborn. Even when I get scolded so badly, I don't even cry."
+        },
+        {
+          "content": "前から気がついていたのか、両親は私が会社をやめたと聞いても驚きもしなかった。",
+          "transcription": "まえからきがついていたのか、りょうしんはわたしがかいしゃをやめたときいてもおどろきもしなかった。",
+          "mean": "My parents were not surprised when they heard that I had quit my job, as they had been aware of this for some time."
+        },
+        {
+          "content": "化粧をし、夫が見向きもしないことを恨んでいる。",
+          "transcription": "けしょうをし、おっとがみむきもしないことをうらんでいる。",
+          "mean": "She wears makeup and hates the fact that her husband doesn't pay any attention to her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nも + V－ない\nVます + もしない"
+    }
+  ],
+  "title": "…も...ない => Not even..., not at all...",
+  "_id": "f7ff14dae05876cac58b413693e8140e"
+}

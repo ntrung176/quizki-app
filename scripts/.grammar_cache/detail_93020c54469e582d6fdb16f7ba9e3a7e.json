@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3120,
+  "usages": [
+    {
+      "explain": "✦ Expresses that due to a reason, the situation becomes complicated or difficult, showing the speaker's feeling that it should not be like this...",
+      "note": null,
+      "examples": [
+        {
+          "content": "なまじ家が広くて空調があるものだから、母はなんでもかんでも捨てずに取っておく。",
+          "transcription": "なまじいえがひろくてくうちょうがあるものだから、はははなんでもかんでもすてずにとっておく。",
+          "mean": "Since our house was spacious and air-conditioned, my mother kept everything instead of throwing it away."
+        },
+        {
+          "content": "なまじ英語ができるから、外国人の客の応対を全部させられる。",
+          "transcription": "なまじえいごができるから、がいこくじんのきゃくのおうたいをぜんぶさせられる。",
+          "mean": "Since I can speak basic English, I am able to deal with all the foreign customers."
+        },
+        {
+          "content": "なまじコピーという便利なものができたものだから、学生は自分で書かずに、人が書いたものをコピーして読むだけになる。",
+          "transcription": "なまじコピーというべんりなものができたものだから、がくせいはじぶんでかかずに、ひとがかいたものをコピーしてよむだけになる。",
+          "mean": "With the creation of something so convenient called sloppy copying, students end up copying and reading what others have written instead of writing it themselves."
+        },
+        {
+          "content": "なまじ車を持っているものだから、友人達に便利に使われてしまう。",
+          "transcription": "なまじくるまをもっているものだから、ゆうじんたちにべんりにつかわれてしまう。",
+          "mean": "Since I own a car, my friends use it conveniently."
+        },
+        {
+          "content": "なまじ英語ができるものだから、すぐ通訳に使われていやだ。",
+          "transcription": "なまじえいごができるものだから、すぐつうやくにつかわれていやだ。",
+          "mean": "Since I can speak very poor English, I don't want to be used as an interpreter right away."
+        }
+      ],
+      "mean": "so; therefore; the reason for something",
+      "synopsis": "✦なまじ ＋ N(修飾形) ＋ ものだから"
+    }
+  ],
+  "title": "～なまじ～（ものだ）から      => so; therefore; the reason for something",
+  "_id": "93020c54469e582d6fdb16f7ba9e3a7e"
+}

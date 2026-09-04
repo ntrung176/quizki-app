@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 841,
+  "usages": [
+    {
+      "explain": "<div>✦ Used to describe actions that occur without conscious or deep thought.<div><div>✦ Depending on the context, it can mean \"without deep thought\", \"unconsciously\", \"as if not caring\", etc. When used as an adverb, it can be expressed as 「なにげなしに」.<div></div></div></div></div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は、内心の動揺を隠して何気ない風を装っている。",
+          "transcription": "かれは、ないしんのどうようをかくしてなにげないかぜをよそおっている。",
+          "mean": "He pretends to be casual, hiding his inner turmoil."
+        },
+        {
+          "content": "彼女は何気ない顔つきで、みんながびっくりするような発言を始めた。",
+          "transcription": "かのじょはなにげないかおつきで、みんながびっくりするようなはつげんをはじめた。",
+          "mean": "With a casual look on her face, she started saying things that surprised everyone."
+        },
+        {
+          "content": "<div>毎日のなにげない会話。<br></div>",
+          "transcription": "まいにちのなにげないかいわ。",
+          "mean": "&lt;div&gt;Daily casual conversations. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "なにげなく、心に浮かんだ風景をキャンバスに描いてみた。",
+          "transcription": "なにげなく、こころにうかんだふうけいをキャンバスにえがいてみた。",
+          "mean": "I casually painted the scenery that came to my mind on canvas."
+        },
+        {
+          "content": "何気なく言った言葉が彼をひどく傷つけてしまった。",
+          "transcription": "なにげなくいったことばがかれをひどくきずつけてしまった。",
+          "mean": "The words I said so casually hurt him so badly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦なにげない + N ✦なにげなく + V</div>"
+    }
+  ],
+  "title": "～なにげない => like nothing happened",
+  "_id": "f7ff14dae05876cac58b413693251fb3"
+}

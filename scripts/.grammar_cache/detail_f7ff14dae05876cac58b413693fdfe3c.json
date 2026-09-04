@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2418,
+  "usages": [
+    {
+      "explain": "Precedes verbs like [言う], [思う], [考える] to express the content of the speech or thought. Also conveys a sense of surprise or disdain for that content. This is a familiar way of saying [などと].",
+      "note": null,
+      "examples": [
+        {
+          "content": "他人には約束を守れなんて言ったけど、そう言った本人が破ってしまった。",
+          "transcription": "たにんにはやくそくをまもれなんていったけど、そういったほんにんがやぶってしまった。",
+          "mean": "I told others to keep their promises, but the person who said them broke them."
+        },
+        {
+          "content": "娘が学校を辞めたいなんて言い出して悲しんでいる。",
+          "transcription": "むすめががっこうをやめたいなんていいだしてかなしんでいる。",
+          "mean": "I am saddened that my daughter has announced that she wants to quit school."
+        },
+        {
+          "content": "頑張れば成功するなんてナイ－ブな考えは捨てなさい。",
+          "transcription": "がんばればせいこうするなんてない－ぶなかんがえはすてなさい。",
+          "mean": "Abandon the naive idea that you will succeed if you work hard."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんて～"
+    }
+  ],
+  "title": "…なんて => Saying that, assuming that",
+  "_id": "f7ff14dae05876cac58b413693fdfe3c"
+}

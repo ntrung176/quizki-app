@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2768,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"thinking that..., reasoning that...\". This is a formal and written form of expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "試験を甘くみていると失敗しますよ。",
+          "transcription": "しけんをあまくみているとしっぱいしますよ。",
+          "mean": "If you take the exam lightly, you will fail."
+        },
+        {
+          "content": "日本政府は今回の事件を重くみて、対策委員会を設置することを決定しました。",
+          "transcription": "にっぽんせいふはこんかいのじけんをおもくみて、たいさくいいんかいをせっちすることをけっていしました。",
+          "mean": "The Japanese government has taken this incident seriously and has decided to establish a task force."
+        },
+        {
+          "content": "警察は、その被疑者にはまだ余罪があるとみて、厳しく追求する構えです。",
+          "transcription": "けいさつは、そのひぎしゃにはまだよざいがあるとみて、きびしくついきゅうするかまえです。",
+          "mean": "Police believe that the suspect may still be guilty and are planning to pursue the suspect in a strict manner."
+        }
+      ],
+      "mean": null,
+      "synopsis": "NをA－くみるNがV－るとみる"
+    }
+  ],
+  "title": "...を...みる => judging from; seeing that ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f2c400e"
+}

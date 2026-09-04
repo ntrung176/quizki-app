@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1771,
+  "usages": [
+    {
+      "explain": "Following 「ような」are nouns like 「気」,「感じ」,「予感」... expressing the meaning \"feeling like, having a sense, feeling as if...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "息が詰まるような気がする。",
+          "transcription": "いきがつまるようなきがする。",
+          "mean": "I feel like I'm suffocating."
+        },
+        {
+          "content": "泣きたいような気がする。",
+          "transcription": "なきたいようなきがする。",
+          "mean": "I feel like crying."
+        },
+        {
+          "content": "それが本当のような気がする。",
+          "transcription": "それがほんとうのようなきがする。",
+          "mean": "I feel like that's true."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-るV-たV-ない + ような気がするN + のような気がするA-い + ような気がするNa-な + な/のような気がする"
+    }
+  ],
+  "title": "...ような気がする => have a feeling that; feels like; seems like; think that ~",
+  "_id": "f7ff14dae05876cac58b413693a474a8"
+}

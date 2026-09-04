@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2593,
+  "usages": [
+    {
+      "explain": "This pattern is used to express choices or decisions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それにします。",
+          "transcription": "それにします。",
+          "mean": "I'll do that."
+        },
+        {
+          "content": "旅行はスイスにします。",
+          "transcription": "りょこうはすいすにします。",
+          "mean": "I will be traveling to Switzerland."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にします"
+    }
+  ],
+  "title": "...にします => to decide on",
+  "_id": "f2d618ceb0702f781ec83b7d4f154f35"
+}

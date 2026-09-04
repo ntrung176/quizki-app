@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5474,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>場合</rb><rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>」 is used to present a hypothetical case. The following clause indicates the handling or result that would occur in that case.<br/>This structure is often used to talk about unwanted or seldom occurring events; it is not used for things that have actually happened.",
+      "note": null,
+      "examples": [
+        {
+          "content": "火事の場合、119をかけてください。",
+          "transcription": "かじのばあい、いちいちきゅうをかけてください。",
+          "mean": "In case of fire, please dial 119."
+        },
+        {
+          "content": "避難する場合は、車を使わないで必ず歩きます。",
+          "transcription": "ひなんするばあいは、くるまをつかわないでかならずあるきます。",
+          "mean": "If you need to evacuate, be sure to walk instead of using a car."
+        },
+        {
+          "content": "授業に間に合わない場合は、連絡してください。",
+          "transcription": "じゅぎょうにまにあわないばあいは、れんらくしてください。",
+          "mean": "If you will not be able to make it to class, please contact us."
+        },
+        {
+          "content": "領収書が必要な場合は、係に言ってください。",
+          "transcription": "りょうしゅうしょがひつようなばあいは、かかりにいってください。",
+          "mean": "If you need a receipt, please tell the staff."
+        },
+        {
+          "content": "熱が続く場合は、病院に行った方がいいです。",
+          "transcription": "ねつがつづくばあいは、びょういんにいったほうがいいです。",
+          "mean": "If the fever persists, it is better to go to the hospital."
+        },
+        {
+          "content": "ファクスの調子が悪い場合は、どうしたらいいですか。",
+          "transcription": "ファクスのちょうしがわるいばあいは、どうしたらいいですか。",
+          "mean": "What should I do if my fax is not working properly?"
+        },
+        {
+          "content": "地震が起きた場合は、テーブルの下に潜ってください。",
+          "transcription": "じしんがおきたばあいは、テーブルのしたにもぐってください。",
+          "mean": "If an earthquake occurs, hide under the table."
+        },
+        {
+          "content": "パスワードを忘れた場合は、こちらからご連絡ください。",
+          "transcription": "パスワードをわすれたばあいは、こちらからごれんらくください。",
+          "mean": "If you have forgotten your password, please contact us here."
+        },
+        {
+          "content": "事故を起こした場合、すぐに警察と病院に電話してください。",
+          "transcription": "じこをおこしたばあい、すぐにけいさつとびょういんにでんわしてください。",
+          "mean": "If you have an accident, call the police and hospital immediately."
+        },
+        {
+          "content": "この病院は日曜と祝日は休みだが、緊急の場合は診てもらえる。",
+          "transcription": "このびょういんはにちようとしゅくじつはやすみだが、きんきゅうのばあいはみてもらえる。",
+          "mean": "The hospital is closed on Sundays and holidays, but patients can be seen in case of an emergency."
+        },
+        {
+          "content": "取引がうまくいかなかった場合にも、個人的なリスクは負う必要がない。",
+          "transcription": "とりひきがうまくいかなかったばあいにも、こじんてきなリスクはおおうひつようがない。",
+          "mean": "You don't have to take any personal risks if the trade goes wrong."
+        },
+        {
+          "content": "陽性だった場合は、医師の指示に従ってください。",
+          "transcription": "ようせいだったばあいは、いしのしじにしたがってください。",
+          "mean": "If you test positive, follow your doctor's instructions."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+場合(は)<br/>Aい (formal form)+場合(は)<br/>Aな (formal form)+場合(は)<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)<br/>N (formal form)+場合(は)<br/>(In this particular case: Nだ ➔ N<s>だ</s>の)"
+    }
+  ],
+  "title": "場合(は) => in the event of; in the case that ~",
+  "_id": "18ac34040b7044aea6d1f058841ab218"
+}

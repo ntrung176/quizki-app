@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1426,
+  "usages": [
+    {
+      "explain": "Following interrogative words like 「なに」, 「どこ」to express the idea of \"not being able to specify that thing\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "なにやら騒がしいと聞いたら、隣の夫婦が喧嘩をしていた。",
+          "transcription": "なにやらさわがしいときいたら、となりのふうふがけんかをしていた。",
+          "mean": "When I heard that there was some noise, I found that the couple next door was fighting."
+        },
+        {
+          "content": "山田さんの誕生日がいつやらはっきり覚えていない。",
+          "transcription": "やまださんのたんじょうびがいつやらはっきりおぼえていない。",
+          "mean": "I don't remember exactly when Yamada-san's birthday was."
+        },
+        {
+          "content": "会議のあとでどこやら豪華そうなレストランに連れて行かれた。",
+          "transcription": "かいぎのあとでどこやらごうかそうなれすとらんにつれていかれた。",
+          "mean": "After the meeting, I was taken to a fancy-looking restaurant."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative words + やら"
+    }
+  ],
+  "title": "...やら => such things as A and B; A and B and so on ~",
+  "_id": "f7ff14dae05876cac58b41369374a0be"
+}

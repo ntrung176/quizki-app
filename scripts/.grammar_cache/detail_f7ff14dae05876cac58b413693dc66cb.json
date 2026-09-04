@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2173,
+  "usages": [
+    {
+      "explain": "This idiomatic expression, with [なら] following the dictionary form of verbs like [みる], [言う], [比べる], expresses that the judgment or opinion presented in the following clause is based on a particular viewpoint. It has a somewhat literary tone. [たら/ と/ ば] have similar uses and are usually interchangeable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私に言わせるなら、この映画は優秀だと思えない。",
+          "transcription": "わたしにいわせるなら、このえいがはゆうしゅうだとおもえない。",
+          "mean": "If you ask me, I don't think this movie is great."
+        },
+        {
+          "content": "去年と比べるなら今年の雨量は多くなった。",
+          "transcription": "きょねんとくらべるならことしのうりょうはおおくなった。",
+          "mean": "Compared to last year, the amount of rainfall this year has increased."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる + なら"
+    }
+  ],
+  "title": "なら => if; in the case that ~",
+  "_id": "f7ff14dae05876cac58b413693dc66cb"
+}

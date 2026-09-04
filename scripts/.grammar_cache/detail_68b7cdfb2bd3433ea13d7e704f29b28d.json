@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5132,
+  "usages": [
+    {
+      "explain": "「以外」expresses the idea of \"aside from this thing or event, there is or isn't anything else.\" It indicates something apart from a specified thing or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女以外誰もいない。",
+          "transcription": "かのじょいがいだれもいない。",
+          "mean": "There's no one but her."
+        },
+        {
+          "content": "水以外何も見えない。",
+          "transcription": "みずいがいなにもみえない。",
+          "mean": "Nothing is to be seen but water."
+        },
+        {
+          "content": "食事以外には何ができる？",
+          "transcription": "しょくじいがいにはなにができる？",
+          "mean": "What can I do besides eat?"
+        },
+        {
+          "content": "変化以外に永久のものはない。",
+          "transcription": "へんかいがいにえいきゅうのものはない。",
+          "mean": "Nothing is permanent except change."
+        },
+        {
+          "content": "彼は英語以外の言語は全く知らない。",
+          "transcription": "かれはえいごいがいのげんごはまったくしらない。",
+          "mean": "He doesn't know any languages ​​other than English."
+        },
+        {
+          "content": "私は彼女以外はみんな好きだ。",
+          "transcription": "わたしはかのじょいがいはみんなすきだ。",
+          "mean": "I like everyone except her."
+        },
+        {
+          "content": "仕事以外のことも話せてよかったです。",
+          "transcription": "しごといがいのこともはなせてよかったです。",
+          "mean": "It was nice to be able to talk about things other than work."
+        },
+        {
+          "content": "私は中国語以外の言語だと、英語と日本語が話せます。",
+          "transcription": "わたしはちゅうごくごいがいのげんごだと、えいごとにほんごがはなせます。",
+          "mean": "I can speak English and Japanese in languages ​​other than Chinese."
+        },
+        {
+          "content": "来月の旅には、小林さん以外みんな参加するそうです。",
+          "transcription": "らいげつのたびには、こばやしさんいがいみんなさんかするそうです。",
+          "mean": "It seems that everyone except Mr. Kobayashi will be participating in the trip next month."
+        },
+        {
+          "content": "船に乗っていく以外には、その島へ行く方法はない。",
+          "transcription": "ふねにのっていくいがいには、そのしまへいくほうほうはない。",
+          "mean": "There is no other way to get to the island other than by taking a boat."
+        },
+        {
+          "content": "これ以外にもっと面白い映画はありませんか。",
+          "transcription": "これいがいにもっとおもしろいえいがはありませんか。",
+          "mean": "Are there any other movies that are more interesting than this?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+以外 (の/は/に）"
+    }
+  ],
+  "title": "以外 => with the exception of; excepting ~",
+  "_id": "68b7cdfb2bd3433ea13d7e704f29b28d"
+}

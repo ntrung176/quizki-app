@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2643,
+  "usages": [
+    {
+      "explain": "Because 「V-てあります」describes a state resulting from someone's intentional action, this phrase can be used to say that something has been prepared. In this case, the word 「もう」is often used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "会議の日はもう決めてあります。",
+          "transcription": "かいぎのひはもうきめてあります。",
+          "mean": "The date of the meeting has already been decided."
+        },
+        {
+          "content": "部屋はもう片付けてあります。",
+          "transcription": "へやはもうかたづけてあります。",
+          "mean": "The room has already been tidied up."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もうV-てあります"
+    },
+    {
+      "explain": "Note: The verbs used in this pattern are intransitive verbs.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "もうV-てあります => is/has been done (resulting state)",
+  "_id": "f2d618ceb0702f781ec83b7d4f1c5e5a"
+}

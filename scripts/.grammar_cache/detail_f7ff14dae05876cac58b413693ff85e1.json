@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 2427,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: an event occurs after another event, or is noticed only after the first event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "通りの周りを回ってみた。そうすると、ひとつだけ開店しているレストランがあった。",
+          "transcription": "とおりのまわりをまわってみた。そうすると、ひとつだけかいてんしているれすとらんがあった。",
+          "mean": "I looked around the street. Then, there was only one restaurant open."
+        },
+        {
+          "content": "野球の練習は日曜日の午後することにしよう。そうすると、日曜日の晩は、時間ができる。",
+          "transcription": "やきゅうのれんしゅうはにちようびのごごすることにしよう。そうすると、にちようびのばんは、じかんができる。",
+          "mean": "Let's practice baseball on Sunday afternoon. That way, I will have time on Sunday evening."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そうすると～"
+    },
+    {
+      "explain": "Note: Following 「そうすると」, one cannot express an action performed at the speaker's will.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "そうすると => having done that; if that is done; if it is done in that way",
+  "_id": "f7ff14dae05876cac58b413693ff85e1"
+}

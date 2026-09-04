@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2166,
+  "usages": [
+    {
+      "explain": "Repeating the same verb to convey the meaning that this is not a time to consider whether to do it or not. Repeating part of the listener's words and then firmly denying it, or scolding sternly that saying such things is unacceptable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：すみません。今月末までにはできそうもありません。B：何を言ってるんだ。いまさら、できるもできないもないだろう。やってもらわないと困るよ。",
+          "transcription": "A：すみません。こんげつすえまでにはできそうもありません。B：なにをいってるんだ。いまさら、できるもできないもないだろう。やってもらわないとこまるよ。",
+          "mean": "A: Sorry. It's unlikely to be done before the end of this month. B: What are you talking about? I don't think I can do it or not now. I'll be in trouble if you don't do it."
+        },
+        {
+          "content": "A：すみませんでした。許してください。B：許すも許さないもない。田中さんの責任じゃないんだから。",
+          "transcription": "A：すみませんでした。ゆるしてください。B：ゆるすもゆるさないもない。たなかさんのせきにんじゃないんだから。",
+          "mean": "A: I'm sorry. please forgive me. B: I can't forgive or not. It's not Tanaka-san's responsibility."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + も + V-ない + もない"
+    }
+  ],
+  "title": "... も ... もない => Not...or not",
+  "_id": "f7ff14dae05876cac58b413693dba89c"
+}

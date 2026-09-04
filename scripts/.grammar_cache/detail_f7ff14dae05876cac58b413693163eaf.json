@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 738,
+  "usages": [
+    {
+      "explain": "✦ Used to say that the current situation or action of the other party is inappropriate, to warn them that it is urgent now.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今は泣いている場合じゃないよ。",
+          "transcription": "いまはないているばあいじゃないよ。",
+          "mean": "Now is not the time to cry."
+        },
+        {
+          "content": "もう議論している場合ではない。行動あるのみだ。",
+          "transcription": "もうぎろんしているばあいではない。こうどうあるのみだ。",
+          "mean": "This is no longer the time to argue. There is only action."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V－ている + ばあいではない"
+    }
+  ],
+  "title": "～ ているばあいではない => This is no time to be doing ~",
+  "_id": "f7ff14dae05876cac58b413693163eaf"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 730,
+  "usages": [
+    {
+      "explain": "✦ Use the pattern [XのはYくらいのものだ] to express the meaning \"X can only happen in case of Y\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "息子が電話をよこすのは、金に困った時ぐらいのものだ。",
+          "transcription": "むすこがでんわをよこすのは、きんにこまったときぐらいのものだ。",
+          "mean": "The only time my son calls is when he is in need of money."
+        },
+        {
+          "content": "仕事が忙しくて、ゆっくりできるのは週末ぐらいのものだ。",
+          "transcription": "しごとがいそがしくて、ゆっくりできるのはしゅうまつぐらいのものだ。",
+          "mean": "I'm so busy with work that the only time I can relax is on the weekends."
+        },
+        {
+          "content": "そんな高価な宝石が買えるのは、ごく一部の金持ちくらいのものだ。",
+          "transcription": "そんなこうかなほうせきがかえるのは、ごくいちぶのかねもちくらいのものだ。",
+          "mean": "Only a few rich people can afford such expensive jewelry."
+        },
+        {
+          "content": "社長に、あんなにずけずけものを言うのは君くらいのもんだよ。",
+          "transcription": "しゃちょうに、あんなにずけずけものをいうのはきみくらいのもんだよ。",
+          "mean": "You're the only one who says such things to the president."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + ぐらいのものだ"
+    }
+  ],
+  "title": "～のは…ぐらいのものだ => only (emphasis)",
+  "_id": "f7ff14dae05876cac58b4136931524df"
+}

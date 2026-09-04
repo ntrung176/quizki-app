@@ -1,0 +1,28 @@
+{
+  "level": "N3",
+  "mobileId": 2358,
+  "usages": [
+    {
+      "explain": "Used by the speaker as a conjunction to negate speculation in the opposite direction or other related speculation by the listener after the speaker has presented something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A: 漢字は難しいねえ。B: うん、でもそうかと言って勉強しないわけにはいかないしねえ。",
+          "transcription": "A: かんじはむずかしいねえ。B: うん、でもそうかといってべんきょうしないわけにはいかないしねえ。",
+          "mean": "A: Kanji is difficult. B: Yes, but that doesn't mean I can't study."
+        }
+      ],
+      "mean": null,
+      "synopsis": ".....そうかといって (そうかと言って), ....."
+    },
+    {
+      "explain": "Note: We use this sentence when assuming the preceding clause (the clause said before) is true. When using a sentence with this word, the following clause is often accompanied by \"わけにもいかない\".",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "そうかといって => but still",
+  "_id": "f7ff14dae05876cac58b413693f5ffce"
+}

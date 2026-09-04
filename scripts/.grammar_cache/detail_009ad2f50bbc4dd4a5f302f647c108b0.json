@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5534,
+  "usages": [
+    {
+      "explain": "The term \"おきに\" follows a noun indicating time or distance to express the meaning that at every interval of time or distance, a particular action or event recurs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は数日おきに来る。",
+          "transcription": "かれはすうじつおきにくる。",
+          "mean": "He comes every few days."
+        },
+        {
+          "content": "電車は5分おきに発車しています。",
+          "transcription": "でんしゃはごふんおきにはっしゃしています。",
+          "mean": "Trains depart every 5 minutes."
+        },
+        {
+          "content": "このバスは15分おきに出ている。",
+          "transcription": "このバスはじゅうごふんおきに出ている。",
+          "mean": "This bus leaves every 15 minutes."
+        },
+        {
+          "content": "私は1ヶ月おきに古里へ帰ります。",
+          "transcription": "わたしはいっかげつおきにふるさとへかえります。",
+          "mean": "I go back to my hometown every month."
+        },
+        {
+          "content": "この薬は2時間おきに飲んでください。",
+          "transcription": "このくすりはにじかんおきにのんでください。",
+          "mean": "Take this medicine every 2 hours."
+        },
+        {
+          "content": "彼は1週間おきに問題を起こす生徒だ。",
+          "transcription": "かれはいっしゅうかんおきにもんだいをおこすせいとだ。",
+          "mean": "He is a student who causes problems every other week."
+        },
+        {
+          "content": "空港へ向かうバスは30分おきに出ている。",
+          "transcription": "くうこうへむかうバスはさんじゅっぷんおきにでている。",
+          "mean": "Buses to the airport leave every 30 minutes."
+        },
+        {
+          "content": "この雑誌は1ヶ月おきに発行されています。",
+          "transcription": "このざっしはいっかげつおきにはっこうされています。",
+          "mean": "This magazine is published every other month."
+        },
+        {
+          "content": "この道には5メートルおきに木が植えられている.",
+          "transcription": "このみちにはごメートルおきにきがうえられている.",
+          "mean": "Trees are planted every 5 meters along this path."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (quantity)+おきに"
+    }
+  ],
+  "title": "おきに => Repeated at intervals, every ~",
+  "_id": "009ad2f50bbc4dd4a5f302f647c108b0"
+}

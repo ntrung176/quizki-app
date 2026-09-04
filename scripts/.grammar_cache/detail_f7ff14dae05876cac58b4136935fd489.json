@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1279,
+  "usages": [
+    {
+      "explain": "Indicates the meaning \"to avoid, to prevent\" an action from happening. This is a formal, literary expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "財布を奪われまいとして争った。",
+          "transcription": "さいふをうばわれまいとしてあらそった。",
+          "mean": "I fought to keep my wallet from being taken."
+        },
+        {
+          "content": "両親を心配させまいとして退学のことは隠した。",
+          "transcription": "りょうしんをしんぱいさせまいとしてたいがくのことはかくした。",
+          "mean": "I hid the fact that I had dropped out of school so as not to worry my parents."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－まい + とする"
+    }
+  ],
+  "title": "まいとする => Do not let...",
+  "_id": "f7ff14dae05876cac58b4136935fd489"
+}

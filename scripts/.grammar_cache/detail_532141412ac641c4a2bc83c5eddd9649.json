@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5522,
+  "usages": [
+    {
+      "explain": "Keep the 「」tags while translating:\n「にみえる」(ni mieru) indicates that the speaker feels the subject appears to have a certain quality, seems to be doing a certain action, or looks like something. This is simply the subjective observation of the speaker based on what they can see.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは同じにみえる。",
+          "transcription": "かれらはおなじにみえる。",
+          "mean": "they look the same."
+        },
+        {
+          "content": "彼はアメリカ人にみえる。",
+          "transcription": "かれはアメリカじんにみえる。",
+          "mean": "He looks American."
+        },
+        {
+          "content": "彼女は先生にみえる。",
+          "transcription": "かのじょはせんせいにみえる。",
+          "mean": "She looks like a teacher."
+        },
+        {
+          "content": "その人はお金持ちにみえるが、本当は貯金がない。",
+          "transcription": "そのひとはおかねもちにみえるが、ほんとうはちょきんがない。",
+          "mean": "That person may seem rich, but he or she actually has no savings."
+        },
+        {
+          "content": "彼は苦しんでみえる。",
+          "transcription": "かれはくるしんでみえる。",
+          "mean": "he looks distressed."
+        },
+        {
+          "content": "彼女は嘘を付いていてみえる。",
+          "transcription": "かのじょはうそをついていてみえる。",
+          "mean": "It looks like she's lying."
+        },
+        {
+          "content": "あそこは安全にみえるが地球上で最も危険な場所だ。",
+          "transcription": "あそこはあんぜんにみえるがちきゅうじょうでもっともきけんなばしょだ。",
+          "mean": "It looks safe there, but it's the most dangerous place on earth."
+        },
+        {
+          "content": "彼は怖くみえる。",
+          "transcription": "かれはこわくみえる。",
+          "mean": "he looks scary"
+        },
+        {
+          "content": "天井のしみが人の顔にみえる。",
+          "transcription": "てんじょうのしみがひとのかおにみえる。",
+          "mean": "The stain on the ceiling looks like a human face."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+みえる<br/>N+にみえる<br/>A<s>な</s>+にみえる<br/>A<s>い</s>く+みえる"
+    }
+  ],
+  "title": "みえる => it seems that ~",
+  "_id": "532141412ac641c4a2bc83c5eddd9649"
+}

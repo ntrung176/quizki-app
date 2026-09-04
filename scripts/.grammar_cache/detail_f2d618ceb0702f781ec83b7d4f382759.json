@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2854,
+  "usages": [
+    {
+      "explain": "Strongly expresses dissatisfaction: \"that's really over the top\" regarding the previously mentioned event.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "そんなに彼女を騙してなんてあんまりだ。",
+          "transcription": "そんなにかのじょをだましてなんてあんまりだ。。",
+          "mean": "It's not fair to deceive her like that."
+        },
+        {
+          "content": "子供にひどいことを言ってなんてあんまりだ。",
+          "transcription": "こどもにひどいことをいってなんてあんまりだ。",
+          "mean": "It's not enough to say mean things to a child."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～なんてあんまりだ"
+    }
+  ],
+  "title": "なんてあんまりだ => If it like that, it is too much…",
+  "_id": "f2d618ceb0702f781ec83b7d4f382759"
+}

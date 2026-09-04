@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1148,
+  "usages": [
+    {
+      "explain": "Describing the lead-up to a discovery.",
+      "note": null,
+      "examples": [
+        {
+          "content": "電話でレストランに聞いてみたら、もう席が全部予約されてしまったと言われた。",
+          "transcription": "でんわでれすとらんにきいてみたら、もうせきがぜんぶよやくされてしまったといわれた。",
+          "mean": "When I called the restaurant, I was told that all the seats were already reserved."
+        },
+        {
+          "content": "嫌いな玉ねぎを思い切って食べてみたら、美味しいのでびっくりした。",
+          "transcription": "きらいなたまねぎをおもいきってたべてみたら、おいしいのでびっくりした。",
+          "mean": "I tried eating onions, which I hate, and was surprised at how delicious they were."
+        },
+        {
+          "content": "テレビに広告を出してみたら、予想以上の人気があった。",
+          "transcription": "てれびにこうこくをだしてみたら、よそういじょうのにんきがあった。",
+          "mean": "When we placed an ad on TV, it was more popular than we expected."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + みたら"
+    }
+  ],
+  "title": "てみたら => to try doing something (to find out more about it)",
+  "_id": "f7ff14dae05876cac58b4136934e5409"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 161,
+  "usages": [
+    {
+      "explain": "「After going through a final process, finally...」\nThis structure implies a sense of struggle or hardship to achieve a certain result. It can be used for both positive and negative meanings.",
+      "note": null,
+      "examples": [
+        {
+          "content": "よく考えた末に、妻と離婚することにした。",
+          "transcription": "よくかんがえたすえに、つまとりこんすることにした。",
+          "mean": "After much consideration, I decided to divorce my wife."
+        },
+        {
+          "content": "この新しい薬は、何年にもわたる研究の末に作り出されるものだ。",
+          "transcription": "このあたらしいくすりは、なんねんにもわたるけんきゅうのすえにつくりだされるものだ。",
+          "mean": "This new drug is the result of years of research."
+        },
+        {
+          "content": "5時間にわたる話合いの末に、やっと契約を締結した。",
+          "transcription": "5じかんにわたるはなしあいのすえに、やっとけいやくをていけつした。",
+          "mean": "After five hours of discussions, we finally signed a contract."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた・Nの + 末（に）"
+    }
+  ],
+  "title": "すえ => finally; after; following; at the end/ conclusion of",
+  "_id": "93020c54469e582d6fdb16f7ba4ecf88"
+}

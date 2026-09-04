@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 860,
+  "usages": [
+    {
+      "explain": "✦ Lists events with completely opposite content, or contradictory content, expressing contrasting impressions, contradictions in meaning that coexist within the speaker. <br/>✦ Compared to 「...ようでもあり / ようでもあるし」, this expression is more literary.",
+      "note": null,
+      "examples": [
+        {
+          "content": "読んだことが有るような無いような...",
+          "transcription": "よんだことがあるようなないような...",
+          "mean": "I don't think I've ever read it..."
+        },
+        {
+          "content": "分かったような分からないような中途半端な感じだ。",
+          "transcription": "わかったようなわからないようなちゅうとはんぱなかんじだ。",
+          "mean": "It's a half-hearted feeling, like I understand it, but I don't."
+        },
+        {
+          "content": "悲しいような懐かしいような複雑な気持ちである。",
+          "transcription": "かなしいようななつかしいようなふくざつなきもちである。",
+          "mean": "It's a mixed feeling, sad and nostalgic."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦Vた ような Vない ような</div><div>✦ような N1 ような N2 ような</div><div>✦ADJ1 ような ADJ2 ような</div><div>(N1 và N2, Adj 1 và Adj 2 thường mang nghĩa trái ngược)</div>"
+    }
+  ],
+  "title": "～ような...ような => like; as; similar to ~.",
+  "_id": "f7ff14dae05876cac58b41369327731e"
+}

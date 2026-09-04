@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2596,
+  "usages": [
+    {
+      "explain": "It indicates the beginning, start, or cause of various actions or phenomena.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この広場には、国中からたくさんの人が集まって来る。",
+          "transcription": "このひろばには、くにちゅうからたくさんのひとがあつまってくる。",
+          "mean": "This square attracts many people from all over the country."
+        },
+        {
+          "content": "あの学校では、試験の成績と出席率から成績が決められるそうだよ。",
+          "transcription": "あのがっこうでは、しけんのせいせきとしゅっせきりつからせいせきがきめられるそうだよ。",
+          "mean": "At that school, grades are determined based on test scores and attendance."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + から"
+    }
+  ],
+  "title": "から => From, by, due to",
+  "_id": "f2d618ceb0702f781ec83b7d4f15c449"
+}

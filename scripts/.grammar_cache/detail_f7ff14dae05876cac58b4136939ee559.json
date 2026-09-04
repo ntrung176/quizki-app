@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1734,
+  "usages": [
+    {
+      "explain": "Expresses the cause, reason of the event. It carries a formal tone, often used in writing or announcements. The cause stated in the first clause often leads to an undesirable outcome in the second clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雪が降ったために、電車が遅れました。",
+          "transcription": "ゆきがふったために、でんしゃがおくれました。",
+          "mean": "The train was delayed because of the snow."
+        },
+        {
+          "content": "英語の点数が悪かったために、合格できませんでした。",
+          "transcription": "えいごのてんすうがわるかったために、ごうかくできませんでした。",
+          "mean": "I couldn't pass the exam because my English score was bad."
+        },
+        {
+          "content": "この問題は複雑なために，あきらめました。",
+          "transcription": "このもんだいはふくざつなために，あきらめました。",
+          "mean": "I gave up on this problem because it was complicated."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな ・Nの + ため(に)"
+    }
+  ],
+  "title": "ため(に) => for; in order to; for the benefit of; because of; as a result of ~",
+  "_id": "f7ff14dae05876cac58b4136939ee559"
+}

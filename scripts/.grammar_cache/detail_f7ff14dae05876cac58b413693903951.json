@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1622,
+  "usages": [
+    {
+      "explain": "It is attached after nouns like \"人間\" (human), \"幸せ\" (happiness), etc., to present general characteristics or attributes of that noun.<br/>Also using the expression \"…というのは…だ.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "愛というものは不可解だ。",
+          "transcription": "あいというものはふかかいだ。",
+          "mean": "Love is incomprehensible."
+        },
+        {
+          "content": "私にとって、女というものはいつまでも神秘だ。",
+          "transcription": "わたしにとって、おんなというものはいつまでもしんぴだ。",
+          "mean": "For me, women will always be a mystery."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + というものは...だ"
+    }
+  ],
+  "title": "というものは...だ => something like; something called ~",
+  "_id": "f7ff14dae05876cac58b413693903951"
+}

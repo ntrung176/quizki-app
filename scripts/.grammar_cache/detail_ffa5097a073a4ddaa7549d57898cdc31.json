@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5457,
+  "usages": [
+    {
+      "explain": "わけがない is used to strongly deny an event, asserting that it cannot happen, there is no logical reason for it to happen (based on the subjective judgment of the speaker). <br/>\"はずがない\" can be used interchangeably with \"わけがない.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの強い相手に勝てるわけがない。",
+          "transcription": "あのつよいあいてにかてるわけがない。",
+          "mean": "There's no way I can win against such a strong opponent."
+        },
+        {
+          "content": "『このパン古くない？』『古いわけないよ。昨日買ったんだから。』",
+          "transcription": "『このパンふるくない？』『ふるいわけないよ。きのうかったんだから。』",
+          "mean": "``Isn't this bread old? ``It can't be old. I bought it yesterday. ”"
+        },
+        {
+          "content": "嘘ばかりついている彼が、みんなに信用されるわけがないでしょう。",
+          "transcription": "うそばかりついているかれが、みんなにしんようされるわけがないでしょう。",
+          "mean": "There's no way anyone would trust him if he keeps telling lies."
+        },
+        {
+          "content": "目の悪い彼女にあんな遠くの小さい文字が見えるわけがない。",
+          "transcription": "めのわるいかのじょにあんなとおくのちいさいもじがみえるわけがない。",
+          "mean": "There's no way she could see small letters that far away with her poor eyesight."
+        },
+        {
+          "content": "うちの子がそんなことをするわけがない。",
+          "transcription": "うちのこがそんなことをするわけがない。",
+          "mean": "There's no way my child would do something like that."
+        },
+        {
+          "content": "褒められて、うれしくないわけがない。",
+          "transcription": "ほめられて、うれしくないわけがない。",
+          "mean": "There's no way I wouldn't be happy to be praised."
+        },
+        {
+          "content": "あの学生はいつも授業に来ないから、試験の結果がいいわけがない。",
+          "transcription": "あのがくせいはいつもじゅぎょうにこないから、しけんのけっかがいいわけがない。",
+          "mean": "That student doesn't always come to class, so there's no way he'll get good results on the exam."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+わけがない / わけはない<br/>Aい (formal form)+わけがない / わけはない<br/>Aな (formal form)+わけがない / わけはない<br>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s> /A<s>だ</s>である)<br/>N (formal form)+わけがない / わけはない<br/>(In this particular case: Nだ ➔ N<s>だ</s>の / N<s>だ</s>である)</br>"
+    }
+  ],
+  "title": "わけがない => there is no way that; it is impossible to ~",
+  "_id": "ffa5097a073a4ddaa7549d57898cdc31"
+}

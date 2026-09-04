@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2851,
+  "usages": [
+    {
+      "explain": "When placed after a noun referring to a person or thing, it expresses something beneficial to that person or thing. There is also an older expression「 Nがため」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は新任大使のためのパーティーを開く。",
+          "transcription": "きょうはしんにんたいしのためのぱーてぃーをひらく。",
+          "mean": "Today we are holding a party for the new ambassador."
+        },
+        {
+          "content": "貧しい人々のために何千ドルもの寄付金を集めた。",
+          "transcription": "まずしいひとびとのためになんせんどるものきふきんをあつめた。",
+          "mean": "Raised thousands of dollars for the poor."
+        },
+        {
+          "content": "自分自身の生活のために働いている。",
+          "transcription": "じぶんじしんのせいかつのためにはたらいている。",
+          "mean": "working for one's own living."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの + ため"
+    }
+  ],
+  "title": "ため => In order to, for",
+  "_id": "f2d618ceb0702f781ec83b7d4f37d4de"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1593,
+  "usages": [
+    {
+      "explain": "Expresses surprise, sympathy, or emotion (shock) regarding an event that does not happen as usual or is unexpected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大変だ。かばんがない。",
+          "transcription": "たいへんだ。かばんがない。",
+          "mean": "It's tough. I don't have a bag."
+        },
+        {
+          "content": "元日も仕事ですか。大変ですねえ。",
+          "transcription": "がんじつもしごとですか。たいへんですねえ。",
+          "mean": "Are you working on New Year's Day too? It's tough, isn't it?"
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "たいへんだ => It is hard, serious",
+  "_id": "f7ff14dae05876cac58b4136938ca0a2"
+}

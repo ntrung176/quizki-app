@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1299,
+  "usages": [
+    {
+      "explain": "Comes after verbs indicating ability such as [できる] (can do), [分かる] (understand), to emphasize the negative mood \"cannot do that\".<br/>Typically used in casual speech, and in an intimate manner, it would be [もんじゃない]. Used for negative evaluations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんなまずいお茶、飲めたもんじゃない。",
+          "transcription": "こんなまずいおちゃ、のめたもんじゃない。",
+          "mean": "I shouldn't have been able to drink such bad tea."
+        },
+        {
+          "content": "こんな難しい本は分かったものではない。",
+          "transcription": "こんなむずかしいほんはわかったものではない。",
+          "mean": "I have never understood such a difficult book."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + ものではない"
+    }
+  ],
+  "title": "たものではない => Impossible",
+  "_id": "f7ff14dae05876cac58b413693631e02"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2675,
+  "usages": [
+    {
+      "explain": "Used to give a polite command. Only those in authority can use this form of expression unilaterally. Mostly used with the form 「お／ご～いただく」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この志願書に個人情報をご記入していただきます。",
+          "transcription": "このしがんしょにこじんじょうほうをごきにゅうしていただきます。",
+          "mean": "Please fill in your personal information on this application form."
+        },
+        {
+          "content": "携帯電話はご利用いただけません。",
+          "transcription": "けいたいでんわはごりよういただけません。",
+          "mean": "Mobile phones cannot be used."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ていただく"
+    }
+  ],
+  "title": "ていただく => to have someone do something (Instruction)",
+  "_id": "f2d618ceb0702f781ec83b7d4f204cd8"
+}

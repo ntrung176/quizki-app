@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2058,
+  "usages": [
+    {
+      "explain": "To express a period of time that is not very long from the time of speaking. It can also be used as 「そのうちに」. This is used in spoken language, while in written language, 「いずれ」is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんはそのうちあきらめると思います。",
+          "transcription": "さとうさんはそのうちあきらめるとおもいます。",
+          "mean": "I think Mr. Sato will give up eventually."
+        },
+        {
+          "content": "会議はそのうち始まるだろう。",
+          "transcription": "かいぎはそのうちはじまるだろう。",
+          "mean": "The meeting will start soon."
+        },
+        {
+          "content": "あの二人はそのうち結婚すると思う。",
+          "transcription": "あのににんはそのうちけっこんするとおもう。",
+          "mean": "I think those two will get married soon."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そのうち～"
+    }
+  ],
+  "title": "そのうち => some day/some time eventually",
+  "_id": "f7ff14dae05876cac58b413693cc0ff3"
+}

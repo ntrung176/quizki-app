@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1925,
+  "usages": [
+    {
+      "explain": "Used when talking about an organization, expressing that it is a unified entity formed under the leadership of a certain representative.",
+      "note": null,
+      "examples": [
+        {
+          "content": "弊社では、社長以下約200人が全員一丸となって働いています。",
+          "transcription": "へいしゃでは、しゃちょういかやく200にんがぜんいんいちがんとなってはたらいています。",
+          "mean": "At our company, about 200 people work together, including the president."
+        },
+        {
+          "content": "キャプテン鈴木以下25名、全員そろいました。",
+          "transcription": "きゃぷてんすずきいか25めい、ぜんいんそろいました。",
+          "mean": "All 25 people, including Captain Suzuki, were there."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}-->N いか + Quantity word"
+    }
+  ],
+  "title": "... いか + từ chỉ số lượng => How many ... under the leadership, under the authority of ...",
+  "_id": "f7ff14dae05876cac58b413693b93c02"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2857,
+  "usages": [
+    {
+      "explain": "Expresses a sense of gratitude, joy because someone has gone to the trouble of doing something for oneself. Often used in conjunction with 「てくれる」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんな価値が高いプレゼントをよくぞして下さいました。",
+          "transcription": "そんなかちがたかいぷれぜんとをよくぞしてくださいました。",
+          "mean": "Thank you very much for giving me such a valuable present."
+        },
+        {
+          "content": "皆さんはこんな夜遅くまでよく手伝って下さって誠にありがとうございました。",
+          "transcription": "みなさんはこんなよるおそくまでよくてつだってくださってまことにありがとうございました。",
+          "mean": "Thank you very much to everyone for helping us out so late at night."
+        }
+      ],
+      "mean": null,
+      "synopsis": "よく (ぞ)"
+    }
+  ],
+  "title": "よく(ぞ) => how wonderfully, how admirably",
+  "_id": "f2d618ceb0702f781ec83b7d4f3895cf"
+}

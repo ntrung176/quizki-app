@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2192,
+  "usages": [
+    {
+      "explain": "Used to convey information heard to others, implying that the content may not be accurate.",
+      "note": null,
+      "examples": [
+        {
+          "content": "砂糖さんとかいう女の人が訪ねてきていますよ。",
+          "transcription": "さとうさんとかいうおんなのひとがたずねてきていますよ。",
+          "mean": "A woman called Ms. Sugar is visiting."
+        },
+        {
+          "content": "小林さんは今朝熱があって休むとか。",
+          "transcription": "こばやしさんはけさねつがあってやすむとか。",
+          "mean": "Mr. Kobayashi has a fever this morning and will be taking a rest."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～とか (いう)"
+    }
+  ],
+  "title": "...とか (いう) ... => ...or something like that, it's called...",
+  "_id": "f7ff14dae05876cac58b413693df3d6c"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1223,
+  "usages": [
+    {
+      "explain": "This is a refined expression of [のだった], used to reminisce about the past with much emotion.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ようやく彼女は留学にしたのであった。",
+          "transcription": "ようやくかのじょはりゅうがくにしたのであった。",
+          "mean": "Finally, she decided to study abroad."
+        },
+        {
+          "content": "ついにその二人は別れたのであった。",
+          "transcription": "ついにそのににんはわかれたのであった。",
+          "mean": "Finally, the two separated."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na なのであった\nA／V のであった"
+    }
+  ],
+  "title": "のであった => So...(Exclamation)",
+  "_id": "f7ff14dae05876cac58b413693583e9c"
+}

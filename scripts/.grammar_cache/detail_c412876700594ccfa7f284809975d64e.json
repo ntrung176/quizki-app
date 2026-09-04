@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5551,
+  "usages": [
+    {
+      "explain": "「たぶん」is an adverb meaning 'probably,' indicating a lower level of certainty compared to 「きっと」. It is often used in combination with 「でしょう」or 「と思います」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "たぶん明日もパスタを食べます。",
+          "transcription": "たぶんあしたもパスタをたべます。",
+          "mean": "I'll probably eat pasta tomorrow too."
+        },
+        {
+          "content": "たぶんそれを使えると思います。",
+          "transcription": "たぶんそれをつかえるとおもいます。",
+          "mean": "I think you can probably use that."
+        },
+        {
+          "content": "彼女はたぶん疲れているのだろう。",
+          "transcription": "かのじょはたぶんつかれているのだろう。",
+          "mean": "She's probably tired."
+        },
+        {
+          "content": "花婿さんは、たぶん結婚式に遅れたと思います。",
+          "transcription": "はなむこさんは、たぶんけっこんしきにおくれたとおもいます。",
+          "mean": "I think the groom was probably late for the wedding."
+        },
+        {
+          "content": "私たちが遅いので、彼らはたぶん心配しているだろう。",
+          "transcription": "わたしたちがおそいので、かれらはたぶんしんぱいしているだろう。",
+          "mean": "They're probably worried because we're late."
+        },
+        {
+          "content": "山田さんはこのニュースをたぶん知らないと思います。",
+          "transcription": "やまださんはこのニュースをたぶんしらないとおもいます。",
+          "mean": "I think Mr. Yamada probably doesn't know about this news."
+        },
+        {
+          "content": "『ミラーさんは来るでしょうか。』『たぶん来るでしょう。』",
+          "transcription": "『ミラーさんはくるでしょうか。』『たぶんくるでしょう。』",
+          "mean": "``Will Mr. Miller come? ``Maybe he will come. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "たぶん ✚ Sentence"
+    }
+  ],
+  "title": "たぶん => perhaps; probably",
+  "_id": "c412876700594ccfa7f284809975d64e"
+}

@@ -1,0 +1,76 @@
+{
+  "level": "N5",
+  "mobileId": 5602,
+  "usages": [
+    {
+      "explain": "「か」is a particle that is placed at the end of a sentence to turn it into a question. Typically, 「か」replaces the question mark, so at the end of the sentence, you only need \"。\" (period/full stop).",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは辞書ですか。",
+          "transcription": "それはじしょですか。",
+          "mean": "Is that a dictionary?"
+        },
+        {
+          "content": "あの大きい家は田中さんのでしたか。",
+          "transcription": "あのおおきいいえはたなかさんのでしたか。",
+          "mean": "Was that big house Mr. Tanaka's?"
+        },
+        {
+          "content": "冷蔵庫の中のミルクを飲みましたか。",
+          "transcription": "れいぞうこのなかのミルクをのみましたか。",
+          "mean": "Did you drink the milk in the refrigerator?"
+        },
+        {
+          "content": "このバナナを食べますか。",
+          "transcription": "このバナナをたべますか。",
+          "mean": "Would you like to eat this banana?"
+        },
+        {
+          "content": "昨日のケーキはおいしかったですか。",
+          "transcription": "きのうのケーキはおいしかったですか。",
+          "mean": "Was yesterday's cake delicious?"
+        },
+        {
+          "content": "このパソコンは高いですか。",
+          "transcription": "このパソコンはたかいですか。",
+          "mean": "Is this computer expensive?"
+        },
+        {
+          "content": "今朝６時に起きましたか。",
+          "transcription": "けさろくじにおきましたか。",
+          "mean": "Did you wake up at 6 o'clock this morning?"
+        },
+        {
+          "content": "七海先生は今年25歳になりますか。",
+          "transcription": "ななみせんせいはことしにじゅうごさいになりますか。",
+          "mean": "Will Nanami-sensei turn 25 this year?"
+        },
+        {
+          "content": "晩ご飯を食べませんでしたか。",
+          "transcription": "ばんごはんをたべませんでしたか。",
+          "mean": "Didn't you have dinner?"
+        },
+        {
+          "content": "これは安藤さんの携帯じゃありませんか。",
+          "transcription": "これはあんどうさんのけいたいじゃありませんか。",
+          "mean": "Isn't this Mr. Ando's cell phone?"
+        },
+        {
+          "content": "エリンさんはアメリカ人ですか。",
+          "transcription": "エリンさんはアメリカじんですか。",
+          "mean": "Is Erin an American?"
+        },
+        {
+          "content": "工藤さんの彼女はきれいですか。",
+          "transcription": "くどうさんのかのじょはきれいですか。",
+          "mean": "Is Mr. Kudo's girlfriend beautiful?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence+か"
+    }
+  ],
+  "title": "か => interrogative",
+  "_id": "77cdb9dab38543629c87f4876521380f"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2584,
+  "usages": [
+    {
+      "explain": "Used to indicate the completion of an object. The particle for the noun indicating a place in this sentence is 「に」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "京都に新しい空港ができました。",
+          "transcription": "きょうとにあたらしいくうこうができました。",
+          "mean": "A new airport has been opened in Kyoto."
+        },
+        {
+          "content": "その建物はいつできますか。",
+          "transcription": "そのたてものはいつできますか。",
+          "mean": "When will the building be completed?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 に N2 ができる"
+    }
+  ],
+  "title": "に...ができる => complete",
+  "_id": "f2d618ceb0702f781ec83b7d4f1452ee"
+}

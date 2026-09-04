@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5545,
+  "usages": [
+    {
+      "explain": "「ですか」is a question form used to confirm whether the content of the sentence is true or false. When there is an interrogative word (question word) in the sentence, 「ですか」is used to inquire about the information related to that interrogative word. The particle か serves the function of turning the sentence into a question.",
+      "note": null,
+      "examples": [
+        {
+          "content": "りんごは体に良いそうだ。",
+          "transcription": "りんごはからだにいいそうだ。",
+          "mean": "Apparently apples are good for the body."
+        },
+        {
+          "content": "あの人は日本人だそうだ。",
+          "transcription": "あのひとはにほんじんだそうだ。",
+          "mean": "That person seems to be Japanese."
+        },
+        {
+          "content": "そこは冬でも雪が降らないそうだ。",
+          "transcription": "そこはふゆでもゆきがふらないそうだ。",
+          "mean": "Apparently it doesn't snow there even in winter."
+        },
+        {
+          "content": "新しい図書館はとても便利だそうです。",
+          "transcription": "あたらしいとしょかんはとてもべんりだそうです。",
+          "mean": "The new library seems to be very convenient."
+        },
+        {
+          "content": "安藤さんは今日、病院に行くそうです。",
+          "transcription": "あんどうさんはきょう、びょういんにいくそうです。",
+          "mean": "Mr. Ando is going to the hospital today."
+        },
+        {
+          "content": "来月、大学でイベントがあるそうです。",
+          "transcription": "らいげつ、だいがくでイベントがあるそうです。",
+          "mean": "Apparently there will be an event at the university next month."
+        },
+        {
+          "content": "彼は全然学校に来ていないそうですよ。",
+          "transcription": "かれはぜんぜんがっこうにきていないそうですよ。",
+          "mean": "It seems that he doesn't come to school at all."
+        },
+        {
+          "content": "昨日、大阪に大地震があったそうです。",
+          "transcription": "きのう、おおさかにだいじしんがあったそうです。",
+          "mean": "It seems that there was a big earthquake in Osaka yesterday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V(formal form)+そうだ<br/>Aい/くない/かった/くなかった+そうだ<br/>A<s>な</s>だ/じゃない/だった/じゃなかった+そうだ<br/>Nだ/じゃない/だった/じゃなかった+そうだ"
+    }
+  ],
+  "title": "そうだ => I heard that; it is said that ~",
+  "_id": "31982657f589408fb40846c8dd6d9860"
+}

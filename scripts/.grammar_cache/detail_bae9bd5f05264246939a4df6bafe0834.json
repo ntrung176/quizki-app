@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5048,
+  "usages": [
+    {
+      "explain": "「ばこそ」is used to emphasize the reason behind an event or action, indicating that it is precisely because of this reason, and not any other reason, that the event or action occurred. It is often used in formal writing or speech, and at the end of a sentence it can be combined with のだ.",
+      "note": null,
+      "examples": [
+        {
+          "content": "親は子供のためを思えばこそ、厳しく叱るのだ。",
+          "transcription": "おやはこどものためをおもえばこそ、きびしくしかるのだ。",
+          "mean": "Parents only scold children harshly when they think about their children."
+        },
+        {
+          "content": "こんなことまで話すのはあなたを信用していければこそです。",
+          "transcription": "こんなことまではなすのはあなたをしんようしていければこそです。",
+          "mean": "I only tell you things like this if I trust you."
+        },
+        {
+          "content": "小説を書くことが楽しければこそ、40年も書き続けてきたのです。",
+          "transcription": "しょうせつをかくことがたのしければこそ、よんじゅうねんもかきつづけてきたのです。",
+          "mean": "I have continued writing novels for 40 years because I enjoy writing novels."
+        },
+        {
+          "content": "忙しければこそ、時間を効率的に使うことができるようになる。",
+          "transcription": "いそがしければこそ、じかんをこうりつてきにつかうことができるようになる。",
+          "mean": "Being busy allows you to use your time more efficiently."
+        },
+        {
+          "content": "健康であればこそ、年をとっても楽しい人生を過ごせる。",
+          "transcription": "けんこうであればこそ、としをとってもたのしいじんせいをすごせる。",
+          "mean": "If you are healthy, you can live a happy life even as you get older."
+        },
+        {
+          "content": "小さな会社であればこそ、優秀な人材が必要だ。",
+          "transcription": "ちいさなかいしゃであればこそ、ゆうしゅうなじんざいがひつようだ。",
+          "mean": "As a small company, you need talented people."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (conditional form)+こそ<br/> A<s>い</s>ければ+こそ<br/> A<s>な</s>であれば+こそ<br/> Nであれば+こそ"
+    }
+  ],
+  "title": "ばこそ => only because ~",
+  "_id": "bae9bd5f05264246939a4df6bafe0834"
+}

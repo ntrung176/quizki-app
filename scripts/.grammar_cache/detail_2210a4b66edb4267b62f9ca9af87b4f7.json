@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5375,
+  "usages": [
+    {
+      "explain": "「み」is added after an adjective to form a noun indicating a state or quality.<br/> The suffix 「み」can only be added to certain adjectives like 悲しい (sad), 楽しい (fun), 弱い (weak), 苦しい (painful)...<br/> Many adjectives can be nominalized by adding both the suffix 「さ」and the suffix 「み」, but they have slightly different meanings.<br/>\nThe suffix 「さ」emphasizes the degree and is objective. The adjective it accompanies describes things that can be measured, such as size, weight... Or if it's an adjective describing emotions,「さ」expresses a general feeling that many people can perceive about an object, event, and can somewhat share with each other.<br/>\nOn the other hand, the suffix 「み」emphasizes the quality, state, and is subjective. This quality, state is something that needs to be experienced firsthand to know, such as taste, warmth... or emotions that only individuals can feel and thus are difficult to share with others.<br/>\nExample: 強さ (strength) and 強み (strong point); 甘さ (sweetness) and 甘み (sweetness)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "戦争が終わった今でも、この国の苦しみはまだ続いている。",
+          "transcription": "せんそうがおわったいまでも、このくにのくるしみはまだつづいている。",
+          "mean": "Even though the war is over, the suffering in this country still continues."
+        },
+        {
+          "content": "田中さんの強みは、2ヵ国語が話せるということです。",
+          "transcription": "たなかさんのつよみは、にかこくごがはなせるということです。",
+          "mean": "Mr. Tanaka's strength is that he can speak two languages."
+        },
+        {
+          "content": "私は少し苦みのあるコーヒーが好きです。",
+          "transcription": "わたしはすこしにがみのあるコーヒーがすきです。",
+          "mean": "I like coffee with a little bitterness."
+        },
+        {
+          "content": "一位を取りたいから、足の痛みを忘れて走りました。",
+          "transcription": "いちいをとりたいからあしのいたみをわすれてはしりました。",
+          "mean": "I wanted to take first place, so I ran, forgetting about the pain in my legs."
+        },
+        {
+          "content": "このスープの野菜の甘みを感じていた。",
+          "transcription": "このスープのやさいのあまみをかんじていた。",
+          "mean": "I could feel the sweetness of the vegetables in this soup."
+        },
+        {
+          "content": "この色からこのフルーツの新鮮みが感じられる。",
+          "transcription": "このいろからこのフルーツのしんせんみがかじられる。",
+          "mean": "This color gives you a sense of the freshness of this fruit."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>+み (VD: 悲しい ➔ 悲しみ)<br/>A<s>な</s>+み (VD: 真剣な ➔ 真剣み)"
+    }
+  ],
+  "title": "み => ~ness",
+  "_id": "2210a4b66edb4267b62f9ca9af87b4f7"
+}

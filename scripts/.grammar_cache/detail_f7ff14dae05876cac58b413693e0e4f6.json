@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2204,
+  "usages": [
+    {
+      "explain": "Expressing the meaning of \"doing something without a clear reason or purpose.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はなんとなくこの珍しい本を見つけた。",
+          "transcription": "わたしはなんとなくこのめずらしいほんをみつけた。",
+          "mean": "I somehow found this rare book."
+        },
+        {
+          "content": "彼はなんとなく僕に恨みを持っているようだ。",
+          "transcription": "かれはなんとなくぼくにうらみをもっているようだ。",
+          "mean": "He seems to have some sort of grudge against me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとなく～"
+    }
+  ],
+  "title": "なんとなく => for some reason, somehow",
+  "_id": "f7ff14dae05876cac58b413693e0e4f6"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1009,
+  "usages": [
+    {
+      "explain": "This is used after 「これ/それ/あれ」 or a noun to emphasize the meaning of \"while other things may be acceptable, only this particular thing...\" <br/>It's a somewhat stiff expression, more suitable for written language. Using it in everyday conversation might feel archaic, overly formal, or exaggerated.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こればかりは触らないで下さい。",
+          "transcription": "こればかりはさわらないでください。",
+          "mean": "Please don't touch this."
+        },
+        {
+          "content": "なんでも認めますが、この要求ばかりは考え直さなきゃ。",
+          "transcription": "なんでもみとめますが、このようきゅうばかりはかんがえなおさなきゃ。",
+          "mean": "I'll accept anything, but I need to reconsider this request."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ばかりは"
+    }
+  ],
+  "title": "... ばかりは => only, all except for this…",
+  "_id": "f7ff14dae05876cac58b4136933b544e"
+}

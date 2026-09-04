@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 865,
+  "usages": [
+    {
+      "explain": "Used to denote something especially compared to others. This is a word used in writing, not in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この地方はわけても十月観光客が多い。",
+          "transcription": "このちほうはわけてもじゅうがつかんこうきゃくがおおい。",
+          "mean": "There are especially many tourists in this region in October."
+        },
+        {
+          "content": "彼はいろいろな外国語が話せる、わけても日本語だ。",
+          "transcription": "かれはいろいろながいこくごがはなせる、わけてもにほんごだ。",
+          "mean": "He can speak many foreign languages, especially Japanese."
+        },
+        {
+          "content": "ロシア作家の小説をたくさん読んでいるが、わけてもその小説は一番面白い。",
+          "transcription": "ろしあさっかのしょうせつをたくさんよんでいるが、わけてもそのしょうせつはいちばんおもしろい。",
+          "mean": "I read a lot of novels by Russian authors, but this one is by far the most interesting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "わけても"
+    }
+  ],
+  "title": "わけても => Especially",
+  "_id": "f7ff14dae05876cac58b413693282020"
+}

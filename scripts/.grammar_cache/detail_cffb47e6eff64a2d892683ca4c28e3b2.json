@@ -1,0 +1,66 @@
+{
+  "level": "N1",
+  "mobileId": 5033,
+  "usages": [
+    {
+      "explain": "「あっての」is used to express that N2 cannot exist without N1, N2 relies on N1.",
+      "note": null,
+      "examples": [
+        {
+          "content": "健康な体あっての人生です。",
+          "transcription": "けんこうなからだあってのじんせいです。",
+          "mean": "A life with a healthy body."
+        },
+        {
+          "content": "健康あっての美しさですから、無理なダイエットには反対です。",
+          "transcription": "けんこうあってのうつくしさですから、むりなダイエットにははんたいです。",
+          "mean": "Beauty comes from good health, so I am against unreasonable diets."
+        },
+        {
+          "content": "あなたあっての私だから、あなたがいないと生きていけないのよ。",
+          "transcription": "あなたあってのわたしだから、あなたがいないといきていけないのよ。",
+          "mean": "You are who I am, so I can't live without you."
+        },
+        {
+          "content": "自分がこんなにも早く出世できたのも、厳しい上司の指導あってのことです。",
+          "transcription": "じぶんがこんなにもはやくしゅっせできたのも、きびしいじょうしのしどうあってのことです。",
+          "mean": "The reason I was able to advance so quickly was due to the strict guidance of my superiors."
+        },
+        {
+          "content": "お客様あっての仕事だから、言葉遣いに気を付けてください。",
+          "transcription": "おきゃくさまあってのしごとだから、ことばづかいにきをつけてください。",
+          "mean": "Your job depends on the customer, so please be careful with your words."
+        },
+        {
+          "content": "お客様あっての仕事ですから、いつもご来店いただくお客様には感謝しております。",
+          "transcription": "おきゃくさまあってのしごとですから、いつもごらいてんいただくおきゃくさまにはかんしゃしております。",
+          "mean": "We rely on our customers for our work, so we are grateful to our customers for always visiting us."
+        },
+        {
+          "content": "私の幸せは家族あってのものだ。みんな病気をせず元気でいてほしい。",
+          "transcription": "わたしのしあわせはかぞくあってのものだ。みんなびょうきをせずげんきでいてほしい。",
+          "mean": "My happiness comes from my family. I want everyone to stay healthy and not get sick."
+        },
+        {
+          "content": "健康あっての人生だ。不健康なものを食べないように頑張りましょう！",
+          "transcription": "けんこうあってのじんせいだ。ふけんこうなものをたべないようにがんばりましょう！",
+          "mean": "Life is about health. Let's try our best not to eat unhealthy food!"
+        },
+        {
+          "content": "プロジェクトお疲れ様でした。今回は皆の協力あっての成功だと思っています。本当にありがとうございました。",
+          "transcription": "プロジェクトおつかれさまでした。こんかいはみなのきょうりょくあってのせいこうだとおもっています。ほんとうにありがとうございました。",
+          "mean": "Thank you for your hard work on the project. I believe this success was due to everyone's cooperation. I'm really thankful to you."
+        },
+        {
+          "content": "学生あっての学校ですから、いくら設備が良くても、素晴らしい先生がいても、学生が来なければ意味がない。",
+          "transcription": "がくせいあってのがっこうですから、いくらせつびがよくても、すばらしいせんせいがいても、がくせいがこなければいみがない。",
+          "mean": "A school relies on students, so no matter how good the facilities are or how wonderful the teachers are, it's meaningless if the students don't come."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1+あっての+N2"
+    }
+  ],
+  "title": "あっての => which owes everything to; which can exist solely due to the presence of; whose existence is determined ...",
+  "_id": "cffb47e6eff64a2d892683ca4c28e3b2"
+}

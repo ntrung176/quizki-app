@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5413,
+  "usages": [
+    {
+      "explain": "「させてください / させてもらえますか / させてもらえませんか」are used to request permission from someone to do something. The level of politeness increases gradually: 「ください」< 「もらえますか」< 「もらえませんか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょっと気分が悪いので、早く帰らせてください。",
+          "transcription": "ちょっときぶんがわるいので、はやくかえらせてください。",
+          "mean": "I'm not feeling well, so please let me go home early."
+        },
+        {
+          "content": "あなたの会社のお話を聞かせてください。",
+          "transcription": "あなたのかいしゃのおはなしをきかせてください。",
+          "mean": "Please tell us about your company."
+        },
+        {
+          "content": "手を洗わせてください。",
+          "transcription": "てをあらわせてください。",
+          "mean": "Please let me wash my hands."
+        },
+        {
+          "content": "今日は熱があるので、休ませてください。",
+          "transcription": "きょうはねつがあるので、やすませてください。",
+          "mean": "I have a fever today, so please let me rest."
+        },
+        {
+          "content": "ここに荷物を置かせてもらえますか。",
+          "transcription": "ここににもつをおかせてもらえますか。",
+          "mean": "Can I leave my luggage here?"
+        },
+        {
+          "content": "早く帰らせてもらえますか。",
+          "transcription": "はやくかえらせてもらえますか。",
+          "mean": "Could you please let me go home early?"
+        },
+        {
+          "content": "30分だけここに車は止めさせてもらえませんか。",
+          "transcription": "さんじゅっぷんだけここにくるまはとめさせてもらえませんか。",
+          "mean": "Could you please park your car here for just 30 minutes?"
+        },
+        {
+          "content": "日本の印象についてインタビューさせてもらえませんか。",
+          "transcription": "にほんのいんしょうについてインタビューさせてもらえませんか。",
+          "mean": "Could I interview you about your impressions of Japan?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (causative form)て+ください<br/> V (causative form)て+もらえますか<br/> V (causative form)て+もらえませんか"
+    }
+  ],
+  "title": "させてください/させてもらえますか/させてもらえませんか => please let me do",
+  "_id": "61cb1047a00543b1ac96594c1676fdad"
+}

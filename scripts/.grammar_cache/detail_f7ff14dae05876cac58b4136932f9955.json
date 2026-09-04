@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 921,
+  "usages": [
+    {
+      "explain": "Used to criticize that the action is inappropriate or unnecessary. It is a formal way of speaking, with a written language style. In spoken language, 「V-ることもないだろう」is more commonly used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あんなに無理をることもあるまい。",
+          "transcription": "あんなにむりをることもあるまい。",
+          "mean": "There's no way I would push myself that hard."
+        },
+        {
+          "content": "大したことではなく、怒ることもあるまい。",
+          "transcription": "たいしたことではなく、おこることもあるまい。",
+          "mean": "It's not a big deal and I won't get angry."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + こともあるまい"
+    }
+  ],
+  "title": "こともあるまい => will not; will probably not; intend not to; must not ~",
+  "_id": "f7ff14dae05876cac58b4136932f9955"
+}

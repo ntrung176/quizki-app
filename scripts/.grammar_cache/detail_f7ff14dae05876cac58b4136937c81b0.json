@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1478,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"though understanding that, but...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "過去の失敗は後悔しても仕方がない。とはいいながら、思い出すと悲しい。",
+          "transcription": "かこのしっぱいはこうかいしてもしかたがない。とはいいながら、おもいだすとかなしい。",
+          "mean": "There is no point in regretting past mistakes. That said, it's sad when I think about it."
+        },
+        {
+          "content": "結婚相手を決める場合は、何よりも恋愛が大切である。とはいいながら、いざとなると相手の経済力が気になる。",
+          "transcription": "けっこんあいてをきめるばあいは、なによりもれんあいがたいせつである。とはいいながら、いざとなるとあいてのけいざいりょくがきになる。",
+          "mean": "When deciding on a marriage partner, love is more important than anything else. Having said that, when the time comes, I am concerned about the other party's financial strength."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とはいいながら～"
+    }
+  ],
+  "title": "とはいいながら => with these words; while saying",
+  "_id": "f7ff14dae05876cac58b4136937c81b0"
+}

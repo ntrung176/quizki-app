@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1882,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"anything\", \"everything\", \"all\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "健康ならなんでもできる。",
+          "transcription": "けんこうならなんでもできる。",
+          "mean": "You can do anything if you are healthy."
+        },
+        {
+          "content": "あなたのしたいことはなんでもしなさい。",
+          "transcription": "あなたのしたいことはなんでもしなさい。",
+          "mean": "Do whatever you want."
+        },
+        {
+          "content": "彼は宇宙の事ならなんでも知っている。",
+          "transcription": "かれはうちゅうのことならなんでもしっている。",
+          "mean": "He knows everything about space."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんでも ～"
+    }
+  ],
+  "title": "なんでも => any, whatever one likes, by all means, anything, everything",
+  "_id": "f7ff14dae05876cac58b413693b2df1d"
+}

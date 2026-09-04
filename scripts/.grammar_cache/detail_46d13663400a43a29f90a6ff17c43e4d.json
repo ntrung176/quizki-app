@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5411,
+  "usages": [
+    {
+      "explain": "「せいで」indicates the cause or reason for something, often with a negative outcome.",
+      "note": null,
+      "examples": [
+        {
+          "content": "バスが遅れたせいで、約束の時間に間に合わなかった。",
+          "transcription": "バスがおくれたせいで、やくそくのじかんにまにあわなかった。",
+          "mean": "I couldn't make it on time because the bus was late."
+        },
+        {
+          "content": "傘を忘れたせいで、びしょ濡れになった。",
+          "transcription": "かさをわすれたせいで、びしょぬれになった。",
+          "mean": "I forgot my umbrella, so I got soaked."
+        },
+        {
+          "content": "お腹が痛くなったのは食べ過ぎたせいだ。",
+          "transcription": "おなかがいたくなったのはたべすぎたせいだ。",
+          "mean": "My stomach hurts because I ate too much."
+        },
+        {
+          "content": "部屋があまりにも汚いせいで、必要なものがすぐに見つからない。",
+          "transcription": "へやがあまりにもきたないせいで、ひつようなものがすぐにみつからない。",
+          "mean": "My room is so dirty that I can't find what I need right away."
+        },
+        {
+          "content": "仕事があまりにも大変なせいで、彼女と会う時間もなかなか作れない。",
+          "transcription": "しごとがあまりにもたいへんなせいで、かのじょとあうじかんもなかなかつくれない。",
+          "mean": "Because my work is so demanding, I have trouble finding time to meet with my girlfriend."
+        },
+        {
+          "content": "どれだけ有益な情報をコンテンツ化しても、文章が稚拙であるせいで、読み手の関心が途中で離れてしまう危険がある。",
+          "transcription": "どれだけゆうえきなじょうほうをコンテンツかしても、ぶんしょうがちせつであるせいで、よみてのかんしんがとちゅうではなれてしまうきけんがある。",
+          "mean": "No matter how much useful information you create as content, there is a risk that readers will lose interest halfway through the content due to poor writing."
+        },
+        {
+          "content": "あいつのせいで、先生に叱られた。",
+          "transcription": "あいつのせいで、せんせいにしかられた。",
+          "mean": "Because of that guy, the teacher scolded me."
+        },
+        {
+          "content": "事故のせいで、約束の時間に遅れてしまった。",
+          "transcription": "じこのせいで、やくそくのじかんにおくれてしまった。",
+          "mean": "Because of the accident, I was late for my appointment."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+せいで / せいだ<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>な/である<br/> Nだ ➔ N<s>だ</s>である)<br/><br/>\n Nの+せいで / せいだ"
+    }
+  ],
+  "title": "せいで => because of; due to; as a result of ~",
+  "_id": "46d13663400a43a29f90a6ff17c43e4d"
+}

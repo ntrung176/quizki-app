@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 890,
+  "usages": [
+    {
+      "explain": "■ Follows a clause and expresses the idea of \"using that as a reason for performing the action afterwards\".<br/>■ Often expresses a cause-and-effect relationship: due to the reason stated in the first clause, the result is the action in the second clause. The second clause often uses expressions that denote intentional actions.",
+      "note": "からとおもって goes after a clause.",
+      "examples": [
+        {
+          "content": "私はその大学が好きからともって、勉強に努力をしました。",
+          "transcription": "わたしはそのだいがくがすきからともって、べんきょうにどりょくをしました。",
+          "mean": "I loved that university, so I made an effort to study."
+        },
+        {
+          "content": "私は旅行したいからともって、お金を貯めました。",
+          "transcription": "わたしはりょこうしたいからともって、おかねをためました。",
+          "mean": "I saved up money because I wanted to travel."
+        },
+        {
+          "content": "体にいいからと思って、緑の野莱を食べるようにしています。",
+          "transcription": "からだにいいからとおもって、みどりのの莱をたべるようにしています。",
+          "mean": "I try to eat green wildflowers because I think they are good for the body."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～からとおもって => Because I think...",
+  "_id": "f7ff14dae05876cac58b4136932b5f08"
+}

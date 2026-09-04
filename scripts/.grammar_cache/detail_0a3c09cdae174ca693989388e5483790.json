@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5416,
+  "usages": [
+    {
+      "explain": "「その結果」 is a conjunction used to connect two sentences. The event that occurred in the first sentence is the reason leading to the result in the second sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父は人の何倍も努力した。その結果、仕事で成功した。",
+          "transcription": "ちちはひとのなんばいもどりょくした。そのけっか、しごとでせいこうした。",
+          "mean": "My father worked many times harder than anyone else. As a result, I was successful at work."
+        },
+        {
+          "content": "3ヶ月ダイエットを続けた。その結果,５キロ瘦せた。",
+          "transcription": "さんかげつダイエットをつづけた。そのけっか、ごキロやせた。",
+          "mean": "I continued the diet for 3 months. As a result, I lost 5 kg."
+        },
+        {
+          "content": "ほとんど勉強しなかった。その結果、入学試験に落ちてしまった。",
+          "transcription": "ほとんどべんきょうしなかった。そのけっか、にゅうがくしけんにおちてしまった。",
+          "mean": "I hardly studied. As a result, I failed the entrance exam."
+        },
+        {
+          "content": "どんなに苦しくても彼はあきらめなかった。その結果、このような偉大な発明が生まれたのだ。",
+          "transcription": "どんなにくるしくてもかれはあきらめなかった。そのけっか、このようないだいなはつめいがうまれたのだ。",
+          "mean": "No matter how hard it was, he never gave up. As a result, such a great invention was born."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。 その結果、B"
+    }
+  ],
+  "title": "その結果 => as a result of; after ~",
+  "_id": "0a3c09cdae174ca693989388e5483790"
+}

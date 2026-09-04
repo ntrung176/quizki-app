@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3104,
+  "usages": [
+    {
+      "explain": "✦ Describing a continuous state or action happening at a particular point in time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "１週間働き通しだ。",
+          "transcription": "いちしゅうかんはたらきとおしだ。",
+          "mean": "I've been working all week."
+        },
+        {
+          "content": "一日中立ち通しで働いている。",
+          "transcription": "いちにちじゅうたちとおしではたらいている。",
+          "mean": "I work on my feet all day."
+        },
+        {
+          "content": "朝から晩まで座り通しの仕事は、かえって疲れるものだ。",
+          "transcription": "あさからばんまですわりどおしのしごとは、かえってつかれるものだ。",
+          "mean": "A job that involves sitting from morning till night can actually be tiring."
+        },
+        {
+          "content": "2時間しゃべり通しだ。",
+          "transcription": "2じかんしゃべりとおしだ。",
+          "mean": "We talked for two hours."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vます ＋ どおしだ"
+    }
+  ],
+  "title": "～どおしだ（通しだ）      => do something all the time",
+  "_id": "93020c54469e582d6fdb16f7ba9c2873"
+}

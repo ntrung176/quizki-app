@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5397,
+  "usages": [
+    {
+      "explain": "「について」is used to indicate the object/topic (N) that an action follows (such as speaking, listening, thinking, researching...). It is often used in spoken language.<br/>\n「につき」is the more formal version of 「について」, used in both written and formal spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本の文化について勉強しています。",
+          "transcription": "にほんのぶんかについてべんきょうしています。",
+          "mean": "I'm studying about Japanese culture."
+        },
+        {
+          "content": "この新聞記事について聞きたいことがあります。",
+          "transcription": "このしんぶんきじについてききたいことがあります。",
+          "mean": "I would like to ask you something about this newspaper article."
+        },
+        {
+          "content": "あの人について私は何も知りません。",
+          "transcription": "あの人についてわたしはなにもしりません。",
+          "mean": "I don't know anything about that person."
+        },
+        {
+          "content": "コンピューターの使い方についての本が欲しい。",
+          "transcription": "コンピューターのつかいかたについてのほんがほしい。",
+          "mean": "I want a book on how to use a computer."
+        },
+        {
+          "content": "また、日本の教育についても説明します。",
+          "transcription": "また、にほんのきょういくについてもせつめいします。",
+          "mean": "We will also explain Japanese education."
+        },
+        {
+          "content": "参考資料につき、一部誤記がございましたので修正しました。",
+          "transcription": "さんこうしりょうにつき、いちぶごきがございましたのでしゅうせいしました。",
+          "mean": "There were some errors in the reference materials, so we have corrected them."
+        },
+        {
+          "content": "新しい事業計画につき、これからご説明いたします。",
+          "transcription": "あたらしいじぎょうけいかくにつき、これからごせつめいいたします。",
+          "mean": "I would like to explain our new business plan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+ついて <br/> Nに+ついては<br/> Nに+ついても<br/> Nに+ついての N<br/>Nに+つき"
+    }
+  ],
+  "title": "について => concerning; regarding; about; on ~",
+  "_id": "2bd345587d37452895dfe561d5887fc4"
+}

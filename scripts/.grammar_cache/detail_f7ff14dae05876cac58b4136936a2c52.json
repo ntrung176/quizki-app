@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1352,
+  "usages": [
+    {
+      "explain": "Used to give a negative evaluation about two nouns that the speaker perceives to be similar in nature.",
+      "note": null,
+      "examples": [
+        {
+          "content": "親が親なら子も子だ。",
+          "transcription": "おやがおやならこもこだ。",
+          "mean": "If parents are parents, children are children too."
+        },
+        {
+          "content": "兄が兄なら弟も弟だ。",
+          "transcription": "あにがあにならおとうともおとうとだ。",
+          "mean": "If an older brother is an older brother, a younger brother is also a younger brother."
+        },
+        {
+          "content": "社長が社長なら社員も社員だ。",
+          "transcription": "しゃちょうがしゃちょうならしゃいんもしゃいんだ。",
+          "mean": "If the president is the president, the employees are also employees."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 + が + N1 + なら + N2 + も + N2だ"
+    }
+  ],
+  "title": "...が ...なら ...も ...だ => ... Anyway... whatever",
+  "_id": "f7ff14dae05876cac58b4136936a2c52"
+}

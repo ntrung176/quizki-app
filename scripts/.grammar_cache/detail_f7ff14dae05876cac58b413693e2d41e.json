@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 2217,
+  "usages": [
+    {
+      "explain": "✦Expresses the meaning 'when carried out in reality'. Followed by expressions implying 'in that situation, naturally, it becomes like that'.",
+      "note": null,
+      "examples": [
+        {
+          "content": "<div>いざとなると英語をうまく話せない。</div><div><br></div>",
+          "transcription": "<div>いざとなるとえいごをうまくはなせない。</div><div><br></div>",
+          "mean": "&lt;div&gt;When it comes to emergency, I can't speak English well. &lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "スピーチは原稿を何度も読んで練習してきたが、いざとなるとあがってしまいうまくしゃべれなかった。",
+          "transcription": "スピーチはげんこうをなんどもよんでれんしゅうしてきたが、いざとなるとあがってしまいうまくしゃべれなかった 。",
+          "mean": "I had practiced my speech by reading the manuscript many times, but when the time came, I got so excited that I couldn't speak properly."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～いざとなると => when it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b413693e2d41e"
+}

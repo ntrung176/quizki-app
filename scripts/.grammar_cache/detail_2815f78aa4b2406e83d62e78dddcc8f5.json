@@ -1,0 +1,71 @@
+{
+  "level": "N5",
+  "mobileId": 5645,
+  "usages": [
+    {
+      "explain": "「とき」indicates the time or situation in which the event in the following clause occurs.<br/>\nNote:<br/>\n- The subject of the first and second clauses can be different. The subject of the first clause is marked with が. If both clauses share the same subject, this subject can be placed at the beginning of the sentence. Examples:<br/>\n　・私が晩ご飯を食べているとき、友達がうちへ来ました。(When I was having dinner, my friend came over.)<br/>\n　・若いとき、お母さんは看護士でした。(When she was young, my mother was a nurse.)<br/>\n　・お母さんは若いとき看護士でした。(My mother was a nurse when she was young.)<br/>\n- The temporal relationship between the first and second clauses is expressed by the tense of the verb in the first clause, regardless of the overall tense of the sentence. Specifically:<br/>\n　+ When the verb in the first clause is in the past tense ➔ the first clause happened before the second clause. Examples:<br/>\n　・日本へ来たとき、空港で写真を撮りました。(When I arrived in Japan, I took photos at the airport.)<br/>\n　+ When the verb in the first clause is in the present tense ➔ the first clause happens after the second clause. Examples:<br/>\n　・日本へ来るとき、空港で写真を撮りました。(Before coming to Japan, I took photos at the airport.)<br/>\n- When the second clause is in the past tense, and the first clause is a verb indicating a state (いる、ある...), it can be in either present or past tense. Examples:<br/>\n　・部屋にいるとき、電話しました。(I called when I was in the room.)<br/>\n　・部屋にいたとき、電話しました。(I called when I was in the room.)<br/>\n- When the second clause is in the past tense, and the first clause is an adjective or noun, the adjective or noun can be in either present or past tense. If you want to emphasize the past state of the first clause, you can use it in past tense. Examples:<br/>\n　・若いとき、よく泳ぎました。(I used to swim a lot when I was young.)<br/>\n　・若かったとき、よく泳ぎました。(I used to swim a lot when I was young.)<br/>\n- You can add the particle に after とき to form ときに.<br/>\n- The kanji for 「とき」is 時, however, in official documents like legal texts, there is a distinction in usage between the two characters. When とき indicates a point in time, 時 is used, while when it indicates a situation, hiragana is used. Examples:<br/>\n　・図書館で本を借りるとき、カードがいります。(Situation)<br/>\n　・夕飯の時にこのレストランに来てほしい。(Time)",
+      "note": null,
+      "examples": [
+        {
+          "content": "図書館で本を借りるとき、カードが要ります。",
+          "transcription": "としょかんでほんをかりるとき、カードがいります。",
+          "mean": "A card is required when borrowing books from the library."
+        },
+        {
+          "content": "体の調子が悪いとき、元気茶を飲みます。",
+          "transcription": "からだのちょうしがわるいとき、げんきちゃをのみます。",
+          "mean": "When I'm not feeling well, I drink Genkicha."
+        },
+        {
+          "content": "暇なとき、うちへ遊びに来ませんか。",
+          "transcription": "ひまなとき、うちへあそびにきませんか。",
+          "mean": "Would you like to come visit my house when you have free time?"
+        },
+        {
+          "content": "妻が病気のとき、会社を休みます。",
+          "transcription": "つまがびょうきのとき、かいしゃをやすみます。",
+          "mean": "When my wife is sick, I take time off from work."
+        },
+        {
+          "content": "部屋を出るとき、携帯が鳴りました。",
+          "transcription": "へやをでるとき、けいたいがなりました。",
+          "mean": "As I was leaving the room, my cell phone rang."
+        },
+        {
+          "content": "部屋を出たとき、携帯が鳴りました。",
+          "transcription": "へやをでたとき、けいたいがなりました。",
+          "mean": "When I left the room, my cell phone rang."
+        },
+        {
+          "content": "お母さんは若いとき看護士でした。",
+          "transcription": "おかあさんはわかいときかんごしでした。",
+          "mean": "My mother was a nurse when she was young."
+        },
+        {
+          "content": "部屋にいるとき、電話しました。",
+          "transcription": "へやにいるとき、でんわしました。",
+          "mean": "When I was in my room, I called."
+        },
+        {
+          "content": "部屋にいたとき、電話しました。",
+          "transcription": "へやにいたとき、でんわしました。",
+          "mean": "When I was in my room, I called."
+        },
+        {
+          "content": "若いときに、よく泳ぎました。",
+          "transcription": "わかいときに、よくおよぎました。",
+          "mean": "I used to swim a lot when I was young."
+        },
+        {
+          "content": "若かったときに、よく泳ぎました。",
+          "transcription": "わかかったときに、よくおよぎました。",
+          "mean": "I used to swim a lot when I was young."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+とき(に)<br/>Aい/Aな+とき(に)<br/> Nの+とき(に)"
+    }
+  ],
+  "title": "とき => time; hour; moment​ occasion; case​ chance; opportunity; season",
+  "_id": "2815f78aa4b2406e83d62e78dddcc8f5"
+}

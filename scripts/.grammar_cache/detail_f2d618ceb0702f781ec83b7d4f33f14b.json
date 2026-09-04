@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2828,
+  "usages": [
+    {
+      "explain": "It is a polite form of です.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これはタイ料理でございます。",
+          "transcription": "これはたいりょうりでございます。",
+          "mean": "This is Thai food."
+        },
+        {
+          "content": "これは必要でございますか",
+          "transcription": "これはひつようでございますか",
+          "mean": "Is this necessary?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + でございます"
+    }
+  ],
+  "title": "でございます => to be (honorific)",
+  "_id": "f2d618ceb0702f781ec83b7d4f33f14b"
+}

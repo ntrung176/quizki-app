@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2743,
+  "usages": [
+    {
+      "explain": "Used at the end of a sentence to express a warning or comfort. This is a way of conveying multiple impacts to the listener without explicitly stating them. Used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "おとなしく待ってろよ。アイスクリームを買ってきてやるからな。",
+          "transcription": "おとなしくまってろよ。あいすくりーむをかってきてやるからな。",
+          "mean": "Please wait quietly. I'll go buy you some ice cream."
+        },
+        {
+          "content": "いいから、いいから。それより、食べなさい。",
+          "transcription": "いいから、いいから。それより、たべなさい。",
+          "mean": "It's okay, it's okay. Instead, eat."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Na-だ + から\nV-る/ V-た/ V-ない + から\nA-い+ から"
+    }
+  ],
+  "title": "から => Usually used at the end of a sentence",
+  "_id": "f2d618ceb0702f781ec83b7d4f294eab"
+}

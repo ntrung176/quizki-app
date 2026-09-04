@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5360,
+  "usages": [
+    {
+      "explain": "「ことにする」helps the speaker express their own decision to do or not to do something. It can be translated as \"decide to...\"<br/>「ことにしている」helps the speaker express a habit or rule that they have decided for themselves and are currently maintaining. It can be translated as \"have a habit of...\" or \"have a rule of...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "『あれ？買い物に行かないの？』『うん、明日に行くことにした。』",
+          "transcription": "『あれ？かいものにいかないの？』『うん、あしたにいくことにした。』",
+          "mean": "\"that? Aren't you going shopping? ``Yeah, I decided to go tomorrow. ”"
+        },
+        {
+          "content": "夏休みに友達と沖縄に旅行することにします。",
+          "transcription": "なつやすみにともだちとおきなわにりょこうすることにします。",
+          "mean": "I decided to travel to Okinawa with my friends during summer vacation."
+        },
+        {
+          "content": "今夜のパーティーには行かないことにしました。",
+          "transcription": "こんやのパーティーにはいかないことにしました。",
+          "mean": "I decided not to go to the party tonight."
+        },
+        {
+          "content": "毎朝、30分ジョギングすることにしています。",
+          "transcription": "まいあさ、さんじゅっぷんジョギングすることにしています。",
+          "mean": "I decide to jog for 30 minutes every morning."
+        },
+        {
+          "content": "太らないように、夜9時を過ぎたら、私は食べないことにしています。",
+          "transcription": "ふとらないように、よるくじをすぎたら、わたしはたべないことにしています。",
+          "mean": "To avoid gaining weight, I try not to eat after 9pm."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)/Vない+ことにする<br/> V (root form)/Vない+ことにしている"
+    }
+  ],
+  "title": "ことにする/ことにしている => to decide on/have a habit",
+  "_id": "0ccaeecfcd4c48949264eb8f6df3efcd"
+}

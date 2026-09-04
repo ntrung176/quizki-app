@@ -1,0 +1,91 @@
+{
+  "level": "N4",
+  "mobileId": 5577,
+  "usages": [
+    {
+      "explain": "「全然～ない」with 「全然」as an adverb, stands before a negative adjective or verb to emphasize \"not at all...\" or \"absolutely not...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は全然気にしない。",
+          "transcription": "わたしはぜんぜんきにしない。",
+          "mean": "I don't care at all."
+        },
+        {
+          "content": "彼は父親に全然似ていない。",
+          "transcription": "かれはちちおやにぜんぜんにていない。",
+          "mean": "He doesn't look like his father at all."
+        },
+        {
+          "content": "私はお酒を全然飲みません。",
+          "transcription": "わたしはおさけをぜんぜんのみません。",
+          "mean": "I don't drink alcohol at all."
+        },
+        {
+          "content": "私は日本語が全然話せない。",
+          "transcription": "わたしはにほんごがぜんぜんはなせない。",
+          "mean": "I can't speak Japanese at all."
+        },
+        {
+          "content": "最近は、悩みが多くて全然寝られない。",
+          "transcription": "さいきんは、なやみがおおくてぜんぜんねられない。",
+          "mean": "Lately, I've been having so many worries that I can't sleep at all."
+        },
+        {
+          "content": "ケーキを作るなんて全然できない。",
+          "transcription": "ケーキをつくるなんてぜんぜんできない。",
+          "mean": "I can't make a cake at all."
+        },
+        {
+          "content": "彼は日本人ですが、漢字を全然書けない。",
+          "transcription": "かれはにほんじんですが、かんじをぜんぜんかけない。",
+          "mean": "He is Japanese, but he can't write any kanji."
+        },
+        {
+          "content": "日本の新聞は漢字が多くて、全然読めません。",
+          "transcription": "にほんのしんぶんはかんじがおおくて、ぜんぜんよめません。",
+          "mean": "Japanese newspapers have so many kanji that I can't read them at all."
+        },
+        {
+          "content": "あの夫婦は10年間結婚したけど、全然喧嘩しない。",
+          "transcription": "あのふうふは1じゅうねんかんけっこんしたけど、ぜんぜんけんかしない。",
+          "mean": "That couple was married for 10 years, but they never fought."
+        },
+        {
+          "content": "彼は家事の手伝いを全然しなかったので、別れました。",
+          "transcription": "かれはかじのてつだいをぜんぜんしなかったので、わかれました。",
+          "mean": "I broke up with him because he didn't do any housework."
+        },
+        {
+          "content": "学校では遊んでばかりいて、全然勉強しませんでした。",
+          "transcription": "がっこうではあそんでばかりいて、ぜんぜんべんきょうしませんでした。",
+          "mean": "At school, I just played around and didn't study at all."
+        },
+        {
+          "content": "この果物は、全然甘くない。",
+          "transcription": "このくだものは、ぜんぜんあまくない。",
+          "mean": "This fruit is not sweet at all."
+        },
+        {
+          "content": "昨日は全然寒くなかった。",
+          "transcription": "きのうはぜんぜんさむくなかった。",
+          "mean": "It wasn't cold at all yesterday."
+        },
+        {
+          "content": "私は、肉が全然好きじゃありません。",
+          "transcription": "わたしは、にくがぜんぜんすきじゃありません。",
+          "mean": "I don't like meat at all."
+        },
+        {
+          "content": "今日の図書館は、全然全然静かじゃなかった。うるさかった。",
+          "transcription": "きょうのとしょかんは、ぜんぜんしずかじゃなかった。うるさかった。",
+          "mean": "The library wasn't quiet at all today. That was Noisy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "全然+Vない / Vなかった<br/>全然+A<s>い</s>くない / A<s>い</s>くなかった<br/> 全然+A<s>な</s>じゃない / A<s>な</s>じゃなかった"
+    }
+  ],
+  "title": "全然～ない => (not) at all",
+  "_id": "6ed1e3f2a0ac4ecf80deb5d797c8682b"
+}

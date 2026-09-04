@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5244,
+  "usages": [
+    {
+      "explain": "「次第で/次第だ」expresses the idea that the outcome of an event will be determined or changed depending on N.<br/>\n「次第では」expresses the idea that depending on N, there may be a possibility of a certain result. Following this, the clause after「次第では」often includes structures indicating possibilities such as「可能性ある」「かもしれない」「ことがある」「場合がある」「ざるを得ない」...",
+      "note": null,
+      "examples": [
+        {
+          "content": "仕事は紹介するが、うまくいくかどうかは本人次第だ。",
+          "transcription": "しごとはしょうかいするが、うまくいくかどうかはほんにんしだいだ。",
+          "mean": "I will introduce you to the job, but whether it goes well or not is up to you."
+        },
+        {
+          "content": "するかしないかは、あなた次第だ。",
+          "transcription": "するかしないかは、あなたしだいだ。",
+          "mean": "It's up to you whether you do it or not."
+        },
+        {
+          "content": "難しい問題も、考え方次第で簡単になる。",
+          "transcription": "むずかしいもんだいも、かんがえかたしだいでかんたんになる。",
+          "mean": "Difficult problems can become easier depending on how you think about them."
+        },
+        {
+          "content": "努力次第で人生は変わる。",
+          "transcription": "どりょくしだいでじんせいはかわる。",
+          "mean": "Life changes depending on your efforts."
+        },
+        {
+          "content": "試験の結果次第で、進学ができるかどうか決まります。",
+          "transcription": "しけんのけっかしだいで、しんがくができるかとうかきまります。",
+          "mean": "Depending on the test results, it will be decided whether or not you will be able to advance to higher education."
+        },
+        {
+          "content": "状況は自分の行動力次第でいくらでも変えられます。",
+          "transcription": "じょうきょうはじぶんのこうどうりょくしだいでいくらでもかえられます。",
+          "mean": "The situation can change as much as you want depending on your actions."
+        },
+        {
+          "content": "体調次第で、パーティーへ行くかどうか決めます。良ければ行きます、良くなければ行きません。",
+          "transcription": "たいちょうしだいで、パーティーへいくかどうかきめます。よければいきます、よくなければいきません。",
+          "mean": "Depending on my health, I will decide whether to go to the party or not. If it's good, I'll go; if it's not good, I won't go."
+        },
+        {
+          "content": "体調次第では、パーティーへ行けないかもしれません。",
+          "transcription": "たいちょうしだいでは、パーティーへいけないかもしれません。",
+          "mean": "Depending on your health, you may not be able to go to the party."
+        },
+        {
+          "content": "花火大会は天気次第では、中止になる場合もあります。",
+          "transcription": "はなびたいかいはてんきしだいでは、ちゅうしになるばあいもあります。",
+          "mean": "The fireworks display may be canceled depending on the weather."
+        },
+        {
+          "content": "パーティーは、参加者の人数次第ではキャンセルになるらしい。",
+          "transcription": "パーティーは、さんかしゃのにんずうしだいではキャンセルになるらしい。",
+          "mean": "Apparently the party will be canceled depending on the number of participants."
+        },
+        {
+          "content": "君の言葉遣い次第では、彼の君への悪くなった印象が良くなることもあります。",
+          "transcription": "きみのことばづかいしだいでは、かれのきみへのわるくなったいんしょうがよくなることもあります。",
+          "mean": "Depending on the way you say things, his bad impression of you may be improved."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+次第で<br/>N+次第だ<br/> N+次第では<br/>"
+    }
+  ],
+  "title": "次第で/次第だ/次第では => Depending on, So",
+  "_id": "f056c75618514595bfaf32a04edd412a"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1965,
+  "usages": [
+    {
+      "explain": "✦Meaning: dependent, contingent, depending",
+      "note": null,
+      "examples": [
+        {
+          "content": "やりようによっては、その仕事は簡単に済ませることができる。",
+          "transcription": "やりようによっては、そのしごとはかんたんにすませることができる。",
+          "mean": "Depending on how you do it, the job can be done easily."
+        },
+        {
+          "content": "考えようによっては彼の人生も幸せだったと言えるかもしれない。",
+          "transcription": "かんがえようによってはかれのじんせいもしあわせだったといえるかもしれない。",
+          "mean": "Depending on how you think about it, you might say that his life was a happy one."
+        },
+        {
+          "content": "あの山は、見ようによっては仏像が寝ているように見える。",
+          "transcription": "あのやまは、みようによってはぶつぞうがねているようにみえる。",
+          "mean": "Depending on how you look at that mountain, it looks like a sleeping Buddha statue."
+        },
+        {
+          "content": "どんな道具も使いようによっては便利にも危険にもなります。",
+          "transcription": "どんなどうぐもつかいようによってはべんりにもきけんにもなります。",
+          "mean": "Any tool can be useful or dangerous depending on how you use it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Verb(bỏ-ます) + ようによっては"
+    }
+  ],
+  "title": "～ようによっては => depending on the way; depending on how; according to how ~",
+  "_id": "f7ff14dae05876cac58b413693bf9783"
+}

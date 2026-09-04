@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 874,
+  "usages": [
+    {
+      "explain": "✦ It follows expressions of doubt to express the meaning of \"in the case of ... becoming a topic, an issue\".<br/>✦ The latter clause often contains negations, suggesting that the answer or the action is unlikely or difficult to achieve.<br/>✦ It is often used to compare with another issue to highlight a more important problem, such as 「発言はするが、いざ実行するかといえば」(speaking may be done, but when it comes to actually doing it).",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうすればいいか<br>となれば、答えは簡単には出てこないものだ。",
+          "transcription": "どうすればいいか<br>となれば、こたえはかんたんにはでてこないものだ。",
+          "mean": "When it comes to what to do, the answer doesn't come easily."
+        },
+        {
+          "content": "この問題はどう進めるかとなればいろいろな問題を解決しないとならない。",
+          "transcription": "このもんだいはどうすすめるかとなればいろいろなもんだいをかいけつしないとならない。",
+          "mean": "In order to proceed with this issue, various issues must be resolved."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～かとなれば => when it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b4136932953f7"
+}

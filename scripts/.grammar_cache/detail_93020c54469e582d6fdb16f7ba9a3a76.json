@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3094,
+  "usages": [
+    {
+      "explain": "✦ Absolutely not (strong denial, completely).",
+      "note": null,
+      "examples": [
+        {
+          "content": "これはただの石で、金目のものでも何でもありません。",
+          "transcription": "これはただのいしで、かねめのものでもなにでもありません。",
+          "mean": "This is just a stone, it's not a valuable item or anything."
+        },
+        {
+          "content": "その書類というのは大切なものでも何でもない。",
+          "transcription": "そのしょるいというのはたいせつなものでもなにでもない。",
+          "mean": "The document is not important or anything."
+        },
+        {
+          "content": "今の時代、海外旅行は特別でもなんでもない。",
+          "transcription": "いまのじだい、かいがいりょこうはとくべつでもなんでもない。",
+          "mean": "In this day and age, traveling abroad is nothing special."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Aな・N ＋ でもなんでもない"
+    }
+  ],
+  "title": "～でもなんでもない      => not in the least; nothing like that",
+  "_id": "93020c54469e582d6fdb16f7ba9a3a76"
+}

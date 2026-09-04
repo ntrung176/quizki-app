@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2784,
+  "usages": [
+    {
+      "explain": "Used to make a suggestion to help others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "窓を閉めようか。",
+          "transcription": "まどをしめようか。",
+          "mean": "Shall I close the window?"
+        },
+        {
+          "content": "タクシーを呼びましょうか。",
+          "transcription": "たくしーをよびましょうか。",
+          "mean": "Would you like me to call a taxi?"
+        },
+        {
+          "content": "何かお手伝いしましょうか。",
+          "transcription": "なにかおてつだいしましょうか。",
+          "mean": "What shall I do for you?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-よう + か"
+    }
+  ],
+  "title": "ようか => Let me...",
+  "_id": "f2d618ceb0702f781ec83b7d4f2ecf6b"
+}

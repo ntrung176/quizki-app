@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5136,
+  "usages": [
+    {
+      "explain": "「一方」is used to talk about:<br/>\n1. Two contrasting events or things. It can be translated as 'but' or 'on the other hand'.<br/>\n2. Two actions or events happening simultaneously. It can be translated as 'on one hand... on the other hand...' or 'Meanwhile...'",
+      "note": null,
+      "examples": [
+        {
+          "content": "この布は水に強い一方、熱に弱い。",
+          "transcription": "このぬのはみずにつよいいっぽう、ねつによわい。",
+          "mean": "This cloth is resistant to water but weak to heat."
+        },
+        {
+          "content": "このあたりは、静かな一方、不便である。",
+          "transcription": "このあたりは、しずかないっぽう、ふべんである。",
+          "mean": "Although this area is quiet, it is inconvenient."
+        },
+        {
+          "content": "予算がないと言われているが、一方では予算が無駄に使われている。",
+          "transcription": "よさんがないといわれているが、いっぽうではよさんがむだにつかわれている。",
+          "mean": "It is said that there is no budget, but on the other hand, the budget is being wasted."
+        },
+        {
+          "content": "彼女は学校に通う一方で、学費のためにアルバイトをしている。",
+          "transcription": "かのじょはがっこうにかよういっぽうで、がくひのためにアルバイトをしている。",
+          "mean": "While attending school, she works part-time to pay for her tuition."
+        },
+        {
+          "content": "彼はお金持ちである一方で、積極的にボランティアやチャリティーに参加する優しい人でもある。",
+          "transcription": "かれはおかねもちであるいっぽうで、せっきょくてきにボランティアやチャリティーにさんかするやさしいひとでもある。",
+          "mean": "Although he is rich, he is also a kind person who actively participates in volunteer work and charity work."
+        },
+        {
+          "content": "子供が生まれてうれしかった一方で、重い責任も感じた。",
+          "transcription": "こどもがうまれてうれしかったいっぽうで、おもいせきにんもかんじた。",
+          "mean": "While I was happy to have a child, I also felt a heavy responsibility."
+        },
+        {
+          "content": "節約することは大切です。一方、自己投資することも大切です。",
+          "transcription": "せつやくすることはたいせつです。いっぽう、じことうしすることもたいせつです。",
+          "mean": "Saving money is important. On the other hand, it is also important to invest in yourself."
+        },
+        {
+          "content": "この地域は静かで安全です。一方、便利ではありません。",
+          "transcription": "このちいきはしずかであんぜんです。いっぽう、べんりではありません。",
+          "mean": "This area is quiet and safe. On the other hand, it's not convenient."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V(formal form)+一方(で)<br/>Aい+一方(で)<br/>Aな/A<s>な</s>である+一方(で)<br/>Nである+一方(で)<br/><br/>A。一方(で)、B"
+    }
+  ],
+  "title": "一方 => on one hand, on the other hand; although ~ (conjunction)",
+  "_id": "aefa12d118324ccba7c0097d0bc5f662"
+}

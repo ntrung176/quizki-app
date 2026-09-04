@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1570,
+  "usages": [
+    {
+      "explain": "It is used to allow someone to do something. When used in the plain form, it carries the authority of the superior, while when used in the polite form, it becomes a humble way of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君たち、今日は早く休んでもよろしい。",
+          "transcription": "きみたち、きょうははやくやすんでもよろしい。",
+          "mean": "You guys can rest early today."
+        },
+        {
+          "content": "メールで書類を提出してもよろしいです。",
+          "transcription": "めーるでしょるいをていしゅつしてもよろしいです。",
+          "mean": "You may also submit documents by email."
+        },
+        {
+          "content": "ペンで署名してもよろしいです。",
+          "transcription": "ぺんでしょめいしてもよろしいです。",
+          "mean": "You may also sign with a pen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V -て + もよろしい"
+    }
+  ],
+  "title": "てもよろしい => You can…",
+  "_id": "f7ff14dae05876cac58b41369389d7ed"
+}

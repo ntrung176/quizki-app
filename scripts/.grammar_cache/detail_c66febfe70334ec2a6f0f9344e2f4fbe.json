@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5064,
+  "usages": [
+    {
+      "explain": "「にあって(は)」expresses the idea: in a particular situation, circumstance, or place N, then... Following this structure can be a concessive clause (therefore, so...) or a contrastive clause (however, on the other hand...).<br/>\nIt is synonymous with 「において」 but it is a more formal way of expression, often used for specific situations or circumstances.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この状況にあって、利益を伸ばすのは困難だ。",
+          "transcription": "このじょうきょうにあって、りえきをのばすのはこんなんだ。",
+          "mean": "In this situation, it is difficult to increase profits."
+        },
+        {
+          "content": "父は大学教授だが、家庭にあっては普通の父親です。",
+          "transcription": "ちちはだいがくきょうじゅだが、かていにあってはふつうのちちおやです。",
+          "mean": "Although my father is a university professor, he is an ordinary father at home."
+        },
+        {
+          "content": "情報が氾濫する時代にあって、必要なものを選択するのは難しい。",
+          "transcription": "じょうほうがはんらんするじだいにあって、ひつようなものをせんたくするのはむずかしい。",
+          "mean": "In an era of information overload, it is difficult to choose what you need."
+        },
+        {
+          "content": "こんな山地の辺にあっては、新鮮な魚介類が食卓に上るなど、滅多にないことだ。",
+          "transcription": "こんなさんちのあたりにあっては、しんせんなぎょかいるいがしょくたくにのぼるなど、めったにないことだ。",
+          "mean": "In such a mountainous area, it is rare to find fresh seafood on the table."
+        },
+        {
+          "content": "地震大国にあっては、地震に備えて色々準備をしておかなければいけない。",
+          "transcription": "じしんたいこくにあっては、じしんにそなえていろいろじゅんびをしておかなければいけない。",
+          "mean": "In a country prone to earthquakes, we must make various preparations in case of an earthquake."
+        },
+        {
+          "content": "指導者という職にあって、無責任に働いていたとは許せない。",
+          "transcription": "しどうしゃというしょくにあって、むせきにんにはたらいていたとはゆるせない。",
+          "mean": "I cannot forgive him for acting irresponsibly in his position as a leader."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にあって(は)"
+    }
+  ],
+  "title": "にあって(は) => at; on; during; in the condition of​ ~",
+  "_id": "c66febfe70334ec2a6f0f9344e2f4fbe"
+}

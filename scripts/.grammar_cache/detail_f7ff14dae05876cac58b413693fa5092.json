@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 2389,
+  "usages": [
+    {
+      "explain": "✦「まい」is a literary expression, expressing a negative conjecture. Considering the entire sentence, this expression has almost the same meaning as 「ていないだろうか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "環境保護の運動が盛んになってきたが、本質的な問題を忘れていはしまいか。",
+          "transcription": "かんきょうほごのうんどうがさかんになってきたが、ほんしつてきなもんだいをわすれていはしまいか。",
+          "mean": "The environmental protection movement is gaining momentum, but are we forgetting the essential issues?"
+        },
+        {
+          "content": "娘はひとりで旅行にでかけたが、今頃言葉のわからない外国で苦労していはしまいかと気になる。",
+          "transcription": "むすめはひとりでりょこうにでかけたが、いまごろことばのわからないがいこくでくろうしていはしまいかときになる。",
+          "mean": "My daughter went on a trip by herself, but I'm worried that she might have a hard time in a foreign country where she doesn't speak the language."
+        },
+        {
+          "content": "幼い子供は両親の家に預けてきたが、寂しくなって泣いていはしまいかと心配だ。",
+          "transcription": "おさないこどもはりょうしんのいえにあづけてきたが、さびしくなってないていはしまいかとしんぱいだ。",
+          "mean": "I left my young child at my parents' house, but I'm worried that he might get lonely and cry."
+        },
+        {
+          "content": "はじめて報告レポートを書いたときは思わぬ間違いをしていはしまいかと、何度も見直したものである。",
+          "transcription": "はじめてほうこくレポートをかいたときはおもわぬまちがいをしていはしまいかと、なんどもみなおしたものである。",
+          "mean": "When I wrote my first report, I looked over it many times to make sure I didn't make any unexpected mistakes."
+        },
+        {
+          "content": "彼は、自分の書いた批評が彼女をおこらせていはしまいかと、おそるおそる挨拶した。",
+          "transcription": "かれは、じぶんのかいたひひょうがかのじょをおこらせていはしまいかと、おそるおそるあいさつした。",
+          "mean": "He greeted her timidly, fearing that the criticism he had written might have upset her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V-ていはしまいか"
+    }
+  ],
+  "title": "～いはしまいか => whether or not; considering options",
+  "_id": "f7ff14dae05876cac58b413693fa5092"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 686,
+  "usages": [
+    {
+      "explain": "✦Often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生におかれましては、お元気そうでなによりです。",
+          "transcription": "せんせいにおかれましては、おげんきそうでなによりです。",
+          "mean": "I'm glad to hear that you are doing well."
+        },
+        {
+          "content": "先生におかれましては、ますます御壮健の由、私ども一同喜んでおります。",
+          "transcription": "せんせいにおかれましては、ますますごそうけんのゆかり、わたしどもいちどうよろこんでおります。",
+          "mean": "We are all glad to hear that you are in good health."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Nにおかれましては"
+    }
+  ],
+  "title": "におかれましては => in respect of; in regards to; as for",
+  "_id": "f7ff14dae05876cac58b4136930f6641"
+}

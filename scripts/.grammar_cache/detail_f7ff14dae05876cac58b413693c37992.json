@@ -1,0 +1,43 @@
+{
+  "level": "N4",
+  "mobileId": 1994,
+  "usages": [
+    {
+      "explain": "Expresses an action being done towards the speaker or the person the speaker is addressing. The doer of the action is indicated by the particle [が], and the recipient of the action is indicated by [...に].",
+      "note": null,
+      "examples": [
+        {
+          "content": "隣人がうちの騒音について文句を言って来た。",
+          "transcription": "りんじんがうちのそうおんについてもんくをいってきた。",
+          "mean": "My neighbor complained about the noise from my house."
+        },
+        {
+          "content": "急に猫が飛びかかってきた。",
+          "transcription": "きゅうにねこがとびかかってきた。",
+          "mean": "Suddenly a cat jumped on me."
+        },
+        {
+          "content": "会社から地方の名物の注文を依頼して来た。",
+          "transcription": "かいしゃからちほうのめいぶつのちゅうもんをいらいしてきた。",
+          "mean": "The company asked me to order a local specialty."
+        },
+        {
+          "content": "日本から援助品が送られて来た。",
+          "transcription": "にっぽんからえんじょひんがおくられてきた。",
+          "mean": "Aid goods were sent from Japan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + くる"
+    },
+    {
+      "explain": "Note: When the subject of the action is a noun expressing a place, such as 会社 (company)..., it will be indicated by the particle [...から]. There are also cases where the action is expressed in the passive form. In such cases, the doer of the action goes with the particle [...から], and the recipient of the action goes with the particle [...に].",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "てくる => to do… and come back; to become, to start ~",
+  "_id": "f7ff14dae05876cac58b413693c37992"
+}

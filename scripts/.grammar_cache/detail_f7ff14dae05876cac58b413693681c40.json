@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1338,
+  "usages": [
+    {
+      "explain": "Used to present a reason, it's a stronger emphasis than \"というのは\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの航空会社は倒産するかもしれませんよ。というのも、最近石油の値段が急激に上がっているんですよ。",
+          "transcription": "あのこうくうかいしゃはとうさんするかもしれませんよ。というのも、さいきんせきゆのねだんがきゅうげきにあがっているんですよ。",
+          "mean": "That airline may go bankrupt. This is because the price of oil has been rising rapidly recently."
+        },
+        {
+          "content": "彼は休み泣く働いている。というのも、結婚のためにお金を貯めているからだ。",
+          "transcription": "かれはやすみなくはたらいている。というのも、けっこんのためにおかねをためているからだ。",
+          "mean": "He is working hard on his days off. Because they are saving money for marriage."
+        }
+      ],
+      "mean": null,
+      "synopsis": "というのも ～"
+    }
+  ],
+  "title": "...というのも => The reason is",
+  "_id": "f7ff14dae05876cac58b413693681c40"
+}

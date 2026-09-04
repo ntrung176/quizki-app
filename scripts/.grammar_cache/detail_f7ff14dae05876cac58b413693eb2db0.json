@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2279,
+  "usages": [
+    {
+      "explain": "This expression conveys the meaning of \"if something like that were to happen, then...\". It's often used to caution the listener to be careful, by mentioning what would happen if accidents or illnesses were to occur, emphasizing the potential hardship.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このカメラは高くて、壊しでもしたら賠償しなければならないよ。",
+          "transcription": "このかめらはたかくて、こわしでもしたらばいしょうしなければならないよ。",
+          "mean": "This camera is expensive, and if you break it, you'll have to pay for it."
+        },
+        {
+          "content": "体に気をつけて、風にかかりでもしたら、旅行に行けない。",
+          "transcription": "からだにきをつけて、かぜにかかりでもしたら、りょこうにいけない。",
+          "mean": "Take care of yourself; if you get caught in the wind, you won't be able to go on the trip."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます +でもしたら"
+    }
+  ],
+  "title": "でもしたら => If by chance...",
+  "_id": "f7ff14dae05876cac58b413693eb2db0"
+}

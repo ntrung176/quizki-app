@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1670,
+  "usages": [
+    {
+      "explain": "Used in conjunction with words like 「そうだ」、「ようだ」、「らしい」 to express the speaker's speculation based on certain grounds. In this case, 「どうも」 can be replaced with 「どうやら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この天気模様ではどうも台風になりそうだ。",
+          "transcription": "このてんきもようではどうもたいふうになりそうだ。",
+          "mean": "With this weather pattern, it looks like it's going to be a typhoon."
+        },
+        {
+          "content": "先生の病気はどうも肺癌らしい。",
+          "transcription": "せんせいのびょうきはどうもはいがんらしい。",
+          "mean": "The teacher's illness seems to be lung cancer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうも ～そうだ/ ようだ/ らしい"
+    }
+  ],
+  "title": "どうも ... そうだ/ ようだ/ らしい => It seems, probably",
+  "_id": "f7ff14dae05876cac58b41369395d475"
+}

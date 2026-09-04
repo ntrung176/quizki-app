@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5373,
+  "usages": [
+    {
+      "explain": "「まったく～ない」is used to emphasize the negation, indicating that something is completely absent, impossible, or does not exist at all.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は全く泳げない。",
+          "transcription": "わたしはまったくおよげない。",
+          "mean": "I can't swim at all."
+        },
+        {
+          "content": "私の彼氏は、野球には全く興味がない。",
+          "transcription": "わたしのかれしは、やきゅうにはまったくきょうみがない。",
+          "mean": "My boyfriend has no interest in baseball at all."
+        },
+        {
+          "content": "彼が怒っている理由は、私には全く分からない。",
+          "transcription": "かれがおこっているりゆうは、わたしにはまったくわからない。",
+          "mean": "I have no idea why he's angry."
+        },
+        {
+          "content": "もしかしたら彼とは全く関係がないかもしれない。",
+          "transcription": "もしかしたらかれとはまったくかんけいがないかもしれない。",
+          "mean": "Maybe it has nothing to do with him at all."
+        },
+        {
+          "content": "今が大変で、将来のことは全く考えられない。",
+          "transcription": "いまがたいへんで、しょうらいのことはまったくかんがえられない。",
+          "mean": "I'm having a hard time right now, and I can't think about the future at all."
+        },
+        {
+          "content": "彼らは初級クラスだが、全くの初心者ではない。",
+          "transcription": "かれらはしょきゅうクラスだが、まったくのしょしんしゃではない。",
+          "mean": "Although they are in the beginner class, they are not complete beginners."
+        },
+        {
+          "content": "私には彼の言うことが全く理解できない。",
+          "transcription": "わたしにはかれのいうことがまったくりかいできない。",
+          "mean": "I can't understand what he says at all."
+        },
+        {
+          "content": "彼は強いです。どれだけ酒を飲んでも、全く酔いがまわらなかった。",
+          "transcription": "かれはつよいです。どれだけさけをのんでも、まったくよいがまわらなかった。",
+          "mean": "he is strong No matter how much alcohol I drank, I never got sober."
+        }
+      ],
+      "mean": null,
+      "synopsis": "全く+Vない / Vなかった<br/>全く+A<s>い</s>くない / A<s>い</s>くなかった<br/> 全く+A<s>な</s>じゃない / A<s>な</s>じゃなかった"
+    }
+  ],
+  "title": "全く～ない => not at all ~",
+  "_id": "e3820d2c30f64608981df9ba1ca5fb7a"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 5083,
+  "usages": [
+    {
+      "explain": "「とみると」 expresses the meaning that after the subject has just understood or evaluated a matter, they immediately take some action. This structure is often used with a negative connotation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は問題がちょっと難しいとみると、自分で考えないで人に聞く。",
+          "transcription": "かれはもんだいがちょっとむずかしいとみると、じぶんでかんがえないでひとにきく。",
+          "mean": "When he finds a problem a little difficult, he asks others instead of thinking about it himself."
+        },
+        {
+          "content": "彼は、店員が韓国人だとみると、必ず韓国語で話しかける。",
+          "transcription": "かれは、てんいんがかんこくじんだとみると、かならずかんこくごではなしかける。",
+          "mean": "Whenever he sees a Korean clerk, he always speaks to them in Korean."
+        },
+        {
+          "content": "彼女は男の人にお金がないとみると、急にその人に興味がなくなるようだ。",
+          "transcription": "かのじょはおとこのひとにおかねがないとみると、きゅうにそのひとにきょうみがなくなるようだ。",
+          "mean": "When she sees that a man doesn't have money, she suddenly seems to lose interest in him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+とみると"
+    }
+  ],
+  "title": "とみると => as soon as one realizes ..., then ~",
+  "_id": "068ae44a6e234536aad77fe9940834a2"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2477,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"probably...\", describing the speaker's speculation. This is a combination of 「んだ」with 「だろう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は雨なんだろう。",
+          "transcription": "あしたはあめなんだろう。",
+          "mean": "It will probably rain tomorrow."
+        },
+        {
+          "content": "彼は今回の試験に受かるんだろう。",
+          "transcription": "かれはこんかいのしけんにうかるんだろう。",
+          "mean": "I think he will pass this exam."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んだろう"
+    }
+  ],
+  "title": "んだろう => I think; it seems; probably",
+  "_id": "f2d618ceb0702f781ec83b7d4f066b3d"
+}

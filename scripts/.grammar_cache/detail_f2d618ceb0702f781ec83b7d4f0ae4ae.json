@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2513,
+  "usages": [
+    {
+      "explain": "It is used when adding a quantity. Often, it can be replaced with 「 あと」(remaining...). However, 「 あと」 implies \"this is the last remaining quantity,\" while 「 もう」 does not necessarily carry this meaning. When talking about the number of times, if it's difficult to consider it as the last time, then 「 あと」 is not used, and 「 もう」 is used instead.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう一冊紹介したい本がある。",
+          "transcription": "もういちさつしょうかいしたいほんがある。",
+          "mean": "There is another book I would like to introduce to you."
+        },
+        {
+          "content": "もう一度だけしてみてください。",
+          "transcription": "もういちどだけしてみてください。",
+          "mean": "Please try just one more time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もう ＋ Quantity word"
+    }
+  ],
+  "title": "もう => more",
+  "_id": "f2d618ceb0702f781ec83b7d4f0ae4ae"
+}

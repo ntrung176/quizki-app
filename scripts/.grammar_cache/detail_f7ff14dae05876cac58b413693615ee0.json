@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1288,
+  "usages": [
+    {
+      "explain": "Expresses the frequency of doing something often.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の朝食は、たいがいインスタントラーメンだ。",
+          "transcription": "わたしのちょうしょくは、たいがいいんすたんとらーめんだ。",
+          "mean": "My breakfast is usually instant noodles."
+        },
+        {
+          "content": "彼女は夜にはたいがい家にいる。",
+          "transcription": "かのじょはよるにはたいがいかにいる。",
+          "mean": "She is usually at home at night."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たいがい～"
+    }
+  ],
+  "title": "たいがい => in general",
+  "_id": "f7ff14dae05876cac58b413693615ee0"
+}

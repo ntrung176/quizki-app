@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1655,
+  "usages": [
+    {
+      "explain": "For the first time during a period from a specific point in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "戦争が始まって以来、初めて母国で教会の鐘を鳴らした。",
+          "transcription": "せんそうがはじまっていらい、はじめてぼこくできょうかいのかねをならした。",
+          "mean": "He rang church bells in his home country for the first time since the war began."
+        },
+        {
+          "content": "大学に入って以来、初めて食堂を利用した。",
+          "transcription": "だいがくにはいっていらい、はじめてしょくどうをりようした。",
+          "mean": "It was the first time I used the cafeteria since entering university."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－ていらい（以来）はじめて（初めて）"
+    }
+  ],
+  "title": "... いらいはじめて => Since... this is the first time",
+  "_id": "f7ff14dae05876cac58b41369393ecb7"
+}

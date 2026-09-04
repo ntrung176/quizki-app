@@ -1,0 +1,38 @@
+{
+  "level": "N1",
+  "mobileId": 721,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"after many processes and at the present moment\". It is often followed by a phrase that expresses the idea \"that is naturally the most correct\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "今となっては電気は欠かせないものとなっています。",
+          "transcription": "いまとなってはでんきはかかせないものとなっています。",
+          "mean": "Nowadays, electricity has become indispensable."
+        },
+        {
+          "content": "今となっては意味がない。",
+          "transcription": "いまとなってはいみがない。",
+          "mean": "It doesn't make sense now."
+        },
+        {
+          "content": "当時はずいぶん辛い思いをしたものだが、今となっては、それも懐かしく思い出される。",
+          "transcription": "とうじはずいぶんつらいおもいをしたものだが、いまとなっては、それもなつかしくおもいだされる。",
+          "mean": "It was quite a painful experience at the time, but now I remember it fondly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦いまとなっては is used as an adverb in a sentence."
+    },
+    {
+      "explain": "✦ Note: There are also many cases where it is followed by expressions that convey negative evaluations such as 「できない」(impossible), 「しかたがない」(there is no other way), but there are also neutral assessments.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～いまとなっては => at this juncture, after all this time, at this stage...",
+  "_id": "f7ff14dae05876cac58b41369313f87c"
+}

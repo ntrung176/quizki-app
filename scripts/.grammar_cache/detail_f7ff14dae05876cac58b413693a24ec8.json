@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1759,
+  "usages": [
+    {
+      "explain": "Expresses the idea that until the next event occurs, there is only a little time left. This expression is somewhat more formal than 「すぐに」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "桜はまもなく咲く。",
+          "transcription": "さくらはまもなくさく。",
+          "mean": "The cherry blossoms will bloom soon."
+        },
+        {
+          "content": "彼らの飛行機はまもなく飛び立つ。",
+          "transcription": "かれらのひこうきはまもなくとびたつ。",
+          "mean": "Their plane will soon take off."
+        },
+        {
+          "content": "この会社はまもなく倒産するだろう。",
+          "transcription": "このかいしゃはまもなくとうさんするだろう。",
+          "mean": "This company will soon go bankrupt."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まもなく"
+    }
+  ],
+  "title": "まもなく => soon; shortly; before long",
+  "_id": "f7ff14dae05876cac58b413693a24ec8"
+}

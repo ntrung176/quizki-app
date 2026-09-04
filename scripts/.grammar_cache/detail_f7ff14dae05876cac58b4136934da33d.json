@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1143,
+  "usages": [
+    {
+      "explain": "Expressing the timing of the occurrence of an event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "社長二人は話しています。そこへ電話がかかった。",
+          "transcription": "しゃちょうににんははなしています。そこへでんわがかかった。",
+          "mean": "The two presidents are talking. Then I got a call."
+        },
+        {
+          "content": "山田さんの悪口を言っていたら、そこへ彼が来てしまった。",
+          "transcription": "やまださんのわるぐちをいっていたら、そこへかれがきてしまった。",
+          "mean": "When I was saying bad things about Mr. Yamada, he came over."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そこへ is a conjunction that connects sentences."
+    }
+  ],
+  "title": "そこへ => Right at that moment",
+  "_id": "f7ff14dae05876cac58b4136934da33d"
+}

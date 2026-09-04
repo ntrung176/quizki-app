@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1739,
+  "usages": [
+    {
+      "explain": "This is a colloquial expression. It's a shortened form of 「NというN」. The form 「NっていうN」 can also be used. Used when talking about something the speaker doesn't know or something the speaker assumes the listener doesn't know. For the interrogative word 「何」, it becomes 「なんて」instead of 「なんって」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これ、カテリーナって作家の書いた小説です。",
+          "transcription": "これ、かてりーなってさっかのかいたしょうせつです。",
+          "mean": "This is a novel written by a writer named Katerina."
+        },
+        {
+          "content": "駅前のマリアってレストラン、入ったことある？",
+          "transcription": "えきまえのまりあってれすとらん、はいったことある？",
+          "mean": "Have you ever been to the Maria restaurant in front of the station?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + って + N"
+    }
+  ],
+  "title": "...って => named; called ~",
+  "_id": "f7ff14dae05876cac58b4136939f7a1a"
+}

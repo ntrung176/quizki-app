@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 3145,
+  "usages": [
+    {
+      "explain": "In this sentence pattern, adjectives describing preferences, skills, abilities such as すてき〈な〉、 きらい「な」、じょうず「な」、へた「な」、はやい、おそい... are used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は 猫を育てるのが好きです。",
+          "transcription": "わたしはねこをそだてるのがすきです。",
+          "mean": "I like raising cats."
+        },
+        {
+          "content": "私は漫画を読むのがすきです。",
+          "transcription": "わたしはまんがをよむのがすきです。",
+          "mean": "I like reading manga."
+        },
+        {
+          "content": "ヨーロッパ人は歩くのが速いです。",
+          "transcription": "よーろっぱじんはあるくのがはやいです。",
+          "mean": "Europeans walk quickly."
+        },
+        {
+          "content": "彼女はドイツ語を話すのが上手です。",
+          "transcription": "かのじょはどいつごをはなすのがじょうずです。",
+          "mean": "She speaks German well."
+        }
+      ],
+      "mean": "Nominalize verbs",
+      "synopsis": "Vる＋のがA"
+    }
+  ],
+  "title": "～のが      => Nominalize verbs",
+  "_id": "93020c54469e582d6fdb16f7ba626275"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1798,
+  "usages": [
+    {
+      "explain": "Describing a change occurring.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雪が溶けて来た。",
+          "transcription": "ゆきがとけてきた。",
+          "mean": "The snow has melted."
+        },
+        {
+          "content": "彼女はこの間痩せて来た。",
+          "transcription": "かのじょはこのかんやせてきた。",
+          "mean": "She has been losing weight during this time."
+        },
+        {
+          "content": "暖かくなって来ましたね。",
+          "transcription": "あたたかくなってきましたね。",
+          "mean": "It's getting warmer, isn't it?"
+        },
+        {
+          "content": "試験の時間が近づいて、私が緊張して来た。",
+          "transcription": "しけんのじかんがちかづいて、わたしがきんちょうしてきた。",
+          "mean": "As the exam time approached, I became nervous."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + くる"
+    }
+  ],
+  "title": "てくる => to start ~",
+  "_id": "f7ff14dae05876cac58b413693a87bbc"
+}

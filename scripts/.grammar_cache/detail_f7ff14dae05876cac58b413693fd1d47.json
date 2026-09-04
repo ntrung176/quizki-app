@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2412,
+  "usages": [
+    {
+      "explain": "Provides a specific example of the previously mentioned event to explain its extent.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今朝は寒くて、湖に氷が張るほどだった。",
+          "transcription": "けさはさむくて、みずうみにこおりがはるほどだった。",
+          "mean": "It was so cold this morning that there was ice on the lake."
+        },
+        {
+          "content": "困った時に、人が手伝ってくれて、嬉しくて涙が出るほどだった。",
+          "transcription": "こまったときに、ひとがてつだってくれて、うれしくてなみだがでるほどだった。",
+          "mean": "When I was in trouble, someone helped me, and I was so happy that I cried tears of joy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Naな + ほどだ<br/>A + ほどだ<br/>V + ほどだ"
+    }
+  ],
+  "title": "…ほどだ => almost/nearly",
+  "_id": "f7ff14dae05876cac58b413693fd1d47"
+}

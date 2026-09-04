@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 849,
+  "usages": [
+    {
+      "explain": "■ This expression means \"both, without distinguishing between N1 and N2\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "<div>この法律は市民たると外国人たるとをとわず、等しく適用される。<br></div>",
+          "transcription": "<div>このほうりつはしみんたるとがいこくじんたるとをとわず、ひとしくてきようされる。<br></div>",
+          "mean": "&lt;div&gt;This law applies equally to citizens and foreigners. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "過去たると現在たるとを問わず、彼の立場ははっきりしている。",
+          "transcription": "かこたるとげんざいたるとをとわず、かれのたちばははっきりしている。",
+          "mean": "Regardless of past or present, his position is clear."
+        },
+        {
+          "content": "この法律は市民たると外国人たるとを問わず等しく適用される。",
+          "transcription": "このほうりつはしみんたるとがいこくじんたるとをとわずひとしくてきようされる。",
+          "mean": "This law applies equally to citizens and foreigners."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■N1 + たると + N2 + たるとをとわず<br/></div>"
+    }
+  ],
+  "title": "～たると ... たるとをとわず => regardless of; irrespective of; no matter~",
+  "_id": "f7ff14dae05876cac58b41369325ef9e"
+}

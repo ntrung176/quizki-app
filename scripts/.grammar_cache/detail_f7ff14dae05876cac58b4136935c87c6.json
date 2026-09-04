@@ -1,0 +1,43 @@
+{
+  "level": "N2",
+  "mobileId": 1255,
+  "usages": [
+    {
+      "explain": "Follows a quantity word to indicate an approximate amount. In everyday spoken language, 「ほど」 is more commonly used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "15分ばかり待ってください。",
+          "transcription": "15ふんばかりまってください。",
+          "mean": "Please wait about 15 minutes."
+        },
+        {
+          "content": "10万ドンばかり貸してくれませんか。",
+          "transcription": "10まんどんばかりかしてくれませんか。",
+          "mean": "Could you please lend me 100,000 dong?"
+        },
+        {
+          "content": "X　9時ばかりに来てください。",
+          "transcription": "X　9ときばかりにきてください。",
+          "mean": "X Please come around 9 o'clock."
+        },
+        {
+          "content": "O　9時ごろに来てください。",
+          "transcription": "O　9ときごろにきてください。",
+          "mean": "O Please come around 9 o'clock."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + ばかり"
+    },
+    {
+      "explain": "Note: 「ばかり」 can be used to indicate a duration of time but cannot be used for specific times, dates, or months. In such cases, 「ごろ」 must be used.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "... ばかり => About …",
+  "_id": "f7ff14dae05876cac58b4136935c87c6"
+}

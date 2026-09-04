@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 3225,
+  "usages": [
+    {
+      "explain": "Used when the speaker wants to request, command, or advise the listener. It is used with people at the same or lower status, not applicable to those higher.",
+      "note": null,
+      "examples": [
+        {
+          "content": "すみませんが、この漢字の読み方を教えてください。",
+          "transcription": "すみませんが、このかんじのよみかたをおしえてください。",
+          "mean": "Excuse me, but could you please tell me how to read this kanji?"
+        },
+        {
+          "content": "ここに住所と名前を書いてください。",
+          "transcription": "ここにじゅうしょとなまえをかいてください。",
+          "mean": "Please write your address and name here."
+        },
+        {
+          "content": "あなたが暇な時にこの書類に目を通してください。",
+          "transcription": "あなたがひまなときにこのしょるいにめをとおしてください。",
+          "mean": "Please look through this document at your leisure."
+        },
+        {
+          "content": "あなたが落ち着いたら電話をしてください。",
+          "transcription": "あなたがおちついたらでんわをしてください。",
+          "mean": "Please call me when you are calm."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて＋ ください"
+    }
+  ],
+  "title": "てください   => let, to ask someone to please do ~",
+  "_id": "93020c54469e582d6fdb16f7ba60b8fc"
+}

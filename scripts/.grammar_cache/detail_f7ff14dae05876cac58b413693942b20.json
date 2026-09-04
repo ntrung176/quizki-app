@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 1656,
+  "usages": [
+    {
+      "explain": "✦ It's paired with nouns or verbs indicating time, age, position, events, etc., to express the meaning \"in a situation reaching this level.\"  <br/>✦ Following are expressions of prediction: If the situation changes, then naturally, the circumstances will change accordingly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "9月ともなれば、真夏の暑さはなくなり過ごしやすくなる。",
+          "transcription": "9つきともなれば、まなつのあつさはなくなりすごしやすくなる。",
+          "mean": "By September, the midsummer heat will be gone and the weather will be more pleasant."
+        },
+        {
+          "content": "子供も10歳ともなればもう少し物分かりがよくてもいいはずだ。",
+          "transcription": "こどもも10さいともなればもうすこしものわかりがよくてもいいはずだ。",
+          "mean": "Children should be able to understand things a little more by the time they reach the age of 10."
+        },
+        {
+          "content": "主婦ともなれば朝寝坊してはいられない。",
+          "transcription": "しゅふともなればあさねぼうしてはいられない。",
+          "mean": "As a housewife, I can't afford to oversleep in the morning."
+        },
+        {
+          "content": "結婚式ともなればジーパンではまずいだろう。",
+          "transcription": "けっこんしきともなればジーパンではまずいだろう。",
+          "mean": "If it's a wedding, wearing jeans would probably be a bad idea."
+        },
+        {
+          "content": "学長に就任するともなれば、今までのようにのんびり研究に打ち込んではいられなくなる。",
+          "transcription": "がくちょうにしゅうにんするともなれば、いままでのようにのんびりけんきゅうにうちこんではいられなくなる。",
+          "mean": "Once he becomes president, he will no longer be able to devote himself to research as leisurely as before."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + ともなればV + ともなれば"
+    }
+  ],
+  "title": "ともなれば => when it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b413693942b20"
+}

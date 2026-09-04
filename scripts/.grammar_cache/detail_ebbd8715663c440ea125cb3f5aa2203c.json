@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5253,
+  "usages": [
+    {
+      "explain": "「それにしても」is used to express the idea of \"even so,\" \"nevertheless,\" or \"regardless.\" In the speaker's mind, the first clause does not affect the second clause, and the content of the first and second clauses does not necessarily match.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それにしても、あなたは絵が上手ですね。",
+          "transcription": "それにしても、あなたはえがじょうずですね。",
+          "mean": "By the way, you are good at drawing."
+        },
+        {
+          "content": "それにしても、あなたは遅くまで働くつもりですか。",
+          "transcription": "それにしても、あなたはおそくまではたらくつもりですか。",
+          "mean": "Are you going to work late anyway?"
+        },
+        {
+          "content": "それにしても、私はあなたが優秀だと思います。",
+          "transcription": "それにしても、わたしはあなたがゆうしゅうだとおもいます。",
+          "mean": "Anyway, I think you're excellent."
+        },
+        {
+          "content": "今日は早く帰ると言ったが、それにしても、8時半まで残業した。",
+          "transcription": "きょうははやくかえるといったが、それにしても、はちじはんまでざんぎょうした。",
+          "mean": "I said I would go home early today, but I still worked overtime until 8:30."
+        },
+        {
+          "content": "彼女がちょっと遅刻すると言ったが、それにしても、遅くない？",
+          "transcription": "かのじょがちょっとちこくするといったが、それにしても、おそくない？",
+          "mean": "She said she was going to be a little late, but isn't it late anyway?"
+        },
+        {
+          "content": "彼らは彼にそれを解決するのに手を貸しているが、それにしても、難問だ。",
+          "transcription": "かれらはかれにそれをかいけつするのにてをかしているが、それにしても、なんもんだ。",
+          "mean": "They're helping him figure it out, but it's still a conundrum."
+        },
+        {
+          "content": "日本の夏はいつも蒸し暑いですよ。それにしても、今年はずいぶん蒸し暑いですね。",
+          "transcription": "にほんのなつはいつもむしあついですよ。それにしても、ことしはずいぶんむしあついですね。",
+          "mean": "Summer in Japan is always hot and humid. However, this year has been very hot and humid."
+        },
+        {
+          "content": "今日は早く帰ってねと伝えたけど、それにしても、彼がいつも同じ時間に帰った。",
+          "transcription": "きょうははやくかえってねとつたえたけど、それにしても、かれがいつもおなじじかんにかえった。",
+          "mean": "I told him to come home early today, but he always came home at the same time anyway."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それにしても+Sentence"
+    }
+  ],
+  "title": "それにしても => nevertheless; at any rate; even so; regardless; be that as it may ~",
+  "_id": "ebbd8715663c440ea125cb3f5aa2203c"
+}

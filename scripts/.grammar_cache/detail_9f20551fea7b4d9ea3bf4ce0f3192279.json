@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5223,
+  "usages": [
+    {
+      "explain": "「の<ruby><rb>上</rb><rp>(</rp><rt>うえ</rt><rp>)</rp></ruby>で(は)/～<ruby><rb>上</rb><rp>(</rp><rt>じょう</rt><rp>)</rp></ruby>」 indicates the basis, aspect, or perspective being used to make observations, judgments, etc., about an object or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "理論上は出来るはずだったが、実験では失敗した。",
+          "transcription": "りろんじょうはできるはずだったが、じっけんではしっぱいした。",
+          "mean": "Theoretically it should be possible, but the experiment failed."
+        },
+        {
+          "content": "このテレビ番組は子供の教育上良くない。",
+          "transcription": "このテレビばんぐみはこどものきょういくじょうよくない。",
+          "mean": "This TV program is not good for children's education."
+        },
+        {
+          "content": "計算上は可能だが、実用にはまだ問題がある。",
+          "transcription": "けいさんじょうはかのうだが、じつようにはまだもんだいがある。",
+          "mean": "Although it is computationally possible, there are still problems in practice."
+        },
+        {
+          "content": "彼は健康上の理由で会社を辞めた。",
+          "transcription": "かれはけんこうじょうのりゆうでかいしゃをやめた。",
+          "mean": "He left the company for health reasons."
+        },
+        {
+          "content": "日本では15歳での結婚は法律上認められない。",
+          "transcription": "にほんではじゅうごさいでのけっこんはほうりつじょうみとめられない。",
+          "mean": "In Japan, marriage at the age of 15 is not legally recognized."
+        },
+        {
+          "content": "天気図の上では春なのに、実際はまだ寒い。",
+          "transcription": "てんきずのうえでははるなのに、じっさいはまださむい。",
+          "mean": "It's spring on the weather map, but in reality it's still cold."
+        },
+        {
+          "content": "暦の上でもう秋なのに、まだまだ暑い日が続いている。",
+          "transcription": "こよみのうえでもうあきなのに、まだまだあついひがつづいている。",
+          "mean": "Even though it's already autumn according to the calendar, the days are still hot."
+        },
+        {
+          "content": "データの上では今月の車の売り上げが急増している。",
+          "transcription": "でーたのうえではこんげつのくるまのうりあげがきゅうぞうしている。",
+          "mean": "Data shows that car sales are skyrocketing this month."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの+<ruby><rb>上</rb><rp>(</rp><rt>うえ</rt><rp>)</rp></ruby>で / <ruby><rb>上</rb><rp>(</rp><rt>うえ</rt><rp>)</rp></ruby>では / <ruby><rb>上</rb><rp>(</rp><rt>うえ</rt><rp>)</rp></ruby>でも<br/>\nN+<ruby><rb>上</rb><rp>(</rp><rt>じょう</rt><rp>)</rp></ruby> / <ruby><rb>上</rb><rp>(</rp><rt>じょう</rt><rp>)</rp></ruby>は / <ruby><rb>上</rb><rp>(</rp><rt>じょう</rt><rp>)</rp></ruby>も"
+    }
+  ],
+  "title": "の上で(は)/～上 => according to; from the viewpoint of ~",
+  "_id": "9f20551fea7b4d9ea3bf4ce0f3192279"
+}

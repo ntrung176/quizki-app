@@ -18,8 +18,7 @@ import EditCardModal from '../cards/EditCardModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { POS_TYPES, getPosLabel } from '../../config/constants';
 import { formatIPA, isEnglishCard as checkIsEnglishCard, shouldRunJapaneseFeatures } from '../../utils/englishVocab';
-import { aiAssistVocab } from '../../utils/aiProvider';
-import { normalizeSRSState } from '../../utils/srs';
+import { normalizeSRSState, isVocabCardMastered, isVocabCardLearning } from '../../utils/srs';
 
 const parseWordAndReading = (text) => {
     if (!text) return { word: '', reading: '' };
@@ -616,9 +615,9 @@ const StudySetDetail = ({
         return allCards.filter(c => c.folderId === folderId || cardFolders[c.id] === folderId);
     }, [folderId, allCards, cardFolders]);
 
-    const notLearnedCards = useMemo(() => setCards.filter(c => !c.masteryState || c.masteryState === 'not_learned'), [setCards]);
-    const learningCards = useMemo(() => setCards.filter(c => c.masteryState === 'learning'), [setCards]);
-    const memorizedCards = useMemo(() => setCards.filter(c => c.masteryState === 'memorized'), [setCards]);
+    const notLearnedCards = useMemo(() => setCards.filter(c => (!c.masteryState || c.masteryState === 'not_learned') && !isVocabCardMastered(c) && !isVocabCardLearning(c)), [setCards]);
+    const learningCards = useMemo(() => setCards.filter(c => (c.masteryState === 'learning' || isVocabCardLearning(c)) && !isVocabCardMastered(c)), [setCards]);
+    const memorizedCards = useMemo(() => setCards.filter(c => c.masteryState === 'memorized' || isVocabCardMastered(c)), [setCards]);
 
     const [isSyncingFromLesson, setIsSyncingFromLesson] = useState(false);
 

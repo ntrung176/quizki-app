@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2116,
+  "usages": [
+    {
+      "explain": "Used to express the meaning that within the same object, there are two aspects with opposite qualities.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんは大変けちな人だが、その反面、とても気前がいいところもある。",
+          "transcription": "やまださんはたいへんけちなひとだが、そのはんめん、とてもきまえがいいところもある。",
+          "mean": "Mr. Yamada is a very stingy person, but on the other hand, he is also very generous."
+        },
+        {
+          "content": "インターネットはとても便利だ。その反面、問題も多い。",
+          "transcription": "いんたーねっとはとてもべんりだ。そのはんめん、もんだいもおおい。",
+          "mean": "The Internet is very convenient. On the other hand, there are many problems."
+        }
+      ],
+      "mean": null,
+      "synopsis": "その反面(では) acts as a linking conjunction"
+    }
+  ],
+  "title": "そのはんめん(では) => on the other hand~",
+  "_id": "f7ff14dae05876cac58b413693d45c64"
+}

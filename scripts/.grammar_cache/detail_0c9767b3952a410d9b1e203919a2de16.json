@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5381,
+  "usages": [
+    {
+      "explain": "「もしも」 is used to emphasize a hypothetical condition in a conditional sentence, implying \"if this condition were to happen even just a little...\" This is a spoken form and a stronger emphasis than 「もし」 .",
+      "note": null,
+      "examples": [
+        {
+          "content": "もしも生まれ変われるなら、男になりたい。",
+          "transcription": "もしもうまれかわれるなら、おとこになりたい。",
+          "mean": "If I could be reborn, I would like to be a man."
+        },
+        {
+          "content": "もしも地震が起きても、この家、丈夫だから倒れない。",
+          "transcription": "もしもじしんがおきても、このいえ、じょうぶだからたおれない。",
+          "mean": "Even if an earthquake were to occur, this house would not collapse because it is strong."
+        },
+        {
+          "content": "あの子にもしものことがあったら、どうしよう。",
+          "transcription": "あのこにもしものことがあったら、どうしよう。",
+          "mean": "What should I do if something happens to that child?"
+        },
+        {
+          "content": "なぜそんなことをするのですか。もしも私があなたなら絶対にしないでしょう。",
+          "transcription": "なぜそんなことをするのですか。もしもわたしがあなたならぜったいにしないでしょう。",
+          "mean": "Why do you do that? I would never do that if I were you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もしも+～なら/たら<br/> もしも+～ても"
+    }
+  ],
+  "title": "もしも～なら/ もしも～たら/ もしも～ても => if; in the case; supposing ~/If... no matter what",
+  "_id": "0c9767b3952a410d9b1e203919a2de16"
+}

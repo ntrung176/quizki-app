@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5570,
+  "usages": [
+    {
+      "explain": "「やすい」indicates that an action is easy to perform, or a state is likely to occur.<br/>\n\nThe negative form is created by changing the final い to くない",
+      "note": null,
+      "examples": [
+        {
+          "content": "永田さんは話しやすい人です。",
+          "transcription": "ながたさんははなしやすいひとです。",
+          "mean": "Mr. Nagata is an easy person to talk to."
+        },
+        {
+          "content": "この本は字が大きくて読みやすいです。",
+          "transcription": "このほんはじがおおきくてよみやすいです。",
+          "mean": "This book has large font and is easy to read."
+        },
+        {
+          "content": "山田先生の授業は分かりやすいです。",
+          "transcription": "やまだせんせいのじゅぎょうはわかりやすいです。",
+          "mean": "Professor Yamada's classes are easy to understand."
+        },
+        {
+          "content": "牛肉を食べやすい大きさに切ります。",
+          "transcription": "ぎゅうにくをたべやすいおおきさにきります。",
+          "mean": "Cut the beef into bite-sized pieces."
+        },
+        {
+          "content": "この薬は苦くないんで飲みやすい。",
+          "transcription": "このくすりはにがくないんでのみやすい。",
+          "mean": "This medicine is not bitter and is easy to take."
+        },
+        {
+          "content": "そんなにたくさん食べるのは太りやすいよ。",
+          "transcription": "そんなにたくさんたべるのはふとりやすいよ。",
+          "mean": "It's easy to gain weight if you eat that much."
+        },
+        {
+          "content": "夏は食べ物が悪くなりやすいですから、気をつけてください。",
+          "transcription": "なつはたべものがわるくなりやすいですから、きをつけてください。",
+          "mean": "Food tends to go bad in the summer, so be careful."
+        },
+        {
+          "content": "ガラスのコップは割れやすいです。",
+          "transcription": "ガラスのコップはわれやすいです。",
+          "mean": "Glass cups break easily."
+        },
+        {
+          "content": "夏は食中毒が発生しやすい季節です。",
+          "transcription": "なつはしょくちゅうどくがはっせいしやすいきせつです。",
+          "mean": "Summer is the season when food poisoning is most likely to occur."
+        },
+        {
+          "content": "このかばんは丈夫で、破れやすくないです。",
+          "transcription": "このかばんはじょうぶで、やぶれやすくないです。",
+          "mean": "This bag is durable and doesn't tear easily."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+やすい"
+    }
+  ],
+  "title": "やすい => easy to; likely to; prone to; have a tendency to ~",
+  "_id": "3532e6cfba1e427da28d99b8ab9f642d"
+}

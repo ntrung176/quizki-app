@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2595,
+  "usages": [
+    {
+      "explain": "In cases where one wants to say difficult or demanding things, it is attached at the end of the sentence to soften the statement.",
+      "note": null,
+      "examples": [
+        {
+          "content": "すみませんが、ちょっと出かけさせていただきたいんですが。",
+          "transcription": "すみませんが、ちょっとでかけさせていただきたいんですが。",
+          "mean": "Excuse me, but I would like to go out for a while."
+        },
+        {
+          "content": "あのう、実は今月の会議に出られないんですが。",
+          "transcription": "あのう、じつはこんげつのかいぎにでられないんですが。",
+          "mean": "Well, actually, I won't be able to attend this month's meeting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Naだ + が\nV-る/ V-た/ V-ない + がA-い+ が"
+    }
+  ],
+  "title": "が => Speak hesitantly, speak softly",
+  "_id": "f2d618ceb0702f781ec83b7d4f159adf"
+}

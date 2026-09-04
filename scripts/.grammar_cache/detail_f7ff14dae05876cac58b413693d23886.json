@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2102,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's guess about a certain event. Although the speaker is not as certain as when using 「だろう」, it can also convey a degree of affirmation about the event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さっきすれ違った女の人は、中学校のときの先生ではないだろうか。",
+          "transcription": "さっきすれちがったおんなのひとは、ちゅうがっこうのときのせんせいではないだろうか。",
+          "mean": "The woman I passed by earlier was probably my teacher from junior high school."
+        },
+        {
+          "content": "今からちゃんと勉強しないと、大学入試は難しくなるのではないだろうか。",
+          "transcription": "いまからちゃんとべんきょうしないと、だいがくにゅうしはむずかしくなるのではないだろうか。",
+          "mean": "If I don't study properly from now on, I think university entrance exams will be difficult."
+        },
+        {
+          "content": "一日一ページ書いて行けば、来週中には完成できるのではないだろうか。",
+          "transcription": "いちにちいちぺーじかいていけば、らいしゅうちゅうにはかんせいできるのではないだろうか。",
+          "mean": "If I write one page a day, I should be able to finish it within the next week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vの・Aの・Na・N + ではないだろうか"
+    }
+  ],
+  "title": "ではないだろうか => I think ... isn't it?, It might be that..., Don't you agree?",
+  "_id": "f7ff14dae05876cac58b413693d23886"
+}

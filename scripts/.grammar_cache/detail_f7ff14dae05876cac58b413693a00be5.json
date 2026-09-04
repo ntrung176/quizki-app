@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1743,
+  "usages": [
+    {
+      "explain": "Used to express the speaker's evaluation, judgment. If 「ちょっと」 is used with expressions that describe a quality or evaluation with a positive connotation, the sentence will be elegant, implying that the speaker judges the situation to be better than usual, not worse.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この映画、ちょっとおもしろいよ。",
+          "transcription": "このえいが、ちょっとおもしろいよ。",
+          "mean": "This movie is kind of interesting."
+        },
+        {
+          "content": "この先にちょっと良い飲食店をみつけた。",
+          "transcription": "このさきにちょっとよいいんしょくてんをみつけた。",
+          "mean": "I found a nice restaurant down the road."
+        },
+        {
+          "content": "彼女がどんな本を書くか、ちょっと楽しみです。",
+          "transcription": "かのじょがどんなほんをかくか、ちょっとたのしみです。",
+          "mean": "I'm looking forward to seeing what kind of book she will write."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ちょっと => a little; a bit; slightly",
+  "_id": "f7ff14dae05876cac58b413693a00be5"
+}

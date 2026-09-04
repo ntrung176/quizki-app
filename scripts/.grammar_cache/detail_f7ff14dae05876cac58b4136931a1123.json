@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 765,
+  "usages": [
+    {
+      "explain": "Used when talking about event A even though a step has been completed or finished, but then event B occurs, related to A or negating A.<br/>「あとから」 is used as a conjunction.",
+      "note": null,
+      "examples": [
+        {
+          "content": "後から後悔してもよくないので、何か告白したいことがある人は今のうちに出してください。",
+          "transcription": "ごからこうかいしてもよくないので、なにかこくはくしたいことがあるひとはいまのうちにだしてください。",
+          "mean": "It's no good if you regret it later, so if you have something to confess, please do so now."
+        },
+        {
+          "content": "雇用の合格通知が来たので喜んでいたら、後からあれは間違いだったという知らせがきて、失望した。",
+          "transcription": "こようのごうかくつうちがきたのでよろこんでいたら、ごからあれはまちがいだったというしらせがきて、しつぼうした。",
+          "mean": "I was happy when I received the notification that I had been accepted for the job, but later I was disappointed when I received the news that it was a mistake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あとから + V"
+    }
+  ],
+  "title": "あとから => After one thing happens, another also happens ...",
+  "_id": "f7ff14dae05876cac58b4136931a1123"
+}

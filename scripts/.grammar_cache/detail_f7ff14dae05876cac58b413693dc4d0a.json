@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2172,
+  "usages": [
+    {
+      "explain": "Expresses concession that, while it may not be the best solution, if a compromise is made, this will do.<br/>When used in casual form, it can sound superior, whereas using polite form is a humble way of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "面接は来週でもよろしい。",
+          "transcription": "めんせつはらいしゅうでもよろしい。",
+          "mean": "The interview can be held next week."
+        },
+        {
+          "content": "この仕事は熱心さえあれば、経験はなくてもよろしい。<br>",
+          "transcription": "このしごとはねっしんさえあれば、けいけんはなくてもよろしい。<br>",
+          "mean": "You don't need any experience to do this job as long as you are enthusiastic. &lt;br&gt;"
+        },
+        {
+          "content": "身分証明書がなければ、運転免許でもよろしいです。",
+          "transcription": "みぶんしょうめいしょがなければ、うんてんめんきょでもよろしいです。",
+          "mean": "If you do not have an ID, a driver's license will suffice."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-くてもよろしい<br/>Na・N でもよろしい"
+    }
+  ],
+  "title": "てもよろしい => It's okay (Concession)",
+  "_id": "f7ff14dae05876cac58b413693dc4d0a"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 887,
+  "usages": [
+    {
+      "explain": "✦ A fixed expression conveying a proverbial sense.<br/>✦ It has a similar meaning to \"...ないあいだに\" (...nai aida ni).",
+      "note": null,
+      "examples": [
+        {
+          "content": "鬼のいぬ間に洗濯（＝邪魔になる人がいない間にしたいことをする）。",
+          "transcription": "おにのいぬかんにせんたく（ ＝じゃまになるひとがいないまにしたいことをする） 。",
+          "mean": "Do the laundry while the demon dog is out (= do what you want to do while no one is in your way)."
+        },
+        {
+          "content": "知らぬ間に好きになった。",
+          "transcription": "しらぬまにすきになった。",
+          "mean": "I fell in love with it without even knowing it."
+        },
+        {
+          "content": "人が知らぬ間にビジネスをはじめろう。",
+          "transcription": "ひとがしらぬまにびじねすをはじめろう。",
+          "mean": "Start a business before people know it."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～ぬまに => without one's knowledge, without noticing",
+  "_id": "f7ff14dae05876cac58b4136932b0240"
+}

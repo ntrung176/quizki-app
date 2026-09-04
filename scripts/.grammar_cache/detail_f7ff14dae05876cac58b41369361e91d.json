@@ -1,0 +1,43 @@
+{
+  "level": "N3",
+  "mobileId": 1290,
+  "usages": [
+    {
+      "explain": "Describes gradual natural phenomena evolving into a certain state. It can also be used for predictions or expectations of the speaker being realized, or for changes that have occurred after a long time or many events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ようやく朝日が明けて長い夜が終わった。",
+          "transcription": "ようやくあさひがあけてながいよるがおわった。",
+          "mean": "The sun finally dawned and the long night ended."
+        },
+        {
+          "content": "雪がようやく溶けて、春が現れ始めた。",
+          "transcription": "ゆきがようやくとけて、はるがあらわれはじめた。",
+          "mean": "The snow has finally melted and spring has begun to appear."
+        },
+        {
+          "content": "光熱水は、地震から一週間たって、ようやく復旧した。",
+          "transcription": "こうねつすいは、じしんからいちしゅうかんたって、ようやくふっきゅうした。",
+          "mean": "Light, heat and water supply was finally restored a week after the earthquake."
+        },
+        {
+          "content": "５度も計画を調整して、ようやく会長の了解を得ることができた。",
+          "transcription": "ごどもけいかくをちょうせいして、ようやくかいちょうのりょうかいをえることができた。",
+          "mean": "After adjusting the plan five times, they were finally able to get approval from the chairman."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ようやく + V-た/V-る・Nだ"
+    },
+    {
+      "explain": "Note: In cases where one wants to express joy when expected things come true, 「やっと」 is often used.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ようやく => finally; at last",
+  "_id": "f7ff14dae05876cac58b41369361e91d"
+}

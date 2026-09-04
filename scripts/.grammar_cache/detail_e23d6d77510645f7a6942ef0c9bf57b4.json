@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5141,
+  "usages": [
+    {
+      "explain": "「かと思ったら/かと思うと」expresses two actions happening almost simultaneously, at the same time. This pattern emphasizes the quick transition from the first action to the second action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人は忙しい人で、来たかと思ったら、もう帰ってしまった。",
+          "transcription": "あのひとはいそがしいひとで、きたかとおもったら、もうかえってしまった。",
+          "mean": "That person was a busy person, and when I thought he had come, he had already left."
+        },
+        {
+          "content": "花が咲いたかと思ったら、もう散ってしまった。",
+          "transcription": "はながさいたかとおもったら、もうちってしまった。",
+          "mean": "I thought the flowers had bloomed, but they had already fallen."
+        },
+        {
+          "content": "空が急に暗くなってきたかと思うと、雨が降ってきた。",
+          "transcription": "そらがきゅうにくらくなってきたかとおもうと、あめがふってきた。",
+          "mean": "The sky suddenly turned dark and it started to rain."
+        },
+        {
+          "content": "娘が帰って来たかと思うと、すぐに家を出ていった。",
+          "transcription": "むすめがかえってきたかとおもうと、すぐにいえをでていった。",
+          "mean": "Just when I thought my daughter had returned, she left the house."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた+かと思ったら<br/> Vた+かと思うと"
+    }
+  ],
+  "title": "かと思ったら/かと思うと => just when; no sooner than ~",
+  "_id": "e23d6d77510645f7a6942ef0c9bf57b4"
+}

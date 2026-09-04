@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5053,
+  "usages": [
+    {
+      "explain": "「まみれ」describes something that is covered or smeared (almost completely) with something, typically something dirty or unpleasant to the speaker, limited to liquids (blood, sweat, mud...) or fine particles (powder, dust, sand...).<br/>\nNote: When almost the entire surface of an object or person is covered, use「まみれ」. For other cases, use「だらけ」. Words like 傷 (wound), 間違い (mistake), or 借金 (debt) are not liquids or fine particles, so use「だらけ」 for those.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大変だ！女性が血まみれになって倒れている。",
+          "transcription": "たいへんだ！じょせいがちまみれになってたおれている。",
+          "mean": "It's hard! A woman lies covered in blood."
+        },
+        {
+          "content": "彼は汗まみれになって、一生懸命サッカーを練習している。",
+          "transcription": "かれはあせまみれになって、いっしょうけんめいサッカーをれんしゅうしている。",
+          "mean": "He is sweating and practicing soccer hard."
+        },
+        {
+          "content": "初めてのスキーでは転んでばかりで、雪まみれになってしまった。",
+          "transcription": "はじめてのスキーではころんでばかりで、ゆきまみれになってしまった。",
+          "mean": "On my first ski trip, I kept falling and ended up covered in snow."
+        },
+        {
+          "content": "サッカーの選手は雨の中、泥まみれになってボールを追っている。",
+          "transcription": "サッカーのせんしゅはあめのなか、どろまみれになってボールをおっている。",
+          "mean": "A soccer player is chasing the ball in the rain, covered in mud."
+        },
+        {
+          "content": "あの本は何年も放っておかれたから、ほこりまみれだ。",
+          "transcription": "あのほんはなんねんもほうっておかれたから、ほこりまみれだ。",
+          "mean": "That book has been abandoned for many years, so it's covered in dust."
+        },
+        {
+          "content": "油まみれになって、朝から晩まで働いても、給料はわずかだ。",
+          "transcription": "あぶらまみれになって、あさからばんまではたらいても、きゅうりょうはわずかだ。",
+          "mean": "Even though they are covered in oil and work from morning till night, their pay is meager."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+まみれ"
+    }
+  ],
+  "title": "まみれ => covered with; stained; smeared with ~",
+  "_id": "e4969f1266d4439e987330e61acbe4c5"
+}

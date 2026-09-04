@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5318,
+  "usages": [
+    {
+      "explain": "「～ばよかった/～たらよかった」is used to express regret about something done or not done in the past.<br/>「～ばよかったのに/～たらよかったのに」is used to express regret, dissatisfaction, or criticism of others (the listener, a third party) for something they did or did not do in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "朝まで待てばよかった。",
+          "transcription": "あさまでまてばよかった。",
+          "mean": "I should have waited until morning."
+        },
+        {
+          "content": "傘を持ってくればよかった。",
+          "transcription": "かさをもってくればよかった。",
+          "mean": "I should have brought an umbrella."
+        },
+        {
+          "content": "あなたに会わなければよかった。",
+          "transcription": "あなたにあわなければよかった。",
+          "mean": "I wish I had never met you."
+        },
+        {
+          "content": "田中さんにあんなことを言わなければよかった。",
+          "transcription": "たなかさんにあんなことをいわなければよかった。",
+          "mean": "I shouldn't have said that to Mr. Tanaka."
+        },
+        {
+          "content": "遅刻してしまった。もっと早くうちを出たらよかった。",
+          "transcription": "ちこくしてしまった。もっとはやくうちをでたらよかった。",
+          "mean": "I was late. I wish I had left my house sooner."
+        },
+        {
+          "content": "こんなことを言わなかったらよかった。今は後悔している。",
+          "transcription": "こんなことをいわなかったらよかった。いまはこうかいしている。",
+          "mean": "I wish I hadn't said this. I regret it now."
+        },
+        {
+          "content": "ああ、財布を忘れちゃった。うちを出る前にちゃんと確認したらよかった。",
+          "transcription": "ああ、さいふをわすれちゃった。うちをでるまえにちゃんとかくにんしたらよかった。",
+          "mean": "Oh, I forgot my wallet. I wish I had checked before leaving my house."
+        },
+        {
+          "content": "早く連絡してくれればよかったのに。",
+          "transcription": "はやくれんらくしてくれればよかったのに。",
+          "mean": "I wish you had contacted me sooner."
+        },
+        {
+          "content": "夕べの番組は面白かった。あなたも見たらよかったのに。",
+          "transcription": "ゆうべのばんぐみはおもしろかった。あなたもみたらよかったのに。",
+          "mean": "The evening program was interesting. I wish you had seen it too."
+        },
+        {
+          "content": "そんなことを言わなければよかったのに。",
+          "transcription": "そんなことをいわなければよかったのに。",
+          "mean": "I wish I hadn't said that."
+        },
+        {
+          "content": "そんなに文句を言うくらいなら、来なかったらよかったのに。",
+          "transcription": "そんなにもんくをいうくらいなら、こなかったらよかったのに。",
+          "mean": "I wish he hadn't come instead of complaining so much."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vば / Vなければ+よかった / よかったのに<br/> Vたら / Vなかったら+よかった / よかったのに<br/>"
+    }
+  ],
+  "title": "～ばよかった/～たらよかった/～ばよかったのに/～たらよかったのに => If only",
+  "_id": "f940fc7e1c644226b0c9773dc64a0fe7"
+}

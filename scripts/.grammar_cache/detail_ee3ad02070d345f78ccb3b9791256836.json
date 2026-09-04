@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5186,
+  "usages": [
+    {
+      "explain": "「ないことはない」is used to:<br/>\n\n1. Partially negate or deny a previous statement.<br/>\n2. Indicate that something is not impossible, but requires effort or meets certain conditions.<br/>\n3. Suggest that something is not impossible, but there are reasons why the speaker does not want to do it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "食べられないことはないが、あまり好きじゃない。",
+          "transcription": "たべられないことはないが、あまりすきじゃない。",
+          "mean": "It's not that I can't eat it, but I don't really like it."
+        },
+        {
+          "content": "お酒やたばこをやめるのは難しいが辞められないことはない。",
+          "transcription": "おさけやたばこをやめるのはむずかしいがやめられないことはない。",
+          "mean": "Quitting drinking and smoking is difficult, but it is not impossible."
+        },
+        {
+          "content": "『料理、おいしくないの？』『いいえ、美味しくないことはないがお腹があまりすいてないんです。』",
+          "transcription": "『りょうり、おいしくないの？』『いいえ、おいしくないことはないがおなかがあまりすいてないんです。』",
+          "mean": "``Isn't the food delicious? ``No, it's not that it's not delicious, but I'm not very hungry.'' ”"
+        },
+        {
+          "content": "『彼は今日来なさそうだね。』 『うーん、来ないことはないと思うよ。遅れてでも来るって言ってたし。』",
+          "transcription": "『かれはきょうこなさそうだね。』 『うーん、こないことはないとおもうよ。おくれてでもくるっていってたし。』",
+          "mean": "``It looks like he won't come today. ``Hmm, I don't think he won't come.'' He said he would come even if he was late. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>くない+ことはない <br/> A<s>な</s>じゃない+ことはない<br/> Nじゃない+ことはない<br/>Vない+ことはない<br/> Vられない+ことはない"
+    }
+  ],
+  "title": "ないことはない => is not impossible to ~.",
+  "_id": "ee3ad02070d345f78ccb3b9791256836"
+}

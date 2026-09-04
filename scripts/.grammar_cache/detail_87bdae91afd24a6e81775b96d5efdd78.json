@@ -1,0 +1,76 @@
+{
+  "level": "N2",
+  "mobileId": 5240,
+  "usages": [
+    {
+      "explain": "「せいか」is used to describe the cause of an event, but without asserting it with certainty. It can be used for both good and bad events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "薬を飲んだせいか、頭痛が治った。",
+          "transcription": "くすりをのんだせいか、ずつうがなおった。",
+          "mean": "Maybe it was because I took the medicine that my headache went away."
+        },
+        {
+          "content": "今日はお天気が良いせいか、とても眠いです。",
+          "transcription": "きょうはおてんきがよいせいか、とてもねむいです。",
+          "mean": "I'm very sleepy today, probably because the weather is nice."
+        },
+        {
+          "content": "睡眠不足のせいか、目まいがした。",
+          "transcription": "すいみんぶそくのせいか、めまいがした。",
+          "mean": "I felt dizzy, probably due to lack of sleep."
+        },
+        {
+          "content": "ストレスがいっぱいあるせいか、胃が痛いです。",
+          "transcription": "ストレスがいっぱいあるせいか、いがいたいです。",
+          "mean": "My stomach hurts probably because I'm under a lot of stress."
+        },
+        {
+          "content": "今朝は薬を飲んだせいか、眠くなった。",
+          "transcription": "けさはくすりをのんだせいか、ねむくなった。",
+          "mean": "I felt sleepy this morning, probably because I took some medicine."
+        },
+        {
+          "content": "暑かったせいか、食欲がなかった。",
+          "transcription": "あつかったせいか、しょくよくがなかった。",
+          "mean": "Perhaps because it was hot, I had no appetite."
+        },
+        {
+          "content": "たくさん仕事をしたせいか、病気になってしまった。",
+          "transcription": "たくさんしごとをしたせいか、びょうきになってしまった。",
+          "mean": "I got sick probably because I worked a lot."
+        },
+        {
+          "content": "昨夜お酒をたくさん飲んだせいか、今日は気分が悪い。",
+          "transcription": "ゆうべおさけをたくさんのんだせいか、きょうはきぶんがわるい。",
+          "mean": "I don't feel well today, probably because I drank a lot last night."
+        },
+        {
+          "content": "年のせいか、最近は色んなことをよく忘れた。",
+          "transcription": "としのせいか、さいきんはいろんなことをよくわすれた。",
+          "mean": "Maybe it's because of my age, but lately I've forgotten a lot of things."
+        },
+        {
+          "content": "来週、日本語のテストがあるせいか、何だか落ち着かない。",
+          "transcription": "らいしゅう、にほんごのテストがあるせいか、なんだかおちつかない。",
+          "mean": "I don't feel at ease because I have a Japanese test next week."
+        },
+        {
+          "content": "彼が好きなせいか、会うと、胸がドキドキする。",
+          "transcription": "かれがすきなせいか、あうと、むねがドキドキする。",
+          "mean": "Maybe because I like him, my heart flutters when I meet him."
+        },
+        {
+          "content": "その光が恋愛のシグナルであるせいか、平安のむかしから歌や物語の恋愛の場に蛍はしばしば登場する。",
+          "transcription": "そのひかりがれんあいのシグナルであるせいか、へいあんのむかしからうたやものがたりのれんあいのばにほたるはしばしばとうじょうする。",
+          "mean": "Perhaps because their light is a signal of love, fireflies have often appeared in songs and stories about romance since the Heian period."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+せいか<br/> Aい (formal form)+せいか<br/> Aな (formal form)+せいか<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>な/である)<br/>Nの/である/であった+せいか"
+    }
+  ],
+  "title": "せいか => perhaps because ~",
+  "_id": "87bdae91afd24a6e81775b96d5efdd78"
+}

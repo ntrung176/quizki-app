@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 5586,
+  "usages": [
+    {
+      "explain": "「どの」is a word used to inquire about or specify an object (thing or person) in a group of three or more objects.「どの」must be followed by a noun, while「どれ」does not need to be. Additionally,「どれ」is used specifically to inquire about objects, whereas「どの」can be used for both people and objects.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『安藤さんはどの人ですか。』『あの髪の毛が長くて、メガネをかけている人です。』",
+          "transcription": "『あんどうさんはどの人ですか。』『あのかみのけがながくて、メガネをかけているひとです。』",
+          "mean": "``Who is Mr. Ando? ``That's the person with long hair and glasses.'' ”"
+        },
+        {
+          "content": "君が描いていた絵はどの絵ですか。",
+          "transcription": "きみがかいていたえはどのえですか。",
+          "mean": "Which picture were you drawing?"
+        },
+        {
+          "content": "赤ちゃんのミルクはどの缶ですか。",
+          "transcription": "あかちゃんのミルクはどのかんですか。",
+          "mean": "Which can of baby milk?"
+        },
+        {
+          "content": "あなたの自転車はどの自転車ですか。",
+          "transcription": "あなたのじてんしゃはどのじてんしゃですか。",
+          "mean": "What kind of bicycle is yours?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "どの+N"
+    }
+  ],
+  "title": "どの => which",
+  "_id": "f12382c21c1e4173a0e7b12820a1e060"
+}

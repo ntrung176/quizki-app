@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5044,
+  "usages": [
+    {
+      "explain": "「ぐるみ」means \"in its entirety, as a whole.\" This \"entirety\" includes the noun (N) before it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼とは長年家族ぐるみの付き合いをしている。",
+          "transcription": "かれとはながねんかぞくぐるみのつきあいをしている。",
+          "mean": "I have known him as a family member for many years."
+        },
+        {
+          "content": "子供たちの非行を減らすために、町ぐるみで活動をしている。",
+          "transcription": "こどもたちのひこうをへらすために、まちぐるみでかつどうをしている。",
+          "mean": "The town is involved in activities to reduce delinquency among children."
+        },
+        {
+          "content": "あの事件は組織ぐるみの犯行だった。",
+          "transcription": "あのじけんはそしきぐるみのはんこうだった。",
+          "mean": "That incident was an organized crime."
+        },
+        {
+          "content": "あの家は土地ぐるみで2000万円だそうだ。",
+          "transcription": "あのいえはとちぐるみでにせんまんえんだそうだ。",
+          "mean": "That house, including the land, is said to cost 20 million yen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+ぐるみ"
+    }
+  ],
+  "title": "ぐるみ => together (with); -wide",
+  "_id": "d319d0c72fe743e3946567eec2385c54"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1444,
+  "usages": [
+    {
+      "explain": "This grammar pattern uses the structure 「A だから B わけだ」to describe B as the natural result of A.",
+      "note": null,
+      "examples": [
+        {
+          "content": "韓国とは時差が２時間あるから、ベトナムが７時なら韓国は９時なわけだ。",
+          "transcription": "かんこくとはじさがにじかんあるから、べとなむがななじならかんこくはきゅうじなわけだ。",
+          "mean": "There is a two-hour time difference with South Korea, so if it's 7 o'clock in Vietnam, it's 9 o'clock in South Korea."
+        },
+        {
+          "content": "体重を測ったら７０キロになっていた。先月は６５キロだったから、一ヶ月で５キロも太ってしまったわけだ。",
+          "transcription": "たいじゅうをはかったらななぜろきろになっていた。せんげつはろくごきろだったから、いちかげつでごきろもふとってしまったわけだ。",
+          "mean": "When I weighed myself, it was 70 kg. Last month I weighed 65 kg, so I gained 5 kg in one month."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・ A ・Naな・ Nの＋ わけだ"
+    }
+  ],
+  "title": "わけだ => for that reason; no wonder; as you'd expect; the fact is; so you mean ~",
+  "_id": "f7ff14dae05876cac58b413693779170"
+}

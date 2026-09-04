@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2961,
+  "usages": [
+    {
+      "explain": "Expresses the idea \"Although it's not complete, for now it's fine like this\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "まずは、接続詞を種類別に分けてみましょう。",
+          "transcription": "まずは、せつぞくしをしゅるいべつにわけてみましょう。",
+          "mean": "First, let's break down conjunctions by type."
+        },
+        {
+          "content": "まずは第一歩を踏み出すことが大切です。",
+          "transcription": "まずはだいいっぽをふみだすことがたいせつです。",
+          "mean": "It is important to take the first step."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "まずは => Temporary, first of all",
+  "_id": "f2d618ceb0702f781ec83b7d4f4495d9"
+}

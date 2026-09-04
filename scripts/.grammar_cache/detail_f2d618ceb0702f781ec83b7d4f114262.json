@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2558,
+  "usages": [
+    {
+      "explain": "Describes a habit or custom in the past with a specific subject, or an event formed in a specific situation of the past. It can also be used with the reminiscing form (V- たものだ). Furthermore, this pattern can also express a contrary fact, used to describe a reality contrary to what was stated.",
+      "note": null,
+      "examples": [
+        {
+          "content": "子供のころは、天気がよければ、あのスーパーでよく母と買い物したものだ。",
+          "transcription": "こどものころは、てんきがよければ、あのすーぱーでよくははとかいものしたものだ。",
+          "mean": "When I was a child, I would often go shopping with my mother at that supermarket if the weather was nice."
+        },
+        {
+          "content": "大学生のころは暇さえあれば図書館へ読書に行ったものだ。",
+          "transcription": "だいがくせいのころはひまさえあればとしょかんへどくしょにいったものだ。",
+          "mean": "When I was a university student, whenever I had free time, I would go to the library to read."
+        },
+        {
+          "content": "父は出張すれば必ずお土産を買ってきてくれた。",
+          "transcription": "ちちはしゅっちょうすればかならずおみやげをかってきてくれた。",
+          "mean": "Whenever my father went on a business trip, he always bought me souvenirs."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば… + V－た"
+    }
+  ],
+  "title": "...ば ... => Back then, whenever... it was usually",
+  "_id": "f2d618ceb0702f781ec83b7d4f114262"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1232,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"to resolve this situation definitively, a change is necessary.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうせ授業に遅れるなら、いっそ休んでしまおうかな。",
+          "transcription": "どうせじゅぎょうにおくれるなら、いっそやすんでしまおうかな。",
+          "mean": "If I'm going to be late for class anyway, I might as well take a break."
+        },
+        {
+          "content": "勉強はつまらないし、お金もないし、いっそ大学を辞めてしまおうかな。",
+          "transcription": "べんきょうはつまらないし、おかねもないし、いっそだいがくをやめてしまおうかな。",
+          "mean": "Studying is boring and I don't have any money, so I'm thinking of quitting university."
+        },
+        {
+          "content": "そんなに彼女が好きなら、いっそ結婚しちゃえば。",
+          "transcription": "そんなにかのじょがすきなら、いっそけっこんしちゃえば。",
+          "mean": "If you love her that much, why don't you just marry her?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "いっそ～"
+    }
+  ],
+  "title": "いっそ => I'd rather...",
+  "_id": "f7ff14dae05876cac58b413693597d8f"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1237,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: \"shortly after something happened, then...\". Used to talk about a past event. It is a formal expression with a literary nature.",
+      "note": null,
+      "examples": [
+        {
+          "content": "市長が亡くなってほどなく彼の奥さんも亡くなった。",
+          "transcription": "しちょうがなくなってほどなくかれのおくさんもなくなった。",
+          "mean": "Shortly after the mayor died, his wife also passed away."
+        },
+        {
+          "content": "新しい会長が就任すると、ほどなく人事部長が解雇された。",
+          "transcription": "あたらしいかいちょうがしゅうにんすると、ほどなくじんじぶちょうがかいこされた。",
+          "mean": "Shortly after the new chairman took office, the human resources manager was fired."
+        },
+        {
+          "content": "トヨタが車を大幅値下げすると、ほどなく他社もそれに追随を始めた。",
+          "transcription": "とよたがくるまをおおはばねさげすると、ほどなくたしゃもそれについずいをはじめた。",
+          "mean": "Once Toyota drastically reduced the prices of its cars, other companies soon began to follow suit."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + ほどなく\nVる + とほどなく"
+    }
+  ],
+  "title": "ほどなく => No longer...",
+  "_id": "f7ff14dae05876cac58b4136935a2626"
+}

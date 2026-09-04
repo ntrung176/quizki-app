@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1340,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"because of someone or something\". It is followed by verbs indicating intentional actions. A more formal expression is 「...にと思い」(にとおもい）.",
+      "note": null,
+      "examples": [
+        {
+          "content": "同僚へのお土産にと思って、お菓子を買った。",
+          "transcription": "どうりょうへのおみやげにとおもって、おかしをかった。",
+          "mean": "I bought some sweets thinking it would be a souvenir for a colleague."
+        },
+        {
+          "content": "健康維持にと思い、毎朝ジョギングを始めた。",
+          "transcription": "けんこういじにとおもい、まいあさじょぎんぐをはじめた。",
+          "mean": "I started jogging every morning to maintain my health."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にとおもって"
+    }
+  ],
+  "title": "... にと思って => To do..., to let...",
+  "_id": "f7ff14dae05876cac58b413693685fca"
+}

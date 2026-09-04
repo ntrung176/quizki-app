@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1538,
+  "usages": [
+    {
+      "explain": "Conveys the meaning \"one might think that ..., but ...\". Often contains the speaker's criticism or agreement.",
+      "note": null,
+      "examples": [
+        {
+          "content": "子供を激しく叱るなんてよくないだろうに、叱らないと子供が自立できない。",
+          "transcription": "こどもをはげしくしかるなんてよくないだろうに、しからないとこどもがじりつできない。",
+          "mean": "It's probably not good to scold your child too hard, but if you don't scold your child, they won't be able to be independent."
+        },
+        {
+          "content": "外はそんなに暑いだろうに、事務所で彼はエアコンをつけずに働いています。",
+          "transcription": "そとはそんなにあついだろうに、じむしょでかれはえあこんをつけずにはたらいています。",
+          "mean": "Even though it must be so hot outside, he works in the office without turning on the air conditioner."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～だろうに"
+    }
+  ],
+  "title": "…だろうに => surely…, but ~; although… is likely",
+  "_id": "f7ff14dae05876cac58b413693858e70"
+}

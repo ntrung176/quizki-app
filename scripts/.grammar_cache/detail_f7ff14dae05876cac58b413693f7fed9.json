@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2373,
+  "usages": [
+    {
+      "explain": "Indicates something just heard or the current situation, expressing the meaning of \"in that case,\" \"in that situation.\" In spoken language, it often becomes \"んだったら\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなに嫌いなんだったら、むりに飲まなくてもいいよ。",
+          "transcription": "そんなにきらいなんだったら、むりにのまなくてもいいよ。",
+          "mean": "If you hate it that much, you don't have to force yourself to drink it."
+        },
+        {
+          "content": "風邪なんだったら、厚着をしてください。",
+          "transcription": "かぜなんだったら、あつぎをしてください。",
+          "mean": "If you have a cold, please wear warm clothes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Naな + のだったら\nA／V + のだったら"
+    }
+  ],
+  "title": "のだったら => If truly...",
+  "_id": "f7ff14dae05876cac58b413693f7fed9"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1375,
+  "usages": [
+    {
+      "explain": "✦Means \"even if one says so, it's not an exaggeration\". Used to emphasize an opinion. In formal writing, 「過言」(exaggeration) is often used instead of 「言いすぎ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は一流の作家であると言っても過言ではない。",
+          "transcription": "かれはいちりゅうのさっかであるといってもかごんではない。",
+          "mean": "It is no exaggeration to say that he is a first-rate writer."
+        },
+        {
+          "content": "彼は天才と言っても過言ではない。",
+          "transcription": "かれはてんさいといってもかごんではない。",
+          "mean": "It is not too much to say that he is a genius."
+        },
+        {
+          "content": "私の高校時代はほとんどテニスに捧げたと言っても過言ではない。",
+          "transcription": "わたくしのこうこうじだいはほとんどてにすにささげたといってもかごんではない。",
+          "mean": "It is no exaggeration to say that most of my high school years were devoted to tennis."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～といっても言い過ぎではない => it is no exaggeration to say; it is not too much to say",
+  "_id": "f7ff14dae05876cac58b4136936d95e8"
+}

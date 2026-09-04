@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1932,
+  "usages": [
+    {
+      "explain": "非常に（ひじょうに）expresses the meaning \"extremely, very\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "今週は非常に忙しかった。",
+          "transcription": "こんしゅうはひじょうにいそがしかった。",
+          "mean": "This week has been very busy."
+        },
+        {
+          "content": "この問題は非常に重要だ。",
+          "transcription": "このもんだいはひじょうにじゅうようだ。",
+          "mean": "This issue is very important."
+        }
+      ],
+      "mean": null,
+      "synopsis": "非常に～"
+    }
+  ],
+  "title": "ひじょうに => very; extremely; exceedingly",
+  "_id": "f7ff14dae05876cac58b413693ba3e95"
+}

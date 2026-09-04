@@ -1,0 +1,56 @@
+{
+  "level": "N1",
+  "mobileId": 5088,
+  "usages": [
+    {
+      "explain": "「ところを」is used to apologize or express gratitude because the other person is in a situation (V/A/N before ところ) where they are doing something for the speaker or the speaker is inconveniencing them. This structure can also be used to begin a request.<br/>\n\nThe particle を after ところ can be omitted.<br/>\n\nRegarding the addition of お or ご to verbs of the third group: add ご to verbs with pure Sino-Japanese readings (e.g., 説明、解決...), and add お to others (e.g., 仕事、電話...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "休憩しているところを申し訳ないんだけど、会議の資料がどこにあるか教えてくれる？",
+          "transcription": "きゅうけいしているところをもうしわけないんだけど、かいぎのしりょうがどこにあるかおしえてくれる？",
+          "mean": "I'm sorry to see you taking a break, but could you tell me where I can find the meeting materials?"
+        },
+        {
+          "content": "田中くん、休んでいるところ悪いんだけど、この書類、誤字があったから訂正してくれる？",
+          "transcription": "たなかくん、やすんでいるところわるいんだけど、このしょるい、ごじがあったからていせいしてくれる？",
+          "mean": "Tanaka-kun, I'm sorry you're taking a break, but there's a typo in this document. Could you please correct it?"
+        },
+        {
+          "content": "先生、お忙しいところすみません。ちょっと教えていただきたいことがあるんですが。",
+          "transcription": "せんせい、おいそがしいところすみません。ちょっとおしえていただきたいことがあるんですが。",
+          "mean": "Teacher, I'm sorry to have kept you busy. There's something I'd like you to tell me."
+        },
+        {
+          "content": "お楽しみ中のところを申し訳ありませんが、少しお時間をいただけますか。",
+          "transcription": "おたのしみちゅうのところをもうしわけありませんが、すこしおじかんをいただけますか。",
+          "mean": "I apologize for interrupting you, but could you please take a moment?"
+        },
+        {
+          "content": "ただ今、人身事故による影響で電車が遅れております。お急ぎのところ申し訳ございません。",
+          "transcription": "ただいま、じんしんじこによるえいきょうででんしゃがおくれております。おいそぎのところもうしわけございません。",
+          "mean": "Currently, trains are delayed due to an accident that resulted in a fatality. Sorry for the inconvenience."
+        },
+        {
+          "content": "本日はお忙しいところをわざわざお越しいただきまして、誠にありがとうございます。",
+          "transcription": "ほんじつはおいそがしいところをわざわざおこしいただきまして、まことにありがとうございます。",
+          "mean": "Thank you very much for taking time out of your busy schedule to visit us today."
+        },
+        {
+          "content": "ご多忙のところ子供の面倒を見ていただきありがとうございます。",
+          "transcription": "ごたぼうのところこどものめんどうをみていただきありがとうございます。",
+          "mean": "Thank you for taking time out of your busy schedule to look after our children."
+        },
+        {
+          "content": "ご体調が優れない中わざわざお越しいただいてありがとうございます。",
+          "transcription": "ごたいちょうがすぐれないなかわざわざおこしいただいてありがとうございます。",
+          "mean": "Thank you for coming all the way even though you are not feeling well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+ところ(を)<br/>Vている+ところ(を)<br/>おV (I, II) <s>ます</s> <ruby><rb>中</rb><rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby>の+ところ(を)<br/>お/ごV (III)<s>します</s> <ruby><rb>中</rb><rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby>の+ところ(を)<br/>Aい/Aな+ところ(を)<br/> Nの+ところ(を)"
+    }
+  ],
+  "title": "ところ(を) => When, While, In spite of (the circumstances), Regardless of (the circumstances)",
+  "_id": "693dbb282d7842a9a264a162975263a5"
+}

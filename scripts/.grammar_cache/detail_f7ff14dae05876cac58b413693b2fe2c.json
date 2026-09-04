@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1883,
+  "usages": [
+    {
+      "explain": "Used to convey the speaker's criticism of the previously mentioned content followed by「ばかり」, implying that there is nothing worse than that. Typically followed by negative expressions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "中村さんは言うばかりで自分では何もしない。",
+          "transcription": "なかむらさんはいうばかりでじぶんではなにもしない。",
+          "mean": "Mr. Nakamura only says what he says and does not do anything himself."
+        },
+        {
+          "content": "その仕事は忙しいばかりで、の割にあまり儲かりません。",
+          "transcription": "そのしごとはいそがしいばかりで、のわりにあまりもうかりません。",
+          "mean": "The work is very busy and doesn't make much money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aな + ばかりで\nAい + ばかりで\nV-る + ばかりで"
+    }
+  ],
+  "title": "... ばかりで => only, just ~",
+  "_id": "f7ff14dae05876cac58b413693b2fe2c"
+}

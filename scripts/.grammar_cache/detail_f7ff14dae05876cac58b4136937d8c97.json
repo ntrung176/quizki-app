@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1485,
+  "usages": [
+    {
+      "explain": "When preceding a noun referring to a person or event, it expresses surprise or astonishment, beyond predictions about that person or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "親に隠れてお酒を飲むとは、とんだ不良少年だ。",
+          "transcription": "おやにかくれておさけをのむとは、とんだふりょうしょうねんだ。",
+          "mean": "He is a bad boy who secretly drinks alcohol from his parents."
+        },
+        {
+          "content": "首になったとは、とんだことになってしまった。",
+          "transcription": "くびになったとは、とんだことになってしまった。",
+          "mean": "It was a big deal for me to be fired."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とんだ + N"
+    }
+  ],
+  "title": "とんだ => unthinkable; unimaginable; inconceivable; unexpected",
+  "_id": "f7ff14dae05876cac58b4136937d8c97"
+}

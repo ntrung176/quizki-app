@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1473,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"regardless of how different other things may be, this must be prioritized first\". Used when the speaker asserts their own will or urges the listener to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "とにかく、決心は変えません。",
+          "transcription": "とにかく、けっしんはかえません。",
+          "mean": "Anyway, I won't change my decision."
+        },
+        {
+          "content": "とにかく、私は高校を卒業したら、大学へ行きます。",
+          "transcription": "とにかく、わたしはこうこうをそつぎょうしたら、だいがくへいきます。",
+          "mean": "Anyway, after I graduate from high school, I will go to university."
+        },
+        {
+          "content": "とにかく、明日までにこの仕事を終えなければならない。",
+          "transcription": "とにかく、あしたまでにこのしごとをおえなければならない。",
+          "mean": "In any case, I must finish this work by tomorrow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とにかく + V"
+    }
+  ],
+  "title": "とにかく => in any case, anyway",
+  "_id": "f7ff14dae05876cac58b4136937beb86"
+}

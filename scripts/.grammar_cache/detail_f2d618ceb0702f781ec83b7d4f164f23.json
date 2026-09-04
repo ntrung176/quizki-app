@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2601,
+  "usages": [
+    {
+      "explain": "Describes that the nouns before and after are of the same type. In the position of the noun that comes after, it is often a specific noun, such as a person's name or a specific object.",
+      "note": null,
+      "examples": [
+        {
+          "content": "友人の秋田に相談した。",
+          "transcription": "ゆうじんのあきたにそうだんした。",
+          "mean": "I consulted my friend Akita."
+        },
+        {
+          "content": "社長の鈴木さんをご紹介しましょう。",
+          "transcription": "しゃちょうのすずきさんをごしょうかいしましょう。",
+          "mean": "Let me introduce our president, Mr. Suzuki."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "N1 の N2 => N1 of N2",
+  "_id": "f2d618ceb0702f781ec83b7d4f164f23"
+}

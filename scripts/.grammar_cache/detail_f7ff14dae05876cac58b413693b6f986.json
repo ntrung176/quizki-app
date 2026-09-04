@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 1913,
+  "usages": [
+    {
+      "explain": "Expresses an event in the past that happened due to a certain incident or action. It often indicates a new discovery.",
+      "note": null,
+      "examples": [
+        {
+          "content": "暑いので窓を開けた。そうしたら、黒い猫が急に飛び込んで来た。",
+          "transcription": "あついのでまどをあけた。そうしたら、くろいねこがきゅうにとびこんできた。",
+          "mean": "It was hot so I opened the window. Then, a black cat suddenly jumped in."
+        },
+        {
+          "content": "父の本を開いてみた。そうしたら、その中で一枚の百ドル札が見つかった。",
+          "transcription": "ちちのほんをひらいてみた。そうしたら、そのなかでいちまいのひゃくどるさつがみつかった。",
+          "mean": "I opened my father's book. Then I found a hundred dollar bill inside."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そうしたら～"
+    },
+    {
+      "explain": "Note: Unlike 「そして」, here the following sentence describes an event unrelated to the speaker's actions or intentions, or describes a novel event occurring after the preceding event.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "そうしたら => then, and (then), in that case, if so",
+  "_id": "f7ff14dae05876cac58b413693b6f986"
+}

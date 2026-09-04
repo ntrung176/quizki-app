@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5193,
+  "usages": [
+    {
+      "explain": "「にほかならない」 is used to assert that the thing being talked about is nothing else but N. It can be translated as \"nothing other than...\" or \"none other than...\"<br/>「からにほかならない」 is used to affirm that the reason or cause for something happening is exactly as stated, and there is no other reason or cause. It can be translated as \"for no other reason than...\" or \"nothing else but...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "合格したのは、彼の努力の結果にほかならない。",
+          "transcription": "ごうかくしたのは、かれのどりょくのけっかにほかならない。",
+          "mean": "His passing was the result of his hard work."
+        },
+        {
+          "content": "彼があなたをからかうのは、まさに愛情表現にほかならない。",
+          "transcription": "かれがあなたをからかうのは、まさにあいじょうひょうげんにほかならない。",
+          "mean": "When he teases you, it's nothing but an expression of love."
+        },
+        {
+          "content": "戦争というものは、大量殺人にほかならない。",
+          "transcription": "せんそうというものは、たいりょうさつじんにほかならない。",
+          "mean": "War is nothing but mass murder."
+        },
+        {
+          "content": "この仕事が成功したのは皆さんのご協力の結果にほかならない。",
+          "transcription": "このしごとがせいこうしたのはみなさんのごきょうりょくのけっかにほかならない。",
+          "mean": "The success of this work is due to everyone's cooperation."
+        },
+        {
+          "content": "親が子供を叱るのは子供を愛してるからにほかならない。",
+          "transcription": "おやがこどもをしかるのはこどもをあいしてるからにほかならない。",
+          "mean": "Parents scold their children only because they love them."
+        },
+        {
+          "content": "親が子供に厳しくするのは、子供の将来のことを心配するからにほかならない。",
+          "transcription": "おやがこどもにきびしくするのは、こどものしょうらいのことをしんぱいするからにほかならない。",
+          "mean": "Parents are strict with their children only because they are worried about their children's future."
+        },
+        {
+          "content": "彼らが日本へ行くのは、お金を稼ぎたいからにほかならない。",
+          "transcription": "かれらがにっぽんへいくのは、おかねをかせぎたいからにほかならない。",
+          "mean": "They go to Japan only because they want to make money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にほかならない<br/>V/Aい/Aな/N (formal form)+からにほかならない<br/>"
+    }
+  ],
+  "title": "にほかならない/からにほかならない => nothing but; none other than ~",
+  "_id": "11501e0f20b34d9ebbb8d9bd68cd3b93"
+}

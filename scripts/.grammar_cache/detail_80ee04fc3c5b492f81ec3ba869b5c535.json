@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5367,
+  "usages": [
+    {
+      "explain": "「まで」indicates the endpoint of an action or event. The subject will continue the action until that point, or the event will last until reaching the designated time. This is the difference between「まで」and「までに」- the latter structure indicates an action/event happening and ending before a designated time, rather than extending up to that time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "映画が始まるまで30分あります。",
+          "transcription": "えいががはじまるまでさんじゅっぷんあります。",
+          "mean": "There are 30 minutes until the movie starts."
+        },
+        {
+          "content": "彼女から連絡があるまで待っています。",
+          "transcription": "かのじょかられんらくがあるまでまっています。",
+          "mean": "I'll wait until I hear from her."
+        },
+        {
+          "content": "合格するまで絶対に諦めないと決めた。",
+          "transcription": "ごうかくするまでぜったいにあきらめないときめた。",
+          "mean": "I decided not to give up until I passed the exam."
+        },
+        {
+          "content": "死ぬまで君を愛してるよ。",
+          "transcription": "しぬまできみをあいしてるよ。",
+          "mean": "I love you till the day I die."
+        },
+        {
+          "content": "家を買えるまで貯金します。",
+          "transcription": "いえをかえるまでちょきんします。",
+          "mean": "I will save up until I can buy a house."
+        },
+        {
+          "content": "昨日午後10時まで働いた。",
+          "transcription": "きのうごごいちぜろじまではたらいた。",
+          "mean": "I worked until 10pm yesterday."
+        },
+        {
+          "content": "天気予報によれば、日曜日までずっと雪が降っている。",
+          "transcription": "てんきよほうによれば、にちようびまでずっとゆきがふっている。",
+          "mean": "According to the weather forecast, it will continue to snow until Sunday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+まで<br/>\nV (root form)+まで"
+    }
+  ],
+  "title": "まで => until",
+  "_id": "80ee04fc3c5b492f81ec3ba869b5c535"
+}

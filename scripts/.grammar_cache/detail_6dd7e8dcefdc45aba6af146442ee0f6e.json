@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5355,
+  "usages": [
+    {
+      "explain": "「込む」:<br/>\n1.  Follows a transitive verb, expressing the idea of putting/inserting into something or somewhere.<br/>\n2. Follows a verb to form a compound verb with the meaning of doing something thoroughly, wholeheartedly, completely; doing for a long time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この紙に必要な情報を書き込んでください。",
+          "transcription": "このかみにひつようなじょうほうをかきこんでください。",
+          "mean": "Please write the necessary information on this paper."
+        },
+        {
+          "content": "あなたの口座にお金を振り込んだよ。",
+          "transcription": "あなたのこうざにおかねをふりこんだよ。",
+          "mean": "I transferred the money to your account."
+        },
+        {
+          "content": "この薬の使い方は鼻から吸い込むことです。",
+          "transcription": "このくすりのつかいかたははなからすいこむことです。",
+          "mean": "The way to use this medicine is to inhale it through your nose."
+        },
+        {
+          "content": "すみません、この商品をどこに入れ込めばいいですか。",
+          "transcription": "すみません、このしょうひんをどこにいれこめばいいですか。",
+          "mean": "Excuse me, where should I put this product?"
+        },
+        {
+          "content": "クレジットカードで支払ったら、ここにカードを差し込んでください。",
+          "transcription": "クレジットカードでしはらったら、ここにカードをさしこんでください。",
+          "mean": "If you paid by credit card, please insert your card here."
+        },
+        {
+          "content": "外国の社会に溶け込むことと自分の文化を見うしなわないこととは両立するのだろうか。",
+          "transcription": "がいこくのしゃかいにとけこむこととじぶんのぶんかをみうしなわないこととはりょうりつするのだろうか。",
+          "mean": "Is it possible to blend into a foreign society and not lose sight of one's own culture?"
+        },
+        {
+          "content": "うっかり話し込んでしまった。",
+          "transcription": "うっかりはなしこんでしまった。",
+          "mean": "I accidentally started talking."
+        },
+        {
+          "content": "カレーはじっくり煮込むと味がもっと美味しいですよ。",
+          "transcription": "カレーはじっくりにこむとあじがもっとおいしいですよ。",
+          "mean": "Curry tastes even better when it is slowly simmered."
+        },
+        {
+          "content": "娘は東京大学に合格するために勉強に打ち込んでいる。",
+          "transcription": "むすめはとうきょうだいがくにごうかくするためにべんきょうにうちこんでいる。",
+          "mean": "My daughter is devoting herself to studying in order to pass the entrance exam to the University of Tokyo."
+        },
+        {
+          "content": "今日は1時間走り込んだ。",
+          "transcription": "きょうはいちじかんはしりこんだ。",
+          "mean": "I ran for an hour today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+込む"
+    }
+  ],
+  "title": "込む => to be crowded",
+  "_id": "6dd7e8dcefdc45aba6af146442ee0f6e"
+}

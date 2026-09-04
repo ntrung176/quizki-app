@@ -1,0 +1,21 @@
+{
+  "level": "N4",
+  "mobileId": 2630,
+  "usages": [
+    {
+      "explain": "Used in conversations. It's not used to indicate causality, but rather to make the listener understand the speaker's intention, as in \"What I mean is this...\", when there is disagreement between two people's opinions,... Because this way of speaking strongly asserts one's determination, it often carries a rude sense, seeming to force others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A: お腹が痛いんだ。B: だから、言ったでしょ。まだ沸騰していない水は絶対飲んではいけないって。",
+          "transcription": "A: おはらがいたいんだ。B: だから、いったでしょ。まだふっとうしていないみずはぜったいのんではいけないって。",
+          "mean": "A: My stomach hurts. B: That's why I said it. Never drink water that has not yet boiled."
+        }
+      ],
+      "mean": null,
+      "synopsis": "This is a way of speaking that strongly expresses one's assertion, so it often contains rude meanings and seems to force others."
+    }
+  ],
+  "title": "だから => Well (I told you) ... that's it (Affirmative)",
+  "_id": "f2d618ceb0702f781ec83b7d4f1af2e1"
+}

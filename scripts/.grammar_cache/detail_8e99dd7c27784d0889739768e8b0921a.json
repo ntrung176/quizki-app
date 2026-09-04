@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5185,
+  "usages": [
+    {
+      "explain": "「ないことには～ない」expresses the idea that if V1 is not done, then V2 cannot happen, or if V1 does not occur, then V2 will not occur.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やってみないことには、できるかどうか分からない。",
+          "transcription": "やってみないことには、できるかどうかわからない。",
+          "mean": "You won't know if you can do it unless you try."
+        },
+        {
+          "content": "実物を見ないことには、買う気にはなれない。",
+          "transcription": "じつぶつをみないことには、かうきにはなれない。",
+          "mean": "I can't feel like buying it until I see it in real life."
+        },
+        {
+          "content": "お金がないことには、この計画は進められない。",
+          "transcription": "おかねがないことには、このけいかくはすすめられない。",
+          "mean": "Without money, this plan cannot proceed."
+        },
+        {
+          "content": "彼女とちゃんと話さないことには、彼女の気持ちが分からないよ。",
+          "transcription": "かのじょとちゃんとはなさないことには、かのじょのきもちがわからないよ。",
+          "mean": "You won't know how she feels unless you talk to her properly."
+        },
+        {
+          "content": "部屋がもっと広くないことには、教室としては使えない。",
+          "transcription": "へやがもっとひろくないことには、きょうしつとしてはつかえない。",
+          "mean": "Unless the room is larger, it cannot be used as a classroom."
+        },
+        {
+          "content": "この食中毒の原因が何かは、専門家でないことには分からないでしょう。",
+          "transcription": "このしょくちゅうどくのげんいんがなにかは、せんもんかでないことにはわからないでしょう。",
+          "mean": "Unless you are an expert, you probably won't know what the cause of this food poisoning is."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1ない ことには V2ない"
+    }
+  ],
+  "title": "ないことには～ない => unless you ~",
+  "_id": "8e99dd7c27784d0889739768e8b0921a"
+}

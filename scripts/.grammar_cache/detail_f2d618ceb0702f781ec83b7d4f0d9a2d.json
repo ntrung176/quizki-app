@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2532,
+  "usages": [
+    {
+      "explain": "Expresses a polite request by using words like 「ありがたい」(grateful), 「うれしい」(happy), 「助かる」(relieved), etc. followed by 「V-てもらえると」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "来週の日曜日、もし時間があったら、引っ越しの手伝いに来てもらえるとありがたいんですけど。",
+          "transcription": "らいしゅうのにちようび、もしじかんがあったら、ひっこしのてつだいにきてもらえるとありがたいんですけど。",
+          "mean": "If you have time next Sunday, I would appreciate it if you could come and help me move."
+        },
+        {
+          "content": "私はあなたに応援してもらえると嬉しい。",
+          "transcription": "わたしはあなたにおうえんしてもらえるとうれしい。",
+          "mean": "I would be happy if you could support me."
+        },
+        {
+          "content": "打ち合わせの時間をもう少し遅くしてもらえると、助かるんだが。",
+          "transcription": "うちあわせのじかんをもうすこしおそくしてもらえると、たすかるんだが。",
+          "mean": "It would be helpful if you could postpone the meeting a little later."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－てもらえるとありがたい\n V－てもらえるとうれしい"
+    }
+  ],
+  "title": "てもらう => to get somebody to do something; request a ...",
+  "_id": "f2d618ceb0702f781ec83b7d4f0d9a2d"
+}

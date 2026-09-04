@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3167,
+  "usages": [
+    {
+      "explain": "✦ Describes tendencies, habits, characteristics.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はどうも面倒なことから逃げようとする向きがある。",
+          "transcription": "かれはどうもめんどうなことからにげようとするむきがある。",
+          "mean": "He tends to try to run away from troublesome things."
+        },
+        {
+          "content": "彼女は妹のことで心配する向きがある。",
+          "transcription": "かのじょはいもうとのことでしんぱいするむきがある。",
+          "mean": "She tends to worry about her younger sister."
+        },
+        {
+          "content": "政府の方針に反対の向きがあるが、他に方法がないから仕方がない。",
+          "transcription": "せいふのほうしんにはんたいのむきがあるが、ほかにほうほうがないからしかたがない。",
+          "mean": "There is some opposition to the government's policy, but there is nothing we can do because there is no other way."
+        },
+        {
+          "content": "急激な円高容認しない向きがあるが、政府が介入するのはいかがなものか。",
+          "transcription": "きゅうげきなえんだかようにんしないむきがあるが、せいふがかいにゅうするのはいかがなものか。",
+          "mean": "There are those who do not accept the rapid appreciation of the yen, but why not have the government intervene?"
+        }
+      ],
+      "mean": "There is a tendency",
+      "synopsis": "✦Vる・Vない・Nの ＋ むきがある"
+    }
+  ],
+  "title": "～むきがある（～向きがある）     => There is a tendency",
+  "_id": "93020c54469e582d6fdb16f7baa36633"
+}

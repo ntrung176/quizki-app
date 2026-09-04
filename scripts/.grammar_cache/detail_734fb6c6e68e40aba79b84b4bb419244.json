@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5608,
+  "usages": [
+    {
+      "explain": "「までに」indicates that something has to be completed by a specific point in time, before the time N or before the event V happens. This action begins and ends at a point in time before the specified time, rather than extending to the specified time. This is the difference between「までに」and「まで」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "会議は5時までに終わります。",
+          "transcription": "かいぎはごじまでにおわります。",
+          "mean": "The meeting will end by 5 o'clock."
+        },
+        {
+          "content": "土曜日までに本を返さなければなりません。",
+          "transcription": "どようどようびひまでにほんをかえさなければなりません",
+          "mean": "I have to give back the book before Saturday."
+        },
+        {
+          "content": "レポートは明日の授業までに提出してください。",
+          "transcription": "レポートはあしたのじゅぎょうまでにていしゅつしてください。",
+          "mean": "Please submit your report by tomorrow's class."
+        },
+        {
+          "content": "会議は9時までに終わりました。",
+          "transcription": "かいぎはくじまでにおわりました。",
+          "mean": "The meeting ended by 9 o'clock."
+        },
+        {
+          "content": "冬休みが終わるまでにこの小説を読んでしまいたい。",
+          "transcription": "ふゆやすみがおわるまでにこのしょうせつをよんでしまいたい。",
+          "mean": "I want to read this novel before winter vacation ends."
+        },
+        {
+          "content": "日曜日はどこに行きたいか、明日会うまでに考えておいてください。",
+          "transcription": "にちようびはどこにいきたいか、あしたあうまでにかんがえておいてください。",
+          "mean": "Please think about where you want to go on Sunday before we meet tomorrow."
+        },
+        {
+          "content": "30歳になるまでに結婚したい。",
+          "transcription": "さんじゅっさいになるまでにけっこんしたい。",
+          "mean": "I want to get married before I turn 30."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (time)+までに<br/>\nV (root form)+までに"
+    }
+  ],
+  "title": "までに => by; by the time; indicates time limit",
+  "_id": "734fb6c6e68e40aba79b84b4bb419244"
+}

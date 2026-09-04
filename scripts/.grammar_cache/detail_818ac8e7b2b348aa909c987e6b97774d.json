@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5510,
+  "usages": [
+    {
+      "explain": "「または」is used to:<br/>\n\n1. Present options N1 and N2 for the other party to choose one of the two.<br/>\n2. Express the idea: N1 or N2 is acceptable.<br/>\n\nIt has a formal writing style and is often used in instructional documents.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A社と契約するのか、またはB社と契約するのか、今週中に決めなければならない。",
+          "transcription": "エーしゃとけいやくするのか、またはビーしゃとけいやくするのか、こんしゅうちゅうにきめなければならない。",
+          "mean": "I have to decide within this week whether to sign a contract with Company A or Company B."
+        },
+        {
+          "content": "コーヒーまたはお茶からお選びください。",
+          "transcription": "コーヒーまたはおちゃからおえらびください。",
+          "mean": "Choose from coffee or tea."
+        },
+        {
+          "content": "電話またはメールで返事してください。",
+          "transcription": "でんわまたはメールでへんじしてください。",
+          "mean": "Please reply by phone or email."
+        },
+        {
+          "content": "会場には駐車場がありません。電車またはバスをご利用ください。",
+          "transcription": "かいじょうにはちゅうしゃじょうがありません。でんしゃまたはバスをごりようください。",
+          "mean": "There is no parking lot at the venue. Please use the train or bus."
+        },
+        {
+          "content": "国籍や性別または職業などで人を差別してはいけない。",
+          "transcription": "こくせきやせいべつまたはしょくぎょうなどでひとをさべつしてはいけない。",
+          "mean": "Don't discriminate against people based on nationality, gender, or occupation."
+        },
+        {
+          "content": "電話で予約しても、またはファクスで予約しても料金は同じだが、インターネットで予約するとプレゼントがもらえる。",
+          "transcription": "でんわでよやくしても、またはファクスでよやくしてもりょうきんはおなじだが、インターネットでよやくするとプレゼントがもらえる。",
+          "mean": "The price is the same whether you make a reservation by phone or fax, but if you make a reservation online, you will receive a free gift."
+        },
+        {
+          "content": "日本語または英語で話せます。",
+          "transcription": "にほんごまたはえいごではなせます。",
+          "mean": "I can speak Japanese or English."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1+または+N2"
+    }
+  ],
+  "title": "または => or",
+  "_id": "818ac8e7b2b348aa909c987e6b97774d"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1900,
+  "usages": [
+    {
+      "explain": "風（ふう） expresses the meaning \"in such a manner, in such a style\". When modifying a noun, it takes the form of 「N風のN」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの建築物はフランス風だ。",
+          "transcription": "あのけんちくぶつはフランスふうだ。",
+          "mean": "That building is French-style."
+        },
+        {
+          "content": "砂糖さんは、日本風の伝統的な着物でパーティーに行った。",
+          "transcription": "さとうさんは、にっぽんふうのでんとうてきなきものでパーティーにいった。",
+          "mean": "Mr. Sugar went to the party wearing a traditional Japanese-style kimono."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 風"
+    }
+  ],
+  "title": "風 => in the style of (A)",
+  "_id": "f7ff14dae05876cac58b413693b54a03"
+}

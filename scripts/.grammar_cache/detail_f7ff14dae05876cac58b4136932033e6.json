@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 809,
+  "usages": [
+    {
+      "explain": "✦ This type of sentence expresses the desire for X to be fulfilled, and if X is fulfilled, it would be very happy, in the sense of \"if X were to be achieved, it would be wonderful!\" <br/> ✦ At the end of the sentence, forms like 「だろう（か）」or 「ことか」are used,...",
+      "note": null,
+      "examples": [
+        {
+          "content": "宝くじに当たったらどんなにうれしいだろう。",
+          "transcription": "たからくじにあたったらどんなにうれしいだろう。",
+          "mean": "How happy I would be if I won the lottery."
+        },
+        {
+          "content": "合格したら両親はどんなに喜んでくれるだろうか。",
+          "transcription": "ごうかくしたらりょうしんはどんなによろこんでくれるだろうか。",
+          "mean": "I wonder how happy my parents will be if I pass the exam."
+        },
+        {
+          "content": "子供たちがもどってきたらどんなににぎやかになることか。",
+          "transcription": "こどもたちがもどってきたらどんなににぎやかになることか。",
+          "mean": "How lively it will be when the children return!"
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vたらどんなに…か"
+    }
+  ],
+  "title": "～たらどんなに…か => It will be great if something is done",
+  "_id": "f7ff14dae05876cac58b4136932033e6"
+}

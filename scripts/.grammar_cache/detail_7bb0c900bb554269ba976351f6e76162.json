@@ -1,0 +1,41 @@
+{
+  "level": "N5",
+  "mobileId": 5588,
+  "usages": [
+    {
+      "explain": "「どうやって」 is used to ask about the method or process of doing something. I",
+      "note": null,
+      "examples": [
+        {
+          "content": "『これはどうやって食べますか。』『それはそのままで食べてもいいですよ。』",
+          "transcription": "『これはどうやってたべますか。』『それはそのままでたべてもいいですよ。』",
+          "mean": "``How do you eat this? ``You can eat it as is.'' ”"
+        },
+        {
+          "content": "『どうやって学校へ行きますか。』『八草駅から6番のバスに乗って、学校前で降ります。』",
+          "transcription": "『どうやってがっこうへいきますか。』『やくさえきからろくばんのバスにのって、がっこうまえでおります。』",
+          "mean": "``How do you go to school? ” ``Take bus number 6 from Yakusa Station and get off in front of the school. ”"
+        },
+        {
+          "content": "この洗濯機はどうやって使いますか。",
+          "transcription": "このせんたくきはどうやってつかいますか。",
+          "mean": "How do I use this washing machine?"
+        },
+        {
+          "content": "どうやって日本語を聞き取れますか。",
+          "transcription": "どうやってにほんごをききとれますか。",
+          "mean": "How can I understand Japanese?"
+        },
+        {
+          "content": "自分の電話番号を忘れちゃった。どうやって調べるの？",
+          "transcription": "じぶんのでんわばんごうをわすれちゃった。どうやってしらべるの？",
+          "mean": "I forgot my phone number. How do I find out?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうやって+Sentence"
+    }
+  ],
+  "title": "どうやって => how",
+  "_id": "7bb0c900bb554269ba976351f6e76162"
+}

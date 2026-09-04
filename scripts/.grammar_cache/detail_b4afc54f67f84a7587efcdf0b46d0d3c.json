@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5169,
+  "usages": [
+    {
+      "explain": "「ままに」expresses the idea of doing something according to one's own will or the condition/state (V) of oneself or others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君が知るまま、話してください。",
+          "transcription": "きみがしるまま、はなしてください。",
+          "mean": "Please tell me what you know."
+        },
+        {
+          "content": "足の向くままに歩く。",
+          "transcription": "あしのむくままにあるく。",
+          "mean": "Walk where your feet lead."
+        },
+        {
+          "content": "思うまま自由に描いた絵が評価された。",
+          "transcription": "おもうままじゆうにかいたえがひょうかされた。",
+          "mean": "The picture that I drew freely as I wanted was highly praised."
+        },
+        {
+          "content": "自分の思うままに振る舞うな！",
+          "transcription": "じぶんのおもうままにふるまうな！",
+          "mean": "Don't act the way you want!"
+        },
+        {
+          "content": "思うままの気持ちや感想をお伝えします。",
+          "transcription": "おもうままのきもちやかんそうをおつたえします。",
+          "mean": "I will tell you my feelings and impressions."
+        },
+        {
+          "content": "感想を思うままにアンケートに書いてください。",
+          "transcription": "かんそうをおもうままにアンケートにかいてください。",
+          "mean": "Please write your impressions in the questionnaire."
+        },
+        {
+          "content": "昨夜は友達に誘われるままに飲みに行った。",
+          "transcription": "ゆうべはともだちにさそわれるままにのみにいった。",
+          "mean": "Last night I went out for drinks as my friend invited me."
+        },
+        {
+          "content": "契約の時、言われるままにサインをしている人が多い。",
+          "transcription": "けいやくのとき、いわれるままにサインをしているひとがおおい。",
+          "mean": "When signing a contract, many people just do what they're told to sign."
+        },
+        {
+          "content": "セールスマンに言われるまま、契約書にサインをしてしまった。",
+          "transcription": "セールスマンにいわれるまま、けいやくしょにサインをしてしまった。",
+          "mean": "I signed the contract as told by the salesman."
+        },
+        {
+          "content": "いつも彼の思うままにさせられる。",
+          "transcription": "いつもかれのおもうままにさせられる。",
+          "mean": "He always lets me do what he wants."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+まま(に)<br/>V (passive form)+まま(に)"
+    }
+  ],
+  "title": "まま(に) =>  as, to do as ~",
+  "_id": "b4afc54f67f84a7587efcdf0b46d0d3c"
+}

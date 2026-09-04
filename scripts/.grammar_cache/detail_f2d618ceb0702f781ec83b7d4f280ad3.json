@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2732,
+  "usages": [
+    {
+      "explain": "Used with expressions denoting attributes, states, and to express a slightly higher degree than the current state. \"もうちょっと\" is a more casual way of saying \"a little more\" than \"もうすこし\", often used in daily conversations. Not used for large quantities.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もうちょっと安いシャツはありませんか。",
+          "transcription": "もうちょっとやすいしゃつはありませんか。",
+          "mean": "Do you have any cheaper shirts?"
+        },
+        {
+          "content": "もうちょっと優しくできないの。",
+          "transcription": "もうちょっとやさしくできないの。",
+          "mean": "I can't be any more kind."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もうちょっと"
+    }
+  ],
+  "title": "もうちょっと => A little more (indicate level)",
+  "_id": "f2d618ceb0702f781ec83b7d4f280ad3"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1086,
+  "usages": [
+    {
+      "explain": "Used when wanting to recount a past event with a sense of amazement. Typically used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それが悪いと知っていたが、お金のために、することにしたのだった。",
+          "transcription": "それがわるいとしっていたが、おかねのために、することにしたのだった。",
+          "mean": "I knew it was wrong, but I decided to do it for the money."
+        },
+        {
+          "content": "注意されたが、彼は無視して勝手に行動して悪い結果が出来たのだった。",
+          "transcription": "ちゅういされたが、かれはむししてかってにこうどうしてわるいけっかができたのだった。",
+          "mean": "Although he was warned, he ignored it and acted on his own, resulting in bad results."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na な + のだったA／V + のだった"
+    }
+  ],
+  "title": "...のだった => And yet, Even so, Nevertheless",
+  "_id": "f7ff14dae05876cac58b4136934605d8"
+}

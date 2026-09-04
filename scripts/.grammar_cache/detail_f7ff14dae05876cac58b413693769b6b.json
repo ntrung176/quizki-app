@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1438,
+  "usages": [
+    {
+      "explain": "Expresses a different outcome from the initially expected evaluation of a certain event, due to the event being in a special situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "北海道でもさすがに夏の昼は暑いね。",
+          "transcription": "ほっかいどうでもさすがになつのひるはあついね。",
+          "mean": "Summer afternoons are hot even in Hokkaido."
+        },
+        {
+          "content": "いつもは落ち着いている小林さんだが、初めてステージに現れた時はさすがに緊張した。",
+          "transcription": "いつもはおちついているこばやしさんだが、はじめてすてーじにあらわれたときはさすがにきんちょうした。",
+          "mean": "Kobayashi is usually calm, but she was nervous when she first appeared on stage."
+        },
+        {
+          "content": "最近調子を落としている田中力士だが、その相手だとさすがにあぶなげなく勝った。",
+          "transcription": "さいきんちょうしをおとしているたなかりきしだが、そのあいてだとさすがにあぶなげなくかった。",
+          "mean": "Rikishi Tanaka has been in poor form lately, but against his opponent, he won easily."
+        }
+      ],
+      "mean": null,
+      "synopsis": "さすがに"
+    }
+  ],
+  "title": "さすがに => understandably",
+  "_id": "f7ff14dae05876cac58b413693769b6b"
+}

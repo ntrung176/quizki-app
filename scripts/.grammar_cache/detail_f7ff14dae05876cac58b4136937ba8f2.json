@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1471,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"based on a situation or fact like this\", relying on the current state or information heard from the speaker.<br/><br/>This usage does not go with 「かりに/ もし」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "３時間待ってまだ来ないとすると、彼女に騙されたかもしれない。",
+          "transcription": "さんじかんまってまだこないとすると、かのじょにだまされたかもしれない。",
+          "mean": "If he still hasn't arrived after waiting for three hours, she may have tricked him."
+        },
+        {
+          "content": "図書館は一ヶ月休館だとすると、今日のうちに必要な資料を借りておかなければならない。",
+          "transcription": "としょかんはいちかげつきゅうかんだとすると、きょうのうちにひつようなしりょうをかりておかなければならない。",
+          "mean": "If the library is closed for a month, you will need to borrow the materials you need today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だとすると\nNa + とすると\nA + とすると\nV + とすると"
+    }
+  ],
+  "title": "…とすると => If it were the case that, Assuming that...(Determining condition)",
+  "_id": "f7ff14dae05876cac58b4136937ba8f2"
+}

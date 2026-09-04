@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1171,
+  "usages": [
+    {
+      "explain": "Conveys the meaning \"even if one wants to do it, it's difficult to accomplish something\". This is a familiar way of speaking with 「V-ようといっても」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "帰ろうったって、こんな時間じゃもうタクシーもバイクタクシーもない。",
+          "transcription": "かえろうったって、こんなじかんじゃもうたくしーもばいくたくしーもない。",
+          "mean": "I wanted to go home, but there were no taxis or motorcycle taxis at this hour."
+        },
+        {
+          "content": "そんなことは忘れようったって忘れられない。",
+          "transcription": "そんなことはわすれようったってわすれられない。",
+          "mean": "Even if I tried to forget about that, I couldn't."
+        },
+        {
+          "content": "電話しようったって、電話番号は何番か分からないので無理だ。",
+          "transcription": "でんわしようったって、でんわばんごうはなんばんかわからないのでむりだ。",
+          "mean": "Even if I tried to call, it would be impossible because I don't know what the phone number is."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V- よう + ったって"
+    }
+  ],
+  "title": "... ようったって => Even if ... can't ....",
+  "_id": "f7ff14dae05876cac58b41369351726b"
+}

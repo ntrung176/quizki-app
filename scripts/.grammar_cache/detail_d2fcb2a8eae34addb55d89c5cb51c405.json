@@ -1,0 +1,56 @@
+{
+  "level": "N1",
+  "mobileId": 5040,
+  "usages": [
+    {
+      "explain": "「だの～だの」is an expression used for listing things, similar to「や～など」, 「とか～とか」, or 「やら～やら」, but with a tone of dissatisfaction or criticism. It is often used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "好きだの嫌いだの言わないで、栄養のために偏食したらだめだよ。",
+          "transcription": "すきだのきらいだのいわないで、えいようのためにへんしょくしたらだめだよ。",
+          "mean": "Don't say whether you like it or not, it's no good if you eat unbalanced food for the sake of nutrition."
+        },
+        {
+          "content": "彼女の話はいつも給料が少ないだの仕事が忙しすぎるだの、文句ばかりだ。",
+          "transcription": "かのじょのはなしはいつもきゅうりょうがすくないだのしごとがいそがしすぎるだの、もんくばかりだ。",
+          "mean": "She always complains about how her salary is low and how busy she is at work."
+        },
+        {
+          "content": "私の部屋には漫画だの服だのが散らかっていて、寝る場所さえないほどだ。",
+          "transcription": "わたしのへやにはまんがだのふくだのがちらかっていてねるばしょさえないほどだ。",
+          "mean": "My room is so cluttered with comics and clothes that I don't even have a place to sleep."
+        },
+        {
+          "content": "彼はいつもスターになるだの映画を撮るだのと、夢のようなことばかり言っている。",
+          "transcription": "かれはいつもスターになるだのえいがをとるだのと、ゆめのようなことばかりいっている。",
+          "mean": "He always talks about dreams like becoming a star and making movies."
+        },
+        {
+          "content": "彼女は市場に行くと肉だの野菜だの持ちきれないほど買ってきた。",
+          "transcription": "かのじょはいちばにいくとにくだのやさいだのもちきれないほどかってきた。",
+          "mean": "When she went to the market, she bought more meat and vegetables than she could carry."
+        },
+        {
+          "content": "あのカップルは浮気しただの浮気してないだの、お互いに言い合っている。",
+          "transcription": "あのカップルはうわきしただのうわきしてないだの、おたがいにいいあっている。",
+          "mean": "That couple is telling each other whether they cheated or not."
+        },
+        {
+          "content": "お母さんは勉強しろだのなんだの、本当にうるさい。",
+          "transcription": "おかあさんはべんきょうしろだのなんだの、ほんとうにうるさい。",
+          "mean": "My mom is really annoying, telling me to study."
+        },
+        {
+          "content": "眠いだの疲れただの言っていないで、早く起きなさい。",
+          "transcription": "ねむいだのつかれただのいっていないで、はやくおきなさい。",
+          "mean": "Don't say you're sleepy or tired, wake up early."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form) だの V/Aい/Aな/N (formal form) だの"
+    }
+  ],
+  "title": "だの～だの => and; and the like; and so forth ~",
+  "_id": "d2fcb2a8eae34addb55d89c5cb51c405"
+}

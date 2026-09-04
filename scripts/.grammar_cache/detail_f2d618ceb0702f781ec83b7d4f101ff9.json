@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2551,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"to try doing something.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "一度すしを食べてみたい。",
+          "transcription": "いちどすしをたべてみたい。",
+          "mean": "I want to try sushi once."
+        },
+        {
+          "content": "パソコンを直したが、ちょっと使ってみてください。",
+          "transcription": "ぱそこんをなおしたが、ちょっとつかってみてください。",
+          "mean": "I fixed my computer, but please try using it for a while."
+        },
+        {
+          "content": "来日したことがないので、一度行ってみたいと思っている。",
+          "transcription": "らいにちしたことがないので、いちどいってみたいとおもっている。",
+          "mean": "I've never been to Japan, so I'd like to go there sometime."
+        },
+        {
+          "content": "バイクをやめて、バスで通学をしてみることにした。",
+          "transcription": "ばいくをやめて、ばすでつうがくをしてみることにした。",
+          "mean": "I decided to quit riding my bike and try commuting to school by bus."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + みる"
+    }
+  ],
+  "title": "てみる => try doing ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f101ff9"
+}

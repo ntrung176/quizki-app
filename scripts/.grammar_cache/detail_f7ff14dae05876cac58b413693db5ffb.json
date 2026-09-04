@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2163,
+  "usages": [
+    {
+      "explain": "Used with abstract nouns like 「愛情」(love) to emphasize those nouns.",
+      "note": null,
+      "examples": [
+        {
+          "content": "姉は一度も愛情などというものを感じたことがない。",
+          "transcription": "あねはいちどもあいじょうなどというものをかんじたことがない。",
+          "mean": "My sister has never felt anything like love."
+        },
+        {
+          "content": "習慣というものは恐しいものだ。",
+          "transcription": "しゅうかんというものはこわしいものだ。",
+          "mean": "Habits are scary things."
+        },
+        {
+          "content": "すべての物には限界というものがある。",
+          "transcription": "すべてのものにはげんかいというものがある。",
+          "mean": "Everything has a limit."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + というもの"
+    }
+  ],
+  "title": "... というもの => something like; something called ~",
+  "_id": "f7ff14dae05876cac58b413693db5ffb"
+}

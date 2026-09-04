@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5438,
+  "usages": [
+    {
+      "explain": "「ということ/というの」is used to present a specific content by nominalizing a sentence conveying that content. Besides こと and の, other nouns like 話 (story), 意見 (opinion), ニュース (news), 批判 (criticism), 噂 (rumor), 考え (thought, opinion)... can also be used.<br/>\nIn spoken language, 「という」is often shortened to 「っていう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "リンさんが帰国するということを聞いて驚きました。",
+          "transcription": "リンさんがきこくするということをきいておどろきました。",
+          "mean": "I was surprised to hear that Mr. Lin was returning to Japan."
+        },
+        {
+          "content": "こんなによく遅刻をするというのは問題ですよ。",
+          "transcription": "こんなによくちこくをするというのはもんだいですよ。",
+          "mean": "It's a problem that you're so often late."
+        },
+        {
+          "content": "田中さんが医者だというのを知らなかった。",
+          "transcription": "たなかさんがいしゃだというのをしらなかった。",
+          "mean": "I didn't know that Mr. Tanaka was a doctor."
+        },
+        {
+          "content": "彼が結婚しているという話を知らなかった。",
+          "transcription": "かれがけっこんしているというはなしをしらなかった。",
+          "mean": "I didn't know that he was married."
+        },
+        {
+          "content": "彼が来月会社を辞めるという噂を聞きいた。",
+          "transcription": "かれがらいげつかいしゃをやめるといううわさをきいた。",
+          "mean": "I heard a rumor that he will be leaving the company next month."
+        },
+        {
+          "content": "カリナさんって、研究室は禁煙したほうがいいっていう意見を持ってるよ。",
+          "transcription": "カリナさんって、けんきゅうしつはきんえんしたほうがいいっていういけんをもってるよ。",
+          "mean": "Karina-san is of the opinion that smoking should be prohibited in the laboratory."
+        },
+        {
+          "content": "山田さんが大阪へ転勤  するということが正式  に決まった。",
+          "transcription": "やまださんがおおさかへてんきんするということがせいしきにきまった。",
+          "mean": "It has been officially decided that Mr. Yamada will be transferred to Osaka."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence (formal form)+ということ / っていうこと<br/>Sentence (formal form)+というの / っていうの<br/>Sentence (formal form)+というN / っていうN"
+    }
+  ],
+  "title": "ということ/というの => convert phrase into noun",
+  "_id": "e143bb0fd9ce48abbfa9371a2b11c1bd"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2224,
+  "usages": [
+    {
+      "explain": "Emphasizing the degree by repeating the same verb or adjective in dialogue.",
+      "note": null,
+      "examples": [
+        {
+          "content": "合否通知がいつまで待っても来ないので、不安で不安で仕方がなかった。",
+          "transcription": "ごうひつうちがいつまでまってもこないので、ふあんでふあんでしかたがなかった。",
+          "mean": "I couldn't help but feel anxious and worried because no matter how long I waited for the notification to pass or fail, I still didn't receive it."
+        },
+        {
+          "content": "お土産を買い過ぎたので、バックパックが重くて重くて肩の痛みを感じる。",
+          "transcription": "おみやげをかいすぎたので、ばっくぱっくがおもくておもくてかたのいたみをかんじる。",
+          "mean": "Because I bought too many souvenirs, my backpack is so heavy that I feel pain in my shoulders."
+        },
+        {
+          "content": "一日中飲んで飲んで、飲みまくった。",
+          "transcription": "いちにちちゅうのんでのんで、のみまくった。",
+          "mean": "I drank and drank and drank all day long."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na で Na で\nA-くて A-くて\nV-て V-て"
+    }
+  ],
+  "title": "て … て => ... So very ..., extremely",
+  "_id": "f7ff14dae05876cac58b413693e3ed6c"
+}

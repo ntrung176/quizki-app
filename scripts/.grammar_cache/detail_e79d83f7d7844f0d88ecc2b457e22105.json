@@ -1,0 +1,71 @@
+{
+  "level": "N1",
+  "mobileId": 5049,
+  "usages": [
+    {
+      "explain": "「であれ～であれ」indicates that regardless of any situation (whether it's N1 or N2, V1 or V2, whenever, wherever...), the situation in the latter clause remains unchanged. This is a formal expression that can be used in speech.<br/>\n「であろうと」is a more formal structure with the same meaning and can be used as a substitute for「であれ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生であれ学生であれ、この規則には従わなければならない。",
+          "transcription": "せんせいであれがくせいであれ、このきそくにはしたがわなければならない。",
+          "mean": "Whether you are a teacher or a student, you must follow this rule."
+        },
+        {
+          "content": "社長であれ社員であれ、顧客にこの件を説明するべきだった。",
+          "transcription": "しゃちょうであれしゃいんであれ、こきゃくにこのけんをせつめいするべきだった。",
+          "mean": "Whether it was the president or an employee, he should have explained this to the customer."
+        },
+        {
+          "content": "出席であれ欠席であれ、早めに連絡するべきだ。",
+          "transcription": "しゅっせきであれけっせきであれ、はやめにれんらくするべきだ。",
+          "mean": "Whether you are attending or not, you should contact us as soon as possible."
+        },
+        {
+          "content": "大人であれ子供であれ、それぞれに悩みはあるものだ。",
+          "transcription": "おとなであれこどもであれ、それぞれになやみはあるものだ。",
+          "mean": "Whether it's an adult or a child, each person has their own worries."
+        },
+        {
+          "content": "このカードがあれば、国内であれ海外であれ、サイン一つで買い物が出来る。",
+          "transcription": "このカードがあれば、こくないであれかいがいであれ、サインひとつでかいものができる。",
+          "mean": "With this card, you can make purchases with just a signature, whether you're in Japan or overseas."
+        },
+        {
+          "content": "プロジェクトを続行するのであれ中止にするのであれ、決断は早いほうがいい。",
+          "transcription": "プロジェクトをぞっこうするのであれちゅうしにするのであれ、けつだんははやいほうがいい。",
+          "mean": "Whether you decide to continue with the project or cancel it, the sooner you make a decision, the better."
+        },
+        {
+          "content": "就職するのであれ、進学するのであれ、進路を決めたのなら、お世話になった人にちゃんと報告したほうがいい。",
+          "transcription": "しゅうしょくするのであれ、しんがくするのであれ、しんろをきめたのなら、おせわになったひとにちゃんとほうこくしたほうがいい。",
+          "mean": "Once you have decided on a career path, whether it is to get a job or go to higher education, it is better to report it to the people who have helped you."
+        },
+        {
+          "content": "彼が誰であれ、特別扱いするのはおかしい。",
+          "transcription": "かれがだれであれ、とくべつあつかいするのはおかしい。",
+          "mean": "No matter who he is, it's strange to give him special treatment."
+        },
+        {
+          "content": "どの大学であれ、進学先が決まってほっとした。",
+          "transcription": "どのだいがくであれ、しんがくさきがきまってほっとした。",
+          "mean": "I was relieved that I had decided on which university I would go to."
+        },
+        {
+          "content": "理由は何であれ、殺すのは間違ったことだ。",
+          "transcription": "りゆうはなんであれ、ころすのはまちがったことだ。",
+          "mean": "Whatever the reason, killing is wrong."
+        },
+        {
+          "content": "英語であろうと、中国語であろうと、語学をマスターするのにはそれなりに時間がかかる。",
+          "transcription": "えいごであろうと、ちゅうごくごであろうと、ごがくをマスターするのにはそれなりにじかんがかかる。",
+          "mean": "Whether it's English or Chinese, it takes some time to master a language."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1であれ N2であれ<br/>V1るのであれ V2るのであれ<br/>interrogative word であれ"
+    }
+  ],
+  "title": "であれ～であれ => whether [A] or [B]",
+  "_id": "e79d83f7d7844f0d88ecc2b457e22105"
+}

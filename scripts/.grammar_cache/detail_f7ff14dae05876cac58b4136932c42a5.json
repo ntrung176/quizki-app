@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 896,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning of \"each\" or \"every\" by repeating the same noun in the N position.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その日その日を無事に過ごせれば出世なんかしなくてもいいんです。",
+          "transcription": "そのひそのひをぶじにすごせればしゅっせなんかしなくてもいいんです。",
+          "mean": "As long as you can get through each day safely, you don't need to get promoted."
+        },
+        {
+          "content": "その人その人で考え方がちがうのは当然だ。",
+          "transcription": "そのひとそのひとでかんがえかたがちがうのはとうぜんだ。",
+          "mean": "It is natural that each person has a different way of thinking."
+        },
+        {
+          "content": "人生の大事なその時その時を写真におさめてある。",
+          "transcription": "じんせいのだいじなそのときそのときをしゃしんにおさめてある。",
+          "mean": "I capture important moments in my life in photos."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦その N その N"
+    }
+  ],
+  "title": "その...その => Every...",
+  "_id": "f7ff14dae05876cac58b4136932c42a5"
+}

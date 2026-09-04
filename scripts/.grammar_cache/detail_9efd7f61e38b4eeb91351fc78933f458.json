@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5191,
+  "usages": [
+    {
+      "explain": "「にあたり/にあたって」 expresses a particular moment, often a turning point in the process of an event. It is a formal expression, commonly used in speeches or thank-you letters. 「にあたり(まして)」is more formal than 「にあたって」.<br/>\nIt is nearly synonymous with 「に際して」 but emphasizes the aspect of \"preparation or attention to something\" for the occasion being discussed.",
+      "note": null,
+      "examples": [
+        {
+          "content": "図書館の利用にあたり、図書カードが必要です。",
+          "transcription": "としょかんのりようにあたり、としょカードがひつようです。",
+          "mean": "A library card is required to use the library."
+        },
+        {
+          "content": "アルバイトをするにあたっては、学業や体に無理のないようにすること。",
+          "transcription": "アルバイトをするにあたっては、がくぎょうやからだにむりのないようにすること。",
+          "mean": "When working part-time, make sure that you do not put too much strain on your studies or body."
+        },
+        {
+          "content": "皆さん、日本語能力試験を受けるにあたって、大切なことを伝えておきます。",
+          "transcription": "みなさん、にほんのうりょくしけんをうけるにあたって、たいせつなことをつたえておきます。",
+          "mean": "Everyone, I would like to tell you something important when taking the Japanese Language Proficiency Test."
+        },
+        {
+          "content": "卒業にあたり、皆さんに贈りたい言葉があります。",
+          "transcription": "そつぎょうにあたり、みなさんにおくりたいことばがあります。",
+          "mean": "As I graduate, I have some words that I would like to send to you all."
+        },
+        {
+          "content": "今回の対戦にあたっての意気込みをお願いします。",
+          "transcription": "こんかいのたいせんにあたってのいきごみをおねがいします。",
+          "mean": "Please express your enthusiasm for this match."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/V (root form)+にあたって<br/> N/V (root form)+にあたり<br/> N/V (root form)+にあたっては<br/>N/V (root form)+にあたってのN'"
+    }
+  ],
+  "title": "にあたり/にあたって => at the time; on the occasion of ~",
+  "_id": "9efd7f61e38b4eeb91351fc78933f458"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2688,
+  "usages": [
+    {
+      "explain": "This type of sentence uses the past tense at the end to express that all actions are events that have actually happened.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雪でも試合は行われた。",
+          "transcription": "ゆきでもしあいはおこなわれた。",
+          "mean": "The game was played even in the snow."
+        },
+        {
+          "content": "昨日、頭が痛くても学校を休まなかった。",
+          "transcription": "きのう、あたまがいたくてもがっこうをやすまなかった。",
+          "mean": "Yesterday, I didn't miss school even though I had a headache."
+        },
+        {
+          "content": "トイレドアは強く押しても開かなかった。",
+          "transcription": "といれどあはつよくおしてもひらかなかった。",
+          "mean": "The toilet door did not open even if I pushed hard."
+        },
+        {
+          "content": "いくら待っても木村さんは現れなかった。",
+          "transcription": "いくらまってもきむらさんはあらわれなかった。",
+          "mean": "No matter how long I waited, Mr. Kimura never showed up."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ても…た"
+    }
+  ],
+  "title": "... ても => even; even if; even though ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f222f75"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2112,
+  "usages": [
+    {
+      "explain": "Indicates the meaning \"even a small mistake can lead to an undesirable outcome.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "一つ間違えば戦争にも発展しかねない。",
+          "transcription": "ひとつまちがえばせんそうにもはってんしかねない。",
+          "mean": "One mistake could lead to war."
+        },
+        {
+          "content": "登山は、一つ間違えば、悲惨な事故につながることもある危険なスポーツである。",
+          "transcription": "とざんは、ひとつまちがえば、ひさんなじこにつながることもあるきけんなすぽーつである。",
+          "mean": "Climbing is a dangerous sport where one mistake can lead to a tragic accident."
+        },
+        {
+          "content": "一つ間違えば火事になるところだった。",
+          "transcription": "ひとつまちがえばかじになるところだった。",
+          "mean": "One mistake could have caused a fire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ひとつまちがえば ～"
+    }
+  ],
+  "title": "ひとつまちがえば => Just (negligence)",
+  "_id": "f7ff14dae05876cac58b413693d3dcb9"
+}

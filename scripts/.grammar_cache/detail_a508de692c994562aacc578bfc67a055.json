@@ -1,0 +1,91 @@
+{
+  "level": "N5",
+  "mobileId": 5599,
+  "usages": [
+    {
+      "explain": "「から」is used to explain a cause or reason. The event in the first clause leads to the event in the second clause.\n\nComparison between 「から」and 「ので」:<br/>\n- After 「から」, the result is subjective, emphasizing the speaker's opinion. The cause-effect relationship with 「から」is clear and direct.<br/>\n- After 「ので」, the result is objective, a natural consequence. Because 「ので」functions to reduce the subjective nature of the speaker's opinion, creating a softer impression on the listener, it is often used to give reasons when making requests, expressing gratitude, or when making arguments.",
+      "note": null,
+      "examples": [
+        {
+          "content": "時間がありませんから、新聞を読みません。",
+          "transcription": "じかんがありませんから、しんぶんをよみません。",
+          "mean": "I don't read the newspaper because I don't have time."
+        },
+        {
+          "content": "宿題がありますから、今日は遊びに行きません。",
+          "transcription": "しゅくだいがありますから、きょうはあそびにいきません。",
+          "mean": "I have homework to do, so I won't go out today."
+        },
+        {
+          "content": "お腹が痛いですから、今帰ります。",
+          "transcription": "おなかがいたいですから、いまかえります。",
+          "mean": "My stomach hurts, so I'm going home now."
+        },
+        {
+          "content": "彼女が親切ですから、誰でも好きです。",
+          "transcription": "かのじょがしんせつですから、だれでもすきです。",
+          "mean": "Everyone likes her because she is kind."
+        },
+        {
+          "content": "今日は休日ですから、銀行が閉めます。",
+          "transcription": "きょうはきゅうじつですから、ぎんこうがしめます。",
+          "mean": "Today is a holiday, so banks will be closed."
+        },
+        {
+          "content": "勉強しませんでしたから、テストの点数が悪かった。",
+          "transcription": "べんきょうしませんでしたから、テストのてんすうがわるかった。",
+          "mean": "I didn't study, so my test scores were bad."
+        },
+        {
+          "content": "昨日寒かったですから、家を出ませんでした。",
+          "transcription": "きのうさむかったですから、いえをでませんでした。",
+          "mean": "It was cold yesterday, so I didn't leave the house."
+        },
+        {
+          "content": "あのシャツが綺麗でしたから、買いました。",
+          "transcription": "あのシャツがきれいでしたから、かいました。",
+          "mean": "That shirt was beautiful, so I bought it."
+        },
+        {
+          "content": "明日テストがあるから、今夜勉強する。",
+          "transcription": "あしたテストがあるから、こんやべんきょうする。",
+          "mean": "I have a test tomorrow, so I'll study tonight."
+        },
+        {
+          "content": "昨日彼女のプレゼントを買ったから、もうお金がない。",
+          "transcription": "きのうかのじょのプレゼントをかったから、もうおかねがない。",
+          "mean": "I bought her a present yesterday, so I don't have any more money."
+        },
+        {
+          "content": "今日は息子の誕生日だから、早く帰る。",
+          "transcription": "きょうはむすこのたんじょうびだから、はやくかえる。",
+          "mean": "It's my son's birthday today, so I'm going home early."
+        },
+        {
+          "content": "危険だから帰ろう。",
+          "transcription": "きけんだからかえろう。",
+          "mean": "Let's go home because it's dangerous."
+        },
+        {
+          "content": "美味しかったから、食べちゃった。",
+          "transcription": "おいしかったから、たべちゃった。",
+          "mean": "It was delicious, so I ate it."
+        },
+        {
+          "content": "君だから守りたい。",
+          "transcription": "きみだからまもりたい。",
+          "mean": "I want to protect you because it's you."
+        },
+        {
+          "content": "歌手の歌声が素敵だったから、私はお手紙を書いた。",
+          "transcription": "かしゅのうたごえがすてきだったから、わたしはおてがみをかいた。",
+          "mean": "I wrote a letter because the singer's singing voice was wonderful."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence/Clause 1 (formal form/honorific form)+から、Sentence/Clause 2 (formal form/honorific form)"
+    }
+  ],
+  "title": "から => because; since; from",
+  "_id": "a508de692c994562aacc578bfc67a055"
+}

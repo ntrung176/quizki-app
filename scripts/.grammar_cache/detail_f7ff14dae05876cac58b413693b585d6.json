@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1903,
+  "usages": [
+    {
+      "explain": "Expresses the belief that the true essence of something is much better than its appearance.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生はいつも厳しいことばかり言っているが、あれでとても優しい時もあるんです。",
+          "transcription": "せんせいはいつもきびしいことばかりいっているが、あれでとてもやさしいときもあるんです。",
+          "mean": "The teacher always says harsh things, but there are times when he is very kind."
+        },
+        {
+          "content": "彼は体が大きいけど、あれでけっこう素早さはあるのよね。",
+          "transcription": "かれはからだがおおきいけど、あれでけっこうすばやさはあるのよね。",
+          "mean": "He's big, but he's pretty quick."
+        },
+        {
+          "content": "この料理はひどそうに見えるけど、あれで以外に美味しいですよ。",
+          "transcription": "このりょうりはひどそうにみえるけど、あれでいがいにおいしいですよ。",
+          "mean": "This dish looks terrible, but it's actually delicious."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あれで"
+    }
+  ],
+  "title": "あれで => However... (Positive review)",
+  "_id": "f7ff14dae05876cac58b413693b585d6"
+}

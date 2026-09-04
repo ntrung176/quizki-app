@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5041,
+  "usages": [
+    {
+      "explain": "「がてら」is used to describe the idea of simultaneously doing another action while in the process of doing one action. The action in the latter clause, typically a verb related to movement such as 散歩する (take a walk), 行く (go)... is done as an additional benefit or purpose while doing the main action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "散歩がてら、本屋に行ってくるよ。",
+          "transcription": "さんぽがてら、ほんやにいってくるよ。",
+          "mean": "After my walk, I'm going to the bookstore."
+        },
+        {
+          "content": "桜を見がてら隣の駅まで歩いた。",
+          "transcription": "さくらをみがてらとなりのえきまであるいた。",
+          "mean": "I walked to the next station while looking at the cherry blossoms."
+        },
+        {
+          "content": "遊びがてらお立ち寄りください。",
+          "transcription": "あそびがてらおたちよりください。",
+          "mean": "Please stop by and have some fun."
+        },
+        {
+          "content": "ドライブがてら駅に私を迎えに来てください。",
+          "transcription": "ドライブがてらえきにわたしをむかえにきてください。",
+          "mean": "Please come and pick me up at the station."
+        },
+        {
+          "content": "出かけがてらたばこを買って来てね。",
+          "transcription": "でかけがてらたばこをかってきてね。",
+          "mean": "Please buy some cigarettes before you go out."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+がてら<br/> N+がてら"
+    }
+  ],
+  "title": "がてら => while; on the same occasion; at the same time; coincidentally ~",
+  "_id": "2d700ab54ff94a60ab608f7e3aa4c46e"
+}

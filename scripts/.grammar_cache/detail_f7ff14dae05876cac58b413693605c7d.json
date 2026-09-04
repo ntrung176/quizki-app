@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1282,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"no matter what is done, only a bad result will be obtained.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "もっと頑張ったところで失敗するだけだ。",
+          "transcription": "もっとがんばったところでしっぱいするだけだ。",
+          "mean": "You will only fail if you try harder."
+        },
+        {
+          "content": "早く帰ったところで犬が待っているだけだ。",
+          "transcription": "はやくかえったところでいぬがまっているだけだ。",
+          "mean": "When I got home early, the dog was just waiting for me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-たところで～だけだ"
+    }
+  ],
+  "title": "…ところで…だけだ => What ever we do we still don’t get a good result",
+  "_id": "f7ff14dae05876cac58b413693605c7d"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2690,
+  "usages": [
+    {
+      "explain": "A fixed expression, often used as an idiom, to express that something is done exactly like that, without any changes.",
+      "note": null,
+      "examples": [
+        {
+          "content": "言われるがままに、署名してしまった。",
+          "transcription": "いわれるがままに、しょめいしてしまった。",
+          "mean": "I did as I was told and signed it."
+        },
+        {
+          "content": "あるがままに物事を見るようにしなさい。",
+          "transcription": "あるがままにものごとをみるようにしなさい。",
+          "mean": "Try to see things as they are."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－る／V－られる + がまま"
+    }
+  ],
+  "title": "...がまま => as it is; current state; without changing",
+  "_id": "f2d618ceb0702f781ec83b7d4f2255d9"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2832,
+  "usages": [
+    {
+      "explain": "Used to explain the cause or reason for the event mentioned in the previous sentence, or the situation at that time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "道路が渋滞している。きっとこの先で交通事故が起きたのだ。",
+          "transcription": "どうろがじゅうたいしている。きっとこのさきでこうつうじこがおきたのだ。",
+          "mean": "The roads are congested. There must have been a traffic accident ahead."
+        },
+        {
+          "content": "桜さんをすっかり怒らせてしまった。よほど私の言ったことが気にさわったのだろう。",
+          "transcription": "さくらさんをすっかりおこらせてしまった。よほどわたしのいったことがきにさわったのだろう。",
+          "mean": "I completely angered Sakura-san. I guess what I said really bothered him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Naな + のだ\nA/V + のだ"
+    }
+  ],
+  "title": "... のだ => Because... (Explanation)",
+  "_id": "f2d618ceb0702f781ec83b7d4f3488cd"
+}

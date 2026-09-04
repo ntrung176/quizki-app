@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5139,
+  "usages": [
+    {
+      "explain": "「いわゆる」 standing before a noun indicates that the noun is commonly known, commonly used, or colloquial, and thanks to it, what the speaker is trying to explain will be easier to understand.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はいわゆる語学の天才だ。",
+          "transcription": "かれはいわゆるごがくのてんさいだ。",
+          "mean": "He is a so-called language genius."
+        },
+        {
+          "content": "彼女はいわゆる本の虫です。",
+          "transcription": "かのじょはいわゆるほんのむしです。",
+          "mean": "She is what we call a bookworm."
+        },
+        {
+          "content": "これはいわゆる巻き寿司というものです。",
+          "transcription": "これはいわゆるまきずしというものです。",
+          "mean": "This is what is called a sushi roll."
+        },
+        {
+          "content": "彼女の考えは、いわゆる進歩的なものでした。",
+          "transcription": "かのじょのかんがえは、いわゆるしんぽてきなものでした。",
+          "mean": "Her notions were what is called advanced."
+        },
+        {
+          "content": "兄はいわゆるポップミュージックに興味があります。",
+          "transcription": "あにはいわゆるポップミュージックにきょうみがあります。",
+          "mean": "My brother is interested in what you call pop music."
+        },
+        {
+          "content": "彼は何でも知っているから、いわゆる生き字引だ。",
+          "transcription": "かれはなんでもしっているから、いわゆるいきじびきだ。",
+          "mean": "He knows everything, so he is what you might call a living dictionary."
+        },
+        {
+          "content": "彼はジャズのことなら何でも知っていて、いわゆるジャズ通である。",
+          "transcription": "かれはジャズのことならなんでもしっていて、いわゆるジャズつうである。",
+          "mean": "He knows everything about jazz and is what you might call a jazz connoisseur."
+        },
+        {
+          "content": "私の好きな食べ物はピザ、ハンバーガーで、いわゆるアメリカンフード大好きです。",
+          "transcription": "わたしのすきなたべものはピザ、ハンバーガーで、いわゆるアメリカンフードだいすきです。",
+          "mean": "My favorite foods are pizza and hamburgers, and I love American food."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いわゆる+N"
+    }
+  ],
+  "title": "いわゆる => what is called; as it is called; the so-called; so to speak​",
+  "_id": "b41c8334ab3e4d1c9c5ecba446bf5e94"
+}

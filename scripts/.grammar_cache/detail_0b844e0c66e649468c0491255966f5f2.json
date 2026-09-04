@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5192,
+  "usages": [
+    {
+      "explain": "「に反して」 indicates that the event in the latter clause goes against or contradicts what was predicted or expected.<br/>「に反し」 is used in formal writing or speech.",
+      "note": null,
+      "examples": [
+        {
+          "content": "弟は親の期待に反することばかりしている。",
+          "transcription": "おとうとはおやのきたいにはんすることばかりしている。",
+          "mean": "My younger brother always does things that go against his parents' expectations."
+        },
+        {
+          "content": "年初の予測に反して、今年は天候不順の年となった。",
+          "transcription": "ねんしょのよそくにはんして、ことしはてんこうふじゅんのとしとなった。",
+          "mean": "Contrary to predictions at the beginning of the year, this year has been a year of unseasonable weather."
+        },
+        {
+          "content": "専門家の予想に反して、景気は回復し始めた。",
+          "transcription": "せんもんかのよそうにはんして、けいきはかいふくしはじめた。",
+          "mean": "Contrary to experts' predictions, the economy has begun to recover."
+        },
+        {
+          "content": "我々の期待に反して、新商品はあまり売れなかった。",
+          "transcription": "われわれのきたいにはんして、しんしょうひんはあまりうれなかった。",
+          "mean": "Contrary to our expectations, the new product did not sell well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に反して<br/> N+に反し<br/> N+に反するN'"
+    }
+  ],
+  "title": "に反して => against; contrary to; in contrast to ~",
+  "_id": "0b844e0c66e649468c0491255966f5f2"
+}

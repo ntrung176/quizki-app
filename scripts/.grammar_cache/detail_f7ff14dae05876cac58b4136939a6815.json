@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1701,
+  "usages": [
+    {
+      "explain": "Used to ask someone's name or what something is called. This is an informal way of saying [なんというN].",
+      "note": null,
+      "examples": [
+        {
+          "content": "さっき電話した人はなんていう名前ですか。",
+          "transcription": "さっきでんわしたひとはなんていうなまえですか。",
+          "mean": "What is the name of the person you called earlier?"
+        },
+        {
+          "content": "山田さんは何ていう大学で勉強していますか。",
+          "transcription": "やまださんはなにていうだいがくでべんきょうしていますか。",
+          "mean": "What university is Mr. Yamada studying at?"
+        },
+        {
+          "content": "彼女、なんて島に住んでいるんだっけ。",
+          "transcription": "かのじょ、なんてしまにすんでいるんだっけ。",
+          "mean": "Does she live on an island?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんて（いう）+ N"
+    }
+  ],
+  "title": "なんて（いう）... => think as/like, talk as /like",
+  "_id": "f7ff14dae05876cac58b4136939a6815"
+}

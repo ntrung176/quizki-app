@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5359,
+  "usages": [
+    {
+      "explain": "「ことになる」(koto ni naru) indicates a decision has been made, but not by the speaker's own will, rather by someone else or an organization.「ことになる」emphasizes the content of the decision without specifying the agent who made it (unlike 「ことにする」). Therefore, for things decided by oneself but to avoid expressing one's own will, people also use 「ことになる」(e.g., 結婚することになる - \"It's been decided that I will get married\"). \"It's been decided...\"<br/>「ことになっている」(koto ni natte iru) indicates a plan or schedule has been set, or a rule or regulation has been established. \"It's been decided...\" or \"It's been established...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "中国へは田中さんが行くことになるでしょう。",
+          "transcription": "ちゅうごくへはたなかさんがいくことになるでしょう。",
+          "mean": "Mr. Tanaka will probably go to China."
+        },
+        {
+          "content": "今度、大阪に転勤することになりました。",
+          "transcription": "こんど、おおさかにてんきんすることになりました。",
+          "mean": "I have decided to transfer to Osaka."
+        },
+        {
+          "content": "急に国へ帰ることになりました。",
+          "transcription": "きゅうにくにへかえることになりました。",
+          "mean": "I suddenly had to return to my country."
+        },
+        {
+          "content": "本日でお店を閉めることになりました。",
+          "transcription": "ほんじつでおみせをしめることになりました。",
+          "mean": "We have decided to close the shop today."
+        },
+        {
+          "content": "今年の冬に結婚することになりました。",
+          "transcription": "ことしのふゆにけっこんすることになりました。",
+          "mean": "We are planning to get married this winter."
+        },
+        {
+          "content": "明日新しい企画についての会議が行われることになっている。",
+          "transcription": "あしたあたらしいきかくについてのかいぎがおこなわれることになっている。",
+          "mean": "A meeting about the new plan is to be held tomorrow."
+        },
+        {
+          "content": "明日、ここで卒業式が行われることになっている。",
+          "transcription": "あした、ここでそつぎょうしきがおこなわれることになっている。",
+          "mean": "The graduation ceremony will be held here tomorrow."
+        },
+        {
+          "content": "ツバサ会社では新入社員は朝、掃除することになっている。",
+          "transcription": "ツバサかいしゃではしんにゅうしゃいんはあさ、そうじすることになっている。",
+          "mean": "At Tsubasa Company, new employees are expected to clean the house in the morning."
+        },
+        {
+          "content": "日本では車は道路の左側を運転することになっています。",
+          "transcription": "にほんではくるまはどうろのひだりがわをうんてんすることになっています。",
+          "mean": "In Japan, cars are supposed to be driven on the left side of the road."
+        },
+        {
+          "content": "試験用紙は持ち帰ってはいけないことになっている。",
+          "transcription": "しけんようしはもちかえってはいけないことになっている。",
+          "mean": "You are not allowed to take the exam papers home with you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)/Vない+ことになる<br/> V (root form)/Vない+ことになっている"
+    }
+  ],
+  "title": "ことになる/ことになっている => It has been decided that..; it turns out that..",
+  "_id": "53812af6f85141a3a20d9b86f2ef80cc"
+}

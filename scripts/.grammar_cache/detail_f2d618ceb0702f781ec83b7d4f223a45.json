@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 5032,
+  "usages": [
+    {
+      "explain": "Used at the beginning of a sentence, expressing the idea that the subsequent event is different from what was predicted from the events presented earlier. Compared to 「しかし」, it has a slightly conversational tone. However, it is also used in written language with an informal style.",
+      "note": null,
+      "examples": [
+        {
+          "content": "2時間待った。けれど、彼女は姿を表さなかった。",
+          "transcription": "2じかんまった。けれど、かのじょはすがたをあらわさなかった。",
+          "mean": "I waited for 2 hours. However, she did not appear."
+        },
+        {
+          "content": "そのパーティーではだれも知っている人がいなかった。けれど、みんな親切でとても楽しかった。",
+          "transcription": "そのぱーてぃーではだれもしっているひとがいなかった。けれど、みんなしんせつでとてもたのしかった。",
+          "mean": "I didn't know anyone at the party. However, everyone was so kind and it was so much fun."
+        }
+      ],
+      "mean": null,
+      "synopsis": "けれど is a conjunction."
+    }
+  ],
+  "title": "けれど => but; however; although",
+  "_id": "f2d618ceb0702f781ec83b7d4f223a45"
+}

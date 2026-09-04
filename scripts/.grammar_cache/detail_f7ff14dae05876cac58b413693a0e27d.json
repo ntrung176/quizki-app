@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1749,
+  "usages": [
+    {
+      "explain": "Expresses the degree to which something is true, with a very serious connotation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この都市がいかに暮らしやすいかは、住んでいる人の表情からもうかがわれる。",
+          "transcription": "このとしがいかにくらしやすいかは、すんでいるひとのひょうじょうからもうかがわれる。",
+          "mean": "You can tell just how comfortable this city is by looking at the faces of its residents."
+        },
+        {
+          "content": "このプロジェクトがいかに精神的な苦労が多いかが、手伝ってみて初めて実感できた。",
+          "transcription": "このぷろじぇくとがいかにせいしんてきなくろうがおおいかが、てつだってみてはじめてじっかんできた。",
+          "mean": "It wasn't until I helped out that I realized just how mentally demanding this project was."
+        },
+        {
+          "content": "愛する妹を飛行機事故で失って、彼がいかにつらい思いをしているか、想像しただけで胸が痛くなる。",
+          "transcription": "あいするいもうとをひこうきじこでうしなって、かれがいかにつらいおもいをしているか、そうぞうしただけでむねがいたくなる。",
+          "mean": "My heart aches just thinking about how painful it must have been for him to lose his beloved sister in a plane crash."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いかに…か => no matter how",
+  "_id": "f7ff14dae05876cac58b413693a0e27d"
+}

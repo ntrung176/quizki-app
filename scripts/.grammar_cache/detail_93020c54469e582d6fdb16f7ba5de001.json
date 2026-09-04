@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3188,
+  "usages": [
+    {
+      "explain": "The particle 「を」 is used to indicate the direct object of a transitive verb.",
+      "note": "The pronunciation of 「を」 is similar to 「お」. The character 「を」 is used exclusively as a particle.\n",
+      "examples": [
+        {
+          "content": "魚を食べます。",
+          "transcription": "さかなをたべます。",
+          "mean": "eat fish"
+        },
+        {
+          "content": "日本語を勉強しています。",
+          "transcription": "にほんごをべんきょうしています。",
+          "mean": "I am learning Japanese."
+        },
+        {
+          "content": "彼女はテニスをしたことがあります。",
+          "transcription": "かのじょはてにすをしたことがあります。",
+          "mean": "She has played tennis."
+        }
+      ],
+      "mean": ": Refers to the object of the action",
+      "synopsis": "N を V"
+    }
+  ],
+  "title": "～を      => Refers to the object of the action",
+  "_id": "93020c54469e582d6fdb16f7ba5de001"
+}

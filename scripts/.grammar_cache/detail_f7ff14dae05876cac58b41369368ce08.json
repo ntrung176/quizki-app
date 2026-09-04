@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1343,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"careless, inattentive\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "へたに運ぶと故障するかもしれないので、うかつに手がだせない。",
+          "transcription": "へたにはこぶとこしょうするかもしれないので、うかつにてがだせない。",
+          "mean": "If you carry it improperly, it may break down, so don't carelessly handle it."
+        },
+        {
+          "content": "あの子はへたに注意すると家出をするかもしれないよ。",
+          "transcription": "あのこはへたにちゅういするといえでをするかもしれないよ。",
+          "mean": "That kid might run away from home if you're careful."
+        }
+      ],
+      "mean": null,
+      "synopsis": "へたに～"
+    }
+  ],
+  "title": "へたに => Careless",
+  "_id": "f7ff14dae05876cac58b41369368ce08"
+}

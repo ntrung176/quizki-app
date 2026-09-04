@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5161,
+  "usages": [
+    {
+      "explain": "「っこない」is used to strongly and definitively deny that something is absolutely impossible to happen, there's no way it could happen (based on the subjective opinion of the speaker)",
+      "note": null,
+      "examples": [
+        {
+          "content": "3歳の子供にそんな難しいことを言っても分かりっこないよ。",
+          "transcription": "さんさいのこどもにそんなむずかしいことをいってもわかりっこないよ。",
+          "mean": "If you tell a 3-year-old child such a difficult thing, he won't understand."
+        },
+        {
+          "content": "こんなひどい嵐にゴルフなんかできっこない。今日はやめとこう。",
+          "transcription": "こんなひどいあらしにゴルフなんかできっこない。きょうはやめとこう。",
+          "mean": "You can't play golf in such a bad storm. Let's stop today."
+        },
+        {
+          "content": "今日中に漢字を100字覚えるなんて無理だ。できっこない。",
+          "transcription": "きょうじゅうにかんじをひゃくじおぼえるなんてむりだ。できっこない。",
+          "mean": "It's impossible to memorize 100 kanji today. I can't do it."
+        },
+        {
+          "content": "こんな話誰も信じてくれっこないと思う。",
+          "transcription": "こんなはなしだれもしんじてくれっこないとおもう。",
+          "mean": "I don't think anyone would believe a story like this."
+        },
+        {
+          "content": "俳優になんかなれっこないと親にも言われたけれど、夢は捨てられなかった。",
+          "transcription": "はいゆうになんかなれっこないとおやにもいわれたけれど、ゆめはすてられなかった。",
+          "mean": "My parents told me that I would never become an actor, but I couldn't give up on my dream."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s> っこない"
+    }
+  ],
+  "title": "っこない => no chance of; … is definitely not possible",
+  "_id": "948c375af96e441e89a11d68ea88bf56"
+}

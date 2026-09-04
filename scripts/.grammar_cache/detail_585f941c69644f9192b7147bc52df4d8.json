@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5340,
+  "usages": [
+    {
+      "explain": "「ほど」expresses the idea that as one event progresses or changes in a certain direction, another event also progresses or changes in a similar manner.",
+      "note": null,
+      "examples": [
+        {
+          "content": "伝統的なものは、古いほど価値がある。",
+          "transcription": "でんとうてきなものは、ふるいほどかちがある。",
+          "mean": "The older something traditional is, the more valuable it is."
+        },
+        {
+          "content": "野菜は新しいほど美味しい。",
+          "transcription": "やさいはあたらしいほどおいしい。",
+          "mean": "The fresher the vegetables, the tastier they are."
+        },
+        {
+          "content": "家やアパートは、駅に近くて便利なほど高い。",
+          "transcription": "いえやアパートは、えきにちかくてべんりなほどたかい。",
+          "mean": "Houses and apartments are expensive, the closer they are to the station and the more convenient they are."
+        },
+        {
+          "content": "太った人ほど病気になりやすい。",
+          "transcription": "ふとったひとほどびょうきになりやすい。",
+          "mean": "Fat people are more likely to get sick."
+        },
+        {
+          "content": "若い人ほど朝寝坊をする。",
+          "transcription": "わかいひとほどあさねぼうをする。",
+          "mean": "Younger people tend to oversleep in the morning."
+        },
+        {
+          "content": "年を取るほど智慧が付く。",
+          "transcription": "としをとるほどちえがつく。",
+          "mean": "The older you get, the more wisdom you gain."
+        },
+        {
+          "content": "勉強するほど分からなくなりました。",
+          "transcription": "べんきょうするほどわからなくなりました。",
+          "mean": "The more I studied, the less I understood."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい/Aな+ほど<br/> Aい/Aな+N+ほど<br/>\nV (root form)+ほど"
+    }
+  ],
+  "title": "ほど => the more… the more ~",
+  "_id": "585f941c69644f9192b7147bc52df4d8"
+}

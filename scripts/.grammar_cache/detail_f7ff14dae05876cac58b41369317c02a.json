@@ -1,0 +1,48 @@
+{
+  "level": "N1",
+  "mobileId": 749,
+  "usages": [
+    {
+      "explain": "✦ Means [以前] (before), [昔] (long ago). Sometimes also said as [かって]. It has a literary quality.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このあたりは、かつては有名な米の産地だった。",
+          "transcription": "このあたりは、かつてはゆうめいなべいのさんちだった。",
+          "mean": "This area was once a famous rice producing area."
+        },
+        {
+          "content": "彼女はかつて新聞社の特派員として日本に滞在したことがあるそうだ。",
+          "transcription": "かのじょはかつてしんぶんしゃのとくはいんとしてにっぽんにたいざいしたことがあるそうだ。",
+          "mean": "Apparently, she once lived in Japan as a correspondent for a newspaper company."
+        },
+        {
+          "content": "今度この地方で地震が起こるとすれば、それはかつてないほどの規模のものになる恐れがある。",
+          "transcription": "こんどこのちほうでじしんがおこるとすれば、それはかつてないほどのきぼのものになるおそれがある。",
+          "mean": "If an earthquake were to occur in this region next time, it would be of unprecedented magnitude."
+        },
+        {
+          "content": "久しぶりに会った彼は、相撲取りのように太っていて、かつての精悍なスポーツマンの面影はどこにもなかった。",
+          "transcription": "ひさしぶりにあったかれは、すもうとりのようにふとっていて、かつてのせいかんなスポーツマンのおもかげはどこにもなかった。",
+          "mean": "When I met him for the first time in a while, he was as fat as a sumo wrestler, and there was no trace of the fearless sportsman he once was."
+        },
+        {
+          "content": "わが国が主食である米の生産を外国に頼るなどということは、未だかつてなかった。",
+          "transcription": "わがくにがしゅしょくであるべいのせいさんをがいこくにたよるなどということは、いまだかつてなかった。",
+          "mean": "Never before has Japan relied on a foreign country to produce rice, its staple food."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Usually goes with sentences that mean the past."
+    },
+    {
+      "explain": "✦ [かつてない], [未だかつて…ない] are idiomatic expressions.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～かつて => once; before; formerly; ever; former",
+  "_id": "f7ff14dae05876cac58b41369317c02a"
+}

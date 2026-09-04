@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2537,
+  "usages": [
+    {
+      "explain": "This is a structure listing multiple conditions, to indicate that any of those conditions being met will lead to the same result.",
+      "note": null,
+      "examples": [
+        {
+          "content": "息子は､肉でも野菜でも､強制しないで食べます。",
+          "transcription": "むすこは､にくでもやさいでも､きょうせいしないでたべます。",
+          "mean": "My son eats meat and vegetables without forcing himself to eat them."
+        },
+        {
+          "content": "お金持ちでも貧乏でも、彼はみんなの扱いが公平です。",
+          "transcription": "おかねもちでもびんぼうでも、かれはみんなのあつかいがこうへいです。",
+          "mean": "He treats everyone fairly, whether rich or poor."
+        },
+        {
+          "content": "インターネットで調べても専門家に聞いても､まだこの象徴の意味が理解できない。",
+          "transcription": "いんたーねっとでしらべてもせんもんかにきいても､まだこのしょうちょうがりかいできない。",
+          "mean": "Even after searching the internet and asking experts, I still cannot understand the meaning of this symbol."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vても...Vても<br/>Aくても...Aくても<br/>Naでも...Naでも<br/>Nでも...Nでも"
+    }
+  ],
+  "title": "ても～ても => even if ～",
+  "_id": "f2d618ceb0702f781ec83b7d4f0e34a6"
+}

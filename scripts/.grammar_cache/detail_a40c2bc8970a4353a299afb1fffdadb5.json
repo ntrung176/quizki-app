@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5532,
+  "usages": [
+    {
+      "explain": "「のに」is used to connect two clauses, with the latter expressing a result that is contrary to what would be expected based on the content of the first clause.<br/>\n「のに」encompasses the speaker's feelings of surprise, regret, dissatisfaction, etc., when the event happens unexpectedly. This is a different nuance compared to 「けれでも」and 「が」.<br/>\nBoth clauses before and after 「のに」are clearly defined facts. Therefore, the clause after 「のに」does not use structures indicating speculation, hope, intention, command, advice, questioning, etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女が綺麗なのに、彼氏がいません。",
+          "transcription": "かのじょがきれいなのに、かれしがいません。",
+          "mean": "Although she is beautiful, she doesn't have a boyfriend."
+        },
+        {
+          "content": "この携帯は高いのに、すぐに壊れた。",
+          "transcription": "このけいたいはたかいのに、すぐにこわれた。",
+          "mean": "Although this cell phone was expensive, it broke quickly."
+        },
+        {
+          "content": "薬を飲んだのに、熱がまだ下がりません。",
+          "transcription": "くすりをのんだのに、ねつがまださがりません。",
+          "mean": "Even though I took medicine, my fever still hasn't gone down."
+        },
+        {
+          "content": "約束をしたのに、彼女は来ませんでした。",
+          "transcription": "やくそくをしたのに、かのじょはきませんでした。",
+          "mean": "Even though I promised her, she didn't come."
+        },
+        {
+          "content": "あなたの家が近いのに、いつも会社に遅れたね。",
+          "transcription": "あなたのいえがちかいのに、いつもかいしゃにおくれたね。",
+          "mean": "Even though your house is close, you're always late for work."
+        },
+        {
+          "content": "今日は日曜日なのに、働かなければなりません。",
+          "transcription": "きょうはにちようびなのに、はたらかなければなりません。",
+          "mean": "Even though today is Sunday, I have to work."
+        },
+        {
+          "content": "車を持っているのに、なんでいつもバスに乗るの。",
+          "transcription": "くるまをもっているのに、なんでいつもバスにのるの。",
+          "mean": "If I have a car, why do I always take the bus?"
+        },
+        {
+          "content": "仕事中なのに、彼はパソコンでゲームをしています。",
+          "transcription": "しごとちゅうなのに、かれはパソコンでゲームをしています。",
+          "mean": "Even though he is at work, he is playing games on his computer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+のに<br/>\n(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br/> Nだ ➔ N<s>だ</s>な)"
+    }
+  ],
+  "title": "のに => although, in spite of, even though ~",
+  "_id": "a40c2bc8970a4353a299afb1fffdadb5"
+}

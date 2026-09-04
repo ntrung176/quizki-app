@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1738,
+  "usages": [
+    {
+      "explain": "Used to list or add additional objects, events. Similar in meaning to 「そして」but when using 「そうして」, the tone is stronger. 「そして」is more commonly used for general enumeration.",
+      "note": null,
+      "examples": [
+        {
+          "content": "試験室、図書館、そうして博物館など静かなところが好きだ。<br>",
+          "transcription": "しけんしつ、としょかん、そうしてはくぶつかんなどしずかなところがすきだ。<br>",
+          "mean": "I like quiet places like exam rooms, libraries, and museums. &lt;br&gt;"
+        },
+        {
+          "content": "挑戦的で、そうして有意義な仕事を探したい。",
+          "transcription": "ちょうせんてきで、そうしてゆういぎなしごとをさがしたい。",
+          "mean": "I want to find a job that is challenging and meaningful."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そうして～"
+    }
+  ],
+  "title": "そうして => and; and then; thus; and now ~",
+  "_id": "f7ff14dae05876cac58b4136939f47aa"
+}

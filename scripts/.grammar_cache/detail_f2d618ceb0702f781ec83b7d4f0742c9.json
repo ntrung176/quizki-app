@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2486,
+  "usages": [
+    {
+      "explain": "It describes the meaning \"this is enough, no need for more\". Additionally, this phrase is used to show a refusal attitude or to express the feeling of giving up things that one has been attached to.",
+      "note": null,
+      "examples": [
+        {
+          "content": "練習 はこれでもういいです。",
+          "transcription": "れんしゅうはこれでもういいです。",
+          "mean": "That's enough practice."
+        },
+        {
+          "content": "もういいよ。あなたの苦情は聞き飽きた。",
+          "transcription": "もういいよ。あなたのくじょうはききあきた。",
+          "mean": "that's enough. I'm tired of hearing your complaints."
+        },
+        {
+          "content": "もういいんです。ほかの仕事を探します。",
+          "transcription": "もういいんです。ほかのしごとをさがします。",
+          "mean": "That's enough. I'll look for another job."
+        }
+      ],
+      "mean": null,
+      "synopsis": "."
+    }
+  ],
+  "title": "もういい => That's enough...",
+  "_id": "f2d618ceb0702f781ec83b7d4f0742c9"
+}

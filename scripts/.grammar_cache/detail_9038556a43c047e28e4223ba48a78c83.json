@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5118,
+  "usages": [
+    {
+      "explain": "「どうやら」is used to:<br/>\n\n1. Emphasize the uncertainty in the speaker's conjecture about something that they are not sure about. It often accompanies speculative structures like 「ようだ」「そうだ」「らしい」. It can be translated as \"It seems like...\" or \"It appears that...\"<br/>\n\n2. Describe a situation where, although not perfect or ideal, the desired result is achieved after much effort or difficulty.<br/>\n\nNowadays, 「どうやら」is mainly used with the first meaning, while the second meaning is often expressed using 「どうにか」or 「何とか」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうやら運の尽きだ。",
+          "transcription": "どうやらうんのつきだ。",
+          "mean": "Apparently it's just luck."
+        },
+        {
+          "content": "どうやら明日は雨になりそうだ。",
+          "transcription": "どうやらあしたはあめになりそうだ。",
+          "mean": "Evidently, it's going to rain tomorrow."
+        },
+        {
+          "content": "どうやら彼は知らないらしい。",
+          "transcription": "どうやらかれはしらないらしい。",
+          "mean": "Apparently he doesn't know."
+        },
+        {
+          "content": "どうやら誤解があるようだ。",
+          "transcription": "どうやらごかいがあるようだ。",
+          "mean": "There appears to be a misunderstanding."
+        },
+        {
+          "content": "今晩はどうやら雪が降りそうだ。",
+          "transcription": "こんばんはどうやらゆきがふりそうだ。",
+          "mean": "It looks like it's going to snow tonight."
+        },
+        {
+          "content": "彼がどうやら財布を家に忘れた。",
+          "transcription": "かれがどうやらさいふをいえにわすれた。",
+          "mean": "Apparently he forgot his wallet at home."
+        },
+        {
+          "content": "どうやら君は彼女と一緒になる運命のようだ。",
+          "transcription": "どうやらきみはかのじょといっしょになるうんめいのようだ。",
+          "mean": "It seems you are destined to be with her."
+        },
+        {
+          "content": "向こうから歩いて来るのは、どうやら田中さんのようだ。",
+          "transcription": "むこうからあるいてくるのは、どうやらたなかさんのようだ。",
+          "mean": "It looks like Mr. Tanaka is walking from the other side."
+        },
+        {
+          "content": "私は二倍の速度で歩いたので、石切り場へ着いたときには、どうやら息が切れていた。",
+          "transcription": "わたしはにばいのそくどであるいたので、いしぎりばへついたときには、どうやらいきがきれていた。",
+          "mean": "I walked twice as fast, and by the time I reached the quarry I was apparently out of breath."
+        },
+        {
+          "content": "どうやら日本の生活になれてきた。",
+          "transcription": "どうやらにほんのせいかつになれてきた。",
+          "mean": "It seems that I have become used to life in Japan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうやら+Sentence"
+    }
+  ],
+  "title": "どうやら => possibly; apparently; seems like; somehow; barely ~",
+  "_id": "9038556a43c047e28e4223ba48a78c83"
+}

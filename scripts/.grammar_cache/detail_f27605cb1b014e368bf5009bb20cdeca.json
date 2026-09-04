@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5322,
+  "usages": [
+    {
+      "explain": "「ばかり」expresses a critical or annoying attitude of the speaker, indicating that only that particular object (N) is present all the time, or that a certain event, action, or state (V) keeps happening repeatedly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お金ばかりが全てではない。",
+          "transcription": "おかねばかりがすべてではない。",
+          "mean": "Money isn't everything."
+        },
+        {
+          "content": "甘いものばかり食べると太りますよ。",
+          "transcription": "あまいものばかりたべるとふとりますよ。",
+          "mean": "If you eat only sweets, you will gain weight."
+        },
+        {
+          "content": "弟はテレビを見てばかりいる。",
+          "transcription": "おとうとはテレビをみてばかりいる。",
+          "mean": "My younger brother just watches TV."
+        },
+        {
+          "content": "この店のお客さんは女性ばかりですね。",
+          "transcription": "このみせのおきゃくさんはじょせいばかりですね。",
+          "mean": "The customers at this store are only women."
+        },
+        {
+          "content": "私は夏休みに寝てばかりでした。",
+          "transcription": "わたしはなつやすみにねてばかりでした。",
+          "mean": "All I did was sleep during summer vacation."
+        },
+        {
+          "content": "息子は仕事もしないで遊んでばかりいる。",
+          "transcription": "むすこはしごともしないであそんでばかりいる。",
+          "mean": "My son doesn't do any work and just plays."
+        },
+        {
+          "content": "お酒を飲んでばかりいると、体を悪くしますよ。",
+          "transcription": "おさけをのんでばかりいると、からだをわるくしますよ。",
+          "mean": "Drinking alcohol all the time will make your health worse."
+        },
+        {
+          "content": "妹は毎日飽きずにカップラーメンばかり食べている。",
+          "transcription": "いもうとはまいにちあきずにカップラーメンばかりたべている。",
+          "mean": "My younger sister eats cup ramen every day without getting tired of it."
+        },
+        {
+          "content": "あの学生は宿題を忘れてばかりいます。でも、彼の日本語は上手です。",
+          "transcription": "あのがくせいはしゅくだいをわすれてばかりいます。でも、かれのにほんごはじょうずです。",
+          "mean": "That student keeps forgetting his homework. But his Japanese is good."
+        },
+        {
+          "content": "これは砂ばかりの土地だ。",
+          "transcription": "これはすなばかりのとちだ。",
+          "mean": "This is a land of sand."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Vて+ばかり (だ/で)<br/> N/Vて+ばかりのN'<br/> Vて+ばかりいる"
+    }
+  ],
+  "title": "ばかり => only; nothing but ~",
+  "_id": "f27605cb1b014e368bf5009bb20cdeca"
+}

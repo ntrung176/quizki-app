@@ -1,0 +1,101 @@
+{
+  "level": "N5",
+  "mobileId": 5636,
+  "usages": [
+    {
+      "explain": "「ている」is used to:<br/> 1. Describe an action that is currently in progress.<br/> 2. Describe a state (resulting from an action or not) that is still ongoing at the present.<br/> 3. Describe a habit, custom, or behavior that has been repeated over a long period of time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昼ご飯を食べている。",
+          "transcription": "ひるごはんをたべている。",
+          "mean": "Eating lunch."
+        },
+        {
+          "content": "母と電話をしています。",
+          "transcription": "ははとでんわをしています。",
+          "mean": "I'm on the phone with my mother."
+        },
+        {
+          "content": "面白い本を読んでいる。",
+          "transcription": "おもしろいほんをよんでいる。",
+          "mean": "I'm reading an interesting book."
+        },
+        {
+          "content": "今、雨がまだ降っています。",
+          "transcription": "いま、あめがまだふっています。",
+          "mean": "It's still raining now."
+        },
+        {
+          "content": "私は結婚しています。",
+          "transcription": "わたしはけっこんしています。",
+          "mean": "I'm married."
+        },
+        {
+          "content": "私は大阪に住んでいる。",
+          "transcription": "わたしはおおさかにすんでいる。",
+          "mean": "I live in Osaka."
+        },
+        {
+          "content": "5年間日本語を勉強しています。",
+          "transcription": "ごねんかんにほんごをべんきょうしています。",
+          "mean": "I've been studying Japanese for 5 years."
+        },
+        {
+          "content": "ミラーさんはIMCで働いています。",
+          "transcription": "ミラーさんはアイエムシーではたらいています。",
+          "mean": "Mr. Miller works at IMC."
+        },
+        {
+          "content": "私はマリアさんを知っています。",
+          "transcription": "わたしはマリアさんをしっています。",
+          "mean": "I know Maria."
+        },
+        {
+          "content": "サントスさんはパソコンを持っています。",
+          "transcription": "サントスさんはパソコンをもっています。",
+          "mean": "Mr. Santos has a computer."
+        },
+        {
+          "content": "あの青い着物を着ている人は誰ですか。",
+          "transcription": "あのあおいきものをきているひとはだれですか。",
+          "mean": "Who is that person wearing that blue kimono?"
+        },
+        {
+          "content": "父は今アメリカに行っています。",
+          "transcription": "ちちはいまアメリカにいっています。",
+          "mean": "My father is currently going to America."
+        },
+        {
+          "content": "窓が開いています。",
+          "transcription": "まどがあいています。",
+          "mean": "The window is open."
+        },
+        {
+          "content": "この道は曲がっています。",
+          "transcription": "このみちはまがっています。",
+          "mean": "This road is crooked."
+        },
+        {
+          "content": "いつも自転車で通勤しています。",
+          "transcription": "いつもじてんしゃでつきんしています。",
+          "mean": "I always commute by bicycle."
+        },
+        {
+          "content": "毎朝ジョギングをしています。",
+          "transcription": "まいあさジョギングをしています。",
+          "mean": "I go jogging every morning."
+        },
+        {
+          "content": "最近は、ファックスを使う人が少なくなっているようだ。",
+          "transcription": "さいきんは、ファックスを使う人が少なくなっているようだ。",
+          "mean": "It seems like fewer people are using faxes these days."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+いる<br/> Vて+いない"
+    }
+  ],
+  "title": "ている => the progressive tense of a verb which shows that something is currently happening or ongoing",
+  "_id": "516aa19f5fb74ac8832c0fb8cb9744fe"
+}

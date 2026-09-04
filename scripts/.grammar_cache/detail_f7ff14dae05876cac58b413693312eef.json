@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 931,
+  "usages": [
+    {
+      "explain": "Synonymous with 「しかし」, but used in written language or in formal dialogues, with a tone close to written language. It is often used in sentences with the purpose of logically developing an argument.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女のアイデアは素晴らしいと思います。しかしながら、可能性は低いでしょう。",
+          "transcription": "かのじょのあいであはすばらしいとおもいます。しかしながら、かのうせいはひくいでしょう。",
+          "mean": "I think her idea is great. However, this is unlikely."
+        },
+        {
+          "content": "彼は貧乏だと言っている。しかしながら、家を２軒とロールスロイスの車を持っている。",
+          "transcription": "かれはびんぼうだといっている。しかしながら、いえをにけんとろーるすろいすのくるまをもっている。",
+          "mean": "He says he is poor. However, he owns two houses and a Rolls Royce car."
+        }
+      ],
+      "mean": null,
+      "synopsis": "しかしながら～"
+    }
+  ],
+  "title": "しかしながら => however, nevertheless",
+  "_id": "f7ff14dae05876cac58b413693312eef"
+}

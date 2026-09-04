@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1936,
+  "usages": [
+    {
+      "explain": "Means: on the contrary, opposite. Used in the following situations: two things are reversed in position, like \"left-right, top-bottom\" as in example (1), two events are opposite as in example (2), or the result is contrary to the norm as in example (3).",
+      "note": null,
+      "examples": [
+        {
+          "content": "我が家の長男は未だに靴を左右逆に履いていることが多い。",
+          "transcription": "わがやのちょうなんはいまだにくつをさゆうぎゃくにはいていることがおおい。",
+          "mean": "My eldest son still often wears his shoes backwards."
+        },
+        {
+          "content": "兄は酒が一滴も飲めない。反対に姉はとても酒に強い。",
+          "transcription": "あにはさけがいってきものめない。はんたいにあねはとてもさけにつよい。",
+          "mean": "My brother can't drink a single drop of alcohol. My sister, on the other hand, is very tolerant of alcohol."
+        },
+        {
+          "content": "高等学校第一学年には、一生懸命勉強したが、成績は反対にさがってしまった。",
+          "transcription": "こうとうがっこうだいいちがくねんには、いっしょうけんめいべんきょうしたが、せいせきははんたいにさがってしまった。",
+          "mean": "In my first year of high school, I studied hard, but my grades went down."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence expressing opposite ideas."
+    }
+  ],
+  "title": "... 反対に => on the contrary",
+  "_id": "f7ff14dae05876cac58b413693bae39c"
+}

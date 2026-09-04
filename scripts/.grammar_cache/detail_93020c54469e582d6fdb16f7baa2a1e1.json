@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3161,
+  "usages": [
+    {
+      "explain": "<div>✦ Carries the meaning of \"その限りでは\" (in that respect), if only within the scope.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "手伝ってやる分には問題はないけど、宿題を全部はしてあげられない。",
+          "transcription": "てつだってやるぶんにはもんだいはないけど、しゅくだいをぜんぶはしてあげられない。",
+          "mean": "There's nothing wrong with helping out, but I can't do all the homework for you."
+        },
+        {
+          "content": "スポーツは、見ている分にはいいけど、実際にやってみるとなると結構大変だよ。",
+          "transcription": "スポーツは、みているぶんにはいいけど、じっさいにやってみるとなるとけっこうたいへんだよ。",
+          "mean": "Sports are great to watch, but actually doing them is quite difficult."
+        },
+        {
+          "content": "音楽は趣味でやる分にはいいけど、仕事にすると大変だ。",
+          "transcription": "おんがくはしゅみでやるぶんにはいいけど、しごとにするとたいへんだ。",
+          "mean": "Music is great if you do it as a hobby, but it's difficult if you make it your job."
+        }
+      ],
+      "mean": "<br/>",
+      "synopsis": "<div>✦Vる ＋ 分には<br/></div>"
+    }
+  ],
+  "title": "～ぶんには（～分には） => as long as ～",
+  "_id": "93020c54469e582d6fdb16f7baa2a1e1"
+}

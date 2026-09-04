@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1963,
+  "usages": [
+    {
+      "explain": "Expresses surprise upon discovering something unexpected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やあ、小林君じゃないか。",
+          "transcription": "やあ、こばやしくんじゃないか。",
+          "mean": "Hey, aren't you Kobayashi-kun?"
+        },
+        {
+          "content": "これはすごい、ダイヤモンドじゃないか。",
+          "transcription": "これはすごい、だいやもんどじゃないか。",
+          "mean": "This is amazing, isn't it a diamond?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + じゃないか/ではないか"
+    }
+  ],
+  "title": "じゃないか / ではないか => right? isn't it? let's~; confirmation",
+  "_id": "f7ff14dae05876cac58b413693bf384c"
+}

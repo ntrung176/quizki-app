@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1318,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"has many characteristics, but first and foremost is ...\". Typically followed by emphatic expressions, showing a degree beyond normal. This is a word used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はとにかく珍しい人材です。",
+          "transcription": "かれはとにかくめずらしいじんざいです。",
+          "mean": "He is a rare person anyway."
+        },
+        {
+          "content": "小林さんの新しいアパート、とにかくおんぼろのアパートなんですよ。",
+          "transcription": "こばやしさんのあたらしいあぱーと、とにかくおんぼろのあぱーとなんですよ。",
+          "mean": "Mr. Kobayashi's new apartment is a run-down apartment."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とにかく～"
+    }
+  ],
+  "title": "とにかく => anyhow; at any rate; anyway; somehow or other; generally speaking; in any case; at least",
+  "_id": "f7ff14dae05876cac58b413693659a46"
+}

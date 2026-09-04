@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1099,
+  "usages": [
+    {
+      "explain": "「に違いない（にちがいない）」expresses the speaker's certainty about something. Compared to 「だろう」, the speaker's certainty here is higher. Typically used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これが合言葉だったに違いない。",
+          "transcription": "これがあいことばだったにちがいない。",
+          "mean": "This must have been the password."
+        },
+        {
+          "content": "教室にかばんがないから、田中さんはもう帰ったに違いない。",
+          "transcription": "きょうしつにかばんがないから、たなかさんはもうかえったにちがいない。",
+          "mean": "There is no bag in the classroom, so Mr. Tanaka must have gone home already."
+        },
+        {
+          "content": "医者の話し方からすると、私は、癌に違いありません。",
+          "transcription": "いしゃのはなしかたからすると、わたくしは、がんにちがいありません。",
+          "mean": "Judging from the way the doctor talks, I must have cancer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + に違いない"
+    }
+  ],
+  "title": "にちがいない => I'm sure/ certain; no doubt that ~",
+  "_id": "f7ff14dae05876cac58b41369347ce36"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 825,
+  "usages": [
+    {
+      "explain": "✦ Meaning \"only by that reason\", used when wanting to convey that a similar conclusion cannot be drawn as presented in the subsequent clause. This is a written form of 「からといって」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "病気だからとて、無断で休むのはけしからん。",
+          "transcription": "びょうきだからとて、むだんでやすむのはけしからん。",
+          "mean": "It's inexcusable to take time off without permission just because you're sick."
+        },
+        {
+          "content": "仕事に情熱がもてないからとて、家族を養う身としては、簡単に辞めるわけにはいかないのである。",
+          "transcription": "しごとにじょうねつがもてないからとて、かぞくをやしなうみとしては、かんたんにやめるわけにはいかないのである。",
+          "mean": "Even if you don't feel passionate about your job, you can't just quit because you have to support your family."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N／Na + だからとて<br/>✦A／V + からとて"
+    }
+  ],
+  "title": "… からとて =>  just because; even if; even though ~",
+  "_id": "f7ff14dae05876cac58b41369322d96e"
+}

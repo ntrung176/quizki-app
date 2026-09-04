@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5255,
+  "usages": [
+    {
+      "explain": "「そうにない」/「そうもない」are used to express a subjective prediction that something is unlikely to happen, with a very low chance of success. Compared to「そうにない」,「そうもない」emphasizes even more strongly the low possibility of it happening.",
+      "note": null,
+      "examples": [
+        {
+          "content": "最近仕事が忙しくて、同窓会に行けそうにないよ。",
+          "transcription": "さいきんしごとがいそがしくて、どうそうかいにいけそうにないよ。",
+          "mean": "I've been busy with work lately, so I don't think I'll be able to go to the class reunion."
+        },
+        {
+          "content": "できそうもないことを、できると言ってしまって後悔している。",
+          "transcription": "できそうもないことを、できるといってしまってこうかいしている。",
+          "mean": "I regret saying that I can do something that seems impossible."
+        },
+        {
+          "content": "この分は締め切りの期限に間に合いそうもない。",
+          "transcription": "このぶんはしめきりのきげんにまにあいそうもない。",
+          "mean": "I don't think I'll be able to meet the deadline for this part."
+        },
+        {
+          "content": "この雨はしばらく止みそうもないね。",
+          "transcription": "このあめはしばらくやみそうもないね。",
+          "mean": "This rain doesn't seem to stop for a while."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s> / V (potential form)<s>る</s>+そうにない<br/> V<s>ます</s> / V (potential form)<s>る</s>+そうもない"
+    }
+  ],
+  "title": "そうにない/そうもない => very unlikely to; showing no signs of ~",
+  "_id": "18ed7f0cc1f44ff89df5721f272d379b"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1549,
+  "usages": [
+    {
+      "explain": "Used to indicate a particular case. Often followed by expressions like 「...ないでください」(please don't), 「...しない」(not do).",
+      "note": null,
+      "examples": [
+        {
+          "content": "非常の場合を除いて、非常口を使わないで下さい。",
+          "transcription": "ひじょうのばあいをのぞいて、ひじょうぐちをつかわないでください。",
+          "mean": "Please do not use the emergency exits except in emergencies."
+        },
+        {
+          "content": "悪いことが起こった場合を除いて、このボタンを押してはいけない。",
+          "transcription": "わるいことがおこったばあいをのぞいて、このぼたんをおしてはいけない。",
+          "mean": "Don't press this button unless something bad happens."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + ばあいをのぞいて\nNa + な + ばあいをのぞいて\nA + ばあいをのぞいて\nV + ばあいをのぞいて"
+    }
+  ],
+  "title": "…ばあいをのぞいて => Except for",
+  "_id": "f7ff14dae05876cac58b41369386a89b"
+}

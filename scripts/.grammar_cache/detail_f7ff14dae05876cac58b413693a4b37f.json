@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1773,
+  "usages": [
+    {
+      "explain": "Used to evoke an event that the listener probably knows about, or to make the listener aware of things that can be heard or seen at the scene.",
+      "note": null,
+      "examples": [
+        {
+          "content": "同僚に山田さんという人がいたじゃないか。",
+          "transcription": "どうりょうにやまださんというひとがいたじゃないか。",
+          "mean": "You had a colleague named Mr. Yamada, right?"
+        },
+        {
+          "content": "あそこに桜の木が見えるじゃないか。",
+          "transcription": "あそこにさくらのきがみえるじゃないか。",
+          "mean": "You can see the cherry blossom tree over there."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + じゃないか/ではないか"
+    }
+  ],
+  "title": "じゃないか / ではないか => right? isn't it?",
+  "_id": "f7ff14dae05876cac58b413693a4b37f"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2428,
+  "usages": [
+    {
+      "explain": "Used to provide a reason or justification for an action, even if the reality may not match the words spoken.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お金が足りないといって、彼女は旅行に行かなかった。",
+          "transcription": "おかねがたりないといって、かのじょはりょこうにいかなかった。",
+          "mean": "She didn't go on the trip because she didn't have enough money."
+        },
+        {
+          "content": "家族の用事だといって、彼は会社を辞めることにした。",
+          "transcription": "かぞくのようじだといって、かれはかいしゃをやめることにした。",
+          "mean": "He decided to quit his job, saying it was a family matter."
+        }
+      ],
+      "mean": null,
+      "synopsis": "といって"
+    }
+  ],
+  "title": "といって => Citing the reason that ...",
+  "_id": "f7ff14dae05876cac58b413693ffa528"
+}

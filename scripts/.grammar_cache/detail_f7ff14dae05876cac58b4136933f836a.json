@@ -1,0 +1,43 @@
+{
+  "level": "N2",
+  "mobileId": 1036,
+  "usages": [
+    {
+      "explain": "It emphasizes the absence of something  [ない] .",
+      "note": null,
+      "examples": [
+        {
+          "content": "しわひとつない滑らかな肌。",
+          "transcription": "しわひとつないなめらかなはだ。",
+          "mean": "Smooth skin with no wrinkles."
+        },
+        {
+          "content": "夜の通りには、人一人いなかった。",
+          "transcription": "よるのとおりには、ひといちにんいなかった。",
+          "mean": "There was not a single person on the street at night."
+        },
+        {
+          "content": "彼女の意見に誰一人賛成しなかった。",
+          "transcription": "かのじょのいけんにだれいちにんさんせいしなかった。",
+          "mean": "No one agreed with her opinion."
+        },
+        {
+          "content": "今朝からなにひとつ食べていない。",
+          "transcription": "けさからなにひとつたべていない。",
+          "mean": "I haven't eaten anything since this morning."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ひとつない\nN + ひとつ + V－ない"
+    },
+    {
+      "explain": "Note: In addition to \"ひとつ\" (one), counting unit forms like \"一匹, 一人, 一枚...\" (one [animal], one person, one sheet...) are also commonly used.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "... ひとつ…ない => nothing/not at all…",
+  "_id": "f7ff14dae05876cac58b4136933f836a"
+}

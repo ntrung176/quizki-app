@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2772,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's opinion that doing one thing is still better than doing another. Often used with 「まだいい」(\"it's still better\") or 「まだました」(\"it's still good\").",
+      "note": null,
+      "examples": [
+        {
+          "content": "皿洗いをさせられるよりは、掃除の方がまだいい。",
+          "transcription": "さらあらいをさせられるよりは、そうじのほうがまだいい。",
+          "mean": "Cleaning is still better than having to do the dishes."
+        },
+        {
+          "content": "科目は全て嫌いだが、文学よりも数学の方がまだましだ。",
+          "transcription": "かもくはすべてきらいだが、ぶんがくよりもすうがくのほうがまだましだ。",
+          "mean": "I hate all subjects, but I still prefer math to literature."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まだ..."
+    }
+  ],
+  "title": "まだ... => Still (comparison)",
+  "_id": "f2d618ceb0702f781ec83b7d4f2cbf4c"
+}

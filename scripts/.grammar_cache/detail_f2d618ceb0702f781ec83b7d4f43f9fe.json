@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 2955,
+  "usages": [
+    {
+      "explain": "Describes the idea \"no matter what the noun describing the object is, in every case the event in the latter clause happens\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "両親は、どんなことでもやさしく聞いてくれる。",
+          "transcription": "りょうしんは、どんなことでもやさしくきいてくれる。",
+          "mean": "My parents kindly listen to me no matter what."
+        },
+        {
+          "content": "どんな事故においても対応できる準備ができている。",
+          "transcription": "どんなじこにおいてもたいおうできるじゅんびができている。",
+          "mean": "We are ready to respond to any accident."
+        },
+        {
+          "content": "どんな人間にも、幸せになる権利がある。",
+          "transcription": "どんなにんげんにも、しあわせになるけんりがある。",
+          "mean": "Every human being has the right to be happy."
+        },
+        {
+          "content": "彼女は、どんな人からも好かれる女の人です。",
+          "transcription": "かのじょは、どんなひとからもすかれるおんなのひとです。",
+          "mean": "She is a woman who is liked by everyone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どんな N＋助詞＋も"
+    }
+  ],
+  "title": "どんな => Whatever, anything (also)",
+  "_id": "f2d618ceb0702f781ec83b7d4f43f9fe"
+}

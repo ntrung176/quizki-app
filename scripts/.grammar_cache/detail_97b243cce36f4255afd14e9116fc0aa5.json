@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5426,
+  "usages": [
+    {
+      "explain": "「たとえ～ても」is used to emphasize that even if a strong condition in the first clause occurs, the event or action in the second clause will still happen or not be affected.<br/>\nFollowing たとえ, besides 「ても」, there are other expressions of concession such as 「ようと」, 「としても」...",
+      "note": null,
+      "examples": [
+        {
+          "content": "たとえ反対されても、留学します。",
+          "transcription": "たとえはんたいされても、りゅうがくします。",
+          "mean": "I will study abroad even if I am against it."
+        },
+        {
+          "content": "たとえ元気じゃなくても、家族への手紙には元気だと書きます。",
+          "transcription": "たとえげんきじゃなくても、かぞくへのてがみにはげんきだとかきます。",
+          "mean": "Even if I'm not feeling well, I write to my family that I'm fine."
+        },
+        {
+          "content": "たとえ両親に反対されても、彼女と結婚します。",
+          "transcription": "たとえりょうしんにはんたいされても、かのじょとけっこんします。",
+          "mean": "I will marry her even if my parents are against it."
+        },
+        {
+          "content": "たとえ先生でも、生徒に聞いてはいけないことがある。",
+          "transcription": "たとえせんせいでも、せいとにきいてはいけないことがある。",
+          "mean": "Even if you are a teacher, there are some things you should not ask your students."
+        },
+        {
+          "content": "たとえ好きでも、そんなことをされたら、嫌いになる。",
+          "transcription": "たとえすきでも、そんなことをされたら、きらいになる。",
+          "mean": "Even if you like someone, if someone does something like that to you, you'll hate it."
+        },
+        {
+          "content": "たとえ彼女が何を言おうと、私は彼女を信じない。",
+          "transcription": "たとえかのじょがなにをいおうと、わたしはかのじょをしんじない。",
+          "mean": "Whatever she says, I don't believe her."
+        },
+        {
+          "content": "たとえ給料が高いとしても、そんな仕事はやりたくない。",
+          "transcription": "たとえきゅうりょうがたかいとしても、そんなしごとはやりたくない。",
+          "mean": "Even if the pay is high, I don't want to do that kind of work."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たとえ+Vても<br/>たとえ+A<s>い</s>くても<br/>たとえ+A<s>な</s>でも<br/> たとえ+Nでも"
+    }
+  ],
+  "title": "たとえ～ても => even if… is the case",
+  "_id": "97b243cce36f4255afd14e9116fc0aa5"
+}

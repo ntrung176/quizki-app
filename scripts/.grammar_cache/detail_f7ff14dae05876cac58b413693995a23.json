@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1695,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"in the case of encountering a situation..., then...\".<br/><br/>In this structure, there are cases where real situations are mentioned, as well as cases of hypothetical situations.<br/><br/>In cases involving hypothetical situations, 「もし/かりに」is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "東京にある大学に通うとなると、ぜひお金がたくさんかかるね。",
+          "transcription": "とうきょうにあるだいがくにかようとなると、ぜひおかねがたくさんかかるね。",
+          "mean": "Going to a university in Tokyo definitely costs a lot of money."
+        },
+        {
+          "content": "からい食べ物を食べるとなると、ぜひ水をたくさん飲む。",
+          "transcription": "からいたべものをたべるとなると、ぜひみずをたくさんのむ。",
+          "mean": "When you eat healthy food, be sure to drink lots of water."
+        },
+        {
+          "content": "首相がそう言っているとなると、変更はほとんど不可能でしょう。",
+          "transcription": "しゅしょうがそういっているとなると、へんこうはほとんどふかのうでしょう。",
+          "mean": "If the Prime Minister says so, it will be almost impossible to change it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (だ) + となると<br/>Na (だ) + となると<br/>V + となると<br/>A-い + となると"
+    }
+  ],
+  "title": "となると => when it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b413693995a23"
+}

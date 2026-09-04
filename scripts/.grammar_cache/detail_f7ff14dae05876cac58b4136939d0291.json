@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 1718,
+  "usages": [
+    {
+      "explain": "Expresses prohibition. Often used by supervisors, such as managers, teachers, parents, towards those under their supervision.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "ここで遊んではだめだ。危ないよ。",
+          "transcription": "ここであそんではだめだ。あぶないよ。",
+          "mean": "Don't play around here. It is dangerous."
+        },
+        {
+          "content": "止めてはだめだ。走り続けて。",
+          "transcription": "とめてはだめだ。はしりつづけて。",
+          "mean": "Don't stop. Keep running."
+        },
+        {
+          "content": "それは汚いから、触ってはだめだ。",
+          "transcription": "それはきたないから、さわってはだめだ。",
+          "mean": "It's dirty, so don't touch it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V -て + はだめだ"
+    }
+  ],
+  "title": "てはだめだ => must not; may not; cannot",
+  "_id": "f7ff14dae05876cac58b4136939d0291"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5361,
+  "usages": [
+    {
+      "explain": "「ことはない」is used to convey to the listener that it is not necessary to do a certain action, and it's acceptable not to do it. It implies that there is no need or obligation to perform the action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君が謝ることはないよ。",
+          "transcription": "きみがあやまることはないよ。",
+          "mean": "You won't apologize."
+        },
+        {
+          "content": "来ることはありません。郵送でいいですよ。",
+          "transcription": "くることはありません。ゆうそうでいいですよ。",
+          "mean": "It won't come. You can send it by mail."
+        },
+        {
+          "content": "急ぐことはない。ゆっくりでいい。",
+          "transcription": "いそぐことはない。ゆっくりでいい。",
+          "mean": "There's no rush. It's okay to take it slow."
+        },
+        {
+          "content": "買うことはないよ。貸してあげるから。",
+          "transcription": "かうことはないよ。かしてあげるから。",
+          "mean": "I won't buy it. I'll lend it to you."
+        },
+        {
+          "content": "自分を責めることはないよ。",
+          "transcription": "じぶんをせめることはないよ。",
+          "mean": "I don't blame myself."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ことはない"
+    }
+  ],
+  "title": "ことはない => there is no need to; (something) never happens; there is no possibility that ~",
+  "_id": "397a998ec5ff428b857f03cdd729ad0f"
+}

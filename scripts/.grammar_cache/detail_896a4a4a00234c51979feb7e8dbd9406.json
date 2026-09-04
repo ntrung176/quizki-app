@@ -1,0 +1,86 @@
+{
+  "level": "N3",
+  "mobileId": 5430,
+  "usages": [
+    {
+      "explain": "「ても」is a conditional sentence expressing a contrary-to-expectation situation. In this structure, the first clause presents a fact or a hypothetical condition, and the second clause presents a result that goes against what is expected from that fact or condition.<br/>\n\nNotes:<br/>\n- This structure can be used in the form of 「ても～ても」. Example:<br/>\n　+ 雨が降っても、風が吹いても、試合は行われます。(Even if it rains or the wind blows, the match will still take place.)<br/>\n　+ 待っても待っても、帰ってこない。(No matter how much I wait, they still won't come back.)<br/>\n- This structure can also be used with words like いくら (no matter how much), どんなに (no matter how), etc. Example:<br/>\n　+ 何が起こっても、試合は行われます。(No matter what happens, the match will still take place.)<br/>\n　+ いくら待っても、帰ってこない。(No matter how much I wait, they still won't come back.)<br/>\n- Differentiate from「のに」:<br/>\n　+ The first clause of「ても」can be a fact or a hypothetical condition, while the first clause of「のに」can only be a fact.<br/>\n　+ When the first clause is a fact, but there is a sense of surprise, dissatisfaction, criticism, etc., then only「のに」can be used.<br/>\nExample: 時間があるのに、行きません。(Even though there is time, I won't go.)",
+      "note": null,
+      "examples": [
+        {
+          "content": "調べても分からなかったので、先生に聞いた。",
+          "transcription": "しらべてもわからなかったので、せんせいにきいた。",
+          "mean": "I couldn't figure it out even after researching, so I asked my teacher."
+        },
+        {
+          "content": "多いですよ。頑張っても食べ切れないもん。",
+          "transcription": "おおいですよ。がんばってもたべきれないもん。",
+          "mean": "There are many. No matter how hard I try, I can't eat it all."
+        },
+        {
+          "content": "『すみません、黒は売り切れました。』『黒じゃなくても構いませんよ。』",
+          "transcription": "『すみません、くろはうりきれました。』『くろじゃなくてもかまいませんよ。』",
+          "mean": "``Sorry, black is sold out. ” “It doesn’t have to be black. ”"
+        },
+        {
+          "content": "必要なので、高くても買います。",
+          "transcription": "ひつようなので、たかくてもかいます。",
+          "mean": "I need it, so I'll buy it even if it's expensive."
+        },
+        {
+          "content": "もうすぐテストですから、眠くても勉強しなければなりません。",
+          "transcription": "もうすぐテストですから、ねむくてもべんきょうしなければなりません。",
+          "mean": "I have a test coming up soon, so I have to study even if I'm sleepy."
+        },
+        {
+          "content": "外の音がうるさくても、私は簡単に寝ることができます。",
+          "transcription": "そとのおとがうるさくても、わたしはかんたんにねることができます。",
+          "mean": "I can sleep easily even if the noise outside is loud."
+        },
+        {
+          "content": "便利でも携帯電話は使いません。",
+          "transcription": "べんりでもけいたいでんわはつかいません。",
+          "mean": "Even though it's convenient, I don't use my cell phone."
+        },
+        {
+          "content": "大変でも、やるしかありません。",
+          "transcription": "たいへんでも、やるしかありません。",
+          "mean": "Even though it's difficult, we have no choice but to do it."
+        },
+        {
+          "content": "嫌いでも、野菜はちゃんと食べなさい。",
+          "transcription": "きらいでも、やさいはちゃんとたべなさい。",
+          "mean": "Eat your vegetables even if you don't like them."
+        },
+        {
+          "content": "雪でも旅行に行きます。",
+          "transcription": "ゆきでもりょこうにいきます。",
+          "mean": "I will go on a trip even if it snows."
+        },
+        {
+          "content": "お金がないので、日曜日でも働きます。",
+          "transcription": "おかねがないので、にちようびでもはたらきます。",
+          "mean": "I don't have any money, so I work even on Sundays."
+        },
+        {
+          "content": "私は土曜日でも、7時に起きます。",
+          "transcription": "わたしはどようびでも、しちじにおきます、",
+          "mean": "I wake up at 7 o'clock even on Saturdays."
+        },
+        {
+          "content": "彼がどんなに優秀でも、この問題は解けないと思うよ。",
+          "transcription": "かれがどんなにゆうしゅうでも、このもんだいはとけないと思おもうよ。",
+          "mean": "No matter how good he is, I don't think he can solve this problem."
+        },
+        {
+          "content": "どれだけ勉強しても、あの大学には受からないだろう。",
+          "transcription": "どれだけべんきょうしても、あのだいがくにはうからないだろう。",
+          "mean": "No matter how much I study, I won't get into that university."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+も<br/> A<s>い</s>くて+も<br/> A<s>な</s>で+も<br/> Nで+も"
+    }
+  ],
+  "title": "ても => even; even if; even though ~",
+  "_id": "896a4a4a00234c51979feb7e8dbd9406"
+}

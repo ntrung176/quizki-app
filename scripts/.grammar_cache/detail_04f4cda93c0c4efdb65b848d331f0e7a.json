@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5461,
+  "usages": [
+    {
+      "explain": "「わざわざ」 expresses a special action that requires time or effort to accomplish, done intentionally rather than by chance or convenience. This adverb is often added to convey the kindness or goodwill of the person performing the action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私が困っているとき、彼女はわざわざ助けてくれた。",
+          "transcription": "わたしがこまっているとき、かのじょはわざわざたすけてくれた。",
+          "mean": "She went out of her way to help me when I was in trouble."
+        },
+        {
+          "content": "あなたはわざわざ私のためにそれを買ってくれたのですか。",
+          "transcription": "あなたはわざわざわたしのためにそれをかってくれたのですか。",
+          "mean": "Did you go out of your way to buy it for me?"
+        },
+        {
+          "content": "わざわざ遠い所から会いにきてくれてありがとう。",
+          "transcription": "わざわざとおいところからあいにきてくれてありがとう。",
+          "mean": "Thank you for coming all the way from far away to see me."
+        },
+        {
+          "content": "わざわざ駅まで送ってくれなくてもいいよ。",
+          "transcription": "わざわざえきまでおくってくれなくてもいいよ。",
+          "mean": "You don't have to take the trouble to take me to the station."
+        },
+        {
+          "content": "彼は忙しいだが、わざわざ市内の観光を案内してくれた。",
+          "transcription": "かれはいそがしいだが、わざわざしないのかんこうをあんないしてくれた。",
+          "mean": "Although he is busy, he took the trouble to show me around the city."
+        },
+        {
+          "content": "友達は恋人に会いたいから、わざわざニューヨークへ行った。",
+          "transcription": "ともだちはこいびとにあいたいから、わざわざニューヨークへいった。",
+          "mean": "My friend went all the way to New York because he wanted to meet his girlfriend."
+        },
+        {
+          "content": "彼があんな遠くからわざわざ訪ねてきてくれて本当に嬉しかった。",
+          "transcription": "かれがあんなとおくからわざわざたずねてきてくれてほんとうにうれしかった。",
+          "mean": "I was really happy that he came all the way from such a distance to visit me."
+        },
+        {
+          "content": "予約だったら、わざわざ店に行かなくても、電話1本で済むよ。",
+          "transcription": "よやくだったら、わざわざみせにいかなくても、でんわいっぽんですむよ。",
+          "mean": "If you make a reservation, you don't have to go to the store, just make a phone call."
+        }
+      ],
+      "mean": null,
+      "synopsis": "わざわざ+V"
+    }
+  ],
+  "title": "わざわざ => to go to the trouble of; to go out of one's way to ~",
+  "_id": "04f4cda93c0c4efdb65b848d331f0e7a"
+}

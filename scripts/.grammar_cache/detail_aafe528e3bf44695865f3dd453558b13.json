@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5628,
+  "usages": [
+    {
+      "explain": "「のが上手」indicates that someone is good at doing something. This is expressed by placing a verb before 「のが上手」. The particle 'の' functions to turn the verb into a noun.<br/>\n\nNote: Because「のが上手」is an evaluation of someone's skill based on the result of their actions, and this evaluation comes from others, it is objective. Therefore, if one were to self-assert that they are '上手' at something, it might come across as arrogant. In such cases,「のが<ruby><rb>得意</rb><rp>(</rp><rt>とくい</rt><rp>)</rp></ruby>」can be used instead. On the other hand, if one feels they are not good at something, they can still use「上手じゃない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は歌うのが上手だ。",
+          "transcription": "かれはうたうのがじょうずだ。",
+          "mean": "He is good at singing."
+        },
+        {
+          "content": "あなたは教えるのが上手ですね。",
+          "transcription": "あなたはおしえるのがじょうずですね。",
+          "mean": "You are good at teaching."
+        },
+        {
+          "content": "あなたはお箸を使うのが上手ですね。",
+          "transcription": "あなたはおはしをつかうのがじょうずですね。",
+          "mean": "You are good at using chopsticks."
+        },
+        {
+          "content": "時間を管理するのが上手ではない。",
+          "transcription": "じかんをかんりするのがじょうずではない。",
+          "mean": "I'm not good at managing time."
+        },
+        {
+          "content": "彼は高校の時、運動をするのが上手だった。",
+          "transcription": "かれはこうこうのとき、うんどうをするのがじょうずだった。",
+          "mean": "He was good at sports when he was in high school."
+        },
+        {
+          "content": "私はそんなに日本語を話すのが上手じゃありません。",
+          "transcription": "わたしはそんなににほんごをはなすのがじょうずじゃありません。",
+          "mean": "I'm not that good at speaking Japanese."
+        },
+        {
+          "content": "田中さんは絵を描くのが上手じゃない。",
+          "transcription": "たなかさんはえをかくのがじょうずじゃない。",
+          "mean": "Mr. Tanaka is not good at drawing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+のが上手"
+    }
+  ],
+  "title": "のが上手 => to be good at doing something",
+  "_id": "aafe528e3bf44695865f3dd453558b13"
+}

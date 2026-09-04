@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2569,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"to make someone do something\" or \"to be the cause of someone doing something\". These are sentences of influence using intransitive verbs indicating actions that one cannot control on their own, such as 「泣き」(cry), 「笑う」(laugh), etc. The subject 「Nが」in the sentence with the form 「NがV (intransitive verb)」will change to 「Nを」in the influential sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中さんは、いつも冗談を言ってみんなを笑わせる。",
+          "transcription": "たなかさんは、いつもじょうだんをいってみんなをわらわせる。",
+          "mean": "Mr. Tanaka always tells jokes and makes everyone laugh."
+        },
+        {
+          "content": "二年も続けて落第して家族をがっかりさせた。",
+          "transcription": "にねんもつづけてらくだいしてかぞくをがっかりさせた。",
+          "mean": "I failed my exam two years in a row and disappointed my family."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + は/が + N + をV-させる"
+    }
+  ],
+  "title": "Nは/がNをV-させる => N makes/lets/allows N do V (N is person)",
+  "_id": "f2d618ceb0702f781ec83b7d4f12fec9"
+}

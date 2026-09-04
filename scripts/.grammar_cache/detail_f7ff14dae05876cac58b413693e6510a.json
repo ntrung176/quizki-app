@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 2243,
+  "usages": [
+    {
+      "explain": "It's used when the speaker wants to assign responsibility or blame to someone for allowing something undesirable to happen.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは事故を悪天のせいにした。",
+          "transcription": "かれらはじこをあくてんのせいにした。",
+          "mean": "They blamed the accident on bad weather."
+        },
+        {
+          "content": "株主は会社の倒産を社長のせいにした。",
+          "transcription": "かぶぬしはかいしゃのとうさんをしゃちょうのせいにした。",
+          "mean": "Shareholders blamed the president for the company's bankruptcy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな・Nの + せいにする"
+    }
+  ],
+  "title": "せいにする => Blame...",
+  "_id": "f7ff14dae05876cac58b413693e6510a"
+}

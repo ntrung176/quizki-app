@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1141,
+  "usages": [
+    {
+      "explain": "Describing the situation, condition of an action, or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "最近の社長の活躍ぶりは、全社が知っている。",
+          "transcription": "さいきんのしゃちょうのかつやくぶりは、ぜんしゃがしっている。",
+          "mean": "The entire company is aware of the president's recent activities."
+        },
+        {
+          "content": "ロンドンのバスの混雑ぶりは異常だ。",
+          "transcription": "ろんどんのばすのこんざつぶりはいじょうだ。",
+          "mean": "London buses are unusually crowded."
+        },
+        {
+          "content": "山田さんの話しぶりからすると、プロジェクトはうまくいっていないようだ。",
+          "transcription": "やまださんのはなしぶりからすると、ぷろじぇくとはうまくいっていないようだ。",
+          "mean": "Judging from the way Mr. Yamada talks, it seems like the project is not going well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ぶり\nVます + ぶり"
+    }
+  ],
+  "title": "…振り => Way, condition, situation, appearance",
+  "_id": "f7ff14dae05876cac58b4136934d6a90"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1528,
+  "usages": [
+    {
+      "explain": "In this structure, the verb is repeated twice to express the meaning of \"even though intended to do so, it's impossible to do\", \"no matter how hard one tries, it's impossible to...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の入院中に家族は言うに言えない苦労をしてきた。",
+          "transcription": "わたしのにゅういんちゅうにかぞくはいうにいえないくろうをしてきた。",
+          "mean": "My family went through indescribable hardships while I was in the hospital."
+        },
+        {
+          "content": "試験に不合格するし、彼女に振られるし、泣くに泣けない。",
+          "transcription": "しけんにふごうかくするし、かのじょにふられるし、なくになけない。",
+          "mean": "I fail the exam, my girlfriend dumps me, and I can't cry even though I cry."
+        },
+        {
+          "content": "ここまで頑張っては、いまさら諦めるに諦められない。",
+          "transcription": "ここまでがんばっては、いまさらあきらめるにあきらめられない。",
+          "mean": "After all the effort I've put into it, I can't give up now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-るに + V-れない"
+    }
+  ],
+  "title": "に～れない => I want...but I can't...can't, there's no way...to be able to",
+  "_id": "f7ff14dae05876cac58b413693842104"
+}

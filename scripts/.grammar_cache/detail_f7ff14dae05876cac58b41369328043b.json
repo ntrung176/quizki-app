@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 864,
+  "usages": [
+    {
+      "explain": "● Used in conjunction with speculative expressions, expressing strong negative emotions, believing that such a thing cannot possibly happen.",
+      "note": null,
+      "examples": [
+        {
+          "content": "よもやそんなことは有り得ない。",
+          "transcription": "よもやそんなことはありえない。",
+          "mean": "There's no way that can happen."
+        },
+        {
+          "content": "よもやお前がこんな恥知らずな事をやらないでしょう。",
+          "transcription": "よもやおまえがこんなはじしらずなことをやらないでしょう。",
+          "mean": "You would never do such a shameless thing."
+        },
+        {
+          "content": "あんな雪山の遭難ではよもや助かるまいと思っていたが、彼は奇跡的に助かった。",
+          "transcription": "あんなゆきやまのそうなんではよもやたすかるまいとおもっていたが、かれはきせきてきにたすかった。",
+          "mean": "I thought he wouldn't survive such a snowy mountain accident, but miraculously he did."
+        },
+        {
+          "content": "よもやばれることはないだろうと思っていたのに、先生は私の嘘を見抜いていた。",
+          "transcription": "よもやばれることはないだろうとおもっていたのに、せんせいはわたしのうそをみぬいていた。",
+          "mean": "I thought I wouldn't get caught, but my teacher saw through my lie."
+        }
+      ],
+      "mean": null,
+      "synopsis": "よもや…ないだろう／…まい"
+    }
+  ],
+  "title": "よもや => surely (not); certainly (not)",
+  "_id": "f7ff14dae05876cac58b41369328043b"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5174,
+  "usages": [
+    {
+      "explain": "「ものだから」 is used to provide a reason or explanation, often for something that is considered objective or unavoidable. The clause that follows 「ものだから」 does not express the speaker's intentions, requests, or commands. It is often used in writing or casual speech. To make it more polite, you can use 「ものだから」<br/>\nIn addition to 「ものだから」there are other forms with similar meanings such as 「もんだから」「もので」「もんで」「もの」...",
+      "note": null,
+      "examples": [
+        {
+          "content": "上着を脱いでもいいですか。暑いものですから。",
+          "transcription": "うわぎをぬいでもいいですか。あついものですから。",
+          "mean": "May I take off my jacket? Because it's hot."
+        },
+        {
+          "content": "遅くなってごめん。道路が混んでいたもんだから。",
+          "transcription": "おそくなってごめん。どうろがこんでいたもんだから。",
+          "mean": "I'm sorry to be late. Because the roads were crowded."
+        },
+        {
+          "content": "今日は早く帰ってきたんです。体調が良くないものですから。",
+          "transcription": "きょうははやくかえってきたんです。たいちょうがよくないものですから。",
+          "mean": "I came back early today. Because I'm not feeling well."
+        },
+        {
+          "content": "家が狭いものだから、大きいものが置けない。",
+          "transcription": "いえがせまいものだから、おおきいものがおけない。",
+          "mean": "My house is small, so I can't store large items."
+        },
+        {
+          "content": "あなたがあまりに落ち込んでいるもんだから、ちょっと心配になって電話しました。",
+          "transcription": "あなたがあまりにおちこんでいるもんだから、ちょっとしんぱいになってでんわしました。",
+          "mean": "I called you because I was a little worried because you were so depressed."
+        },
+        {
+          "content": "昔のことなもんだから、よく覚えていないの。",
+          "transcription": "むかしのことなもんだから、よくおぼえていないの。",
+          "mean": "It was a long time ago, so I don't remember it very well."
+        },
+        {
+          "content": "すみません。ビールは苦手なものですから。",
+          "transcription": "すみません。ビールはにがてなものですから。",
+          "mean": "sorry. I don't like beer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+ものだから / もんだから<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br/> Nだ ➔ N<s>だ</s>な)"
+    }
+  ],
+  "title": "ものだから => so; therefore; the reason for something",
+  "_id": "d8f7c5a937b4433981622436a6062c42"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5275,
+  "usages": [
+    {
+      "explain": "「というものだ」is used to:<br/>\n1. Strongly assert a fact in a specific situation, suggesting that the assertion is obvious if considered logically and is the essence of the matter.<br/>\n   This structure does not include negation or past tense. The speaker's emotions are not expressed.<br/>\n   \"That's right/Indeed...\"<br/>\n2. Explain or define something.<br/>\n   \"It's called...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日中にこれを全部終わらせるのは無理というものだ。",
+          "transcription": "きょうじゅうにこれをぜんぶおわらせるのはむりというものだ。",
+          "mean": "It's impossible to finish all of this today."
+        },
+        {
+          "content": "夜中に電話をしてくるのは非常識というものだ。",
+          "transcription": "やちゅうにでんわをしてくるのはひじょうしきというものだ。",
+          "mean": "It's insane for someone to call you in the middle of the night."
+        },
+        {
+          "content": "どんなに疲れていても諦めない。それがアスリートというものだ。",
+          "transcription": "どんなにつかれていてもあきらめない。それがアスリートというものだ。",
+          "mean": "No matter how tired I am, I won't give up. That's what an athlete is."
+        },
+        {
+          "content": "何があってもお互い助け合うのが友達というものだ。",
+          "transcription": "なにがあってもおたがいたすけあうのがともだちというものだ。",
+          "mean": "Friends help each other no matter what."
+        },
+        {
+          "content": "あんなに喜んでくれるなんて、プレゼントしたかいがあったというものだ。",
+          "transcription": "あんなによろこんでくれるなんて、プレゼントしたかいがあったというものだ。",
+          "mean": "The fact that he was so happy meant that I had given him the gift."
+        },
+        {
+          "content": "これはエアーバッグというもので、安全のためすべての車についています。",
+          "transcription": "これはエアーバッグというもので、あんぜんのためすべてのくるまについています。",
+          "mean": "This is called an airbag, and it is installed in all cars for safety."
+        },
+        {
+          "content": "巷では三連休というものだそうですが、私にはまったく関係ありませんね。",
+          "transcription": "ちまたではさんれんきゅうというものだそうですが、わたしにはまったくかんけいありませんね。",
+          "mean": "People say it's a three-day holiday, but it has nothing to do with me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. V/Aい/Aな/N (formal form)+というものだ<br/>\n (In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/> Nだ ➔ N<s>だ</s>)\n<br/><br>\n2. Vる/Vない+というものだ<br/>\n N+というものだ</br>"
+    }
+  ],
+  "title": "というものだ => something like; something called ~",
+  "_id": "3f125e57e7b94598890a5527df430550"
+}

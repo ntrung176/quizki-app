@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1076,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"agree that it is so, but ...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "まだチャンスがあるとはいいながら、やはり不合格は失望したものだ。",
+          "transcription": "まだちゃんすがあるとはいいながら、やはりふごうかくはしつぼうしたものだ。",
+          "mean": "Although it was said that there was still a chance, failing the exam was still disappointing."
+        },
+        {
+          "content": "喫煙が体に悪いとはいいながら、なかなか辞められない。",
+          "transcription": "きつえんがからだにわるいとはいいながら、なかなかやめられない。",
+          "mean": "Although it is said that smoking is bad for the body, it is difficult to quit."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～とはいいながら"
+    }
+  ],
+  "title": "… とはいいながら => although, even though...",
+  "_id": "f7ff14dae05876cac58b41369344dc82"
+}

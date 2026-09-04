@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1681,
+  "usages": [
+    {
+      "explain": "Used to indicate the degree of an action or situation, presenting the speaker's inference or assessment. It is often followed by expressions of the speaker's speculation, such as 「のだろう」,「にちがいない」, 「はずだ」...",
+      "note": null,
+      "examples": [
+        {
+          "content": "山下さんはいつも本さえあればほかにはなにもいらないと言っているぐらいだから、きっと家の中は本だらけなんだろう。",
+          "transcription": "やましたさんはいつもほんさえあればほかにはなにもいらないといっているぐらいだから、きっといえのなかはほんだらけなんだろう。",
+          "mean": "Mr. Yamashita always says that he doesn't need anything else as long as he has books, so his house must be full of books."
+        },
+        {
+          "content": "あの温厚な鈴木さんが怒ったくらいだから、よほどのことだったのでしょう。",
+          "transcription": "あのおんこうなすずきさんがおこったくらいだから、よほどのことだったのでしょう。",
+          "mean": "It must have been a big deal since the gentle Suzuki-san was so angry."
+        }
+      ],
+      "mean": null,
+      "synopsis": "くらい/ぐらいだから is a conjunction."
+    }
+  ],
+  "title": "…くらいだから => Because (to the extent of) ...",
+  "_id": "f7ff14dae05876cac58b413693977fb1"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2261,
+  "usages": [
+    {
+      "explain": "Means \"a bit\", \"slightly\". Also used indirectly to express the meaning of \"quite\", \"very\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はいささか驚いた。",
+          "transcription": "かのじょはいささかおどろいた。",
+          "mean": "She was somewhat surprised."
+        },
+        {
+          "content": "この点について我々はいささか意見を異にする。",
+          "transcription": "このてんについてわれわれはいささかいけんをことにする。",
+          "mean": "We differ somewhat on this point."
+        },
+        {
+          "content": "雰囲気はいささか緊張したものになることがある。",
+          "transcription": "ふんいきはいささかきんちょうしたものになることがある。",
+          "mean": "The atmosphere can become rather strained."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いささか means \"a little\", \"slightly\"."
+    }
+  ],
+  "title": "いささか => a bit",
+  "_id": "f7ff14dae05876cac58b413693e8cab8"
+}

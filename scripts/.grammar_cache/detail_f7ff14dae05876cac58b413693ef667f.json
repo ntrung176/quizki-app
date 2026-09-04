@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 2305,
+  "usages": [
+    {
+      "explain": "Meaning: \"Even if ..., it doesn't matter/it has no effect.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "皆にどんなに反対されようとも決めたことは実行する。",
+          "transcription": "みなにどんなにはんたいされようともきめたことはじっこうする。",
+          "mean": "I will carry out what I have decided to do, no matter how much everyone opposes it."
+        },
+        {
+          "content": "たとえ大地震が起ころうと、このビルは安全なはずだ。",
+          "transcription": "たとえだいじしんがおころうと、このびるはあんぜんなはずだ。",
+          "mean": "Even if a major earthquake were to occur, this building would be safe."
+        },
+        {
+          "content": "この仕事はだれがしようと、大差（たいさ）ない。",
+          "transcription": "このしごとはだれがしようと、たいさ（たいさ）ない。",
+          "mean": "No matter who does this job, it doesn't make much difference."
+        },
+        {
+          "content": "目標までどんなに遠かろうと、諦めないでください。",
+          "transcription": "もくひょうまでどんなにとおかろうと、あきらめないでください。",
+          "mean": "No matter how far you are from your goal, don't give up."
+        }
+      ],
+      "mean": null,
+      "synopsis": "● 動（う・よう形）(volitional form) + と（も）/ が● い形 → いかろう + と（も）/ が● な形/ 名 → だろう/ であろう + と（も）/ が"
+    }
+  ],
+  "title": "～ (よ) うと（も）/ (よ) うが => even if; no matter how/what ~",
+  "_id": "f7ff14dae05876cac58b413693ef667f"
+}

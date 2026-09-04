@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2482,
+  "usages": [
+    {
+      "explain": "It is commonly used with 「一杯」(ippai, full), 「十分」(juubun, enough) to describe reaching a state where one is satisfied.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もうお腹が一杯です。",
+          "transcription": "もうおなかがいちはいです。",
+          "mean": "I'm already full."
+        },
+        {
+          "content": "昨日はもう十分に寝ました。",
+          "transcription": "きのうはもうじゅうぶんにねました。",
+          "mean": "I already slept enough yesterday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もう Na だ"
+    }
+  ],
+  "title": "もう...だ => already",
+  "_id": "f2d618ceb0702f781ec83b7d4f06df2e"
+}

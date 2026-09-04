@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1163,
+  "usages": [
+    {
+      "explain": "Describing the meaning of \"making it difficult for objects to refuse to do something\". This is a slightly old-fashioned expression used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの厳しい教授をして「もう教えることは何もない」と言わせたのだから、あなたは上手だよ。",
+          "transcription": "あのきびしいきょうじゅをして「もうおしえることはなにもない」といわせたのだから、あなたはじょうずだよ。",
+          "mean": "You're good because you took that strict professor and made him say, ``I have nothing more to teach you.''"
+        },
+        {
+          "content": "あの分からず屋の人たちをして賛成させるには、いろいろな努力が必要だ。",
+          "transcription": "あのわからずやのひとたちをしてさんせいさせるには、いろいろなどりょくがひつようだ。",
+          "mean": "It will take a lot of effort to get those ignorant people to agree."
+        },
+        {
+          "content": "あの頑固者をして観点を変えさせたのだから、誠意の大切さを教えられた気がする。",
+          "transcription": "あのがんこしゃをしてかんてんをかえさせたのだから、せいいのたいせつさをおしえられたきがする。",
+          "mean": "By making that stubborn person change his point of view, I feel like I was taught the importance of sincerity."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N をして + V-させる"
+    }
+  ],
+  "title": "をして…させる => to make somebody do something, to let somebody do something",
+  "_id": "f7ff14dae05876cac58b413693503cbb"
+}

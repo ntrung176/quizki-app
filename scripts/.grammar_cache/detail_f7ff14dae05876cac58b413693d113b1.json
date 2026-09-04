@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2095,
+  "usages": [
+    {
+      "explain": "This expression has the same meaning as 「といったら」. Used in casual speech, it conveys the speaker's attitude of familiarity, teasing, criticism, worry, etc., towards a person brought up as the subject. It is mainly used by women and children.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ケントったら、女の子の前で赤くなってるわ。",
+          "transcription": "けんとったら、おんなのこのまえであかくなってるわ。",
+          "mean": "Kent turns red in front of the girl."
+        },
+        {
+          "content": "美智子ったら、どうしたのかしら。いくら呼んでも返事がないけど。",
+          "transcription": "みちこったら、どうしたのかしら。いくらよんでもへんじがないけど。",
+          "mean": "I wonder what Michiko would have done. No matter how many times I call, there is no answer."
+        },
+        {
+          "content": "お兄さんったら。ちゃんと話を聞いてよ。",
+          "transcription": "おにいさんったら。ちゃんとはなしをきいてよ。",
+          "mean": "If you have an older brother. Please listen carefully."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nったら"
+    }
+  ],
+  "title": "ったら => speaking of; I told you already; come on (annoyance / dissatisfaction)",
+  "_id": "f7ff14dae05876cac58b413693d113b1"
+}

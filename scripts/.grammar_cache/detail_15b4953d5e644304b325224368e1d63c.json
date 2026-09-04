@@ -1,0 +1,106 @@
+{
+  "level": "N2",
+  "mobileId": 5145,
+  "usages": [
+    {
+      "explain": "「限り(は)」expresses the idea: as long as something remains in the state as in the preceding clause, the state in the following clause will continue. \"As long as/If...\"<br/><br/>\n\n「限り(では)」indicates a scope. This scope is a limiting condition or basis for the information or judgment stated afterward. The verbs 見る、聞く、調べる、知る... are often used before 「限り(では)」. Besides 「限り」and 「限りでは」, there is also the form 「限りで」. \"Within the scope/As...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本にいる限り、日本語が必要だ。",
+          "transcription": "にほんにいるかぎり、にほんごがひつようだ。",
+          "mean": "As long as you are in Japan, you will need Japanese."
+        },
+        {
+          "content": "悪い生活習慣を改めない限り、健康にはなれない。",
+          "transcription": "わるいせいかつしゅうかんをあらためないかぎり、けんこうにはなれない。",
+          "mean": "You cannot become healthy unless you change your bad lifestyle habits."
+        },
+        {
+          "content": "明日は、雨が降らない限り、10時に学校で会いましょう。",
+          "transcription": "あしたは、あめがふらないかぎり、じゅうじにがっこうであいましょう。",
+          "mean": "Tomorrow, unless it rains, let's meet at school at 10 o'clock."
+        },
+        {
+          "content": "この仕事は、私が生きている限り、ずっと続けていきたい。",
+          "transcription": "このしごとは、わたしがいきているかぎり、ずっとつづけていきたい。",
+          "mean": "I want to continue this work as long as I live."
+        },
+        {
+          "content": "今のやり方を変えない限り、悪い状況は続くでしょう。",
+          "transcription": "いまのやりかたをかえないかぎり、わるいじょうきょうはつづくでしょう。",
+          "mean": "Unless we change our ways, things will continue to get worse."
+        },
+        {
+          "content": "お店の中にお客様がいる限り、お店は閉めません。",
+          "transcription": "おみせのなかにおきゃくさまがいるかぎり、おみせはしめません。",
+          "mean": "As long as there are customers inside the store, the store will not close."
+        },
+        {
+          "content": "自分の歌を聞いてくれる人がいる限り、路上で歌たい続けようと思います。",
+          "transcription": "じぶんのうたをきいてくれるひとがいるかぎり、ろじょうでうたたいつづけようとおもいます。",
+          "mean": "As long as there are people who listen to my songs, I will continue to sing on the streets."
+        },
+        {
+          "content": "出来る限り、頑張ります。",
+          "transcription": "できるかぎり、がんばります。",
+          "mean": "I'll do my best as long as I can."
+        },
+        {
+          "content": "元気な限り、仕事を続けたい。",
+          "transcription": "げんきなかぎり、しごとをつづけたい。",
+          "mean": "I want to continue working as long as I am healthy."
+        },
+        {
+          "content": "自分のことを好きじゃない限り、他人を好きになることは出来ません。",
+          "transcription": "じぶんのことをすきじゃないかぎり、たにんをすきになることはできません。",
+          "mean": "You cannot love others unless you love yourself."
+        },
+        {
+          "content": "会議中でない限り、電話に出られるはずです。",
+          "transcription": "かいぎちゅうでないかぎり、でんわにでられるはずです。",
+          "mean": "Unless you're in a meeting, you should be able to answer the phone."
+        },
+        {
+          "content": "あなたがトム・ホランドじゃない限り、興味ない。",
+          "transcription": "あなたがトム・ホランドじゃないかぎり、きょうみない。",
+          "mean": "Unless you're Tom Holland, I'm not interested."
+        },
+        {
+          "content": "学生である限り、しっかり勉強しなければなりません。",
+          "transcription": "がくせいであるかぎり、しっかりべんきょうしなければなりません。",
+          "mean": "As long as you are a student, you must study hard."
+        },
+        {
+          "content": "私の知っている限り、ここにそんな人はいません。",
+          "transcription": "わたしのしっているかぎり、ここにそんなひとはいません。",
+          "mean": "As far as I know, there are no such people here."
+        },
+        {
+          "content": "私の調べた限りでは、こういう研究は誰もしていない。",
+          "transcription": "わたしのしらべたかぎりでは、こういうけんきゅうはだれもしていない。",
+          "mean": "As far as I can tell, no one has done this type of research."
+        },
+        {
+          "content": "私が聞いた限りで、あの二人は別れたらしい。",
+          "transcription": "わたしがきいたかぎりで、あのふたりはわかれたらしい。",
+          "mean": "From what I've heard, those two have broken up."
+        },
+        {
+          "content": "今回の調査結果の限り、次の選挙で野党が勝つとは思えない。",
+          "transcription": "こんかいのちょうさけっかのかぎり、つぎのせんきょでやとうがかつとはおもえない。",
+          "mean": "Based on the results of this survey, I don't think the opposition party will win the next election."
+        },
+        {
+          "content": "私の記憶の限りでは、同じような事件が5年ほど前にも一度ありました。",
+          "transcription": "わたしのきおくのかぎりでは、おなじようなじけんがごねんほどまえにもいちどありました。",
+          "mean": "As far as I remember, a similar incident happened once about 5 years ago."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)/Vない/Vている+限り(は)<br/>\n Aい/A<s>い</s>くない+限り(は)<br/>\n Aな/A<s>な</s>である/A<s>な</s>じゃない/A<s>な</s>でない+限り(は)<br/>\n Nである/Nじゃない/Nでない+限り(は)<br/><br/>\n V (root form)/Vた/Vている+限り(では)<br/>Nの+限り(では)"
+    }
+  ],
+  "title": "限り(は)/限り(では) => as long as; while… is the case; as far as; while ~",
+  "_id": "15b4953d5e644304b325224368e1d63c"
+}

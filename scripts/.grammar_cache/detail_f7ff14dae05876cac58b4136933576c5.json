@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 967,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"not always, but sometimes such things happen\". This word is used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この地方のような乾燥しているところでも、時として雨がふることもある。",
+          "transcription": "このちほうのようなかんそうしているところでも、ときとしてあめがふることもある。",
+          "mean": "Even in dry areas like this region, it sometimes rains."
+        },
+        {
+          "content": "彼は何でもないことに時として腹を立てる。",
+          "transcription": "かれはなにでもないことにときとしてはらをたてる。",
+          "mean": "He sometimes loses his temper for nothing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ときとして ～"
+    }
+  ],
+  "title": "ときとして => sometimes...",
+  "_id": "f7ff14dae05876cac58b4136933576c5"
+}

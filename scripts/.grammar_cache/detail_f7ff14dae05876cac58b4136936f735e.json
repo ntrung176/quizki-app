@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1391,
+  "usages": [
+    {
+      "explain": "限りがある/ない（かぎりがある/ない）expresses the meaning of limitations or the extent of things like time and space.",
+      "note": null,
+      "examples": [
+        {
+          "content": "提供できる数に限りがある。",
+          "transcription": "ていきょうできるかずにかぎりがある。",
+          "mean": "There is a limited number available."
+        },
+        {
+          "content": "会場の駐車場は駐車台数に限りがあるため、駐車できない可能性がある。",
+          "transcription": "かいじょうのちゅうしゃじょうはちゅうしゃだいすうにかぎりがあるため、ちゅうしゃできないかのうせいがある。",
+          "mean": "There is a limited number of parking spaces in the venue's parking lot, so there is a possibility that you will not be able to park."
+        },
+        {
+          "content": "学問の世界に限りはない。",
+          "transcription": "がくもんのせかいにかぎりはない。",
+          "mean": "There are no limits in the world of academia."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + に限りがある/ない"
+    }
+  ],
+  "title": "限りがある/ない => is limited, has boundary",
+  "_id": "f7ff14dae05876cac58b4136936f735e"
+}

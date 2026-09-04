@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 3223,
+  "usages": [
+    {
+      "explain": "- Describing an action to prepare for the future. <br/>- Describing maintaining or preserving a certain state.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今度の旅行のために、切符を 買っておく。",
+          "transcription": "こんどのりょこうのために、きっぷをかっておく。",
+          "mean": "Buy tickets for your next trip."
+        },
+        {
+          "content": "日本へ留学する前に日本語を習っておくつもりだ。",
+          "transcription": "にっぽんへりゅうがくするまえににほんごをならっておくつもりだ。",
+          "mean": "I'm planning to learn Japanese before I go to Japan to study."
+        },
+        {
+          "content": "はさみを 使ったら、元のところに 戻して おいてください。",
+          "transcription": "はさみをつかったら、もとのところに もどしておいてください。",
+          "mean": "After using the scissors, please put them back where they were."
+        },
+        {
+          "content": "明日は会議があるから、いすは このままに して おいて ください。",
+          "transcription": "あしたはかいぎがありますから、いすはこのままにしておいてください。",
+          "mean": "I have a meeting tomorrow, so please leave your chair where it is."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + おく"
+    }
+  ],
+  "title": "ておく  => to do something in advance",
+  "_id": "93020c54469e582d6fdb16f7ba63ab9b"
+}

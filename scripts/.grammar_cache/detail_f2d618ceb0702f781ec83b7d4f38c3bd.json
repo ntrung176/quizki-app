@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2859,
+  "usages": [
+    {
+      "explain": "The negative form of 「です」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は学生じゃありません。",
+          "transcription": "わたしはがくせいじゃありません。",
+          "mean": "I'm not a student."
+        },
+        {
+          "content": "私は英語が上手じゃありません。",
+          "transcription": "わたしはえいごがじょうずじゃありません。",
+          "mean": "I'm not good at English."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na・N + じゃありません"
+    }
+  ],
+  "title": "じゃありません => not to be",
+  "_id": "f2d618ceb0702f781ec83b7d4f38c3bd"
+}

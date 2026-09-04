@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5541,
+  "usages": [
+    {
+      "explain": "「しか～ない」always accompanies a verb in the negative form, indicating that the thing or situation being talked about is limited to only what comes before しか, with nothing else besides that.<br/>\nWhen the noun in the sentence originally goes with が or を, しか can directly replace が and を.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今５００円しか持ってない。",
+          "transcription": "いまごひゃくえんしかもってない。",
+          "mean": "I only have 500 yen now."
+        },
+        {
+          "content": "彼女は日本語しか話せない。",
+          "transcription": "かのじょはにほんごしかはなせない。",
+          "mean": "She can only speak Japanese."
+        },
+        {
+          "content": "今日はパンしか食べません。",
+          "transcription": "きょうはパンしかたべません。",
+          "mean": "I will only eat bread today."
+        },
+        {
+          "content": "冷蔵庫には卵しか残ってない。",
+          "transcription": "れいぞうこにはたまごしかのこってない。",
+          "mean": "There are only eggs left in the refrigerator."
+        },
+        {
+          "content": "私のクラスは5人しかいません。",
+          "transcription": "わたしのクラスはごにんしかいません。",
+          "mean": "There are only 5 people in my class."
+        },
+        {
+          "content": "今は会議室で山崎さんしかいない。",
+          "transcription": "いまはかいぎしつでやまざきさんしかいない。",
+          "mean": "Right now, Yamazaki-san is the only one in the conference room."
+        },
+        {
+          "content": "私の口座は今１０００円しかありません。",
+          "transcription": "わたしのこうざはいませんえんしかありません。",
+          "mean": "My account currently only has 1000 yen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+しか+Vない"
+    }
+  ],
+  "title": "しか～ない => only; nothing but",
+  "_id": "70ee73ed71af4417a01cf96d30f5beed"
+}

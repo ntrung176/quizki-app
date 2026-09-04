@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3180,
+  "usages": [
+    {
+      "explain": "✦ Very, sincerely, truly thinking/hoping for that. <br/>\n✦ Often used with verbs like 祈る (to pray), 願う (to wish), 信じる (to believe), 期待する (to expect)...",
+      "note": "✦ The verb やまない has its root in the verb やむ. When speaking politely, it is used as やすみません.\n",
+      "examples": [
+        {
+          "content": "卒業生の皆さんの幸せを願ってやみません。",
+          "transcription": "そつぎょうせいのみなさんのしあわせをねがってやみません。",
+          "mean": "I wish all the graduates happiness."
+        },
+        {
+          "content": "親は子供の将来を期待してやまないものだ。",
+          "transcription": "おやはこどものしょうらいをきたいしてやまないものだ。",
+          "mean": "Parents have high hopes for their children's future."
+        },
+        {
+          "content": "地震で全員無事救出されることを祈ってやまない。",
+          "transcription": "じしんでぜんいんぶじきゅうしゅつされることをいのってやまない。",
+          "mean": "I pray that everyone will be safely rescued from the earthquake."
+        }
+      ],
+      "mean": "always; never stop; can't help but ~",
+      "synopsis": "✦V て ＋ やまない"
+    }
+  ],
+  "title": "～やまない      => always; never stop; can't help but ~",
+  "_id": "93020c54469e582d6fdb16f7ba9a65e0"
+}

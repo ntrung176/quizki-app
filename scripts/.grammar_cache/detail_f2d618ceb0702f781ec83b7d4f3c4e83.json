@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2892,
+  "usages": [
+    {
+      "explain": "It expresses a negative meaning when spoken with a rising tone, or an affirmative meaning when spoken with a descending tone.<br/><br/>This is an informal way of saying 「ではない」. Used in spoken language, both males and females use it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田君？いや，山田じゃない。",
+          "transcription": "やまだくん？いや，やまだじゃない。",
+          "mean": "Mr. Yamada? No, not Yamada."
+        },
+        {
+          "content": "山田君じゃない？ええ、山田よ。",
+          "transcription": "やまだくんじゃない？ええ、やまだよ。",
+          "mean": "Isn't it Yamada-kun? Yes, Yamada."
+        },
+        {
+          "content": "あら、雨じゃない。",
+          "transcription": "あら、あめじゃない。",
+          "mean": "Oh, it's not raining."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na・N + じゃない"
+    }
+  ],
+  "title": "じゃない => maybe; most likely; confirmation of information; express surprise towards listener",
+  "_id": "f2d618ceb0702f781ec83b7d4f3c4e83"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2326,
+  "usages": [
+    {
+      "explain": "The structure conveys the meaning \"If standing from someone's perspective, what can be said\". Typically, the clause is followed by a term indicating someone other than the speaker. The clause following expresses inference about the emotions, thoughts of the person in that position.",
+      "note": null,
+      "examples": [
+        {
+          "content": "アルコール依存症者にすれば、アルコールの害についての話題は避けたいだろうと思う。",
+          "transcription": "あるこーるいぞんしょうしゃにすれば、あるこーるのがいについてのわだいはさけたいだろうとおもう。",
+          "mean": "If you are an alcoholic, you probably want to avoid talking about the harms of alcohol."
+        },
+        {
+          "content": "生徒と学生にすれば、宿題は少なければ少ないほどいいだろう。",
+          "transcription": "せいととがくせいにすれば、しゅくだいはすくなければすくないほどいいだろう。",
+          "mean": "For students and students, the less homework the better."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にすれば"
+    }
+  ],
+  "title": "にすれば => from one's perspective; from the point of view of ~",
+  "_id": "f7ff14dae05876cac58b413693f20fa7"
+}

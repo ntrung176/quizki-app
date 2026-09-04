@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5091,
+  "usages": [
+    {
+      "explain": "「を限りに/限りで」indicates the final time (N) when an event/action takes place. N is often a noun indicating time, and the clause after describes the termination of that event/action. These two structures are often used to express determination that \"after this deadline, the action will stop\", or to express regret that \"when this deadline is reached, the event/action will end\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "今回を限りに合格をしないと、日本語能力試験を受けません。",
+          "transcription": "こんかいをかぎりにごうかくをしないと、にほんごのうりょくしけんをうけません。",
+          "mean": "Unless you pass this time, you will not be able to take the Japanese Language Proficiency Test."
+        },
+        {
+          "content": "新築の家を買った。今月を限りにこのマンションともお別れだ。",
+          "transcription": "しんちくのいえをかった。こんげつをかぎりにこのマンションともおわかれだ。",
+          "mean": "I bought a newly built house. I'm saying goodbye to this apartment as of this month."
+        },
+        {
+          "content": "当店は今月31日を限りに閉店致します。",
+          "transcription": "とうてんはこんげつさんじゅういちにちをかぎりにへいてんいたします。",
+          "mean": "Our store will be closed on the 31st of this month."
+        },
+        {
+          "content": "3月限りでこのクラスはなくなります。",
+          "transcription": "3月限りでこのクラスはなくなります。",
+          "mean": "This class will be discontinued in March."
+        },
+        {
+          "content": "もし「もうこの辺でいい」という気持ちが生まれたら、俺はその日限りでサッカーをやめる。",
+          "transcription": "もし「もうこのへんでいい」というきもちがうまれたら、おれはそのひかぎりでサッカーをやめる。",
+          "mean": "If I ever feel like I'm done with this, I'll quit playing soccer that day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+限りに<br/> N+限りで"
+    }
+  ],
+  "title": "を限りに/限りで => starting from; the last time (ending a continued action)",
+  "_id": "ca72e95e82e849fda055014beab9f352"
+}

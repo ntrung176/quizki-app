@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5478,
+  "usages": [
+    {
+      "explain": "「で」is used after a quantifier to indicate the amount of money, time, or quantity needed for a state, action, or event to take place.",
+      "note": null,
+      "examples": [
+        {
+          "content": "駅まで30分で行けますか。",
+          "transcription": "えきまでさんじゅぷんでいけますか。",
+          "mean": "Can I get to the station in 30 minutes?"
+        },
+        {
+          "content": "3万円でビデオデッキを買えますか。",
+          "transcription": "さんまんえんでビデオデッキをかえますか。",
+          "mean": "Can I buy a VCR for 30,000 yen?"
+        },
+        {
+          "content": "生活費は5万円で足りますか。",
+          "transcription": "せいかつひはごまんえんでたりますか。",
+          "mean": "Is 50,000 yen enough for living expenses?"
+        },
+        {
+          "content": "1週間でこのレポートを終われますか。",
+          "transcription": "いっしゅうかんでこのレポートをおわれますか。",
+          "mean": "Can you finish this report in one week?"
+        },
+        {
+          "content": "このぐらいの量なら15分で食べ切れます。",
+          "transcription": "このぐらいのりょうならじゅうごふんでたべきれます。",
+          "mean": "You can eat this amount in 15 minutes."
+        },
+        {
+          "content": "1時間で君の部屋をきれいに掃除できます。",
+          "transcription": "いちじかんできみのへやをきれいにそうじできます。",
+          "mean": "I can clean your room in an hour."
+        },
+        {
+          "content": "彼は20分で全部の焼きそばを食べられますよ。",
+          "transcription": "かれはにじゅっぷんでぜんぶのやきそばをたべられますよ。",
+          "mean": "He can eat all the fried noodles in 20 minutes."
+        },
+        {
+          "content": "10万円で日本の旅行が足りないよ。最低でも20万円が必要です。",
+          "transcription": "じゅうまんえんでにほんのりょこうがたりないよ。さいていでもにじゅうまんえんがひつようです。",
+          "mean": "100,000 yen is not enough for a trip to Japan. A minimum of 200,000 yen is required."
+        },
+        {
+          "content": "この仕事は1人でできますよ。",
+          "transcription": "このしごとはひとりでできますよ。",
+          "mean": "This job can be done by one person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity verb+で"
+    }
+  ],
+  "title": "で => so; because of; by",
+  "_id": "bb1a39020d40400ebe12fb5afe32e3bb"
+}

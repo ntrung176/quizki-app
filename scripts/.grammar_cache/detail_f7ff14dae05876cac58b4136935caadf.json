@@ -1,0 +1,21 @@
+{
+  "level": "N2",
+  "mobileId": 1256,
+  "usages": [
+    {
+      "explain": "Used to highly evaluate a certain subject.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さすが全国チャンピオンだ。他のチームに簡単に勝てた。",
+          "transcription": "さすがぜんこくちゃんぴおんだ。たのちーむにかんたんにかてた。",
+          "mean": "As expected of a national champion. We easily beat the other teams."
+        }
+      ],
+      "mean": null,
+      "synopsis": "さすが～"
+    }
+  ],
+  "title": "さすが => as one would expect",
+  "_id": "f7ff14dae05876cac58b4136935caadf"
+}

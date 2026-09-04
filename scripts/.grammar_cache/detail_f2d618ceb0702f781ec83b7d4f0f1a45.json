@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2545,
+  "usages": [
+    {
+      "explain": "Means \"from now on, from this point forward.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "以後はもっと注意してくさい。",
+          "transcription": "いごはもっとちゅういしてくさい。",
+          "mean": "Please be more careful from now on."
+        },
+        {
+          "content": "以後、悪い記憶を忘れます。",
+          "transcription": "いご、わるいきおくをわすれます。",
+          "mean": "After that, you will forget the bad memories."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いご => after this, from now on, hereafter, thereafter, since.",
+  "_id": "f2d618ceb0702f781ec83b7d4f0f1a45"
+}

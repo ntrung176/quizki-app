@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5154,
+  "usages": [
+    {
+      "explain": "「からこそ/～ばこそ」is used to emphasize and highlight a reason or cause. It means \"precisely because\" or \"for this very reason.\"<br/>\n「こそ」is used to emphasize the very thing (N) it accompanies. It means \"precisely\" or \"exactly.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "子供を可愛がるからこそ叱るんです。",
+          "transcription": "こどもがかわいがるからこそしかるんです。",
+          "mean": "I scold my children because I love them."
+        },
+        {
+          "content": "努力したからこそ成功したんです。",
+          "transcription": "どりょくしたからこそせいこうしたんです。",
+          "mean": "I was successful because I worked hard."
+        },
+        {
+          "content": "厳しく注意したのはあなたのことを思えばこそです。",
+          "transcription": "きびしくちゅういしたのはあなたのことをおもえばこそです。",
+          "mean": "I warned you strictly because I was thinking of you."
+        },
+        {
+          "content": "子供の将来を思えばこそ一流の大学に入れたいのです。",
+          "transcription": "こどものしょうらいをおもえばこそいちりゅうのだいがくにいれたいのです。",
+          "mean": "When I think about my child's future, I want him to attend a top university."
+        },
+        {
+          "content": "先生はすごく優しいからこそクラスみんなは先生のことが大好きだ。",
+          "transcription": "せんせいはすごくやさしいからこそクラスみんなはせんせいのことがだいすきだ。",
+          "mean": "The teacher is very kind, which is why everyone in the class loves him."
+        },
+        {
+          "content": "綺麗だからこそ悩む美人あるある。",
+          "transcription": "きれいだからこそなやむびじんあるある。",
+          "mean": "There are some beautiful women who are worried because they are beautiful."
+        },
+        {
+          "content": "君だからこそ好きなんだ。",
+          "transcription": "きみだからこそすきなんだ。",
+          "mean": "I love you because of you."
+        },
+        {
+          "content": "彼こそが私の尊敬する人です。",
+          "transcription": "かれこそがわたしのそんけいするひとです。",
+          "mean": "He is the person I respect."
+        },
+        {
+          "content": "外国語は話すことこそ、一番の練習だ。",
+          "transcription": "がいこくごははなすことこそ、いちばんのれんしゅうだ。",
+          "mean": "Speaking a foreign language is the best way to practice it."
+        },
+        {
+          "content": "今度こそ、勝ちたいです。",
+          "transcription": "こんどこそ、かちたいです。",
+          "mean": "I want to win this time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+からこそ<br/><br/>Vば+こそ<br> A<s>い</s>ければ+こそ<br/> A<s>な</s>であれば+こそ<br/> Nであれば+こそ <br/><br/>\n N+こそ</br>"
+    }
+  ],
+  "title": "からこそ/～ばこそ/こそ => precisely because ~",
+  "_id": "38aa3fb91fe54ababb8e0a6c5ea7e66d"
+}

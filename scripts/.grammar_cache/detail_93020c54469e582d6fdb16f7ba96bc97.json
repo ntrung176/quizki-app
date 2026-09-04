@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3058,
+  "usages": [
+    {
+      "explain": "✦ The form \"AこととてB\" means that because of A, it's only natural for B to happen, and there's no other way. Additionally, it can also mean that such a thing is true, however...",
+      "note": null,
+      "examples": [
+        {
+          "content": "急なこととて、なにもご用意できなくて…",
+          "transcription": "きゅうなこととて、なにもごよういできなくて…",
+          "mean": "Since it's urgent, I can't prepare anything..."
+        },
+        {
+          "content": "何も知らぬこととて、失礼をいたしました。",
+          "transcription": "なにもしらぬこととて、しつれいをいたしました。",
+          "mean": "I apologize for not knowing anything."
+        },
+        {
+          "content": "まだ検討中のこととて、はっきりとしたお返事はできません。",
+          "transcription": "まだけんとうちゅうのこととて、はっきりとしたおへんじはできません。",
+          "mean": "As this is still under consideration, I cannot give you a clear answer."
+        },
+        {
+          "content": "慣れないこととて、ご迷惑をおかけしました。",
+          "transcription": "なれないこととて、ごめいわくをおかけしました。",
+          "mean": "We apologize for any inconvenience this may cause."
+        }
+      ],
+      "mean": "because; since ~",
+      "synopsis": "<div>✦V(formal form)+ こととて</div><div>✦V-ない (bỏ（－ない）) + ぬこととて</div><div>✦N + のこととて</div><div>✦なA + なこととて</div>"
+    }
+  ],
+  "title": "～こととて      => because; since ~",
+  "_id": "93020c54469e582d6fdb16f7ba96bc97"
+}

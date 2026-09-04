@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1271,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"it seems that way on the surface, but in reality, it’s uncertain if that’s the case.\" This is a formal expression, often used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田君は先生の注意に全く気をつけないかに見える。",
+          "transcription": "やまだくんはせんせいのちゅういにまったくきをつけないかにみえる。",
+          "mean": "Yamada-kun doesn't seem to pay any attention to the teacher's warnings."
+        },
+        {
+          "content": "伝染病は一応抑制されたかに見えるが、まだ楽観できない。",
+          "transcription": "でんせんびょうはいちおうよくせいされたかにみえるが、まだらっかんできない。",
+          "mean": "Although the epidemic appears to have been brought under control, we cannot be optimistic yet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない + かに見える（かにみえる）"
+    }
+  ],
+  "title": "...かに見える => to look; to seem; to appear",
+  "_id": "f7ff14dae05876cac58b4136935ee04b"
+}

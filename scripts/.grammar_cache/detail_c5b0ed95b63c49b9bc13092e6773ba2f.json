@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5325,
+  "usages": [
+    {
+      "explain": "「別に～ない」is used to describe something as very normal, nothing special or particularly important to mention. This structure is similar to 「特に～ない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは別に悪いことではない。",
+          "transcription": "それはべつにわるいことではない。",
+          "mean": "That's not a bad thing."
+        },
+        {
+          "content": "別に彼のために作ったわけではない。",
+          "transcription": "べつにかれのためにつくったわけではない。",
+          "mean": "I didn't make it specifically for him."
+        },
+        {
+          "content": "私は結構です。別に欲しい物はない。",
+          "transcription": "わたしはけっこうです。べつにほしいものはない。",
+          "mean": "I'm fine. There's nothing else I want."
+        },
+        {
+          "content": "この仕事には別に期限はない。",
+          "transcription": "このしごとにはべつにきげんはない。",
+          "mean": "There is no deadline for this work."
+        },
+        {
+          "content": "君は別に悪いことをしている訳ではない。",
+          "transcription": "きみはべつにわるいことをしているわけではない。",
+          "mean": "It's not like you're doing anything bad."
+        },
+        {
+          "content": "私は別に彼女が大嫌いなわけではありませんよ。",
+          "transcription": "わたしはべつにかのじょがだいきらいなわけではありませんよ。",
+          "mean": "It's not that I really dislike her."
+        },
+        {
+          "content": "いいよ。私は別に給料はなくても構わない。",
+          "transcription": "いいよ。わたしはべつにきゅうりょうはなくてもかまわない。",
+          "mean": "OK. I don't care if I don't get paid."
+        },
+        {
+          "content": "私はもう別に怒っていないのに、彼は今でも私に謝ってくる。",
+          "transcription": "わたしはもうべつにおこっていないのに、かれはいまでもわたしにあやまってくる。",
+          "mean": "Even though I'm no longer angry, he still apologizes to me."
+        },
+        {
+          "content": "ただ困っている人を手伝いたいだけだよ。別に彼のことが好きではない。",
+          "transcription": "ただこまっているひとをてつだいたいだけだよ。べつにかれのことがすきではない。",
+          "mean": "I just want to help people in need. I don't particularly like him."
+        },
+        {
+          "content": "先輩は、別に美人ではないけれど、同性からも異性からもよくモテる。",
+          "transcription": "せんぱいは、べつにびじんではないけれど、どうせいからもいせいからもよくモテる。",
+          "mean": "My senior is not particularly beautiful, but she is very popular with both her own and opposite sex."
+        },
+        {
+          "content": "奨学金がなくても、別に困らない。",
+          "transcription": "しょうがくきんがなくても、べつにこまらない。",
+          "mean": "Even if you don't have a scholarship, there's no problem."
+        }
+      ],
+      "mean": null,
+      "synopsis": "別に+Vない / Vなかった<br/> 別に+Nじゃない / Nじゃなかった<br/> 別に+A<s>な</s>じゃない / A<s>な</s>じゃなかった<br/> 別に+A<s>い</s>くない / A<s>い</s>くなかった"
+    }
+  ],
+  "title": "別に～ない => not really, not particularly",
+  "_id": "c5b0ed95b63c49b9bc13092e6773ba2f"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2033,
+  "usages": [
+    {
+      "explain": "Used to justify oneself when criticized.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それに同意した覚えはないよ。",
+          "transcription": "それにどういしたおぼえはないよ。",
+          "mean": "I don't remember agreeing to that."
+        },
+        {
+          "content": "こちらは吉田にいじめられた覚えはないのだが、吉田は「いじめて悪かった」と謝ってきた。",
+          "transcription": "こちらはよしだにいじめられたおぼえはないのだが、よしだは「いじめてわるかった」とあやまってきた。",
+          "mean": "I don't remember being bullied by Yoshida, but Yoshida apologized and said, ``It was my fault for bullying you.''"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-たおぼえはない"
+    }
+  ],
+  "title": "... おぼえはない => don't remember...",
+  "_id": "f7ff14dae05876cac58b413693c898cd"
+}

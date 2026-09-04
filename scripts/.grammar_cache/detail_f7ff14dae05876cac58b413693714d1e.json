@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1405,
+  "usages": [
+    {
+      "explain": "Follows directives from 「これ/それ/あれ」 to convey the meaning that the things they represent are at the highest level.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これ以上便利な道具は、今のところない。",
+          "transcription": "これいじょうべんりなどうぐは、いまのところない。",
+          "mean": "There is currently no tool more convenient than this."
+        },
+        {
+          "content": "あれ以上面白い小説もめったにない。",
+          "transcription": "あれいじょうおもしろいしょうせつもめったにない。",
+          "mean": "There are few novels more interesting than that."
+        }
+      ],
+      "mean": null,
+      "synopsis": "これいじょう + N + は～ない"
+    }
+  ],
+  "title": "これいじょう ... は…ない => There's no more... than this",
+  "_id": "f7ff14dae05876cac58b413693714d1e"
+}

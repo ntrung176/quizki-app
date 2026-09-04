@@ -1,0 +1,21 @@
+{
+  "level": "N5",
+  "mobileId": 2878,
+  "usages": [
+    {
+      "explain": "でした is the ending for な-adjectives and nouns in polite past form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一昨日は雨でした。",
+          "transcription": "おとといはあめでした。",
+          "mean": "It was raining the day before yesterday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na-な / N + でした"
+    }
+  ],
+  "title": "でした => Past tense of adjectives and nouns",
+  "_id": "f2d618ceb0702f781ec83b7d4f3a7acd"
+}

@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5556,
+  "usages": [
+    {
+      "explain": "The term \"ておく\" expresses:<br/> 1. Performing an action necessary to prepare in advance for a certain time or event.<br/> 2. Performing an action necessary to prepare for future use; to serve as a temporary solution.<br/> 3. Regardless, to maintain a certain state.",
+      "note": null,
+      "examples": [
+        {
+          "content": "出かける前に何か食べておこう。",
+          "transcription": "でかけるまえになにかたべておこう。",
+          "mean": "Let's eat something before we go out."
+        },
+        {
+          "content": "旅行の前に切符を買っておきます。",
+          "transcription": "りょこうのまえにきっぷをかっておきます。",
+          "mean": "Buy your tickets before you travel."
+        },
+        {
+          "content": "円が上がる前に両替しておいて良かった。",
+          "transcription": "えんがあがるまえにりょうがえしておいてよかった。",
+          "mean": "I'm glad I exchanged my money before the yen appreciated."
+        },
+        {
+          "content": "会議のために、資料をコピーしておきました。",
+          "transcription": "かいぎのために、しりょうをコピーしておきました。",
+          "mean": "I have made copies of the materials for the meeting."
+        },
+        {
+          "content": "来週の試験のため、漢字を勉強しておきました。",
+          "transcription": "らいしゅうのしけんのため、かんじをべんきょうしておきました。",
+          "mean": "I have been studying kanji for the exam next week."
+        },
+        {
+          "content": "友達が遊びに来るので、部屋を綺麗にしておきます。",
+          "transcription": "ともだちがあそびにくるので、へやをきれいにしておきます。",
+          "mean": "My friends are coming over, so I need to keep my room clean."
+        },
+        {
+          "content": "もうすぐ台風が来るかもしれないから、食べ物を用意しておきます。",
+          "transcription": "もうすぐたいふうがくるかもしれないから、たべものをよういしておきます。",
+          "mean": "There might be a typhoon coming soon, so I'll prepare some food."
+        },
+        {
+          "content": "夜中に頂上に向けて出発しますので、たくさん休んでおいてください。",
+          "transcription": "よなかにちょうじょうにむけてしゅっぱつしますので、たくさんやすんでおいてください。",
+          "mean": "We will leave for the summit in the middle of the night, so please get plenty of rest."
+        },
+        {
+          "content": "食事が終わったら、お皿を洗っておきます。",
+          "transcription": "しょくじがおわったら、おさらをあらっておきます。",
+          "mean": "After finishing your meal, wash the dishes."
+        },
+        {
+          "content": "使ったら、元の場所に戻しておきます。",
+          "transcription": "つかったら、もとのばしょにもどしておきます。",
+          "mean": "After using it, put it back in its original place."
+        },
+        {
+          "content": "先生、ホワイトボードは消さずにそのままにしておいてください。あとで、私が消しますから。",
+          "transcription": "先生、ホワイトボードはけさずにそのままにしておいてください。あとで、わたしがけしますから。",
+          "mean": "Teacher, please leave the whiteboard as is. I'll delete it later."
+        },
+        {
+          "content": "プロジェクターは次の会議でも使いますから、そのままにしておいてください。",
+          "transcription": "プロジェクターはつぎのかいぎでもつかいますから、そのままにしておいてください。",
+          "mean": "Please leave the projector as it will be used for the next meeting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+おく"
+    }
+  ],
+  "title": "ておく => To do something in advance",
+  "_id": "01f7f5ad0bfc45d2b2eba57634e9f1a7"
+}

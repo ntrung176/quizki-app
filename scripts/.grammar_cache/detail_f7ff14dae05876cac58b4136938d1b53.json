@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1596,
+  "usages": [
+    {
+      "explain": "● Meaning: Whether this happens or not; Whether done this way or not, the result is the same. ● The verb before and after is the same verb ● Similar meaning structure: ～ようが～まいが",
+      "note": null,
+      "examples": [
+        {
+          "content": "行こうと行くまいと事前連絡が必要。",
+          "transcription": "いこうといくまいとじぜんれんらくがひつよう。",
+          "mean": "Advance notice is required whether you go or not."
+        },
+        {
+          "content": "食べ放題からたくさん食べようと食べまいと料金は同じだ。",
+          "transcription": "たべほうだいからたくさんたべようとたべまいとりょうきんはおなじだ。",
+          "mean": "The price is the same whether you eat a lot or not from the all-you-can-eat option."
+        },
+        {
+          "content": "君が彼女に会おうと会うまいと別れたのが変わらないよう",
+          "transcription": "きみがかのじょにあおうとあうまいとわかれたのがかわらないよう",
+          "mean": "Whether you meet her or not, the fact that we broke up won't change."
+        }
+      ],
+      "mean": null,
+      "synopsis": "- The preceding verb conjugates in volitional form. - The following verbs are conjugated according to the following rule: ●V(I): Vる ＋まいが●V(II): remove ます ＋まいが●V(III):する→ するまい・すまい・しまい来る→ くるまい・こまい"
+    }
+  ],
+  "title": "ようと...まいと => whether or not; regardless",
+  "_id": "f7ff14dae05876cac58b4136938d1b53"
+}

@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 2304,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"mostly, generally, in general\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の意見はだいたい正しい。",
+          "transcription": "かれのいけんはだいたいただしい。",
+          "mean": "His opinion is generally correct."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だいたい～"
+    }
+  ],
+  "title": "だいたい => general, substantially, outline, main point, approximately, about",
+  "_id": "f7ff14dae05876cac58b413693ef3dc9"
+}

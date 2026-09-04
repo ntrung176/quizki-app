@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 2424,
+  "usages": [
+    {
+      "explain": "Expresses the meaning「できれば」「可能なら」<br/><br/>✦ Typically followed by expressions of desire or will.",
+      "note": null,
+      "examples": [
+        {
+          "content": "なるべくなら、今晩は早く帰って休みたい。",
+          "transcription": "なるべくなら、こんばんははやくかえってやすみたい。",
+          "mean": "If possible, I would like to go home early tonight and rest."
+        },
+        {
+          "content": "なるべくなら明日出発したい。",
+          "transcription": "なるべくならあしたしゅっぱつしたい。",
+          "mean": "I would like to leave tomorrow if possible."
+        },
+        {
+          "content": "なるべくなら金を貸してくれ。",
+          "transcription": "なるべくならきんをかしてくれ。",
+          "mean": "Please lend me money if possible."
+        },
+        {
+          "content": "なるべくなら武力を使わずに話し合いで解決したいものだ。",
+          "transcription": "なるべくならぶりょくをつかわずにはなしあいでかいけつしたいものだ。",
+          "mean": "If possible, we would like to resolve the issue through discussion without using force."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～なるべくなら => as much as possible",
+  "_id": "f7ff14dae05876cac58b413693ff078a"
+}

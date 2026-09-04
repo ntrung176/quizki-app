@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5052,
+  "usages": [
+    {
+      "explain": "「までもない」expresses the idea that because something is too simple, too ordinary, too clear, etc., there is no need, no necessity to do the action V.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本が狭いということは、言うまでもない。",
+          "transcription": "にほんがせまいということは、いうまでもない。",
+          "mean": "It goes without saying that Japan is small."
+        },
+        {
+          "content": "その件については、社長の許可を取るまでもない。",
+          "transcription": "そのけんについては、しゃちょうのきょかをとるまでもない。",
+          "mean": "There is no need to seek permission from the president for this matter."
+        },
+        {
+          "content": "アルコール検査をするまでもなく、彼が酔っ払っていることは明白だ。",
+          "transcription": "アルコールけんさをするまでもなく、かれがよっぱらっていることはめいはくだ。",
+          "mean": "Even without a breathalyzer test, it was clear that he was drunk."
+        },
+        {
+          "content": "こんな計算は簡単すぎるよ。  電卓を使うまでもないね。",
+          "transcription": "こんなけいさんはかんたんすぎるよ。でんたくをつかうまでもないね。",
+          "mean": "This kind of calculation is too easy.  No need to use a calculator."
+        },
+        {
+          "content": "ここの料理は絶対に美味しいよ。食べるまでもない。匂でわかる！",
+          "transcription": "ここのりょうりはぜったいにおいしいよ。たべるまでもない。においでわかる！",
+          "mean": "The food here is absolutely delicious. There's no need to eat it. You can tell by the smell!"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+までもない"
+    }
+  ],
+  "title": "までもない => there's no need to; it’s not necessary to ~",
+  "_id": "6d57837ff660491fb4934e6fc357342b"
+}

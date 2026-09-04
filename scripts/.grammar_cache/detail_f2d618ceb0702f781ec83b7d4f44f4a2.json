@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2964,
+  "usages": [
+    {
+      "explain": "Used to ask how to say a word or a sentence in a particular language. The word/sentence being asked about is usually enclosed in quotation marks 「」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "「すみません」は英語で何ですか。",
+          "transcription": "「すみません」はえいごでなにですか。",
+          "mean": "What does \"excuse me\" mean in English?"
+        },
+        {
+          "content": "「Gia đình」 は日本語で何ですか。",
+          "transcription": "「Gia đình」 はにほんごでなんですか。",
+          "mean": "What does \"Gia đình\" mean in Japanese?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "[Word/Sentence]は...語で何ですか"
+    }
+  ],
+  "title": "は..語で何ですか => What does it mean...",
+  "_id": "f2d618ceb0702f781ec83b7d4f44f4a2"
+}

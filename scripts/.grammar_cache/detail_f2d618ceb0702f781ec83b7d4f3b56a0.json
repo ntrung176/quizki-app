@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2886,
+  "usages": [
+    {
+      "explain": "It expresses permission, concession. Used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この図書館にある本は自由に読んでいい。",
+          "transcription": "このとしょかんにあるほんはじゆうによんでいい。",
+          "mean": "You can read the books in this library freely."
+        },
+        {
+          "content": "ちょっとこのペン借りていいかしら。",
+          "transcription": "ちょっとこのぺんかりていいかしら。",
+          "mean": "May I borrow this pen for a moment?"
+        },
+        {
+          "content": "十万ドンでいいから、貸してくれないか。",
+          "transcription": "じゅうまんどんでいいから、かしてくれないか。",
+          "mean": "Could you lend me 100,000 dong?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ていい <br/>A-くていい<br/>Na + でいい<br/>N + でいい <br/>"
+    }
+  ],
+  "title": "ていい => is OK to ~; is alright to ~; may I ~?",
+  "_id": "f2d618ceb0702f781ec83b7d4f3b56a0"
+}

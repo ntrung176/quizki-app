@@ -1,0 +1,76 @@
+{
+  "level": "N2",
+  "mobileId": 5281,
+  "usages": [
+    {
+      "explain": "「通り」describes an event that occurs or an action that is performed exactly as stated, thought, instructed, etc. This structure is also used when requesting the listener to do something exactly as they see, hear, read, learn, etc.<br/>\n「通り」is the kanji for「とおり」, and when directly attached to a noun (without の), it is read as「どおり」.<br/>\nComparison between「通り」and「ように」:<br/>\n\n-「通り」requests that the event/action in the following clause must occur/ proceed exactly as stated in the preceding clause without any deviation.<br/>\n-「ように」requests that the event/action in the following clause occurs/proceeds similarly to the preceding clause and can accept some minor differences.",
+      "note": null,
+      "examples": [
+        {
+          "content": "友達が言った通り、日本の物価が高い。",
+          "transcription": "ともだちがいったとおり、にほんのぶっかがたかい。",
+          "mean": "As my friend said, prices in Japan are high."
+        },
+        {
+          "content": "自分の思う通りに、生きることは難しい。",
+          "transcription": "じぶんのおもうとおりに、いきることはむずかしい。",
+          "mean": "It's difficult to live the way you want."
+        },
+        {
+          "content": "先生の奥さんは想像した通りの美人でした。",
+          "transcription": "せんせいのおくさんはそうぞうしたとおりのびじんでした。",
+          "mean": "The teacher's wife was as beautiful as I had imagined."
+        },
+        {
+          "content": "山田さんの言いう通りだよ。私もあなたが悪いと思う。",
+          "transcription": "やまださんのいうとおりだよ。わたしもあなたがわるいとおもう。",
+          "mean": "Mr. Yamada is right. I think it's your fault too."
+        },
+        {
+          "content": "全て課長の指示通り手配いたしました。",
+          "transcription": "すべてかちょうのしじどおりてはいいたしました。",
+          "mean": "Everything was arranged according to the instructions of the section manager."
+        },
+        {
+          "content": "雨が降ってきた。天気予報通りだ。",
+          "transcription": "あめがふってきた。てんきよほうどおりだ。",
+          "mean": "it rained. It's according to the weather forecast."
+        },
+        {
+          "content": "日本の新幹線はいつも時間通りに到着する。",
+          "transcription": "にほんのしんかんせんはいつもじかんどおりにとうちゃくする。",
+          "mean": "Japan's Shinkansen always arrives on time."
+        },
+        {
+          "content": "我々からすれば、計画通りの展開だ。",
+          "transcription": "われわれからすれば、けいかくどおりのてんかいだ。",
+          "mean": "From our perspective, things are going according to plan."
+        },
+        {
+          "content": "線の通りに紙を切ってください。",
+          "transcription": "せんのとおりにかみをきってください。",
+          "mean": "Cut the paper along the lines."
+        },
+        {
+          "content": "先生が書く通りに、一緒に漢字を書いてください。",
+          "transcription": "せんせいがかくとおりに、いっしょにかんじをかいてください。",
+          "mean": "Please write the kanji together as the teacher writes them."
+        },
+        {
+          "content": "私が言う通りに練習しなさい。すぐにテニスが上手になるよ。",
+          "transcription": "わたしがいうとおりにれんしゅうしなさい。すぐにテニスがじょうずになるよ。",
+          "mean": "Practice as I say. You'll become good at tennis in no time."
+        },
+        {
+          "content": "美味しい料理を作りましょう。今から私が言う通りに作ってくださいね。",
+          "transcription": "おいしいりょうりをつくりましょう。いまからわたしがいうとおりにつくってくださいね。",
+          "mean": "Let's cook some delicious food. From now on, please do as I say."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vた/Nの+とおり / とおりに / とおりだ / とおりのN'<br/> N+どおり /どおりに /どおりだ /どおりのN'"
+    }
+  ],
+  "title": "通り (とおり/どおり) => in the same way as; in the way; as ~",
+  "_id": "4cecf812ec2c4680b17a5ded0a981d7c"
+}

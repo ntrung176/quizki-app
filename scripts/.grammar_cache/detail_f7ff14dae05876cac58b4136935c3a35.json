@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1253,
+  "usages": [
+    {
+      "explain": "Used to repeat a verb to emphasize that no matter how hard one tries, the desired result is not achieved.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この本が難しくて読んでも読んでも分からない。",
+          "transcription": "このほんがむずかしくてよんでもよんでもわからない。",
+          "mean": "This book is so difficult that I can't understand it no matter how much I read it."
+        },
+        {
+          "content": "仕事が多すぎて、してもしても終わらない。",
+          "transcription": "しごとがおおすぎて、してもしてもおわらない。",
+          "mean": "I have so much work that I can't finish it no matter how hard I try."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ても + V + ても"
+    }
+  ],
+  "title": "ても ... ても => even; even if; even though ~",
+  "_id": "f7ff14dae05876cac58b4136935c3a35"
+}

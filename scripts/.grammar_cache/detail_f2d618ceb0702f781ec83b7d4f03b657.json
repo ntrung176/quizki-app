@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2459,
+  "usages": [
+    {
+      "explain": "Used when the speaker suggests doing something on their own initiative, often proposing something beneficial for the other party.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私が駅まで乗せてもいい。",
+          "transcription": "わたしがえきまでのせてもいい。",
+          "mean": "I can give you a ride to the station."
+        },
+        {
+          "content": "この任務は私が担当してもいい。",
+          "transcription": "このにんむはわたしがたんとうしてもいい。",
+          "mean": "I can take charge of this task."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + もいい"
+    }
+  ],
+  "title": "てもいい => is OK to ~; is alright to ~; may I ~?",
+  "_id": "f2d618ceb0702f781ec83b7d4f03b657"
+}

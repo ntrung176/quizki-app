@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1411,
+  "usages": [
+    {
+      "explain": "Attached to the form where [い] of an い-adjective is omitted or to the negative form of [だ] as [ではない], to express speculation, nearly synonymous with [だろう].<br/><br/>The speculative form [V-よう] is the corresponding verb form for this usage.<br/><br/>This is an old-fashioned, literary expression often used in writing or formal speech. In everyday spoken language, [だろう] is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼が言ったことは本当ではなかろう。",
+          "transcription": "かれがいったことはほんとうではなかろう。",
+          "mean": "What he said may not be true."
+        },
+        {
+          "content": "最愛の人を亡くしてはさぞや悲しかろう。",
+          "transcription": "さいあいのひとをなくしてはさぞやかなしかろう。",
+          "mean": "It must be very sad to lose a loved one."
+        },
+        {
+          "content": "今度の試験はあんなに難しはなかろうと思います。",
+          "transcription": "こんどのしけんはあんなにむずかしはなかろうとおもいます。",
+          "mean": "I don't think this exam will be that difficult."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Na + ではなかろう\nA - かろう\nA - く + (は) + なかろう"
+    }
+  ],
+  "title": "かろう => May be...",
+  "_id": "f7ff14dae05876cac58b413693721ec0"
+}

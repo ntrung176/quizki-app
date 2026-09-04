@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 662,
+  "usages": [
+    {
+      "explain": "✦It expresses a transition from one state to a completely different state. It can also be used as an adverb without 「Nとは」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父は若い時とはうってかわって、とても優しくなった。",
+          "transcription": "ちちはわかいときとはうってかわって、とてもやさしくなった。",
+          "mean": "My father has become much kinder than when he was younger."
+        },
+        {
+          "content": "村は昔の姿とはうってかわり、近代的なビルが立ち並んでいる。",
+          "transcription": "むらはむかしのすがたとはうってかわり、きんだいてきなビルがたちならんでいる。",
+          "mean": ""
+        },
+        {
+          "content": "社長はこれまでとはうってかわったように、強硬な態度に出てきた。",
+          "transcription": "しゃちょうはこれまでとはうってかわったように、きょうこうなたいどにでてきた。",
+          "mean": "The president has taken a tougher stance than before."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + とはうってかわって"
+    }
+  ],
+  "title": "とはうってかわって => unlike; totally different; very different from ~",
+  "_id": "f7ff14dae05876cac58b4136930c4686"
+}

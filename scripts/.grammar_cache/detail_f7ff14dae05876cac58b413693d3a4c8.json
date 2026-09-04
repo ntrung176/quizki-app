@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2111,
+  "usages": [
+    {
+      "explain": "Expresses the possibility of choosing something else. This expression is more modest compared to 「てもいい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ベルトはこちらをお締めになってもよろしいです。",
+          "transcription": "べるとはこちらをおしめになってもよろしいです。",
+          "mean": "You may also tighten your belt here."
+        },
+        {
+          "content": "このスープにはのりをお使いになってもよろしいと思います。",
+          "transcription": "このすーぷにはのりをおつかいになってもよろしいとおもいます。",
+          "mean": "I think you could use seaweed for this soup."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + もよろしい"
+    }
+  ],
+  "title": "てもよろしい => also possible, potential",
+  "_id": "f7ff14dae05876cac58b413693d3a4c8"
+}

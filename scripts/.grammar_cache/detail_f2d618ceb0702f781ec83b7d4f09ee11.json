@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2506,
+  "usages": [
+    {
+      "explain": "The particle 「に」adds the meaning of expressing purpose. When combined with a noun, use 「Danh từに」, and when combined with a verb, use the method of nounification of verbs\" by adding 「の」 after the dictionary form of the verb. Note: For Group III verbs with the form 「Danh từ します」, when combining, do not use 「Danh từ するのに」 but combine directly with 「Danh từ に」.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "ニンニクは食べ物の味を良くするのに使われる。",
+          "transcription": "にんにくはたべもののあじをよくするのにつかわれる。",
+          "mean": "Garlic is used to improve the taste of food."
+        },
+        {
+          "content": "このお菓子は個別包装されているのでお土産にちょうどいいです。",
+          "transcription": "このおかしはこべつほうそうされているのでおみやげにちょうどいいです。",
+          "mean": "These sweets are individually wrapped, making them perfect as souvenirs."
+        },
+        {
+          "content": "朝の通勤には30分かかる。",
+          "transcription": "あさのつうきんには30ふんかかる。",
+          "mean": "My morning commute takes 30 minutes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る の + に...\nNoun + に..."
+    }
+  ],
+  "title": "... に ... => Express purpose",
+  "_id": "f2d618ceb0702f781ec83b7d4f09ee11"
+}

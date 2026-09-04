@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 694,
+  "usages": [
+    {
+      "explain": "✦「それなり」means \"appropriate to that, after accepting its limitations and shortcomings.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "小さな会社だがそれなりの利益は上げている。",
+          "transcription": "ちいさなかいしゃだがそれなりのりえきはあげている。",
+          "mean": "Although it is a small company, it makes a decent profit."
+        },
+        {
+          "content": "嫌だというならそれなりの理由があるのだろう。",
+          "transcription": "いやだというならそれなりのりゆうがあるのだろう。",
+          "mean": "If you don't like it, there's probably a good reason."
+        },
+        {
+          "content": "子供たちもそれなりに力を合わせて頑張っている。",
+          "transcription": "こどもたちもそれなりにちからをあわせてがんばっている。",
+          "mean": "The children are also working hard together."
+        },
+        {
+          "content": "努力をすればそれなりの成果はあがるはずだ。",
+          "transcription": "どりょくをすればそれなりのせいかはあがるはずだ。",
+          "mean": "If you put in the effort, you should get some results."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～それなり => in itself; as it is; in its own way; as suits the occasion",
+  "_id": "f7ff14dae05876cac58b41369310847c"
+}

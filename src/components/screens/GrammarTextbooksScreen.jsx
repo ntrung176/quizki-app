@@ -31,78 +31,114 @@ const SAMPLE_TEXTBOOKS_JSON = `[
   }
 ]`;
 
-const TextbookCover = ({ title, titleVi, levels, description, color, featured }) => {
-    const primaryColor = color || '#06b6d4';
+const LEVEL_BADGES = {
+    N5: {
+        badge: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+        dot: 'bg-emerald-500',
+        hover: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
+        accentBar: 'bg-emerald-500'
+    },
+    N4: {
+        badge: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20',
+        dot: 'bg-sky-500',
+        hover: 'group-hover:text-sky-600 dark:group-hover:text-sky-400',
+        accentBar: 'bg-sky-500'
+    },
+    N3: {
+        badge: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-500/20',
+        dot: 'bg-cyan-500',
+        hover: 'group-hover:text-cyan-600 dark:group-hover:text-cyan-400',
+        accentBar: 'bg-cyan-500'
+    },
+    N2: {
+        badge: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20',
+        dot: 'bg-amber-500',
+        hover: 'group-hover:text-amber-600 dark:group-hover:text-amber-400',
+        accentBar: 'bg-amber-500'
+    },
+    N1: {
+        badge: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20',
+        dot: 'bg-rose-500',
+        hover: 'group-hover:text-rose-600 dark:group-hover:text-rose-400',
+        accentBar: 'bg-rose-500'
+    },
+    DEFAULT: {
+        badge: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20',
+        dot: 'bg-indigo-500',
+        hover: 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400',
+        accentBar: 'bg-indigo-500'
+    }
+};
+
+const TextbookCover = ({ title, titleVi, levels, description, color, featured, lessons }) => {
+    const primaryLevel = Array.isArray(levels) && levels.length === 1 ? levels[0] : (levels && levels.length > 1 ? 'DEFAULT' : 'N3');
+    const badgeStyle = LEVEL_BADGES[primaryLevel] || LEVEL_BADGES.DEFAULT;
     const levelText = (levels && levels.length > 0) ? levels.join(', ') : 'N3';
 
-    // Clean multi-tone gradient background
-    const gradientStyle = {
-        backgroundColor: primaryColor,
-        backgroundImage: `
-            radial-gradient(circle at 50% 20%, rgba(255,255,255,0.3) 0%, transparent 60%),
-            radial-gradient(circle at 50% 90%, rgba(0,0,0,0.4) 0%, transparent 70%),
-            linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0.3) 100%)
-        `
-    };
+    // Calculate total points if available
+    const pointsCount = Array.isArray(lessons)
+        ? lessons.reduce((sum, l) => sum + (l.points?.length || 0), 0)
+        : null;
 
     return (
-        <div 
-            className="w-full aspect-[16/10] relative overflow-hidden flex flex-col items-center justify-between p-3.5 sm:p-6 text-white text-center select-none rounded-t-2xl sm:rounded-t-3xl transition-all duration-300 shadow-xl group"
-            style={gradientStyle}
-        >
-            {/* 3D Book Spine Effect (Left Edge) */}
-            <div className="absolute top-0 bottom-0 left-0 w-3.5 bg-gradient-to-r from-black/50 via-black/20 to-transparent z-20 pointer-events-none" />
+        <div className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 flex flex-col justify-between min-h-[220px] group text-left relative overflow-hidden">
+            {/* Subtle top accent line */}
+            <div className={`absolute top-0 left-0 right-0 h-1 ${badgeStyle.accentBar} opacity-80`} />
 
-            {/* Ambient Center Glow Reflection */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-white/15 blur-3xl pointer-events-none z-10" />
-
-            {/* Shimmer gloss sweep effect on hover */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full z-20 shimmer-sweep pointer-events-none" />
-
-            {/* Top Header Bar - Centered */}
-            <div className="relative z-20 flex items-center justify-center gap-1.5 w-full">
-                <div className="inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-black/30 backdrop-blur-md text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-white/90 border border-white/15 uppercase">
-                    <BookOpen className="w-3 h-3 text-cyan-300" />
-                    <span>GIÁO TRÌNH</span>
-                </div>
-
-                {featured && (
-                    <div className="bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-[8px] sm:text-[9px] font-mono px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-md tracking-wider flex items-center gap-1">
-                        <Star className="w-3 h-3 fill-slate-950 text-slate-950" />
-                        <span>NỔI BẬT</span>
+            <div>
+                {/* Header: Level Pill & Badges */}
+                <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-xs font-bold font-mono ${badgeStyle.badge}`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${badgeStyle.dot}`} />
+                        <span>CẤP ĐỘ {levelText}</span>
                     </div>
-                )}
-            </div>
 
-            {/* Center Main Book Info - Centered */}
-            <div className="relative z-20 my-auto py-1 sm:py-2 flex flex-col items-center justify-center text-center space-y-1 sm:space-y-2 max-w-full">
-                {/* Level Badge Stamp */}
-                <div className="inline-flex items-center justify-center gap-1 px-2.5 py-0.5 sm:px-3.5 sm:py-1 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 text-white font-mono font-black text-[10px] sm:text-xs md:text-sm tracking-widest shadow-sm">
-                    <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300 shrink-0" />
-                    <span>CẤP ĐỘ {levelText}</span>
+                    <div className="flex items-center gap-1.5">
+                        {featured && (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border border-amber-200/60 dark:border-amber-800/40 text-[10px] font-bold font-mono">
+                                <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
+                                <span>NỔI BẬT</span>
+                            </span>
+                        )}
+                        {pointsCount > 0 && (
+                            <span className="text-[11px] font-mono font-semibold text-slate-400 dark:text-slate-500">
+                                {pointsCount} mẫu
+                            </span>
+                        )}
+                    </div>
                 </div>
 
-                {/* Main Vietnamese Title */}
-                <h3 className="text-base sm:text-lg md:text-xl font-black tracking-tight text-white leading-snug drop-shadow-md line-clamp-2 px-1 sm:px-2">
-                    {titleVi || 'Giáo trình Ngữ pháp'}
-                </h3>
+                {/* Main Titles */}
+                <div className="space-y-1">
+                    <h3 className={`text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-snug transition-colors ${badgeStyle.hover}`}>
+                        {titleVi || 'Giáo trình Ngữ pháp'}
+                    </h3>
+                    {title && (
+                        <p className="text-xs font-medium text-slate-400 dark:text-slate-500 font-mono">
+                            {title}
+                        </p>
+                    )}
+                </div>
 
-                {/* Japanese Title */}
-                {title && (
-                    <p className="text-[10px] sm:text-xs font-bold text-white/85 line-clamp-1 font-mono tracking-wide px-1 sm:px-2">
-                        {title}
-                    </p>
-                )}
-            </div>
-
-            {/* Bottom Description Pill - Centered */}
-            {description && (
-                <div className="relative z-20 w-full flex justify-center">
-                    <p className="text-[11px] text-white/90 line-clamp-1 font-medium bg-black/25 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 max-w-full">
+                {/* Description */}
+                {description && (
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mt-2.5 font-normal">
                         {description}
                     </p>
-                </div>
-            )}
+                )}
+            </div>
+
+            {/* Bottom Footer */}
+            <div className="border-t border-slate-100 dark:border-slate-800/80 pt-3 mt-4 flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 font-medium">
+                <span className="flex items-center gap-1.5">
+                    <BookOpen className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Bài học ngữ pháp</span>
+                </span>
+                <span className={`inline-flex items-center gap-1 font-bold transition-transform group-hover:translate-x-1 ${badgeStyle.hover}`}>
+                    <span>Bắt đầu học</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                </span>
+            </div>
         </div>
     );
 };
@@ -372,6 +408,7 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
                                     description={tb.description}
                                     color={tb.color}
                                     featured={tb.featured}
+                                    lessons={tb.lessons}
                                 />
                             </button>
                             {isAdmin && (

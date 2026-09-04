@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3048,
+  "usages": [
+    {
+      "explain": "✦ Using contrasting adjectives to indicate that no matter how different they are, the situation being discussed remains the same.",
+      "note": "✦ In the case of the adjective \"悪い\" (bad), it changes to \"悪しかれ（あしかれ）\n",
+      "examples": [
+        {
+          "content": "では、どうすればいいんです。おそかれ早かれ。",
+          "transcription": "では、どうすればいいんです。おそかれはやかれ。",
+          "mean": "So what should I do? Sooner or later."
+        },
+        {
+          "content": "良かれ悪しかれ、親の考えは保守的だ。",
+          "transcription": "よかれあしかれ、おやのかんがえはほしゅてきだ。",
+          "mean": "For better or worse, parents are conservative in their thinking."
+        },
+        {
+          "content": "多かれ少なかれ、みんな悩みを抱えている。",
+          "transcription": "おおかれすくなかれ、みんななやみをかかえている。",
+          "mean": "To some degree, everyone has problems."
+        },
+        {
+          "content": "良きにつけ悪しきにつけ、若者は年長者の影響を受ける。",
+          "transcription": "よきにつけあしきにつけ、わかものはねんちょうしゃのえいきょうをうける。",
+          "mean": "For better or for worse, young people are influenced by their elders."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Aい ＋ かれ～Aい ＋ かれ"
+    }
+  ],
+  "title": "～かれ～かれ      =>  sooner or later; more or less",
+  "_id": "93020c54469e582d6fdb16f7ba960be4"
+}

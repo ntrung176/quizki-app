@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1150,
+  "usages": [
+    {
+      "explain": "Expressing the sentiment \"indeed, truly\". It's a somewhat formal expression, with a literary tone, and when used in spoken language, it might feel exaggerated.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はまさに英国紳士の典型だ。",
+          "transcription": "かれはまさにえいこくしんしのてんけいだ。",
+          "mean": "He is the very epitome of an English gentleman."
+        },
+        {
+          "content": "私がずっと探しているのはまさにこれだ。",
+          "transcription": "わたしがずっとさがしているのはまさにこれだ。",
+          "mean": "This is exactly what I've been looking for."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まさに～"
+    }
+  ],
+  "title": "まさに => exactly, surely, certainly",
+  "_id": "f7ff14dae05876cac58b4136934e8a83"
+}

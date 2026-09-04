@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3119,
+  "usages": [
+    {
+      "explain": "☞The verb in the ない form drops い and is replaced with なくちゃいけない. ☞It means \"necessary to do something.\"",
+      "note": "☞This sentence pattern is equivalent to the pattern なくてはいけない. ☞However, people use the pattern なくちゃいけない to express in spoken language.\n",
+      "examples": [
+        {
+          "content": "魚を食べなくちゃいけない。",
+          "transcription": "さかなをたべなくちゃいけない。",
+          "mean": "I have to eat fish."
+        },
+        {
+          "content": "毎日日本語を勉強しなくちゃいけない。",
+          "transcription": "まいにちにほんごをべんきょうしなくちゃいけない。",
+          "mean": "I have to study Japanese every day."
+        },
+        {
+          "content": "5時に起きなくちゃいけない。",
+          "transcription": "5じにおきなくちゃいけない。",
+          "mean": "I have to get up at 5 o'clock."
+        }
+      ],
+      "mean": ": must do; need to; gotta do ~, say necessary to do something",
+      "synopsis": "V ない→ なくちゃいけない"
+    }
+  ],
+  "title": "～なくちゃいけない      => must do; need to; gotta do ~, say necessary to do something",
+  "_id": "93020c54469e582d6fdb16f7ba620d05"
+}

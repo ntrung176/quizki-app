@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 655,
+  "usages": [
+    {
+      "explain": "Often used in prohibitive expressions like: 「するな」,「してはいけない」, 「したほうがいい」, 「するのはよくない」. Also can be used with the form 「むやみと」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "母はよく「むやみに人の体を触らない」と言われています。",
+          "transcription": "はははよく「むやみにひとのからだをさわらない」といわれています。",
+          "mean": "My mother often says, ``Don't touch people's bodies unnecessarily.''"
+        },
+        {
+          "content": "山で道に迷ったときはむやみに歩き回らないほうがいい。",
+          "transcription": "やまでみちにまよったときはむやみにあるきまわらないほうがいい。",
+          "mean": "When you get lost in the mountains, it's best not to wander around aimlessly."
+        },
+        {
+          "content": "むやみに怒らない人が成功しやすい。",
+          "transcription": "むやみにおこらないひとがせいこうしやすい。",
+          "mean": "People who don't get angry unnecessarily are more likely to succeed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "The latter part むやみに is usually advice or a prohibition"
+    }
+  ],
+  "title": "むやみに => thoughtlessly, recklessly, rashly, indiscriminately, indiscreetly, at random",
+  "_id": "f7ff14dae05876cac58b4136930baecb"
+}

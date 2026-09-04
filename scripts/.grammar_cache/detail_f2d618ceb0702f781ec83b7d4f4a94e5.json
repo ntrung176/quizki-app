@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3009,
+  "usages": [
+    {
+      "explain": "「この」、「その」、「あの」 are demonstrative pronouns that modify nouns. 「 この」is used to indicate a person or object close to the speaker and away from the listener. 「 その」  is used to indicate a person or object close to the listener and away from the speaker. 「 あの」 is used to indicate a person or object far from both the speaker and the listener.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このペンはあなたのですか。",
+          "transcription": "このぺんはあなたのですか。",
+          "mean": "Is this pen yours?"
+        },
+        {
+          "content": "その絵はきれいですね。",
+          "transcription": "そのえはきれいですね。",
+          "mean": "That picture is beautiful."
+        },
+        {
+          "content": "あの人は誰ですか。",
+          "transcription": "あのひとはだれですか。",
+          "mean": "Who is that person?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "この + N<br/>その + N <br/>あの + N"
+    }
+  ],
+  "title": "この / その / あの => this / that",
+  "_id": "f2d618ceb0702f781ec83b7d4f4a94e5"
+}

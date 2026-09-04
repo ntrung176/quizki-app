@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2262,
+  "usages": [
+    {
+      "explain": "Used in conversation. It's used to imply a negation, simply saying 「ちょっと」and then briefly summarizing the following sentence. It's used when one wants to avoid difficult topics.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：この絵、ここに掛けたらどう？B：そこはちょっとね。。。",
+          "transcription": "A：このえ、ここにかけたらどう？B：そこはちょっとね。。。",
+          "mean": "A: How about I hang this picture here? B: That's a bit. . ."
+        },
+        {
+          "content": "A：ご都合が悪いんですか。B：ええ、今日の午後はちょっと。。。",
+          "transcription": "A：ごつごうがわるいんですか。B：ええ、きょうのごごはちょっと。。。",
+          "mean": "A: Are you inconvenient? B: Yeah, a little bit this afternoon. . ."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ちょっと => a little; a bit; slightly​",
+  "_id": "f7ff14dae05876cac58b413693e8ef84"
+}

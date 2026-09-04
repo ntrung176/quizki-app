@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2907,
+  "usages": [
+    {
+      "explain": "Describes the meaning \"regardless of any case, it leads to the same result\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "誰が呼んでも答えないで下さい。",
+          "transcription": "だれがよんでもこたえないでください。",
+          "mean": "Please don't answer no matter who calls."
+        },
+        {
+          "content": "何を試しても、あの子が忘れられない。",
+          "transcription": "なにをためしても、あのこがわすれられない。",
+          "mean": "No matter what I try, I can't forget that girl."
+        },
+        {
+          "content": "この町で自転車はどこで借りても同じ値段だ。",
+          "transcription": "このまちでじてんしゃはどこでかりてもおなじねだんだ。",
+          "mean": "Bicycles are the same price no matter where you rent them in this town."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative word + ても"
+    }
+  ],
+  "title": "ても => even; even if, Who (whatever)... also...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3e0272"
+}

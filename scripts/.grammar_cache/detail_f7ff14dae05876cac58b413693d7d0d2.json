@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 2136,
+  "usages": [
+    {
+      "explain": "Indicates the meaning of \"leaving something as is, intentionally, for some purpose or reason\". It can also be expressed as 「～せずにおく」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "時間がないので食事はしないでおこう。",
+          "transcription": "じかんがないのでしょくじはしないでおこう。",
+          "mean": "I don't have time, so I won't eat."
+        },
+        {
+          "content": "十分に残っているので、まだ買わないでおいた。",
+          "transcription": "じゅうぶんにのこっているので、まだかわないでおいた。",
+          "mean": "I didn't buy it yet because I had plenty left."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ないでおく"
+    }
+  ],
+  "title": "ないでおく => Leave it as is ...",
+  "_id": "f7ff14dae05876cac58b413693d7d0d2"
+}

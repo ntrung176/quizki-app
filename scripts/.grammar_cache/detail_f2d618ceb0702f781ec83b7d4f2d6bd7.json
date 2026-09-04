@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2776,
+  "usages": [
+    {
+      "explain": "Indicates the use of one thing for another purpose.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雑誌を枕にして昼寝した。",
+          "transcription": "ざっしをまくらにしてひるねした。",
+          "mean": "I took a nap with a magazine as my pillow."
+        },
+        {
+          "content": "母のスカーフをテープルクロスにして使っています。",
+          "transcription": "ははのすかーふをてーぷるくろすにしてつかっています。",
+          "mean": "I use my mother's scarf as a table cloth."
+        },
+        {
+          "content": "客間を息子の勉強部屋にした。",
+          "transcription": "きゃくまをむすこのべんきょうへやにした。",
+          "mean": "I turned the guest room into my son's study room."
+        }
+      ],
+      "mean": null,
+      "synopsis": "NをNにする"
+    }
+  ],
+  "title": "...を...にする => to make something ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f2d6bd7"
+}

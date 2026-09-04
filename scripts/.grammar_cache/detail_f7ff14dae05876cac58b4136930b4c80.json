@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 652,
+  "usages": [
+    {
+      "explain": "Expresses surprise about a quantity or degree being much more than expected. Often followed by consequences arising from those events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "新しくできた博物館に行ったら、観客がいるわいるわ、全然見えないぐらいの人出だった。",
+          "transcription": "あたらしくできたはくぶつかんにいったら、かんきゃくがいるわいるわ、ぜんぜんみえないぐらいのひとでだった。",
+          "mean": "When I went to the newly opened museum, there were so many people that I couldn't even see the audience."
+        },
+        {
+          "content": "遊んでばかりいて、宿題がたまるわたまるわ、もう2週間分もしていない。",
+          "transcription": "あそんでばかりいて、しゅくだいがたまるわたまるわ、もう2しゅうかんぶんもしていない。",
+          "mean": "I've been playing around so much that I have piled up homework, and I haven't done it for two weeks already."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + わ V-る + わ (repeat verbs)"
+    }
+  ],
+  "title": "わ...わ => so much, so many",
+  "_id": "f7ff14dae05876cac58b4136930b4c80"
+}

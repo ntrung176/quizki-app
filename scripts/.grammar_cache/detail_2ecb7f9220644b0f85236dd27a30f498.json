@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5408,
+  "usages": [
+    {
+      "explain": "「さえ」is used to present an extreme example, thereby emphasizing the idea that if even that extreme example is true, then everything else is obvious. When a noun normally takes が or を as particles, these particles are omitted when used with 「さえ」. When the noun is the subject, 「でさえ」can be used instead of 「さえ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなこと、子供でさえ知っている。",
+          "transcription": "そんなこと、こどもでさえしっている。",
+          "mean": "Even children know this."
+        },
+        {
+          "content": "ひらがなさえ書けないんですから漢字なんて書けません。",
+          "transcription": "ひらがなさえかけないんですからかんじなんてかけません。",
+          "mean": "I can't even write hiragana, so I can't write kanji."
+        },
+        {
+          "content": "この問題は小学生さえ分かります。",
+          "transcription": "このもんだいはしょうがくせいさえわかります。",
+          "mean": "Even elementary school students can understand this problem."
+        },
+        {
+          "content": "お金がなくてパンでさえ買えない。",
+          "transcription": "おかねがなくてパンでさえかえない。",
+          "mean": "I don't have money so I can't even buy bread."
+        },
+        {
+          "content": "山の上に夏でさえ雪が残っている。",
+          "transcription": "やまのうえになつでさえゆきがのこっている。",
+          "mean": "There is still snow on the mountains even in summer."
+        },
+        {
+          "content": "私の故郷は地図にさえ書いてない小さい村です。",
+          "transcription": "わたしのふるさとはちずにさえかいてないちいさいむらです。",
+          "mean": "My hometown is a small village that is not even written on the map."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N / Nに / Nで+さえ<br/>\n N+でさえ"
+    }
+  ],
+  "title": "さえ/でさえ => even; so much as; not even",
+  "_id": "2ecb7f9220644b0f85236dd27a30f498"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2721,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's conjecture or estimation. This is the spoken form of「の ではないか」(\"isn't it?\"). The polite form is「んじゃないでしょうか」(\"wouldn't it be?\").",
+      "note": null,
+      "examples": [
+        {
+          "content": "ベトナムのチームが逆転勝ちしたと信じられない。夢なんじゃないだろうか。",
+          "transcription": "べとなむのちーむがぎゃくてんがちしたとしんじられない。ゆめなんじゃないだろうか。",
+          "mean": "I can't believe the Vietnamese team came from behind to win. I wonder if it's a dream."
+        },
+        {
+          "content": "サービスが悪いときはチップを払わなくてもいいんじゃないだろうか。",
+          "transcription": "さーびすがわるいときはちっぷをはらわなくてもいいんじゃないだろうか。",
+          "mean": "I think it's okay not to tip when the service is bad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んじゃないだろうか"
+    }
+  ],
+  "title": "んじゃないだろうか => could it be that ~; might it be that ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f273585"
+}

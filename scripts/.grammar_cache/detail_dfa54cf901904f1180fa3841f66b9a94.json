@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5584,
+  "usages": [
+    {
+      "explain": "When 「でしょう」is used with a rising intonation at the end of a sentence, it becomes a question to confirm the information that the speaker has just presented, implying a desire for agreement. It can be translated as \"Is that right?\"<br/>\nOn the other hand, 「でしょうか」is a questioning pattern with a similar meaning to 「ですか」, but because it carries an element of speculation, it is more polite and subtle. It can be translated as \"I wonder... is it?\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "『あしたパーティーに行くでしょう？』『ええ、行きます。』",
+          "transcription": "『あしたパーティーにいくでしょう？』『ええ、いきます。』",
+          "mean": "``You're going to the party tomorrow, right? 'Yes, I'll go. ”"
+        },
+        {
+          "content": "『北海道は寒かったでしょう？』『いいえ、そんなに寒くなかったです。』",
+          "transcription": "『ほっかいどうはさむかったでしょう？』『いいえ、そんなにさむくなかったです。』",
+          "mean": "“It was cold in Hokkaido, wasn’t it? ``No, it wasn't that cold.'' ”"
+        },
+        {
+          "content": "明日は土曜日でしょうね。",
+          "transcription": "あしたはどようびでしょうね。",
+          "mean": "Tomorrow will be Saturday."
+        },
+        {
+          "content": "この問題は簡単でしょう？",
+          "transcription": "このもんだいはかんたんでしょう？",
+          "mean": "Is this problem easy?"
+        },
+        {
+          "content": "田中さんは合格するでしょうか。",
+          "transcription": "たなかさんはごうかくするでしょうか。",
+          "mean": "Will Mr. Tanaka pass?"
+        },
+        {
+          "content": "彼は恋人がいるでしょうか。",
+          "transcription": "かれはこいびとがいるでしょうか。",
+          "mean": "Does he have a lover?"
+        },
+        {
+          "content": "日本は寒いでしょうか。",
+          "transcription": "にほんはさむいでしょうか。",
+          "mean": "Is it cold in Japan?"
+        },
+        {
+          "content": "日本語のクラスは大変でしょうか。",
+          "transcription": "にほんごのクラスはたいへんでしょうか。",
+          "mean": "Is Japanese class difficult?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+でしょう / でしょうか<br/>Aい (formal form)+でしょう / でしょうか<br/>Aな (formal form)+でしょう / でしょうか<br/>(In this particular case: A<s>な</s>だ ➔ A<s>なだ</s>)<br/>N (formal form)+でしょう / でしょうか<br/>(In this particular case: Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "でしょう/でしょうか => Is that right? ask a question in a polite way",
+  "_id": "dfa54cf901904f1180fa3841f66b9a94"
+}

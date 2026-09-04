@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3057,
+  "usages": [
+    {
+      "explain": "■ Often used when giving examples.<br/>\n■ Has a similar meaning to the structure 【Aのように〜です】.<br/>\n■ This is an old-fashioned way of saying.",
+      "note": "■ After \"ごとき\" is a noun. Whereas after \"ごとく\" it can be a verb, an adjective, or an adverb.<br>\n■ Example: ライオンのごとく勇敢だ。ライオンのごとくゆうかんだ。Brave like a lion.",
+      "examples": [
+        {
+          "content": "前田は桜のごとき乙女であった。",
+          "transcription": "まえだはさくらのごときおとめであった。",
+          "mean": "Maeda was a maiden like a cherry blossom."
+        },
+        {
+          "content": "新婚生活の後は天国のごときです。",
+          "transcription": "しんこんせいかつののちはてんごくのごときです。",
+          "mean": "After being married, it's like heaven."
+        },
+        {
+          "content": "いつものごとく、社長の話は長い上につまらなかった。",
+          "transcription": "いつものごとく、しゃちょうのはなしはながいうえにつまらなかった。",
+          "mean": "As usual, the president's talk was long and boring."
+        },
+        {
+          "content": "春のごとき天気",
+          "transcription": "はるのごときてんき",
+          "mean": "Spring-like weather"
+        }
+      ],
+      "mean": "like; as if; the same as ~",
+      "synopsis": "■Ｖる・Ｖた（が）・Ｎの ＋ ごとき／ごとく"
+    }
+  ],
+  "title": "～ごとき／ごとく      => like; as if; the same as ~",
+  "_id": "93020c54469e582d6fdb16f7ba8cfa31"
+}

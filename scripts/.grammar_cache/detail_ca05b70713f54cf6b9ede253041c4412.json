@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5124,
+  "usages": [
+    {
+      "explain": "「～がい」indicates that a certain action is worth doing.「がい」is the contracted form of「かい」, which is written in kanji as「甲斐」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やりがいのある仕事を探したい。",
+          "transcription": "やりがいのあるしごとをさがしたい。",
+          "mean": "I want to find a job that is rewarding."
+        },
+        {
+          "content": "彼らは教えがいのある生徒だ。",
+          "transcription": "かれらはおしえがいのあるせいとだ。",
+          "mean": "They are rewarding students."
+        },
+        {
+          "content": "美味しい美味しいと食べると、作りがいがある。",
+          "transcription": "おいしいおいしいとたべると、つくりがいがある。",
+          "mean": "When you eat something delicious and delicious, it's worth making."
+        },
+        {
+          "content": "彼のような選手は鍛え甲斐もあり、育て甲斐もある。",
+          "transcription": "かれのようなせんしゅはきたえがいもあり、そだてがいもある。",
+          "mean": "Players like him are worth training and training."
+        },
+        {
+          "content": "何か生きがいを見つけたい。",
+          "transcription": "なにかいきがいをみつけたい。",
+          "mean": "I want to find something to live for."
+        },
+        {
+          "content": "彼女は何回注意しても上達しないから、教え甲斐がない。",
+          "transcription": "かのじょはなんかいちゅういしてもじょうたつしないから、おしえがいがない。",
+          "mean": "No matter how many times I warn her, she never improves, so it's not worth teaching her."
+        },
+        {
+          "content": "この会社の株は投資しがいがある。",
+          "transcription": "このかいしゃのかぶはとうししがいがある。",
+          "mean": "This company's stock is worth investing in."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+がい"
+    }
+  ],
+  "title": "～がい => It's worth one's efforts to do something",
+  "_id": "ca05b70713f54cf6b9ede253041c4412"
+}

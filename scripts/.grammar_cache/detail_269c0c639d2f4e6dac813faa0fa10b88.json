@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5605,
+  "usages": [
+    {
+      "explain": "「ことがある/こともある」indicates that something may not happen frequently, but occasionally does occur.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大学をしてからも、たまに同じ学部だった友達に会うことがあります。",
+          "transcription": "だいがくをしてからも、たまにおなじがくぶだったともだちにあうことがあります。",
+          "mean": "Even after graduating from university, I occasionally meet up with friends who were in the same department."
+        },
+        {
+          "content": "普段は母がご飯を作りますが、私が作ることもあります。",
+          "transcription": "ふだんはははがごはんをつくりますが、わたしがつくることもあります。",
+          "mean": "Usually my mother makes the meals, but sometimes I do it too."
+        },
+        {
+          "content": "時々、頭が痛くて寝られないことがあるんです。",
+          "transcription": "ときどき、あたまがいたくてねられないことがあるんです。",
+          "mean": "Sometimes my head hurts and I can't sleep."
+        },
+        {
+          "content": "若い頃の私は、人の意見を全然受け入れようとしないこともあった。",
+          "transcription": "わかいころのわたしは、ひとのいけんをぜんぜんうけいれようとしないこともあった。",
+          "mean": "When I was younger, there were times when I didn't want to accept other people's opinions at all."
+        },
+        {
+          "content": "ときどき、眼鏡をかけたまま寝てしまうことがあります。",
+          "transcription": "ときどき、めがねをかけたままねてしまうことがあります。",
+          "mean": "Sometimes I end up sleeping with my glasses on."
+        },
+        {
+          "content": "学校のパソコンはときどきフリーズすることがある。",
+          "transcription": "がっこうのぱそこんはときどきふりーずすることがある。",
+          "mean": "Computers at school sometimes freeze."
+        },
+        {
+          "content": "俺とお母さんはたまに喧嘩をすることがあります。",
+          "transcription": "おれ とおかあさんはたまに喧嘩をすることがあります。",
+          "mean": "My mom and I sometimes fight."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ことがある/こともある<br/> Vない+ことがある/こともある"
+    }
+  ],
+  "title": "ことがある/こともある => there are times when",
+  "_id": "269c0c639d2f4e6dac813faa0fa10b88"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3205,
+  "usages": [
+    {
+      "explain": "This is used to connect two clauses with contrasting or opposite meanings. 「けど」is a spoken form of 「が」.",
+      "note": "「が」is also used to start a sentence when preparing to ask or request something from someone. <br>For example: しつれいですが、おなまえは？ (Excuse me, what is your name?) <br>すみませんが、塩を 取って ください。(Excuse me, please get me the salt.)\n",
+      "examples": [
+        {
+          "content": "日本料理は 美味しいですが、高いです。",
+          "transcription": "にっぽんりょうりはおいしいですが、たかいです。",
+          "mean": "Japanese food is delicious, but expensive."
+        },
+        {
+          "content": "毎日日本語を勉強しているが、上手になりません。",
+          "transcription": "まいにちにほんごをべんきょうしているが、じょうずになりません。",
+          "mean": "I'm studying Japanese every day, but I'm not getting any better."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Formal form/honorific form + が"
+    }
+  ],
+  "title": "が  => but",
+  "_id": "93020c54469e582d6fdb16f7ba5e88b2"
+}

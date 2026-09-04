@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 5617,
+  "usages": [
+    {
+      "explain": "「ないでください」 is used to request that someone not do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は元気ですから、心配しないでください。",
+          "transcription": "わたしはげんきですから、しんぱいしないでください。",
+          "mean": "I'm fine, so don't worry."
+        },
+        {
+          "content": "ここで写真を撮らないでください。",
+          "transcription": "ここでしゃしんをとらないでください。",
+          "mean": "Please don't take pictures here."
+        },
+        {
+          "content": "ここでゴミを捨てないでください。",
+          "transcription": "ここでゴミをすてないでください。",
+          "mean": "Please don't throw trash here."
+        },
+        {
+          "content": "コンピューターの電源を切らないでください。",
+          "transcription": "コンピューターのでんげんをきらないでください。",
+          "mean": "Do not turn off your computer."
+        },
+        {
+          "content": "私を忘れないでください。",
+          "transcription": "わたしをわすれないでください。",
+          "mean": "don't forget me."
+        },
+        {
+          "content": "ここは図書館ですから、大きな声で話さないでください。",
+          "transcription": "ここはとしょかんですから、おおきなこえではなさないでください。",
+          "mean": "This is a library, so please don't speak loudly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vないで+ください"
+    }
+  ],
+  "title": "ないでください => please don't do",
+  "_id": "7e5dbcb630ac4220acb17e334b576f31"
+}

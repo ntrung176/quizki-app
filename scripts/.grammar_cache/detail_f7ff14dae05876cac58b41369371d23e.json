@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1409,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"having the obligation to do something.\" In spoken language, it can become 「なく(っ)ちゃ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今度の試合は絶対に勝たなくてはいけない。",
+          "transcription": "こんどのしあいはぜったいにかたなくてはいけない。",
+          "mean": "We absolutely must win this match."
+        },
+        {
+          "content": "学生は必ず宿題をしなくてはいけません。<br style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\">",
+          "transcription": "がくせいはかならずしゅくだいをしなくてはいけません。",
+          "mean": "Students must always do their homework. &lt;br style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\"&gt;"
+        },
+        {
+          "content": "私はいつも５時に仕事が終わるが、今日は残業をしなくてはいけない。<br style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\">",
+          "transcription": "わたしはいつもごじにしごとがおわるが、きょうはざんぎょうをしなくてはいけない。",
+          "mean": "I usually finish work at 5 o'clock, but I have to work overtime today. &lt;br style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\"&gt;"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N・Na + でなくてはいけない\nA + くなくてはいけない\nV + なくてはいけない"
+    }
+  ],
+  "title": "なくてはいけない => must do; need to do",
+  "_id": "f7ff14dae05876cac58b41369371d23e"
+}

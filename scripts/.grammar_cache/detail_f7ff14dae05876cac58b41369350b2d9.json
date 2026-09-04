@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1166,
+  "usages": [
+    {
+      "explain": "Followed by a verb expressing a volitional act. This expression conveys a high degree of determination, to carry out an action despite encountering difficulties or facing opposition.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はあくまでもこの約束を守るつもりだ。",
+          "transcription": "わたしはあくまでもこのやくそくをまもるつもりだ。",
+          "mean": "I intend to keep this promise to the last."
+        },
+        {
+          "content": "彼があくまで断ったので、他の人を探さなければならなくなった。",
+          "transcription": "かれがあくまでことわったので、たのひとをさがさなければならなくなった。",
+          "mean": "He flatly refused, so I had to find someone else."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あくまで (も)"
+    }
+  ],
+  "title": "あくまで (も) => determined, resolute, and persistent",
+  "_id": "f7ff14dae05876cac58b41369350b2d9"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2524,
+  "usages": [
+    {
+      "explain": "This way of speaking is synonymous with 「...ということは...（ということ）だ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "桜さんが「ちょっと待ってね」というのは一時間も待つということだ。",
+          "transcription": "さくらさんが「ちょっとまってね」というのはいちじかんもまつということだ。",
+          "mean": "When Sakura-san says, ``Wait a minute,'' she means waiting for an hour."
+        },
+        {
+          "content": "美というのは、見る人の目の中でのことだ。",
+          "transcription": "びというのは、みるひとのめのなかでのことだ。",
+          "mean": "Beauty is in the eye of the beholder."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～というのは"
+    }
+  ],
+  "title": "... というのは => It means...",
+  "_id": "f2d618ceb0702f781ec83b7d4f0c86bc"
+}

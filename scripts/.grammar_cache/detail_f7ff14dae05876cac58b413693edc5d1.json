@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2295,
+  "usages": [
+    {
+      "explain": "It's used to convey the meaning that if a certain action is not taken, an undesirable outcome will result. This usage is frequent in situations where someone is urging another person to do something or offering advice that it would be better to act in a particular way.",
+      "note": null,
+      "examples": [
+        {
+          "content": "早く走らないと約束の時間に遅れる。",
+          "transcription": "はやくはしらないとやくそくのじかんにおくれる。",
+          "mean": "If you don't run quickly, you'll be late for your appointment."
+        },
+        {
+          "content": "制服を着ないと叱られる。",
+          "transcription": "せいふくをきないとしかられる。",
+          "mean": "If you don't wear a uniform, you will be scolded."
+        },
+        {
+          "content": "注意深く運転しないと事故が起こるよ。",
+          "transcription": "ちゅういぶかくうんてんしないとじこがおこるよ。",
+          "mean": "If you don't drive carefully, an accident will occur."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ないと <br/>A-くないと<br/>Na・N でないと <br/>"
+    }
+  ],
+  "title": "ないと => Better..., lest...",
+  "_id": "f7ff14dae05876cac58b413693edc5d1"
+}

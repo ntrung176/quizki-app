@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2495,
+  "usages": [
+    {
+      "explain": "「...んだが」 serves to start a story that the speaker wants to present. The part that follows is usually a request or permission. The particle「が」in this case is used to connect the clauses of the sentence. It signifies the hesitant, indecisive attitude of the speaker but does not mean \"but\". The polite form of 「...んだが」 is 「...んですが」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "作文ができたんですが、先生はちょっと見ていただけませんか。",
+          "transcription": "さくぶんができたんですが、せんせいはちょっとみていただけませんか。",
+          "mean": "I have finished my essay, but my teacher would like to take a look at it."
+        },
+        {
+          "content": "自転車を買いたいんですが、どこで買ったらいいですか。",
+          "transcription": "じてんしゃをかいたいんですが、どこでかったらいいですか。",
+          "mean": "I want to buy a bicycle, where should I buy it?"
+        },
+        {
+          "content": "お湯が出ないんですが…。",
+          "transcription": "おゆがでないんですが…。",
+          "mean": "There's no hot water..."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んだか"
+    },
+    {
+      "explain": "Note: In the following case, when the situation in the subsequent clause 「～んだが」 is clear to both the speaker and the listener, this clause is often omitted.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "んだが => Start the story",
+  "_id": "f2d618ceb0702f781ec83b7d4f082814"
+}

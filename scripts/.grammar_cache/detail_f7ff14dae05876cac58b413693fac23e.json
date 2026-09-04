@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2392,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"unable to easily do something for a certain reason.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "子供を産んだばかりの母犬にはおいそれとは近づけない。",
+          "transcription": "こどもをうんだばかりのははけんにはおいそれとはちかづけない。",
+          "mean": "Do not approach a mother dog that has just given birth to a baby."
+        },
+        {
+          "content": "これはおいそれと決められるようなことではなかった。",
+          "transcription": "これはおいそれときめられるようなことではなかった。",
+          "mean": "This was not something that could be decided on a whim."
+        }
+      ],
+      "mean": null,
+      "synopsis": "おいそれと + (は) + Vれない"
+    }
+  ],
+  "title": "おいそれと（は）…ない => Not easy, hard to",
+  "_id": "f7ff14dae05876cac58b413693fac23e"
+}

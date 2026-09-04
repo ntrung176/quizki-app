@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1425,
+  "usages": [
+    {
+      "explain": "Often used in the past tense to emphasize that something was not done. Only used with a limited number of verbs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の絵が　賞をもらうなんて考えてもみなかった。",
+          "transcription": "わたしのえが　しょうをもらうなんてかんがえてもみなかった。",
+          "mean": "I never thought that my painting would receive an award."
+        },
+        {
+          "content": "彼と付き合うことになるとは思ってもみなかった。",
+          "transcription": "かれとつきあうことになるとはおもってもみなかった。",
+          "mean": "I never thought I'd end up dating him."
+        },
+        {
+          "content": "小学校の友達にもう一度会えるなんて思ってもみなかった。",
+          "transcription": "しょうがっこうのともだちにもういちどあえるなんておもってもみなかった。",
+          "mean": "I never thought I would see my elementary school friends again."
+        },
+        {
+          "content": "始める前は、こんなに難しい日本語だとは思ってもみなかった。",
+          "transcription": "はじめるまえは、こんなにむずかしいにほんごだとはおもってもみなかった。",
+          "mean": "Before I started, I had no idea that Japanese was so difficult."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-てもみない"
+    }
+  ],
+  "title": "てもみない => one has never thought...",
+  "_id": "f7ff14dae05876cac58b4136937481da"
+}

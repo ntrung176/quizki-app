@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2629,
+  "usages": [
+    {
+      "explain": "This is a polite and idiomatic way of speaking, used when making requests, giving advice, or suggesting to the listener. It expresses concern for the other person's situation or feelings, meaning \"this does not go against your circumstances and intentions\", \"if you are not free or interested, there is no need to respond to that\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "もしそう言って差し支えなければあなたは服を着替えた方がいいと思います。",
+          "transcription": "もしそういってさしつかえなければあなたはふくをきがえたほうがいいとおもいます。",
+          "mean": "If you don't mind saying that, I think you should change your clothes."
+        },
+        {
+          "content": "もしよろしければそれを私に教えてもらえませんか。",
+          "transcription": "もしよろしければそれをわたしにおしえてもらえませんか。",
+          "mean": "If you don't mind, could you tell me that?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば ＋ ask for help/advice"
+    }
+  ],
+  "title": "…. ば .... => If... then please...",
+  "_id": "f2d618ceb0702f781ec83b7d4f1ad6cd"
+}

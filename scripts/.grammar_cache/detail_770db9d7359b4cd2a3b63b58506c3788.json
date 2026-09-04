@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5112,
+  "usages": [
+    {
+      "explain": "「だって」is used to express reasons or causes, often for the purpose of explanation or justification. It is commonly used in casual daily conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『何を怒ってるの？』『だって、約束を破ったじゃないか。』",
+          "transcription": "『なにをおこってるの？』『だって、やくそくをやぶったじゃないか。』",
+          "mean": "“What are you angry about? ``Because you broke your promise.'' ”"
+        },
+        {
+          "content": "『いつまで寝てるの。早く起きなさい。』『だって眠いんだもん。』",
+          "transcription": "『いつまでねてるの。はやくおきなさい。』『だってねむいんだもん。』",
+          "mean": "``How long will you sleep? Wake up early. ``Because I'm sleepy.'' ”"
+        },
+        {
+          "content": "『テストの点、良かったんだって？』『うん、だってやさしかったんだもん。』",
+          "transcription": "『テストのてん、よかったんだって？』『うん、だってやさしかったんだもん。』",
+          "mean": "``Did you do well on the test?'' ``You were kind, after all, Cloud. ”"
+        },
+        {
+          "content": "『なんで今寝るの？』『だって、時差が12時間もあるんだもん。眠くて当たり前よ。』",
+          "transcription": "『なんでいまねるの？』『だって、じさがじゅうにじかんもあるんだもん。ねむくてあたりまえよ。』",
+          "mean": "“Why are you sleeping now? ``Because there's a 12-hour time difference. It's normal to be sleepy. ”"
+        },
+        {
+          "content": "『どうして彼女と踊れないの？』『だって、あなたのガールフレンドは私よ！』",
+          "transcription": "『どうしてかのじょとおどれないの？』『だって、あなたのガールフレンドはわたしよ！』",
+          "mean": "“Why can’t I dance with her? ” “Because I’m your girlfriend!” ”"
+        },
+        {
+          "content": "『ええ、あなたは全部食べれるの？』『そうです。だって、お腹が空いたんだもん。』",
+          "transcription": "『ええ、あなたはぜんぶたべれるの？』『そうです。だって、おなかがすいたんだもん。』",
+          "mean": "“Yeah, can you eat it all? \"\"that's right. Because I'm hungry. ”"
+        },
+        {
+          "content": "春が好きだな、だって新しい物事を始める季節だから。例えば、新しい学年の始まりだよね。桜の花も見られる。",
+          "transcription": "はるがすきだな、だってあたらしいものごとをはじめるきせつだから。たとえば、あたらしいがくねんのはじまりだよね。さくらのはなもみられる。",
+          "mean": "I love spring because it's the season to start new things. For example, it's the start of a new school year. You can also see cherry blossoms."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。だって、 B"
+    }
+  ],
+  "title": "だって => because; but; after all; even; too",
+  "_id": "770db9d7359b4cd2a3b63b58506c3788"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2515,
+  "usages": [
+    {
+      "explain": "Expresses the relationship between space and time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "駅の前に大きなホテルが建った。",
+          "transcription": "えきのまえにおおきなほてるがたった。",
+          "mean": "A large hotel was built in front of the station."
+        },
+        {
+          "content": "食事の前には手を洗うべきです。",
+          "transcription": "しょくじのまえにはてをあらうべきです。",
+          "mean": "You should wash your hands before each meal."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + 前に"
+    }
+  ],
+  "title": "... 前に => ... in front of, before",
+  "_id": "f2d618ceb0702f781ec83b7d4f0b4b4d"
+}

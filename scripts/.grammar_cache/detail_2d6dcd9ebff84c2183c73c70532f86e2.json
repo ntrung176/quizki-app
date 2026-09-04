@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 5252,
+  "usages": [
+    {
+      "explain": "「それなら(ば)」is used to express the speaker's opinion or conclusion based on the content that the interlocutor has just mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『道がすごく渋滞しているようだよ。』『それなら、電車で行こう。』",
+          "transcription": "『みちがすごくじゅうたいしているようだよ。』『それなら、でんしゃでいこう。』",
+          "mean": "``The road seems to be very congested. ``In that case, let's go by train.'' ”"
+        },
+        {
+          "content": "『今、それ、やりたくない。』『それならば、やらなくていいよ。』",
+          "transcription": "『いま、それ、やりたくない。』『それならば、やらなくていいよ。』",
+          "mean": "“I don’t want to do that right now. ” “Then you don’t have to do it. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "それなら(ば) ～"
+    }
+  ],
+  "title": "それなら(ば) => if that’s the case; if so ~",
+  "_id": "2d6dcd9ebff84c2183c73c70532f86e2"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1154,
+  "usages": [
+    {
+      "explain": "Expressing the meaning \"will do to the extent corresponding to that situation, state\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "復習期間はわずか二週間でしたが、暗記するだけのことはしたつもりです。",
+          "transcription": "ふくしゅうきかんはわずかにしゅうかんでしたが、あんきするだけのことはしたつもりです。",
+          "mean": "The review period was only two weeks, but I thought I did just enough to memorize it."
+        },
+        {
+          "content": "出来るだけのことはしますが、今日中に直し上げるのは難しいと思います。",
+          "transcription": "できるだけのことはしますが、きょうちゅうになおしあげるのはむずかしいとおもいます。",
+          "mean": "I'll do what I can, but I don't think it will be possible to fix it today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る／V-た + だけのことはする"
+    }
+  ],
+  "title": "... だけのことはする => no wonder; as expected of; not … for nothing; not … with nothing to show for it",
+  "_id": "f7ff14dae05876cac58b4136934f03ff"
+}

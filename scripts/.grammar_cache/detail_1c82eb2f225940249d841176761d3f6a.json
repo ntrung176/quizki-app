@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5354,
+  "usages": [
+    {
+      "explain": "「っけ」is often used in conversations, placed at the end of a declarative sentence to:\n<br/>1. Confirm or remind oneself or others about something not remembered clearly.\n<br/>2. Express nostalgia or reminiscence about something.\n<br/>「っけ」can also be used with a question word to ask a question, aiming to inquire about certain information from oneself or others.\n<br/>「っけ」can also be used in polite/formal language, and can be used when speaking to teachers, senior colleagues in a company, etc.\n<br/>Information about the present or future can also be expressed in the past tense when combined with 「っけ」, with the meaning remaining the same.",
+      "note": null,
+      "examples": [
+        {
+          "content": "国へ帰るのは、来週だったっけ。",
+          "transcription": "くにへかえるのは、らいしゅうだったっけ。",
+          "mean": "I think I'm going back to my country next week."
+        },
+        {
+          "content": "明日のパーティーのこと、話したっけ。",
+          "transcription": "あしたのパーティーのこと、はなしたっけ。",
+          "mean": "Did we talk about the party tomorrow?"
+        },
+        {
+          "content": "いくらだったっけ。",
+          "transcription": "いくらだったっけ。",
+          "mean": "How much was it?"
+        },
+        {
+          "content": "彼が何か言ったっけ。",
+          "transcription": "かれがなにかいったっけ。",
+          "mean": "Did he say something?"
+        },
+        {
+          "content": "自己紹介したっけ。",
+          "transcription": "じこしょうかいしたっけ。",
+          "mean": "Did you introduce yourself?"
+        },
+        {
+          "content": "今日は火曜日だっけ。",
+          "transcription": "きょうはかようびだっけ。",
+          "mean": "Today is Tuesday."
+        },
+        {
+          "content": "あの人って、マイケルさんだっけ。",
+          "transcription": "あのひとって、マイケルさんだっけ。",
+          "mean": "That person is Michael."
+        },
+        {
+          "content": "あれっ、今日山田さんの誕生日じゃなかったっけ。",
+          "transcription": "あれっ、きょうやまださんのたんじょうびじゃなかったっけ。",
+          "mean": "Oh, wasn't it Yamada-san's birthday today?"
+        },
+        {
+          "content": "明日の会議はどこであるんですっけ。",
+          "transcription": "あしたのかいぎはどこであるんですっけ。",
+          "mean": "Where is the meeting tomorrow?"
+        },
+        {
+          "content": "このお店はクレジットカード使えましたっけ。",
+          "transcription": "このおみせはクレジットカードつかえましたっけ。",
+          "mean": "Did you use credit cards at this store?"
+        },
+        {
+          "content": "昔はよくここで二人で遊んだっけ。",
+          "transcription": "むかしはよくここでふたりであそんだっけ。",
+          "mean": "We used to play here together a lot."
+        },
+        {
+          "content": "このカメラは、13年前にお父さんにもらったんだっけ。",
+          "transcription": "このカメラは、じゅうさんねんまえにおとうさんにもらったんだっけ。",
+          "mean": "I think my father gave me this camera 13 years ago."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V(formal form)+っけ<br/> Aい(formal form)+っけ<br/>Aな(formal form)+っけ<br/> N(formal form)+っけ<br/>疑問詞+っけ"
+    }
+  ],
+  "title": "っけ => Huh (a casual suffix to confirm something you are trying to remember)",
+  "_id": "1c82eb2f225940249d841176761d3f6a"
+}

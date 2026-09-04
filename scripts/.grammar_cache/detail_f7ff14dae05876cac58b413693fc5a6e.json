@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2196,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"because it's already decided, therefore...\" Typically followed by expressions indicating will or invitations from the speaker. <br/>In spoken language, \"どうせだから\" is often used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうせのことだから、空港まで送りします。",
+          "transcription": "どうせのことだから、くうこうまでおくりします。",
+          "mean": "Anyway, I'll take you to the airport."
+        },
+        {
+          "content": "列車も来ないみたいだし、どうせだからコーヒーでも飲まない。",
+          "transcription": "れっしゃもこないみたいだし、どうせだからこーひーでものまない。",
+          "mean": "It seems like the train isn't coming, so I don't even drink coffee anyway."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうせ (のこと) だから"
+    }
+  ],
+  "title": "どうせ (のこと) だから => Because eventually have to ...",
+  "_id": "f7ff14dae05876cac58b413693fc5a6e"
+}

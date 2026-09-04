@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2885,
+  "usages": [
+    {
+      "explain": "It is used to describe someone recalling something that happened in the past. It is used when, for some reason, that matter is considered relevant to the present.",
+      "note": null,
+      "examples": [
+        {
+          "content": "聞いてみると、彼は二週間前に退学していることが分かった。",
+          "transcription": "きいてみると、かれはにしゅうかんまえにたいがくしていることがわかった。",
+          "mean": "When I asked him about it, I found out that he had dropped out of school two weeks ago."
+        },
+        {
+          "content": "歴史から見ると、フランスはワールドカップで優勝している。",
+          "transcription": "れきしからみると、ふらんすはわーるどかっぷでゆうしょうしている。",
+          "mean": "Historically, France has won the World Cup."
+        },
+        {
+          "content": "日本にはもう二度出張している。",
+          "transcription": "にっぽんにはもうにどしゅっちょうしている。",
+          "mean": "I have already traveled to Japan twice."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ている"
+    }
+  ],
+  "title": "ている => Used to...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3b4891"
+}

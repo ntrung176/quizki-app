@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1777,
+  "usages": [
+    {
+      "explain": "A way of expressing that the level will increase compared to now. It tends towards writing but can also be used in refined speech.  When used with a quantity, it means 「そのうえに」. It can also be used instead of 「もっと」. However, 「もっと」 tends to be more conversational.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "褒め言葉は善人をさらに善く、悪人をさらに悪くする。",
+          "transcription": "ほめことばはぜんにんをさらによく、あくにんをさらにわるくする。",
+          "mean": "Compliments make good people better and bad people worse."
+        },
+        {
+          "content": "このままでも十分おいしいのだが、もう少し砂糖を入れるとさらにおいしくなる。",
+          "transcription": "このままでもじゅうぶんおいしいのだが、もうすこしさとうをいれるとさらにおいしくなる。",
+          "mean": "It's delicious as is, but adding a little more sugar makes it even better."
+        },
+        {
+          "content": "途中の小屋まで三時間、それから頂上まではさらに三十分かかった。",
+          "transcription": "とちゅうのこやまでさんじかん、それからちょうじょうまではさらにさんじっぷんかかった。",
+          "mean": "It took three hours to get to the hut along the way, and another thirty minutes to get to the top."
+        },
+        {
+          "content": "さらに五人が参加して、会員は全部で二十人になった。",
+          "transcription": "さらにごにんがさんかして、かいいんはぜんぶでにじゅうにんになった。",
+          "mean": "Five more people joined, bringing the total number of members to twenty."
+        }
+      ],
+      "mean": null,
+      "synopsis": "さらに + Na／A／V\nさらに＋Quantity word"
+    }
+  ],
+  "title": "さらに => furthermore; again; more and more ~",
+  "_id": "f7ff14dae05876cac58b413693a57860"
+}

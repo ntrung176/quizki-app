@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 915,
+  "usages": [
+    {
+      "explain": "✦Comes after a complete sentence and expresses the meaning \"that very thing is the cause of...\", \"moving forward, ...\". <br/>✦The latter part expresses a broader idea.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今回の事件は、一社員の不祥事であるばかりでなく、ひいては会社全体の信用をも失墜させる大きな問題であると言うことができる。",
+          "transcription": "こんかいのじけんは、いちしゃいんのふしょうじであるばかりでなく、ひいてはかいしゃぜんたいのしんようをもしっついさせるおおきなもんだいであるということができる。",
+          "mean": "This incident can be said to be not only a scandal involving one employee, but also a major problem that will damage the credibility of the company as a whole."
+        },
+        {
+          "content": "無謀な森林の伐採は森に住む小動物の命を奪うだけでなく、ひいては地球的規模の自然破壊につながるものである。",
+          "transcription": "むぼうなしんりんのばっさいはもりにすむしょうどうぶつのいのちをうばうだけでなく、ひいてはちきゅうてききぼのしぜんはかいにつながるものである。",
+          "mean": "Reckless deforestation not only takes the lives of small animals living in the forest, but also leads to the destruction of nature on a global scale."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～ひいては => by extension",
+  "_id": "f7ff14dae05876cac58b4136932ec619"
+}

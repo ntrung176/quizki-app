@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1673,
+  "usages": [
+    {
+      "explain": "Expresses the action of the speaker or someone associated with the speaker doing something for someone else. Often used when the recipient of the action is either superior or equal to the speaker but not close to them.",
+      "note": null,
+      "examples": [
+        {
+          "content": "社長にこのシャツを買ってさし上げました。",
+          "transcription": "しゃちょうにこのしゃつをかってさしあげました。",
+          "mean": "I bought this shirt and gave it to my president."
+        },
+        {
+          "content": "部長にパソコンを直してさし上げました。",
+          "transcription": "ぶちょうにぱそこんをなおしてさしあげました。",
+          "mean": "I fixed the computer and gave it to the manager."
+        },
+        {
+          "content": "日本人の先生にベトナム語の歌を教えてさし上げました。",
+          "transcription": "せんせいにべとなむごのうたをおしえてさしあげました。",
+          "mean": "I taught a Japanese teacher a Vietnamese song."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + さしあげる"
+    }
+  ],
+  "title": "てさしあげる => to do something for somebody",
+  "_id": "f7ff14dae05876cac58b413693962e7d"
+}

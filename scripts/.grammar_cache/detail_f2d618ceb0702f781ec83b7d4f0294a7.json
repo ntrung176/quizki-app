@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2452,
+  "usages": [
+    {
+      "explain": "This phrase describes that a situation will change into the state mentioned earlier. Since it implies this is the change to the final stage, it's not natural to use it with words that are hard to define as a final stage, such as \"にぎやか\" (lively), \"病気\" (sick), \"元気\" (healthy).<br/><br/>\nAll cases using 「....となる」can be changed to 「...になる」, but not every usage of 「になる」 can be changed to 「となる」.<br/><br/>\n\nX　にぎやかとなった。<br/>\nO　にぎやかになった。 Became lively.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの子はまだ１５歳なのに、もうすぐ一児の母となります。",
+          "transcription": "あのこはまだいちごさいなのに、もうすぐいちじのははとなります。",
+          "mean": "Although she is only 15 years old, she will soon become a mother of a child."
+        },
+        {
+          "content": "村人は次々に村を出て行き、ついにそこは無人村となった。",
+          "transcription": "むらびとはつぎつぎにむらをでていき、ついにそこはむじんむらとなった。",
+          "mean": "The villagers left the village one after another, and finally the village became deserted."
+        },
+        {
+          "content": "彼らはやっと日本の国民となった。",
+          "transcription": "かれらはやっとにっぽんのこくみんとなった。",
+          "mean": "They finally became Japanese citizens."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Na + となる"
+    }
+  ],
+  "title": "となる => become, to turn into",
+  "_id": "f2d618ceb0702f781ec83b7d4f0294a7"
+}

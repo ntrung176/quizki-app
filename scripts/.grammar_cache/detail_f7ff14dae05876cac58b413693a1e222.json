@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1755,
+  "usages": [
+    {
+      "explain": "Used to state or comment on a relationship with a person or thing, often used when quoting others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はあの子を娘だと言った。",
+          "transcription": "かれはあのこをむすめだといった。",
+          "mean": "He said that the child was his daughter."
+        },
+        {
+          "content": "先生は私のアイデアを面白いと言った。",
+          "transcription": "せんせいはわたしのあいであをおもしろいといった。",
+          "mean": "The teacher said my idea was interesting."
+        },
+        {
+          "content": "彼女は私を馬鹿だと言った。",
+          "transcription": "かのじょはわたしをばかだといった。",
+          "mean": "She called me an idiot."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N を…という"
+    }
+  ],
+  "title": "を…という => to be called, said, named",
+  "_id": "f7ff14dae05876cac58b413693a1e222"
+}

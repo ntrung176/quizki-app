@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 768,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"for something as small as this\". Used when wanting to express \"there's no need to..., shouldn't be concerned about that\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "たかが風邪ぐらいで学校を休まなくてもよい。",
+          "transcription": "たかがかぜぐらいでがっこうをやすまなくてもよい。",
+          "mean": "You don't have to miss school just because you have a cold."
+        },
+        {
+          "content": "たかが試験に失敗したぐらいでくよくよすることはない。",
+          "transcription": "たかがしけんにしっぱいしたぐらいでくよくよすることはない。",
+          "mean": "Don't worry about just failing an exam."
+        },
+        {
+          "content": "たかが旅さきの安いおみやげ ぐらいで、そんなにお礼をいっていただくと困ります。",
+          "transcription": "たかがたびさきのやすいおみやげぐらいで、そんなにおれいをいっていただくとこまります。",
+          "mean": "It would be a problem if I received so many thanks for just a cheap souvenir from a trip."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦たかが + N／A／V + ぐらいで </div><div>✦たかが + N／Na な + ぐらいで</div>"
+    }
+  ],
+  "title": "たかが...ぐらいで => Just because... otherwise..., it's just... that's all",
+  "_id": "f7ff14dae05876cac58b4136931a8285"
+}

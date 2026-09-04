@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 413,
+  "usages": [
+    {
+      "explain": "Describes the meaning \"Whenever/As long as one does something, it's always...\"",
+      "note": "<br><br>",
+      "examples": [
+        {
+          "content": "この写真を見るにつけ、小学校のころを思い出す。",
+          "transcription": "このしゃしんをみるにつけ、しょうがっこうのころをおもいだす。",
+          "mean": "When I look at this photo, it reminds me of my elementary school days."
+        },
+        {
+          "content": "その曲を聞くにつけ、故郷を思い出す。",
+          "transcription": "そのきょくをきくにつけ、こきょうをおもいだす。",
+          "mean": "Whenever I hear that song, it reminds me of my hometown."
+        },
+        {
+          "content": "何かにつけ、彼女は私のことについて悪口を言います。",
+          "transcription": "なにかにつけ、かのじょはわたしのことについてわるぐちをいいます。",
+          "mean": "She always says bad things about me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる + につけ <br/>N + につけ<br/>"
+    }
+  ],
+  "title": "につけ => every time; whenever; as; whether; in (either case)​",
+  "_id": "93020c54469e582d6fdb16f7ba558c6b"
+}

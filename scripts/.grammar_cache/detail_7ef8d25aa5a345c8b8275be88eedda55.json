@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5392,
+  "usages": [
+    {
+      "explain": "「に代わって」 is used to express the idea of \"in place of\" someone or something, or to substitute or take the place of something/someone.<br/>\n「に代わり」is used in formal writing or speech.",
+      "note": null,
+      "examples": [
+        {
+          "content": "出張中の部長に代わって、私がご挨拶させていただきます。",
+          "transcription": "しゅっちょうちゅうのぶちょうにかわって、わたしがごあいさつさせていただきます。",
+          "mean": "I would like to say hello on behalf of the general manager who is on a business trip."
+        },
+        {
+          "content": "社長に代わって、客を迎えます。",
+          "transcription": "しゃちょうにかわって、きゃくをむかえます。",
+          "mean": "Greet customers on behalf of the president."
+        },
+        {
+          "content": "父に代わって、一言お礼申し上げます。",
+          "transcription": "ちちにかわって、ひとことおれいもうしあげます。",
+          "mean": "On behalf of my father, I would like to express my gratitude."
+        },
+        {
+          "content": "ビデオに代わり、DVDが使われるようになった。",
+          "transcription": "ビデオにかわり、ディビディがつかわれるようになった。",
+          "mean": "DVDs began to be used instead of videos."
+        },
+        {
+          "content": "野球に代わり、サッカーが盛んになってきた。",
+          "transcription": "やきゅうにかわり、サッカーがさかんになってきた。",
+          "mean": "Soccer has become popular, replacing baseball."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に代わって<br/> N+に代わり"
+    }
+  ],
+  "title": "に代わって => instead of; replacing; on behalf of ~",
+  "_id": "7ef8d25aa5a345c8b8275be88eedda55"
+}

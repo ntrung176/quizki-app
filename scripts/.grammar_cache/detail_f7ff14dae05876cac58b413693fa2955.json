@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2388,
+  "usages": [
+    {
+      "explain": "Indicates the meaning of \"ending there,\" \"there is nothing left afterwards.\" Used with [...すれば], [...したら], followed by expressions typically meaning \"at this moment, it's better to do something, otherwise there will be nothing left later.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "いくらお金を貯めても、死んでしまえばそれまでだから、生きているうちに楽しんだ方がいい。",
+          "transcription": "いくらおかねをためても、しんでしまえばそれまでだから、いきているうちにたのしんだほうがいい。",
+          "mean": "No matter how much money you save, it's all over once you die, so it's better to enjoy it while you're still alive."
+        },
+        {
+          "content": "おいしい料理でも店が不潔であればそれまでだ。客は二度と来ない。",
+          "transcription": "おいしいりょうりでもみせがふけつであればそれまでだ。きゃくはにどとこない。",
+          "mean": "Even if the food is delicious, if the restaurant is unclean, then that's it. Customers never come again."
+        },
+        {
+          "content": "いくら性能がよい機械でも使いこなせなければそれまでだ。",
+          "transcription": "いくらせいのうがよいきかいでもつかいこなせなければそれまでだ。",
+          "mean": "No matter how good a machine is, if you can't use it properly, it's worth it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それまでだ～"
+    }
+  ],
+  "title": "それまでだ => If… then it's over",
+  "_id": "f7ff14dae05876cac58b413693fa2955"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2433,
+  "usages": [
+    {
+      "explain": "These are used to suggest examples of something with the implication that there are many other options available.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は暑いから、ざるそうめんでも食べたらいいですか。",
+          "transcription": "きょうはあついから、ざるそうめんでもたべたらいいですか。",
+          "mean": "It's hot today, so can I have some zaru somen?"
+        },
+        {
+          "content": "お見舞いに花でも買っていきましょう。",
+          "transcription": "おみまいにはなでもかっていきましょう。",
+          "mean": "Let's buy some flowers as a token of sympathy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (+ particle) + でも"
+    }
+  ],
+  "title": "でも => … or something; how about~",
+  "_id": "f2d618ceb0702f781ec83b7d4f0028eb"
+}

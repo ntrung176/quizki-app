@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2775,
+  "usages": [
+    {
+      "explain": "This is a polite language used in conversations. The meaning of \"a little\" is diminished, indicating \"to a slight extent\". Used when the speaker refers to their own actions or when relying on others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょっと時間がありますか。",
+          "transcription": "ちょっとじかんがありますか。",
+          "mean": "Do you have a moment?"
+        },
+        {
+          "content": "ちょっとおたずねしますが、この辺に上田さんというお宅はありませんか。",
+          "transcription": "ちょっとおたずねしますが、このあたりにうえださんというおたくはありませんか。",
+          "mean": "I have a question to ask, but is there a house called Mr. Ueda around here?"
+        },
+        {
+          "content": "ちょっとお願いしていもいいですか。",
+          "transcription": "ちょっとおねがいしていもいいですか。",
+          "mean": "May I ask you a favor?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "In conversations, 'ちょっと' is a versatile expression."
+    }
+  ],
+  "title": "ちょっと => A little (Slightly reduced)",
+  "_id": "f2d618ceb0702f781ec83b7d4f2d4c6b"
+}

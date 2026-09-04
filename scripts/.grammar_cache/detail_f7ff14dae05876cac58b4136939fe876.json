@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1742,
+  "usages": [
+    {
+      "explain": "Used to attract the attention of others. Not just a simple call, but depending on the tone, it can express reproach, threat, plea...",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょっと、そこのおくさん、ハンカチ落としましたよ。",
+          "transcription": "ちょっと、そこのおくさん、はんかちおとしましたよ。",
+          "mean": "Hey, that guy over there dropped his handkerchief."
+        },
+        {
+          "content": "ちょっと、これは何ですか。うどんの中にハエが入ってるじゃないの。",
+          "transcription": "ちょっと、これはなにですか。うどんのなかにはえがはいってるじゃないの。",
+          "mean": "Hey, what is this? There's a fly inside the udon noodles."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ちょっと"
+    }
+  ],
+  "title": "ちょっと => Hey (call someone)",
+  "_id": "f7ff14dae05876cac58b4136939fe876"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2417,
+  "usages": [
+    {
+      "explain": "Conveys the meaning that \"the content is unclear.\" This is a familiar way of saying [なんと].",
+      "note": null,
+      "examples": [
+        {
+          "content": "うるさくてよく聞こえないのですが、山田さんはなんて言っているのですか。",
+          "transcription": "うるさくてよくきこえないのですが、やまださんはなんていっているのですか。",
+          "mean": "It's so loud that I can't hear you very well. What is Mr. Yamada saying?"
+        },
+        {
+          "content": "この秘密を知ったら、彼女は何て思うかしら。",
+          "transcription": "このひみつをしったら、かのじょはなにておもうかしら。",
+          "mean": "I wonder what she would think if she knew this secret."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんて + V"
+    }
+  ],
+  "title": "なんて... => give examples; things like; something like",
+  "_id": "f7ff14dae05876cac58b413693fdce28"
+}

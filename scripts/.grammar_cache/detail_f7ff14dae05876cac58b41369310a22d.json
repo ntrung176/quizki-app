@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 695,
+  "usages": [
+    {
+      "explain": "✦This is a slightly old-fashioned way of saying [かりにも].",
+      "note": null,
+      "examples": [
+        {
+          "content": "かりそめにもそのような恐ろしいことを口にしてはならない。",
+          "transcription": "かりそめにもそのようなおそろしいことをくちにしてはならない。",
+          "mean": "Don't even say such horrible things even at the end of the day."
+        },
+        {
+          "content": "かりそめにも一域の主たる方が、こんなところにお泊まりになるはずがない。",
+          "transcription": "かりそめにもいちいきのしゅたるほうが、こんなところにおとまりになるはずがない。",
+          "mean": "There's no way the head of the area would stay overnight in a place like this."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "かりそめにも => Whatever it is..., do not....",
+  "_id": "f7ff14dae05876cac58b41369310a22d"
+}

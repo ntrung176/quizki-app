@@ -1,0 +1,38 @@
+{
+  "level": "N2",
+  "mobileId": 1553,
+  "usages": [
+    {
+      "explain": "Expresses surprise or irritation by repeating what the other person said. Also used to express discomfort. Pronounced with a rising intonation at the end of the word.",
+      "note": null,
+      "examples": [
+        {
+          "content": "泥棒だって。違うよ。テレビからの音だけだ。",
+          "transcription": "どろぼうだって。ちがうよ。てれびからのおとだけだ。",
+          "mean": "Even a thief. No. Only the sound from the TV."
+        },
+        {
+          "content": "韓国人だって。絶対に日本人だ。",
+          "transcription": "かんこくじんだって。ぜったいににっぽんじんだ。",
+          "mean": "Even Koreans. Definitely Japanese."
+        },
+        {
+          "content": "つまらなかっただって。",
+          "transcription": "つまらなかっただって。",
+          "mean": "It was boring."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～だって"
+    },
+    {
+      "explain": "Note: This is an informal expression used in spoken language, only used with close acquaintances. The polite form is ...「ですって」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…だって => Annoyance, Exasperation",
+  "_id": "f7ff14dae05876cac58b413693878911"
+}

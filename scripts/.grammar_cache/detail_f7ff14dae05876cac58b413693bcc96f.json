@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1948,
+  "usages": [
+    {
+      "explain": "Used to convey information heard from another source. Slightly more formal than「そうだ」and commonly used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この辺りは昔、広い野原だったという。",
+          "transcription": "このあたりはむかし、ひろいのはらだったという。",
+          "mean": "It is said that this area used to be a wide field."
+        },
+        {
+          "content": "この祭りは村で古くから行われてきたという。",
+          "transcription": "このまつりはむらでふるくからおこなわれてきたという。",
+          "mean": "This festival is said to have been held in the village since ancient times."
+        },
+        {
+          "content": "豆腐は１３００年ぐらい前に中国から日本に伝わったという。",
+          "transcription": "とうふはいちさんぜろぜろねんぐらいまえにちゅうごくからにっぽんにつたわったという。",
+          "mean": "It is said that tofu was introduced to Japan from China about 1,300 years ago."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naだ・Nだ + という"
+    }
+  ],
+  "title": "という => Heard that...",
+  "_id": "f7ff14dae05876cac58b413693bcc96f"
+}

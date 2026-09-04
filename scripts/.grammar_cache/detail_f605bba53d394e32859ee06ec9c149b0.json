@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5456,
+  "usages": [
+    {
+      "explain": "「わけではない」is used to partially deny a statement (that may exist) from the listener, indicating that the situation is not as extreme or serious as they might think.",
+      "note": null,
+      "examples": [
+        {
+          "content": "嫌いなわけではないが、肉はあまり食べない。",
+          "transcription": "きらいなわけではないが、にくはあまりたべない。",
+          "mean": "It's not that I don't like it, but I don't eat much meat."
+        },
+        {
+          "content": "テレビは見ないわけではないが、音楽を聴いている方が多い。",
+          "transcription": "テレビはみないわけではないが、おんがくをきいているほうがおおい。",
+          "mean": "It's not that I don't watch TV, but I often listen to music."
+        },
+        {
+          "content": "眠っていたわけではないが、ほかのことを考えていた。",
+          "transcription": "ねむっていたわけではないが、ほかのことをかんがえていた。",
+          "mean": "I wasn't asleep, but I was thinking about other things."
+        },
+        {
+          "content": "窓を少し開けてもいいですか。暑いわけではなくて、空気を入れ替えたいんです。",
+          "transcription": "まどをすこしあけてもいいですか。あついわけではなくて、くうきをいれかえたいんです。",
+          "mean": "Can I open the window a little? It's not that I'm hot, I just want some fresh air."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+わけではない<br/>Aい (formal form)+わけではない<br/>Aな (formal form)+わけではない<br>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)<br/>N (formal form)+わけではない<br/>(In this particular case: Nだ ➔ N<s>だ</s>な)</br>"
+    }
+  ],
+  "title": "わけではない => It doesn't mean that; it is not the case that; I don't mean that;",
+  "_id": "f605bba53d394e32859ee06ec9c149b0"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5066,
+  "usages": [
+    {
+      "explain": "「に先駆けて」indicates that the subject does something ahead of others or ahead of time, pioneering in a field.<br/>\nThe noun (N) here is often words like 他社 (other companies), ライバル (rivals), 世界 (the world), 全国 (nationwide), etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その映画は、世界に先駆けて、日本での上映を決まった。",
+          "transcription": "そのえいがは、せかいにさきがけて、にほんでのじょうえいをきまった。",
+          "mean": "The movie was decided to be screened in Japan before the rest of the world."
+        },
+        {
+          "content": "その会社は、他社に先駆けて、低燃費の車を開発した。",
+          "transcription": "そのかいしゃは、たしゃにさきがけて、ていねんぴのくるまをかいはつした。",
+          "mean": "The company developed a fuel-efficient car ahead of other companies."
+        },
+        {
+          "content": "ライバルに先駆けて、SONYはPlayStation 5を発表した。",
+          "transcription": "ライバルにさきがけて、ソニーはプレイステーション ファイブをはっぴょうした。",
+          "mean": "Ahead of its rivals, Sony announced the PlayStation 5."
+        },
+        {
+          "content": "香川県は全国に先駆けて、子供のネット、ゲーム使用に関する条例を制定した。",
+          "transcription": "かがわけんはぜんこくにさきがけて、こどものネット、ゲームしようにかんするじょうれいをせいていした。",
+          "mean": "Kagawa Prefecture was the first in the country to enact an ordinance regarding children's use of the internet and games."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に先駆けて"
+    }
+  ],
+  "title": "に先駆けて => prior to; to be the first (pioneer); being ahead of ~",
+  "_id": "b89318526be542efab02dca74f0f5d80"
+}

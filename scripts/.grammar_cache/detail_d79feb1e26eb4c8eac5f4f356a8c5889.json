@@ -1,0 +1,41 @@
+{
+  "level": "N5",
+  "mobileId": 5587,
+  "usages": [
+    {
+      "explain": "「どのくらい」 is used to ask about the amount of time needed to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君の日本語が上手ですね。どのくらい勉強しましたか。",
+          "transcription": "きみのにほんごがじょうずですね。どのくらいべんきょうしましたか。",
+          "mean": "Your Japanese is good. How much did you study?"
+        },
+        {
+          "content": "名古屋から東京までどのくらいかかりますか。",
+          "transcription": "なごやからとうきょうまでどのくらいかかりますか。",
+          "mean": "How long does it take from Nagoya to Tokyo?"
+        },
+        {
+          "content": "噓！彼女が出来た。どのくらい付き合ったの。",
+          "transcription": "うそ！かのじょができた。どのくらいつきあったの。",
+          "mean": "Liar! I got a girlfriend. How long have you been together?"
+        },
+        {
+          "content": "あなたはどのくらい日本に住んでいましたか。",
+          "transcription": "あなたはどのくらいにほんにすんでいましたか。",
+          "mean": "How long have you lived in Japan?"
+        },
+        {
+          "content": "ここからそこまでは歩いてどのくらいかかりますか。",
+          "transcription": "ここからそこまではあるいてどのくらいかかりますか。",
+          "mean": "How long does it take to walk from here to there?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "どのくらい+interrogative sentence"
+    }
+  ],
+  "title": "どのくらい => how long",
+  "_id": "d79feb1e26eb4c8eac5f4f356a8c5889"
+}

@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5446,
+  "usages": [
+    {
+      "explain": "「通す」has two main meanings:<br/>\n1. To carry something through to the end, to completion.<br/>\n2. To do something continuously, without interruption, from beginning to end.<br/>\n\n「通す」emphasizes the continuous process of an action, and is used specifically for intentional human actions. It can only be combined with certain verbs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私達は一晩にお酒を飲み通した。",
+          "transcription": "わたしたちはひとばんにおさけをのみとおした。",
+          "mean": "We drank alcohol all night."
+        },
+        {
+          "content": "やると決めたことは最後までやり通すべきだ。",
+          "transcription": "やるときめたことはさいごまでやりとおすべきだ。",
+          "mean": "Whatever you decide to do, you should see it through to the end."
+        },
+        {
+          "content": "50メートル以上前方を見通すことが難しかった。",
+          "transcription": "ごじゅうメートルいじょうぜんぽうをみとおすことがむずかしかった。",
+          "mean": "It was difficult to see more than 50 meters ahead."
+        },
+        {
+          "content": "こんな長い小説は一日で読み通せない。",
+          "transcription": "こんなながいしょうせつはいちにちでよみとおせない。",
+          "mean": "I can't read such a long novel in one day."
+        },
+        {
+          "content": "上司にバレないように、仕事のミスを隠し通した。",
+          "transcription": "じょうしにバレないように、しごとのミスをかくしとおした。",
+          "mean": "I hid my mistakes at work so my boss wouldn't find out."
+        },
+        {
+          "content": "今日のハイキングは長かった。山頂まで4時間歩き通した。",
+          "transcription": "きょうのハイキングはながかった。さんちょうまでよんじかんあるきとおした。",
+          "mean": "Today's hike was long. It took us four hours to reach the top of the mountain."
+        },
+        {
+          "content": "追い求めると決めた夢は最後まで追い求め通すつもりだ。",
+          "transcription": "おいもとめるときめたゆめはさいごまでおいもとめとおすつもりだ。",
+          "mean": "I will pursue the dreams I have decided to pursue to the end."
+        },
+        {
+          "content": "終電を逃してしまったので、1時間かけて家まで歩き通した。",
+          "transcription": "しゅうでんをのがしてしまったので、いちじかんかけていえまであるきとおした。",
+          "mean": "I missed the last train, so I walked all the way home for an hour."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+通す"
+    }
+  ],
+  "title": "通す => to do until the end; to continually do; through ~",
+  "_id": "c1150c3bae30423387e2694f3c85fdbb"
+}

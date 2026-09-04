@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 2291,
+  "usages": [
+    {
+      "explain": "Accompanied by negative expressions and an extreme example to convey that, realistically, such a thing wouldn't happen, but the speaker strongly wishes it would.",
+      "note": null,
+      "examples": [
+        {
+          "content": "まさか彼に面と向かって「嘘つき」とも言えないじゃないか。",
+          "transcription": "まさかかれにめんとむかって「うそつき」ともいえないじゃないか。",
+          "mean": "I couldn't even tell him he was a liar to his face."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まさか + negative expression"
+    }
+  ],
+  "title": "まさか... => There's no way; that's impossible; you must be joking",
+  "_id": "f7ff14dae05876cac58b413693ed1c22"
+}

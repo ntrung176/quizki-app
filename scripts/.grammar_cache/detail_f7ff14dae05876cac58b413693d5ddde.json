@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2126,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of correcting past mistakes and moving on to completely new points.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この文章の内容を留学生向けに書き改めてくださいませんか。",
+          "transcription": "このぶんしょうのないようをりゅうがくせいむけにかきあらためてくださいませんか。",
+          "mean": "Could you please rewrite the content of this sentence for international students?"
+        },
+        {
+          "content": "いくら遅く悔い改めても遅すぎることはない。",
+          "transcription": "いくらおそくくいあらためてもおそすぎることはない。",
+          "mean": "No matter how late you repent, it's never too late."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます＋あらためる"
+    }
+  ],
+  "title": "あらためる => to revise; to replace",
+  "_id": "f7ff14dae05876cac58b413693d5ddde"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3061,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate that something leads to a bad outcome.",
+      "note": null,
+      "examples": [
+        {
+          "content": "不法滞在して国外追放になるしまつだ。",
+          "transcription": "ふほうたいざいしてこくがいついほうになるしまつだ。",
+          "mean": "Shimatsu is in the country illegally and will be deported."
+        },
+        {
+          "content": "うちの娘は、ダイエットのしすぎで病気になり、入院する始末だ。",
+          "transcription": "うちのむすめは、だいえっとのしすぎでびょうきになり、にゅういんするしまつだ。",
+          "mean": "My daughter got sick from dieting too much and ended up being hospitalized."
+        },
+        {
+          "content": "あの人は遅刻はする、約束は忘れる、ついには居眠り運転で事故を起こす始末だ。",
+          "transcription": "あのひとはちこくはする、やくそくはわすれる、ついにはいねむりうんてんでじこをおこすしまつだ。",
+          "mean": "That person is late, forgets appointments, and ends up falling asleep at the wheel and causing an accident."
+        }
+      ],
+      "mean": "end up; in the end; as a result (negative)",
+      "synopsis": "✦Vる・Vない ＋ しまつだ <br/>✦この/その/あの + 始末だ<br/>"
+    }
+  ],
+  "title": "～しまつだ      => end up; in the end; as a result (negative)",
+  "_id": "93020c54469e582d6fdb16f7ba923303"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1744,
+  "usages": [
+    {
+      "explain": "It means \"agreeing that..., despite that...\". Emphasizing the part mentioned afterwards. If used in a critical sense, it expresses criticism lightly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いくら淋しいからと言って、夜中の2時に他人に電話するなんて非常識だ。",
+          "transcription": "いくらさびしいからといって、やちゅうの2じにたにんにでんわするなんてひじょうしきだ。",
+          "mean": "No matter how lonely you are, it's insane to call someone at 2am."
+        },
+        {
+          "content": "いくら親しいからといってそんな事を彼女に頼めません。",
+          "transcription": "いくらしたしいからといってそんなことをかのじょにたのめません。",
+          "mean": "No matter how close we are, I can't ask her to do something like that."
+        },
+        {
+          "content": "いくら才能がないからと言っても、7年もギターをやっていれば簡単な伴奏ぐらいはできるだろう。",
+          "transcription": "いくらさいのうがないからといっても、7ねんもぎたーをやっていればかんたんなばんそうぐらいはできるだろう。",
+          "mean": "No matter how much talent you have, if you've been playing guitar for seven years, you'll probably be able to play simple accompaniment."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いくら…からといって(も)"
+    }
+  ],
+  "title": "いくら…からといっても => no matter how ~",
+  "_id": "f7ff14dae05876cac58b413693a0269b"
+}

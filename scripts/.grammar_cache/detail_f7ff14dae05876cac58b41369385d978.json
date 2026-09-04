@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1540,
+  "usages": [
+    {
+      "explain": "Used to describe a situation that has reached a level beyond the other party's expectations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はお金持ちではない。それどころか、彼は借金だらけだ。",
+          "transcription": "かれはおかねもちではない。それどころか、かれはしゃっきんだらけだ。",
+          "mean": "he isn't rich. On the contrary, he is deeply in debt."
+        },
+        {
+          "content": "終わりましたか。それどころか、まだ初めていないよ。",
+          "transcription": "おわりましたか。それどころか、まだはじめていないよ。",
+          "mean": "Did you finish. In fact, it's not the first time yet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それどころか ～"
+    }
+  ],
+  "title": "それどころか => on the contrary",
+  "_id": "f7ff14dae05876cac58b41369385d978"
+}

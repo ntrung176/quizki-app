@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2401,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"doing something without a clear reason or purpose,\" similar to [なんとなく].",
+      "note": null,
+      "examples": [
+        {
+          "content": "なんとはなしに前の恋人に会ってみたくなりました。",
+          "transcription": "なんとはなしにまえのこいびとにあってみたくなりました。",
+          "mean": "For some reason, I wanted to meet my ex-lover."
+        },
+        {
+          "content": "なんとはなしに悪い予感がするので、早く学校に戻りました。",
+          "transcription": "なんとはなしにわるいよかんがするので、はやくがっこうにもどりました。",
+          "mean": "I had a vague feeling that something bad was going to happen, so I went back to school early."
+        },
+        {
+          "content": "なんとはなしに公園を散歩している時に、後ろから呼び止められた。",
+          "transcription": "なんとはなしにこうえんをさんぽしているときに、うしろからよびとめられた。",
+          "mean": "While I was casually taking a walk in the park, I was stopped by someone from behind."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとはなしに～"
+    }
+  ],
+  "title": "なんとはなしに => I don't know why, aimless",
+  "_id": "f7ff14dae05876cac58b413693fbdad3"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2282,
+  "usages": [
+    {
+      "explain": "Usage: First discussing a mild situation, then stating that the situation extends to even more severe circumstances.",
+      "note": null,
+      "examples": [
+        {
+          "content": "木村さんは英語が話せる。そればかりか中国語もフランス語も話せる。",
+          "transcription": "きむらさんはえいごがはなせる。そればかりかちゅうごくごもふらんすごもはなせる。",
+          "mean": "Mr. Kimura can speak English. Not only that, but he can also speak Chinese and French."
+        },
+        {
+          "content": "田中さんはその男に着る物を与えた。そればかりか、いくらかの金まで持たせてやった。",
+          "transcription": "たなかさんはそのおとこにきるものをあたえた。そればかりか、いくらかのきんまでもたせてやった",
+          "mean": "Mr. Tanaka gave the man something to wear. Not only that, but I also gave him some money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そればかりか: has the meaning of expressing comparison, judgment \"not only that, not only that\""
+    }
+  ],
+  "title": "そればかりか => Not only that, it's not just that",
+  "_id": "f7ff14dae05876cac58b413693ebbd93"
+}

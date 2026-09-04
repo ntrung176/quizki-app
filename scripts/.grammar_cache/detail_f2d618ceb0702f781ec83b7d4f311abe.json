@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2804,
+  "usages": [
+    {
+      "explain": "When wanting to make a particular object or event the topic of the sentence, replace the particle 「が」 with 「は」. With this expression, people often use demonstrative pronouns like 「この」「その」「あの」 to specify the subject being referred to.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この机は壊れています。",
+          "transcription": "このつくえはこわれています。",
+          "mean": "This desk is broken."
+        },
+        {
+          "content": "あの茶碗は汚れていますから、洗ってください。",
+          "transcription": "あのちゃわんはよごれていますから、あらってください。",
+          "mean": "That bowl is dirty, so please wash it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N は V-ている"
+    }
+  ],
+  "title": "...はV-ている => The state of the thing being mentioned in the sentence",
+  "_id": "f2d618ceb0702f781ec83b7d4f311abe"
+}

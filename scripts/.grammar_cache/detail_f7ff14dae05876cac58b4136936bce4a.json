@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1363,
+  "usages": [
+    {
+      "explain": "Expresses the result of effort or endeavor, although not complete, it still partly meets the desired outcome.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうにか窓から家に入った。",
+          "transcription": "どうにかまどからいえにはいった。",
+          "mean": "We gained access to the house through the window."
+        },
+        {
+          "content": "彼女は自分で、荷物全部を運んだ。",
+          "transcription": "かのじょはじぶんで、にもつぜんぶをはこんだ。",
+          "mean": "She carried all her luggage by herself."
+        },
+        {
+          "content": "彼は他人の助けを借りないで、どうにかその仕事を済ますことが出来た。",
+          "transcription": "かれはたにんのたすけをかりないで、どうにかそのしごとをすますことができた。",
+          "mean": "He managed to complete the task without the help of others."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうにか～"
+    }
+  ],
+  "title": "どうにか => in some way or other; one way or another",
+  "_id": "f7ff14dae05876cac58b4136936bce4a"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 633,
+  "usages": [
+    {
+      "explain": "✦Expresses the content \"an amount equal to that, corresponding amount\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私にとってベトナム語の難しさは中国語などの比ではない。",
+          "transcription": "わたしにとってべとなむごのむずかしさはちゅうごくごなどのひではない。",
+          "mean": "For me, the difficulty of Vietnamese is not comparable to languages ​​such as Chinese."
+        },
+        {
+          "content": "彼は専門的な教育を受けたことはないが、その博識は並の学者の比ではない。",
+          "transcription": "かれはせんもんてきなきょういくをうけたことはないが、そのはくしきはなみのがくしゃのひではない。",
+          "mean": "Although he has not received any specialized training, his knowledge is on a par with that of an average scholar."
+        },
+        {
+          "content": "現在でも医学部に入学することは難しい。しかし、当時女性が医者になることの困難さは現代の比ではなかった。",
+          "transcription": "げんざいでもいがくぶににゅうがくすることはむずかしい。しかし、とうじじょせいがいしゃになることのこんなんさはげんだいのひではなかった。",
+          "mean": "Even now, it is difficult to get into medical school. However, at that time, it was not as difficult as it is today for a woman to become a doctor."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + の + ひではない"
+    }
+  ],
+  "title": "～ ひではない => being no match for; cannot be compared with",
+  "_id": "f7ff14dae05876cac58b413693089db9"
+}

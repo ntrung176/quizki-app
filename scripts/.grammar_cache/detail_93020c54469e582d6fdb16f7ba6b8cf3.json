@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 3075,
+  "usages": [
+    {
+      "explain": "The sentence pattern \"mục đích\" (purpose) requires the subjects of the two clauses (before and after) to be the same.",
+      "note": "The difference between「～ように」and「～ために」: When used before 「ために」, it forms a clause that indicates an action that can be performed at one's discretion (using a verb that expresses intention). In cases where it signifies the meaning \"in order to achieve a certain state\" (using a verb that does not express intention), instead of 「ために」, 「ように」 is used.<br>Example:<br>自分(じぶん)の店(みせ)を持(も)つために、貯金(ちょきん)しています。<br>I am saving money in order to open my own store.<br>自分(じぶん)の店(みせ)が持(も)てるように、貯金(ちょきん)しています。<br>I am saving money so that I can open my own store.\n\n\n\n\n",
+      "examples": [
+        {
+          "content": "コンサートチケットを手に入れるために朝早くから並んだ。",
+          "transcription": "こんさーとちけっとをてにいれるためにあさはやくからならんだ。",
+          "mean": "I lined up early in the morning to get concert tickets."
+        },
+        {
+          "content": "疲れをいやすために温泉へ行った。",
+          "transcription": "つかれをいやすためにおんせんへいった。",
+          "mean": "I went to a hot spring to relieve my fatigue."
+        },
+        {
+          "content": "健康のために、毎朝ヨガをしている。",
+          "transcription": "けんこうのために、まいあさよがをしている。",
+          "mean": "I do yoga every morning for my health."
+        },
+        {
+          "content": "引っ越しのために、友達の自動車を借ります。",
+          "transcription": "ひっこしのために、ともだちのじどうしゃをかります。",
+          "mean": "I will borrow a friend's car to move."
+        }
+      ],
+      "mean": ": for; in order to; for the benefit of; because of; as a result of ~",
+      "synopsis": "Vる／N → の ＋ ために"
+    }
+  ],
+  "title": "～ために      => for; in order to; for the benefit of; because of; as a result of ~",
+  "_id": "93020c54469e582d6fdb16f7ba6b8cf3"
+}

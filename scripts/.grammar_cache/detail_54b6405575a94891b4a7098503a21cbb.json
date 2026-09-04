@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5614,
+  "usages": [
+    {
+      "explain": "The structure 「てもらう」 is used to express the gratitude of the person receiving help (N1) from the person performing the action (N2). This structure removes the \"favor\" aspect of 「くれる」 and emphasizes that N1 is receiving help from N2. Here are some notes:<br/>\n\n- When N1 is the speaker, N1は can be omitted.<br/>\n- Besides expressing gratitude, this structure is also used to indicate that N1 is asking or requesting N2 for help. This is the key difference from 「くれる」 (a structure where the person performing the action wants to help).<br/>\n- When the verb V indicates a movement (both concrete and abstract) of N, such as 送る (to send), 届ける (to deliver), 教える (to teach), etc., N2に can be replaced with N2から. If N2 is a location, then N2から is more natural.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は山田さんに図書館の電話番号を教えてもらいました。",
+          "transcription": "わたしはやまださんにとしょかんのでんわばんごうをおしえてもらいました。",
+          "mean": "I asked Mr. Yamada to give me the library's phone number."
+        },
+        {
+          "content": "彼女に部屋を掃除してもらいました。",
+          "transcription": "かのじょにへやをそうじしてもらいました。",
+          "mean": "I asked her to clean my room."
+        },
+        {
+          "content": "日本語は木村さんに教えてもらおう。",
+          "transcription": "にほんごはきむらさんにおしえてもらおう。",
+          "mean": "Let's ask Mr. Kimura to teach us Japanese."
+        },
+        {
+          "content": "レポートは皆さんに出してもらうことにします。",
+          "transcription": "レポートはみなさんにだしてもらうことにします。",
+          "mean": "I will have everyone submit a report."
+        },
+        {
+          "content": "京都の友達からお菓子を送ってもらいました。",
+          "transcription": "きょうとのともだちからおかしをおくってもらいました。",
+          "mean": "A friend in Kyoto sent me sweets."
+        },
+        {
+          "content": "その知らせは田中さんから教えてもらいました。",
+          "transcription": "そのしらせはたなかさんからおしえてもらいました。",
+          "mean": "Tanaka-san told me the news."
+        },
+        {
+          "content": "京都からお菓子を送ってもらいました。",
+          "transcription": "きょうとからおかしをおくってもらいました。",
+          "mean": "I received sweets sent from Kyoto."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は N2に Nを Vて+もらう"
+    }
+  ],
+  "title": "てもらう => to get somebody to do something",
+  "_id": "54b6405575a94891b4a7098503a21cbb"
+}

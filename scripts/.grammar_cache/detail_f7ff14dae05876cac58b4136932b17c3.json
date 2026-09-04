@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 888,
+  "usages": [
+    {
+      "explain": "✦ A fixed expression with a sense of inevitability, meaning \"as if about to...\".<br/>✦ This is an archaic expression reminiscent of classical Japanese [V んばかり].",
+      "note": null,
+      "examples": [
+        {
+          "content": "おまえは馬鹿だと言わぬばかりの顔をした。",
+          "transcription": "おまえはばかだといわぬばかりのかおをした。",
+          "mean": "You looked as if you were an idiot."
+        },
+        {
+          "content": "泣かぬばかりに懇願した。",
+          "transcription": "なかぬばかりにこんがんした。",
+          "mean": "I begged, trying not to cry."
+        },
+        {
+          "content": "彼は好きだと言わるばかり見ている。",
+          "transcription": "かれはすきだといわるばかりみている。",
+          "mean": "He just looks at it and says he likes it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V + ぬばかり"
+    }
+  ],
+  "title": "～ぬばかり => As if; as though",
+  "_id": "f7ff14dae05876cac58b4136932b17c3"
+}

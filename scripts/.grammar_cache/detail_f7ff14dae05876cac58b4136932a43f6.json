@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 880,
+  "usages": [
+    {
+      "explain": "一方では...他方では (いっぽうでは...たほうでは) is used to express two contrasting events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は一方ではとても頭がいいが、他方ではしばしば軽率な間違いをする。",
+          "transcription": "かれはいっぽうではとてもあたまがいいが、たほうではしばしばけいそつなまちがいをする。",
+          "mean": "On the one hand, he is very intelligent, but on the other hand, he often makes careless mistakes."
+        },
+        {
+          "content": "その仕事は一方ではあまり面白くなったが、給料高かった。",
+          "transcription": "そのしごとはいっぽうではあまりおもしろくなったが、きゅうりょうたかかった。",
+          "mean": "The job became less interesting on the one hand, but the pay was high."
+        }
+      ],
+      "mean": null,
+      "synopsis": "一方では...他方では is a pair of connecting conjunctions."
+    }
+  ],
+  "title": "一方では...他方では => On the one hand",
+  "_id": "f7ff14dae05876cac58b4136932a43f6"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1926,
+  "usages": [
+    {
+      "explain": "Indicates being inferior even to the subject mentioned in the noun, used for criticism or condemnation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あんたの皮なんか、牛以下だよ。",
+          "transcription": "あんたのかわなんか、うしいかだよ。",
+          "mean": "Your skin is worse than that of a cow."
+        },
+        {
+          "content": "動物の虐待する人は人間以下だと思います。",
+          "transcription": "どうぶつのぎゃくたいするひとはにんげんいかだとおもいます。",
+          "mean": "I think people who abuse animals are less than human."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N いかだ（以下だ）"
+    }
+  ],
+  "title": "... いかだ => Not as good as ..., even worse than ..., not ...",
+  "_id": "f7ff14dae05876cac58b413693b95e3b"
+}

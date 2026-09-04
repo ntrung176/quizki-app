@@ -1,0 +1,41 @@
+{
+  "level": "N5",
+  "mobileId": 2913,
+  "usages": [
+    {
+      "explain": "Besides indicating the subject in subordinate clauses of 「から」, in subordinate clauses with 「たら」「ても」「とき」「と」「まえに」, が is also used to indicate the subject.",
+      "note": null,
+      "examples": [
+        {
+          "content": "隕石が地球に衝突していなかったら恐竜は絶滅していなかったかもしれない。",
+          "transcription": "いんせきがちきゅうにしょうとつしていなかったらきょうりゅうはぜつめつしていなかったかもしれない。",
+          "mean": "If a meteorite had not hit the Earth, dinosaurs might not have become extinct."
+        },
+        {
+          "content": "頭が痛くても会社を休まなかった。",
+          "transcription": "あたまがいたくてもかいしゃをやすまなかった。",
+          "mean": "Even though I had a headache, I didn't take time off from work."
+        },
+        {
+          "content": "火事や地震が起こったときには、エレベータを使用しないでください。",
+          "transcription": "かじやじしんがおこったときには、えれべーたをしようしないでください。",
+          "mean": "Do not use elevators in the event of a fire or earthquake."
+        },
+        {
+          "content": "あまり生活が便利だと、人は不精になる。",
+          "transcription": "あまりせいかつがべんりだと、ひとはぶしょうになる。",
+          "mean": "If life is too convenient, people will become lazy."
+        },
+        {
+          "content": "授業が始まるまえに、先生に質問をします。",
+          "transcription": "じゅぎょうがはじまるまえに、せんせいにしつもんをします。",
+          "mean": "Ask your teacher questions before class begins."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + が"
+    }
+  ],
+  "title": "が => The auxiliary after the subject",
+  "_id": "f2d618ceb0702f781ec83b7d4f3e9644"
+}

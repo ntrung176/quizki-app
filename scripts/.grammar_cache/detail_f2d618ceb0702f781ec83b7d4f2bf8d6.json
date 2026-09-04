@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2766,
+  "usages": [
+    {
+      "explain": "Used to give a typical example to emphasize a certain object or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この問題は易しくて、小学生でも解けられる。",
+          "transcription": "このもんだいはやさしくて、しょうがくせいでもとけられる。",
+          "mean": "This problem is easy enough that even elementary school students can solve it."
+        },
+        {
+          "content": "この辺は冬でも暖かい。",
+          "transcription": "このあたりはふゆでもあたたかい。",
+          "mean": "This area is warm even in winter."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + でも"
+    }
+  ],
+  "title": "でも => even if ... also , however , nevertheless",
+  "_id": "f2d618ceb0702f781ec83b7d4f2bf8d6"
+}

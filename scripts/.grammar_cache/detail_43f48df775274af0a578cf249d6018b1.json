@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5258,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>末</rb><rp>(</rp><rt>すえ</rt><rp>)</rp></ruby>」conveys the meaning: after many events, after a long period of difficulty, consideration, contemplation, struggle, effort... finally a result has occurred, or a decision has been made. <br/>\nIt is often used in writing, and can carry positive or negative connotations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "悩んだ末、進学ではなく就職することにした。",
+          "transcription": "なやんだすえ、しんがくではなくしゅうしょくすることにした。",
+          "mean": "After thinking about it, I decided to get a job instead of going to higher education."
+        },
+        {
+          "content": "住民との話し合いの末、その建物の建設は中止となった。",
+          "transcription": "じゅうみんとのはなしあいのすえ、そのたてもののけんせつはちゅうしとなった。",
+          "mean": "After discussions with residents, construction of the building was halted."
+        },
+        {
+          "content": "考えた末、手術しないことにしました。",
+          "transcription": "かんがえたすえ、しゅじゅつしないことにしました。",
+          "mean": "After thinking about it, I decided not to have surgery."
+        },
+        {
+          "content": "8時間にわたる話し合いの末に、やっと契約を結んだ。",
+          "transcription": "はちじかんにわたるはなしあいのすえに、やっとけいやくをむすんだ。",
+          "mean": "After eight hours of discussions, we finally signed a contract."
+        },
+        {
+          "content": "彼は3年間の闘病生活の末に、亡くなった。",
+          "transcription": "かれはさんねんかんのとうびょうせいかつのすえに、なくなった。",
+          "mean": "He passed away after battling illness for three years."
+        },
+        {
+          "content": "本人が色々考えた末の結論は誰にも否定する権利はない。",
+          "transcription": "ほんにんがいろいろかんがえたすえのけつろんはだれにもひていするけんりはない。",
+          "mean": "No one has the right to deny the conclusion that the person himself came to after thinking about various things."
+        },
+        {
+          "content": "東大合格は努力したすえの結果である。",
+          "transcription": "とうだいごうかくはどりょくしたすえのけっかである。",
+          "mean": "Getting accepted to the University of Tokyo is the result of hard work."
+        },
+        {
+          "content": "数回に及ぶ議論の末、Aの案を採用することにした。",
+          "transcription": "すうかいにおよぶぎろんのまつ、Aのあんをさいようすることにした。",
+          "mean": "After several rounds of discussion, we decided to adopt plan A."
+        },
+        {
+          "content": "長い戦いの末、ついに勝利を勝ち取った。",
+          "transcription": "ながいたたかいのすえ、ついにしょうりをかちとった。",
+          "mean": "After a long battle, victory was finally won."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた/Nの+<ruby><rb>末</rb><rp>(</rp><rt>すえ</rt><rp>)</rp></ruby>(に)<br/>\nVた/Nの+<ruby><rb>末</rb><rp>(</rp><rt>すえ</rt><rp>)</rp></ruby>のN"
+    }
+  ],
+  "title": "末 => finally; after; following; at the end/ conclusion of ~",
+  "_id": "43f48df775274af0a578cf249d6018b1"
+}

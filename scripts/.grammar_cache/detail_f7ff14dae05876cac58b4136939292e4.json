@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1642,
+  "usages": [
+    {
+      "explain": "It's used when you want to say: when embarking on a certain action, how it should be done. Following are imperative, request, or advice phrases.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何事も習うなら最後までに習え。",
+          "transcription": "なにごともならうならさいごまでにならえ。",
+          "mean": "If you want to learn anything, learn it by the end."
+        },
+        {
+          "content": "私のことをあざけるなら勝手にあざければいい。",
+          "transcription": "わたしのことをあざけるならかってにあざければいい。",
+          "mean": "If you want to mock me, just mock me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる +（の）なら～しろ"
+    }
+  ],
+  "title": "(の) なら～しろ => If..., do something...",
+  "_id": "f7ff14dae05876cac58b4136939292e4"
+}

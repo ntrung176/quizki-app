@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2203,
+  "usages": [
+    {
+      "explain": "Placed at the beginning of a sentence, it is used to transition to a new topic or situation.<br/><br/>「それでは」is a term formed by adding the demonstrative pronoun 「それ」before 「では」, in most cases, it can be replaced by 「では」. This is a formal expression; in casual conversation, people use 「それじゃ(あ)」or 「じゃ(あ)」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それでは、スポーツニュースです。",
+          "transcription": "それでは、すぽーつにゅーすです。",
+          "mean": "Now for the sports news."
+        },
+        {
+          "content": "それでは、始めましょう。",
+          "transcription": "それでは、はじめましょう。",
+          "mean": "So let's get started."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それでは～"
+    }
+  ],
+  "title": "それでは => Well then",
+  "_id": "f7ff14dae05876cac58b413693e0bee5"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2678,
+  "usages": [
+    {
+      "explain": "Used to negate \"X は Y だ\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は学生ではない。",
+          "transcription": "わたしはがくせいではない。",
+          "mean": "I am not a student."
+        },
+        {
+          "content": "私は英語が上手ではない。",
+          "transcription": "わたしはえいごがじょうずではない。",
+          "mean": "I'm not good at English."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na・N + ではない"
+    }
+  ],
+  "title": "ではない => to not be (am not; is not; are not)",
+  "_id": "f2d618ceb0702f781ec83b7d4f20c5ba"
+}

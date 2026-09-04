@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 925,
+  "usages": [
+    {
+      "explain": "This is a conditional form of 「ようだ」indicating \"if it's the case that\". In written language, 「...ようであれば」is also used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "体の調子が悪いようなら、病院に行ってください。",
+          "transcription": "からだのちょうしがわるいようなら、びょういんにいってください。",
+          "mean": "If you feel unwell, please go to the hospital."
+        },
+        {
+          "content": "さっきの説明が分からないようなら、先生に聞いても構わない。",
+          "transcription": "さっきのせつめいがわからないようなら、せんせいにきいてもかまわない。",
+          "mean": "If you don't understand what was explained earlier, feel free to ask your teacher."
+        },
+        {
+          "content": "もし彼との生活がうまくいっていないようなら、いつ戻ってきてもいいのよ。",
+          "transcription": "もしかれとのせいかつがうまくいっていないようなら、いつもどってきてもいいのよ。",
+          "mean": "If life with him doesn't seem to be going well, you can come back anytime."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの + ようなら\nNa-な + ようなら\nA-い + ようなら\nV-る/ V-た/ V-ない + ようなら"
+    }
+  ],
+  "title": "...ようなら => If...",
+  "_id": "f7ff14dae05876cac58b41369330404a"
+}

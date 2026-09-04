@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 780,
+  "usages": [
+    {
+      "explain": "■ Expresses a certain smell, but often conveys a negative connotation, like \"smelling bad\".<br/>■ Also has the meaning \"looking really like that\". Often used in cases considered not very good.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あれ？ガスくさいよ！",
+          "transcription": "あれ？がすくさいよ！",
+          "mean": "that? It smells like gas!"
+        },
+        {
+          "content": "田舎くさい服。",
+          "transcription": "いなかくさいふく。",
+          "mean": "Rustic clothes."
+        },
+        {
+          "content": "古くさい伝統。",
+          "transcription": "ふるくさいでんとう。",
+          "mean": "Old tradition."
+        },
+        {
+          "content": "部屋の中が魚くさい。",
+          "transcription": "へやのなかがさかなくさい。",
+          "mean": "The room smells like fish."
+        }
+      ],
+      "mean": "- Smelly<br/>- Full of smell, full of smell (State).",
+      "synopsis": "■N + くさい"
+    }
+  ],
+  "title": "～くさい => full of N / looks like N",
+  "_id": "f7ff14dae05876cac58b4136931c0de1"
+}

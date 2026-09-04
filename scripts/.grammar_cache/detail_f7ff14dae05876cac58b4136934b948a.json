@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1126,
+  "usages": [
+    {
+      "explain": "Expressing the idea that even if the action or event in the first part is carried out, it will not affect the action or event in the latter part.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今頃になって頑張ったところで仕方がない。",
+          "transcription": "いまごろになってがんばったところでしかたがない。",
+          "mean": "There's no point in trying hard now."
+        },
+        {
+          "content": "提出が少しぐらい遅れたことろで受け入れる。",
+          "transcription": "ていしゅつがすこしぐらいおくれたことろでうけいれる。",
+          "mean": "I will accept it even if the submission is a little late."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + ところで～ない"
+    }
+  ],
+  "title": "ところで...ない => Even if, anything but ~ (negative form)",
+  "_id": "f7ff14dae05876cac58b4136934b948a"
+}

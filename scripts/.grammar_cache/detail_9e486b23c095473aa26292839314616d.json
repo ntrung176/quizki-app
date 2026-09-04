@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5356,
+  "usages": [
+    {
+      "explain": "「こそ」follows a noun representing an object or event to emphasize that object or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日こそ勉強するぞ！",
+          "transcription": "あしたこそべんきょうするぞ！",
+          "mean": "I'll study tomorrow!"
+        },
+        {
+          "content": "これこそ私が読みたい本です。",
+          "transcription": "これこそわたしがよみたいほんです。",
+          "mean": "This is the book I want to read."
+        },
+        {
+          "content": "政府は今年こそ経済が良くなると予測していた。",
+          "transcription": "せいふはことしこそけいざいがよくなるとよそくしていた。",
+          "mean": "The government had predicted that the economy would improve this year."
+        },
+        {
+          "content": "今度こそ試合に勝ちたいです。",
+          "transcription": "こんどこそしあいにかちたいです。",
+          "mean": "I want to win the match this time."
+        },
+        {
+          "content": "これこそ私がずっと探していたものです。",
+          "transcription": "これこそわたしがずっとさがしていたものです。",
+          "mean": "This is what I've been looking for."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N ✚ こそ"
+    }
+  ],
+  "title": "こそ => for sure (emphasize preceding word); precisely; definitely ~",
+  "_id": "9e486b23c095473aa26292839314616d"
+}

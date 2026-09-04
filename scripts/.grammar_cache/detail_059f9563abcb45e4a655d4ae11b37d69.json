@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5400,
+  "usages": [
+    {
+      "explain": "「に～られる」expresses the sense of being inconvenienced by someone's action (V) even though N1 does not directly receive the action from N2. V is an intransitive verb conjugated in the passive form.<br/>\nNote:<br/>\n- This structure does not always imply inconvenience. For example:<br/>\n　+ きれいな女性に微笑まれて、ドキドキした。\" (I felt excited when smiled at by a beautiful woman.)<br/>\n　+ 彼女に甘えられると、けっこううれしい。 (I'm quite happy when she wheedles on me.)<br/>\n- When N2 is an inanimate object and its action occurs naturally, the passive form of the sentence is difficult to use.<br/>\n\n\"石に突然、落ちられました。\" (I suddenly fell onto a stone.) ❌<br/>\n\"電気に消えられて、困りました。\" (I was troubled by the electricity being turned off.) ❌<br/>\nHowever, \"雨に降られました。\" (I got rained on) is a special case.",
+      "note": null,
+      "examples": [
+        {
+          "content": "友達の赤ちゃんを抱っこしたら、泣かれてしまった。",
+          "transcription": "ともだちのあかちゃんをだっこしたら、なかれてしまった。",
+          "mean": "When I held my friend's baby, she cried."
+        },
+        {
+          "content": "雨に降られて、服が濡れてしまった。",
+          "transcription": "あめにふられて、ふくがぬれてしまった。",
+          "mean": "It was raining and my clothes got wet."
+        },
+        {
+          "content": "父に死なれて、大学を続けられなくなりました。",
+          "transcription": "ちちにしなれて、だいがくをつづけられなくなりました。",
+          "mean": "After my father passed away, I was unable to continue my studies at university."
+        },
+        {
+          "content": "急に社員に辞められた。",
+          "transcription": "きゅうにしゃいんにやめられた。",
+          "mean": "The employee suddenly resigned."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は N2に V (intransitive passive form)"
+    }
+  ],
+  "title": "に～られる => Being (troubled/disturbed/annoyed/bothered)",
+  "_id": "059f9563abcb45e4a655d4ae11b37d69"
+}

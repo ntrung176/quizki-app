@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2985,
+  "usages": [
+    {
+      "explain": "Adjectives are placed before nouns to modify them. When placed before a noun, adjectives with the な ending keep the な.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は親切な人です。",
+          "transcription": "かれはしんせつなひとです。",
+          "mean": "he is a kind person."
+        },
+        {
+          "content": "彼女は有名な俳優です。",
+          "transcription": "かのじょはゆうめいなはいゆうです。",
+          "mean": "She is a famous actor."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na + な + N"
+    }
+  ],
+  "title": "な => Add meaning to nouns",
+  "_id": "f2d618ceb0702f781ec83b7d4f475304"
+}

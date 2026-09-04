@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2052,
+  "usages": [
+    {
+      "explain": "Placed at the beginning of a sentence to express the meaning \"for a reason like that.\" Used to highlight the nature of an object, an event, in order to appreciate it for that reason. This is an archaic form of expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それでこそプロの選手だと言える。",
+          "transcription": "それでこそぷろのせんしゅだといえる。",
+          "mean": "That's why you can call him a professional player."
+        },
+        {
+          "content": "そこでこそ日本だ。",
+          "transcription": "そこでこそにっぽんだ。",
+          "mean": "That's where Japan is."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それでこそ～"
+    }
+  ],
+  "title": "それでこそ => Such",
+  "_id": "f7ff14dae05876cac58b413693cb0853"
+}

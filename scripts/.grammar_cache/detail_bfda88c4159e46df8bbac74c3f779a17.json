@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5259,
+  "usages": [
+    {
+      "explain": "「すなわち」is used to express what is being said in a different way. The alternative expression (A') is often easier to understand and more specific than the original expression (A). It is similar to「つまり」but is commonly seen in writing and is not used to talk about conclusions or results.",
+      "note": null,
+      "examples": [
+        {
+          "content": "母の兄、すなわち僕のおじですが...",
+          "transcription": "ははのあに、すなわちぼくのおじですが...",
+          "mean": "My mother's brother is my uncle..."
+        },
+        {
+          "content": "このペットボトルには1000ミリリットル、すなわち1リットルの水が入っています。",
+          "transcription": "このペットボトルにはせんミリリットル、すなわちいちリットルのみずがはいっています。",
+          "mean": "This plastic bottle contains 1000 milliliters, or 1 liter of water."
+        },
+        {
+          "content": "東京オリンピックが行われた年、すなわち2021年に日本に来ました。",
+          "transcription": "とうきょうオリンピックがおこわれたとし、すなわちにせんにじゅういちねんににほんにきました。",
+          "mean": "I came to Japan in 2021, the year the Tokyo Olympics were held."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A すなわち A'"
+    }
+  ],
+  "title": "すなわち => in other words; namely ~",
+  "_id": "bfda88c4159e46df8bbac74c3f779a17"
+}

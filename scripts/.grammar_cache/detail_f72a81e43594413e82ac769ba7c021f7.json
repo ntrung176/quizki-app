@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5142,
+  "usages": [
+    {
+      "explain": "「いよいよ」expresses:<br/> \n1. A crucial moment or significant time is approaching. \"It's about to...\"<br/> \n2. The intensity or degree of something is increasing. \"Increasingly...\"<br/> \n3. Something anticipated or awaited is finally happening, becoming a reality. \"Finally...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "いよいよスピーチが始まる。どうしよう！めちゃ緊張しているよ。",
+          "transcription": "いよいよスピーチがはじまる。どうしよう！めちゃきんちょうしているよ。",
+          "mean": "The speech is finally starting. What should I do! I'm really nervous."
+        },
+        {
+          "content": "いよいよ結婚式が目前に迫ってなんとなく落ち着かない。",
+          "transcription": "いよいよけっこんしきがもくぜんにせまってなんとなくおちつかない。",
+          "mean": "The wedding is finally around the corner and I feel uneasy."
+        },
+        {
+          "content": "昨晩から胃が痛くなった。今朝に痛みがいよいよ酷くなった。",
+          "transcription": "さくばんからいがいたくなった。けさにいたみがいよいよひどくなった。",
+          "mean": "My stomach has been hurting since last night. The pain got worse this morning."
+        },
+        {
+          "content": "いよいよ明日は日本語の試験の日だ。精一杯で頑張りましょう！",
+          "transcription": "いよいよあしたはにほんごのしけんのひだ。せいいっぱいでがんばりましょう！",
+          "mean": "Tomorrow is finally the day of the Japanese language exam. Let's do our best!"
+        },
+        {
+          "content": "いよいよ来週の日曜日が母の日だ。母に何を買ってあげばいいかな。",
+          "transcription": "いよいよらいしゅうのにちようびがははのひだ。ははになにをかってあげばいいかな。",
+          "mean": "Mother's Day is finally next Sunday. What should I buy my mother?"
+        },
+        {
+          "content": "いよいよ彼女の出番だ。頑張って練習したからうまく行けるといいね！",
+          "transcription": "いよいよかのじょのでばんだ。がんばってれんしゅうしたからうまくいけるといいね！",
+          "mean": "It's finally her turn. I practiced hard so I hope it goes well!"
+        },
+        {
+          "content": "いよいよ大学の生活が始まります。初めて親に離れるからちょっと心配する。",
+          "transcription": "いよいよだいがくのせいかつがはじまります。はじめておやにはなれるからちょっとしんぱいする。",
+          "mean": "Your university life is finally starting. I'm a little worried because I'm leaving my parents for the first time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いよいよ+Sentence"
+    }
+  ],
+  "title": "いよいよ => at last; finally; beyond doubt",
+  "_id": "f72a81e43594413e82ac769ba7c021f7"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2711,
+  "usages": [
+    {
+      "explain": "It is used to introduce the content that follows.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の言葉は次のように要約できる。",
+          "transcription": "かれのことばはつぎのようにようやくできる。",
+          "mean": "His word can be summarized as follows."
+        },
+        {
+          "content": "職員の選考に関かんする規則は次のように定める。",
+          "transcription": "しょくいんのせんこうにかんかんするきそくはつぎのようにさだめる。",
+          "mean": "Rules regarding the selection of staff are established as follows."
+        }
+      ],
+      "mean": null,
+      "synopsis": "次のように"
+    }
+  ],
+  "title": "次のように => in the following manner, as follows",
+  "_id": "f2d618ceb0702f781ec83b7d4f2596a4"
+}

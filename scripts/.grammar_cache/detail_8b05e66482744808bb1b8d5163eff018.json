@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5268,
+  "usages": [
+    {
+      "explain": "「てこそ」expresses the idea that only when, only after doing something, or only after meeting certain conditions, does a positive result occur.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お互いに信頼してこそ悩みも言える。",
+          "transcription": "おたがいにしんらいしてこそなやみもいえる。",
+          "mean": "Only when we trust each other can we express our concerns."
+        },
+        {
+          "content": "親になってこそ親の苦労が分かる。",
+          "transcription": "おやになってこそおやのくろうがわかる。",
+          "mean": "Only when you become a parent can you understand the hardships faced by parents."
+        },
+        {
+          "content": "出席してこそ授業の意味があるのです。",
+          "transcription": "しゅっせきしてこそじゅぎょうのいみがあるのです。",
+          "mean": "Classes only have meaning if you attend."
+        },
+        {
+          "content": "困った時に助け合ってこそ本当の友達です。",
+          "transcription": "こまったときにたすけあってこそほんとうのともだちです。",
+          "mean": "A true friend is one who helps each other in times of trouble."
+        },
+        {
+          "content": "自分の言葉で書いてこそ相手に気持ちが伝わる。",
+          "transcription": "じぶんのことばでかいてこそあいてにきもちがつたわる。",
+          "mean": "Only when you write in your own words can you convey your feelings to the other person."
+        },
+        {
+          "content": "自分でやってみてこそそれがいいか悪いか分かる。",
+          "transcription": "じぶんでやってみてこそそれがいいかわるいかわかる。",
+          "mean": "Only by trying it yourself will you know whether it is good or bad."
+        },
+        {
+          "content": "生活費を自分で稼いでこそ、自立していると言える。",
+          "transcription": "せいかつひをじぶんでかせいでこそ、じりつしているといえる。",
+          "mean": "You can only be considered independent if you earn your own living expenses."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて こそ"
+    }
+  ],
+  "title": "てこそ => not until, only after, of all things",
+  "_id": "8b05e66482744808bb1b8d5163eff018"
+}

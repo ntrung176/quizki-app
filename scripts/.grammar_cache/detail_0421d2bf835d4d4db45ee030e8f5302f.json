@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5385,
+  "usages": [
+    {
+      "explain": "「んだって」is used to convey information heard or to quote someone's words. It is commonly used in everyday communication.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『田中さん、結婚してるんだって。』『へー、知らなかった。』",
+          "transcription": "『たなかさん、けっこんしてるんだって。』『へー、しらなかった。』",
+          "mean": "``Tanaka-san, I heard you're married. ” “Huh, I didn’t know that. ”"
+        },
+        {
+          "content": "試験の範囲は教科書の最初から50ページまでだって。",
+          "transcription": "しけんのはんいはきょうかしょのさいしょからごじゅうページまでだって。",
+          "mean": "The exam covers the first 50 pages of the textbook."
+        },
+        {
+          "content": "彼女は愛知大学に合格したんだって。",
+          "transcription": "かのじょはあいちだいがくにごうかくしたんだって。",
+          "mean": "She was accepted to Aichi University."
+        },
+        {
+          "content": "この店のピザ、美味しいんだって。",
+          "transcription": "このみせのぴざ、おいしいんだって。",
+          "mean": "The pizza at this restaurant is delicious."
+        },
+        {
+          "content": "あの人、先生なんだって。",
+          "transcription": "あのひと、せんせいなんだって。",
+          "mean": "That person is a teacher."
+        },
+        {
+          "content": "佐藤さん、お酒が嫌いなんだって。",
+          "transcription": "さとうさん、おさけがきらいなんだって。",
+          "mean": "Mr. Sato says he doesn't like alcohol."
+        },
+        {
+          "content": "教科書に書いてあったけど、京都って昔は日本の首都だったんだって。",
+          "transcription": "きょうかしょにかいてあったけど、きょうとってむかしはにほんのしゅとだったんだって。",
+          "mean": "It was written in my textbook that Kyoto was once the capital of Japan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+んだって<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br/> Nだ ➔ N<s>だ</s>な)<br/><br/>までだって / からだって / だけだって..."
+    }
+  ],
+  "title": "んだって => I hear that; heard that ~",
+  "_id": "0421d2bf835d4d4db45ee030e8f5302f"
+}

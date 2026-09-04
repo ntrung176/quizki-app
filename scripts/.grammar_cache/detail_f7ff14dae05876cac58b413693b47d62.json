@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1895,
+  "usages": [
+    {
+      "explain": "Used to provide an example, implying there are many other similar things.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は芸術が好きなので、歌舞伎を見に行く誘われたりしたらとても興奮です。",
+          "transcription": "かのじょはげいじゅつがすきなので、かぶきをみにいくさそわれたりしたらとてもこうふんです。",
+          "mean": "She loves art, so she gets very excited when someone invites her to go see Kabuki."
+        },
+        {
+          "content": "クラスメートをいじめたりしてはだめですよ。",
+          "transcription": "くらすめーとをいじめたりしてはだめですよ。",
+          "mean": "Don't bully your classmates."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～たり + したら／しては"
+    }
+  ],
+  "title": "…たりしたら／しては => ... Such as",
+  "_id": "f7ff14dae05876cac58b413693b47d62"
+}

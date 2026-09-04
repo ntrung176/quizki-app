@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2695,
+  "usages": [
+    {
+      "explain": "Follows numbers or question words like 何（なん), 幾（ いく）to describe quantity, method, or type.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の家から学校までは2通りの行き方がある。",
+          "transcription": "わたしのいえからがっこうまでは2とおりのいきかたがある。",
+          "mean": "There are two ways to get from my house to school."
+        },
+        {
+          "content": "実験方法はなんとおりもありますがどの方法がよろしいでしょう。",
+          "transcription": "じっけんほうほうはなんとおりもありますがどのほうほうがよろしいでしょう。",
+          "mean": "There are many experimental methods, but which method is best?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Number of words/なん/いく + とおり"
+    }
+  ],
+  "title": "とおり => Several ways",
+  "_id": "f2d618ceb0702f781ec83b7d4f230b13"
+}

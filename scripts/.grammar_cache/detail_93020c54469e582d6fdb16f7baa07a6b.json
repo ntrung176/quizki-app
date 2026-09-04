@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3138,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "宝石を盗んだ犯人は、法に照らして処罰できます。",
+          "transcription": "ほうせきをぬすんだはんにんは、ほうにてらしてしょばつできます。",
+          "mean": "Criminals who steal jewelry can be punished according to the law."
+        },
+        {
+          "content": "自分の経験に照らして後輩にアドバイスした。<br>",
+          "transcription": "じぶんのけいけんにてらしてこうはいにあどばいすした。",
+          "mean": "I gave advice to my juniors based on my own experience. &lt;br&gt;"
+        },
+        {
+          "content": "赤の服は現地の文化規範に照らして着用しないほうがいい。",
+          "transcription": "あかのふくはげんちのぶんかきはんにてらしてちゃくようしないほうがいい。",
+          "mean": "Red clothing should not be worn in accordance with local cultural norms."
+        }
+      ],
+      "mean": "according to; in view of; in light of ~",
+      "synopsis": "✦N ＋ に照らして"
+    }
+  ],
+  "title": "～にてらして（に照らして）      => according to; in view of; in light of ~",
+  "_id": "93020c54469e582d6fdb16f7baa07a6b"
+}

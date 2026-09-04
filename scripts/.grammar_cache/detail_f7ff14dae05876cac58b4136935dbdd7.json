@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1264,
+  "usages": [
+    {
+      "explain": "向きになる (むきになる) expresses the meaning \"taking something insignificant seriously.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは冗談だが、彼は怒って向きになった。",
+          "transcription": "それはじょうだんだが、かれはおこってむきになった。",
+          "mean": "It was a joke, but he turned angrily."
+        },
+        {
+          "content": "大学を不合格だけなのに、彼女は向きになって自殺した。",
+          "transcription": "だいがくをふごうかくだけなのに、かのじょはむきになってじさつした。",
+          "mean": "She turned around and committed suicide after failing university."
+        }
+      ],
+      "mean": null,
+      "synopsis": "向きになる"
+    }
+  ],
+  "title": "むきになる => to become serious; to take something (joke, teasing) seriously; to become irritated or angry (usually at something trivial)",
+  "_id": "f7ff14dae05876cac58b4136935dbdd7"
+}

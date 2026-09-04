@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 844,
+  "usages": [
+    {
+      "explain": "Used with the same word to emphasize its meaning. For example, emphasizing deep gratitude or deep regret. This is an idiomatic expression used with a limited number of verbs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女の助けに対しては、いくら感謝してもしきれない。",
+          "transcription": "かのじょのたすけにたいしては、いくらかんしゃしてもしきれない。",
+          "mean": "I can't thank her enough for her help."
+        },
+        {
+          "content": "若いときにどうしてもっと努力しなかったかと、悔やんでも悔やみきれない。",
+          "transcription": "わかいときにどうしてもっとどりょくしなかったかと、くやんでもくやみきれない。",
+          "mean": "I can't help but regret why I didn't try harder when I was younger."
+        },
+        {
+          "content": "その夢を果たさなかったら、死んでも死にきれない。",
+          "transcription": "そのゆめをはたさなかったら、しんでもしにきれない。",
+          "mean": "If I don't fulfill that dream, even if I die, I won't be able to die."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vても + Vます + きれない"
+    }
+  ],
+  "title": "ても ～きれない => No matter how much...",
+  "_id": "f7ff14dae05876cac58b41369325748f"
+}

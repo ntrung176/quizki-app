@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 648,
+  "usages": [
+    {
+      "explain": "✦Indicates the meaning of temporarily not doing an action for a certain purpose.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今彼女が嫌くなったから、彼女の手紙を読まずにおく。",
+          "transcription": "いまかのじょがいやくなったから、かのじょのてがみをよまずにおく。",
+          "mean": "I don't like her now, so I don't read her letter."
+        },
+        {
+          "content": "年末新しい家を買うことにしたですから、今贅沢にお金を使わずにおく。",
+          "transcription": "ねんまつあたらしいいえをかうことにしたですから、こんぜいたくにおかねをつかわずにおく。",
+          "mean": "I decided to buy a new house at the end of the year, so I don't want to spend extravagantly right now."
+        },
+        {
+          "content": "アイドルの拍手を残すために、彼女は２週間手を洗わずにおく。",
+          "transcription": "あいどるのはくしゅをのこすために、かのじょはにしゅうかんしゅをあらわずにおく。",
+          "mean": "She leaves her hands unwashed for two weeks to preserve the idol's applause."
+        },
+        {
+          "content": "あした病院で検査を受けるなら、夕飯は食べずにおいたほうがいいんじゃないですか。",
+          "transcription": "あしたびょういんでけんさをうけるなら、ゆうはんはたべずにおいたほうがいいんじゃないですか。",
+          "mean": "If you're going to take a test at the hospital tomorrow, wouldn't it be better to skip dinner?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V + ずにおく"
+    }
+  ],
+  "title": "～ずにおく => to refrain from doing something, to leave something undone",
+  "_id": "f7ff14dae05876cac58b4136930aab6b"
+}

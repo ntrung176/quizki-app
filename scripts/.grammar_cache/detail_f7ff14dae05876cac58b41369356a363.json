@@ -1,0 +1,43 @@
+{
+  "level": "N1",
+  "mobileId": 1209,
+  "usages": [
+    {
+      "explain": "✦ Used with a noun indicating a person or human speech and actions to highlight them, followed by sentences meaning \"no one can match that person's attitude or words.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤君ににかかっては、中国語がとても上手で、中国人の私も顔負けだ。",
+          "transcription": "さとうくんににかかっては、ちゅうごくごがとてもじょうずで、ちゅうごくじんのわたしもかおまけだ。",
+          "mean": "Sato-kun's Chinese is so good that even I, a Chinese, can put him to shame."
+        },
+        {
+          "content": "あの男ににかかってはウソの王様と言われているよ。気をつけないと騙される。",
+          "transcription": "あのおとこににかかってはうそのおうさまといわれているよ。きをつけないとだまされる。",
+          "mean": "That man is said to be the king of lies. If you are not careful, you will be deceived."
+        },
+        {
+          "content": "あなたにかかっては私も嫌とは言えなくなる。",
+          "transcription": "あなたにかかってはわたしもいやとはいえなくなる。",
+          "mean": "If it depends on you, I can't say I don't like it either."
+        },
+        {
+          "content": "私にかかっては社長も太刀打ちできないさ。",
+          "transcription": "わたしにかかってはしゃちょうもたちうちできないさ。",
+          "mean": "Even the president can't compete with me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + にかかっては"
+    },
+    {
+      "explain": "✦ Note: It can also be said as [...にあっては] (especially with regard to). But when using [...にかかっては], this is an expression that can be used from the perspective of the person feeling they cannot contend with the other.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "にかかっては => For...",
+  "_id": "f7ff14dae05876cac58b41369356a363"
+}

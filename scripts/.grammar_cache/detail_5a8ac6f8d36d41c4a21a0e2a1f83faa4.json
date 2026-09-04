@@ -1,0 +1,76 @@
+{
+  "level": "N4",
+  "mobileId": 5566,
+  "usages": [
+    {
+      "explain": "1.「つもりだ」indicates the speaker's intention or plan. This intention has been thought out beforehand, rather than being a spontaneous decision. This is also the difference between 「つもりだ」and「ようと思う」. On the other hand,「予定だ」differs from the previous two in that it describes a schedule, a pre-decided plan, rather than just the speaker's intention.<br/>\nNote:<br/>\n\n- This structure is only used to talk about the speaker's intention, not the intention of a third person.<br/>\n- Do not use this structure if you simply want to ask about the listener's intention, especially with someone in a higher position. Only use「つもりだ」when wanting to confirm the listener's determination, when they intend to do something that we find hard to understand. The question at this time will imply suspicion, dissatisfaction, criticism...<br/>\nExample: 腐りかけているのに、食べるつもりですか。(Even though it's starting to rot, you still plan to eat it?) Usually, people won't eat food that's gone bad, yet the listener plans to. The speaker doesn't understand this, so they ask.<br/><br/>\n2. 「つもりだ」expresses the speaker's belief or assumption that things are a certain way, while in reality, they might not be, or others may not think so.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は日本に留学するつもりです。",
+          "transcription": "かれはにほんにりゅうがくするつもりです。",
+          "mean": "He plans to study abroad in Japan."
+        },
+        {
+          "content": "父の会社に入らないつもりです。",
+          "transcription": "ちちのかいしゃにはいらないつもりです。",
+          "mean": "I have no intention of joining my father's company."
+        },
+        {
+          "content": "私は将来に医者になるつもりです。",
+          "transcription": "わたしはしょうらいにいしゃになるつもりです。",
+          "mean": "I plan to become a doctor in the future."
+        },
+        {
+          "content": "私たちは10月に結婚するつもりです。",
+          "transcription": "わたしたちはじゅうがつにけっこんするつもりです。",
+          "mean": "We are planning to get married in October."
+        },
+        {
+          "content": "あなたは来年、どこで働くつもりですか。",
+          "transcription": "あなたはらいねん、どこではたらくつもりですか。",
+          "mean": "Where are you planning to work next year?"
+        },
+        {
+          "content": "『明日、授業に行く？』『私は行かないつもりだ。』",
+          "transcription": "『あした、じゅぎょうにいく？』『わたしはいかないつもりだ。』",
+          "mean": "“Are you going to class tomorrow? ``I'm not going.'' ”"
+        },
+        {
+          "content": "大学を卒業するまでに、日本語をマスターするつもりだ。",
+          "transcription": "だいがくをそつぎょうするまでに、にほんごをマスターするつもりだ。",
+          "mean": "I plan to master Japanese by the time I graduate from university."
+        },
+        {
+          "content": "『70点？もっとしっかり勉強しなさい!』『私は一生懸命勉強したつもりなのに…』",
+          "transcription": "『ななじゅってん？もっとしっかりべんきょうしなさい!』『わたしはいっしょうけんめいべんきょうしたつもりなのに…』",
+          "mean": "“70 points? You should study harder!” “I thought I studied hard, but…”"
+        },
+        {
+          "content": "私は一生懸命やっているつもりです。",
+          "transcription": "わたしはいっしょうけんめいやっているつもりです。",
+          "mean": "I'm going to try my best."
+        },
+        {
+          "content": "『そのワンピースはおばあちゃんには若すぎるんじゃない？』『あら、私はまだまだ若いつもりよ。』",
+          "transcription": "『そのワンピースはおばあちゃんにはわかすぎるんじゃない？』『あら、わたしはまだまだわかいつもりよ。』",
+          "mean": "``Isn't that dress too young for grandma? ``Oh, I think I'm still young.'' ”"
+        },
+        {
+          "content": "俺はこの言葉や様子こそあまり上品じゃないが、心はこいつらよりもはるかに上品なつもりだ。",
+          "transcription": "おれはこのことばやようすこそあまりじょうひんじゃないが、こころはこいつらよりもはるかにじょうひんなつもりだ。",
+          "mean": "My words and demeanor are not very elegant, but my heart is much more elegant than these guys."
+        },
+        {
+          "content": "本当の研究発表のつもりで、みんなの前で話してください。",
+          "transcription": "ほんとうのけんきゅうはっぴょうのつもりで、みんなのまえではなしてください。",
+          "mean": "Please speak in front of everyone as if it were a real research presentation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. V (root form)+つもりだ<br/> Vない+つもりだ<br/><br/>\n2. Vた/Vている+つもりだ<br/>\n Aい/Aな+つもりだ<br/>\n Nの+つもりだ"
+    }
+  ],
+  "title": "つもりだ => I thought I~; I believe I~; was planning to~; was intending to ~",
+  "_id": "5a8ac6f8d36d41c4a21a0e2a1f83faa4"
+}

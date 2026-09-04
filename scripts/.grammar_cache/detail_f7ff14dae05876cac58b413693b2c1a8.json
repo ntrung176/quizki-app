@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1881,
+  "usages": [
+    {
+      "explain": "Expresses the idea of \"trying to figure out a way to do something\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "やっとなんとか人混みの中を抜け出した。",
+          "transcription": "やっとなんとかひとごみのなかをぬけだした。",
+          "mean": "I finally managed to get out of the crowd."
+        },
+        {
+          "content": "彼は自分でなんとかすることに決めた。",
+          "transcription": "かれはじぶんでなんとかすることにきめた。",
+          "mean": "He decided to do something on his own."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとか～"
+    }
+  ],
+  "title": "なんとか => somehow (Positive intentions only)",
+  "_id": "f7ff14dae05876cac58b413693b2c1a8"
+}

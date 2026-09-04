@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2511,
+  "usages": [
+    {
+      "explain": "This structure expresses the range of distance or time by clearly stating the starting point and the end point. It is used with nouns indicating time, location, or quantity to indicate the range. When there's no need to mention the starting point, only 「Nまで」 is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "当社は10日から15日まで休みます。",
+          "transcription": "とうしゃは10にちから15にちまでやすみます。",
+          "mean": "Our company will be closed from the 10th to the 15th."
+        },
+        {
+          "content": "子供から大人まで楽しめるゲームです。",
+          "transcription": "こどもからおとなまでたのしめるげーむです。",
+          "mean": "This is a game that can be enjoyed by both children and adults."
+        },
+        {
+          "content": "教科書の30ページから35ページまで読んでおいてください。",
+          "transcription": "きょうかしょの30ぺーじから35ぺーじまでよんでおいてください。",
+          "mean": "Please read pages 30 to 35 of your textbook."
+        },
+        {
+          "content": "このドラマは、子供からお年寄りまでご家族みんなで楽しんでいただけます。",
+          "transcription": "このどらまは、こどもからおとしよりまでごかぞくみんなでたのしんでいただけます。",
+          "mean": "This drama can be enjoyed by the whole family, from children to the elderly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N +から+N+まで"
+    }
+  ],
+  "title": "...から...まで => From N to N",
+  "_id": "f2d618ceb0702f781ec83b7d4f0aa445"
+}

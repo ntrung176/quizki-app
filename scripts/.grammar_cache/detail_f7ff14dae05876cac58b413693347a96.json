@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 958,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"the subsequent event is different from the prediction about the preceding event\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "手術は成功したものの、まだ心配です。",
+          "transcription": "しゅじゅつはせいこうしたものの、まだしんぱいです。",
+          "mean": "Although the surgery was successful, I am still worried."
+        },
+        {
+          "content": "給料は少ないものの、仕事はやりがいがあります。",
+          "transcription": "きゅうりょうはすくないものの、しごとはやりがいがあります。",
+          "mean": "Although the pay is low, the work is rewarding."
+        },
+        {
+          "content": "祖父は体が丈夫なものの、最近耳が聞こえにくくなってきました。",
+          "transcription": "そふはからだがじょうぶなものの、さいきんみみがきこえにくくなってきました。",
+          "mean": "Although my grandfather is physically strong, he has recently become hard of hearing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな + ものの"
+    }
+  ],
+  "title": "ものの => but, although",
+  "_id": "f7ff14dae05876cac58b413693347a96"
+}

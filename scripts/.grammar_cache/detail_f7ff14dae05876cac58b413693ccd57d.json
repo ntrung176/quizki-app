@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 2063,
+  "usages": [
+    {
+      "explain": "Used when something happens as the speaker expected, based on their knowledge or common societal thinking. It is similar in meaning to 「やはり」, but 「さすがに...だけあって」 is used only for positive evaluations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さすがは軍人の妻だけあって夫が戦死しても泣かなかった。",
+          "transcription": "さすがはぐんじんのつまだけあっておっとがせんししてもなかなかった。",
+          "mean": "As expected from a military wife, she did not cry even when her husband was killed in action."
+        },
+        {
+          "content": "さすがに熱心なだけあって、中村さんのテニスはたいしたもんだ。",
+          "transcription": "さすがにねっしんなだけあって、なかむらさんのてにすはたいしたもんだ。",
+          "mean": "As expected, Mr. Nakamura's tennis is very good, as he is very passionate about it."
+        },
+        {
+          "content": "さすがからだが大きいだけあって、山下さんは力があるねえ。",
+          "transcription": "さすがからだがおおきいだけあって、やましたさんはちからがあるねえ。",
+          "mean": "Mr. Yamashita has a lot of strength, as expected from his large body."
+        },
+        {
+          "content": "木村さんは、さすがによく勉強しているだけあって、この前の試験でもいい成績だった。",
+          "transcription": "きむらさんは、さすがによくべんきょうしているだけあって、このまえのしけんでもいいせいせきだった。",
+          "mean": "Mr. Kimura has been studying hard, and he did well on the last exam."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だけあって\nNa + な + だけあって\nA-い + だけあって\nV + だけあって"
+    }
+  ],
+  "title": "さすが (に) … だけあって => being the case; precisely because; as expected from ~",
+  "_id": "f7ff14dae05876cac58b413693ccd57d"
+}

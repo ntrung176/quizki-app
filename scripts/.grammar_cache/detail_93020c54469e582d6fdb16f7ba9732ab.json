@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3066,
+  "usages": [
+    {
+      "explain": "✦ Often used with words like 解決 (solution), 改善 (improvement), 確認 (confirmation), 救済 (relief). Typically used with the whole phrase なすすべがない, meaning \"there is no way\" or \"there is nothing to be done.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "製造過程で、そんなひどいことが行われているなんて、一般消費者は知るすべがない。",
+          "transcription": "せいぞうかていで、そんなひどいことがおこなわれているなんて、いっぱんしょうひしゃはしるすべがない。",
+          "mean": "General consumers have no way of knowing that such terrible things are happening during the manufacturing process."
+        },
+        {
+          "content": "住所は知らないし、もらった携帯電話も繋がらないし、もう連絡するすべがない。",
+          "transcription": "じゅうしょはしらないし、もらったけいたいでんわもつながらないし、もうれんらくするすべがない。",
+          "mean": "I don't know his address, and the cell phone he gave me doesn't work, so I have no way to contact him."
+        }
+      ],
+      "mean": "there is no way, cannot do",
+      "synopsis": "✦Vる・Nの ＋ すべがない"
+    }
+  ],
+  "title": "～すべがない      => there is no way, cannot do",
+  "_id": "93020c54469e582d6fdb16f7ba9732ab"
+}

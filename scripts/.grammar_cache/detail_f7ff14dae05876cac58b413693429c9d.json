@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1060,
+  "usages": [
+    {
+      "explain": "Used to prohibit the listener's behavior. Often spoken with a lowering tone at the end of the sentence. It is spoken language, often used by men. Women often use the polite form \"んじゃありません\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "教室で携帯を使うんじゃない。",
+          "transcription": "きょうしつでけいたいをつかうんじゃない。",
+          "mean": "Don't use your cell phone in the classroom."
+        },
+        {
+          "content": "博物館で展示品を触るんじゃない。",
+          "transcription": "はくぶつかんでてんじひんをさわるんじゃない。",
+          "mean": "Don't touch the exhibits at the museum."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + んじゃない"
+    }
+  ],
+  "title": "んじゃない => can not, impossible to...",
+  "_id": "f7ff14dae05876cac58b413693429c9d"
+}

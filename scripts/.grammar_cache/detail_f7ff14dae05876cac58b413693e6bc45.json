@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 2246,
+  "usages": [
+    {
+      "explain": "It's used to criticize someone for behaving inappropriately or having an attitude that doesn't align with one's own principles or stance.",
+      "note": null,
+      "examples": [
+        {
+          "content": "業者から金品を受け取るなど公務員にあるまじきことだ。",
+          "transcription": "ぎょうしゃからきんぴんをうけとるなどこうむいんにあるまじきことだ。",
+          "mean": "Receiving money and goods from businessmen is something a public servant would do."
+        },
+        {
+          "content": "学生にあるまじき行為だ。",
+          "transcription": "がくせいにあるまじきこういだ。",
+          "mean": "This is a behavior you would expect from a student."
+        },
+        {
+          "content": "女性にあるまじき振る舞いだ。",
+          "transcription": "じょせいにあるまじきふるまいだ。",
+          "mean": "This behavior is unbecoming of a woman."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N1+ にあるまじき + N2だ"
+    }
+  ],
+  "title": "～あるまじき => ～ Unacceptable, not allowed",
+  "_id": "f7ff14dae05876cac58b413693e6bc45"
+}

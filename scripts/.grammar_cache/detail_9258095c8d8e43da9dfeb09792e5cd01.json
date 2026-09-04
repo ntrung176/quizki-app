@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5517,
+  "usages": [
+    {
+      "explain": "「ないで」is used to indicate that the subject performs action 2 (V2) without doing action 1 (V1), or chooses to do action 2 instead of action 1.<br/>\nSometimes, this structure also implies that the following event is contrary to what was expected or predicted.<br/>\nIt is commonly used in spoken language, while in written language,「ずに」is often used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "歯を磨かないで寝てはいけません。",
+          "transcription": "はをみがかないでねてはいけません。",
+          "mean": "Don't go to bed without brushing your teeth."
+        },
+        {
+          "content": "彼女は傘を持たないで出てしまった。",
+          "transcription": "かのじょはかさをもたないででてしまった。",
+          "mean": "She went out without an umbrella."
+        },
+        {
+          "content": "コーヒーにはいつも砂糖を入れないで飲みます。",
+          "transcription": "コーヒーにはいつもさとうをいれないでのみます。",
+          "mean": "I always drink coffee without sugar."
+        },
+        {
+          "content": "昨日は疲れていて、電気を消さないで寝てしまった。",
+          "transcription": "きのうはつかれていて、でんきをけさないでねてしまった。",
+          "mean": "I was tired yesterday and went to sleep without turning off the light."
+        },
+        {
+          "content": "明日は試験なので、今夜は寝ないで勉強します。",
+          "transcription": "あしたはしけんなので、こんやはねないでべんきょうします。",
+          "mean": "I have an exam tomorrow, so I will study without sleeping tonight."
+        },
+        {
+          "content": "朝寝坊したからご飯を食べないで、学校へ行きます。",
+          "transcription": "あさねぼうしたからごはんをたべないで、がっこうへいきます。",
+          "mean": "I overslept in the morning, so I went to school without eating."
+        },
+        {
+          "content": "日曜日はどこも行かないで、うちでゆっくり休みます。",
+          "transcription": "にちようびはどこもいかないで、うちでゆっくりやすみます。",
+          "mean": "I don't go anywhere on Sunday, I just relax at home."
+        },
+        {
+          "content": "朝ご飯を食べないで学校に来たから、お腹が空いていた。",
+          "transcription": "あさごはんをたべないでがっこうにきたから、おなかがすいていた。",
+          "mean": "I came to school without having breakfast, so I was hungry."
+        },
+        {
+          "content": "よく勉強していたのに、点数は上がらないで、むしろ下がってきている。",
+          "transcription": "よくべんきょうしていたのに、てんすうはあがらないで、むしろさがってきている。",
+          "mean": "Even though I was studying hard, my scores were not going up, but were actually going down."
+        },
+        {
+          "content": "夫が来ないで妻が来た。",
+          "transcription": "おっとがこないでつまがきた。",
+          "mean": "The wife came without the husband."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1ないで+V2"
+    }
+  ],
+  "title": "ないで => without doing ~; to do [B] without doing [A]",
+  "_id": "9258095c8d8e43da9dfeb09792e5cd01"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 771,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"approximately that size or more\". Usually used with 「～からある」 when referring to weight, length, size and 「～からする」 when referring to prices. 「～からの」 is a somewhat formal expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "自動車産業は好調で200万からする車が飛ぶように売れている。",
+          "transcription": "じどうしゃさんぎょうはこうちょうで200まんからするくるまがとぶようにうれている。",
+          "mean": "The automobile industry is booming, with cars starting at 2 million yen selling like hotcakes."
+        },
+        {
+          "content": "ダイヤモンドは高価なものになると、150 万円からする。",
+          "transcription": "だいやもんどはこうかなものになると、150まんえんからする。",
+          "mean": "Diamonds are expensive, starting at 1.5 million yen."
+        },
+        {
+          "content": "その説明会には2000人からの人々がつめかけたと言う。",
+          "transcription": "そのせつめいかいには2000にんからのひとびとがつめかけたという。",
+          "mean": "It is said that around 2,000 people attended the briefing session."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N (quantity) + からする"
+    }
+  ],
+  "title": "～からする => at least; as much as; as many as ~",
+  "_id": "f7ff14dae05876cac58b4136931aee41"
+}

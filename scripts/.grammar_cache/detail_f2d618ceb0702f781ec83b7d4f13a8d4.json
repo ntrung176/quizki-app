@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2577,
+  "usages": [
+    {
+      "explain": "Used to connect two clauses, depending on the context, it can have various meanings.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は病気で寝ています。",
+          "transcription": "かれはびょうきでねています。",
+          "mean": "He is sick in bed."
+        },
+        {
+          "content": "朝ご飯を作って、子供たちを起こした。",
+          "transcription": "あさごはんをつくって、こどもたちをおこした。",
+          "mean": "I made breakfast and woke up the kids."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + でNa + で Aくて Vて"
+    }
+  ],
+  "title": "...で, て  => Because..., so...",
+  "_id": "f2d618ceb0702f781ec83b7d4f13a8d4"
+}

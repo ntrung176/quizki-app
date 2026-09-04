@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 5611,
+  "usages": [
+    {
+      "explain": "「ましょうか」is used to:<br/>\n1. Suggest or propose to do something for the listener.<br/>\n2. Invite or suggest to the listener to do something together, based on not being entirely certain if the listener will agree or not.<br/>\n\nRanked by the speaker's level of certainty that the listener will agree:\n「ませんか」<「ましょうか」<「ましょう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『暑いですね。』『エアコンをつけましょうか。』",
+          "transcription": "『あついですね。』『エアコンをつけましょうか。』",
+          "mean": "\"It is hot. ” “Shall I turn on the air conditioner?” ”"
+        },
+        {
+          "content": "『傘を貸しましょうか。』『すみません。お願いします。』",
+          "transcription": "『かさをかしましょうか。』『すみません。おねがいします。』",
+          "mean": "``Shall I lend you your umbrella? \"\"sorry. please. ”"
+        },
+        {
+          "content": "『荷物を持ちましょうか。』『いいえ、けっこうです。』",
+          "transcription": "『にもつをもちましょうか。』『いいえ、けっこうです。』",
+          "mean": "``Shall I carry your luggage? \"\"No thanx. ”"
+        },
+        {
+          "content": "今夜走りましょうか。",
+          "transcription": "こんやはしりましょうか。",
+          "mean": "Shall we go for a run tonight?"
+        },
+        {
+          "content": "寿司を食べに行きましょうか。",
+          "transcription": "すしをたべにいきましょうか。",
+          "mean": "Shall we go eat sushi?"
+        },
+        {
+          "content": "9時前に帰りましょうか。",
+          "transcription": "くじまえにかえりましょうか。",
+          "mean": "Shall we go home before 9 o'clock?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+ましょうか"
+    }
+  ],
+  "title": "ましょうか => shall I ~; used to offer help to the listener",
+  "_id": "bf437aa30c95402bb811e29332da3c82"
+}

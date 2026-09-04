@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5352,
+  "usages": [
+    {
+      "explain": "「きり」 is used to emphasize a small quantity. The colloquial form is 「っきり」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "二人きりで話をしたいです。",
+          "transcription": "ふたりきりではなしをしたいです。",
+          "mean": "I would like to talk to you alone."
+        },
+        {
+          "content": "彼に会ったのは一回きりです。",
+          "transcription": "かれにあったのはいっかいきりです。",
+          "mean": "I met him only once."
+        },
+        {
+          "content": "一度きりの人生を大切に生きる。",
+          "transcription": "いちどきりのじんせいをたいせつにいきる。",
+          "mean": "Live your life to the fullest."
+        },
+        {
+          "content": "子供たちが大きくなって家を出て、今は私たち夫婦二人きりで暮らしている。",
+          "transcription": "こどもたちがおおきくなっていえをでて、いまはわたしたちふうふふたりきりでくらしている。",
+          "mean": "My children have grown up and left home, and now my husband and I live alone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+きり<br/> N+きりだ<br/> N+っきり<br/> N+っきりだ"
+    }
+  ],
+  "title": "きり => only; just; since; after ~",
+  "_id": "0ec2e74491bb47ea8b23b7f641cd8de9"
+}

@@ -1,0 +1,76 @@
+{
+  "level": "N2",
+  "mobileId": 5120,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>得</rb><rp>(</rp><rt>え/う</rt><rp>)</rp></ruby>る」expresses the possibility of something happening, or the ability to do something in a specific situation.<br/>\n\nOn the other hand, 「<ruby><rb>得</rb><rp>(</rp><rt>え</rt><rp>)</rp></ruby>ない」expresses the impossibility of something happening, or the inability to do something in a specific situation.<br/>\n\nThe kanji 得 in 「得る」has two readings, え or う, but in other forms (such as 「得ます」「得ない」...), it only has the reading え.<br/>\nThis structure is often used in writing, but the phrases「あり得る」and「あり得ない」are commonly used in daily conversations.<br/>\n\nNote: This structure is not used to express purely skills or abilities (like playing an instrument, riding a bike, cooking...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "博士でも間違うことはあり得る。",
+          "transcription": "はかせでもまちがうことはありえる。",
+          "mean": "Even doctors can make mistakes."
+        },
+        {
+          "content": "これが私の知り得る全ての情報です。",
+          "transcription": "これがわたしのしりうるすべてのじょうほうです。",
+          "mean": "This is all the information I know."
+        },
+        {
+          "content": "この不況では大手企業の倒産もあり得る。",
+          "transcription": "このふきょうではおおてきぎょうのとうさんもありえる。",
+          "mean": "In this recession, major companies may go bankrupt."
+        },
+        {
+          "content": "あの真面目な彼が犯人？そんなことはあり得ない。",
+          "transcription": "あのまじめなかれがはんにん？そんなことはありえない。",
+          "mean": "Is that serious guy the culprit? That can't happen."
+        },
+        {
+          "content": "考え得る方法は全て試してみたがうまくいかなかった。",
+          "transcription": "かんがえうるほうほうはすべてためしてみたがうまくいかなかった。",
+          "mean": "I tried every method I could think of, but nothing worked."
+        },
+        {
+          "content": "事故はいつでも起こり得るので、気をつけてください。",
+          "transcription": "じこはいつでもおこりえるので、きをつけてください。",
+          "mean": "Accidents can happen at any time, so be careful."
+        },
+        {
+          "content": "たばこを吸いすぎや、お酒を飲みすぎは病気の原因になり得ます。",
+          "transcription": "たばこをすいすぎや、おさけをのみすぎはびょうきのげんいんになりえます。",
+          "mean": "Smoking too much and drinking too much alcohol can cause illness."
+        },
+        {
+          "content": "君の話を信じるよ。だってこの世界ではどんなことでも起こり得るから。",
+          "transcription": "きみのはなしをしんじるよ。だってこのせかいではどんなことでもおこりえるから。",
+          "mean": "I believe your story. Because anything can happen in this world."
+        },
+        {
+          "content": "ミーティングでは考え得る案を全て出したが、みんなを納得させることはできなかった。",
+          "transcription": "ミーティングではかんがえうるあんをすべてだしたが、みんなをなっとくさせることはできなかった。",
+          "mean": "At the meeting, we presented all possible ideas, but we were unable to convince everyone."
+        },
+        {
+          "content": "1つのミスが、会社を倒産に導くこともあり得ることだ。気を抜かずに、頑張っていこう。",
+          "transcription": "ひとつのミスが、かいしゃをとうさんにみちびくこともありえることだ。きをぬかずに、がんばっていこう。",
+          "mean": "One mistake can lead a company to bankruptcy. Let's do our best without getting discouraged."
+        },
+        {
+          "content": "運動不足は病気の原因になり得るので、できるだけ体を動かすようにしてください。",
+          "transcription": "うんどうぶそくはびょうきのげんいんになりえるので、できるだけからだをうごかすようにしてください。",
+          "mean": "Lack of exercise can lead to illness, so try to move your body as much as possible."
+        },
+        {
+          "content": "地震はいつ起こるか予想し得ないから、事前に家族との連絡方法や避難場所などを決めておいた方がいいでしょう。",
+          "transcription": "じしんはいつおこるかよそうしえないから、じぜんにかぞくとのれんらくほうほうやひなんばしょなどをきめておいたほうがいいでしょう。",
+          "mean": "Since it is impossible to predict when an earthquake will occur, it is best to decide in advance how to contact your family and where to evacuate."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+<ruby><rb>得</rb><rp>(</rp><rt>え/う</rt><rp>)</rp></ruby>る<br/> V<s>ます</s>+<ruby><rb>得</rb><rp>(</rp><rt>え</rt><rp>)</rp></ruby>ない (＝あるはずがない)"
+    }
+  ],
+  "title": "得る => can; to be able to; is possible to~",
+  "_id": "6f62efa5778a44278da9769d3e8d2750"
+}

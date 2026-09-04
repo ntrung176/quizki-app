@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1588,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's understanding of the cause or reason of the event due to newly received information.",
+      "note": null,
+      "examples": [
+        {
+          "content": "だから、彼女はあんなに英語が上手なんですね。",
+          "transcription": "だから、かのじょはあんなにえいごがじょうずなんですね。",
+          "mean": "That's why she speaks English so well."
+        },
+        {
+          "content": "だから部長は会社を辞めることにしたわけだ。",
+          "transcription": "だからぶちょうはかいしゃをやめることにしたわけだ。",
+          "mean": "That's why the manager decided to quit the company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だから～のだ/わけだ"
+    }
+  ],
+  "title": "だから…のだ => No wonder...",
+  "_id": "f7ff14dae05876cac58b4136938c175d"
+}

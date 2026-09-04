@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1527,
+  "usages": [
+    {
+      "explain": "Expresses disdain for the matter brought up, suggesting \"that's crazy, not worth caring about, not worth doing\". It's an informal way of saying [など... ものか].",
+      "note": null,
+      "examples": [
+        {
+          "content": "その家なんか帰るものか。",
+          "transcription": "そのいえなんかかえるものか。",
+          "mean": "Will I ever go back to that house?"
+        },
+        {
+          "content": "あの店のサービスは最低だ。二度となんか行くものか。",
+          "transcription": "あのみせのさーびすはさいていだ。にどとなんかいくものか。",
+          "mean": "The service at that store is the worst. Will I ever go anywhere again?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんか + Vる＋ものか"
+    }
+  ],
+  "title": "なんか…ものか => Absolutely no desire to do...",
+  "_id": "f7ff14dae05876cac58b4136938404fa"
+}

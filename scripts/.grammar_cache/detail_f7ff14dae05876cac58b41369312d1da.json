@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 712,
+  "usages": [
+    {
+      "explain": "✦It is used immediately after the conjunctive form of a verb to emphasize or highlight that action. It's often used in the form 「Xはするが、Y」, where the speaker emphasizes action X while also mentioning another aspect through action Y, or in the form using 「は」to contrast two actions as in example 3. This is a stylistic way of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "坂田さんはアルバイトに遅れはするが、ぜったいに休まない。",
+          "transcription": "さかたさんはアルバイトにおくれはするが、ぜったいにやすまない。",
+          "mean": "Mr. Sakata is late for his part-time job, but he never takes time off."
+        },
+        {
+          "content": "かれは人前に行きはするが、だれともしゃべらない。",
+          "transcription": "かれはひとまえにいきはするが、だれともしゃべらない。",
+          "mean": "He goes out in public, but doesn't talk to anyone."
+        },
+        {
+          "content": "酔ってその男をなぐりはしたが、殺してはいない。",
+          "transcription": "よってそのおとこをなぐりはしたが、ころしてはいない。",
+          "mean": "He got drunk and hit the man, but didn't kill him."
+        },
+        {
+          "content": "だれも責めはしない。悪いのは私なのだから。",
+          "transcription": "だれもせめはしない。わるいのはわたしなのだから。",
+          "mean": "I don't blame anyone. Because it's my fault."
+        },
+        {
+          "content": "そんなことをしてもだれも喜びはしない。かえって迷惑に思うだけだ。",
+          "transcription": "そんなことをしてもだれもよろこびはしない。かえってめいわくにおもうだけだ。",
+          "mean": "No one will be happy if you do that. It just makes me feel like a nuisance."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vます(ます is obmitted) + はする"
+    }
+  ],
+  "title": "～はする => Although there is... but (Affirmative), there is no, there is no (Negative)",
+  "_id": "f7ff14dae05876cac58b41369312d1da"
+}

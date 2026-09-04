@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5633,
+  "usages": [
+    {
+      "explain": "「たら」indicates:<br/>\n\nAfter a certain state/event/action occurs, another action will be carried out. The action following is considered to be certain to happen, and therefore the verb expressing it is always in the present tense.<br/>\nAfter a certain event/action occurs, another event/action has occurred as a result, discovery (new or surprising) from the previous event/action. Therefore, the verb expressing the subsequent event/action will be in the past tense.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "10時になったら、出かけましょう。",
+          "transcription": "じゅうじになったら、でかけましょう。",
+          "mean": "Let's go out at 10 o'clock."
+        },
+        {
+          "content": "うちへ帰ったら、すぐにシャワーを浴びます。",
+          "transcription": "うちへかえったら、すぐにシャワーをあびます。",
+          "mean": "When I get home, I immediately take a shower."
+        },
+        {
+          "content": "お酒を飲んだら、車を運転しません。",
+          "transcription": "おさけをのんだら、くるまをうんてんしません。",
+          "mean": "I don't drive a car after drinking alcohol."
+        },
+        {
+          "content": "社長が来たら、会議を始めます。",
+          "transcription": "しゃちょうがきたら、かいぎをはじめます。",
+          "mean": "When the president comes, we will start the meeting."
+        },
+        {
+          "content": "先生に聞いたら、すぐに分かりました。",
+          "transcription": "せんせいにきいたら、すぐにわかりました。",
+          "mean": "When I asked the teacher, he understood immediately."
+        },
+        {
+          "content": "毎日漫画を読んでいたら、目が悪くなりました。",
+          "transcription": "まいにちまんがをよんでいたら、めがわるくなりました。",
+          "mean": "When I read manga every day, my eyesight got worse."
+        },
+        {
+          "content": "引き出しを見たら、お金がなくなっていました。",
+          "transcription": "ひきだしをみたら、おかねがなくなっていました。",
+          "mean": "When I looked in my drawer, the money was gone."
+        },
+        {
+          "content": "散歩をしていたら、財布を見つけました。",
+          "transcription": "さんぽをしていたら、さいふをみつけました。",
+          "mean": "While I was taking a walk, I found my wallet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vたら、"
+    }
+  ],
+  "title": "たら => if; after; when ~",
+  "_id": "2cb1539007d24a92a0cafa992ea55390"
+}

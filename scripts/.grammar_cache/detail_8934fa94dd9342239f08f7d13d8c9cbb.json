@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5453,
+  "usages": [
+    {
+      "explain": "「はもちろん」is used to present a thing or event that the speaker considers as typical, essential (N1), and then adds others of the same kind (N2). This structure expresses the idea: N1 is obvious, clear, but in addition, there is N2.「はもとより」is a more formal expression of「はもちろん」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は勉強はもちろん、スポーツもよくできる。",
+          "transcription": "かれはべんきょうはもちろんスポーツもよくできる。",
+          "mean": "He is good at studying as well as playing sports."
+        },
+        {
+          "content": "キャベツは炒めて食べるのはもちろん、生で食べても美味しいです。",
+          "transcription": "キャベツはいためてたべるのはもちろん、なまでたべてもおいしいです。",
+          "mean": "Cabbage is delicious both stir-fried and eaten raw."
+        },
+        {
+          "content": "彼のアニメ作品は子供はもちろん、大人も楽しめる。",
+          "transcription": "かれのアニメさくひんはこどもはもちろん、おとなもたのしめる。",
+          "mean": "His animated works can be enjoyed not only by children but also by adults."
+        },
+        {
+          "content": "彼女は英語はもちろん、フランス語も話せる。",
+          "transcription": "かのじょはえいごはもちろん、ふらんすごもはなせる。",
+          "mean": "She can speak French, to say nothing of English."
+        },
+        {
+          "content": "彼は漢字はもちろん、ひらがなも書けない。",
+          "transcription": "かれはかんじはもちろん、ひらがなもかけない。",
+          "mean": "He can't write hiragana, let alone kanji."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は もちろん N2も"
+    }
+  ],
+  "title": "はもちろん => not to mention; not only … but also ~",
+  "_id": "8934fa94dd9342239f08f7d13d8c9cbb"
+}

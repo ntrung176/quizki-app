@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1467,
+  "usages": [
+    {
+      "explain": "Used to explain a certain situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一日8時間月曜日から土曜日まで働くということは、一週間で48時間の労働だ。",
+          "transcription": "いちにち8じかんげつようびからどようびまではたらくということは、いちしゅうかんで48じかんのろうどうだ。",
+          "mean": "Working 8 hours a day from Monday to Saturday means 48 hours in a week."
+        },
+        {
+          "content": "自転車が二台しかないということは、私たちのうち誰か歩かなければならないということだ。",
+          "transcription": "じてんしゃがにだいしかないということは、わたしたちのうちだれかあるかなければならないということだ。",
+          "mean": "There are only two bicycles, which means one of us has to walk."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ということは…（ということ）だ"
+    }
+  ],
+  "title": "…ということは…（ということ）だ => that is to say; so that means; in other words ~",
+  "_id": "f7ff14dae05876cac58b4136937b4aad"
+}

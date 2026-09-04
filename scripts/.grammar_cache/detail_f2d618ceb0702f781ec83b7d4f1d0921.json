@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2650,
+  "usages": [
+    {
+      "explain": "Used to emphasize that an action or task has ended, has been completed. Often preceded by adverbs like もう (already), ぜんぶ (all).",
+      "note": null,
+      "examples": [
+        {
+          "content": "その仕事は昨日やってしまいました。",
+          "transcription": "そのしごとはきのうやってしまいました。",
+          "mean": "I finished the work yesterday."
+        },
+        {
+          "content": "猫はミルクを全部飲んでしまった。",
+          "transcription": "ねこはみるくをぜんぶのんでしまった。",
+          "mean": "The cat drank all the milk."
+        },
+        {
+          "content": "電車に財布を忘れてしまいました。",
+          "transcription": "でんしゃにさいふをわすれてしまいました。",
+          "mean": "I forgot my wallet on the train."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-てしまった"
+    },
+    {
+      "explain": "Used to express regret or embarrassment of the speaker in a difficult situation.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "てしまった => to finish",
+  "_id": "f2d618ceb0702f781ec83b7d4f1d0921"
+}

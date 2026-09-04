@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 794,
+  "usages": [
+    {
+      "explain": "✦ In the form [...からいいが], [...からいいけど], it signifies the meaning [...からそれほど問題にはならないが] (Because ..., it's not much of a problem). <br/> ✦ Colloquial in nature.",
+      "note": null,
+      "examples": [
+        {
+          "content": "まだ時間はあるからいいが、今度からはもうちょっと早く来るようにしなさい。",
+          "transcription": "まだじかんはあるからいいが、こんどからはもうちょっとはやくくるようにしなさい。",
+          "mean": "There's still time, so please try to come a little earlier next time."
+        },
+        {
+          "content": "ネギ、買ってくるの忘れたの？まあ、少し残っているからいいけど。",
+          "transcription": "ネギ、かってくるのわすれたの？まあ、すこしのこっているからいいけど。",
+          "mean": "Did you forget to buy green onions? Well, it's good because there's a little left."
+        },
+        {
+          "content": "え？今日も休むの？まあ、あまり忙しくない時期だからいいけど。",
+          "transcription": "え？きょうもやすむの？まあ、あまりいそがしくないじきだからいいけど。",
+          "mean": "picture? Are you going to rest today too? Well, it's good because it's not a very busy time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N/Na + だからいいA/V + からいい"
+    }
+  ],
+  "title": "…からいいが =>  never mind that, don't worry about that",
+  "_id": "f7ff14dae05876cac58b4136931df97d"
+}

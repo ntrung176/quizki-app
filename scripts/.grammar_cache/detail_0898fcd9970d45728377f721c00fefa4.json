@@ -1,0 +1,81 @@
+{
+  "level": "N3",
+  "mobileId": 5452,
+  "usages": [
+    {
+      "explain": "「は別として」<br/>1. When directly preceding a noun N, it expresses the idea that N is special, exceptional. \"Except for...\"<br/>2. When used with a verb, adjective, or ordinary noun followed by かどうか, or with an interrogative word followed by か, it indicates that the action, quality, thing, or event is not the issue, not important, and that the content in the subsequent clause is what matters. \"Regardless of...\" or \"Irrespective of...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "野球は別として、私はすべてのスポーツが好きだ。",
+          "transcription": "やきゅうはべつとして、わたしはすべてのスポーツがすきだ。",
+          "mean": "Apart from baseball, I like all sports."
+        },
+        {
+          "content": "値段は別として、そのドレスは私に似合わない。",
+          "transcription": "ねだんはべつとして、そのドレスはわたしににあわない。",
+          "mean": "Apart from the cost, the dress doesn't suit me."
+        },
+        {
+          "content": "天気は別として、それは楽しいピクニックだった。",
+          "transcription": "てんきはべつとして、それはたのしいピクニックだった。",
+          "mean": "Apart from the weather, it was a good picnic."
+        },
+        {
+          "content": "彼女の料理は見た目は別として、味はとても美味しい。",
+          "transcription": "かのじょのりょうりはみためはべつとして、あじはとてもおいしい。",
+          "mean": "Aside from the appearance, her cooking tastes very delicious."
+        },
+        {
+          "content": "この会社の給料は別として、職場環境は本当にいい。",
+          "transcription": "このかいしゃのきゅうりょうはべつとして、しょくばかんきょうはほんとうにいい。",
+          "mean": "Aside from the salary at this company, the work environment is really good."
+        },
+        {
+          "content": "大雨や大雪の日は別として、私は毎日ランニングをしている。",
+          "transcription": "おおあめやおおゆきのひはべつとして、わたしはまいにちランニングをしている。",
+          "mean": "I run every day, except on days when it rains or snows."
+        },
+        {
+          "content": "休みの日は別として、この電車にはいつも学生の乗客が多い。",
+          "transcription": "やすみのひはべつとして、このでんしゃにはいつもがくせいのじょうきゃくがおおい。",
+          "mean": "Except for holidays, there are always many student passengers on this train."
+        },
+        {
+          "content": "合格できるかどうかは別として、チャレンジしてみることは大切だ。",
+          "transcription": "ごうかくできるかどうかはべつとして、チャレンジしてみることはたいせつだ。",
+          "mean": "Regardless of whether you can pass or not, it is important to try."
+        },
+        {
+          "content": "学生達は、大地の揺れを感じたかどうか別として、あの地震の第一報をどのメディアからつかんだんですか。",
+          "transcription": "がくせいたちは、だいちのゆれをかんじたかどうかべつとして、あのじしんのだいいっぽうをどのメディアからつかんだんですか。",
+          "mean": "Regardless of whether the students felt the ground shaking or not, from what media did they get the first reports of that earthquake?"
+        },
+        {
+          "content": "このハンバーガーは体にいいかどうかは別として、とても美味しい。",
+          "transcription": "このハンバーガーはからだにいいかどうかはべつとして、とてもおいしい。",
+          "mean": "This hamburger may or may not be good for you, but it's delicious."
+        },
+        {
+          "content": "この小説は悲しい結末です。主人公にとってはそれが不幸だったかどうか別として。",
+          "transcription": "このしょうせつはかなしいけつまつです。しゅじんこうにとってはそれがふこうだったかどうかべつとして。",
+          "mean": "This novel has a sad ending. It doesn't matter whether it was unfortunate for the main character or not."
+        },
+        {
+          "content": "上手かどうかは別として、一生懸命歌っている。",
+          "transcription": "じょうずかどうかはべつとして、いっしょうけんめいうたっている。",
+          "mean": "Whether he's good at it or not, he sings with all his might."
+        },
+        {
+          "content": "誰が思いついたかは別として、この戦略には深刻な間違いが存在すると思う。",
+          "transcription": "だれがおもいついたかはべつとして、このせんりゃくにはしんこくなまちがいがそんざいするとおもう。",
+          "mean": "Regardless of who came up with it, I think there are serious flaws in this strategy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. N+は別として<br/>2. V/Aい/Aな/N (formal form)+かどうか+は別として<br/> (In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/> Nだ ➔ N<s>だ</s>)<br/> Interrogative words+か+は別として"
+    }
+  ],
+  "title": "は別として => aside from; apart from; except for; whether or not",
+  "_id": "0898fcd9970d45728377f721c00fefa4"
+}

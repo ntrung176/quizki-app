@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5370,
+  "usages": [
+    {
+      "explain": "「まるで」is an adverb used to describe two objects or states as being very similar (although they are not the same). It is often paired with structures like「よう」or「みたい」to emphasize the degree of similarity between two objects or states in a sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "合格した！まるで夢のようだ。",
+          "transcription": "ごうかくした！まるでゆめのようだ。",
+          "mean": "passed it! It's like a dream."
+        },
+        {
+          "content": "私が聞いたのはまるで嘘のような本当の話なんです。",
+          "transcription": "わたしがきいたのはまるでうそのようなほんとうのはなしなんです。",
+          "mean": "What I heard was a true story that sounded like a lie."
+        },
+        {
+          "content": "あの2人はまるで兄弟のようによく似ている。",
+          "transcription": "あのふたりはまるできょうだいのようによくにている。",
+          "mean": "Those two look so similar, like brothers."
+        },
+        {
+          "content": "このゲームはものすごくリアルだ。まるで映画を見ているようだ。",
+          "transcription": "このゲームはものすごくリアルだ。まるでえいがをみているようだ。",
+          "mean": "This game is extremely realistic. It's like watching a movie."
+        },
+        {
+          "content": "彼の日本語はまるで日本人が話しているみたいに聞こえる。",
+          "transcription": "かれのにほんごはまるでにほんじんがはなしているみたいにきこえる。",
+          "mean": "His Japanese sounds just like a Japanese person speaking it."
+        },
+        {
+          "content": "息子はもう中学生なのに、一人で何もできないし、まるで赤ちゃんみたいだ。",
+          "transcription": "むすこはもうちゅうがくせいなのに、ひとりでなにもできないし、まるであかちゃんみたいだ。",
+          "mean": "Even though my son is already in middle school, he can't do anything by himself and is like a baby."
+        },
+        {
+          "content": "今日は風が強くて、まるで台風みたいな天気だ。",
+          "transcription": "きょうはかぜがつよくて、まるでたいふうみたいなてんきだ。",
+          "mean": "The wind is strong today, almost like a typhoon."
+        },
+        {
+          "content": "彼はまるで自分は関係ないみたいな素振りを見せた。",
+          "transcription": "かれはまるでじぶんはかんけいないみたいなそぶりをみせた。",
+          "mean": "He acted as if he had nothing to do with it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まるで ～よう<br/> まるで ～みたい"
+    }
+  ],
+  "title": "まるで => as if; as though; just like ~",
+  "_id": "e8a5f012056647a9b418efe08d39523c"
+}

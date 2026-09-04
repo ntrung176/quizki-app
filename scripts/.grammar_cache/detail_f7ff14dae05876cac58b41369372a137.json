@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1414,
+  "usages": [
+    {
+      "explain": "Used to connect two clauses with opposite meanings.",
+      "note": null,
+      "examples": [
+        {
+          "content": "役に立つどころか、むしろ逆効果なアドバイスだ。",
+          "transcription": "やくにたつどころか、むしろぎゃくこうかなあどばいすだ。",
+          "mean": "This advice is far more counterproductive than helpful."
+        },
+        {
+          "content": "産後八ヶ月が経ったが痩せるどころか、むしろ体重が増えた。",
+          "transcription": "さんごはちかげつがたったがやせるどころか、むしろたいじゅうがふえた。",
+          "mean": "It's been eight months since I gave birth, but instead of losing weight, I've actually gained weight."
+        },
+        {
+          "content": "健康の調子はよくなるどころか、むしろ悪くなってきている。",
+          "transcription": "けんこうのちょうしはよくなるどころか、むしろわるくなってきている。",
+          "mean": "Instead of getting better, my health is getting worse."
+        }
+      ],
+      "mean": null,
+      "synopsis": "むしろ"
+    }
+  ],
+  "title": "むしろ => rather; instead",
+  "_id": "f7ff14dae05876cac58b41369372a137"
+}

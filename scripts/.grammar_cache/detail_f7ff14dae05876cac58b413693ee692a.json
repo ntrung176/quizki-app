@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 2299,
+  "usages": [
+    {
+      "explain": "Primarily used with nouns expressing emotions or will, to convey the idea that such emotions or will are not entirely absent.",
+      "note": null,
+      "examples": [
+        {
+          "content": "時には、家出したいと思うことがないでもない。",
+          "transcription": "ときには、いえでしたいとおもうことがないでもない。",
+          "mean": "Sometimes I feel like running away from home."
+        },
+        {
+          "content": "彼は就職するつもりがないでもないらしい。",
+          "transcription": "かれはしゅうしょくするつもりがないでもないらしい。",
+          "mean": "It seems that he has no intention of finding a job."
+        },
+        {
+          "content": "留学したい気がないでもないが、なかなか英語がマスターできない。",
+          "transcription": "りゅうがくしたいきがないでもないが、なかなかえいごがますたーできない。",
+          "mean": "It's not that I don't want to study abroad, but I'm having a hard time mastering English."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + がないでもない"
+    }
+  ],
+  "title": "がないでもない => is not entirely impossible",
+  "_id": "f7ff14dae05876cac58b413693ee692a"
+}

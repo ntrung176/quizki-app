@@ -2,6 +2,19 @@
 import { doc, getDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnapshot, serverTimestamp, writeBatch, setDoc } from 'firebase/firestore'
 import { db, appId } from '../config/firebase';
 import { getCacheConfig } from './cacheConfigService';
+import { cleanFirestoreData } from './firestoreHelpers';
+
+const sanitizeGrammarPointForFirestore = (data) => {
+    if (!data || typeof data !== 'object') return {};
+    const copy = { ...data };
+    // Remove UI-only join/breadcrumb metadata that should not be persisted in Firestore doc
+    delete copy.textbook;
+    delete copy.lesson;
+    delete copy.textbookTitle;
+    delete copy.lessonTitle;
+    delete copy.docPath;
+    return cleanFirestoreData(copy) || {};
+};
 
 // ============== PATHS ==============
 const textbooksPath = () => `artifacts/${appId}/grammarTextbooks`;
@@ -61,28 +74,49 @@ export const getSharedGrammarData = async () => {
 
     grammarPromise = (async () => {
         try {
-            console.log('Fetching shared grammar data from CDN...');
-            
-            let dataRes;
+            console.log('Fetching shared grammar data...');
+            let data = null;
+
+            // 1. Try Firebase Storage CDN if available
             if (cacheConfig && cacheConfig.grammarUrl) {
-                console.log('Using Firebase Storage CDN for Grammar cache');
-                const urlWithBuster = cacheConfig.grammarUrl.includes('?') 
-                    ? `${cacheConfig.grammarUrl}&t=${cacheConfig.exportedAt || Date.now()}`
-                    : `${cacheConfig.grammarUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
-                dataRes = await fetch(urlWithBuster);
-            } else {
-                console.log('Falling back to local bundle files for Grammar cache');
-                dataRes = await fetch('/data/grammar_data.json');
+                try {
+                    console.log('Using Firebase Storage CDN for Grammar cache');
+                    const urlWithBuster = cacheConfig.grammarUrl.includes('?') 
+                        ? `${cacheConfig.grammarUrl}&t=${cacheConfig.exportedAt || Date.now()}`
+                        : `${cacheConfig.grammarUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+                    const res = await fetch(urlWithBuster);
+                    if (res && res.ok) {
+                        const json = await res.json();
+                        const pointCount = Array.isArray(json)
+                            ? json.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || 0), 0), 0)
+                            : 0;
+                        if (pointCount > 0) {
+                            data = json;
+                        } else {
+                            console.warn('CDN grammar_data is empty (0 points), falling back to local bundle.');
+                        }
+                    }
+                } catch (cdnErr) {
+                    console.warn('CDN grammar fetch failed, falling back to local bundle:', cdnErr);
+                }
             }
 
-            if (!dataRes || !dataRes.ok) throw new Error('CDN fetch failed');
-            
-            const contentType = dataRes.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Response is not JSON (got: ' + contentType + ')');
+            // 2. Fallback to local bundle files /data/grammar_data.json
+            if (!data) {
+                try {
+                    console.log('Falling back to local bundle files for Grammar cache (/data/grammar_data.json)');
+                    const dataRes = await fetch('/data/grammar_data.json');
+                    if (dataRes && dataRes.ok) {
+                        data = await dataRes.json();
+                    }
+                } catch (localErr) {
+                    console.warn('Local bundle grammar fetch failed:', localErr);
+                }
             }
 
-            cachedGrammarData = await dataRes.json();
+            if (!data) throw new Error('No grammar data available from CDN or local bundle');
+
+            cachedGrammarData = data;
             lastLoadedExportedAt = currentExport || null;
             const editedMap = getEditedGrammarMap();
             if (Object.keys(editedMap).length > 0 && Array.isArray(cachedGrammarData)) {
@@ -96,7 +130,7 @@ export const getSharedGrammarData = async () => {
             }
             return cachedGrammarData;
         } catch (e) {
-            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
+            console.log('Grammar load failed, falling back to Firestore: ' + e.message);
             return null;
         }
     })();
@@ -107,23 +141,22 @@ export const getSharedGrammarData = async () => {
 // ============== TEXTBOOKS ==============
 
 export const subscribeTextbooks = (callback, isAdmin = false) => {
-    // Try CDN first
-    if (!isAdmin) {
-        (async () => {
-            try {
-                const data = await getSharedGrammarData();
-                if (data) {
+    // Try CDN / local bundle first
+    (async () => {
+        try {
+            const data = await getSharedGrammarData();
+            if (data && data.length > 0) {
+                if (!textbooksCache || textbooksCache.length === 0) {
                     callback(data);
-                    return;
                 }
-            } catch (e) {
-                console.warn('CDN subscribeTextbooks failed:', e);
             }
-        })();
-    }
+        } catch (e) {
+            console.warn('CDN subscribeTextbooks failed:', e);
+        }
+    })();
 
     // Return cached textbooks immediately if available (instant page transition)
-    if (textbooksCache) {
+    if (textbooksCache && textbooksCache.length > 0) {
         callback(textbooksCache);
     }
 
@@ -131,14 +164,26 @@ export const subscribeTextbooks = (callback, isAdmin = false) => {
 
     if (!textbooksUnsub) {
         const colRef = collection(db, textbooksPath());
-        textbooksUnsub = onSnapshot(colRef, (snapshot) => {
+        textbooksUnsub = onSnapshot(colRef, async (snapshot) => {
             const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
             items.sort((a, b) => (a.order || 0) - (b.order || 0));
-            textbooksCache = items;
-            textbooksListeners.forEach(cb => cb(items));
-        }, (err) => {
-            console.error('Subscribe textbooks error:', err);
-            textbooksListeners.forEach(cb => cb([]));
+            
+            const cdnData = await getSharedGrammarData().catch(() => null);
+            let finalItems = items;
+            if ((!items || items.length === 0 || (items.length === 1 && items[0].id === 'master_bank')) && cdnData && cdnData.length > 0) {
+                finalItems = cdnData;
+            } else if (items.length > 0 && cdnData && cdnData.length > 0) {
+                const seen = new Set(items.map(i => i.id));
+                const extras = cdnData.filter(tb => !seen.has(tb.id));
+                finalItems = [...items, ...extras];
+            }
+
+            textbooksCache = finalItems;
+            textbooksListeners.forEach(cb => cb(finalItems));
+        }, async (err) => {
+            console.error('Subscribe textbooks error, using CDN fallback:', err);
+            const cdnData = await getSharedGrammarData().catch(() => null);
+            textbooksListeners.forEach(cb => cb(cdnData || []));
         });
     }
 
@@ -157,8 +202,9 @@ export const addTextbook = async (data, adminUserId) => {
         clearSharedGrammarPointsListCache();
         const colRef = collection(db, textbooksPath());
         const snap = await getDocs(colRef);
+        const cleaned = cleanFirestoreData(data) || {};
         const docRef = await addDoc(colRef, {
-            ...data,
+            ...cleaned,
             order: snap.size,
             createdAt: serverTimestamp(),
             createdBy: adminUserId,
@@ -173,7 +219,8 @@ export const addTextbook = async (data, adminUserId) => {
 export const updateTextbook = async (textbookId, data) => {
     try {
         clearSharedGrammarPointsListCache();
-        await updateDoc(doc(db, textbooksPath(), textbookId), { ...data, updatedAt: serverTimestamp() });
+        const cleaned = cleanFirestoreData(data) || {};
+        await updateDoc(doc(db, textbooksPath(), textbookId), { ...cleaned, updatedAt: serverTimestamp() });
         return true;
     } catch (e) {
         console.error('Update textbook error:', e);
@@ -216,26 +263,25 @@ export const subscribeLessons = (textbookId, callback, isAdmin = false) => {
         return () => {};
     }
 
-    // Try CDN first
-    if (!isAdmin) {
-        (async () => {
-            try {
-                const data = await getSharedGrammarData();
-                if (data) {
-                    const tb = data.find(t => t.id === textbookId);
-                    if (tb) {
-                        callback(tb.lessons || []);
-                        return;
+    // Try CDN / local bundle first
+    (async () => {
+        try {
+            const data = await getSharedGrammarData();
+            if (data) {
+                const tb = data.find(t => t.id === textbookId);
+                if (tb && tb.lessons?.length > 0) {
+                    if (!lessonsCache[textbookId] || lessonsCache[textbookId].length === 0) {
+                        callback(tb.lessons);
                     }
                 }
-            } catch (e) {
-                console.warn('CDN subscribeLessons failed:', e);
             }
-        })();
-    }
+        } catch (e) {
+            console.warn('CDN subscribeLessons failed:', e);
+        }
+    })();
 
     // Return cached lessons immediately if available (instant page transition)
-    if (lessonsCache[textbookId]) {
+    if (lessonsCache[textbookId] && lessonsCache[textbookId].length > 0) {
         callback(lessonsCache[textbookId]);
     }
 
@@ -246,17 +292,29 @@ export const subscribeLessons = (textbookId, callback, isAdmin = false) => {
 
     if (!lessonsUnsubs[textbookId]) {
         const colRef = collection(db, lessonsPath(textbookId));
-        lessonsUnsubs[textbookId] = onSnapshot(colRef, (snapshot) => {
+        lessonsUnsubs[textbookId] = onSnapshot(colRef, async (snapshot) => {
             const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
             items.sort((a, b) => (a.order || 0) - (b.order || 0));
-            lessonsCache[textbookId] = items;
-            if (lessonsListeners[textbookId]) {
-                lessonsListeners[textbookId].forEach(cb => cb(items));
+            
+            let finalItems = items;
+            if ((!items || items.length === 0) && textbookId) {
+                const cdnData = await getSharedGrammarData().catch(() => null);
+                const tb = cdnData?.find(t => t.id === textbookId);
+                if (tb && tb.lessons?.length > 0) {
+                    finalItems = tb.lessons;
+                }
             }
-        }, (err) => {
-            console.error('Subscribe lessons error:', err);
+
+            lessonsCache[textbookId] = finalItems;
             if (lessonsListeners[textbookId]) {
-                lessonsListeners[textbookId].forEach(cb => cb([]));
+                lessonsListeners[textbookId].forEach(cb => cb(finalItems));
+            }
+        }, async (err) => {
+            console.error('Subscribe lessons error, using CDN fallback:', err);
+            const cdnData = await getSharedGrammarData().catch(() => null);
+            const tb = cdnData?.find(t => t.id === textbookId);
+            if (lessonsListeners[textbookId]) {
+                lessonsListeners[textbookId].forEach(cb => cb(tb?.lessons || []));
             }
         });
     }
@@ -280,8 +338,9 @@ export const addLesson = async (textbookId, data, adminUserId) => {
         clearSharedGrammarPointsListCache();
         const colRef = collection(db, lessonsPath(textbookId));
         const snap = await getDocs(colRef);
+        const cleaned = cleanFirestoreData(data) || {};
         const docRef = await addDoc(colRef, {
-            ...data,
+            ...cleaned,
             order: snap.size,
             createdAt: serverTimestamp(),
             createdBy: adminUserId,
@@ -296,7 +355,8 @@ export const addLesson = async (textbookId, data, adminUserId) => {
 export const updateLesson = async (textbookId, lessonId, data) => {
     try {
         clearSharedGrammarPointsListCache();
-        await updateDoc(doc(db, lessonsPath(textbookId), lessonId), { ...data, updatedAt: serverTimestamp() });
+        const cleaned = cleanFirestoreData(data) || {};
+        await updateDoc(doc(db, lessonsPath(textbookId), lessonId), { ...cleaned, updatedAt: serverTimestamp() });
         return true;
     } catch (e) {
         console.error('Update lesson error:', e);
@@ -331,36 +391,35 @@ export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin =
 
     const key = `${textbookId}/${lessonId}`;
 
-    // Try CDN first
-    if (!isAdmin) {
-        (async () => {
-            try {
-                const data = await getSharedGrammarData();
-                if (data) {
-                    const tb = data.find(t => t.id === textbookId);
-                    if (tb) {
-                        const ls = (tb.lessons || []).find(l => l.id === lessonId);
-                        if (ls) {
-                            const editedMap = getEditedGrammarMap();
-                            const deletedSet = getDeletedGrammarIds();
-                            const points = sortGrammarPointsByCreationTime(
-                                (ls.points || [])
-                                    .map(p => editedMap[p.id] ? { ...p, ...editedMap[p.id] } : p)
-                                    .filter(p => !deletedSet.has(p.id))
-                            );
+    // Try CDN / local bundle first
+    (async () => {
+        try {
+            const data = await getSharedGrammarData();
+            if (data) {
+                const tb = data.find(t => t.id === textbookId);
+                if (tb) {
+                    const ls = (tb.lessons || []).find(l => l.id === lessonId);
+                    if (ls && ls.points?.length > 0) {
+                        const editedMap = getEditedGrammarMap();
+                        const deletedSet = getDeletedGrammarIds();
+                        const points = sortGrammarPointsByCreationTime(
+                            (ls.points || [])
+                                .map(p => editedMap[p.id] ? { ...p, ...editedMap[p.id] } : p)
+                                .filter(p => !deletedSet.has(p.id))
+                        );
+                        if (!pointsCache[key] || pointsCache[key].length === 0) {
                             callback(points);
-                            return;
                         }
                     }
                 }
-            } catch (e) {
-                console.warn('CDN subscribeGrammarPoints failed:', e);
             }
-        })();
-    }
+        } catch (e) {
+            console.warn('CDN subscribeGrammarPoints failed:', e);
+        }
+    })();
 
     // Return cached points immediately if available (instant page transition)
-    if (pointsCache[key]) {
+    if (pointsCache[key] && pointsCache[key].length > 0) {
         callback(pointsCache[key]);
     }
 
@@ -371,24 +430,40 @@ export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin =
 
     if (!pointsUnsubs[key]) {
         const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
-        pointsUnsubs[key] = onSnapshot(colRef, (snapshot) => {
+        pointsUnsubs[key] = onSnapshot(colRef, async (snapshot) => {
             const deletedSet = getDeletedGrammarIds();
             const editedMap = getEditedGrammarMap();
-            const items = snapshot.docs
+            let items = snapshot.docs
                 .map(d => {
                     const itemData = { id: d.id, ...d.data() };
                     return editedMap[d.id] ? { ...itemData, ...editedMap[d.id] } : itemData;
                 })
                 .filter(pt => !deletedSet.has(pt.id));
+
+            if ((!items || items.length === 0) && textbookId && lessonId) {
+                const cdnData = await getSharedGrammarData().catch(() => null);
+                const tb = cdnData?.find(t => t.id === textbookId);
+                const ls = tb?.lessons?.find(l => l.id === lessonId);
+                if (ls && ls.points?.length > 0) {
+                    items = (ls.points || [])
+                        .map(p => editedMap[p.id] ? { ...p, ...editedMap[p.id] } : p)
+                        .filter(p => !deletedSet.has(p.id));
+                }
+            }
+
             const sortedItems = sortGrammarPointsByCreationTime(items);
             pointsCache[key] = sortedItems;
             if (pointsListeners[key]) {
                 pointsListeners[key].forEach(cb => cb(sortedItems));
             }
-        }, (err) => {
-            console.error('Subscribe grammar points error:', err);
+        }, async (err) => {
+            console.error('Subscribe grammar points error, using CDN fallback:', err);
+            const cdnData = await getSharedGrammarData().catch(() => null);
+            const tb = cdnData?.find(t => t.id === textbookId);
+            const ls = tb?.lessons?.find(l => l.id === lessonId);
+            const fallbackPoints = sortGrammarPointsByCreationTime(ls?.points || []);
             if (pointsListeners[key]) {
-                pointsListeners[key].forEach(cb => cb([]));
+                pointsListeners[key].forEach(cb => cb(fallbackPoints));
             }
         });
     }
@@ -412,8 +487,9 @@ export const addGrammarPoint = async (textbookId, lessonId, data, adminUserId) =
         clearSharedGrammarPointsListCache();
         const colRef = collection(db, grammarPointsPath(textbookId, lessonId));
         const snap = await getDocs(colRef);
+        const cleanPayload = sanitizeGrammarPointForFirestore(data);
         const docRef = await addDoc(colRef, {
-            ...data,
+            ...cleanPayload,
             order: snap.size,
             textbookId,
             lessonId,
@@ -465,11 +541,13 @@ export const updateGrammarPoint = async (textbookId, lessonId, grammarId, data) 
         const updatedDoc = { ...data, id: grammarId, textbookId, lessonId, updatedAt: Date.now() };
         updateEditedGrammarLocalCache(grammarId, updatedDoc);
 
+        const cleanPayload = sanitizeGrammarPointForFirestore(data);
+
         const promises = [];
         if (textbookId && lessonId && textbookId !== 'master_bank' && textbookId !== 'master') {
-            promises.push(setDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId), { ...data, updatedAt: serverTimestamp() }, { merge: true }));
+            promises.push(setDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId), { ...cleanPayload, updatedAt: serverTimestamp() }, { merge: true }));
         }
-        promises.push(setDoc(doc(db, masterGrammarPath(), grammarId), { ...data, updatedAt: serverTimestamp() }, { merge: true }));
+        promises.push(setDoc(doc(db, masterGrammarPath(), grammarId), { ...cleanPayload, updatedAt: serverTimestamp() }, { merge: true }));
 
         await Promise.all(promises);
         return true;
@@ -991,7 +1069,25 @@ export const getMasterGrammarPoints = async () => {
     try {
         const deletedSet = getDeletedGrammarIds();
         const snap = await getDocs(collection(db, masterGrammarPath()));
-        const list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        let list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        
+        if (list.length === 0) {
+            const cdnData = await getSharedGrammarData().catch(() => null);
+            if (cdnData) {
+                const seen = new Set();
+                for (const tb of cdnData) {
+                    for (const ls of tb.lessons || []) {
+                        for (const pt of ls.points || []) {
+                            if (pt?.id && !seen.has(pt.id)) {
+                                seen.add(pt.id);
+                                list.push(pt);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         const filtered = list.filter(pt => !deletedSet.has(pt.id));
         return sortGrammarPointsByCreationTime(filtered);
     } catch (e) {
@@ -1022,8 +1118,9 @@ export const addMasterGrammarPoint = async (gpData, adminUserId = 'admin') => {
             // Ignore if parent docs exist or warning
         }
 
+        const cleanPayload = sanitizeGrammarPointForFirestore(gpData);
         const docRef = await addDoc(collection(db, masterGrammarPath()), {
-            ...gpData,
+            ...cleanPayload,
             textbookId: 'master_bank',
             lessonId: 'master_lesson',
             createdAt: serverTimestamp(),
@@ -1041,9 +1138,10 @@ export const updateMasterGrammarPoint = async (id, gpData) => {
     try {
         clearSharedGrammarPointsListCache();
         cachedGrammarData = null;
+        const cleanPayload = sanitizeGrammarPointForFirestore(gpData);
         const docRef = doc(db, masterGrammarPath(), id);
         await updateDoc(docRef, {
-            ...gpData,
+            ...cleanPayload,
             updatedAt: serverTimestamp()
         });
         return { success: true };
@@ -1083,8 +1181,9 @@ export const assignGrammarPointsToLesson = async (textbookId, lessonId, selected
         for (let i = 0; i < selectedGrammarPoints.length; i++) {
             const gp = selectedGrammarPoints[i];
             const targetDocRef = doc(colRef, gp.id);
+            const cleanPayload = sanitizeGrammarPointForFirestore(gp);
             await setDoc(targetDocRef, {
-                ...gp,
+                ...cleanPayload,
                 order: i,
                 updatedAt: serverTimestamp()
             }, { merge: true });

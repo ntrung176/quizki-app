@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2942,
+  "usages": [
+    {
+      "explain": "When wanting to talk about the time an action occurred, we add the particle 「に」 after the time noun. Use 「に」 for actions that occur in a short period of time. 「に」 is used when the time noun is accompanied by a numeral and not used when there is no numeral. However, for days of the week, 「に」 can be used or omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "7時に朝ごはんを食べます。",
+          "transcription": "7じにあさごはんをたべます。",
+          "mean": "I have breakfast at 7 o'clock."
+        },
+        {
+          "content": "12月8日にベトナムへ帰りました。",
+          "transcription": "12がつ8にちにべとなむへかえりました。",
+          "mean": "I returned to Vietnam on December 8th."
+        },
+        {
+          "content": "月曜日（に）日本へ行きます。",
+          "transcription": "げつようび（に）にほんへいきます。",
+          "mean": "I'm going to Japan on Monday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (time) + に + V-ます"
+    }
+  ],
+  "title": "... にVます => Doing something in/at (time)",
+  "_id": "f2d618ceb0702f781ec83b7d4f4264a1"
+}

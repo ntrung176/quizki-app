@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5465,
+  "usages": [
+    {
+      "explain": "「ようとする」<br/>1. It's a way for the speaker to indicate they are about to do something, or to make a prediction that an animal or person is about to do something. \"Intend to...\"<br/>2. Indicates that the subject is trying, attempting to carry out an action. \"Trying to...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "電車に乗ろうとしたときにドアが閉まって乗れなかった。",
+          "transcription": "でんしゃにのろうとしたときにドアがしまって乗れなかった。",
+          "mean": "When I tried to get on the train, the door was closed and I couldn't get on."
+        },
+        {
+          "content": "あ、その犬があなたの靴を嚙もうとしているよ。",
+          "transcription": "あ、そのいぬがあなたのくつをかもうとしているよ。",
+          "mean": "Oh, that dog is trying to chew your shoe."
+        },
+        {
+          "content": "ポチは僕が出かけようとすると吠える。",
+          "transcription": "ポチはぼくがでかけようとするとほえる。",
+          "mean": "Pochi barks when I try to go out."
+        },
+        {
+          "content": "お風呂に入ろうとしたとき誰か来ました。",
+          "transcription": "おふろにはいろうとしたときだれかきました。",
+          "mean": "Someone came when I was about to take a bath."
+        },
+        {
+          "content": "シャワーを浴びようとしたが、水が出なかった。",
+          "transcription": "シャワーをあびようとしたが、みずがでなかった。",
+          "mean": "I tried to take a shower, but there was no water."
+        },
+        {
+          "content": "小さな女の子が自分の気持を、必死に話そうとしている。",
+          "transcription": "ちいさなおんなのこがじぶんのきもちを、ひっしにはなそうとしている。",
+          "mean": "A little girl is desperately trying to talk about her feelings."
+        },
+        {
+          "content": "8時までには家に着こうとしたんだけど、間に合いませんでした。",
+          "transcription": "はちじまでにはいえにつこうとしたんだけど、まにあいませんでした。",
+          "mean": "I tried to get home by 8 o'clock, but I couldn't make it."
+        },
+        {
+          "content": "彼は出された料理は残さず全部食べようとします。",
+          "transcription": "かれはだされたりょうりはのこさずぜんぶたべようとします。",
+          "mean": "He tries to eat all the food that is served to him."
+        },
+        {
+          "content": "このジャムの蓋はいくら開けようとしても開かない。",
+          "transcription": "このジャムのふたはいくらあけようとしてもあかない。",
+          "mean": "No matter how hard I try to open the lid of this jam, it won't open."
+        },
+        {
+          "content": "彼女は夢占いに興味を持ち、自分が見た夢の内容を思い出そうとしている。",
+          "transcription": "かのじょはゆめうらないにきょうみをもち、じぶんがみたゆめのないようをおもいだそうとしている。",
+          "mean": "She is interested in dream interpretation and is trying to remember the contents of the dreams she had."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (volitional form)+とする"
+    }
+  ],
+  "title": "ようとする => try to; attempt to; be about to ~",
+  "_id": "a1975fff73d04ce4b0dd066d1e540ca6"
+}

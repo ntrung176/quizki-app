@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1382,
+  "usages": [
+    {
+      "explain": "Attach 「する」 after adverbs ending in 「と」 to describe a situation or state as such. In the case of words like 「ぼんやり」 and 「はっきり」 which can also be used as adverbs without 「と」, the 「と」 can be omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ぎりぎりで大切な会議に間に合って、ほっとした。",
+          "transcription": "ぎりぎりでたいせつなかいぎにまにあって、ほっとした。",
+          "mean": "I was relieved that I made it to the important meeting at the last minute."
+        },
+        {
+          "content": "彼は五分の間もじっとしていない。",
+          "transcription": "かれはごぶんのかんもじっとしていない。",
+          "mean": "He doesn't sit still for five minutes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～とする"
+    }
+  ],
+  "title": "とする => Describe things in such a state",
+  "_id": "f7ff14dae05876cac58b4136936e6eea"
+}

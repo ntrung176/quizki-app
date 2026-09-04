@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1847,
+  "usages": [
+    {
+      "explain": "This is a way of speaking that follows contrasting objects to compare them with each other.",
+      "note": null,
+      "examples": [
+        {
+          "content": "北京が中国の政治中心なら、上海はこの国の経済中心だ。",
+          "transcription": "ぺきんがちゅうごくのせいじちゅうしんなら、しゃんはいはこのくにのけいざいちゅうしんだ。",
+          "mean": "If Beijing is China's political center, Shanghai is the country's economic center."
+        },
+        {
+          "content": "サッカーがイギリスの王様スポーツなら、バスケットはアメリカの国家スポーツだ。",
+          "transcription": "さっかーがいぎりすのおうさますぽーつなら、ばすけっとはあめりかのこっかすぽーつだ。",
+          "mean": "If soccer is England's king sport, basketball is America's national sport."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 + が N2 + なら + N3 + は + N4 だ"
+    }
+  ],
+  "title": "が～なら～は～だ => If... is..., then... is...",
+  "_id": "f7ff14dae05876cac58b413693ae669f"
+}

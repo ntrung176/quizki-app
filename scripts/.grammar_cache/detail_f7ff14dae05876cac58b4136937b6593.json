@@ -1,0 +1,21 @@
+{
+  "level": "N2",
+  "mobileId": 1468,
+  "usages": [
+    {
+      "explain": "This expression is used to compare two things, \"if one can be said to be ..., then the other can be said to be ...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中さんが働き者タイプだとすれば、山田さんは怠け者タイプの性格である。",
+          "transcription": "たなかさんがはたらきものたいぷだとすれば、やまださんはなまけものたいぷのせいかくである。",
+          "mean": "If Mr. Tanaka is a hard worker, Mr. Yamada is a lazy person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + を + N + とすれば\nN + が + N + だとすれば"
+    }
+  ],
+  "title": "... を... とすれば/ ... が... だとすれば => in the case of~; assuming~; if A then B (conditional)",
+  "_id": "f7ff14dae05876cac58b4136937b6593"
+}

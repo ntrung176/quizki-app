@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5278,
+  "usages": [
+    {
+      "explain": "「とか」is used to convey information that the speaker has heard but is not certain about its accuracy. It is commonly used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今夜の花火大会は、雨で中止だとか。",
+          "transcription": "こんやのはなびたいかいは、あめでちゅうしだとか。",
+          "mean": "Tonight's fireworks display has been canceled due to rain."
+        },
+        {
+          "content": "今、インフルエンザが流行っているとか。",
+          "transcription": "いま、インフルエンザがはやっているとか。",
+          "mean": "Is there a flu going around right now?"
+        },
+        {
+          "content": "昨日はこの冬一番の寒さだったとか。",
+          "transcription": "きのうはこのふゆいちばんのさむさだったとか。",
+          "mean": "Yesterday was the coldest day this winter."
+        },
+        {
+          "content": "『もう梅雨入りしたとか。』『うん、そうだってね。』",
+          "transcription": "『もうつゆいりしたとか。』『うん、そうだってね。』",
+          "mean": "``The rainy season has already begun. ” ``Yes, that's right. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+とか"
+    }
+  ],
+  "title": "とか => I heard that",
+  "_id": "42c4e906d6e64537abf7bdb6c91eaedc"
+}

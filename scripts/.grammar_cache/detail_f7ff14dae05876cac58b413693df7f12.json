@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2194,
+  "usages": [
+    {
+      "explain": "This expression is used to request the listener to do something for a third party (neither the speaker nor the listener). It is used when the speaker, the listener, and the third party are all familiar and within the speaker's circle.",
+      "note": null,
+      "examples": [
+        {
+          "content": "妹にもう少し待つように言ってやってくれないか。",
+          "transcription": "いもうとにもうすこしまつようにいってやってくれないか。",
+          "mean": "Could you please tell my sister to wait a little longer?"
+        },
+        {
+          "content": "幼稚園へ吉田君を迎えに行ってやってくれないか。",
+          "transcription": "ようちえんへよしだくんをむかえにいってやってくれないか。",
+          "mean": "Could you please pick up Yoshida-kun from kindergarten?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + やってくれないか"
+    }
+  ],
+  "title": "てやってくれないか => to do a favor; request a favor; do something for ...",
+  "_id": "f7ff14dae05876cac58b413693df7f12"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5106,
+  "usages": [
+    {
+      "explain": "「だが」 is a conjunction used to connect two sentences. These two sentences have a contrasting, conflicting relationship with each other.",
+      "note": null,
+      "examples": [
+        {
+          "content": "生活は貧しい。だが、幸せだ。",
+          "transcription": "せいかつはまずしい。だが、しあわせだ。",
+          "mean": "Life is poor. But I'm happy."
+        },
+        {
+          "content": "よく晴れている。だが、気温が低い。",
+          "transcription": "よくはれている。だが、きおんがひくい。",
+          "mean": "It's sunny. However, the temperature is low."
+        },
+        {
+          "content": "失敗した。だが、有意義な経験だった。",
+          "transcription": "しっぱいした。だが、ゆういぎなけいけんだった。",
+          "mean": "We're screwed. However, it was a meaningful experience."
+        },
+        {
+          "content": "彼女は可愛いだが、僕のタイプではない。",
+          "transcription": "かのじょはかわいいだが、ぼくのタイプではない。",
+          "mean": "She's cute, but she's not my type."
+        },
+        {
+          "content": "あの二人は兄弟だ。だが、顔も性格も全く違う。",
+          "transcription": "あのふたりはきょうだいだ。だがかおもせいかくもまったくちがう。",
+          "mean": "Those two are brothers. However, their faces and personalities are completely different."
+        },
+        {
+          "content": "この料理は見た目は悪い。だが、味はとてもいい。",
+          "transcription": "このりょうりはみためはわるい。だがあじはとてもいい。",
+          "mean": "This dish doesn't look good. However, the taste is very good."
+        },
+        {
+          "content": "これは難しい挑戦だ。だが、失敗を恐れてはいけない。",
+          "transcription": "これはむずかしいちょうせんだ。だが、しっぱいをおそれてはいけない。",
+          "mean": "This is a difficult challenge. But don't be afraid of failure."
+        },
+        {
+          "content": "このアパートは古くて狭いだが、学校から近くて便利だ。",
+          "transcription": "このアパートはふるくてせまいだが、がっこうからちかくてべんりだ。",
+          "mean": "This apartment is old and small, but it's convenient because it's close to the school."
+        },
+        {
+          "content": "とても眠い。だが、今日も仕事なので、起きなければいけない。",
+          "transcription": "とてもねむい。だが、きょうもしごとなので、おきなければいけない。",
+          "mean": "very sleepy. But I have to get up because I have work today."
+        },
+        {
+          "content": "私は昔から虫が嫌いだが、この虫は大丈夫です。あまり怖くない。",
+          "transcription": "わたしはむかしからむしがきらいだが、このむしはだいじょうぶです。あまりこわくない。",
+          "mean": "I have always hated insects, but this one is fine. It's not very scary."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。だが、 B"
+    }
+  ],
+  "title": "だが => But",
+  "_id": "0cd498171e23405ea859b03e8214a039"
+}

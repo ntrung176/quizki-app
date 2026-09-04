@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1252,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"not simply having just that.\" <br/>This is a more literary expression of [ひとり... だけでなく].",
+      "note": null,
+      "examples": [
+        {
+          "content": "人口高齢化は、ひとり日本のみならず先進国の問題でもある。",
+          "transcription": "じんこうこうれいかは、ひとりにっぽんのみならずせんしんこくのもんだいでもある。",
+          "mean": "Population aging is a problem not only for Japan but also for developed countries."
+        },
+        {
+          "content": "この協会には、ひとりアメリカのみならず、多くの国々が参加している。",
+          "transcription": "このきょうかいには、ひとりあめりかのみならず、おおくのくにぐにがさんかしている。",
+          "mean": "This association includes not only the United States but also many other countries."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ひとり + N + のみならず"
+    }
+  ],
+  "title": "ひとり ... のみならず => not only…, not just…",
+  "_id": "f7ff14dae05876cac58b4136935c20a9"
+}

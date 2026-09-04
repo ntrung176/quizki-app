@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5493,
+  "usages": [
+    {
+      "explain": "「いたします」is a humble form used by the speaker to modestly refer to their own actions (honorific language), indicating that they will do something.<br/>\nRegarding the addition of お or ご to verbs in Group III:<br/>\n- ご is added to verbs with a pure Sino-Japanese origin, which are read entirely in onyomi (e.g., 説明, 解決...).<br/>\n- お is added to other verbs in Group III (e.g., 仕事, 電話...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "失礼いたします。",
+          "transcription": "しつれいいたします。",
+          "mean": "excuse me."
+        },
+        {
+          "content": "この仕事は私がいたします。",
+          "transcription": "このしごとはわたしがいたします。",
+          "mean": "I will do this work."
+        },
+        {
+          "content": "新幹線の予約は私がいたします。",
+          "transcription": "しんかんせんのよやくはわたしがいたします。",
+          "mean": "I will make the reservation for the Shinkansen."
+        },
+        {
+          "content": "必要な教材のリストを同封いたします。",
+          "transcription": "ひつようなきょうざいのリストをどうふういたします。",
+          "mean": "I have enclosed a list of the required materials."
+        },
+        {
+          "content": "５千円からお預かりいたします。３千円のおつりでございます。",
+          "transcription": "ごせんえんからおあずかりいたします。さんぜんえんのおつりでございます。",
+          "mean": "We accept deposits starting from 5,000 yen. The change is 3,000 yen."
+        },
+        {
+          "content": "荷物は私が明日にお届けいたします。",
+          "transcription": "にもつはわたしがあしたにおとどけいたします。",
+          "mean": "I will deliver the package tomorrow."
+        },
+        {
+          "content": "新学期は9月3日に始まることをお知らせいたします。",
+          "transcription": "しんがっきはくがつみっかにはじまることをおしらせいたします。",
+          "mean": "We would like to inform you that the new semester will start on September 3rd."
+        },
+        {
+          "content": "お席にご案内いたします。",
+          "transcription": "おせきにごあんないいたします。",
+          "mean": "We will show you to your seat."
+        },
+        {
+          "content": "改めてご連絡いたします。",
+          "transcription": "あらためてごれんらくいたします。",
+          "mean": "We will contact you again."
+        }
+      ],
+      "mean": null,
+      "synopsis": "する ➔ いたす<br/> します ➔ いたします<br/><br/> おV (I, II)<s>ます</s>+いたします <br/>(VD: 知らせます ➔ お知らせいたします)<br/><br/>\nお/ご V (III)<s>します</s>+いたします <br/>(VD: 連絡します ➔ ご連絡いたします)"
+    }
+  ],
+  "title": "いたします => to do (polite form of します)",
+  "_id": "4d7e93c3be674862a523a57d0209cea5"
+}

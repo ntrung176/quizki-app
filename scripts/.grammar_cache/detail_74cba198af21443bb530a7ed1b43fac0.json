@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5387,
+  "usages": [
+    {
+      "explain": "「なかなか」when used to modify an adjective, noun, or verb in the affirmative form, indicates that the quality, situation, or action is at a higher level than usual, exceeding the speaker's expectations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ミムラさんはなかなか可愛いよ。",
+          "transcription": "ミムラさんはなかなかかわいいよ。",
+          "mean": "Mimura is quite cute."
+        },
+        {
+          "content": "この料理はなかなか美味しいですね。",
+          "transcription": "このりょうりはなかなかおいしいですね。",
+          "mean": "This dish is quite delicious."
+        },
+        {
+          "content": "彼らはなかなか手ごわい相手ですね。",
+          "transcription": "かれらはなかなかてごわいあいてですね。",
+          "mean": "They are quite a formidable opponent."
+        },
+        {
+          "content": "富士登山はなかなか大変です。",
+          "transcription": "ふじとざんはなかなかたいへんです。",
+          "mean": "Climbing Fuji is quite difficult."
+        },
+        {
+          "content": "このアプリはなかなか便利ですよ。",
+          "transcription": "このアプリはなかなかべんりですよ。",
+          "mean": "This app is very convenient."
+        },
+        {
+          "content": "バスを待つだけなのになかなか時間がかかりそうです。",
+          "transcription": "バスをまつだけなのになかなかじかんがかかりそうです。",
+          "mean": "It seems like it will take a long time just to wait for the bus."
+        },
+        {
+          "content": "あの選手に勝つなんて、君はなかなかやるね。",
+          "transcription": "あのせんしゅにかつなんて、きみはなかなかやるね。",
+          "mean": "You'll have a hard time beating that player."
+        },
+        {
+          "content": "なかなかの事をしてくれたな。こんな事をお客さんにどう説明したらいいんだ。",
+          "transcription": "なかなかのことをしてくれたな。こんなことをおきゃくさんにどうせつめいしたらいいんだ。",
+          "mean": "You did a great job. How should I explain this to the customer?"
+        },
+        {
+          "content": "なかなかのドレスですね。君にとても似合うと思うよ。",
+          "transcription": "なかなかのドレスですね。君にとてもにあうと思うよ。",
+          "mean": "That's quite a dress. I think it suits you very well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なかなか+Aい/Aな/V<br/>\n なかなか+のN"
+    }
+  ],
+  "title": "なかなか => very; quite; pretty; rather; just not ~",
+  "_id": "74cba198af21443bb530a7ed1b43fac0"
+}

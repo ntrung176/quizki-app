@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 972,
+  "usages": [
+    {
+      "explain": "Expresses the emotions regarding a past event or something that has ended, or when one suddenly recalls something now forgotten.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そういえば昔はこの川でよく友達と泳いで、今さらのように懐かしく思った。",
+          "transcription": "そういえばむかしはこのかわでよくともだちとおよいで、いまさらのようになつかしくおもった。",
+          "mean": "Come to think of it, I used to often swim in this river with my friends, and I felt nostalgic about it now."
+        },
+        {
+          "content": "その歌を聞くと、学生時代が今さらのことのように思い出される。",
+          "transcription": "そのうたをきくと、がくせいじだいがいまさらのことのようにおもいだされる。",
+          "mean": "When I hear that song, it reminds me of my school days as if they were only just now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いまさらのように～"
+    }
+  ],
+  "title": "いまさらのように => Now... again...",
+  "_id": "f7ff14dae05876cac58b413693363430"
+}

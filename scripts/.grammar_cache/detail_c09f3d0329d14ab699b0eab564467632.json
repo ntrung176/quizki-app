@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5051,
+  "usages": [
+    {
+      "explain": "「かたがた」is used to express the idea of taking the opportunity to do something while doing another thing at the same time. It is often used in business communication or when speaking to someone of higher status.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ご挨拶かたがた、一言お礼を述べさせていただきます。",
+          "transcription": "ごあいさつかたがた、ひとことおれいをのべさせていただきます。",
+          "mean": "To those of you who greeted me, I would like to express my gratitude."
+        },
+        {
+          "content": "本日はお礼かたがたお伺いいたしました。",
+          "transcription": "ほんじつはおれいかたがたおうかがいいたしました。",
+          "mean": "I would like to thank you for visiting with me today."
+        },
+        {
+          "content": "今日は先日のご報告かたがた、部下の紹介に参りました。",
+          "transcription": "きょうはせんじつのごほうこくかたがた、ぶかのしょうかいにまいりました。",
+          "mean": "Today, I have come to introduce my subordinates who reported the other day."
+        },
+        {
+          "content": "本日は先日のお詫びかたがたお伺いした次第です。",
+          "transcription": "ほんじつはせんじつのおわびかたがたおうかがいしたしだいです。",
+          "mean": "Today I would like to ask you how to apologize for the other day."
+        },
+        {
+          "content": "今日はお見舞いかたがた、先日の件についてご報告に伺いました。",
+          "transcription": "きょうはおみまいかたがた、せんじつのけんについてごほうこくにうかがいました。",
+          "mean": "Today, I visited the hospital to report on the incident that happened the other day."
+        },
+        {
+          "content": "4月より事務所が移動致しました。お知らせかたがたご挨拶申し上げます。",
+          "transcription": "しがつよりじむしょがいどういたしました。おしらせかたがたごあいさつもうしあげます。",
+          "mean": "Our office has moved from April. I would like to give you my greetings."
+        },
+        {
+          "content": "お礼かたがた今後のことをご相談に参りました。",
+          "transcription": "おれいかたがたこんごのことをごそうだんにまいりました。",
+          "mean": "Thank you very much for coming to discuss our future plans."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+かたがた"
+    }
+  ],
+  "title": "かたがた => while; at the same time; incidentally; for the purpose of ~",
+  "_id": "c09f3d0329d14ab699b0eab564467632"
+}

@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5555,
+  "usages": [
+    {
+      "explain": "「てみる」expresses the meaning of trying or attempting to do something to see how it goes.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう一度やってみます。",
+          "transcription": "もういちどやってみます。",
+          "mean": "I'll try it again."
+        },
+        {
+          "content": "その本を読んで見る。",
+          "transcription": "そのほんをよんてみる。",
+          "mean": "Read the book and see."
+        },
+        {
+          "content": "君の料理を食べてみたいです。",
+          "transcription": "きみのりょうりをたべてみたいです。",
+          "mean": "I'd like to try your cooking."
+        },
+        {
+          "content": "日本の着物を着てみたいです。",
+          "transcription": "にほんのきものをきてみたいです。",
+          "mean": "I would like to wear a Japanese kimono."
+        },
+        {
+          "content": "このズボンを着てみてもいいですか。",
+          "transcription": "このズボンをきてみてもいいですか。",
+          "mean": "May I try on these pants?"
+        },
+        {
+          "content": "この問題について君の意見を聞いてみたい。",
+          "transcription": "このもんだいについてきみのいけんをきいてみたい。",
+          "mean": "I would like to hear your opinion on this issue."
+        },
+        {
+          "content": "刺身を食べてみたけど、あまり好きじゃない。",
+          "transcription": "さしみをたべてみたけど、あまりすきじゃない。",
+          "mean": "I tried sashimi, but I didn't really like it."
+        },
+        {
+          "content": "昨日、話題になっている店に行ってみました。",
+          "transcription": "きのう、わだいになっているみせにいってみました。",
+          "mean": "Yesterday, I went to a store that has been talked about a lot."
+        },
+        {
+          "content": "レシピを見て新しい料理を作ってみよう。",
+          "transcription": "レシピをみてあたらしいりょうりをつくってみよう。",
+          "mean": "Check out recipes and try making new dishes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+みる"
+    }
+  ],
+  "title": "てみる => Try somethjng",
+  "_id": "019b5d59cf9f48fcbd020c80970bcfdb"
+}

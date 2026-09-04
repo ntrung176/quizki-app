@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 3174,
+  "usages": [
+    {
+      "explain": "Used to emphasize the speaker's feeling of surprise or boredom: \"Is that so?\" Often used in spoken language and often converted into もんか .<br/><br/><br/><br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのレストランにするものか。",
+          "transcription": "そのれすとらんにするものか。",
+          "mean": "What about that restaurant?"
+        },
+        {
+          "content": "この世であんな人がいるもんか。",
+          "transcription": "このよであんなひとがいるもんか。",
+          "mean": "Is there such a person in this world?"
+        },
+        {
+          "content": "予約必要なもんか。",
+          "transcription": "よやくひつようなもんか。",
+          "mean": "Is it necessary to make a reservation?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな・Nな + ものか"
+    }
+  ],
+  "title": "～ものか   => as if (something untrue were actually true); there's no way ~.",
+  "_id": "93020c54469e582d6fdb16f7ba6ac160"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 998,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"besides that, there are many other similar things\". In many cases, it implies that there are many objects and events mixed together in a chaotic manner.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ビールやらなにやらを持ち寄ってパーティーを開いた。",
+          "transcription": "びーるやらなにやらをもちよってぱーてぃーをひらいた。",
+          "mean": "We brought beer and stuff and had a party."
+        },
+        {
+          "content": "解雇されるやらなにやらで、恋について考える暇もなかった。",
+          "transcription": "かいこされるやらなにやらで、こいについてかんがえるひまもなかった。",
+          "mean": "I didn't have time to think about love because I was getting fired or something."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + やらなにやら\nA い／V-る + やらなにやら"
+    }
+  ],
+  "title": "やらなにやら => In addition to the facts / things, there are many other things like that …",
+  "_id": "f7ff14dae05876cac58b4136933a0cc2"
+}

@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 1806,
+  "usages": [
+    {
+      "explain": "Expressing the speculation of the speaker. The speaker's speculation is drawn based on their direct experience such as seeing, hearing, smelling... something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は大学の教授みたいだ。",
+          "transcription": "かれはだいがくのきょうじゅみたいだ。",
+          "mean": "He looks like a university professor."
+        },
+        {
+          "content": "何か焦げているみたいだ。変な匂いがする。",
+          "transcription": "なにかこげているみたいだ。へんなにおいがする。",
+          "mean": "It looks like something is burning. It smells strange."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + みたいだ"
+    },
+    {
+      "explain": "Note: When expressing the speaker's speculation based on indirect information such as hearing from someone else, use 「らしい」. However, when directly quoting what was heard, use 「そうだ」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "みたいだ => It seems",
+  "_id": "f7ff14dae05876cac58b413693a97e4e"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 953,
+  "usages": [
+    {
+      "explain": "● Expresses the meaning of 「...　と見なす」(consider as...), 「...と解釈する」(interpret as...).<br/>● Often used in legal documents, contracts, or commitments.",
+      "note": null,
+      "examples": [
+        {
+          "content": "意見を言わない方は賛成しているものとする。",
+          "transcription": "いけんをいわないほうはさんせいしているものとする。",
+          "mean": "Those who do not express an opinion are assumed to be in agreement."
+        },
+        {
+          "content": "1週間たってもお返事がない場合はご辞退なさったものとして扱います。",
+          "transcription": "1しゅうかんたってもおへんじがないばあいはごじたいなさったものとしてあつかいます。",
+          "mean": "If we do not hear back from you within one week, we will assume that you have declined your application."
+        },
+        {
+          "content": "住所変更の通知は、その到達によって効力が発生するものとする",
+          "transcription": "じゅうしょへんこうのつうちは、そのとうたつによってこうりょくがはっせいするものとする",
+          "mean": "Notice of change of address shall become effective upon its arrival."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た + ものとする"
+    }
+  ],
+  "title": "～ものとする => understood as ~",
+  "_id": "f7ff14dae05876cac58b41369333e5d9"
+}

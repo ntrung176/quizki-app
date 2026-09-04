@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 908,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"it's unnecessary to do\". It is a written form of 「なくてもいい」, hence in modern language, it's used less frequently outside of formal contexts.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父母は子供のことをいつも心配しなくともよい。",
+          "transcription": "ちちはははこどものことをいつもしんぱいしなくともよい。",
+          "mean": "Parents don't have to worry about their children all the time."
+        },
+        {
+          "content": "首相はこんなに小さい事件を気にかけなくともよい。",
+          "transcription": "しゅしょうはこんなにちいさいじけんをきにかけなくともよい。",
+          "mean": "The prime minister doesn't have to worry about such a small incident."
+        },
+        {
+          "content": "明日は会議に参加に行かなくともよい。",
+          "transcription": "あしたはかいぎにさんかにいかなくともよい。",
+          "mean": "You don't have to go to the meeting tomorrow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Na + でなくともよい\nA + くなくともよい\nV + なくともよい"
+    }
+  ],
+  "title": "なくともよい => don't need to do something ...",
+  "_id": "f7ff14dae05876cac58b4136932dcfc8"
+}

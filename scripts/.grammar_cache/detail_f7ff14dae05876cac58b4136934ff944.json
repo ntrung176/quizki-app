@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1161,
+  "usages": [
+    {
+      "explain": "Expressing the meaning of something not being good, not smooth.",
+      "note": null,
+      "examples": [
+        {
+          "content": "最近息子の成績がさっぱりだ。",
+          "transcription": "さいきんむすこのせいせきがさっぱりだ。",
+          "mean": "My son's grades have been good lately."
+        },
+        {
+          "content": "経済危機で新製品の売り上げがさっぱりだ。",
+          "transcription": "けいざいききでしんせいひんのうりあげがさっぱりだ。",
+          "mean": "Sales of new products have been weak due to the economic crisis."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～さっぱりだ"
+    }
+  ],
+  "title": "さっぱりだ => There is nothing exciting or positive at all",
+  "_id": "f7ff14dae05876cac58b4136934ff944"
+}

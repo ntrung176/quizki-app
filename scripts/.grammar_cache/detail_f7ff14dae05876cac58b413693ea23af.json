@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2270,
+  "usages": [
+    {
+      "explain": "It indicates the idea of \"seeing something as truly ...\". With 「いかにも」, 「そうだ」 is emphasized more.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのドラマはストーリーを聞くと、いかにもおもしろそうなのだが、配役が気に入らないので見る気が起きない。",
+          "transcription": "そのどらまはすとーりーをきくと、いかにもおもしろそうなのだが、はいやくがきにいらないのでみるきがおきない。",
+          "mean": "The story of the drama seems interesting, but I don't like the cast, so I don't feel like watching it."
+        },
+        {
+          "content": "新しい冷蔵庫はいろいろな機能がついていかにも便利そうだ。",
+          "transcription": "あたらしいれいぞうこはいろいろなきのうがついていかにもべんりそうだ",
+          "mean": "The new refrigerator comes with a variety of functions and looks very convenient."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いかにも + Na + そうだ\nいかにも + A + そうだ"
+    }
+  ],
+  "title": "いかにも…そうだ => Looks truly...",
+  "_id": "f7ff14dae05876cac58b413693ea23af"
+}

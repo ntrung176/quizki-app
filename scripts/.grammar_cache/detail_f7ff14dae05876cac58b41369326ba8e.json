@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 854,
+  "usages": [
+    {
+      "explain": "This is a manner of speaking used to advise or suggest how someone should act.",
+      "note": null,
+      "examples": [
+        {
+          "content": "仕事で分からないことは、先輩に聞いたらいい。",
+          "transcription": "しごとでわからないことは、せんぱいにきいたらいい。",
+          "mean": "If you don't understand anything about work, ask your seniors."
+        },
+        {
+          "content": "私は手話を使える人が増えたらいいなと思います。",
+          "transcription": "わたしはしゅわをつかえるひとがふえたらいいなとおもいます。",
+          "mean": "I wish more people could use sign language."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-たらいい"
+    }
+  ],
+  "title": "～たらいい => it would be nice if; should; I hope ~",
+  "_id": "f7ff14dae05876cac58b41369326ba8e"
+}

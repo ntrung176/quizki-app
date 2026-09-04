@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1392,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: even if something contrary to reality occurs, it probably won't affect the following situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "たとえ頑張っても今度の試合に勝てなかっただろう。",
+          "transcription": "たとえがんばってもこんどのしあいにかてなかっただろう。",
+          "mean": "Even if I tried, I wouldn't have been able to win this match."
+        },
+        {
+          "content": "彼女は頭がいいので、努力しなくても成功できただろう。",
+          "transcription": "かのじょはあたまがいいので、どりょくしなくてもせいこうできただろう。",
+          "mean": "She is smart and could have succeeded without trying."
+        },
+        {
+          "content": "あいつのようにカンニングで受験するのは、たとえ合格しても両親は自慢してくれなかっただろう。",
+          "transcription": "あいつのようにかんにんぐでじゅけんするのは、たとえごうかくしてもりょうしんはじまんしてくれなかっただろう。",
+          "mean": "If you cheated to take the exam like he did, your parents probably wouldn't have been proud of you even if you passed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ても～ただろう"
+    }
+  ],
+  "title": "ても～ただろう => Even though...also (already)",
+  "_id": "f7ff14dae05876cac58b4136936f89b2"
+}

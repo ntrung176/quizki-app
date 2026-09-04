@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3053,
+  "usages": [
+    {
+      "explain": "✦ Expresses that there is no important matter, nothing to be concerned about, just a simple and not frustrating issue...",
+      "note": null,
+      "examples": [
+        {
+          "content": "すこし歩いたくらいで疲れた、疲れたって言うなよ。",
+          "transcription": "すこしあるいたくらいでつかれた、つかれたっていうなよ。",
+          "mean": "Don't say you're tired after just walking a little."
+        },
+        {
+          "content": "そんなことくらいで子供でもわかる。",
+          "transcription": "そんなことくらいでこどもでもわかる。",
+          "mean": "Even a child can understand that."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦(formal form) + くらいで"
+    }
+  ],
+  "title": "～くらいで      => only",
+  "_id": "93020c54469e582d6fdb16f7ba97b2b9"
+}

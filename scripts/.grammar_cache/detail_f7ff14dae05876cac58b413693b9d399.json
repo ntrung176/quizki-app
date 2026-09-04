@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1928,
+  "usages": [
+    {
+      "explain": "To express something not yet reaching the desired level. It means \"not entirely bad, but not good or satisfactory yet\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "それについて今ひとつ分からない。",
+          "transcription": "それについていまひとつわからない。",
+          "mean": "I don't know anything about that yet."
+        },
+        {
+          "content": "この映画は単純な勧善懲悪もので、今一つ深みに欠けて物足りない。",
+          "transcription": "このえいがはたんじゅんなかんぜんちょうあくもので、いまひとつふかみにかけてものたりない。",
+          "mean": "This movie is a simple story of good and evil punishing each other, and it lacks depth and is unsatisfactory."
+        },
+        {
+          "content": "恋人が誕生日プレゼントにくれたネックレスのデザインが、いまひとつ気に入らない。",
+          "transcription": "こいびとがたんじょうびぷれぜんとにくれたねっくれすのでざいんが、いまひとつきにいらない。",
+          "mean": "I don't like the design of the necklace my boyfriend gave me as a birthday present."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いま (今)ひとつ…ない"
+    }
+  ],
+  "title": "いまひとつ…ない => Something hasn’t reached the level that the speaker wants yet although it is not really bad",
+  "_id": "f7ff14dae05876cac58b413693b9d399"
+}

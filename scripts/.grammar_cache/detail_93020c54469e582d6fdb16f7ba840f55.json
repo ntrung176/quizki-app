@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3036,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "首になるのがこわいから、雇用主にあえて逆らおうとする人はだれもいない。",
+          "transcription": "くびになるのがこわいから、こようぬしにあえてさからおうとするひとはだれもいない",
+          "mean": "No one dares to go against their employer because they are afraid of being fired."
+        },
+        {
+          "content": "彼女はまた風邪をひかいないようにと、あえて部屋から出ようとしない。",
+          "transcription": "かのじょはまたかぜをひかいないようにと、あえてへやからでようとしない",
+          "mean": "She doesn't dare to leave the room, lest she catch a cold again."
+        },
+        {
+          "content": "敢えて言えば若干経験不足だが、彼ならば申し分ない相棒だ。",
+          "transcription": "あえていえばじゃっかんけいけんふそくだが、かれならばもうしぶんないあいぼうだ",
+          "mean": "To be honest, he lacks a bit of experience, but he would be the perfect partner."
+        }
+      ],
+      "mean": "dare to; daringly; deliberately; purposely ~",
+      "synopsis": "～あえて"
+    }
+  ],
+  "title": "～あえて      => dare to; daringly; deliberately; purposely ~",
+  "_id": "93020c54469e582d6fdb16f7ba840f55"
+}

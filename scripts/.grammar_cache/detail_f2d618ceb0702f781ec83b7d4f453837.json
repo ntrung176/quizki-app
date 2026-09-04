@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2967,
+  "usages": [
+    {
+      "explain": "「そうですか」is used when the speaker receives new information and wants to express their attitude towards that information.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんの婚約者は医者ですよ。そうですか。",
+          "transcription": "さとうさんのこんやくしゃはいしゃですよ。そうですか。",
+          "mean": "Mr. Sato's fiance is a doctor. is that so."
+        },
+        {
+          "content": "山田さんは車を買ったばかりですよ。そうですか。",
+          "transcription": "やまださんはくるまをかったばかりですよ。そうですか。",
+          "mean": "Mr. Yamada just bought a car. is that so."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そうですか"
+    }
+  ],
+  "title": "そうですか => I see, is that so?",
+  "_id": "f2d618ceb0702f781ec83b7d4f453837"
+}

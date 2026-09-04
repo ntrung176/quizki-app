@@ -1,0 +1,21 @@
+{
+  "level": "N5",
+  "mobileId": 2866,
+  "usages": [
+    {
+      "explain": "The prefix「 お」is added before a word related to the listener or a third party to show the speaker's respect. お国 is a word used to ask about someone's nationality.",
+      "note": null,
+      "examples": [
+        {
+          "content": "&amp;nbsp;お国はどちらですか。",
+          "transcription": "&amp;nbsp;おくにはどちらですか。",
+          "mean": "&amp;amp;nbsp;Which country are you from?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "お国 (おくに)"
+    }
+  ],
+  "title": "おくに => Which country",
+  "_id": "f2d618ceb0702f781ec83b7d4f396893"
+}

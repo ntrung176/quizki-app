@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2045,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"originally, from the beginning...\" Used to present the origin of a situation. Often used when realizing or reflecting on a certain condition compared to how it was initially.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのペンはもともと彼女のものだったんだ。だから、彼女に返すのは当たり前のことだ。",
+          "transcription": "そのぺんはもともとかのじょのものだったんだ。だから、かのじょにかえすのはあたりまえのことだ。",
+          "mean": "The pen originally belonged to her. So it's only natural to give it back to her."
+        },
+        {
+          "content": "もともと彼は東京の出身だから、大学を卒業した後東京の会社に就職してもおかしくない。",
+          "transcription": "もともとかれはとうきょうのしゅっしんだから、だいがくをそつぎょうしたのちとうきょうのかいしゃにしゅうしょくしてもおかしくない。",
+          "mean": "He is originally from Tokyo, so it wouldn't be surprising if he got a job at a company in Tokyo after graduating from university."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もともと"
+    }
+  ],
+  "title": "もともと => originally,by nature,from the start",
+  "_id": "f7ff14dae05876cac58b413693c9fc63"
+}

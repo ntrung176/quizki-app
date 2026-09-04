@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5125,
+  "usages": [
+    {
+      "explain": "「がたい」 expresses the difficulty or impossibility of carrying out an action due to mental or emotional barriers. This structure is not used to express difficulties related to capability. The verbs that accompany「がたい」 are quite limited and often relate to perception or speech.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女のような正直な人が嘘をつくとは信じがたい。",
+          "transcription": "かのじょのようなしょうじきなひとがうそをつくとはしんじがたい。",
+          "mean": "It's hard to believe that an honest person like her would lie."
+        },
+        {
+          "content": "古くなっても、このかばんには愛着があって捨てがたい。",
+          "transcription": "ふるくなっても、このかばんにはあいちゃくがあってすてがたい。",
+          "mean": "Even though it's old, I'm still attached to this bag and can't throw it away."
+        },
+        {
+          "content": "耐えがたい痛みの中で、救急車の到着を待った。",
+          "transcription": "たえがたいいたみのなかで、きゅうきゅうしゃのとうちゃくをまった。",
+          "mean": "In excruciating pain, I waited for an ambulance to arrive."
+        },
+        {
+          "content": "息子は留学という得がたい経験をして一回り成長したようだ。",
+          "transcription": "むすこはりゅうがくというえがたいけいけんをしてひとまわりせいちょうしたようだ。",
+          "mean": "My son seems to have grown a lot after having the invaluable experience of studying abroad."
+        },
+        {
+          "content": "人が人の命を奪うなんて、許しがたい。",
+          "transcription": "ひとがひとのいのちをうばうなんて、ゆるしがたい。",
+          "mean": "It is unacceptable for someone to take another person's life."
+        },
+        {
+          "content": "近寄りがたい。",
+          "transcription": "ちかよりがたい。",
+          "mean": "Unapproachable."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+がたい"
+    }
+  ],
+  "title": "がたい => very difficult to; hard to ~",
+  "_id": "0397f7e58b03464fbbef457b72a1aa5f"
+}

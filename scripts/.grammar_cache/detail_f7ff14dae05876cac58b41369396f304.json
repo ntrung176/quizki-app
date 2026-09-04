@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1678,
+  "usages": [
+    {
+      "explain": "This is a commanding way of speaking, directing someone to do something for the speaker or someone associated with the speaker. It is used with individuals who are equal or inferior in status. Women use it less frequently.",
+      "note": null,
+      "examples": [
+        {
+          "content": "黙ってくれ。",
+          "transcription": "だまってくれ。",
+          "mean": "Shut up."
+        },
+        {
+          "content": "そんなことを止めてくれ。",
+          "transcription": "そんなことをとめてくれ。",
+          "mean": "Please stop doing that."
+        },
+        {
+          "content": "こんなひどいものはすぐ捨ててくれ。",
+          "transcription": "こんなひどいものはすぐすててくれ。",
+          "mean": "Throw away this horrible thing immediately."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + くれ"
+    }
+  ],
+  "title": "てくれ => to do a favor; request a favor; do something for ...",
+  "_id": "f7ff14dae05876cac58b41369396f304"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2756,
+  "usages": [
+    {
+      "explain": "Expresses two things, events that are similar.",
+      "note": null,
+      "examples": [
+        {
+          "content": "時間はお金と同じくらい重要だ。",
+          "transcription": "じかんはおかねとおなじくらいじゅうようだ。",
+          "mean": "Time is just as important as money."
+        },
+        {
+          "content": "これは僕が無くなしたのと同じ時計だ。",
+          "transcription": "これはぼくがなくなしたのとおなじとけいだ。",
+          "mean": "This is the same watch that I lost."
+        },
+        {
+          "content": "この重要点で妥協することはすべてをあきらめるのと同じことだ。",
+          "transcription": "このじゅうようてんでだきょうすることはすべてをあきらめるのとおなじことだ。",
+          "mean": "Compromising on this important point is the same as giving up everything."
+        },
+        {
+          "content": "あの女の人が食べているのと同じものをください。",
+          "transcription": "あのおんなのひとがたべているのとおなじものをください",
+          "mean": "Please give me the same food that that woman is eating."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + とおなじ\nVの + とおなじ"
+    }
+  ],
+  "title": "…とおなじ => Like, similar to, unlike, dissimilar to",
+  "_id": "f2d618ceb0702f781ec83b7d4f2a9f6b"
+}

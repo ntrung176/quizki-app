@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 747,
+  "usages": [
+    {
+      "explain": "✦ Used in the form [X をY にひかえて] (only about Y more until X) to express the idea that the event represented by X is approaching very closely.",
+      "note": null,
+      "examples": [
+        {
+          "content": "試合を十日後に控えて選手たちは練習に余念がない。",
+          "transcription": "しあいをじゅうにちごにひかえてせんしゅたちはれんしゅうによねんがない。",
+          "mean": "With the game just 10 days away, the players are busy practicing."
+        },
+        {
+          "content": "結婚を間近に控えた娘が他の男と遊び回るなんてとんでもない。",
+          "transcription": "けっこんをまぢかにひかえたむすめがたのおとことあそびまわるなんてとんでもない。",
+          "mean": "It would be outrageous for a daughter who is about to get married to be playing around with other men."
+        },
+        {
+          "content": "入学試験を目前に控えてあわただしい毎日だ。",
+          "transcription": "にゅうがくしけんをもくぜんにひかえてあわただしいまいにちだ。",
+          "mean": "Every day is hectic as the entrance exam is just around the corner."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N 1を N2 + に + ひかえて"
+    }
+  ],
+  "title": "～ ひかえて... => to be soon; the time has come to; nearby; ahead of ~; to be in preparation for",
+  "_id": "f7ff14dae05876cac58b413693176ffa"
+}

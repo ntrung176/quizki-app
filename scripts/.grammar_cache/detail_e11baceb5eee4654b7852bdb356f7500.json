@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5612,
+  "usages": [
+    {
+      "explain": "「ましょう」is used to suggest, invite, or call on the listener to do something together. This structure reflects the speaker's proactive attitude. Compared to「ましょう」,「ませんか」expresses a bit more hesitation, keeping the speaker's intention somewhat tentative in front of the listener.<br/>\nRanked by the speaker's level of certainty that the listener will agree: 「ませんか」 < 「ましょうか」 < 「ましょう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "桜を見ましょう。",
+          "transcription": "さくらをみましょう。",
+          "mean": "Let's see the cherry blossoms."
+        },
+        {
+          "content": "ご飯を食べましょう。",
+          "transcription": "ごはんをたべましょう。",
+          "mean": "Let's eat."
+        },
+        {
+          "content": "ちょっと休みましょう。",
+          "transcription": "ちょっとやすみましょう。",
+          "mean": "Let's take a rest for a while."
+        },
+        {
+          "content": "一緒に勉強しましょう。",
+          "transcription": "いっしょにべんきょうしましょう。",
+          "mean": "Let's study together."
+        },
+        {
+          "content": "富士山に登りましょう。",
+          "transcription": "ふじさんにのぼりましょう。",
+          "mean": "Let's climb Mt. Fuji."
+        },
+        {
+          "content": "一緒に体操しましょう。",
+          "transcription": "いっしょにたいそうしましょう。",
+          "mean": "Let's do gymnastics together."
+        },
+        {
+          "content": "お互いに頑張りましょう。",
+          "transcription": "おたがいにがんばりましょう。",
+          "mean": "Let's keep up good work."
+        },
+        {
+          "content": "一緒に映画を見に行きましょう。",
+          "transcription": "いっしょにえいがをみにいきましょう。",
+          "mean": "Let's go see a movie together."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+ましょう"
+    }
+  ],
+  "title": "ましょう => let's ~; shall we ~",
+  "_id": "e11baceb5eee4654b7852bdb356f7500"
+}

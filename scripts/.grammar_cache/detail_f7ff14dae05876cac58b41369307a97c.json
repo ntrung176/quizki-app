@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 626,
+  "usages": [
+    {
+      "explain": "✦When a noun or verb is repeated twice, it conveys the meaning of \"corresponding to the situation being described\", \"suitable for that situation\". In this expression, there is an implicit understanding that the situation has its own limitations and shortcomings, or has distinctive strengths, and it conveys the meaning of \"equivalent to that, after accepting its limitations or strengths\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "若い人には若い人なりの考えがあるだろう。。",
+          "transcription": "わかいひとにはわかいひとなりのかんがえがあるだろう。 。",
+          "mean": "Young people will have their own ideas. ."
+        },
+        {
+          "content": "学生には学生なりの努力が求められている。",
+          "transcription": "がくせいにはがくせいなりのどりょくがもとめられている。",
+          "mean": "Students are expected to make their own efforts."
+        },
+        {
+          "content": "金持ちには金持ちなりの心配事がある。",
+          "transcription": "かねもちにはかねもちなりのしんぱいごとがある。",
+          "mean": "Rich people have their own worries."
+        },
+        {
+          "content": "この商売にはこの商売なりに、いろいろな苦労や面白さがある。",
+          "transcription": "このしょうばいにはこのしょうばいなりに、いろいろなくろうやおもしろさがある。",
+          "mean": "This business has its own challenges and challenges."
+        },
+        {
+          "content": "断わるには断わるなりの手順というものがある。",
+          "transcription": "ことわるにはことわるなりのてじゅんというものがある。",
+          "mean": "There is a procedure for saying no."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N+には N+なり<br/>✦V-る+には V-る+なり"
+    }
+  ],
+  "title": "には…なり => suitable; in one's own way / style",
+  "_id": "f7ff14dae05876cac58b41369307a97c"
+}

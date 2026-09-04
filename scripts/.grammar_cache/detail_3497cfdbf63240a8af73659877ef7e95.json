@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5096,
+  "usages": [
+    {
+      "explain": "「ずくめ」 is used to describe an object or situation as \"entirely filled with...\" indicating that the entire surface or aspect of the object is like that, or that such events continuously occur. It is not used for people or liquids.<br/>\n\n「ずくめ」 is similar to 「まみれ」 in the sense of \"covered with,\" but differs in that it often only combines with certain limited words to form fixed phrases, for example 黒ずくめ (not 赤ずくめ or 泥ずくめ). Additionally, 「ずくめ」 can be used to describe both positive and negative aspects of an object or situation, whereas 「まみれ」 is used only with words that convey a sense of discomfort or dirtiness.",
+      "note": null,
+      "examples": [
+        {
+          "content": "黒ずくめの服装をする。",
+          "transcription": "くろずくめのふくそうをする。",
+          "mean": "Wear all black."
+        },
+        {
+          "content": "規則ずくめのこの学校を辞めたい。",
+          "transcription": "きそくずくめのこのがっこうをやめたい。",
+          "mean": "I want to quit this school, which is full of rules."
+        },
+        {
+          "content": "去年は悪いことずくめの年だった。今年はいい年でありますように。",
+          "transcription": "きょねんはわるいことずくめのとしだった。ことしはいいとしでありますように。",
+          "mean": "Last year was full of bad things. I hope this year is a good year."
+        },
+        {
+          "content": "いいことずくめの人生なんてあるわけがないよ。",
+          "transcription": "いいことずくめのじんせいなんてあるわけがないよ",
+          "mean": "There is no such thing as a life full of good things."
+        },
+        {
+          "content": "今年は幸せずくめの1年だった。",
+          "transcription": "ことしはしあわせずくめのいちねんだった。",
+          "mean": "This year was a year full of happiness."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+ずくめ"
+    }
+  ],
+  "title": "ずくめ => completely; entirely; nothing but ~",
+  "_id": "3497cfdbf63240a8af73659877ef7e95"
+}

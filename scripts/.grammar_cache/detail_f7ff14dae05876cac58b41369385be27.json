@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1539,
+  "usages": [
+    {
+      "explain": "Used with the form 「めったなことで（は）…ない」to express the idea \"if a special event does not occur, then something is not done regularly\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "このカメラは丈夫だから、めったなことでは故障しない。",
+          "transcription": "このかめらはじょうぶだから、めったなことではこしょうしない。",
+          "mean": "This camera is durable, so it rarely breaks down."
+        },
+        {
+          "content": "彼女はめったなことでは過去の話をしない。",
+          "transcription": "かのじょはめったなことではかこのはなしをしない。",
+          "mean": "She rarely talks about her past."
+        },
+        {
+          "content": "この秘密はめったな人に明かしてはいけない。",
+          "transcription": "このひみつはめったなひとにあかしてはいけない。",
+          "mean": "This secret should never be revealed to anyone."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "めったな => hardly; rarely; seldom",
+  "_id": "f7ff14dae05876cac58b41369385be27"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1840,
+  "usages": [
+    {
+      "explain": "Used in cases where something was expected but ultimately not achieved. 「ついに」can also be used similarly, but not 「やっと」with this pattern.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一時間も待ったが、とうとう彼女は来なかった。",
+          "transcription": "いちじかんもまったが、とうとうかのじょはこなかった。",
+          "mean": "I waited for an hour, but in the end she never came."
+        },
+        {
+          "content": "何ヶ月も捜索が続けられたが、行方不明の飛行機はとうとう発見されなかった。",
+          "transcription": "なんかげつもそうさくがつづけられたが、ゆくえふめいのひこうきはとうとうはっけんされなかった。",
+          "mean": "After months of searching, the missing plane was never found."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とうとう + V-なかった"
+    }
+  ],
+  "title": "とうとう ... なかった => In the end, not...",
+  "_id": "f7ff14dae05876cac58b413693ad9b71"
+}

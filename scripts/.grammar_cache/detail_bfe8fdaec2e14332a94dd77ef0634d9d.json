@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 5597,
+  "usages": [
+    {
+      "explain": "「いつ」is used to ask about the time when a certain action takes place. 「いつ」is not followed by the particle に, and this is also a way to distinguish「いつ」from other interrogative words.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『いつ日本へ来ましたか。』『3月25日に来ました。』",
+          "transcription": "『いつにほんへきましたか。』『さんがつにじゅうごにちにきました。』",
+          "mean": "``When did you come to Japan? ” “I came on March 25th. ”"
+        },
+        {
+          "content": "『いつ広島へ行きますか。』『来週行きます。』",
+          "transcription": "『いつひろしまへいきますか。』『らいしゅういきます。』",
+          "mean": "``When are you going to Hiroshima? ``I'll go next week.'' ”"
+        },
+        {
+          "content": "『いつご飯を食べますか。』『お父さんが帰ってから食べます。』",
+          "transcription": "『いつごはんをたべますか。』『おとうさんがかえってからたべます。』",
+          "mean": "``When do you want to eat? ``I'll eat after my father gets home.'' ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "いつ+Sentence"
+    }
+  ],
+  "title": "いつ => when; at what time; how soon",
+  "_id": "bfe8fdaec2e14332a94dd77ef0634d9d"
+}

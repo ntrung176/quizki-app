@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1732,
+  "usages": [
+    {
+      "explain": "This is a sentence type stating two conditions with affirmative and negative relations to express the meaning: regardless of the case, the result remains the same.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この問題はしてもしなくても､点数には全く影響ありません。",
+          "transcription": "このもんだいはしてもしなくても､てんすうにはまったくえいきょうありません。",
+          "mean": "Whether or not you do this question will not affect your score at all."
+        },
+        {
+          "content": "試験も出来たから､心配しても心配しなくても役に立たない。",
+          "transcription": "しけんもできたから､しんぱいしてもしんぱいしなくてもやくにたたない。",
+          "mean": "I passed the exam, so there's no use worrying or not worrying."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ても + V-なくても"
+    }
+  ],
+  "title": "て も～なくても => even if not,even without",
+  "_id": "f7ff14dae05876cac58b4136939ea62e"
+}

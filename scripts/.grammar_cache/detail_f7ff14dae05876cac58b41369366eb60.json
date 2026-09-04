@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1327,
+  "usages": [
+    {
+      "explain": "Expresses plurality. When used with the first-person pronoun, it indicates humility. When used with other pronouns, it indicates a sense of disdain.",
+      "note": null,
+      "examples": [
+        {
+          "content": "誠に申し訳ありません。我が社どもの間違いです。",
+          "transcription": "まことにもうしわけありません。わがしゃどものまちがいです。",
+          "mean": "There is no excuse. It was our company's mistake."
+        },
+        {
+          "content": "手前どものレストランでは、この料理は扱っておりません。",
+          "transcription": "てまえどものれすとらんでは、このりょうりはあつかっておりません。",
+          "mean": "The restaurant in front of you does not serve this dish."
+        },
+        {
+          "content": "その組織は嘘つきどもの集まりだ。",
+          "transcription": "そのそしきはうそつきどものあつまりだ。",
+          "mean": "That organization is a bunch of liars."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ども"
+    }
+  ],
+  "title": "ども => Humble, disdainful",
+  "_id": "f7ff14dae05876cac58b41369366eb60"
+}

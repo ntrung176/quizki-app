@@ -1,0 +1,76 @@
+{
+  "level": "N2",
+  "mobileId": 5242,
+  "usages": [
+    {
+      "explain": "「せっかく」means \"with great effort\" or \"having gone through trouble\", and is often used to:<br/> \n1. Express regret for wasting an opportunity, or when one has made an effort but did not achieve the desired result.<br/> \n2. Apologize for a mishap caused to someone.<br/> \n3. Politely decline an offer or suggestion.<br/> \n4. Express the desire to make the most of or seize a rare opportunity or something that requires effort.<br/> \nThe meaning 1, 2, 3 of 「せっかく」usually pairs with words like のに、が、ですが、けど、だけど...<br/> \nThe meaning 4 of 「せっかく」usually pairs with words like のですから、のだから...",
+      "note": null,
+      "examples": [
+        {
+          "content": "せっかく勉強したのに、合格できなかった。",
+          "transcription": "せっかくべんきょうしたのに、ごうかくできなかった。",
+          "mean": "Even though I studied hard, I couldn't pass the exam."
+        },
+        {
+          "content": "せっかくレポートを書いたのに、提出しなくてもよくなった。",
+          "transcription": "せっかくレポートをかいたのに、ていしゅつしなくてもよくなった。",
+          "mean": "Even though I took the trouble to write a report, I didn't have to submit it."
+        },
+        {
+          "content": "せっかく母がお弁当を作ってくれたのに、家に忘れてしまった。",
+          "transcription": "せっかくははがおべんとうをつくってくれたのに、いえにわすれてしまった。",
+          "mean": "My mother took the trouble to make me a lunch box, but I forgot it at home."
+        },
+        {
+          "content": "せっかくお電話頂いたのに、留守でごめんなさいね。",
+          "transcription": "せっかくおでんわいただいたのに、るすでごめんなさいね。",
+          "mean": "I'm sorry that I wasn't home when you called."
+        },
+        {
+          "content": "せっかくのお志ですが、お断り致します。",
+          "transcription": "せっかくのおこころざしですが、おことわりいたします。",
+          "mean": "Although this is a great request, I decline your request."
+        },
+        {
+          "content": "せっかく来たのだから、楽しまなきゃ。",
+          "transcription": "せっかくきたのだから、たのしまなきゃ。",
+          "mean": "Since you're here, you should enjoy it."
+        },
+        {
+          "content": "せっかく日本にいるのですから、色んな所に旅行に行ってみたいです。",
+          "transcription": "せっかくにほんにいるのですから、いろんなところにりょこうにいってみたいです。",
+          "mean": "Now that I'm in Japan, I would like to travel to various places."
+        },
+        {
+          "content": "あんまり店員の態度が悪いから、よっぽど食べずに帰ろうと思ったが、せっかく注文したから、食べることにした。",
+          "transcription": "あんまりてんいんのたいどがわるいから、よっぽどたべずにかえろうとおもったが、せっかくちゅうもんしたから、たべることにした。",
+          "mean": "The waiter's attitude was so bad that I thought about leaving without eating, but since I had already ordered, I decided to eat."
+        },
+        {
+          "content": "彼女がせっかく作ってくれたから、甘いものが嫌いなんて、とても言えない。",
+          "transcription": "かのじょがせっかくつくってくれたから、あまいものがきらいなんて、とてもいえない。",
+          "mean": "Since my girlfriend took the trouble to make it for me, I can't say that I don't like sweets."
+        },
+        {
+          "content": "台風のせいで、せっかくの休暇が中止になった。",
+          "transcription": "たいふうのせいで、せっかくのきゅうかがちゅうしになった。",
+          "mean": "My vacation was canceled because of the typhoon."
+        },
+        {
+          "content": "せっかくですから、あなたのいれたお茶を楽しみます。",
+          "transcription": "せっかくですから、あなたのいれたおちゃをたのしみます。",
+          "mean": "I'll take this opportunity to enjoy the tea you brewed."
+        },
+        {
+          "content": "せっかくですが、またの機会にしたいと思います。",
+          "transcription": "せっかくですが、またのきかいにしたいとおもいます。",
+          "mean": "I would like to take this opportunity another time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "せっかく+Sentence<br/>せっかく+のN"
+    }
+  ],
+  "title": "せっかく => especially; (thank you for) troubling to, going to great pains for ~",
+  "_id": "17b187bc4aad43f8beb7c7a50d9825a2"
+}

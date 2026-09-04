@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1230,
+  "usages": [
+    {
+      "explain": "かと思ったら (かとおもったら) expresses a current situation that is different from what the speaker had expected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "娘が勉強を始めたかと思ったら、もう居間でテレビを見ている。",
+          "transcription": "むすめがべんきょうをはじめたかとおもったら、もういまでてれびをみている。",
+          "mean": "I thought my daughter had started studying, but she was already watching TV in the living room."
+        },
+        {
+          "content": "隣の家から音かと思ったら、それはテレビから音だった。",
+          "transcription": "となりのいえからおとかとおもったら、それはてれびからおとだった。",
+          "mean": "I thought the sound was coming from the house next door, but it turned out to be the TV."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～かと思ったら"
+    }
+  ],
+  "title": "…かと思ったら => just when; no sooner than ~",
+  "_id": "f7ff14dae05876cac58b413693592cb4"
+}

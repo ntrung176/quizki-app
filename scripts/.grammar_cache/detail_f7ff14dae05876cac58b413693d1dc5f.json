@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2100,
+  "usages": [
+    {
+      "explain": "Indicates criticism with the meaning \"no matter how you think about it, it doesn't seem normal.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "そういう言い方はいくらなんでも堅すぎるよ。",
+          "transcription": "そういういいかたはいくらなんでもかたすぎるよ。",
+          "mean": "No matter how you say it, it's too harsh."
+        },
+        {
+          "content": "いくらなんでも、その服は祖父母には派手すぎないか。",
+          "transcription": "いくらなんでも、そのふくはそふぼにははですぎないか。",
+          "mean": "After all, aren't those clothes too flashy for my grandparents?"
+        },
+        {
+          "content": "この料理はいくらなんでも塩辛すぎてとても食べられない。",
+          "transcription": "このりょうりはいくらなんでもしおからすぎてとてもたべられない。",
+          "mean": "This dish is way too salty and I can't eat it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いくらなんでも denotes criticism."
+    }
+  ],
+  "title": "いくらなんでも => no matter how you put it, whatever the circumstances may be, say what you like, no matter how you look at it",
+  "_id": "f7ff14dae05876cac58b413693d1dc5f"
+}

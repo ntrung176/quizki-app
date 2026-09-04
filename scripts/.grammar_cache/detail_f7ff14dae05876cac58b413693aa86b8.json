@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1814,
+  "usages": [
+    {
+      "explain": "Expressing the reason or cause of an event. 「ところ」 is relatively used frequently when recounting the reason for a name. Used in written language, conveying a formal tone and style.",
+      "note": null,
+      "examples": [
+        {
+          "content": "屋根の形が合掌した時の手の形に似ているところから、合掌造りと言われるようになったと伝わっている。",
+          "transcription": "やねのかたちががっしょうしたときのてのかたちににているところから、がっしょうづくりといわれるようになったとつたわっている。",
+          "mean": "It is said that it came to be called Gassho-zukuri because the shape of the roof resembles the shape of hands when their hands are clasped together."
+        },
+        {
+          "content": "彼は母親が韓国人であるところから、韓国人の知り合いも多い。",
+          "transcription": "かれはははおやがかんこくじんであるところから、かんこくじんのしりあいもおおい。",
+          "mean": "Since his mother is Korean, he has many Korean acquaintances."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N-である + ところから\nNa-な/ である + ところから\nA-い + ところから\nV-る/ V-た/ V-ない + ところから"
+    }
+  ],
+  "title": "ところから => because; from the fact that",
+  "_id": "f7ff14dae05876cac58b413693aa86b8"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1119,
+  "usages": [
+    {
+      "explain": "Emphasizing negation with the meaning of 「一つも/少しも ... ない」(not even a bit).",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは私に食べ物を一切くれなかった。",
+          "transcription": "かれらはわたしにたべものをいっさいくれなかった。",
+          "mean": "They didn't give me any food."
+        },
+        {
+          "content": "山田さんは一切アルコールは口にしない。",
+          "transcription": "やまださんはいっさいあるこーるはくちにしない。",
+          "mean": "Mr. Yamada never drinks alcohol."
+        },
+        {
+          "content": "彼女が来るという知らせは一切受け取っていません。",
+          "transcription": "かのじょがくるというしらせはいっさいうけとっていません。",
+          "mean": "I haven't received any notice that she is coming."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いっさい～ない"
+    }
+  ],
+  "title": "いっさいない => Not at all",
+  "_id": "f7ff14dae05876cac58b4136934ac0cc"
+}

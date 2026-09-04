@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3108,
+  "usages": [
+    {
+      "explain": "✦ Used in cases to express something contrary to the hypothesis, even though it's supposed to be like this, in reality it's like that.",
+      "note": "Same meaning as “といえども”",
+      "examples": [
+        {
+          "content": "１２月に入ったとはいえ、まだ年末という気がしない。",
+          "transcription": "じゅうにがつにはいったとはいえ、まだねんまつというきがしない。",
+          "mean": "Even though it's December, it still doesn't feel like the end of the year."
+        },
+        {
+          "content": "時間がなかったとはいえこのぐらいのレポートが書けないはずがない",
+          "transcription": "じかんがなかったとはいえこのぐらいのレポートがかけないはずがない",
+          "mean": "Even though I didn't have time, there's no way I couldn't write a report like this."
+        }
+      ],
+      "mean": "though; although; be that as it may; nonetheless",
+      "synopsis": "<div>✦V (formal form) + とはいえ</div><div>✦N + とはいえ</div><div>✦いadj + とはいえ</div><div>✦なadj + とはいえ</div><div>✦とはいえ + phrase </div><div><br/></div>"
+    }
+  ],
+  "title": "～とはいえ      => though; although; be that as it may; nonetheless",
+  "_id": "93020c54469e582d6fdb16f7ba90200d"
+}

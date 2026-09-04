@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 977,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"up to\" in terms of time, space, or a certain range.",
+      "note": null,
+      "examples": [
+        {
+          "content": "終わりに至る。",
+          "transcription": "おわりにいたる。",
+          "mean": "come to an end."
+        },
+        {
+          "content": "仕事を辞めて留学するに至った動機は、人生の目標というものを見つめなおしてみたいと思ったことであった。",
+          "transcription": "しごとをやめてりゅうがくするにいたったどうきは、じんせいのもくひょうというものをみつめなおしてみたいとおもったことであった。",
+          "mean": "My motivation for quitting my job and studying abroad was that I wanted to reconsider my goals in life."
+        },
+        {
+          "content": "さんざん悩んだ結果、仕事を辞めて田舎で自給自足の生活をするという結論に至った。",
+          "transcription": "さんざんなやんだけっか、しごとをやめていなかでじきゅうじそくのせいかつをするというけつろんにいたった。",
+          "mean": "After much thought, I decided to quit my job and live a self-sufficient life in the countryside."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + にいたる\nV + にいたる"
+    }
+  ],
+  "title": "～に至る => leads to; come to a conclusion",
+  "_id": "f7ff14dae05876cac58b41369337163f"
+}

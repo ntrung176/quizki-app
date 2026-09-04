@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 557,
+  "usages": [
+    {
+      "explain": "Describes a meaning of not liking it much but having no other choice so one must do it. <br/> This is a written expression. In spoken language, people often use 「...しかない」 or 「...ほかしかたがない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の不注意で壊したのだから、弁償するほかはない。",
+          "transcription": "わたしのふちゅういでこわしたのだから、べんしょうするほかはない。",
+          "mean": "I damaged it due to my carelessness, so I have no choice but to compensate."
+        },
+        {
+          "content": "雨が降っているので、残念だが今日の遠足は延期するほかはない。",
+          "transcription": "あめがふっているので、ざんねんだがきょうのえんそくはえんきするほかはない。",
+          "mean": "It's raining, so unfortunately we have no choice but to postpone today's excursion."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる + ほかはない"
+    }
+  ],
+  "title": "ほかはない => to have no choice but ~",
+  "_id": "93020c54469e582d6fdb16f7ba51b909"
+}

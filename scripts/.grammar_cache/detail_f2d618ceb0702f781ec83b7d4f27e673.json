@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2730,
+  "usages": [
+    {
+      "explain": "Indicates variations of a situation, suggesting there are many cases. Often presents contrasting variations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "テレビ番組の中にはおもしろいのもあれば、そうでないのもある。",
+          "transcription": "てれびばんぐみのなかにはおもしろいのもあれば、そうでないのもある。",
+          "mean": "Some TV programs are interesting, and others are not."
+        },
+        {
+          "content": "バスに乗っていると、便利な時もあれば、不便な時もある。",
+          "transcription": "ばすにのっていると、べんりなときもあれば、ふべんなときもある。",
+          "mean": "Riding the bus is sometimes convenient and sometimes inconvenient."
+        },
+        {
+          "content": "自転車で学校に行く人もあれば、バスで行く人もいる。",
+          "transcription": "じてんしゃでがっこうにいくひともあれば、ばすでいくひともいる。",
+          "mean": "Some go to school by bicycle, others go by bus."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + もあれば + N + もある\nV + こともあれば + V + こともある"
+    }
+  ],
+  "title": "...もあれば...もある => and; also; as well; either/or; neither/nor",
+  "_id": "f2d618ceb0702f781ec83b7d4f27e673"
+}

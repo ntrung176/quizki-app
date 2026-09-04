@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3196,
+  "usages": [
+    {
+      "explain": "<div><br/></div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "１２月１２日をもってサービス終了。",
+          "transcription": "１２がつ１２にちをもってサービスしゅうりょう。",
+          "mean": "Service ends on December 12th."
+        },
+        {
+          "content": "店内改装のため、今月末をもって一時閉店することになりました。",
+          "transcription": "てんないかいそうのため、こんげつまつをもっていちじへいてんすることになりました。",
+          "mean": "Due to interior renovations, we will be temporarily closed at the end of this month."
+        },
+        {
+          "content": "彼は老齢の故をもって辞職を申し出た。",
+          "transcription": "かれはろうれいのゆえをもってじしょくをもうしでた。",
+          "mean": "He submitted his resignation due to old age."
+        },
+        {
+          "content": "身をもってその仕事の大変さを知った。",
+          "transcription": "みをもってそのしごとのたいへんさをしった。",
+          "mean": "I learned firsthand how difficult the job is."
+        },
+        {
+          "content": "こんな難問は、優秀な彼の頭脳をもってしても解決できないだろう。",
+          "transcription": "こんななんもんは、ゆうしゅうなかれのずのうをもってしてもかいけつできないだろう。",
+          "mean": "Even his brilliant mind would not be able to solve such a difficult problem."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦N をもって<br/></div>"
+    }
+  ],
+  "title": "～をもって(を以って)      =>  by means of; with; on / at / as of (time)​",
+  "_id": "93020c54469e582d6fdb16f7baa5d55f"
+}

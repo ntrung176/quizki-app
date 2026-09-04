@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5396,
+  "usages": [
+    {
+      "explain": "「にとって」, when followed by a noun (usually referring to an individual or organization), indicates the perspective or viewpoint of that person or organization, expressing a particular opinion or recognition.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あなたにとって、一番大切なものは何ですか。",
+          "transcription": "あなたにとって、いちばんたいせつなものはなんですか。",
+          "mean": "What is most important to you?"
+        },
+        {
+          "content": "このあたりの人々にとっては車は必需品です。",
+          "transcription": "このあたりのひとびとにとってはくるまはひつじゅひんです。",
+          "mean": "A car is a necessity for people around here."
+        },
+        {
+          "content": "親にとって子供の結婚式は何よりも嬉しい日です。",
+          "transcription": "おやにとってこどものけっこんしきはなによりもうれしいひです。",
+          "mean": "For parents, their child's wedding is the happiest day of all."
+        },
+        {
+          "content": "現代人にとって携帯電話は生活の一部である。",
+          "transcription": "げんだいじんにとって、けいたいでんわはせいかつのいちぶである。",
+          "mean": "For modern people, mobile phones are a part of life."
+        },
+        {
+          "content": "誰にとっても一番大切なのは健康です。",
+          "transcription": "だれにとってもいちばんたいせつなのはけんこうです。",
+          "mean": "Health is the most important thing for everyone."
+        },
+        {
+          "content": "たばこの煙や匂いは吸わない人にとっては苦痛だ。",
+          "transcription": "たばこのけむりやにおいはすわないひとにとってはくつうだ。",
+          "mean": "Cigarette smoke and smell are painful for people who don't smoke."
+        },
+        {
+          "content": "母乳は赤ちゃんの発展にとって大事である。",
+          "transcription": "ぼにゅうはあかちゃんのはってんにとってだいじである。",
+          "mean": "Breast milk is important for a baby's development."
+        },
+        {
+          "content": "体にとって一番重要なものは、水でしょう。",
+          "transcription": "からだにとっていちばんじゅうようなものは、みずでしょう。",
+          "mean": "Water is probably the most important thing for your body."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にとって<br/> N+にとっては<br/> N+にとっても"
+    }
+  ],
+  "title": "にとって => to, for, concerning, as far as … is concerned",
+  "_id": "8444319c700f46d4806ba2e28c693646"
+}

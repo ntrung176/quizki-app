@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2632,
+  "usages": [
+    {
+      "explain": "Follows a verb indicating intentional action, to encourage the other person to do something or to invite the other person to do something together with oneself. The polite form is 「Vませんか」. It is often pronounced with a rising tone. There are also cases where 「か」is omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょっと、飲んでみない。",
+          "transcription": "ちょっと、のんでみない。",
+          "mean": "Why don't you try drinking it?"
+        },
+        {
+          "content": "今度の土曜日、いっしょに映画を見に行かないか。",
+          "transcription": "こんどのどようび、いっしょにえいがをみにいかないか。",
+          "mean": "Would you like to go see a movie with me next Saturday?"
+        },
+        {
+          "content": "ちょっと休みません。",
+          "transcription": "ちょっとやすみません。",
+          "mean": "I won't take a break."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ない(か)"
+    }
+  ],
+  "title": "ない (か) => right? isn't it?",
+  "_id": "f2d618ceb0702f781ec83b7d4f1b3a1d"
+}

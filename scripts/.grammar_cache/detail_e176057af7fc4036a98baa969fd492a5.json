@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5421,
+  "usages": [
+    {
+      "explain": "「すでに」is used to:<br/>\n1. Describe an action or event that has already occurred. In this case, the verb will be in the past tense.<br/>\n2. Express the idea: at that time, the mentioned action or event was already in that state. In this case, the verb is often in the present progressive tense.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らはすでに外出してしまいました。",
+          "transcription": "かれらはすでにがいしゅつしてしまいました。",
+          "mean": "They have already gone out."
+        },
+        {
+          "content": "彼が駅に着いたとき、列車はすでに３０分前に出発していた。",
+          "transcription": "かれがえきについたとき、れっしゃはすでにさんじゅっぷんまえにしゅっぱつしていた。",
+          "mean": "When he arrived at the station, the train had already left 30 minutes earlier."
+        },
+        {
+          "content": "あなたはすでに明日の出張の準備をしていましたか。",
+          "transcription": "あなたはすでにあしたのしゅっちょうのじゅんびをしていましたか。",
+          "mean": "Have you already prepared for tomorrow's business trip?"
+        },
+        {
+          "content": "彼とはすでに10年間の付き合いである。",
+          "transcription": "かれとはすでにじゅうねんかんのつきあいである。",
+          "mean": "I've known him for 10 years already."
+        },
+        {
+          "content": "彼が部屋に入ったとき、彼女はすでに部屋の掃除を終わっていた。",
+          "transcription": "かれがへやにはいったとき、かのじょはすでにへやのそうじをおわっていた。",
+          "mean": "When he entered the room, she had already finished cleaning the room."
+        },
+        {
+          "content": "もしかしたら、彼女はすでにそれを送っているかもしれない。",
+          "transcription": "もしかしたら、かのじょはすでにそれをおくっているかもしれない。",
+          "mean": "Maybe she has already sent it."
+        },
+        {
+          "content": "私はすでに1000人以上からフォローされている。",
+          "transcription": "わたしはすでにせんにんいじょうからフォローされている。",
+          "mean": "I'm already followed by over 1000 people."
+        }
+      ],
+      "mean": null,
+      "synopsis": "すでに+Sentence"
+    }
+  ],
+  "title": "すでに => something has already been done/taken place; is already the case",
+  "_id": "e176057af7fc4036a98baa969fd492a5"
+}

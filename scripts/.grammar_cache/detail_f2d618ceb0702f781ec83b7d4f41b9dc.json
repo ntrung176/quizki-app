@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2935,
+  "usages": [
+    {
+      "explain": "Describes an event: the content of the following sentence contrasts with what was predicted in the previous sentence. This style leans towards written language. In spoken language, this style is used in serious, formal situations such as discussions, presentations. It is used in dialogues as an introduction, to refute the other party's opinion.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は行きたくなかった， しかし彼女は行った。",
+          "transcription": "かのじょはいきたくなかった，しかしかのじょはいった。",
+          "mean": "She didn't want to go, but she went."
+        },
+        {
+          "content": "その悲報を聞いて皆泣いた。しかし私は涙が出なかった。",
+          "transcription": "そのひほうをきいてみなないた。しかしわたしはなみだがでなかった。",
+          "mean": "Everyone cried when they heard the sad news. But I couldn't cry."
+        },
+        {
+          "content": "どんなダイエットですか。毎日りんごだけ食べたり、水をたくさんのんだりしました。しかし、無理なダイエットは体によくないですよ。",
+          "transcription": "どんなだいえっとですか。まいにちりんごだけたべたり、みずをたくさんのんだりしました。しかし、むりなだいえっとはからだによくないですよ。",
+          "mean": "What kind of diet are you on? I ate only apples every day and drank lots of water. However, unreasonable dieting is not good for your body."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Clause 1. しかし, Clause 2."
+    }
+  ],
+  "title": "しかし => But, nevertheless",
+  "_id": "f2d618ceb0702f781ec83b7d4f41b9dc"
+}

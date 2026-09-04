@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2044,
+  "usages": [
+    {
+      "explain": "Used to give orders or strongly demand that someone speak up, with the meaning \"say anything, but you must say something.\" Used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私に従おうとしないから、あなたから何とか言ってやって下さい。",
+          "transcription": "わたしにしたがおうとしないから、あなたからなんとかいってやってください。",
+          "mean": "He won't obey me, so please tell me something."
+        },
+        {
+          "content": "像のように黙っていないで何とか言ったらどうなんだ。",
+          "transcription": "ぞうのようにだまっていないでなんとかいったらどうなんだ。",
+          "mean": "Why don't you say something instead of remaining silent like a statue?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとかいう～"
+    }
+  ],
+  "title": "なんとかいう => Say something",
+  "_id": "f7ff14dae05876cac58b413693c9d018"
+}

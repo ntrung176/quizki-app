@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1757,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"from here to there, all over\". Often used with verbs indicating movement such as 「動く」,「走る」,「飛ぶ」,「泳ぐ」(move, run, fly, swim) ...",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は息子を探して町を歩き回った。",
+          "transcription": "かれはむすこをさがしてまちをあるきまわった。",
+          "mean": "He roamed the town looking for his son."
+        },
+        {
+          "content": "彼は有名な演説者なので、世界中を飛び回っている。",
+          "transcription": "かれはゆうめいなえんぜつしゃなので、せかいじゅうをとびまわっている。",
+          "mean": "He is a famous speaker, so he travels all over the world."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます + まわる"
+    }
+  ],
+  "title": "まわる => to go around",
+  "_id": "f7ff14dae05876cac58b413693a21c19"
+}

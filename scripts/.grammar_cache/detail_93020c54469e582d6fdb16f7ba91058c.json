@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3079,
+  "usages": [
+    {
+      "explain": "✦ Used to express a position, role, or status as \"AたるB\", if B is A, then...",
+      "note": null,
+      "examples": [
+        {
+          "content": "教師たる者、学生に対して常に公平であるべきだ。",
+          "transcription": "きょうしたるもの、がくせいにたいしてつねにこうへいであるべきだ。",
+          "mean": "As a teacher, you should always be fair to your students."
+        },
+        {
+          "content": "アメリカ人たる私、リンカーンはすばらしい人だと思う。",
+          "transcription": "アメリカじんたるわたし、リンカーンはすばらしいひとだとおもう。",
+          "mean": "As an American, I think Lincoln was a wonderful person."
+        }
+      ],
+      "mean": "To be (in a position of), As a, For",
+      "synopsis": "✦N ＋ たる"
+    }
+  ],
+  "title": "～たる      => To be (in a position of), As a, For",
+  "_id": "93020c54469e582d6fdb16f7ba91058c"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1745,
+  "usages": [
+    {
+      "explain": "It's used together with conditional clauses and situations, such as 「たら」、「ば」、「場合は」to express the meaning \"Suppose something like that happens, then...\". Similar in meaning to 「もし（も）」, but the hypothetical meaning of 「かりに」 is stronger regardless of the actual situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "かりに50億ドンの宝くじに当たったら、何をしますか。",
+          "transcription": "かりに50おくどんのたからくじにあたったら、なにをしますか。",
+          "mean": "What would you do if you won a 5 billion dong lottery?"
+        },
+        {
+          "content": "仮に今週の日曜日雨が降ることがあれば、試合は延期されるだろう。",
+          "transcription": "かりにこんしゅうのにちようびあめがふることがあれば、しあいはえんきされるだろう。",
+          "mean": "If it rains this Sunday, the game will be postponed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "かりに（仮に）…たら/…ば"
+    }
+  ],
+  "title": "かりに…たら/…ば => If..., suppose...",
+  "_id": "f7ff14dae05876cac58b413693a041d8"
+}

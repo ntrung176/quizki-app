@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 1990,
+  "usages": [
+    {
+      "explain": "Used to ask someone to do something for the speaker (or someone related to the speaker), with the implication of the ability of 「もらう」. The form is often used for someone close or inferior to the speaker, while the polite form is used for a wider range of people.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このデータを最終チェックしてもらえないか。",
+          "transcription": "このでーたをさいしゅうちぇっくしてもらえないか。",
+          "mean": "Could you give this data a final check for me?"
+        },
+        {
+          "content": "すみません、ここは子供の遊び場なんですけど、武道の練習はやめてもらえませんか。",
+          "transcription": "すみません、ここはこどものあそびばなんですけど、ぶどうのれんしゅうはやめてもらえませんか。",
+          "mean": "Excuse me, this is a children's playground, but could you please stop practicing martial arts?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + もらえないか"
+    },
+    {
+      "explain": "Note: In cases where a more polite request is desired, you can use forms like: 「V - てもらえないでしょうか」,「V - ていただけませんか」,「V - ていただけないでしょうか」...",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "てもらえないか => could you please ~",
+  "_id": "f7ff14dae05876cac58b413693c2dca6"
+}

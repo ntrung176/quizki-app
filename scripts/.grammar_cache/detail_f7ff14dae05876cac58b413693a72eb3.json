@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1788,
+  "usages": [
+    {
+      "explain": "In the form of \"Xば...しよう/したい\", if Y expresses will or hope, there will be a limitation in using the predicate in clause X. Generally, if the predicate of clause X only indicates a state, there is no problem. But if it uses a verb indicating an action or change, the sentence sometimes becomes unnatural.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨がふらなければ出かけよう。",
+          "transcription": "あめがふらなければでかけよう。",
+          "mean": "If it doesn't rain, let's go out."
+        },
+        {
+          "content": "木村さんが行かなければ、私も行きたくない。",
+          "transcription": "きむらさんがいかなければ、わたしもいきたくない。",
+          "mean": "If Mr. Kimura doesn't go, I don't want to go either."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...ば＋will/hope"
+    }
+  ],
+  "title": "... ば => If... then will",
+  "_id": "f7ff14dae05876cac58b413693a72eb3"
+}

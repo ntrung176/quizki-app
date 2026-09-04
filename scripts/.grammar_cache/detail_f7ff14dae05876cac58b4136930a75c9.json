@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 646,
+  "usages": [
+    {
+      "explain": "「やたらに」is used to emphasize the intensity or excessiveness of something.<br/>✦Also used in the form of 「やたらと」. There are also expressions like 「むやみやたらに」, 「めったやたらに」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "<div>彼はやたらに食い、やたらに飲む。<br></div>",
+          "transcription": "<div>かれはやたらにくい、やたらにのむ。<br></div>",
+          "mean": "&lt;div&gt;He eats and drinks profusely. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "<div>彼はやたらに本を読む。<br></div>",
+          "transcription": "<div>かれはやたらにほんをよむ。<br></div>",
+          "mean": "&lt;div&gt;He reads a lot. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "今年の夏はやたらに雨が多い。",
+          "transcription": "ことしのなつはやたらにあめがおおい。",
+          "mean": "It rains a lot this summer."
+        },
+        {
+          "content": "彼は、女子学生とみると、やたらに話しかけては嫌われているようだ。",
+          "transcription": "かれは、じょしがくせいとみると、やたらにはなしかけてはきらわれているようだ。",
+          "mean": "When he sees female students, he seems to dislike them because he talks to them too much."
+        },
+        {
+          "content": "この学校はやたらに規則を変更するので困る。",
+          "transcription": "このがっこうはやたらにきそくをへんこうするのでこまる。",
+          "mean": "This school is in trouble because they keep changing the rules."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～やたらに => randomly; recklessly; blindly",
+  "_id": "f7ff14dae05876cac58b4136930a75c9"
+}

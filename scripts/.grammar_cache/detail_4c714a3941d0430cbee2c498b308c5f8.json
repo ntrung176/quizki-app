@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5334,
+  "usages": [
+    {
+      "explain": "「ふりをする」describes an attitude or action where the subject pretends to be a certain way, but in reality, they are not.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は聞こえないふりをした。",
+          "transcription": "かのじょはきこえないふりをした。",
+          "mean": "She pretended not to hear."
+        },
+        {
+          "content": "彼は何か探すふりをした。",
+          "transcription": "かれはなにかさがすふりをした。",
+          "mean": "He pretended to be looking for something."
+        },
+        {
+          "content": "私は日本人のふりをする。",
+          "transcription": "わたしはにほんじんのふりをする。",
+          "mean": "I pretend to be Japanese."
+        },
+        {
+          "content": "犯人は客のふりをして、店に入った。",
+          "transcription": "はんにんはきゃくのふりをして、みせにはいった。",
+          "mean": "The criminal entered the store pretending to be a customer."
+        },
+        {
+          "content": "元気そうなふりをしているが、彼女は病気だ。",
+          "transcription": "げんきそうなふりをしているが、かのじょはびょうきだ。",
+          "mean": "She pretends to be fine, but she is sick."
+        },
+        {
+          "content": "宿題を終えたふりをしてテレビを見ている。",
+          "transcription": "しゅくだいをおえたふりをしてテレビをみている。",
+          "mean": "I pretend to have finished my homework and watch TV."
+        },
+        {
+          "content": "田中さんは独身のふりをしているが、結婚していて3人子供がいる。",
+          "transcription": "たなかさんはどくしんのふりをしているが、けっこんしていてさんにんこどもがいる。",
+          "mean": "Tanaka pretends to be single, but he is married and has three children."
+        },
+        {
+          "content": "彼はそのことについて知っているふりをしているが、本当は知らないと思う。",
+          "transcription": "かれはそのことについてしっているふりをしているが、ほんとはしらないとおもう。",
+          "mean": "He pretends to know about it, but I don't think he really knows."
+        },
+        {
+          "content": "彼女は悪口を言われていることに気がついていたが、聞こえないふりをしていた。",
+          "transcription": "かのじょはわるぐちをいわれていることにきがついていたが、きこえないふりをしていた。",
+          "mean": "She was aware that they were calling her names, but she pretended not to hear them."
+        },
+        {
+          "content": "彼女が一生懸命作ってくれた料理なので、まずいとは言えず、美味しいふりをした。",
+          "transcription": "かのじょがいっしょうけんめいつくってくれたりょうりなので、まずいとはいえず、おいしいふりをした。",
+          "mean": "She had worked so hard to make the food, so I pretended it was delicious instead of saying it was bad."
+        },
+        {
+          "content": "つらくてもつらくないふりをして、痛くても痛くないふりをして、大丈夫じゃなくても大丈夫なふりをした。",
+          "transcription": "つらくてもつらくないふりをして、いたくてもいたくないふりをして、だいじょうぶじゃなくてもだいじょうぶなふりをした。",
+          "mean": "Even when it was hard, I pretended it wasn't painful. Even when it hurt, I pretended it didn't hurt. Even when it wasn't, I pretended it was okay."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+ふりをする<br/>Aい/Aな+ふりをする<br/> Nの+ふりをする"
+    }
+  ],
+  "title": "ふりをする => to pretend; to act as if ~",
+  "_id": "4c714a3941d0430cbee2c498b308c5f8"
+}

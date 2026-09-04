@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1313,
+  "usages": [
+    {
+      "explain": "Comes after nouns indicating a place to describe a space facing towards that place.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お城は美しい湖に面して立っている。",
+          "transcription": "おしろはうつくしいみずうみにめんしてたっている。",
+          "mean": "The castle stands facing a beautiful lake."
+        },
+        {
+          "content": "このビルは広い広場に面している。",
+          "transcription": "このびるはひろいひろばにめんしている。",
+          "mean": "This building faces a large plaza."
+        },
+        {
+          "content": "このホテルで山に面した部屋を予約した。",
+          "transcription": "このほてるでやまにめんしたへやをよやくした。",
+          "mean": "I booked a room facing the mountain at this hotel."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にめんして"
+    }
+  ],
+  "title": "にめんして => having a space looking towards N",
+  "_id": "f7ff14dae05876cac58b41369364d1bf"
+}

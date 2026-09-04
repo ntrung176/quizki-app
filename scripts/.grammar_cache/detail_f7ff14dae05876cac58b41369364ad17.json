@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1312,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"is A, and at the same time is B\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はこの組織の創業者でもあり、経営者でもある。",
+          "transcription": "かのじょはこのそしきのそうぎょうしゃでもあり、けいえいしゃでもある。",
+          "mean": "She is also the founder and manager of this organization."
+        },
+        {
+          "content": "明日の試合は興奮でもあり、緊張でもある。",
+          "transcription": "あしたのしあいはこうふんでもあり、きんちょうでもある。",
+          "mean": "I'm both excited and nervous about tomorrow's match."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aくもあり + Aくもある <br/>Naでもあり + Naでもある <br/>Nでもあり + Nでもある <br/>"
+    }
+  ],
+  "title": "でもあり, でもある  => is also...",
+  "_id": "f7ff14dae05876cac58b41369364ad17"
+}

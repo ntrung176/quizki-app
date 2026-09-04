@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2458,
+  "usages": [
+    {
+      "explain": "When paired with a noun, it expresses that the thing represented there is the cause for the observer to feel that way.",
+      "note": null,
+      "examples": [
+        {
+          "content": "新しい髪がいっそう彼女を自信にみせている。",
+          "transcription": "あたらしいかみがいっそうかのじょをじしんにみせている。",
+          "mean": "Her new hair makes her look even more confident."
+        },
+        {
+          "content": "明るいライトが野菜を新鮮にみせている。",
+          "transcription": "あかるいらいとがやさいをしんせんにみせている。",
+          "mean": "The bright lights make the vegetables look fresh."
+        }
+      ],
+      "mean": null,
+      "synopsis": "X が Y を Vように・Aく・Naに + みせる<br/><br/><br/>"
+    }
+  ],
+  "title": "...が...を...みせる => make it look like...",
+  "_id": "f2d618ceb0702f781ec83b7d4f03a4a0"
+}

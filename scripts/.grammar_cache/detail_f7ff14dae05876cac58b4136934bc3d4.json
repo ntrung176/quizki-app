@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 1127,
+  "usages": [
+    {
+      "explain": "Used to present an evaluation contrasting with the previously stated viewpoint.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は頭がよくはあるが、怠け者だ。",
+          "transcription": "かれはあたまがよくはあるが、なまけものだ。",
+          "mean": "Although he is intelligent, he is lazy."
+        },
+        {
+          "content": "これは豪華な家ではあるが、審美性は全然ない。",
+          "transcription": "これはごうかないえではあるが、しんびせいはぜんぜんない。",
+          "mean": "Although this is a luxurious house, it has no aesthetics at all."
+        },
+        {
+          "content": "まだ子供ではあるが、よく知っている。",
+          "transcription": "まだこどもではあるが、よくしっている。",
+          "mean": "Although he is still a child, he knows a lot."
+        },
+        {
+          "content": "彼は体が弱くはあるが、非常な知恵に恵まれていた。",
+          "transcription": "かれはからだがよわくはあるが、ひじょうなちえにめぐまれていた。",
+          "mean": "Although he was physically weak, he was endowed with great wisdom."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A + くはあるが<br/>Na + ではあるが <br/>N + ではあるが <br/>"
+    }
+  ],
+  "title": "ではあるが => Although it is",
+  "_id": "f7ff14dae05876cac58b4136934bc3d4"
+}

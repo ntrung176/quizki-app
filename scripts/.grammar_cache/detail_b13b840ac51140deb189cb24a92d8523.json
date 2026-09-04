@@ -1,0 +1,101 @@
+{
+  "level": "N5",
+  "mobileId": 5580,
+  "usages": [
+    {
+      "explain": "「だけ」follows quantifiers, nouns, verbs, or adjectives to indicate the limit of what is being mentioned, meaning 'only' or 'just', emphasizing that there is nothing else beyond that.\n\nThe particles「を」and「が」can come after「だけ」or can be omitted. On the other hand, particles like「に」「で」and「から」can come before or after 「だけ」. However, it's important to note that the order of particles can change the meaning of the sentence.\n\nExamples:\n- 自分は保険証でだけ証明できる。 (One can only prove themselves with an insurance card. No other way to prove.)\n- 自分は保険証だけで証明できる。 (One can prove themselves with just an insurance card. No need for anything else.)\n\n「だけ」can be used in both affirmative and negative sentences, often with a neutral or positive tone, unlike「しか」which tends to have a negative tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "君だけを愛してるよ。",
+          "transcription": "きみだけをあいしてるよ。",
+          "mean": "I love only you"
+        },
+        {
+          "content": "休みは日曜日だけです。",
+          "transcription": "やすみはにちようびだけです。",
+          "mean": "The only day off is Sunday."
+        },
+        {
+          "content": "私の持っているお金はこれだけだ。",
+          "transcription": "わたしのもっているおかねはこれだけだ。",
+          "mean": "This is the only money I have."
+        },
+        {
+          "content": "彼女が信頼できるのは彼だけだ。",
+          "transcription": "かのじょがしんらいできるのはかれだけだ。",
+          "mean": "He's the only one she can trust."
+        },
+        {
+          "content": "ダイエットしているから、夜にりんごだけ食べます。",
+          "transcription": "ダイエットしているから、よるにりんごだけたべます。",
+          "mean": "I'm on a diet, so I only eat apples at night."
+        },
+        {
+          "content": "本屋さんに行くとトイレに行きたくなるのは私だけですか。",
+          "transcription": "ほんやさんにいくとトイレにいきたくなるのはわたしだけですか。",
+          "mean": "Am I the only one who feels like going to the bathroom when I go to a bookstore?"
+        },
+        {
+          "content": "サングラスをかけていたから、目の周りだけ日焼けしなかった。",
+          "transcription": "サングラスをかけていたからめのまわりだけひやけしなかった。",
+          "mean": "I was wearing sunglasses, so I didn't get sunburned around my eyes."
+        },
+        {
+          "content": "パワー電気に外国人の社員が1人だけいます。",
+          "transcription": "パワーでんきにがいこくじんのしゃいんがひとりだけいます。",
+          "mean": "Power Electric has only one foreign employee."
+        },
+        {
+          "content": "500円だけあります。",
+          "transcription": "ごひゃくえんだけあります。",
+          "mean": "There is only 500 yen."
+        },
+        {
+          "content": "ここから学校まで5分だけかかります。",
+          "transcription": "ここからがっこうまでごふんだけかかります。",
+          "mean": "It only takes 5 minutes to get to school from here."
+        },
+        {
+          "content": "考えるだけで、ぞっとする。",
+          "transcription": "かんがえるだけで、ぞっとする。",
+          "mean": "Just thinking about it gives me chills."
+        },
+        {
+          "content": "僕のそばに君がいるだけでいい。",
+          "transcription": "ぼくのそばにきみがいるだけでいい。",
+          "mean": "I just need you by my side."
+        },
+        {
+          "content": "ちょっと疲れただけだ。",
+          "transcription": "ちょっとつかれただけだ。",
+          "mean": "I'm just a little tired."
+        },
+        {
+          "content": "ここは便利なだけで、環境はよくないです。",
+          "transcription": "ここばべんりなだけで、かんきょうはよくないです。",
+          "mean": "This place is convenient, but the environment is not good."
+        },
+        {
+          "content": "自分が寂しいだけなのか、本当に彼女が好きなのか確認しないと。",
+          "transcription": "じぶんがさびしいだけなのか、ほんとうにかのじょがすきなのかかくにんしないと。",
+          "mean": "I need to find out if I'm just lonely or if I really like her."
+        },
+        {
+          "content": "その仕事は2人だけでできます。",
+          "transcription": "そのしごとはふたりだけでできます。",
+          "mean": "Only two people can do the job."
+        },
+        {
+          "content": "その仕事は2人でだけできます。",
+          "transcription": "そのしごとはふたりでだけできます。",
+          "mean": "That work can only be done by two people."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Quantity words+だけ<br/>V (formal form)+だけ<br/>Aい/Aな+だけ"
+    }
+  ],
+  "title": "だけ => only; just",
+  "_id": "b13b840ac51140deb189cb24a92d8523"
+}

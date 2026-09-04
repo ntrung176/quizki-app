@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 1281,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"to a higher degree than that,\" similar to 「いっそう」 (even more) or 「もっと」 (more).<br/>Expresses the meaning \"still continuing in the same state.\"<br/>Indicates a contrast between the preceding and following clauses.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は背が高いが、兄はなお高い。",
+          "transcription": "かれはせがたかいが、あにはなおたかい。",
+          "mean": "He is tall, but his brother is much taller."
+        },
+        {
+          "content": "祖母は80歳でもなお活発的だ。",
+          "transcription": "そぼは80さいでもなおかっぱつてきだ。",
+          "mean": "My grandmother is still active at 80 years old."
+        },
+        {
+          "content": "この習慣は今日本のところどころで行われている。",
+          "transcription": "このしゅうかんはこんにっぽんのところどころでおこなわれている。",
+          "mean": "This custom is practiced in many parts of Japan today."
+        },
+        {
+          "content": "禁止されると、なおやってみたくなる。",
+          "transcription": "きんしされると、なおやってみたくなる。",
+          "mean": "If it's banned, you'll want to try it even more."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なお～"
+    }
+  ],
+  "title": "なお => still; yet​; furthermore; in addition ~",
+  "_id": "f7ff14dae05876cac58b413693604209"
+}

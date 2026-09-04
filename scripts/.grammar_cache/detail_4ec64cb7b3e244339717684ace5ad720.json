@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5567,
+  "usages": [
+    {
+      "explain": "「続ける」is \"to continue\" or \"to keep doing,\" and it is used to emphasize the idea of \"continuing without stopping\" for an action since it began.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一週間雨が降り続けていた。",
+          "transcription": "いっしゅうかんあめがふりつづけていた。",
+          "mean": "It had been raining for a week."
+        },
+        {
+          "content": "物価は上がり続けるだろう。",
+          "transcription": "ぶっかはあがりつづけるだろう。",
+          "mean": "Prices will continue to rise."
+        },
+        {
+          "content": "昨日から雨が降り続けている。",
+          "transcription": "きのうからあめがふりつづけている。",
+          "mean": "It's been raining since yesterday."
+        },
+        {
+          "content": "これからも彼を応援し続けたい。",
+          "transcription": "これからもかれをおうえんしつづけたい。",
+          "mean": "I want to continue to support him."
+        },
+        {
+          "content": "君を永遠に愛し続けると約束するよ。",
+          "transcription": "きみをえいえんにあいしつづけるとやくそくするよ。",
+          "mean": "I promise to love you forever."
+        },
+        {
+          "content": "彼女は彼氏の話をしゃべり続けた。",
+          "transcription": "かのじょはかれしのはなしをしゃべりつづけた。",
+          "mean": "She kept talking about her boyfriend."
+        },
+        {
+          "content": "それをやり続けたほうがいいのかもしれない。",
+          "transcription": "それをやりつづけたほうがいいのかもしれない。",
+          "mean": "Maybe I should just keep doing that."
+        },
+        {
+          "content": "彼は高校時代からずっとサッカーをし続けている。",
+          "transcription": "かれはこうこうじだいからずっとサッカーをしつづけている。",
+          "mean": "He has been playing soccer ever since high school."
+        },
+        {
+          "content": "父からもらった自転車を今も使い続けています。",
+          "transcription": "ちちからもらったじてんしゃをいまもつかいつづけています。",
+          "mean": "I still use the bicycle that my father gave me."
+        },
+        {
+          "content": "どんなに大変だったとしても、やり続けることが大切だ。",
+          "transcription": "どんなにたいへんだったとしても、やりつづけることがたいせつだ。",
+          "mean": "No matter how difficult it is, it is important to keep trying."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+続ける"
+    }
+  ],
+  "title": "続ける => to continue; to keep up; to keep on.",
+  "_id": "4ec64cb7b3e244339717684ace5ad720"
+}

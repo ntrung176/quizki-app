@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5467,
+  "usages": [
+    {
+      "explain": "「ように」is used to make a gentle request or give a light command to someone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『明日はもっと早く来るように。』『分かりました。』",
+          "transcription": "『あしたはもっとはやくくるように。』『わかりました。』",
+          "mean": "``Please come earlier tomorrow. \"\"Understood. ”"
+        },
+        {
+          "content": "ここで、たばこを吸わないように。",
+          "transcription": "ここで、たばこをすわないように。",
+          "mean": "Please don't smoke here."
+        },
+        {
+          "content": "遅れる場合は連絡するように。",
+          "transcription": "おくれるばあいはれんらくするように。",
+          "mean": "Please contact me if you will be late."
+        },
+        {
+          "content": "来週はテストがありますから、家で復習するように。",
+          "transcription": "らいしゅうはテストがありますから、うちでふくしゅうするように。",
+          "mean": "I have a test next week, so please review it at home."
+        },
+        {
+          "content": "運転中携帯を使わないように。",
+          "transcription": "うんてんちゅうけいたいをつかわないように。",
+          "mean": "Avoid using your cell phone while driving."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる+ように<br/> Vない+ように"
+    }
+  ],
+  "title": "ように => in order to, so that ~",
+  "_id": "b3343acdd3fd4fb796dd0b22c2b46fe1"
+}

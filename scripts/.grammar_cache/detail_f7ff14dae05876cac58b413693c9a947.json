@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 2042,
+  "usages": [
+    {
+      "explain": "Describes an action directed towards the speaker or someone the speaker is referring to. The doer of the action is indicated by the particle 「...が」, and the recipient of the action is indicated by the particle 「...に」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は私たちに試みにフランス語で話しかけてきた。",
+          "transcription": "かのじょはわたしたちにこころみにふらんすごではなしかけてきた。",
+          "mean": "She tried speaking to us in French."
+        },
+        {
+          "content": "冷蔵庫を買った客が苦情を言ってきた。",
+          "transcription": "れいぞうこをかったきゃくがくじょうをいってきた。",
+          "mean": "A customer who bought a refrigerator complained."
+        },
+        {
+          "content": "どうして夜こんなに遅くに電話をかけてくるんだ？",
+          "transcription": "どうしてよるこんなにおそくにでんわをかけてくるんだ？",
+          "mean": "Why are you calling me so late at night?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + くる"
+    },
+    {
+      "explain": "Note: When the subject of the action is a noun describing a place like \"会社\" (company), it will be represented by the particle 「...から」. It can also be expressed differently, namely in the form of passive voice. In that case, the person performing the action is followed by the particle 「...から」, and the recipient of the action is followed by the particle 「...に」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...くる => ... Come, ... with me (Action towards here)",
+  "_id": "f7ff14dae05876cac58b413693c9a947"
+}

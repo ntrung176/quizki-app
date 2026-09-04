@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5069,
+  "usages": [
+    {
+      "explain": "「に即して」expresses the meaning: to do something correctly, in accordance with the actual situation.<br/>\nNouns (N) that often go with「に即して」are: 事実、現状、実情、経験、時代、現実、実態...<br/>\n「に則して」expresses the meaning: to do something in accordance with regulations, laws, or standards. The nouns (N) often used with 「に則して」 include: 法律 、法、規則、ルール...",
+      "note": null,
+      "examples": [
+        {
+          "content": "現状に即して物事を考えよう。",
+          "transcription": "げんじょうにそくしてものごとをかんがえよう。",
+          "mean": "Let's think about things according to the current situation."
+        },
+        {
+          "content": "銀行も、時代に即した新しいサービスを提供しなければならない。",
+          "transcription": "ぎんこうも、じだいにそくしたあたらしいサービスをていきょうしなければならない。",
+          "mean": "Banks must also provide new services that are in line with the times."
+        },
+        {
+          "content": "あのニュース番組は、事実に即した報道がなされているとは言い難い。",
+          "transcription": "あのニュースばんぐみは、じじつにそくしたほうどうがなされているとはいいがたい。",
+          "mean": "It is hard to say that that news program is reporting in accordance with the facts."
+        },
+        {
+          "content": "競技中に違反を犯した選手は、競技ルールに則して減点されます。",
+          "transcription": "きょうぎちゅうにいはんをおかしたせんしゅは、きょうぎルールにそくしてげんてんされます。",
+          "mean": "Athletes who commit violations during the competition will have their points deducted according to the competition rules."
+        },
+        {
+          "content": "頂いた個人情報は、個人情報保護法に則して適切に管理いたします。",
+          "transcription": "いただいたこじんじょうほうは、こじんじょうほうほごほうにそくしててきせつにかんりいたします。",
+          "mean": "Personal information received will be managed appropriately in accordance with the Personal Information Protection Act."
+        },
+        {
+          "content": "理想ばかりを追求するのではなく、もっと現実に即した改革を行った方がいい。",
+          "transcription": "りそうばかりをついきゅうするのではなく、もっとげんじつにそくしたかいかくをおこなったほうがいい。",
+          "mean": "Rather than just pursuing ideals, it would be better to carry out reforms that are more in line with reality."
+        },
+        {
+          "content": "海外滞在中に罪を犯した場合は、現地の法律に則した罰が与えられます。",
+          "transcription": "かいがいたいざいちゅうにつみをおかしたばあいは、げんちのほうりつにそくしたばつがあたえられます。",
+          "mean": "If you commit a crime while abroad, you will be punished according to local law."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+即して / 則して<br/>Nに+即したN’ / 則したN'"
+    }
+  ],
+  "title": "に即して/に則して => According to/ in keeping with/ to be based on ~",
+  "_id": "0079737d857344c8bd1d9b0e8db5ab03"
+}

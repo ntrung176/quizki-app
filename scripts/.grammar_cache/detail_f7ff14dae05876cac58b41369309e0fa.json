@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 642,
+  "usages": [
+    {
+      "explain": "Indicates the meaning of \"never happened before, up until now\". Often includes a sense of criticism.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は早起きしたためしがない。",
+          "transcription": "かれははやおきしたためしがない。",
+          "mean": "He has never gotten up early."
+        },
+        {
+          "content": "<div>そんな事は今までに聞いたためしがない。<br></div>",
+          "transcription": "<div>そんなことはいままでにきいたためしがない。<br></div>",
+          "mean": "&lt;div&gt;I've never heard of anything like that before. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "彼は約束の時間を守ったためしがない。",
+          "transcription": "かれはやくそくのじかんをまもったためしがない。",
+          "mean": "He has never kept his appointment on time."
+        },
+        {
+          "content": "息子はあきっぽくて、何をやっても三日と続いたためしがない。",
+          "transcription": "むすこはあきっぽくて、なにをやってもさんにちとつづいたためしがない。",
+          "mean": "My son is so restless that no matter what he does, it never lasts longer than three days."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + ためしがない"
+    }
+  ],
+  "title": "ためしがない => is never the case; has never happened; I have never seen or heard of ~",
+  "_id": "f7ff14dae05876cac58b41369309e0fa"
+}

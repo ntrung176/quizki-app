@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5090,
+  "usages": [
+    {
+      "explain": "The phrase enclosed in brackets and tags <br/> is: 「としたところで/としたって/にしたところで/にしたって」is used to emphasize that:\n1. Even if one does as in the preceding clause, the result in the following clause will not change, lacking the ability to change.<br/>2. Even standing in a different position or situation from the remaining option, the actual result is still the same as that remaining option.<br/>\n\nThe following clause often expresses criticism, evaluation, or negative denial by the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは忘れようとしたところで、忘れられない出来事だ。",
+          "transcription": "これはわすれようとしたところで、わすれられないできごとだ。",
+          "mean": "This is an event that I will never forget, even though I tried to forget it."
+        },
+        {
+          "content": "今から急いだとしたって、間に合わないだろう。",
+          "transcription": "いまからいそいだとしたって、まにあわないだろう。",
+          "mean": "Even if I started hurrying now, I wouldn't be able to make it in time."
+        },
+        {
+          "content": "あの頑固な父にたばこを辞めさせようとしたって、無駄だよ。",
+          "transcription": "あのがんこなちちにたばこをやめさせようとしたって、むだだよ。",
+          "mean": "It's no use trying to get that stubborn father to quit smoking."
+        },
+        {
+          "content": "仕事ができる田中さんにしたところで、分からないことがある。",
+          "transcription": "しごとができるたなかさんにしたところで、わからないことがある。",
+          "mean": "Even if Mr. Tanaka is good at his job, there are still things he doesn't understand."
+        },
+        {
+          "content": "部長や課長にしたところで、会社の経営状態に不安を感じている。",
+          "transcription": "ぶちょうやかちょうにしたところで、かいしゃのけいえいじょうたいにふあんをかんじている。",
+          "mean": "Even though I have been promoted to general manager or section manager, I feel uneasy about the company's management status."
+        },
+        {
+          "content": "頭のいい前田くんにしたって、時々ミスをする。",
+          "transcription": "あたまのいいまえだくんにしたって、ときどきミスをする。",
+          "mean": "Even though Maeda-kun is smart, he sometimes makes mistakes."
+        },
+        {
+          "content": "どんなに美味しいにしたって、食べられる量に限界があります。",
+          "transcription": "どんなにおいしいにしたって、たべられるりょうにげんかいがあります。",
+          "mean": "No matter how delicious it is, there is a limit to how much you can eat."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+としたところで / としたって<br/><br/>V/Aい/Aな/N (formal form)+にしたところで / にしたって<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s><br/> Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "としたところで/としたって/にしたところで/にしたって => Even if; Even supposing that ~",
+  "_id": "11d4bebc01d9465faeff67102c80b210"
+}

@@ -1,0 +1,116 @@
+{
+  "level": "N2",
+  "mobileId": 5202,
+  "usages": [
+    {
+      "explain": "「に向かって」<br/>\n\n1. Indicates the direction (N2) toward which the subject N1 is facing when performing action V. V expresses a change in posture or movement at the spot of N1, such as sitting, standing, lying down, etc.<br/>\n   \n2. Indicates the destination (N2) toward which the subject N1 is moving or heading. V is an action expressing movement, such as walking, progressing, etc. N2 is not limited to physical locations; it can also be an object (like a wall, a door) or an abstract destination (the future, a dream).<br/>\n\n3. Indicates that N2 is the target receiving the action V of the subject N1.<br/>\n   - When N2 is a person, V is an action impacting the person, such as talking to, addressing, greeting, smiling at, etc.<br/>\n   - When N2 is an object, it not only shows the direction N1 is facing (in space) but also implies that N1 sees N2 as a tool to perform V.<br/>\n\nExample: 小林さんは鏡に向かって化粧する。Kobayashi applies makeup facing the mirror, meaning using the mirror as a tool to apply makeup.\n<br/><br/>\n\n「に向けて」<br/>\n\n1. Indicates the direction (N2) to which the subject N1 causes N to face when performing action V. V (being a transitive verb) impacts N in place.<br/>\n\n2. Indicates the destination (N2) toward which the subject N1 is moving. V is an action expressing movement, such as departing, etc. N2 can only be a physical location.<br/>\n\n3. Indicates that N2 is the recipient of N from the subject N1. N can be an object, attitude, or words, information that N1 intentionally conveys to N2.<br/>\n\n4. Indicates the goal (N2) that the subject N1 wants to realize or prepare for.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "学生達は黒板に向かって座っている。",
+          "transcription": "がくせいたちはこくばんにむかってすわっている。",
+          "mean": "The students are sitting facing the blackboard."
+        },
+        {
+          "content": "太郎くんが窓に向かって机を壁に向けて置く。",
+          "transcription": "たろうくんがまどにむかってつくえをかべにむけておく。",
+          "mean": "Taro-kun faces the window and places his desk against the wall."
+        },
+        {
+          "content": "選手はゴールに向かって全速力で走っている。",
+          "transcription": "せんしゅはゴールにむかってぜんそくりょくではしっている。",
+          "mean": "The players are running at full speed towards the goal."
+        },
+        {
+          "content": "木村さんはドアに向かって歩きました。",
+          "transcription": "きむらさんはドアにむかってあるきました。",
+          "mean": "Mr. Kimura walked towards the door."
+        },
+        {
+          "content": "私は夢に向かって頑張って努力をしたいです。",
+          "transcription": "わたしはゆめにむかってがんばってどりょくをしたいです。",
+          "mean": "I want to work hard towards my dreams."
+        },
+        {
+          "content": "先生に向かって失礼なことを言わないでください。",
+          "transcription": "せんせいにむかってしつれいなことをいわないでください。",
+          "mean": "Please don't be rude to the teacher."
+        },
+        {
+          "content": "親に向かって生意気な口をききました。",
+          "transcription": "おやにむかってなまいきなくちをききました。",
+          "mean": "I spoke cheekily to my parents."
+        },
+        {
+          "content": "2人の少女はカメラに向かって微笑みながら立っていた。",
+          "transcription": "ふたりのしょうじょはカメラにむかってほほえみながらたっていた。",
+          "mean": "The two girls stood smiling at the camera."
+        },
+        {
+          "content": "小林さんは鏡に向かって化粧する。",
+          "transcription": "こばやしさんはかがみにむかってけしょうする。",
+          "mean": "Kobayashi puts on her makeup in the mirror."
+        },
+        {
+          "content": "田中さんが吉田さんに向けてマイクを立てる。",
+          "transcription": "たなかさんがよしださんにむけてマイクをたてる。",
+          "mean": "Mr. Tanaka holds up a microphone to Mr. Yoshida."
+        },
+        {
+          "content": "警官は強盗に向けて銃を構えた。",
+          "transcription": "けいかんはごうとうにむけてじゅうをかまえた。",
+          "mean": "The policeman pointed his gun at the robber."
+        },
+        {
+          "content": "彼女は僕に背を向けて立っていた。",
+          "transcription": "かのじょはぼくにせをむけてたっていた。",
+          "mean": "She was standing with her back to me."
+        },
+        {
+          "content": "彼は8月16日にロンドンに向けて出発した。",
+          "transcription": "かれははちがつじゅうろくにちにロンドンにむけてしゅっぱつした。",
+          "mean": "He left for London on August 16th."
+        },
+        {
+          "content": "明日シドニーに向けて出帆する。",
+          "transcription": "あしたシドニーにむけてしゅっぱんする。",
+          "mean": "Tomorrow we will set sail for Sydney."
+        },
+        {
+          "content": "花子ちゃんが太郎くんに向けてボールを投げた。",
+          "transcription": "はなこちゃんがたろうくんにむけてボールをなげた。",
+          "mean": "Hanako-chan threw the ball towards Taro-kun."
+        },
+        {
+          "content": "新入社員に向けて何かアドバイスを一言お願いします。",
+          "transcription": "しんにゅうしゃいんにむけてなにかアドバイスをひとことおねがいします。",
+          "mean": "Please give some advice to new employees."
+        },
+        {
+          "content": "A国はB国に向けて強い態度を取り続けた。",
+          "transcription": "エーこくはビーこくにむけてつよいたいどをとりつづけた。",
+          "mean": "Country A continued to take a strong stance towards Country B."
+        },
+        {
+          "content": "彼らは全国大会に向けて毎日朝から夜までトレーニングをしている。",
+          "transcription": "かれらはぜんこくたいかいにむけてまいにちあさからよるまでトレーニングをしている。",
+          "mean": "They train every day from morning until night in preparation for the national competition."
+        },
+        {
+          "content": "彼女は入学試験に向けて心の準備をした。",
+          "transcription": "かのじょはにゅうがくしけんにむけてこころのじゅんびをした。",
+          "mean": "She mentally prepared for the entrance exam."
+        },
+        {
+          "content": "この問題の解決に向けて人員を増やして取り組んでいる。",
+          "transcription": "このもんだいのかいけつにむけてじんいんをふやしてとりくんでいる。",
+          "mean": "We are increasing our staff and working to resolve this issue."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は/が N2に向かって (Nを) V<br/>\nN1は/が N2に向けて (Nを) V"
+    }
+  ],
+  "title": "に向かって/に向けて => to face; to go towards; to head to",
+  "_id": "83ebf9e9bcfe40f48434b3bece24d340"
+}

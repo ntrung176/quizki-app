@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 776,
+  "usages": [
+    {
+      "explain": "✦ This is a fixed expression with an idiomatic meaning of \"unlike usual\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "店の中はいつになく静かだった。",
+          "transcription": "みせのなかはいつになくしずかだった。",
+          "mean": "It was unusually quiet inside the store."
+        },
+        {
+          "content": "例年になく、今年の夏は涼しい日が多い。",
+          "transcription": "れいねんになく、ことしのなつはすずしいひがおおい。",
+          "mean": "Unusually, there are many cool days this summer."
+        },
+        {
+          "content": "彼女は歌がうまいと言われて、柄にもなく顔を赤らめていた。",
+          "transcription": "かのじょはうたがうまいといわれて、えにもなくかおをあからめていた。",
+          "mean": "When she was told that she was a good singer, she blushed uncontrollably."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + になく"
+    }
+  ],
+  "title": "～になく => different from usual",
+  "_id": "f7ff14dae05876cac58b4136931b6d59"
+}

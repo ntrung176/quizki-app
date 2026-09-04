@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2858,
+  "usages": [
+    {
+      "explain": "Indicates that the action will be carried out after the time of speaking. Used to refuse things one doesn't want to do now.",
+      "note": null,
+      "examples": [
+        {
+          "content": "後で結果を知らせます。",
+          "transcription": "あとでけっかをしらせます。",
+          "mean": "I'll let you know the results later."
+        },
+        {
+          "content": "後で連絡します。",
+          "transcription": "あとでれんらくします。",
+          "mean": "I'll contact you later."
+        },
+        {
+          "content": "後でパソコンを修理してあげますね。",
+          "transcription": "あとでぱそこんをしゅうりしてあげますね。",
+          "mean": "I'll fix your computer later."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あとで + V"
+    }
+  ],
+  "title": "あとで => after, later",
+  "_id": "f2d618ceb0702f781ec83b7d4f38b733"
+}

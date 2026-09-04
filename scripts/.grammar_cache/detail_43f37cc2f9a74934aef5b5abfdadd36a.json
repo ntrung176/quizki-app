@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5097,
+  "usages": [
+    {
+      "explain": "「あげく」expresses the final result after a long period of encountering troubles, difficulties, or hardships.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何度も手術したあげく、治らないと言われた。",
+          "transcription": "なんどもしゅじゅつしたあげく、なおらないといわれた。",
+          "mean": "After many surgeries, I was told that there was no cure."
+        },
+        {
+          "content": "彼は酔っ払って騒いだあげく、寝てしまった。",
+          "transcription": "かれはよっぱらってさわいだあげく、ねてしまった。",
+          "mean": "He got drunk and made a lot of noise, then fell asleep."
+        },
+        {
+          "content": "待たされたあげく、まずい料理を食べさせられた。",
+          "transcription": "またされたあげく、まずいりょうりをたべさせられた。",
+          "mean": "After having to wait, I was made to eat bad food."
+        },
+        {
+          "content": "あちこちの病院へ行ったあげく、やっと元気になった。",
+          "transcription": "あちこちのびょういんへいったあげく、やっとげんきになった。",
+          "mean": "After visiting various hospitals, he finally recovered."
+        },
+        {
+          "content": "彼らは夫婦げんかを繰り返したあげくに、とうとう離婚した。",
+          "transcription": "かれらはふうふげんかをくりかえしたあげくに、とうとうりこんした。",
+          "mean": "After repeated quarrels, they finally divorced."
+        },
+        {
+          "content": "毎日の残業のあげく、田中さんは倒れて入院することになりました。",
+          "transcription": "まいにちのざんぎょうのあげく、たなかさんはたおれてにゅういんすることになりました。",
+          "mean": "After working overtime every day, Mr. Tanaka collapsed and was hospitalized."
+        },
+        {
+          "content": "このチケットは８時間並んだあげくに、やっと手にいれたものだ。",
+          "transcription": "このチケットは８じかんならんだあげくに、やっとてにいれたものだ。",
+          "mean": "I finally got this ticket after waiting in line for 8 hours."
+        },
+        {
+          "content": "彼は１時間も私たちを待たせたあげく、今日の打ち合わせは中止したいと言った。",
+          "transcription": "かれはいちじかんもわたしたちをまたせたあげく、きょうのうちあわせはちゅうししたいといった。",
+          "mean": "He kept us waiting for an hour and then said he wanted to cancel today's meeting."
+        },
+        {
+          "content": "人気のラーメン店に２時間も並んだあげく、売り切れで食べられなかった。",
+          "transcription": "にんきのラーメンてんに２じかんもならんだあげく、うりきれでたべられなかった。",
+          "mean": "After waiting in line for two hours at a popular ramen shop, I couldn't eat it because it was sold out."
+        },
+        {
+          "content": "寝坊してしまったので、髪もセットせず、タクシーを使って急いだあげく、けっきょく面接に間に合わなかった。",
+          "transcription": "ねぼうしてしまったので、かみもセットせず、タクシーをつかっていそいだあげく、けっきょくめんせつにまにあわなかった。",
+          "mean": "Because I overslept, I didn't even get my hair done and rushed by taxi, but ended up missing the interview in time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた / Nの+あげく<br/> Vた / Nの+あげくに<br/> Vた / Nの+あげくのN'"
+    }
+  ],
+  "title": "あげく => to end up; in the end; finally; after all ~",
+  "_id": "43f37cc2f9a74934aef5b5abfdadd36a"
+}

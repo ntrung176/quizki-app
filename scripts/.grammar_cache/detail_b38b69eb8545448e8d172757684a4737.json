@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5038,
+  "usages": [
+    {
+      "explain": "\"「限りだ」\" in Japanese is used to express an extremely intense emotion, nothing more intense. It is not used to describe the emotions of others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "従兄弟の結婚式に出られないとは残念な限りだ。",
+          "transcription": "いとこのけっこんしきにでられないとはざんねんなかぎりだ。",
+          "mean": "It's a shame that I won't be able to attend my cousin's wedding."
+        },
+        {
+          "content": "年を取って、お金もなく、家族もいないとは心細い限りです。",
+          "transcription": "としをとって、おかねもなく、かぞくもいないとはこころぼそいかぎりです。",
+          "mean": "It's scary to be old and have no money and no family."
+        },
+        {
+          "content": "あんなに短期間に成功するなんて、羨ましい限りだ。",
+          "transcription": "あんなにたんきかんにせいこうするなんて、うらやましいかぎりだ。",
+          "mean": "I'm so jealous of how successful he was in such a short period of time."
+        },
+        {
+          "content": "この計画を中止しなければならないとは残念な限りだ。",
+          "transcription": "このけいかくをちゅうししなければならないとはざんねんなかぎりだ。",
+          "mean": "It is unfortunate that we have to cancel this plan."
+        },
+        {
+          "content": "この年でこんなことも知らなかったなんて、お恥ずかしい限りです。",
+          "transcription": "このとしでこんなこともしらなかったなんて、おはずかしいかぎりです。",
+          "mean": "It's embarrassing that I didn't know this at my age."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい+限りだ<br/> Aな+限りだ"
+    }
+  ],
+  "title": "限りだ => to feel strongly",
+  "_id": "b38b69eb8545448e8d172757684a4737"
+}

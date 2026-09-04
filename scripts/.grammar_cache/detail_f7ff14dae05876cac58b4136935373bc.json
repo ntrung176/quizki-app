@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1187,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: when compared to the standard or average level of the group, the person or object being presented has a different value or degree.<br/>Can be replaced with the phrase \"... にしては.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は 西洋人としては背の低いほうです。",
+          "transcription": "かれはせいようじんとしてはせのひくいほうです。",
+          "mean": "He is short for a Westerner."
+        },
+        {
+          "content": "学生数５００人というのは高校としてはかなり規模が小さい。",
+          "transcription": "がくせいすうごぜろぜろにんというのはこうこうとしてはかなりきぼがちいさい。",
+          "mean": "With 500 students, it is quite small for a high school."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + としては"
+    }
+  ],
+  "title": "... としては => In terms of... (Different from the average)",
+  "_id": "f7ff14dae05876cac58b4136935373bc"
+}

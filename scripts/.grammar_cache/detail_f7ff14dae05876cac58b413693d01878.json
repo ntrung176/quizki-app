@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2088,
+  "usages": [
+    {
+      "explain": "To perform an action in the same way as a given instruction or as someone else has done before.<br/>Before どおり is a noun that indicates a guide (a book, a manual, a TV program) or an instructive action done by someone. The subsequent action will follow that instruction.",
+      "note": null,
+      "examples": [
+        {
+          "content": "バスケットボールの試合の結果はわたしたちの期待どおりだった。",
+          "transcription": "ばすけっとぼーるのしあいのけっかはわたしたちのきたいどおりだった。",
+          "mean": "The result of the basketball game was as we expected."
+        },
+        {
+          "content": "私は計画通りに作業をする。",
+          "transcription": "わたしはけいかくどおりにさぎょうをする。",
+          "mean": "I work according to plan."
+        },
+        {
+          "content": "その臨時株主総会は手順どおりにうまく行った。",
+          "transcription": "そのりんじかぶぬしそうかいはてじゅんどおりにうまくいった。",
+          "mean": "The special general meeting of shareholders went well according to procedure."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + どおりだ /どおり（に）"
+    }
+  ],
+  "title": "どおり => in that way",
+  "_id": "f7ff14dae05876cac58b413693d01878"
+}

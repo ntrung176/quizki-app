@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1690,
+  "usages": [
+    {
+      "explain": "Expresses a feeling of astonishment upon discovering something beyond expectation. If it's something desired by the speaker, it signifies admiration, but if it's contrary to expectations, it implies disappointment.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やあ、ケント君ではないか。",
+          "transcription": "やあ、けんとくんではないか。",
+          "mean": "Hello, aren't you Kent?"
+        },
+        {
+          "content": "このレストランの料理、結構おいしいではありませんか。",
+          "transcription": "このれすとらんのりょうり、けっこうおいしいではありませんか。",
+          "mean": "Isn't the food at this restaurant quite delicious?"
+        },
+        {
+          "content": "この論文なかなかよくできているではありませんか。",
+          "transcription": "このろんぶんなかなかよくできているではありませんか。",
+          "mean": "Isn't this paper quite well written?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (な) + ではないかNa (な) + ではないかA-い + ではないかV-る/ V-た/ V-ない + ではないか"
+    }
+  ],
+  "title": "... ではないか => right? isn't it?",
+  "_id": "f7ff14dae05876cac58b41369398a309"
+}

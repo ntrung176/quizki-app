@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2180,
+  "usages": [
+    {
+      "explain": "Used to convey information similar to よ but only in casual, familiar situations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ペキンへ行くぞ！",
+          "transcription": "ぺきんへいくぞ！",
+          "mean": "Let's go to Beijing!"
+        },
+        {
+          "content": "それをすると命が危ないぞ。",
+          "transcription": "それをするといのちがあぶないぞ。",
+          "mean": "If you do that, your life will be in danger."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...ぞ"
+    }
+  ],
+  "title": "...ぞ => ending particle; adds force or indicates command",
+  "_id": "f7ff14dae05876cac58b413693dd5665"
+}

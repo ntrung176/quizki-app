@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1866,
+  "usages": [
+    {
+      "explain": "Expressing subjective judgment: no matter how hard one tries, it's futile, impossible to achieve. In writing, it can be replaced by 「とうてい...ない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなこと、私にはとてもできない。",
+          "transcription": "そんなこと、わたしにはとてもできない。",
+          "mean": "I can't really do that."
+        },
+        {
+          "content": "たくさん食べたから、もう一個もとても食べられないよ。",
+          "transcription": "たくさんたべたから、もういちこもとてもたべられないよ。",
+          "mean": "I ate so much that I can't even eat another one."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とても ～ない"
+    }
+  ],
+  "title": "とても ... ない => cannot possibly be; hardly ~",
+  "_id": "f7ff14dae05876cac58b413693b0ec28"
+}

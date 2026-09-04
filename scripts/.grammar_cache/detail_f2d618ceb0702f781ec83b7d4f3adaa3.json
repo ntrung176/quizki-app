@@ -1,0 +1,38 @@
+{
+  "level": "N5",
+  "mobileId": 2882,
+  "usages": [
+    {
+      "explain": "Used to indicate that only one of the two objects X and Y is suitable. Additionally, it can list more than two objects.",
+      "note": null,
+      "examples": [
+        {
+          "content": "電車かタクシーで行くつもりだ。",
+          "transcription": "でんしゃかたくしーでいくつもりだ。",
+          "mean": "I'm planning to go by train or taxi."
+        },
+        {
+          "content": "その映画が面白いか面白くないか分からない。",
+          "transcription": "そのえいががおもしろいかおもしろくないかわからない。",
+          "mean": "I don't know if the movie is interesting or not."
+        },
+        {
+          "content": "結婚するか結婚しないか決めてください。",
+          "transcription": "けっこんするかけっこんしないかきめてください。",
+          "mean": "Decide whether to get married or not."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N か N (か）\nNa か Na か\nA か A か\nV-る/ V-た/ V-ない か V-る/ V-た/ V-ない か"
+    },
+    {
+      "explain": "Note: In the case of adjectives and verbs, it can be used in combination with negative forms.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...か... (か） => Or...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3adaa3"
+}

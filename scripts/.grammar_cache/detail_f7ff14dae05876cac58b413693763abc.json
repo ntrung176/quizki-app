@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1436,
+  "usages": [
+    {
+      "explain": "Used to emphasize negation. Often implies that something did not happen as expected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の考えがさっぱり分からない。",
+          "transcription": "かれのかんがえがさっぱりわからない。",
+          "mean": "I can't understand his ideas at all."
+        },
+        {
+          "content": "近頃砂糖さんからさっぱり手紙がないね。",
+          "transcription": "ちかごろさとうさんからさっぱりてがみがないね。",
+          "mean": "I haven't received any letters from Mr. Sugar lately."
+        },
+        {
+          "content": "彼らの関係についてはさっぱり知らない。",
+          "transcription": "かれらのかんけいについてはさっぱりしらない。",
+          "mean": "I don't know anything about their relationship."
+        }
+      ],
+      "mean": null,
+      "synopsis": "さっぱり～ない"
+    }
+  ],
+  "title": "さっぱり…ない => nothing/ absolutely not…",
+  "_id": "f7ff14dae05876cac58b413693763abc"
+}

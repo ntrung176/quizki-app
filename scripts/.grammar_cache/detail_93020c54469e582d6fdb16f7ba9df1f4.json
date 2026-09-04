@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3171,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "遅刻ならともかく、無断欠勤などもってのほかだ。",
+          "transcription": "ちこくならともかく、むだんけっきんなどもってのほかだ。",
+          "mean": "It's okay to be late, but it's also completely unacceptable to be absent without permission."
+        },
+        {
+          "content": "床に唾を吐くなどもってのほかだ。",
+          "transcription": "ゆかにつばをはくくなどもってのほかだ。",
+          "mean": "There's no point in spitting on the floor."
+        },
+        {
+          "content": "ビールを飲んで車を運転するなどもってのほかだ。",
+          "transcription": "ビールをのんでくるまをうんてんするなどもってのほかだ。",
+          "mean": "There's no point in drinking beer and driving a car."
+        }
+      ],
+      "mean": "not tolerable; strictly forbidden; not allowed",
+      "synopsis": "✦Vる・N ＋ などもってのほかだ"
+    }
+  ],
+  "title": "～もってのほかだ      => not tolerable; strictly forbidden; not allowed",
+  "_id": "93020c54469e582d6fdb16f7ba9df1f4"
+}

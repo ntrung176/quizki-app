@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5220,
+  "usages": [
+    {
+      "explain": "「につけ～につけ」 expresses the idea that regardless of the situation, the result remains the same. In the first part, the pair of verbs or adjectives before \"につけ\" often have contrasting meanings. The second part often expresses the speaker's natural emotions or thoughts, or an objective event beyond the speaker's control.<br/>In some cases, \"「につけ～につけ」\" can also be used with nouns.",
+      "note": null,
+      "examples": [
+        {
+          "content": "写真を見るにつけ歌を聞くにつけ、国を思い出す。",
+          "transcription": "しゃしんをみるにつけうたをきくにつけ、くにをおもいだす。",
+          "mean": "Whenever I see a photo or hear a song, I am reminded of my country."
+        },
+        {
+          "content": "大学進学というのは試験を受けるにつけ入学するにつけ、たくさんのお金が必要です。",
+          "transcription": "だいがくしんがくというのはしけんをうけるにつけにゅうがくするにつけ、たくさんのおかねがひつようです。",
+          "mean": "Going to university requires a lot of money to take exams and enroll."
+        },
+        {
+          "content": "いいにつけ悪いにつけ、子は親に似る。",
+          "transcription": "いいにつけわるいにつけ、こはおやににる。",
+          "mean": "For better or for worse, children resemble their parents."
+        },
+        {
+          "content": "彼女は感激屋さんなので、嬉しいにつけ悲しいにつけ、すぐ涙が出ます。",
+          "transcription": "かのじょはかんげきやさんなのでうれしいにつけかなしいにつけ、すぐなみだがでます。",
+          "mean": "She's an emotional person, so whether she's happy or sad, she can easily shed tears."
+        },
+        {
+          "content": "晴れにつけ雨につけ、大会は開かれる。",
+          "transcription": "はれにつけあめにつけ、たいかいはひらかれる。",
+          "mean": "The tournament will be held rain or shine."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1 (root form) につけ+V2 (root form) につけ<br/> A1い につけ+A2い につけ"
+    }
+  ],
+  "title": "につけ～につけ => each time, whenever, either way",
+  "_id": "20a766de2f024e9b8c274d42bdc51a88"
+}

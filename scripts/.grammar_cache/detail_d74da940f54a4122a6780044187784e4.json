@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5477,
+  "usages": [
+    {
+      "explain": "「出す」 expresses the start of an action suddenly and unexpectedly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨が急に降り出した。",
+          "transcription": "あめがきゅうにふりだした。",
+          "mean": "It started raining suddenly."
+        },
+        {
+          "content": "彼は店から飛び出した。",
+          "transcription": "かれはみせからとびだした。",
+          "mean": "He dashed out of the store."
+        },
+        {
+          "content": "校長室へ呼び出された。",
+          "transcription": "こうちょうしつへよびだされた。",
+          "mean": "I was called to the principal's office."
+        },
+        {
+          "content": "私は朝食後すぐに飛び出した。",
+          "transcription": "わたしはちょうしょくごすぐにとびだした。",
+          "mean": "I flew out immediately after breakfast."
+        },
+        {
+          "content": "彼を呼び出しても良いですか。",
+          "transcription": "かれをよびだしてもいいですか。",
+          "mean": "May I call him?"
+        },
+        {
+          "content": "彼の話を聞いて、つい笑い出してしまった。",
+          "transcription": "かれのはなしをきいて、ついわらいだしてしまった。",
+          "mean": "I couldn't help but laugh when I heard his story."
+        },
+        {
+          "content": "そのファンはアイドルに会えた喜びのあまり、泣き出した。",
+          "transcription": "そのファンはアイドルにあえたよろこびのあまり、なきだした。",
+          "mean": "The fan burst into tears because of the joy of meeting his idol."
+        },
+        {
+          "content": "彼はちょっと前までは笑っていたが、すぐに泣き出してしまった。",
+          "transcription": "かれはちょっとまえまではわらっていたが、すぐになきだしてしまった。",
+          "mean": "He was laughing a moment ago, but then he burst into tears."
+        },
+        {
+          "content": "非常ベルが急に鳴り出した。",
+          "transcription": "ひじょうべるがきゅうになりだした。",
+          "mean": "The emergency bell suddenly rang."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+出す"
+    }
+  ],
+  "title": "出す => to begin to; to start to; to burst into; ... out (e.g. to jump out, to carry out)​",
+  "_id": "d74da940f54a4122a6780044187784e4"
+}

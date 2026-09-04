@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1404,
+  "usages": [
+    {
+      "explain": "Used when the speaker's expectations or predictions ultimately do not come true.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は２時間も待ったが、彼女はついに来なかった。",
+          "transcription": "わたしはにじかんもまったが、かのじょはついにこなかった。",
+          "mean": "I waited for two hours, but she never came."
+        },
+        {
+          "content": "彼女の夢はついに叶わなかった。",
+          "transcription": "かのじょのゆめはついにかなわなかった。",
+          "mean": "Her dream finally did not come true."
+        },
+        {
+          "content": "泥棒はついに分からなかった。",
+          "transcription": "どろぼうはついにわからなかった。",
+          "mean": "The thief finally didn't know."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ついに + V-なかった"
+    }
+  ],
+  "title": "ついに => finally; at last; in the end ~",
+  "_id": "f7ff14dae05876cac58b4136937131a1"
+}

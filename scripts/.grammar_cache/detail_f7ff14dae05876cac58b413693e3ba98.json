@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2223,
+  "usages": [
+    {
+      "explain": "Based on the context and content of the preceding story, to express a permissive or indifferent attitude of the speaker, implying 'if it's like that, it's okay, it can be done like that, no need to do otherwise'.",
+      "note": null,
+      "examples": [
+        {
+          "content": "子供が熱があるならいいよ。早く帰ってあげて下さい。",
+          "transcription": "こどもがねつがあるならいいよ。はやくかえってあげてください。",
+          "mean": "It's okay if your child has a fever. Please come home soon."
+        },
+        {
+          "content": "この仕事は引き受けたくないのならいいよ。他の人を雇うから。",
+          "transcription": "このしごとはひきうけたくないのならいいよ。たのひとをやとうから。",
+          "mean": "If you don't want to take this job, that's fine. I'll hire someone else."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na ならいい\nA／V（の）ならいい"
+    }
+  ],
+  "title": "ならいい => If... that's okay",
+  "_id": "f7ff14dae05876cac58b413693e3ba98"
+}

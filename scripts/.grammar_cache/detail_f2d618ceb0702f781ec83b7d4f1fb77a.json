@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2672,
+  "usages": [
+    {
+      "explain": "Meaning: \"please ..., please invite...\", often used in a request form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日うかがいたいと、中山さんにお伝え願えますか。",
+          "transcription": "あしたうかがいたいと、なかやまさんにおつたえねがえますか。",
+          "mean": "Could you please tell Mr. Nakayama that I would like to see you tomorrow?"
+        },
+        {
+          "content": "10月のシンポジウムにご出席願いたいのですが、ご都合はいかがでしょうか。",
+          "transcription": "10がつのしんぽじうむにごしゅっせきねがいたいのですが、ごつごうはいかがでしょうか。",
+          "mean": "I would like to ask you to attend the symposium in October."
+        },
+        {
+          "content": "ご了承願います。",
+          "transcription": "ごりょうしょうねがいます。",
+          "mean": "Thank you for your understanding."
+        }
+      ],
+      "mean": null,
+      "synopsis": "お + Vます + ねがう\nご + N + ねがう"
+    }
+  ],
+  "title": "お…ねがう => please do; could you please…; I ask of you to ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f1fb77a"
+}

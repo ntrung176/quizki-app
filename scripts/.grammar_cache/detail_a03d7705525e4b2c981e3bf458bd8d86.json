@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5291,
+  "usages": [
+    {
+      "explain": "1. 「上で」in structure 1 describes the idea: first, one must perform action V (or N), and then based on that result, proceed to the next action in the following clause. It is similar to \"After...\".<br/>\n2. 「上で」in structure 2 describes the idea: when performing action V (or N), the statement in the following clause is important, necessary, needs attention, needs to be avoided, or is difficult to avoid. It is similar to \"When...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "家族と相談した上で、ご返事いたします。",
+          "transcription": "かぞくとそうだんしたうえで、ごへんじいたします。",
+          "mean": "We will respond after consulting with your family."
+        },
+        {
+          "content": "実物を見た上で、買うかどうか決めるつもりだ。",
+          "transcription": "じつぶつをみたうえで、かうかどうかきめるつもりだ。",
+          "mean": "I'll decide whether to buy it or not after seeing the actual product."
+        },
+        {
+          "content": "調べてみた上でなければ、はっきりしたことは言えない。",
+          "transcription": "しらべてみたうえでなければ、はっきりしたことはいえない。",
+          "mean": "I can't say anything for sure without doing some research."
+        },
+        {
+          "content": "この書類にご記入の上、一番の窓口にお出しください。",
+          "transcription": "このしょるいにごきにゅうのうえ、いちばんのまどぐちにおだしください。",
+          "mean": "Please fill out this document and bring it to the nearest counter."
+        },
+        {
+          "content": "志望理由書を書く上で大切なことは具体的に書くということだ。",
+          "transcription": "しぼうりゆうしょをかくうえでたいせつなことはぐたいてきにかくということだ。",
+          "mean": "The important thing when writing a statement of purpose is to be specific."
+        },
+        {
+          "content": "外国語を勉強する上で、辞書はなくてはならないものだ。",
+          "transcription": "がいこくごをべんきょうするうえで、じしょはなくてはならないものだ。",
+          "mean": "Dictionaries are indispensable when studying foreign languages."
+        },
+        {
+          "content": "ノートパソコンは仕事の上で欠かせない道具だ。",
+          "transcription": "ノートパソコンはしごとのうでかかせないどうぐだ。",
+          "mean": "A laptop is an essential tool for work."
+        },
+        {
+          "content": "この実験を行う上で問題となるのが不十分な予算だ。",
+          "transcription": "このじっけんをおこなううえでもんだいとなるのがふじゅうぶんなよさんだ。",
+          "mean": "The problem with conducting this experiment is insufficient budget."
+        },
+        {
+          "content": "会社を大きく変革する上で、反対する社員が出てくるのは避けられない。",
+          "transcription": "かいしゃをおおきくへんかくするうえで、はんたいするしゃいんがでてくるのはさけられない。",
+          "mean": "When making major changes to a company, it is inevitable that some employees will object."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. Vた/Nの+上で<br/>2. V (root form)/Nの+上で"
+    }
+  ],
+  "title": "上で => upon; after; when; for; in order to",
+  "_id": "a03d7705525e4b2c981e3bf458bd8d86"
+}

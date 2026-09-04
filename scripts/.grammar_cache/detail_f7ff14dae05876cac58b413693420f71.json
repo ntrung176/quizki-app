@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1056,
+  "usages": [
+    {
+      "explain": "Expresses the idea that \"the event happened as a result of a prolonged process and has now reached an extreme point\". It is often a negative state.",
+      "note": null,
+      "examples": [
+        {
+          "content": "社長はますます怒り、あげくの果てには部屋から全員部下を追い出した。。",
+          "transcription": "しゃちょうはますますおこり、あげくのはてにはへやからぜんいんぶかをおいだした。。",
+          "mean": "The president became even more angry and ended up kicking all his subordinates out of the room. ."
+        },
+        {
+          "content": "彼は我慢に我慢を重ねたあげくの果てに、自分の観点を言い出した。",
+          "transcription": "かれはがまんにがまんをかさねたあげくのはてに、じぶんのかんてんをいいだした。",
+          "mean": "After much patience, he finally expressed his point of view."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あげくのはてに (は)"
+    }
+  ],
+  "title": "あげくのはてに (は) => finally; in the end; on top of all that",
+  "_id": "f7ff14dae05876cac58b413693420f71"
+}

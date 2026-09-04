@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1091,
+  "usages": [
+    {
+      "explain": "「と考えられている（とかんがえられている）」is used when the speaker believes that viewpoint is correct and widely accepted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "フクロウはとても賢いと考えられている。",
+          "transcription": "ふくろうはとてもかしこいとかんがえられている。",
+          "mean": "Owls are supposed to be very wise."
+        },
+        {
+          "content": "低脂肪食が長寿の秘訣だと考えられている。",
+          "transcription": "ていしぼうしょくがちょうじゅのひけつだとかんがえられている。",
+          "mean": "A low-fat diet is thought to be the secret to longevity."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nだ + と考えられているNaだ + と考えられているA + と考えられているV + と考えられている"
+    }
+  ],
+  "title": "... と考えられている => one can think that; it is conceivable that; considered ~",
+  "_id": "f7ff14dae05876cac58b41369346c07d"
+}

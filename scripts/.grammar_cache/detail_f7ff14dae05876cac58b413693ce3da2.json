@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2073,
+  "usages": [
+    {
+      "explain": "Means \"as seen through.\" This is a formal expression used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この頃、新聞の論調にみる経済偏重の傾向は目にあまるものがある。",
+          "transcription": "このころ、しんぶんのろんちょうにみるけいざいへんちょうのけいこうはめにあまるものがある。",
+          "mean": "These days, there is a noticeable tendency to emphasize economics in the tone of newspapers."
+        },
+        {
+          "content": "今回の津波は、近年まれにみる大災害となった。",
+          "transcription": "こんかいのつなみは、きんねんまれにみるだいさいがいとなった。",
+          "mean": "This tsunami was a major disaster rarely seen in recent years."
+        }
+      ],
+      "mean": null,
+      "synopsis": "にみる（見る）"
+    }
+  ],
+  "title": "にみる => Seen before",
+  "_id": "f7ff14dae05876cac58b413693ce3da2"
+}

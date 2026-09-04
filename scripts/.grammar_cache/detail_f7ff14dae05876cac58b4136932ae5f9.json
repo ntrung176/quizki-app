@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 886,
+  "usages": [
+    {
+      "explain": "■ Following a clause, it is used when making predictions or expressing certainty about future events.",
+      "note": "■【こと請け合い】 usually comes with a clause.",
+      "examples": [
+        {
+          "content": "こんどあの人のところに行くときは花を持って行くといい。よろこんでもらえること請け合いだよ。",
+          "transcription": "こんどあのひとのところにいくときははなをもっていくといい。よろこんでもらえることうけあいだよ。",
+          "mean": "Next time you go to see that person, you should bring flowers with you. I'm sure you'll be happy."
+        },
+        {
+          "content": "この時計は絶対に狂わないこと請け合いだ。",
+          "transcription": "このとけいはぜったいにくるわないことうけあいだ。",
+          "mean": "I guarantee this watch to keep perfect time."
+        },
+        {
+          "content": "彼女は真実とを言うこと請け合い。",
+          "transcription": "かのじょはしんじつとをいうことうけあい。",
+          "mean": "I guarantee she will tell you the truth."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～こと請け合い => I guarantee ...",
+  "_id": "f7ff14dae05876cac58b4136932ae5f9"
+}

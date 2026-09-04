@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3155,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "結果はどうであれ、悔いはない とはどういう意味ですか?",
+          "transcription": "けっかはどうであれ、くいはないとはどういういみですか?",
+          "mean": "What does \"No matter the outcome, I have no regrets\" mean?"
+        },
+        {
+          "content": "ケーキの形はどうであれ、好きです。あなたが作ったらら。",
+          "transcription": "けーきのかたちはどうであれ、すきです。あなたがつくったらら。",
+          "mean": "I like the shape of the cake, no matter what shape it is. If you make it."
+        },
+        {
+          "content": "理性的な人であれ、政治的信条がどうであれ、その計画に反対することはないだろう。",
+          "transcription": "りせいてきなひとであれ、せいじてきしんじょうがどうであれ、そのけいかくにはんたいすることはないだろう。",
+          "mean": "No rational person, whatever his or her political beliefs, would object to that plan."
+        }
+      ],
+      "mean": "however; whatever​ ~.",
+      "synopsis": null
+    }
+  ],
+  "title": "～はどう（で）あれ      => however; whatever​ ~.",
+  "_id": "93020c54469e582d6fdb16f7baa1eb76"
+}

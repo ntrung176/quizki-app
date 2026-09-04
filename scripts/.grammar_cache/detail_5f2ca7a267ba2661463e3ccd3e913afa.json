@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 3245,
+  "usages": [
+    {
+      "explain": "Express the speaker's surprise or astonishment at a person or thing. A casual way to say this is 「なんて～んだろう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "なんと頭がいい人なのでしょう。",
+          "transcription": "なんとあたまがいいひとなのでしょう。",
+          "mean": "What a smart person!"
+        },
+        {
+          "content": "その運転手は不注意なのだろう。",
+          "transcription": "そのうんてんしゅはふちゅういなのだろう。",
+          "mean": "The driver must have been careless."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんと + N + なのだろう <br/>なんと + Na +なのだろう <br/>なんと + A-い + のだろう"
+    }
+  ],
+  "title": "なんと～のだろう => how (beautiful, etc.); what a ~",
+  "_id": "5f2ca7a267ba2661463e3ccd3e913afa"
+}

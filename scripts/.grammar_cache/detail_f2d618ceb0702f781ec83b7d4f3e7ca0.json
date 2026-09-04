@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2912,
+  "usages": [
+    {
+      "explain": "In interrogative sentences with interrogative words as subjects, 「が」 is used to indicate.",
+      "note": null,
+      "examples": [
+        {
+          "content": "誰が話していますか。",
+          "transcription": "だれがはなしていますか。",
+          "mean": "who is speaking?"
+        },
+        {
+          "content": "どれがあなたのペンですか。",
+          "transcription": "どれがあなたのぺんですか。",
+          "mean": "Which is your pen?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative word が verb"
+    }
+  ],
+  "title": "Từ nghi vấn + が => Interrogative sentence",
+  "_id": "f2d618ceb0702f781ec83b7d4f3e7ca0"
+}

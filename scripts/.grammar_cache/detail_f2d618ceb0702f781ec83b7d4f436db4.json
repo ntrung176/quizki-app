@@ -1,0 +1,36 @@
+{
+  "level": "N5",
+  "mobileId": 2951,
+  "usages": [
+    {
+      "explain": "It is used to express uncertainty, doubt of the speaker. A question is formed by adding 「か」 at the end of the sentence. In this type of question, the 「か」 at the end of the sentence is pronounced with a rising intonation. This type of question confirms whether a statement is true or false. If it is true, the answer is 「はい」(yes), if it is not true, the answer is 「いいえ」(no).",
+      "note": null,
+      "examples": [
+        {
+          "content": "ハーさんは教師ですか。",
+          "transcription": "はーさんはきょうしですか。",
+          "mean": "Is Mr. Har a teacher?"
+        },
+        {
+          "content": "ランさんは高校生ですか。",
+          "transcription": "らんさんはこうこうせいですか。",
+          "mean": "Is Ran a high school student?"
+        },
+        {
+          "content": "韓国は寒いですか。",
+          "transcription": "かんこくはさむいですか。",
+          "mean": "Is it cold in Korea?"
+        },
+        {
+          "content": "湖水はきれいですか。",
+          "transcription": "こすいはきれいですか。",
+          "mean": "Is the lake water clean?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence + か?"
+    }
+  ],
+  "title": "か => Is that something?",
+  "_id": "f2d618ceb0702f781ec83b7d4f436db4"
+}

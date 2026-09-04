@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2787,
+  "usages": [
+    {
+      "explain": "Placed at the beginning of a sentence, used to express the speaker's attitude after receiving new information. Followed by expressions of commands, requests, or permission.<br/><br/>「じゃ」is often elongated to 「じゃあ」, and is a casual way of saying 「では」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "問題はもう終わりました。では、席に戻ってもいいです。",
+          "transcription": "もんだいはもうおわりました。では、せきにもどってもいいです。",
+          "mean": "The problem is over now. Now, you may return to your seat."
+        },
+        {
+          "content": "子供たちが寝てしまいました。じゃあ、話し合いましょう。",
+          "transcription": "こどもたちがねてしまいました。じゃあ、はなしあいましょう。",
+          "mean": "The children have fallen asleep. Well then, let's talk."
+        }
+      ],
+      "mean": null,
+      "synopsis": "じゃ(あ)/では～"
+    }
+  ],
+  "title": "じゃ(あ) / では => Then, so (Expressing attitude)",
+  "_id": "f2d618ceb0702f781ec83b7d4f2f60cb"
+}

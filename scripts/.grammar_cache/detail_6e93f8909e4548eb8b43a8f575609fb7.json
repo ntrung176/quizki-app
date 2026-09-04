@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5119,
+  "usages": [
+    {
+      "explain": "「どうせ」is used to express an attitude of resignation, letting go, because even if one does something, the result will not change. It is often followed by unexpected events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今から行ってもどうせ遅刻だから、行かないことにする。",
+          "transcription": "いまからいってもどうせちこくだから、いかないことにする。",
+          "mean": "Even if I go now, I'll be late anyway, so I decide not to go."
+        },
+        {
+          "content": "どうせ汚すのだから、子供に高価な服を着せるのは必要ないだろう。",
+          "transcription": "どうせよごすのだから、こどもにこうかなふくをきせるのはひつようないだろう。",
+          "mean": "There's no need to dress your child in expensive clothes since they're going to get dirty anyway."
+        },
+        {
+          "content": "どうせ、今の仕事を辞めるから、上司に言いたいことを言います。",
+          "transcription": "どうせ、いまのしごとをやめるから、じょうしにいいたいことをいいます。",
+          "mean": "I'm quitting my current job anyway, so I'll tell my boss what I want to say."
+        },
+        {
+          "content": "どうせ先生には夏休みの日記を見せないんだから、きれいに書かなかった。",
+          "transcription": "どうせせんせいにはなつやすみのにっきをみせないんだから、きれいにかかなかった。",
+          "mean": "I wouldn't show my summer vacation diary to my teacher anyway, so I didn't write it neatly."
+        },
+        {
+          "content": "どうせ、彼女のことがそんなに好きじゃないので、彼女が私と分かれば大丈夫です。",
+          "transcription": "どうせ、かのじょのことがそんなにすきじゃないので、かのじょがわたしとわかればだいじょうぶです。",
+          "mean": "I don't really like her that much anyway, so as long as she knows it's me, I'll be fine."
+        },
+        {
+          "content": "どうせ私は嘘つきですよ。",
+          "transcription": "どうせわたしはうそつきですよ。",
+          "mean": "I'm a liar anyway."
+        },
+        {
+          "content": "三日坊主の彼女のことだから、どうせ諦めるだろう。",
+          "transcription": "みっかぼうずのかのじょのことだから、どうせあきらめるだろう。",
+          "mean": "Since it's about his girlfriend who is a three-day monk, he'll probably give up anyway."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうせ+Sentence"
+    }
+  ],
+  "title": "どうせ => anyhow; in any case; at any rate; after all; no matter what",
+  "_id": "6e93f8909e4548eb8b43a8f575609fb7"
+}

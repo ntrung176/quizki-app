@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3096,
+  "usages": [
+    {
+      "explain": "We use the particle 「と」 to indicate that a certain object (person or animal) is performing an action together.",
+      "note": "When performing an action alone, use 「ひとりで」. In this case, do not use the particle 「と」.<br>For example: <br>ひとりで 東京へ 行きます。xxx <br>I go to Tokyo alone.\n",
+      "examples": [
+        {
+          "content": "毎週日曜日、犬と散歩します。",
+          "transcription": "まいしゅうにちようび、いぬとさんぽします。",
+          "mean": "Every Sunday, I walk my dog."
+        },
+        {
+          "content": "家族と日本へ旅行に行きたい。",
+          "transcription": "かぞくとにほんへりょこうにいきたい。",
+          "mean": "I want to travel to Japan with my family."
+        }
+      ],
+      "mean": ": with~",
+      "synopsis": "N（人/動物）とV"
+    }
+  ],
+  "title": "～と      => with~",
+  "_id": "93020c54469e582d6fdb16f7ba5e01a6"
+}

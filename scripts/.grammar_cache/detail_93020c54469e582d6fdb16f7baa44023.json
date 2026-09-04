@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3173,
+  "usages": [
+    {
+      "explain": "■ Indicates an event and things similar to it.<br/>\n■ Used to strongly deny or emphasize that it's even more than what the opposite party thinks.",
+      "note": null,
+      "examples": [
+        {
+          "content": "挨拶も何も、あの人もう帰っちゃったよ。",
+          "transcription": "あいさつもなにも、あのひともうかえっちゃったよ。",
+          "mean": "No need to say hello or anything, he's already gone home."
+        },
+        {
+          "content": "電話番号も何も聞かなかったから、どうすれば彼と連絡するかと迷っている。",
+          "transcription": "でんわばんごうもなにもきかなかったから、どうすればかれとれんらくするかとまよっている。",
+          "mean": "He didn't ask for his phone number or anything, so I'm at a loss as to how to contact him."
+        },
+        {
+          "content": "貸したお金を返せと言われたけれども、返すも何も借りた覚えなんてないよ。",
+          "transcription": "かしたおかねをかえせといわれたけれども、かえすもなにもかりたおぼえなんてないよ。",
+          "mean": "I was asked to return the money I lent, but even though I did, I had no recollection of borrowing anything."
+        }
+      ],
+      "mean": "～ and everything",
+      "synopsis": "普通形 ＋ も何も"
+    }
+  ],
+  "title": "～もなにも（～も何も）      => ～ and everything",
+  "_id": "93020c54469e582d6fdb16f7baa44023"
+}

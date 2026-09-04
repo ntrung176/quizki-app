@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 871,
+  "usages": [
+    {
+      "explain": "✦ Primarily used with nouns indicating a person or a role, to express the meaning of \"even\", \"that thing is just like the others\".<br/>✦ Used in cases of comparing one thing with other similar things, when wanting to emphasize that thing naturally is similar to others.<br/>✦ This is quite an old-fashioned expression, in spoken language, 「私だって」 is often used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私とて悔しい気持ちは皆と同じである。",
+          "transcription": "わたしとてくやしいきもちはみなとおなじである。",
+          "mean": "I feel the same frustration as everyone else."
+        },
+        {
+          "content": "この事故に関しては、部下の彼とても責任はまぬかれない。",
+          "transcription": "このじこにかんしては、ぶかのかれとてもせきにんはまぬかれない。",
+          "mean": "As a subordinate, he cannot escape responsibility for this accident."
+        },
+        {
+          "content": "最近は父親とて、育児に無関心でいるわけにはいかない。",
+          "transcription": "さいきんはちちおやとて、いくじにむかんしんでいるわけにはいかない。",
+          "mean": "These days, fathers cannot afford to remain indifferent to childcare."
+        },
+        {
+          "content": "これとても、特に例外的な現象というわけではない。",
+          "transcription": "これとても、とくにれいがいてきなげんしょうというわけではない。",
+          "mean": "This is not a particularly exceptional phenomenon."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + とて（も）"
+    }
+  ],
+  "title": "～とて (も) => even; even if; even though ~",
+  "_id": "f7ff14dae05876cac58b413693290f21"
+}

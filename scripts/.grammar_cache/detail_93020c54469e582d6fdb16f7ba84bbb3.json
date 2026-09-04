@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 3047,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "<div>山からなる島。<br></div>",
+          "transcription": "やまからなるしま。",
+          "mean": "&lt;div&gt;An island made of mountains. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "<div>この世からなる地獄。<br></div>",
+          "transcription": "このよからなるじごく。",
+          "mean": "&lt;div&gt;Hell consisting of this world. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "国会は二院からなる。",
+          "transcription": "こっかいはにいんからなる。",
+          "mean": "The Diet consists of two chambers."
+        },
+        {
+          "content": "大小五十の島々からなるこの○○諸島は、美しい珊瑚礁でも有名である。",
+          "transcription": "だいしょうごじゅうのしまじまからなるこの○○しょとうは、うつくしいさんごしょうでもゆうめいである",
+          "mean": "This archipelago of 50 large and small islands is also famous for its beautiful coral reefs."
+        }
+      ],
+      "mean": "Consists of; formed to",
+      "synopsis": "✦N ＋ から成る"
+    }
+  ],
+  "title": "～からなる(成る)      => Consists of; formed to",
+  "_id": "93020c54469e582d6fdb16f7ba84bbb3"
+}

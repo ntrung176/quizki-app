@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2376,
+  "usages": [
+    {
+      "explain": "Used to emphasize the speaker's emotions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "主人がその火事で死んだと知ったら、彼女はどんなに悲しむことだろうか。",
+          "transcription": "しゅじんがそのかじでしんだとしったら、かのじょはどんなにかなしむことだろうか。",
+          "mean": "How sad would she be if she found out that her husband died in that fire?"
+        },
+        {
+          "content": "息子が東京大学に合格したと分かった時、私はどんなに嬉しかっただろう。",
+          "transcription": "むすこがとうきょうだいがくにごうかくしたとわかったとき、わたしはどんなにうれしかっただろう。",
+          "mean": "I can't imagine how happy I was when I found out that my son had been accepted to the University of Tokyo."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どんなに～だろう(か)"
+    }
+  ],
+  "title": "どんなに…だろう(か) => how…!; what…!",
+  "_id": "f7ff14dae05876cac58b413693f88a28"
+}

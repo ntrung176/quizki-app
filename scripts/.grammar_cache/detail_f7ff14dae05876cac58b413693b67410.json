@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1910,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: after receiving a situation, the speaker does not act according to what can be guessed naturally from that situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "バイクをなくしたのは気の毒だが、といって、私にも貸せる程のバイクはない。",
+          "transcription": "ばいくをなくしたのはきのどくだが、といって、わたしにもかせるほどのばいくはない。",
+          "mean": "I'm sorry to have lost my bike, but I don't have enough bikes to lend it to you."
+        },
+        {
+          "content": "最近彼女は一生懸命働いたが、といって、すぐに昇給させるわけにもいかない。",
+          "transcription": "さいきんかのじょはいっしょうけんめいはたらいたが、といって、すぐにしょうきゅうさせるわけにもいかない。",
+          "mean": "She has worked hard lately, but I can't give her a raise right away."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～といって"
+    }
+  ],
+  "title": "...といって => even if; even though ~",
+  "_id": "f7ff14dae05876cac58b413693b67410"
+}

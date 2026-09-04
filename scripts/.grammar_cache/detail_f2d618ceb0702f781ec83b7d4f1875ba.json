@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2614,
+  "usages": [
+    {
+      "explain": "Used with the form 「XいがいにY  ない」(besides X, there is no Y) to express 「YであるのはXだけだ」(only X is Y). The meaning is \"besides..., there is nothing else but...\". It is used in writing. In spoken language, it is often replaced by 「どんな」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "友人は君以外にない。",
+          "transcription": "ゆうじんはきみいがいにない。",
+          "mean": "I have no friend other than you."
+        },
+        {
+          "content": "一人の横柄な店員さんについて文句を言った以外には今日は誰とも一言も話さなかった。",
+          "transcription": "いちにんのおうへいなてんいんさんについてもんくをいったいがいにはきょうはだれともひとこともはなさなかった。",
+          "mean": "I didn't talk to anyone today except to complain about one arrogant clerk."
+        },
+        {
+          "content": "彼は仕事以外に興味がない。",
+          "transcription": "かれはしごといがいにきょうみがない。",
+          "mean": "He has no interests, apart from his work."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + いがいに…ないV－る／ V－た + いがいに…ない"
+    }
+  ],
+  "title": "…以外（いがい）に…ない => with the exception of; excepting ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f1875ba"
+}

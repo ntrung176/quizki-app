@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5089,
+  "usages": [
+    {
+      "explain": "「ともなく」<br/>\n1. Describe an action done unconsciously, without a clear purpose or intention. It is often used with verbs indicating will such as 聞く (to listen), 見る (to see), 話す (to speak). The verb before and after 「ともなく」is repeated.<br/>\n\nWhen used with question words like いつから (since when), どこ (where), 誰 (who), it expresses the idea of uncertainty about when/where/who... With this meaning, 「ともなく」can be replaced by 「ともなしに」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "テレビを見るともなく見ていたら、私の高校が映っていた。",
+          "transcription": "テレビをみるともなくみていたら、わたしのこうこうがうつっていた。",
+          "mean": "I was watching TV without even looking at it, and my high school was on it."
+        },
+        {
+          "content": "毎日韓ドラを見ていたら、韓国語を覚えるともなく覚えてしまった。",
+          "transcription": "まいにちかんドラをみていたら、かんこくごをおぼえるともなくおぼえてしまった。",
+          "mean": "When I watched Korean dramas every day, I ended up memorizing Korean without even trying to learn it."
+        },
+        {
+          "content": "何を買うともなくデパートの中をぶらぶらしていたら、友人に会った。",
+          "transcription": "なにをかうともなくデパートのなかをぶらぶらしていたら、ゆうじんにあった。",
+          "mean": "As I was wandering around the department store without buying anything, I met a friend."
+        },
+        {
+          "content": "休みの日にはどこへ行くともなしにドライブすることが多い。",
+          "transcription": "やすみのひにはどこへいくともなしにドライブすることがおおい。",
+          "mean": "On my days off, I often drive without going anywhere."
+        },
+        {
+          "content": "山田さんは突然、誰にともなく「マジでムカつく！」と言った。",
+          "transcription": "やまださんはとつぜん、だれにともなく「マジでムカつく！」といった。",
+          "mean": "Mr. Yamada suddenly said to no one else, ``I'm really pissed off!''"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ともなく+V<br/> interrogative words+ともなく/ともなしに+V"
+    }
+  ],
+  "title": "ともなく/ともなしに => somehow; without knowing; without thinking; unconsciously​ ~",
+  "_id": "cd5c147250844a4db796250a2909123c"
+}

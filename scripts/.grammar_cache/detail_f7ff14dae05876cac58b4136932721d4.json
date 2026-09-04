@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 857,
+  "usages": [
+    {
+      "explain": "✦ Conveys the meaning that \"whether or not something can be achieved depends on a certain content or condition\".<br/>✦ ～によって～・ ～次第で～.",
+      "note": null,
+      "examples": [
+        {
+          "content": "就職できるかどうかは面接の結果いかんです。",
+          "transcription": "しゅうしょくできるかどうかはめんせつのけっかいかんです。",
+          "mean": "Whether you get the job depends on the results of the interview."
+        },
+        {
+          "content": "このプロジェクトの実行は、社長の決断いかんですね。",
+          "transcription": "このぷろじぇくとのじっこうは、しゃちょうのけつだんいかんですね。",
+          "mean": "The execution of this project depends on the president's decision."
+        },
+        {
+          "content": "コンサートで良い席を予約できるかどうかは、予約時期と払う金額いかんです",
+          "transcription": "こんさーとでよいせきをよやくできるかどうかは、よやくじきとはらうきんがくいかんです",
+          "mean": "Whether you can reserve a good seat at a concert depends on when you reserve and how much you pay."
+        },
+        {
+          "content": "今回の検査の結果いかんで、これからの治療方針を決めます。",
+          "transcription": "こんかいのけんさのけっかいかんで、これからのちりょうほうしんをきめます。",
+          "mean": "Based on the results of this test, we will decide on future treatment plans."
+        },
+        {
+          "content": "客の出足いかんでは1週間で上映を打ち切れる可能性もある。",
+          "transcription": "きゃくのであしいかんでは1しゅうかんでじょうえいをうちきれるかのうせいもある。",
+          "mean": "Depending on customer turnout, screenings may be canceled within a week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦AはB【 名詞 】いかんだ。<br/></div><div>✦（Aは）B【 名詞 】いかんで、C</div><div>✦（Aは）B【 名詞 】いかんによって、C</div>"
+    }
+  ],
+  "title": "～いかんだ / いかんで、～ / 　～いかんによって、～ => It depends ...",
+  "_id": "f7ff14dae05876cac58b4136932721d4"
+}

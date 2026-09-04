@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2034,
+  "usages": [
+    {
+      "explain": "This expression takes the form of \"A は Bてのことだ,\" expressing the idea that \"A can or has been done thanks to condition B.\" This is a way to emphasize the necessary condition. It's used in conversations but not very casually.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼が今まで生きられるのは、この薬があってのことだ。",
+          "transcription": "かれがいままでいきられるのは、このくすりがあってのことだ。",
+          "mean": "It is because of this drug that he has been able to live as long as he has."
+        },
+        {
+          "content": "会社は来年から新しいプロジェクトを展開するつもりだ。しかし、それも景気うまく行ってのことだ。",
+          "transcription": "かいしゃはらいねんからあたらしいぷろじぇくとをてんかいするつもりだ。しかし、それもけいきうまくいってのことだ。",
+          "mean": "The company plans to develop new projects starting next year. But that's also because the economy is doing well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + のこと"
+    }
+  ],
+  "title": "てのこと => It's thanks to, It depends on, It's specifically thanks to",
+  "_id": "f7ff14dae05876cac58b413693c8ac52"
+}

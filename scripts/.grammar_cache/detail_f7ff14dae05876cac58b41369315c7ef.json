@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 734,
+  "usages": [
+    {
+      "explain": "✦ Used to emphasize the negative meaning. It's a sentence pattern similar to 「V-るもV-ないもない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "愛もなにもない乾いた心に潤いが戻ってきた。",
+          "transcription": "あいもなにもないかわいたこころにうるおいがもどってきた。",
+          "mean": "Moisture has returned to my dry heart, which is devoid of love."
+        },
+        {
+          "content": "政治倫理も何もない政界には、何を言っても無駄だ。",
+          "transcription": "せいじりんりもなにもないせいかいには、なにをいってもむだだ。",
+          "mean": "There is no point in saying anything to the political world, which has no political ethics."
+        },
+        {
+          "content": "母：テレビを消して、手伝ってちょうだい。",
+          "transcription": "はは：テレビをけして、てつだってちょうだい。",
+          "mean": "Mother: Please help me turn off the TV."
+        },
+        {
+          "content": "A：被害状況をよく調べましてから、救助隊を派遣するかどうか決定したいと考えております。",
+          "transcription": "A：ひがいじょうきょうをよくしらべましてから、きゅうじょたいをはけんするかどうかけっていしたいとかんがえております。",
+          "mean": "A: We will carefully examine the damage situation before deciding whether to dispatch a rescue team."
+        },
+        {
+          "content": "A：反対なさるんじゃないかと心配しているんですが。",
+          "transcription": "A：はんたいなさるんじゃないかとしんぱいしているんですが。",
+          "mean": "A: I'm worried that you might object."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦もなにもない is used to emphasize negative meaning."
+    }
+  ],
+  "title": "～もなにもない => nothing; (not) ~ at all; there's no need to ~",
+  "_id": "f7ff14dae05876cac58b41369315c7ef"
+}

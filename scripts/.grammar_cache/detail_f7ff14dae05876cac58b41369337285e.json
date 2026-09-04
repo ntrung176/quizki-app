@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 978,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"related to...\". Often used with verbs like \"say, ask, consult for opinions\". Used to start a story by presenting reasons or circumstances.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先輩、論文のことで、ご相談したいことがあるんですが。&amp;nbsp;<br>",
+          "transcription": "せんぱい、ろんぶんのことで、ごそうだんしたいことがあるんですが。&amp;nbsp;<br>",
+          "mean": "Senior, I would like to consult with you about something regarding my thesis. &amp;amp;nbsp;&lt;br&gt;"
+        },
+        {
+          "content": "君が先週出したレポートのことで、社長は質問があるそうだよ。",
+          "transcription": "きみがせんしゅうだしたれぽーとのことで、しゃちょうはしつもんがあるそうだよ。",
+          "mean": "The president has some questions regarding the report you submitted last week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + ことで"
+    }
+  ],
+  "title": "ことで => about something",
+  "_id": "f7ff14dae05876cac58b41369337285e"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2294,
+  "usages": [
+    {
+      "explain": "Using the negative form of the verb at the end of the sentence is employed to express the idea that if one event doesn't happen, then another event won't occur either. This is commonly referred to as 「なくては…ない」、「なければ…ない」, but the structure 「ないと…ない」 is more conversational.",
+      "note": null,
+      "examples": [
+        {
+          "content": "６０点以上の英語でないとこの学校に合格できない。",
+          "transcription": "ろくぜろてんいじょうのえいごでないとこのがっこうにごうかくできない。",
+          "mean": "You cannot pass this school unless you have an English score of 60 points or higher."
+        },
+        {
+          "content": "背が高くないとゴールキーパーにはなれない。",
+          "transcription": "せがたかくないとごーるきーぱーにはなれない。",
+          "mean": "You can't be a goalkeeper unless you're tall."
+        },
+        {
+          "content": "野菜を食べないと消化系がうまく行かない。",
+          "transcription": "やさいをたべないとしょうかけいがうまくいかない。",
+          "mean": "If you don't eat vegetables, your digestive system won't work properly."
+        },
+        {
+          "content": "気温が十分高くないと氷が溶けない。",
+          "transcription": "きおんがじゅうぶんたかくないとこおりがとけない。",
+          "mean": "If the temperature is not high enough, the ice will not melt."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ないと～ない <br/>A-くないと～ない<br/>Na・N でないと～ない"
+    }
+  ],
+  "title": "ないと～ない => unless / if you don't do~",
+  "_id": "f7ff14dae05876cac58b413693ed9418"
+}

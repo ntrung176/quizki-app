@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1831,
+  "usages": [
+    {
+      "explain": "Used to explain a situation that one thought was true based on some basis or clue. 「てっきり」emphasizes a high level of certainty, but in reality, most of the time it's not true. It can only be used for reasoning in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "助けを求める叫び声が聞こえたので、てっきり強盗だと思って警察に知らせたんです。",
+          "transcription": "たすけをもとめるさけびごえがきこえたので、てっきりごうとうだとおもってけいさつにしらせたんです。",
+          "mean": "I heard cries for help, so I called the police, thinking it was definitely a robbery."
+        },
+        {
+          "content": "足跡があったので、てっきり猫だと思ったんです。",
+          "transcription": "あしあとがあったので、てっきりねこだとおもったんです。",
+          "mean": "There were footprints, so I thought it was a cat."
+        },
+        {
+          "content": "てっきり反対されると思っていたが、逆に賛成されたので、びっくりした。",
+          "transcription": "てっきりはんたいされるとおもっていたが、ぎゃくにさんせいされたので、びっくりした。",
+          "mean": "I thought there would be a lot of opposition, but I was surprised when I was met with support."
+        }
+      ],
+      "mean": null,
+      "synopsis": "てっきり + V・A・Naだ・N だ + とおもう"
+    }
+  ],
+  "title": "てっきり...と思う =>  surely; certainly; without a doubt",
+  "_id": "f7ff14dae05876cac58b413693ac78c5"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1508,
+  "usages": [
+    {
+      "explain": "When combined with the dictionary form of a verb, it expresses the meaning of \"using that as an intermediary or means\", often with pure Japanese words.",
+      "note": null,
+      "examples": [
+        {
+          "content": "子供は遊ぶことを通して、いろいろなスキルが発達できる。",
+          "transcription": "こどもはあそぶことをとおして、いろいろなすきるがはったつできる。",
+          "mean": "Children can develop various skills through play."
+        },
+        {
+          "content": "私は妹に教えるこ<br>とを通して、他人に知識の伝え方を練習している。",
+          "transcription": "わたしはいもうとにおしえるこ<br>とをとうして、たにんにちしきのつたえほうをれんしゅうしている。",
+          "mean": "By teaching my sister, I am practicing how to convey knowledge to others."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + ことをとおして"
+    }
+  ],
+  "title": "...ことをとおして => through; via; throughout; by ~",
+  "_id": "f7ff14dae05876cac58b41369380f3a1"
+}

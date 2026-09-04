@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2607,
+  "usages": [
+    {
+      "explain": "At the end of the sentence, the dictionary form of the verb expressing an action is used to indicate repetitive actions or habitual actions of a specific subject.",
+      "note": null,
+      "examples": [
+        {
+          "content": "兄と姉は天気がよければ毎朝ジョギングをします。",
+          "transcription": "あにとあねはてんきがよければまいあさじょぎんぐをします。",
+          "mean": "My brother and sister go jogging every morning if the weather is nice."
+        },
+        {
+          "content": "彼女は暇さえあればいつもショッピングをしている。",
+          "transcription": "かのじょはひまさえあればいつもしょっぴんぐをしている。",
+          "mean": "She always goes shopping whenever she has free time."
+        },
+        {
+          "content": "愛猫のミミは主人の姿を見れば飛んでくる。",
+          "transcription": "あいねこのみみはしゅじんのすがたをみればとんでくる。",
+          "mean": "My cat, Mimi, comes flying when she sees her master."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば…V－る"
+    }
+  ],
+  "title": "... ば ... => If condition [A] is met, then [B] will happen.",
+  "_id": "f2d618ceb0702f781ec83b7d4f173521"
+}

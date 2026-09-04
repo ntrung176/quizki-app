@@ -1,0 +1,71 @@
+{
+  "level": "N5",
+  "mobileId": 5642,
+  "usages": [
+    {
+      "explain": "「と言う」<br/> 1. Used to directly quote someone's words; the quoted part is enclosed in 「」.<br/> 2. Used to indirectly quote or restate someone's words; the quoted part is in the normal form and not enclosed in 「」.<br/>「と言っていた」is used to convey to the listener a message from a third party. Therefore, this structure is not used when the speaker's own words are being conveyed. Often used in conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "寝る前に、「お休みなさい」と言います。",
+          "transcription": "ねるまえに、「おやすみなさい」といいます。",
+          "mean": "Before going to bed, say \"good night\"."
+        },
+        {
+          "content": "ミラーさんは「来週東京へ出張します」と言いました。",
+          "transcription": "ミラーさんは「らいしゅうとうきょうへしゅっちょうします」といいました。",
+          "mean": "Mr. Miller said, ``I'm going on a business trip to Tokyo next week.''"
+        },
+        {
+          "content": "彼女のことを愛していると毎日言っています。",
+          "transcription": "かのじょのことをあいしているとまいにちいっています。",
+          "mean": "I tell her every day that I love her."
+        },
+        {
+          "content": "『先生は何と言っていましたか。』『明日は休みだと言っていました。』",
+          "transcription": "『せんせいはなんといっていましたか。』『あしたはやすみだといっていました。』",
+          "mean": "``What did the teacher say? ``He said he had tomorrow off. ”"
+        },
+        {
+          "content": "木村さんは仕事を辞めると言っていました。",
+          "transcription": "きむらさんはしごとをやめるといっていました。",
+          "mean": "Mr. Kimura said he was quitting his job."
+        },
+        {
+          "content": "友人は離婚すると言っていました。驚きました。",
+          "transcription": "ゆうじんはりこんするといっていました。おどろきました。",
+          "mean": "My friend said she was getting a divorce. I was surprised."
+        },
+        {
+          "content": "結婚した友達は、毎日幸せだと言っていました。",
+          "transcription": "けっこんしたともだちは、まいにちしあわせだといっていました。",
+          "mean": "My married friends say they are happy every day."
+        },
+        {
+          "content": "彼女は「あなたのことが好きです」と言っていました。",
+          "transcription": "かのじょは『あなたのことがすきです』といっていました。",
+          "mean": "She said, \"I love you.\""
+        },
+        {
+          "content": "学生達は昨日の試験は難しかったと言っていました。",
+          "transcription": "がくせいたちはきのうのしけんはむずかしかったといっていました。",
+          "mean": "The students said that yesterday's exam was difficult."
+        },
+        {
+          "content": "イギリスにいる友達が今年の夏は暑いと言っていました。",
+          "transcription": "イギリスにいるともだちがことしのなつはあついといっていました。",
+          "mean": "A friend in England told me that it's hot this summer."
+        },
+        {
+          "content": "ナナちゃんは「お盆休みに東京へ行きます」と言っていました。",
+          "transcription": "ナナちゃんは「おぼんやすみにとうきょうへいきます」といっていました。",
+          "mean": "Nana-chan said, ``I'm going to Tokyo for the Obon holiday.''"
+        }
+      ],
+      "mean": null,
+      "synopsis": "「Direct quote」+と言う / と言っていた<br/>Indirect quote (formal form)+と言う / と言っていた"
+    }
+  ],
+  "title": "と言う/と言っていた => you could say; one might say; I'd say ~",
+  "_id": "f9c2e41e0a47415d99621234e4385056"
+}

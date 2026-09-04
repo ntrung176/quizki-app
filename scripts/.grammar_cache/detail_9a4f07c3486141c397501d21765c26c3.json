@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5648,
+  "usages": [
+    {
+      "explain": "「はどうですか」is a structure used to ask about someone's thoughts, feelings, impressions regarding a certain event, thing, or person.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日の天気はどうですか。",
+          "transcription": "きょうのてんきはどうですか。",
+          "mean": "How is the weather today?"
+        },
+        {
+          "content": "日本語の勉強はどうですか。",
+          "transcription": "にほんごのべんきょうはどうですか。",
+          "mean": "How about studying Japanese?"
+        },
+        {
+          "content": "最近の仕事はどうですか。",
+          "transcription": "さいきんのしごとはどうですか。",
+          "mean": "How is your work going these days?"
+        },
+        {
+          "content": "私の日本語の発音はどうですか。",
+          "transcription": "わたしのにほんごのはつおんはどうですか。",
+          "mean": "How is my Japanese pronunciation?"
+        },
+        {
+          "content": "日本の生活はどうですか。慣れましたか。",
+          "transcription": "にほんのせいかつはどうですか。なれましたか。",
+          "mean": "How is life in Japan? Have you gotten used to it?"
+        },
+        {
+          "content": "新しい学校はどうですか。友達ができましたか。",
+          "transcription": "あたらしいがっこうはどうですか。ともだちができましたか。",
+          "mean": "How is your new school? Have you made any friends?"
+        },
+        {
+          "content": "新しい社長はどう？問題ない？",
+          "transcription": "あたらしいしゃちょうはどう？もんだいない？",
+          "mean": "What about the new president? no problem?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+はどうですか"
+    }
+  ],
+  "title": "はどうですか =>  how about; how is",
+  "_id": "9a4f07c3486141c397501d21765c26c3"
+}

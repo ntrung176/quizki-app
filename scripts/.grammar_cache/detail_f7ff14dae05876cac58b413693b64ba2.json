@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1909,
+  "usages": [
+    {
+      "explain": "Repeats the noun before and after \"また\" to emphasize that noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "宿題また宿題で寝る時間もない。",
+          "transcription": "しゅくだいまたしゅくだいでねるじかんもない。",
+          "mean": "I don't have time to sleep because of homework and homework."
+        },
+        {
+          "content": "車また車で道を渡ることもできない。",
+          "transcription": "くるままたくるまでみちをわたることもできない。",
+          "mean": "You can't even cross the road by car."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + また + N"
+    }
+  ],
+  "title": "...また... => again , once again",
+  "_id": "f7ff14dae05876cac58b413693b64ba2"
+}

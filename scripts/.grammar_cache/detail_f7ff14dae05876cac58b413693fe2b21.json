@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2419,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"even if such a situation occurs, it will not be affected.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "もしいくらお金があっても、金で買えない物があります。",
+          "transcription": "もしいくらおかねがあっても、きんでかえないものがあります。",
+          "mean": "No matter how much money you have, there are things that money cannot buy."
+        },
+        {
+          "content": "もし何度失敗しても、やめずに頑張ります。",
+          "transcription": "もしなんどしっぱいしても、やめずにがんばります。",
+          "mean": "No matter how many times I fail, I will keep trying and never quit."
+        },
+        {
+          "content": "もし何か嫌なことがあっても、彼女はいつも微笑みを浮かべていた。",
+          "transcription": "もしなにかいやなことがあっても、かのじょはいつもほほえみをうかべていた。",
+          "mean": "Even if something bad happened, she always had a smile on her face."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もし...ても"
+    }
+  ],
+  "title": "もし...ても => even; even if; even though",
+  "_id": "f7ff14dae05876cac58b413693fe2b21"
+}

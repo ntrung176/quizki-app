@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1108,
+  "usages": [
+    {
+      "explain": "Describing when someone is confident that something is correct but when they try it out, they find it's not as expected.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本語は難しいものと思っていたが、習ってみたら、易しかった。",
+          "transcription": "にほんごはむずかしいものとおもっていたが、ならってみたら、やさしかった。",
+          "mean": "I thought Japanese would be difficult, but when I tried learning it, it turned out to be easy."
+        },
+        {
+          "content": "その映画はつまらないものと思っていたが、見てみたら、意外に面白かった。",
+          "transcription": "そのえいがはつまらないものとおもっていたが、みてみたら、いがいにおもしろかった。",
+          "mean": "I thought the movie would be boring, but when I saw it, I found it surprisingly interesting."
+        },
+        {
+          "content": "小林さんは来ないものと思っていて、3人分のケーキだけ作った。",
+          "transcription": "こばやしさんはこないものとおもっていて、3にんぶんのけーきだけつくった。",
+          "mean": "I thought Mr. Kobayashi wouldn't come, so I only made cakes for three people."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ものとおもっていた"
+    }
+  ],
+  "title": "…ものとおもっていた => Thought it was...",
+  "_id": "f7ff14dae05876cac58b413693490fb8"
+}

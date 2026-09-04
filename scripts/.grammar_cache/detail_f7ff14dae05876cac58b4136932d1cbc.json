@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 903,
+  "usages": [
+    {
+      "explain": "Expresses the meaning “the current state has reached the highest level, and cannot progress further”.<br/>Often used following 「これ/それ/あれ」and accompanied by words indicating negation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これ以上彼女との喧嘩は辞めて。",
+          "transcription": "これいじょうかのじょとのけんかはやめて。",
+          "mean": "Stop fighting with her anymore."
+        },
+        {
+          "content": "風も激しくなって来たし、もうこれ以上続けるのは危ない。",
+          "transcription": "かぜもはげしくなってきたし、もうこれいじょうつづけるのはあぶない。",
+          "mean": "The wind was getting stronger and it was dangerous to continue any longer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "これいじょう…は + negative word"
+    }
+  ],
+  "title": "これいじょう…は ... => No... more",
+  "_id": "f7ff14dae05876cac58b4136932d1cbc"
+}

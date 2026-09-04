@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1752,
+  "usages": [
+    {
+      "explain": "Indicates a number smaller than or equal to the number mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の希望は家賃が二百万ドン以下です。",
+          "transcription": "かれのきぼうはやちんがにひゃくまんどんいかです。",
+          "mean": "His hope is for the rent to be less than 2 million VND."
+        },
+        {
+          "content": "なるべく5人以下でチームを作ってください。",
+          "transcription": "なるべく5にんいかでちーむをつくってください。",
+          "mean": "Please create a team of 5 people or less if possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + いか"
+    }
+  ],
+  "title": "...いか => equal to, or less than (A)",
+  "_id": "f7ff14dae05876cac58b413693a16349"
+}

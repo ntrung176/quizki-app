@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1417,
+  "usages": [
+    {
+      "explain": "Used to downplay the degree of a certain cause or reason.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はふとしたことで、私が嫌いになった。",
+          "transcription": "かのじょはふとしたことで、わたしがきらいになった。",
+          "mean": "She suddenly started hating me."
+        },
+        {
+          "content": "その猫は、ふとした耳の感染で死んでしまった。",
+          "transcription": "そのねこは、ふとしたみみのかんせんでしんでしまった。",
+          "mean": "The cat died from a random ear infection."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ふとした + N"
+    }
+  ],
+  "title": "ふとした ... => unexpected / incidental / little bitty",
+  "_id": "f7ff14dae05876cac58b41369373389d"
+}

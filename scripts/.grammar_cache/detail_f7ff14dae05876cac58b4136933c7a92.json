@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1017,
+  "usages": [
+    {
+      "explain": "Expresses the idea that while temporarily accepting the reason stated in the preceding clause, one does not necessarily accept the viewpoint stated in the following clause. <br/>It's synonymous with 「そうだといって」and「だからといって」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "だといって、会社を辞めないほうがいい。",
+          "transcription": "だといって、かいしゃをやめないほうがいい。",
+          "mean": "However, it is better not to quit the company."
+        },
+        {
+          "content": "だといって、彼を放っておくことは出来ない。",
+          "transcription": "だといって、かれをはなっておくことはできない。",
+          "mean": "However, I can't leave him alone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だといって is a conjunction."
+    }
+  ],
+  "title": "だといって => although I say; although one might say ~ it can not...",
+  "_id": "f7ff14dae05876cac58b4136933c7a92"
+}

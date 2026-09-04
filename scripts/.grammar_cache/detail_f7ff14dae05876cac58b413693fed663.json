@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2423,
+  "usages": [
+    {
+      "explain": "In this structure, the verb is repeated twice to emphasize the intensity of the action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "待ちに待った結婚式がついにやってきた。",
+          "transcription": "まちにまったけっこんしきがついにやってきた。",
+          "mean": "The long-awaited wedding has finally arrived."
+        },
+        {
+          "content": "彼の話を聞いて、みんなは笑いに笑った。",
+          "transcription": "かれのはなしをきいて、みんなはわらいにわらった。",
+          "mean": "Hearing his story, everyone laughed with laughter."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます＋に + V-る/ V-た/ V-ない"
+    }
+  ],
+  "title": "...にV => in addition to..., too...",
+  "_id": "f7ff14dae05876cac58b413693fed663"
+}

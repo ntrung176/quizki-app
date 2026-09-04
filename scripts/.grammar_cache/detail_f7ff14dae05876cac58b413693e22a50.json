@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2213,
+  "usages": [
+    {
+      "explain": "Referring to a past event, indicating an unspecified moment in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いつか見たドラマの中にもこんな台詞があった。",
+          "transcription": "いつかみたどらまのなかにもこんなだいしがあった。",
+          "mean": "There was a line like this in a drama I watched someday."
+        },
+        {
+          "content": "彼女とはいつかどこかであったことがあるような気がする。",
+          "transcription": "かのじょとはいつかどこかであったことがあるようなきがする。",
+          "mean": "I feel like I've met her somewhere before."
+        },
+        {
+          "content": "この街は前にいつか通ったことがあったね。",
+          "transcription": "このまちはまえにいつかとおったことがあったね。",
+          "mean": "I've passed through this town before."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いつか V－た"
+    }
+  ],
+  "title": "いつか  ... た => Formerly (At some point)",
+  "_id": "f7ff14dae05876cac58b413693e22a50"
+}

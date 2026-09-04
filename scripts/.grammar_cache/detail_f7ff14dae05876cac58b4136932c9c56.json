@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 899,
+  "usages": [
+    {
+      "explain": "✦ Describes a state of noisy speech, complaining about something one does not like.",
+      "note": null,
+      "examples": [
+        {
+          "content": "点数が低すぎるのなんのと、文句ばかり言っている。",
+          "transcription": "てんすうがひくすぎるのなんのと、もんくばかりいっている。",
+          "mean": "They keep complaining about how their scores are too low."
+        },
+        {
+          "content": "行きたくないのなんのとわがままを言い始めた。",
+          "transcription": "いきたくないのなんのとわがままをいいはじめた。",
+          "mean": "I started complaining that I didn't want to go."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦A/V + のなんのと"
+    }
+  ],
+  "title": "～のなんのと => For example...",
+  "_id": "f7ff14dae05876cac58b4136932c9c56"
+}

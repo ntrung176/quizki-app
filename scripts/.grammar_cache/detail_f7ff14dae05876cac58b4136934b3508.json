@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1123,
+  "usages": [
+    {
+      "explain": "Describing the meaning \"if considering the situation, then...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "バスは全て満席だ。だとしたら、立つしかない。",
+          "transcription": "ばすはすべてまんせきだ。だとしたら、たつしかない。",
+          "mean": "All the buses are full. If so, I have no choice but to stand."
+        },
+        {
+          "content": "コンサートは半時間遅く始まるそうだよ。僧だとしたら、こんなに早く来るんじゃなかった。",
+          "transcription": "こんさーとははんじかんおそくはじまるそうだよ。そうだとしたら、こんなにはやくくるんじゃなかった。",
+          "mean": "I heard that the concert will start half an hour late. If he was a monk, he wouldn't have come this early."
+        }
+      ],
+      "mean": null,
+      "synopsis": "(そう) だ + としたら"
+    }
+  ],
+  "title": "としたら => in the case of~; assuming~; if A then B (conditional)",
+  "_id": "f7ff14dae05876cac58b4136934b3508"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5059,
+  "usages": [
+    {
+      "explain": "「並み」 is used to compare an object or event as being similar to, on par with, or of the same level as another object or event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "社長は将棋が趣味で、腕前はプロ並みだということだ。",
+          "transcription": "しゃちょうはしょうぎがしゅみで、うでまえはプロなみだということだ。",
+          "mean": "The president's hobby is shogi, and his skill is said to be on par with that of a professional."
+        },
+        {
+          "content": "裕福ではありませんが、世間並みの生活をしています。",
+          "transcription": "ゆうふくではありませんが、せけんなみのせいかつをしています。",
+          "mean": "I'm not rich, but I live a normal life."
+        },
+        {
+          "content": "カラスは人間並みの知能があると言われています。",
+          "transcription": "カラスはにんげんなみのちのうがあるといわれています。",
+          "mean": "Crows are said to have intelligence comparable to humans."
+        },
+        {
+          "content": "今の家賃並みの支払いでマンションが買えます。",
+          "transcription": "いまのやちんなみのしはらいでマンションがかえます。",
+          "mean": "You can buy an apartment for the same amount as your current rent."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+並み"
+    }
+  ],
+  "title": "並み => average; ordinary; same level as; equal to; on par with ~",
+  "_id": "05e9331d882041e581fa404a3af23c5b"
+}

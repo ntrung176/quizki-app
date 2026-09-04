@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5197,
+  "usages": [
+    {
+      "explain": "「にかけては」is used to express that concerning a particular aspect or characteristic A of a person or thing, someone or something has more ability or skill than others. This structure is used to praise the ability of another person or to show confidence in one's own ability.",
+      "note": null,
+      "examples": [
+        {
+          "content": "足の速さにかけては、彼は町で一番だ。",
+          "transcription": "あしのはやさにかけては、かれはまちでいちばんだ。",
+          "mean": "When it comes to foot speed, he's the best in town."
+        },
+        {
+          "content": "歌のうまさにかけては、彼に勝てる人はいない。",
+          "transcription": "うたのうまさにかけては、かれにかてるひとはいない。",
+          "mean": "No one can beat him when it comes to singing."
+        },
+        {
+          "content": "値段の安さにかけては、この店が一番だ。",
+          "transcription": "ねだんのやすさにかけては、このみせがいちばんだ。",
+          "mean": "This store is the best when it comes to low prices."
+        },
+        {
+          "content": "サービスにかけては、ここにまさるホテルはない。",
+          "transcription": "サービスにかけては、ここにまさるホテルはない。",
+          "mean": "When it comes to service, no hotel can beat this one."
+        },
+        {
+          "content": "電話番号の暗記にかけては、彼女にかなう者はいない。",
+          "transcription": "でんわばんごうのあんきにかけては、かのじょにかなうものはいない。",
+          "mean": "No one can match her when it comes to memorizing phone numbers."
+        },
+        {
+          "content": "海のきれいさにかけては、沖縄が1番だ。",
+          "transcription": "うみのきれいさにかけては、おきなわがいちばんだ。",
+          "mean": "When it comes to the cleanliness of the sea, Okinawa ranks number one."
+        },
+        {
+          "content": "手先の器用さにかけては、彼女に勝てる人はいないでしょう。",
+          "transcription": "てさきのきようさにかけては、かのじょにかてるひとはいないでしょう。",
+          "mean": "No one can beat her when it comes to manual dexterity."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にかけては<br/> NのA<s>い</s>さ+にかけては<br/> NのA<s>な</s>さ+にかけては"
+    }
+  ],
+  "title": "にかけては => over (a period); through; concerning; regarding ~",
+  "_id": "8e6f55b725cd4939a53c1135177b0d23"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1700,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"don't know what the reason is\". This is an informal way of saying [なぜか].",
+      "note": null,
+      "examples": [
+        {
+          "content": "なんだかめまいと吐き気がする。",
+          "transcription": "なんだかめまいとはきけがする。",
+          "mean": "I feel dizzy and nauseous."
+        },
+        {
+          "content": "このパソコンはなんだか働かない。",
+          "transcription": "このぱそこんはなんだかはたらかない。",
+          "mean": "This computer doesn't work for some reason."
+        },
+        {
+          "content": "彼女から来た手紙を見た時、彼はなんだか胸騒ぎがする。",
+          "transcription": "かのじょからきたてがみをみたとき、かれはなんだかむなさわぎがする。",
+          "mean": "When he saw the letter from her, he felt uneasy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Rough way of saying [なぜか]."
+    }
+  ],
+  "title": "なんだか => somehow, somewhat",
+  "_id": "f7ff14dae05876cac58b4136939a32a8"
+}

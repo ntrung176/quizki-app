@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5470,
+  "usages": [
+    {
+      "explain": "「ずに」expresses the idea of skipping or not doing one action before doing another, or doing a different action instead. It is more common in writing, while in spoken language,「ないで」is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨夜、歯を磨かずに寝てしまった。",
+          "transcription": "さくや、はをみがかずにねてしまった。",
+          "mean": "Last night, I went to bed without brushing my teeth."
+        },
+        {
+          "content": "雨の中を、彼は傘を差さずに歩いている。",
+          "transcription": "あめのなかを、かれはかさをささずにあるいている。",
+          "mean": "He is walking in the rain without an umbrella."
+        },
+        {
+          "content": "今日は料理を作らずに、外食しに行こうよ。",
+          "transcription": "きょうはりょうりをつくらずに、がいしょくしにいこうよ。",
+          "mean": "Let's go out to eat instead of cooking today."
+        },
+        {
+          "content": "ドアに鍵をかけずに買い物に行ってしまった。",
+          "transcription": "ドアにかぎをかけずにかいものにいってしまった。",
+          "mean": "I went shopping without locking the door."
+        },
+        {
+          "content": "私のことは気にせずに先に行ってください。",
+          "transcription": "わたしのことはきにせずにさきにいってください。",
+          "mean": "Don't worry about me and go ahead."
+        },
+        {
+          "content": "辞書を使わずに書いたので自信がありません。",
+          "transcription": "じしょをつかわずにかいたのでじしんがありません。",
+          "mean": "I wrote this without using a dictionary, so I'm not sure."
+        },
+        {
+          "content": "この部屋には、靴を脱がずにお入りください。",
+          "transcription": "このへやには、くつをぬがずにおはいりください。",
+          "mean": "Please do not take off your shoes when entering this room."
+        },
+        {
+          "content": "今朝、私は朝御飯を食べずに学校に来ました。",
+          "transcription": "けさ、わたしはあさごはんをたべずにがっこうにきました。",
+          "mean": "This morning, I came to school without eating breakfast."
+        },
+        {
+          "content": "夕食を食べずに私を待っていてくれたんですか。",
+          "transcription": "ゆうしょくをたべずにわたしをまっていてくれたんですか。",
+          "mean": "Did you wait for me without eating dinner?"
+        },
+        {
+          "content": "約束の時間に来なければ待たずに出発します。",
+          "transcription": "やくそくのじかんにこなければまたずにしゅっぱつします。",
+          "mean": "If you do not arrive at the appointed time, we will leave without waiting."
+        },
+        {
+          "content": "今日は、頭が痛かったから、学校に行かずに家で寝ていました。",
+          "transcription": "きょうは、あたまがいたかったから、がっこうにいかずにうちでねていました。",
+          "mean": "I had a headache today, so I slept at home instead of going to school."
+        },
+        {
+          "content": "健康のため、車に乗らずに歩くようにしています。",
+          "transcription": "けんこうのため、くるまにのらずにあるくようにしています。",
+          "mean": "For my health, I try to walk instead of riding in the car."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ない</s>ず+に<br/>しない ➔ せずに"
+    }
+  ],
+  "title": "ずに => without doing ~",
+  "_id": "9e4ea95fb58e4fd0b49cf5ff6cbffb5d"
+}

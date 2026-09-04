@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 647,
+  "usages": [
+    {
+      "explain": "✦Used with the negative form of transitive verbs or the causative form 「Vさせる」of intransitive verbs to express the meaning that due to a strong external influence, a state or action occurs unrelated to the will of the subject.<br/>✦Originally belongs to written language, so the form 「ぜずにはおかない」 is more common.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今度こそ、本当のことを言わせないではおかないぞ。",
+          "transcription": "こんどこそ、ほんとうのことをいわせないではおかないぞ。",
+          "mean": "This time, I won't let you tell me the truth."
+        },
+        {
+          "content": "この映画は評判が高く、見るものを感動させずにはおかないだろう。",
+          "transcription": "このえいがはひょうばんがたかく、みるものをかんどうさせずにはおかないだろう。",
+          "mean": "This movie has been well received and is sure to impress those who watch it."
+        },
+        {
+          "content": "親友に裏切られたのだから、仕返しをしないではおかない。",
+          "transcription": "しんゆうにうらぎられたのだから、しかえしをしないではおかない。",
+          "mean": "Since my best friend betrayed me, I have no choice but to take revenge."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V-ない + ではおかない<br/></div><div>✦V-ず +にはおかない</div>"
+    }
+  ],
+  "title": "～ないではおかない => will definitely/certainly do something; cannot not",
+  "_id": "f7ff14dae05876cac58b4136930a8df8"
+}

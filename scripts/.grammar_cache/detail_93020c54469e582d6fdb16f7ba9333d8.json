@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3194,
+  "usages": [
+    {
+      "explain": "<div>✦ Used to indicate that something has been experienced, has gone through.                                             </div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "さまざまな海外での経験を経て、彼は成長した。",
+          "transcription": "さまざまなかいがいでのけいけんをたて、かれはせいちょうした。",
+          "mean": "He has grown through various overseas experiences."
+        },
+        {
+          "content": "多くの書類審査や面接を経て、やっとVISAがもらえた。",
+          "transcription": "おおくのしょるいしんさやめんせつをへて、やっとVISAがもらえた。",
+          "mean": "After a lot of document screening and interviews, I finally got my VISA."
+        },
+        {
+          "content": "年月を経て来る。",
+          "transcription": "としつきをへてくる。",
+          "mean": "It comes over the years."
+        }
+      ],
+      "mean": "<div>✦through; after; via</div>",
+      "synopsis": "<div>✦N ＋ を経て</div>"
+    }
+  ],
+  "title": "～をたて（～を経て）      => through; after; via",
+  "_id": "93020c54469e582d6fdb16f7ba9333d8"
+}

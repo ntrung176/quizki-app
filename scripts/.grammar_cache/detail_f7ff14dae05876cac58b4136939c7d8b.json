@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1714,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of transitioning to an appropriate state, or having a suitable course of action for that situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これからは勉強をちゃんとしようと決意しました。",
+          "transcription": "これからはべんきょうをちゃんとしようとけついしました。",
+          "mean": "I decided to study properly from now on."
+        },
+        {
+          "content": "パートナーに会う前にちゃんとした服に着替えた。",
+          "transcription": "ぱーとなーにあうまえにちゃんとしたふくにきがえた。",
+          "mean": "I changed into proper clothes before meeting my partner."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ちゃんとする"
+    }
+  ],
+  "title": "ちゃんとする => Serious, tidy, complete",
+  "_id": "f7ff14dae05876cac58b4136939c7d8b"
+}

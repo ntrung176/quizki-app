@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 5515,
+  "usages": [
+    {
+      "explain": "「んですが」is used at the beginning of a sentence when the speaker wants to present something. The following part is a request, invitation, favor, or asking for permission. The particle が in this case is used to connect the clauses of the sentence, indicating a hesitant or tentative attitude of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『すみません。ちょっと質問があるんですが…』『はい、なんですか。』",
+          "transcription": "『すみません。ちょっとしつもんがあるんですが...』『はい、なんですか。』",
+          "mean": "\"sorry. I have a question...' 'Yes, what is it? ”"
+        },
+        {
+          "content": "『あの、ちょっと聞きたいんですが、駅きはどっちですか。』『駅はあっちですよ。』",
+          "transcription": "『あの、ちょっとききたいんですが、えきはどっちですか。』『えきはあっちですよ。』",
+          "mean": "``Um, I just wanted to ask, which station should I go to? ``The station is over there.'' ”"
+        },
+        {
+          "content": "『頭が痛いんですが、帰ってもいいですか。』『そうですか、気をつけて帰ってくださいね。』",
+          "transcription": "『あたまがいたいんですが、かえってもいいですか。』『そうですか、きをつけてかえってくださいね。』",
+          "mean": "``My head hurts, but can I go home?'' ``I see, please be careful on your way home.'' ”"
+        },
+        {
+          "content": "『すみません、ちょっとお願いがあるんですが、写真をとってくれませんか。』『ああ、いいですよ。』",
+          "transcription": "『すみません、ちょっとおねがいがあるんですが、しゃしんをとってくれませんか。』『ああ、いいですよ。』",
+          "mean": "``Excuse me, I have a small request to make, but could you please take a photo for me?'' ” “Oh, okay. ”"
+        },
+        {
+          "content": "『ねえ、喉が渇いたんだけど、その水を一口ちょうだい。』『いいよ。』",
+          "transcription": "『ねえ、のどがかわいたんだけど、そのみずをひとくちちょうだい。』『いいよ。』",
+          "mean": "``Hey, I'm thirsty, can you give me a sip of that water?'' \"\"OK. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+んですが<br/>Aい (formal form)+んですが<br/> Aな (formal form)+んですが<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)<br/> N (formal form)+んですが<br/>(In this particular case: Nだ ➔ N<s>だ</s>な)"
+    }
+  ],
+  "title": "んですが => opening the story",
+  "_id": "8d1f6b9a25fc4f1f94be7d209255ea93"
+}

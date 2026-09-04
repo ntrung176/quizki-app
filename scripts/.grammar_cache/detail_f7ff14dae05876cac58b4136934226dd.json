@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1057,
+  "usages": [
+    {
+      "explain": "Expresses the idea of \"completely being in that state\". It is a solemn way of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どんなに怒っている時でも、彼はあくまでも穏やかだった。",
+          "transcription": "どんなにおこっているときでも、かれはあくまでもおだやかだった。",
+          "mean": "No matter how angry he was, he remained calm."
+        },
+        {
+          "content": "あくまで真っ暗な家の中に、黒い服を着た女の人がひとりで立っていた。",
+          "transcription": "あくまでまっくらないえのなかに、くろいふくをきたおんなのひとがいちにんたっていた。",
+          "mean": "A woman wearing black clothes was standing alone in a pitch-black house."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あくまで (も)"
+    }
+  ],
+  "title": "あくまで (も) => Very, extremely (Strong level)",
+  "_id": "f7ff14dae05876cac58b4136934226dd"
+}

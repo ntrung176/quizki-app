@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2831,
+  "usages": [
+    {
+      "explain": "(1) Express a question by raising the tone at the end of the sentence. Used in spoken language for children and familiar people.",
+      "note": null,
+      "examples": [
+        {
+          "content": "料理は得意なの？",
+          "transcription": "りょうりはとくいなの？",
+          "mean": "Are you good at cooking?"
+        },
+        {
+          "content": "君のその服はどうしたの?",
+          "transcription": "きみのそのふくはどうしたの?",
+          "mean": "What's up with those clothes of yours?"
+        },
+        {
+          "content": "彼女は私に腹を立てているみたいなの。",
+          "transcription": "かのじょはわたしにはらをたてているみたいなの。",
+          "mean": "It's like she's mad at me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Naな + の\nVる／ Vた／ Vない + の\nAい + の"
+    },
+    {
+      "explain": "Used by children and women, often with a lowering tone at the end of the sentence, to assert with a gentle tone.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "... の => right? (question)",
+  "_id": "f2d618ceb0702f781ec83b7d4f347a2c"
+}

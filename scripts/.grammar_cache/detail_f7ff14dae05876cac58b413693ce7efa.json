@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 2074,
+  "usages": [
+    {
+      "explain": "Expresses a desire to have something. The end of the sentence often goes with 「が/けど/のに/（のに）なあ」. When used with 「が/けど/のに」, it indicates unease that \"it might not become reality,\" or implies \"the current state is not as desired.\" 「たらいい」「ばいい」are almost synonymous and can replace each other in most cases.",
+      "note": null,
+      "examples": [
+        {
+          "content": "生まれてくる子供が､男の子だといいなあ。",
+          "transcription": "うまれてくるこどもが､おとこのこだといいなあ。",
+          "mean": "I hope the child born is a boy."
+        },
+        {
+          "content": "大学生がもっと積極的だといいのだが。",
+          "transcription": "だいがくせいがもっとせっきょくてきだといいのだが。",
+          "mean": "I wish university students were more proactive."
+        },
+        {
+          "content": "この部屋がもっと広いといいのになあ。",
+          "transcription": "このへやがもっとひろいといいのになあ。",
+          "mean": "I wish this room was bigger."
+        },
+        {
+          "content": "木村さんが時間に間に合うといいんだけど。",
+          "transcription": "きむらさんがじかんにまにあうといいんだけど。",
+          "mean": "I hope Mr. Kimura will be on time."
+        },
+        {
+          "content": "10月の旅行の間､晴天が続くといい。",
+          "transcription": "10がつのりょこうのま､せいてんがつづくといい。",
+          "mean": "I hope the weather stays sunny during my trip in October."
+        },
+        {
+          "content": "みんながこのことを忘れるといいが。",
+          "transcription": "みんながこのことをわすれるといいが。",
+          "mean": "I hope everyone forgets about this."
+        },
+        {
+          "content": "学習者の自発的な活動が今後も継続されるといい。",
+          "transcription": "がくしゅうしゃのじはつてきなかつどうがこんごもけいぞくされるといい。",
+          "mean": "I hope that learners' voluntary activities will continue in the future."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…といい<願望>"
+    }
+  ],
+  "title": "といい => It would be nice if; should; I hope ~",
+  "_id": "f7ff14dae05876cac58b413693ce7efa"
+}

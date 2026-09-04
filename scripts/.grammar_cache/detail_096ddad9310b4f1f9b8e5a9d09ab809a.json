@@ -1,0 +1,66 @@
+{
+  "level": "N5",
+  "mobileId": 5649,
+  "usages": [
+    {
+      "explain": "「は～より」 is a comparative structure indicating that N1 excels over N2 in a certain quality (A).",
+      "note": null,
+      "examples": [
+        {
+          "content": "本は映画より面白いです。",
+          "transcription": "ほんはえいがよりおもしろいです。",
+          "mean": "Books are more interesting than movies."
+        },
+        {
+          "content": "今日は昨日より忙しいです。",
+          "transcription": "きょうはきのうよりいそがしいです。",
+          "mean": "I'm busier today than yesterday."
+        },
+        {
+          "content": "電車はバスより早いです。",
+          "transcription": "でんしゃはバスよりはやいです。",
+          "mean": "Trains are faster than buses."
+        },
+        {
+          "content": "北海道は台湾より大きいです。",
+          "transcription": "ほっかいどうはたいわんよりおおきいです。",
+          "mean": "Hokkaido is larger than Taiwan."
+        },
+        {
+          "content": "漢字はカタカナより難しいです。",
+          "transcription": "かんじはカタカナよりむずかしいです。",
+          "mean": "Kanji is more difficult than katakana."
+        },
+        {
+          "content": "エベレスト山は富士山より高いです。",
+          "transcription": "エベレストさんはふじさんよりたかいです。",
+          "mean": "Mount Everest is higher than Mount Fuji."
+        },
+        {
+          "content": "アメリカ人は日本人より背が高いです。",
+          "transcription": "アメリカじんはにほんじんよりせがたかいです。",
+          "mean": "Americans are taller than Japanese."
+        },
+        {
+          "content": "母は父より料理が下手です。",
+          "transcription": "はははちちよりりょうりがへたです。",
+          "mean": "My mother is a better cook than my father."
+        },
+        {
+          "content": "キララちゃんは木村さんより歌が上手です。",
+          "transcription": "キララちゃんはきむらさんよりうたがじょうずです。",
+          "mean": "Kirara-chan is a better singer than Kimura-san."
+        },
+        {
+          "content": "田中さんの家は山田さんの家よりきれいです。",
+          "transcription": "たなかさんのいえはやまださんのいえよりきれいです。",
+          "mean": "Tanaka's house is more beautiful than Yamada's house."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は N2より Aい/A<s>な</s> です"
+    }
+  ],
+  "title": "は～より => than; rather than; more than ~",
+  "_id": "096ddad9310b4f1f9b8e5a9d09ab809a"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 5274,
+  "usages": [
+    {
+      "explain": "「ということは」at the beginning of a sentence following it, expresses the speaker's judgment, comment, or observation based on the information or content in the previous sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は、まだ来ませんね。ということは、欠席ということですね。",
+          "transcription": "かれは、まだきませんね。ということは、けっせきということですね。",
+          "mean": "He hasn't come yet. That means he is absent."
+        },
+        {
+          "content": "『私はもうお酒を飲めます。』『ということは、二十歳を過ぎてるんだね。』",
+          "transcription": "『わたしはもうおさけをのめます。』『ということは、はたちをすぎてるんだね。』",
+          "mean": "``I can drink now. ``So, you're over 20 years old.'' ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。ということは、B"
+    }
+  ],
+  "title": "ということは => that is to say; so that means; in other words ~",
+  "_id": "9e23518951554f958500cb558a6ff75c"
+}

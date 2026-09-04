@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2121,
+  "usages": [
+    {
+      "explain": "Means \"misunderstood it that way,\" used when an event makes the speaker realize their misunderstanding. When the context is clear, the following sentences may be omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "吉田さんは独身だとばかり思っていたが、もうお子さんが三人もあるそうだ。",
+          "transcription": "よしださんはどくしんだとばかりおもっていたが、もうおこさんがさんにんもあるそうだ。",
+          "mean": "I always thought that Mr. Yoshida was single, but it seems that he already has three children."
+        },
+        {
+          "content": "あなたはその事実を知っているとばかり思っていました。",
+          "transcription": "あなたはそのじじつをしっているとばかりおもっていました。",
+          "mean": "I just thought you knew that fact."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だとばかりおもっていた\nNa + だとばかりおもっていた\nA + とばかりおもっていた\nV + とばかりおもっていた"
+    }
+  ],
+  "title": "…とばかりおもっていた => Thought that ...",
+  "_id": "f7ff14dae05876cac58b413693d52118"
+}

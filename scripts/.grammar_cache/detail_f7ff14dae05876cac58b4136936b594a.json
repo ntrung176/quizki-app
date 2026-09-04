@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1360,
+  "usages": [
+    {
+      "explain": "Expresses the idea that \"every time ..., then always ...\". The latter part often expresses the speaker's feelings or emotions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのことを考えるにつけて後悔の念に苛まれる。",
+          "transcription": "そのことをかんがえるにつけてこうかいのねんにさいなまれる。",
+          "mean": "As I think about it, I feel a pang of regret."
+        },
+        {
+          "content": "環境汚染のニュースを聞くにつけて、健康への影響に不安を感じる",
+          "transcription": "かんきょうおせんのにゅーすをきくにつけて、けんこうへのえいきょうにふあんをかんじる",
+          "mean": "When I hear news about environmental pollution, I feel worried about its effects on health."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + につけて"
+    }
+  ],
+  "title": "につけて => every time; whenever; as; whether; in (either case)​",
+  "_id": "f7ff14dae05876cac58b4136936b594a"
+}

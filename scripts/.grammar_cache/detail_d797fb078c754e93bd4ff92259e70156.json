@@ -1,0 +1,81 @@
+{
+  "level": "N5",
+  "mobileId": 5594,
+  "usages": [
+    {
+      "explain": "「がいる」 is used to:<br/>\n\n1. Announce the existence or presence of a living person, creature, or moving object that behaves like a person or living creature.<br/>\nWhen you want to indicate that a living person, creature, or moving object that behaves like a person or living creature exists or is present in a specific location, you add the noun indicating that location with the particle \"に\".\n     Example: 教室に七海先生がいます。 (In the classroom, there is Teacher Nanami.)<br/>\n\n2. Indicate the subject owning a particular living person, creature, or moving object that behaves like a person or living creature.\n   Example: 兄が一人います。 (I have one older brother.)",
+      "note": null,
+      "examples": [
+        {
+          "content": "机の下に猫がいます。",
+          "transcription": "つくえのしたにねこがいます。",
+          "mean": "There's a cat under the desk."
+        },
+        {
+          "content": "受付に木村さんがいます。",
+          "transcription": "うけつけにきむらさんがいます。",
+          "mean": "Mr. Kimura is at the reception desk."
+        },
+        {
+          "content": "トイレの中に誰かがいます。",
+          "transcription": "トイレのなかにだれかがいます。",
+          "mean": "There's someone in the toilet."
+        },
+        {
+          "content": "公園に鳩がたくさんいます。",
+          "transcription": "こうえんにはとがたくさんいます。",
+          "mean": "There are many pigeons in the park."
+        },
+        {
+          "content": "教室に新しい生徒がいますよ。",
+          "transcription": "きょうしつにあたらしいせいとがいますよ。",
+          "mean": "There's a new student in the classroom."
+        },
+        {
+          "content": "京都に観光客がたくさんいます。",
+          "transcription": "きょうとにかんこうきゃくがたくさんいます。",
+          "mean": "There are many tourists in Kyoto."
+        },
+        {
+          "content": "彼の部屋にたくさんのゴキブリがいます。",
+          "transcription": "かれのへやにたくさんのゴキブリがいます。",
+          "mean": "There are many cockroaches in his room."
+        },
+        {
+          "content": "会議室の中にタバコを吸っている人は何人がいますか。",
+          "transcription": "かいぎしつのなかにタバコをすっているひとはなんにんがいますか。",
+          "mean": "How many people are smoking in the conference room?"
+        },
+        {
+          "content": "この公園にお化けがいますか。",
+          "transcription": "このこうえんにおばけがいますか。",
+          "mean": "Is there a ghost in this park?"
+        },
+        {
+          "content": "このゲームには3種類の怪物がいます。",
+          "transcription": "このゲームにはさんしゅるいのかいぶつがいます。",
+          "mean": "There are three types of monsters in this game."
+        },
+        {
+          "content": "『姉妹がいますか。』『いいえ、いません。』",
+          "transcription": "『しまいがいますか。』『いいえ、いません。』",
+          "mean": "“Do you have any sisters? ” “No, I’m not. ”"
+        },
+        {
+          "content": "ナナちゃんには彼氏がいます。彼は今ミミちゃんの家にいます。",
+          "transcription": "ナナちゃんにはかれしがいます。かれはいまミミちゃんのいえにいます。",
+          "mean": "Nana-chan has a boyfriend. He is at Mimi's house now."
+        },
+        {
+          "content": "猫が3匹います。それと、犬が2匹います。",
+          "transcription": "ねこがさんびきいます。それと、いぬがにひきいます。",
+          "mean": "I have three cats. Also, I have two dogs."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nが います / いる<br/>\nNが いません / いない"
+    }
+  ],
+  "title": "がいる => there is; to be; is (living things)",
+  "_id": "d797fb078c754e93bd4ff92259e70156"
+}

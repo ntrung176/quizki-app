@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5527,
+  "usages": [
+    {
+      "explain": "「のを知っていますか」is used to ask the listener if they know about the content before の. The particle accompanying the subject of the clause before の changes from は to が.<br/>\n\n「Nを知っていますか」is used to ask the listener if they know about the object N.<br/>\n\nRegarding the response, it's important to differentiate between「知りません」and「知りませんでした」. Specifically, you respond with「知りません」when you don't know about the information asked, even after hearing the question. On the other hand, you respond with「知りませんでした」when you originally didn't know about the information asked, but upon hearing the question, you now know about it because the information is included in the question.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "『安藤さんが離婚したのを知っていますか。』『えええ、知りませんでした。』",
+          "transcription": "『あんどうさんがりこんしたのをしっていますか。』『えええ、しりませんでした。』",
+          "mean": "``Did you know that Ando-san got divorced? ” “Well, I didn’t know. ”"
+        },
+        {
+          "content": "『ナナちゃんがN1を合格したのを知っていますか。』『はい、知っています。』",
+          "transcription": "『ナナちゃんがエヌいちをごうかくしたのをしっていますか。』『はい、しっています。』",
+          "mean": "``Did you know that Nana-chan passed N1? \"\"yes i know. ”"
+        },
+        {
+          "content": "佐藤さんが大阪に転勤するのを知っていますか。",
+          "transcription": "さとうさんがおおさかにてんきんするのをしっていますか。",
+          "mean": "Did you know that Mr. Sato will be transferred to Osaka?"
+        },
+        {
+          "content": "木村さんに赤ちゃんが生まれたのを知っていますか。",
+          "transcription": "きむらさんにあかちゃんがうまれたのをしっていますか。",
+          "mean": "Did you know that Mr. Kimura had a baby?"
+        },
+        {
+          "content": "山田先生が帰国しないでここで仕事を続けるのを知っていますか。",
+          "transcription": "やまだせんせいがきこくしないでここでしごとをつづけるのをしっていますか。",
+          "mean": "Did you know that Mr. Yamada will continue his work here without returning to Japan?"
+        },
+        {
+          "content": "来年の10月から税金が12％になるのを知っていますか。",
+          "transcription": "らいねんのじゅうがつからぜいきんがじゅうにパーセントになるのをしっていますか。",
+          "mean": "Did you know that tax will be 12% from October next year?"
+        },
+        {
+          "content": "木村さんを知っていますか。",
+          "transcription": "きむらさんをしっていますか。",
+          "mean": "Do you know Mr. Kimura?"
+        },
+        {
+          "content": "『田中さんの電話番号を知っていますか。』『いいえ、知りません。』",
+          "transcription": "『たなかさんのでんわばんごうをしっていますか。』『いいえ、しりません。』",
+          "mean": "``Do you know Tanaka-san's phone number? \"\"No, I do not know. ”"
+        },
+        {
+          "content": "初音ミクがバーチャル・アイドル歌手なのを知っていますか。",
+          "transcription": "はつねミクがバーチャル・アイドルかしゅなのをしっていますか。",
+          "mean": "Did you know that Hatsune Miku is a virtual idol singer?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+のを知っていますか<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br/> Nだ ➔ N<s>だ</s>な)<br/>\n N+を知っていますか"
+    }
+  ],
+  "title": "のを知っていますか => Do you know...?",
+  "_id": "c8e428ee330a4cc2a7307c30b5646776"
+}

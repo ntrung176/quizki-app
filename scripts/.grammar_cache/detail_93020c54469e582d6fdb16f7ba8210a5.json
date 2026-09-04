@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3243,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"to the best of one's ability, to the fullest extent possible.\" At the end of the sentence, phrases expressing intention, desire, reliance, etc. are often used.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "なるべくお客様に丁寧な言葉をお使い下さい。",
+          "transcription": "なるべくおきゃくさまにていねいなことばをおつかいください。",
+          "mean": "Please use polite language to your customers as much as possible."
+        },
+        {
+          "content": "なるべく早く国へ帰りたい。",
+          "transcription": "なるべくはやくくにへかえりたい。",
+          "mean": "I want to return to my country as soon as possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なるべく"
+    }
+  ],
+  "title": "なるべく => as much as possible",
+  "_id": "93020c54469e582d6fdb16f7ba8210a5"
+}

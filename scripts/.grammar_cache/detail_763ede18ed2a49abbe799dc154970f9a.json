@@ -1,0 +1,86 @@
+{
+  "level": "N4",
+  "mobileId": 5526,
+  "usages": [
+    {
+      "explain": "「にくい」indicates that an action is difficult to perform, or a state is unlikely to happen. <br/>\nThe negative form is conjugated similarly to い-adjectives.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この箸はちょっと使いにくいです。",
+          "transcription": "このはしはちょっとつかいにくいです。",
+          "mean": "These chopsticks are a little difficult to use."
+        },
+        {
+          "content": "足が痛いから、歩きにくいです。",
+          "transcription": "あしがいたいから、あるきにくいです。",
+          "mean": "It's hard to walk because my legs hurt."
+        },
+        {
+          "content": "海は涙が高くて泳ぎにくかった。",
+          "transcription": "うみはなみがたかくておよぎにくかった。",
+          "mean": "The water was so high that it was difficult to swim."
+        },
+        {
+          "content": "この曲はテンポが速くて踊りにくいです。",
+          "transcription": "このきょくはテンポがはやくておどりにくいです。",
+          "mean": "This song has a fast tempo and is difficult to dance to."
+        },
+        {
+          "content": "あの教室のドアは古くて開けにくいです。",
+          "transcription": "あのきょうしつのドアはふるくてあけにくいです。",
+          "mean": "The door to that classroom is old and difficult to open."
+        },
+        {
+          "content": "この店は入口が小さくて入りにくいです。",
+          "transcription": "このみせはいりぐちがちいさくてはいりにくいです。",
+          "mean": "This store has a small entrance and is difficult to enter."
+        },
+        {
+          "content": "昨日のホテルのベッドはちょっと寝にくかった。",
+          "transcription": "きのうのホテルのベッドはちょっとねにくかった。",
+          "mean": "The bed in the hotel yesterday was a little uncomfortable."
+        },
+        {
+          "content": "お寿司はお箸で食べにくかったら、手で食べてもいいですよ。",
+          "transcription": "おすしはおはしでたべにくかったら、てでたべてもいいですよ。",
+          "mean": "If you find it difficult to eat sushi with chopsticks, you can eat it with your hands."
+        },
+        {
+          "content": "歯は磨きにくいところも磨かないと、虫歯になってしまいます。",
+          "transcription": "ははみがきにくいところもみがかないと、むしばになってしまいます。",
+          "mean": "If you don't brush the hard-to-brush areas of your teeth, you will end up with cavities."
+        },
+        {
+          "content": "このカバンは安いですが、丈夫で壊れにくいです。",
+          "transcription": "このかばんはやすいですが、じょうぶでこわれにくいです。",
+          "mean": "This bag is cheap, but it is durable and not easy to break."
+        },
+        {
+          "content": "このコップはプラスチック製なので割れにくいです。",
+          "transcription": "このこっぷはぷらすちっくせいなのでわれにくいです。",
+          "mean": "This cup is made of plastic, so it won't break easily."
+        },
+        {
+          "content": "私は太りにくい体質だから、どんなにたくさん食べても太らない。",
+          "transcription": "わたしはふとりにくいたいしつだから、どんなにたくさんたべてもふとらない。",
+          "mean": "I have a constitution that makes it hard for me to gain weight, so no matter how much I eat, I don't gain weight."
+        },
+        {
+          "content": "ヨーグルトを毎日食べている人は、インフルエンザになりにくいらしい。",
+          "transcription": "ヨーグルトをまいにちたべているひとは、インフルエンザになりにくいらしい。",
+          "mean": "People who eat yogurt every day seem to be less likely to get the flu."
+        },
+        {
+          "content": "この薬は甘いから、飲みにくくない。",
+          "transcription": "このくすりはあまいから、のみにくくない。",
+          "mean": "This medicine is sweet, so it is not difficult to take."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+にくい"
+    }
+  ],
+  "title": "にくい => difficult to do ~",
+  "_id": "763ede18ed2a49abbe799dc154970f9a"
+}

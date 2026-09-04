@@ -1,0 +1,91 @@
+{
+  "level": "N2",
+  "mobileId": 5131,
+  "usages": [
+    {
+      "explain": "「一応」<br/>\n1. Expresses a precautionary measure. This measure may not be perfect, but it's enough to avoid the worst-case scenario.<br/>\n2. Indicates modesty, implying that although not perfect, something has been achieved overall. Depending on the context,「一応」can also be used to boast subtly.<br/>\n3. Expresses the idea that although something may not be perfect, it has generally been/done/will be completed.<br/>\n4. Indicates a temporary situation or a level that, while not meeting the full requirements, is acceptable for the time being.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はもう寝たかもしれないけど、一応電話してみようかな。",
+          "transcription": "かれはもうねたかもしれないけど、いちおうでんわしてみようかな。",
+          "mean": "He might have gone to bed already, but I thought I'd call him just in case."
+        },
+        {
+          "content": "今日はずっと晴れって天気予報で言ってたけど、曇ってきたから 一応傘を持って行った方がいいかも。",
+          "transcription": "きょうはずっとはれっててんきよほうでいってたけど、くもってきたからいちおうかさをもっていったほうがいいかも。",
+          "mean": "The weather forecast said it would be sunny all day today, but it's cloudy now, so I might want to bring an umbrella just in case."
+        },
+        {
+          "content": "これで大丈夫だと思うけど、 一応チェックしておいてくれない？",
+          "transcription": "これでだいじょうぶだとおもうけど、いちおうチェックしておいてくれない？",
+          "mean": "I think this is okay, but could you please check it out?"
+        },
+        {
+          "content": "念のため一応書類を調べてみてください。",
+          "transcription": "ねんのためいちおうしょるいをしらべてみてください。",
+          "mean": "Please check the document just to be sure."
+        },
+        {
+          "content": "『日本語が話せますか。』『はい、一応、話せます。』",
+          "transcription": "『にほんごがはなせますか。』『はい、いちおう、はなせます。』",
+          "mean": "``Can you speak Japanese? ” “Yes, I can talk.” ”"
+        },
+        {
+          "content": "一応、付き合っている人がいるんだ。",
+          "transcription": "いちおう、つきあっているひとがいるんだ。",
+          "mean": "I'm actually dating someone."
+        },
+        {
+          "content": "一応、この書類に目を通しました。",
+          "transcription": "いちおう、このしょるいにめをとおしました。",
+          "mean": "I took a look at this document."
+        },
+        {
+          "content": "一応やってみます。",
+          "transcription": "いちおうやってみます。",
+          "mean": "I'll give it a try."
+        },
+        {
+          "content": "一応3千円渡しておくね。",
+          "transcription": "いちおうさんぜんえんわたしておくね。",
+          "mean": "I'll give you 3,000 yen just in case."
+        },
+        {
+          "content": "相手が間違えていると思った時も、一応話は全部聞くようにしています。",
+          "transcription": "あいてがまちがえているとおもったときも、いちおうはなしはぜんぶきくようにしています。",
+          "mean": "Even when I think the other person is making a mistake, I try to listen to everything they have to say."
+        },
+        {
+          "content": "一応、明日までに返事をくれる？",
+          "transcription": "いちおう、あしたまでにへんじをくれる？",
+          "mean": "Could you please reply by tomorrow?"
+        },
+        {
+          "content": "あの事件は一応片がついているはずだ。",
+          "transcription": "あのじけんはいちおうかたがついているはずだ。",
+          "mean": "That incident should have been resolved."
+        },
+        {
+          "content": "『試験勉強した？』『一応ね。』",
+          "transcription": "『しけんべんきょうした？』『いちおうね。』",
+          "mean": "“Did you study for the exam? 'Just in case. ”"
+        },
+        {
+          "content": "月8万円あれば一応生活はできる。",
+          "transcription": "つきはちまんえんあればいちおうせいかつはできる。",
+          "mean": "I can live on 80,000 yen a month."
+        },
+        {
+          "content": "一応試験に受かりました。",
+          "transcription": "いちおうしけんにうかりました。",
+          "mean": "I did pass the test."
+        }
+      ],
+      "mean": null,
+      "synopsis": "一応+Sentence"
+    }
+  ],
+  "title": "一応 => more or less; pretty much; roughly; tentatively ~",
+  "_id": "345915bf089f4e0c963a8cf8c7768616"
+}

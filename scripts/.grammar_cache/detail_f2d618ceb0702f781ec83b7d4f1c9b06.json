@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2646,
+  "usages": [
+    {
+      "explain": "This structure is used to answer the question \"why\". With the implication: besides the reasons mentioned, there could be many other reasons as well.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は雪だし、お金もないから、出かけません。",
+          "transcription": "きょうはゆきだし、おかねもないから、でかけません。",
+          "mean": "It's snowing today and I don't have any money, so I won't go out."
+        },
+        {
+          "content": "その中国レストランは食べ物もおいしいし、値段も安いから、 人が多いです。",
+          "transcription": "そのちゅうごくれすとらんはたべものもおいしいし、ねだんもやすいから、ひとがおおいです。",
+          "mean": "The Chinese restaurant has a lot of people because the food is delicious and the prices are low."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない/ Na-だ/ A-いし, V-る/ V-た/ V-ない/ Na-だ/ A-いから..."
+    }
+  ],
+  "title": "...し, ...し, ...から  => and; and what's more ~ (emphasis)",
+  "_id": "f2d618ceb0702f781ec83b7d4f1c9b06"
+}

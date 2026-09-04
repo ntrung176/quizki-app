@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1356,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"it almost happened, but in reality it didn't\". Often used in contexts where danger has passed.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学生時代に結核でほとんど死にかけたことがある。",
+          "transcription": "がくせいじだいにけっかくでほとんどしにかけたことがある。",
+          "mean": "When I was a student, I almost died from tuberculosis."
+        },
+        {
+          "content": "路地から飛び出してきた自動車とほとんどぶつかるところだった。",
+          "transcription": "ろじからとびだしてきたじどうしゃとほとんどぶつかるところだった。",
+          "mean": "I was almost hit by a car that came out of the alley."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ほとんど + Vる + ところだった\nほとんど + Vます + かけた"
+    }
+  ],
+  "title": "ほとんど…た => hardly any, almost all",
+  "_id": "f7ff14dae05876cac58b4136936ac991"
+}

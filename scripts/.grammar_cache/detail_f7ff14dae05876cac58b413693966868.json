@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1674,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"because of doing something, there is significance or a good outcome\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "親になってこそ、親の気持ちがよく分かります。",
+          "transcription": "おやになってこそ、おやのきもちがよくわかります。",
+          "mean": "Only when you become a parent can you understand how a parent feels."
+        },
+        {
+          "content": "困ったときに助け合ってこそ、本当の友達です。",
+          "transcription": "こまったときにたすけあってこそ、ほんとうのともだちです。",
+          "mean": "We are true friends only when we help each other when we are in trouble."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + こそ"
+    }
+  ],
+  "title": "てこそ => now that; since (something happened)",
+  "_id": "f7ff14dae05876cac58b413693966868"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5428,
+  "usages": [
+    {
+      "explain": "「例えば」is used to give examples or to elaborate further on something mentioned earlier.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本の食べ物は美味しいです。例えば、寿司はすごく美味しい！",
+          "transcription": "にほんのたべものはおいしいです。たとえば、すしはすごくおいしい！",
+          "mean": "Japanese food is delicious. For example, sushi is so delicious!"
+        },
+        {
+          "content": "私にはたくさん趣味がある。例えば魚釣り、登山です。",
+          "transcription": "わたしにはたくさんしゅみがある。たとえばさかなつり、とざんです。",
+          "mean": "I have many hobbies - fishing and climbing, for example."
+        },
+        {
+          "content": "私は例えばイタリアやスペインなど外国へ行きたい。",
+          "transcription": "わたしはたとえばイタリアやスペインなどがいこくへいきたい。",
+          "mean": "I want to go abroad, for instance, to Italy and Spain."
+        },
+        {
+          "content": "外国、例えばアメリカへ行ったことがありますか。",
+          "transcription": "がいこく、たとえばアメリカへいったことがありますか。",
+          "mean": "Have you ever been to a foreign country, for example America?"
+        },
+        {
+          "content": "彼は不思議な生物、例えばヘビのような生物が好きです。",
+          "transcription": "かれはふしぎなせいぶつ、たとえばヘビのようなせいぶつがすきです。",
+          "mean": "He likes strange animals, things like snakes, for example."
+        },
+        {
+          "content": "日本ではきれいな都市がたくさんあります。例えば京都、奈良だ。",
+          "transcription": "にほんではきれいなとしがたくさんあります。たとえばきょうと、ならだ。",
+          "mean": "There are many beautiful cities in Japan. For example, Kyoto and Nara."
+        },
+        {
+          "content": "彼の部屋に色んなものがある。例えば、ゲーム機、ジムの物など。",
+          "transcription": "かれのへやにいろんなものがある。たとえば、ゲームき、ジムのものなど。",
+          "mean": "There are many things in his room. For example, game consoles, things from the gym, etc."
+        },
+        {
+          "content": "飲物でしたら、たとえばコーヒー、お茶、ジュースなどを用意してあります。",
+          "transcription": "のみものでしたら、たとえばこーひー、おちゃ、じゅーすなどをよういしてあります。",
+          "mean": "For drinks, we have coffee, tea, juice, etc."
+        },
+        {
+          "content": "日本語の中には、たとえばビール、ガラス、エンジニアなどたくさんの外来語が入っている。",
+          "transcription": "にほんごのなかには、たとえばびーる、がらす、えんじにあなどたくさんのがいらいごがはいっている。",
+          "mean": "Japanese contains many foreign words, such as beer, glass, and engineer."
+        },
+        {
+          "content": "たとえばこの方程式のxを4とすると、yは7になる。",
+          "transcription": "たとえばこのほうていしきのエックスをよんとすると、ワイはななになる。",
+          "mean": "For example, if x in this equation is 4, y is 7."
+        }
+      ],
+      "mean": null,
+      "synopsis": "例えば+Sentence"
+    }
+  ],
+  "title": "例えば => for example; for instance ~",
+  "_id": "3e4cf8131c4441b1bbcb20f7fdca9147"
+}

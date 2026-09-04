@@ -1,0 +1,91 @@
+{
+  "level": "N3",
+  "mobileId": 5377,
+  "usages": [
+    {
+      "explain": "「ものだ」describes:<br/>1. Feeling of surprise or emotional reaction before an event; Feeling nostalgic about a habit or situation lasting in the past (たものだ); Sarcastic attitude or harsh criticism of other people's actions (よくもまあ～ものだ).<br/> 2. A strong desire or longing for something. Used with structures like「たい」「ほしい」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "息子も来月で高校卒業か。時が流れるのは早いものだ。",
+          "transcription": "むすこもらいげつでこうこうそつぎょうか。ときがながれるのははやいものだ。",
+          "mean": "My son will also graduate from high school next month. Time passes quickly."
+        },
+        {
+          "content": "うちの息子なんて私の言うことなんか全然聞かないんですから。本当に困ったもんですよ。",
+          "transcription": "うちのむすこなんてわたしのいうことなんかぜんぜんきかないんですから。ほんとうにこまったもんですよ。",
+          "mean": "My son never listens to anything I say. I was really in trouble."
+        },
+        {
+          "content": "実際に自分で体験してみて分かったのですが、茶道というのは本当に奥が深いものですね。",
+          "transcription": "じっさいにじぶんでたいけんしてみてわかったのですが、さどうというのはほんとうにおくがふかいものですね。",
+          "mean": "After experiencing it myself, I realized that the tea ceremony is truly profound."
+        },
+        {
+          "content": "昔はよく父に叱られたものです。",
+          "transcription": "むかしはよくちちにしかられたものです。",
+          "mean": "In the past, my father would often scold me."
+        },
+        {
+          "content": "中学生の時、友達と授業をさぼったもんだ。",
+          "transcription": "ちゅうがくせいのとき、ともだちとじゅぎょうをさぼったもんだ。",
+          "mean": "When I was in middle school, I skipped class with my friends."
+        },
+        {
+          "content": "前はよくコンサートに行ったものだ。",
+          "transcription": "まえはよくコンサートにいったものだ。",
+          "mean": "I used to go to concerts a lot."
+        },
+        {
+          "content": "学生時代は毎日図書館へ通ったものだ。",
+          "transcription": "がくせいじだいはまいにちとしょかんへかよったものだ。",
+          "mean": "When I was a student, I used to go to the library every day."
+        },
+        {
+          "content": "子供の頃はよく川で遊んだものだ。",
+          "transcription": "こどものころはよくかわであそんだものだ。",
+          "mean": "When I was a child, I often played in the river."
+        },
+        {
+          "content": "よくもまあ、そんな嘘ばっかりつけるもんですね。",
+          "transcription": "よくもまあ、そんなうそばっかりつけるもんですね。",
+          "mean": "Well, you know, you just tell lies like that."
+        },
+        {
+          "content": "よくもまあ、そんなに毎日毎日遅刻できるもんだ。",
+          "transcription": "よくもまあ、そんなにまいにちまいにちちこくできるもんだ。",
+          "mean": "Well, how can I be late every day?"
+        },
+        {
+          "content": "よくもまあ、育ててくれた親に対してよくそんな口が利けたもんだ。",
+          "transcription": "よくもまあ、そだててくれたおやにたいしてよくそんなくちがきけたもんだ。",
+          "mean": "Well, I used to say things like that to my parents who raised me."
+        },
+        {
+          "content": "あなたの国へ行ってみたいものだ。",
+          "transcription": "あなたのくにへいってみたいものだ。",
+          "mean": "I would like to go to your country."
+        },
+        {
+          "content": "一度でいいから、あんな生活をしてみたいものだ。",
+          "transcription": "いちどでいいから、あんなせいかつをしてみたいものだ。",
+          "mean": "I would like to live a life like that, just once."
+        },
+        {
+          "content": "政治家には、もう少し国民の気持ちを分かってほしいものだ。",
+          "transcription": "せいじかには、もうすこしこくみんのきもちをわかってほしいものだ。",
+          "mean": "I wish politicians would understand the feelings of the people a little more."
+        },
+        {
+          "content": "娘には私と同じ仕事はしてほしくないものだ。",
+          "transcription": "むすめにはわたしとおなじしごとはしてほしくないものだ。",
+          "mean": "I don't want my daughter to do the same job as me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな (formal form)+ものだ/もんだ<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)<br/>Vたい/Vたくない+ものだ/もんだ<br/>Vてほしい/Vてほしくない+ものだ/もんだ"
+    }
+  ],
+  "title": "ものだ => Supposed to/ Should/ That's the way it is",
+  "_id": "007018b1ad504ddf83ca87cc6cd38033"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1581,
+  "usages": [
+    {
+      "explain": "Used to encourage someone to try something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女に説明してみたらどうですか。",
+          "transcription": "かのじょにせつめいしてみたらどうですか。",
+          "mean": "Why don't you explain it to her?"
+        },
+        {
+          "content": "テキストのフォーマットを変えてみたらどうですか。",
+          "transcription": "てきすとのふぉーまっとをかえてみたらどうですか。",
+          "mean": "What about changing the format of the text?"
+        },
+        {
+          "content": "この問題について先生に聞いてみたらどうですか。",
+          "transcription": "このもんだいについてせんせいにきいてみたらどうですか。",
+          "mean": "How about asking your teacher about this problem?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + みたらどう"
+    }
+  ],
+  "title": "てみたらどう => Why don't you; how about ~ (used to give advice)",
+  "_id": "f7ff14dae05876cac58b4136938b1b16"
+}

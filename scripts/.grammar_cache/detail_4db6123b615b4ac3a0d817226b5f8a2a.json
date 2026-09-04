@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5398,
+  "usages": [
+    {
+      "explain": "「によれば/によると」indicates the source or basis of information that the speaker has obtained. The following clause often uses expressions to convey information such as 「そう」「らしい」「ということだ」...",
+      "note": null,
+      "examples": [
+        {
+          "content": "天気予報によれば、明日は晴れるらしい。",
+          "transcription": "てんきよほうによれば、あしたははれるらしい。",
+          "mean": "According to the weather forecast, it will be sunny tomorrow."
+        },
+        {
+          "content": "さっきの地震はテレビの速報によると、震度3度そうだ。",
+          "transcription": "さっきのじしんはテレビのそくほうによると、しんどさんどそうだ。",
+          "mean": "According to the TV news report, the earthquake that just happened had an intensity of 3 degrees."
+        },
+        {
+          "content": "この雑誌によると、あの店がいいらしい。",
+          "transcription": "このざっしによると、あのみせがいいらしい。",
+          "mean": "According to this magazine, that store seems to be good."
+        },
+        {
+          "content": "みんなの話によれば、彼は辞職するそうだ。",
+          "transcription": "みんなのはなしによれば、かれはじしょくするそうだ。",
+          "mean": "According to everyone, he is resigning."
+        },
+        {
+          "content": "友達によれば、あの映画はとても面白いということです。",
+          "transcription": "ともだちによれば、あのえいがはとてもおもしろいということです。",
+          "mean": "According to my friends, that movie is very interesting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+によれば <br/> N+によると"
+    }
+  ],
+  "title": "によれば/によると => according to ~",
+  "_id": "4db6123b615b4ac3a0d817226b5f8a2a"
+}

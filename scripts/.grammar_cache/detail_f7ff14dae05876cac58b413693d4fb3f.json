@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 2120,
+  "usages": [
+    {
+      "explain": "Accompanied by words indicating an event, it is used to express a temporal relationship where the initial event occurs for a while, and then a related event follows.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は事業に失敗してまもなく死んだ。",
+          "transcription": "かれはじぎょうにしっぱいしてまもなくしんだ。",
+          "mean": "He failed in business and died soon after."
+        },
+        {
+          "content": "会社をやめてまもなく、田中さんはレストランを開業した。",
+          "transcription": "かいしゃをやめてまもなく、たなかさんはれすとらんをかいぎょうした。",
+          "mean": "Shortly after quitting his job, Tanaka opened a restaurant."
+        },
+        {
+          "content": "私達は、桜さんが到着するとまもなく出発した。",
+          "transcription": "わたしたちは、さくらさんがとうちゃくするとまもなくしゅっぱつした。",
+          "mean": "We left shortly after Sakura-san arrived."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－ると／V－て + まもなく"
+    },
+    {
+      "explain": "Note: A similar expression, 「Vーてすぐ」, is used when two events occur immediately one after another. In contrast, the structure 「V-るとまもなく/ V－てまもなく」 is used when the second event occurs shortly after the first, implying \"a little while later.\"",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...まもなく => soon; shortly; before long",
+  "_id": "f7ff14dae05876cac58b413693d4fb3f"
+}

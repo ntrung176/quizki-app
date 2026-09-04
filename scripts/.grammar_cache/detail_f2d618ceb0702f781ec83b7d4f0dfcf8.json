@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2536,
+  "usages": [
+    {
+      "explain": "Used to express something like an introduction, a prelude before doing an action that affects the listener, such as asking, requesting, ordering.",
+      "note": null,
+      "examples": [
+        {
+          "content": "中村と申しますが、吉田さんいらっしゃいますか。",
+          "transcription": "なかむらともうしますが、よしださんいらっしゃいますか。",
+          "mean": "My name is Nakamura, but is Mr. Yoshida here?"
+        },
+        {
+          "content": "今日木村さんに会うんですが、何か伝えておくことはありますか。",
+          "transcription": "きょうきむらさんにあうんですが、なにかつたえておくことはありますか。",
+          "mean": "I'm meeting Mr. Kimura today, is there anything you would like to tell me?"
+        },
+        {
+          "content": "昨日お願いいたしました件ですが、引き受けていただくことはできませんでしょうか。",
+          "transcription": "きのうおねがいいたしましたけんですが、ひきうけていただくことはできませんでしょうか。",
+          "mean": "Regarding the request I made yesterday, would you be able to accept it?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Naだ + が V-る/ V-た/ V-ない + がA-い+ が"
+    }
+  ],
+  "title": "が => Well, then",
+  "_id": "f2d618ceb0702f781ec83b7d4f0dfcf8"
+}

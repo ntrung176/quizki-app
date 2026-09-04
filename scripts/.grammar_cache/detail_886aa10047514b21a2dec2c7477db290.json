@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5395,
+  "usages": [
+    {
+      "explain": "「において」indicates the location, context, situation, field, aspect, etc., where an event takes place. Compared to 「で」, 「において」is a more formal expression, so it is often used in writing, official announcements, or formal contexts...",
+      "note": null,
+      "examples": [
+        {
+          "content": "大阪において、国際会議が行われた。",
+          "transcription": "おおさかにおいて、こくさいかいぎがおこわれた。",
+          "mean": "An international conference was held in Osaka."
+        },
+        {
+          "content": "結果はホームページにおいて発表されます。",
+          "transcription": "けっかはほーむぺーじにおいてはっぴょうされます。",
+          "mean": "The results will be announced on the homepage."
+        },
+        {
+          "content": "小学校において防災訓練を行います。ご参加ください。",
+          "transcription": "しょうがっこうにおいてぼうさいくんれんをおこないます。ごさんかください。",
+          "mean": "Disaster prevention drills will be held at elementary schools. Please join us."
+        },
+        {
+          "content": "会議は第一会議室において行われる。",
+          "transcription": "かいぎはだいいちかいぎしつにおいておこわれる。",
+          "mean": "The meeting will be held in the first conference room."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+おいて"
+    }
+  ],
+  "title": "において => in; at (place); regarding; as for; in relation to ~",
+  "_id": "886aa10047514b21a2dec2c7477db290"
+}

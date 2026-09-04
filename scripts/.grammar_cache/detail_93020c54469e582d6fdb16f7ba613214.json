@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 3230,
+  "usages": [
+    {
+      "explain": "Describing the meaning \"even though A was done, B is still not affected, influenced.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "&amp;nbsp;雪が降っても決勝戦は行われた。",
+          "transcription": "ゆきがふってもけっしょうせんはおこなわれた。",
+          "mean": "&amp;amp;nbsp;Even though it was snowing, the final match was held."
+        },
+        {
+          "content": "熱があっても学校を休まなかった。",
+          "transcription": "ねつがあってもがっこうをやすまなかった。",
+          "mean": "Even though he had a fever, he did not miss school."
+        },
+        {
+          "content": "門は強く引いても動かさなかった。",
+          "transcription": "もんはつよくひいてもうごかさなかった。",
+          "mean": "Even though I pulled hard, the gate did not budge."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ても～た"
+    }
+  ],
+  "title": "ても～た  => even; even if; even though ~ still",
+  "_id": "93020c54469e582d6fdb16f7ba613214"
+}

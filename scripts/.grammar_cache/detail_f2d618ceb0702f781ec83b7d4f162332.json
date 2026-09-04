@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 5031,
+  "usages": [
+    {
+      "explain": "Expresses relationships in terms of space and time. When expressing temporal relations, it can be changed to 「...をひかえて」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大入りの観客を前に芝居をする。",
+          "transcription": "おおいりのかんきゃくをまえにしばいをする。",
+          "mean": "Performing in front of a large audience."
+        },
+        {
+          "content": "その書類の山を前に、どうしたらいいのか、途方にくれてしまった。",
+          "transcription": "そのしょるいのやまをまえに、どうしたらいいのか、とほうにくれてしまった。",
+          "mean": "I was at a loss as to what to do in front of that pile of documents."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + を前に（して）"
+    }
+  ],
+  "title": "... 前に => Before ...",
+  "_id": "f2d618ceb0702f781ec83b7d4f162332"
+}

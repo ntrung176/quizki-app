@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 737,
+  "usages": [
+    {
+      "explain": "This is a written structure used to speculate about events that occurred in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昔はここもずいぶんにぎやかだったのではなかったか。",
+          "transcription": "むかしはここもずいぶんにぎやかだったのではなかったか。",
+          "mean": "This place must have been quite lively in the past."
+        },
+        {
+          "content": "彼の学生時代は、かなり苦しかったのではなかったか。",
+          "transcription": "かれのがくせいじだいは、かなりくるしかったのではなかったか。",
+          "mean": "His school days must have been quite difficult."
+        },
+        {
+          "content": "当時の人間が石油を使うなどということは考えもしなかったのではなかったか。",
+          "transcription": "とうじのにんげんがせきゆをつかうなどということはかんがえもしなかったのではなかったか。",
+          "mean": "People back then probably never even thought about using oil."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + のではなかったか <br/>Na・N + (なの)ではなかったか"
+    }
+  ],
+  "title": "ではなかったか => Wasn't it?",
+  "_id": "f7ff14dae05876cac58b413693162488"
+}

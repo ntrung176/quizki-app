@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1118,
+  "usages": [
+    {
+      "explain": "✦Used to highlight a particular event, while many other events may be thought of at the same time, without mentioning them.<br/>✦Often used to state reasons with expressions like 「なにしろ…から」「なにしろ…て」, with similar meaning to 「なにしても」「とにかく」.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "<div>なにしろこう時がたっているとはっきり思い出せません。<br></div>",
+          "transcription": "なにしろこうじがたっているとはっきりおもいだせません。",
+          "mean": "&lt;div&gt;After all this time, I can't remember clearly. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "なにしろ気難しい人ですからなあ。",
+          "transcription": "なにしろきむずかしいひとですからなあ。",
+          "mean": "After all, he's a difficult person."
+        },
+        {
+          "content": "どこにも異常はないかもしれないが、なにしろ大至急検査をしてみる必要がある。",
+          "transcription": "どこにもいじょうはないかもしれないが、なにしろだいしきゅうけんさをしてみるひつようがある。",
+          "mean": "There may not be anything wrong with it, but we need to get it checked out as soon as possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～なにしろ => at any rate; after all; anyhow; anyway; in any case; because; as you know ~",
+  "_id": "f7ff14dae05876cac58b4136934a7f48"
+}

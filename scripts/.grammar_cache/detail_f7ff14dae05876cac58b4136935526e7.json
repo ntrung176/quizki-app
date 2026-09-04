@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1199,
+  "usages": [
+    {
+      "explain": "Placed after a noun or adverb to emphasize the circumstances of the matter.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あいにくして事故が起こったんだ。",
+          "transcription": "あいにくしてじこがおこったんだ。",
+          "mean": "Unfortunately, an accident happened."
+        },
+        {
+          "content": "幸いにして、難病にかからなかった。",
+          "transcription": "さいわいにして、なんびょうにかからなかった。",
+          "mean": "Fortunately, I did not get an incurable disease."
+        },
+        {
+          "content": "その火事で一瞬にして全家が焼けてしまった。",
+          "transcription": "そのかじでいっしゅんにしてぜんいえがやけてしまった。",
+          "mean": "The fire destroyed the entire house in an instant."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にして"
+    }
+  ],
+  "title": "にして => at / on / under certain conditions (time, position, age, number of times)",
+  "_id": "f7ff14dae05876cac58b4136935526e7"
+}

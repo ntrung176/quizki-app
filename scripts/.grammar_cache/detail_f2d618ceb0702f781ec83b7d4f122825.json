@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2564,
+  "usages": [
+    {
+      "explain": "When using 「...ために」 to indicate purpose, the subjects of the two clauses before and after must be the same.",
+      "note": null,
+      "examples": [
+        {
+          "content": "娘を留学させるために大金を使った。",
+          "transcription": "むすめをりゅうがくさせるためにたいきんをつかった。",
+          "mean": "I spent a lot of money to send my daughter to study abroad."
+        },
+        {
+          "content": "娘を留学するために大金を使った。",
+          "transcription": "むすめをりゅうがくするためにたいきんをつかった。",
+          "mean": "I spent a lot of money to send my daughter to study abroad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N の + ため\nV-る + ため"
+    },
+    {
+      "explain": "Attention: Additionally, when preceding 「ために」 is a clause indicating an action that can be done at one's discretion. In cases where the meaning is \"to achieve a certain state\", one does not use 「ために」but rather 「ように」.\n(X) 聞こえるために大きい声で話した。\n(O) 聞こえるように大きい声で話した。\nI spoke loudly (in order) for (someone) to hear.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ため => for; in order to; for the benefit of; because of; as a result of ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f122825"
+}

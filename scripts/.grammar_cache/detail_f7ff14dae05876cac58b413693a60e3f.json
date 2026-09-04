@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 1781,
+  "usages": [
+    {
+      "explain": "Presenting a hypothesis that isn't real. This pattern is used as a conditional sentence expressing something unreal. If according to that hypothesis, something contrary to reality would happen in the clause after.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あのとき、祖母が精密検査を受けていたら、手遅れにならなかっただろう。",
+          "transcription": "あのとき、そぼがせいみつけんさをうけていたら、ておくれにならなかっただろう。",
+          "mean": "If my grandmother had undergone a thorough examination at that time, it would not have been too late."
+        },
+        {
+          "content": "隕石が地球に衝突していなかったら恐竜のような大きな動物は絶滅していなかったかもしれない。",
+          "transcription": "隕石がちきゅうにしょうとつしていなかったらきょうりゅうのようなおおきなどうぶつはぜつめつしていなかったかもしれない。",
+          "mean": "If a meteorite had not hit the Earth, large animals like dinosaurs might not have become extinct."
+        },
+        {
+          "content": "もし寝坊していたらこの電車に乗れなかった。間に合わってよかった。",
+          "transcription": "もしねぼうしていたらこのでんしゃにのれなかった。まにあわってよかった。",
+          "mean": "If I had overslept, I wouldn't have been able to catch this train. I'm glad I made it in time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + たら…"
+    },
+    {
+      "explain": "Note: This is a way of hypothesizing about a different or contrary event to what actually happened, then imagining that in that case, perhaps the event would have occurred like this or that... Usually, the verb is in the form of 「V-ていたら」 to express a state. In the case of hypothesizing a contrary event to a past event, at the end of the sentence, the predicate will be used in forms like  「ただろう」(probably...), 「たはずだ」(must have...), 「たのに」(was...[but not like now])...",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "たら… => If only, for example",
+  "_id": "f7ff14dae05876cac58b413693a60e3f"
+}

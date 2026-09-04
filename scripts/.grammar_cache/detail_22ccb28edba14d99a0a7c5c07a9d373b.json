@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5578,
+  "usages": [
+    {
+      "explain": "「づらい」indicates that something gives a feeling of difficulty in doing.<br/> 「づらい」is a bit different from「にくい」in that「にくい」emphasizes physical and physiological difficulty (characteristics, properties of objects...), while「づらい」emphasizes psychological difficulty (emotional obstacles, mood...). However, recently, Japanese people tend to use「づらい」more than「にくい」. In many cases, people use「づらい」with the meaning including both psychological and physical difficulty.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この質問には答えづらいです。",
+          "transcription": "このしつもんにはこたえづらいです。",
+          "mean": "This question is difficult to answer."
+        },
+        {
+          "content": "彼女はつき合いづらい人だ。",
+          "transcription": "かのじょはつき合いづらいひとだ。",
+          "mean": "She's a difficult person to get along with."
+        },
+        {
+          "content": "先週も友達の誘いを断ったから、今日は断りづらい。",
+          "transcription": "せんしゅうもともだちのさそいをことわったから、きょうはことわりづらい。",
+          "mean": "I refused a friend's invitation last week, so it's hard to say no today."
+        },
+        {
+          "content": "会社を辞めようと思っているんだけど、「辞めます」って言いづらいよなぁ。",
+          "transcription": "かいしゃをやめようとおもっているんだけど、「やめます」っていいづらいよなぁ。",
+          "mean": "I'm thinking of quitting my job, but it's hard to say \"I'm quitting.\""
+        },
+        {
+          "content": "寝ながらコーヒーは飲みづらいから、起きて飲もう。",
+          "transcription": "ねながらコーヒーはのみづらいから、おきてのもう。",
+          "mean": "It's hard to drink coffee while sleeping, so wake up and drink it."
+        },
+        {
+          "content": "この漢字は覚えづらいです。",
+          "transcription": "このかんじはおぼえづらいです。",
+          "mean": "This kanji is difficult to remember."
+        },
+        {
+          "content": "この自転車は古くて乗りづらいです。",
+          "transcription": "このじてんしゃはふるくてのりづらいです。",
+          "mean": "This bicycle is old and difficult to ride."
+        },
+        {
+          "content": "この本は字が小さくて読みづらいです。",
+          "transcription": "このほんはじがちいさくてよみづらいです。",
+          "mean": "This book's font is small and difficult to read."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s> づらい"
+    }
+  ],
+  "title": "づらい => difficult to do ~",
+  "_id": "22ccb28edba14d99a0a7c5c07a9d373b"
+}

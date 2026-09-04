@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2603,
+  "usages": [
+    {
+      "explain": "This is a way of requesting someone to do something for the speaker or those associated with the speaker. 「...てくださいますか」, 「...てくださいませんか」are two more polite ways of making requests than 「...てください」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "駅で待っていてくださる。",
+          "transcription": "えきでまっていてくださる。",
+          "mean": "Please wait for me at the station."
+        },
+        {
+          "content": "ついでに歯磨きのチューブを一つ買って下さいますか。",
+          "transcription": "ついでにはみがきのちゅーぶをひとつかってくださいますか。",
+          "mean": "Could you please buy me a tube of toothpaste?"
+        },
+        {
+          "content": "荷物が届いたかどうか確認して下さいませんか。",
+          "transcription": "にもつがとどいたかどうかかくにんしてくださいませんか。",
+          "mean": "Could you please check whether the package has arrived?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + くださる"
+    }
+  ],
+  "title": "て くださる => A does C for B (B is you, your friends, your family, etc.)",
+  "_id": "f2d618ceb0702f781ec83b7d4f16aadd"
+}

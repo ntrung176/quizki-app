@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1013,
+  "usages": [
+    {
+      "explain": "■ Used after a verb expressing emotions, to indicate that those feelings exist for a long time and strongly. <br/>■ Also used for negative emotions (like regret). <br/>■ Common in literature such as novels, less so in conversation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "愛してやまないアルプスの山々は今日もきれいだ。",
+          "transcription": "あいしてやまないあるぷすのやまやまはきょうもきれいだ。",
+          "mean": "My beloved Alps mountains are beautiful today as well."
+        },
+        {
+          "content": "卒業生の皆さんの幸せを願ってやみません。",
+          "transcription": "そつぎょうせいのみなさんのしあわせをねがってやみません。",
+          "mean": "I wish all the graduates happiness."
+        },
+        {
+          "content": "親は子供の将来を期待してやまないものだ。",
+          "transcription": "おやはこどものしょうらいをきたいしてやまないものだ。",
+          "mean": "Parents have high hopes for their children's future."
+        },
+        {
+          "content": "あの方はわたしの父が生涯尊敬してやまなかった方です。",
+          "transcription": "あのほうはわたしのちちがしょうがいそんけいしてやまなかったほうです。",
+          "mean": "That person is someone my father has always respected throughout his life."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■Ｖ-て + やまない"
+    }
+  ],
+  "title": "～やまない => always; never stop; can't help but ~",
+  "_id": "f7ff14dae05876cac58b4136933c00e9"
+}

@@ -1,0 +1,101 @@
+{
+  "level": "N3",
+  "mobileId": 5320,
+  "usages": [
+    {
+      "explain": "「ば～ほど」expresses the idea that as one event progresses or changes in a certain direction, another event also progresses or changes accordingly. It can be translated as \"the more... the more...\" .",
+      "note": null,
+      "examples": [
+        {
+          "content": "荷物は少なければ少ないほどいい。",
+          "transcription": "にもつはすくなければすくないほどいい。",
+          "mean": "The less luggage you have, the better."
+        },
+        {
+          "content": "この本は読めば読むほど面白い。",
+          "transcription": "このほんはよめばよむほどおもしろい。",
+          "mean": "The more I read this book, the more interesting it becomes."
+        },
+        {
+          "content": "この問題はかなり複雑で、考えれば考えるほど分からなくなります。",
+          "transcription": "このもんだいはかなりふくざつで、かんがえればかんがえるほどわからなくなります。",
+          "mean": "This problem is quite complex, and the more I think about it, the more I don't understand it."
+        },
+        {
+          "content": "市場は家から近ければ近いほど便利です。",
+          "transcription": "いちばはいえからちかければちかいほどべんりです。",
+          "mean": "The closer the market is to your home, the more convenient it is."
+        },
+        {
+          "content": "彼のことを知れば知るほど好きになる。",
+          "transcription": "かれのことをしればしるほどすきになる。",
+          "mean": "The more I get to know him, the more I like him."
+        },
+        {
+          "content": "頑張れば頑張るほど、夢に近づけます。",
+          "transcription": "がんばればがんばるほど、ゆめにちかづけます。",
+          "mean": "The harder you work, the closer you will get to your dreams."
+        },
+        {
+          "content": "ゲームは相手が強ければ強いほど面白いです。",
+          "transcription": "ゲームはあいてがつよければつよいほどおもしろいです。",
+          "mean": "The stronger the opponent, the more interesting the game is."
+        },
+        {
+          "content": "お酒は飲めば飲むほど強くなると言われています。",
+          "transcription": "おさけはのめばのむほどつよくなるといわれています。",
+          "mean": "It is said that the more you drink alcohol, the stronger it becomes."
+        },
+        {
+          "content": "寿司は魚が新鮮なら新鮮なほど美味しいです。",
+          "transcription": "すしはさかながしんせんならしんせんなほどおいしいです。",
+          "mean": "The fresher the fish, the better the sushi."
+        },
+        {
+          "content": "ケーキのレシピを教えてください。簡単なら簡単なほどいいです。",
+          "transcription": "ケーキのレシピをおしえてください。かんたんならかんたんなほどいいです。",
+          "mean": "Please tell me the cake recipe. The easier it is, the better."
+        },
+        {
+          "content": "日本語は勉強すれば勉強するほど面白くなる。",
+          "transcription": "にほんごはべんきょうすればべんきょうするほどおもしろくなる。",
+          "mean": "The more you study Japanese, the more interesting it becomes."
+        },
+        {
+          "content": "僕は怠け者なので、暇なら暇なほど僕は嬉しいです。",
+          "transcription": "ぼくはなまけものなので、ひまならひまなほどぼくはうれしいです。",
+          "mean": "I'm a lazy person, so the more free time I have, the happier I am."
+        },
+        {
+          "content": "ビートルズの音楽は聞けば聞くほど好きになります。",
+          "transcription": "ビートルズのおんがくはきけばきくほどすきになります。",
+          "mean": "The more I listen to the Beatles' music, the more I like it."
+        },
+        {
+          "content": "漢字を覚えれば覚えるほど、新聞が読みやすくなります。",
+          "transcription": "かんじをおぼえればおぼえるほど、しんぶんがよみやすくなります。",
+          "mean": "The more you memorize kanji, the easier it will be to read newspapers."
+        },
+        {
+          "content": "パソコンのハードディスクの容量は、大きければ大きいほどいいです。",
+          "transcription": "パソコンのハードディスクのようりょうは、おおきければおおきいほどいいです。",
+          "mean": "The larger the capacity of your computer's hard disk, the better."
+        },
+        {
+          "content": "日本語は使えば使うほど、上手になります。だからたくさん話してください。",
+          "transcription": "にほんごはつかえばつかうほど、じょうずになります。だからたくさんはなしてください。",
+          "mean": "The more you use Japanese, the better you will become. So please talk a lot."
+        },
+        {
+          "content": "テクノロジーが進化すれば進化するほど、人間はバカになっていくと言われています。",
+          "transcription": "テクノロジーがしんかすればしんかするほど、にんげんはバカになっていくといわれています。",
+          "mean": "It is said that the more technology evolves, the more stupid humans become."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>ければ+Aいほど<br/>A<s>な</s>なら+Aな<span class=\"iro\">ほど<br/> V (conditional form)+V (root form)ほど</span>"
+    }
+  ],
+  "title": "ば～ほど => the more… the more ~",
+  "_id": "f1382000e85347f6b2cee77cd7b7ef2c"
+}

@@ -1,0 +1,38 @@
+{
+  "level": "N3",
+  "mobileId": 1601,
+  "usages": [
+    {
+      "explain": "Presents an unreal assumption. This pattern is used as a conditional sentence expressing something unreal. If according to that assumption, then something contrary to reality will happen in the subsequent clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "太陽がなければ何も生きられないだろう。",
+          "transcription": "たいようがなければなにもいきられないだろう。",
+          "mean": "If it were not for the sun, nothing could live."
+        },
+        {
+          "content": "もっとお金があれば大きな家に移れるのにな。",
+          "transcription": "もっとおかねがあればおおきないえにうつれるのにな。",
+          "mean": "If I had more money, I could move to a bigger house."
+        },
+        {
+          "content": "よく考えればこの問題の答えはわかったはずだ。",
+          "transcription": "よくかんがえればこのもんだいのこたえはわかったはずだ。",
+          "mean": "If you think about it carefully, you should know the answer to this question."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vば / Aい + ければ<br/>Vない+ なければ / Aく/ A(な)なで + なければ / Nで + なければ"
+    },
+    {
+      "explain": "Note: This is a way of assuming a situation different from or contrary to what actually happened, and then imagining that in that case, perhaps, the event would have happened this way or that way... In the case of assuming a situation contrary to one in the past, at the end of the sentence, the predicate will be in forms like 「ただろう」(probably would have...), 「たはずだ」(surely would have...), 「たのに」(would have...[but it didn't]).",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ば … => If only, for example",
+  "_id": "f7ff14dae05876cac58b4136938ddcdd"
+}

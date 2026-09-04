@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2396,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"in such a case, there will be an undesirable outcome.\" Followed by words with negative meanings.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それでは締め切りに間に合わないだろう。",
+          "transcription": "それではしめきりにまにあわないだろう。",
+          "mean": "Then you won't be able to meet the deadline."
+        },
+        {
+          "content": "それでは東京大学に合格できないよ。",
+          "transcription": "それではとうきょうだいがくにごうかくできないよ。",
+          "mean": "Then you won't be able to get into the University of Tokyo."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それでは～"
+    }
+  ],
+  "title": "それでは => If so, then (result with negative connotation)",
+  "_id": "f7ff14dae05876cac58b413693fb25f8"
+}

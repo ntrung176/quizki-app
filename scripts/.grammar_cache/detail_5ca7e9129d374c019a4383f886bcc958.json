@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5405,
+  "usages": [
+    {
+      "explain": "The particle 「の」is used to turn a clause into a noun phrase.<br/>\n\nAnother way to nominalize a clause is with 「こと」. 「こと」refers to the entire content surrounding the event or action expressed by the preceding clause.<br/>\n\nExample: 田中さんが旅行に行ったことを知っていますか。(Do you know that Tanaka went on a trip?) The speaker is not just asking about Tanaka's action of \"traveling,\" but also inquiring about details such as where Tanaka went, who they went with, what they did, etc.<br/>\n\nIn contrast, 「の」refers to a single, specific event or action.<br/>\n\nExample: 田中さんが旅行に行ったのを知っていますか。(Do you know that Tanaka went on a trip?) Here, the speaker is specifically asking about Tanaka's action of \"going on a trip.\"<br/><br/>\n\nApart from cases where only 「の」or only 「こと」is appropriate, these two can generally be interchangeable. However, it's important to understand their nuances as mentioned above.<br/>\n\n- Some cases where only 「の」is used:\n  + Clauses nominalized before verbs of perception like 見る (to see), 聞く (to hear), 感じる (to feel), 覚える (to remember)...<br/>\n  + Clauses nominalized before verbs like 止める (to stop), 手伝う (to help), 待つ (to wait)...<br/>\n  + Emphasizing the subject with the structure 「のは～です」.<br/>\n\n- Some cases where only 「こと」is used:<br/>\n  + Clauses nominalized before です、だ、である (meaning it should be ことです、ことだ、ことである...)<br/>\n  + Clauses nominalized before verbs like 書く (to write), 伝える (to convey), 話す (to speak)...<br/>\n  + Clauses nominalized before verbs like 祈る (to pray), 約束する (to promise), 決める (to decide)...<br/>\n  + Fixed structures using 「こと」.<br/>\n\nAdditionally, clauses nominalized where the predicate is an adjective like 上手 (good at), 下手 (bad at), 好き (like), 嫌い (dislike), 得意 (skilled at), 苦手 (weak at)... often go well with 「の」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日曜日に混んだところへ行くのは、あまり好きではありません。",
+          "transcription": "にちようびにこんだところへいくのは、あまりすきではありません。",
+          "mean": "I don't really like going to crowded places on Sundays."
+        },
+        {
+          "content": "スポーツを見るのが嫌いです。",
+          "transcription": "スポーツをみるのがきらいです。",
+          "mean": "I hate watching sports."
+        },
+        {
+          "content": "私は寝るのが好きです。",
+          "transcription": "わたしはねるのがすきです。",
+          "mean": "I like to sleep."
+        },
+        {
+          "content": "もっと安いのはこれだよ。",
+          "transcription": "もっとやすいのはこれだよ。",
+          "mean": "This is cheaper."
+        },
+        {
+          "content": "車が近づいてくるのが聞こえる。",
+          "transcription": "くるまがちかづいてくるのがきこえる。",
+          "mean": "I hear a car approaching."
+        },
+        {
+          "content": "彼からメールが来るのを待っている。",
+          "transcription": "かれからメールがくるのをまっている。",
+          "mean": "I'm waiting for an email from him."
+        },
+        {
+          "content": "一番大事なのは明日の試合だ。",
+          "transcription": "いちばんだいじなのはあしたのしあいだ。",
+          "mean": "The most important thing is tomorrow's game."
+        },
+        {
+          "content": "ナナちゃんが医者なのを知っていますか。",
+          "transcription": "ナナちゃんがいしゃなのをしっていますか。",
+          "mean": "Do you know that Nana-chan is a doctor?"
+        },
+        {
+          "content": "このはさみは、紙を切るのに使います。",
+          "transcription": "このはさみは、かみをきるのにつかいます。",
+          "mean": "These scissors are used to cut paper."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+の<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br/> Nだ ➔ N<s>だ</s>な)"
+    }
+  ],
+  "title": "の => Possessive particle",
+  "_id": "5ca7e9129d374c019a4383f886bcc958"
+}

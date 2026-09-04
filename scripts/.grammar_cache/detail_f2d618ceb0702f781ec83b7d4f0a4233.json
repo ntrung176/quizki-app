@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2509,
+  "usages": [
+    {
+      "explain": "The particle 「も」is added after a quantity word to express the feeling that the number is many.",
+      "note": null,
+      "examples": [
+        {
+          "content": "毎朝電車で会社へ通うのに２時間もかかります。",
+          "transcription": "まいあさでんしゃでかいしゃへかようのににじかんもかかります。",
+          "mean": "It takes me two hours to commute to work by train every morning."
+        },
+        {
+          "content": "このビルを建設するのに７億ドルにも必要なんです。",
+          "transcription": "このびるをけんせつするのにななおくどるにもひつようなんです。",
+          "mean": "It will cost 700 million dollars to construct this building."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + も"
+    }
+  ],
+  "title": "も => So much that...",
+  "_id": "f2d618ceb0702f781ec83b7d4f0a4233"
+}

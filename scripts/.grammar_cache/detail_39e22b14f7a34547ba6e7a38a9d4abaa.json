@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5466,
+  "usages": [
+    {
+      "explain": "「ように」in English is used to start an explanation for something (can be replaced by「とおり」), or to give instructions on what to do.",
+      "note": null,
+      "examples": [
+        {
+          "content": "皆様ご存じのように、試験の内容が変わります。",
+          "transcription": "みなさまごぞんじのように、しけんのないようがかわります。",
+          "mean": "As you all know, the content of the exam will change."
+        },
+        {
+          "content": "ここに書いてあるように、今度の木曜日、授業は午前中だけです。",
+          "transcription": "ここにかいてあるように、こんどのもくようび、じゅぎょうはごぜんちゅうだけです。",
+          "mean": "As written here, this coming Thursday, classes will only be held in the morning."
+        },
+        {
+          "content": "前にお話ししたように、来年から授業料が値上がりします。",
+          "transcription": "まえにおはなししたように、らいねんからじゅぎょうりょうがねあがりします。",
+          "mean": "As I mentioned earlier, tuition fees will increase starting next year."
+        },
+        {
+          "content": "次のように修正してください。",
+          "transcription": "つぎのようにしゅうせいしてください。",
+          "mean": "Please fix it as follows."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vた+ように<br/> Nの+ように"
+    }
+  ],
+  "title": "ように => in order to, so that ~",
+  "_id": "39e22b14f7a34547ba6e7a38a9d4abaa"
+}

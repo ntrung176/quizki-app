@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1015,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"one cannot assume that everything is like that, there may be exceptions.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "文法がいいですが、話すスキルは上手だとばかりは言えない。",
+          "transcription": "ぶんぽうがいいですが、はなすすきるはじょうずだとばかりはいえない。",
+          "mean": "My grammar is good, but I can't say that my speaking skills are good."
+        },
+        {
+          "content": "彼は話すのがうまいけど、やるのはいいとばかりは言えない。",
+          "transcription": "かれははなすのがうまいけど、やるのはいいとばかりはいえない。",
+          "mean": "He's good at talking, but I can't say he's good at doing things."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naだ・Nだ + とばかりはいえない"
+    }
+  ],
+  "title": "…とばかりはいえない => speaking of; when you talk of; when you say ~",
+  "_id": "f7ff14dae05876cac58b4136933c2f8d"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 681,
+  "usages": [
+    {
+      "explain": "✦Comes after a clause, expressing the idea \"when predicting a result as stated in that clause, a contrary result unexpectedly occurs.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は日本に10年も住んでいるから、日本語が上手かと思いきや、話すのは苦手だそうだ。",
+          "transcription": "かれはにっぽんに10ねんもすんでいるから、にほんごがじょうずかとおもいきや、はなすのはにがてだそうだ。",
+          "mean": "He has lived in Japan for 10 years, so I thought he would be good at Japanese, but apparently he is not good at speaking it."
+        },
+        {
+          "content": "高いケーキだったので、すごく美味しいのかと思いきや、たいしたことなかった。",
+          "transcription": "たかいけーきだったので、すごくおいしいのかとおもいきや、たいしたことなかった。",
+          "mean": "It was an expensive cake, so I thought it would be really delicious, but it wasn't that great."
+        },
+        {
+          "content": "これで一件落着かと思いきや、思いがけない反対意見で、この件は次回の会議に持ち越されることになった。",
+          "transcription": "これでいちけんらくちゃくかとおもいきや、おもいがけないはんたいいけんで、このけんはじかいのかいぎにもちこされることになった。",
+          "mean": "Just when I thought the matter was resolved, an unexpected objection was made and the matter was postponed to the next meeting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V-る/ V-た/ V-ない + かと思いきや</div><div>✦N-だ + かと思いきや</div><div>✦A-い + かと思いきや</div><div>✦Na-な + かと思いきや</div>"
+    }
+  ],
+  "title": "～かと思いきや => contrary to expectations; or so we thought, but ~",
+  "_id": "f7ff14dae05876cac58b4136930ec92a"
+}

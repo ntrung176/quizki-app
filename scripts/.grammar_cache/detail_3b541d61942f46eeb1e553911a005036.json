@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5168,
+  "usages": [
+    {
+      "explain": "「まい」is used to express negative speculation, meaning \"probably not\" or \"unlikely\" from the speaker's perspective. This is an old-fashioned and formal way of speaking, often seen in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼には私の気持ちは分かるまい。",
+          "transcription": "かれにはわたしのきもちはわかるまい。",
+          "mean": "He can't understand my feelings."
+        },
+        {
+          "content": "上級者でも、この問題はできまい。",
+          "transcription": "じょうきゅうしゃでも、このもんだいはできまい。",
+          "mean": "Even advanced users can't solve this problem."
+        },
+        {
+          "content": "彼はもう私のことを信用するまい。",
+          "transcription": "かれはもうわたしのことをしんようするまい。",
+          "mean": "He doesn't trust me anymore."
+        },
+        {
+          "content": "叔父には商売の才能はあるまい。",
+          "transcription": "おじにはしょうばいのさいのうはあるまい。",
+          "mean": "My uncle has no talent for business."
+        },
+        {
+          "content": "この値段では、簡単には売れまい。",
+          "transcription": "このねだんでは、かんたんにはうれまい。",
+          "mean": "At this price, it won't sell easily."
+        },
+        {
+          "content": "火星へ旅行できる日も遠くはあるまい。",
+          "transcription": "かせいへりょこうできるひもとおくはあるまい。",
+          "mean": "It won't be long before we can travel to Mars."
+        },
+        {
+          "content": "今晩は交通が激しくあるまい。",
+          "transcription": "こんばんはこうつうがはげしくあるまい。",
+          "mean": "There will be heavy traffic tonight."
+        },
+        {
+          "content": "このサイトは安全ではあるまい。",
+          "transcription": "このサイトはあんぜんではあるまい。",
+          "mean": "This site is not safe."
+        },
+        {
+          "content": "来年までに仕事を見つけるのは不可能ではあるまい。",
+          "transcription": "らいねんまでにしごとをみつけるのはふかのうではあるまい。",
+          "mean": "It will be impossible to find a job by next year."
+        },
+        {
+          "content": "いがみあっている敵同士ではあるまい。",
+          "transcription": "いがみあっているかたきどうしではあるまい。",
+          "mean": "They are not enemies who are fighting each other."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nhóm 1: V (root form)+まい (VD: 行きます ➔ 行くまい)<br/>Nhóm 2: V<s>ます</s>+まい (VD: 食べます ➔ 食べまい)<br/>Nhóm 3: します ➔ すまい / するまい<br/> きます ➔ こまい / くるまい<br/><br/> A<s>い</s>く(は)+あるまい<br/>\n A<s>な</s>では+あるまい<br/>\n Nでは+あるまい"
+    }
+  ],
+  "title": "まい => will not; will probably not; intend not to; must not",
+  "_id": "3b541d61942f46eeb1e553911a005036"
+}

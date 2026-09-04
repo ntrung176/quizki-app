@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2402,
+  "usages": [
+    {
+      "explain": "Placed at the beginning of a sentence to draw a conclusion based on newly acquired information.<br/>それでは is formed by adding the demonstrative pronoun \"それ\" before \"では\", which in most cases can be replaced by \"では\". This is a formal expression; in casual conversation, people use \"それじゃ(あ)\" or \"じゃ(あ)\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は1986年に生まれました。それでは、私より4年年上です。",
+          "transcription": "わたしは1986ねんにうまれました。それでは、わたしより4ねんとしうえです。",
+          "mean": "I was born in 1986. Then you are 4 years older than me."
+        },
+        {
+          "content": "年内に結婚すると決めした。それでは、ご両親は嬉しいですね。",
+          "transcription": "ねんないにけっこんするときめした。それでは、ごりょうしんはうれしいですね。",
+          "mean": "I have decided to get married within the year. Well then, your parents will be happy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それでは～"
+    }
+  ],
+  "title": "それでは => So (Inference)",
+  "_id": "f7ff14dae05876cac58b413693fbe965"
+}

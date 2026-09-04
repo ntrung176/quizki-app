@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 1753,
+  "usages": [
+    {
+      "explain": "Expresses the acknowledgment that something is obvious, natural, and universally accepted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "法令遵守は言うまでもない。",
+          "transcription": "ほうれいじゅんしゅはいうまでもない。",
+          "mean": "Legal compliance goes without saying."
+        },
+        {
+          "content": "勤勉が幸福への秘けつであることは言うまでもない。",
+          "transcription": "きんべんがこうふくへのひけつであることはいうまでもない。",
+          "mean": "Needless to say, diligence is a key to happiness."
+        },
+        {
+          "content": "健康が富より大切であるのは言うまでもない。",
+          "transcription": "けんこうがとみよりたいせつであるのはいうまでもない。",
+          "mean": "It goes without saying that health is more important than wealth."
+        },
+        {
+          "content": "友情が仕事より大切なのは言うまでもない。",
+          "transcription": "ゆうじょうがしごとよりたいせつなのはいうまでもない。",
+          "mean": "It goes without saying that friendship is more important than business."
+        },
+        {
+          "content": "たばこは健康に悪いことは言うまでもない。",
+          "transcription": "たばこはけんこうにわるいことはいうまでもない。",
+          "mean": "It goes without saying that smoking is bad for your health."
+        },
+        {
+          "content": "金で幸福が買えないということは言うまでもない。",
+          "transcription": "きんでこうふくがかえないということはいうまでもない。",
+          "mean": "It goes without saying that money cannot buy happiness."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+はいうまでもない（は言うまでもない）<br/>N-である/Na-である/Na-な/A/V+の/こと+はいうまでもない（は言うまでもない）"
+    }
+  ],
+  "title": "…はいうまでもない => It goes without saying, It is needless to say, Of course, Obviously",
+  "_id": "f7ff14dae05876cac58b413693a17861"
+}

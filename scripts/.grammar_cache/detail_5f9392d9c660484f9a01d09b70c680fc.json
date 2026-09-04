@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5644,
+  "usages": [
+    {
+      "explain": "「と思う」is used to indicate the speaker's judgment, consideration, or subjective opinion about an issue.<br/>\nTo express negation, you can use 'ないと思う' or '～と思わない'. The second way of speaking emphasizes the negation more strongly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あした雨が降ると思います。",
+          "transcription": "あしたあめがふるとおもいます。",
+          "mean": "I think it will rain tomorrow."
+        },
+        {
+          "content": "彼女はもう寝たと思います。",
+          "transcription": "かのじょはもうねたとおもいます。",
+          "mean": "I think she's already asleep."
+        },
+        {
+          "content": "日本は物価が高いと思います。",
+          "transcription": "にほんはぶっかがたかいとおもいます。",
+          "mean": "I think prices are high in Japan."
+        },
+        {
+          "content": "彼はロマンチックな人だと思います。",
+          "transcription": "かれはロマンチックなひとだとおもいます。",
+          "mean": "I think he is a romantic person."
+        },
+        {
+          "content": "彼女はとても親切だと思います。",
+          "transcription": "かのじょはとてもしんせつだとおもいます。",
+          "mean": "I think she is very kind."
+        },
+        {
+          "content": "『あなたは日本についてどう思いますか。』『私は日本の物価が高いと思います。』",
+          "transcription": "『あなたはにほんについてどうおもいますか。』『わたしはにほんのぶっかがたかいとおもいます。』",
+          "mean": "``What do you think about Japan? ``I think Japan's prices are high.'' ”"
+        },
+        {
+          "content": "『日本語のテストはどうですか。』『難しくないと思います。』",
+          "transcription": "『にほんごのテストはどうですか。』『むずかしくないとおもいます。』",
+          "mean": "``How about the Japanese test? ``I don't think it's difficult.'' ”"
+        },
+        {
+          "content": "彼はスポーツが得意だと思いません。",
+          "transcription": "かれはスポーツがとくいだとおもいません。",
+          "mean": "I don't think he's good at sports."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+と思う"
+    }
+  ],
+  "title": "と思う => I think",
+  "_id": "5f9392d9c660484f9a01d09b70c680fc"
+}

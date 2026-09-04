@@ -1,0 +1,71 @@
+{
+  "level": "N5",
+  "mobileId": 5622,
+  "usages": [
+    {
+      "explain": "The particle 「ね」 is added to the end of a sentence to help the speaker:\n1. Express an opinion and expect the listener to agree with that opinion.\n2. Show understanding, agreement, or sympathy with the listener.\n3. Confirm information with the listener.\n4. Express a gentle exclamation or to emphasize one's own opinion.\n\nSometimes, 「ね」 is elongated to 「ねえ」, and the level of emotion it expresses (gentle or strong) depends on the speaker's intonation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『今日は寒いですね。』『そうですね。』",
+          "transcription": "『きょうはさむいですね。』『そうですね。』",
+          "mean": "\"It's cold today, is not it. \"\"I agree. ”"
+        },
+        {
+          "content": "今日の天気はいいですね。",
+          "transcription": "きょうのてんきはいいですね。",
+          "mean": "The weather is nice today."
+        },
+        {
+          "content": "『明日は妻に付き合って1日中ショッピングなんだ。』『それは大変ですね。』",
+          "transcription": "『あしたはつまにつきあっていちにちじゅうショッピングなんだ。』『それはたいへんですね。』",
+          "mean": "``Tomorrow I'm going shopping all day with my wife. \"\"That's too bad. ”"
+        },
+        {
+          "content": "『スマホのパスワードは0801です。』『0801ですね。』",
+          "transcription": "『スマホのパスワードはゼロはちゼロいちです。』『ゼロはちゼロいちですね。』",
+          "mean": "“My smartphone password is 0801. \"It's 0801. ”"
+        },
+        {
+          "content": "君の郷里は青森でしたね。",
+          "transcription": "きみのふるさとはあおもりでしたね。",
+          "mean": "Your hometown was Aomori."
+        },
+        {
+          "content": "綺麗な部屋ですね 。",
+          "transcription": "きれいなへやですね 。",
+          "mean": "It's a beautiful room."
+        },
+        {
+          "content": "彼女は超可愛いですね。",
+          "transcription": "かのじょはちょうかわいいですね。",
+          "mean": "She's super cute."
+        },
+        {
+          "content": "あなたの日本語が上手ですね。",
+          "transcription": "あなたのにほんごがじょうずですね 。",
+          "mean": "Your Japanese is good."
+        },
+        {
+          "content": "また後でね。",
+          "transcription": "またあとでね。",
+          "mean": "see you later."
+        },
+        {
+          "content": "今日も一日、頑張りましょうね 。",
+          "transcription": "きょうもいちにち、がんばりましょうね 。",
+          "mean": "Let's do our best today as well."
+        },
+        {
+          "content": "彼は立派な人だと思いますね。",
+          "transcription": "かれはりっぱなひとだとおもいますね。",
+          "mean": "I think he's a fine person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence+ね"
+    }
+  ],
+  "title": "ね => isn't it? right? eh?",
+  "_id": "54275ba755e243eb85f09bc85a322f7c"
+}

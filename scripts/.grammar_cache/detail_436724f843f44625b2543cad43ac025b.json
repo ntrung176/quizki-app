@@ -1,0 +1,81 @@
+{
+  "level": "N2",
+  "mobileId": 5130,
+  "usages": [
+    {
+      "explain": "「果たして」<br/>\n1. When used in a question form (yes/no question), it emphasizes the doubt or skepticism of the speaker, indicating \"whether it is true or not.\" When used with an interrogative word, it emphasizes the uncertainty about the answer, similar to 「一体」(ittai), indicating \"so, really...\" In questions, 「果たして」is often paired with structures like 「～か」「だろうか」「でしょうか」「かどうか」「かな」「かしら」...<br/>\n\n2. When used in an affirmative statement, it expresses that the result of the situation in the sentence is as expected. \"Indeed...\"<br/>\n\n3. When used with conditional clauses (like 「ば」「としても」...), it helps to express a hypothetical condition, indicating \"if it really is...\" This usage is somewhat old-fashioned, more literary, and not commonly used in everyday conversation.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "果たしてそうだろうか。",
+          "transcription": "はたたしてそうだろうか。",
+          "mean": "Is that really the case?"
+        },
+        {
+          "content": "この程度の補償金で、果たして被害者は納得するだろうか。",
+          "transcription": "このていどのほしょうきんで、はたしてひがいしゃはなっとくするだろうか。",
+          "mean": "Will the victims be satisfied with this level of compensation?"
+        },
+        {
+          "content": "果たして本当に足音が聞こえたのかどうかは分からない。",
+          "transcription": "はたしてほんとうにあしおとがきこえたのかどうかはわからない。",
+          "mean": "I don't know if I actually heard footsteps."
+        },
+        {
+          "content": "この程度の金額で、果たして彼が承知するだろうか。",
+          "transcription": "このていどのきんがくで、はたしてかれがしょうちするだろうか。",
+          "mean": "I wonder if he would accept it for this amount of money."
+        },
+        {
+          "content": "私があの店にいるとき、彼らがそこにやってきたのは果たして偶然だろうか。",
+          "transcription": "わたしがあのみせにいるとき、かれらがそこにやってきたのははたしてぐうぜんだろうか。",
+          "mean": "Is it really a coincidence that they came to the store when I was there?"
+        },
+        {
+          "content": "機械には特に悪いところがないと、果たして何が故障の原因だったのだろうか。",
+          "transcription": "きかいにはとくにわるいところがないと、はたしてなにがこしょうのげんいんだったのだろうか。",
+          "mean": "If there is nothing particularly wrong with the machine, what could have been the cause of the failure?"
+        },
+        {
+          "content": "果たして、誰が犯人なのだろうか。",
+          "transcription": "はたして、だれがはんにんなのだろうか。",
+          "mean": "So who is the culprit?"
+        },
+        {
+          "content": "果たしてどうやって帰るの？",
+          "transcription": "はたしてどうやってかえるの？",
+          "mean": "How will I get home?"
+        },
+        {
+          "content": "果たして、昼過ぎから雨になった。",
+          "transcription": "はたして、ひるすぎからあめになった。",
+          "mean": "As expected, it started raining in the afternoon."
+        },
+        {
+          "content": "道路に沿って歩いていくと、果たして、町に出た。",
+          "transcription": "どうろにそってあるいていくと、はたして、まちにでた。",
+          "mean": "As I walked along the road, I finally arrived at the town."
+        },
+        {
+          "content": "彼は取引先の信頼を失う事をしてしまった。果たして、彼はクビになった。",
+          "transcription": "かれはとりひきさきのしんらいをうしなうことをしてしまった。はたして、かれはクビになった。",
+          "mean": "He has lost the trust of his business partners. As expected, he was fired."
+        },
+        {
+          "content": "果たして然らば真実は君の言う通りだろう。",
+          "transcription": "はたしてしからばしんじつはきみのいうとおりだろう。",
+          "mean": "If so, the truth is probably as you say."
+        },
+        {
+          "content": "もし現代の日本の子供が、果たしてある人々の言ふごとく、本來の童話精神を喪失し、老成人のごとく常識家化しているならば、正にそれは日本文化の虚脱である。",
+          "transcription": "もしげんだいのにほんのこどもが、はたしてあるひとびとのいふごとく、ほんのどうわせいしんをそうしつし、ろうせいじんのごとくじょうしきかかしているならば、まさにそれはにほんぶんかのきょだつである。",
+          "mean": "If modern Japanese children are, as some people say, losing their original spirit of fairy tales and becoming commonsensists like old adults, then this is truly a collapse of Japanese culture."
+        }
+      ],
+      "mean": null,
+      "synopsis": "果たして+Question<br/>果たして+Reported speech"
+    }
+  ],
+  "title": "果たして => as was expected; sure enough; really; actually ~",
+  "_id": "436724f843f44625b2543cad43ac025b"
+}

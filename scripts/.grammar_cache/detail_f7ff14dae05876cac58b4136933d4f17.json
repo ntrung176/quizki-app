@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1023,
+  "usages": [
+    {
+      "explain": "Used to strongly demand from the other party \"If I say ..., then you must ...\". Comes after the imperative form, the て form. <br/>Often used with the repeated form of the same verb. When used with the imperative form, it's often used by men.",
+      "note": null,
+      "examples": [
+        {
+          "content": "食べろったら食べろよ。",
+          "transcription": "たべろったらたべろよ。",
+          "mean": "If you want to eat, eat."
+        },
+        {
+          "content": "立ってったら立ってよ。",
+          "transcription": "たってったらたってよ。",
+          "mean": "If you're standing up, stand up."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ったら"
+    }
+  ],
+  "title": "ったら => speaking of; I told you already; come on (annoyance / dissatisfaction)",
+  "_id": "f7ff14dae05876cac58b4136933d4f17"
+}

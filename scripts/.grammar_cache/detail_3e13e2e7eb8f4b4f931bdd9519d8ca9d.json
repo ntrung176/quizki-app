@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5094,
+  "usages": [
+    {
+      "explain": "「や<ruby><rb>否</rb><rp>(</rp><rt>いな</rt><rp>)</rp></ruby>や」indicates that one action has just occurred, and another action happens almost simultaneously with it. This second action is typically beyond the speaker's expectation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "空が暗くなるや否や、大粒の雨が降り始めた。",
+          "transcription": "そらがくらくなるやいなや、おおつぶのあめがふりはじめた。",
+          "mean": "As soon as the sky turned dark, heavy rain began to fall."
+        },
+        {
+          "content": "先生が教室に入るや否や、学生達はおしゃべりを辞めた。",
+          "transcription": "せんせいがきょうしつにはいるやいなや、がくせいたちはおしゃべりをやめた。",
+          "mean": "As soon as the teacher entered the classroom, the students stopped chatting."
+        },
+        {
+          "content": "火災発生のベルが鳴るや、消防士達は部屋を飛び出した。",
+          "transcription": "かさいはっせいのべるがなるや、しょうぼうしたちはへやをとびだした。",
+          "mean": "As soon as the fire bell rang, firefighters rushed out of the room."
+        },
+        {
+          "content": "デパートが開店するや否や、待っていた客達はバーゲン会場に殺到した。",
+          "transcription": "デパートがかいてんするやいなや、まっていたきゃくたちはバーゲンかいじょうにさっとうした。",
+          "mean": "As soon as the department store opened, the customers who had been waiting rushed into the bargain area."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+や<ruby><rb>否</rb><rp>(</rp><rt>いな</rt><rp>)</rp></ruby>や<br/>V (root form)+や"
+    }
+  ],
+  "title": "や否や =>  as soon as; the moment ~",
+  "_id": "3e13e2e7eb8f4b4f931bdd9519d8ca9d"
+}

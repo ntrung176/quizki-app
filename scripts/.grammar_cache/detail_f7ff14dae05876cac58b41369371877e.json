@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1407,
+  "usages": [
+    {
+      "explain": "Used after the negative form of a verb to indicate that there are occasionally such behaviors or perceptions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "刺身は食べなくもないんですが、あまり好きじゃない。",
+          "transcription": "さしみはたべなくもないんですが、あまりすきじゃない。",
+          "mean": "I don't stop eating sashimi, but I don't really like it."
+        },
+        {
+          "content": "時には学校を辞めることを考えなくもない。",
+          "transcription": "ときにはがっこうをやめることをかんがえなくもない。",
+          "mean": "Sometimes I can't help but think about quitting school."
+        },
+        {
+          "content": "最近彼は寂しいような気がしなくもない。",
+          "transcription": "さいきんかれはさびしいようなきがしなくもない。",
+          "mean": "I can't help but feel like he's been lonely lately."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ない + なくもない"
+    }
+  ],
+  "title": "... なくもない =>  it's not that; I may (double negative)",
+  "_id": "f7ff14dae05876cac58b41369371877e"
+}

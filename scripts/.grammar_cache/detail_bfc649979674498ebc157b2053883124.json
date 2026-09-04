@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5043,
+  "usages": [
+    {
+      "explain": "「からある/からする/からの」goes after nouns indicating distance, weight, size, price, number of people... to emphasize the magnitude of the quantity, indicating \"approximately that size or even more.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "毎日、20キロメートルからある通勤を自転車で走っていた。",
+          "transcription": "まいにち、にじゅっキロメートルからあるつうきんをじてんしゃではしっていた。",
+          "mean": "Every day, I commuted 20 kilometers to work by bicycle."
+        },
+        {
+          "content": "友人は2万円からする靴をいくつも持っている。",
+          "transcription": "ゆうじんはにまんえんからするくつをいくつももっている。",
+          "mean": "My friend has a number of shoes that start at 20,000 yen."
+        },
+        {
+          "content": "このマンションを改装するには1千万円からの資金が必要である。",
+          "transcription": "このマンションをかいそうするにはいっせんまんえんからのしきんがひつようである。",
+          "mean": "To renovate this apartment, we need funds starting from 10 million yen."
+        },
+        {
+          "content": "鈴木さんは5百万円からの借金をかかえているそうだ。",
+          "transcription": "すずきさんはごひゃくまんえんからのしゃっきんをかかえているそうだ。",
+          "mean": "Suzuki is said to be in debt of 5 million yen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (distance, weight, size)+からある<br/> \nN (price)+からする<br/> \nN (number of people, amount of money)+からの"
+    }
+  ],
+  "title": "からある/からする/からの => at least; as much as; as many as ~",
+  "_id": "bfc649979674498ebc157b2053883124"
+}

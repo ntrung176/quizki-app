@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3007,
+  "usages": [
+    {
+      "explain": "「と」is used to connect two nouns together and express the meaning \"and\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "この博物館の休日は月曜日と火曜日です。",
+          "transcription": "このはくぶつかんのきゅうじつはげつようびとかようびです。",
+          "mean": "This museum is closed on Mondays and Tuesdays."
+        },
+        {
+          "content": "私はイチゴとりんごが特に好きです。",
+          "transcription": "わたしはいちごとりんごがとくにすきです。",
+          "mean": "I especially like strawberries and apples."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 + と + N2"
+    }
+  ],
+  "title": "と => And...",
+  "_id": "f2d618ceb0702f781ec83b7d4f4a666c"
+}

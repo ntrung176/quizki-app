@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1628,
+  "usages": [
+    {
+      "explain": "Used to express one's opinion modestly. This way of speaking is often used when the listener might have a different opinion or when presenting something that might be hard for the listener to accept. If you want to be more indirect, use [ように思われる].",
+      "note": null,
+      "examples": [
+        {
+          "content": "ケントくんは内気なので、ウェイターの仕事は向いていないように思う。",
+          "transcription": "けんとくんはうちきなので、うぇいたーのしごとはむいていないようにおもう。",
+          "mean": "Kent is shy, so I don't think he's suited for a job as a waiter."
+        },
+        {
+          "content": "住民の多くが反対していることを考えると、このプロジェクト実施は見合わせた方がいいように思う。",
+          "transcription": "じゅうみんのおおくがはんたいしていることをかんがえると、このぷろじぇくとじっしはみあわせたほうがいいようにおもう。",
+          "mean": "Considering that many residents are against this project, I think it would be better to postpone implementation of this project."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Na + である + ようにおもう\nA/V + ようにおもう"
+    }
+  ],
+  "title": "…ようにおもう => It seems~",
+  "_id": "f7ff14dae05876cac58b41369390e8aa"
+}

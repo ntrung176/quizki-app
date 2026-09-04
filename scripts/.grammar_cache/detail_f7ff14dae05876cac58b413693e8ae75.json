@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 2260,
+  "usages": [
+    {
+      "explain": "Used with negative expressions. It doesn't mean \"a little\", but is used to soften the negation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今ちょっと手が離せないので、十分後に電話をかけ直していただけますか？",
+          "transcription": "いまちょっとてがはなせないので、じゅうぶんごにでんわをかけなおしていただけますか？",
+          "mean": "I'm at a loss right now, so could you please call me back in ten minutes?"
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ちょっと…ない => Honestly, no (softening the tone)",
+  "_id": "f7ff14dae05876cac58b413693e8ae75"
+}

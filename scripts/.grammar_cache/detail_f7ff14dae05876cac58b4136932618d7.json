@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 850,
+  "usages": [
+    {
+      "explain": "✦ This expression means \"the one with superior status is...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "国家の指導者たる者は緊急の際にすばやい判断ができなければならない。",
+          "transcription": "こっかのしどうしゃたるしゃはきんきゅうのさいにすばやいはんだんができなければならない。",
+          "mean": "National leaders must be able to make quick decisions in emergencies."
+        },
+        {
+          "content": "国会議員たる者は身辺潔白でなければならないはずである。",
+          "transcription": "こっかいぎいんたるしゃはしんぺんけっぱくでなければならないはずである。",
+          "mean": "Members of the Diet must be clean."
+        },
+        {
+          "content": "教師たる者は、すべてにおいて生徒の模範とならねばならないとここに書いてある。",
+          "transcription": "きょうしたるしゃは、すべてにおいてせいとのもはんとならねばならないとここにかいてある。",
+          "mean": "It is written here that a teacher must be a role model for his students in all things."
+        },
+        {
+          "content": "百獣の王たるライオンをカメラにおさめたいとサファリに参加した。",
+          "transcription": "ひゃくじゅうのおうたるライオンをカメラにおさめたいとサファリにさんかした。",
+          "mean": "I went on a safari to capture the lion, the king of beasts, on camera."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N1 + たる + N2"
+    }
+  ],
+  "title": "～たる => (those) who are; (that) which is; in the capacity of … should ~",
+  "_id": "f7ff14dae05876cac58b4136932618d7"
+}

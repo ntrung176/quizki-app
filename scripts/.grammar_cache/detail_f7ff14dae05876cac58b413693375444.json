@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 979,
+  "usages": [
+    {
+      "explain": "Used to present contrasting evaluations. Typically, if one's thoughts lead to evaluation X, one might expect evaluation Y, but in reality, one receives a contradictory evaluation Z.",
+      "note": null,
+      "examples": [
+        {
+          "content": "優しいといえば、聞こえばいいが、彼はそのため騙されがちだ。",
+          "transcription": "やさしいといえば、きこえばいいが、かれはそのためだまされがちだ。",
+          "mean": "It's nice to hear that he's kind, but that's why he's easily fooled."
+        },
+        {
+          "content": "毎日学生を叱るといえば、怖い先生だと思われるが、実際は学生に慕われている。",
+          "transcription": "まいにちがくせいをしかるといえば、こわいせんせいだとおもわれるが、じっさいはがくせいにしたわれている。",
+          "mean": "People think that he is a scary teacher if he scolds his students every day, but in reality, he is loved by his students."
+        }
+      ],
+      "mean": null,
+      "synopsis": "といえば…が"
+    }
+  ],
+  "title": "といえば…が => speaking of, or 'if it were the case that... but...",
+  "_id": "f7ff14dae05876cac58b413693375444"
+}

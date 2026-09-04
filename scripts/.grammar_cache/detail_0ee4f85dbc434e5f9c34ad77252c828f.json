@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5133,
+  "usages": [
+    {
+      "explain": "「いきなり」is used to express something sudden or unexpected happening, something that the speaker hadn't thought of before.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いきなり男の人に道を聞かれた。",
+          "transcription": "いきなりおとこのひとにみちをきかれた。",
+          "mean": "Suddenly, a man asked me for directions."
+        },
+        {
+          "content": "いつも厳しい社長はいきなり笑い出した。",
+          "transcription": "いつもきびしいしゃちょうはいきなりわらいだした。",
+          "mean": "The always strict president suddenly burst into laughter."
+        },
+        {
+          "content": "彼女の元カレは、いきなり結婚式に現れた。",
+          "transcription": "かのじょのもとカレは、いきなりけっこんしきにあらわれた。",
+          "mean": "Her ex-boyfriend suddenly showed up at the wedding."
+        },
+        {
+          "content": "彼は彼女の手からいきなりハンドバッグを取った。",
+          "transcription": "かれはかのじょのてからいきなりハンドバッグをとった。",
+          "mean": "He suddenly took the purse from her hand."
+        },
+        {
+          "content": "いきなりあなたにメールを送ってしまい申し訳ありません。",
+          "transcription": "いきなりあなたにメールをおくってしまいもうしわけありません。",
+          "mean": "I'm sorry for sending you an email so suddenly."
+        },
+        {
+          "content": "今日は会社に来るとき、私の前でタクシーがいきなり止まってびっくりした。",
+          "transcription": "きょうはかいしゃにくるとき、わたしのまえでタクシーがいきなりとまってびっくりした。",
+          "mean": "When I came to work today, I was surprised when a taxi suddenly stopped in front of me."
+        },
+        {
+          "content": "彼女は後ろからいきなり彼に抱き付いた。どうしても離れたくないと言っていました。",
+          "transcription": "かのじょはうしろからいきなりかれにだきついた。どうしてもはなれたくないといっていました。",
+          "mean": "She suddenly hugged him from behind. He said he really didn't want to leave."
+        },
+        {
+          "content": "昨日はうちの近くに殺人事件が起こった。ご主人はいきなりナイフで奥さんを切りつけてきた。",
+          "transcription": "きのうはうちのちかくにさつじんじけんがおこった。ごしゅじんはいきなりナイフでおくさんをきりつけてきた。",
+          "mean": "There was a murder near my house yesterday. The husband suddenly cut his wife with a knife."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いきなり+Sentence"
+    }
+  ],
+  "title": "いきなり => abruptly; suddenly; all of a sudden; without warning",
+  "_id": "0ee4f85dbc434e5f9c34ad77252c828f"
+}

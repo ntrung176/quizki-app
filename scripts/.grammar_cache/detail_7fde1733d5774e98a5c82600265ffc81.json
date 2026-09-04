@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5435,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>的</rb><rp>(</rp><rt>てき</rt><rp>)</rp></ruby>」in Japanese is attached to a noun, turning it into an adjective with the な ending (～的な) or an adverb (～的に), indicating that the noun has a certain quality or is related to the noun's content.<br/>\nNote: Not all nouns can be used with 的; only certain nouns such as 基本、健康、論理、精神... can be used with 的.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は基本的になんでも食べます。",
+          "transcription": "わたしはきほんてきになんでもたべます。",
+          "mean": "I basically eat anything."
+        },
+        {
+          "content": "これは政治的な集会だ。",
+          "transcription": "これはせいじてきなしゅうかいだ。",
+          "mean": "This is a political gathering."
+        },
+        {
+          "content": "彼女は金銭的な理由で退学しました。",
+          "transcription": "かのじょはきんせんてきなりゆうでたいがくしました。",
+          "mean": "She dropped out of school for financial reasons."
+        },
+        {
+          "content": "健康的にこういう食べ物は体に良くないよ。",
+          "transcription": "けんこうてきにこういうたべものはからだによくないよ。",
+          "mean": "Health-wise, this type of food is not good for you."
+        },
+        {
+          "content": "その考え方は論理的にダメだと思いますよ。",
+          "transcription": "そのかんがえかたはろんりてきにダメだとおもいますよ。",
+          "mean": "I think that way of thinking is logically flawed."
+        },
+        {
+          "content": "私は仕事を辞めてから精神的にとても楽になった。",
+          "transcription": "わたしはしごとをやめてからせいしんてきにとてもらくになった。",
+          "mean": "I have felt much better mentally since I quit my job."
+        },
+        {
+          "content": "もっと具体的なアイディアを出してください。",
+          "transcription": "もっとぐたいてきなアイディアをだしてください。",
+          "mean": "Please give more specific ideas."
+        },
+        {
+          "content": "その言葉は一般的に会話で使われていないよ。",
+          "transcription": "そのことばはいっぱんてきにかいわで使われていないよ。",
+          "mean": "That word isn't commonly used in conversation."
+        },
+        {
+          "content": "日本は経済的に強力な国家になった。",
+          "transcription": "にっぽんはけいざいてきにきょうりょくなこっかになった。",
+          "mean": "Japan has economically become a powerful nation."
+        },
+        {
+          "content": "彼は感動的に歌った。",
+          "transcription": "かれはかんどうてきにうたった。",
+          "mean": "He sang movingly."
+        },
+        {
+          "content": "鈴木さんの考えはいつでもとても実際的です。",
+          "transcription": "すずきさんのかんがえはいつでもとてもじっさいてきです。",
+          "mean": "Mr. Suzuki's thinking is always very practical."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+<ruby><rb>的</rb><rp>(</rp><rt>てき</rt><rp>)</rp></ruby>"
+    }
+  ],
+  "title": "的 => about (change noun into na-adjective or adverb)",
+  "_id": "7fde1733d5774e98a5c82600265ffc81"
+}

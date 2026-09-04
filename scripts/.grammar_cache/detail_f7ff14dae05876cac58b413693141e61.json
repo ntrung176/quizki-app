@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 722,
+  "usages": [
+    {
+      "explain": "✦ Mostly used for negative evaluations.<br/>✦ Also expressed as からして.<br/>✦ Synonymous with: 【でさえ】【でも】",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生ににしてからが&amp;nbsp;そうだ。弟子にできるはずがない",
+          "transcription": "せんせいににしてからが&amp;nbsp;そうだ。でしにできるはずがない",
+          "mean": "It's been like that ever since I became a teacher. There's no way I could make him a disciple."
+        },
+        {
+          "content": "このわたしにしてからが信じていたのだから、皆がだまされるのも無理はない。",
+          "transcription": "このわたしにしてからがしんじていたのだから、みながだまされるのもむりはない。",
+          "mean": "Since I believed this, it is no wonder that everyone is deceived."
+        },
+        {
+          "content": "夫にしてからが、自分の事を全然分かってくれようともしない。",
+          "transcription": "おっとにしてからが、じぶんのことをぜんぜんわかってくれようともしない。",
+          "mean": "Ever since he became my husband, he doesn't even try to understand me at all."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + にしてからが"
+    }
+  ],
+  "title": "にしてからが => Even...",
+  "_id": "f7ff14dae05876cac58b413693141e61"
+}

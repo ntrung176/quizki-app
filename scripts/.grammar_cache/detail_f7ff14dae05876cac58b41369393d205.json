@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1654,
+  "usages": [
+    {
+      "explain": "It's used to indicate that \"compared to the past, the situation has ended and has now become a completely new and different situation.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "海外旅行は、いまや以前よりも一般的である。",
+          "transcription": "かいがいりょこうは、いまやいぜんよりもいっぱんてきである。",
+          "mean": "Traveling abroad is now more popular."
+        },
+        {
+          "content": "英語はいまや世界中のいたるところで話されている。",
+          "transcription": "えいごはいまやせかいじゅうのいたるところではなされている。",
+          "mean": "English is now spoken everywhere in the world."
+        },
+        {
+          "content": "5年前はこの携帯電話も最新機種だったが、今やこんなのは無用の長物だ。",
+          "transcription": "5ねんまえはこのけいたいでんわもさいしんきしゅだったが、いまやこんなのはむようのちょうぶつだ。",
+          "mean": "Five years ago, this cell phone was the latest model, but now it's useless."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いまや acts as an adverb in a sentence."
+    }
+  ],
+  "title": "いまや => now, these days",
+  "_id": "f7ff14dae05876cac58b41369393d205"
+}

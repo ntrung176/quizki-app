@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5068,
+  "usages": [
+    {
+      "explain": "「に堪えない」<br/>1. When used with a verb, it expresses the idea of being unable to bear or endure the action, indicating that the action is not worth doing. Some common verbs used with this are: 見る (to see), 聞く (to hear), 読む (to read), 鑑賞する (to appreciate), 批判する (to criticize), 正視する (to face). \"Cannot bear...\"/\"Not worth...\"<br/>\n2. When used with a noun expressing emotions, it expresses the idea of an emotion being so strong that it cannot be tolerated or stopped. Some common nouns used with this are: 感激 (gratitude), 感謝 (appreciation), 後悔 (regret), 喜び (joy), 悲しみ (sadness), 同情 (sympathy), 無念 (frustration). \"Extremely...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女のピアノは、あまりに下手で聞くに堪えない。",
+          "transcription": "かのじょのピアノは、あまりにへたできくにたえない。",
+          "mean": "Her piano playing is so bad that it's unbearable to listen to."
+        },
+        {
+          "content": "昨日のドラマは残酷で見るに堪えなかった。",
+          "transcription": "きのうのドラマはざんこくでみるにたえなかった。",
+          "mean": "Yesterday's drama was so cruel that I couldn't bear to watch it."
+        },
+        {
+          "content": "この小説はつまらなくて読むに堪えない。",
+          "transcription": "このしょうせつはつまらなくてよむにたえない。",
+          "mean": "This novel is boring and unbearable to read."
+        },
+        {
+          "content": "あれは鑑賞に堪えない絵だ。",
+          "transcription": "あれはかんしょうにたえないえだ。",
+          "mean": "That is a picture that cannot be admired."
+        },
+        {
+          "content": "5年間、皆さんには本当にお世話になり、感謝の念に堪えません。次の会社でもこの会社で学んだことを活かし頑張って参ります。",
+          "transcription": "ごねんかん、みなさんにはほんとうにおせわになり、かんしゃのねんにたえません。つぎのかいしゃでもこのかいしゃでまなんだことをいかしがんばってまいります。",
+          "mean": "I can't thank you enough for all of your help over the past five years. I will do my best to utilize what I learned at this company in my next company."
+        },
+        {
+          "content": "JLPTにも合格できて、第一志望の学校にも行けて、本当に喜びに堪えません。",
+          "transcription": "ジェーエルピーティーにもごうかくできて、だいいちしぼうのがっこうにもいけて、ほんとうによろこびにたえません。",
+          "mean": "I am truly overjoyed that I was able to pass the JLPT exam and go to my first choice school."
+        },
+        {
+          "content": "勉強不足で受験に失敗した。後悔に堪えない。",
+          "transcription": "しっぱいしゃにすればくつじょくとざんきのおもいにたえないとおもいます。",
+          "mean": "I failed the exam due to lack of study. I can't bear the regret."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. V (root form)+に堪えない<br/>2. N (chỉ cảm xúc)+に堪えない"
+    }
+  ],
+  "title": "に堪えない => not worth doing; can't do; cannot bear doing ~",
+  "_id": "3332306a948f4f9e8495865dac14ec5e"
+}

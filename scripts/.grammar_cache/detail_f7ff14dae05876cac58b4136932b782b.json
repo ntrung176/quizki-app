@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 891,
+  "usages": [
+    {
+      "explain": "✦ Expresses contrasting comparisons that coexist. It simply lists different characteristics.",
+      "note": null,
+      "examples": [
+        {
+          "content": "和式の家具があるかと思えば、洋式の家具もある。",
+          "transcription": "わしきのかぐがあるかとおもえば、ようしきのかぐもある。",
+          "mean": "While there is Japanese-style furniture, there is also Western-style furniture."
+        },
+        {
+          "content": "ひらがなが読めたり書けたりする子がいるかと思えば、ひらがなが読めない子もいる。",
+          "transcription": "ひらがながよめたりかけたりするこがいるかとおもえば、ひらがながよめないこもいる。",
+          "mean": "While there are children who can read and write hiragana, there are also children who cannot read hiragana."
+        },
+        {
+          "content": "葉が全部落ちた木があるかと思えば、まだたくさん残っている木もあった。",
+          "transcription": "はがぜんぶおちたきがあるかとおもえば、まだたくさんのこっているきもあった。",
+          "mean": "Some trees had all their leaves fallen, while others still had a lot left."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vる + かとおもえば…も"
+    }
+  ],
+  "title": "～かとおもえば...も => no sooner than",
+  "_id": "f7ff14dae05876cac58b4136932b782b"
+}

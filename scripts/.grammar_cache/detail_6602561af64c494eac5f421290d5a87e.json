@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5163,
+  "usages": [
+    {
+      "explain": "「ことなく」expresses the idea that an unfavorable event that could have occurred in the mentioned situation did not happen; or an expected event that was not expected to happen did not occur. This is a more formal way of saying 「ないで」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは試合に勝つために、1日も休むことなく練習に励んだ。",
+          "transcription": "かれらはしあいにかつために、いちにちもやすむことなくれんしゅうにはげんだ。",
+          "mean": "In order to win the match, they practiced without missing a single day."
+        },
+        {
+          "content": "山形さんは10年間休むことなく会社に通った。",
+          "transcription": "やまがたさんはじゅうねんかんやすむことなくかいしゃにかよった。",
+          "mean": "Mr. Yamagata went to work without taking a break for 10 years."
+        },
+        {
+          "content": "彼は社長の地位を苦労することなく手に入れた。",
+          "transcription": "かれはしゃちょうのちいをくろうすることなくてにいれた。",
+          "mean": "He achieved the position of president without difficulty."
+        },
+        {
+          "content": "夫は毎年忘れることなく結婚記念日に花を贈ってくれる。",
+          "transcription": "おっとはまいとしわすれることなくけっこんきねんびにはなをおくってくれる。",
+          "mean": "My husband never forgets to send me flowers on our wedding anniversary every year."
+        },
+        {
+          "content": "犯人が捕まることなく10年が経った。",
+          "transcription": "はんにんがつかまることなくじゅうねんがたった。",
+          "mean": "Ten years have passed without the culprit being caught."
+        },
+        {
+          "content": "彼は社長に何も言うことなく会社を辞めた。",
+          "transcription": "かれはしゃちょうになにもいうことなくかいしゃをやめた。",
+          "mean": "He quit the company without telling the president anything."
+        },
+        {
+          "content": "雨は休むことなく降り続いた。",
+          "transcription": "あめはやすむことなくふりつづいた。",
+          "mean": "The rain continued to fall without a break."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ことなく"
+    }
+  ],
+  "title": "ことなく => without doing something even once",
+  "_id": "6602561af64c494eac5f421290d5a87e"
+}

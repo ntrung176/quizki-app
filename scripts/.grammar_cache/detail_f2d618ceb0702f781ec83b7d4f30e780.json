@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2802,
+  "usages": [
+    {
+      "explain": "This pattern is used to express the intention of the speaker. 「V-ようと思います」 has a similar meaning, but the difference is that 「V-ようと思っています」 indicates that the speaker's intention was formed before speaking and is ongoing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "来年末は結婚しようと思っています。",
+          "transcription": "らいねんまつはけっこんしようとおもっています。",
+          "mean": "I'm thinking of getting married at the end of next year."
+        },
+        {
+          "content": "今週末は横浜へ行こうと思っています。",
+          "transcription": "こんしゅうまつはよこはまへいこうとおもっています。",
+          "mean": "I'm thinking of going to Yokohama this weekend."
+        },
+        {
+          "content": "田中さんは外国で働こうと思っています。",
+          "transcription": "たなかさんはがいこくではたらこうとおもっています。",
+          "mean": "Mr. Tanaka is thinking of working abroad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V - ようと思っています"
+    },
+    {
+      "explain": "Note: The volitional form of verbs can be used to express the intentions of a third person.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "と思っている => Plan to do something",
+  "_id": "f2d618ceb0702f781ec83b7d4f30e780"
+}

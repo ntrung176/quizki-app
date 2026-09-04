@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1251,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"not at a normal level.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "合格するまでの彼女の努力は、一通りではなかった。",
+          "transcription": "ごうかくするまでのかのじょのどりょくは、いちとおりではなかった。",
+          "mean": "Her efforts to pass the exam were not one-size-fits-all."
+        },
+        {
+          "content": "オートバイが壊れたので弟 から借りてきたが、慣れないバイクというのは、使いにくいこと一通りではない。",
+          "transcription": "おーとばいがこわれたのでおとうとからかりてきたが、なれないばいくというのは、つかいにくいこといちとおりではない。",
+          "mean": "My motorcycle broke down, so I borrowed it from my younger brother, but being unfamiliar with a motorcycle can be difficult."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ひととおりではない"
+    }
+  ],
+  "title": "ひととおりではない => Not as usual (is okay)",
+  "_id": "f7ff14dae05876cac58b4136935bfd1a"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1240,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"regarding that...\". Equivalent to [Nにかけては] (when it comes to).",
+      "note": null,
+      "examples": [
+        {
+          "content": "力にかけたら、彼に勝る者はいない。",
+          "transcription": "ちからにかけたら、かれにまさるものはいない。",
+          "mean": "When it comes to strength, no one can beat him."
+        },
+        {
+          "content": "学力にかけたら、彼女は学校で最も優れた学生の一つだろう。",
+          "transcription": "がくりょくにかけたら、かのじょはがっこうでもっともすぐれたがくせいのひとつだろう。",
+          "mean": "In terms of academic ability, she is probably one of the best students in the school."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にかけたら"
+    }
+  ],
+  "title": "にかけたら => Particularly in terms of...",
+  "_id": "f7ff14dae05876cac58b4136935a7e56"
+}

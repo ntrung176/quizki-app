@@ -1,0 +1,61 @@
+{
+  "level": "N5",
+  "mobileId": 5582,
+  "usages": [
+    {
+      "explain": "「～で」is placed after a noun, and it means:<br/>1. Where an action, event takes place. \"At/In...\"<br/>2. The reason, cause of an event, action. \"Because/From...\"<br>3. The method, means, material that makes up something. \"By...\"<br/>4. An amount of time, money, quantity... needed to perform an action. \"With...\"</br>",
+      "note": null,
+      "examples": [
+        {
+          "content": "愛知県で働きます。",
+          "transcription": "あいちけんではたらきます。",
+          "mean": "I work in Aichi prefecture."
+        },
+        {
+          "content": "スーパーでパンを買います。",
+          "transcription": "スーパーでパンをかいます。",
+          "mean": "I buy bread at the supermarket."
+        },
+        {
+          "content": "大雨で学校が休みます。",
+          "transcription": "おおあめでがっこうがやすみます。",
+          "mean": "School is closed due to heavy rain."
+        },
+        {
+          "content": "事故で電車が止まっています。",
+          "transcription": "じこででんしゃがとまっています。",
+          "mean": "The train is stopped due to an accident."
+        },
+        {
+          "content": "日本語で手紙を書きました。",
+          "transcription": "にほんごでてがみをかきました。",
+          "mean": "I wrote a letter in Japanese."
+        },
+        {
+          "content": "毎日バスで学校へ行きます。",
+          "transcription": "まいにちバスでがっこうへいきます。",
+          "mean": "I go to school by bus every day."
+        },
+        {
+          "content": "シャドーイングで単語の発音に慣れれば、英語を聞き取るリスニング力の向上につながります。",
+          "transcription": "シャドーイングでたんごのはつおんになれれば、えいごをききとるリスニング力のこうじょうにつながります。",
+          "mean": "Getting used to the pronunciation of words through shadowing will help you improve your English listening skills."
+        },
+        {
+          "content": "この仕事は1時間で終わりますか。",
+          "transcription": "このしごとは1じかんでおわりますか。",
+          "mean": "Can this job be completed in one hour?"
+        },
+        {
+          "content": "100円で何が買えますか。",
+          "transcription": "ひゃくえんでなにがかえますか。",
+          "mean": "What can you buy with 100 yen?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+で"
+    }
+  ],
+  "title": "で => In/For/By/With",
+  "_id": "f35523d175f84a3d82882aec4b94400d"
+}

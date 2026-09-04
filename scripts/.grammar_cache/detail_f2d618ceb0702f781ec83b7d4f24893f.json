@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 2704,
+  "usages": [
+    {
+      "explain": "The character \"向く（むく）\" expresses the meaning \"to be suitable for...\" In addition, when giving further description to a noun, the form 「Nに向いたN」 is often used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この靴は登山には向かない。",
+          "transcription": "このくつはとざんにはむかない。",
+          "mean": "These shoes are not suitable for mountain climbing."
+        },
+        {
+          "content": "彼女はこんな責任のある仕事に向くと思う。",
+          "transcription": "かのじょはこんなせきにんのあるしごとにむくとおもう。",
+          "mean": "I think she is suitable for such a responsible job."
+        },
+        {
+          "content": "山田さんの教授は優秀な科学者だが、教師には向かない。",
+          "transcription": "やまださんのきょうじゅはゆうしゅうなかがくしゃだが、きょうしにはむかない。",
+          "mean": "Mr. Yamada's professor is an excellent scientist, but he is not suited to be a teacher."
+        }
+      ],
+      "mean": null,
+      "synopsis": "向く"
+    }
+  ],
+  "title": "向く => to turn toward; to look (up, down, etc.); to face (e.g. east); to look out on",
+  "_id": "f2d618ceb0702f781ec83b7d4f24893f"
+}

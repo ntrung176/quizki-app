@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1096,
+  "usages": [
+    {
+      "explain": "Used after nouns like 「愛」(love), 「宿命」(fate), 「運命」(destiny), 「真実」(truth), to emphasize the meaning of 「...である」(is indeed...). Often used in novels, essays...",
+      "note": null,
+      "examples": [
+        {
+          "content": "一度聞いただけの曲をかんぺきに演奏できるなんて、彼は天才でなくてなんだろう",
+          "transcription": "いちどきいただけのきょくをかんぺきにえんそうできるなんて、かれはてんさいでなくてなんだろう",
+          "mean": "He must be a genius to be able to play a song perfectly after hearing it once."
+        },
+        {
+          "content": "出会ったときから二人の人生は破滅へ向かって進んでいった。これが宿命でなくて何だろうか。",
+          "transcription": "であったときからににんのじんせいははめつへむかってすすんでいった。これがしゅくめいでなくてなにだろうか。",
+          "mean": "From the moment they met, their lives were on the verge of destruction. If this isn't destiny, then what is?"
+        },
+        {
+          "content": "このようなところに道路を作るのは、税金の無駄遣いでなくてなんだろう。",
+          "transcription": "このようなところにどうろをつくるのは、ぜいきんのむだづかいでなくてなんだろう。",
+          "mean": "I wonder why building a road in a place like this is not a waste of taxpayers' money."
+        },
+        {
+          "content": "自分の命を犠牲にして多くの人を救ったあの男が英雄でなくてなんだろう。",
+          "transcription": "じぶんのいのちをぎせいにしておおくのひとをすくったあのおとこがえいゆうでなくてなんだろう。",
+          "mean": "What if that man who sacrificed his life to save so many people wasn't a hero?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + でなくてなんだろう"
+    }
+  ],
+  "title": "～でなくてなんだろう => must be; is definitely ~",
+  "_id": "f7ff14dae05876cac58b413693476b15"
+}

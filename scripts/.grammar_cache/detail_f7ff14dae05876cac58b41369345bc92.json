@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1083,
+  "usages": [
+    {
+      "explain": "Used when expressing one's thoughts objectively based on evidence. It is often used in serious forms of writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "犯人は煙突から侵入したものと考えられる。",
+          "transcription": "はんにんはえんとつからしんにゅうしたものとかんがえられる。",
+          "mean": "The culprit is believed to have entered through the chimney."
+        },
+        {
+          "content": "最近んの天気の傾向から、気候変動はますます悪化するものと考えられる。",
+          "transcription": "さいきんんのてんきのけいこうから、きこうへんどうはあっかするいっぽうだとかんがえられる。",
+          "mean": "Recent weather trends suggest that climate change will only get worse."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + であるものとかんがえられる\nNa + であるものとかんがえられる\nA + ものとかんがえられる\nV + ものとかんがえられる"
+    }
+  ],
+  "title": "... ものと考えられる => one can think that; it is conceivable that; considered ~",
+  "_id": "f7ff14dae05876cac58b41369345bc92"
+}

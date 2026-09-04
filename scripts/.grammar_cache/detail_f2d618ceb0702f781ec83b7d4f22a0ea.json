@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2692,
+  "usages": [
+    {
+      "explain": "Indicates the speaker's speculation. Only one possibility (the event happening) is quite high, though it's still lower than 「きっと」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "たぶん木村さんも来るでしょう。",
+          "transcription": "たぶんきむらさんもくるでしょう。",
+          "mean": "Maybe Mr. Kimura will come too."
+        },
+        {
+          "content": "彼女はたぶん化粧室にいるでしょう。",
+          "transcription": "かのじょはたぶんけしょうしつにいるでしょう。",
+          "mean": "She's probably in the restroom."
+        },
+        {
+          "content": "<div>私はたぶん彼を私達の市長に選びます。<br></div>",
+          "transcription": "わたしはたぶんかれをわたしたちのしちょうにえらびます。",
+          "mean": "&lt;div&gt;I'll probably choose him to be our mayor. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "たぶん彼女は悪い子ではないと思います。",
+          "transcription": "たぶんかのじょはわるいこではないとおもいます。",
+          "mean": "Maybe she's not a bad girl."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たぶん is an expression used in spoken language, more intimate than 「おそらく」."
+    }
+  ],
+  "title": "たぶん => Maybe...",
+  "_id": "f2d618ceb0702f781ec83b7d4f22a0ea"
+}

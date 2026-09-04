@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 717,
+  "usages": [
+    {
+      "explain": "✦This expression is used to convey the idea of \"multiple factors coming together to create something with a higher degree of ~\".\n<br/>✦\nIt describes the synergy of one factor (or characteristic) with another factor (or different characteristic) to produce a better effect or a higher level of result.",
+      "note": null,
+      "examples": [
+        {
+          "content": "環境破壊と相まって、水や空気の汚染が進んでいる。",
+          "transcription": "かんきょうはかいとあいまって、みずやくうきのおせんがすすんでいる。",
+          "mean": "Coupled with environmental destruction, water and air pollution are increasing."
+        },
+        {
+          "content": "彼の才能は人一倍の努力と相まって、見事に花が咲かせた。",
+          "transcription": "かれのさいのうはひといちばいのどりょくとあいまって、みごとにはながさかせた。",
+          "mean": "His talent, combined with his extraordinary efforts, allowed him to bloom beautifully."
+        },
+        {
+          "content": "高齢化と相まって様々な悪影響が引き起こされている。",
+          "transcription": "こうれいかとあいまってさまざまなあくえいきょうがひきおこされている。",
+          "mean": "Coupled with the aging of the population, various negative effects are being caused."
+        },
+        {
+          "content": "不況と相まって、会社員の給料は伸び悩んでいる。",
+          "transcription": "ふきょうとあいまって、かいしゃいんのきゅうりょうはのびなやんでいる。",
+          "mean": "Coupled with the recession, company employees' salaries are sluggish."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + と相まって\n✦N + が相まって"
+    }
+  ],
+  "title": "～と(が)相まって => combining / together with…",
+  "_id": "f7ff14dae05876cac58b4136931374f9"
+}

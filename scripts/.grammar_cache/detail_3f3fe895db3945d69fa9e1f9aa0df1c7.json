@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5070,
+  "usages": [
+    {
+      "explain": "「に堪える」indicates that something is worth doing, worthwhile, or deserving of being done.<br/>\nFor the negative form to express the opposite, we use「に堪えない」. When modifying a noun, there are two ways to say it:「堪えないNだ」or「堪えるNではない」.<br/>\nSome verbs commonly used with this structure are: 見る (to see), 聞く (to hear), 読む (to read), 鑑賞する (to appreciate), 批判する (to criticize), 正視する (to face, to confront).",
+      "note": null,
+      "examples": [
+        {
+          "content": "この写真はアマチュアカメラマンが撮ったものだが、十分評価に堪える作品だ。",
+          "transcription": "このしゃしんはアマチュアカメラマンがとったものだが、じゅうぶんひょうかにたえるさくひんだ。",
+          "mean": "This photo was taken by an amateur photographer, but it deserves praise."
+        },
+        {
+          "content": "この展示は鑑賞に堪える作品が多いです。",
+          "transcription": "このてんじはかんしょうにたえるさくひんがおおいです。",
+          "mean": "There are many works in this exhibition that are worth viewing."
+        },
+        {
+          "content": "このアニメは子供向けに作らていますが、大人でも見るに堪える内容です。",
+          "transcription": "このアニメはこどもむけにつくらていますが、おとなでもみるにたえるないようです。",
+          "mean": "Although this anime is made for children, it can be enjoyed by adults as well."
+        },
+        {
+          "content": "AIが描いた絵はどんなに綺麗でも、鑑賞に堪えないものだという意見があります。",
+          "transcription": "エーアイがかいたえはどんなにきれいでも、かんしょうにたえないものだといういけんがあります。",
+          "mean": "There is an opinion that no matter how beautiful the pictures drawn by AI are, they are difficult to appreciate."
+        },
+        {
+          "content": "AIが描いた絵はどんなに綺麗でも、鑑賞に堪えるものではないという意見があります。",
+          "transcription": "エーアイがかいたえはどんなにきれいでも、かんしょうにたえるものではないといういけんがあります。",
+          "mean": "There is an opinion that no matter how beautiful the pictures drawn by AI are, they are not worth appreciating."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)/N (action)+に堪える"
+    }
+  ],
+  "title": "に堪える => to deserve, be worthy of, to have value",
+  "_id": "3f3fe895db3945d69fa9e1f9aa0df1c7"
+}

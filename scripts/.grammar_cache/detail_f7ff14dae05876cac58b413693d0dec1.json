@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2094,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"even if the action or event in the preceding clause occurs, the action or event in the following clause will not be affected.\"<br/>This is a colloquial form of 「ても」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなこと、したって無駄だ。",
+          "transcription": "そんなこと、したってむだだ。",
+          "mean": "There's no point in doing that."
+        },
+        {
+          "content": "そんなこと、言ったって、今から戻れないよ。",
+          "transcription": "そんなこと、いったって、いまからもどれないよ。",
+          "mean": "Even if I say that, I can't go back now."
+        },
+        {
+          "content": "ここから呼んだって、聞こえないだろう。",
+          "transcription": "ここからよんだって、きこえないだろう。",
+          "mean": "Even if I call you from here, you won't hear me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-くたって<br/>V-たって"
+    }
+  ],
+  "title": "… たって => even if; even though; no matter how ~",
+  "_id": "f7ff14dae05876cac58b413693d0dec1"
+}

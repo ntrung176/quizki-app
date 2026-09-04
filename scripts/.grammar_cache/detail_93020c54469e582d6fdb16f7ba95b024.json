@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3037,
+  "usages": [
+    {
+      "explain": "✦ Expresses the idea that after something is completed, something good will happen next.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "「このプロジェクトが成功したあかつきには、君は部長だよ」と言われた。",
+          "transcription": "「このプロジェクトがせいこうしたあかつきには、きみはぶちょうだよ」といわれた。",
+          "mean": "I was told, ``Once this project is successful, you will be the manager.''"
+        },
+        {
+          "content": "「私が当選のあかつきには、この村にも新幹線の駅ができます」と候補者は叫んだ。",
+          "transcription": "「わたしがとうせんのあかつきには、このむらにもしんかんせんのえきができます」とこうほしゃはさけんだ。",
+          "mean": "``If I win the election, a Shinkansen station will be built in this village,'' the candidate shouted."
+        },
+        {
+          "content": "宝くじが当たったあかつきには、みんなをハワイに連れて行くね。",
+          "transcription": "たからくじがあたったあかつきには、みんなをハワイにつれていくね。",
+          "mean": "The day I win the lottery, I'll take everyone to Hawaii."
+        },
+        {
+          "content": "一軒家を建てたあかつきには、庭に桜を植えたい。",
+          "transcription": "いっけんいえをたてたあかつきには、にわにさくらをうえたい。",
+          "mean": "After building a house, I want to plant cherry blossoms in the garden."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vた するN＋の ＋ あかつきには"
+    }
+  ],
+  "title": "～あかつきには      => After A, good thing/result B will happen/occur",
+  "_id": "93020c54469e582d6fdb16f7ba95b024"
+}

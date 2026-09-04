@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2651,
+  "usages": [
+    {
+      "explain": "Describes the state of something at the time of speaking. When describing a state that occurred in the past, we use 「V-ていた」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いすが壊れている。",
+          "transcription": "いすがこわれている。",
+          "mean": "The chair is broken."
+        },
+        {
+          "content": "袋が破れている。",
+          "transcription": "ふくろがやぶれている。",
+          "mean": "The bag is torn."
+        },
+        {
+          "content": "今朝道が空いていた。",
+          "transcription": "けさみちがすいていた。",
+          "mean": "The road was empty this morning."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N が V-ている"
+    }
+  ],
+  "title": "ている => ongoing action or current state",
+  "_id": "f2d618ceb0702f781ec83b7d4f1d21ce"
+}

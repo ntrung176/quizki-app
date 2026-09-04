@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 937,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"still in a state of not...\". It is used when someone consciously prolongs the state of not doing something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "報告書は書いたが、提出しないである。",
+          "transcription": "ほうこくしょはかいたが、ていしゅつしないである。",
+          "mean": "I have written a report, but have not submitted it."
+        },
+        {
+          "content": "この秘密はまだ誰にも明かさないである。",
+          "transcription": "このひみつはまだだれにもあかさないである。",
+          "mean": "This secret has not been revealed to anyone yet."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ないで + ある"
+    }
+  ],
+  "title": "ないである => Not yet...",
+  "_id": "f7ff14dae05876cac58b41369331f6ca"
+}

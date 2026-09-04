@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1385,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"there are many possibilities, but regardless of which one is chosen...\". <br/><br/>This is a formal way of saying 「いずれにしても」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いずれにしろ、スケジュールは変更できない。",
+          "transcription": "いずれにしろ、すけじゅーるはへんこうできない。",
+          "mean": "In any case, the schedule cannot be changed."
+        },
+        {
+          "content": "いずれにしろ、それは君にとって、いい経験となるでしょう。",
+          "transcription": "いずれにしろ、それはきみにとって、いいけいけんとなるでしょう。",
+          "mean": "Either way, it will be a good experience for you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いずれにしろ～"
+    }
+  ],
+  "title": "いずれにしろ => anyhow; anyway; either ...",
+  "_id": "f7ff14dae05876cac58b4136936ecb97"
+}

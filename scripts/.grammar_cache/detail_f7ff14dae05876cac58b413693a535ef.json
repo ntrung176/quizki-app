@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1776,
+  "usages": [
+    {
+      "explain": "Means \"actually\". Used when wanting to clarify the truth of an issue. Used when presenting something that may surprise the listener. Used to express the meaning \"although it may not be apparent on the surface, in reality...\". It's a straightforward way of speaking, after hearing the other person say something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "実は、妊娠しています。",
+          "transcription": "じつは、にんしんしています。",
+          "mean": "Actually, I'm pregnant."
+        },
+        {
+          "content": "聞いてください、私は実はそこまで怒っていません。",
+          "transcription": "きいてください、わたしはじつはそこまでおこっていません。",
+          "mean": "Listen, I'm actually not that angry."
+        },
+        {
+          "content": "彼は若く見えるが実は 40歳を超えている。",
+          "transcription": "かれはわかくみえるがじつは40さいをこえている。",
+          "mean": "Although he looks young, he is actually over 40 years old."
+        },
+        {
+          "content": "うわべは正直そうだが, 実は悪賢い男なのだ。",
+          "transcription": "うわべはしょうじきそうだが,じつはわるがしこいおとこなのだ。",
+          "mean": "Although he appears to be honest, he is actually a cunning man."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Means 「本当は」."
+    }
+  ],
+  "title": "じつは => as a matter of fact; by the way; to tell you the truth; to be honest; frankly",
+  "_id": "f7ff14dae05876cac58b413693a535ef"
+}

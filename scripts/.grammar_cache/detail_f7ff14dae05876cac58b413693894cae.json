@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1566,
+  "usages": [
+    {
+      "explain": "という点 is used to highlight a point among the characteristics of something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女のデザインは芸術性という点で高く評価された。",
+          "transcription": "かのじょのでざいんはげいじゅつせいというてんでたかくひょうかされた。",
+          "mean": "Her designs were highly praised for their artistry."
+        },
+        {
+          "content": "この仕事は給料が高いが、大変だという点が気になる。",
+          "transcription": "このしごとはきゅうりょうがたかいが、たいへんだというてんがきになる。",
+          "mean": "This job pays well, but I am concerned about the fact that it is difficult."
+        },
+        {
+          "content": "彼はユーモアがあるという点で、女にモテる。",
+          "transcription": "かれはゆーもあがあるというてんで、おんなにもてる。",
+          "mean": "He is popular with women because he has a sense of humor."
+        },
+        {
+          "content": "このキャンペーンはお金がたくさんかかるという点で問題がある。",
+          "transcription": "このきゃんぺーんはおかねがたくさんかかるというてんでもんだいがある。",
+          "mean": "The problem with this campaign is that it costs a lot of money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naだ・N + というてん"
+    }
+  ],
+  "title": "というてん => in terms of; with respect to; from the perspective of",
+  "_id": "f7ff14dae05876cac58b413693894cae"
+}

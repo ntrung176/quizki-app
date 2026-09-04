@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1946,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of performing an action once more that has been done previously. Often used when the previous action did not yield the desired result, so it is done again to correct it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この小論は書き直したほうがいい。",
+          "transcription": "このしょうろんはかきなおしたほうがいい。",
+          "mean": "You should rewrite this essay."
+        },
+        {
+          "content": "その提案はもう一度見直してください。",
+          "transcription": "そのていあんはもういちどみなおしてください。",
+          "mean": "Please reconsider that suggestion."
+        },
+        {
+          "content": "彼はもう一台車を買うことを考え直している。",
+          "transcription": "かれはもういちだいしゃをかうことをかんがえなおしている。",
+          "mean": "He is reconsidering buying another car."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます + なおす"
+    }
+  ],
+  "title": "なおす => to redo",
+  "_id": "f7ff14dae05876cac58b413693bc7436"
+}

@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 5583,
+  "usages": [
+    {
+      "explain": "「でも」is used to give an example or representative case from a group of similar choices that the speaker wants to suggest or propose to the listener. It is also used to cleverly propose or suggest by giving the appropriate example.",
+      "note": null,
+      "examples": [
+        {
+          "content": "寒いから、暖かいものでも飲みませんか。",
+          "transcription": "さむいから、あたたかいものでものみませんか。",
+          "mean": "It's cold, so why don't you have something warm to drink?"
+        },
+        {
+          "content": "電車を待っている間にこの雑誌でも読んでください。",
+          "transcription": "でんしゃをまっているあいだにこのざっしでもよんでください。",
+          "mean": "Please read this magazine while waiting for the train."
+        },
+        {
+          "content": "仕事が終わりました。ちょっと酒屋でも行きませんか。",
+          "transcription": "しごとがおわりました。ちょっとさかやでもいきませんか。",
+          "mean": "Work is finished. Would you like to go to a liquor store?"
+        },
+        {
+          "content": "映画でも見に行こうよ。",
+          "transcription": "えいがでもみにいこうよ。",
+          "mean": "Let's go see a movie."
+        },
+        {
+          "content": "春祭りに行きたいな。ナナちゃんたちでも誘おうかな。",
+          "transcription": "はるまつりにいきたいな。ナナちゃんたちでもさそおうかな。",
+          "mean": "I want to go to the spring festival. Maybe I should invite Nana and the others."
+        },
+        {
+          "content": "今日は暑いから、ざるそうめんでも食べたらいいですか。",
+          "transcription": "きょうはあついから、ざるそうめんでもたべたらいいですか。",
+          "mean": "It's hot today, so can I have some zaru somen?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+でも+V"
+    }
+  ],
+  "title": "でも => or something; how about~",
+  "_id": "b17b4bf7bc704e1f9c4d5c54874aef19"
+}

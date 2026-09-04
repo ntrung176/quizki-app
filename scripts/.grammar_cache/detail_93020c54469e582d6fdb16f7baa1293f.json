@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3153,
+  "usages": [
+    {
+      "explain": "<div>✦ Used with common expressions to mean it's unnecessary to say or not saying it would also be understood.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "その発言は言わずもがなだった。",
+          "transcription": "そのはつげんはいわずもがなだった。",
+          "mean": "That statement went without saying."
+        },
+        {
+          "content": "言わずもがなのことを言ってしまった。",
+          "transcription": "いわずもがなのことをいってしまった。",
+          "mean": "I should not have said that."
+        },
+        {
+          "content": "子供は言わずもがな、大人までもこの新しいゲームに夢中になっているそうだ。",
+          "transcription": "こどもはいわずもがな、おとなまでもこのあたらしいゲームにむちゅうになっているそうだ。",
+          "mean": "Not only children, but even adults seem to be hooked on this new game."
+        }
+      ],
+      "mean": "need not to say",
+      "synopsis": "<div>✦N ＋ はいわずもがなだ、まで(も)～</div>"
+    }
+  ],
+  "title": "～はいわずもがなだ      => need not to say",
+  "_id": "93020c54469e582d6fdb16f7baa1293f"
+}

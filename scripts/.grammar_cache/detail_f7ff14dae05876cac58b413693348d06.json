@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 959,
+  "usages": [
+    {
+      "explain": "Used to urge or persuade others to do something. This is a conversational expression used in familiar settings.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さあ、やろうぜ。",
+          "transcription": "さあ、やろうぜ。",
+          "mean": "Come on, let's do it."
+        },
+        {
+          "content": "パーティーを始めようぜ。",
+          "transcription": "パーティーをはじめようぜ。",
+          "mean": "Let's start the party."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ぜ"
+    }
+  ],
+  "title": "...ぜ => ending particle; adds force or indicates command",
+  "_id": "f7ff14dae05876cac58b413693348d06"
+}

@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5257,
+  "usages": [
+    {
+      "explain": "「少なくとも」is used to express the speaker's assessment or desire that even at the minimum level, it should be at least that way.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は少なくとも60歳だ。",
+          "transcription": "かのじょはすくなくともろくじゅっさいだ。",
+          "mean": "She is at least 60 years old."
+        },
+        {
+          "content": "彼は少なくとも1日に10時間働いた。",
+          "transcription": "かれはすくなくともいちにちにじゅうじかんはたらいた。",
+          "mean": "He worked at least 10 hours a day."
+        },
+        {
+          "content": "あなたは少なくとも10時には寝るべきだ。",
+          "transcription": "あなたはすくなくともじゅうじにはねるべきだ。",
+          "mean": "You should go to bed at least 10 o'clock."
+        },
+        {
+          "content": "少なくとも週に1度は自分の部屋を掃除しなさい。",
+          "transcription": "すくなくともしゅうにいちどはじぶんのへやをそうじしなさい。",
+          "mean": "Clean your room at least once a week."
+        },
+        {
+          "content": "人数が足りませんね。少なくともあと3人は必要です。",
+          "transcription": "にんずうがたりませんね。すくなくともあとさんにんはひつようです。",
+          "mean": "There aren't enough people. We need at least three more people."
+        },
+        {
+          "content": "その肉は少なくとも1時間は火にかける必要がある。",
+          "transcription": "そのにくはすくなくともいちじかんはひにかけるひつようがある。",
+          "mean": "The meat needs to be cooked for at least an hour."
+        },
+        {
+          "content": "海外旅行に行くなら、現地の言葉のうち、少なくとも挨拶の表現ぐらいは覚えておいた方がいい。",
+          "transcription": "かいがいりょこうにいくなら、げんちのことばのうち、すくなくともあいさつのひょうげんぐらいはおぼえておいたほうがいい。",
+          "mean": "If you're going on a trip abroad, it's a good idea to memorize at least some of the local words and expressions for greetings."
+        },
+        {
+          "content": "今一人暮らしをしていますが、毎月の生活費のうち、少なくとも5万円は食費で消えますね。外食が多いですから。",
+          "transcription": "いまひとりぐらしをしていますが、まいつきのせいかつひのうち、すくなくともごまんえんはしょくひできえますね。がいしょくがおおいですから。",
+          "mean": "I currently live alone, and out of my monthly living expenses, at least 50,000 yen goes toward food. Because I eat out a lot."
+        },
+        {
+          "content": "佐藤さんは両親に少なくとも1ヶ月に1度手紙を書く。",
+          "transcription": "さとうさんはりょうしんにすくなくともいっかげつにいちどてがみをかく。",
+          "mean": "Mr. Sato writes a letter to his parents at least once a month."
+        }
+      ],
+      "mean": null,
+      "synopsis": "少なくとも+Sentence"
+    }
+  ],
+  "title": "少なくとも => at least ~",
+  "_id": "64172ff82e854ee8a002101529d7c068"
+}

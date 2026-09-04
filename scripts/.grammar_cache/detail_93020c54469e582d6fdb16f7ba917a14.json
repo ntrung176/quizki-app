@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 3130,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate using an object/event as a reason to take the next action. \n✦ Often used as a justification for an action that may not be favorable.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "息子の入学式にかこつけて、ちょっと高かったけど、自分の新しいスーツを買ってきた。",
+          "transcription": "むすこのにゅうがくしきにかこつけて、ちょっとたかかったけど、じぶんのあたらしいすーつをかってきた。",
+          "mean": "I bought myself a new suit for my son's entrance ceremony, although it was a little expensive."
+        },
+        {
+          "content": "バレンタインデーにかこつけて、妹はチョコレートをたくさん買ってきた。",
+          "transcription": "ばれんたいんでーにかこつけて、いもうとはちょこれーとをたくさんかってきた。",
+          "mean": "To celebrate Valentine's Day, my sister bought a lot of chocolates."
+        },
+        {
+          "content": "僕の彼女は、寒さにかこつけて、ポケットに手を入れてくる。",
+          "transcription": "ぼくのかのじょは、さむさにかこつけて、ぽけっとにてをいれてくる。",
+          "mean": "My girlfriend puts her hands in her pockets to hide from the cold."
+        },
+        {
+          "content": "彼は仕事の話にかこつけて、女の子をデートに誘っているらしい。",
+          "transcription": "かれはしごとのはなしにかこつけて、おんなのこをでーとにさそっているらしい。",
+          "mean": "He seems to be asking girls out on dates under the pretense of talking about work."
+        },
+        {
+          "content": "政府はテロが多発したのにかこつけて、軍事力を強化した。",
+          "transcription": "せいふはテロがたはつしたのにかこつけて、ぐんじりょくをきょうかした。",
+          "mean": "The government took advantage of the frequent terrorist attacks and strengthened its military."
+        },
+        {
+          "content": "妹は仕事が忙しいのにかこつけて、掃除をしない。",
+          "transcription": "いもうとはしごとがいそがしいのにかこつけて、そうじをしない。",
+          "mean": "Even though my sister is busy with work, she tries to hide it and doesn't clean."
+        },
+        {
+          "content": "中学生の息子は受験勉強にかこつけて、深夜まで寝ないで何かしているようだ。",
+          "transcription": "ちゅうがくせいのむすこはじゅけんべんきょうにかこつけて、しんやまでねないでなにかしているようだ。",
+          "mean": "My son, who is in junior high school, seems to be doing something without going to sleep until late at night, under the guise of studying for entrance exams."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N ＋ にかこつけて"
+    }
+  ],
+  "title": "～にかこつけて      => to use as a pretext; to use as an excuse",
+  "_id": "93020c54469e582d6fdb16f7ba917a14"
+}

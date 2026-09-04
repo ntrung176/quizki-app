@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 634,
+  "usages": [
+    {
+      "explain": "✦The meaning is \"to a degree so high that it cannot be compared, cannot be equated\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "無理をしなければ運動をしてもさしつかえありません。",
+          "transcription": "むりをしなければうんどうをしてもさしつかえありません。",
+          "mean": "It's okay to exercise as long as you don't push yourself too hard."
+        },
+        {
+          "content": "ひとりかふたりのお客さまなら、人数を変更なさってもさしつかえありません。",
+          "transcription": "ひとりかふたりのおきゃくさまなら、にんずうをへんこうなさってもさしつかえありません。",
+          "mean": "If you have one or two customers, you may change the number of guests."
+        },
+        {
+          "content": "この書類ははんこがなくてもさしつかえない。",
+          "transcription": "このしょるいははんこがなくてもさしつかえない。",
+          "mean": "This document can be submitted without a stamp."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V-て + も差し支えない</div><div>✦N+ でも差し支えない</div><div>✦いadj（－い） + くても差し支えない</div><div>✦なadj + でも差し支えない</div>"
+    }
+  ],
+  "title": "～てもさしつかえない => can ~; it’s okay if ~ (indicates permission or compromise)",
+  "_id": "f7ff14dae05876cac58b41369308b02c"
+}

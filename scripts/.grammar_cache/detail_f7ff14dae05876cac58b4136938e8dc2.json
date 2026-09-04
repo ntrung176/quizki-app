@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1606,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"the degree of the noun before ほど is the highest, nothing can compare\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "漢字のテストほど嫌なものはない。",
+          "transcription": "かんじのてすとほどいやなものはない。",
+          "mean": "There is nothing more unpleasant than a kanji test."
+        },
+        {
+          "content": "ロンドンほど物価の高い都市はない。",
+          "transcription": "ろんどんほどぶっかのたかいとしはない。",
+          "mean": "There is no city more expensive than London."
+        },
+        {
+          "content": "これほど面白い本はありません。",
+          "transcription": "これほどおもしろいほんはありません。",
+          "mean": "There is no more interesting book than this."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ほど～はない"
+    }
+  ],
+  "title": "ほど… はない => is not as… as",
+  "_id": "f7ff14dae05876cac58b4136938e8dc2"
+}

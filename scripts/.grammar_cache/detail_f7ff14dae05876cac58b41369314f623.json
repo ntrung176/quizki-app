@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 729,
+  "usages": [
+    {
+      "explain": "It means \"in the middle is something\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "となりの人と壁ごしにあいさつした。",
+          "transcription": "となりのひととかべごしにあいさつした。",
+          "mean": "I said hello to the person next to me through the wall."
+        },
+        {
+          "content": "そのふるい映画には恋人どうしがガラスごしにキスをするシーンがあった。",
+          "transcription": "そのふるいえいがにはこいびとどうしがガラスごしにキスをするシーンがあった。",
+          "mean": "There was a scene in the movie where lovers kiss through glass."
+        },
+        {
+          "content": "悪感しに見える無数の星を見るのが好きだ。",
+          "transcription": "あっかんしにみえるむすうのほしをみるのがすきだ。",
+          "mean": "I like looking at the countless stars that look evil."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ごし"
+    }
+  ],
+  "title": "～ ごし => through (space)",
+  "_id": "f7ff14dae05876cac58b41369314f623"
+}

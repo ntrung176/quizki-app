@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5463,
+  "usages": [
+    {
+      "explain": "「よりも」is used to compare two things and emphasizes that the thing in the second clause is more prominent than the thing in the first clause. This is a stronger form of emphasis than 「より」 and can be used like 「というより」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "兄は私よりも大きい。",
+          "transcription": "あにはわたしよりもおおきい。",
+          "mean": "My brother is bigger than me."
+        },
+        {
+          "content": "質は量よりも大事だ。",
+          "transcription": "しつはりょうよりもだいじだ。",
+          "mean": "Quality is more important than quantity."
+        },
+        {
+          "content": "私は親よりも早く寝ます。",
+          "transcription": "わたしはおやよりもはやくねます。",
+          "mean": "I go to bed earlier than my parents."
+        },
+        {
+          "content": "これまでよりも頑張ります。",
+          "transcription": "これまでよりもがんばります。",
+          "mean": "I will try harder than ever before."
+        },
+        {
+          "content": "私は海よりも山のほうがいい。",
+          "transcription": "わたしはうみよりもやまのほうがいい。",
+          "mean": "I prefer mountains to the sea."
+        },
+        {
+          "content": "誰よりも君のことを愛している。",
+          "transcription": "だれよりもきみのことをあいしている。",
+          "mean": "I love you more than anyone else."
+        },
+        {
+          "content": "実際の年齢よりも若く見えます。",
+          "transcription": "じっさいのねんれいよりもわかくみえます。",
+          "mean": "Look younger than your actual age."
+        },
+        {
+          "content": "友情は、他の何よりも大切だ。",
+          "transcription": "ゆうじょうは、たのなによりもたいせつだ。",
+          "mean": "Friendship is more precious than anything else."
+        },
+        {
+          "content": "火を見るよりも明らか。",
+          "transcription": "ひをみるよりもあきらか。",
+          "mean": "It's clearer than watching the fire."
+        },
+        {
+          "content": "受けるよりも、与えるほうが幸いである。",
+          "transcription": "うけるよりも、あたえるほうがさいわいである。",
+          "mean": "It is more blessed to give than to receive."
+        },
+        {
+          "content": "募金活動に協力してくれる人は思っていたよりも少ない。",
+          "transcription": "ぼきんかつどうにきょうりょくしてくれるひとはおもっていたよりもすくない。",
+          "mean": "There are fewer people than I expected to help with fundraising activities."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+よりも<br/> N+よりも"
+    }
+  ],
+  "title": "よりも => in comparison to; rather than; more than ~",
+  "_id": "a2de4fc646e44b7fa8af24515a3e5226"
+}

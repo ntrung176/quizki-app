@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1567,
+  "usages": [
+    {
+      "explain": "It means: there is nothing to complain about, exactly as expected by the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この仕事にとって不足はない。",
+          "transcription": "このしごとにとってふそくはない。",
+          "mean": "There is no shortage for this job."
+        },
+        {
+          "content": "給料に不足はないが、勤務の条件はまだ問題がたくさんある。",
+          "transcription": "きゅうりょうにふそくはないが、きんむのじょうけんはまだもんだいがたくさんある。",
+          "mean": "Although there is no shortage of salary, there are still many problems with working conditions."
+        },
+        {
+          "content": "彼は首相として不足のない候補者だ。",
+          "transcription": "かれはしゅしょうとしてふそくのないこうほしゃだ。",
+          "mean": "He is a perfect candidate for the position of Prime Minister."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ふそくはない"
+    }
+  ],
+  "title": "ふそくはない => nothing to complain about, just as expected",
+  "_id": "f7ff14dae05876cac58b413693896c1f"
+}

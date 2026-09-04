@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3198,
+  "usages": [
+    {
+      "explain": "<div>✦ Expresses the meaning with the purpose of intending to do something. Shows a firm statement.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "選手達は金メダルを取らんがために、寝る時間も惜しんで練習に励む。",
+          "transcription": "せんしゅたちはきんメダルをとらんがために、ねるじかんもおしんでれんしゅうにはげむ。",
+          "mean": "In order to win the gold medal, the athletes practice hard, sparing no time for sleep."
+        },
+        {
+          "content": "最近は一つでも多くの製品を売らんがための宣伝ばかりだ。",
+          "transcription": "さいきんはひとつでもおおくのせいひんをうらんがためのせんでんばかりだ。",
+          "mean": "These days, there are only advertisements to sell as many products as possible."
+        },
+        {
+          "content": "母は幼い３人の子供を抱えて、生きんがために夜遅くまで働いた。",
+          "transcription": "はははおさない３にんのこどもをかかえて、いきんがためによるおそくまではたらいた。",
+          "mean": "My mother worked late into the night to survive with three young children."
+        }
+      ],
+      "mean": "in order to ~",
+      "synopsis": "<div>✦Vない ＋ んがため<br/></div>"
+    }
+  ],
+  "title": "～んがため（に）／～んがための      => in order to ~",
+  "_id": "93020c54469e582d6fdb16f7baa63601"
+}

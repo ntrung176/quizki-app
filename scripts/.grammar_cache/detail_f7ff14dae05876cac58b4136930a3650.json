@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 645,
+  "usages": [
+    {
+      "explain": "✦Expresses the meaning \"the reason for doing something is because...\". Used to present a reason in situations where daring to do something difficult.<br/>✦Similar to 「…するのは…だからだ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "息子は窃盗、万引きで何度つかまったことか。それでも見捨てないのは子供可愛さゆえである。",
+          "transcription": "むすこはせっとう、まんびきでなんどつかまったことか。それでもみすてないのはこどもかわいさゆえである。",
+          "mean": "How many times has my son been arrested for theft and shoplifting? Even so, the reason why he does not abandon her is because of his cuteness as a child."
+        },
+        {
+          "content": "冬山登山は確かに死と隣り合わせだ。だがそれでも行くのは冬山の魅力ゆえである。",
+          "transcription": "ふゆやまとざんはたしかにしととなりあわせだ。だがそれでもいくのはふゆやまのみりょくゆえである。",
+          "mean": "Winter mountain climbing is certainly a close encounter with death. However, I still go there because of the charm of winter mountains."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦ のは N + ゆえである"
+    }
+  ],
+  "title": "～のは...ゆえである => dare to do this in the current difficult situation because …",
+  "_id": "f7ff14dae05876cac58b4136930a3650"
+}

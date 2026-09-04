@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5260,
+  "usages": [
+    {
+      "explain": "「すると」is used to:<br/>\n1. Describe that as soon as one thing finishes, another thing happens as a consequence.<br/>\n2. Express the speaker's judgment or conclusion based on previous information.",
+      "note": null,
+      "examples": [
+        {
+          "content": "薬を塗った。すると、痛みが治まった。",
+          "transcription": "くすりをぬった。すると、いたみがおさまった。",
+          "mean": "I applied medicine. Then the pain subsided."
+        },
+        {
+          "content": "窓を開けた。すると、蛾が入ってきた。",
+          "transcription": "まどをあけた。すると、ががはいってきた。",
+          "mean": "I opened the window. Then a moth came in."
+        },
+        {
+          "content": "ラジオをつけた。すると、懐かしい曲が流れてきた。",
+          "transcription": "ラジオをつけた。すると、なつかしいきょくがながれてきた。",
+          "mean": "I turned on the radio. Then, a nostalgic song started playing."
+        },
+        {
+          "content": "『私は外出していました。』『すると、家には誰もいなかったんですね。』",
+          "transcription": "『わたしはがいしゅつしていました。』『すると、いえにはだれもいなかったんですね。』",
+          "mean": "“I was out. ``Then, no one was home.'' ”"
+        },
+        {
+          "content": "『息子は今13歳です。』『すると、中学生ですね？』",
+          "transcription": "『むすこはいまじゅうさんさいです。』『すると、ちゅうがくせいですね？』",
+          "mean": "``My son is 13 years old now. ” “So, you’re a junior high school student, right?” ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。すると、B"
+    }
+  ],
+  "title": "すると => in the case of~; assuming~; if A then B (conditional)",
+  "_id": "ec1604c637d4436c9d5c4334db81099f"
+}

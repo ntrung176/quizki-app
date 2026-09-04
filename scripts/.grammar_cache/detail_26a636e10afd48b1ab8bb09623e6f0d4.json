@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5565,
+  "usages": [
+    {
+      "explain": "Certainly, here's the translation with the use of 「」:\n\n「ところだ」is used to emphasize the stage of an action in relation to the present moment. Specifically:<br/>\n「V (dictionary form) ところだ」indicates that an action is about to begin. It is often used with これから (korekara), ちょうど (chōdo), 今から (ima kara)... \"About to...\"<br/> \n「Vているところだ」indicates that an action is currently in progress. It is often used with 今 (ima)... \"Currently...\"<br/> \n「Vたところだ」indicates that an action has just been completed. It is often used with たった今 (tatta ima)... \"Just finished...\"<br/>\n「Vていたところだ」indicates that an action had been ongoing in the past and has just finished. The completion of the action is often due to a recent development. \"Just finished...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "『会議はもう始まりましたか。』『いいえ、今から始まるところです。』",
+          "transcription": "『かいぎはもうはじまりましたか。』『いいえ、いまからはじまるところです。』",
+          "mean": "“Has the meeting started yet? ``No, it's about to start now.'' ”"
+        },
+        {
+          "content": "『昼ごはんはもう食べましたか。』『いいえ、これから食べるところです。』",
+          "transcription": "『ひるごはんはもうたべましたか。』『いいえ、これからたべるところです。』",
+          "mean": "``Have you eaten lunch yet? ``No, I'm about to eat.'' ”"
+        },
+        {
+          "content": "これから食事に行くところですが、一緒に行きましょうか。",
+          "transcription": "これからしょくじにいくところですが、いっしょにいきましょうか。",
+          "mean": "I'm about to go out to dinner, would you like to go with me?"
+        },
+        {
+          "content": "今、電車に乗っているところですから、後で電話するね。",
+          "transcription": "いま、でんしゃにのっているところですから、あとででんわするね。",
+          "mean": "I'm on the train now, so I'll call you later."
+        },
+        {
+          "content": "今、晩ご飯の準備をしているところだから、もう少し待ってね。",
+          "transcription": "いま、ばんごはんのじゅんびをしているところだから、もうすこしまってね。",
+          "mean": "I'm preparing dinner right now, so please wait a little longer."
+        },
+        {
+          "content": "『故障の原因が分かりましたか。』『いいえ、いま調べているところです。』",
+          "transcription": "『こしょうのげんいんがわかりましたか。』『いいえ、いましらべているところです。』",
+          "mean": "``Did you find out the cause of the failure? 'No, I'm currently looking into it. ”"
+        },
+        {
+          "content": "たった今バスが出たところです。",
+          "transcription": "たったいまバスがでたところです。",
+          "mean": "The bus has just left."
+        },
+        {
+          "content": "電車を降りたところだから、あと10分ぐらいで着きます。",
+          "transcription": "でんしゃをおりたところだから、あとじゅっぷんぐらいでつきます。",
+          "mean": "I just got off the train, so I'll be there in about 10 minutes."
+        },
+        {
+          "content": "彼はたった今出かけたところだ。",
+          "transcription": "かれはたったいまでかけたところだ。",
+          "mean": "He has just left."
+        },
+        {
+          "content": "『木村くんに電話した？』『今しようと思っていたところだよ。』",
+          "transcription": "『きむらくんにでんわした？』『いましようとおもっていたところだよ。』",
+          "mean": "“Did you call Kimura-kun? ``That's what I was thinking of doing now.'' ”"
+        },
+        {
+          "content": "『日曜日はどこに行きたいですか。』『今、考えていたところです。あなたはどこに行きたいですか。』",
+          "transcription": "『にちようびはどこにいきたいですか。』『いま、かんがえていたところです。あなたはどこにいきたいですか。』",
+          "mean": "``Where do you want to go on Sunday? ``I was just thinking about it.'' where do you want to go? ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ところだ<br/> Vている+ところだ<br/> Vた+ところだ<br/> Vていた+ところだ"
+    }
+  ],
+  "title": "ところだ => be about to",
+  "_id": "26a636e10afd48b1ab8bb09623e6f0d4"
+}

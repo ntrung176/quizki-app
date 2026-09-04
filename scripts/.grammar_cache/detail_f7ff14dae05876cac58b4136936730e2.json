@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1330,
+  "usages": [
+    {
+      "explain": "At the end of the sentence, it often goes with the structure 「... がちだ／傾向がある／ものだ」, to express the meaning \"generally tends to be...\". It is often used to convey negative connotations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私たちはとかく怠惰<br>になりがちである。",
+          "transcription": "わたしたちはとかくたいだ<br>になりがちである。",
+          "mean": "We tend to be lazy."
+        },
+        {
+          "content": "若者はとかくそんなふうに行動するものだ。",
+          "transcription": "わかものはとかくそんなふうにこうどうするものだ。",
+          "mean": "Young people tend to act like that."
+        },
+        {
+          "content": "人はとかく自分の欠点に木が付かないものだ。",
+          "transcription": "ひとはとかくじぶんのけってんにきがつかないものだ。",
+          "mean": "People don't always get over their own shortcomings."
+        }
+      ],
+      "mean": null,
+      "synopsis": "とかく…がちだ"
+    }
+  ],
+  "title": "とかく…がちだ => apt to do, tend to do",
+  "_id": "f7ff14dae05876cac58b4136936730e2"
+}

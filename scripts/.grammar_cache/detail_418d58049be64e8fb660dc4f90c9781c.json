@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5447,
+  "usages": [
+    {
+      "explain": "「としたら/とすれば」is used to express a hypothetical condition, assuming that something is true. The following clause shows the speaker's intention, judgment, or assertion.<br/>\n\nIt can be accompanied by adverbs like 仮に (karini, \"suppose\") or もし (moshi, \"if\"). The following clause can use structures to express judgments like 「だろう」(darou, \"probably\") or 「はずだ」(hazu da, \"should be\").",
+      "note": null,
+      "examples": [
+        {
+          "content": "その話が本当だとしたら、嬉しいです。",
+          "transcription": "そのはなしがほんとうだとしたら、うれしいです。",
+          "mean": "I would be happy if that story is true."
+        },
+        {
+          "content": "飛行機で行くとしたら、いくらぐらいかかりますか。",
+          "transcription": "ひこうきでいくとしたら、いくらぐらいかかりますか。",
+          "mean": "If I were to go by plane, how much would it cost?"
+        },
+        {
+          "content": "日本に来なかったとしたら、アメリカに行っていたと思う。",
+          "transcription": "にほんにこなかったとしたら、アメリカにいっていたとおもう。",
+          "mean": "If I hadn't come to Japan, I think I would have gone to America."
+        },
+        {
+          "content": "本当にそんなことを彼がしたとしたら、理由は何だろう。",
+          "transcription": "ほんとうにそんなことをかれがしたとしたら、りゆうはなんだろう。",
+          "mean": "If he really did that, what was the reason?"
+        },
+        {
+          "content": "この名簿が正しいとしたら、まだ来ていない人が二人いる。",
+          "transcription": "このめいぼがただしいとしたら、まだきていないひとがふたりいる。",
+          "mean": "If this list is correct, there are two people who have not arrived yet."
+        },
+        {
+          "content": "もし、それが本当だとすれば、夢のようです。",
+          "transcription": "もし、それがほんとうだとすれば、ゆめのようです。",
+          "mean": "If that's true, it's like a dream."
+        },
+        {
+          "content": "旅行するとすれば、夏休みにしようと思います。",
+          "transcription": "りょこうするとすれば、なつやすみにしようとおもいます。",
+          "mean": "If I were to travel, I would like to do it during summer vacation."
+        },
+        {
+          "content": "ちょっと信じられないことだが、もしそれが事実だとすれば、ものすごい発見だ。",
+          "transcription": "ちょっとしんじられないことだが、もしそれがじじつだとすれば、ものすごいはっけんだ。",
+          "mean": "It's a little hard to believe, but if it's true, it's a huge discovery."
+        },
+        {
+          "content": "あの人が今も生きているとすれば、もう90歳になっているでしょう。",
+          "transcription": "あのひとがいまもいきているとすれば、もうきゅうじゅっさいになっているでしょう。",
+          "mean": "If that person were still alive, he would be 90 years old."
+        },
+        {
+          "content": "大阪城まで電車で行くとすれば、20分くらいかかります。",
+          "transcription": "おおさかじょうまででんしゃでいくとすれば、にじゅっぷんくらいかかります。",
+          "mean": "If you go to Osaka Castle by train, it will take about 20 minutes."
+        },
+        {
+          "content": "もし車を買い換えるとすれば、次はアメリカの車が欲しいです。",
+          "transcription": "もしくるまをかいかえるとすれば、つぎはアメリカのくるまがほしいです。",
+          "mean": "If I were to buy a new car, I would like to buy an American car next time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+としたら / とすれば"
+    }
+  ],
+  "title": "としたら/とすれば => in the case of~; assuming~; if A then B",
+  "_id": "418d58049be64e8fb660dc4f90c9781c"
+}

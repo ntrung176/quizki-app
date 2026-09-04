@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2500,
+  "usages": [
+    {
+      "explain": "This structure is used to compare the state or nature of an object or event with another case that is usually not like that. It can be used to compare two cases of the same type or different types. When adding まるで to the よう/みたい structure, the degree of comparison will be emphasized.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はまるで先生のように話す。",
+          "transcription": "かれはまるでせんせいのようにはなす。",
+          "mean": "He speaks like a teacher."
+        },
+        {
+          "content": "あの二人はまるで兄弟みたいによく似ている。",
+          "transcription": "あのににんはまるできょうだいみたいによくにている。",
+          "mean": "Those two look so similar, like brothers."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まるで ...よう/みたい"
+    }
+  ],
+  "title": "まるで => as if; as though; just like ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f08fd3f"
+}

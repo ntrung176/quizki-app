@@ -1,0 +1,81 @@
+{
+  "level": "N2",
+  "mobileId": 5194,
+  "usages": [
+    {
+      "explain": "「に限り」expresses a limitation, indicating that the favorable aspect mentioned after it (benefits, privileges...) is only for the subject N.\n\"Only...\"<br/><br/>\n\n「に限って」expresses a limitation where:<br/>\n\nWhen N is a point in time, the speaker wants to express that normally things are different, but at that particular point in time N, something unfortunate happens to them.<br/>\nWhen N is a person, the speaker wants to criticize, express surprise... that only that person N has such an unfortunate event. If the latter clause is in negative form, the speaker strongly affirms: \"Only person N is never like that.\"<br/>\n\"Only...\"<br/><br/>\n「に限らず」expresses the idea of \"not only... but also...\" indicating that the scope is not limited to N, but also extends to other subjects. These other subjects have a larger scope than N; or they are equivalent and when combined with N, they form a complete group. This is also a distinction of 「に限らず」from 「だけでなく」(also a structure meaning \"not only... but also...\", where the other subject is equal to N and is simply an additional case, not forming a complete group with N.)\n\"Not only... but also...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "70歳以上の方に限り、入場無料。",
+          "transcription": "ななじゅっさいいじょうのかたにかぎり、にゅうじょうむりょう。",
+          "mean": "Admission is free for those over 70 years old."
+        },
+        {
+          "content": "女性に限り、ランチにデザートがついています。",
+          "transcription": "じょせいにかぎり、ランチにデザートがついています。",
+          "mean": "Dessert is included with lunch for women only."
+        },
+        {
+          "content": "雨だ。今日に限って、傘を持ってこなかった。",
+          "transcription": "あめだ。きょうにかぎって、かさをもってこなかった。",
+          "mean": "It's raining. I didn't bring an umbrella today."
+        },
+        {
+          "content": "あのお店は私が行く日に限って、いつも閉まっている。",
+          "transcription": "あのおみせはわたしがいくひにかぎって、いつもしまっている。",
+          "mean": "That store is always closed on the days I go."
+        },
+        {
+          "content": "仕事ができない奴に限って、会社の文句や上司の悪口を言うもんだ。",
+          "transcription": "しごとができないやつにかぎって、かいしゃのもんくやじょうしのわるぐちをいうもんだ。",
+          "mean": "Only people who can't do their jobs complain about the company or badmouth their bosses."
+        },
+        {
+          "content": "自分の義務を果たさない奴に限って、自分の権利ばかりを主張する。",
+          "transcription": "じぶんのぎむをはたさないやつにかぎって、じぶんのけんりばかりをしゅちょうする。",
+          "mean": "Only those who do not fulfill their duties will insist on their rights."
+        },
+        {
+          "content": "うちの子に限って、悪いことをするはずがない。",
+          "transcription": "うちのこにかぎってわるいことをするはずがない。",
+          "mean": "There's no way my child would do anything bad."
+        },
+        {
+          "content": "私の彼氏に限って、浮気するなんてことはありえないと思う。",
+          "transcription": "わたしのかれしにかぎって、うわきするなんてことはありえないとおもう。",
+          "mean": "I don't think it's possible for my boyfriend to cheat on me."
+        },
+        {
+          "content": "最近は、女性に限らず男性も化粧をする。",
+          "transcription": "さいきんは、じょせいにかぎらずだんせいもけしょうをする。",
+          "mean": "These days, not only women but also men wear makeup."
+        },
+        {
+          "content": "この映画は子供に限らず大人も楽しめます。",
+          "transcription": "このえいがはこどもにかぎらずおとなもたのしめます。",
+          "mean": "This movie can be enjoyed not only by children but also by adults."
+        },
+        {
+          "content": "このサッカーチームは、彼に限らず全員ブラジル人だ。",
+          "transcription": "このサッカーチームは、かれにかぎらずぜんいんブラジルじんだ。",
+          "mean": "This soccer team is all Brazilian, not just him."
+        },
+        {
+          "content": "この店は、週末に限らずいつも客でいっぱいだ。",
+          "transcription": "このみせは、しゅうまつにかぎらずいつもきゃくでいっぱいだ。",
+          "mean": "This store is always full of customers, not only on weekends."
+        },
+        {
+          "content": "りんごに限らずいちごやみかんなども好きです。",
+          "transcription": "りんごにかぎらずいちごやみかんなどもすきです。",
+          "mean": "I like not only apples but also strawberries and mandarin oranges."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に限り<br/>\nN+に限って<br/>\nN+に限らず～も"
+    }
+  ],
+  "title": "に限り/に限って/に限らず => only if",
+  "_id": "2ddaafbee23c4bfdac8f3e27de551d39"
+}

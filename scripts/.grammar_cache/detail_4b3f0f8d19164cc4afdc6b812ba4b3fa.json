@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5533,
+  "usages": [
+    {
+      "explain": "「のは～です」is used with 「のは」 to replace a noun that refers to an object, person, place, time, etc., thereby making that object, person, place, or time the topic of the sentence. In this way, the content of the topic, namely the predicate 「～です」, is emphasized.",
+      "note": null,
+      "examples": [
+        {
+          "content": "授業が始まるのは10時です。",
+          "transcription": "じゅぎょうがはじまるのはじゅうじです。",
+          "mean": "Classes start at 10 o'clock."
+        },
+        {
+          "content": "まだ独身なのは山田さんです。",
+          "transcription": "まだどくしんなのはやまださんです。",
+          "mean": "Mr. Yamada is still single."
+        },
+        {
+          "content": "日本に来たのは去年の10月です。",
+          "transcription": "にほんにきたのはきょねんのじゅうがつです。",
+          "mean": "I came to Japan in October last year."
+        },
+        {
+          "content": "一年で一番忙しいのは12月です。",
+          "transcription": "いちねんでいちばんいそがしいのはじゅうにがつです。",
+          "mean": "December is the busiest month of the year."
+        },
+        {
+          "content": "娘が生まれたのは北海道の小さな町です。",
+          "transcription": "むすめがうまれたのはほっかいどうのちいさなまちです。",
+          "mean": "My daughter was born in a small town in Hokkaido."
+        },
+        {
+          "content": "私達は結婚を決めたのは子供ができたからです。",
+          "transcription": "わたしたちはけっこんをきめたのはこどもができたからです。",
+          "mean": "We decided to get married because we had a child."
+        },
+        {
+          "content": "地震が起きた時、一番大切なのは慌てないことだ。",
+          "transcription": "じしんがおきたとき、いちばんたいせつなのはあわてないことだ。",
+          "mean": "When an earthquake occurs, the most important thing is not to panic."
+        },
+        {
+          "content": "私はアルバイトをしているのは旅行のお金を貯めたいからだ。",
+          "transcription": "わたしはアルバイトをしているのはりょこうのおかねをためたいからだ。",
+          "mean": "I work part-time because I want to save money for traveling."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+のは N'です<br/>\n(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br/> Nだ ➔ N<s>だ</s>な)"
+    }
+  ],
+  "title": "のは～です =>  [A] is [B]; the reason for [A] is [B].",
+  "_id": "4b3f0f8d19164cc4afdc6b812ba4b3fa"
+}

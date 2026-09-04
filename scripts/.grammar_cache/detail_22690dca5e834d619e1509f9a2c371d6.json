@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5246,
+  "usages": [
+    {
+      "explain": "「しかも」is a conjunction used with the clause following it to provide additional information, adding characteristics to the preceding clause. The content of the following clause must be related to the content of the preceding clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は美人で頭がいい。しかも性格もいい。",
+          "transcription": "かのじょはびじんであたまがいい。しかもせいかくもいい。",
+          "mean": "She is beautiful and smart. Moreover, he has a good personality."
+        },
+        {
+          "content": "先日泊まったホテルは、古くて高かった。しかもサービスが悪かったので、もう二度と行かない。",
+          "transcription": "せんじつとまったホテルは、ふるくてたかかった。しかもサービスがわるかったので、もうにどといかない。",
+          "mean": "The hotel I stayed at the other day was old and expensive. Moreover, the service was so bad that I will never go there again."
+        },
+        {
+          "content": "新しい香水を買ったよ。しかもフランス製です。",
+          "transcription": "あたらしいこうすいをかったよ。しかもフランスせいです。",
+          "mean": "I bought a new perfume. And it's made in France."
+        },
+        {
+          "content": "田中さんは仕事が速くて。しかも間違いが少ないので上司に信頼される。",
+          "transcription": "たなかさんはしごとがはやくて。しかもまちがいがすくないのでじょうしにしんらいされる。",
+          "mean": "Mr. Tanaka works quickly. Moreover, since he makes few mistakes, he is trusted by his superiors."
+        }
+      ],
+      "mean": null,
+      "synopsis": "(Nは) A。しかも B"
+    }
+  ],
+  "title": "しかも => moreover; furthermore; and yet; what’s more ~",
+  "_id": "22690dca5e834d619e1509f9a2c371d6"
+}

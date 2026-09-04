@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5357,
+  "usages": [
+    {
+      "explain": "「こと」refers to the entire content surrounding the event/action that the noun or clause before it represents. <br/>\nExample: 田中さんが旅行に行ったことを知っていますか。The question is not just about Tanaka's action of \"going on a trip,\" but also about the details surrounding it like where, with whom, what they did, etc.<br/>\nIn contrast, 「の」refers to a single, specific event/action.<br/>\nExample: 田中さんが旅行に行ったのを知っていますか。The question is only about Tanaka's action of \"going on a trip.\"<br/>\nWhen nominalizing a clause, except for cases where only 「こと」or only 「の」can be used, these two can basically be interchangeable. However, understanding the nuances of their meanings as mentioned above is necessary.<br/>\n- Some cases where only 「こと」is used:<br/>\n  + The nominalized clause comes before です, だ, である... (e.g., ことです、ことだ、ことである...)<br/>\n  + The nominalized clause comes before verbs like 書く、伝える、話す...<br/>\n  + The nominalized clause comes before verbs like 祈る、約束する、決める...<br/>\n  + Fixed structures using 「こと」.<br/>\n\n- Some cases where only 「の」is used:<br/>\n  + The nominalized clause comes before perception verbs like 見る、見える、聞く、聞こえる、感じる、覚える...<br/>\n  + The nominalized clause comes before verbs like 止める、手伝う、待つ...<br/>\n  + Emphasizing the subject/topic with the structure 「のは～です」.<br/>\n- Additionally, clauses where the predicate is an adjective like 上手、下手、好き、嫌い、得意、苦手... often go well with 「の」 as the subject.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女が来年結婚することを知りませんでした。",
+          "transcription": "かのじょがらいねんけっこんすることをしりませんでした。",
+          "mean": "I didn't know that she was getting married next year."
+        },
+        {
+          "content": "田中さんが入院したことを知っていますか。",
+          "transcription": "たなかさんがにゅういんしたことをしっていますか。",
+          "mean": "Did you know that Mr. Tanaka was hospitalized?"
+        },
+        {
+          "content": "そんな無理なことを言わないでください。",
+          "transcription": "そんなむりなことをいわないでください。",
+          "mean": "Please don't say such unreasonable things."
+        },
+        {
+          "content": "週末は何かいいことがありましたか。",
+          "transcription": "しゅうまつはなにかいいことがありましたか。",
+          "mean": "Did anything good happen over the weekend?"
+        },
+        {
+          "content": "君は君であることを止めたんだね。",
+          "transcription": "きみはきみであることをとめたんだね。",
+          "mean": "You stopped being you."
+        },
+        {
+          "content": "来週のテストのことで、質問があります。",
+          "transcription": "らいしゅうのテストのことで、しつもんがあります。",
+          "mean": "I have a question regarding next week's test."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+こと<br/>\n(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>/A<s>だ</s>である)<br/> Nだ ➔ N<s>だ</s>である)\n<br/> <br/> Nの+こと"
+    }
+  ],
+  "title": "こと => Verb nominalizer",
+  "_id": "70c10bc210a14b8bae616f11aeb77148"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 798,
+  "usages": [
+    {
+      "explain": "This conveys the meaning that no matter how many times an action is repeated, the result remains the same. It often implies an unexpected outcome, but there are cases where the result matches expectations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何回言っても彼の観点を変えなかった。",
+          "transcription": "なんかいいってもかれのかんてんをかえなかった。",
+          "mean": "No matter how many times I tried, he didn't change his point of view."
+        },
+        {
+          "content": "この機械は何度頑張っても修理できない。",
+          "transcription": "このきかいはなんどがんばってもしゅうりできない。",
+          "mean": "This machine cannot be repaired no matter how hard I try."
+        },
+        {
+          "content": "この辺のお酒は何度飲んでも飽きない。",
+          "transcription": "このあたりのおさけはなんどのんでもあきない。",
+          "mean": "No matter how many times I drink alcohol from this area, I never get tired of it."
+        },
+        {
+          "content": "あの小説は何回読んでも面白い。",
+          "transcription": "あのしょうせつはなんかいよんでもおもしろい。",
+          "mean": "That novel is always interesting no matter how many times I read it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なん + counting unit word + V-ても"
+    }
+  ],
+  "title": "なん～ても => How much...still...",
+  "_id": "f7ff14dae05876cac58b4136931ea35d"
+}

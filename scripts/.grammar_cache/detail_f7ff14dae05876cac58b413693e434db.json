@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2226,
+  "usages": [
+    {
+      "explain": "Often placed at the beginning of a sentence after receiving new information, with expressions of command, request, volition, permission... \"それなら\", \"そしたら\", or \"(そう)　だったら\" can be used as substitutes, but not \"(そう) すると\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：すみません。教科書を忘れてしまいました。B：では、吉田さんに見せてもらいなさい。",
+          "transcription": "A：すみません。きょうかしょをわすれてしまいました。B：では、よしださんにみせてもらいなさい。",
+          "mean": "A: Sorry. I forgot my textbook. B: Well then, ask Mr. Yoshida to show it to you."
+        },
+        {
+          "content": "A：届書の記入、終わりましたが。B：では、5番の窓口に出してください。",
+          "transcription": "A：とどけがきのきにゅう、おわりましたが。B：では、5ばんのまどぐちにだしてください。",
+          "mean": "A: I have finished filling out the notification form. B: Then, please hand it in to counter number 5."
+        },
+        {
+          "content": "A：病院への道を知らない。B：では、あなたはこの地図を使って下さい。",
+          "transcription": "A：びょういんへのみちをしらない。B：では、あなたはこのちずをつかってください。",
+          "mean": "A: I don't know the way to the hospital. B: Well, please use this map."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + のでは\nNa + のでは"
+    }
+  ],
+  "title": "...では => Then... (expresses attitude)",
+  "_id": "f7ff14dae05876cac58b413693e434db"
+}

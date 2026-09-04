@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2024,
+  "usages": [
+    {
+      "explain": "Goes with intentional action verbs, expressing the idea of \"should proceed rather than argue a lot.\" Also known as \"とにかく\" in Japanese.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ともかく、約束を破るのはよくないんです。",
+          "transcription": "ともかく、やくそくをやぶるのはよくないんです。",
+          "mean": "In any case, it's not good to break a promise."
+        },
+        {
+          "content": "ともかく、明日はそこへ行かなければならない。",
+          "transcription": "ともかく、あしたはそこへいかなければならない。",
+          "mean": "Anyway, I have to go there tomorrow."
+        },
+        {
+          "content": "ともかく、一生懸命頑張らなければならない。",
+          "transcription": "ともかく、いっしょうけんめいがんばらなければならない。",
+          "mean": "In any case, you have to try your best."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ともかく + V"
+    }
+  ],
+  "title": "ともかく => anyhow; anyway; regardless; in any case; whether or not ~",
+  "_id": "f7ff14dae05876cac58b413693c783db"
+}

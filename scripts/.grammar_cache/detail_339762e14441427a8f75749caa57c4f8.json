@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5230,
+  "usages": [
+    {
+      "explain": "「おまけに」is used to add additional characteristics or qualities to the person, thing, or situation being talked about. It is often used in everyday conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本の夏は暑いし、おまけに湿気も多いです。",
+          "transcription": "にほんのなつはあついし、おまけにしっけもおおいです。",
+          "mean": "Summer in Japan is hot and humid."
+        },
+        {
+          "content": "競馬で負け、おまけに帰りに財布を落とし、最悪だ。",
+          "transcription": "けいばでまけ、おまけにかえりにさいふをおとし、さいあくだ。",
+          "mean": "I lost at a horse race, and on top of that, I lost my wallet on the way home, which was the worst thing ever."
+        },
+        {
+          "content": "あのそば屋は高いし、まずい。おまけにサービスも悪い。",
+          "transcription": "あのそばやはたかいし、まずい。おまけにサービスもわるい。",
+          "mean": "That soba restaurant is expensive and tastes bad. On top of that, the service is also bad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "(Nは) A。おまけに B"
+    }
+  ],
+  "title": "おまけに => to make matters worse; besides; what's more; in addition; on top of that​",
+  "_id": "339762e14441427a8f75749caa57c4f8"
+}

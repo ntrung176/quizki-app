@@ -6,6 +6,7 @@ import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { isVocabCardMastered } from '../../utils/srs';
 
 const LibraryScreen = ({ 
     allCards = [], 
@@ -59,21 +60,21 @@ const LibraryScreen = ({
 
     // Calculate counts and stats for Study Sets
     const unfiledCount = useMemo(() => {
-        return filteredAllCards.filter(c => !cardFolders[c.id]).length;
+        return filteredAllCards.filter(c => !cardFolders[c.id] && (!c.folderId || c.folderId === 'unfiled')).length;
     }, [filteredAllCards, cardFolders]);
 
     const foldersWithCounts = useMemo(() => {
         return folders.map(f => {
-            const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id);
+            const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id || c.folderId === f.id);
             const count = folderCards.length;
 
-            // Calculate progress/mastery (cards with seenCount > 0)
-            const masteredCount = folderCards.filter(c => (c.seenCount || 0) > 0).length;
+            // Calculate progress/mastery (cards memorized / mastered)
+            const masteredCount = folderCards.filter(c => isVocabCardMastered(c)).length;
             const masteredPct = count > 0 ? Math.round((masteredCount / count) * 100) : 0;
 
             return { ...f, count, masteredPct };
         });
-    }, [folders, allCards, cardFolders]);
+    }, [folders, filteredAllCards, cardFolders]);
 
     const existingParentIds = useMemo(() => new Set((parentFolders || []).map(p => p.id)), [parentFolders]);
 
@@ -94,7 +95,7 @@ const LibraryScreen = ({
     const filteredStudySets = useMemo(() => {
         const result = foldersWithCounts.filter(f => {
             // Match cards/vocab inside this study set if searching
-            const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
+            const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id || c.folderId === f.id);
             const matchesVocab = searchQuery
                 ? folderCards.some(c => 
                     (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -130,7 +131,7 @@ const LibraryScreen = ({
             const timeB = b.createdAt?.seconds || (b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0) || (b.createdAt instanceof Date ? b.createdAt.getTime() : 0) || 0;
             return timeB - timeA;
         });
-    }, [foldersWithCounts, activeParentFolderId, searchQuery, allCards, cardFolders, existingParentIds]);
+    }, [foldersWithCounts, activeParentFolderId, searchQuery, filteredAllCards, cardFolders, existingParentIds]);
 
     // Parent Folders with Study Set counts
     const parentFoldersWithCounts = useMemo(() => {
@@ -138,7 +139,7 @@ const LibraryScreen = ({
             const setsInside = folders.filter(f => f.parentId === pf.id);
             const setsCount = setsInside.length;
             const totalCards = setsInside.reduce((sum, f) => {
-                const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
+                const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id || c.folderId === f.id);
                 return sum + folderCards.length;
             }, 0);
             return { ...pf, setsCount, totalCards, setsInside };
@@ -156,7 +157,7 @@ const LibraryScreen = ({
                                       (f.description || '').toLowerCase().includes(searchQuery.toLowerCase());
                 if (matchesSetName) return true;
 
-                const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
+                const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id || c.folderId === f.id);
                 return folderCards.some(c => 
                     (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                     (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -174,7 +175,7 @@ const LibraryScreen = ({
             const timeB = b.createdAt?.seconds || (b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0) || (b.createdAt instanceof Date ? b.createdAt.getTime() : 0) || 0;
             return timeB - timeA;
         });
-    }, [parentFolders, folders, allCards, cardFolders, searchQuery]);
+    }, [parentFolders, folders, filteredAllCards, cardFolders, searchQuery]);
 
     // Handlers
     const handleCreateParentFolder = async (e) => {
@@ -450,7 +451,7 @@ const LibraryScreen = ({
                                                     {searchQuery && (() => {
                                                         const setsInside = folders.filter(f => f.parentId === folder.id);
                                                         const matchedCount = setsInside.reduce((sum, f) => {
-                                                            const folderCards = allCards.filter(c => cardFolders[c.id] === f.id);
+                                                            const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id || c.folderId === f.id);
                                                             const matches = folderCards.filter(c => 
                                                                 (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                                                                 (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -599,7 +600,7 @@ const LibraryScreen = ({
                                         </div>
                                     )}
                                     {searchQuery && (() => {
-                                        const matchedCards = allCards.filter(c => cardFolders[c.id] === folder.id).filter(c => 
+                                        const matchedCards = filteredAllCards.filter(c => cardFolders[c.id] === folder.id || c.folderId === folder.id).filter(c => 
                                             (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                                             (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                                             (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||

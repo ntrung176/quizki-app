@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5314,
+  "usages": [
+    {
+      "explain": "「ずに済む」expresses the idea of \"to get by without doing action V.\"<br/>\n\nThis structure is used when the speaker already knows in advance, has planned ahead, so the matter is resolved without needing to take action; or when encountering something that should be done but then managing to avoid it, not having to do it. Because these things are often troublesome,「ずに済む」reflects the speaker's light-hearted and relieved attitude.<br/>\nIt is often used in written language. In spoken language,「なくて済む/ないで済む」is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "死なずに済んだのはまったくの幸運だった。",
+          "transcription": "しなずにすんだのはまったくのこううんだった。",
+          "mean": "It was sheer luck that I didn't die."
+        },
+        {
+          "content": "お金を借りずに済むなら借りはしません。",
+          "transcription": "おかねをかりずにすむならかりはしません。",
+          "mean": "If I can avoid borrowing money, I won't."
+        },
+        {
+          "content": "予約しておいたおかげで、待たずに済みました。",
+          "transcription": "よやくしておいたおかげで、またずにすみました。",
+          "mean": "Thanks to my reservation, I didn't have to wait."
+        },
+        {
+          "content": "今年は涼しかったので、エアコンを使わずに済みました。",
+          "transcription": "ことしはすずしかったので、エアコンをつかわずにすみました。",
+          "mean": "It was cool this year, so we didn't have to use the air conditioner."
+        },
+        {
+          "content": "ここでは1日中雨が降らずに済むことはほとんどない。",
+          "transcription": "ここではいちにちじゅうあめがふらずにすむことはほとんどない。",
+          "mean": "It's rare for a day here to go without rain."
+        },
+        {
+          "content": "私の友達が自分のアパートに泊めてくれたので、ホテルに泊まらずに済んだ。",
+          "transcription": "わたしのともだちがじぶんのアパートにとめてくれたので、ホテルにとまらずにすんだ。",
+          "mean": "My friend let me stay in his apartment, so I didn't have to stay in a hotel."
+        },
+        {
+          "content": "遅刻してしまったが、きちんと理由を説明したら怒られずに済んだ。",
+          "transcription": "ちこくしてしまったが、きちんとりゆうをせつめいしたらおこられずにすんだ。",
+          "mean": "I was late, but after I explained the reason properly, he didn't get angry."
+        },
+        {
+          "content": "インターネットで間違って違う商品を注文してしまったが、返品できたので、お金を無駄にせずに済みました。",
+          "transcription": "インターネットでまちがってちがうしょうひんをちゅうもんしてしまったが、へんぴんできたので、おかねをむだにせずにすみました。",
+          "mean": "I accidentally ordered the wrong item online, but I was able to return it so I didn't waste money."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ない</s>+ずに済む"
+    }
+  ],
+  "title": "ずに済む => get by without doing ~",
+  "_id": "e338bbac38424a4da9ae1b980cbc3fd3"
+}

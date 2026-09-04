@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5232,
+  "usages": [
+    {
+      "explain": "「恐らく」is often used in writing, usually accompanying speculative structures to express the speaker's high level of certainty about a certain event",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは恐らく間違いです。",
+          "transcription": "これはおそらくまちがいです。",
+          "mean": "This is probably a mistake."
+        },
+        {
+          "content": "明日は恐らく雨が降るでしょう。",
+          "transcription": "あしたはおそらくあめがふるでしょう。",
+          "mean": "It will rain perhaps tomorrow."
+        },
+        {
+          "content": "それは恐らく可能です。",
+          "transcription": "それはおそらくかのうです。",
+          "mean": "It's probably possible."
+        },
+        {
+          "content": "恐らく彼は承知しないでしょう。",
+          "transcription": "おそらくかれはしょうちしないでしょう。",
+          "mean": "He probably won't agree."
+        },
+        {
+          "content": "恐らくそれがあなたに役立つかもしれない。",
+          "transcription": "おそらくそれがあなたにやくだつかもしれない。",
+          "mean": "Perhaps it might be useful to you."
+        },
+        {
+          "content": "彼は恐らくパーティーには来ないだろう。",
+          "transcription": "かれはおそらくパーティーにはこないだろう。",
+          "mean": "He probably won't come to the party."
+        },
+        {
+          "content": "彼は35歳だと言うが，恐らく50歳近いだろう。",
+          "transcription": "かれはさんじゅうごさいだというが，おそらくごじゅっさいちかいだろう。",
+          "mean": "He says he is 35 years old, but he is probably closer to 50."
+        }
+      ],
+      "mean": null,
+      "synopsis": "恐らく+Sentence"
+    }
+  ],
+  "title": "恐らく => perhaps; likely; probably; I dare say ~",
+  "_id": "2f38f6edd21244bea0cb17f5e4973293"
+}

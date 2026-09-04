@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1623,
+  "usages": [
+    {
+      "explain": "Using verbs in potential form, \"V-れる\" or verbs with potential meaning like \"分かる.\" This is a way to emphasize things that cannot be done. Often used together with \"…ても.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：まだわかりませんか。B：いくら教えられても、わからないものはわからないんだ。",
+          "transcription": "A：まだわかりませんか。B：いくらおしえられても、わからないものはわからないんだ。",
+          "mean": "A: Don't you know yet? B: No matter how much you are taught, you don't understand what you don't understand."
+        },
+        {
+          "content": "中村さんは「いくら頼まれても、できないものはできないんだ」と言った。",
+          "transcription": "なかむらさんは「いくらたのまれても、できないものはできないんだ」といった。",
+          "mean": "Mr. Nakamura said, ``No matter how many people ask me, I can't do what I can't do.''"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-れない + ものは + V-れない"
+    }
+  ],
+  "title": "... ないものは ...ない => is not entirely impossible",
+  "_id": "f7ff14dae05876cac58b4136939053f2"
+}

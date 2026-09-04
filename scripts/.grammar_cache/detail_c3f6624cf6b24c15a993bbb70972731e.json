@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5222,
+  "usages": [
+    {
+      "explain": "The phrase 「の下で」 indicates that an action is carried out under the influence (guidance/care/supervision...) of someone. This often includes processes such as growing up (育つ), maturing (成長する), studying (勉強する), researching (研究する), practicing (練習する), learning (学ぶ)... The noun N denotes the person causing the influence. <br/>\n「の下で」 is also used to indicate that an action is carried out in a certain environment. <br/>\n「の下に」 indicates that an action is carried out under certain conditions or circumstances, such as management (管理), law (法律), understanding (了解), agreement (合意)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "静かな環境の下で勉強をしたいですね。",
+          "transcription": "しずかなかんきょうのもとでべんきょうをしたいですね。",
+          "mean": "I would like to study in a quiet environment."
+        },
+        {
+          "content": "子供達が青空の下で元気に遊んでいる。",
+          "transcription": "こどもたちがあおぞらのもとでげんきにあそんでいる。",
+          "mean": "Children are playing happily under the blue sky."
+        },
+        {
+          "content": "人の性格は、どういう親の下で育ったかで、まったく異なってくる。",
+          "transcription": "ひとのせいかくは、どういうおやのもとでそだったかで、まったくことなってくる。",
+          "mean": "A person's personality is completely different depending on the kind of parents they were raised with."
+        },
+        {
+          "content": "師匠の下で落語の勉強を長年続つづけている。",
+          "transcription": "ししょうのもとでらくごのべんきょうをながねんつづけている。",
+          "mean": "He has been studying Rakugo under his master for many years."
+        },
+        {
+          "content": "あんな上司の下で働き続けなきゃいけないなら、会社を辞めた方がましだ。",
+          "transcription": "あんなじょうしのもとではたらきつづけなきゃいけないなら、かいしゃをやめたほうがましだ。",
+          "mean": "If I have to continue working under a boss like that, I'd rather quit the company."
+        },
+        {
+          "content": "人は皆、法の下に平等である。",
+          "transcription": "ひとはみんな、ほうのもとにびょうどうである。",
+          "mean": "All people are equal before the law."
+        },
+        {
+          "content": "両親の了解の下に3年間の留学が可能になった。",
+          "transcription": "りょうしんのりょうかいのもとにさんねんかんのりゅうがくがかのうになった。",
+          "mean": "With the consent of his parents, he was able to study abroad for three years."
+        },
+        {
+          "content": "田中先生のご指導の下、研究論文を書いています。",
+          "transcription": "たなかせんせいのごしどうのもと、けんきゅうろんぶんをかいています。",
+          "mean": "I am writing a research paper under the guidance of Professor Tanaka."
+        },
+        {
+          "content": "我が社に圧倒的に不利な条件の下、今回の契約は結ばれた。",
+          "transcription": "わがしゃにあっとうてきにふりなじょうけんのもと、こんかいのけいやくはむすばれた。",
+          "mean": "This contract was concluded under conditions that were overwhelmingly disadvantageous to our company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの+下で<br/> Nの+下<br/> Nの+下に"
+    }
+  ],
+  "title": "の下で/の下に => under; with ~",
+  "_id": "c3f6624cf6b24c15a993bbb70972731e"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5290,
+  "usages": [
+    {
+      "explain": "「はまだしも」expresses the idea: if it's N1, it can be understood or accepted, but if it's N2, it's definitely not understandable or acceptable. N2 is more serious, excessive than N1. This structure is often used to emphasize the speaker's dissatisfaction.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の英語力では旅行はまだしも、留学なんて無理です。",
+          "transcription": "わたしのえいごりょくではりょこうはまだしも、りゅうがくなんてむりです。",
+          "mean": "With my English ability, I can't travel much, but I can't study abroad."
+        },
+        {
+          "content": "10分や20分ならまだしも、1時間も待てません。",
+          "transcription": "じゅっぷんやにじゅっぷんならまだしも、いちじかんもまてません。",
+          "mean": "10 or 20 minutes would be fine, but I can't wait an hour."
+        },
+        {
+          "content": "2、3人ならまだしも、一度10人も休まれては困ります。",
+          "transcription": "に、さんにんならまだしも、いちどじゅうにんもやすまれてはこまります。",
+          "mean": "It's fine if it's just two or three people, but it would be a problem if 10 people were absent at once."
+        },
+        {
+          "content": "そんな完璧な人は、漫画の中ならまだしも、現実にはいないよ。",
+          "transcription": "そんなかんぺきなひとは、まんがのなかならまだしも、げんじつにはいないよ。",
+          "mean": "Such perfect people may exist in comics, but they don't exist in real life."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は まだしも、 N2<br/> N1なら まだしも、 N2"
+    }
+  ],
+  "title": "はまだしも/ならまだしも => A is fine...but B is not, If it's ~ then it is ok...but ~ is not, It's different when...but, It's not so bad when...but",
+  "_id": "c6f89ddf1de14345898a2268cd0c0e7e"
+}

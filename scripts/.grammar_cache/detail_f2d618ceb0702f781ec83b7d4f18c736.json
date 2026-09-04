@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2616,
+  "usages": [
+    {
+      "explain": "Attached after a clause to indicate the next event being different from what was predicted from the preceding event. Although it is a form of reverse connection, it does not necessarily express a contrast, and can also be used as a starting word. It has a somewhat literary tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "3時間待ったけれど、彼女は姿を現さなかった。",
+          "transcription": "3じかんまったけれど、かのじょはすがたをあらわさなかった。",
+          "mean": "I waited for three hours, but she never showed up."
+        },
+        {
+          "content": "部長はもうすぐ帰ると思いますけれど、ここでお待ちになりますか。",
+          "transcription": "ぶちょうはもうすぐかえるとおもいますけれど、ここでおまちになりますか。",
+          "mean": "I think the manager will be home soon, but would you like to wait here?"
+        },
+        {
+          "content": "バスケットボールもおもしろいけれどサッカーはもっとおもしろいと思う若い人が増えている。",
+          "transcription": "ばすけっとぼーるもおもしろいけれどさっかーはもっとおもしろいとおもうわかいひとがふえている。",
+          "mean": "Basketball is fun, but an increasing number of young people think soccer is even more fun."
+        }
+      ],
+      "mean": null,
+      "synopsis": "This is the way to say the beginning."
+    }
+  ],
+  "title": "けれど => but; however; although",
+  "_id": "f2d618ceb0702f781ec83b7d4f18c736"
+}

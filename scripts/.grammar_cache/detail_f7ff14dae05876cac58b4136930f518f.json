@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 685,
+  "usages": [
+    {
+      "explain": "✦Used with a noun indicating a superior person, and is used when inquiring about their health or talking about their recent health condition.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本語の勉強を始めて3年になるが、まだ新聞を読むのも難しい。まして古典などはとても読めない。",
+          "transcription": "にほんごのべんきょうをはじめて3ねんになるが、まだしんぶんをよむのもむずかしい。ましてこてんなどはとてもよめない。",
+          "mean": "It's been three years since I started studying Japanese, but I still find it difficult to read newspapers. Moreover, I can't read classics."
+        },
+        {
+          "content": "この辺りは昼でも人通りが少ない。まして夜ともなると、怖くて一人では歩けない。",
+          "transcription": "このあたりはひるでもひとどおりがすくない。ましてよるともなると、こわくていちにんではあるけない。",
+          "mean": "There aren't many people in this area even during the day. Especially at night, I'm too scared to walk alone."
+        },
+        {
+          "content": "僕でもできた仕事だ。まして君のような優秀な人間にできないはずはない。",
+          "transcription": "ぼくでもできたしごとだ。ましてきみのようなゆうしゅうなにんげんにできないはずはない。",
+          "mean": "It's a job I could have done too. There's no way a talented person like you couldn't do it."
+        },
+        {
+          "content": "今月はお金がなくて、もうパンさえ買えないんだ。ましてステーキなんて食べられるわけがない。",
+          "transcription": "こんげつはおかねがなくて、もうぱんさえかえないんだ。ましてすてーきなんてたべられるわけがない。",
+          "mean": "I don't have any money this month, and I can't even buy bread anymore. There's no way I can eat steak."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>●Aまして、B。</div>"
+    }
+  ],
+  "title": "～まして => to say nothing of; let alone; what's more",
+  "_id": "f7ff14dae05876cac58b4136930f518f"
+}

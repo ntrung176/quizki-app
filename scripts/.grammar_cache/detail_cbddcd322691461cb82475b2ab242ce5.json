@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5422,
+  "usages": [
+    {
+      "explain": "「少しも～ない」is used to emphasize the negative, meaning \"not even a little bit...\".「ちっとも～ない」is similar but stronger in tone, often used in everyday conversations. These two structures differ from「全然～ない」in that they do not specify the number of times.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人が話す英語は少しも分からない。",
+          "transcription": "あのひとがはなすえいごはすこしもわからない。",
+          "mean": "I don't understand the English that that person speaks at all."
+        },
+        {
+          "content": "ファッションのことは少しも気にならなかったが、今は違う。",
+          "transcription": "ファッションのことはすこしもきにならかったが、いまはちがう。",
+          "mean": "I didn't care about fashion at all, but now it's different."
+        },
+        {
+          "content": "日本語は少しもしか話せません。",
+          "transcription": "にほんごはすこしもしかはなせません。",
+          "mean": "I can only speak a little Japanese."
+        },
+        {
+          "content": "食事の量を減らしてダイエットしているのに、ちっとも瘦せないんです。",
+          "transcription": "しょくじのりょうをへらしてダイエットしているのに、ちっともやせないんです。",
+          "mean": "Even though I'm on a diet by reducing the amount of food I eat, I can't lose weight at all."
+        },
+        {
+          "content": "昨日、何時間も歩いたが少しも疲れていない。",
+          "transcription": "きのう、なんじかんもあるいたがすこしもつかれていない。",
+          "mean": "I walked for hours yesterday, but I'm not tired at all."
+        },
+        {
+          "content": "人の容姿を馬鹿にした冗談なんてちっともおもしろくない。",
+          "transcription": "ひとのようしをばかにしたじょうだんなんてちっともおもしろくない。",
+          "mean": "Jokes that make fun of people's looks aren't funny at all."
+        },
+        {
+          "content": "歯を抜いたが、麻酔をしていたので、少しも痛くなかった。",
+          "transcription": "はをぬいたが、ますいをしていたので、すこしもいたくなかった。",
+          "mean": "I had my tooth pulled out, but it didn't hurt at all because I was under anesthesia."
+        },
+        {
+          "content": "君のことなんか、ちっとも好きじゃない。",
+          "transcription": "きみのことなんか、ちっともすきじゃない。",
+          "mean": "I don't like you at all."
+        },
+        {
+          "content": "僕に言わせれば、彼女が賞を取ったのは少しも不思議ではない。",
+          "transcription": "ぼくにいわせれば、かのじょがしょうをとったのはすこしもふしぎではない。",
+          "mean": "As far as I'm concerned, it's no wonder she won the award."
+        },
+        {
+          "content": "この本はちっとも面白くない。",
+          "transcription": "このほんはちっともおもしろくない。",
+          "mean": "This book is not interesting at all."
+        },
+        {
+          "content": "野球はちっとも好きじゃない。",
+          "transcription": "やきゅうはちっともすきじゃない。",
+          "mean": "I don't like baseball at all."
+        }
+      ],
+      "mean": null,
+      "synopsis": "少しも / ちっとも+Vない / Vなかった<br/> 少しも / ちっとも+A<s>い</s>くない / A<s>い</s>くなかった<br/> 少しも / ちっとも+A<s>な</s>じゃない / A<s>な</s>じゃなかった"
+    }
+  ],
+  "title": "少しも～ない/ちっとも～ない => (not) at all; (not) in the least ~.",
+  "_id": "cbddcd322691461cb82475b2ab242ce5"
+}

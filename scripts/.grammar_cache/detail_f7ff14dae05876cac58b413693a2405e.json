@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1758,
+  "usages": [
+    {
+      "explain": "Expresses the thought that a certain action or event of a third party is unusual, beyond the speaker's standards. Therefore, in many cases, it implies criticism.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は学生を殴ってばかりいて、あれでも先生なのですか。",
+          "transcription": "かのじょはがくせいをなぐってばかりいて、あれでもせんせいなのですか。",
+          "mean": "Is she still a teacher because she keeps hitting students?"
+        },
+        {
+          "content": "あれでも彼は社会に寄付しているつもりらしいが、かえって破壊だ。",
+          "transcription": "あれでもかれはしゃかいにきふしているつもりらしいが、かえってはかいだ。",
+          "mean": "He seems to think he is contributing to society, but instead he is causing destruction."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あれでも"
+    }
+  ],
+  "title": "あれでも => Even so, ...",
+  "_id": "f7ff14dae05876cac58b413693a2405e"
+}

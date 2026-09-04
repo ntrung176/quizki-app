@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2119,
+  "usages": [
+    {
+      "explain": "と言っている (といっている) is used to convey what a third person has said.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は俳優になりたいと言っていた。",
+          "transcription": "かのじょははいゆうになりたいといっていた。",
+          "mean": "She said she wanted to be an actor."
+        },
+        {
+          "content": "先生は来週テストがあると言っていた。",
+          "transcription": "せんせいはらいしゅうしけんがあるといっていた。",
+          "mean": "The teacher said that there will be a test next week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Plain form + と言っている"
+    }
+  ],
+  "title": "と言っている => To say that ...",
+  "_id": "f7ff14dae05876cac58b413693d4c49c"
+}

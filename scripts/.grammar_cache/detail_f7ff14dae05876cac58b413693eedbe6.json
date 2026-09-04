@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2302,
+  "usages": [
+    {
+      "explain": "This is an ironic expression, using the verb in the conditional form attached to an interrogative word. It means \"no matter how much one does, it's still not satisfactory\", conveying a feeling of anxiety and despair towards the situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どのような順番で教えれば最も早く覚えてもらうことができるのか。",
+          "transcription": "どのようなじゅんばんでおしえればもっともはやくおぼえてもらうことができるのか。",
+          "mean": "What order should I teach them in so that they will remember them the fastest?"
+        },
+        {
+          "content": "どれだけ待てば、返信は来るのか。",
+          "transcription": "どれだけまてば、へんしんはくるのか。",
+          "mean": "How long will I have to wait for a reply?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative words ＋ V－ば…のか"
+    }
+  ],
+  "title": ".... ば…のか => must...",
+  "_id": "f7ff14dae05876cac58b413693eedbe6"
+}

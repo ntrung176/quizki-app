@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 5641,
+  "usages": [
+    {
+      "explain": "「てはいけない」expresses a prohibition, indicating that one is not allowed to do something.\n\nWhen used to answer a question in the form of「てもいいですか」, you can omit the verb and simply reply with「いいえ、いけません」(No, you cannot).",
+      "note": null,
+      "examples": [
+        {
+          "content": "ここでたばこを吸ってはいけません。禁煙ですから。",
+          "transcription": "ここでたばこをすってはいけません。きんえんですから。",
+          "mean": "You are not allowed to smoke here. No smoking."
+        },
+        {
+          "content": "授業中に携帯電話を使ってはいけません。",
+          "transcription": "じゅぎょうちゅうにけいたいでんわをつかってはいけません。",
+          "mean": "Do not use cell phones during class."
+        },
+        {
+          "content": "病院で大声で話してはいけません。",
+          "transcription": "びょういんでおおごえではなしてはいけません。",
+          "mean": "Don't talk loudly in the hospital."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+はいけない"
+    }
+  ],
+  "title": "てはいけない => must not; may not; cannot",
+  "_id": "7b8ec9ada21e4ce992f0cb9fe638dde1"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1049,
+  "usages": [
+    {
+      "explain": "Used with nouns indicating degree to express \"because that degree is too high\". The clause following it states the obvious result of that cause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あまりの激痛に、思わず叫び声をあげた。",
+          "transcription": "あまりのげきつうに、おもわずさけびごえをあげた。",
+          "mean": "The pain was so intense that I couldn't help but scream."
+        },
+        {
+          "content": "10年ぶりで兄に会ったが、あまりの兄の変化に言葉が出なかった。",
+          "transcription": "10ねんぶりであににあったが、あまりのあにのへんかにことばがでなかった。",
+          "mean": "When I met my brother for the first time in 10 years, I was speechless at how much he had changed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あまりの + N + に"
+    }
+  ],
+  "title": "あまりの～に => because the degree is too hight",
+  "_id": "f7ff14dae05876cac58b413693412a42"
+}

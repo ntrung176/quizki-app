@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1793,
+  "usages": [
+    {
+      "explain": "Used in cases where one wants to say that when undertaking a certain action, one should not do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "できるなら借金するな。",
+          "transcription": "できるならしゃっきんするな。",
+          "mean": "Don't go into debt if you can help it."
+        },
+        {
+          "content": "この仕事を引き受けるなら不真面目な態度ではするな。",
+          "transcription": "このしごとをひきうけるならふまじめなたいどではするな。",
+          "mean": "If you're going to take on this job, don't do it in a dishonest manner."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる +（の）なら～するな"
+    }
+  ],
+  "title": "(の) なら～するな => If...then don't...",
+  "_id": "f7ff14dae05876cac58b413693a7c592"
+}

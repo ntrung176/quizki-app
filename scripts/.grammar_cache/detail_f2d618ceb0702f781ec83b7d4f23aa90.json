@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 2700,
+  "usages": [
+    {
+      "explain": "Expresses a meaning of small quantity, low degree. Often used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は新しい車でちょっと走ってみた。",
+          "transcription": "かれはあたらしいくるまでちょっとはしってみた。",
+          "mean": "He took the new car for a short drive."
+        },
+        {
+          "content": "借りた漫画はまだちょっとだけしか読んでいない。",
+          "transcription": "かりたまんがはまだちょっとだけしかよんでいない。",
+          "mean": "I have only read a few of the manga I borrowed."
+        },
+        {
+          "content": "目標額の80万円にはちょっと足りない。",
+          "transcription": "もくひょうがくの80まんえんにはちょっとたりない。",
+          "mean": "This is just short of the target amount of 800,000 yen."
+        },
+        {
+          "content": "両親への手紙をちょっと書き直した。",
+          "transcription": "りょうしんへのてがみをちょっとかきなおした。",
+          "mean": "I slightly rewrote the letter to my parents."
+        },
+        {
+          "content": "中国語は、ちょっとだけ話せる。",
+          "transcription": "ちゅうごくごは、ちょっとだけはなせる。",
+          "mean": "I can speak a little Chinese."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ちょっと is used to express degree and quantity."
+    }
+  ],
+  "title": "ちょっと => a little",
+  "_id": "f2d618ceb0702f781ec83b7d4f23aa90"
+}

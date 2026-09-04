@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3004,
+  "usages": [
+    {
+      "explain": "「どれ」is a word used to ask \"which one\". This sentence pattern is used when the speaker wants to request the listener to identify a specific object from a group of two or more.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あなたの手帳はどれですか。",
+          "transcription": "あなたのてちょうはどれですか。",
+          "mean": "Which notebook is yours?"
+        },
+        {
+          "content": "検査されるべき点はどれですか",
+          "transcription": "けんさされるべきてんはどれですか",
+          "mean": "Which points should be inspected?"
+        },
+        {
+          "content": "おススメはどれですか",
+          "transcription": "おすすめはどれですか",
+          "mean": "Which one do you recommend?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + は + どれですか"
+    }
+  ],
+  "title": "どれですか => Which one",
+  "_id": "f2d618ceb0702f781ec83b7d4f4a224c"
+}

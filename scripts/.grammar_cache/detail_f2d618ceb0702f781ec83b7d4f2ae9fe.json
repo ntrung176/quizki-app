@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2759,
+  "usages": [
+    {
+      "explain": "Used together with the negative form to express the meaning of \"not at all\". This is used for objects, events, and animals, not for humans.<br/><br/>NWhen referring to humans, we use [だれも...ない] (\"nobody...\") and for places, we use [どこも...ない] (\"nowhere...\").",
+      "note": null,
+      "examples": [
+        {
+          "content": "うるさくてなにも聞こえない。",
+          "transcription": "うるさくてなにもきこえない。",
+          "mean": "It's so noisy I can't hear anything."
+        },
+        {
+          "content": "箱の中にはなにも入っていない。",
+          "transcription": "はこのなかにはなにもはいっていない。",
+          "mean": "There's nothing inside the box."
+        },
+        {
+          "content": "彼が会社を辞めるのについて、私は何も知りませんでした。",
+          "transcription": "かれがかいしゃをやめるのについて、わたしはなにもしりませんでした。",
+          "mean": "I didn't know anything about him leaving the company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにも～ない"
+    }
+  ],
+  "title": "なにも～ない => nothing; (not) ~ at all; there's no need to ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f2ae9fe"
+}

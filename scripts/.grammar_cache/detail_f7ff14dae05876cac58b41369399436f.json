@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1694,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's surprise, astonishment towards a person or something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はなんという天才なんだろう。",
+          "transcription": "かれはなんというてんさいなんだろう。",
+          "mean": "What a genius he is!"
+        },
+        {
+          "content": "なんというばかげた考えだ。",
+          "transcription": "なんというばかげたかんがえだ。",
+          "mean": "What a stupid idea."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんという + N + だ"
+    }
+  ],
+  "title": "なんという～だ => how (beautiful, etc.); what a ~",
+  "_id": "f7ff14dae05876cac58b41369399436f"
+}

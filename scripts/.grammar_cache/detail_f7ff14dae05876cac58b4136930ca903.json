@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 666,
+  "usages": [
+    {
+      "explain": "✦Often follows certain nouns like [感激] (appreciation), [痛恨] (regret), to describe a situation at an extreme, where nothing could be worse.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このような盛大なる激励会を開いていただき、感激のきわみです。",
+          "transcription": "このようなせいだいなるげきれいかいをひらいていただき、かんげきのきわみです。",
+          "mean": "I am extremely grateful to have been able to hold such a grand pep rally."
+        },
+        {
+          "content": "彼が自殺してちょうど一か月たつ。あの日何か話しをしたそうな様子だったのに忙しくてそのままにしてしまった。いま思うと痛恨の極みだ。",
+          "transcription": "かれがじさつしてちょうどいちかげつたつ。あのひなにかはなしをしたそうなようすだったのにいそがしくてそのままにしてしまった。いまおもうとつうこんのきわみだ。",
+          "mean": "It's been exactly a month since he committed suicide. It seemed like we wanted to talk about something that day, but I was busy and ended up leaving it there. When I think about it now, I feel extremely sad."
+        },
+        {
+          "content": "不慮の事故でわが子を失った母親は悲嘆の極みにあった。",
+          "transcription": "ふりょのじこでわがこをうしなったははおやはひたんのきわみにあった。",
+          "mean": "A mother who lost her child in an unexpected accident was in the depths of grief."
+        },
+        {
+          "content": "資産家の一人息子として、贅沢の極みをノ早くしていた。",
+          "transcription": "しさんかのいちにんむすことして、ぜいたくのきわみをノはやくしていた。",
+          "mean": "As the only son of a wealthy family, he quickly reached the height of luxury."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N + の + きわみ"
+    }
+  ],
+  "title": "～きわみ => the utmost",
+  "_id": "f7ff14dae05876cac58b4136930ca903"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 3158,
+  "usages": [
+    {
+      "explain": "✦ Implies becoming, turning into a bad situation, showing a situation that becomes difficult beyond expectations due to some reason.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ゲーム大好きの青年がゲームを買うお金ほしさに、盗みに入り犯罪者となる羽目になった。",
+          "transcription": "ゲームだいすきのせいねんがゲームをかうおかねほしさに、ぬすみにはいりはんざいしゃとなるはめになった。",
+          "mean": "A young man who loves games ends up stealing and becoming a criminal because he wants money to buy games."
+        },
+        {
+          "content": "他人の仕事も引き受けてしまって、結局、３日も満足に寝られない羽目になった。",
+          "transcription": "たにんのしごともひきうけてしまって、けっきょく、３かもまんぞくにねられないはめになった。",
+          "mean": "I ended up taking on other people's work, and ended up not being able to sleep for three days."
+        },
+        {
+          "content": "授業をサボリすぎたので、試験前は徹夜する羽目になりそうだ。",
+          "transcription": "じゅぎょうをサボリすぎたので、しけんまえはてつやするはめになりそうだ。",
+          "mean": "I skipped classes so much that I think I'll have to stay up all night before the exam."
+        },
+        {
+          "content": "商品の納入が遅れ、契約違反を指摘されて、違約金を支払う羽目になった。",
+          "transcription": "しょうひんののうにゅうがおくれ、けいやくいはんをしてきされて、いやくきんをしはらうはめになった。",
+          "mean": "The delivery of the product was delayed, and the company was found to have breached the contract and had to pay a penalty."
+        },
+        {
+          "content": "契約に失敗して、大阪へ左遷される羽目になった。",
+          "transcription": "けいやくにしっぱいして、おおさかへさせんされるはめになった。",
+          "mean": "After failing to secure a contract, he was demoted to Osaka."
+        },
+        {
+          "content": "高校の時、友人に誘われタバコを吸って、停学処分を受ける羽目になった。",
+          "transcription": "こうこうのとき、ゆうじんにさそわれタバコをすって、ていがくしょぶんをうけるはめになった。",
+          "mean": "When I was in high school, a friend invited me out to smoke, and I ended up getting suspended from school."
+        },
+        {
+          "content": "ジョギング中に転んで、入院する羽目になった。",
+          "transcription": "ジョギングちゅうにころんで、にゅういんするはめになった。",
+          "mean": "I fell while jogging and had to be hospitalized."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vる・Vない ＋ 羽目になる"
+    }
+  ],
+  "title": "～はめになる（～羽目になる）     =>  to get stuck with (some job); to end up with (something unpleasant)",
+  "_id": "93020c54469e582d6fdb16f7baa2250b"
+}

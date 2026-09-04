@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2717,
+  "usages": [
+    {
+      "explain": "Using the form「（V一て）もらおう／いただこう」to indirectly request someone to perform an action. It has a similar meaning to direct requests like「ビールをください」(\"Please give me a beer\"),「死んでくれ」(\"Die, please\"),「来てください」(\"Please come\"), but the expression「（V－て）もらおう」carries a stronger sense of imposition from the speaker. It's difficult to use unless one holds a high social position or authority in a professional setting.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この箱を二階へ運んでもらおう。",
+          "transcription": "このはこをにかいへはこんでもらおう。",
+          "mean": "Let me take this box to the second floor."
+        },
+        {
+          "content": "この問題に注意してもらおう。",
+          "transcription": "このもんだいにちゅういしてもらおう。",
+          "mean": "Let me draw your attention to this issue."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－て + もらおう"
+    }
+  ],
+  "title": "...もらおう => Please...",
+  "_id": "f2d618ceb0702f781ec83b7d4f2692fd"
+}

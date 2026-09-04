@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1557,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"to a certain extent, to a certain stage\". It has a similar meaning to the form 「Nとなると」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "文法なら出来るが、漢字になると全然分からない。",
+          "transcription": "ぶんぽうならできるが、かんじになるとぜんぜんわからない。",
+          "mean": "I can understand grammar, but when it comes to kanji, I have no idea."
+        },
+        {
+          "content": "模擬試験ではうまく行ったのに、本当の試験になるといろいろ間違えてしまった。",
+          "transcription": "もぎしけんではうまくいったのに、ほんとうのしけんになるといろいろまちがえてしまった。",
+          "mean": "I did well on the mock exam, but when it came to the real exam, I made a lot of mistakes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+になると"
+    }
+  ],
+  "title": "になると => When it becomes; when it comes to",
+  "_id": "f7ff14dae05876cac58b413693881ad3"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1462,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"If it weren't for A, event B wouldn't happen.\" Usually accompanied by words indicating the speaker's high regard.",
+      "note": null,
+      "examples": [
+        {
+          "content": "強い意志を抜きにしては 、この仕事を完成させることはできない。",
+          "transcription": "つよいいしをぬきにしては、このしごとをかんせいさせることはできない。",
+          "mean": "This work cannot be completed without a strong will."
+        },
+        {
+          "content": "料理の上手な山田さんを抜きにしては 、パーティーは開けません。",
+          "transcription": "りょうりのじょうずなやまださんをぬきにしては、ぱーてぃーはあけません。",
+          "mean": "I can't have a party without Mr. Yamada, who is a good cook."
+        },
+        {
+          "content": "電気を抜きにしては、現在社会は成り立たないと言ってもいい。",
+          "transcription": "でんきをぬきにしては、げんざいしゃかいはなりたたないといってもいい。",
+          "mean": "It can be said that today's society cannot exist without electricity."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + を抜きにしては（をぬきにしては）"
+    }
+  ],
+  "title": "... を抜きにしては => If it weren't for…",
+  "_id": "f7ff14dae05876cac58b4136937a7dc0"
+}

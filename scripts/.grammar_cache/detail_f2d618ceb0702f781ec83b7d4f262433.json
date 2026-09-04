@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2714,
+  "usages": [
+    {
+      "explain": "Used when the speaker wants the listener to check if their thoughts are correct or not.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼が山田さんじゃないですか。",
+          "transcription": "かれがやまださんじゃないですか。",
+          "mean": "Isn't he Mr. Yamada?"
+        },
+        {
+          "content": "この問題は小学生にちょっと複雑ではないか。",
+          "transcription": "このもんだいはしょうがくせいにちょっとふくざつではないか。",
+          "mean": "Isn't this problem a bit complicated for elementary school students?"
+        },
+        {
+          "content": "何か音がしない。",
+          "transcription": "なにかおとがしない。",
+          "mean": "There's no sound."
+        },
+        {
+          "content": "ちょっと重すぎません。",
+          "transcription": "ちょっとおもすぎません。",
+          "mean": "It's not too heavy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ないか <br/>A + くないか<br/>Na・N + ではないか"
+    }
+  ],
+  "title": "ない (か) => Isn't that...? (Confirmed)",
+  "_id": "f2d618ceb0702f781ec83b7d4f262433"
+}

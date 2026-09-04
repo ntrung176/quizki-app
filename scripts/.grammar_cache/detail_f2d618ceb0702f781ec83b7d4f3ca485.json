@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2895,
+  "usages": [
+    {
+      "explain": "This expression is used to indicate the frequency of doing something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一か月に3回映画を見ます。",
+          "transcription": "いちかげつに3かいえいがをみます。",
+          "mean": "I watch movies three times a month."
+        },
+        {
+          "content": "二週間に1回恋人にあいます。",
+          "transcription": "にしゅうかんに1かいこいびとにあいます。",
+          "mean": "I meet my girlfriend once every two weeks."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantifier (duration of time) に V-ます."
+    }
+  ],
+  "title": "にV-ます => Frequency",
+  "_id": "f2d618ceb0702f781ec83b7d4f3ca485"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1841,
+  "usages": [
+    {
+      "explain": "Meaning: \"within the specified quantity\", \"the limit is the highest quantity, not exceeding it\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私たちは毎月500万ドン以内で生活しなければならない。",
+          "transcription": "わたしたちはまいつき500まんどんいないでせいかつしなければならない。",
+          "mean": "We have to live on less than 5 million VND every month."
+        },
+        {
+          "content": "この品は７日以内ならお取り替えします。",
+          "transcription": "このしなはななにちいないならおとりかえします。",
+          "mean": "We will exchange this item within 7 days."
+        },
+        {
+          "content": "宿題は一週間以内に終えなければならないことを忘れないように。",
+          "transcription": "しゅくだいはいっしゅうかんいないにおえなければならないことをわすれないように。",
+          "mean": "Remember that your homework must be completed within a week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + いない（以内）"
+    }
+  ],
+  "title": "いない => Inside, within...",
+  "_id": "f7ff14dae05876cac58b413693adbb5d"
+}

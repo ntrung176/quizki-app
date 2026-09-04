@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1839,
+  "usages": [
+    {
+      "explain": "A fixed expression, meaning 「..ない」\"not...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "時間が知らぬ間に経った。",
+          "transcription": "じかんがしらぬまにたった。",
+          "mean": "Time passed before I knew it."
+        },
+        {
+          "content": "その結婚式で予期せぬ事態が発生した。",
+          "transcription": "そのけっこんしきでよきせぬじたいがはっせいした。",
+          "mean": "An unexpected situation occurred at the wedding."
+        },
+        {
+          "content": "人はいつか死ななければならぬ。",
+          "transcription": "ひとはいつかしななければならぬ。",
+          "mean": "A person must die someday."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...ぬ => Not (Negative)",
+  "_id": "f7ff14dae05876cac58b413693ad848f"
+}

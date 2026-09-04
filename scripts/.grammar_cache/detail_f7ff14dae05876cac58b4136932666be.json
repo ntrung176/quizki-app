@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 852,
+  "usages": [
+    {
+      "explain": "✦ Used when one wants to develop or add something to the story.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は格好いいです。でもってユーモアがある人です。",
+          "transcription": "かれはかっこういいです。でもってゆーもあがあるひとです。",
+          "mean": "He's cool. However, he is also a person with a sense of humor."
+        },
+        {
+          "content": "彼女は優しいです。でもって親しみのある人です。",
+          "transcription": "かのじょはやさしいです。でもってしたしみのあるひとです。",
+          "mean": "she is kind However, he is a very friendly person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦でもって this is a conjunction."
+    }
+  ],
+  "title": "でもって => Indicates means of action, cause of effect, by",
+  "_id": "f7ff14dae05876cac58b4136932666be"
+}

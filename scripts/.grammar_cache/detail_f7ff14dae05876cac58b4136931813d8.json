@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 751,
+  "usages": [
+    {
+      "explain": "✦ Indicates the meaning that once something happens, then its state will not change afterward, either due to the nature of the event or due to the determination of the parties involved.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父は、いったん寝たら最後、朝まで起きない。",
+          "transcription": "ちちは、いったんねたらさいご、あさまでおきない。",
+          "mean": "Once my father goes to bed, he doesn't wake up until morning."
+        },
+        {
+          "content": "賭事は一度手を出したら最後ずるずると抜けられなくなる人が多い。",
+          "transcription": "かけごとはいちどしゅをだしたらさいごずるずるとぬけられなくなるひとがおおい。",
+          "mean": "Many people, once they start gambling, are unable to quit."
+        },
+        {
+          "content": "すっぽんは一度かみついたら最後どんなことがあっても離れない。",
+          "transcription": "すっぽんはいちどかみついたらさいごどんなことがあってもはなれない。",
+          "mean": "Once a soft-shelled turtle bites you, it won't let go no matter what happens."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vた + らさいご"
+    }
+  ],
+  "title": "～たらさいご => If you do… negative result",
+  "_id": "f7ff14dae05876cac58b4136931813d8"
+}

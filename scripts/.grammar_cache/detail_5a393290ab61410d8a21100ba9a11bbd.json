@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5404,
+  "usages": [
+    {
+      "explain": "「おかげで」expresses the cause or reason for an event, indicating that thanks to a person/action mentioned (V/A/N), the event was successful or achieved the desired result.<br/>「おかげで」is often used with positive outcomes and carries a sense of gratitude. However, when used with negative outcomes, it can carry a sarcastic tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生のおかげで合格出来ました。",
+          "transcription": "せんせいのおかげでごうかくできました。",
+          "mean": "I was able to pass thanks to my teacher."
+        },
+        {
+          "content": "日本へ来たおかげで日本語が上手になった。",
+          "transcription": "にほんへきたおかげでにほんごがじょうずになった。",
+          "mean": "My Japanese has improved since I came to Japan."
+        },
+        {
+          "content": "いい医者に診てもらったおかげで病気が治った。",
+          "transcription": "いいいしゃにみてもらったおかげでびょうきがなおった。",
+          "mean": "Thanks to seeing a good doctor, I was cured of my illness."
+        },
+        {
+          "content": "彼は能力のおかげで成功した。",
+          "transcription": "かれはのうりょくのおかげでせいこうした。",
+          "mean": "He succeeded because of his ability."
+        },
+        {
+          "content": "奨学金をもらったおかげで留学できた。",
+          "transcription": "しょうがくきんをもらったおかげでりゅうがくできた。",
+          "mean": "I was able to study abroad because I received a scholarship."
+        },
+        {
+          "content": "彼は日本語が上手なおかげで今の会社に就職することができました。",
+          "transcription": "かれはにほんごがじょうずなおかげでいまのかいしゃにしゅうしょくすることができました。",
+          "mean": "He was able to get a job at his current company because he was good at Japanese."
+        },
+        {
+          "content": "君がミスしてくれたおかげで、全部やり直しだよ。",
+          "transcription": "きみがミスしてくれたおかげで、ぜんぶやりなおしだよ。",
+          "mean": "Thanks to your mistake, I have to start all over again."
+        },
+        {
+          "content": "赤ん坊夜中に泣き出したおかげで、全然寝れなかったよ。",
+          "transcription": "あかんぼうよなかになきだしたおかげで、ぜんぜんねれなかったよ。",
+          "mean": "My baby started crying in the middle of the night, so I couldn't sleep at all."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+おかげで / おかげだ<br/>Aい+おかげで / おかげだ<br/> Aな+おかげで / おかげだ<br/> Nの+おかげで / おかげだ"
+    }
+  ],
+  "title": "おかげで => thanks to; owing to; because of ~",
+  "_id": "5a393290ab61410d8a21100ba9a11bbd"
+}

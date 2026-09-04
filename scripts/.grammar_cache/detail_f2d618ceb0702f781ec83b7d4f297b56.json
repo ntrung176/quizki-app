@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2745,
+  "usages": [
+    {
+      "explain": "Used with verbs like「行く」(to go),「来る」(to come),「歩く」(to walk),「走る」(to run),「泳ぐ」(to swim) to indicate the end point of a movement. The verbs 「歩く」(to walk),「走る」(to run),「泳ぐ」(to swim) do not directly take「 に」or「へ」but can be used with「 まで」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学校まで走りましょう。",
+          "transcription": "がっこうまではしりましょう。",
+          "mean": "Let's run to school."
+        },
+        {
+          "content": "彼はいくらやってみてもあの岩まで泳ぐことはできない。",
+          "transcription": "かれはいくらやってみてもあのいわまでおよぐことはできない。",
+          "mean": "No matter how hard he tries, he can't swim to that rock."
+        },
+        {
+          "content": "ロンドンまで (に/へ) 飛行機で行く。",
+          "transcription": "ろんどんまで(に/へ)ひこうきでいく。",
+          "mean": "Go (to/to) London by plane."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + まで"
+    },
+    {
+      "explain": "Note: Additionally, with「 まで」, it talks about the end point of a continuous action so it cannot have two locations at the same time.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "Nまで => To N (destination)",
+  "_id": "f2d618ceb0702f781ec83b7d4f297b56"
+}

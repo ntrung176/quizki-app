@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2782,
+  "usages": [
+    {
+      "explain": "Used in conversations, following 「だから」 is a question. This usage is not to indicate a cause-and-effect relationship, but to request the listener to clarify the speaker's intention, after receiving the speaker's statement, by asking \"So, what are you trying to say?\". It can be replaced with 「それで」 or 「で」. Sometimes pronounced with a rising intonation, then a half-paused tone in the latter half of the sentence. Because it has a somewhat impolite nuance, even if the end of the sentence is in a polite form, it's difficult to use 「ですから」 in this form of expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "A：佐藤さんお前のためにこんなに遅くまで働いているんだ。B：だから、どうたって言うの。",
+          "transcription": "A：さとうさんおまえのためにこんなにおそくまではたらいているんだ。B：だから、どうたっていうの。",
+          "mean": "A: Mr. Sato is working so late for you. B: So, what do you say?"
+        },
+        {
+          "content": "A：今日は最後のデートです。B：だから、何なんですか。<br>",
+          "transcription": "A：こんにちはさいごのでーとです。B：だから、なになんですか。<br>",
+          "mean": "A: Today is our last date. B: So, what is it? &lt;br&gt;"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Used in conversation, followed by 「だから」 is a question."
+    }
+  ],
+  "title": "だから => So? (so what), what does that mean?(Interrogation)",
+  "_id": "f2d618ceb0702f781ec83b7d4f2e5aaf"
+}

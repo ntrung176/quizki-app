@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2103,
+  "usages": [
+    {
+      "explain": "Expresses the meaning that there is something infeasible or unreasonable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このプロジェクトには無理がある。",
+          "transcription": "このぷろじぇくとにはむりがある。",
+          "mean": "This project is impossible."
+        },
+        {
+          "content": "やはりこの予定には無理があると思いました。",
+          "transcription": "やはりこのよていにはむりがあるとおもいました。",
+          "mean": "I thought that this plan was impossible."
+        },
+        {
+          "content": "あなたの考え方には無理があるよ。",
+          "transcription": "あなたのかんがえかたにはむりがあるよ。",
+          "mean": "Your way of thinking is unreasonable."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…にはむりがある => difficult to do; is unreasonable / unrealistic / impossible",
+  "_id": "f7ff14dae05876cac58b413693d26519"
+}

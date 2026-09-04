@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 826,
+  "usages": [
+    {
+      "explain": "✦ A way of explaining the characteristics or nature of an event using a different expression. It conveys the meaning \"if we were to give an example, it might be like this...\". <br/> ✦ Used in forms like 「...　とでもいおうか」 , 「...とでもいってよいだろう」, etc. These forms are used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "学問の楽しみは、未知の世界を発見する喜びとでもいおうか。",
+          "transcription": "がくもんのたのしみは、みちのせかいをはっけんするよろこびとでもいおうか。",
+          "mean": "The joy of learning can be said to be the joy of discovering an unknown world."
+        },
+        {
+          "content": "シルクの繊維としての素晴らしさは、気温や湿度の変化に対する絶妙なバランスにあるとでもいったらよいだろうか。",
+          "transcription": "シルクのせんいとしてのすばらしさは、きおんやしつどのへんかにたいするぜつみょうなバランスにあるとでもいったらよいだろうか。",
+          "mean": "The beauty of silk as a fiber lies in its exquisite balance with respect to changes in temperature and humidity."
+        },
+        {
+          "content": "冷房のきいた部屋から外に出た時の感じは、まるで蒸し風呂に入った感じとでもいえようか。",
+          "transcription": "れいぼうのきいたへやからそとにでたときのかんじは、まるでむしぶろにはいったかんじとでもいえようか。",
+          "mean": "The feeling you get when you step out of an air-conditioned room is like taking a steam bath."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～とでもいう => ～ In other words, it can also be said",
+  "_id": "f7ff14dae05876cac58b41369322f541"
+}

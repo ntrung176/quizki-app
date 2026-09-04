@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1431,
+  "usages": [
+    {
+      "explain": "■ Combined with verbs without intention to indicate events unrelated to human will, such as 「なる」to express the meaning \"it cannot be predicted that the event will turn out that way\". <br/>■ Verbs following, not only the verb 「思う」, but also verbs 「予想／想像する」are always used in the form of 「ーなかった」. This is a literary expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんなことになろうとは思わなかった。",
+          "transcription": "こんなことになろうとはおもわなかった。",
+          "mean": "I never thought something like this would happen."
+        },
+        {
+          "content": "こんなに美味しいと思わなかった。",
+          "transcription": "こんなにおいしいとおもわなかった。",
+          "mean": "I didn't expect it to be this delicious."
+        },
+        {
+          "content": "この場所が遠いと思わなかった。",
+          "transcription": "このばしょがとおいとおもわなかった。",
+          "mean": "I didn't think this place was far away."
+        }
+      ],
+      "mean": null,
+      "synopsis": "■V－よう + ようとは思はなかった"
+    }
+  ],
+  "title": "～ようとは思はなかった => I would not think to~",
+  "_id": "f7ff14dae05876cac58b413693757942"
+}

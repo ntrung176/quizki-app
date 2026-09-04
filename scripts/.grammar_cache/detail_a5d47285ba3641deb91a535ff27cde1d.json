@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5546,
+  "usages": [
+    {
+      "explain": "「それに」dùng để bổ sung thông tin vào điều vừa nói trước đó. Thông tin bổ sung và thông tin trước đó có vị thế ngang bằng nhau. Việc nói điều gì trước, điều gì sau「それに」không chịu ảnh hưởng bởi cảm xúc hay đánh giá cụ thể nào của người nói.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このアニメはとても人気がある。それに、音楽がいいです。",
+          "transcription": "このアニメはとてもにんきがある。それに、おんがくがいいです。",
+          "mean": "This anime is very popular. Also, the music is good."
+        },
+        {
+          "content": "安田さんは親切だし、頭もいいし、それにカッコいいです。",
+          "transcription": "やすださんはしんせつだし、あたまもいいし、それにカッコいいです。",
+          "mean": "Mr. Yasuda is kind, smart, and cool."
+        },
+        {
+          "content": "今日の仕事は済んだし、それに明日の仕事の準備もばっちり。",
+          "transcription": "きょうのしごとはすんだし、それにあしたのしごとのじゅんびもばっちり。",
+          "mean": "I've finished today's work, and I'm fully prepared for tomorrow's work."
+        },
+        {
+          "content": "この家は、日当たりがよく、部屋もたくさんあり、それに家賃も安い。",
+          "transcription": "このいえは、ひあたりがよく、へやもたくさんあり、それにやちんもやすい。",
+          "mean": "This house is sunny, has many rooms, and the rent is cheap."
+        },
+        {
+          "content": "このレストランは料理が美味しくないし、値段も高いし、それにサービスが悪いので、二度と行かない。",
+          "transcription": "このレストランはりょうりがおいしくないし、ねだんもたかいし、それにサービスがわるいので、にどといかない。",
+          "mean": "I will never go to this restaurant again because the food is not good, the prices are high, and the service is bad."
+        },
+        {
+          "content": "この自転車は、性能もよくデザインもかっこよく、非常にオススメです。それに、何より日本に１０台しかない限定モデルです。",
+          "transcription": "このじてんしゃは、せいのうもよくデザインもかっこよく、ひじょうにオススメです。それに、なによりにほんにじゅうだいしかないげんていモデルです。",
+          "mean": "This bicycle has good performance and a cool design, so I highly recommend it. Best of all, it is a limited edition model with only 10 units available in Japan."
+        },
+        {
+          "content": "『どうしてさくら大学を選んだんですか。』『さくら大学は、父が出た大学だし、いい先生も多いし、それに家から近いですから。』",
+          "transcription": "『どうしてさくらだいがくをえらんだんですか。』『さくらだいがくは、ちちがでただいがくだし、いいせんせいもおおいし、それに、いえからちかいですから。』",
+          "mean": "``Why did you choose Sakura University? ``Sakura University is the university where my father graduated, it has a lot of good teachers, and it's close to my house.'' ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence、それに"
+    }
+  ],
+  "title": "それに => besides; in addition; also; moreover ~",
+  "_id": "a5d47285ba3641deb91a535ff27cde1d"
+}

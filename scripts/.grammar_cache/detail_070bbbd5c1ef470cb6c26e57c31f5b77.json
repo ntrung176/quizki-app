@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5420,
+  "usages": [
+    {
+      "explain": "「それとも」 is a conjunction that connects two questions, used to offer multiple choices for the listener to choose from.",
+      "note": null,
+      "examples": [
+        {
+          "content": "コーヒーにしますか。それとも、紅茶にしますか。",
+          "transcription": "コーヒーにしますか。それとも、こうちゃにしますか。",
+          "mean": "Would you like some coffee? Or would you like tea?"
+        },
+        {
+          "content": "来週にしましょうか。それとも、さ来週がいいですか。",
+          "transcription": "らいしゅうにしましょうか。それとも、さらいしゅうがいいですか。",
+          "mean": "Shall we do it next week? Or would you like next week?"
+        },
+        {
+          "content": "話し合って決めましょうか。それとも、私が決めてしまってもいいですか。",
+          "transcription": "はなしあってきめましょうか。それとも、わたしがきめてしまってもいいですか。",
+          "mean": "Shall we discuss and decide? Or can I decide for myself?"
+        },
+        {
+          "content": "地下鉄で行きますか。それとも、JRで行きますか。",
+          "transcription": "ちかてつでいきますか。それとも、ジェイアールでいきますか。",
+          "mean": "Shall we go by subway? Or should I go by JR?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A？ それとも、 B？"
+    }
+  ],
+  "title": "それとも => or; or else ~",
+  "_id": "070bbbd5c1ef470cb6c26e57c31f5b77"
+}

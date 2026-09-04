@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2741,
+  "usages": [
+    {
+      "explain": "Describes the action of the speaker, or someone on the same side as the speaker, doing something for someone of lower status or an animal.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は弟に自転車を直してやりました。",
+          "transcription": "わたしはおとうとにじてんしゃをなおしてやりました。",
+          "mean": "I fixed the bicycle for my brother."
+        },
+        {
+          "content": "毎朝私は犬に散歩してやります。",
+          "transcription": "まいあさわたしはいぬにさんぽしてやります。",
+          "mean": "Every morning I walk my dog."
+        },
+        {
+          "content": "子供にバッグを持ってやった。",
+          "transcription": "こどもにばっぐをもってやった。",
+          "mean": "I gave the child a bag."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + やる"
+    }
+  ],
+  "title": "てやる => to do for; to do a favor (casual spoken)",
+  "_id": "f2d618ceb0702f781ec83b7d4f28faff"
+}

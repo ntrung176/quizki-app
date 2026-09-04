@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1071,
+  "usages": [
+    {
+      "explain": "This structure follows a noun or clause and is used in the form 「X はいいとしても Y」. In this, Y carries a negative meaning to express \"X is acceptable but Y is not\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "下院はいいとしても、上院がこの法案を通過しないだろう。",
+          "transcription": "かいんはいいとしても、じょういんがこのほうあんをつうかしないだろう。",
+          "mean": "Even if the House is fine, the Senate will not pass this bill."
+        },
+        {
+          "content": "あのレストランは、料理はいいとしても、ウェイター の態度がよくない。",
+          "transcription": "あのれすとらんは、りょうりはいいとしても、うぇいたーのたいどがよくない。",
+          "mean": "Although the food at that restaurant is good, the attitude of the waiters is not good."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + はいいとしても"
+    }
+  ],
+  "title": "はいいとしても => Even though... I accept it",
+  "_id": "f7ff14dae05876cac58b41369344109c"
+}

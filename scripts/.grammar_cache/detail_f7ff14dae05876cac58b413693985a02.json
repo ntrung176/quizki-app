@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1687,
+  "usages": [
+    {
+      "explain": "Expresses the notion of \"even though it's recognized that something has happened, it still needs to be criticized or noted\". It's followed by expressions indicating criticism or reminders.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この論文は、なにがなんでも悪すぎる。",
+          "transcription": "このろんぶんは、なにがなんでもわるすぎる。",
+          "mean": "This paper is bad in every way."
+        },
+        {
+          "content": "なにがなんでも、彼にそんな大切な任務を任せるのは無理だ。",
+          "transcription": "なにがなんでも、かれにそんなたいせつなにんむをまかせるのはむりだ。",
+          "mean": "No matter what, I can't entrust him with such an important mission."
+        },
+        {
+          "content": "六ヶ月のうちにこんな大きいビルの建設を終わらせろなんて、なにがなんでもできない。",
+          "transcription": "ろくかげつのうちにこんなおおきいびるのけんせつをおわらせろなんて、なにがなんでもできない。",
+          "mean": "Nothing can be done to finish the construction of such a large building within six months."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにがなんでも + negative evaluation"
+    }
+  ],
+  "title": "なにがなんでも => by any means...",
+  "_id": "f7ff14dae05876cac58b413693985a02"
+}

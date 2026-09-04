@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1869,
+  "usages": [
+    {
+      "explain": "Used after intentional verbs to express a sense of apprehension that \"such an action will happen regardless of one's desire\". It is often used to talk about the speaker's own actions.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この本は面白いから全部読んでしまいそうだ。",
+          "transcription": "このほんはおもしろいからぜんぶよんでしまいそうだ。",
+          "mean": "This book is so interesting that I want to read it all."
+        },
+        {
+          "content": "1度やめていたお酒をまた飲んでしまいそうだ。",
+          "transcription": "1どやめていたおさけをまたのんでしまいそうだ。",
+          "mean": "I feel like I'm going to start drinking again after I stopped drinking."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + しまいそうだ"
+    }
+  ],
+  "title": "しまいそうだ => It seems like this is about to happen",
+  "_id": "f7ff14dae05876cac58b413693b14652"
+}

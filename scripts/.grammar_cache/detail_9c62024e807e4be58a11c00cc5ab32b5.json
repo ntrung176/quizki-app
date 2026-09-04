@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 5065,
+  "usages": [
+    {
+      "explain": "「に限る」helps the speaker assert their subjective opinion, that doing this (V) is the best, or this thing (N) is the best. It often precedes sentences using the conditional forms「なら」or「たら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "風邪を引いたときは、暖かくして寝るに限る。",
+          "transcription": "かぜをひいたときは、あたたかくしてねるにかぎる。",
+          "mean": "When you catch a cold, just keep warm and sleep."
+        },
+        {
+          "content": "日本語学校を選ぶなら、この学校に限る。",
+          "transcription": "にほんごがっこうをえらぶなら、このがっこうにかぎる。",
+          "mean": "If you choose a Japanese language school, choose this one."
+        },
+        {
+          "content": "痩せたいときは、甘い物を食べないに限る。",
+          "transcription": "やせたいときは、あまいものをたべないにかぎる。",
+          "mean": "If you want to lose weight, just don't eat sweets."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+に限る<br/> Vない+に限る<br/> N+に限る"
+    }
+  ],
+  "title": "に限る =>  is best; nothing is better than ~",
+  "_id": "9c62024e807e4be58a11c00cc5ab32b5"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5512,
+  "usages": [
+    {
+      "explain": "「も」is a particle added after a quantifier to indicate that the speaker feels the quantity or number is significant or large.",
+      "note": null,
+      "examples": [
+        {
+          "content": "N2を合格するのに5回も受けたの？",
+          "transcription": "エヌにをごうかくするのにごかいもうけたの？",
+          "mean": "Did you take it 5 times to pass N2?"
+        },
+        {
+          "content": "日本に行のに150万円も借りました。",
+          "transcription": "にほんにいのにひゃくごじゅうまんえんもかりました。",
+          "mean": "I borrowed 1.5 million yen to go to Japan."
+        },
+        {
+          "content": "駅まで行くのに2時間もかかりました。",
+          "transcription": "えきまでいくのににじかんもかかりました。",
+          "mean": "It took two hours to get to the station."
+        },
+        {
+          "content": "土曜日は12時間も寝てしまいました。",
+          "transcription": "どようびはじゅうにじかんもねてしまいました。",
+          "mean": "I slept for 12 hours on Saturday."
+        },
+        {
+          "content": "家を建てるのに3千万円も必要なんですか。",
+          "transcription": "うちをたてるのにさんぜんまんえんもひつようなんですか。",
+          "mean": "Do you need 30 million yen to build a house?"
+        },
+        {
+          "content": "田中さんは1日に5回も食事をするそうだ。",
+          "transcription": "たなかさんはいちにちにごかいもしょくじをするそうだ。",
+          "mean": "Tanaka apparently eats up to five times a day."
+        },
+        {
+          "content": "今年は台風が多いですね。まだ5月なのに6回も上陸した。",
+          "transcription": "ことしはたいふうがおおいですね。まだごがつなのにろっかいもじょうりくした。",
+          "mean": "There are many typhoons this year. Even though it was only May, it made landfall six times."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word+も"
+    }
+  ],
+  "title": "も => Until",
+  "_id": "bf9c8a9b93b74790b5c3e8340412883f"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2733,
+  "usages": [
+    {
+      "explain": "Indicates a slight increase or decrease or change in quantity compared to the current state. \"もうちょっと\" is a more casual way of saying \"a little more\" than \"もうすこし\", often used in daily conversations. Not used for large quantities.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もうちょっと 水をください。",
+          "transcription": "もうちょっと みずをください。",
+          "mean": "Please give me some more water."
+        },
+        {
+          "content": "ケーキをもうちょっといかがですか。",
+          "transcription": "けーきをもうちょっといかがですか。",
+          "mean": "Would you like some more cake?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "もうちょっと"
+    }
+  ],
+  "title": "もうちょっと => A little more (indicate quantity)",
+  "_id": "f2d618ceb0702f781ec83b7d4f282e8d"
+}

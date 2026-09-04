@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5423,
+  "usages": [
+    {
+      "explain": "「たとたんに」expresses the idea that as soon as one performs a certain action, another unexpected event immediately follows. The event in the second clause is beyond prediction and is not caused intentionally or planned by the subject in the first clause (such as through mistake, coercion...), so the second clause does not use a verb. The structure reflects the intention or command of the subject in the first clause.\n\nThe kanji for 「とたん」 is 「途端」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "窓を開けたとたん、強い風が入ってきた。",
+          "transcription": "まどをあけたとたん、つよいかぜがはいってきた。",
+          "mean": "As soon as I opened the window, a strong wind came in."
+        },
+        {
+          "content": "お酒を飲んだとたん、顔が赤くなった。",
+          "transcription": "おさけをのんだとたん、かおがあかくなった。",
+          "mean": "As soon as I drank alcohol, my face turned red."
+        },
+        {
+          "content": "立ち上がったとたんに、目眩がした。",
+          "transcription": "たちあがったとたんに、めまいがした。",
+          "mean": "As soon as I stood up, I felt dizzy."
+        },
+        {
+          "content": "箱を開けた。そのとたん、中からネズミが出てきた。",
+          "transcription": "はこをあけた。そのとたん、なかからネズミがでてきた。",
+          "mean": "I opened the box. Just then, a mouse came out from inside."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた+とたん<br/> Vた+とたんに<br/> Vた。そのとたん、"
+    }
+  ],
+  "title": "たとたん(に) => as soon as; just as ~",
+  "_id": "192c6dc3009741369d1153ab87fc3600"
+}

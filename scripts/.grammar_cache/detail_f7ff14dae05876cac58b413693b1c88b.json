@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1872,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's surprise, amazement before a person, or thing. Equivalent to [なんてまあ] (Oh my! ...). This is an affectionate way of saying [なんとのだとう].",
+      "note": null,
+      "examples": [
+        {
+          "content": "この町はなんてにぎやかなところなんでしょう。",
+          "transcription": "このまちはなんてにぎやかなところなんでしょう。",
+          "mean": "What a lively place this town is!"
+        },
+        {
+          "content": "彼女の演技はなんて素敵なんだろう。",
+          "transcription": "かのじょのえんぎはなんてすてきなんだろう。",
+          "mean": "How wonderful is her acting?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんて…N なんだろう\nなんて Na なんだろう\nなんて Aい んだろう"
+    }
+  ],
+  "title": "なんて…んだろう => how (beautiful, etc.); what a ~",
+  "_id": "f7ff14dae05876cac58b413693b1c88b"
+}

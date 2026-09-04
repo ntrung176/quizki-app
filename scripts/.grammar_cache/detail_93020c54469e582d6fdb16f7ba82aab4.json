@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 3247,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"no matter how it is, still...\" or \"regardless of how it is, still...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "何といってもアメリカは世界で一番強い国です。",
+          "transcription": "なんといってもアメリカはせかいでいちばんつよいくにです",
+          "mean": "After all, America is the strongest country in the world."
+        },
+        {
+          "content": "日本の代表的な花は何といっても桜でしょう。",
+          "transcription": "にほんのだいひょうてきなはなはなんといってもさくらでしょう",
+          "mean": "The most representative flower of Japan is undoubtedly the cherry blossom."
+        },
+        {
+          "content": "何といっても、彼らの輸送形態は公害を全く引き起こさない。",
+          "transcription": "なにといっても、かれらのゆそうけいたいはこうがいをまったくひきおこさない。",
+          "mean": "After all, their form of transport produces no pollution at all."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～何といっても（なんといっても）"
+    }
+  ],
+  "title": "なんといっても   => by any account, all the same, no doubt",
+  "_id": "93020c54469e582d6fdb16f7ba82aab4"
+}

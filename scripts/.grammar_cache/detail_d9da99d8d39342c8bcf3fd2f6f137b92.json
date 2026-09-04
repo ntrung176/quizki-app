@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5179,
+  "usages": [
+    {
+      "explain": "「ものの」 is used to convey the meaning of \"although... but...\". The event in the latter clause happens contrary to expectations or predictions as indicated by the content of the preceding clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "車の免許は持っているものの、ほとんど運転したことがない。",
+          "transcription": "くるまのめんきょはもっているものの、ほとんどうんてんしたことがない。",
+          "mean": "Although he has a driver's license, he has hardly ever driven."
+        },
+        {
+          "content": "たばこは体に悪いと分かってはいるものの、なかなか辞められない。",
+          "transcription": "たばこはからだにわるいとわかってはいるものの、なかなかやめられない。",
+          "mean": "Although I know that smoking is bad for my health, I have a hard time quitting."
+        },
+        {
+          "content": "大学は卒業したものの、就職先が見つからない。",
+          "transcription": "だいがくはそつぎょうしたものの、しゅうしょくさきがみつからない。",
+          "mean": "Although I graduated from university, I can't find a job."
+        },
+        {
+          "content": "あの学生は成績は良いものの、学習態度は良くない。",
+          "transcription": "あのがくせいはせいせきはよいものの、がくしゅうたいどはよくない。",
+          "mean": "Although that student has good grades, his attitude towards learning is not good."
+        },
+        {
+          "content": "この家具はデザインは繊細で優美なものの、あまり実用的とは言えない。",
+          "transcription": "このかぐはデザインはせんさいでゆうびなものの、あまりじつようてきとはいえない。",
+          "mean": "Although the design of this furniture is delicate and elegant, it is not very practical."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+ものの<br/>Aい (formal form)+ものの<br/>Aな (formal form)+ものの<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s> / A<s>な</s>である)<br/> N (formal form)+ものの<br/>(In this particular case: Nだ ➔ N<s>だ</s>である)"
+    }
+  ],
+  "title": "ものの => but, although",
+  "_id": "d9da99d8d39342c8bcf3fd2f6f137b92"
+}

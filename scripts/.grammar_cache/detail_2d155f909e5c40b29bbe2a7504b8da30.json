@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5267,
+  "usages": [
+    {
+      "explain": "「て仕方がない/てしょうがない」expresses:<br/>\n1. A state, emotion, or feeling of the speaker is so strong to the point of \"being unable to control it.\"<br/>2. The speaker's state of being puzzled, confused due to being unable to control the situation at that time.<br/>\n「て仕方がない」is a more formal version of 「てしょうがない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は何もすることがなくて、暇で仕方がない。",
+          "transcription": "きょうはなにもすることがなくて、ひまでしかたがない。",
+          "mean": "I don't have anything to do today, so I'm bored."
+        },
+        {
+          "content": "お腹が空いて仕方がない。",
+          "transcription": "おなかがすいてしかたがない。",
+          "mean": "I can't help but feel hungry."
+        },
+        {
+          "content": "今年の冬は寒くてしょうがない。",
+          "transcription": "ことしのふゆはさむくてしょうがない。",
+          "mean": "This winter is unbearably cold."
+        },
+        {
+          "content": "一人じゃ寂しくてしょうがない。",
+          "transcription": "ひとりじゃさびしくてしょうがない。",
+          "mean": "I can't help but feel lonely alone."
+        },
+        {
+          "content": "赤ちゃんが泣いて仕方がない。",
+          "transcription": "あかちゃんがないてしかたがない。",
+          "mean": "I can't help it when my baby cries."
+        },
+        {
+          "content": "娘が言うことを聞かなくてしょうがない。",
+          "transcription": "むすめがいうことをきかなくてしょうがない。",
+          "mean": "I have no choice but to listen to what my daughter says."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>くて+仕方がない/しょうがない<br/> A<s>な</s>で+仕方がない/しょうがない<br/>Vて+仕方がない/しょうがない"
+    }
+  ],
+  "title": "て仕方がない/てしょうがない => can't help but; very; extremely ~",
+  "_id": "2d155f909e5c40b29bbe2a7504b8da30"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5256,
+  "usages": [
+    {
+      "explain": "「そういえば」expresses the act of recalling or noticing something related to the previous conversation. It is often used in dialogues, after listening to the words of the other person, but can also be used in a self-questioning manner.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そういえば、田中君、元気かな？",
+          "transcription": "そういえば、たなかくん、げんきかな？",
+          "mean": "By the way, Tanaka-kun, how are you doing?"
+        },
+        {
+          "content": "いい家ですね。そういえば、お父様は建築士さんでしたよね。",
+          "transcription": "いいいえですね。そういえば、おとうさまはけんちくしさんでしたよね。",
+          "mean": "It's a nice house. Come to think of it, your father was an architect."
+        },
+        {
+          "content": "そういえば、彼がどこに住んでいるのか聞いたことがない。",
+          "transcription": "そういえば、かれがどこにすんでいるのかきいたことがない。",
+          "mean": "Come to think of it, I've never asked him where he lives."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。そういえば、B"
+    }
+  ],
+  "title": "そういえば => come to think of it; now that you mention it ~",
+  "_id": "18d14c08ba074ac2b55df09c96d87103"
+}

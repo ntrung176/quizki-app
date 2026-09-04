@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5241,
+  "usages": [
+    {
+      "explain": "「せめて」expresses the idea of 'at least' or 'minimum'. It suggests that while it may not be sufficient, it is the minimum or the least expected. What follows「せめて」is often a statement of will or desire.",
+      "note": null,
+      "examples": [
+        {
+          "content": "せめて日曜だけも遊ぶがよい。",
+          "transcription": "せめてにちようだけもあそぶがよい。",
+          "mean": "At least play on Sundays."
+        },
+        {
+          "content": "せめて百円なら売るけれども。",
+          "transcription": "せめてひゃくえんならうるけれども。",
+          "mean": "I would sell it for at least 100 yen."
+        },
+        {
+          "content": "せめて皆さんのために努力したい。",
+          "transcription": "せめてみなさんのためにどりょくしたい。",
+          "mean": "I want to at least try my best for everyone."
+        },
+        {
+          "content": "せめてあと十分待ってくれませんか。",
+          "transcription": "せめてあとじゅうふんまってくれませんか。",
+          "mean": "Can't you wait just ten more minutes?"
+        },
+        {
+          "content": "1日にせめて2回は歯を磨くべきだ。",
+          "transcription": "いちにちにせめてにかいははをみがくべきだ。",
+          "mean": "You should brush your teeth at least twice a day."
+        },
+        {
+          "content": "じゃ、せめてテーブルの準備でもしましょう。",
+          "transcription": "じゃ、せめてテーブルのじゅんびでもしましょう。",
+          "mean": "At least let me help set the table."
+        },
+        {
+          "content": "禁煙が無理なら，せめて量を減らしては？",
+          "transcription": "きんえんがむりなら，せめてりょうをへらしては？",
+          "mean": "If you can't quit smoking, why not at least reduce the amount you smoke?"
+        },
+        {
+          "content": "優勝するのは無理だとしても、せめて入賞はしたい。",
+          "transcription": "ゆうしょうするのはむりだとしても、せめてにゅうしょうはしたい。",
+          "mean": "Even if it's impossible to win, I want to at least get in."
+        }
+      ],
+      "mean": null,
+      "synopsis": "せめて+Sentence"
+    }
+  ],
+  "title": "せめて => at least; at most ~",
+  "_id": "addcc94d77624a89aae8436fe3b49df8"
+}

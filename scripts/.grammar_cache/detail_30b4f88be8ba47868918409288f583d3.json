@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5585,
+  "usages": [
+    {
+      "explain": "「ですか」is a question form used to confirm whether the content of the sentence is true or false. When there is an interrogative word (question word) in the sentence, 「ですか」is used to inquire about the information related to that interrogative word. The particle か serves the function of turning the sentence into a question.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は医者ですか。",
+          "transcription": "かのじょはいしゃですか。",
+          "mean": "Is she a doctor?"
+        },
+        {
+          "content": "君は新人ですか。",
+          "transcription": "きみはしんじんですか。",
+          "mean": "Are you new?"
+        },
+        {
+          "content": "あなたは日本人ですか。",
+          "transcription": "あなたはにっぽんじんですか。",
+          "mean": "Are you Japanese?"
+        },
+        {
+          "content": "ナナさん、醬油はどこですか。",
+          "transcription": "ナナさん、しょうゆはどこですか。",
+          "mean": "Nana-san, where is the soy sauce?"
+        },
+        {
+          "content": "田中さんのアパートは何階ですか。",
+          "transcription": "たなかさんのアパートはなんかいですか。",
+          "mean": "What floor is Mr. Tanaka's apartment on?"
+        },
+        {
+          "content": "大丈夫ですか。どこか痛いですか。",
+          "transcription": "だいじょうぶですか。どこかいたいですか。",
+          "mean": "OK. Does it hurt somewhere?"
+        },
+        {
+          "content": "あなたの彼氏は日本で留学しているんですか。",
+          "transcription": "あなたのかれしはにほんでりゅうがくしているんですか。",
+          "mean": "Is your boyfriend studying abroad in Japan?"
+        },
+        {
+          "content": "そのシャツはいくらですか。安いですか。安ければ買います。",
+          "transcription": "そのシャツはいくらですか。やすいですか。やすければかいます。",
+          "mean": "How much does that shirt cost? Is it cheap? I'll buy it if it's cheap."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい/A<s>な</s>/N+ですか<br/>V (formal form)+のですか / んですか"
+    }
+  ],
+  "title": "ですか => Isn't it?",
+  "_id": "30b4f88be8ba47868918409288f583d3"
+}

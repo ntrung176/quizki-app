@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1287,
+  "usages": [
+    {
+      "explain": "In conversation, the speaker uses this structure to confirm their guess with the listener, implying: \"don't you think so too?\"<br/>In monologue, this structure expresses the speaker's uncertain guess.<br/>When saying this structure, it is pronounced with a gradually rising intonation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この部屋はちょっと暑いんじゃないか。",
+          "transcription": "このへやはちょっとあついんじゃないか。",
+          "mean": "This room is a bit hot, isn't it?"
+        },
+        {
+          "content": "今晩は雨が降るんじゃないか。",
+          "transcription": "こんばんはあめがふるんじゃないか。",
+          "mean": "Isn't it going to rain tonight?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + んじゃないか <br/>Na・N + (なん)じゃないか"
+    }
+  ],
+  "title": "じゃないか => right? isn't it? let's~; confirmation",
+  "_id": "f7ff14dae05876cac58b413693612b62"
+}

@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5199,
+  "usages": [
+    {
+      "explain": "「に越したことはない」expresses the meaning that something is the best way or situation, indicating that there is no better way or situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そうするに越したことはない。",
+          "transcription": "そうするにこしたことはない。",
+          "mean": "There's nothing better than doing that."
+        },
+        {
+          "content": "留学するなら、海外保険はあるに越したことはないよ。",
+          "transcription": "りゅうがくするなら、かいがいほけんはあるにこしたことはないよ。",
+          "mean": "If you're going to study abroad, it's best to have overseas insurance."
+        },
+        {
+          "content": "同じ業種をするなら、給料が高いに越したことはない。",
+          "transcription": "おなじぎょうしゅをするなら、きゅうりょうがたかいにこしたことはない。",
+          "mean": "If you're working in the same industry, it's better to have a higher salary."
+        },
+        {
+          "content": "何が起こるか分からないから、試験のときは、早く行くに越したことはない。",
+          "transcription": "なにがおこるかわからないから、しけんのときは、はやくいくにこしたことはない。",
+          "mean": "You never know what's going to happen, so it's best to go early when it comes to exams."
+        },
+        {
+          "content": "値段に関係なくいい質のものを買いたいが、安く買えるに越したことはない。",
+          "transcription": "ねだんにかんけいなくいいしつのものをかいたいが、やすくかえるにこしたことはない。",
+          "mean": "I want to buy something of good quality regardless of the price, but it's never better to buy something cheap."
+        },
+        {
+          "content": "当日はレストランに行っても大丈夫だと思うけど、念のために予約しておくに越したことはない。",
+          "transcription": "とうじつはレストランにいってもだいじょうぶだとおもうけど、ねんのためによやくしておくにこしたことはない。",
+          "mean": "I think it's okay to go to a restaurant on the day of the trip, but it's always a good idea to make a reservation just in case."
+        },
+        {
+          "content": "地震がいつ起こるか分からないから、とにかく避難の物を準備しておくに越したことはない。",
+          "transcription": "じしんがいつおこるかわからないから、とにかくひなんのものをじゅんびしておくにこしたことはない。",
+          "mean": "You never know when an earthquake will occur, so it's best to have evacuation supplies ready."
+        },
+        {
+          "content": "何もないに越したことはないけど、念のため、海外旅行に行くときは必ず保険に入ります。",
+          "transcription": "なにもないにこしたことはないけど、ねんのため、かいがいりょこうにいくときはかならずほけんにはいります。",
+          "mean": "It's better to have nothing at all, but just to be safe, I always take out insurance when I travel overseas."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vない+に越したことはない<br/>\nAい+に越したことはない<br/>\nA<s>な</s>/A<s>な</s>である+に越したことはない<br/>\nN/Nである+に越したことはない"
+    }
+  ],
+  "title": "に越したことはない => It’s best that, There’s nothing better than ~",
+  "_id": "07cd06d0efb64223a89728bea7f66f5a"
+}

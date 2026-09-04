@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5054,
+  "usages": [
+    {
+      "explain": "「めく」is used when the speaker feels that something resembles, has the characteristics of something else. It often comes with nouns like 春 (spring), 夏 (summer), 秋 (autumn), 冬 (winter), 謎 (mystery), 皮肉 (irony), 冗談 (joke), 説教 (lecture), 言い訳 (excuse), 脅迫 (threat)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "暑くなって、随分夏めいてきましたね。",
+          "transcription": "あつくなって、ずいぶんなつめいてきましたね。",
+          "mean": "It's getting hotter and it's starting to feel like summer."
+        },
+        {
+          "content": "別れた彼氏から、脅迫めいたメールが届いて、怖くなった。",
+          "transcription": "わかれたかれしから、きょうはくめいたメールがとどいて、こわくなった。",
+          "mean": "I received a threatening email from my ex-boyfriend, and I got scared."
+        },
+        {
+          "content": "彼はいつも皮肉めいた言葉を使っている。",
+          "transcription": "かれはいつもひにくめいたことばをつかっている。",
+          "mean": "He always uses sarcastic language."
+        },
+        {
+          "content": "彼女の偽物めいた笑顔が嫌いだ。",
+          "transcription": "かのじょのにせものめいたえがおがきらいだ。",
+          "mean": "I hate her fake smile."
+        },
+        {
+          "content": "少しずつ秋めいてきた。",
+          "transcription": "すこしずつあきめいてきた。",
+          "mean": "Autumn is gradually approaching."
+        },
+        {
+          "content": "どことなく謎めいた女性がホールの入り口に立っていた。",
+          "transcription": "どことなくなぞめいたじょせいがほーるのいりくちにたっていた。",
+          "mean": "A somewhat mysterious woman stood at the entrance to the hall."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+めく<br/> N+めいて<br/>N+めいたN’"
+    }
+  ],
+  "title": "めく =>  seems; show signs of; to have the appearance of ~",
+  "_id": "9a9e1eeb0b7e459e8f859d96b46dc374"
+}

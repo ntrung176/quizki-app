@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 718,
+  "usages": [
+    {
+      "explain": "✦ Used to express that \"the speaker does something, takes an action, for a reason, not for any other intention\".<br/>✦ When this pattern is used in response to being thanked for doing something good, it implies modesty.",
+      "note": null,
+      "examples": [
+        {
+          "content": "得に用事はない。元気かどうか気になって電話してみたまでだ。",
+          "transcription": "とくにようじはない。げんきかどうかきになってでんわしてみたまでだ。",
+          "mean": "I have no business to attend to. I was curious to see if he was okay, so I called him."
+        },
+        {
+          "content": "今度の失敗、あなたが不運だったまでですよ。",
+          "transcription": "こんどのしっぱい、あなたがふうんだったまでですよ。",
+          "mean": "This time you failed, you were unlucky."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V-た + までのことだV-た + までだ"
+    }
+  ],
+  "title": "～たまでだ/ までのことだ => only; just; nothing else",
+  "_id": "f7ff14dae05876cac58b4136931385d1"
+}

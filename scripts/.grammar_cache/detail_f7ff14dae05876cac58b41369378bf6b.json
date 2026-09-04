@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1450,
+  "usages": [
+    {
+      "explain": "Used when one wants to express their opinion despite knowing it will be opposed or criticized. It can also be used as a preliminary expression when one hasn't found the exact way to articulate their thoughts.",
+      "note": null,
+      "examples": [
+        {
+          "content": "非難されるのを承知であえて言えば、今度のキャンペーンは全然効果的じゃありません。",
+          "transcription": "ひなんされるのをしょうちであえていえば、こんどのきゃんぺーんはぜんぜんこうかてきじゃありません。",
+          "mean": "If I may say this knowing that I will be criticized, this campaign is not effective at all."
+        },
+        {
+          "content": "少々言いにくいことなのですが、あえて言わせていただければ、ご主人は会社を辞めた方がいいのではないかと思うのですが。",
+          "transcription": "しょうしょういいにくいことなのですが、あえていわせていただければ、ごしゅじんはかいしゃをやめたたほうがいいのではないかとおもうのですが。",
+          "mean": "It's a little difficult to say, but if I may say so, I think it would be better for your husband to resign from the company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あえて + V-ば"
+    }
+  ],
+  "title": "あえて～ば => If I dare to say, trying to find a way...",
+  "_id": "f7ff14dae05876cac58b41369378bf6b"
+}

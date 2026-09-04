@@ -1,0 +1,66 @@
+{
+  "level": "N5",
+  "mobileId": 5624,
+  "usages": [
+    {
+      "explain": "「に行く」indicates where the subject (N) goes to do something (V/N').<br/>\n「に来る」indicates where the subject (N) comes to do something (V/N').<br/>\n「に帰る」indicates where the subject (N) returns to after doing something (V/N').<br/>\n\nHere, N is a noun indicating a direction or location. N' is a noun representing an action (group III) or events (festivals, concerts, etc.) that the subject participates in.<br/>\n\nNote: The use of 行く (to go) or 来る (to come) depends on the speaker's position (first person) relative to the destination (N), not on the subject's action. Use 行く when the speaker is not at the destination, use 来る when the speaker is at the destination. For example:<br/>\n\n+ いつ日本へ旅行に行きますか。 (When will you go to Japan for a trip?) - The speaker is not in Japan, asking the listener when they will go to Japan for a trip.<br/>\n+ いつ日本へ旅行に来ますか。 (When will you come to Japan for a trip?) - The speaker is in Japan, asking the listener when they will come to Japan for a trip.",
+      "note": null,
+      "examples": [
+        {
+          "content": "友達の家に遊びに行く。",
+          "transcription": "ともだちのいえにあそびにいく。",
+          "mean": "Go to a friend's house."
+        },
+        {
+          "content": "日本に留学しに行くつもりです。",
+          "transcription": "にほんにりゅうがくしにいくつもりです。",
+          "mean": "I'm planning to go to Japan to study abroad."
+        },
+        {
+          "content": "東京へ何をしに行くの？",
+          "transcription": "とうきょうへなにをしにいくの？",
+          "mean": "What are you going to do in Tokyo?"
+        },
+        {
+          "content": "私達は公園にサッカーをしに行くつもりだ。",
+          "transcription": "わたしたちはこうえんにサッカーをしにいくつもりだ。",
+          "mean": "We are going to the park to play soccer."
+        },
+        {
+          "content": "メキシコへ友達に会いに行きました。",
+          "transcription": "メキシコへともだちにあいにいきました。",
+          "mean": "I went to Mexico to meet a friend."
+        },
+        {
+          "content": "明日、友人と一緒に日本料理を食べに行きます。",
+          "transcription": "あした、ゆうじんといっしょににほんりょうりをたべにいきます。",
+          "mean": "Tomorrow, I'm going to eat Japanese food with a friend."
+        },
+        {
+          "content": "田中さんはベトナムにベトナム語の勉強に来ました。",
+          "transcription": "たなかさんはベトナムにベトナムごのべんきょうにきました。",
+          "mean": "Mr. Tanaka came to Vietnam to study Vietnamese."
+        },
+        {
+          "content": "疲れたから、寮へ寝に帰りました。",
+          "transcription": "つかれたから、りょうへねにかえりました。",
+          "mean": "I was tired, so I went back to the dormitory to sleep."
+        },
+        {
+          "content": "来月藤井風はアメリカに演奏に来ますよ。",
+          "transcription": "らいげつふじいかぜはアメリカにえんそうにきますよ。",
+          "mean": "Fujii Kaze will come to America to perform next month."
+        },
+        {
+          "content": "ロッテモールへ春祭りに行きました。",
+          "transcription": "ロッテモールへはるまつりにいきました。",
+          "mean": "I went to Lotte Mall for the Spring Festival."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (place) に/へ+V<s>ます</s> に 行く/来る/帰る<br/>\nN (place) に/へ+N' に 行く/来る/帰る"
+    }
+  ],
+  "title": "に行く/に来る/に帰る => go/arrive/go back (to do something)",
+  "_id": "ab4e5047679f480baaade1887f84cb30"
+}

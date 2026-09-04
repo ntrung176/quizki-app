@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1559,
+  "usages": [
+    {
+      "explain": "This is the expression of 「しなさい」in administrative documents. A formal way of expression used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "上記二名の者すぐに出頭せられたい。",
+          "transcription": "じょうきにめいのものすぐにしゅっとうせられたい。",
+          "mean": "I request that the two persons mentioned above appear immediately."
+        },
+        {
+          "content": "ならかの問題がある場合は、担当者に知らせられたい。",
+          "transcription": "ならかのもんだいがあるばあいは、たんとうしゃにしらせられたい。",
+          "mean": "If there are any issues, please let the person in charge know."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + せられたい\nVます +られたい"
+    }
+  ],
+  "title": "せられたい => Please..., Let me...",
+  "_id": "f7ff14dae05876cac58b413693884c2c"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1592,
+  "usages": [
+    {
+      "explain": "Used to describe abnormal or unexpected events. Can be used in both positive and negative evaluations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あなたは大変な状況に追い込まれているんだね。",
+          "transcription": "あなたはたいへんなじょうきょうにおいこまれているんだね。",
+          "mean": "You are forced into a difficult situation."
+        },
+        {
+          "content": "彼女のわがままは大変なもので誰からも好かれなかった。",
+          "transcription": "かのじょのわがままはたいへんなものでだれからもすかれなかった。",
+          "mean": "Her selfishness was extremely selfish and no one liked her."
+        },
+        {
+          "content": "鈴木さんは大変な才能の持ち主なのだ。",
+          "transcription": "すずきさんはたいへんなさいのうのもちぬしなのだ。",
+          "mean": "Mr. Suzuki is a very talented person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たいへんな + N"
+    }
+  ],
+  "title": "たいへんな... => very; greatly; terribly; serious; difficult",
+  "_id": "f7ff14dae05876cac58b4136938c7554"
+}

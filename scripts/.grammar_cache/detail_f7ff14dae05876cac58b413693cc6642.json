@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2060,
+  "usages": [
+    {
+      "explain": "To convey something heard from others that is not entirely certain.",
+      "note": null,
+      "examples": [
+        {
+          "content": "噂によると、何でも山田さんは佐藤さんと結婚したという話だ。",
+          "transcription": "うわさによると、なにでもやまださんはさとうさんとけっこんしたというはなしだ。",
+          "mean": "According to rumors, Mr. Yamada married Mr. Sato."
+        },
+        {
+          "content": "何でもこの巨大な穴は、地震があったあとだということです。",
+          "transcription": "なにでもこのきょだいなあなは、じしんがあったあとだということです。",
+          "mean": "Apparently, this huge hole was created after an earthquake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんでも～らしい"
+    }
+  ],
+  "title": "なんでも…らしい => I heard it seems like...",
+  "_id": "f7ff14dae05876cac58b413693cc6642"
+}

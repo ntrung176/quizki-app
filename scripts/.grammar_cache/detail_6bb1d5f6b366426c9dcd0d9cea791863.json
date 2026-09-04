@@ -1,0 +1,51 @@
+{
+  "level": "N3",
+  "mobileId": 5412,
+  "usages": [
+    {
+      "explain": "「せいぜい」expresses the maximum extent that something can reach, indicating that it can only reach that much, even with a lot of effort.<br/>\n\nWhen used with a noun, 「せいぜい」is often in the form of せいぜい...くらい/ぐらい.",
+      "note": null,
+      "examples": [
+        {
+          "content": "せいぜい頑張ろうね！",
+          "transcription": "せいぜいがんばろうね！",
+          "mean": "Let's do our best!"
+        },
+        {
+          "content": "せいぜい楽しんで行ってください。",
+          "transcription": "せいぜいたのしんでいってください。",
+          "mean": "Please at least enjoy it."
+        },
+        {
+          "content": "彼はせいぜい30歳ぐらいだ。",
+          "transcription": "かれはせいぜいさんじゅっさいぐらいだ。",
+          "mean": "He is about 30 years old at most."
+        },
+        {
+          "content": "彼は稼いでもせいぜい月に20万円だ。",
+          "transcription": "かれはかせいでもせいぜいつきににじゅうまんえんだ。",
+          "mean": "He earns no more than 200,000 yen a month."
+        },
+        {
+          "content": "桜の花は数日、せいぜい一週間しか持たない。",
+          "transcription": "さくらのはなはすうにち、せいぜいいちしゅうかんしかもたない。",
+          "mean": "Cherry blossoms last only for a few days, a week at the most."
+        },
+        {
+          "content": "彼はスペイン語を知っていると言っているが、せいぜい挨拶の表現くらいだろう。",
+          "transcription": "かれはスペインごをしっているといっているが、せいぜいあいさつのひょうげんくらいだろう。",
+          "mean": "He claims to know Spanish, but at best he knows how to say hello."
+        },
+        {
+          "content": "お正月に休みがあることはあるが、せいぜい3日間くらいしか休めない。",
+          "transcription": "おしょうがつにやすみがあることはあるが、せいぜいみっかかんくらいしかやすめない。",
+          "mean": "I sometimes have a day off during New Year's Day, but I can only take three days off at most."
+        }
+      ],
+      "mean": null,
+      "synopsis": "せいぜい+N / V"
+    }
+  ],
+  "title": "せいぜい => at the most; at best; to the utmost",
+  "_id": "6bb1d5f6b366426c9dcd0d9cea791863"
+}

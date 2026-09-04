@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5514,
+  "usages": [
+    {
+      "explain": "「んです」is used to:<br/>\n1. Present, explain the reason, cause, basis, etc., of an event. When adding「か」at the end of the sentence, the sentence becomes a question asking for an explanation. In casual speech, it is「んだ」and in written form, it is「のだ」.<br/>\n2. Strongly express one's own opinion to persuade others. It's important to note that when using「んです」with this meaning, it can carry a negative connotation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『道が混んでいますね。』『事故があったんです。』",
+          "transcription": "『みちがこんでいますね。』『じこがあったんです。』",
+          "mean": "``The road is crowded. ``There was an accident.'' ”"
+        },
+        {
+          "content": "『どうしたんですか。』『ちょっと気分が悪いんです。』",
+          "transcription": "『どうしたんですか。』『ちょっときぶんがわるいんです。』",
+          "mean": "\"What happened. ``I'm feeling a little sick.'' ”"
+        },
+        {
+          "content": "『どうして遅れたんですか。』『バスが来なかったんです。』",
+          "transcription": "『どうしておくれたんですか。』『バスがこなかったんです。』",
+          "mean": "``Why were you late? ``The bus didn't come.'' ”"
+        },
+        {
+          "content": "『あれは何だろう？』『ああ、ハンカチが落ちているんです。』",
+          "transcription": "『あれはなんだろう？』『ああ、ハンカチがおちているんです。』",
+          "mean": "“What is that? ``Oh, my handkerchief is falling.'' ”"
+        },
+        {
+          "content": "『先生、今日は早退してもいいですか。国から母が来ているんです。』",
+          "transcription": "『せんせい、きょうはそうたいしてもいいですか。くにからははがきているんです。』",
+          "mean": "``Sir, can I leave early today? My mother is coming from another country. ”"
+        },
+        {
+          "content": "『毎晩、日本語を勉強しますか。』『いいえ、時間がないんです。』",
+          "transcription": "『まいばん、にほんごをべんきょうしますか。』『いいえ、じかんがないんです。』",
+          "mean": "``Do you study Japanese every night? ``No, I don't have time.'' ”"
+        },
+        {
+          "content": "『いつ行くんですか。』『明日行くんです。』",
+          "transcription": "『いついくんですか。』『あしたいくんです。』",
+          "mean": "``When are you going? ``I'm going tomorrow.'' ”"
+        },
+        {
+          "content": "あなたは全く分かっていないんですね。",
+          "transcription": "あなたはまったくわかっていないんですね。",
+          "mean": "You don't understand at all."
+        },
+        {
+          "content": "この絵が大好きなんです。",
+          "transcription": "このえがだいすきなんです。",
+          "mean": "I love this picture."
+        },
+        {
+          "content": "この歌の歌詞はすごく素敵なんです。",
+          "transcription": "このうたのかしはすごくすてきなんです。",
+          "mean": "The lyrics of this song are really nice."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+んです<br/>Aい (formal form)+んです<br/>Aな (formal form)+んです<br>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)<br/>N (formal form)+んです<br/>(In this particular case: Nだ ➔ N<s>だ</s>な)</br>"
+    }
+  ],
+  "title": "んです => to explain something; show emphasis",
+  "_id": "4c72e4acb7be4652b99d97f12710e27b"
+}

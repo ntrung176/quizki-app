@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 889,
+  "usages": [
+    {
+      "explain": "■ Describes two consecutive actions without any time interval between them.<br/>■ Both actions are not behaviors of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "つめたい雨が降ってきたと思う間もなく、それは雪にかわった。",
+          "transcription": "つめたいあめがふってきたとおもうまもなく、それはゆきにかわった。",
+          "mean": "Before I could think of the cold rain, it turned to snow."
+        },
+        {
+          "content": "帰ってきたなと思う間もなく、息子は「遊びに行ってくるりと叫んで出ていった。",
+          "transcription": "かえってきたなとおもうまもなく、むすこは「あそびにいってくるりとさけんででていった。",
+          "mean": "Before I could think of him coming home, my son ran out screaming, saying, ``I went to play.''"
+        },
+        {
+          "content": "雲を突き抜けたと思う間もなく、翼の下に、街の灯が広がった。",
+          "transcription": "くもをつきぬけたとおもうまもなく、つばさのしたに、まちのあかりがひろがった。",
+          "mean": "Before I thought I had broken through the clouds, the lights of the city spread out beneath my wings."
+        },
+        {
+          "content": "ゆっくり時間をかけて返事を書こうと思う間もなく新しいメールが次々と届く。",
+          "transcription": "ゆっくりじかんをかけてへんじをかこうとおもうまもなくあたらしいめーるがつぎつぎととどく。",
+          "mean": "Before I can take my time to write a reply, new emails arrive one after another."
+        }
+      ],
+      "mean": "Sudden surprise (Time to think this thing is not finished yet another thing has come)",
+      "synopsis": null
+    }
+  ],
+  "title": "～とおもうまもなく => Suddenly~",
+  "_id": "f7ff14dae05876cac58b4136932b3ffd"
+}

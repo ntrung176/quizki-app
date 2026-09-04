@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2865,
+  "usages": [
+    {
+      "explain": "V-ました is the past tense of V-ます. In questions, we don't change the sentence structure, we just add the auxiliary word 「か」 at the end of the sentence or replace the part of the sentence to be asked with the question word. In the answer, we repeat the verb from the question and make sure not to use 「そうです」or 「そうじゃありません」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はもう決めました。",
+          "transcription": "わたしはもうきめました。",
+          "mean": "I've already decided."
+        },
+        {
+          "content": "今朝、何時に起きましたか。",
+          "transcription": "けさ、なんじにおきましたか。",
+          "mean": "What time did you wake up this morning?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ました"
+    }
+  ],
+  "title": "ました => Did something...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3959e6"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2254,
+  "usages": [
+    {
+      "explain": "Used to provide examples of a group of objects, events, or situations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "楽器は好きですが、バイオリンやなんかの弦楽器はあまり得意ではないんですよ。",
+          "transcription": "がっきはすきですが、ばいおりんやなんかのげんがっきはあまりとくいではないんですよ。",
+          "mean": "I like musical instruments, but I'm not very good at violins or other stringed instruments."
+        },
+        {
+          "content": "天気が悪い日やなんかで頭が痛くなる。",
+          "transcription": "てんきがわるいひやなんかであたまがいたくなる。",
+          "mean": "My head hurts when the weather is bad or something."
+        },
+        {
+          "content": "寂しい時やなんかで彼はずっと私のそばにいる。",
+          "transcription": "さびしいときやなんかでかれはずっとわたしのそばにいる。",
+          "mean": "He's always by my side when I'm lonely or something."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + やなんか"
+    }
+  ],
+  "title": "やなんか => Something like...",
+  "_id": "f7ff14dae05876cac58b413693e7ca6f"
+}

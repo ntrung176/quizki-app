@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5535,
+  "usages": [
+    {
+      "explain": "「終わる」expresses the idea of completing, finishing an action. It is not used to describe natural phenomena or bodily conditions.<br/>\n\nThe difference between 「終わる」and 「切る」is that 「終わる」emphasizes the \"ending of the action,\" while 「切る」 emphasizes \"accomplishing the goal of the action.\" For example, \"書き終わる\" simply means \"to finish writing,\" without specifying whether the work has been completed or not. \"書き切る,\" on the other hand, implies \"finishing writing\" but also implies that the work has been completed, or at least the writer has achieved their intended goal.",
+      "note": null,
+      "examples": [
+        {
+          "content": "仕事をし終わったら、すぐ行く。",
+          "transcription": "しごとをしおわったら、すぐいく。",
+          "mean": "I'll go right after I finish work."
+        },
+        {
+          "content": "もう自分の部屋を掃除し終わりましたか。",
+          "transcription": "もうじぶんのへやをそうじしおわりましたか。",
+          "mean": "Have you finished cleaning your room yet?"
+        },
+        {
+          "content": "みんなが朝食を食べ終わるまで待ちましょう。",
+          "transcription": "みんながちょうしょくをたべおわるまでまちましょう。",
+          "mean": "Let's wait until everyone has finished eating breakfast."
+        },
+        {
+          "content": "先日お貸しした本は読み終わりましたか。",
+          "transcription": "せんじつおかししたほんはよみおわりましたか。",
+          "mean": "Have you finished reading the book I lent you the other day?"
+        },
+        {
+          "content": "宿題の作文を書き終わったので、テレビを見ます。",
+          "transcription": "しゅくだいのさくぶんをかきおわったので、テレビをみます。",
+          "mean": "I finished writing my essay for homework, so I'm going to watch TV."
+        },
+        {
+          "content": "ご飯が食べ終わりましたら、お皿を洗ってください。",
+          "transcription": "ごはんがたべおわりましたら、おさらをあらってください。",
+          "mean": "When you have finished eating, please wash the dishes."
+        },
+        {
+          "content": "そのゲームをやり終わるまでに5時間くらいかかる。",
+          "transcription": "そのゲームをやりおわるまでにごじかんくらいかかる。",
+          "mean": "It takes about 5 hours to finish the game."
+        },
+        {
+          "content": "パソコンを使い終わったら、シャットダウンをしてください。",
+          "transcription": "パソコンをつかいおわったら、シャットダウンをしてください。",
+          "mean": "When you finish using your computer, shut it down."
+        },
+        {
+          "content": "ご飯を食べ終わったあとに、みんなでカラオケに行きました。",
+          "transcription": "ごはんをたべおわったあとに、みんなでカラオケにいきました。",
+          "mean": "After we finished eating, we all went to karaoke."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+終わる"
+    }
+  ],
+  "title": "終わる => to finish; to end",
+  "_id": "343ea9d1c4e24a8a92fd97bfc4cdc233"
+}

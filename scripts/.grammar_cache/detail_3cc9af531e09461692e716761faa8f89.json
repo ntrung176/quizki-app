@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5055,
+  "usages": [
+    {
+      "explain": "「ながらに」describes a condition that has remained unchanged since the beginning. This structure is mainly used with verbs like 居る (to exist, to be present), 生まれる (to be born), 生きる (to live), or nouns like 涙 (tears), 昔 (the past).",
+      "note": null,
+      "examples": [
+        {
+          "content": "その女性は涙ながらに生活の苦しさを訴えた。",
+          "transcription": "そのじょせいはなみだながらにせいかつのくるしさをうったえた。",
+          "mean": "The woman tearfully complained about the hardships of her life."
+        },
+        {
+          "content": "少年は生まれながらに音楽の才能に恵まれていた。",
+          "transcription": "しょうねんはうまれながらにおんがくのさいのうにめぐまれていた。",
+          "mean": "The boy was born with musical talent."
+        },
+        {
+          "content": "インターネットを利用すると、居ながらにして米国の大学の授業も受けられる。",
+          "transcription": "インターネットをりようすると、いながらにしてべいこくのだいがくのじゅぎょうもうけられる。",
+          "mean": "By using the Internet, you can take classes at American universities without leaving your home."
+        },
+        {
+          "content": "犬は生まれながら鋭い嗅覚を持っている。",
+          "transcription": "いぬはうまれながらするどいきゅうかくをもっている。",
+          "mean": "Dogs are born with a keen sense of smell."
+        },
+        {
+          "content": "彼はいつもながら親切だ。",
+          "transcription": "かれはいつもながらしんせつだ。",
+          "mean": "He is kind as always."
+        },
+        {
+          "content": "このあたりはまだ昔ながらの田園風景があちこちに見られる。",
+          "transcription": "このあたりはまだむかしながらのでんえんふうけいがあちこちにみられる。",
+          "mean": "The traditional rural scenery can still be seen here and there."
+        },
+        {
+          "content": "彼女は生まれながらの音楽家だ。",
+          "transcription": "かのじょはうまれながらのおんがくかだ。",
+          "mean": "She is a natural musician."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/V<s>ます</s>+ながら(に/にして)<br/> N/V<s>ます</s>+ながらのN'"
+    }
+  ],
+  "title": "ながらに => while; during; without change; performed in this condition",
+  "_id": "3cc9af531e09461692e716761faa8f89"
+}

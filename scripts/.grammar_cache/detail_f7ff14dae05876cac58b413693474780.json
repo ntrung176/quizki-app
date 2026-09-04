@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1095,
+  "usages": [
+    {
+      "explain": "This pattern is used in the form [XはYこそ…], acknowledging \"when it comes to X, it's indeed Y\", but then adding that there is still a contrasting state to what has just been acknowledged. Followed by conjunctions like […が], […けれども] (but). Used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このかばんは、値段こそ安いが、とても丈夫だ。",
+          "transcription": "このかばんは、ねだんこそやすいが、とてもじょうぶだ。",
+          "mean": "This bag is cheap, but very durable."
+        },
+        {
+          "content": "書きこそしたが、田中の論文はひどいものだった。",
+          "transcription": "がきこそしたが、たなかのろんぶんはひどいものだった。",
+          "mean": "Although he wrote it, Tanaka's paper was terrible."
+        },
+        {
+          "content": "彼女は指導者でこそあるが、責任はまったくない。",
+          "transcription": "かのじょはしどうしゃでこそあるが、せきにんはまったくない。",
+          "mean": "She is a leader, but she has no responsibility whatsoever."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + こそ…が<br/>Na + でこそあるが<br/>V-ます + こそするが"
+    }
+  ],
+  "title": "…こそ…が => but; although (emphasis)",
+  "_id": "f7ff14dae05876cac58b413693474780"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 870,
+  "usages": [
+    {
+      "explain": "■ Used to emphasize a minimalistic meaning.",
+      "note": null,
+      "examples": [
+        {
+          "content": "<div>割引と言ってもせいぜい１０パーセントだけだね。<br></div>",
+          "transcription": "<div>わりびきといってもせいぜい１０ぱーせんとだけだね。<br></div>",
+          "mean": "&lt;div&gt;Even if it's a discount, it's only 10% at most. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "<div>大きいな文化祭と言ってもせいぜい１００客ぐらいが来るだけです。<br></div>",
+          "transcription": "<div>おおきいなぶんかさいといってもせいぜい１００きゃくぐらいがくるだけです。<br></div>",
+          "mean": "&lt;div&gt;Even though it's a big school festival, at most only about 100 people come. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "小遣いと言ってもせいぜい２００円だけです。",
+          "transcription": "こづかいといってもせいぜいにぜろぜろえんだけです。",
+          "mean": "Even if you say pocket money, it's only 200 yen at most."
+        },
+        {
+          "content": "はやっているといってもせいぜい週末に混むだけだ。",
+          "transcription": "はやっているといってもせいぜいしゅうまつにこむだけだ。",
+          "mean": "Even though it's open, it's only crowded on weekends."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■といってもせいぜい <br/></div>"
+    }
+  ],
+  "title": "～と言ってもせいぜい～だけだ => Even if it’s said that…but it’s just….",
+  "_id": "f7ff14dae05876cac58b41369328db28"
+}

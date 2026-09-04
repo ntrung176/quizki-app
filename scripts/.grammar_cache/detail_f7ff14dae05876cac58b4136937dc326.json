@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1487,
+  "usages": [
+    {
+      "explain": "It is used to modify a noun and express the time, place, circumstances, or field in which an event occurs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "２０１０年における日本のGDPは前年に比べて増加した。",
+          "transcription": "２０１０ねんにおけるにっぽんのGDPはぜんねんにくらべてぞうかした。",
+          "mean": "Japan's GDP in 2010 increased compared to the previous year."
+        },
+        {
+          "content": "その会社は地域における最も成功した企業として特に選ばれた。",
+          "transcription": "そのかいしゃはちいきにおけるもっともせいこうしたきぎょうとしてとくにえらばれた。",
+          "mean": "The company was specifically selected as the most successful company in the region."
+        },
+        {
+          "content": "英語の教室におけるベトナム語の使用が禁止された。",
+          "transcription": "えいごのきょうしつにおけるべとなむごのしようがきんしされた。",
+          "mean": "The use of Vietnamese in English classrooms was banned."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + における + N"
+    }
+  ],
+  "title": "における => in; at (place)",
+  "_id": "f7ff14dae05876cac58b4136937dc326"
+}

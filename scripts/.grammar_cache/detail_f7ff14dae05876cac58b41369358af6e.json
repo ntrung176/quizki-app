@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1226,
+  "usages": [
+    {
+      "explain": "Expresses a strong negation. Used in formal expressions. In spoken language, [なんのNもVない] is used more frequently.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の態度にはなんらの決心も感じられない。",
+          "transcription": "かれのたいどにはなんらのけっしんもかんじられない。",
+          "mean": "There is no sense of determination in his attitude."
+        },
+        {
+          "content": "学生の生活に対しては何らの配慮もなされていない。",
+          "transcription": "がくせいのせいかつにたいしてはなんらのはいりょもなされていない。",
+          "mean": "No consideration is given to the lives of students."
+        },
+        {
+          "content": "彼女からは何らの注目も得られなかった。",
+          "transcription": "かのじょからはなんらのちゅうもくもえられなかった。",
+          "mean": "She didn't get any attention."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんらの + N + も + Vない"
+    }
+  ],
+  "title": "なんらの～ も～ない => nothing; (not) ~ at all; there's no need to ~",
+  "_id": "f7ff14dae05876cac58b41369358af6e"
+}

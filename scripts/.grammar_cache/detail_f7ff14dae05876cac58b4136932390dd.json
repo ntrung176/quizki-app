@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 831,
+  "usages": [
+    {
+      "explain": "✦ Carries the meaning of \"within that limit\" (trong chừng mực đó thì).",
+      "note": null,
+      "examples": [
+        {
+          "content": "はたで見ているぶんには楽そうだが、自分でやってみるとどんなに大変かがわかる。",
+          "transcription": "はたでみているぶんにはらくそうだが、じぶんでやってみるとどんなにたいへんかがわかる。",
+          "mean": "It looks easy at first glance, but when you try it yourself, you realize how difficult it is."
+        },
+        {
+          "content": "私はいかなる宗教も信じない。しかし、他人が信じるぶんには一向にかまわない。",
+          "transcription": "わたしはいかなるしゅうきょうもしんじない。しかし、たにんがしんじるぶんにはいっこうにかまわない。",
+          "mean": "I don't believe in any religion. However, I don't care what other people believe."
+        },
+        {
+          "content": "見てるぶんには面白いので俺はあえて注意しない。",
+          "transcription": "みてるぶんにはおもしろいのでおれはあえてちゅういしない。",
+          "mean": "It's interesting to watch, so I don't pay attention to it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V (formal form)+ ぶんには"
+    }
+  ],
+  "title": "～ぶんには => If it's just within range...then",
+  "_id": "f7ff14dae05876cac58b4136932390dd"
+}

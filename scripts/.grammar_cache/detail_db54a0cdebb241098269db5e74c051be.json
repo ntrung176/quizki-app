@@ -1,0 +1,66 @@
+{
+  "level": "N1",
+  "mobileId": 5081,
+  "usages": [
+    {
+      "explain": "「とみえて/とみえる」expresses the speaker's speculation or judgment based on some evidence (usually visual observation).<br/>\n「とみえて」has the preceding part indicating the speculation, and the following part showing the basis for that speculation.<br/>\n「とみえる」is often used for monologues rather than dialogues.<br/>\nBecause it expresses speculation, this structure is often accompanied by どうやら、どうも...",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中さんは忙しいとみえて、この頃電話もしてこない。",
+          "transcription": "たなかさんはいそがしいとみえて、このごろでんわもしてこない。",
+          "mean": "Mr. Tanaka seems to be busy and hasn't called me lately."
+        },
+        {
+          "content": "寝ている間に雨が降ったとみえて、道が濡れている。",
+          "transcription": "ねているあいだにあめがふったとみえて、みちがぬれている。",
+          "mean": "It looked like it had rained while I was sleeping, so the road was wet."
+        },
+        {
+          "content": "うちの犬はボールで遊ぶのが好きだとみえて、私がボールを持つと尻尾を振って待っている。",
+          "transcription": "うちのいぬはボールであそぶのがすきだとみえて、わたしがボールをもつとしっぽをふってまっている。",
+          "mean": "My dog ​​seems to like playing with the ball, and when I pick it up, he wags his tail and waits."
+        },
+        {
+          "content": "今日はお店が休みとみえて、店内には誰もいない。",
+          "transcription": "きょうはおみせがやすみとみえて、てんないにはだれもいない。",
+          "mean": "The store appears to be closed today, and there is no one inside."
+        },
+        {
+          "content": "それを聞いて、彼はしばらく声を出さなかった。かなり驚いたとみえる。",
+          "transcription": "それをきいて、かれはしばらくこえをださなかった。かなりおどろいたとみえる。",
+          "mean": "Hearing this, he didn't speak for a while. He seemed quite surprised."
+        },
+        {
+          "content": "トムさん、朝からなんだから楽しそうだね。何かいいことがあったとみえる。",
+          "transcription": "トムさん、あさからなんだからたのしそうだね。なにかいいことがあったとみえる。",
+          "mean": "Tom-san, it looks like you're having fun since this morning. It looks like something good happened."
+        },
+        {
+          "content": "商品の説明をしても、彼女は私に疑り深い目を向けている。信じていないとみえる。",
+          "transcription": "しょうひんのせつめいをしても、かのじょはわたしにうたぐりぶかいめをむけている。しんじていないとみえる。",
+          "mean": "Even when I explain the product to her, she looks at me with suspicion. It looks like you don't believe it."
+        },
+        {
+          "content": "彼女はいつも自分の写真を撮っている。どうやらインスタグラムのための写真だとみえる。",
+          "transcription": "かのじょはいつもじぶんのしゃしんをとっている。どうやらインスタグラムのためのしゃしんだとみえる。",
+          "mean": "She is always taking pictures of herself. It looks like this is a photo for Instagram."
+        },
+        {
+          "content": "彼はとても熱心に調べ物をしている。仕事が好きだとみえる。",
+          "transcription": "かれはとてもねっしんにしらべものをしている。しごとがすきだとみえる。",
+          "mean": "He is very enthusiastic about his research. It looks like you like your job."
+        },
+        {
+          "content": "この自転車は変な音がする。古いとみえるね。",
+          "transcription": "このじてんしゃはへんなおとがする。ふるいとみえるね。",
+          "mean": "This bicycle makes strange noises. It looks old."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+とみえて<br/>V/Aい/Aな/N (formal form)+とみえる<br/>\n(In this particular case: Nだ can remove だ)"
+    }
+  ],
+  "title": "とみえて/とみえる => It seems that ~",
+  "_id": "db54a0cdebb241098269db5e74c051be"
+}

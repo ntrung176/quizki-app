@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1158,
+  "usages": [
+    {
+      "explain": "Used with the negative form of the verb to express the possibility of such actions or perceptions sometimes being performed. Also expressed as 「ないこともない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お酒は飲まないでもないですが、あまり好きじゃありません。",
+          "transcription": "おさけはのまないでもないですが、あまりすきじゃありません。",
+          "mean": "I don't drink alcohol, but I don't really like it."
+        },
+        {
+          "content": "車を運転できないでもないんですが、ほとんどしません。",
+          "transcription": "くるまをうんてんできないでもないんですが、ほとんどしません。",
+          "mean": "I can't drive a car, but I rarely do."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ない + でもない"
+    }
+  ],
+  "title": "ないでもない => is not entirely impossible",
+  "_id": "f7ff14dae05876cac58b4136934f8f87"
+}

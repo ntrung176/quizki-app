@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1265,
+  "usages": [
+    {
+      "explain": "Indicates the basis for a judgment. It can also be used as [からすると], [からみて], [からいって].",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんの言い方からして、私は彼女に嫌われているようだ。",
+          "transcription": "さとうさんのいいかたからして、わたしはかのじょにきらわれているようだ。",
+          "mean": "Judging from the way Sato-san says it, it seems like she hates me."
+        },
+        {
+          "content": "あの態度からして、彼はあきらめる考えがまったくないようだ。",
+          "transcription": "あのたいどからして、かれはあきらめるかんがえがまったくないようだ。",
+          "mean": "Judging by his attitude, it seems like he has no intention of giving up."
+        },
+        {
+          "content": "その時の表情からして、部長は大変怒っていたはずだ。",
+          "transcription": "そのときのひょうじょうからして、ぶちょうはたいへんおこっていたはずだ。",
+          "mean": "Judging from the expression on his face at that time, the manager must have been very angry."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + からして"
+    }
+  ],
+  "title": "... からして => judging from; based on",
+  "_id": "f7ff14dae05876cac58b4136935de1e1"
+}

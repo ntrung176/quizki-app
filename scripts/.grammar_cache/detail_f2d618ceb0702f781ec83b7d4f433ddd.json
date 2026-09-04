@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2950,
+  "usages": [
+    {
+      "explain": "Used to ask the listener about the comparison between Noun 1 and Noun 2.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ピアノとバイオリンとどちらが面白いですか。",
+          "transcription": "ぴあのとばいおりんとどちらがおもしろいですか。",
+          "mean": "Which is more interesting, the piano or the violin?"
+        },
+        {
+          "content": "サッカーとテニスとどちらが好きですか。",
+          "transcription": "さっかーとてにすとどちらがすきですか。",
+          "mean": "Which do you prefer, soccer or tennis?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 と + N2 と + どちら ～か"
+    }
+  ],
+  "title": "と～と～どちら～か => Comparison",
+  "_id": "f2d618ceb0702f781ec83b7d4f433ddd"
+}

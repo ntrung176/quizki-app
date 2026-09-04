@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5439,
+  "usages": [
+    {
+      "explain": "「というより/というか」expresses the idea that compared to what was said in the preceding clause, the statement in the following clause is more accurate or appropriate. It can be translated as \"rather\" or \"more like.\"<br/>\n「というか」is often used when the speaker is expressing an assertion about a particular object, implying that they are searching for the right term or expression. It can be translated as \"or rather\" or \"should I say.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は涼しいというより寒いくらいだった。",
+          "transcription": "きょうはすずしいというよりさむいくらいだった。",
+          "mean": "Today was more cold than cool."
+        },
+        {
+          "content": "あの学生は出来ないというかやる気がないのでしょう。",
+          "transcription": "あのがくせいはできないというかやるきがないのでしょう。",
+          "mean": "That student probably can't do it, or maybe he doesn't have the motivation."
+        },
+        {
+          "content": "息子の部屋は部屋というよりゴミ箱だ。",
+          "transcription": "むすこのへやはへやというよりゴミばこだ。",
+          "mean": "My son's room is more of a trash can than a room."
+        },
+        {
+          "content": "『頭が痛いの？』『いや、痛いというか重いんだ。』",
+          "transcription": "『あたまがいたいの？』『いや、いたいというかおもいんだ。』",
+          "mean": "“Does your head hurt? ``No, it hurts, or rather it's heavy.'' ”"
+        },
+        {
+          "content": "この決断は、勇気があるというか、とにかく凡人  にはなかなかできないことだ。",
+          "transcription": "このけつだんは、ゆうきがあるというか、とにかくぼんじんにはなかなかできないことだ。",
+          "mean": "This decision takes courage and is something that ordinary people would not be able to make."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+というより<br/>V/Aい/Aな/N (formal form)+というか"
+    }
+  ],
+  "title": "というより/というか => rather than ~",
+  "_id": "3089b421f36c425a85b948584dad6e71"
+}

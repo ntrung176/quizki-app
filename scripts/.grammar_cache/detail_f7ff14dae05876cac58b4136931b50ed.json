@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 775,
+  "usages": [
+    {
+      "explain": "<a>✦</a> Meaning: \"if that situation becomes a reality... then\". In many cases, it expresses the idea that even if a difficult situation occurs, it's okay.",
+      "note": null,
+      "examples": [
+        {
+          "content": "手持ちの現金では足りないかもしれないが、いざとなればクレジットカードを使うことができる。",
+          "transcription": "てもちのげんきんではたりないかもしれないが、いざとなればクレジットカードをつかうことができる。",
+          "mean": "You may not have enough cash on hand, but in an emergency you can use a credit card."
+        },
+        {
+          "content": "一人で留学するのは不安だが、いざとなれば、友達が助けてくれるから大丈夫だ。",
+          "transcription": "一人で留学するのは不安だが、いざとなれば、友達が助けてくれるから大丈夫だ。",
+          "mean": "I'm nervous about studying abroad alone, but I don't have to worry because I have friends who will help me in case of an emergency."
+        },
+        {
+          "content": "生きるのは辛いけどいざ死ぬとなると勇気が出ない。",
+          "transcription": "いきるのはつらいけどいざしぬとなるとゆうきがでない。",
+          "mean": "Living is hard, but when it comes to death, I don't have the courage."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div><a>✦</a>いざ＋V(root form)＋となると / いざ～となれば / いざ～となったら </div><div><br/></div><div><a>✦</a>いざ＋N＋となると / いざ～となれば / いざ～となったら </div>"
+    }
+  ],
+  "title": "～いざ～となると / いざ～となれば / いざ～となったら => When it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b4136931b50ed"
+}

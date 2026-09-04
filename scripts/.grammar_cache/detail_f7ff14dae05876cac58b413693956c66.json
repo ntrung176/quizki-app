@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1667,
+  "usages": [
+    {
+      "explain": "Continuing after 「だから」, 「そのために」... to express the meaning \"the event mentioned here is a consequence of the event mentioned in the previous sentence\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "車のガソリンタンクからガソリンが漏れている。だから変な臭いがしたのだ。",
+          "transcription": "くるまのがそりんたんくからがそりんがもれている。だからへんなにおいがしたのだ。",
+          "mean": "Gasoline is leaking from the car's gas tank. That's why it smelled strange."
+        },
+        {
+          "content": "各種廃棄物が不合理に処理されている。そのために我々の生活が脅かされているのだ。",
+          "transcription": "かくしゅはいきぶつがふごうりにしょりされている。そのためにわれわれのせいかつがおびやかされているのだ。",
+          "mean": "Various types of waste are being disposed of in an irrational manner. Because of this, our lives are threatened."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Naな + のだ\nA/V + のだ"
+    }
+  ],
+  "title": "... のだ => Therefore..., as a result...",
+  "_id": "f7ff14dae05876cac58b413693956c66"
+}

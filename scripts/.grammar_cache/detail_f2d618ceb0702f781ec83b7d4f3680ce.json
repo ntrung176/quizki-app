@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2842,
+  "usages": [
+    {
+      "explain": "Conveys the meaning: \"Once you've experienced something, you can't go back to the way it was.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "フォーは一度食べると病みつきになる。",
+          "transcription": "ふぉーはいちどたべるとやみつきになる。",
+          "mean": "Once you try pho, you will be addicted to it."
+        },
+        {
+          "content": "その森は一度迷い込んだらなかなか外に出られないらしい。",
+          "transcription": "そのもりはいちどまよいこんだらなかなかそとにでられないらしい。",
+          "mean": "It seems that once you get lost in that forest, you can't get out."
+        },
+        {
+          "content": "一度高いワインの味を知ってしまうと、もう安物は飲めなくなる。",
+          "transcription": "いちどたかいわいんのあじをしってしまうと、もうやすものはのめなくなる。",
+          "mean": "Once you get to know the taste of expensive wine, you won't be able to drink cheap wine again."
+        },
+        {
+          "content": "あの作家の恋愛小説は一度読み始めるとついつい最後まで一気に読んでしまう。",
+          "transcription": "あのさっかのれんあいしょうせつはいちどよみはじめるとついついさいごまでいっきによんでしまう。",
+          "mean": "Once I start reading a romance novel by that author, I find myself reading it all the way to the end."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いちど V と／V－たら"
+    }
+  ],
+  "title": "いちど　....  と／ .... たら => Once you have experienced something, it cannot be the same as before",
+  "_id": "f2d618ceb0702f781ec83b7d4f3680ce"
+}

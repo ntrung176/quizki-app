@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2028,
+  "usages": [
+    {
+      "explain": "Goes with nouns indicating \"now,\" \"at this moment\"... to describe a current state of time.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今のところ彼女の母は危篤だ。",
+          "transcription": "いまのところかのじょのはははきとくだ。",
+          "mean": "Her mother is currently in critical condition."
+        },
+        {
+          "content": "現在のところ参加者は約２００人ほどです。",
+          "transcription": "げんざいのところさんかしゃはやくにぜろぜろにんほどです。",
+          "mean": "There are currently about 200 participants."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + の + ところ"
+    }
+  ],
+  "title": "... のところ => now, this time, recently",
+  "_id": "f7ff14dae05876cac58b413693c800a8"
+}

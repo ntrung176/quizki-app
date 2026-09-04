@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2535,
+  "usages": [
+    {
+      "explain": "Used when the speaker is certain that something will happen, contrary to reality. Used to express regret, doubt of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "おかしなことに、閉めたはずの門の鍵が開いていた。",
+          "transcription": "おかしなことに、しめたはずのもんのかぎがひらいていた。",
+          "mean": "Strangely enough, the gate that was supposed to be closed was unlocked."
+        },
+        {
+          "content": "ちゃんとかばんに入れたはずなのに、自宅に帰ってみると財布がない。",
+          "transcription": "ちゃんとかばんにいれたはずなのに、じたくにかえってみるとさいふがない。",
+          "mean": "I thought I had put it in my bag, but when I got home, my wallet was gone."
+        },
+        {
+          "content": "その話は昔読んだはずですが、覚えていません。",
+          "transcription": "そのはなしはむかしよんだはずですが、おぼえていません。",
+          "mean": "I think I read that story a long time ago, but I don't remember it."
+        },
+        {
+          "content": "その単語は先週勉強したはずですが、忘れてしまいました。",
+          "transcription": "そのたんごはせんしゅうべんきょうしたはずですが、わすれてしまいました。",
+          "mean": "I thought I studied that word last week, but I forgot it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－たはず"
+    }
+  ],
+  "title": "... たはず => it must be; it should be (expectation)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0dd982"
+}

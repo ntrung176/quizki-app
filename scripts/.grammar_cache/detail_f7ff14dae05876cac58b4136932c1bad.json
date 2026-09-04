@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 895,
+  "usages": [
+    {
+      "explain": "<a>●</a> Used for explaining, judging, or evaluating a person or situation.<br/><a>●</a> Compared to 「といえる」, this expression implies a stronger certainty. Often used in written language, sometimes without 「も」.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "現在、彼が日本マラソン界の第一人者といっても間違いない。&amp;nbsp;",
+          "transcription": "げんざい、かれがにっぽんまらそんかいのだいいちにんしゃといってもまちがいない。&amp;nbsp;",
+          "mean": "It is safe to say that he is currently the leading figure in the Japanese marathon world. &amp;amp;nbsp;"
+        },
+        {
+          "content": "あらしが去ったと言っても間違いではないだろう[大丈夫だろう]。",
+          "transcription": "あらしがさったといってもまちがいではないだろう[だいじょうぶだろう]。",
+          "mean": "It would not be wrong to say that the storm has passed [it will be okay]."
+        },
+        {
+          "content": "あなたはゲームに夢中して、ゲームを愛してるといっても間違いないよね。",
+          "transcription": "あなたはげーむにむちゅうして、げーむをあいしてるといってもまちがいないよね。",
+          "mean": "It's safe to say that you're obsessed with games and love them."
+        }
+      ],
+      "mean": null,
+      "synopsis": "~ といっても間違いない"
+    }
+  ],
+  "title": "~ といっても間違いない => although I say; although one might say ~ it doesn't matter ...",
+  "_id": "f7ff14dae05876cac58b4136932c1bad"
+}

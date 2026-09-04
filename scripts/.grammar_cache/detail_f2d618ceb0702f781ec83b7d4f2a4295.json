@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2753,
+  "usages": [
+    {
+      "explain": "Used at the end of a sentence to express regret, as the result is completely opposite to what was predicted. Often used when expressing dissatisfaction or criticism towards the behavior of others. Also often used at the end of \"counterfactual conditional sentences\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "ガソリンが漏れているよ。注意しなければならないと言っておいたのに。",
+          "transcription": "がそりんがもれているよ。ちゅういしなければならないといっておいたのに。",
+          "mean": "Gasoline is leaking. I told you that you had to be careful."
+        },
+        {
+          "content": "あと五分前に駅についたら電車に間に合ったのに。",
+          "transcription": "あとごふんまえにえきについたらでんしゃにまにあったのに。",
+          "mean": "If I had arrived at the station five minutes earlier, I would have been able to catch the train."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Naな + のに\nA-い/ A-なかった + のに\nV-る/ V-た + のに"
+    }
+  ],
+  "title": "... のに => if only it weren't the case that ~ (in the end of sentence)",
+  "_id": "f2d618ceb0702f781ec83b7d4f2a4295"
+}

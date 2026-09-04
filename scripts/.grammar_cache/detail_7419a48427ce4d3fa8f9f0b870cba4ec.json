@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5039,
+  "usages": [
+    {
+      "explain": "「が早いか」is used to express an action that occurs immediately after, almost simultaneously with the preceding action. The action that follows tends to be somewhat unexpected or beyond the speaker's anticipation.\nNote:\n1. Since it is used to describe an action that has already occurred, the clause after「が早いか」does not use structures like「〜たい」「〜だろう」or「〜つもりだ」.\n2. The clause after「が早いか」usually involves intentional actions, so it is not used to describe natural phenomena or unconscious occurrences.\nExamples:\n✖ 外に出るが早いか、雨が降り出した。\n✖ 母の声を聞くが早いか、涙が出てきた。\n3. The clauses before and after do not need to have the same subject.",
+      "note": null,
+      "examples": [
+        {
+          "content": "授業のチャイムが鳴るが早いか、学生たちは教室を飛び出した。",
+          "transcription": "じゅぎょうのチャイムがなるがはやいか、がくせいたちはきょうしつをとびだした。",
+          "mean": "As soon as the class chime rang, the students rushed out of the classroom."
+        },
+        {
+          "content": "妻は夫の姿を見るが早いか、駆け寄った。",
+          "transcription": "つまはおっとのすがたをみるがはやいか、かけよった。",
+          "mean": "When the wife saw her husband, she ran over to him."
+        },
+        {
+          "content": "うちの子はいつも学校から帰ってきて、かばんを放り出すが早いか、遊びに行ってしまう。",
+          "transcription": "うちのこはいつもがっこうからかえってきて、かばんをほうりだすがはやいか、あそびにいってしまう。",
+          "mean": "My child always comes home from school, throws his bag away, and then goes off to play."
+        },
+        {
+          "content": "電車のドアを開くが早いか、乗客は我先にと乗り込んだ。",
+          "transcription": "でんしゃのドアをひらくがはやいか、じょうきゃくはわれさきにとのりこんだ。",
+          "mean": "As soon as the train door opened, the passengers boarded the train."
+        },
+        {
+          "content": "海外旅行に出発の日、山田さんは空港に着くが早いか、コンビニに駆け込んだ。",
+          "transcription": "かいがいりょこうにしゅっぱつのひ、やまださんはくうこうにつくがはやいか、コンビニにかけこんだ。",
+          "mean": "On the day he left for his overseas trip, Mr. Yamada rushed to the convenience store as soon as he arrived at the airport."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+が早いか"
+    }
+  ],
+  "title": "が早いか => no sooner than; as soon as ~",
+  "_id": "7419a48427ce4d3fa8f9f0b870cba4ec"
+}

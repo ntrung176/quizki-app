@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5210,
+  "usages": [
+    {
+      "explain": "「に過ぎない」 is used to express the speaker's evaluation or judgment about something, indicating \"it's just at that level, no more.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "単なる言い間違いに過ぎない。",
+          "transcription": "たんなる言いまちがいにすぎない。",
+          "mean": "It's just a misspoken word."
+        },
+        {
+          "content": "簡単な日常英会話ができるに過ぎません。",
+          "transcription": "かんたんなにちじょうえいかいわができるにすぎません。",
+          "mean": "You can only carry out simple everyday English conversations."
+        },
+        {
+          "content": "彼女は母親が有名であるに過ぎないのに、いつも偉そうにしている。",
+          "transcription": "かのじょはははおやがゆうめいであるにすぎないのに、いつもえらそうにしている。",
+          "mean": "Even though her mother is famous, she is always acting bossy."
+        },
+        {
+          "content": "最近は外見がいいに過ぎない人より、個性的な俳優の方が人気がある。",
+          "transcription": "さいきんはがいけんがいいにすぎないひとより、こせいてきなはいゆうのほうがにんきがある。",
+          "mean": "These days, actors with unique personalities are more popular than people who just look good."
+        },
+        {
+          "content": "今の時代、結婚することは人生の選択肢の1つであるに過ぎない。",
+          "transcription": "いまのじだい、けっこんすることはじんせいのせんたくしのひとつであるにすぎない。",
+          "mean": "In this day and age, getting married is just one of the choices in life."
+        },
+        {
+          "content": "今回逮捕した経営者は氷山の一角だったに過ぎない。",
+          "transcription": "こんかいたいほしたけいえいしゃはひょうざんのいっかくだったにすぎない。",
+          "mean": "The executives arrested this time were just the tip of the iceberg."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+に過ぎない<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>/A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>/N<s>だ</s>である)"
+    }
+  ],
+  "title": "に過ぎない => no more than; just; merely; only ~",
+  "_id": "807e65b079fe4ae985ce7c144bfd0924"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2729,
+  "usages": [
+    {
+      "explain": "Expresses the idea: the current state will continue into the future.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これから、まだもっと暑くなる。",
+          "transcription": "これから、まだもっとあつくなる。",
+          "mean": "It's going to get even hotter from now on."
+        },
+        {
+          "content": "この会社の株はまだね下がる。",
+          "transcription": "このかいしゃのかぶはまだねさがる。",
+          "mean": "This company's stock is still going down."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まだ..."
+    }
+  ],
+  "title": "まだ... => Still, will still be (continue in the future)",
+  "_id": "f2d618ceb0702f781ec83b7d4f27d72e"
+}

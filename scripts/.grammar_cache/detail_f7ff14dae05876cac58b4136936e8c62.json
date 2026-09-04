@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1383,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"it can only be said that it is truly...\". <br/><br/>This is a somewhat formal expression with a literary tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "高層ビルから落ちたのにこの程度の怪我ですんだのは、奇跡だったと言う他はない。",
+          "transcription": "こうそうびるからおちたのにこのていどのけがですんだのは、きせきだったというほかはない。",
+          "mean": "I can only say that it was a miracle that I escaped from this level of injury after falling from a high-rise building."
+        },
+        {
+          "content": "世界には将来を予想できる人がいるという。それが事実だとしたら、信じられないと言うほかはない。",
+          "transcription": "せかいにはしょうらいをよそうできるひとがいるという。それがじじつだとしたら、しんじられないというほかはない。",
+          "mean": "It is said that there are people in the world who can predict the future. If that's true, I have no choice but to say that I can't believe it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "というほかはない"
+    }
+  ],
+  "title": "…というほかはない => no other; nothing else",
+  "_id": "f7ff14dae05876cac58b4136936e8c62"
+}

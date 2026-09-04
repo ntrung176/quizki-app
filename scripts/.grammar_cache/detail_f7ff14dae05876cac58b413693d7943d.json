@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2134,
+  "usages": [
+    {
+      "explain": "Conveys the meaning \"if only doing just that ...\", followed by negative evaluations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "野球はただ見るだけでは面白くない。",
+          "transcription": "やきゅうはただみるだけではおもしろくない。",
+          "mean": "Baseball isn't fun just to watch."
+        },
+        {
+          "content": "日本語はただ二ヶ月勉強しただけでは本当の難しさが分からない。",
+          "transcription": "にほんごはただにかげつべんきょうしただけではほんとうのむずかしさがわからない。",
+          "mean": "If you just study Japanese for two months, you won't understand how difficult it really is."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ただ～だけでは"
+    }
+  ],
+  "title": "ただ…だけでは => If only... that's it",
+  "_id": "f7ff14dae05876cac58b413693d7943d"
+}

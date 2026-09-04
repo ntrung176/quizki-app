@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2071,
+  "usages": [
+    {
+      "explain": "To give an example of a group of things that the speaker cannot specify clearly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今週末はいっしょに公園かなんか行かない。",
+          "transcription": "こんしゅうまつはいっしょにこうえんかなんかいかない。",
+          "mean": "We won't go to the park together this weekend."
+        },
+        {
+          "content": "お見舞いには花かなんかを持って行くことにしよう。",
+          "transcription": "おみまいにははなかなんかをもっていくことにしよう。",
+          "mean": "Let's bring flowers or something to get well."
+        },
+        {
+          "content": "山田さんは首になったかなんかで最近悲しそうだ。",
+          "transcription": "やまださんはくびになったかなんかでさいきんかなしそうだ。",
+          "mean": "Mr. Yamada seems sad lately, probably because he was fired."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／A／V + かなんか"
+    }
+  ],
+  "title": "かなんか => ...Or something like that...",
+  "_id": "f7ff14dae05876cac58b413693ce02f0"
+}

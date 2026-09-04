@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5224,
+  "usages": [
+    {
+      "explain": "「のみならず」/「のみか」express the idea of \"not only... but also...\" and are primarily used in formal or written situations. In everyday spoken language,「だけでなく」is more common. The second clause of「のみならず」/「のみか」(though not always necessary) often goes with も.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その映画は日本のみならず、外国もよく知られている。",
+          "transcription": "そのえいがはにほんのみならず、がいこくもよくしられている。",
+          "mean": "The movie is well known not only in Japan but also abroad."
+        },
+        {
+          "content": "この料理は味が良いのみならず、見た目も美しい。",
+          "transcription": "このりょうりはあじがよいのみならず、みためもうつくしい。",
+          "mean": "This dish not only tastes good, but also looks beautiful."
+        },
+        {
+          "content": "この会社の商品は便利であるのみならず、値段も手頃だ。",
+          "transcription": "このかいしゃのしょうひんはべんりであるのみならず、ねだんもてごろだ。",
+          "mean": "This company's products are not only convenient, but also affordable."
+        },
+        {
+          "content": "彼は万引きをしたのみならず、食い逃げもしてしまった。",
+          "transcription": "かれはまんびきをしたのみならず、くいにげもしてしまった。",
+          "mean": "Not only did he shoplift, but he also ran away with food."
+        },
+        {
+          "content": "子供のみか大人もこのゲームには待っている。",
+          "transcription": "こどものみかおとなもこのゲームにはまっている。",
+          "mean": "This game is for both children and adults alike."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+のみならず / のみか (～も)<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>/A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>/N<s>だ</s>である)"
+    }
+  ],
+  "title": "のみならず/のみか => not only; besides; as well as ~",
+  "_id": "185f78af532e4e3b90d15f49d0038c10"
+}

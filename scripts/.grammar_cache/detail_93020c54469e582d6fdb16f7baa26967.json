@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3159,
+  "usages": [
+    {
+      "explain": "<div>✦ Expressed with the form \"A拍子にB\" with the meaning [at the same time as A, unexpectedly becomes B], where B describes an event that occurs unexpectedly.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "こちらを向いた拍子にあらわれたその顔の表情は、彼を驚かせた。",
+          "transcription": "こちらをむいたひょうしにあらわれたそのかおのひょうじょうは、かれをおどろかせた。",
+          "mean": "The expression on her face as she turned towards me surprised him."
+        },
+        {
+          "content": "くしゃみをした拍子にメガネが落ちた。",
+          "transcription": "くしゃみをしたひょうしにめがねがおちた。",
+          "mean": "My glasses fell off as soon as I sneezed."
+        },
+        {
+          "content": "あわてた拍子に万事を打忘れた。",
+          "transcription": "あわてたひょうしにばんじをだわすれた。",
+          "mean": "In my panic, I forgot to type everything."
+        },
+        {
+          "content": "ぶつかった拍子に、携帯電話を落とした。",
+          "transcription": "ぶつかったひょうしに、けいたいでんわをおとした。",
+          "mean": "I dropped my cell phone when I bumped into it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦Vた・Nの ＋ 拍子に<br/></div>"
+    }
+  ],
+  "title": "～ひょうしに（～拍子に）   => the moment [A], unintentionally / inadvertently caused something to happen",
+  "_id": "93020c54469e582d6fdb16f7baa26967"
+}

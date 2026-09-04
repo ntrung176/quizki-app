@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2556,
+  "usages": [
+    {
+      "explain": "Indicates an extreme state. Used as a noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明、遊びすぎですよ。もうちょっと勉強しなさい。",
+          "transcription": "あきら、あそびすぎですよ。もうちょっとべんきょうしなさい。",
+          "mean": "Akira, you're playing too much. Study a little more."
+        },
+        {
+          "content": "君は心配しすぎだ。",
+          "transcription": "きみはしんぱいしすぎだ。",
+          "mean": "You worry too much."
+        },
+        {
+          "content": "お酒の飲み過ぎにはその薬がいいそうだ。",
+          "transcription": "おさけののみすぎにはそのくすりがいいそうだ。",
+          "mean": "Apparently that medicine is good for drinking too much alcohol."
+        },
+        {
+          "content": "ゲームのやりすぎで学業成績が下がつてしまった。",
+          "transcription": "げーむのやりすぎでがくぎょうせいせきがしたがつてしまった。",
+          "mean": "My academic performance has declined due to playing too many games."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます + すぎだ\nVます+ すぎのN"
+    }
+  ],
+  "title": "…すぎ ... => too much",
+  "_id": "f2d618ceb0702f781ec83b7d4f10efa9"
+}

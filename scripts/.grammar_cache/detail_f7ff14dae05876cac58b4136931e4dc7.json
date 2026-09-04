@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 796,
+  "usages": [
+    {
+      "explain": "✦ This is a way of expressing the meaning \"if X happened, then (it would be) great,\" used in cases where X is an unrealizable event or contrary to reality. It signifies regret when realizing that the desired event X is actually unattainable.",
+      "note": null,
+      "examples": [
+        {
+          "content": "背があと10センチ高かったらどんなによかっただろうか。",
+          "transcription": "せがあと10センチたかかったらどんなによかっただろうか。",
+          "mean": "I wonder how much better it would have been if I had been 10 centimeters taller."
+        },
+        {
+          "content": "10年前に彼女に会っていたらどんなによかっただろう。",
+          "transcription": "10ねんまえにかのじょにあっていたらどんなによかっただろう。",
+          "mean": "I wish I had met her 10 years ago."
+        },
+        {
+          "content": "祖母が生きていたら、どんなに喜んだことか。",
+          "transcription": "そぼがいきていたら、どんなによろこんだことか。",
+          "mean": "How happy I would have been if my grandmother had been alive."
+        },
+        {
+          "content": "今すぐあなたに会えたらどんなにうれしいだろうか。",
+          "transcription": "いますぐあなたにあえたらどんなにうれしいだろうか。",
+          "mean": "How happy I would be to meet you right now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Vたらどんなに … か"
+    }
+  ],
+  "title": "～たらどんなに … か => It will be great if something is done",
+  "_id": "f7ff14dae05876cac58b4136931e4dc7"
+}

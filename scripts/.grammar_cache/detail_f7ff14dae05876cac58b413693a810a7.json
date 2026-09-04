@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1795,
+  "usages": [
+    {
+      "explain": "Expressing the meaning: \"regardless of something else, the result will be the same\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "その選手はもっと難しい動作もできる。",
+          "transcription": "そのせんしゅはもっとむずかしいどうさもできる。",
+          "mean": "The athlete can also perform more difficult movements."
+        },
+        {
+          "content": "手が痛くてペンを持つこともできない。",
+          "transcription": "てがいたくてぺんをもつこともできない。",
+          "mean": "My hands hurt and I can't even hold a pen."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + も"
+    }
+  ],
+  "title": "も => Even...also...",
+  "_id": "f7ff14dae05876cac58b413693a810a7"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1365,
+  "usages": [
+    {
+      "explain": "Conveys the meaning of \"almost, nearly, just about\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の成功はもっぱら幸運の賜物だ。",
+          "transcription": "かれのせいこうはもっぱらこううんのたまものだ。",
+          "mean": "His success is solely the result of luck."
+        },
+        {
+          "content": "いろいろな酒類があったが、 彼はもっぱらワインばかり飲んでいた。",
+          "transcription": "いろいろなしゅるいがあったが、かれはもっぱらわいんばかりのんでいた。",
+          "mean": "There were various alcoholic beverages, but he drank only wine."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もっぱら"
+    }
+  ],
+  "title": "もっぱら => Just all, just",
+  "_id": "f7ff14dae05876cac58b4136936c151c"
+}

@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5437,
+  "usages": [
+    {
+      "explain": "「ということだ」is used to:<br/>\n\n1. Convey information heard or read. It is more formal than 「そうだ」and often used with では or によると to refer to the source of information.\n\"It is said that...\"<br/>\n2. Express a meaning, truth, or conclusion. \"It means that...\"<br/> The verb before 「ということだ」can be in the volitional or imperative form.<br/>\n「ということだ」has a more rigid form than 「とのことだ」which is often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨日、東京で地震があったということだ。",
+          "transcription": "きのう、とうきょうでじしんがあったということだ。",
+          "mean": "There was an earthquake in Tokyo yesterday."
+        },
+        {
+          "content": "物価は来月からさらに上がるということだ。",
+          "transcription": "ぶっかはらいげつからさらにあがるということだ。",
+          "mean": "Prices are expected to rise further from next month."
+        },
+        {
+          "content": "ニュースによると、明日は雨が降るとのことだ。",
+          "transcription": "ニュースによると、あしたはあめがふるとのことだ。",
+          "mean": "According to the news, it will rain tomorrow."
+        },
+        {
+          "content": "キムさんは先月受けた試験に合格したということだ。",
+          "transcription": "キムさんはせんげつうけたしけんにごうかくしたということだ。",
+          "mean": "Kim passed the exam she took last month."
+        },
+        {
+          "content": "田中さんから電話があって、少し遅れるということです。",
+          "transcription": "たなかさんからでんわがあって、すこしおくれるということです。",
+          "mean": "I received a call from Mr. Tanaka, and he said he would be a little late."
+        },
+        {
+          "content": "新聞によると、先日起きた事件の犯人が捕まったとのことだ。",
+          "transcription": "しんぶんによると、せんじつおきたじけんのはんにんがつかまったとのことだ。",
+          "mean": "According to the newspaper, the culprit in the incident that occurred the other day has been arrested."
+        },
+        {
+          "content": "部長に「明日から来なくてもいい」と言われた。つまりクビということかな。",
+          "transcription": "ぶちょうに「あしたからこなくてもいい」といわれた。つまりクビということかな。",
+          "mean": "The manager told me, ``You don't have to come tomorrow.'' Does that mean I'm fired?"
+        },
+        {
+          "content": "試験の結果は70％、つまり合格ということだ。",
+          "transcription": "しけんのけっかはななじゅっパーセント、つまりごうかくということだ。",
+          "mean": "The test result was 70%, which means I passed."
+        },
+        {
+          "content": "独身で続けるのは一人で寂しく死ぬということだ。",
+          "transcription": "どくしんでつづけるのはひとりでさびしくしぬということだ。",
+          "mean": "To remain single is to die alone and lonely."
+        },
+        {
+          "content": "禁煙というのはたばこを吸ってはいけないということだ。",
+          "transcription": "きんえんというのはたばこをすってはいけないということだ。",
+          "mean": "No smoking means that you must not smoke."
+        },
+        {
+          "content": "PCというのはパソコンのことです。",
+          "transcription": "ピーシーというのはパソコンのことです。",
+          "mean": "A PC is a personal computer."
+        },
+        {
+          "content": "良い教師とは、学生のことを理解してあげられる教師のことだ。",
+          "transcription": "よいきょうしとは、がくせいのことをりかいしてあげられるきょうしのことだ。",
+          "mean": "A good teacher is one who understands his students."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+ということだ<br/>\n Nの+ことだ"
+    }
+  ],
+  "title": "ということだ => I heard; it means that; in other words ~",
+  "_id": "4477e0aa86e04eaf81dcbc94293857b6"
+}

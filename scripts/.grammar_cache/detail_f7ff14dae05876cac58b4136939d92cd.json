@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1721,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"assuming that..., it is stipulated that...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "神経病で法律を違反したとして、刑事の責任は問われないことになった。",
+          "transcription": "しんけいびょうでほうりつをいはんしたとして、けいじのせきにんはとわれないことになった。",
+          "mean": "He will not be held criminally responsible for violating the law due to his nervous illness."
+        },
+        {
+          "content": "裁判長は過失は甲にあるとして、乙に賠償金を払うように命じた。",
+          "transcription": "さいばんちょうはかしつはかぶとにあるとして、おつにばいしょうきんをはらうようにめいじた。",
+          "mean": "The presiding judge found Party A to be at fault and ordered Party B to pay compensation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Na + (だ)とする <br/>A/V + とする<br/><br/>"
+    }
+  ],
+  "title": "...とする => assume, regard X as ~ , suppose",
+  "_id": "f7ff14dae05876cac58b4136939d92cd"
+}

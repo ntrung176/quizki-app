@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2106,
+  "usages": [
+    {
+      "explain": "Expresses determination and effort to establish a habit or behavior with high willpower by the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "砂糖がある物は食べないようにしている。",
+          "transcription": "さとうがあるものはたべないようにしている。",
+          "mean": "I try not to eat anything with sugar."
+        },
+        {
+          "content": "健康のために、毎朝一時間ぐらい泳ぐようにしている。",
+          "transcription": "けんこうのために、まいあさいちじかんぐらいおよぐようにしている。",
+          "mean": "For my health, I try to swim for about an hour every morning."
+        },
+        {
+          "content": "英語が上手に話せるために、もっと外国人と話すようにしている。",
+          "transcription": "えいごがじょうずにはなせるために、もっとがいこくじんとはなすようにしている。",
+          "mean": "In order to speak English well, I try to talk to more foreigners."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/ない ＋ ようにしている"
+    }
+  ],
+  "title": "ようにしている => to try to; to make sure that ~",
+  "_id": "f7ff14dae05876cac58b413693d2e27a"
+}

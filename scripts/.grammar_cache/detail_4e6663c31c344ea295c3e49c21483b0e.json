@@ -1,0 +1,41 @@
+{
+  "level": "N5",
+  "mobileId": 5590,
+  "usages": [
+    {
+      "explain": "「どうして」is an interrogative word used to ask for the reason or cause of something. In everyday communication, it can also carry a tone of blame or mild criticism.「どうして」can be used even with superiors.",
+      "note": null,
+      "examples": [
+        {
+          "content": "『どうして朝ご飯を食べなかったんですか。』『朝寝坊したから、今時間がないんです。』",
+          "transcription": "『どうしてあさごはんをたべなかったんですか。』『あさねぼうしたから、いまじかんがないんです。』",
+          "mean": "``Why didn't you eat breakfast? ``I overslept this morning, so I don't have time right now.'' ”"
+        },
+        {
+          "content": "『どうして学校へ行きませんでしたか。』『お腹が痛かったから。』",
+          "transcription": "『どうしてがっこうへいきませんでしたか。』『おなかがいたかったから。』",
+          "mean": "``Why didn't you go to school? ``Because my stomach hurts.'' ”"
+        },
+        {
+          "content": "どうして日本語を勉強していますか。",
+          "transcription": "どうしてにほんごをべんきょうしていますか。",
+          "mean": "Why are you studying Japanese?"
+        },
+        {
+          "content": "どうして人参が好きじゃないですか。",
+          "transcription": "どうしてにんじんがすきじゃないですか。",
+          "mean": "Why don't you like carrots?"
+        },
+        {
+          "content": "昨日どうして来なかったんですか。",
+          "transcription": "きのうどうしてこなかったんですか。",
+          "mean": "Why didn't you come yesterday?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうして+Sentence"
+    }
+  ],
+  "title": "どうして => why; for what reason; how",
+  "_id": "4e6663c31c344ea295c3e49c21483b0e"
+}

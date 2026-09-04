@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2497,
+  "usages": [
+    {
+      "explain": "Expressing the direct cause of a discovery or revelation. This cause can be intentional or unintentional.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その記事をよく読んでみると、筆者は嘘をついていたと分かった。",
+          "transcription": "そのきじをよくよんでみると、ひっしゃはうそをついていたとわかった。",
+          "mean": "After reading the article carefully, I realized that the author was lying."
+        },
+        {
+          "content": "学校を止めてみると、それは今まで私の最低の決定だった。",
+          "transcription": "がっこうをとめてみると、それはいままでわたしのさいていのけっていだった。",
+          "mean": "Quitting school was the worst decision I ever made."
+        },
+        {
+          "content": "この料理は見かけは気持ちが悪かったが、食べてみると、意外に美味しかった。",
+          "transcription": "このりょうりはみかけはきもちがわるかったが、たべてみると、いがいにおいしかった。",
+          "mean": "This dish looked disgusting, but when I tried it, it was surprisingly delicious."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + みると"
+    }
+  ],
+  "title": "てみると => try doing..., then ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f088c3e"
+}

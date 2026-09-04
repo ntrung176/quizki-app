@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5485,
+  "usages": [
+    {
+      "explain": "「はずだ」indicates that the speaker, based on a certain basis, speculates that something is certain or likely to happen. The speaker's certainty level is around 90%, higher than 「でしょう」(80-90%), 「と思う」(60%), and 「かもしれない」(50%).<br/>This structure is not used to talk about the speaker's near future events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日の気温は1度。寒いはずです。",
+          "transcription": "きょうのきおんはいちど。さむいはずです。",
+          "mean": "Today's temperature is 1 degree. It must be cold."
+        },
+        {
+          "content": "暑いはずです。エアコンがつけていないからね。",
+          "transcription": "あついはずです。エアコンがつけていないからね。",
+          "mean": "It must be hot. Because the air conditioner isn't on."
+        },
+        {
+          "content": "今日は祝日ですから、会社は休みのはずです。",
+          "transcription": "きょうはしゅくじつですから、かいしゃはやすみのはずです。",
+          "mean": "Today is a public holiday, so the company should be closed."
+        },
+        {
+          "content": "今10時半ですから、銀行は開いているはずです。",
+          "transcription": "いまじゅうじはんですから、ぎんこうはあいているはずです。",
+          "mean": "It's 10:30 now, so banks should be open."
+        },
+        {
+          "content": "彼女は病気になったから、来ないはずだね。",
+          "transcription": "かのじょはびょうきになったから、こないはずだね。",
+          "mean": "She got sick, so she shouldn't be coming."
+        },
+        {
+          "content": "彼女は日本で4年も留学したそうですから、日本語が上手なはずです。",
+          "transcription": "かのじょはにほんでよねんもりゅうがくしたそうですから、にほんごがじょうずなはずです。",
+          "mean": "She apparently studied abroad in Japan for four years, so she must be good at Japanese."
+        },
+        {
+          "content": "あの2人はもうすぐ結婚するはずです。昨日は結婚式場の会社に電話するのを聞こえたから。",
+          "transcription": "あのふたりはもうすぐけっこんするはずです。きのうはけっこんしきじょのかいしゃにでんわするのをきこえたから。",
+          "mean": "Those two should get married soon. Yesterday I heard you call the wedding venue company."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vない+はずだ<br/> Aい+はずだ<br/>Aな+はずだ<br/> Nの+はずだ"
+    }
+  ],
+  "title": "はずだ => it must be; it should be (expectation)",
+  "_id": "2707abbe2db54824914a61ab813aa151"
+}

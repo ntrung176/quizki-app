@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2520,
+  "usages": [
+    {
+      "explain": "Used when the speaker wants to strongly affirm and encourage themselves, or to indicate their determination.",
+      "note": null,
+      "examples": [
+        {
+          "content": "誰が何と言おうと私達の考え方は間違っていないのだ。",
+          "transcription": "だれがなんといおうとわたしたちのかんがえかたはまちがっていないのだ。",
+          "mean": "No matter what anyone says, our way of thinking is not wrong."
+        },
+        {
+          "content": "両親が反対しても僕はやるのだ。",
+          "transcription": "りょうしんがはんたいしてもぼくはやるのだ。",
+          "mean": "I will do it even if my parents are against it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Naな + のだ\nA/V + のだ"
+    }
+  ],
+  "title": "... のだ => Even though... (Assertive)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0c12af"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 3253,
+  "usages": [
+    {
+      "explain": "Used to emphasize the object or event being mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本人にしても敬語は難しい。",
+          "transcription": "にっぽんじんにしてもけいごはむずかしい。",
+          "mean": "Even for Japanese people, using honorific language is difficult."
+        },
+        {
+          "content": "父にしても、始から支持していたわけではない。",
+          "transcription": "ちちにしても、はじめからしじしていたわけではない。",
+          "mean": "Even my father didn't support me from the beginning."
+        },
+        {
+          "content": "言い方にしてもきちんと作法に従っている。",
+          "transcription": "いいかたにしてもきちんとさほうにしたがっている。",
+          "mean": "Even in the way he says it, he clearly follows etiquette."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にしても"
+    }
+  ],
+  "title": "にしても  => even if; even though; regardless of ~",
+  "_id": "93020c54469e582d6fdb16f7ba7cc2e7"
+}

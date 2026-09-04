@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2618,
+  "usages": [
+    {
+      "explain": "以上 （いじょう）expresses the meaning \"that's all that needs to be said\", \"end of discussion\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "授業はこれで以上です。",
+          "transcription": "じゅぎょうはこれでいじょうです。",
+          "mean": "That's all for the lesson."
+        },
+        {
+          "content": "来週の旅に準備するものはテント、ライター、懐中電灯です。以上です。",
+          "transcription": "らいしゅうのたびにじゅんびするものはてんと、らいたー、かいちゅうでんとうです。いじょうです。",
+          "mean": "Things to prepare for next week's trip are a tent, lighter, and flashlight. that's all."
+        }
+      ],
+      "mean": null,
+      "synopsis": "以上"
+    }
+  ],
+  "title": "いじょう => that's all",
+  "_id": "f2d618ceb0702f781ec83b7d4f190477"
+}

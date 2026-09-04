@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2069,
+  "usages": [
+    {
+      "explain": "To express the meaning “assuming so temporarily” as a premise for doing something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は政治家になったつもりで議論しましょう。",
+          "transcription": "きょうはせいじかになったつもりでぎろんしましょう。",
+          "mean": "Today, let's discuss as if we were politicians."
+        },
+        {
+          "content": "カメラを買ったつもりで、お金は貯金することにした。",
+          "transcription": "かめらをかったつもりで、おかねはちょきんすることにした。",
+          "mean": "I decided to save up the money with the intention of buying a camera."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + つもりで"
+    }
+  ],
+  "title": "つもりで => with the intention of doing ~",
+  "_id": "f7ff14dae05876cac58b413693cdba66"
+}

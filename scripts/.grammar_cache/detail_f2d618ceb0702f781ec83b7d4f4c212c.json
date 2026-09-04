@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3021,
+  "usages": [
+    {
+      "explain": "Used to add on when listing things, events. It has a similar meaning to 「それに」but「そして」is more literary.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先月の旅行では日本、韓国そして中国と、おもに東アジアを中心に回った。",
+          "transcription": "せんげつのりょこうではにっぽん、かんこくそしてちゅうごくと、おもにひがしあじあをちゅうしんにまわった。",
+          "mean": "Last month's trip focused mainly on East Asia, visiting Japan, South Korea, and China."
+        },
+        {
+          "content": "いい社員には誠実、真面目さ、そして献身力が欠かせない。",
+          "transcription": "いいしゃいんにはせいじつ、まじめさ、そしてけんしんりょくがかかせない。",
+          "mean": "Honesty, seriousness, and dedication are essential for a good employee."
+        },
+        {
+          "content": "彼の病気には、お酒、ビール、そしてタバコがよくない。",
+          "transcription": "かれのびょうきには、おさけ、びーる、そしてたばこがよくない。",
+          "mean": "Alcohol, beer, and cigarettes are bad for his illness."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そして～"
+    }
+  ],
+  "title": "そして => And (List)",
+  "_id": "f2d618ceb0702f781ec83b7d4f4c212c"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2849,
+  "usages": [
+    {
+      "explain": "Used to connect two contrasting events. Sometimes the content of the first clause and the second clause contrast with each other, and sometimes the second clause presents a contrasting event with the predicted outcome from the first clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨日はとても暑かったが、今日は急に涼しくなって風邪をひきそうだ。",
+          "transcription": "きのうはとてもあつかったが、きょうはきゅうにすずしくなってかぜをひきそうだ。",
+          "mean": "It was very hot yesterday, but today it's suddenly cool and I feel like I'll catch a cold."
+        },
+        {
+          "content": "今朝の試合は、がんばったが負けてしまった。",
+          "transcription": "けさのしあいは、がんばったがまけてしまった。",
+          "mean": "I tried my best in this morning's game, but I lost."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/ Na-だ + が\nA-い+ が\nV-る/ V-た/ V-ない + が\nSentence が、Sentence"
+    }
+  ],
+  "title": "が => But...",
+  "_id": "f2d618ceb0702f781ec83b7d4f379dbb"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 995,
+  "usages": [
+    {
+      "explain": "Describes the changing state of time when the speaker is not paying attention.",
+      "note": null,
+      "examples": [
+        {
+          "content": "秋はいつしか冬となった。",
+          "transcription": "あきはいつしかふゆとなった。",
+          "mean": "Autumn changed into winter."
+        },
+        {
+          "content": "彼はいつしか行ってしまった。",
+          "transcription": "かれはいつしかいってしまった。",
+          "mean": "He was gone before I knew it."
+        },
+        {
+          "content": "いつしか英語が話せるようになっていた。",
+          "transcription": "いつしかえいごがはなせるようになっていた。",
+          "mean": "Before I knew it, I was able to speak English."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いつしか～"
+    }
+  ],
+  "title": "いつしか => before one knows",
+  "_id": "f7ff14dae05876cac58b41369339b0fb"
+}

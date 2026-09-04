@@ -1,0 +1,61 @@
+{
+  "level": "N5",
+  "mobileId": 5621,
+  "usages": [
+    {
+      "explain": "「なる」expresses the natural transformation of a subject's state.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日から寒くなります。",
+          "transcription": "あしたからさむくなります。",
+          "mean": "It's going to get cold starting tomorrow."
+        },
+        {
+          "content": "5年ぶりに会ったけど、だいぶ背が高くなったね。",
+          "transcription": "ごねんぶりにあったけど、だいぶせがたかくなったね。",
+          "mean": "It's been 5 years since I last saw you, and you've grown a lot taller."
+        },
+        {
+          "content": "犬に嚙まれてから、犬が嫌いになりました。",
+          "transcription": "いぬにかまれてから、いぬがきらいになりました。",
+          "mean": "After being bitten by a dog, I started hating dogs."
+        },
+        {
+          "content": "部屋を掃除してから、とてもきれいになりました。",
+          "transcription": "へやをそうじしてから、とてもきれいになりました。",
+          "mean": "After I cleaned my room, it became very clean."
+        },
+        {
+          "content": "9時になったら、テストを始めましょう。",
+          "transcription": "くじになったら、テストをはじめましょう。",
+          "mean": "At 9 o'clock, let's start the test."
+        },
+        {
+          "content": "今年、私は20歳になります。",
+          "transcription": "ことし、わたしははたちになります。",
+          "mean": "This year I will be 20 years old."
+        },
+        {
+          "content": "将来サッカーの選手になりたい。",
+          "transcription": "しょうらいさっかーのせんしゅになりたい。",
+          "mean": "I want to be a soccer player in the future."
+        },
+        {
+          "content": "風が強くなって来た。",
+          "transcription": "かぜがつよくなってきた。",
+          "mean": "The wind was getting stronger."
+        },
+        {
+          "content": "彼は全国で有名になっていた。",
+          "transcription": "かれはぜんこくでゆうめいになっていた。",
+          "mean": "He had become famous throughout the country."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>く+なる<br/>A<s>な</s>に+なる<br/> Nに+なる"
+    }
+  ],
+  "title": "なる => become",
+  "_id": "822f45961f0b477abef27a5227a6470a"
+}

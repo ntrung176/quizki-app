@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1712,
+  "usages": [
+    {
+      "explain": "Expresses a state of not knowing why, not clear what it is.",
+      "note": null,
+      "examples": [
+        {
+          "content": "夜の星を見るとなんか落ち着いた持ちになる。",
+          "transcription": "よるのほしをみるとなんかおちついたもちになる。",
+          "mean": "Looking at the stars at night gives me a sense of calm."
+        },
+        {
+          "content": "彼の話はなんか変だと思いませんか。",
+          "transcription": "かれのはなしはなんかへんだとおもいませんか。",
+          "mean": "Don't you think his story is strange?"
+        },
+        {
+          "content": "この店はなんか臭いな。",
+          "transcription": "このみせはなんかくさいな。",
+          "mean": "This store stinks."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんか～"
+    }
+  ],
+  "title": "なんか => things like; something like",
+  "_id": "f7ff14dae05876cac58b4136939c3069"
+}

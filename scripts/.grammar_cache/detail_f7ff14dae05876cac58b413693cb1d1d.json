@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2053,
+  "usages": [
+    {
+      "explain": "Comes after questioning expressions to express the meaning \"when... becomes an issue.\" The latter part often presents the view that dealing with or implementing that is difficult.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どうすればこの困難を克服できるかとなると、簡単には答えられない。",
+          "transcription": "どうすればこのこんなんをこくふくできるかとなると、かんたんにはこたえられない。",
+          "mean": "There is no easy answer to the question of how to overcome this difficulty."
+        },
+        {
+          "content": "誰がその難しい任務を引き受けるかとなると、積極的な人は一人もいない。",
+          "transcription": "だれがそのむずかしいにんむをひきうけるかとなると、せっきょくてきなひとはいちにんもいない。",
+          "mean": "When it comes to who will take on this difficult task, no one is willing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～かとなると"
+    }
+  ],
+  "title": "...かとなると => When it comes to...",
+  "_id": "f7ff14dae05876cac58b413693cb1d1d"
+}

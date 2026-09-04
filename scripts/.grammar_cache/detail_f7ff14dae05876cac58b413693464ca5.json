@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1088,
+  "usages": [
+    {
+      "explain": "「に言わせれば（にいわせれば）」, when used with a noun referring to a person, expresses the meaning \"according to the opinion of that person\". Often implies \"that is a strong and trustworthy opinion\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私に言わせれば、日本の一番美味しい料理はやっぱりすしだ。",
+          "transcription": "わたしにいわせれば、にほんのいちばんおいしいりょうりはやっぱりすしだ。",
+          "mean": "If you ask me, the most delicious Japanese dish is definitely sushi."
+        },
+        {
+          "content": "我々の世代の人間に言わせれば、あの人の行動は普通ではない。",
+          "transcription": "われわれのせだいのにんげんにいわせれば、あのひとのこうどうはふつうではない。",
+          "mean": "If you ask people of our generation, that person's actions are not normal."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + に言わせれば"
+    }
+  ],
+  "title": "にいわせれば => if you ask...; if one may say...",
+  "_id": "f7ff14dae05876cac58b413693464ca5"
+}

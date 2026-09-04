@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5537,
+  "usages": [
+    {
+      "explain": "「さっき」is used to describe an action or event that has just finished or been completed before the time of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "さっき起きたばかりで、まだ眠いです。",
+          "transcription": "さっきおきたばかりで、まだねむいです。",
+          "mean": "I just woke up and I'm still sleepy."
+        },
+        {
+          "content": "さっき覚えた漢字を、もう忘れてしまいました。",
+          "transcription": "さっきおぼえたかんじを、もうわすれてしまいました。",
+          "mean": "I have already forgotten the kanji I just learned."
+        },
+        {
+          "content": "さっきまで天気がよかったですが、今は大雨です。",
+          "transcription": "さっきまでてんきがよかったですが、いまはおおあめです。",
+          "mean": "The weather was nice until just now, but now it's raining heavily."
+        },
+        {
+          "content": "私がさっき言ったとおりに、パソコンのキーを押してください。",
+          "transcription": "わたしがさっきいったとおりに、パソコンのキーをおしてください。",
+          "mean": "Just do what I told you to do and press the keys on your computer."
+        },
+        {
+          "content": "さっきご飯を食べたばかりなのに、もうお腹が空いてしまった。",
+          "transcription": "さっきごはんをたべたばかりなのに、もうおなかがすいてしまった。",
+          "mean": "Even though I just ate rice, I'm already hungry."
+        },
+        {
+          "content": "あの二人、さっきまで喧嘩していたかと思ったらもう仲良くしている。",
+          "transcription": "あのふたり、さっきまでけんかしていたかとおもったらもうなかよくしている。",
+          "mean": "I thought those two were fighting just a moment ago, but now they're getting along."
+        },
+        {
+          "content": "ハサミが見あたらない。さっき見たときは、机の上にあったはずなのに。",
+          "transcription": "ハサミがみあたらない。さっきみたときは、つくえのうえにあったはずなのに。",
+          "mean": "I can't find the scissors. It should have been on the desk when I saw it earlier."
+        },
+        {
+          "content": "あなたはさっき何か言ったでしょうね。聞こえなかったからもう一度教えてくれる？",
+          "transcription": "あなたはさっきなにかいったでしょうね。きこえなかったからもういちどおしえてくれる？",
+          "mean": "You said something earlier. I couldn't hear you, so could you tell me again?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "さっき+Sentence"
+    }
+  ],
+  "title": "さっき => some time ago; just now; a very short time ago",
+  "_id": "b517869525014d2d8ebc256ef8e0288a"
+}

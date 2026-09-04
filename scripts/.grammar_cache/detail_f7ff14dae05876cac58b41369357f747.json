@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1221,
+  "usages": [
+    {
+      "explain": "Used in the latter part of the sentence to soften the evaluation made in the preceding part.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はモーツァルトの再来だといえば、あまりに大げさかもしれない。",
+          "transcription": "かれはもーつぁるとのさいらいだといえば、あまりにおおげさかもしれない。",
+          "mean": "It may be an exaggeration to say that he is the second coming of Mozart."
+        },
+        {
+          "content": "このサッカーのチームは今までで最高だといえば、褒めすぎかもしれない。",
+          "transcription": "このさっかーのちーむはいままででさいこうだといえば、ほめすぎかもしれない。",
+          "mean": "To say this soccer team is the best ever would be an overstatement."
+        }
+      ],
+      "mean": null,
+      "synopsis": "といえば + V・A・Na・N + かもしれない"
+    }
+  ],
+  "title": "といえば～かもしれない => Speaking of..., it might be...",
+  "_id": "f7ff14dae05876cac58b41369357f747"
+}

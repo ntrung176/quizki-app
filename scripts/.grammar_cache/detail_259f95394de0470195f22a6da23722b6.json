@@ -1,0 +1,76 @@
+{
+  "level": "N3",
+  "mobileId": 5327,
+  "usages": [
+    {
+      "explain": "「だけ」is used to express:<br/>1. Doing something with all one's might, to the maximum extent possible. \"With all one's might/To the fullest extent...\"<br/>2. Doing something freely until one's desire is satisfied. \"As much as one pleases...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "僕は頑張れるだけ頑張ってみます。",
+          "transcription": "ぼくはがんばれるだけがんばってみます。",
+          "mean": "I'll try my best."
+        },
+        {
+          "content": "私はそれをできるだけ早くいただけますか。",
+          "transcription": "わたしはそれをできるだけはやくいただけますか。",
+          "mean": "Could I have it as soon as possible?"
+        },
+        {
+          "content": "そこのオレンジは持てるだけ持って行っていいよ。",
+          "transcription": "そこのオレンジはもてるだけもっていっていいよ。",
+          "mean": "You can take as many oranges as you can carry with you."
+        },
+        {
+          "content": "できるだけ早く返事をいただけると助かります。",
+          "transcription": "できるだけはやくへんじをいただけるとたすかります。",
+          "mean": "It would be helpful if you could reply as soon as possible."
+        },
+        {
+          "content": "彼は銀行からお金を借りられるだけ借りて、家を買った。",
+          "transcription": "かれはぎんこうからおかねをかりられるだけかりて、いえをかった。",
+          "mean": "He borrowed as much money as he could from the bank and bought a house."
+        },
+        {
+          "content": "二度とここに戻れないから、読めるだけ本を読みたいです。",
+          "transcription": "にどとここにもどれないから、よめるだけほんをよみたいです。",
+          "mean": "I want to read as many books as I can because I can never go back here."
+        },
+        {
+          "content": "あなたはよく頑張ったから、明日は寝たいだけ寝ていいよ。",
+          "transcription": "あなたはよくがんばったから、あしたはねたいだけねていいよ。",
+          "mean": "You worked hard, so you can sleep as much as you want tomorrow."
+        },
+        {
+          "content": "彼は明日日本を発つので、今日彼と話したいだけ話してください。",
+          "transcription": "かれはあしたにほんをたつので、きょうかれとはなしたいだけはなしてください。",
+          "mean": "He is leaving Japan tomorrow, so please talk to him as much as you want today."
+        },
+        {
+          "content": "妹は試験の勉強を集中しているから、静かなだけ静かにしましょう。",
+          "transcription": "いもうとはしけんのべんきょうをしゅうちゅうしているから、しずかなだけしずかにしましょう。",
+          "mean": "My sister is concentrating on studying for the exam, so let's be as quiet as possible."
+        },
+        {
+          "content": "試験が終わったら、好きなだけ遊びたい。",
+          "transcription": "しけんがおわったら、すきなだけあそびたい。",
+          "mean": "After the exam is over, I want to play as much as I want."
+        },
+        {
+          "content": "もうここにある服は着ないから、ほしいだけ持っていっていいよ。",
+          "transcription": "もうここにあるふくはきないから、ほしいだけもっていっていいよ。",
+          "mean": "I won't be wearing any of the clothes here anymore, so you can take as many as you want."
+        },
+        {
+          "content": "りんごたくさんあるから、ほしいだけあげるよ。",
+          "transcription": "りんごたくさんあるから、ほしいだけあげるよ。",
+          "mean": "I have lots of apples, so I'll give you as many as you want."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (potential form)/Vたい+だけ<br/>Aい/Aな/ほしい+だけ"
+    }
+  ],
+  "title": "だけ => as much as ~",
+  "_id": "259f95394de0470195f22a6da23722b6"
+}

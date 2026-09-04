@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2900,
+  "usages": [
+    {
+      "explain": "Used to describe actions, states that occurred in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この映画を見ました。",
+          "transcription": "このえいがをみました。",
+          "mean": "I saw this movie."
+        },
+        {
+          "content": "今朝何も食べませんでした。",
+          "transcription": "けさなにもたべませんでした。",
+          "mean": "I didn't eat anything this morning."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group I:\nかきます ->かいた\nいきます ->＊いった\nいそぎます ->いそいだ\nのみます ->のんだ\nよびます ->よんだ\nとまります ->とまった\nかいます ->かった\nまちます ->まった\nはなします ->はなした\nGroup II:\nV-eます -> V-eた\nNote:\nいます、みます、おきます、かります、あびます、おります is a group II verb.\nGroup III:\nきます ->きた (N+)します ->(N+)した"
+    }
+  ],
+  "title": "過去形 => Past form",
+  "_id": "f2d618ceb0702f781ec83b7d4f3d329d"
+}

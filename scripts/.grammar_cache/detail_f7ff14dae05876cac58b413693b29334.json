@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1879,
+  "usages": [
+    {
+      "explain": "Used to refer to multiple objects or events without specifying which one, speaking in a vague manner.",
+      "note": null,
+      "examples": [
+        {
+          "content": "最近何かと忙しかったので、会えなかった。",
+          "transcription": "さいきんなにかといそがしかったので、あえなかった。",
+          "mean": "I've been busy lately, so I haven't been able to meet you."
+        },
+        {
+          "content": "部長には、いつも何かとお世話になっております。",
+          "transcription": "ぶちょうには、いつもなにかとおせわになっております。",
+          "mean": "I am always indebted to the director."
+        },
+        {
+          "content": "都市の中心の近くで暮らすと何かと便利です。",
+          "transcription": "としのちゅうしんのちかくでくらすとなにかとべんりです。",
+          "mean": "Living near the city center is very convenient."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにかと"
+    }
+  ],
+  "title": "なにかと => one way or another",
+  "_id": "f7ff14dae05876cac58b413693b29334"
+}

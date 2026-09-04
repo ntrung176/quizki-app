@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2117,
+  "usages": [
+    {
+      "explain": "This is a phrase used like an idiom, to politely ask if it is convenient for the other party when making a suggestion or advice.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もし差し支えなかったら本当のことを教えてください。",
+          "transcription": "もしさしつかえなかったらほんとうのことをおしえてください。",
+          "mean": "If you don't mind, please tell me the truth."
+        },
+        {
+          "content": "よろしかったら窓を閉めましょう。",
+          "transcription": "よろしかったらまどをしめましょう。",
+          "mean": "Close the window if you like."
+        },
+        {
+          "content": "もしよかったら、一緒にビールを飲みませんか。",
+          "transcription": "もしよかったら、いっしょにびーるをのみませんか。",
+          "mean": "If you'd like, would you like to have a beer with me?"
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "… たら => Introduction",
+  "_id": "f7ff14dae05876cac58b413693d48817"
+}

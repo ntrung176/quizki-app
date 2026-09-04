@@ -1,0 +1,141 @@
+{
+  "level": "N3",
+  "mobileId": 5323,
+  "usages": [
+    {
+      "explain": "「べきだ/べきではない」 is used to strongly give advice to the listener, based on the subjective judgment of the speaker, indicating whether something should (べきだ) or should not (べきではない) be done.<br/>Even when not used to advise the listener, 「べき」 is also used to express the speaker's opinion that, according to general principles of morality or common sense, something should or should not be done. Therefore, when the speaker gives advice because they believe it aligns with ethics, duty, responsibility, etc., 「べき」 is often preferred over 「ほうがいい」.<br/>\n「べきだった/べきではなかった」indicates something that should have (べきだった) or should not have (べきではなかった) been done, thereby expressing the speaker's regret or remorse.<br/>「べき」 is used in both written texts and everyday conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "親に対してはこんな失礼なことを言うべきではありません。",
+          "transcription": "おやにたいしてはこんなしつれいなことをいうべきではありません。",
+          "mean": "You shouldn't say such disrespectful things to your parents."
+        },
+        {
+          "content": "人の迷惑になることをすべきではない。",
+          "transcription": "ひとのめいわくになることをすべきではない。",
+          "mean": "You shouldn't do anything that will cause trouble for others."
+        },
+        {
+          "content": "君達はもっとたくさんの本を読むべきです。",
+          "transcription": "きみたちはもっとたくさんのほんをよむべきです。",
+          "mean": "You should read more books."
+        },
+        {
+          "content": "一人で悩まず、誰か信頼できる人に相談してみるべきだよ。",
+          "transcription": "ひとりでなやまず、だれかしんらいできるひとにそうだんしてみるべきだよ。",
+          "mean": "Instead of worrying about it alone, you should talk to someone you trust."
+        },
+        {
+          "content": "バンジージャンプはすごい楽しいから、あなたも一度は体験してみるべきだよ。",
+          "transcription": "バンジージャンプはすごいたのしいから、あなたもいちどはたいけんしてみるべきだよ。",
+          "mean": "Bungee jumping is so much fun that you should try it at least once."
+        },
+        {
+          "content": "いくら腹が立ってもあんな態度をとるべきではありません。",
+          "transcription": "いくらはらがたってもあんなたいどをとるべきではありません。",
+          "mean": "No matter how angry you are, you shouldn't behave like that."
+        },
+        {
+          "content": "約束を破ってしまったのなら、きちんと謝るべきです。",
+          "transcription": "やくそくをやぶってしまったのなら、きちんとあやまるべきです。",
+          "mean": "If you broke your promise, you should apologize properly."
+        },
+        {
+          "content": "仕事をやめる前に、次の仕事を探しておくべきだよ。もし、貯金があまりないなら。",
+          "transcription": "しごとをやめるまえに、つぎのしごとをさがしておくべきだよ。もし、ちょきんがあまりないなら。",
+          "mean": "You should look for another job before you quit your job. If you don't have much savings."
+        },
+        {
+          "content": "病気で会社にいけなくなってしまいました。小さい子供がいるし、どうすべきかわかりません。",
+          "transcription": "びょうきでかいしゃにいけなくなってしまいました。ちいさいこどもがいるし、どうすべきかわかりません。",
+          "mean": "I was unable to go to work due to illness. I have small children and I don't know what to do."
+        },
+        {
+          "content": "何をすべきか、もう彼女の心は決まっていた。",
+          "transcription": "なにをすべきか、もうかのじょのこころはきまっていた。",
+          "mean": "She had already made up her mind about what to do."
+        },
+        {
+          "content": "人間は自分の行動に責任を持つべきだ。",
+          "transcription": "にんげんはじぶんのこうどうにせきにんをもつべきだ。",
+          "mean": "Humans should be responsible for their own actions."
+        },
+        {
+          "content": "先生が黒板に書く字は丁寧であるべきだ。",
+          "transcription": "せんせいがこくばんにかくじはていねいであるべきだ。",
+          "mean": "The teacher should write carefully on the blackboard."
+        },
+        {
+          "content": "約束は守るべきだ。",
+          "transcription": "やくそくはまもるべきだ。",
+          "mean": "Promises should be kept."
+        },
+        {
+          "content": "電車の中では、若者は年寄りに席を譲るべきです。",
+          "transcription": "でんしゃのなかでは、わかものはとしよりにせきをゆずるべきです。",
+          "mean": "Young people should give up their seats to older people on the train."
+        },
+        {
+          "content": "教師はどの生徒に対しても平等であるべきです。",
+          "transcription": "きょうしはどのせいとにたいしてもびょうどうであるべきです。",
+          "mean": "Teachers should be equal to all students."
+        },
+        {
+          "content": "暴力行為はどんな理由があっても絶対に許すべきではない。",
+          "transcription": "ぼうりょくこういはどんなりゆうがあってもぜったいにゆるすべきではない。",
+          "mean": "Violence should never be tolerated, no matter the reason."
+        },
+        {
+          "content": "親は子供に対してもっと厳しくあるべきです。",
+          "transcription": "おやはこどもにたいしてもっときびしくあるべきです。",
+          "mean": "Parents should be more strict with their children."
+        },
+        {
+          "content": "我々の組織には解決すべき問題が山のようにある。",
+          "transcription": "われわれのそしきにはかいけつすべきもんだいがやまのようにある。",
+          "mean": "Our organization has many problems to solve."
+        },
+        {
+          "content": "私は彼に言うべきことを全部言った。",
+          "transcription": "わたしはかれにいうべきことをぜんぶいった。",
+          "mean": "I told him everything I needed to say."
+        },
+        {
+          "content": "高校生の頃、もう少し勉強するべきだったと、大人になってから気が付きました。",
+          "transcription": "こうこうせいのころ、もうすこしべんきょうするべきだったと、おとなになってからきがつきました。",
+          "mean": "As an adult, I realized that I should have studied a little more when I was in high school."
+        },
+        {
+          "content": "あなたは彼女に謝るべきだった。",
+          "transcription": "あなたはかのじょにあやまるべきだった。",
+          "mean": "You ought to have apologized to her."
+        },
+        {
+          "content": "私達は彼の忠告を聞くべきだった。",
+          "transcription": "わたしたちはかれのちゅうこくをきくべきだった。",
+          "mean": "We should have listened to his advice."
+        },
+        {
+          "content": "あんなひどいことをするべきではなかった。",
+          "transcription": "あんなひどいことをするべきではなかった。",
+          "mean": "I shouldn't have done something so terrible."
+        },
+        {
+          "content": "君が勘定を払うべきではなかったんだ。",
+          "transcription": "きみがかんじょうをはらうべきではなかったんだ。",
+          "mean": "You shouldn't have paid the bill."
+        },
+        {
+          "content": "寝る前にコーヒーを飲むべきではなかった。",
+          "transcription": "ねるまえにコーヒーをのむべきではなかった。",
+          "mean": "I shouldn't have drunk coffee before going to bed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) / A<s>い</s>くある / A<s>な</s>である+べきだ / べきではない<br/>\nV (root form) / A<s>い</s>くある / A<s>な</s>である+べきだった / べきではなかった<br/>\n(In this particular case: するべき ➔ するべき / すべき)<br/>\nV (root form) / A<s>い</s>くある / A<s>な</s>である+べきN<br/>"
+    }
+  ],
+  "title": "べき => should do; must do ~",
+  "_id": "048a7994800b4d349dab0625a648936a"
+}

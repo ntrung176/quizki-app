@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2660,
+  "usages": [
+    {
+      "explain": "It means \"something changes to another state (becomes, naturally)\". In this lesson, we learn how to create adverbs with the verb 「～します」meaning \"to change something into another state (make ~ completely by will)\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "規模を小さくする。",
+          "transcription": "きぼをちいさくする。",
+          "mean": "Reduce the scale."
+        },
+        {
+          "content": "動詞にする。",
+          "transcription": "どうしにする。",
+          "mean": "make it a verb."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-いく+ しますNa-なに + しますN に + します"
+    }
+  ],
+  "title": "... します => Make... become",
+  "_id": "f2d618ceb0702f781ec83b7d4f1e27a4"
+}

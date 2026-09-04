@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5286,
+  "usages": [
+    {
+      "explain": "「つつ」<br/>1. Describes two contrasting actions, opposite to each other. The subject performs an action contrary to their thoughts or words. \"Although... but... / While... but...\"<br/>2. Describes two actions performed simultaneously by the same subject. It has the same meaning as 「ながら」 but is more formal and often used in writing. \"While... and...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は忙しいと言いつつ、長電話をしている。",
+          "transcription": "かれはいそがしいといいつつ、ながでんわをしている。",
+          "mean": "He says he's busy, but he's on a long phone call."
+        },
+        {
+          "content": "今日こそ頑張ろうと思いつつ、また運動しなかった。",
+          "transcription": "きょうこそがんばろうとおもいつつ、またうんどうしなかった。",
+          "mean": "I thought I would do my best today, but I didn't exercise again."
+        },
+        {
+          "content": "いけないと知りつつも、ゴミを分別せずに捨ててしまう。",
+          "transcription": "いけないとしりつつも、ゴミをぶんべつせずにすててしまう。",
+          "mean": "Even though we know we shouldn't, we still throw away trash without separating it."
+        },
+        {
+          "content": "喜ぶ母の顔を思いつつ、手紙を書いています。",
+          "transcription": "よろこぶははのかおをおもいつつ、てがみをかいています。",
+          "mean": "I am writing this letter while thinking of my mother's happy face."
+        },
+        {
+          "content": "先生と相談しつつ、進路を決めたいと思う。",
+          "transcription": "せんせいとそうだんしつつ、しんろをきめたいとおもう。",
+          "mean": "I would like to decide on a career path while consulting with my teacher."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s> つつ(も)+V<br/> V<s>ます</s> つつ+V"
+    }
+  ],
+  "title": "つつ => while; even though; despite ~",
+  "_id": "a2813078f3c14d86a00427198149e686"
+}

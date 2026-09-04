@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2906,
+  "usages": [
+    {
+      "explain": "This structure is used to indicate the location of existence for a person or animal and emphasizes the subject. Not used for objects.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんは事務所にいます。",
+          "transcription": "さとうさんはじむしょにいます。",
+          "mean": "Mr. Sato is in the office."
+        },
+        {
+          "content": "猫は椅子の上にいます。",
+          "transcription": "ねこはいすのうえにいます。",
+          "mean": "The cat is on the chair."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 は N2 に います"
+    }
+  ],
+  "title": "は～にいます => ...is in... (emphasis on subject)",
+  "_id": "f2d618ceb0702f781ec83b7d4f3deac5"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 2706,
+  "usages": [
+    {
+      "explain": "It expresses the speaker's conjecture or estimation, not certainty. This is a classical way of saying \"perhaps\" or \"isn't it?\", used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "チームの現在能力では、今度の試合は負けではなかろうか",
+          "transcription": "ちーむのげんざいのうりょくでは、こんどのしあいはまけではなかろうか",
+          "mean": "With the team's current ability, I think they will lose the next game."
+        },
+        {
+          "content": "世界金融危機は長引くのではなかろうか。",
+          "transcription": "せかいきんゆうききはながびくのではなかろうか。",
+          "mean": "Will the global financial crisis be prolonged?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + のではなかろうか <br/>Na・N + (なの)ではなかろうか"
+    }
+  ],
+  "title": "ではなかろうか => is it not so? may be...",
+  "_id": "f2d618ceb0702f781ec83b7d4f24b456"
+}

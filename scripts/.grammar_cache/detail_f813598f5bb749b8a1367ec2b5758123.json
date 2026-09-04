@@ -1,0 +1,111 @@
+{
+  "level": "N4",
+  "mobileId": 5496,
+  "usages": [
+    {
+      "explain": "「条件形」 \"conditional form\" is the conditional form of verbs, adjectives, and nouns, indicating the necessary condition for something to happen.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このボタンを押せば、窓が開きます。",
+          "transcription": "このボタンをおせば、まどがあきます。",
+          "mean": "Press this button to open the window."
+        },
+        {
+          "content": "彼女が行けば、私も行きます。",
+          "transcription": "かのじょがいけば、わたしもいきます。",
+          "mean": "If she goes, I will go too."
+        },
+        {
+          "content": "今すぐ出発すれば、間に合うでしょう。",
+          "transcription": "いますぐしゅっぱつすれば、まにあうでしょう。",
+          "mean": "If you leave now, you'll make it in time."
+        },
+        {
+          "content": "毎日練習をすれば、上手になるよ。",
+          "transcription": "まいにちれんしゅうをすれば、じょうずになるよ。",
+          "mean": "If you practice every day, you'll get better."
+        },
+        {
+          "content": "毎日この運動をすれば、必ず瘦せます。",
+          "transcription": "まいにちこのうんどうをすれば、かならずやせます。",
+          "mean": "If you do this exercise every day, you will definitely lose weight."
+        },
+        {
+          "content": "この薬を飲めなければ、熱が下がりませんよ。",
+          "transcription": "このくすりをのめなければ、ねつがさがりませんよ。",
+          "mean": "If you don't take this medicine, your fever won't go down."
+        },
+        {
+          "content": "あの美術館へ行けば、日本の古い絵を見ることができます。",
+          "transcription": "あのびじゅつかんへいけば、にほんのふるいえをみることができます。",
+          "mean": "If you go to that museum, you can see old Japanese paintings."
+        },
+        {
+          "content": "お菓子を食べなければ、痩せますよ。",
+          "transcription": "おかしをたべなければ、やせますよ。",
+          "mean": "If you don't eat sweets, you will lose weight."
+        },
+        {
+          "content": "私は何時に戻ってくればいいですか。",
+          "transcription": "わたしはなんじにもどってくればいいですか。",
+          "mean": "What time should I come back?"
+        },
+        {
+          "content": "安ければ、このかばんを買いますが、安くなければ、買いません。",
+          "transcription": "やすければ、このかばんをかいますが、やすくなければ、かいません。",
+          "mean": "If it's cheap, I'll buy this bag, but if it's not cheap, I won't buy it."
+        },
+        {
+          "content": "天気が良ければ、ここから富士山が見えます。",
+          "transcription": "てんきがよければ、ここからふじさんがみえます。",
+          "mean": "If the weather is good, you can see Mt. Fuji from here."
+        },
+        {
+          "content": "暑ければ、海に行きます。",
+          "transcription": "あつければ、うみにいきます。",
+          "mean": "If it's hot, I'll go to the beach."
+        },
+        {
+          "content": "親切じゃなければ、結婚しません。",
+          "transcription": "しんせつじゃなければ、けっこんしません。",
+          "mean": "If you are not kind, I will not marry you."
+        },
+        {
+          "content": "暇なら、一緒に富士山に行きませんか。",
+          "transcription": "ひまなら、いっしょにふじさんにいきませんか。",
+          "mean": "If you have free time, would you like to go to Mt. Fuji with me?"
+        },
+        {
+          "content": "ゴルフが上手なら、教えてください。",
+          "transcription": "ゴルフがじょうずなら、おしえてください。",
+          "mean": "If you are good at golf, please let me know."
+        },
+        {
+          "content": "いい天気なら富士山が見えます。",
+          "transcription": "いいてんきならふじさんがみえます。",
+          "mean": "If the weather is nice, you can see Mt. Fuji."
+        },
+        {
+          "content": "雨なら、一緒に映画を見に行きませんか。",
+          "transcription": "あめなら、いっしょにえいがをみにいきませんか。",
+          "mean": "If it rains, would you like to go see a movie with me?"
+        },
+        {
+          "content": "月曜日なら、公園がすいていますよ。",
+          "transcription": "げつようびなら、こうえんがすいていますよ。",
+          "mean": "If it's Monday, the park will be empty."
+        },
+        {
+          "content": "お金持ちじゃないなら、結婚しません。",
+          "transcription": "おかねもちじゃないなら、けっこんしません。",
+          "mean": "If you're not rich, you won't get married."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group 1: (い)ます ➔ (え)ば (Eg: 行きます ➔ 行けば)<br/> Group 2: (え)ます ➔ (え)れば (Eg: 食べます ➔ 食べれば)<br/>Group 3: します ➔ すれば (Eg: 勉強します ➔ 勉強すれば)<br/> きます ➔ くれば (Eg: 学校へきます ➔ 学校へくれば)<br/><br> Aい ➔ A<s>い</s>ければ (VD: やさしい ➔ やさしくれば)<br/>Aな ➔ A<s>な</s>なら (Eg: 安全 ➔ 安全なら)<br> N ➔ Nなら (Eg: 学生 ➔ 学生なら)<br/><br/>Vない ➔ Vな<s>い</s>ければ<br/>A<s>い</s>くない ➔ A<s>い</s>くなければ<br/>A<s>な</s>じゃない ➔ A<s>な</s>じゃないなら / じゃなければ<br/>Nじゃない ➔ Nじゃないなら / じゃなければ</br></br>"
+    }
+  ],
+  "title": "条件形 => Conditional form",
+  "_id": "f813598f5bb749b8a1367ec2b5758123"
+}

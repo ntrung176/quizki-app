@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1037,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"a conclusion drawn based on the information provided may not necessarily be correct\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は彼に失望させられた。しかし、もう信じないのかというと、そうでもない。",
+          "transcription": "わたしはかれにしつぼうさせられた。しかし、もうしんじないのかというと、そうでもない。",
+          "mean": "I was disappointed in him. But that doesn't mean I don't believe it anymore."
+        },
+        {
+          "content": "佐藤さんは料理がとても上手だが、家事が好きなのかというと、そうでもない。",
+          "transcription": "さとうさんはりょうりがとてもじょうずだが、かじがすきなのかというと、そうでもない。",
+          "mean": "Mr. Sato is a very good cook, but it's not like he likes housework."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/Na + (なの) + かというと\nA/V + (の) + かというと"
+    }
+  ],
+  "title": "…かというと => If I have to say, If I have to choose",
+  "_id": "f7ff14dae05876cac58b4136933f9a86"
+}

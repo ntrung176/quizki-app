@@ -1,0 +1,66 @@
+{
+  "level": "N1",
+  "mobileId": 5047,
+  "usages": [
+    {
+      "explain": "「ことなしに」is used to express:<br/>\n1. If the action in the preceding clause is not done, then the action in the following clause cannot be carried out.<br/>\n2. Not doing or skipping one action to do the next action immediately. Similar expressions with the same meaning are「ないで」「ことなく」「ずに」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "努力することなしに、N１に合格はできない。",
+          "transcription": "どりょくすることなしに、エヌいちにごうかくはできない。",
+          "mean": "You cannot pass N1 without putting in effort."
+        },
+        {
+          "content": "人は他人の支えることなしには生きられない。",
+          "transcription": "ひとはたにんのささえることなしにはいきられない。",
+          "mean": "People cannot live without the support of others."
+        },
+        {
+          "content": "お互いが助け合うことなしに、人間は生きていけない。",
+          "transcription": "おたがいがたすけあうことなしに、にんげんはいきていけない。",
+          "mean": "Humans cannot survive without helping each other."
+        },
+        {
+          "content": "彼がいることなしに、このプロジェクトの成功はあり得なかった。",
+          "transcription": "かれがいることなしに、このプロジェクトのせいこうはありえなかった。",
+          "mean": "Without him, this project would not have been successful."
+        },
+        {
+          "content": "自分の国のことを知ることなしに、国際の友達と交流ができない。",
+          "transcription": "じぶんのくにのことをしることなしに、こくさいのともだちとこうりゅうができない。",
+          "mean": "You cannot interact with international friends without knowing about your own country."
+        },
+        {
+          "content": "過去の事例を見ることなしに、解決方法は見えてこないでしょう。",
+          "transcription": "かこのじれいをみることなしに、かいけつほうほうはみえてこないでしょう。",
+          "mean": "You won't be able to find a solution without looking at past cases."
+        },
+        {
+          "content": "日本の夏はエアコンを使うことなしに、一日も過ごせませんよ。",
+          "transcription": "にほんのなつはエアコンをつかうことなしに、いちにちもすごせませんよ。",
+          "mean": "You can't go a day in summer in Japan without using the air conditioner."
+        },
+        {
+          "content": "今の状況を知ることなしに、未来を予測することはできません。",
+          "transcription": "いまのじょうきょうをしることなしに、みらいをよそくすることはできません。",
+          "mean": "You cannot predict the future without knowing the current situation."
+        },
+        {
+          "content": "皆様の暖かいの支援があることなしには、この金メダルを手にすることは不可能でした。",
+          "transcription": "みなさまのあたたかいのしえんがあることなしには、このきんメダルをてにすることはふかのうでした。",
+          "mean": "It would not have been possible to obtain this gold medal without your warm support."
+        },
+        {
+          "content": "今日は朝食を食べることなしに、学校へ行った。",
+          "transcription": "きょうはちょうしょくをたべることなしに、がっこうへいった 。",
+          "mean": "I went to school without eating breakfast today."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ことなしに(は)"
+    }
+  ],
+  "title": "ことなしに => without doing something",
+  "_id": "ee2dcb52bd5a41e9a5ef693719731100"
+}

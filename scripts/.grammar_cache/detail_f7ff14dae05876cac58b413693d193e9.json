@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2098,
+  "usages": [
+    {
+      "explain": "Used with minimal quantity words with units of \"one,\" such as 「ひとりも」(one person), 「ひとつも」(one thing), 「一回も」(one time), etc., to express the meaning \"not at all.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの日、学生は一人もクラスに来なかった。",
+          "transcription": "あのひ、がくせいはいちにんもくらすにこなかった。",
+          "mean": "Not a single student came to class that day."
+        },
+        {
+          "content": "ふるさとは一日も忘れたことはない。",
+          "transcription": "ふるさとはいちにちもわすれたことはない。",
+          "mean": "I have never forgotten my hometown."
+        },
+        {
+          "content": "外国旅行は一回も行ったことがない。",
+          "transcription": "がいこくりょこうはいちかいもおこなったことがない。",
+          "mean": "I have never traveled abroad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Minimum quantity + も…ない"
+    }
+  ],
+  "title": "も…ない => nothing; (not) ~ at all",
+  "_id": "f7ff14dae05876cac58b413693d193e9"
+}

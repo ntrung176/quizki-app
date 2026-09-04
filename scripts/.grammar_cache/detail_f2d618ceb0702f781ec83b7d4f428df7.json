@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2944,
+  "usages": [
+    {
+      "explain": "Describes the action of not doing something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日学校へ行かない。",
+          "transcription": "あしたがっこうへいかない。",
+          "mean": "I won't go to school tomorrow."
+        },
+        {
+          "content": "すしを食べたこがない。",
+          "transcription": "すしをたべたこがない。",
+          "mean": "I have never eaten sushi."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group I:\nV-iます➔ V-aない *あります➔ない\nGroup II:\nV-eます➔V-eない\nGroup III:\nきます➔ こない\n (N+)します➔(N+)しない"
+    }
+  ],
+  "title": "否定形 => Negative form",
+  "_id": "f2d618ceb0702f781ec83b7d4f428df7"
+}

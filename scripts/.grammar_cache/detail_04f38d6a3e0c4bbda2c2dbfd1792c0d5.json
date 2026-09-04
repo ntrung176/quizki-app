@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5623,
+  "usages": [
+    {
+      "explain": "「に」 is used to indicate the specific time at which an action or event occurs. Specifically:<br/>\n- It is mandatory to use 「に」 when the time is specified by a number (e.g., 8 o'clock, 9:35, December 12th, January 15th, 2023, September...).<br/>\n- 「に」 is not used when the time is relative, such as using the present moment as a reference point (e.g., tomorrow, the day after tomorrow, yesterday, the day before yesterday, next week, last week, next month, last month, last year...) or for occurrences that are repeated regularly (e.g., daily, weekly...).<br/>\n- 「に」may or may not be used when the time is relative to a specific point (e.g., one day before graduation, one day after the presentation...) or when referring to a certain duration (e.g., summer, winter, spring break...).<br/>\n- 「に」may or may not be used with days of the week.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "火曜日に大阪へ行きます。",
+          "transcription": "かようびにおおさかへいきます。",
+          "mean": "I'm going to Osaka on Tuesday."
+        },
+        {
+          "content": "10月28日に日本へ来ました。",
+          "transcription": "じゅうがつにじゅうはちにちににほんへきました。",
+          "mean": "I came to Japan on October 28th."
+        },
+        {
+          "content": "私は６時半に起きました。",
+          "transcription": "わたしはろくじはんにおきました。",
+          "mean": "I woke up at 6:30."
+        },
+        {
+          "content": "毎週の月曜日に朝礼があります。",
+          "transcription": "まいしゅうのげつようびにちょうれいがあります。",
+          "mean": "There is a morning assembly every Monday."
+        },
+        {
+          "content": "毎月の25日に給料をもらいます。",
+          "transcription": "まいつきのにじゅうごにちにきゅうりょうをもらいます。",
+          "mean": "I get paid on the 25th of every month."
+        },
+        {
+          "content": "夏休みに旅行へ行きます。",
+          "transcription": "なつやすみにりょこうへいきます。",
+          "mean": "I'm going on a trip during summer vacation."
+        },
+        {
+          "content": "週末に買い物します。",
+          "transcription": "しゅうまつにかいものします。",
+          "mean": "I shop on the weekend."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (time) に+V (formal form)"
+    }
+  ],
+  "title": "に => at (time)",
+  "_id": "04f38d6a3e0c4bbda2c2dbfd1792c0d5"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1291,
+  "usages": [
+    {
+      "explain": "■ Expresses the meaning of \"(definitely) not ..., so...\", followed by words indicating a light blame or advice (what someone should not do), such as \"should...\", \"must not...\",...",
+      "note": null,
+      "examples": [
+        {
+          "content": "マンガじゃあるまいし、空を飛ぶなんてできるわけがないだろう。",
+          "transcription": "まんがじゃあるまいし、そらをとぶなんてできるわけがないだろう。",
+          "mean": "This isn't a manga, so there's no way he could fly."
+        },
+        {
+          "content": "コンピューターじゃあるまいし、そんな複雑な計算は頭の中ではできないよ。",
+          "transcription": "こんぴゅーたーじゃあるまいし、そんなふくざつなけいさんはあたまのなかではできないよ。",
+          "mean": "It's not a computer, and it can't do such complicated calculations in its head."
+        },
+        {
+          "content": "あなた、いつまで寝ているの？子どもじゃあるまいし。早く会社に行きなさい！",
+          "transcription": "あなた、いつまでねているの？こどもじゃあるまいし。はやくかいしゃにいきなさい！",
+          "mean": "How long have you been sleeping? I'm not a child. Go to work early!"
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■N＋ではあるまいし</div><div><br/></div><div>■N＋じゃあるまいし</div>"
+    }
+  ],
+  "title": "～じゃ(では)あるまいし => isn't it; I wonder if it's not ~",
+  "_id": "f7ff14dae05876cac58b413693620165"
+}

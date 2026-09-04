@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2272,
+  "usages": [
+    {
+      "explain": "Repeating words that contain the element \"1\" such as 「一人、また一人」(one person, then another), 「一つ、また一つ」 (one thing, then another), to express the state of an event being repeated sporadically. Used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "話が退屈だったので彼らは一人また一人と立ち去って行った。",
+          "transcription": "はなしがたいくつだったのでかれらはいちにんまたいちにんとたちさっていった。",
+          "mean": "The speech was so boring that they went away one by one."
+        },
+        {
+          "content": "星が一つまた一つと現われた。",
+          "transcription": "ほしがひとつまたひとつとあらわれた。",
+          "mean": "Stars appeared one by one."
+        },
+        {
+          "content": "映画がつまらないので観客は一人また一人と出ていった。",
+          "transcription": "えいががつまらないのでかんきゃくはいちにんまたいちにんとでていった。",
+          "mean": "The movie was so dull that the audience left one by one."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word +と"
+    }
+  ],
+  "title": "と => (Repeatedly)",
+  "_id": "f7ff14dae05876cac58b413693ea61e0"
+}

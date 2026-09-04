@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2453,
+  "usages": [
+    {
+      "explain": "This phrase expresses the idea of needing a certain amount to perform an action or for a certain event. It can also be used with 「たら」or「と」. Additionally, at the end of the sentence, there are often expressions showing the speaker's speculation such as 「だろう」,「でしょう」,「と思う」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨はだんだん小降りになってきた。あと半時間もすれば降り止むだろう。",
+          "transcription": "あめはだんだんこぶりになってきた。あとはんじかんもすればおりやむだろう。",
+          "mean": "The rain gradually became light. It will stop raining in about half an hour."
+        },
+        {
+          "content": "以前、この国は原油が豊かだったが、もう5年もたてば、使い切ってしまうだろう。",
+          "transcription": "いぜん、このくにはげんゆがゆたかだったが、もう5ねんもたてば、つかいきってしまうだろう。",
+          "mean": "This country used to be rich in oil, but it will run out in five years."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + も…ば"
+    }
+  ],
+  "title": "も…ば => and; also; as well; either/or; neither/nor",
+  "_id": "f2d618ceb0702f781ec83b7d4f02b6f9"
+}

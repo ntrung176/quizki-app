@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5060,
+  "usages": [
+    {
+      "explain": "「なり」is used to describe a situation where one action (V) immediately follows another action, often unexpectedly, right after the first. The subject (agent) of both actions is usually the same and is often in the third person.<br/>\nIt's important to note that the second clause does not pair with structures indicating intention, command, prohibition, or negation.<br/>\nIt is synonymous with「や否や」(ya ina ya) and「たとたんに」(tato tan ni). However,「なり」and「や否や」are more commonly used in writing, while「たとたんに」is more commonly used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ジョンさんは納豆を一口食べるなり、吐き出してしまった。",
+          "transcription": "ジョンさんはなっとうをひとくちたべるなり、はきだしてしまった。",
+          "mean": "As soon as John took a bite of natto, he spat it out."
+        },
+        {
+          "content": "彼女は恋人の顔を見るなり、泣き出した。",
+          "transcription": "かのじょはこいびとのかおをみるなり、なきだした。",
+          "mean": "As soon as she saw her lover's face, she burst into tears."
+        },
+        {
+          "content": "彼は夕飯を食べるなり、寝てしまった。",
+          "transcription": "かれはゆうはんをたべるなり、ねてしまった。",
+          "mean": "As soon as he ate dinner, he fell asleep."
+        },
+        {
+          "content": "事故のニュースを聞くなり、彼は座り込んでしまった。",
+          "transcription": "じこのニュースをきくなり、かれはすわりこんでしまった。",
+          "mean": "As soon as he heard the news of the accident, he sat down."
+        },
+        {
+          "content": "課長は部屋に入ってくるなり、大声で怒鳴った。",
+          "transcription": "かちょうはへやにはいってくるなり、おおごえでどなった。",
+          "mean": "The manager yelled as soon as he entered the room."
+        },
+        {
+          "content": "その子は家に戻るなり、部屋を片付けた。",
+          "transcription": "そのこはいえにもどるなり、へやをかたづけた。",
+          "mean": "As soon as the child returned home, he cleaned up his room."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+なり"
+    }
+  ],
+  "title": "なり => as soon as; right after ~",
+  "_id": "4282899bae3b478db0e540306756af97"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N5",
+  "mobileId": 5610,
+  "usages": [
+    {
+      "explain": "「ませんか」is used to invite or suggest to the listener to do something together, based on not being entirely certain if the listener will agree or not. It often goes with「一緒に」(together).<br/>\n\nRanked by the speaker's level of certainty that the listener will agree:\n「ませんか」 < 「ましょうか」 < 「ましょう」.<br/>\n\nWhen wanting to decline an invitation or suggestion, one can say「すみません。ちょっと...」(Sorry, a bit...) or「ちょっと」(A bit) with a hesitant tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一緒に帰りませんか。",
+          "transcription": "いっしょにかえりませんか。",
+          "mean": "Would you like to go home with me?"
+        },
+        {
+          "content": "動物園に行きませんか。",
+          "transcription": "どうぶつえんにいきませんか。",
+          "mean": "Would you like to go to the zoo?"
+        },
+        {
+          "content": "一緒に東京へ行きませんか。",
+          "transcription": "いっしょにとうきょうへいきませんか。",
+          "mean": "Would you like to go to Tokyo with me?"
+        },
+        {
+          "content": "一緒にご飯を食べませんか。",
+          "transcription": "いっしょにごはんをたべませんか。",
+          "mean": "Would you like to have dinner together?"
+        },
+        {
+          "content": "僕と映画を見に行きませんか。",
+          "transcription": "ぼくとえいがをみにいきませんか。",
+          "mean": "Would you like to go see a movie with me?"
+        },
+        {
+          "content": "一緒に公園を散歩しませんか。",
+          "transcription": "いっしょにこうえんをさんぽしませんか。",
+          "mean": "Would you like to take a walk in the park together?"
+        },
+        {
+          "content": "一緒にどこかで旅行しませんか。",
+          "transcription": "いっしょにどこかでりょこうしませんか。",
+          "mean": "Would you like to travel somewhere together?"
+        },
+        {
+          "content": "俺と親友の結婚式に参加しませんか。",
+          "transcription": "おれとしんゆうのけっこんしきにさんかしませんか。",
+          "mean": "Would you like to attend my best friend's wedding?"
+        },
+        {
+          "content": "『お茶をしませんか。』『ええ、いいですね。』",
+          "transcription": "『おちゃをしませんか。』『ええ、いいですね。』",
+          "mean": "``Would you like to have some tea? \"\"Ah, that's good. ”"
+        },
+        {
+          "content": "『週末にショッピングしませんか。』『すみません、予定が入った。』",
+          "transcription": "『しゅうまつにショッピングしませんか。』『すみません、よていがはいった。』",
+          "mean": "``Would you like to go shopping this weekend? ” ``Sorry, I have a plan. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+ませんか"
+    }
+  ],
+  "title": "ませんか => would you; do you want to; shall we ~",
+  "_id": "c0940169d3f2406eb6aa5d459a382f48"
+}

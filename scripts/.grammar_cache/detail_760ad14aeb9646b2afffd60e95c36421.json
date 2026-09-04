@@ -1,0 +1,81 @@
+{
+  "level": "N3",
+  "mobileId": 5433,
+  "usages": [
+    {
+      "explain": "「といっても」expresses the idea that while the noun (mentioned in the preceding clause) may be true, in reality (as mentioned in the following clause) it is different from or not as expected or perceived from that noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "庭があるといっても、とても小さいです。",
+          "transcription": "にわがあるといっても、とてもちいさいです。",
+          "mean": "Although there is a garden, it is very small."
+        },
+        {
+          "content": "今週は忙しいといっても、先週ほどじゃない。",
+          "transcription": "こんしゅうはいそがしいといっても、せんしゅうほどじゃない。",
+          "mean": "Although I've been busy this week, it's not as busy as last week."
+        },
+        {
+          "content": "宝くじに当たったと言っても、500円だけですよ。",
+          "transcription": "たからくじにあたったといっても、ごひゃくえんだけですよ。",
+          "mean": "Even if you win the lottery, it will only cost you 500 yen."
+        },
+        {
+          "content": "ギターが弾けるといっても、3曲だけですけどね。",
+          "transcription": "ギターがひけるといっても、さんきょくだけですけどね。",
+          "mean": "Even though I can play the guitar, I can only play three songs."
+        },
+        {
+          "content": "私は料理ができるといっても、卵焼きぐらいです。",
+          "transcription": "わたしはりょうりができるといっても、たまごやきぐらいです。",
+          "mean": "Although I can cook, I can only cook eggs."
+        },
+        {
+          "content": "会社の社長といっても、社員は4人だけですよ。",
+          "transcription": "かいしゃのしゃちょうといっても、しゃいんはよにんだけですよ。",
+          "mean": "Even though I am the president of the company, there are only four employees."
+        },
+        {
+          "content": "私は日本語ができるといっても、簡単な会話のレベルくらいです。",
+          "transcription": "わたしはにほんごができるといっても、かんたんなかいわのレベルくらいです。",
+          "mean": "Although I can speak Japanese, it is only at a simple conversation level."
+        },
+        {
+          "content": "南アフリカで暮らしたことがあるといっても、実は2ヶ月だけなんです。",
+          "transcription": "みなみアフリカでくらしたことがあるといっても、じつはにかげつだけなんです。",
+          "mean": "Even though I have lived in South Africa, the truth is that I have only lived in South Africa for two months."
+        },
+        {
+          "content": "週末は旅行しました。旅行といっても、近くの温泉に行っただけですが。",
+          "transcription": "しゅうまつはりょこうしました。りょこうといっても、ちかくのおんせんにいっただけですが。",
+          "mean": "I traveled on the weekend. Even though I was traveling, I only went to a nearby hot spring."
+        },
+        {
+          "content": "自分のホームページを1から作ったといっても、ほとんど別のサイトのコピーだけどね。",
+          "transcription": "じぶんのホームページをいちからつくったといっても、ほとんどべつのサイトのコピーだけどね。",
+          "mean": "Even though I created my own homepage from scratch, it's mostly a copy of another site."
+        },
+        {
+          "content": "韓国料理が好きだとはいっても、キムチとキムパプだけです。",
+          "transcription": "かんこくりょうりがすきだとはいっても、きむちときむぱぷだけです。",
+          "mean": "Even though I like Korean food, it's only kimchi and kimbap."
+        },
+        {
+          "content": "彼は医者だといっても、自分の健康に無頓着だ。",
+          "transcription": "かれはいしゃだといっても、じぶんのけんこうにむとんじゃくだ。",
+          "mean": "Even though he is a doctor, he doesn't care about his own health."
+        },
+        {
+          "content": "プロのミュージシャンとはいっても、どんな曲でも演奏できるわけではない。",
+          "transcription": "プロのミュージシャンとはいっても、どんなきょくでもえんそうできるわけではない。",
+          "mean": "Even though I'm a professional musician, that doesn't mean I can play just about any song."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+と(は)いっても"
+    }
+  ],
+  "title": "といっても => although I say; although one might say ~",
+  "_id": "760ad14aeb9646b2afffd60e95c36421"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3195,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate a cause or reason, based on which an action is taken.",
+      "note": null,
+      "examples": [
+        {
+          "content": "報告に踏まえて、燃料使用の削減しかない。",
+          "transcription": "ほうこくにふまえて、ねんりょうしようのさくげんしかない。",
+          "mean": "Based on the report, there is no choice but to reduce fuel use."
+        },
+        {
+          "content": "現実をふまえた行動も大切だ。",
+          "transcription": "げんじつをふまえたこうどうもたいせつだ。",
+          "mean": "It is also important to act based on reality."
+        },
+        {
+          "content": "木村さんの調査の結果を踏まえて新しい方案を作らなければいけない。",
+          "transcription": "きむらさんのちょうさのけっかをふまえてあたらしいほうあんをつくらなければいけない。",
+          "mean": "A new plan must be created based on the results of Mr. Kimura's investigation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N ＋ をふまえて"
+    }
+  ],
+  "title": "～をふまえて      => to be based on; to take into account ~",
+  "_id": "93020c54469e582d6fdb16f7ba93090e"
+}

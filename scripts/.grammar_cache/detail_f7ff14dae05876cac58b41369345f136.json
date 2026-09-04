@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1085,
+  "usages": [
+    {
+      "explain": "Expresses the desire for something to happen even though the reality makes it unlikely. Used with potential form verbs or verbs that do not express the speaker's will.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生の病気が治らないものか。",
+          "transcription": "せんせいのびょうきがなおらないものか。",
+          "mean": "Is the teacher's illness incurable?"
+        },
+        {
+          "content": "今週末晴れないものだろうか。",
+          "transcription": "こんしゅうまつはれないものだろうか。",
+          "mean": "I wonder if it won't be sunny this weekend."
+        },
+        {
+          "content": "もっと早く走れなかったものか。",
+          "transcription": "もっとはやくはしれなかったものか。",
+          "mean": "Couldn't you have run faster?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ない + もの（だろう）か"
+    }
+  ],
+  "title": "... ないもの (だろう) か => isn't there; can't we…?; can't I…?",
+  "_id": "f7ff14dae05876cac58b41369345f136"
+}

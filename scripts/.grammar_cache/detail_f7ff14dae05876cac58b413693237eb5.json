@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 830,
+  "usages": [
+    {
+      "explain": "✦ It means \"at this rate\" or \"at this speed\" (thực hiện theo tình hình này, thực hiện theo tốc độ này thì).",
+      "note": null,
+      "examples": [
+        {
+          "content": "このぶんでいくと、仕事は予定より早く終わりそうだ。",
+          "transcription": "このぶんでいくと、しごとはよていよりはやくおわりそうだ。",
+          "mean": "At this rate, it looks like the work will be finished sooner than planned."
+        },
+        {
+          "content": "このぶんでは、目標を達成できないよ。改善しなきゃいけない。",
+          "transcription": "このぶんでは、もくひょうをたっせいできないよ。かいぜんしなきゃいけない。",
+          "mean": "At this rate, you won't be able to achieve your goal. I have to improve."
+        },
+        {
+          "content": "このぶんでは徹夜になりそうだ。",
+          "transcription": "このぶんではてつやになりそうだ。",
+          "mean": "It looks like I'll be up all night at this point."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Indicates trends."
+    }
+  ],
+  "title": "～このぶんでは => as affairs stand; judging from the present situation; as things are now",
+  "_id": "f7ff14dae05876cac58b413693237eb5"
+}

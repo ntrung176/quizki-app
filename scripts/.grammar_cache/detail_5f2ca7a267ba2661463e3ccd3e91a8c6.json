@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 3244,
+  "usages": [
+    {
+      "explain": "Express the speaker's surprise or astonishment at a person or thing. This is a casual way to say it:「なんというNだ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ポポはなんていう犬なの。",
+          "transcription": "ポポはなんていういぬなの。",
+          "mean": "What kind of dog is Popo?"
+        },
+        {
+          "content": "火事で全ての財産を失ってしまうのはなんてことだ。",
+          "transcription": "かじですべてのざいさんをうしなってしまうのはなんてことだ。",
+          "mean": "What a terrible thing to lose all your possessions in a fire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんて (いう) + N + だ"
+    }
+  ],
+  "title": "なんて (いう)～だ => overwhelmed, too strict, beyond endurance",
+  "_id": "5f2ca7a267ba2661463e3ccd3e91a8c6"
+}

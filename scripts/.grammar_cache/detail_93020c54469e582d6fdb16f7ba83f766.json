@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 3260,
+  "usages": [
+    {
+      "explain": "Used to present a hypothesis about a possible negative scenario.",
+      "note": null,
+      "examples": [
+        {
+          "content": "万一明日雨になれば、野球の試合は延期されるだろう。",
+          "transcription": "まんいちあしたあめになれば、やきゅうのしあいはえんきされるだろう。",
+          "mean": "Should it rain tomorrow, the baseball game will be postponed."
+        },
+        {
+          "content": "万一彼がチームを辞めたら、皆さんは寂しくなる。",
+          "transcription": "まんいちかれがちーむをやめたら、みなさんはさびしくなる。",
+          "mean": "If he were to leave the team, everyone would be sad."
+        },
+        {
+          "content": "万一彼女のご主人が亡くなったら、家業は続けないと思います。",
+          "transcription": "まんいちかのじょのごしゅじんがなくなったら、かぎょうはつづけないとおもいます。",
+          "mean": "If her husband were to die, I don't think she would continue to run the family business."
+        }
+      ],
+      "mean": null,
+      "synopsis": "万一（まんいち）"
+    }
+  ],
+  "title": "まんいち => emergency; unlikely event​; by some chance; by some possibility",
+  "_id": "93020c54469e582d6fdb16f7ba83f766"
+}

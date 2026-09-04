@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2533,
+  "usages": [
+    {
+      "explain": "Used in the case of asking for a favor, requesting someone to do something for the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "わるいけど、ちょっと宿題を見てやってもらえる？",
+          "transcription": "わるいけど、ちょっとしゅくだいをみてやってもらえる？",
+          "mean": "I'm sorry, but could you please take a look at my homework?"
+        },
+        {
+          "content": "木村さん、人間関係でかなり落ち込んでるみたいなんだけど、それとなく一度話を聞いてみてやってもらえる？",
+          "transcription": "きむらさん、にんげんかんけいでかなりおちこんでるみたいなんだけど、それとなくいちどばなしをきいてみてやってもらえる？",
+          "mean": "Kimura-san, you seem to be quite depressed about your relationships, but could you just listen to me and help me out?"
+        },
+        {
+          "content": "うちの子供たちにドイツ語を教えてやってもらえないかしら。",
+          "transcription": "うちのこどもたちにどいつごをおしえてやってもらえないかしら。",
+          "mean": "Could you please teach my children German?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－てやってもらえるか\nV－てやってもらえないか"
+    }
+  ],
+  "title": "てもらう => Could you... (for help)",
+  "_id": "f2d618ceb0702f781ec83b7d4f0db691"
+}

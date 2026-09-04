@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5471,
+  "usages": [
+    {
+      "explain": "「間」expresses that during a period of time, an action or event happens continuously or consistently.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本にいる間は私の家に泊まってね。",
+          "transcription": "にほんにいるあいだはわたしのいえにとまってね。",
+          "mean": "Please stay at my house while you are in Japan."
+        },
+        {
+          "content": "バスに乗っている間、ずっと寝ていました。",
+          "transcription": "バスにのっているあいだ、ずっとねていました。",
+          "mean": "I slept the whole time on the bus."
+        },
+        {
+          "content": "昨日は、家にいる間、ずっとテレビを見ていました。",
+          "transcription": "きのうは、うちにいるあいだ、ずっとテレビをみていました。",
+          "mean": "Yesterday, I watched TV all the time while I was at home."
+        },
+        {
+          "content": "学校にいる間は、スマホを使ってはいけません。",
+          "transcription": "がっこうにいるあいだは、スマホをつかってはいけません。",
+          "mean": "Students are not allowed to use smartphones while at school."
+        },
+        {
+          "content": "日本にいる間は毎日、日本語を話すつもりです。",
+          "transcription": "にほんにいるあいだはまいにち、にほんごをはなすつもりです。",
+          "mean": "I plan to speak Japanese every day while I'm in Japan."
+        },
+        {
+          "content": "サイクリングをしている間、ずっと雨が降っていました。",
+          "transcription": "サイクリングをしているあいだ、ずっとあめがふっていました。",
+          "mean": "It was raining the whole time I was cycling."
+        },
+        {
+          "content": "あなたがここにいる間は私がいろいろ案内してあげましょう。",
+          "transcription": "あなたがここにいるあいだはわたしがいろいろあんないしてあげましょう。",
+          "mean": "I'll show you around while you're here."
+        },
+        {
+          "content": "バスを待っている間、隣のおばあさんと話をしていました。",
+          "transcription": "バスをまっているあいだ、となりのおばあさんとはなしをしていました。",
+          "mean": "While I was waiting for the bus, I was talking to an old lady next to me."
+        },
+        {
+          "content": "部屋にいない間、テレビがつけっぱなしだった。",
+          "transcription": "へやにいないあいだ、テレビがつけっぱなしだった。",
+          "mean": "The TV was left on while I was not in the room."
+        },
+        {
+          "content": "夏休みの間、実家で過ごすつもりです。",
+          "transcription": "なつやすみのあいだ、じっかですごすつもりです。",
+          "mean": "I plan to spend the summer vacation at my parents' house."
+        },
+        {
+          "content": "食事の間、彼女と一緒に映画を見ました。",
+          "transcription": "しょくじのあいだ、かのじょといっしょにえいがをみました。",
+          "mean": "During the meal, I watched a movie with my girlfriend."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) / Vない / Vている+間<br/> Aい/Aな+間<br/>Nの+間"
+    }
+  ],
+  "title": "間 =>  while; during; between ~",
+  "_id": "9db444bc4a3c4a7a877ccaa05f5dd506"
+}

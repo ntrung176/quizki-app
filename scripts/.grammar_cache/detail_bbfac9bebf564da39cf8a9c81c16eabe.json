@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5350,
+  "usages": [
+    {
+      "explain": "「結局」is used to describe the final result or outcome of an event after many things have happened (these things are usually mentioned before「結局」). Because it is often used to talk about unexpected or undesirable outcomes,「結局」carries a negative connotation and is less used for positive events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "結局彼はその帽子を買わなかった。",
+          "transcription": "けっきょくかれはそのぼうしをかわなかった。",
+          "mean": "He didn't buy the hat after all."
+        },
+        {
+          "content": "私達は結局この試合に負けてしまった。",
+          "transcription": "わたしたちはけっきょくこのしあいにまけてしまった。",
+          "mean": "We ended up losing this match."
+        },
+        {
+          "content": "彼は働きすぎて、結局は病気になってしまった。",
+          "transcription": "かれははたらきすぎて、けっきょくはびょうきになってしまった。",
+          "mean": "He worked so hard that eventually he made himself ill."
+        },
+        {
+          "content": "友人から何度も誘われたが、結局行かないことにした。",
+          "transcription": "ゆうじんからなんどもさそわれたが、けっきょくいかないことにした。",
+          "mean": "My friend invited me many times, but in the end I decided not to go."
+        },
+        {
+          "content": "試合の最中に雨が降って、結局中止となった。",
+          "transcription": "しあいのさいちゅうにあめがふって、けっきょくちゅうしとなった。",
+          "mean": "It rained during the match, and it was eventually called off."
+        },
+        {
+          "content": "お昼は何を食べようかと考えていたけど、結局ハンバーガーにした。",
+          "transcription": "おひるはなにをたべようかとかんがえていたけど、けっきょくハンバーガーにした。",
+          "mean": "I was thinking about what to have for lunch, but in the end I decided on a hamburger."
+        },
+        {
+          "content": "ゲームをしようとしたら、親が帰ってきて、結局できなかった。",
+          "transcription": "ゲームをしようとしたら、おやがかえってきて、けっきょくできなかった。",
+          "mean": "When I tried to play a game, my parents came home and I couldn't play."
+        },
+        {
+          "content": "2時間も会議をしたのに、結局何も決まらないで終わってしまった。",
+          "transcription": "にじかんもかいぎをしたのに、けっきょくなにもきまらないでおわってしまった。",
+          "mean": "We had a meeting for two hours, but in the end nothing was decided."
+        },
+        {
+          "content": "前半と後半、あわせて90分にわたる試合で、両チームとも得点があげられず、結局引き分けでした。",
+          "transcription": "ぜんはんとこうはん、あわせてきゅうじゅっぷんにわたるしあいで、りょうチームともとくてんがあげられず、けっきょくひきわけでした。",
+          "mean": "The match lasted 90 minutes in both the first half and second half, with neither team scoring a goal and ending in a draw."
+        }
+      ],
+      "mean": null,
+      "synopsis": "結局+Sentence"
+    }
+  ],
+  "title": "結局 => after all; eventually; in the end ~",
+  "_id": "bbfac9bebf564da39cf8a9c81c16eabe"
+}

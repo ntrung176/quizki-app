@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2621,
+  "usages": [
+    {
+      "explain": "以後（いご）expresses a time that occurs after a certain point, some event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それ以後佐藤先生に会っていません。",
+          "transcription": "それいごさとうせんせいにあっていません。",
+          "mean": "I haven't seen Mr. Sato since then."
+        },
+        {
+          "content": "午後6時半以後はひまだ。",
+          "transcription": "ごご6じはんいごはひまだ。",
+          "mean": "There is no time left after 6:30pm."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 以後"
+    }
+  ],
+  "title": "いご => after this, from now on, hereafter, thereafter, since",
+  "_id": "f2d618ceb0702f781ec83b7d4f19537f"
+}

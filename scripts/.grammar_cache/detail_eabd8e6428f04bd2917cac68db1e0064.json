@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5180,
+  "usages": [
+    {
+      "explain": "「もっとも」is used to add exceptions or other conditions to the statement just made before.",
+      "note": null,
+      "examples": [
+        {
+          "content": "検査の前夜から飲食禁止です。もっとも、水は飲んでも構いません。",
+          "transcription": "けんさのぜんやからいんしょくきんしです。もっとも、みずはのんでもかまいません。",
+          "mean": "You are not allowed to eat or drink the night before the test. However, you can drink water."
+        },
+        {
+          "content": "全員が参加しなければなりません。もっとも、病気の場合は別です。",
+          "transcription": "ぜんいんがさんかしなければなりません。もっとも、びょうきのばあいはべつです。",
+          "mean": "Everyone must participate. However, it is different if you are sick."
+        },
+        {
+          "content": "今年こそヨーロッパへ行きたいと思っています。もっとも、休みが取れたらの話ですが。",
+          "transcription": "ことしこそヨーロッパへいきたいとおもっています。もっとも、やすみがとれたらのはなしですが。",
+          "mean": "I want to go to Europe this year. However, that's only if I can take some time off."
+        },
+        {
+          "content": "調査の前夜から飲食禁止です。もっとも、水は飲んでもかまいません。",
+          "transcription": "ちょうさのぜんやからいんしょくきんしです。もっとも、みずはのんでもかまいません。",
+          "mean": "No eating or drinking is allowed the night before the survey. However, you can drink water."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。もっとも、 B"
+    }
+  ],
+  "title": "もっとも => but then; although; though ~",
+  "_id": "eabd8e6428f04bd2917cac68db1e0064"
+}

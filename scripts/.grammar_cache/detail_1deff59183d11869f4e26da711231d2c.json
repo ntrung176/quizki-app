@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 637,
+  "usages": [
+    {
+      "explain": "Meaning: \"there is a possibility, there is hope\" or \"there is a prospect, there is a plan\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "将来見込みのある人物",
+          "transcription": "しょうらいみこみのあるじんぶつ",
+          "mean": "person with a promising future"
+        },
+        {
+          "content": "最後にあったときはあまり見込みがありそうでもなかったのですがね。",
+          "transcription": "さいごにあったときはあまりみこみがありそうでもなかったのですがね。",
+          "mean": "The last time it happened, it didn't seem very promising."
+        },
+        {
+          "content": "ここから脱出できる見込みがあるというのだ。",
+          "transcription": "ここからだっしゅつできるみこみがあるというのだ。",
+          "mean": "There is a hope of escaping from here."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～みこみがある => There is hope, there is prospect.",
+  "_id": "1deff59183d11869f4e26da711231d2c"
+}

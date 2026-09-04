@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2795,
+  "usages": [
+    {
+      "explain": "Describes an action that has been completed at a certain point in the past. Also possible to use 「...ていた」, but if using 「...てしまっていた」, it emphasizes the idea of \"completely finished\" and adds a nuance of \"something that has happened and cannot be changed\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんが電話した時に、社長はもう会社を出てしまっていた。",
+          "transcription": "やまださんがでんわしたときに、しゃちょうはもうかいしゃをでてしまっていた。",
+          "mean": "When Mr. Yamada called, the president had already left the company."
+        },
+        {
+          "content": "彼が着いたたときに、彼女の乗った船は港を離れてしまった。",
+          "transcription": "かれがついたたときに、かのじょののったふねはみなとをはなれてしまった。",
+          "mean": "When he arrived, the ship she was on had left the port."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + しまう"
+    }
+  ],
+  "title": "てしまっていた => Did by accident / finished",
+  "_id": "f2d618ceb0702f781ec83b7d4f30460d"
+}

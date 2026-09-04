@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 733,
+  "usages": [
+    {
+      "explain": "■ Used to express a specific way of doing something like this.<br/>■ In addition to \"こういう\" (like this), you can also say \"そういう/ああいう/どういう\" (like that/ like that/ how).<br/>■ Used as an adjective ナ. You can also say \"こんなふう、そんなふう、あんなふう、どんなふう\".",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "こういうふうにやってごらん。",
+          "transcription": "こういうふうにやってごらん。",
+          "mean": "Try doing it like this."
+        },
+        {
+          "content": "(物事が)こういうふうであるさま.",
+          "transcription": "(ものごとが)こういうふうであるさま.",
+          "mean": "This is how things are."
+        },
+        {
+          "content": "どういうふうに説明していいのかわからない。",
+          "transcription": "どういうふうにせつめいしていいのかわからない。",
+          "mean": "I don't know how to explain it."
+        },
+        {
+          "content": "こういうふうにやりなさい。",
+          "transcription": "こういうふうにやりなさい。",
+          "mean": "Do it like this."
+        },
+        {
+          "content": "そういうふうな言い方は失礼だよ。",
+          "transcription": "そういうふうないいかたはしつれいだよ。",
+          "mean": "It's rude to say things like that."
+        }
+      ],
+      "mean": null,
+      "synopsis": "~like this"
+    }
+  ],
+  "title": "～こういうふう => like this",
+  "_id": "f7ff14dae05876cac58b413693159d47"
+}

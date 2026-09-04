@@ -1,0 +1,61 @@
+{
+  "level": "N5",
+  "mobileId": 5591,
+  "usages": [
+    {
+      "explain": "「が」:\n\n1. Is a conjunction meaning \"but\". When used to connect two clauses or sentences, those clauses or sentences often have contrasting meanings. Sometimes, 「が」is just a simple conjunction.\n\n2. Is a particle used to mark the subject. The subject comes before 「が」. At the elementary level, we often encounter 「が」 in this role in sentences describing nature or describing parts or characteristics of people.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は美人だが性格が冷たい。",
+          "transcription": "かのじょはびじんだがせいかくがつめたい。",
+          "mean": "She is beautiful but has a cold personality."
+        },
+        {
+          "content": "薬を飲んだが熱が下がれません。",
+          "transcription": "くすりをのんだがねつがさがれません。",
+          "mean": "I took medicine, but my fever still won't go down."
+        },
+        {
+          "content": "行きたくないが行かなければならない。",
+          "transcription": "いきたくないがいかなければならない。",
+          "mean": "I don't want to go, but I have to go."
+        },
+        {
+          "content": "日本の食べ物は美味しいですが高いです。",
+          "transcription": "にほんのたべものはおいしいですがたかいです。",
+          "mean": "Japanese food is delicious but expensive."
+        },
+        {
+          "content": "すみませんが、近くにトイレがありませんか。",
+          "transcription": "すみませんが、ちかくにトイレがありませんか。",
+          "mean": "Excuse me, but are there any toilets nearby?"
+        },
+        {
+          "content": "ダイソーへ行きたいんですが、どうやって行けばいいですか。",
+          "transcription": "ダイソーへいきたいんですが、どうやっていけばいいですか。",
+          "mean": "I want to go to Daiso, but how should I go?"
+        },
+        {
+          "content": "桜が咲きました。",
+          "transcription": "さくらがさきました。",
+          "mean": "The cherry blossoms have bloomed."
+        },
+        {
+          "content": "雨が降っています。",
+          "transcription": "あめがふっています。",
+          "mean": "It's raining."
+        },
+        {
+          "content": "木村さんは背が高いです。",
+          "transcription": "きむらさんはせがたかいです。",
+          "mean": "Mr. Kimura is tall."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence/Clause+が+Sentence/Clause <br/> N+が"
+    }
+  ],
+  "title": "が => however; but ~",
+  "_id": "6998c6756dd8482fb6bad17ee5772cd5"
+}

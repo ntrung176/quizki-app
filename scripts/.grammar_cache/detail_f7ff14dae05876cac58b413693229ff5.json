@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 823,
+  "usages": [
+    {
+      "explain": "✦ Used in an affirmative form to express emotions like \"even though not directly experienced, just ... is enough\". <br/> ✦ Used to express feelings of anxiety or negative emotions like \"恐ろしい・辛い・難しい\". <br/> ✦ 「～さえ～ない」: It has almost limitless applications and often carries negative connotations. <br/> ✦ 「～だに」: Expresses one's emotional thoughts. <br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "思い出すだに怒りで熱くなる。",
+          "transcription": "おもいだすだにいかりであつくなる。",
+          "mean": "Just remembering it makes me hot with anger."
+        },
+        {
+          "content": "そんな危険を冒すなんて、考えるだに恐ろしい。",
+          "transcription": "そんなきけんをおかすなんて、かんがえるだにおそろしい。",
+          "mean": "It's scary to think about taking such a risk."
+        },
+        {
+          "content": "それを見るだに怖く感じる。",
+          "transcription": "それをみるだにこわくかんじる。",
+          "mean": "I feel scared just looking at it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V-る + だに<br/>✦N + だに"
+    }
+  ],
+  "title": "～だに => Just... that's...",
+  "_id": "f7ff14dae05876cac58b413693229ff5"
+}

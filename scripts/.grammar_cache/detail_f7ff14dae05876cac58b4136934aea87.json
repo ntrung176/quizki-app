@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1121,
+  "usages": [
+    {
+      "explain": "Describing the meaning of \"being in a state where one can transition to the next action at any time\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "手続きも全部完了して、出発するばかりだ。",
+          "transcription": "てつづきもぜんぶかんりょうして、しゅっぱつするばかりだ。",
+          "mean": "All formalities have been completed and we are about to leave."
+        },
+        {
+          "content": "部屋も片付いた。後は、友達が来るのを待つばかりだ。",
+          "transcription": "へやもかたづいた。ごは、ともだちがくるのをまつばかりだ。",
+          "mean": "The room was also tidy. Now all I have to do is wait for my friends to come."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + ばかりだ"
+    }
+  ],
+  "title": "...ばかりだ => (Only) continue to",
+  "_id": "f7ff14dae05876cac58b4136934aea87"
+}

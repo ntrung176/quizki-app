@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1386,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"there are many possibilities, but regardless of which one is chosen...\". This is a formal way of saying 「いずれにしても」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いずれにせよ、君は好むか好まないにかかわらず、早く出発する必要がある。",
+          "transcription": "いずれにせよ、きみはこのむかこのまないにかかわらず、はやくしゅっぱつするひつようがある。",
+          "mean": "In any case, whether you like it or not, you have to leave early."
+        },
+        {
+          "content": "いずれにせよ、パーティーは取り止めにしなければならない。",
+          "transcription": "いずれにせよ、ぱーてぃーはとりやめにしなければならない。",
+          "mean": "In any case, the party must be canceled."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いずれにせよ～"
+    }
+  ],
+  "title": "いずれにせよ => anyway",
+  "_id": "f7ff14dae05876cac58b4136936ed431"
+}

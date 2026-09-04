@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 897,
+  "usages": [
+    {
+      "explain": "Used in conversations between close individuals to emphasize the speaker's argument, especially when the speaker is concerned that the other party does not understand their point.<br/> Used in conversations among individuals with close relationships.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ニヤニヤするのはやめろってば！",
+          "transcription": "にやにやするのはやめろってば！",
+          "mean": "Stop grinning!"
+        },
+        {
+          "content": "はやく勉強しなさいってば。ねえ、聞こえないの？",
+          "transcription": "はやくべんきょうしなさいってば。ねえ、きこえないの？",
+          "mean": "I want you to study quickly. Hey, can't you hear me?"
+        },
+        {
+          "content": "了解したってば。",
+          "transcription": "りょうかいしたってば。",
+          "mean": "I understand."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■Phrase + ってば</div><div>■Noun/adjective (na) + だってば</div>"
+    }
+  ],
+  "title": "ってば => Speaking of; I told you already",
+  "_id": "f7ff14dae05876cac58b4136932c6baa"
+}

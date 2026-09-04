@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 3112,
+  "usages": [
+    {
+      "explain": "✦ Used to emphasize criticism, condemnation, or suspicion with the expression of a contradictory situation, although it should be natural, but in reality it's the opposite.",
+      "note": "✦ Similar to the pattern 「たるもの」or 「～としたことが」",
+      "examples": [
+        {
+          "content": "大学生ともあろう者が、その漢字を読めないのは恥ずかしい。",
+          "transcription": "だいがくせいともあろうしゃが、そのかんじをよめないのははずかしい。",
+          "mean": "It's embarrassing that someone who could be considered a university student can't read those kanji."
+        },
+        {
+          "content": "親ともあろう者、子どもが悪いことをしたときに、きちんと叱るべきだ。",
+          "transcription": "おやともあろうしゃ、こどもがわるいことをしたときに、きちんとしかるべきだ。",
+          "mean": "Parents should properly scold their children when they do something bad."
+        }
+      ],
+      "mean": "of all people (expression showing surprise at a high standing person's misbehavior)",
+      "synopsis": "✦N (people/ organization) ＋ ともあろうものが"
+    }
+  ],
+  "title": "～ともあろうものが      => of all people (expression showing surprise at a high standing person's misbehavior)",
+  "_id": "93020c54469e582d6fdb16f7ba9d1b07"
+}

@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5082,
+  "usages": [
+    {
+      "explain": "「とみられる」 express a thought or prediction about an event without specifying the subject of the thought or prediction. <br/>「とみられている」 implies that this thought or prediction is shared by many people, by everyone. <br/>\nThese structures are often used in news broadcasts, newspapers, etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "面会当時撮影されたとみられる写真を、アキラ新聞は入手した。",
+          "transcription": "めんかいとうじさつえいされたとみられるしゃしんを、アキラしんぶんはにゅうしゅした。",
+          "mean": "Akira Shimbun obtained a photo that appears to have been taken at the time of the meeting."
+        },
+        {
+          "content": "この会社の再建は難しいとみられる。",
+          "transcription": "このかいしゃのさいけんはむずかしいとみられる。",
+          "mean": "It seems difficult to rebuild this company."
+        },
+        {
+          "content": "彼女の普段の成績から、合格は間違いないとみられている。",
+          "transcription": "かのじょのふだんのせいせきから、ごうかくはまちがいないとみられている。",
+          "mean": "Based on her usual grades, there is no doubt that she will pass."
+        },
+        {
+          "content": "この地域では、今後も大きいな地震が来るとみられている。",
+          "transcription": "このちいきでは、こんごもおおきいなじしんがくるとみられている。",
+          "mean": "It is expected that large earthquakes will continue to occur in this area in the future."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Sentence (formal form)+とみられる<br/>Sentence (formal form)+とみられている"
+    }
+  ],
+  "title": "とみられる/とみられている => to think; to suppose; it is believed/expected that ~",
+  "_id": "14173b57123b47178872fb612f8d691a"
+}

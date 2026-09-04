@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1357,
+  "usages": [
+    {
+      "explain": "Indicates the opposite of what could be predicted from the events presented earlier.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は有名な大学を卒業したそうだが、それにしては仕事が出来ない。",
+          "transcription": "かのじょはゆうめいなだいがくをそつぎょうしたそうだが、それにしてはしごとができない。",
+          "mean": "She seems to have graduated from a famous university, but that doesn't mean she can't get a job."
+        },
+        {
+          "content": "日本で４年留学していたそうだが、それにしては日本語が下手だ。",
+          "transcription": "にっぽんでよんねんりゅうがくしていたそうだが、それにしてはにほんごがへただ。",
+          "mean": "Apparently he studied abroad in Japan for four years, but his Japanese is not good enough."
+        }
+      ],
+      "mean": null,
+      "synopsis": "それにしては is a conjunction."
+    }
+  ],
+  "title": "それにしては => yet, notwithstanding, nevertheless",
+  "_id": "f7ff14dae05876cac58b4136936af397"
+}

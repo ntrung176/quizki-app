@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1335,
+  "usages": [
+    {
+      "explain": "に至っても (にいたっても) expresses the meaning \"even though it has reached that point...\". It is often used to describe undesirable situations, often accompanied by words like 「まだ・なお・いまだに」following it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ひどい症状が出るに至っても彼は病院へ行こうとしなかった。",
+          "transcription": "ひどいしょうじょうがでるにいたってもかれはびょういんへいこうとしなかった。",
+          "mean": "Even when his symptoms became severe, he refused to go to the hospital."
+        },
+        {
+          "content": "株価がここまで下落するに至っても彼はまだあきらめていないらしい。",
+          "transcription": "かぶかがここまでげらくするにいたってもかれはまだあきらめていないらしい。",
+          "mean": "It seems like he hasn't given up yet, even though the stock price has fallen this far."
+        },
+        {
+          "content": "結婚するに至っても夫は浮気をやめなかった。",
+          "transcription": "けっこんするにいたってもおっとはうわきをやめなかった。",
+          "mean": "Even after getting married, her husband did not stop cheating on her."
+        },
+        {
+          "content": "２０世紀に至ってもその少数民族は過酷な差別の下置かれていた。",
+          "transcription": "２０せいきにいたってもそのしょうすうみんぞくはかこくなさべつのしたおかれていた。",
+          "mean": "Even into the 20th century, these ethnic minorities remained subject to severe discrimination."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + に至っても\nV + に至っても"
+    }
+  ],
+  "title": "に至っても => even if; even though; although something reached the point ~",
+  "_id": "f7ff14dae05876cac58b41369367c99e"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 1962,
+  "usages": [
+    {
+      "explain": "Used as an introductory phrase to soften the tone of the following statement, meaning \"I didn't intend to... but...\".",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "悪口を言いたいわけじゃないが、彼はこのごろけちになるんだよ。",
+          "transcription": "わるぐちをいいたいわけじゃないが、かれはこのごろけちになるんだよ。",
+          "mean": "I don't mean to be mean, but he's a stingy these days."
+        },
+        {
+          "content": "自慢じゃないが、娘が今年有名な高校に合格した。",
+          "transcription": "じまんじゃないが、むすめがことしゆうめいなこうこうにごうかくした。",
+          "mean": "I'm not bragging, but my daughter got accepted into a famous high school this year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + じゃないが"
+    }
+  ],
+  "title": "じゃないが => It's not that... but...",
+  "_id": "f7ff14dae05876cac58b413693bf19fd"
+}

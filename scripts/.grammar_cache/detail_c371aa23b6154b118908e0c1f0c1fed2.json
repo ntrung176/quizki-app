@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5501,
+  "usages": [
+    {
+      "explain": "「謙譲語」(Kenjougo) is a form of humble language used to lower oneself in speech, showing respect towards the listener or a third party. It is used to talk about one's own actions or the actions of people in one's in-group, demonstrating humility and respect.<br/>\n\nWhen adding お or ご to a verb, the rule is as follows:<br/>\n- Use ご for Sino-Japanese words that are read completely in onyomi (Chinese reading). For example: 説明 (せつめい, explanation), 解決 (かいけつ, solution).<br/>\n- Use お for other verbs. For example: 仕事 (しごと, work), 電話 (でんわ, telephone).",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日はまた伺います。",
+          "transcription": "あしたはまたうかがいます。",
+          "mean": "I'll visit you again tomorrow."
+        },
+        {
+          "content": "私は山田と申します。",
+          "transcription": "わたしはやまだともうします。",
+          "mean": "My name is Yamada."
+        },
+        {
+          "content": "日本から参りました。",
+          "transcription": "にほんからまいりました。",
+          "mean": "I'm here from Japan."
+        },
+        {
+          "content": "彼は車でお送りします。",
+          "transcription": "かれはくるまでおおくりします。",
+          "mean": "He will give you a ride."
+        },
+        {
+          "content": "今日の予定をご説明します。",
+          "transcription": "きょうのよていをごせつめいします。",
+          "mean": "I will explain today's schedule."
+        },
+        {
+          "content": "結果ができたらご連絡します。",
+          "transcription": "けっかができたらごれんらくします。",
+          "mean": "We will contact you when the results are available."
+        },
+        {
+          "content": "社長の奥様にお目にかかりました。",
+          "transcription": "しゃちょうのおくさまにおめにかかりました。",
+          "mean": "I met the president's wife."
+        },
+        {
+          "content": "重そうですね。お持ちしましょうか。",
+          "transcription": "おもそうですね。おもちしましょうか。",
+          "mean": "It seems heavy. Shall I bring it to you?"
+        },
+        {
+          "content": "私は社長にスケジュールをお知らせします。",
+          "transcription": "わたしはしゃちょうにスケジュールをおしらせします。",
+          "mean": "I will inform the president of the schedule."
+        },
+        {
+          "content": "今後ともよろしくお願いします。",
+          "transcription": "こんごともよろしくおねがいします。",
+          "mean": "I look forward to working with you."
+        },
+        {
+          "content": "中村さんをご紹介します。",
+          "transcription": "なかむらさんをごしょうかいします。",
+          "mean": "I would like to introduce Mr. Nakamura."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. お V (group I, II)<s>ます</s>+します <br/> \n2. お/ご V (group III)+します<br/> \n3. The verbs have special humble form<br/>● 行きます/来ます ➔ 伺います/参ります<br/>● 言います ➔ 申します/申し上げます<br/>● 会います ➔ お目にかかります<br/>● 見ます ➔ 拝見します<br/>● 食べます/飲みます➔ いただきます<br/>v.v."
+    }
+  ],
+  "title": "謙譲語 => Humble form",
+  "_id": "c371aa23b6154b118908e0c1f0c1fed2"
+}

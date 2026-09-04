@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5498,
+  "usages": [
+    {
+      "explain": "「可能形」is the potential form of a verb, expressing:<br/>\n\n1. Ability to do something (play the piano, ride a bike, cook...).<br/>\n2. Possibility to do something due to circumstances, environment, etc.<br/>\n\nNote:<br/>\n- Verbs that already inherently convey the potential meaning like 分かる (to understand), 知る (to know), 受かる (to pass an exam), 見える (to be visible) do not change to potential form.<br/>\n- Involuntary actions (actions or behaviors that cannot be controlled by will) like 忘れる (to forget), 亡くなる (to pass away), ある (to exist), 落ちる (to fall), 倒れる (to collapse), 開く (to open) do not change to potential form.<br/>\n\n- After changing to potential form, verbs become verbs of Group II, so they are conjugated as verbs of Group II.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この銀行でドルが換える。",
+          "transcription": "このぎんこうでドルがかえる。",
+          "mean": "You can exchange dollars at this bank."
+        },
+        {
+          "content": "彼女は料理が出来ます。",
+          "transcription": "かのじょはりょうりができます。",
+          "mean": "She can cook."
+        },
+        {
+          "content": "私は日本語が話せます。",
+          "transcription": "わたしはにほんごがはなせます。",
+          "mean": "I can speak Japanese."
+        },
+        {
+          "content": "私は一人で病院へ行けます。",
+          "transcription": "わたしはひとりでびょういんへいけます。",
+          "mean": "I can go to the hospital by myself."
+        },
+        {
+          "content": "私のパソコンが壊れました、直せますか。",
+          "transcription": "わたしのパソコンがこわれました、なおせますか。",
+          "mean": "My computer is broken, can you fix it?"
+        },
+        {
+          "content": "あなたのアパートでは、ペットが飼えますか。",
+          "transcription": "あなたのアパートでは、ペットがかえますか。",
+          "mean": "Can you have pets in your apartment?"
+        },
+        {
+          "content": "漢字が覚えられません。どうしたらいいですか。",
+          "transcription": "かんじがおぼえられません。どうしたらいいですか。",
+          "mean": "I can't remember kanji. What should I do."
+        },
+        {
+          "content": "お金がありませんから、新しいゲームが買えません。",
+          "transcription": "おかねがありませんから、あたらしいゲームがかえません。",
+          "mean": "I don't have money, so I can't buy new games."
+        },
+        {
+          "content": "美味しそうな寿司ですね。どこで食べられますか。",
+          "transcription": "おいしそうなすしですね。どこでたべられますか。",
+          "mean": "That looks delicious sushi. Where can I eat it?"
+        },
+        {
+          "content": "昨日はとても試験を心配したから、あまり寝られなかった。",
+          "transcription": "きのうはとてもしけんをしんぱいしたから、あまりねられなかった。",
+          "mean": "I was so worried about the exam yesterday that I couldn't sleep much."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group 1: (い)ます ➔ (え)ます (Eg: 行きます ➔ 行けます)<br/> Group 2: (え)ます ➔ (え)られます (Eg: 食べます ➔ 食べられます)<br/>Group 3: します ➔ できます (Eg: 勉強します ➔ 勉強できます)<br/> きます ➔ こられます (Eg: 学校へきます ➔ 学校へこられます)"
+    }
+  ],
+  "title": "可能形 => Potential form",
+  "_id": "ae6c0e0925c646639605e377729e8856"
+}

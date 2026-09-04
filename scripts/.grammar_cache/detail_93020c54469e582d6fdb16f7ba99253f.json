@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3088,
+  "usages": [
+    {
+      "explain": "✦ If the condition ~ is satisfied, then it's possible for that to happen, but if the condition ~ is not met, then it's difficult to achieve.",
+      "note": null,
+      "examples": [
+        {
+          "content": "失敗してこそはじめて、この仕事の難しさが本当にわかるだろう。",
+          "transcription": "しっぱいしてこそはじめて、このしごとのむずかしさがほんとうにわかるだろう。",
+          "mean": "Only when you fail will you truly understand how difficult this job is."
+        },
+        {
+          "content": "この作業は全員でしてこそはじめて今日中に終わらせることができる。",
+          "transcription": "このさぎょうはぜんいんでしてこそはじめてこんにちじゅうにおわらせることができる。",
+          "mean": "This work can only be completed today if we all work together."
+        },
+        {
+          "content": "大人になってこそはじめて、酒のうまさがわかる。",
+          "transcription": "おとなになってこそはじめて、さけのうまさがわかる。",
+          "mean": "It is only when you become an adult that you can appreciate the taste of sake."
+        },
+        {
+          "content": "子供の親になってこそはじめて、自分の親の気持ちがわかる。",
+          "transcription": "こどものおやになってこそはじめて、じぶんのおやのきもちがわかる。",
+          "mean": "It is only when you become a parent of a child that you understand how your own parents feel."
+        }
+      ],
+      "mean": "if so …. it may be, otherwise it would be difficult",
+      "synopsis": "✦Vて → てこそはじめて"
+    }
+  ],
+  "title": "～てこそはじめて      => if so …. it may be, otherwise it would be difficult",
+  "_id": "93020c54469e582d6fdb16f7ba99253f"
+}

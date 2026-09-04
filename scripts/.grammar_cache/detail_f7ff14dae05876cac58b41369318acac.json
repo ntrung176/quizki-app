@@ -1,0 +1,48 @@
+{
+  "level": "N1",
+  "mobileId": 755,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"don't know what, when, where, who, how\". Sometimes 「の」 is not necessary. This is a somewhat old-fashioned way of speaking.",
+      "note": null,
+      "examples": [
+        {
+          "content": "きのうの昼に何を食べたのやらまったく思い出せない。",
+          "transcription": "きのうのひるになにをたべたのやらまったくおもいだせない。",
+          "mean": "I can't remember what I ate for lunch yesterday."
+        },
+        {
+          "content": "お祝いに何をあげていいのやらわからない。",
+          "transcription": "おいわいになにをあげていいのやらわからない。",
+          "mean": "I don't know what to give to celebrate."
+        },
+        {
+          "content": "どこにしまったのやらいくらさがしても見つからない。",
+          "transcription": "どこにしまったのやらいくらさがしてもみつからない。",
+          "mean": "No matter how hard I search for where I put it, I can't find it."
+        },
+        {
+          "content": "彼に会ったのがいつのことやらはっきり覚えていない。",
+          "transcription": "かれにあったのがいつのことやらはっきりおぼえていない。",
+          "mean": "I don't remember exactly when I met him."
+        },
+        {
+          "content": "40年も会っていないのではじめは誰が誰やらさっぱりわからなかった。",
+          "transcription": "40ねんもあっていないのではじめはだれがだれやらさっぱりわからなかった。",
+          "mean": "At first, I had no idea who was who because I hadn't seen them in 40 years."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": "✦ (Note) There are also expressions like 「なにがなにやら」,「どれがどれやら」,「どこがどこやら」,「いつのことやら」...",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...のやら => or ~ (I don't know)",
+  "_id": "f7ff14dae05876cac58b41369318acac"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3177,
+  "usages": [
+    {
+      "explain": "<div>✦ Indicates the possibility, likelihood. Often used to report news.</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "大雪のため、新幹線は大幅遅れ模様だ。",
+          "transcription": "おおゆきのため、しんかんせんはおおはばおくれもようだ。",
+          "mean": "Due to the heavy snow, the Shinkansen is likely to be significantly delayed."
+        },
+        {
+          "content": "昨夜十分な証拠がそろわず、彼を逮捕に至らなかった模様だ。",
+          "transcription": "さくやじゅうぶんなしょうこがそろわず、かれをたいほにいたらなかったもようだ。",
+          "mean": "It appears that they were unable to arrest him last night as they did not have enough evidence."
+        },
+        {
+          "content": "大震災後の経済復興が進んでいる模様です。",
+          "transcription": "だいしんさいごのけいざいふっこうがすすんでいるもようです。",
+          "mean": "It appears that economic recovery is progressing after the Great Earthquake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦普通形 ＋ 模様だ"
+    }
+  ],
+  "title": "～もようだ（～模様だ）      => look; perhaps; seems",
+  "_id": "93020c54469e582d6fdb16f7baa4863f"
+}

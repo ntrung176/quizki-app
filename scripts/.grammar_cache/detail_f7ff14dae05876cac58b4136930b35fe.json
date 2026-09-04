@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 651,
+  "usages": [
+    {
+      "explain": "✦Expresses the meaning of not very high (not very serious) degree. Used with negation. This is the formal way of saying 「それほど...ない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "<div>酒はさほど好きではない。<br></div>",
+          "transcription": "<div>さけはさほどすきではない。<br></div>",
+          "mean": "&lt;div&gt;I don't really like alcohol. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "彼の病気はさほど重くない。",
+          "transcription": "かれのびょうきはさほどおもくない。",
+          "mean": "His illness is not very serious."
+        },
+        {
+          "content": "さほど大事なことでもない。",
+          "transcription": "さほどだいじなことでもない。",
+          "mean": "It's not that important."
+        },
+        {
+          "content": "その子は、熟もさほど高いわけではなかったので、朝まで待って、それから医者につれていくことにした。",
+          "transcription": "そのこは、じゅくもさほどたかいわけではなかったので、あさまでまって、それからいしゃにつれていくことにした。",
+          "mean": "The baby wasn't very ripe, so I decided to wait until morning and then take him to the doctor."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦さほど + Na + ではない </div><div>✦さほど + A－く + ない </div><div>✦さほど + V + ない</div><div><br/></div>"
+    }
+  ],
+  "title": "～さほど => (not) so, (not) particularly, (not) very, (not) that much",
+  "_id": "f7ff14dae05876cac58b4136930b35fe"
+}

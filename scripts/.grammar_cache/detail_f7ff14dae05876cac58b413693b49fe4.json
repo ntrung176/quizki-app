@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1896,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"not that bad, even acceptable\". Often used in forms like「まんざらでもない様子／ふう／みたい／ようだ」(seems not that bad).",
+      "note": null,
+      "examples": [
+        {
+          "content": "長い髪を褒められて彼女はまんざらでもない顔をしていた。",
+          "transcription": "ながいかみをほめられてかのじょはまんざらでもないかおをしていた。",
+          "mean": "She was complimented on her long hair, and she looked unimpressed."
+        },
+        {
+          "content": "今では全て忘れてしまったが、学生時代に数学の点数はまんざらでもなかった。",
+          "transcription": "いまではすべてわすれてしまったが、がくせいじだいにすうがくのてんすうはまんざらでもなかった。",
+          "mean": "I've forgotten everything about it now, but when I was a student, I never got a perfect score in math."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まんざらでもない"
+    }
+  ],
+  "title": "まんざらでもない => not so bad...",
+  "_id": "f7ff14dae05876cac58b413693b49fe4"
+}

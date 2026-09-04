@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1890,
+  "usages": [
+    {
+      "explain": "Used to refute the judgment or explanation of the interlocutor regarding one's own behavior.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はプロのサッカー選手になるつもりはない。",
+          "transcription": "わたくしはぷろのさっかーせんしゅになるつもりはない。",
+          "mean": "I have no intention of becoming a professional soccer player."
+        },
+        {
+          "content": "私はあなたを騙したつもりはない。",
+          "transcription": "わたしはあなたをだましたつもりはない。",
+          "mean": "I didn't mean to deceive you."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる・V-た + つもりはない"
+    }
+  ],
+  "title": "つもりはない => have no intention to / didn't mean to ~",
+  "_id": "f7ff14dae05876cac58b413693b40f30"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2847,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"on the outside it seems like that, but in reality, who knows.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "送別会で彼はなんだか悲しそうに見えた。",
+          "transcription": "そうべつかいでかれはなんだかかなしそうにみえた。",
+          "mean": "At the farewell party, he looked kind of sad."
+        },
+        {
+          "content": "この問題ははじめ簡単そうに見えたが、やってみると複雑だ。",
+          "transcription": "このもんだいははじめかんたんそうにみえたが、やってみるとふくざつだ。",
+          "mean": "This problem seemed simple at first, but it turns out to be complicated."
+        },
+        {
+          "content": "彼女は若そうに見えるが、来年は40歳になる。",
+          "transcription": "かのじょはわかそうにみえるが、らいねんは40さいになる。",
+          "mean": "She looks young, but she will be 40 next year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na +そうにみえる\nAい + そうにみえる\nVます + そうにみえる"
+    }
+  ],
+  "title": "...そうにみえる => to look; to seem; to appear",
+  "_id": "f2d618ceb0702f781ec83b7d4f373d9f"
+}

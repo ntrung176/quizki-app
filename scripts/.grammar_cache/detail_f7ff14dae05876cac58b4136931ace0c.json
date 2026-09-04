@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 770,
+  "usages": [
+    {
+      "explain": "✦ When the phrase というところだ precedes a quantifier, it means \"no matter how much, no matter how high, it's still at this level\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "このあたりは雨が降ってもせいぜい1時間というところで、大雨にはあらない。",
+          "transcription": "このあたりはあめがふってもせいぜい1じかんというところで、おおあめにはあらない。",
+          "mean": "Even if it rains in this area, it only lasts for an hour at most, and it doesn't rain heavily."
+        },
+        {
+          "content": "この電気車は、出ても最高速度時速３０キロといったところだ。",
+          "transcription": "このでんきしゃは、でてもさいこうそくどじそくさんぜろキロといったところだ。",
+          "mean": "This electric car will have a maximum speed of 30km/h."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V-る + といったところだ</div><div>✦N + といったところだ</div>"
+    }
+  ],
+  "title": "といったところだ => at the most; no more than​; at best; roughly; about ~",
+  "_id": "f7ff14dae05876cac58b4136931ace0c"
+}

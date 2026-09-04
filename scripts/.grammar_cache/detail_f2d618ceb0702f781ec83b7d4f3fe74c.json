@@ -1,0 +1,45 @@
+{
+  "level": "N5",
+  "mobileId": 2922,
+  "usages": [
+    {
+      "explain": "When wanting to describe a natural phenomenon, use 「が」 before that topic.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これは彼が買った絵です。",
+          "transcription": "これはかれがかったえです。",
+          "mean": "This is the painting he bought."
+        },
+        {
+          "content": "テレビの画面が大きいです。",
+          "transcription": "てれびのがめんがおおきいです。",
+          "mean": "The TV screen is large."
+        },
+        {
+          "content": "部屋が明るくなりました。",
+          "transcription": "へやがあかるくなりました。",
+          "mean": "The room became brighter."
+        }
+      ],
+      "mean": null,
+      "synopsis": "が is used as a particle in a sentence."
+    },
+    {
+      "explain": "In a sentence where a subordinate clause modifies a noun, the subject is accompanied by 「が」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": "Used to indicate the subject when describing a state or situation.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "が => Auxiliary words",
+  "_id": "f2d618ceb0702f781ec83b7d4f3fe74c"
+}

@@ -1,0 +1,38 @@
+{
+  "level": "N1",
+  "mobileId": 881,
+  "usages": [
+    {
+      "explain": "■ Often used with conditional forms such as とすれば/としたら/とする or と呼ぶ.<br/>■ It means \"assuming that...is, then...\", or \"if based on the assumption that we believe that...\".",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "<div>仮に本当だとすればどうだというのか。<br></div>",
+          "transcription": "かりにほんとうだとすればどうだというのか。",
+          "mean": "&lt;div&gt;What if it were true? &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "仮に彼がうそをついているとすれば、あなたはどうしますか。",
+          "transcription": "かりにかれがうそをついているとすれば、あなたはどうしますか。",
+          "mean": "What would you do if he was lying?"
+        },
+        {
+          "content": "今仮にXの値を100としよう。",
+          "transcription": "いまかりにXのあたいを100としよう。",
+          "mean": "Let's now assume that the value of X is 100."
+        }
+      ],
+      "mean": "■Used to express assumed meaning.",
+      "synopsis": "かりに...とすれば"
+    },
+    {
+      "explain": null,
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～仮に...とすれば / としたら  / とする => ～If..., suppose...",
+  "_id": "f7ff14dae05876cac58b4136932a5962"
+}

@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5448,
+  "usages": [
+    {
+      "explain": "「ついでに」describes the idea of doing an additional action while doing another action incidentally.",
+      "note": null,
+      "examples": [
+        {
+          "content": "公園を散歩するついでに、ゴミを出しなさい。",
+          "transcription": "こうえんをさんぽするついでに、ゴミをだしなさい。",
+          "mean": "Take out the trash while you take a walk in the park."
+        },
+        {
+          "content": "郵便局へ行ったついでに、はがきを買ってきた。",
+          "transcription": "ゆうびんきょくへいったついでに、はがきをかってきた。",
+          "mean": "When I went to the post office, I bought a postcard."
+        },
+        {
+          "content": "買い物のついでに、図書館へ行って本を借りてきた。",
+          "transcription": "かいもののついでに、としょかんへいってほんをかりてきた。",
+          "mean": "While shopping, I went to the library and borrowed a book."
+        },
+        {
+          "content": "京都へ行くついでに、奈良を回ってみたい。",
+          "transcription": "きょうとへいくついでに、ならをまわってみたい。",
+          "mean": "I would like to visit Nara while going to Kyoto."
+        },
+        {
+          "content": "洗濯機を直すついでに、ドアの取っ手も直してもらった。",
+          "transcription": "せんたくきをなおすついでに、ドアのとってもなおしてもらった。",
+          "mean": "While fixing the washing machine, I also had the door handle fixed."
+        },
+        {
+          "content": "母は駅まで客を送っていたついでに、かいものをしてきた。",
+          "transcription": "はははえきまできゃくをおくっていたついでに、かいものをしてきた。",
+          "mean": "While my mother was driving passengers to the station, she went fishing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)/Vた+ついでに<br/> Nの+ついでに"
+    }
+  ],
+  "title": "ついでに => while, incidentally, at the same time, on the way ~",
+  "_id": "5fb01659775e44058fa14726704297fa"
+}

@@ -1,0 +1,81 @@
+{
+  "level": "N4",
+  "mobileId": 5561,
+  "usages": [
+    {
+      "explain": "「途中で」expresses the following ideas:\n1. While on the way from the starting point to the destination, something happens or there is an interruption. \"On the way...\"<br/>\n2. While in the process of doing something, there is an interruption or another event occurs. \"In the middle of...\"<br/>\n\n「途中に」expresses the following ideas:<br/>\n1. While on the way from the starting point to the destination, there is the existence of something. One of the signs is the appearance of ある/いる. \"On the way...\"<br/>\n2. While in the process of doing something, there is an interruption or another event occurs. \"In the middle of...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "マラソンの途中で気分が悪くなりました。",
+          "transcription": "マラソンのとちゅうできぶんがわるくなりました。",
+          "mean": "Halfway through the marathon, I felt sick."
+        },
+        {
+          "content": "私は駅から学校に行く途中で先生に会った。",
+          "transcription": "わたしはえきからがっこうにいくとちゅうでせんせいにあった。",
+          "mean": "I met my teacher on my way from the station to school."
+        },
+        {
+          "content": "学校に来る途中で、財布を忘れたのは気づいた。",
+          "transcription": "がっこうにくるとちゅうで、さいふをわすれたのはきづいた。",
+          "mean": "On the way to school, I realized that I had forgotten my wallet."
+        },
+        {
+          "content": "その家族は京都に行く途中で、小さなホテルに泊まった。",
+          "transcription": "そのかぞくはきょうとにいくとちゅうで、ちいさなホテルにとまった。",
+          "mean": "The family was on their way to Kyoto and stayed at a small hotel."
+        },
+        {
+          "content": "学校に行く途中で、ふと今日は母の誕生日だったことを思い出した。",
+          "transcription": "がっこうにいくとちゅうで、ふときょうはははのたんじょうびだったことをおもいだした。",
+          "mean": "On my way to school, I suddenly remembered that today was my mother's birthday."
+        },
+        {
+          "content": "授業の途中で発言したい場合は手を挙げてください。",
+          "transcription": "じゅぎょうのとちゅうではつげんしたいばあいはてをあげてください。",
+          "mean": "If you would like to speak during class, please raise your hand."
+        },
+        {
+          "content": "いい夢の途中で目が覚めました。",
+          "transcription": "いいゆめのとちゅうでめがさめました。",
+          "mean": "I woke up in the middle of a nice dream."
+        },
+        {
+          "content": "会議の途中で停電になりました。",
+          "transcription": "かいぎのとちゅうでていでんになりました。",
+          "mean": "The power went out in the middle of the meeting."
+        },
+        {
+          "content": "テストの途中で外に出てはいけません。",
+          "transcription": "テストのとちゅうでそとにでてはいけません。",
+          "mean": "Do not go outside during the test."
+        },
+        {
+          "content": "映画を見ている途中でお腹が痛くなった。",
+          "transcription": "えいがをみているとちゅうでおなかがいたくなった。",
+          "mean": "My stomach hurt while I was watching a movie."
+        },
+        {
+          "content": "家に帰る途中に美味しいパン屋があります。",
+          "transcription": "いえにかえるとちゅうにおいしいパンやがあります。",
+          "mean": "There is a delicious bakery on the way home."
+        },
+        {
+          "content": "ここから学校に行く途中にいつも怪しい女の人が立っている。",
+          "transcription": "ここからがっこうにいくとちゅうにいつもあやしいおんなのひとがたっている。",
+          "mean": "There's always a suspicious woman standing on my way to school from here."
+        },
+        {
+          "content": "食べている途中に急に気分が悪くなった。",
+          "transcription": "たべているとちゅうにきゅうにきぶんがわるくなった。",
+          "mean": "While I was eating, I suddenly felt sick."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V(root form)/Vている+途中で/途中に<br/>\n Nの+途中で/途中に<br/>"
+    }
+  ],
+  "title": "途中で/途中に => on the way; in the middle of ~",
+  "_id": "cb5519ad01a749188c0ff2e3db7469c1"
+}

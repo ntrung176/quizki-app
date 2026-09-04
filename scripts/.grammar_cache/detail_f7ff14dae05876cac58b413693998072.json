@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1696,
+  "usages": [
+    {
+      "explain": "Expresses strong negation [少しも…ない] (not at all), [まったく…ない] (absolutely not), related to objects or events. In the case of humans, the form [だれひとり…ない] is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は子供たちに何一つだめだと言わない。",
+          "transcription": "かれはこどもたちになにひとつだめだといわない。",
+          "mean": "He denies nothing to his children."
+        },
+        {
+          "content": "波の音以外は何一つ聞こえなかった。",
+          "transcription": "なみのおといがいはなにひとつきこえなかった。",
+          "mean": "I couldn't hear anything except the sound of the waves."
+        },
+        {
+          "content": "このケーキ店には、私が買いたいケーキは何一つない。",
+          "transcription": "このけーきてんには、わたしがかいたいけーきはなにひとつない。",
+          "mean": "This cake shop doesn't have any cakes that I want to buy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにひとつ～ない"
+    }
+  ],
+  "title": "なにひとつ～ない => nothing/not at all…",
+  "_id": "f7ff14dae05876cac58b413693998072"
+}

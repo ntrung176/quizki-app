@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5544,
+  "usages": [
+    {
+      "explain": "「それで」is a conjunction that connects two sentences, showing a cause-and-effect relationship. The first sentence explains the cause, reason for the event, while the second sentence describes the result of that event (emphasizing the result). \"Therefore/So...\"<br/>\nAdditionally, 「それで」also indicates that the speaker has absorbed what was just heard, and then transitions or prompts the conversation to move on to a new topic or continue from the listener's statement. In more casual conversations, it can be shortened to「で」. \"So...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "朝寝坊した、それで仕事に遅れたんだ。",
+          "transcription": "あさねぼうした、それでしごとにおくれたんだ。",
+          "mean": "I overslept this morning, so I was late for work."
+        },
+        {
+          "content": "昨日は凄く疲れました。それで早く寝たのです。",
+          "transcription": "きのうはすごくつかれました。それではやくねたのです。",
+          "mean": "I was really tired yesterday. So I went to bed early."
+        },
+        {
+          "content": "雨がひどく降ってきた、それで私たちは屋内で遊んだ。",
+          "transcription": "あめがひどくふってきた、それでわたしたちはおくないであそんだ。",
+          "mean": "Because it started raining hard, we played indoors."
+        },
+        {
+          "content": "彼女の母が病気になった、それで私が代わりに来ました。",
+          "transcription": "かのじょのははがびょうきになった、それでわたしがかわりにきました。",
+          "mean": "Her mother got sick, so I came in her place."
+        },
+        {
+          "content": "私は風邪を引いたらしい。それで、今日は病院に行きます。",
+          "transcription": "わたしはかぜをひいたらしい。それで、きょうはびょういんにいきます。",
+          "mean": "I think I caught a cold. So today I'm going to the hospital."
+        },
+        {
+          "content": "私は眼鏡を壊してしまった。それで黒板に字が見えなかった。",
+          "transcription": "わたしはめがねをこわしてしまった。それでこくばんにじがみえなかった。",
+          "mean": "I broke my glasses. So I couldn't see the words on the blackboard."
+        },
+        {
+          "content": "『このレストランは値段も安いし、美味しいんです。』『それで人が多いんですね。』",
+          "transcription": "『このレストランはねだんもやすいし、おいしいんです。』『それでひとがおおいんですね。』",
+          "mean": "``This restaurant is cheap and delicious. “That’s why there are so many people. ”"
+        },
+        {
+          "content": "『田中君、インフルエンザにかかったんだって。』『それで学校を休んだんだね。』",
+          "transcription": "『たなかくん、インフルエンザにかかったんだって。』『それでがっこうをやすんだんだね。』",
+          "mean": "``Tanaka-kun, I heard you had the flu. ``That's why you skipped school.'' ”"
+        },
+        {
+          "content": "『田中君にお金を貸してくれって言われたんだ。』『へえー。それで貸してあげたの？』",
+          "transcription": "『たなかくんにおかねをかしてくれっていわれたんだ。』『へえー。それでかしてあげたの？』",
+          "mean": "``Tanaka-kun asked me to lend him some money. ” “Huh? Is that why you lent it to me? ”"
+        },
+        {
+          "content": "『今日，数学の試験があったんだ。』『それで?』『うん，かなりできたと思うよ。』",
+          "transcription": "『きょう，すうがくのしけんがあったんだ。』『それで?』『うん，かなりできたとおもうよ。』",
+          "mean": "``I had a math exam today. ” “So?” “Yes, I think I did quite well. ”"
+        },
+        {
+          "content": "『今日、面接を受けたんだ。』『で、どうだった？』",
+          "transcription": "『きょう、めんせつをうけたんだ。』『で、どうだった？』",
+          "mean": "``I had an interview today. ” “So, how was it?” ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。それで、B"
+    }
+  ],
+  "title": "それで => and; thereupon; because of that​.",
+  "_id": "272a08fa0c2246c2a3cf5dff226cea60"
+}

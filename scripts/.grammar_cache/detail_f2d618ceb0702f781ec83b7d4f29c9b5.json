@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2748,
+  "usages": [
+    {
+      "explain": "Used after interrogative words like「なに」(\"what\"),「だれ」(\"who\"),「どこ」(\"where\"),「いつ」(\"when\"), to express something, a time, a place, etc., that is not known specifically, or not yet determined, or not necessary to specify.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼が私に何かを隠している。",
+          "transcription": "かれがわたしになにかをかくしている。",
+          "mean": "He's hiding something from me."
+        },
+        {
+          "content": "東京郊外のどこかに安くて広い土地はないだろうか。",
+          "transcription": "とうきょうこうがいのどこかにやすくてひろいとちはないだろうか。",
+          "mean": "Is there any cheap and spacious land somewhere in the suburbs of Tokyo?"
+        },
+        {
+          "content": "だれかから電話があった ?",
+          "transcription": "だれかからでんわがあった?",
+          "mean": "Did someone call you?"
+        },
+        {
+          "content": "真実はいつか現われる。",
+          "transcription": "しんじつはいつかあらわれる。",
+          "mean": "The truth will come out one day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Interrogative words+か"
+    }
+  ],
+  "title": "Nghi vấn từ+か => ...Who, what, where etc. there",
+  "_id": "f2d618ceb0702f781ec83b7d4f29c9b5"
+}

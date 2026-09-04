@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5243,
+  "usages": [
+    {
+      "explain": "「次第」 expresses the idea: after performing an action or after an event occurs, the speaker immediately takes the next action. The following clause will express the speaker's intention or desire. This structure is less common in everyday conversation but often appears in professional environments or announcements.",
+      "note": null,
+      "examples": [
+        {
+          "content": "では、田中が戻り次第、お電話させます。",
+          "transcription": "では、たなかがもどりしだい、おでんわさせます。",
+          "mean": "Well, I'll call you as soon as Tanaka returns."
+        },
+        {
+          "content": "詳しいことが分かり次第、ご連絡いたします。",
+          "transcription": "くわしいことがわかりしだい、ごれんらくいたします。",
+          "mean": "We will contact you as soon as we know more details."
+        },
+        {
+          "content": "問題を把握し次第、お知らせします。",
+          "transcription": "もんだいをはあくししだい、おしらせします。",
+          "mean": "We will notify you as soon as we know of the issue."
+        },
+        {
+          "content": "天気が回復し次第、試合を再開する。",
+          "transcription": "てんきがかいふくししだい、しあいをさいかいする。",
+          "mean": "The game will resume as soon as the weather improves."
+        },
+        {
+          "content": "家に着き次第、メールします。",
+          "transcription": "いえにつきしだい、メールします。",
+          "mean": "I'll email you as soon as I get home."
+        },
+        {
+          "content": "全員集まり次第、出発します。",
+          "transcription": "ぜんいんあつまりしだい、しゅっぱつします。",
+          "mean": "We will leave as soon as everyone is assembled."
+        },
+        {
+          "content": "留学期間が終わり次第、帰国して就職するつもりです。",
+          "transcription": "りゅうがくきかんがおわりしだい、きこくしてしゅうしょくするつもりです。",
+          "mean": "As soon as my study abroad period ends, I plan to return to my country and find a job."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+次第"
+    }
+  ],
+  "title": "次第 => as soon as ~",
+  "_id": "f8b24d1e7acb4b74974359445818a85f"
+}

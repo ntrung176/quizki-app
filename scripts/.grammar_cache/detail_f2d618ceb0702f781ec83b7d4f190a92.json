@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2619,
+  "usages": [
+    {
+      "explain": "以上 （いじょう）expresses a quantity equal to or greater than a certain amount.",
+      "note": null,
+      "examples": [
+        {
+          "content": "身長が１６０センチ以上なら学校のバレーボールのチームに参加できる。",
+          "transcription": "しんちょうがいちろくぜろせんちいじょうならがっこうのばれーぼーるのちーむにさんかできる。",
+          "mean": "If you are over 160cm tall, you can join your school's volleyball team."
+        },
+        {
+          "content": "冬休みの間に科学に関する本を２冊以上読んでレポートを書いてください。",
+          "transcription": "ふゆやすみのまにかがくにかんするほんをにさついじょうよんでれぽーとをかいてください。",
+          "mean": "Please read two or more science books and write a report during winter break."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + 以上"
+    }
+  ],
+  "title": "いじょう => more than",
+  "_id": "f2d618ceb0702f781ec83b7d4f190a92"
+}

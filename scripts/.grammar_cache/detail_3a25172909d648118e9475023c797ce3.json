@@ -1,0 +1,86 @@
+{
+  "level": "N2",
+  "mobileId": 5137,
+  "usages": [
+    {
+      "explain": "「以来」expresses the idea that since a certain event (N/V/それ/あれ) occurred, another continuous event has been happening or continuing. Because the following clause usually indicates a continuous state,「以来」is not used for actions that occur only once. This structure is not used for recent past events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "入学以来、一度も授業を休んでいない。",
+          "transcription": "にゅうがくいらい、いちどもじゅぎょうをやすんでいない。",
+          "mean": "I have never missed a class since I entered the school."
+        },
+        {
+          "content": "卒業して以来、10年ぶりですね。",
+          "transcription": "そつぎょうしていらい、じゅうねんぶりですね。",
+          "mean": "It's been 10 years since I graduated."
+        },
+        {
+          "content": "日本に来て以来、母の料理を食べていない。",
+          "transcription": "にほんにきていらい、ははのりょうりをたべていない。",
+          "mean": "I haven't eaten my mother's cooking since I came to Japan."
+        },
+        {
+          "content": "彼女は3年前に離婚して以来、ずっと独身です。",
+          "transcription": "かのじょはさんねんかんにりこんしていらい、ずっとどくしんです。",
+          "mean": "She has been single ever since her divorce three years ago."
+        },
+        {
+          "content": "一人暮らしを始めて以来、ずっと外食が続いている。",
+          "transcription": "ひとりぐらしをはじめていらい、ずっとがいしょくがつづいている。",
+          "mean": "Ever since I started living alone, I have been eating out constantly."
+        },
+        {
+          "content": "来日以来、母の友人の家にホームステイしています。",
+          "transcription": "らいにちいらい、ははのゆうじんのいえにホームステイしています。",
+          "mean": "Since coming to Japan, I have been staying at my mother's friend's house."
+        },
+        {
+          "content": "彼と付き合って以来、他の男性には興味がなくなりました。",
+          "transcription": "かれとつきあっていらい、ほかのだんせいにはきょうみがなくなりました。",
+          "mean": "Ever since I started dating him, I've lost interest in other men."
+        },
+        {
+          "content": "その子供は、両親を事故で亡くして以来、笑わなくなってしまった。",
+          "transcription": "そのこどもは、りょうしんをじこでなくしていらい、わらわなくなってしまった。",
+          "mean": "The child has stopped smiling ever since his parents died in an accident."
+        },
+        {
+          "content": "父は10年前にお店を初めて以来、1日も仕事を休みませんでした。",
+          "transcription": "ちちはじゅうねんかんにおみせをはじめていらい、いちにちもしごとをやすみませんでした。",
+          "mean": "My father hasn't missed a day of work since he first opened the shop 10 years ago."
+        },
+        {
+          "content": "この冷蔵庫は発売以来、20年もお客様に愛されているロングセラー商品です。",
+          "transcription": "このれいぞうこははつばいいらい、にじゅうねんもおきゃくさまにあいされているロングセラーしょうひんです。",
+          "mean": "This refrigerator has been a long-selling product that has been loved by customers for 20 years since its release."
+        },
+        {
+          "content": "卒業以来、彼は小学校で先生として働いている。",
+          "transcription": "そつぎょういらい、かれはしょうがっこうでせんせいとしてはたらいている。",
+          "mean": "Since graduating, he has been working as a teacher at an elementary school."
+        },
+        {
+          "content": "先週外食をして以来、おなかの調子が悪いんです。",
+          "transcription": "せんしゅうがいしょくをしていらい、おなかのちょうしがわるいんです。",
+          "mean": "I've been feeling sick to my stomach since I went out to eat last week."
+        },
+        {
+          "content": "彼とは5年前のクラス会で会って以来、一度も連絡を取っていない。",
+          "transcription": "かれとはごねんまえのクラスかいであっていらい、いちどもれんらくをとっていない。",
+          "mean": "I haven't had any contact with him since I met him at a class reunion five years ago."
+        },
+        {
+          "content": "中国に来て以来、この国に対する考え方が少しずつ変わってきた。",
+          "transcription": "ちゅうごくにきていらい、このくににたいするかんがえかたがすこしずつかわってきた。",
+          "mean": "Ever since I came to China, my way of thinking about this country has gradually changed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+以来<br/> Vて+以来<br/> それ+以来<br/> あれ+以来"
+    }
+  ],
+  "title": "以来 => since; henceforth ~",
+  "_id": "3a25172909d648118e9475023c797ce3"
+}

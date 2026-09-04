@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2576,
+  "usages": [
+    {
+      "explain": "Is a polite form of speaking. When used with Sino-Japanese nouns, it often takes the form 「ごNになる」, but it is limited to certain words. If using the form 「ください」, it expresses a polite invitation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山下先生は1988年に東京大学をご卒業になりました。",
+          "transcription": "やましたせんせいは1988ねんにとうきょうだいがくをごそつぎょうになりました。",
+          "mean": "Professor Yamashita graduated from the University of Tokyo in 1988."
+        },
+        {
+          "content": "いつまでご滞在になりますか。",
+          "transcription": "いつまでごたいざいになりますか。",
+          "mean": "How long will you stay?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "ご+ N + になる"
+    }
+  ],
+  "title": "ご...になる => To do (Honorific)",
+  "_id": "f2d618ceb0702f781ec83b7d4f139fef"
+}

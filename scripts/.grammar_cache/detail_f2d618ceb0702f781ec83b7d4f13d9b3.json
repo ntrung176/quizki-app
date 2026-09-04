@@ -1,0 +1,33 @@
+{
+  "level": "N1",
+  "mobileId": 2579,
+  "usages": [
+    {
+      "explain": "Repetition of the same verb to express the meaning \"unable to do even things that are normally considered natural to do.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "時間が足りなかったので、吉いたいことも十分には言えなかった。",
+          "transcription": "じかんがたりなかったので、きちいたいこともじゅうぶんにはいえなかった。",
+          "mean": "Because I didn't have enough time, I couldn't say enough good things."
+        },
+        {
+          "content": "叔父が急に亡くなったというので、取るものも取りあえず（＝大急ぎで）駆けつけた。",
+          "transcription": "おじがきゅうになくなったというので、とるものもとりあえず（ ＝おおいそぎで）かけつけた。",
+          "mean": "I heard that my uncle had suddenly passed away, so I rushed to get everything (= hurriedly)."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + こと + もV-ない"
+    },
+    {
+      "explain": "(Note) Additionally, there are idiomatic expressions as shown in example 3.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "こともV-ない => I can't help but give up...(things that have been decided)",
+  "_id": "f2d618ceb0702f781ec83b7d4f13d9b3"
+}

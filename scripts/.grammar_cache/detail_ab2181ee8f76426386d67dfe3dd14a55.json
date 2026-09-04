@@ -1,0 +1,41 @@
+{
+  "level": "N5",
+  "mobileId": 5632,
+  "usages": [
+    {
+      "explain": "「たら」is a conditional form that helps the speaker express their opinion, situation, request, etc., in a hypothetical situation. The conditional relationship expressed by「たら」only occurs once, in a specific situation.<br/>\n\nExample: あした雨が降ったら、試合は中止します。If it rains tomorrow, the match will be postponed. The postponement of the match only happens if it rains tomorrow, and it may not happen on other days. And the conditional relationship 'if it rains tomorrow, then the match will be postponed' only applies to the situation being discussed, it could be different in other cases.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お金があったら、旅行します。",
+          "transcription": "おかねがあったら、りょこうします。",
+          "mean": "If I had money, I would travel."
+        },
+        {
+          "content": "時間がなかったら、テレビを見ません。",
+          "transcription": "じかんがなかったら、テレビをみません。",
+          "mean": "If I don't have time, I won't watch TV."
+        },
+        {
+          "content": "あのパソコンが安かったら、買います。",
+          "transcription": "あのパソコンがやすかったら、かいます。",
+          "mean": "If that computer was cheap, I would buy it."
+        },
+        {
+          "content": "暇だったら、手伝ってください。",
+          "transcription": "ひまだったらてつだってください",
+          "mean": "If you are free, give me a hand."
+        },
+        {
+          "content": "いい天気だったら、散歩しませんか。",
+          "transcription": "いいてんきだったら、さんぽしませんか。",
+          "mean": "If the weather is nice, why not take a walk?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vたら、<br/> A<s>い</s>かったら、<br/>A<s>な</s>だったら、<br/> Nだったら、"
+    }
+  ],
+  "title": "たら => if; after; when ~",
+  "_id": "ab2181ee8f76426386d67dfe3dd14a55"
+}

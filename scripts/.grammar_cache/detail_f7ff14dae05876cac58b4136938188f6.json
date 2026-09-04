@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1511,
+  "usages": [
+    {
+      "explain": "Places words like [だめ] (not allowed), [失敗] (failure)... right after [...て] to convey the meaning of \"as if nothing has been done yet\". <br/><br/>Used in cases where the feasibility is low or in trial-and-error situations that have failed.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このプロジェクトは初めから不可能だったから、失敗してももともとだ。",
+          "transcription": "このぷろじぇくとははじめからふかのうだったから、しっぱいしてももともとだ。",
+          "mean": "This project was impossible from the beginning, so it was inevitable that it would fail."
+        },
+        {
+          "content": "断られてもともとだと思って、思い切って佐藤さんに告白してみた。",
+          "transcription": "ことわられてもともとだとおもって、おもいきってさとうさんにこくはくしてみた。",
+          "mean": "I thought that he had already rejected me, so I took the plunge and confessed my feelings to Mr. Sato."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～てもともとだ"
+    }
+  ],
+  "title": "…てもともとだ => originally, by nature, from the start",
+  "_id": "f7ff14dae05876cac58b4136938188f6"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N1",
+  "mobileId": 5046,
+  "usages": [
+    {
+      "explain": "「ことのないように」is used to express the idea of taking actions or measures in the following clause to prevent the occurrences or issues mentioned in the preceding clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "思い残すことのないように、今を全力で生きる。",
+          "transcription": "おもいのこすことのないように、いまをぜんりょくでいきる。",
+          "mean": "Live your life to the fullest so that you don't have any regrets."
+        },
+        {
+          "content": "お客様に失礼なことのないように気をつけなさい。",
+          "transcription": "おきゃくさまにしつれいなことのないようにきをつけなさい。",
+          "mean": "Be careful not to be rude to customers."
+        },
+        {
+          "content": "部屋に虫が入ってくることのないように殺虫剤を散布する。",
+          "transcription": "へやにむしがはいってくることのないようにさっちゅうざいをさんぷする。",
+          "mean": "Spray insecticides to prevent insects from entering the room."
+        },
+        {
+          "content": "今後、このような犯罪と関わることのないように注意して下さい。",
+          "transcription": "こんご、このようなはんざいとかかわることのないようにちゅういしてください。",
+          "mean": "Please be careful not to be involved in such crimes in the future."
+        },
+        {
+          "content": "道に迷うことのないように、グーグルマップで場所を確かめておいた。",
+          "transcription": "みちにまようことのないように、グーグルマップでばしょをたしかめておいた。",
+          "mean": "I checked the location on Google Maps so I wouldn't get lost."
+        },
+        {
+          "content": "災害が来ても慌てることのないように、日頃から準備しておこう。",
+          "transcription": "さいがいがきてもあわてることのないように、ひごろからじゅんびしておこう。",
+          "mean": "Make preparations on a daily basis so that you don't panic when a disaster strikes."
+        },
+        {
+          "content": "この書類を書き写すとき一語もおとすことのないように気をつけなさい。",
+          "transcription": "このしょるいをかきうつすときいちごもおとすことのないようにきをつけなさい。",
+          "mean": "In copying this paper, be careful not to leave out any words."
+        },
+        {
+          "content": "彼は人の道を踏み外すことのないように弟子たちにくり返し説いた.",
+          "transcription": "かれはひとのみちをふみはずすことのないようにでしたちにくりかえしといた.",
+          "mean": "He repeatedly warned his disciples not to go astray from the path of others."
+        },
+        {
+          "content": "今後また同じようなことが起きることのないように、担当の部署に伝えておきます。",
+          "transcription": "こんごまたおなじようなことがおきることのないように、たんとうのぶしょにつたえておきます。",
+          "mean": "I will inform the relevant department so that something like this does not happen again in the future."
+        },
+        {
+          "content": "二度とこのような事故が起きることのないように、安全対策を講じます。",
+          "transcription": "にどとこのようなじこがおきることのないように、あんぜんたいさくをこうじます。",
+          "mean": "We will take safety measures to prevent such an accident from happening again."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる+ことのないよう（に）<br/> Aい+ことのないよう（に）<br/> Aな+ことのないよう（に）"
+    }
+  ],
+  "title": "ことのないように => so as not to; to not ~",
+  "_id": "15db09b9603744a2be4edf050925128e"
+}

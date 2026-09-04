@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2833,
+  "usages": [
+    {
+      "explain": "This is a way of requesting someone to do something for the speaker or those associated with the speaker. The plain form is used for close relationships, with people of equal or lower status than the speaker.<br/> 「...てくれないか」is used by men. On the other hand, 「...てくれませんか」creates a more polite feeling than 「...てくれますか」. This expression is also used to draw the listener's attention.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その鉤にコートをかけてくれる。",
+          "transcription": "その鉤にこーとをかけてくれる。",
+          "mean": "He will hang his coat on the hook."
+        },
+        {
+          "content": "ちょっとこの洗濯機を運んでくれないか？",
+          "transcription": "ちょっとこのせんたくきをはこんでくれないか？",
+          "mean": "Could you please carry this washing machine for me?"
+        },
+        {
+          "content": "もう少し大きい声で話してくれないか。",
+          "transcription": "もうすこしおおきいこえではなしてくれないか。",
+          "mean": "Could you please speak a little louder?"
+        },
+        {
+          "content": "もしよかったら、娘にピアノを教えてくれませんか。",
+          "transcription": "もしよかったら、むすめにぴあのをおしえてくれませんか。",
+          "mean": "If you'd like, could you teach my daughter the piano?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + くれる"
+    }
+  ],
+  "title": "てくれる => to do a favor; request a favor; do something for ...",
+  "_id": "f2d618ceb0702f781ec83b7d4f34c4bf"
+}

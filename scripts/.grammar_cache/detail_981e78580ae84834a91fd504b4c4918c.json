@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5596,
+  "usages": [
+    {
+      "explain": "「一緒に」is an adverb meaning \"together\" or \"with someone\", used in a sentence to indicate doing something \"together with someone\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "ずっと彼と一緒にいたい。",
+          "transcription": "ずっとかれといっしょにいたい。",
+          "mean": "I want to be with him all the way."
+        },
+        {
+          "content": "一緒に日本語を勉強しましょう。",
+          "transcription": "いっしょににほんごをべんきょうしましょう。",
+          "mean": "Let's study Japanese together."
+        },
+        {
+          "content": "今夜、カラオケに一緒に行こう。",
+          "transcription": "こんや、カラオケにいっしょにいこう。",
+          "mean": "Let's go to karaoke together tonight."
+        },
+        {
+          "content": "明日の朝、一緒にジムに行きませんか。",
+          "transcription": "あしたのあさ、いっしょにジムにいきませんか。",
+          "mean": "Would you like to go to the gym with me tomorrow morning?"
+        },
+        {
+          "content": "今朝、友達と一緒に図書館に行きました。",
+          "transcription": "けさ、ともだちといっしょにとしょかんにいきました。",
+          "mean": "This morning I went to the library with my friend."
+        },
+        {
+          "content": "うちの犬と一緒に散歩するのが好きです。",
+          "transcription": "うちのいぬといっしょにさんぽするのがすきです。",
+          "mean": "I like walking with my dog."
+        },
+        {
+          "content": "来週、家族と一緒に富士山を見に行くんだ。",
+          "transcription": "らいしゅう、かぞくといっしょにふじさんをみにいくんだ。",
+          "mean": "I'm going to see Mt. Fuji with my family next week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "一緒に+V (formal form)"
+    }
+  ],
+  "title": "一緒に => together",
+  "_id": "981e78580ae84834a91fd504b4c4918c"
+}

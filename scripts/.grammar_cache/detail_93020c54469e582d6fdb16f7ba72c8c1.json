@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 3160,
+  "usages": [
+    {
+      "explain": "「」Pretend ~, although in reality what is mentioned is not true, the actions and attitude of the subject make it seem real.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山下さんは独身のふりをしているが、結婚していて三人も子供がいる。",
+          "transcription": "やましたさんはどくしんのふりをしているが、けっこんしていてさんにんもこどもがいる。",
+          "mean": "Mr. Yamashita pretends to be single, but he is married and has three children."
+        },
+        {
+          "content": "彼は悲しいふりをする。",
+          "transcription": "かれはかなしいふりをする。",
+          "mean": "he pretends to be sad."
+        },
+        {
+          "content": "木村さんはしとやかなふりをする。",
+          "transcription": "きむらさんはしとやかなふりをする。",
+          "mean": "Mr. Kimura pretends to be polite."
+        },
+        {
+          "content": "今朝、彼は彼女の言うことが聞こえないふりをした。",
+          "transcription": "けさ、かれはかのじょのいうことがきこえないふりをした。",
+          "mean": "This morning he pretended not to hear her."
+        }
+      ],
+      "mean": ": to pretend; to act as if",
+      "synopsis": "N ＋ の／Aい／Aな ＋ な／V plain form ＋ ふりをする"
+    }
+  ],
+  "title": "～ふり（～振り）      => to pretend; to act as if",
+  "_id": "93020c54469e582d6fdb16f7ba72c8c1"
+}

@@ -1,0 +1,33 @@
+{
+  "level": "N5",
+  "mobileId": 3008,
+  "usages": [
+    {
+      "explain": "V-ます is used to talk about a habit in the present or a certain fact, and it is also used to talk about something that will happen in the future.",
+      "note": null,
+      "examples": [
+        {
+          "content": "毎朝、5時半に起きます。",
+          "transcription": "まいあさ、5じはんにおきます。",
+          "mean": "I wake up at 5:30 every morning."
+        },
+        {
+          "content": "明日7時に起きます。",
+          "transcription": "あした7じにおきます。",
+          "mean": "I'll wake up at 7 o'clock tomorrow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます"
+    },
+    {
+      "explain": "The question form of a verb sentence is similar to a noun sentence, meaning we don't change the order of the sentence, we just add the particle「か」at the end of the sentence. The question word is replaced in the position of the element that you want to ask about. In the answer, we repeat the verb in the question and make sure not to use 「そうです」or 「そうじゃありません」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ます => Habits, facts, future actions",
+  "_id": "f2d618ceb0702f781ec83b7d4f4a7c70"
+}

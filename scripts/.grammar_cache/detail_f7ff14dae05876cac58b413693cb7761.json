@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2055,
+  "usages": [
+    {
+      "explain": "Expresses an indefinite point in the past. The phrase implies \"at that time, an event occurred, but specifically what happened is grasped through the context.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はいつかの交通事故の後遺症がいまだにあって苦しんでいるそうだ。",
+          "transcription": "かのじょはいつかのこうつうじこのこういしょうがいまだにあってくるしんでいるそうだ。",
+          "mean": "Apparently, she still suffers from the aftereffects of a traffic accident."
+        },
+        {
+          "content": "いつかのあの女の人にもう一度会いたいなあ。",
+          "transcription": "いつかのあのおんなのひとにもういちどあいたいなあ。",
+          "mean": "I want to meet that woman again someday."
+        },
+        {
+          "content": "いつかの事件はどうなりましたか。ほら、中山さんに仕事を頼んでみるって言っていたでしょ。",
+          "transcription": "いつかのじけんはどうなりましたか。ほら、なかやまさんにしごとをたのんでみるっていっていたでしょ。",
+          "mean": "What happened to that incident? Look, you said you'd ask Mr. Nakayama for a job."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いつかの N"
+    }
+  ],
+  "title": "いつかの ... => Previously",
+  "_id": "f7ff14dae05876cac58b413693cb7761"
+}

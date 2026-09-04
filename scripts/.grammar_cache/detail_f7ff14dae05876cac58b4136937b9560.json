@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1470,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of not knowing whether it's true or feasible, but \"assuming it could be done, then...\". <br/><br/>It can also be used with 「かりに/ もし」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "アメリカに留学するとすると、どのくらいお金が必要なのだろうか。",
+          "transcription": "あめりかにりゅうがくするとすると、どのくらいおかねがひつようなのだろうか。",
+          "mean": "How much money do you need to study abroad in America?"
+        },
+        {
+          "content": "もし、来月から雨が降らないとすると、干ばつになるのは避けられないだろう。",
+          "transcription": "もし、らいげつからあめがふらないとすると、かんばつになるのはさけられないだろう。",
+          "mean": "If it doesn't rain next month, a drought will be inevitable."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だとすると\nNa + だとすると\nA + とすると\nV + だとすると"
+    }
+  ],
+  "title": "…とすると => If it were the case that, Assuming that...(Assumed conditions)",
+  "_id": "f7ff14dae05876cac58b4136937b9560"
+}

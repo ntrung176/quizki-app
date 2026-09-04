@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5458,
+  "usages": [
+    {
+      "explain": "「わけにはいかない」is used to express that it is impossible (Vる/Vている/Vさせる) or necessary (Vない) to do something due to a certain reason. This reason does not come from the personal preferences of the speaker (likes, dislikes, pure ability...) but from external factors (convention, societal norms, morals/duties...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "大事な会議があるから、休むわけにはいかない。",
+          "transcription": "だいじなかいぎがあるから、やすむわけにはいかない。",
+          "mean": "I have an important meeting so I can't afford to take time off."
+        },
+        {
+          "content": "社長の命令だから、従わないわけにはいかない。",
+          "transcription": "しゃちょうのめいれいだから、したがわないわけにはいかない。",
+          "mean": "It's the president's order, so I have no choice but to obey."
+        },
+        {
+          "content": "規則ですから、30分以上遅刻した場合は、試験を受けさせるわけにはいかない。",
+          "transcription": "きそくですから、さんじゅっぷんいじょうちこくしたばあいは、しけんをうけさせるわけにはいかない。",
+          "mean": "The rules are that if you are more than 30 minutes late, you will not be allowed to take the exam."
+        },
+        {
+          "content": "もうすぐ課題提出の締切が近づいてきたので、いつまでも遊んでいるわけにはいかない。",
+          "transcription": "もうすぐかだいていしゅつのしめきりがちかづいてきたので、いつまでもあそんでいるわけにはいかない。",
+          "mean": "The deadline for submitting assignments is approaching soon, so I can't just play around forever."
+        },
+        {
+          "content": "彼女の手に込められた強い力が、一人息子への愛情を伝えてくるようで、智子は離すわけにはいかない。",
+          "transcription": "かのじょのてにこめられたつよいちからが、ひとりむすこへのあいじょうをつたえてくるようで、ともこははなすわけにはいかない。",
+          "mean": "The strong power in her hands seems to convey her love for her only son, and Tomoko can't let him go."
+        },
+        {
+          "content": "税金は、高くても払わないわけにもいかない。",
+          "transcription": "ぜいきんは、たかくてもはらわないわけにもいかない。",
+          "mean": "Even if taxes are high, we cannot afford not to pay them."
+        },
+        {
+          "content": "調査の結果については、何もお約束するわけにはいかない。",
+          "transcription": "ちょうさのけっかについては、なにもおやくそくするわけにはいかない。",
+          "mean": "We cannot make any promises regarding the results of the investigation."
+        },
+        {
+          "content": "この夕食会には絶対に遅刻するわけにはいかない。",
+          "transcription": "このゆうしょくかいにはぜったいにちこくするわけにはいかない。",
+          "mean": "I can't afford to be late for this dinner party."
+        },
+        {
+          "content": "彼は知りすぎている。自由にしてやるわけにはいかない。",
+          "transcription": "かれはしりすぎている。じゆうにしてやるわけにはいかない。",
+          "mean": "he knows too much I can't let you do it freely."
+        },
+        {
+          "content": "もうすぐテストがあるので、一生懸命勉強しないわけにはいかない。",
+          "transcription": "もうすぐテストがあるので、いっしょうけんめいべんきょうしないわけにはいかない。",
+          "mean": "I have a test coming up soon, so I have no choice but to study hard."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる+わけにはいかない / わけにもいかない<br/> Vない+わけにはいかない / わけにもいかない<br/> Vている+わけにはいかない / わけにもいかない<br/> Vさせる+わけにはいかない / わけにもいかない"
+    }
+  ],
+  "title": "わけにはいかない => must not; cannot afford to; must, have no choice but to ~",
+  "_id": "d01c9800f2834e93a0dbac4394b0824b"
+}

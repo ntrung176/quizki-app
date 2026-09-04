@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 1953,
+  "usages": [
+    {
+      "explain": "Speculates about an event that one thinks could have occurred if the situation had been different. The final sentence often uses conjectural or predictive expressions such as (だろう / はずだ / かもしれない / にちがいない / と思う). If the predicate of the sentence is in the past tense, it indicates that the reality in the past was different from the described event. If the predicate is in the dictionary form (present tense), it indicates that the current situation would be different.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう少し忍耐があれば、きみは成功しただろう。",
+          "transcription": "もうすこしにんたいがあれば、きみはせいこうしただろう。",
+          "mean": "With a little more patience, you could have succeeded."
+        },
+        {
+          "content": "君は今出発をすれば、当然間に合うはずだ。",
+          "transcription": "きみはこんしゅっぱつをすれば、とうぜんまにあうはずだ。",
+          "mean": "You ought to be on time if you start now."
+        },
+        {
+          "content": "あの馬に賭ければ勝つかもしれない。",
+          "transcription": "あのうまにかければかつかもしれない。",
+          "mean": "That horse may be a good bet."
+        },
+        {
+          "content": "よく調べれば、わかるに違いない。",
+          "transcription": "よくしらべれば、わかるにちがいない。",
+          "mean": "If you look into it carefully, you'll definitely understand."
+        },
+        {
+          "content": "中村さんが止めに入らなければ、ひどい喧嘩になっていたと思う。",
+          "transcription": "なかむらさんがとめにはいらなければ、ひどいけんかになっていたとおもう。",
+          "mean": "If Mr. Nakamura hadn't stepped in to stop it, I think it would have been a serious fight."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば…だろう"
+    }
+  ],
+  "title": "…ば…だろう => If ... then perhaps ...",
+  "_id": "f7ff14dae05876cac58b413693bda2bd"
+}

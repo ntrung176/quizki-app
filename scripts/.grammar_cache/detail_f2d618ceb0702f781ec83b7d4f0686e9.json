@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2478,
+  "usages": [
+    {
+      "explain": "Used to give the cause or reason for the event mentioned in the clause after. It's a friendly way of saying 「ので」(because). It's not used with superiors.",
+      "note": null,
+      "examples": [
+        {
+          "content": "熱があるんで、今日は学校を休みました。",
+          "transcription": "ねつがあるんで、きょうはがっこうをやすみました。",
+          "mean": "I have a fever, so I was absent from school today."
+        },
+        {
+          "content": "山田さんは誠実な人なんで、好きです。",
+          "transcription": "やまださんはせいじつなひとなんで、すきです。",
+          "mean": "I like Mr. Yamada because he is a sincere person."
+        },
+        {
+          "content": "車が故障したんで、私は遅刻しました。",
+          "transcription": "くるまがこしょうしたんで、わたしはちこくしました。",
+          "mean": "My car broke down, so I was late."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んで"
+    }
+  ],
+  "title": "んで => Because...",
+  "_id": "f2d618ceb0702f781ec83b7d4f0686e9"
+}

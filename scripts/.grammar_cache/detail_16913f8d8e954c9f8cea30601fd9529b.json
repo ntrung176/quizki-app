@@ -1,0 +1,56 @@
+{
+  "level": "N1",
+  "mobileId": 5037,
+  "usages": [
+    {
+      "explain": "「<ruby><rb>放題</rb><rp>(</rp><rt>ほうだい</rt><rp>)</rp></ruby>」 expresses the following ideas: <br/>Doing something freely to one's heart's content. \"As much as one pleases...\"<br/>Allowing something to happen or letting something occur in an uncontrolled manner. \"Without restraint...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "3000円でお寿司が食べ放題だったので、元を取るためにウニばかり食べた。",
+          "transcription": "さんぜんえんでおすしがたべほうだいだったので、もとをとるためにウニばかりたべた。",
+          "mean": "I got all-you-can-eat sushi for 3,000 yen, so I ate only the sea urchin to make up for it."
+        },
+        {
+          "content": "日頃の不満を言いたい放題言ったら、気分がすっきりした。",
+          "transcription": "ひごろのふまんをいいたいほうだいいったら、きぶんがすっきりした。",
+          "mean": "After expressing all my daily grievances, I felt refreshed."
+        },
+        {
+          "content": "2000円で飲み放題です。",
+          "transcription": "にせんえんでのみほうだいです。",
+          "mean": "All you can drink for 2000 yen."
+        },
+        {
+          "content": "その家は長い間手入れされていなかったので、荒れ放題だった。",
+          "transcription": "そのいえはながいあいだていれされていなかったので、あれほうだいだった。",
+          "mean": "The house had not been taken care of for a long time, so it was in a state of disrepair."
+        },
+        {
+          "content": "娘は身なりには気を使うが、部屋は散らかし放題だ。",
+          "transcription": "むすめはみなりにはきをつかうが、へやはちらかしほうだいだ。",
+          "mean": "My daughter takes care of her appearance, but her room is a mess."
+        },
+        {
+          "content": "最近の息子ときたら、髪もひげも伸び放題で、むさ苦しいといったらない。",
+          "transcription": "さいきんのむすこときたら、かみもひげものびほうだいで、むさくるしいといったらない。",
+          "mean": "When it comes to my son these days, his hair and beard grow as long as they want, so it's hard to say that he's ugly."
+        },
+        {
+          "content": "彼女は人の気持ちを考えず、いつも言いたい放題だ。",
+          "transcription": "かのじょはひとのきもちをかんがえず、いつもいいたいほうだいだ。",
+          "mean": "She doesn't care about other people's feelings and always says whatever she wants."
+        },
+        {
+          "content": "あんなやりたい放題の経営では、社員がやめていくのも無理はない。",
+          "transcription": "あんなやりたいほうだいのけいえいでは、しゃいんがやめていくのもむりはない。",
+          "mean": "With management doing whatever it wants, it's no wonder employees quit."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>+<ruby><rb>放題</rb><rp>(</rp><rt>ほうだい</rt><rp>)</rp></ruby><br/> Vたい+<ruby><rb>放題</rb><rp>(</rp><rt>ほうだい</rt><rp>)</rp></ruby>"
+    }
+  ],
+  "title": "放題 => doing as one pleases; to one's heart's content; leaving uncontrolled",
+  "_id": "16913f8d8e954c9f8cea30601fd9529b"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1785,
+  "usages": [
+    {
+      "explain": "Used to refer to things whose names cannot be remembered accurately.",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんとやらとは、うまく行っていますか。",
+          "transcription": "やまださんとやらとは、うまくいっていますか。",
+          "mean": "How is things going with Mr. Yamada and others?"
+        },
+        {
+          "content": "母が「コロッケ」とやらいう日本料理を作ってくれました。",
+          "transcription": "ははが「ころっけ」とやらいうにっぽんりょうりをつくってくれました。",
+          "mean": "My mother made a Japanese dish called ``croquettes.''"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + とやら"
+    }
+  ],
+  "title": "とやら => or whatever, or something like that…",
+  "_id": "f7ff14dae05876cac58b413693a6cf22"
+}

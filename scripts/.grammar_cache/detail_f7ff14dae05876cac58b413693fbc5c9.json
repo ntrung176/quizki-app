@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2400,
+  "usages": [
+    {
+      "explain": "Used for objects and events, indicating the meaning \"throughout everything, without any limitation.\" Synonymous with [全部] (all), [すべて] (everything).<br/>When related to people, \"だれもかれも\" is used. When related to places, \"どこもかも/どこもかしこも\" is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はまるで何もかも知っているように話す。",
+          "transcription": "かれはまるでなにもかもしっているようにはなす。",
+          "mean": "He speaks as if he knows everything."
+        },
+        {
+          "content": "火事で何もかもすっかり失ってしまった。",
+          "transcription": "かじでなにもかもすっかりうしなってしまった。",
+          "mean": "I lost everything in the fire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにもかも"
+    }
+  ],
+  "title": "なにもかも => anything and everything, just about everything",
+  "_id": "f7ff14dae05876cac58b413693fbc5c9"
+}

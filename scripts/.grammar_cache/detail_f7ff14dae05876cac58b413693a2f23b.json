@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1763,
+  "usages": [
+    {
+      "explain": "Used to express a certain quantity that is not specified, but not very large, by adding か after words indicating an indefinite quantity like 何本 (several bottles, several sticks ...), いくつ (several pieces)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "テーブルの上に何冊か本がある。",
+          "transcription": "てーぶるのうえになんさつかほんがある。",
+          "mean": "There are some books on the table."
+        },
+        {
+          "content": "植木鉢をいくつか買ってきて廊下に置こう。",
+          "transcription": "うえきばちをいくつかかってきてろうかにおこう。",
+          "mean": "Let's buy some flower pots and put them in the hallway."
+        }
+      ],
+      "mean": null,
+      "synopsis": "何 ＋ 数量詞 (quantity word)＋ か"
+    }
+  ],
+  "title": "...か => Some (people, things...)",
+  "_id": "f7ff14dae05876cac58b413693a2f23b"
+}

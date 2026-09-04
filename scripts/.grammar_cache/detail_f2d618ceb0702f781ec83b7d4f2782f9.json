@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2725,
+  "usages": [
+    {
+      "explain": "With the form「XもありYもある」, it expresses the meaning of both X and Y.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私にとっては、この本は有利でもあり無駄でもある。",
+          "transcription": "わたしにとっては、このほんはゆうりでもありむだでもある。",
+          "mean": "For me, this book is both an advantage and a waste."
+        },
+        {
+          "content": "リンさんは私の親友でもあり仲間でもある。",
+          "transcription": "りんさんはわたしのしんゆうでもありなかまでもある。",
+          "mean": "Mr. Lin is my best friend and colleague."
+        },
+        {
+          "content": "テレビを見ることは面白くもあり退屈でもある。",
+          "transcription": "てれびをみることはおもしろくもありたいくつでもある。",
+          "mean": "Watching TV is both interesting and boring."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + でもあり N + でもあるNa + でもあり Na + でもあるA-く + もあり A-く + もある"
+    }
+  ],
+  "title": "...もあり...もある => to also be; both… and ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f2782f9"
+}

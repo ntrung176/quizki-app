@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1920,
+  "usages": [
+    {
+      "explain": "Used with onomatopoeic words to describe the state of performing an action or impact. Sometimes, 「と」 can be omitted. If the onomatopoeic word is repeated, it can describe the state of an action or impact being repeated, or starting gradually bit by bit.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はゆっくりと立ち上がった。",
+          "transcription": "かのじょはゆっくりとたちあがった。",
+          "mean": "She stood up slowly."
+        },
+        {
+          "content": "ザーッと滝のように雨が降ってきた。",
+          "transcription": "ざーっとたきのようにあめがふってきた。",
+          "mean": "Down come the rain in torrents."
+        },
+        {
+          "content": "一歩踏み出すたびにズキズキと痛みが走る。",
+          "transcription": "いちほふみだすたびにずきずきといたみがはしる。",
+          "mean": "Every time I take a step, I feel a throbbing pain."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Onomatopoeia, onomatopoeia +と"
+    }
+  ],
+  "title": "と => (State of performing actions and movements)",
+  "_id": "f7ff14dae05876cac58b413693b88931"
+}

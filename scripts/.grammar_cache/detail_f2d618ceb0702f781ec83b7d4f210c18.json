@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2680,
+  "usages": [
+    {
+      "explain": "Used to loosely connect clauses before and after.",
+      "note": null,
+      "examples": [
+        {
+          "content": "姉は、今、病気で寝ています。",
+          "transcription": "あねは、いま、びょうきでねています。",
+          "mean": "My sister is sick in bed right now."
+        },
+        {
+          "content": "もし講義の途中で質問があれば手を上げて質問してください。",
+          "transcription": "もしこうぎのとちゅうでしつもんがあればてをあげてしつもんしてください。",
+          "mean": "If you have any questions during the lecture, please raise your hand and ask."
+        },
+        {
+          "content": "この取扱説明書をよく読んで、正しくご使用下さい。",
+          "transcription": "このとりあつかいせつめいしょをよくよんで、まさしくごしようください。",
+          "mean": "Please read this instruction manual carefully and use it correctly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...で, て"
+    }
+  ],
+  "title": "…で, て  => Because..., after...",
+  "_id": "f2d618ceb0702f781ec83b7d4f210c18"
+}

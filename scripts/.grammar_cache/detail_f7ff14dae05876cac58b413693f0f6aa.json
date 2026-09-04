@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2317,
+  "usages": [
+    {
+      "explain": "Often combined with 「だけ/のみ/ばかり」 afterwards to express the idea \"most conditions have been met, with very few remaining.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "みんなはほとんど集まって、あとは彼だけなのだが、なぜか約束の時間を過ぎても現れない。",
+          "transcription": "みんなはほとんどあつまって、あとはかれだけなのだが、なぜかやくそくのじかんをすぎてもあらわれない。",
+          "mean": "Almost everyone has gathered and he's the only one left, but for some reason he doesn't show up even after the appointed time."
+        },
+        {
+          "content": "会場は全部出来上がったし観客も出たし、あとは演説者が来るのを待つばかりだ。",
+          "transcription": "かいじょうはぜんぶできあがったしかんきゃくもでたし、あとはえんぜつしゃがくるのをまつばかりだ。",
+          "mean": "The venue is all set up, the audience is out, and now we just have to wait for the speakers to arrive."
+        },
+        {
+          "content": "サーカスのプログラムもうまく行って、あとは最後のアクロバットを残すのみとなった。",
+          "transcription": "さーかすのぷろぐらむもうまくいって、あとはさいごのあくろばっとをのこすのみとなった。",
+          "mean": "The circus program went well, and all that was left was the acrobatics."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あとは～だけ"
+    }
+  ],
+  "title": "あとは～だけ => Just ... left",
+  "_id": "f7ff14dae05876cac58b413693f0f6aa"
+}

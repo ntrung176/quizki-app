@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5148,
+  "usages": [
+    {
+      "explain": "「かなわない」 expresses dissatisfaction, discomfort, or the inability to tolerate a certain situation by the speaker. <br/>\nWhen this structure is used with a verb, the verb is often in the passive form. It is usually accompanied by こう or こんなに before it. It is rarely used in the past tense (かなわなかった) and does not go with verbs indicating natural occurrences (見える, 聞こえる, 思われる...). When used to talk about a third person, it requires additional speculative structures like よう or らしい... <br/>\nIn spoken language, the part ては can be contracted to ちゃ, and では can be contracted to じゃ.",
+      "note": null,
+      "examples": [
+        {
+          "content": "隣の工事がうるさくてかなわない。",
+          "transcription": "となりのこうじがうるさくてかなわない。",
+          "mean": "The construction work next door is so noisy."
+        },
+        {
+          "content": "私の家は駅から遠くて不便でかなわない。",
+          "transcription": "わたしのいえはえきからとおくてふべんでかなわない。",
+          "mean": "My house is far from the station and it is inconvenient."
+        },
+        {
+          "content": "セールスの人が何度も訪ねてきてしつこくてかなわない。",
+          "transcription": "セールスのひとがなんどもたずねてきてしつこくてかなわない。",
+          "mean": "The sales person keeps coming back and is persistent and I can't help it."
+        },
+        {
+          "content": "今は点検のためエレベータが使えない。不便でかなわないが、運動だと思って階段を使うしかない。",
+          "transcription": "いまはてんけんのためエレベータがつかえない。ふべんでかなわないが、うんどうだとおもってかいだんをつかうしかない。",
+          "mean": "The elevator is currently unavailable due to inspection. It's inconvenient and I can't beat it, but I have no choice but to use the stairs thinking of it as exercise."
+        },
+        {
+          "content": "同じことを何度も説明するのは、面倒でかなわない。",
+          "transcription": "おなじことをなんどもせつめいするのは、めんどうでかなわない。",
+          "mean": "Explaining the same thing over and over again is tedious and unachievable."
+        },
+        {
+          "content": "試験に遅れてはかなわないので、今日は早く寝よう。",
+          "transcription": "しけんにおくれてはかなわないので、きょうははやくねよう。",
+          "mean": "I don't want to be late for the exam, so I'll go to bed early today."
+        },
+        {
+          "content": "訴えられてはかなわないので、ニュースの該当部分を修正した。",
+          "transcription": "うったえられてはかなわないので、ニュースのがいとうぶぶんをしゅうせいした。",
+          "mean": "I didn't want to be sued, so I edited the relevant part of the news."
+        },
+        {
+          "content": "少し太ったからといって、こんなにご飯の量を減らされてはかなわない。",
+          "transcription": "すこしふとったからといって、こんなにごはんのりょうをへらされてはかなわない。",
+          "mean": "Just because I've gained a little weight, I can't stand having to eat so much less food."
+        },
+        {
+          "content": "毎日こう暑くちゃかなわないね。",
+          "transcription": "まいにちこうあつくちゃかなわないね。",
+          "mean": "It can't be this hot every day."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて(は)+かなわない<br/>\nA<s>い</s>くて(は)+かなわない<br/> A<s>な</s>で(は)+かなわない"
+    }
+  ],
+  "title": "かなわない => can't bear to; unable to; troublesome to; can't stand to ~",
+  "_id": "c3f9dad518fc426896593888e8d073d9"
+}

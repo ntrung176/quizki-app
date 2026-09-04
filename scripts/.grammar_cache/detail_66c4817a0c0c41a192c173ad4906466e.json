@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5062,
+  "usages": [
+    {
+      "explain": "「なりとも/せめて～だけでも」are used to present a minimum condition that satisfies the speaker, followed by their expectations or evaluations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お嬢さんに一目なりとも会わせていただけませんでしょうか。",
+          "transcription": "おじょうさんにひとめなりともあわせていただけませんでしょうか。",
+          "mean": "Would it be possible for me to meet your daughter at least once?"
+        },
+        {
+          "content": "多少なりとも、皆さんのお役に立てたようで嬉しいです。",
+          "transcription": "たしょうなりとも、みなさんのおやくにたてたようでうれしいです。",
+          "mean": "I'm glad that I was able to help you in some way."
+        },
+        {
+          "content": "3歳の娘からは、一時なりとも目を離すことができない。",
+          "transcription": "さんさいのむすめからは、いちじなりともめをはなすことができない。",
+          "mean": "I can't take my eyes off my 3-year-old daughter even for a moment."
+        },
+        {
+          "content": "わずかなりとも家計の足しになればと思い、アルバイトを始めました。",
+          "transcription": "わずかなりともかけいのたしになればとおもい、アルバイトとをはじめました。",
+          "mean": "I started working part-time in hopes of making some extra money for my family."
+        },
+        {
+          "content": "せめて千円だけでも貸してくれないかな？",
+          "transcription": "せめてせんえんだけでもかしてくれないかな？",
+          "mean": "Could you lend me at least 1,000 yen?"
+        },
+        {
+          "content": "せめて話だけでも聞いてよ...",
+          "transcription": "せめてはなしだけでもきいてよ...",
+          "mean": "At least listen to me..."
+        },
+        {
+          "content": "全部食べてとは言わないが、せめてサラダだけでも食べてほしい。",
+          "transcription": "ぜんぶたべてとはいわないが、せめてさらだだけでもたべてほしい。",
+          "mean": "I'm not saying you should eat everything, but I want you to at least eat the salad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+なりとも<br/>せめて+N+だけでも"
+    }
+  ],
+  "title": "なりとも/せめて～だけでも => at least; even just a little (adverbial particle)",
+  "_id": "66c4817a0c0c41a192c173ad4906466e"
+}

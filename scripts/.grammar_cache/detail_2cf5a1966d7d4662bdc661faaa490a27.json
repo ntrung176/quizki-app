@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5332,
+  "usages": [
+    {
+      "explain": "「どんなに～ても」expresses the idea that no matter how strong the condition in the first clause is, the result in the second clause will not be affected.\n\nYou can replace 「どんなに」 with いくら、どんな、いつ、どう、何度... to have similar meanings.",
+      "note": null,
+      "examples": [
+        {
+          "content": "どんなに暑くても寝るときはクーラーを消して寝る。",
+          "transcription": "どんなにあつくてもねるときはクーラーをけしてねる。",
+          "mean": "No matter how hot it is, when you go to bed, turn off the air conditioner."
+        },
+        {
+          "content": "ランナーはどんなに苦しくても諦めませんでした。",
+          "transcription": "ランナーはどんなにくるしくてもあきらめませんでした。",
+          "mean": "The runner never gave up no matter how hard it was."
+        },
+        {
+          "content": "どんなに離れていてもあなたのことがずっと好きです。",
+          "transcription": "どんなにはなれていてもあなたのことがずっとすきです。",
+          "mean": "I will always love you no matter how far apart we are."
+        },
+        {
+          "content": "どんなに眠くても、歯を磨きなさい。そうしないと、虫歯になるよ。",
+          "transcription": "どんなにねむくても、はをみがきなさい。そうしないと、むしばになるよ。",
+          "mean": "No matter how sleepy you are, brush your teeth. If you don't, you'll get cavities."
+        },
+        {
+          "content": "ギターを習い始めたが、どんなに練習しても全然うまくならない。",
+          "transcription": "ギターをならいはじめたが、どんなにれんしゅうしてもぜんぜんうまくならない。",
+          "mean": "I started learning to play the guitar, but no matter how much I practiced, I never got good at it."
+        },
+        {
+          "content": "いくら勉強しても日本語が上手にならないんですが、どうすればいいでしょうか。",
+          "transcription": "いくらべんきょうしてもにほんごがじょうずにならないんですが、どうすればいいでしょうか。",
+          "mean": "No matter how much I study, I can't get better at Japanese, what should I do?"
+        },
+        {
+          "content": "先生、いくら考えてもこの問題の答えが分からないんです。教えていただけませんか。",
+          "transcription": "せんせい、いくらかんがえてもこのもんだいのこたえがわからないんです。おしえていただけませんか。",
+          "mean": "Professor, no matter how much I think about it, I still don't know the answer to this question. could you please tell me."
+        },
+        {
+          "content": "あの人の名前は何度聞いても覚えられない。",
+          "transcription": "あのひとのなまえはなんどきいてもおぼえられない。",
+          "mean": "I can't remember that person's name no matter how many times I hear it."
+        },
+        {
+          "content": "私はいくらお酒を飲んでも顔色が変わらない。",
+          "transcription": "わたしはいくらおさけをのんでもかおいろがかわらない。",
+          "mean": "No matter how much alcohol I drink, my face never changes."
+        },
+        {
+          "content": "彼女の言っていることはどう考えてもおかしい。",
+          "transcription": "かのじょのいっていることはどうかんがえてもおかしい。",
+          "mean": "No matter how you think about it, what she's saying is strange."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どんなに+Vても<br/> どんなに+A<s>い</s>くても<br/> どんなに+A<s>な</s>でも<br/> どんなに+Nでも"
+    }
+  ],
+  "title": "どんなに～ても => no matter how (much)",
+  "_id": "2cf5a1966d7d4662bdc661faaa490a27"
+}

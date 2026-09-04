@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1813,
+  "usages": [
+    {
+      "explain": "Used to refer to a person or thing whose name is not known. Used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ロンドンのなんとかいう人から電話がありました。",
+          "transcription": "ろんどんのなんとかいうひとからでんわがありました。",
+          "mean": "I got a call from some guy in London."
+        },
+        {
+          "content": "以前山田さんは東京でなんとかいう会社で働いていたようだ。",
+          "transcription": "いぜんやまださんはとうきょうでなんとかいうかいしゃではたらいていたようだ。",
+          "mean": "It seems that Mr. Yamada previously worked at some company in Tokyo."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとかいう + N"
+    }
+  ],
+  "title": "なんとかいう => someone",
+  "_id": "f7ff14dae05876cac58b413693aa7208"
+}

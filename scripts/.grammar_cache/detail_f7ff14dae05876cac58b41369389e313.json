@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1571,
+  "usages": [
+    {
+      "explain": "Expresses a situation or state where a noticeable reaction is expected to occur, but it only appears faintly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は怒るでもなく、ただ静かにお茶を飲んでいる。",
+          "transcription": "かれはおこるでもなく、ただしずかにおちゃをのんでいる。",
+          "mean": "He doesn't get angry, he just quietly drinks tea."
+        },
+        {
+          "content": "子供はそんなに厳しく叱られても、悲しむでもなく、いつものように笑っていた。",
+          "transcription": "こどもはそんなにきびしくしかられても、かなしむでもなく、いつものようにわらっていた。",
+          "mean": "Even though the child was scolded so harshly, he did not feel sad and was smiling as usual."
+        },
+        {
+          "content": "彼女は花をもらっても、喜ぶでもなく、何か心配する様子だ。",
+          "transcription": "かのじょははなをもらっても、よろこぶでもなく、なにかしんぱいするようすだ。",
+          "mean": "She doesn't seem happy when she receives flowers, but seems worried about something."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + でもない"
+    }
+  ],
+  "title": "でもない => neither... nor...",
+  "_id": "f7ff14dae05876cac58b41369389e313"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1035,
+  "usages": [
+    {
+      "explain": "Used to present a different opinion from the content mentioned by the other party, based on temporarily acknowledging that these opinions may be correct.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この戦術はあまりにリスクだ。確かにリスクかもしれないが、やってみると逆転勝ちの機会があると思う。",
+          "transcription": "このせんじゅつはあまりにりすくだ。たしかにりすくかもしれないが、やってみるとぎゃくてんがちのきかいがあるとおもう。",
+          "mean": "This tactic is too risky. It may certainly be a risk, but I think there is a chance of a come-from-behind victory if you try."
+        },
+        {
+          "content": "なるほど君の言ったとおりかもしれないが、失敗しても大丈夫だよ。",
+          "transcription": "なるほどきみのいったとおりかもしれないが、しっぱいしてもだいじょうぶだよ。",
+          "mean": "You may be right, but it's okay to fail."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たしかに + V・A・Na・N + かもしれない <br/>なるほど + V・A・Na・N + かもしれない <br/>"
+    }
+  ],
+  "title": "たしかに/なるほど～かもしれない => might; perhaps",
+  "_id": "f7ff14dae05876cac58b4136933f38d7"
+}

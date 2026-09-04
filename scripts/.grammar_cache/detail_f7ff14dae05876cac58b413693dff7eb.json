@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2197,
+  "usages": [
+    {
+      "explain": "Originally a noun. If it follows a sentence or clause, it becomes the speaker's reasoning after presenting the current situation. This is a stylish expression often seen in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女が死んでしまった現在、もうそんなことを言っても意味がないよ。",
+          "transcription": "かのじょがしんでしまったげんざい、もうそんなことをいってもいみがないよ。",
+          "mean": "Now that she's dead, there's no point in saying things like that anymore."
+        },
+        {
+          "content": "事故の原因が明らかになった現在、われわれは何をすべきか。",
+          "transcription": "じこのげんいんがあきらかになったげんざい、われわれはなにをすべきか。",
+          "mean": "Now that the cause of the accident has been revealed, what should we do?"
+        },
+        {
+          "content": "その教育改革案がいまだに大方の賛同を得られていない現在、新たな案を考えておくことも重要なことではないか。",
+          "transcription": "そのきょういくかいかくあんがいまだにおおかたのさんどうをえられていないげんざい、あらたなあんをかんがえておくこともじゅうようなことではないか。",
+          "mean": "Now that the educational reform plan still does not have the support of most people, it is important to consider new ideas."
+        }
+      ],
+      "mean": null,
+      "synopsis": "This is a way of speaking, with the nature of writing."
+    }
+  ],
+  "title": "げんざい => now, current, present, present time",
+  "_id": "f7ff14dae05876cac58b413693dff7eb"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2681,
+  "usages": [
+    {
+      "explain": "Indicates an increase or decrease, or a change in a small quantity compared to the current state. 「もうちょっと」is more casual than 「もうすこし」and is often used in everyday conversations. Not used for large quantities.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お茶をもう少し下さい。",
+          "transcription": "おちゃをもうすこしください。",
+          "mean": "Give me some more tea."
+        },
+        {
+          "content": "スープに塩をもう少し入れた。",
+          "transcription": "すーぷにしおをもうすこしいれた。",
+          "mean": "I added a little more salt to the soup."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もうすこし"
+    }
+  ],
+  "title": "もうすこし => A little more (Quantity only)",
+  "_id": "f2d618ceb0702f781ec83b7d4f213202"
+}

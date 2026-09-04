@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5369,
+  "usages": [
+    {
+      "explain": "「まで」expresses the extreme degree of an event, indicating that it not only happened as expected but also to an unexpected extent. This structure conveys the speaker's surprise or criticism.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この魚は骨まで食べられますよ。",
+          "transcription": "このさかなはほねまでたべられますよ。",
+          "mean": "You can eat this fish, even the bones."
+        },
+        {
+          "content": "あなたまで私を疑うのですか。",
+          "transcription": "あなたまでわたしをうたがうのですか。",
+          "mean": "Do you even doubt me?"
+        },
+        {
+          "content": "忙しいのは分かりますが、お正月まで働くんですか。",
+          "transcription": "いそがしいのはわかりますが、おしょうがつまではたらくんですか。",
+          "mean": "I know you're busy, but are you going to work until New Year's?"
+        },
+        {
+          "content": "彼は頭がいいし、優しいし、それにスポーツまで出来る。",
+          "transcription": "かれはあたまがいいし、やさしいし、それにスポーツまでできる。",
+          "mean": "He's smart, kind, and even good at sports."
+        },
+        {
+          "content": "こんなゴミまで資源になるんですね。",
+          "transcription": "こんなゴミまでしげんになるんですね。",
+          "mean": "Even trash like this can be turned into a resource."
+        },
+        {
+          "content": "地震で家だけじゃなく、家族まで失ってしまった。",
+          "transcription": "じしんでいえだけじゃなく、かぞくまでうしなってしまった。",
+          "mean": "I lost not only my home but also my family in the earthquake."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+まで"
+    }
+  ],
+  "title": "まで => until; as far as; to (an extent); even ~",
+  "_id": "a3a46538207d43efbae4dd520c6e550e"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5042,
+  "usages": [
+    {
+      "explain": "「かたわら」expresses the idea of doing an additional task or activity alongside the main one. These two tasks may occur at different times but must happen within the same timeframe and are usually more ongoing than「ながら」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父は農業のかたわら、小さい店を経営している。",
+          "transcription": "ちちはのうぎょうのかたわら、ちいさいみせをけいえいしている。",
+          "mean": "In addition to farming, my father runs a small shop."
+        },
+        {
+          "content": "彼女は、女優の仕事をするかたわら、家事もきちんとやっている。",
+          "transcription": "かのじょは、じょゆうのしごとをするかたわら、かじもきちんとやっている。",
+          "mean": "While working as an actress, she also does housework."
+        },
+        {
+          "content": "その小説家は執筆のかたわら、趣味でピアノを弾いている。",
+          "transcription": "そのしょうせつかはしっぴつのかたわら、しゅみでピアノをひいている。",
+          "mean": "In addition to writing, the novelist plays the piano as a hobby."
+        },
+        {
+          "content": "彼は研究のかたわら、その専門を生かして会社を興した。",
+          "transcription": "かれはけんきゅうのかたわら、そのせんもんをいかしてかいしゃをおこした。",
+          "mean": "While doing research, he used his expertise to start a company."
+        },
+        {
+          "content": "林教授は大学で教えるかたわら、エッセイストとしても活躍している。",
+          "transcription": "はやしきょうじゅはだいがくでおしえるかたわら、エッセイストとしてもかつやくしている。",
+          "mean": "In addition to teaching at universities, Professor Hayashi is also active as an essayist."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N の+かたわら<br/> V (root form)+かたわら<br/>"
+    }
+  ],
+  "title": "かたわら => while; besides; at the same time; in addition",
+  "_id": "996a67502fdc4985841391841b8bf615"
+}

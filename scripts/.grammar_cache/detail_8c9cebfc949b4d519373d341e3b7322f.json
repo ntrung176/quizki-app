@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5236,
+  "usages": [
+    {
+      "explain": "「ろくに～ない」is used to indicate that an action is not done properly, adequately, or thoroughly. Sometimes this structure also carries a sense of ridicule or mockery.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨晩はろくに寝なかった。",
+          "transcription": "さくばんはろくにねなかった。",
+          "mean": "I didn't sleep well last night."
+        },
+        {
+          "content": "彼とはろくに話をしたこともない。",
+          "transcription": "かれとはろくにはなしをしたこともない。",
+          "mean": "I've never really talked to him."
+        },
+        {
+          "content": "彼の字は汚くて、ろくに読めない。",
+          "transcription": "かれのじはきたなくて、ろくによめない。",
+          "mean": "His handwriting is dirty and difficult to read."
+        },
+        {
+          "content": "彼女は昨日からろくに何も食べなかった。",
+          "transcription": "かのじょはきのうからろくになにもたべなかった。",
+          "mean": "She hasn't eaten much since yesterday."
+        },
+        {
+          "content": "若い頃、日本語をたくさん学んだが、今はろくに覚えない。",
+          "transcription": "わかいころ、にほんごをたくさんまなんだが、いまはろくにおぼえない。",
+          "mean": "I learned a lot of Japanese when I was young, but now I can't remember it very well."
+        },
+        {
+          "content": "入学試験が近いのに、彼はろくに勉強しないんだ。",
+          "transcription": "にゅうがくしけんがちかいのに、かれはろくにべんきょうしないんだ。",
+          "mean": "Even though the entrance exam is coming up, he doesn't study hard."
+        },
+        {
+          "content": "彼はろくに働かないくせに、給料のことに文句を言っています。",
+          "transcription": "かれはろくにはたらかないくせに、きゅうりょうのことにもんくをいっています。",
+          "mean": "Even though he doesn't work very hard, he complains about his salary."
+        },
+        {
+          "content": "彼は一人暮らししたことがないから、掃除と洗濯するのはろくにできない。",
+          "transcription": "かれはひとりぐらししたことがないから、そうじとせんたくするのはろくにできない。",
+          "mean": "He's never lived alone, so he's bad at cleaning and doing laundry."
+        },
+        {
+          "content": "あいつはろくに仕事をしないくせに、食べるときは人の二倍食べた。",
+          "transcription": "あいつはろくにしごとをしないくせに、たべるときはひとのにばいたべた。",
+          "mean": "Even though he didn't do much work, when he did eat, he ate twice as much as other people."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ろくに+Vない / Vなかった"
+    }
+  ],
+  "title": "ろくに～ない => not well; not enough; improperly; insufficiently; unsatisfactorily ​~",
+  "_id": "8c9cebfc949b4d519373d341e3b7322f"
+}

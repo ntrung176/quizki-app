@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2471,
+  "usages": [
+    {
+      "explain": "Describes a hypothetical condition of an event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は雨なんじゃ、明日に試合をずらさなければならない。",
+          "transcription": "きょうはあめなんじゃ、あしたにしあいをずらさなければならない。",
+          "mean": "It's raining today, so we have to move the game to tomorrow."
+        },
+        {
+          "content": "そんなに臆病なんじゃ、彼女ができないよ。",
+          "transcription": "そんなにおくびょうなんじゃ、かのじょができないよ。",
+          "mean": "You can't get a girlfriend if you're that cowardly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na-な ・N-な + んじゃ"
+    }
+  ],
+  "title": "んじゃ => If ... then...",
+  "_id": "f2d618ceb0702f781ec83b7d4f0594ec"
+}

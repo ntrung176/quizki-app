@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5542,
+  "usages": [
+    {
+      "explain": "「尊敬語」(Sonkeigo) is a form of speech used to show respect from the speaker to the listener or a third party by elevating them, specifically by honoring their actions or status.<br/>\nRegarding the addition of お (o) or ご (go) to Group III verbs:\nAdd ご (go) to verbs that have pure Chinese origin and are read entirely in onyomi (e.g., 説明、解決...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "社長は2時に来られます。",
+          "transcription": "しゃちょうはにじにこられます。",
+          "mean": "The president will come at 2 o'clock."
+        },
+        {
+          "content": "たばこを辞められたんですか。",
+          "transcription": "たばこをやめられたんですか。",
+          "mean": "Have you been able to quit smoking?"
+        },
+        {
+          "content": "山田課長はもうお帰りになりました。",
+          "transcription": "やまだかちょうはもうおかえりになりました。",
+          "mean": "Manager Yamada has already returned home."
+        },
+        {
+          "content": "社長は会議の予定をお決めになりました。",
+          "transcription": "しゃちょうはかいぎのよていをおきめになりました。",
+          "mean": "The president has decided on the schedule for the meeting."
+        },
+        {
+          "content": "今から調べますので、少々お待ちください。",
+          "transcription": "いまからしらべますので、しょうしょうおまちください。",
+          "mean": "I'll look into it now, so please wait a moment."
+        },
+        {
+          "content": "あちらからお入りください。",
+          "transcription": "あちらからおはいりください。",
+          "mean": "Please enter from there."
+        },
+        {
+          "content": "お名前をご確認ください。",
+          "transcription": "おなまえをごかくにんください。",
+          "mean": "Please check your name."
+        },
+        {
+          "content": "お忙しいところに申し訳ございません。",
+          "transcription": "おいそがしいところにもうしわけございません。",
+          "mean": "We apologize for the inconvenience."
+        },
+        {
+          "content": "すみません、表課長はいらっしゃいませんか。",
+          "transcription": "すみません、おもてかちょうはいらっしゃいませんか。",
+          "mean": "Excuse me, is the manager here?"
+        },
+        {
+          "content": "どうぞ召し上がってください。",
+          "transcription": "どうぞめしあがってください。",
+          "mean": "Please enjoy it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "1. V (passive form)<br/>\n2. おV<s>ます</s>+になります<br/>\n(「わけだ」is not used with Group II verbs that have one syllable before る and Group III verbs.)<br/>\n3. おV(I, II)<s>ます</s>+ください<br/>\n お/ごV(III)<s>します</s>+ください<br>\n4. お/ご+N/Aい/Aな/adverbs<br/>\n5. Special verbs of honorific expressions<br>\n行きます/来ます/います ➔ いらっしゃいます<br/>\n食べます/飲みます ➔ 召し上がります<br/>\nします ➔ なさいます<br/>\n言います ➔ おっしゃいます<br/>\n知っています ➔ ご存じです<br/>\n見ます ➔ ご覧になります<br/>\nv.v</br></br>"
+    }
+  ],
+  "title": "尊敬語 => Honorifics",
+  "_id": "4128ceacc23f46f8949820711a1fe4e6"
+}

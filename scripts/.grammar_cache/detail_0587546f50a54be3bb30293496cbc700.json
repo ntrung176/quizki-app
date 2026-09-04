@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5294,
+  "usages": [
+    {
+      "explain": "「わけではない」 helps the speaker negate a statement that the listener might have assumed to be true based on recent events or common sense.",
+      "note": null,
+      "examples": [
+        {
+          "content": "欲しくないわけではないけれど、お金がないから買えないんです。",
+          "transcription": "ほしくないわけではないけれど、おかねがないからかえないんです。",
+          "mean": "It's not that I don't want it, but I can't buy it because I don't have the money."
+        },
+        {
+          "content": "テレビはつけてあるが、見ているわけでもない。",
+          "transcription": "テレビはつけてあるが、みているわけでもない。",
+          "mean": "The TV is on, but I'm not watching it."
+        },
+        {
+          "content": "毎日牛乳を飲んでいるのは体にいいからで、特に好きなわけではない。",
+          "transcription": "まいにちぎゅうにゅうをのんでいるのはからだにいいからで、とくにすきなわけではない。",
+          "mean": "I drink milk every day because it's good for me, and I don't particularly like it."
+        },
+        {
+          "content": "旅行に行きたくないわけではないが、色々忙しくて行けない。",
+          "transcription": "りょこうにいきたくないわけではないが、いろいろいそがしくていけない。",
+          "mean": "It's not that I don't want to go on a trip, but I'm busy with various things and can't go."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+わけではない / わけでもない<br/>Aい (formal form)+わけではない / わけでもない<br/>Aな (formal form)+わけではない / わけでもない<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)<br/>N (formal form)+わけではない / わけでもない<br/>(In this particular case: Nだ ➔ N<s>だ</s>な)"
+    }
+  ],
+  "title": "わけではない => It doesn’t mean that; It is not the case that; I don’t mean that; It is not true that ~",
+  "_id": "0587546f50a54be3bb30293496cbc700"
+}

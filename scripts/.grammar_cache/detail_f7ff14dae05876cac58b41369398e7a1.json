@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1692,
+  "usages": [
+    {
+      "explain": "✦ Meaning: Whether or not.<br/>✦ The following part usually contains content like: regardless of how it is, still act like that.",
+      "note": null,
+      "examples": [
+        {
+          "content": "天気であろうとなかろうと行く。",
+          "transcription": "てんきであろうとなかろうといく。",
+          "mean": "Weather or not, I'll go."
+        },
+        {
+          "content": "私は男の子であろうと女の子であろうと仲良くしたい。",
+          "transcription": "わたしはおとこのこであろうとおんなのこであろうとなかよくしたい。",
+          "mean": "I want to get along well with both boys and girls."
+        },
+        {
+          "content": "&amp;nbsp;好きであろうとなかろうと、勉強は根気よく続けなければだめだ。",
+          "transcription": "&amp;nbsp;すきであろうとなかろうと、べんきょうはこんきよくつづけなければだめだ。",
+          "mean": "&amp;amp;nbsp;Whether you like it or not, you have to persevere in your studies."
+        },
+        {
+          "content": "彼が有名であろうとなかろうと、つり仲間としてはほかの人と同じだ。",
+          "transcription": "かれがゆうめいであろうとなかろうと、つりなかまとしてはほかのひととおなじだ。",
+          "mean": "Whether he's famous or not, he's just a fishing buddy like anyone else."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N／Na + であろうとなかろうと"
+    }
+  ],
+  "title": "～であろうとなかろうと => whoever; whatever; however; even ~",
+  "_id": "f7ff14dae05876cac58b41369398e7a1"
+}

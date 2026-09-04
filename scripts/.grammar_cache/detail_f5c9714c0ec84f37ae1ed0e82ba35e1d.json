@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5270,
+  "usages": [
+    {
+      "explain": "「ては～ては」describes two actions happening alternately, repeatedly. This structure is often used with pairs of antonymous verbs. The positions of the two verbs can be swapped in the second repetition. Sometimes, the second repetition is not necessary.",
+      "note": null,
+      "examples": [
+        {
+          "content": "書いては消し、書いては消し、やっと手紙を書き上げた。",
+          "transcription": "かいてはけし、かいてはけし、やっとてがみをかきあげた。",
+          "mean": "I wrote and erased, wrote and erased, and finally finished writing the letter."
+        },
+        {
+          "content": "立っては座り、座っては立ち、気分が落ち着かない。",
+          "transcription": "たってはすわり、すわってはたち、きぶんがおちつかない。",
+          "mean": "I stand up and sit down, sit down and stand up, and I don't feel at ease."
+        },
+        {
+          "content": "食べては寝て、寝ては食べの生活は必ず太る。",
+          "transcription": "たべてはねて、ねてはたべのせいかつはかならずふとる。",
+          "mean": "A lifestyle of eating and sleeping and sleeping and eating will definitely make you gain weight."
+        },
+        {
+          "content": "雨が降ってはやんで降ってはやんでの日が続いている。",
+          "transcription": "あめがふってはやんでふってはやんでのひがつづいている。",
+          "mean": "The rain continues to rain and then stop."
+        },
+        {
+          "content": "学んだことを覚えては忘れ、覚えては忘れを繰り返している。",
+          "transcription": "まなんだことをおぼえてはわすれ、おぼえてはわすれをくりかえしている。",
+          "mean": "I keep remembering and forgetting what I learned, and repeating remembering and forgetting."
+        },
+        {
+          "content": "久しぶりに山登りをした。歩いては休み、していたので、頂上まで辿り着くのはずいぶん長い時間かかってしまった。",
+          "transcription": "ひさしぶりにやまのぼりをした。あるいてはやすみ、していたので、ちょうじょうまでたどりつくのはずいぶんながいじかんかかってしまった。",
+          "mean": "It's been a while since I climbed a mountain. Since I was walking and resting, it took me a long time to reach the top."
+        },
+        {
+          "content": "食べては寝て、食べては寝てという生活を続けていたら、この1ヵ月の夏休みで5キロも太ってしまった。",
+          "transcription": "たべてはねて、たべてはねてというせいかつをつづけていたら、このいっかげつのなつやすみでごキロもふとってしまった。",
+          "mean": "I continued my life of eating and sleeping, eating and sleeping, and over the past month of summer vacation I gained 5 kg."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1ては+V2て、 V1ては+V2て<br/> V1ては+V2<s>ます</s>、 V1ては+\n V2<s>ます</s>"
+    }
+  ],
+  "title": "ては～ては => repetitive situations/actions",
+  "_id": "f5c9714c0ec84f37ae1ed0e82ba35e1d"
+}

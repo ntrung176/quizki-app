@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 800,
+  "usages": [
+    {
+      "explain": "✦ A noun repeated twice. In this expression, there's an implicit understanding that the person or thing also has limitations and flaws, conveying the meaning \"in proportion to that, suitable for that, acknowledging its limitations and flaws.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは彼らなりにいろいろ努力しているのだから、それは認めてやってほしい。",
+          "transcription": "かれらはかれらなりにいろいろどりょくしているのだから、それはみとめてやってほしい。",
+          "mean": "They are making a lot of effort in their own way, so I want them to recognize that."
+        },
+        {
+          "content": "私は私なりに考えて子供をしつけてきたつもりです。",
+          "transcription": "わたしはわたしなりにかんがえてこどもをしつけてきたつもりです。",
+          "mean": "I have tried to discipline my child in my own way."
+        },
+        {
+          "content": "古い機械は古い機械なりに、年代を経た趣(おもむき)と手慣れた使いやすさがある。",
+          "transcription": "ふるいきかいはふるいきかいなりに、ねんだいをへたおもむき(おもむき)とてなれたつかいやすさがある。",
+          "mean": "Old machines, like old machines, have a timeless feel and are easy to use."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N は N なり"
+    }
+  ],
+  "title": "～ は...なり => ～In a way (to the best of my ability...)",
+  "_id": "f7ff14dae05876cac58b4136931edc20"
+}

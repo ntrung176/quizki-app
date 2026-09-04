@@ -1,0 +1,33 @@
+{
+  "level": "N5",
+  "mobileId": 2966,
+  "usages": [
+    {
+      "explain": "何をしますか（なにをしますか）is used to ask \"What will you do?\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "日曜日何をしますか。",
+          "transcription": "にちようびなにをしますか。",
+          "mean": "What will you do on Sunday?"
+        },
+        {
+          "content": "夕べ何をしましたか。",
+          "transcription": "ゆうべなにをしましたか。",
+          "mean": "What did you do in the evening?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "何をしますか"
+    },
+    {
+      "explain": "Note: You can add 「は」after the time noun to clarify the topic of the sentence.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "何をしますか => What are you doing...",
+  "_id": "f2d618ceb0702f781ec83b7d4f452af8"
+}

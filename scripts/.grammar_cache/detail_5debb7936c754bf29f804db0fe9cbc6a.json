@@ -1,0 +1,46 @@
+{
+  "level": "N4",
+  "mobileId": 5573,
+  "usages": [
+    {
+      "explain": "The 「ようだ」is a way for the speaker to express their subjective conjecture based on information received through the senses.<br/> \nSometimes the adverb どうも with the meaning \"somewhat, seems like\" is used in conjunction with this structure.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは色々な日本料理を注文しています。日本料理が好きなようです。",
+          "transcription": "かれらはいろいろなにほんりょうりをちゅうもんしています。にほんりょうりがすきなようです。",
+          "mean": "They order various Japanese dishes. It seems like you like Japanese cuisine."
+        },
+        {
+          "content": "教室に来たけど誰もいない。今日は授業がないようだ。",
+          "transcription": "きょうしつにきたけどだれもいない。きょうはじゅぎょうがないようだ。",
+          "mean": "I came to the classroom, but no one was there. It seems there are no classes today."
+        },
+        {
+          "content": "この家からいい匂いがする。どうやら晩ご飯はカレーのようだ。",
+          "transcription": "このいえからいいにおいがする。どうやらばんごはんはカレーのようだ。",
+          "mean": "This house smells good. Apparently dinner is curry."
+        },
+        {
+          "content": "あのレストランはいつも混んでいます。料理はおいしいようです。",
+          "transcription": "あのレストランはいつもこんでいます。りょうりはおいしいようです。",
+          "mean": "That restaurant is always crowded. The food looks delicious."
+        },
+        {
+          "content": "アンさんはずっと勉強していますね。宿題がたくさんあるようです。",
+          "transcription": "アンさんはずっとべんきょうしていますね。しゅくだいがたくさんあるようです。",
+          "mean": "Anne has been studying all the time. It seems like you have a lot of homework to do."
+        },
+        {
+          "content": "『人が大勢集まっていますね。』『事故のようですね。パトカーと救急車が来ていますよ。』",
+          "transcription": "『ひとがおおぜいあつまっていますね。』『じこのようですね。パトカーときゅうきゅうしゃがきていますよ。』",
+          "mean": "``There are a lot of people gathered here. ``It looks like an accident.'' A police car and an ambulance are coming. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+ようだ<br/>Aい (formal form)+ようだ<br/>Aな (formal form)+ようだ<br>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>)\n<br/>N (formal form)+ようだ<br/>(In this particular case: Nだ ➔ Nの)</br>"
+    }
+  ],
+  "title": "ようだ => appears; seems; looks as if ~",
+  "_id": "5debb7936c754bf29f804db0fe9cbc6a"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2050,
+  "usages": [
+    {
+      "explain": "Used to express speculation. In its dictionary form, 「思う」always expresses the speaker's judgment, but if it's in the form of 「と思った」, it can express the judgment of a third-person subject.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の証言は嘘なのではないかと思う。",
+          "transcription": "かれのしょうげんはうそなのではないかとおもう。",
+          "mean": "I think his testimony is a lie."
+        },
+        {
+          "content": "小林さんは私たちが頼りないのではないかと思ったそうです。",
+          "transcription": "こばやしさんはわたしたちがたよりないのではないかとおもったそうです。",
+          "mean": "Mr. Kobayashi seemed to think that we were unreliable."
+        },
+        {
+          "content": "彼女は父親が入院したのを知っているのではないかと思う。",
+          "transcription": "かのじょはちちおやがにゅういんしたのをしっているのではないかとおもう。",
+          "mean": "I think she knows that her father was hospitalized."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + のではないかとおもう <br/>Na・N + (なの)ではないかとおもう"
+    }
+  ],
+  "title": "ではないかとおもう => I think perhaps, maybe, probably... too much",
+  "_id": "f7ff14dae05876cac58b413693cac3de"
+}

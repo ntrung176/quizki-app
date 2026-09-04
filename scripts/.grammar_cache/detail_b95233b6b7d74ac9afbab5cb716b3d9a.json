@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5231,
+  "usages": [
+    {
+      "explain": "「折には」is a formal way to say \"when\" or \"on occasion,\" often used in writing, letters, etc., especially referring to events in the near future. It can be translated as \"at the time of\" or \"on the occasion of.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "来日の折には、ぜひこちらにお立ち寄りください。",
+          "transcription": "らいにちのおりには、ぜひこちらにおたちよりください。",
+          "mean": "Please feel free to stop by here when you come to Japan."
+        },
+        {
+          "content": "次にお目にかかった折に、お借りしていた本をお返しします。",
+          "transcription": "つぎにおめにかかったおりに、おかりしていたほんをおかえしします。",
+          "mean": "The next time I see you, I will return the book you borrowed."
+        },
+        {
+          "content": "この件は後ほど会議の折に詳しくご説明申し上げます。",
+          "transcription": "このけんはのちほどかいぎのおりにくわしくごせつめいもうしあげます。",
+          "mean": "I will explain this matter in detail at a later meeting."
+        },
+        {
+          "content": "東京にいらっしゃる折には、ぜひ遊びにきてくださいね。",
+          "transcription": "とうきょうにいらっしゃるおりには、ぜひあそびにきてくださいね。",
+          "mean": "Please come and visit us when you are in Tokyo."
+        },
+        {
+          "content": "寒さが厳しい折、体調を崩されませんようお気をつけください。",
+          "transcription": "さむさがきびしいおり、たいちょうをくずされませんようおきをつけください。",
+          "mean": "Please take care not to lose your physical condition during the severe cold weather."
+        },
+        {
+          "content": "今度お宅におうかがいする折には、美味しいワインをお持ちします。",
+          "transcription": "こんどおたくにおうかがいするおりには、おいしいワインをおもちします。",
+          "mean": "Next time I visit your home, I will bring you some delicious wine."
+        },
+        {
+          "content": "高校時代の恩師にお会いしたおり、先生のお書きになった本を見せていただいた。",
+          "transcription": "こうこうじだいのおんしにおあいしたおり、せんせいのおがきになったほんをみせていただいた。",
+          "mean": "I met my teacher from high school, and he showed me a book he had written."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+折(に) / 折(には)<br/> Vた+折(に) / 折(には)<br/> Nの+折(に) / 折(には)"
+    }
+  ],
+  "title": "折には => when the chance to 〜 comes",
+  "_id": "b95233b6b7d74ac9afbab5cb716b3d9a"
+}

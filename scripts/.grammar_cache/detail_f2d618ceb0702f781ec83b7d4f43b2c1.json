@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2953,
+  "usages": [
+    {
+      "explain": "Used to ask about impressions, opinions, or feelings of someone about something done, a place visited, or a person met.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本のお寺はどうですか。",
+          "transcription": "にほんのおてらはどうですか。",
+          "mean": "What about Japanese temples?"
+        },
+        {
+          "content": "コンサートを見に行くのはどうですか。",
+          "transcription": "こんさーとをみにいくのはどうですか。",
+          "mean": "How about going to see a concert?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + はどうですか\nV-る/ V-た/ V-ないの + はどうですか"
+    }
+  ],
+  "title": "はどうですか => how about; how is",
+  "_id": "f2d618ceb0702f781ec83b7d4f43b2c1"
+}

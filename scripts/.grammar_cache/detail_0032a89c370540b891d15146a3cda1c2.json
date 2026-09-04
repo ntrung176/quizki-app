@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5108,
+  "usages": [
+    {
+      "explain": "The phrase \"「だけましだ」\" is used to express a situation that may not be very good, but it's still manageable, and there's still a bit of luck or relief.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今日は暑いが、湿度が高くないだけましだ。",
+          "transcription": "きょうはあついが、しつどがたかくないだけましだ。",
+          "mean": "It's hot today, but the humidity isn't too high."
+        },
+        {
+          "content": "給料が減ったけれど、首にならないだけましだ。",
+          "transcription": "きゅうりょうがへったけれど、くびにならないだけましだ。",
+          "mean": "My salary has been reduced, but I'm better off not getting fired."
+        },
+        {
+          "content": "僕のアパートは、狭くて高いけれど、便利なだけましだ。",
+          "transcription": "ぼくのアパートは、せまくてたかいけれど、べんりなだけましだ。",
+          "mean": "My apartment is small and expensive, but it's better because it's more convenient."
+        },
+        {
+          "content": "毎日残業で大変だが、残業代がしっかり出るだけましだ。",
+          "transcription": "まいにちざんぎょうでたいへんだが、ざんぎょうだいがしっかりでるだけましだ。",
+          "mean": "It's hard work because I have to work overtime every day, but it's better because I get paid for the overtime."
+        },
+        {
+          "content": "今度のアルバイト、時給は安いけど、交通費が出るだけましだ。",
+          "transcription": "こんどのアルバイト、じきゅうはやすいけど、こうつうひがでるだけましだ。",
+          "mean": "The hourly wage for my next part-time job is low, but it's worth the transportation expenses."
+        },
+        {
+          "content": "このアパートは小さくてあまり綺麗じゃないけど、会社から近いだけましだ。",
+          "transcription": "このアパートはちいさくてあまりきれいじゃないけど、かいしゃからちかいだけましだ。",
+          "mean": "This apartment is small and not very clean, but it's better because it's closer to work."
+        },
+        {
+          "content": "大学入試のころは雪が多い。今日は寒いけれど、雪が降らないだけましだ。",
+          "transcription": "だいがくにゅうしのころはゆきがおおい。きょうはさむいけれど、ゆきがふらないだけましだ。",
+          "mean": "There is a lot of snow around the time of university entrance exams. It's cold today, but it's better because it doesn't snow."
+        },
+        {
+          "content": "車とぶつかって私の自転車が壊れてしまったが、怪我がなかっただけましだ。",
+          "transcription": "くるまとぶつかってわたしのじてんしゃがこわれてしまったが、けががなかっただけましだ。",
+          "mean": "My bicycle was damaged when I was hit by a car, but I'm glad I wasn't hurt."
+        },
+        {
+          "content": "ガンの手術で貯金のほとんどが無くなってしまったが、命があるだけましだ。",
+          "transcription": "ガンのしゅじゅつでちょきんのほとんどがなくなってしまったが、いのちがあるだけましだ。",
+          "mean": "Cancer surgery wiped out most of my savings, but I'm glad I'm still alive."
+        },
+        {
+          "content": "泥棒に入られたが、金庫が無事なだけましだ。",
+          "transcription": "どろぼうにはいられたが、きんこがぶじなだけましだ。",
+          "mean": "The safe was broken into by a thief, but I'm glad the safe is safe."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+だけましだ<br/>\n(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s><br/> Nだ ➔ N<s>だ</s>である<br/>\nNじゃない ➔ Nじゃない/Nでない)"
+    }
+  ],
+  "title": "だけましだ => It’s better than; One should feel grateful for ~",
+  "_id": "0032a89c370540b891d15146a3cda1c2"
+}

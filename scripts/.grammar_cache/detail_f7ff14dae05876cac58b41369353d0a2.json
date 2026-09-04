@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1190,
+  "usages": [
+    {
+      "explain": "Used when presenting thoughts that are generally recognized as reasonable, based on various grounds. Often used in formal written styles.",
+      "note": null,
+      "examples": [
+        {
+          "content": "事故の原因は、運転手がお酒を飲んだことによるものと考えられている。",
+          "transcription": "じこのげんいんは、うんてんしゅがおさけをのんだことによるものとかんがえられている。",
+          "mean": "The cause of the accident is believed to be that the driver was under the influence of alcohol."
+        },
+        {
+          "content": "デスクトップの利用者は、今後急激に減少していくものと考えられている。",
+          "transcription": "ですくとっぷのりようしゃは、こんごきゅうげきにげんしょうしていくものとかんがえられている。",
+          "mean": "It is believed that the number of desktop users will rapidly decrease in the future."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + であるものとかんがえられているNa + であるものとかんがえられているA + ものとかんがえられているV + ものとかんがえられるている"
+    }
+  ],
+  "title": "... ものと考えられている => one can think that; it is conceivable that; considered ...",
+  "_id": "f7ff14dae05876cac58b41369353d0a2"
+}

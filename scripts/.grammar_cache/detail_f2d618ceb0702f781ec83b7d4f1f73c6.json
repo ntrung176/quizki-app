@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2671,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"in other cases it's not possible, but in case X it is possible.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼のようないい人となら結婚してもいい。",
+          "transcription": "かれのようないいひととならけっこんしてもいい。",
+          "mean": "I don't mind marrying a good man like him."
+        },
+        {
+          "content": "中国語はだめですが、日本語でなら会話ができます。",
+          "transcription": "ちゅうごくごはだめですが、にほんごでならかいわができます。",
+          "mean": "I can't speak Chinese, but I can have a conversation in Japanese."
+        },
+        {
+          "content": "あと一人だけなら参加できます。",
+          "transcription": "あといちにんだけならさんかできます。",
+          "mean": "Only one other person can participate."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Auxiliary words + なら"
+    }
+  ],
+  "title": "Trợ từ + なら => If...",
+  "_id": "f2d618ceb0702f781ec83b7d4f1f73c6"
+}

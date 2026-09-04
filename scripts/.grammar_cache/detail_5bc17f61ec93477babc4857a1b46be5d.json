@@ -1,0 +1,51 @@
+{
+  "level": "N1",
+  "mobileId": 5093,
+  "usages": [
+    {
+      "explain": "The 「をよそに」expresses the idea of acting according to one's own will or intention, regardless of the surrounding situation or the opinions, evaluations, expectations, worries, etc., of others. This structure is not used to describe oneself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "親の期待をよそに、息子は遊んでばかりいる。",
+          "transcription": "おやのきたいをよそに、むすこはあそんでばかりいる。",
+          "mean": "Despite his parents' expectations, the son does nothing but play."
+        },
+        {
+          "content": "住民の反対をよそに、高層マンションの建設は着々と進められた。",
+          "transcription": "じゅうみんのはんたいをよそに、こうそうマンションのけんせつはちゃくちゃくとすすめられた。",
+          "mean": "Despite opposition from residents, construction of the high-rise apartment building proceeded steadily."
+        },
+        {
+          "content": "彼は周囲の反対をよそに、危険な仕事を続けた。",
+          "transcription": "かれはしゅういのはんたいをよそに、きけんなしごとをつづけた。",
+          "mean": "Despite the opposition of those around him, he continued his dangerous work."
+        },
+        {
+          "content": "親の心配をよそに、彼は早朝からサーフィンに出かけた。",
+          "transcription": "おやのしんぱいをよそに、かれはそうちょうからサーフィンにでかけた。",
+          "mean": "Despite his parents' concerns, he went surfing early in the morning."
+        },
+        {
+          "content": "コロナをよそにオリンピックが盛り上がっています。",
+          "transcription": "コロナをよそにオリンピックがもりあがっています。",
+          "mean": "The Olympics are going well despite the coronavirus."
+        },
+        {
+          "content": "彼はこんなにも緊迫した状況をよそににやけている。",
+          "transcription": "かれはこんなにもきんぱくしたじょうきょうをよそににやけている。",
+          "mean": "He is grinning despite the tense situation."
+        },
+        {
+          "content": "冷たい周囲の視線をよそにイチャイチャしている。",
+          "transcription": "つめたいしゅういのしせんをよそにイチャイチャしている。",
+          "mean": "They are flirting with each other despite the cold stares of those around them."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+よそに"
+    }
+  ],
+  "title": "をよそに => despite; without regards to ~",
+  "_id": "5bc17f61ec93477babc4857a1b46be5d"
+}

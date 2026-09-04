@@ -1,0 +1,43 @@
+{
+  "level": "N4",
+  "mobileId": 2620,
+  "usages": [
+    {
+      "explain": "Used to emphasize the negative aspect, by emphasizing the smallness or low degree of the quantity.",
+      "note": null,
+      "examples": [
+        {
+          "content": "泳ぐのは下手で、ほんの3mも泳げない。",
+          "transcription": "およぐのはへたで、ほんの3mもおよげない。",
+          "mean": "I'm not good at swimming, and I can't even swim 3 meters."
+        },
+        {
+          "content": "家から最寄りの病院まで10mもないだろう。",
+          "transcription": "いえからもよりのびょういんまで10mもないだろう。",
+          "mean": "It's probably less than 10 meters from my house to the nearest hospital."
+        },
+        {
+          "content": "財布の中には、5万ドンも残っていない。",
+          "transcription": "さいふのなかには、5まんどんものこっていない。",
+          "mean": "I don't even have 50,000 dong left in my wallet."
+        },
+        {
+          "content": "ベッドに入って5分もたたないうちに寝てしまった。",
+          "transcription": "べっどにはいって5ふんもたたないうちにねてしまった。",
+          "mean": "I fell asleep within 5 minutes of getting into bed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + ...も...ない"
+    },
+    {
+      "explain": "(Note) Different from the pattern \"Quantity + も: to\" used to emphasize a high degree, need to pay attention.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...も...ない => nothing; (not) ~ at all; there's no need to ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f193929"
+}

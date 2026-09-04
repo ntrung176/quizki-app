@@ -195,6 +195,16 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             return tb;
         }));
         textbooks.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+        const totalPoints = textbooks.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || 0), 0), 0);
+        if (totalPoints === 0) {
+            console.log('Firestore grammar has 0 points, loading /data/grammar_data.json for CDN sync...');
+            const res = await fetch('/data/grammar_data.json');
+            if (res.ok) {
+                return await res.json();
+            }
+        }
+
         return textbooks;
     };
 

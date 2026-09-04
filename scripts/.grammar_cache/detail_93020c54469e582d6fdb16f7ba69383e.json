@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 3200,
+  "usages": [
+    {
+      "explain": "「間」(あいだ) expresses the space between two objects or two locations. It also describes the relationship between people or events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ベッドと本棚の間に机を置いた。",
+          "transcription": "べっどとほんだなのまにつくえをおいた。",
+          "mean": "I placed a desk between the bed and the bookshelf."
+        },
+        {
+          "content": "父の本を開けたら、ページの間にお金が見つかった。",
+          "transcription": "ちちのほんをあけたら、ぺーじのまにおかねがみつかった。",
+          "mean": "When I opened my father's book, I found money between the pages."
+        },
+        {
+          "content": "最近その夫婦の間は何か問題があったそうだ。",
+          "transcription": "さいきんそのふうふのまはなにかもんだいがあったそうだ。",
+          "mean": "It seems that there was some problem between the couple recently."
+        },
+        {
+          "content": "そのレストランは料理も美味しいしサービスもいいし，食客の間で人気がある。",
+          "transcription": "そのれすとらんはりょうりもおいしいしさーびすもいいし，しょっきゃくのまでにんきがある。",
+          "mean": "The restaurant has delicious food and good service, and is popular among diners."
+        }
+      ],
+      "mean": ": while; during; between ~",
+      "synopsis": "N + の + 間"
+    }
+  ],
+  "title": "あいだ   => while; during; between ~",
+  "_id": "93020c54469e582d6fdb16f7ba69383e"
+}

@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 2303,
+  "usages": [
+    {
+      "explain": "It expresses the meaning of 「V-ないで」, 「V-なくて」. Also used in spoken language, but in a somewhat stylish manner, often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はその部屋が分からず迷っていた。",
+          "transcription": "わたしはそのへやがわからずまよっていた。",
+          "mean": "I was confused and couldn't find the room."
+        },
+        {
+          "content": "私たちは準備する時間があまり取れず，けがにも苦しんでいました。",
+          "transcription": "わたしたちはじゅんびするじかんがあまりとれず，けがにもくるしんでいました。",
+          "mean": "We didn't have much time to prepare and were suffering from injuries."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ず"
+    },
+    {
+      "explain": "Note: Derived from the auxiliary verb 「ず」 used in classical literature. It's used to express negation and is only used in writing or in idiomatic speech. In spoken language, 「なくて」 or 「ないで」 is used. It's formed by transforming the 「ない」 in 「V-ない」 to 「ず」. In the case of 「する」, it becomes 「せず」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "...ず => without doing",
+  "_id": "f7ff14dae05876cac58b413693ef086a"
+}

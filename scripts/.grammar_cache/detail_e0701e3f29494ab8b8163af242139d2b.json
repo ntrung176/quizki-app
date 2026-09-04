@@ -1,0 +1,76 @@
+{
+  "level": "N2",
+  "mobileId": 5156,
+  "usages": [
+    {
+      "explain": "「からには」expresses the idea of \"once in that situation, then certainly it must, it's natural to...\" thereby showing the speaker's strong determination, readiness to do something, or their resolute attitude.<br/>\n\nIn this structure, the first part presents events that have already occurred or are certain to happen; the second part often combines with structures expressing desires/wills, obligations/responsibilities, commands, certain speculations...",
+      "note": null,
+      "examples": [
+        {
+          "content": "試合に出るからには、勝ちたい。",
+          "transcription": "しあいにでるからには、かちたい。",
+          "mean": "When I go to play, I want to win."
+        },
+        {
+          "content": "自分で決めたからには、大変でも頑張ります。",
+          "transcription": "じぶんできめたからには、たいへんでもがんばります。",
+          "mean": "Since I made the decision myself, I will do my best even if it is difficult."
+        },
+        {
+          "content": "会議に出席するからには、自分の意見を言うべきだ。",
+          "transcription": "かいぎにしゅっせきするからには、じぶんのいけんをいうべきだ。",
+          "mean": "If you are attending a meeting, you should express your opinion."
+        },
+        {
+          "content": "約束したからには、守るべきだ。",
+          "transcription": "やくそくしたからには、まもるべきだ。",
+          "mean": "If you made a promise, you should keep it."
+        },
+        {
+          "content": "N1を受けるからには、しっかり勉強しなければいけませんよ！",
+          "transcription": "エヌいちをうけるからには、しっかりべんきょうしなければいけませんよ！",
+          "mean": "If you want to take N1, you have to study hard!"
+        },
+        {
+          "content": "彼女の両親へ挨拶に行くからには、きちんとした格好で行かないと。",
+          "transcription": "かのじょのりょうしんへあいさつにいくからには、きちんとしたかっこうでいかないと。",
+          "mean": "Since I'm going to greet my girlfriend's parents, I have to dress properly."
+        },
+        {
+          "content": "N1を受けるからには合格しなさい！",
+          "transcription": "エヌいちをうけるからには、ごうかくしなさい！",
+          "mean": "If you are going to take N1, pass it!"
+        },
+        {
+          "content": "社会人になったからには、親に頼らず自分の力で生きていってください。",
+          "transcription": "しゃかいじんになったからには、おやにたよらずじぶんのちからでいきていってください。",
+          "mean": "Now that you're a member of society, don't rely on your parents and live on your own."
+        },
+        {
+          "content": "このかばんは高いからには、品質が良いに違いない。",
+          "transcription": "このかばんはたかいからには、ひんしつがよいにちがいない。",
+          "mean": "Since this bag is expensive, it must be of good quality."
+        },
+        {
+          "content": "安いからには、品質が悪いに違いない。",
+          "transcription": "やすいからには、ひんしつがわるいにちがいない。",
+          "mean": "Since it's cheap, it must be of poor quality."
+        },
+        {
+          "content": "我々の秘密を知られたからには 、このまま生かしてはおけないよ。",
+          "transcription": "われわれのひみつをしられたからには、このままいかしてはおけないよ。",
+          "mean": "Now that you know our secret, I can't leave you alive like this."
+        },
+        {
+          "content": "この組織に入ったからには、簡単には抜けられないよ。",
+          "transcription": "このそしきにはいったからには、かんたんにはぬけられないよ。",
+          "mean": "Once you join this organization, you won't be able to leave easily."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+からには<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>である)"
+    }
+  ],
+  "title": "からには => so long as",
+  "_id": "e0701e3f29494ab8b8163af242139d2b"
+}

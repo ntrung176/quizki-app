@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2933,
+  "usages": [
+    {
+      "explain": "Giving an approximate number to describe the meaning that is not a large quantity.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の収入は高くないが、子供の一人や二人は育てられる。",
+          "transcription": "かれのしゅうにゅうはやすいが、こどものいちにんやににんはそだてられる。",
+          "mean": "Although his income is not high, he is able to raise one or two children."
+        },
+        {
+          "content": "グローバリゼーションの時代なのに外国語の一つや二つできないようでは困ります。",
+          "transcription": "ぐろーばりぜーしょんのじだいなのにがいこくごのひとつやふたつできないようではこまります。",
+          "mean": "Even in the age of globalization, it would be a problem if people could not speak one or two foreign languages."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + や + Quantity word"
+    }
+  ],
+  "title": "や => ... or...",
+  "_id": "f2d618ceb0702f781ec83b7d4f415b80"
+}

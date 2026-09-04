@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5061,
+  "usages": [
+    {
+      "explain": "「ならでは」 expresses the idea that only the person, thing, organization, place, etc. (N) mentioned can achieve or possess something wonderful like that. This structure is used to praise and highly evaluate the subject (N) being mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "このような習慣があるのは、この町ならではです。",
+          "transcription": "このようなしゅうかんがあるのは、このまちならではです。",
+          "mean": "This custom is unique to this town."
+        },
+        {
+          "content": "こんなユニークな発想ができるのは、田中さんならではだ。",
+          "transcription": "こんなユニークなはっそうができるのは、たなかさんならではだ。",
+          "mean": "Only Mr. Tanaka could come up with such a unique idea."
+        },
+        {
+          "content": "君ならではの発想で、この企画を考えてください。",
+          "transcription": "きみならではのはっそうで、このきかくをかんがえてください。",
+          "mean": "Please come up with this project using your own unique ideas."
+        },
+        {
+          "content": "これは当店ならではの特別価格だ。",
+          "transcription": "これはとうてんならではのとくべつかかくだ。",
+          "mean": "This is a special price unique to our store."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+ならでは<br/>\nN+ならではのN'"
+    }
+  ],
+  "title": "ならでは => distinctive of; uniquely applying to; special to ~",
+  "_id": "5936e1600cc14592be9abc60cfc7690a"
+}

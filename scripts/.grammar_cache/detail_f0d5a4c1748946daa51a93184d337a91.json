@@ -1,0 +1,81 @@
+{
+  "level": "N2",
+  "mobileId": 5114,
+  "usages": [
+    {
+      "explain": "「てならない」expresses emotions or feelings that naturally and strongly arise to the point where they cannot be controlled.「てならない」does not go with words expressing qualities or evaluations of things. For example:<br/>\n\n+ この本は面白くてならない。✖<br/>\n+ 彼の絵は下手でならない。✖<br/>\n\nWhen the subject is not first person, the end of the sentence often includes structures indicating speculation such as「そうだ」「らしい」「ようだ」...<br/>\n\nThis structure is almost synonymous with「てしかたがない」but differs in that it is very difficult to use with words that do not express emotions, feelings, or desires. It's a somewhat old-fashioned way of speaking and is often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "検査の結果が気になってならない。",
+          "transcription": "けんさのけっかがきになってならない。",
+          "mean": "I'm not worried about the test results."
+        },
+        {
+          "content": "外国で生活した時、不安でならなかった。",
+          "transcription": "がいこくでせいかつしたとき、ふあんでならなかった。",
+          "mean": "When I lived abroad, I couldn't help but feel anxious."
+        },
+        {
+          "content": "うちの息子が大学に合格して、嬉しくてならない。",
+          "transcription": "うちのむすこがだいがくにごうかくして、うれしくてならない。",
+          "mean": "I am so happy that my son was accepted into university."
+        },
+        {
+          "content": "親友の結婚式に出席できないのが残念でならない。",
+          "transcription": "しんゆうのけっこんしきにしゅっせきできないのがざんねんでならない。",
+          "mean": "I regret not being able to attend my best friend's wedding."
+        },
+        {
+          "content": "あの二人はどうして離婚したのか、知りたくてならない。",
+          "transcription": "あのふたりはどうしてりこんしたのか、しりたくてならない。",
+          "mean": "I'm dying to know why those two got divorced."
+        },
+        {
+          "content": "この駅の近くは、悪い人が多いから、危なくてならない。",
+          "transcription": "このえきのちかくは、わるいひとがおおいから、あぶなくてならない。",
+          "mean": "There are a lot of bad people around this station, so it's dangerous."
+        },
+        {
+          "content": "いい夢を見ると何かいいことが起こりそうな気がしてならない。",
+          "transcription": "いいゆめをみるとなにかいいことがおこりそうなきがしてならない。",
+          "mean": "When I have a good dream, I can't help but feel like something good is about to happen."
+        },
+        {
+          "content": "大勢の人の前でつまずいてこけたので、恥ずかしくてならなかった。",
+          "transcription": "おおぜいのひとのまえでつまずいてこけたので、はずかしくてならなかった。",
+          "mean": "I was embarrassed because I tripped and fell in front of so many people."
+        },
+        {
+          "content": "もう10年間くらい国に帰っていないので、両親に会いたくてならない。",
+          "transcription": "もうじゅうねんかんくらいくににかえっていないので、りょうしんにあいたくてならない。",
+          "mean": "I haven't been back to my country for about 10 years, so I can't wait to see my parents."
+        },
+        {
+          "content": "うちの子は全然親の言うことを聞かないんです。この子の将来が心配でなりません。",
+          "transcription": "うちのこはぜんぜんおやのいうことをきかないんです。このこのしょうらいがしんぱいでなりません。",
+          "mean": "My child doesn't listen to his parents at all. I can't help but worry about this child's future."
+        },
+        {
+          "content": "彼の行動や言動から判断して、やっぱり彼が犯人だと思えてならない。",
+          "transcription": "かれのこうどうやこうどうからはんだんして、やっぱりかれがはんにんだとおもえてならない。",
+          "mean": "Judging from his actions and words, I can't help but think that he is the culprit after all."
+        },
+        {
+          "content": "毎日遊んでいる彼が東大に合格したなんて、不思議でならない。",
+          "transcription": "まいにちあそんでいるかれがとうだいにごうかくしたなんて、ふしぎでならない。",
+          "mean": "It's no wonder that he, who plays with the school every day, was accepted to the University of Tokyo."
+        },
+        {
+          "content": "友達は、好きな子がパーティーに来なかったことが、悲しくてならないようだ。",
+          "transcription": "ともだちは、すきなこがパーティーにこなかったことが、かなしくてならないようだ。",
+          "mean": "My friend seems sad that the girl she likes didn't come to the party."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+ならない<br/>A<s>い</s>くて+ならない<br/> A<s>な</s>で+ならない<br/>"
+    }
+  ],
+  "title": "てならない => can't help but; dying to; extremely ~",
+  "_id": "f0d5a4c1748946daa51a93184d337a91"
+}

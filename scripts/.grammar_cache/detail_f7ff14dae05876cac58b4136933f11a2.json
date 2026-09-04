@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1034,
+  "usages": [
+    {
+      "explain": "Expresses that something hasn't reached the desired level for the speaker. It means \"not necessarily bad, but not good enough, not satisfactory yet.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "実験の結果はもうひとつよくない。",
+          "transcription": "じっけんのけっかはもうひとつよくない。",
+          "mean": "The results of the experiment are also not good."
+        },
+        {
+          "content": "熱がもうひとつ下がらない。",
+          "transcription": "ねつがもうひとつさがらない。",
+          "mean": "My fever won't go down anymore."
+        },
+        {
+          "content": "彼はもうひとつ信用できない。",
+          "transcription": "かれはもうひとつしんようできない。",
+          "mean": "He can't be trusted anymore."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もうひとつ…ない"
+    }
+  ],
+  "title": "もうひとつ…ない => (not) anymore",
+  "_id": "f7ff14dae05876cac58b4136933f11a2"
+}

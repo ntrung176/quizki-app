@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 927,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"no matter what is done, it cannot be considered sufficient\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "健康にはいくら注意してもしすぎることはない。",
+          "transcription": "けんこうにはいくらちゅういしてもしすぎることはない。",
+          "mean": "You cannot be too careful about your health."
+        },
+        {
+          "content": "車を運転する時にはいくら注意してもしすぎることはない。",
+          "transcription": "くるまをうんてんするときにはいくらちゅういしてもしすぎることはない。",
+          "mean": "You can never be too careful when driving a car."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ても…すぎることはない"
+    }
+  ],
+  "title": "…ても…すぎることはない => no matter if you do something too much, it will never be too much",
+  "_id": "f7ff14dae05876cac58b41369330809a"
+}

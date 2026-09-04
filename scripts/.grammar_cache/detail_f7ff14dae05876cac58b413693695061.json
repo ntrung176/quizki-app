@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1347,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"not... particularly\". It is a formal expression, suitable for written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "べつだん問題はない。",
+          "transcription": "べつだんもんだいはない。",
+          "mean": "There is no particular problem."
+        },
+        {
+          "content": "山田さんはいつもより黙るようだったが、私はべつだん気にもしなかった。",
+          "transcription": "やまださんはいつもよりだまるようだったが、わたしはべつだんきにもしなかった。",
+          "mean": "Mr. Yamada seemed to be quieter than usual, but I didn't really care."
+        }
+      ],
+      "mean": null,
+      "synopsis": "べつだん～ない"
+    }
+  ],
+  "title": "べつだん…ない => not really, not particularly ...",
+  "_id": "f7ff14dae05876cac58b413693695061"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5418,
+  "usages": [
+    {
+      "explain": "「その上」is used to add another characteristic of the subject being discussed, with emphasis, indicating that it is especially different from the characteristics mentioned before. This is different from「それに」, which also adds another characteristic but is on an equal footing with the previous ones.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この店の料理は美味しい。その上値段も安い。",
+          "transcription": "このみせのりょうりはおいしい。そのうえ、ねだんもやすい。",
+          "mean": "The food at this restaurant is delicious. Moreover, the price is low."
+        },
+        {
+          "content": "彼は、頭がいい。その上、スポーツ何でもできる。",
+          "transcription": "かれは、あたまがいい。そのうえ、スポーツなんでもできる。",
+          "mean": "He's smart. Besides, I can do any sport."
+        },
+        {
+          "content": "雨が降り出し。その上、風も吹き出した。",
+          "transcription": "あめがふりだし。そのうえ、かぜもふきだした。",
+          "mean": "It's starting to rain. On top of that, the wind started to blow."
+        },
+        {
+          "content": "新しい職場は家から近いし、給料もいいんです。その上、休みも多いですよ。",
+          "transcription": "あたらしいしょくばはいえからちかいし、きゅうりょうもいいんです。そのうえ、やすみもおおいですよ。",
+          "mean": "My new job is close to home and the pay is good. On top of that, I have a lot of holidays."
+        },
+        {
+          "content": "道に迷ってしまった。その上、運の悪いことに、雨も降り出した。",
+          "transcription": "みちにまよってしまった。そのうえ、うんのわるいことに、あめもふりだした。",
+          "mean": "I got lost. On top of that, unfortunately, it started raining."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。 その上、 B"
+    }
+  ],
+  "title": "その上 =>  besides; in addition; furthermore ~",
+  "_id": "9bbf1a0d2e8749828c6b042e41999fc5"
+}

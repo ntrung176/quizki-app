@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5146,
+  "usages": [
+    {
+      "explain": "\"甲斐がない\" or \"甲斐もなく\" is used to express the feeling of having put in effort or hard work into something, but the result did not meet expectations or was not worth the effort.",
+      "note": null,
+      "examples": [
+        {
+          "content": "毎日運動した甲斐もなく、あまり痩せなかった。",
+          "transcription": "まいにちうんどうしたかいもなく、あまりやせなかった。",
+          "mean": "It didn't pay off to exercise every day, and I didn't lose much weight."
+        },
+        {
+          "content": "予選で落ちてしまい、一生懸命練習した甲斐がなかった。",
+          "transcription": "よせんでおちてしまい、いっしょうけんめいれんしゅうしたかいがなかった。",
+          "mean": "I failed in the preliminaries, and my hard training was not worth it."
+        },
+        {
+          "content": "高い薬を飲んだ甲斐もなく、病気は治らなかった。",
+          "transcription": "たかいくすりをのんだかいもなく、びょうきはなおらなかった。",
+          "mean": "Despite taking expensive medicine, the disease did not heal."
+        },
+        {
+          "content": "時間とお金を使って遠くから来た甲斐もなく、名物の桜はほとんど散ってしまった。",
+          "transcription": "じかんとおかねをつかってとおくからきたかいもなく、めいぶつのさくらはほとんどちってしまった。",
+          "mean": "It was not worth the time and money to come from far away, and most of the famous cherry blossoms have disappeared."
+        },
+        {
+          "content": "何これ。こんなもののために東京から来た甲斐がない。",
+          "transcription": "なにこれ。こんなもののためにとうきょうからきたかいがない。",
+          "mean": "What's this. It's not worth coming all the way from Tokyo for something like this."
+        },
+        {
+          "content": "進んで学ぼうとする気のない者には教える甲斐がない。",
+          "transcription": "すすんでまなぼうとするきのないものにはおしえるかいがない。",
+          "mean": "It is not worth teaching someone who is not willing to learn."
+        },
+        {
+          "content": "努力の甲斐もなく、N1の試験に合格できなかった。",
+          "transcription": "どりょくのかいもなく、エヌいちのしけんにごうかくできなかった。",
+          "mean": "Despite all my efforts, I was unable to pass the N1 exam."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vた+甲斐がない / 甲斐(も)なく<br/> Nの+甲斐がない / 甲斐(も)なく"
+    }
+  ],
+  "title": "甲斐がない/甲斐(も)なく =>  it's not worth one's efforts to do something",
+  "_id": "321196438a2043af87c68e7c4b8fa771"
+}

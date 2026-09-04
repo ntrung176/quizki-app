@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1914,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"at a certain stage, an event occurs\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "１０月半ばともなるとだいぶ寒く感じられるようになります。",
+          "transcription": "じゅうがつなかばともなるとだいぶさむくかんじられるようになります。",
+          "mean": "By mid-October, it starts to feel quite cold."
+        },
+        {
+          "content": "高校生ともなると、ある程度で自立しなければならない。",
+          "transcription": "こうこうせいともなると、あるていどでじりつしなければならない。",
+          "mean": "When you become a high school student, you have to be independent to some extent."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + ともなると"
+    }
+  ],
+  "title": "ともなると => When/once something happens",
+  "_id": "f7ff14dae05876cac58b413693b71fa0"
+}

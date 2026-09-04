@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2875,
+  "usages": [
+    {
+      "explain": "Adjectives are placed before nouns to modify them. When placed before a noun, adjectives with the stem い remain unchanged.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ナイル川は長い川です。",
+          "transcription": "ないるがわはながいかわです。",
+          "mean": "The Nile is a long river."
+        },
+        {
+          "content": "これは古い物です。",
+          "transcription": "これはふるいものです。",
+          "mean": "This is an old thing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-い + N"
+    }
+  ],
+  "title": "A-い+N => Add meaning to nouns",
+  "_id": "f2d618ceb0702f781ec83b7d4f3a31b0"
+}

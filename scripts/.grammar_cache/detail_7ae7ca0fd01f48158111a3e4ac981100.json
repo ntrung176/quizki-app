@@ -1,0 +1,61 @@
+{
+  "level": "N1",
+  "mobileId": 5072,
+  "usages": [
+    {
+      "explain": "「に足る」expresses the idea of \"to be sufficient\" or \"worthy of\" doing something (V/N). The negative form of「に足るN'」is 「に足るN'ではない」.<br/>Some verbs commonly used with this structure are: 信頼する (to trust), 信じる (to believe), 信用する (to rely on), 恐れる (to fear), 取る (to take)...<br/>\nSome nouns commonly used with this structure are: 信頼 (trust), 信用 (reliance), 尊敬 (respect), 満足 (satisfaction)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "加藤さんは、信頼に足る人物だ。何でも相談するといいよ。",
+          "transcription": "かとうさんは、しんらいにたるじんぶつだ。なんでもそうだんするといいよ。",
+          "mean": "Mr. Kato is a person worthy of trust. You can talk to me about anything."
+        },
+        {
+          "content": "彼は、その仕事を任せるに足る人です。",
+          "transcription": "かれは、そのしごとをまかせるにたるひとです。",
+          "mean": "He is the right person to do the job."
+        },
+        {
+          "content": "あの方は皆さんに尊敬するに足るお母様です。",
+          "transcription": "あのかたはみなさんにそんけいするにたるおかあさまです。",
+          "mean": "She is a mother worthy of everyone's respect."
+        },
+        {
+          "content": "仕事ができない部下をクビにしたいと思っているが、解雇するに足る理由が見つからない。",
+          "transcription": "しごとができないぶかをクビにしたいとおもっているが、かいこするにたるりゆうがみつからない。",
+          "mean": "I want to fire a subordinate who can't do his job, but I can't find a good reason to fire him."
+        },
+        {
+          "content": "それは満足に足る結果じゃなかった。",
+          "transcription": "それはまんぞくにたるけっかじゃなかった。",
+          "mean": "That was not a satisfactory result."
+        },
+        {
+          "content": "パスポートはあなたが誰であるかを証明するに足る書類です。",
+          "transcription": "パスポートはあなたがだれであるかをしょうめいするにたるしょるいです。",
+          "mean": "A passport is a document that proves who you are."
+        },
+        {
+          "content": "疑うに足る大きな理由があるよ。",
+          "transcription": "うたがうにたるおおきなりゆうがあるよ。",
+          "mean": "There's great reason to doubt it."
+        },
+        {
+          "content": "彼の行動は尊敬に足る。",
+          "transcription": "かれのこうどうはそんけいにたる。",
+          "mean": "His actions are worthy of respect."
+        },
+        {
+          "content": "あの人の話は聞くに足る。",
+          "transcription": "あのひとのはなしはきくにたる。",
+          "mean": "It's worth listening to that person's story."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+に足るN'<br/> N+に足るN'"
+    }
+  ],
+  "title": "に足る => worthy; worth doing",
+  "_id": "7ae7ca0fd01f48158111a3e4ac981100"
+}

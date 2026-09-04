@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2496,
+  "usages": [
+    {
+      "explain": "This pattern can be used to describe different aspects of a topic. 「それに」 is used when wanting to add another situation or something to the situation or thing mentioned earlier.",
+      "note": null,
+      "examples": [
+        {
+          "content": "リンさんは親切だし、頭もいいし、それにハンサムです。",
+          "transcription": "りんさんはしんせつだし、あたまもいいし、それにはんさむです。",
+          "mean": "Mr. Lin is kind, smart, and handsome."
+        },
+        {
+          "content": "あの女の人はビアノも弾けるし、ダンスもできるし、それに歌も歌 えます。",
+          "transcription": "あのおんなのひとはびあのもはじけるし、だんすもできるし、それにうたもうたえます。",
+          "mean": "That woman can play the piano, dance, and sing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-た/ V-ない/ Na-だ/ A-いし, V-る/ V-た/ V-ない/ Na-だ/ A-いし, それに..."
+    }
+  ],
+  "title": "...し, ...し, (それに) ...  => besides; in addition; also; moreover ~.",
+  "_id": "f2d618ceb0702f781ec83b7d4f0835b5"
+}

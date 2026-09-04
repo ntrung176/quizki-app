@@ -1,0 +1,21 @@
+{
+  "level": "N2",
+  "mobileId": 952,
+  "usages": [
+    {
+      "explain": "Follows the content of the preceding clause to express the meaning \"immediately afterward\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "試験終了のベルが鳴った。その途端に、教室が騒がしくなった。",
+          "transcription": "しけんしゅうりょうのべるがなった。そのとたんに、きょうしつがさわがしくなった。",
+          "mean": "The bell rang to mark the end of the exam. Immediately, the classroom became noisy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そのとたん～"
+    }
+  ],
+  "title": "そのとたん => as soon as; just as ~",
+  "_id": "f7ff14dae05876cac58b41369333c6dd"
+}

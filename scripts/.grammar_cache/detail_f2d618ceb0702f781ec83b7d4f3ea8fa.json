@@ -1,0 +1,33 @@
+{
+  "level": "N5",
+  "mobileId": 2914,
+  "usages": [
+    {
+      "explain": "Connecting two clauses of a sentence to express an inevitable result of an action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "右へ曲がると、ホテルがあります。",
+          "transcription": "みぎへまがると、ほてるがあります。",
+          "mean": "Turn right and you will see the hotel."
+        },
+        {
+          "content": "気温が低いと、ほとんどの種類の花はなかなか咲かない。",
+          "transcription": "きおんがひくいと、ほとんどのしゅるいのはなはなかなかさかない。",
+          "mean": "When temperatures are low, most types of flowers do not bloom easily."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + と"
+    },
+    {
+      "explain": "Note: The following clause cannot be used to express desires, wishes, invitations, or requests.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "と => ... then...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3ea8fa"
+}

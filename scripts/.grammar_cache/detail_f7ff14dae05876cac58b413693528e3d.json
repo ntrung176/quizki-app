@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1181,
+  "usages": [
+    {
+      "explain": "Used to present an event or situation as a topic of conversation: \"if we were to talk about that...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "フランス料理となったらこのレストランのシェフに勝る者はいない。",
+          "transcription": "ふらんすりょうりとなったらこのれすとらんのしぇふにまさるものはいない。",
+          "mean": "When it comes to French cuisine, there is no one better than this restaurant's chef."
+        },
+        {
+          "content": "自分の趣味のこととなったら、彼女は何時間でも話し続ける。",
+          "transcription": "じぶんのしゅみのこととなったら、かのじょはなんじかんでもはなしつづける。",
+          "mean": "When it comes to her hobbies, she can talk for hours."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + (のこと) となったら"
+    }
+  ],
+  "title": "(のこと) となったら => when it comes to; in such a case; if that happens",
+  "_id": "f7ff14dae05876cac58b413693528e3d"
+}

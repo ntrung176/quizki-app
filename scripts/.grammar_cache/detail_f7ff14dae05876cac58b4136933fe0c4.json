@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1040,
+  "usages": [
+    {
+      "explain": "Expresses speculation, decisions of the speaker based on received information.<br/>This is a spoken usage. Similar words are \"それなら\" (if that's the case), \"それでは\" (in that case).",
+      "note": null,
+      "examples": [
+        {
+          "content": "だったら私がします。",
+          "transcription": "だったらわたしがします。",
+          "mean": "Then I'll do it."
+        },
+        {
+          "content": "だったら明日の試合は中止されます。",
+          "transcription": "だったらあしたのしあいはちゅうしされます。",
+          "mean": "If so, tomorrow's game will be cancelled."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だったら～"
+    }
+  ],
+  "title": "だったら => if it's the case",
+  "_id": "f7ff14dae05876cac58b4136933fe0c4"
+}

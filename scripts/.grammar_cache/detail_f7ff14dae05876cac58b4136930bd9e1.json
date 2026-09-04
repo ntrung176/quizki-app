@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 657,
+  "usages": [
+    {
+      "explain": "「捲る（まくる）」expresses the meaning of \"to do a lot\", different from 「すぎる」 which means \"to do too much\". Used to describe actions that are done excessively, disorganized, or illogically and are repeated.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ベトナムにいた時はビールを飲みまくっていた。",
+          "transcription": "べとなむにいたときはびーるをのみまくっていた。",
+          "mean": "When I was in Vietnam, I drank a lot of beer."
+        },
+        {
+          "content": "会うたびに砂糖さんはしゃべりまくるんだ",
+          "transcription": "あうたびにさとうさんはしゃべりまくるんだ",
+          "mean": "Every time we meet, Mr. Sugar talks a lot."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます+ 捲る"
+    }
+  ],
+  "title": "捲る => to do over and over again; to do relentlessly; non-stop; constantly; keep doing",
+  "_id": "f7ff14dae05876cac58b4136930bd9e1"
+}

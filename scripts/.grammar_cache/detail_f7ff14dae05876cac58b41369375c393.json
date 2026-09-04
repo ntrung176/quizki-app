@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1433,
+  "usages": [
+    {
+      "explain": "Expresses the idea that someone has achieved a remarkable, admirable result. N stands for nouns such as objects, people, abilities...",
+      "note": null,
+      "examples": [
+        {
+          "content": "たいした女の人だ。たった一人で今の会社を興したのだから。",
+          "transcription": "たいしたおんなのひとだ。たったいちにんでいまのかいしゃをおこしたのだから。",
+          "mean": "She's a great woman. He was the only one who started the company he has today."
+        },
+        {
+          "content": "日本語を半年習っただけであれだけ書けるんだから、たいしたものだ。",
+          "transcription": "にほんごをはんとしならっただけであれだけかけるんだから、たいしたものだ。",
+          "mean": "It's amazing how much you can write after just learning Japanese for half a year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "たいした + N だ"
+    }
+  ],
+  "title": "たいした ... だ => considerable; great; important; significant; a big deal",
+  "_id": "f7ff14dae05876cac58b41369375c393"
+}

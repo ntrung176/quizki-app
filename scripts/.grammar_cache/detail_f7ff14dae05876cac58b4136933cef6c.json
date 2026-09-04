@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1021,
+  "usages": [
+    {
+      "explain": "Often follows nouns indicating mood or will to express the meaning \"not entirely without such thoughts.\" In cases where N + も precedes it, there are times when the form Nもなくはない is used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "留学するつもりがなくもない。",
+          "transcription": "りゅうがくするつもりがなくもない。",
+          "mean": "I have no intention of studying abroad."
+        },
+        {
+          "content": "旅行を好む考えがなくもない。",
+          "transcription": "りょこうをこのむかんがえがなくもない。",
+          "mean": "There's no denying that I like traveling."
+        },
+        {
+          "content": "その計画がなくもない。",
+          "transcription": "そのけいかくがなくもない。",
+          "mean": "There is no such plan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + がなくもない"
+    }
+  ],
+  "title": "がなくもない =>  it's not that; I may (double negative)",
+  "_id": "f7ff14dae05876cac58b4136933cef6c"
+}

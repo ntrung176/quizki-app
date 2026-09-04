@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5149,
+  "usages": [
+    {
+      "explain": "「かねない」 expresses the possibility or risk that something may lead to an undesirable outcome. It is often used in writing.<br/>While 「恐れがある」 expresses an objective possibility (commonly seen in weather forecasts, news reports, warnings, etc.), 「かねない」 reflects the subjective opinion of the speaker based on the current situation. Therefore, 「かねない」 is often used with \"「Vたら」 or 「Nなら」to indicate the context or source of that speculation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんな酷いことも、あの人なら言いかねない。",
+          "transcription": "そんなひどいことも、あのひとならいいかねない。",
+          "mean": "That person could have said something so cruel."
+        },
+        {
+          "content": "この問題を解決せずに放っておいたら、国際問題になりかねない。",
+          "transcription": "このもんだいをかいけつせずにほうっておいたら、こくさいもんだいになりかねない。",
+          "mean": "If this issue is left unresolved, it could become an international problem."
+        },
+        {
+          "content": "休まずに長時間運転したら、事故を起こしかねない。",
+          "transcription": "やすまずにちょうじかんうんてんしたら、じこをおこしかねない。",
+          "mean": "Driving for long periods of time without resting can cause an accident."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s> かねない"
+    }
+  ],
+  "title": "かねない => (someone) might do something; something might happen",
+  "_id": "0606b9e3862640fa82391842f3f57150"
+}

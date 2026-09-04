@@ -1,0 +1,56 @@
+{
+  "level": "N1",
+  "mobileId": 5063,
+  "usages": [
+    {
+      "explain": "1. Doing the action afterward without doing the action N that was supposed to be done first. It can be understood as \"doing... without doing...\".<br/>\n2. Doing an action but lacking N. It can be understood as \"doing... but without...\".<br/>\n「なしで」is a more casual form compared to「なしに」. You can replace「なしで」with「なしに」but not the other way around.<br/>\nWhen the second clause is in negative form, like「なしに(は)/なしで(は)～ない」, these structures are similar in meaning to「なくて(は)～ない」, meaning \"if you don't have the first clause, then the second clause cannot be done\", but not as formal.",
+      "note": null,
+      "examples": [
+        {
+          "content": "予告なしに会社から解雇された。",
+          "transcription": "よこくなしにかいしゃからかいこされた。",
+          "mean": "I was fired from my company without notice."
+        },
+        {
+          "content": "彼はどうしただろう。何の断りもなしに途中で帰ってしまうなんて。",
+          "transcription": "かれはどうしただろう。なんのことわりもなしにとちゅうでかえってしまうなんて。",
+          "mean": "What would he do? I can't believe I ended up leaving mid-way without any notice."
+        },
+        {
+          "content": "先端技術はコンピューターなしには存在することができない。",
+          "transcription": "せんたんぎじゅつはコンピューターなしにはそんざいすることができない。",
+          "mean": "Advanced technology cannot exist without computers."
+        },
+        {
+          "content": "彼の半生は涙なしには聞けなかった。",
+          "transcription": "かれのはんせいはなみだなしにはきけなかった。",
+          "mean": "I couldn't listen to his story without crying."
+        },
+        {
+          "content": "彼は休みなしで毎晩働いているから、授業中はいつも寝ている。",
+          "transcription": "かれはやすみなしでまいばんはたらいているから、じゅぎょうちゅうはいつもねている。",
+          "mean": "He works every night without a break, so he always sleeps during class."
+        },
+        {
+          "content": "彼女は予告なしでいつも突然現れます。",
+          "transcription": "かのじょはよこくなしでいつもとつぜんあらわれます。",
+          "mean": "She always shows up suddenly, without notice."
+        },
+        {
+          "content": "字幕なしで日本の映画を見ることができません。",
+          "transcription": "じまくなしでにほんのえいがをみることができません。",
+          "mean": "I can't watch Japanese movies without subtitles."
+        },
+        {
+          "content": "社長なしでは会議が始められない。",
+          "transcription": "しゃちょうなしではかいぎがはじめられない。",
+          "mean": "The meeting cannot start without the president."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+なしに(は) / なしで(は)"
+    }
+  ],
+  "title": "なしに(は)/なしで(は) => without; without doing ~",
+  "_id": "99657048098b472aa42a555a908337c6"
+}

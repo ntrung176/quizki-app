@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2592,
+  "usages": [
+    {
+      "explain": "In this sentence pattern, the verb before 「みます」 is conjugated in the te-form. Because 「みます」 is a verb in its dictionary form, it is conjugated like other verbs.",
+      "note": null,
+      "examples": [
+        {
+          "content": "タイの料理を食べてみたいです。",
+          "transcription": "たいのりょうりをたべてみたいです。",
+          "mean": "I would like to try Thai food."
+        },
+        {
+          "content": "先生に話してみます。",
+          "transcription": "せんせいにはなしてみます。",
+          "mean": "I'll talk to my teacher."
+        },
+        {
+          "content": "あの靴をはいてもいいですか。",
+          "transcription": "あのくつをはいてもいいですか。",
+          "mean": "Can I wear those shoes?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て＋みます"
+    }
+  ],
+  "title": "... みます => try doing ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f1531d3"
+}

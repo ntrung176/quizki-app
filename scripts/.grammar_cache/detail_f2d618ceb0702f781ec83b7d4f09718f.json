@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2503,
+  "usages": [
+    {
+      "explain": "In this pattern, adjectives describing preferences, skills, abilities are used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は絵を描くのが好きです。",
+          "transcription": "わたしはえをえがくのがすきです。",
+          "mean": "I like to draw pictures."
+        },
+        {
+          "content": "この木は生長が早い。",
+          "transcription": "このきはせいちょうがはやい。",
+          "mean": "This tree grows quickly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + のが + A(い/ な) + です"
+    }
+  ],
+  "title": "... のが...です => Highlight interests and skills",
+  "_id": "f2d618ceb0702f781ec83b7d4f09718f"
+}

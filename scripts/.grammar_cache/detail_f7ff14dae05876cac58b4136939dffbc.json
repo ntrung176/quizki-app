@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1726,
+  "usages": [
+    {
+      "explain": "This is a hypothetical statement of an event different from or contrary to what actually happened, then imagining that, in that case, perhaps the event would have happened like this, like this... Typically, the verb is used in the form 「V-ていたら」to indicate a state.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は知っていたら来ただろう。",
+          "transcription": "かのじょはしっていたらきただろう。",
+          "mean": "She would have come if she had known."
+        },
+        {
+          "content": "彼女が医者の言うことを聞いていたら、今でもいきているかもしれないのだが。",
+          "transcription": "かのじょがいしゃのいうことをきいていたら、いまでもいきているかもしれないのだが。",
+          "mean": "If she had listened to the doctors, she might still be alive."
+        },
+        {
+          "content": "その噂を信じなかったら、こんなに酔うまで飲んだりしなかつたにちがいない。",
+          "transcription": "そのうわさをしんじなかったら、こんなにようまでのんだりしなかつたにちがいない。",
+          "mean": "If I hadn't believed that rumor, I'm sure I wouldn't have drunk so much."
+        },
+        {
+          "content": "あの時彼女と結婚していたら、私の人生はもっと幸せだったはずだ。",
+          "transcription": "あのときかのじょとけっこんしていたら、わたしのじんせいはもっとしあわせだったはずだ。",
+          "mean": "If I had married her then, my life would have been much happier."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vたら…だろう/ はずだ/ かもしれない/ にちがいない/ と思う"
+    }
+  ],
+  "title": "…たら…だろう => If only...",
+  "_id": "f7ff14dae05876cac58b4136939dffbc"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1830,
+  "usages": [
+    {
+      "explain": "Used when wanting to convey information that is not certain.",
+      "note": null,
+      "examples": [
+        {
+          "content": "部長の息子さんは来週結婚式を挙げるとかいうことだ。",
+          "transcription": "ぶちょうのむすこさんはらいしゅうけっこんしきをあげるとかいうことだ。",
+          "mean": "The manager's son is having a wedding next week."
+        },
+        {
+          "content": "ニュースによると台風で試合が中止されたとかいうことだ。",
+          "transcription": "にゅーすによるとたいふうでしあいがちゅうしされたとかいうことだ。",
+          "mean": "According to the news, the match was canceled due to a typhoon."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だとかいうことだ\nNa + だとかいうことだ\nA + とかいうことだ\nV + とかいうことだ"
+    }
+  ],
+  "title": "...とかいうことだ => I heard...",
+  "_id": "f7ff14dae05876cac58b413693ac5f09"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5574,
+  "usages": [
+    {
+      "explain": "「ように」 expresses an intention or purpose behind an action (V2) in order to achieve something (V1), or to prevent something from happening (V1ない). The first verb (V1) is often a verb indicating a non-volitional action or state, such as verbs of possibility or verbs like 忘れる (to forget), なる (to become), 聞こえる (to be heard), 見える (to be seen), and so on. The subject of the two verbs can be different.",
+      "note": null,
+      "examples": [
+        {
+          "content": "忘れないように、メモしてください。",
+          "transcription": "わすれないように、メモしてください。",
+          "mean": "Please write it down so you don't forget."
+        },
+        {
+          "content": "風邪を引かないように、気をつけてください。",
+          "transcription": "かぜをひかないように、きをつけてください。",
+          "mean": "Please be careful not to catch a cold."
+        },
+        {
+          "content": "バスに乗り遅れないように、早く出ました。",
+          "transcription": "バスにのりおくれないように、はやくでました。",
+          "mean": "I left early so as not to miss the bus."
+        },
+        {
+          "content": "速く泳げるように、毎日練習しています。",
+          "transcription": "はやくおよげるように、まいにちれんしゅうしています。",
+          "mean": "I practice every day to swim faster."
+        },
+        {
+          "content": "外国人は読めるように、ふりがなをつけています。",
+          "transcription": "がいこくじんはよめるように、ふりがなをつけています。",
+          "mean": "Foreigners add furigana so they can read."
+        },
+        {
+          "content": "彼女は寝坊しないように、アラームをたくさんかけました。",
+          "transcription": "かのじょはねぼうしないように、アラームをたくさんかけました。",
+          "mean": "She set lots of alarms so she wouldn't oversleep."
+        },
+        {
+          "content": "単語が覚えられるように、フラッシュカードを作りました。",
+          "transcription": "たんごがおぼえられるように、フラッシュカードをつくりました。",
+          "mean": "I made flashcards to help me remember the words."
+        },
+        {
+          "content": "皆さんに聞こえるように、もっと大きな声で話してください。",
+          "transcription": "みなさんにきこえるように、もっとおおきなこえではなしてください。",
+          "mean": "Please speak louder so everyone can hear you."
+        },
+        {
+          "content": "風が入らないように、窓を閉めておきましょう。",
+          "transcription": "かぜがはいらないように、まどをしめておきましょう。",
+          "mean": "Keep the windows closed to prevent drafts."
+        },
+        {
+          "content": "大学に合格出来るように、一生懸命勉強しています。",
+          "transcription": "だいがくにごうかくできるようにいっしょうけんめいべんきょうしています。",
+          "mean": "I am studying hard so that I can pass the university entrance exam."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1 (root form)+ように、V2<br/> V1ない+ように、V2"
+    }
+  ],
+  "title": "ように => in order to, so that ~",
+  "_id": "7cd0847ccf56457aa3ef144973cf2a1d"
+}

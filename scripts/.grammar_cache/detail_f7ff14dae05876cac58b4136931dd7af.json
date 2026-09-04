@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 793,
+  "usages": [
+    {
+      "explain": "✦ It expresses the meaning \"because ..., the outcome didn't turn out to be that bad.\" This expression conveys the sentiment that while a negative outcome was avoided, it's still not entirely desirable. <br/> ✦ Similar in meaning to [からいいが/けど], but with stronger tones of reproach and blame.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大きな事故にならなかったからいいようなものの、これからはもっと慎重に運転しなさい。",
+          "transcription": "おおきなじこにならなかったからいいようなものの、これからはもっとしんちょうにうんてんしなさい。",
+          "mean": "I'm glad you didn't have a major accident, but please drive more carefully from now on."
+        },
+        {
+          "content": "だれも文句を言ってこないからいいようなものの、一つ間違えば大事故になっていたところだ。",
+          "transcription": "だれももんくをいってこないからいいようなものの、ひとつまちがえばだいじこになっていたところだ。",
+          "mean": "It seemed like a good thing since no one complained, but if I had made one mistake, it would have been a big accident."
+        },
+        {
+          "content": "保険をかけてあるからいいようなものの、そうでなければ大変なことになっていたよ。",
+          "transcription": "ほけんをかけてあるからいいようなものの、そうでなければたいへんなことになっていたよ。",
+          "mean": "It's okay because it's insured, but if it wasn't, it would have been a big problem."
+        },
+        {
+          "content": "ちょうどタクシーが通りかかったからいいようなものの、あやうく遅刻するところだった。",
+          "transcription": "ちょうどタクシーがとおりかかったからいいようなものの、あやうくちこくするところだった。",
+          "mean": "It seemed like a good thing that a taxi was just passing by, but I almost ended up being late."
+        },
+        {
+          "content": "大事に至らなかったからいいようなものの、今回の事故によって、政府の原子力政策は見直しをせまられそうだ。",
+          "transcription": "だいじにいたらなかったからいいようなものの、こんかいのじこによって、せいふのげんしりょくせいさくはみなおしをせまられそうだ。",
+          "mean": "Although it may be a good thing that nothing serious happened, this accident will likely force the government to reconsider its nuclear energy policy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N/Na + だからいいA/V + からいい"
+    }
+  ],
+  "title": "…からいいようなものの => It’s a good thing that… this time…",
+  "_id": "f7ff14dae05876cac58b4136931dd7af"
+}

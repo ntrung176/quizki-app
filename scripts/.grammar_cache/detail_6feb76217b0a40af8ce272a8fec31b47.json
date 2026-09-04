@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5647,
+  "usages": [
+    {
+      "explain": "「は」is a particle used to mark the topic of a sentence. The speaker places 「は」after the topic they want to talk about and then adds necessary information after 「は」to form the sentence.\nThis particle helps to establish what the sentence will be about, indicating the topic of discussion.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はジョンです。",
+          "transcription": "わたしはジョンです。",
+          "mean": "I am John."
+        },
+        {
+          "content": "それは面白いですね。",
+          "transcription": "それはおもしろいですね。",
+          "mean": "That's interesting."
+        },
+        {
+          "content": "ナナさんは留学生です。",
+          "transcription": "ナナさんはりゅうがくせいです。",
+          "mean": "Nana is an international student."
+        },
+        {
+          "content": "私の先生は女性です。",
+          "transcription": "わたしのせんせいはじょせいです。",
+          "mean": "My teacher is a woman."
+        },
+        {
+          "content": "好きな食べものは何ですか。",
+          "transcription": "すきなたべものはなんですか。",
+          "mean": "What is your favorite food."
+        },
+        {
+          "content": "私の大学は駅の近くです。",
+          "transcription": "わたしのだいがくはえきのちかくです。",
+          "mean": "My university is near the station."
+        },
+        {
+          "content": "私の趣味は食べることです。",
+          "transcription": "わたしのしゅみはたべることです。",
+          "mean": "My hobby is eating."
+        },
+        {
+          "content": "マリアさんは頭がいいです。",
+          "transcription": "マリアさんはあたまがいいです。",
+          "mean": "Maria is smart."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+は"
+    }
+  ],
+  "title": "は => is/are",
+  "_id": "6feb76217b0a40af8ce272a8fec31b47"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1684,
+  "usages": [
+    {
+      "explain": "Used in conjunction with hypothetical expressions like 「…ば／…たら／…と」 to express the feeling of joy, gratitude, or feeling greatly helped if the other person does that thing for the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "取り替えていただけると嬉しいんです。",
+          "transcription": "とりかえていただけるとうれしいんです。",
+          "mean": "I would be happy if you could replace it."
+        },
+        {
+          "content": "一人で働くのは大変で、手伝っていただけるとありがたいです。",
+          "transcription": "いちにんではたらくのはたいへんで、てつだっていただけるとありがたいです。",
+          "mean": "It's hard to work alone, so I'd appreciate it if you could help me out."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ていただけるとありがたい <br/>V-ていただけるとうれしい<br/>"
+    }
+  ],
+  "title": "ていただけるとありがたい => I would really appreciate it if ...",
+  "_id": "f7ff14dae05876cac58b41369397f6f8"
+}

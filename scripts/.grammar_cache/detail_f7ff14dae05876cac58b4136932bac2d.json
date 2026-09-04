@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 892,
+  "usages": [
+    {
+      "explain": "Often accompanied by emotive words to strongly express negation, like \"not at all\".<br/><br/>Synonymous with [まったく...ない], [ぜんぜん...ない].",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんな映画は恐ろしくもなんともない。",
+          "transcription": "そんなえいがはおそろしくもなんともない。",
+          "mean": "Movies like that aren't scary at all."
+        },
+        {
+          "content": "この小説は面白くもなんともない。",
+          "transcription": "このしょうせつはおもしろくもなんともない。",
+          "mean": "This novel is not interesting at all."
+        },
+        {
+          "content": "一人で旅行しても怖くもなんともない。",
+          "transcription": "いちにんでりょこうしてもこわくもなんともない。",
+          "mean": "There's nothing scary about traveling alone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A-く + もなんともない"
+    }
+  ],
+  "title": "くもなんともない => not in the least; nothing like that",
+  "_id": "f7ff14dae05876cac58b4136932bac2d"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1621,
+  "usages": [
+    {
+      "explain": "限り (かぎり) goes with nouns indicating time, frequency, space to express a limit.",
+      "note": null,
+      "examples": [
+        {
+          "content": "佐藤さんは今月限りで定年退職することになっている。",
+          "transcription": "さとうさんはこんげつかぎりでていねんたいしょくすることになっている。",
+          "mean": "Mr. Sato is scheduled to retire at the end of this month."
+        },
+        {
+          "content": "その映画の公演は今週限りで打ち切られる。",
+          "transcription": "そのえいがのこうえんはこんしゅうかぎりでうちきられる。",
+          "mean": "Performances of the movie will be canceled this week."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 限り"
+    }
+  ],
+  "title": "限り => to limit...",
+  "_id": "f7ff14dae05876cac58b4136939014cc"
+}

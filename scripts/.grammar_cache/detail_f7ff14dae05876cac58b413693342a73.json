@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 956,
+  "usages": [
+    {
+      "explain": "Used to verify the accuracy of information provided by the other party, or to express the listener's evaluation of it. It is often accompanied by expressions of surprise, admiration, or anger.",
+      "note": null,
+      "examples": [
+        {
+          "content": "「お世話になりました」とは、会社を辞めるということだろうか。",
+          "transcription": "「おせわになりました」とは、かいしゃをやめるということだろうか。",
+          "mean": "Does \"Thank you for your help\" mean that I am resigning from the company?"
+        },
+        {
+          "content": "先輩に向かって「バカ」とは何事だ。",
+          "transcription": "せんぱいにむかって「ばか」とはなにごとだ。",
+          "mean": "What does it mean to call a senior an idiot?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "～とは"
+    }
+  ],
+  "title": "… とは => this means; the meaning of",
+  "_id": "f7ff14dae05876cac58b413693342a73"
+}

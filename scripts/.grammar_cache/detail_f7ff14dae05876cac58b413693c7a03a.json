@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2025,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"not often but sometimes.\" The particle \"は\" can be omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "時には現実と幻想を区別するのは難しい。",
+          "transcription": "ときにはげんじつとげんそうをくべつするのはむずかしい。",
+          "mean": "Sometimes reality and fantasy are hard to distinguish."
+        },
+        {
+          "content": "時には読書は彼女の時間の半分を占めた。",
+          "transcription": "ときにはどくしょはかのじょのじかんのはんぶんをしめた。",
+          "mean": "Sometimes reading occupied half of her time."
+        },
+        {
+          "content": "頭がいい人でも、時にはぼんやりすることがある。",
+          "transcription": "あたまがいいひとでも、ときにはぼんやりすることがある。",
+          "mean": "Even smart people can be absent-minded sometimes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ときには～"
+    }
+  ],
+  "title": "ときには => at times,occasionally",
+  "_id": "f7ff14dae05876cac58b413693c7a03a"
+}

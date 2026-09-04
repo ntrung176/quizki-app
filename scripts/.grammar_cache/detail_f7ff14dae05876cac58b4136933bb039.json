@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1011,
+  "usages": [
+    {
+      "explain": "Expresses performing an action comfortably, without exerting effort.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ざっと見流しただけですが、なかなか独特な映画ですよ。",
+          "transcription": "ざっとみながしただけですが、なかなかどくとくなえいがですよ。",
+          "mean": "I only skimmed through it, but it's a very unique movie."
+        },
+        {
+          "content": "彼女の文句を言うことは聞き流しておいてください。",
+          "transcription": "かのじょのもんくをいうことはききながしておいてください。",
+          "mean": "Listen to her complaints."
+        },
+        {
+          "content": "若い首相は有権者の執拗な追及も軽く受け流している。",
+          "transcription": "わかいしゅしょうはゆうけんしゃのしつようなついきゅうもかるくうけながしている。",
+          "mean": "The young prime minister is simply brushing off the relentless pressure from voters."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V ます + ながす"
+    }
+  ],
+  "title": "ながす => glance through",
+  "_id": "f7ff14dae05876cac58b4136933bb039"
+}

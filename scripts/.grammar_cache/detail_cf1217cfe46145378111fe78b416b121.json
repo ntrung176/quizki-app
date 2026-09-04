@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5293,
+  "usages": [
+    {
+      "explain": "「はもとより」is used to present a certain thing or event that the speaker considers as typical, essential (N1), then adding others of the same type (N2). This structure expresses the idea: N1 is obvious, it's clear already, but in addition, there is N2. This is a more formal way of saying「はもちろん」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "うちは貧乏なので、車はもとより、バイクもありません。",
+          "transcription": "うちはびんぼうなので、くるまはもとより、バイクもありません。",
+          "mean": "We are poor, so we don't have a car or even a motorcycle."
+        },
+        {
+          "content": "レタスはサラダで食べるのはもとより、炒めても美味しい。",
+          "transcription": "レタスはサラダでたべるのはもとより、いためてもおいしい。",
+          "mean": "Lettuce is delicious not only in salads, but also in stir-fries."
+        },
+        {
+          "content": "結果はもとよりその過程も大切だ。",
+          "transcription": "けっかはもとより、そのかていもたいせつだ。",
+          "mean": "The process is as important as the result."
+        },
+        {
+          "content": "この建物は地震はもとより、火事にも強いんです。",
+          "transcription": "このたてものはじしんはもとより、かじにもつよいんです。",
+          "mean": "This building is resistant not only to earthquakes but also to fire."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は もとより N2も"
+    }
+  ],
+  "title": "はもとより => also; let alone; from the beginning",
+  "_id": "cf1217cfe46145378111fe78b416b121"
+}

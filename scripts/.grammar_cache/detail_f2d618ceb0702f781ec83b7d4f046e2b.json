@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2464,
+  "usages": [
+    {
+      "explain": "Used with the negative form of a verb to express a wish that something weren't the case. Often used when something has happened or there is a risk or concern that it might.",
+      "note": null,
+      "examples": [
+        {
+          "content": "これほど毎月忙しくないといいのだが。",
+          "transcription": "これほどまいつきいそがしくないといいのだが。",
+          "mean": "I wish I wasn't this busy every month."
+        },
+        {
+          "content": "この仕事に残業なんかないといいのになあ。",
+          "transcription": "このしごとにざんぎょうなんかないといいのになあ。",
+          "mean": "I wish this job didn't require overtime."
+        },
+        {
+          "content": "雪が降らないといいが。",
+          "transcription": "ゆきがふらないといいが。",
+          "mean": "I hope it doesn't snow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ないといい<br/>A-くないといい<br/>Na・N でないといい"
+    }
+  ],
+  "title": "ないといい => Not doing...it's better",
+  "_id": "f2d618ceb0702f781ec83b7d4f046e2b"
+}

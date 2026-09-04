@@ -1,0 +1,21 @@
+{
+  "level": "N5",
+  "mobileId": 2862,
+  "usages": [
+    {
+      "explain": "「 お」is used to express respect from the speaker to the listener, or to something related to the listener.<br/><br/>Additionally, there are some cases where 「 お」is placed before a word but doesn't convey a sense of respect or formality, just a neutral tone (e.g., 「 おちゃ」 tea,「 おかね」 money).",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本のお茶はとても美味しいです。",
+          "transcription": "にっぽんのおちゃはとてもおいしいです。",
+          "mean": "Japanese tea is very delicious."
+        }
+      ],
+      "mean": null,
+      "synopsis": "お + N"
+    }
+  ],
+  "title": "お => Prefix",
+  "_id": "f2d618ceb0702f781ec83b7d4f390d6f"
+}

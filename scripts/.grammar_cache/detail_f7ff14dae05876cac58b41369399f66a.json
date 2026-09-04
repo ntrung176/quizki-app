@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1698,
+  "usages": [
+    {
+      "explain": "Expresses a situation that cannot be clearly expressed. It encompasses not only one but many other meanings.",
+      "note": null,
+      "examples": [
+        {
+          "content": "なにかしら売買をしているので、家計は困らない。",
+          "transcription": "なにかしらばいばいをしているので、かけいはこまらない。",
+          "mean": "Since I buy and sell something, I don't have to worry about my household finances."
+        },
+        {
+          "content": "彼女はいつも義理の母についてなにかしら悪口を言う。",
+          "transcription": "かのじょはいつもぎりのははについてなにかしらわるぐちをいう。",
+          "mean": "She always says something bad about her mother-in-law."
+        },
+        {
+          "content": "その社員は最近なにかしらわがままな態度を取る。",
+          "transcription": "そのしゃいんはさいきんなにかしらわがままなたいどをとる。",
+          "mean": "The employee has been acting selfish lately."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにかしら"
+    }
+  ],
+  "title": "なにかしら =>  I wonder (feminine)",
+  "_id": "f7ff14dae05876cac58b41369399f66a"
+}

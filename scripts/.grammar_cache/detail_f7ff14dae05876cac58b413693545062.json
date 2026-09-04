@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1193,
+  "usages": [
+    {
+      "explain": "Used to connect two clauses with contrasting or opposing meanings. 「というのに」 is a more formal way of saying 「のに」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はお酒が嫌いだというのに無理に飲まされた。",
+          "transcription": "わたしはおさけがきらいだというのにむりにのまされた。",
+          "mean": "Even though I don't like alcohol, I was forced to drink."
+        },
+        {
+          "content": "山本さんは試験が近いというのに、まだ全然勉強していません。",
+          "transcription": "やまもとさんはしけんがちかいというのに、まだぜんぜんべんきょうしていません。",
+          "mean": "Mr. Yamamoto hasn't studied at all yet, even though his exam is coming up."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな・Nな + というのに"
+    }
+  ],
+  "title": "というのに => even though,despite,when",
+  "_id": "f7ff14dae05876cac58b413693545062"
+}

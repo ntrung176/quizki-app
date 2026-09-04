@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1044,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"besides..., there's no need to do anything else\" or \"there's nothing else important to consider\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "好きじゃないことをしないほうがいい。頼まれたら、断るだけのことだ。",
+          "transcription": "すきじゃないことをしないほうがいい。たのまれたら、ことわるだけのことだ。",
+          "mean": "It's better not to do things you don't like. If someone asks you to do something, just say no."
+        },
+        {
+          "content": "社長の秘書は難しくないよ。ただ社長のスケジュールを打ち合わせるだけのことだ。",
+          "transcription": "しゃちょうのひしょはむずかしくないよ。ただしゃちょうのすけじゅーるをうちあわせるだけのことだ。",
+          "mean": "Being the president's secretary isn't difficult. It's just a matter of meeting the president's schedule."
+        },
+        {
+          "content": "文学を習うことが簡単だと思う。本で書いてあることを読んで、暗記するだけのことだ。",
+          "transcription": "ぶんがくをならうことがかんたんだとおもう。ほんでかいてあることをよんで、あんきするだけのことだ。",
+          "mean": "I think learning literature is easy. It's just a matter of reading what's written in the book and memorizing it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + だけのことだ"
+    }
+  ],
+  "title": "…だけのことだ => That's all, just...",
+  "_id": "f7ff14dae05876cac58b4136934066fc"
+}

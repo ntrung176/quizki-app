@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 910,
+  "usages": [
+    {
+      "explain": "Used with the formula「AぐらいならむしろB」to express the meaning: If A is not good for the speaker, then they would choose B. It can also be used in the form「AくらいならB」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "好きじゃない人と結婚するぐらいなら、むしろ独身で暮らす。",
+          "transcription": "すきじゃないひととけっこんするぐらいなら、むしろどくしんでくらす。",
+          "mean": "I would rather live alone than marry someone I don't like."
+        },
+        {
+          "content": "あいつから借金をするぐらいなら、むしろ破産する。",
+          "transcription": "あいつからしゃっきんをするぐらいなら、むしろはさんする。",
+          "mean": "I'd rather go bankrupt than borrow money from him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + ぐらいならむしろ"
+    }
+  ],
+  "title": "ぐらいならむしろ => If...then it would be better...",
+  "_id": "f7ff14dae05876cac58b4136932e214b"
+}

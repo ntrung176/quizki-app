@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 834,
+  "usages": [
+    {
+      "explain": "■ Used with expressions denoting capability, to express the meaning \"N is at a level where even with skillful manipulation, one can only...\". Also used in cases where \"although difficult, with utmost effort one can still accomplish it. However, it cannot be done any better\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "かろうじて家具付きの部屋。",
+          "transcription": "かろうじてかぐつきのへや。",
+          "mean": "Barely furnished room."
+        },
+        {
+          "content": "<div>かろうじて過半数を得る。<br></div>",
+          "transcription": "かろうじてかはんすうをえる。",
+          "mean": "&lt;div&gt;Barely gets a majority. &lt;br&gt;&lt;/div&gt;"
+        },
+        {
+          "content": "その家は、僕にもかろうじて買えそうな値段だ。",
+          "transcription": "そのいえは、ぼくにもかろうじてかえそうなねだんだ。",
+          "mean": "That house is priced at a price that I can barely afford."
+        },
+        {
+          "content": "私の英語は、かろうじて日常会話ができる程度だ。",
+          "transcription": "わたしのえいごは、かろうじてにちじょうかいわができるていどだ。",
+          "mean": "My English is barely good enough for everyday conversation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～かろうじて + Vる + N"
+    }
+  ],
+  "title": "～ かろうじて => Just enough for",
+  "_id": "f7ff14dae05876cac58b4136932420d5"
+}

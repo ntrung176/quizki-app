@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5035,
+  "usages": [
+    {
+      "explain": "「びる」is a suffix that follows certain nouns or adjectives, used to describe an object or event as looking like or behaving similarly to something else.",
+      "note": null,
+      "examples": [
+        {
+          "content": "美奈子ちゃん、高くなって随分大人びてきましたね。",
+          "transcription": "みなこちゃん、たかくなってずいぶんおとなびてきましたね。",
+          "mean": "Minako-chan has grown taller and has become quite mature."
+        },
+        {
+          "content": "佐藤くんは中学生になったとたん、大人びたことを言うようになった。",
+          "transcription": "さとうくんはちゅうがくせいになったとたん、おとなびたことをいうようになった。",
+          "mean": "As soon as Sato-kun became a junior high school student, he started saying mature things."
+        },
+        {
+          "content": "この町は田舎びているから好きだ。",
+          "transcription": "このまちはいなかびているからすきだ。",
+          "mean": "I like this town because it's rural."
+        },
+        {
+          "content": "私はどんなに治安が良くても、田舎びた町には住みたくない。",
+          "transcription": "わたしはどんなにちあんがよくても、いなかびたまちにはすみたくない。",
+          "mean": "I don't want to live in a rural town, no matter how safe it is."
+        },
+        {
+          "content": "彼女は幼びて見えるけど、実際は33歳らしい。",
+          "transcription": "かのじょはおさなびてみえるけど、じっさいはさんじゅうさんさいらしい。",
+          "mean": "Although she looks young, she is actually 33 years old."
+        },
+        {
+          "content": "実家で屋根裏部屋を掃除していたら、古びたアルバムが続々と出てきた。",
+          "transcription": "じっかでやねうらへやをそうじしていたら、ふるびたアルバムがぞくぞくとでてきた。",
+          "mean": "When I was cleaning out the attic at my parents' house, I found many old albums one after another."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/A<s>い</s>+びる<br/>N/A<s>い</s>+びて<br/> N/A<s>い</s>+<span class=\"iro\">びたN'</span>"
+    }
+  ],
+  "title": "びる => to seem to be; to appear; to behave as ~",
+  "_id": "e438f694b6b649c2af6c0188197b162e"
+}

@@ -1,0 +1,38 @@
+{
+  "level": "N4",
+  "mobileId": 2499,
+  "usages": [
+    {
+      "explain": "This describes the meaning of \"immediately following an action by the same subject, another action is done.\" Both actions are intentional. The end of the sentence typically uses the タ form, but in scripts, etc., the dictionary form is also used as shown in the example below.<br/>(Script) <br/>健人は、手をふくと、ギターを手に取る。<br/>After waving his hand, Kento immediately picks up the guitar.<br/>「と」is used to indicate a continuous action and is often used in novels and stories. In this usage, if replaced by 「たら」 it would sound unnatural, and most cases cannot be replaced. While the 「と」in this usage can sometimes be replaced by the テ form, it's not always possible. For example, the テ form can describe three or more actions, but 「と」cannot accomplish this.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はめざまし時計を止めると、またベッドヘ戻った。",
+          "transcription": "かのじょはめざましとけいをとめると、またべっどへもどった。",
+          "mean": "She turned off the alarm and went back to bed."
+        },
+        {
+          "content": "駅へ着くとその足で会社へ向かった。",
+          "transcription": "えきへつくとそのあしでかいしゃへむかった。",
+          "mean": "When I arrived at the station, I headed to work."
+        },
+        {
+          "content": "父は携帯電話を置くと、椅子を回して窓から川を見下ろし、ため息をもらした。",
+          "transcription": "ちちはけいたいでんわをおくと、いすをまわしてまどからかわをみおろし、ためいきをもらした。",
+          "mean": "My father put down his cell phone, turned his chair, looked out the window at the river, and let out a sigh."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": "Note: The テ form describes actions that occur continuously within the same situation. In contrast, 「と」 is used to separate a situation into two and describe, from an external perspective, the change that occurs when transitioning from situation 1 to situation 2.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…と…た => when... did",
+  "_id": "f2d618ceb0702f781ec83b7d4f08d638"
+}

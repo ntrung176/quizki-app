@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5226,
+  "usages": [
+    {
+      "explain": "「抜きにして」expresses the idea of doing something without N1, leaving N1 out, or excluding N1. It can be translated as \"Without/Leaving aside...\"<br/>\n\n「抜きにしては～れない」expresses the idea that something cannot be done if N1 is omitted or excluded. It can be translated as \"Cannot do without...\" or \"Cannot... if (we) exclude...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "詳細は抜きにしてすぐ結論に入ります。",
+          "transcription": "しょうさいはぬきにしてすぐけつろんにはいります。",
+          "mean": "I'll skip the details and jump straight to the conclusion."
+        },
+        {
+          "content": "お世辞抜きに、君の日本語は本当にうまいよ。",
+          "transcription": "おせじぬきに、きみのにほんごはほんとうにうまいよ。",
+          "mean": "Without flattery, your Japanese is really good."
+        },
+        {
+          "content": "カフェイン抜きのコーヒーを注文した。",
+          "transcription": "カフェインぬきのコーヒーをちゅうもんした。",
+          "mean": "I ordered a decaf coffee."
+        },
+        {
+          "content": "ハンバーガーはトマト抜きでお願いします。",
+          "transcription": "ハンバーガーはトマトぬきでおねがいします。",
+          "mean": "I would like the hamburger without tomato, please."
+        },
+        {
+          "content": "挨拶は抜きにして食事にしましょう。",
+          "transcription": "あいさつはぬきにしてしょくじにしましょう。",
+          "mean": "Let's skip the greetings and enjoy the meal."
+        },
+        {
+          "content": "田中さん抜きで、パーティーは始められません。",
+          "transcription": "たなかさんぬきで、パーティーははじめられません。",
+          "mean": "The party can't start without Tanaka-san."
+        },
+        {
+          "content": "国家の展望はエネルギー政策抜きには語れない。",
+          "transcription": "こっかのてんぼうはエネルギーせいさくぬきにはかたれない。",
+          "mean": "The country's prospects cannot be discussed without discussing energy policy."
+        },
+        {
+          "content": "この件は彼の協力を抜きにしては進められない。",
+          "transcription": "このけんはかれのきょうりょくをぬきにしてはすすめられない。",
+          "mean": "This matter cannot proceed without his cooperation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 (を/は)+抜きにして / 抜きで / 抜きに / 抜きのN2<br/> N1 (を)+抜きにして / 抜きで / 抜きに+(は) V (potential form)ない"
+    }
+  ],
+  "title": "抜きにして/ 抜きにしては～れない => without; leaving out; cutting out ~",
+  "_id": "75f9861949734756bd00ad07f0300c93"
+}

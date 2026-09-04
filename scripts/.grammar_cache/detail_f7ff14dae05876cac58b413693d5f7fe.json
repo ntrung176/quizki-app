@@ -1,0 +1,21 @@
+{
+  "level": "N3",
+  "mobileId": 2127,
+  "usages": [
+    {
+      "explain": "Indicates \"in an emergency, in case of an unfortunate event.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "まさかの場合は、私に連絡してください。",
+          "transcription": "まさかのばあいは、わたしにれんらくしてください。",
+          "mean": "If by any chance, please contact me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まさかの + N"
+    }
+  ],
+  "title": "まさか... => there's no way; that's impossible; you must be joking",
+  "_id": "f7ff14dae05876cac58b413693d5f7fe"
+}

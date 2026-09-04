@@ -1,0 +1,71 @@
+{
+  "level": "N5",
+  "mobileId": 5616,
+  "usages": [
+    {
+      "explain": "「もう」has the meaning of \"already\" or \"now,\" and the sentence structure will change based on the verb form in the second clause:<br/>\n- If the verb in the second clause is in the affirmative past tense (もう～Vた), then「もう」indicates an action that has already ended by the present moment.<br/>\n- If the verb in the second clause is in the negative form (もう～Vない), then「もう」indicates the limit of a state, meaning \"no longer,\" or \"can't be any more.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "もう諦めました。",
+          "transcription": "もうあきらめました。",
+          "mean": "I've already given up."
+        },
+        {
+          "content": "もう昼ご飯を食べました。",
+          "transcription": "もうひるごはんをたべました。",
+          "mean": "I have already eaten lunch."
+        },
+        {
+          "content": "もうレポートを出しましたか。",
+          "transcription": "もうレポートをだしましたか。",
+          "mean": "Have you submitted your report yet?"
+        },
+        {
+          "content": "今朝の仕事はもう全部終わりました。",
+          "transcription": "けさのしごとはもうぜんぶおわりました。",
+          "mean": "I've already finished all my work this morning."
+        },
+        {
+          "content": "その本なら、もう読みました。",
+          "transcription": "そのほんなら、もうよみました。",
+          "mean": "If that's the book, I've already read it."
+        },
+        {
+          "content": "飲み物は全部飲みました。もうありません。",
+          "transcription": "のみものはぜんぶのみました。もうありません。",
+          "mean": "I drank all the drinks. No more."
+        },
+        {
+          "content": "私はもう我慢できない。",
+          "transcription": "わたしはもうがまんできない。",
+          "mean": "I can't put up with this any longer."
+        },
+        {
+          "content": "コーヒーはもう飲まないことにしました。",
+          "transcription": "コーヒーはもうのまないことにしました。",
+          "mean": "I decided not to drink coffee anymore."
+        },
+        {
+          "content": "砂糖さんはもう会社にはいません。",
+          "transcription": "さとうさんはもうかいしゃにはいません。",
+          "mean": "Mr. Sugar is no longer with the company."
+        },
+        {
+          "content": "疲れて、もう何もしたくない。",
+          "transcription": "つかれて、もうなにもしたくない。",
+          "mean": "I'm tired and don't want to do anything anymore."
+        },
+        {
+          "content": "このレストランはもう営業していない。",
+          "transcription": "このれすとらんはもうえいぎょうしていない。",
+          "mean": "This restaurant is no longer open."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もう+V (formal form)"
+    }
+  ],
+  "title": "もう => already; anymore; again; other",
+  "_id": "378a962362ed46bdb7025654a821ee95"
+}

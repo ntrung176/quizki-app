@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2488,
+  "usages": [
+    {
+      "explain": "It describes a large quantity or a considerable number of times.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何度も部屋のドアをノックしたが、返事はなかった。",
+          "transcription": "なんどもへやのどあをのっくしたが、へんじはなかった。",
+          "mean": "I knocked on the door of the room many times, but there was no answer."
+        },
+        {
+          "content": "何日も続けて雨が降った。",
+          "transcription": "なんにちもつづけてあめがふった。",
+          "mean": "It rained for several days on end."
+        },
+        {
+          "content": "何度も失敗した後成功した。",
+          "transcription": "なんどもしっぱいしたのちせいこうした。",
+          "mean": "I succeeded after failing many times."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なん＋counting unit＋ も"
+    }
+  ],
+  "title": "なん...も => nothing; (not) ~ at all; there's no need to ~ (describe a large number of something)",
+  "_id": "f2d618ceb0702f781ec83b7d4f078335"
+}

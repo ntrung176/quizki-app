@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5152,
+  "usages": [
+    {
+      "explain": "「からでないと/からでなければ」expresses the idea that something (V) must be done first before another thing can happen or be carried out. The clause following this structure is often in the negative form or an affirmative form indicating difficulty or obstacle (such as 難しい...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "手続きしてからでないと、図書館の本は借りられない。",
+          "transcription": "てつづきしてからでないと、としょかんのほんはかりられない。",
+          "mean": "You cannot borrow books from the library until you complete the necessary procedures."
+        },
+        {
+          "content": "親の許可をもらってからでなければ、申し込めない。",
+          "transcription": "おやのきょかをもらってからでなければ、もうしこめない。",
+          "mean": "You can only apply after getting your parents' permission."
+        },
+        {
+          "content": "手を洗ってからでないと、食べてはいけない。",
+          "transcription": "てをあらってからでないと、たべてはいけない。",
+          "mean": "Do not eat unless you wash your hands."
+        },
+        {
+          "content": "事実関係をしっかり認識してからでないと、その件についてはコメントできません。",
+          "transcription": "じじつかんけいをしっかりにんしきしてからでないと、そのけんについてはコメントできません。",
+          "mean": "I cannot comment on the matter until I am fully aware of the facts."
+        },
+        {
+          "content": "両親と相談してからでないと、自分で決められません。",
+          "transcription": "りょうしんとそうだんしてからでないと、じぶんできめられません。",
+          "mean": "You cannot make a decision on your own without first consulting with your parents."
+        },
+        {
+          "content": "証拠をつかんでからでないと、彼を逮捕することはできない。",
+          "transcription": "しょうこをつかんでからでないと、かれをたいほすることはできない。",
+          "mean": "They can't arrest him until they have evidence."
+        },
+        {
+          "content": "一度体重を増やしてからでないと、筋肉が付きづらいと教わった。",
+          "transcription": "いちどたいじゅうをふやしてからでないと、きんにくがつきづらいとおそわった。",
+          "mean": "I was taught that it is difficult to gain muscle until you gain weight."
+        },
+        {
+          "content": "夫に相談してからでなければ、決めるのは難しいです。",
+          "transcription": "おっとにそうだんしてからでなければ、きめるのはむずしいです。",
+          "mean": "It is difficult to make a decision without consulting your husband."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+からでないと<br/> Vて+からでなければ"
+    }
+  ],
+  "title": "からでないと/からでなければ => must first do; cannot do without first doing ~",
+  "_id": "b64bc791e72b4969bcb4ab81d35bad05"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1182,
+  "usages": [
+    {
+      "explain": "Expresses the idea \"in case such a situation occurs...\". It's often used to describe a situation that has already happened. <br/>Following it are the evaluations or judgments of the listener in that situation, often with a negative connotation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "肺癌がここまで転移したとなっては、もうどうすることもできない。",
+          "transcription": "はいがんがここまでてんいしたとなっては、もうどうすることもできない。",
+          "mean": "If the lung cancer has metastasized to this extent, there is nothing that can be done."
+        },
+        {
+          "content": "その任務を引き受ける人が誰もいないとなっては、私がやるしかない。",
+          "transcription": "そのにんむをひきうけるひとがだれもいないとなっては、わたしがやるしかない。",
+          "mean": "If there is no one to take on the task, I have no choice but to do it."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na（だ）+ となっては\nA／V + となっては"
+    }
+  ],
+  "title": "… となっては => In that case ...",
+  "_id": "f7ff14dae05876cac58b41369352bae7"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2441,
+  "usages": [
+    {
+      "explain": "This phrase describes \"a situation where something almost out of the speaker's control happens.\" It is often used to recount an event in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "腐っている食べ物を食べて、吐きそうになった。",
+          "transcription": "くさっているたべものをたべて、はきそうになった。",
+          "mean": "I ate rotten food and felt like throwing up."
+        },
+        {
+          "content": "悪い人の言葉を信じて、危うく偽者を買いそうになった。",
+          "transcription": "わるいひとのことばをしんじて、あやうくにせものをかいそうになった。",
+          "mean": "I believed the words of a bad person and almost bought a fake product."
+        },
+        {
+          "content": "昨日危うく屋上から落ちそうになった。",
+          "transcription": "きのうあやうくおくじょうからおちそうになった。",
+          "mean": "I almost fell off the roof yesterday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます + そうになる"
+    }
+  ],
+  "title": "そうになる => for something to almost happen, to be about to happen",
+  "_id": "f2d618ceb0702f781ec83b7d4f0152a7"
+}

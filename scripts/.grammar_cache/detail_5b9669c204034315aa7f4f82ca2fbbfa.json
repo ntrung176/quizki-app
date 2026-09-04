@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5464,
+  "usages": [
+    {
+      "explain": "The 「ようとしない」expresses that the subject has no intention or inclination to perform a certain action. This structure is not used to describe oneself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ポチ、どうしたんだろう。ご飯を食べようとしないんだよ。",
+          "transcription": "ポチ、どうしたんだろう。ごはんをたべようとしないんだよ。",
+          "mean": "Pochi, I wonder what happened. I don't want to eat rice."
+        },
+        {
+          "content": "彼は自分のことは何も言おうとしない。",
+          "transcription": "かれはじぶんのことはなにもいおうとしない。",
+          "mean": "He won't say anything about himself."
+        },
+        {
+          "content": "父はそれについて何も話そうとしない。",
+          "transcription": "ちちはそれについてなにもはなそうとしない。",
+          "mean": "My father won't talk about it."
+        },
+        {
+          "content": "どうして悪いところを直そうとしないんですか。",
+          "transcription": "どうしてわるいところをなおそうとしないんですか。",
+          "mean": "Why don't you try to fix what's wrong?"
+        },
+        {
+          "content": "どんなに口説しても、父は私に遊びに行かせようとしない。",
+          "transcription": "どんなにくぜつしても、ちちはわたしにあそびにいかせようとしない。",
+          "mean": "No matter how much I try to persuade my father, he won't let me go out."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (volitional form)+としない"
+    }
+  ],
+  "title": "ようとしない => not try to; not make an effort to ~",
+  "_id": "5b9669c204034315aa7f4f82ca2fbbfa"
+}

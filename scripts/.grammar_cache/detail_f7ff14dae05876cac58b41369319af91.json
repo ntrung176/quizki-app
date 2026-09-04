@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 763,
+  "usages": [
+    {
+      "explain": "Disgust, terrible, worthless",
+      "note": null,
+      "examples": [
+        {
+          "content": "杉田はろくでもない女に夢中になっている。",
+          "transcription": "すぎたはろくでもないおんなにむちゅうになっている。",
+          "mean": "Sugita is obsessed with a bastard woman."
+        },
+        {
+          "content": "いつもそんなろくでもない本ばかり読んでいるの。",
+          "transcription": "いつもそんなろくでもないほんばかりよんでいるの。",
+          "mean": "I'm always reading such crappy books."
+        },
+        {
+          "content": "彼のお父さんはろくでもないやつだ。",
+          "transcription": "かれのおとうさんはろくでもないやつだ。",
+          "mean": "His father is an asshole."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ろくでもない + N"
+    }
+  ],
+  "title": "ろくでもない => good-for-nothing, useless, worthless",
+  "_id": "f7ff14dae05876cac58b41369319af91"
+}

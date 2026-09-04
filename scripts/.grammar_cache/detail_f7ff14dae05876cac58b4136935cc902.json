@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1257,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"which one, which side among two or more mentioned options or directions.\" Often used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大学に進学と結婚といずれの道を選ぶのがいいか分からない。",
+          "transcription": "だいがくにしんがくとけっこんといずれのみちをえらぶのがいいかわからない。",
+          "mean": "I don't know which path is better, going to university or getting married."
+        },
+        {
+          "content": "A, B, C のいずれかに丸をつけてください。",
+          "transcription": "A, B, C のいずれかにまるをつけてください。",
+          "mean": "Please circle A, B, or C."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いずれ"
+    }
+  ],
+  "title": "いずれ => anyhow; anyway; either way; in any case ~",
+  "_id": "f7ff14dae05876cac58b4136935cc902"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5554,
+  "usages": [
+    {
+      "explain": "「てくる」expresses the idea of going to a certain place to perform an action, then returning to the original location.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ちょっとたばこを買ってきます。",
+          "transcription": "ちょっとたばこをかってきます。",
+          "mean": "I'm going to buy some cigarettes."
+        },
+        {
+          "content": "台所からコップを取ってきます。",
+          "transcription": "だいどころからコップをとってきます。",
+          "mean": "I'll get a cup from the kitchen."
+        },
+        {
+          "content": "あれ、トムさんはまだ来ていませんね。ちょっと探してきます。",
+          "transcription": "あれ、トムさんはまだきていませんね。ちょっとさがしてきます。",
+          "mean": "Well, Tom hasn't come yet. I'll look for it in a bit."
+        },
+        {
+          "content": "ちょっとお腹が空いたので、マクドナルドでポテトを買ってきます。",
+          "transcription": "ちょっとおなかがすいたので、マクドナルドでポテトをかってきます。",
+          "mean": "I'm a little hungry, so I'm going to buy some fries at McDonald's."
+        },
+        {
+          "content": "果物がないですね。ちょっと、コンビニまで買いに行ってきます。",
+          "transcription": "くだものがないですね。ちょっと、コンビニまでかいにいってきます。",
+          "mean": "There's no fruit. I'm going to go to the convenience store to buy some."
+        },
+        {
+          "content": "もしもし、お母さん？今日、家に帰る前に、図書館で勉強してくる。",
+          "transcription": "もしもし、おかあさん？きょう、うちにかえるまえに、としょかんでべんきょうしてくる。",
+          "mean": "Hello, mom? I'm going to study at the library before I go home today."
+        },
+        {
+          "content": "先輩、まだお昼ご飯を食べていないので、ちょっと食べてきてもいいですか。",
+          "transcription": "せんぱい、まだおひるごはんをたべていないので、ちょっとたべてきてもいいですか。",
+          "mean": "Senpai, I haven't had lunch yet, so can I have something to eat?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+くる"
+    }
+  ],
+  "title": "てくる => to do… and come back",
+  "_id": "8c559ccb6b664d73b4b07578dba28766"
+}

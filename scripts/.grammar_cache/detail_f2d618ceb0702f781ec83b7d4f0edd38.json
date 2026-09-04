@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2543,
+  "usages": [
+    {
+      "explain": "This is repeating the same noun to emphasize that the degree is not normal.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ランさんはバカモノもバカモノだ。冗談だけでも事実に見えて慌ててしまった。",
+          "transcription": "らんさんはばかものもばかものだ。じょうだんだけでもじじつにみえてあわててしまった。",
+          "mean": "Mr. Ran is also a fool. Even though it was just a joke, it seemed like a fact and I panicked."
+        },
+        {
+          "content": "彼女の両親の家は、山奥も山奥、一番近い駅から車で4時問もかかるところにある。",
+          "transcription": "かのじょのりょうしんのいえは、やまおくもやまおく、いちばんちかいえきからくるまで4じといもかかるところにある。",
+          "mean": "Her parents' home is deep in the mountains, about a four-hour drive from the nearest station."
+        },
+        {
+          "content": "あいつは悪人も悪人だ。永遠に良人にならない。",
+          "transcription": "あいつはあくにんもあくにんだ。えいえんにりょうじんにならない。",
+          "mean": "He's a bad guy too. You will never be a good person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + も + N"
+    }
+  ],
+  "title": "...も… => (Emphasis)… really…",
+  "_id": "f2d618ceb0702f781ec83b7d4f0edd38"
+}

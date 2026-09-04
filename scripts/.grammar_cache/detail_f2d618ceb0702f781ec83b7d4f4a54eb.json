@@ -1,0 +1,38 @@
+{
+  "level": "N5",
+  "mobileId": 3006,
+  "usages": [
+    {
+      "explain": "The particle「と」is used to indicate that the subject is performing an action together with the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は来週家族と旅行に行きます。",
+          "transcription": "わたしはらいしゅうかぞくとりょこうにいきます。",
+          "mean": "I'm going on a trip with my family next week."
+        },
+        {
+          "content": "山田さんは部長と話しています。",
+          "transcription": "やまださんはぶちょうとはなしています。",
+          "mean": "Mr. Yamada is talking with the manager."
+        },
+        {
+          "content": "一人で旅行するのが好きです。",
+          "transcription": "いちにんでりょこうするのがすきです。",
+          "mean": "I like traveling alone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + と + V"
+    },
+    {
+      "explain": "Note: In the case of performing an action alone, use 「ひとりで」. In this case, the particle「と」is not used.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "と => Together...",
+  "_id": "f2d618ceb0702f781ec83b7d4f4a54eb"
+}

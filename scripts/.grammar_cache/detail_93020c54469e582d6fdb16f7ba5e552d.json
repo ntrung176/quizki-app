@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 3125,
+  "usages": [
+    {
+      "explain": "☞ Verbs like [あげます], [かします], [おしえます] require a recipient (to give, lend, teach). We place the particle [に] after the noun indicating this recipient.\n☞ For verbs like [おくります], [でんわをかけます], the recipient can not only be a person but also a place (noun). In that case, in addition to the particle [に], we can also use the particle [へ].\n☞ Verbs like [もらいます], [かります], [ならいます] indicate actions from the perspective of the recipient. When using these verbs in a sentence where the subject is the recipient, we add [に] after the noun indicating the partner. In sentences using these verbs, we can use the particle [から] instead of [に]. Especially when the recipient is not a person but an organization (for example: a company or school), we do not use [に] but [から].",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中さんは木村さんに花をあげました。",
+          "transcription": "たなかさんはきむらさんにはなをあげました。",
+          "mean": "Mr. Tanaka gave flowers to Mr. Kimura."
+        },
+        {
+          "content": "イーさんに辞書をかしました。",
+          "transcription": "いーさんにじしょをかしました。",
+          "mean": "I asked Mr. Yi the dictionary."
+        },
+        {
+          "content": "太郎君にベトナム語を教えます。",
+          "transcription": "たろうくんにべとなむごをおしえます。",
+          "mean": "I will teach Taro the Vietnamese language."
+        },
+        {
+          "content": "大使館に[へ] 電話をかけます。",
+          "transcription": "たいしかんに[へ]でんわをかけます。",
+          "mean": "I'll call the embassy."
+        },
+        {
+          "content": "木村さんは田中さんに花をもらいました。",
+          "transcription": "きむらさんはたなかさんにはなをもらいました。",
+          "mean": "Mr. Kimura received flowers from Mr. Tanaka."
+        },
+        {
+          "content": "カリナさんにその本を借りました。",
+          "transcription": "かりなさんにそのほんをかりました。",
+          "mean": "I borrowed the book from Karina."
+        },
+        {
+          "content": "キムさんに韓国語を習います。",
+          "transcription": "きむさんにかんこくごをならいます。",
+          "mean": "I will learn Korean from Kim."
+        }
+      ],
+      "mean": ": for~, from~",
+      "synopsis": "N（人）にV"
+    }
+  ],
+  "title": "～に      => for~, from~",
+  "_id": "93020c54469e582d6fdb16f7ba5e552d"
+}

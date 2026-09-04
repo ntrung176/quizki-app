@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2815,
+  "usages": [
+    {
+      "explain": "The particle 「に」 here means \"to do~\", \"for doing~\" (gift, anniversary, etc.).",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は日本旅行のお土産にお餅を買いました。",
+          "transcription": "わたしはにほんりょこうのおみやげにおもちをかいました。",
+          "mean": "I bought mochi as a souvenir from my trip to Japan."
+        },
+        {
+          "content": "恋人の誕生日プレゼントに指輪を選んで決定した。",
+          "transcription": "こいびとのたんじょうびぷれぜんとにゆびわをえらんでけっていした。",
+          "mean": "I decided to choose a ring as my lover's birthday present."
+        }
+      ],
+      "mean": null,
+      "synopsis": "The particle「に」 means \"To do...\""
+    }
+  ],
+  "title": "N に V => To do something ...",
+  "_id": "f2d618ceb0702f781ec83b7d4f324796"
+}

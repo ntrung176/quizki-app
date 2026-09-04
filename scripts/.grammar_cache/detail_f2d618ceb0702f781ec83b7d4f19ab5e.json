@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2623,
+  "usages": [
+    {
+      "explain": "Expresses the difficulty or impossibility of doing something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは無理だと思う。",
+          "transcription": "それはむりだとおもう。",
+          "mean": "I don't think that's possible."
+        },
+        {
+          "content": "彼は若すぎてその仕事は無理だ.",
+          "transcription": "かれはわかすぎてそのしごとはむりだ.",
+          "mean": "He is too young for the job."
+        },
+        {
+          "content": "医者は治すのは無理だと言った。",
+          "transcription": "いしゃはなおすのはむりだといった。",
+          "mean": "The doctor said it was impossible to cure."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...はむりだ: ...Is impossible, describes difficulty"
+    }
+  ],
+  "title": "...はむりだ... => impossible",
+  "_id": "f2d618ceb0702f781ec83b7d4f19ab5e"
+}

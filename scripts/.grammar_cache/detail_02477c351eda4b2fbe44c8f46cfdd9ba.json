@@ -1,0 +1,71 @@
+{
+  "level": "N5",
+  "mobileId": 5607,
+  "usages": [
+    {
+      "explain": "「できる」is a verb that indicates capability or ability. When a noun representing an action or「こと plain form」before が, it indicates the content of that capacity or ability. This structure is synonymous with the potential form of a verb but is often used in more formal contexts.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はサッカーができます。",
+          "transcription": "わたしはサッカーができます。",
+          "mean": "I can play soccer."
+        },
+        {
+          "content": "彼女がテニスができます。",
+          "transcription": "かのじょがテニスができます。",
+          "mean": "She can play tennis."
+        },
+        {
+          "content": "噓をつくことができません。",
+          "transcription": "うそをつくことができません。",
+          "mean": "I can't lie."
+        },
+        {
+          "content": "私は3キロ泳ぐことができます。",
+          "transcription": "わたしはさんキロおよぐことができます。",
+          "mean": "I can swim 3 km."
+        },
+        {
+          "content": "私は納豆を食べることができます。",
+          "transcription": "わたしはなっとうをたべることができます。",
+          "mean": "I can eat natto."
+        },
+        {
+          "content": "私はソファーで寝ることができません。",
+          "transcription": "わたしはソファーでねることができません。",
+          "mean": "I can't sleep on the sofa."
+        },
+        {
+          "content": "私は夜一人でトイレに行くことができません。",
+          "transcription": "わたしはよるひとりでトイレにいくことができません。",
+          "mean": "I can't go to the bathroom alone at night."
+        },
+        {
+          "content": "この掃除機はどんな小さいゴミでも掃除することができます。",
+          "transcription": "このそうじきはどんなちいさいゴミでもそうじすることができます。",
+          "mean": "This vacuum cleaner can clean even the smallest debris."
+        },
+        {
+          "content": "先週は雨でしたから、バーベキューをすることができませんでした。",
+          "transcription": "せんしゅうはあめでしたから、バーベキューをすることができませんでした。",
+          "mean": "It rained last week, so we couldn't have a barbecue."
+        },
+        {
+          "content": "その映画館で日本の古い映画を見ることができます。",
+          "transcription": "そのえいがかんでにっぽんのふるいえいがをみることができます。",
+          "mean": "You can watch old Japanese movies at that movie theater."
+        },
+        {
+          "content": "このナイフはどんなものでも切ることができます。",
+          "transcription": "このないふはどんなものでもきることができます。",
+          "mean": "This knife can cut anything."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (activity)+ができる<br/> V (root form) こと+ができる"
+    }
+  ],
+  "title": "できる => Can do something",
+  "_id": "02477c351eda4b2fbe44c8f46cfdd9ba"
+}

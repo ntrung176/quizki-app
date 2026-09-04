@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5271,
+  "usages": [
+    {
+      "explain": "「と<ruby><rb>同時</rb><rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby>に」describes two events happening simultaneously, or one event happening and then immediately another event follows.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは笑うと同時に泣いた。",
+          "transcription": "かれらはわらうとどうじにないた。",
+          "mean": "They laughed and cried at the same time."
+        },
+        {
+          "content": "その店は開店と同時に満席になった。",
+          "transcription": "そのみせはかいてんとどうじにまんせきになった。",
+          "mean": "The store was full as soon as it opened."
+        },
+        {
+          "content": "私が乗り込むと同時に電車のドアが閉まった。",
+          "transcription": "わたしがのりこむとどうじにでんしゃのドアがしまった。",
+          "mean": "The train door closed as soon as I got on."
+        },
+        {
+          "content": "ドアを開けると同時に私の電話のベルが鳴りました。",
+          "transcription": "ドアをあけるとどうじにわたしのでんわのベルがなりました。",
+          "mean": "As soon as I opened the door, my phone rang."
+        },
+        {
+          "content": "彼は大学の先生をしていると同時に小説も書いている。",
+          "transcription": "かれはだいがくのせんせいをしているとどうじにしょうせつもかいている。",
+          "mean": "He is a university teacher and also writes novels."
+        },
+        {
+          "content": "昨日のニュースは大阪で地震と同時に火事が起こった。",
+          "transcription": "きのうのニュースはおおさかでじしんとどうじにかじがおこった。",
+          "mean": "Yesterday's news was about an earthquake and a fire in Osaka."
+        },
+        {
+          "content": "大学に入学すると同時に、私はアルバイトを始めました。",
+          "transcription": "だいがくににゅうがくするとどうじに、わたしはアルバイトをはじめました。",
+          "mean": "As soon as I entered university, I started working part-time."
+        },
+        {
+          "content": "彼は大学で日本語を勉強すると同時に経済も勉強します。",
+          "transcription": "かれはだいがくでにほんごをべんきょうするとどうじにけいざいもべんきょうします。",
+          "mean": "He will study Japanese and economics at the same time at university."
+        },
+        {
+          "content": "扉がバタンと閉まると同時に、大きな音が部屋の中に響いた。",
+          "transcription": "とびらがバタンとしまるとどうじに、おおきなおとがへやのなかにひびいた。",
+          "mean": "As soon as the door slammed shut, a loud bang echoed through the room."
+        },
+        {
+          "content": "この機械は便利であると同時に危険であるため、気をつけて使用してください。",
+          "transcription": "このきかいはべんりであるとどうじにきけんであるため、きをつけてしようしてください。",
+          "mean": "This machine is both useful and dangerous, so use it with care."
+        },
+        {
+          "content": "漢字は難しいと同時に面白くもある。",
+          "transcription": "かんじはむずかしいとどうじにおもしろくもある。",
+          "mean": "Kanji are both difficult and interesting at the same time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) / Vている+と同時に<br/> Aい+と同時に<br/> A<s>な</s>である+と同時に<br/> N(である)+と同時に"
+    }
+  ],
+  "title": "と同時に => at the same time as; while; simultaneously ~",
+  "_id": "962c2a22ca2c4990874ff5e6c89b8d48"
+}

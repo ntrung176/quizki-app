@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1682,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"why bother doing something excessively, why did you do it?\" It's often used when wanting to scold or criticize someone for doing something beyond what's necessary.",
+      "note": null,
+      "examples": [
+        {
+          "content": "見学旅行で先生もいるのだから、なにもそんなに心配する必要はありませんよ。",
+          "transcription": "けんがくりょこうでせんせいもいるのだから、なにもそんなにしんぱいするひつようはありませんよ。",
+          "mean": "You won't have to worry too much about anything since your teacher will be with you on the field trip."
+        },
+        {
+          "content": "それは冗談だけなんだから、なにもそんなに怒ることはない。",
+          "transcription": "それはじょうだんだけなんだから、なにもそんなにおこることはない。",
+          "mean": "It's just a joke, so there's nothing to get too angry about."
+        },
+        {
+          "content": "ちょっと叱られただけなのに、なにもそんなに悲しくなることはないよ。",
+          "transcription": "ちょっとしかられただけなのに、なにもそんなにかなしくなることはないよ。",
+          "mean": "I just got scolded a little bit, but I don't feel too sad about anything."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにも～ない"
+    }
+  ],
+  "title": "なにも～ない => nothing; (not) ~ at all; there's no need to ~",
+  "_id": "f7ff14dae05876cac58b41369397ba16"
+}

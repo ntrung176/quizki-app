@@ -1,0 +1,28 @@
+{
+  "level": "N4",
+  "mobileId": 2696,
+  "usages": [
+    {
+      "explain": "Used to demand agreement from the listener with the meaning \"I think..., don't you think so too?\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "A:最近、電動自転車を使用する人が増えていませんか。B:そうですね。昔は少なかったのに。。。",
+          "transcription": "A:さいきん、でんどうじてんしゃをしようするにんがふえていませんか。B:そうですね。むかしはすくなかったのに。。。",
+          "mean": "A:Aren't more people using electric bicycles lately? B: Yes. There used to be less. . ."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Ｖ-ます＋ませんか？Ａ-く ＋ありませんか？Na-な じゃ + ありませんか？Ｎじゃ + ありませんか？"
+    },
+    {
+      "explain": "Note: In spoken language, men often use “ない?” and “...ないか?”",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "....ませんか? => would you; do you want to; shall we ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f231c85"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1022,
+  "usages": [
+    {
+      "explain": "Expresses a certain point in the future. The exact time is unclear, but based on the current situation, it's certain to happen sooner or later.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はいずれそ秘密を知っているでしょう。",
+          "transcription": "かれはいずれそひみつをしっているでしょう。",
+          "mean": "He will know the secret eventually."
+        },
+        {
+          "content": "君の努力はいずれ報われるだろう。",
+          "transcription": "きみのどりょくはいずれむくわれるだろう。",
+          "mean": "Your efforts will be rewarded in the long run."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いずれ～"
+    }
+  ],
+  "title": "いずれ => anyhow; anyway; either way; in any case ~.",
+  "_id": "f7ff14dae05876cac58b4136933d259e"
+}

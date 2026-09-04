@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1940,
+  "usages": [
+    {
+      "explain": "Used to describe an event comprising multiple situations. This structure is formal and used in written language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この大学を卒業した学生たちは、あるいは博士に進学し、あるいは有名な会社で働き、誰も成功だった。",
+          "transcription": "このだいがくをそつぎょうしたがくせいたちは、あるいははかせにしんがくし、あるいはゆうめいなかいしゃではたらき、だれもせいこうだった。",
+          "mean": "The students who graduated from this university went on to pursue doctoral degrees or worked at famous companies, and all were successful."
+        },
+        {
+          "content": "大きい家も、あるいは屋根が吹っ飛ばれて、あるいは窓が壊れて、台風の強さを物語っている。",
+          "transcription": "おおきいいえも、あるいはやねがふっとばれて、あるいはまどがこわれて、たいふうのつよさをものがたっている。",
+          "mean": "Large houses had their roofs blown off, or their windows broken, showing the strength of the typhoon."
+        }
+      ],
+      "mean": null,
+      "synopsis": "あるいは～あるいは～"
+    }
+  ],
+  "title": "あるいは～あるいは～ => or, either",
+  "_id": "f7ff14dae05876cac58b413693bb7e15"
+}

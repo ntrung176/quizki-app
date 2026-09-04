@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1747,
+  "usages": [
+    {
+      "explain": "Similar to 「いかに…ても」, often used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はいかに上意であろうと自分に利益をもたらさない命ならば従わない。",
+          "transcription": "かれはいかにじょういであろうとじぶんにりえきをもたらさないいのちならばしたがわない。",
+          "mean": "No matter how well-intentioned he is, he will not obey orders that do not benefit him."
+        },
+        {
+          "content": "いかに粗末であろうともわが家にまさる所はない。",
+          "transcription": "いかにそまつであろうともわがやにまさるところはない。",
+          "mean": "No matter how shabby it may be, there is no place like home."
+        },
+        {
+          "content": "いかに生活が苦しかろうとも決して文句を言わない。",
+          "transcription": "いかにせいかつがくるしかろうともけっしてもんくをいわない。",
+          "mean": "No matter how difficult life is, he never complains."
+        },
+        {
+          "content": "彼女がいかに努力しようと、彼には勝てない。",
+          "transcription": "かのじょがいかにどりょくしようと、かれにはかてない。",
+          "mean": "Try as she may, she is unable to beat him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いかに modifier phrase ＋Nであろうと（も）いかに Naであろうと（も）いかに A－かろうと（も）いかに V－ようと（も）"
+    }
+  ],
+  "title": "いかに…ようと（も） => even if; no matter how/what",
+  "_id": "f7ff14dae05876cac58b413693a07d23"
+}

@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5528,
+  "usages": [
+    {
+      "explain": "「のを忘れた」indicates that the speaker forgot to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "牛乳を買うのを忘れた。",
+          "transcription": "ぎゅうにゅうをかうのをわすれた。",
+          "mean": "I forgot to buy milk."
+        },
+        {
+          "content": "ゴミを捨てるのを忘れた。",
+          "transcription": "ゴミをすてるのをわすれた。",
+          "mean": "I forgot to throw away the garbage."
+        },
+        {
+          "content": "それを言うのを忘れました。",
+          "transcription": "それをいうのをわすれました。",
+          "mean": "I forgot to say that."
+        },
+        {
+          "content": "財布を持ってくるのを忘れた。",
+          "transcription": "さいふをもってくるのをわすれた。",
+          "mean": "I forgot to bring my wallet."
+        },
+        {
+          "content": "部屋の窓を閉めるのを忘れた。",
+          "transcription": "へやのまどをしめるのをわすれた。",
+          "mean": "I forgot to close the window in my room."
+        },
+        {
+          "content": "風邪の薬を飲むのを忘れました。",
+          "transcription": "かぜのくすりをのむのをわすれました。",
+          "mean": "I forgot to take my cold medicine."
+        },
+        {
+          "content": "ああ、水着を持っていくのを忘れた。",
+          "transcription": "ああ、みずぎをもっていくのをわすれた。",
+          "mean": "Oh, I forgot to bring my swimsuit."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+のを忘れた"
+    }
+  ],
+  "title": "のを忘れた => to forget; to leave carelessly; to be forgetful of; to forget about",
+  "_id": "e46708b19b5d475087b0588d8515861d"
+}

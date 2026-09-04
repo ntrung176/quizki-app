@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2265,
+  "usages": [
+    {
+      "explain": "It expresses speculation that under those conditions, the goal cannot be achieved.",
+      "note": null,
+      "examples": [
+        {
+          "content": "海へ行くつもりなら、こんな水着ではだめだ。",
+          "transcription": "うみへいくつもりなら、こんなみずぎではだめだ。",
+          "mean": "If you're planning on going to the beach, don't wear a swimsuit like this."
+        },
+        {
+          "content": "四年生はゲームばかりしてはだめだ。",
+          "transcription": "よんねんせいはげーむばかりしてはだめだ。",
+          "mean": "Fourth graders shouldn't just play games."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + はだめだ<br/>Aくて + はだめだ<br/>Naで + はだめだ<br/>Nで + はだめだ"
+    }
+  ],
+  "title": "てはだめだ => If... then not allowed...",
+  "_id": "f7ff14dae05876cac58b413693e98be4"
+}

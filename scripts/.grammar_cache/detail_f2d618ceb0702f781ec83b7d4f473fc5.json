@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2983,
+  "usages": [
+    {
+      "explain": "It is the past negative form of 「です」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先週のテストは簡単じゃありませんでした。",
+          "transcription": "せんしゅうのてすとはかんたんじゃありませんでした。",
+          "mean": "Last week's test wasn't easy."
+        },
+        {
+          "content": "昨日は休日じゃありませんでした。",
+          "transcription": "きのうはきゅうじつじゃありませんでした。",
+          "mean": "Yesterday was not a holiday."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na・N + じゃありませんでした"
+    }
+  ],
+  "title": "じゃありませんでした => was not, were not",
+  "_id": "f2d618ceb0702f781ec83b7d4f473fc5"
+}

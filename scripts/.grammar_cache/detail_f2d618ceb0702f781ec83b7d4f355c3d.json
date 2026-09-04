@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2836,
+  "usages": [
+    {
+      "explain": "This is a way to express a conditional relationship for all events, not just for individual cases or specific events. It conveys the meaning \"if X happens, then of course Y will happen\". Because it expresses a cause-effect relationship, or a relationship based on law, logic often established, it is always followed by a dictionary form at the end of the sentence. It does not emphasize personal experience or specific events that only happen once, but rather wants to say \"if X has happened, then naturally Y will happen\", \"in general, it will become Y\", \"essentially, it is Y\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "春が来れば霧雨が降る。",
+          "transcription": "はるがくればきりさめがふる。",
+          "mean": "When spring comes, there will be drizzle."
+        },
+        {
+          "content": "5に2を掛ければ10になる。",
+          "transcription": "5に2をかければ10になる。",
+          "mean": "Multiplying 5 by 2 gives 10."
+        },
+        {
+          "content": "年をとれば記憶力が弱くなる。",
+          "transcription": "としをとればきおくりょくがよわくなる。",
+          "mean": "As we get older, our memory becomes weaker."
+        },
+        {
+          "content": "経済状況が悪ければ犯罪率が高くなり、経済状況が改善すれば犯罪率が低下する。",
+          "transcription": "けいざいじょうきょうがわるければはんざいりつがたかくなり、けいざいじょうきょうがかいぜんすればはんざいりつがていかする。",
+          "mean": "When the economic situation is bad, the crime rate increases, and when the economic situation improves, the crime rate decreases."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…ば + N／Na だ\n…ば + A－い\n…ば + V－る"
+    }
+  ],
+  "title": "... ば => If... (common conditions)",
+  "_id": "f2d618ceb0702f781ec83b7d4f355c3d"
+}

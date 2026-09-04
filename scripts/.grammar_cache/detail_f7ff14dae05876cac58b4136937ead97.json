@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1493,
+  "usages": [
+    {
+      "explain": "Used to say that the topic being brought up is nothing special. Often used to express modesty about something related to the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の強みといえば、足が速いぐらいのことだ。",
+          "transcription": "わたしのつよみといえば、あしがはやいぐらいのことだ。",
+          "mean": "My strength is that I am fast on my feet."
+        },
+        {
+          "content": "息子のいい点といえば、素直ぐらいのことだ。",
+          "transcription": "むすこのいいてんといえば、すなおぐらいのことだ。",
+          "mean": "The only good thing about my son is that he is honest."
+        }
+      ],
+      "mean": null,
+      "synopsis": "といえば…ぐらいのことだ"
+    }
+  ],
+  "title": "といえば…ぐらいのことだ => speaking of... just...",
+  "_id": "f7ff14dae05876cac58b4136937ead97"
+}

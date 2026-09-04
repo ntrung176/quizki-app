@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5104,
+  "usages": [
+    {
+      "explain": "「ちなみに」 is a conjunction used to connect two sentences, with the second sentence providing additional related but secondary information to the explanation in the first sentence.\n\nNote: Do not use 「ちなみに」 with the meaning of \"while doing this, I also did that\". For example:\n✖️ I went shopping. ちなみに, I stopped by my grandparents' place.\n〇️ I went shopping. ついでに, I stopped by my grandparents' place.\n\n「ちなみに」can also be used to temporarily change the topic of conversation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "N2に合格したよ！ちなみに、満点だったよ！",
+          "transcription": "エヌににごうかくしたよ！ちなみに、まんてんだったよ！",
+          "mean": "I passed N2! By the way, it was a perfect score!"
+        },
+        {
+          "content": "これ、お土産だよ。ちなみに、ベトナムで買ったんだよ。",
+          "transcription": "これ、おみやげだよ。ちなみに、ベトナムでかったんだよ。",
+          "mean": "This is a souvenir. By the way, I bought it in Vietnam."
+        },
+        {
+          "content": "今月は3連休が2回あります。ちなみに、来月も1回あります。",
+          "transcription": "こんげつはさんれんきゅうがにかいあります。ちなみに、らいげつもいっかいあります。",
+          "mean": "There are two three-day holidays this month. By the way, there will be one next month as well."
+        },
+        {
+          "content": "私はコーヒーが大好きです。ちなみに、今日はこれで3杯目です。",
+          "transcription": "わたしはコーヒーがだいすきです。ちなみに、きょうはこれでさんはいめです。",
+          "mean": "I love coffee. By the way, this is my third drink today."
+        },
+        {
+          "content": "このパソコンは秋葉原で買いました。ちなみに、12万円でした。けっこういいですよ。",
+          "transcription": "このパソコンはあきはばらでかいました。ちなみに、じゅうにまんえんでした。けっこういいですよ。",
+          "mean": "I bought this computer in Akihabara. By the way, it was 120,000 yen. It's pretty good."
+        },
+        {
+          "content": "彼は市のカラオケ大会で優勝したことがある。ちなみに、その時の参加人数は103人だった。",
+          "transcription": "かれはしのカラオケたいかいでゆうしょうしたことがある。ちなみに、そのときのさんかにんずうはひゃくさんにんだった。",
+          "mean": "He once won the city's karaoke competition. By the way, the number of participants at that time was 103 people."
+        },
+        {
+          "content": "ダイエット中です。ちなみに、2ヶ月で3キロやせました。あと2キロやせようと思っています。",
+          "transcription": "ダイエットちゅうです。ちなみに、にかげつでさんキロやせました。あとにキロやせようとおもっています。",
+          "mean": "I am on a diet. By the way, I lost 3 kg in 2 months. I'm trying to lose 2 more kilos."
+        },
+        {
+          "content": "最近は、ペットを飼う家が増えているようです。ちなみに、うちにも犬が1匹と猫が2匹います。",
+          "transcription": "さいきんは、ペットををかういえがふえているようです。ちなみに、うちにもいぬがいっぴきとねこがにひきいます。",
+          "mean": "It seems like more and more homes are keeping pets these days. By the way, we also have one dog and two cats."
+        },
+        {
+          "content": "燃えるゴミは月曜日と木曜日、燃えないゴミは金曜日に出してください。ちなみに、資源ゴミの収集日は第3水曜日です。",
+          "transcription": "もえるゴミはげつようびともくようび、もえないゴミはきんようびにだしてください。ちなみに、しげんゴミのしゅうしゅうびはだいさんすいようびです。",
+          "mean": "Please put out combustible garbage on Mondays and Thursdays, and non-burnable garbage on Fridays. By the way, recyclable garbage collection day is the third Wednesday of the month."
+        },
+        {
+          "content": "このアパートは広いしきれいだし、おまけに駅にも近くて便利ですね。ちなみに、家賃はおいくらですか。",
+          "transcription": "このアパートはひろいしきれいだし、おまけにえきにもちかくてべんりですね。ちなみに、やちんはおいくらですか。",
+          "mean": "This apartment is spacious, clean, and conveniently located close to the station. By the way, how much is the rent?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。ちなみに、 B"
+    }
+  ],
+  "title": "ちなみに => by the way; in this connection; incidentally; (conjunction).",
+  "_id": "7c1ceeecd54a4ed6acc34462e56d2fe9"
+}

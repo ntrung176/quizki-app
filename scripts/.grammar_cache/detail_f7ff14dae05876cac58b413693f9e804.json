@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2386,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"better than anything else.\" When modifying a noun, it takes the form of \"[なによりのN]\".<br/>The form [なによりのN], in many cases, is used to praise an event related to the other party and not used for events related to oneself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "幸せそうでなによりです。",
+          "transcription": "しあわせそうでなによりです。",
+          "mean": "It's great that you look happy."
+        },
+        {
+          "content": "結婚したそうで何よりです。",
+          "transcription": "けっこんしたそうでなによりです。",
+          "mean": "It's great to hear that you're married."
+        },
+        {
+          "content": "暑い時にビールを飲むのがなによりの楽しみだ。",
+          "transcription": "あついときにびーるをのむのがなによりのたのしみだ。",
+          "mean": "Nothing is more fun than drinking beer when it's hot."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なによりだ"
+    }
+  ],
+  "title": "なによりだ => most, best, above all",
+  "_id": "f7ff14dae05876cac58b413693f9e804"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 803,
+  "usages": [
+    {
+      "explain": "✦ Expresses the meaning \"although this is a regrettable or dissatisfying situation, there's no other way but to accept it.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "この月報では、やりなおしを命じられても仕方がない。",
+          "transcription": "このげっぽうでは、やりなおしをめいじられてもしかたがない。",
+          "mean": "With this monthly report, there is no point in being ordered to do it all over again."
+        },
+        {
+          "content": "電車が遅刻して出勤時間に間に合わなくてもしかたがないです。",
+          "transcription": "でんしゃがちこくしてしゅっきんじかんにまにあわなくてもしかたがないです。",
+          "mean": "There's nothing I can do if my train is late and I can't make it to work in time."
+        },
+        {
+          "content": "あんなに雪が降っては、時間通りに着けなくてもしかたがない。",
+          "transcription": "あんなにゆきがふっては、じかんどおりにつけなくてもしかたがない。",
+          "mean": "With so much snow falling, there's no way I'll be able to get there on time."
+        },
+        {
+          "content": "チームの選手にけが人が多かったから、今回は最下位でもしかたがない。",
+          "transcription": "チームのせんしゅにけがにんがおおかったから、こんかいはさいかいでもしかたがない。",
+          "mean": "There were many injuries to the team's players, so it was inevitable that they would finish last this time."
+        },
+        {
+          "content": "買い物にいくひまがないから、今夜のパーティーは古い服でもしかたがない。",
+          "transcription": "かいものにいくひまがないから、こんやのパーティーはふるいふくでもしかたがない。",
+          "mean": "I don't have time to go shopping, so I'll have to wear old clothes for tonight's party."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦N／Na + でもしかたがない</div><div>✦A－く + てもしかたがない </div><div>✦Vて + もしかたがない</div>"
+    }
+  ],
+  "title": "～てもしかたがない => There's no point to~; it's no use to~; it cannot be helped",
+  "_id": "f7ff14dae05876cac58b4136931f32c2"
+}

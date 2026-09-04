@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1620,
+  "usages": [
+    {
+      "explain": "Using the pattern \"XはYくらいのNだ\" to express the idea \"X and Y are at the same level.\" N are nouns indicating quantity or degree such as \"size,\" \"weight,\" \"height,\" etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それはちょうどテニスボールくらいの大きさです。",
+          "transcription": "それはちょうどてにすぼーるくらいのおおきさです。",
+          "mean": "It's just about the size of a tennis ball."
+        },
+        {
+          "content": "あなたは私と同じぐらいの苦痛を味わえばいい。",
+          "transcription": "あなたはわたしとおなじぐらいのくつうをあじわえばいい。",
+          "mean": "You should experience as much pain as I did."
+        }
+      ],
+      "mean": null,
+      "synopsis": "くらい/ぐらいの + N"
+    }
+  ],
+  "title": "くらいの => Approximate~",
+  "_id": "f7ff14dae05876cac58b4136939003bc"
+}

@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 2518,
+  "usages": [
+    {
+      "explain": "Expresses the method, means, or way of an action or behavior.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この漢字の書き方は正しいですか。",
+          "transcription": "このかんじのかきかたはただしいですか。",
+          "mean": "Is this kanji written correctly?"
+        },
+        {
+          "content": "先生の名前の書き方を教えてください。",
+          "transcription": "せんせいのなまえのかきかたをおしえてください。",
+          "mean": "Please tell me how to write the teacher's name."
+        },
+        {
+          "content": "日本人学生の勉強し方が知りたいんです。",
+          "transcription": "にほんじんがくせいのべんきょうしかたがしりたいんです。",
+          "mean": "I want to know how Japanese students study."
+        },
+        {
+          "content": "カレーの作り方を教えてください。",
+          "transcription": "かれーのつくりかたをおしえてください。",
+          "mean": "Please tell me how to make curry."
+        },
+        {
+          "content": "この携帯電話の使い方が分かりません。",
+          "transcription": "このけいたいでんわのつかいかたがわかりません。",
+          "mean": "I don't know how to use this mobile phone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Ｖ-ます＋ かた"
+    }
+  ],
+  "title": "… 方 => the way to do something",
+  "_id": "f2d618ceb0702f781ec83b7d4f0bc09c"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1854,
+  "usages": [
+    {
+      "explain": "Expressing the meaning: \"It's not something particularly noteworthy\", \"It's not a big deal\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "学生時代の困難に比べると今の苦労は何でもない。",
+          "transcription": "がくせいじだいのこんなんにくらべるといまのくろうはなにでもない。",
+          "mean": "The hardships I have now are nothing compared to the hardships I had as a student."
+        },
+        {
+          "content": "こんな複雑さの問題は彼にとっては何でもないことです。",
+          "transcription": "こんなふくざつさのもんだいはかれにとってはなにでもないことです。",
+          "mean": "Problems of this complexity are nothing to him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～なんでもない"
+    }
+  ],
+  "title": "なんでもない => of no concern, nothing",
+  "_id": "f7ff14dae05876cac58b413693af5dae"
+}

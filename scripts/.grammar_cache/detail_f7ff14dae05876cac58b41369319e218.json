@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 764,
+  "usages": [
+    {
+      "explain": "Used to list examples, simultaneous occurrences of bad events to emphasize the distressing mood. It is usually followed by contents indicating difficult or challenging situations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "雨に降られるわ、上司に叱れるわ、今日はついていない一日だった。",
+          "transcription": "あめにふられるわ、じょうしにしかれるわ、きょうはついていないいちにちだった。",
+          "mean": "It's going to rain, I'm going to get scolded by my boss, and today was a bad day."
+        },
+        {
+          "content": "内容は難解だわ、字は小さいわ、こんな本は買う人がいるかな。",
+          "transcription": "ないようはなんかいだわ、じはちいさいわ、こんなほんはかうひとがいるかな。",
+          "mean": "The content is difficult to understand, the font is small, I wonder if anyone would buy a book like this."
+        }
+      ],
+      "mean": null,
+      "synopsis": "わ...わ (で)"
+    }
+  ],
+  "title": "わ...わ (で) => and (listing negative things happening at the same time)",
+  "_id": "f7ff14dae05876cac58b41369319e218"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 3259,
+  "usages": [
+    {
+      "explain": "To express the meaning \"according to each group ..., using ... as the criterion\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "層別別にケーキを切った。",
+          "transcription": "そうべつにケーキをきった。",
+          "mean": "Cut the cake into layers."
+        },
+        {
+          "content": "調査のデータを年齢別にまとめた。",
+          "transcription": "ちょうさのデータをねんれいべつにまとめた。",
+          "mean": "Survey data was summarized by age group."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + べつに"
+    }
+  ],
+  "title": "べつに => separately",
+  "_id": "5f2ca7a267ba2661463e3ccd3e98d9d4"
+}

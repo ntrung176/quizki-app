@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5410,
+  "usages": [
+    {
+      "explain": "「～られる」is used to mention an event, information without specifying the subject causing the action (because it's not necessary to pay attention to, not specified, or because the subject is \"many people, everyone\" and can be understood implicitly).<br/>「と言われている」「と見られている」「と思われている」... indicate that the matter mentioned in the sentence is not the personal opinion of the speaker, but the general opinion, evaluation, thought... of many people or society. These structures are often used in news or media.<br/> The verb used here is the passive form of the verb.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この本には、詳しい説明は書かれていません。",
+          "transcription": "このほんには、くわしいせつめいはかかれていません。",
+          "mean": "This book does not contain detailed explanations."
+        },
+        {
+          "content": "入学式は、このホールで行われます。",
+          "transcription": "にゅうがくしきは、このホールでおこなわれます。",
+          "mean": "The entrance ceremony will be held in this hall."
+        },
+        {
+          "content": "この建物は300年前に建てられました。",
+          "transcription": "このたてものはさんびゃくねんまえにたてられました。",
+          "mean": "This building was built 300 years ago."
+        },
+        {
+          "content": "英語は世界中で話されています。",
+          "transcription": "えいごはせかいじゅうではなされています。",
+          "mean": "English is spoken around the world."
+        },
+        {
+          "content": "この地方では主に白ワインが作られている。",
+          "transcription": "このちほうではおもにしろワインがつくられている。",
+          "mean": "White wine is mainly produced in this region."
+        },
+        {
+          "content": "あの事件は事故ではなく、殺人である可能性が高いと見られている。",
+          "transcription": "あのじけんはじこではなく、さつじんであるかのうせいがたかいとみられている。",
+          "mean": "The incident is considered to be more likely a murder than an accident."
+        },
+        {
+          "content": "これは世界で一番大きいダイヤモンドだと言われています。",
+          "transcription": "これはせかいでいちばんおおきいダイヤモンドだといわれています。",
+          "mean": "This is said to be the largest diamond in the world."
+        },
+        {
+          "content": "昔は、その考えが正しいと思われていた。",
+          "transcription": "むかしは、そのかんがえがただしいとおもわれていた。",
+          "mean": "In the past, this idea was thought to be correct."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V(root form) ➔ V(passive form)<br/>行う ➔ 行われる<br/>建てる ➔ 建てられる<br>する ➔ される<br/>v.v<br/>言う ➔ 言われている<br/>見る ➔ 見られている<br/>思う ➔ 思われている<br>v.v</br></br>"
+    }
+  ],
+  "title": "～られる => Passives (express facts, information)",
+  "_id": "f476a25391554583ba159e93a0e5c8d6"
+}

@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5219,
+  "usages": [
+    {
+      "explain": "「にて」indicates:<br/>\n1. Location<br/>\n2. Method, way<br/>\n3. Time<br/>\n4. Cause, reason<br/>\n\nIt has a similar meaning to「で」and is used instead of「で」in writing or formal situations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "最後のシーンは京都のお寺にて撮影されたそうです。",
+          "transcription": "さいごのシーンはきょうとのおてらにてさつえいされたそうです。",
+          "mean": "The final scene was apparently filmed at a temple in Kyoto."
+        },
+        {
+          "content": "報告会は南の会場にて7時より行われます。",
+          "transcription": "ほうこくかいはみなみのかいじょうにてしちじよりおこなわれます。",
+          "mean": "The debriefing session will be held at the south venue from 7:00 p.m."
+        },
+        {
+          "content": "電話かメールにてご連絡ください。",
+          "transcription": "でんわかメールにてごれんらくください。",
+          "mean": "Please contact us by phone or email."
+        },
+        {
+          "content": "お金は書留便にて送ります。",
+          "transcription": "おかねはかきとめびんにておくります。",
+          "mean": "The money will be sent by registered mail."
+        },
+        {
+          "content": "無料サービスは10時にて終了いたしました。",
+          "transcription": "むりょうサービスはじゅうじにてしゅうりょういたしました。",
+          "mean": "The free service ended at 10:00."
+        },
+        {
+          "content": "午後5時にて閉店いたします。",
+          "transcription": "ごごごじにてへいてんいたします。",
+          "mean": "We will close at 5pm."
+        },
+        {
+          "content": "本日の試合は台風にて中止となりました。",
+          "transcription": "ほんじつのしあいはたいふうにてちゅうしとなりました。",
+          "mean": "Today's game was canceled due to the typhoon."
+        },
+        {
+          "content": "部長は本日、出張にて会議を欠席されるそうです。",
+          "transcription": "ぶちょうはほんじつ、しゅっちょうにてかいぎをけっせきされるそうです。",
+          "mean": "It seems that the manager will be absent from the meeting today due to a business trip."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にて"
+    }
+  ],
+  "title": "にて =>  in, at, with, by (formal particle)",
+  "_id": "bfe2ba71b8324e8d99f8de6b84f8d98e"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2307,
+  "usages": [
+    {
+      "explain": "Expressing a situation that requires considerable effort to accomplish. It's often used with verbs in potential form.",
+      "note": null,
+      "examples": [
+        {
+          "content": "飴は、大人が背伸びをして、ようやく手が届く高さに隠して息子 には取れない。",
+          "transcription": "あめは、おとながせのびをして、ようやくてがとどくたかさにかくしてむすこにはとれない。",
+          "mean": "The candy is hidden at a height where the adult can barely reach it, making it impossible for the son to get it."
+        },
+        {
+          "content": "板と板のすき間は、一枚の用紙がようやく通れる広さしかない。",
+          "transcription": "いたといたのすきまは、いちまいのようしがようやくとおれるひろさしかない。",
+          "mean": "The gap between the boards is just wide enough for a single sheet of paper to pass through."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ようやく + V-る"
+    }
+  ],
+  "title": "ようやく => finally; at last (it must be very difficult to... get it)",
+  "_id": "f7ff14dae05876cac58b413693efa894"
+}

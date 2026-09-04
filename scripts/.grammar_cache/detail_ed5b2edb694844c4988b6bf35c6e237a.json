@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5208,
+  "usages": [
+    {
+      "explain": "「にしたら」comes after a noun referring to a person and is used to express the thoughts or viewpoints of that person from their standpoint. It is not used to talk about the speaker's own standpoint.",
+      "note": null,
+      "examples": [
+        {
+          "content": "大きすぎる親の期待は子供にしたら苦痛だ。",
+          "transcription": "おおきすぎるおやのきたいはこどもにしたらくつうだ。",
+          "mean": "Parents' expectations that are too high are painful for children."
+        },
+        {
+          "content": "犬や猫はかわいいが、飼っていない人にすれば迷惑のこともある。",
+          "transcription": "いぬやねこはかわいいがかっていないひとにすればめいわくのこともある。",
+          "mean": "Dogs and cats are cute, but they can be a nuisance to people who don't own them."
+        },
+        {
+          "content": "彼にしてみたら大したことではないだろうが、私にとっては重大な問題だ。",
+          "transcription": "かれにしてみたらたいしたことではないだろうが、わたしにとってはじゅうだいなもんだいだ。",
+          "mean": "It might not be a big deal to him, but it's a big deal to me."
+        },
+        {
+          "content": "先生にすれば君が言った言葉はひどい皮肉だろう。",
+          "transcription": "せんせいにすればきみがいったことばはひどいひにくだろう。",
+          "mean": "If you were a teacher, what you said would be extremely sarcastic."
+        },
+        {
+          "content": "彼にすれば僕のさっきの行動は馬鹿な行動だろう。",
+          "transcription": "かれにすればぼくのさっきのこうどうはばかなこうどうだろう。",
+          "mean": "To him, what I did just now was probably stupid."
+        },
+        {
+          "content": "ハリーにしてみれば、優しくしてもらうなど、初めての経験だった。",
+          "transcription": "ハリーにしてみれば、やさしくしてもらうなど、はじめてのけいけんだった。",
+          "mean": "This was Harry's first experience of being treated kindly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+にしたら<br/> N+にすれば<br/> N+にしてみたら<br/> N+にしてみれば"
+    }
+  ],
+  "title": "にしたら => from one's perspective; from the point of view of ~",
+  "_id": "ed5b2edb694844c4988b6bf35c6e237a"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1483,
+  "usages": [
+    {
+      "explain": "に決まっている（にきまっている） is used to express the speaker's certain speculation about something. This is a subjective expression based on intuition.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "一人で外国へ旅行するなんて、親に反対されるに決まっている。",
+          "transcription": "いちにんでがいこくへりょこうするなんて、おやにはんたいされるにきまっている。",
+          "mean": "I'm sure my parents will object to traveling to a foreign country alone."
+        },
+        {
+          "content": "レオナルド・ダ・ヴィンチくらい聞いたことあるに決まってるだろ。",
+          "transcription": "れおなるど・だ・ヴぃんちくらいきいたことあるにきまってるだろ。",
+          "mean": "I'm sure you've heard of Leonardo da Vinci."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + に決まっている"
+    }
+  ],
+  "title": "にきまっている => certainly; I'm sure/certain that; it must be the case that ~",
+  "_id": "f7ff14dae05876cac58b4136937d2d08"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 745,
+  "usages": [
+    {
+      "explain": "This is an intimate way of saying [からといって].",
+      "note": null,
+      "examples": [
+        {
+          "content": "好きだからって、同じ食品ばかり食べるのはよくない。",
+          "transcription": "すきだからって、おなじしょくひんばかりたべるのはよくない。",
+          "mean": "It's not good to eat the same food all the time just because you like it."
+        },
+        {
+          "content": "彼から連絡がこないからって、そんなに心配することないよ。",
+          "transcription": "かれかられんらくがこないからって、そんなにしんぱいすることないよ。",
+          "mean": "Don't worry too much if you don't hear from him."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦N/Na + だからって </div><div><br/></div><div>✦A/V + からって<br/></div>"
+    }
+  ],
+  "title": "～　からって => just because; even if; even though ~",
+  "_id": "f7ff14dae05876cac58b41369317216f"
+}

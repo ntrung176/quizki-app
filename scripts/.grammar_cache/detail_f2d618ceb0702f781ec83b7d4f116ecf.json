@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 2559,
+  "usages": [
+    {
+      "explain": "Expresses uncertain speculation of the speaker, \"who knows it might be like that\" or a worried or anxious feeling, \"I'm afraid it might be like that\". In a monologue context, it's a way of self-inquiry, but in a dialog with someone else, it turns into a way of asking for the listener's judgment, \"don't you think so?\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人、佐藤さんのご主人じゃないかな。",
+          "transcription": "あのひと、さとうさんのごしゅじんじゃないかな。",
+          "mean": "I wonder if that person is Mr. Sato's husband."
+        },
+        {
+          "content": "この方法がよくないかなあ。",
+          "transcription": "このほうほうがよくないかなあ。",
+          "mean": "I wonder if this method is good."
+        },
+        {
+          "content": "この問題、小学生には複雑すぎないかな。",
+          "transcription": "このもんだい、しょうがくせいにはふくざつすぎないかな。",
+          "mean": "I wonder if this problem is too complicated for elementary school students."
+        },
+        {
+          "content": "このシャツ、ちょっと大きくないかな。",
+          "transcription": "このしゃつ、ちょっとおおきくないかな。",
+          "mean": "I don't think this shirt is a little big."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ないかな(あ)<br/>A + くないかな(あ)<br/>Na・N + ではないかな(あ)"
+    }
+  ],
+  "title": "ないかな (あ) => Isn't it... (Speculation, worry)",
+  "_id": "f2d618ceb0702f781ec83b7d4f116ecf"
+}

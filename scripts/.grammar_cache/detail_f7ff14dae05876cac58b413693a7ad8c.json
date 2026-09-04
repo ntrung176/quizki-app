@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1792,
+  "usages": [
+    {
+      "explain": "Expressing the idea of resorting to an undesirable method as long as the goal is achieved.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は借金してまで旅行に行きたかった。",
+          "transcription": "かれはしゃっきんしてまでりょこうにいきたかった。",
+          "mean": "He wanted to go on a trip even if he borrowed money."
+        },
+        {
+          "content": "彼女は家族の絆を切ってまで好きな人と結婚した。",
+          "transcription": "かのじょはかぞくのきずなをきってまですきなひととけっこんした。",
+          "mean": "She married the man she loved, even cutting off family ties."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-て + まで"
+    }
+  ],
+  "title": "まで => Even...",
+  "_id": "f7ff14dae05876cac58b413693a7ad8c"
+}

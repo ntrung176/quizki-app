@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3117,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate a state that has remained unchanged since the beginning.",
+      "note": "✦ Often used with verbs like \"居る\" (to exist), \"生まれる\" (to be born), \"生きる\" (to live), or nouns like \"涙\" (tears), \"昔\" (the past).\n",
+      "examples": [
+        {
+          "content": "この子は生まれながらに優れた音感を持っていた。",
+          "transcription": "このこはうまれながらにすぐれたおんかんをもっていた。",
+          "mean": "This child was born with an excellent sense of pitch."
+        },
+        {
+          "content": "この辺りは昔ながらの田舎の雰囲気が残っている。",
+          "transcription": "このあたりはむかしながらのいなかのふんいきがのこっている。",
+          "mean": "This area retains an old-fashioned rural atmosphere."
+        },
+        {
+          "content": "彼女は涙ながらに離婚の理由を語った。",
+          "transcription": "かのじょはなみだながらにりこんのりゆうをかたった。",
+          "mean": "She tearfully explained the reason for the divorce."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V (masu is obmitted) / N + ながらに（して）"
+    }
+  ],
+  "title": "～ながらに      => while; during; without change; performed in this condition",
+  "_id": "93020c54469e582d6fdb16f7ba94dfa8"
+}

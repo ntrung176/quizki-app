@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5513,
+  "usages": [
+    {
+      "explain": "「もしかしたら」is an adverb that means \"perhaps, maybe\". When used together with 「かもしれない」, it further reduces the speaker's certainty about their judgment.",
+      "note": null,
+      "examples": [
+        {
+          "content": "もしかしたら彼の話は嘘かもしれない。",
+          "transcription": "もしかしたらかれのはなしはうそかもしれない。",
+          "mean": "Maybe his story is a lie."
+        },
+        {
+          "content": "もしかしたら彼は会社を辞めたかもしれない。",
+          "transcription": "もしかしたらかれはかいしゃをやめたかもしれない。",
+          "mean": "Maybe he quit the company."
+        },
+        {
+          "content": "私はもしかしたら間違っているかもしれない。",
+          "transcription": "わたしはもしかしたらまちがっているかもしれない。",
+          "mean": "I might be wrong."
+        },
+        {
+          "content": "もしかしたら私はそこに行けなくなるかもしれない。",
+          "transcription": "もしかしたらわたしはそこにいけなくなるかもしれない。",
+          "mean": "Maybe I won't be able to go there."
+        },
+        {
+          "content": "もしかしたら3月に卒業できないかもしれません。",
+          "transcription": "もしかしたらさんがつにそつぎょうできないかもしれません。",
+          "mean": "Maybe I won't be able to graduate in March."
+        },
+        {
+          "content": "もしかしたら彼はそれを知っているかもしれません。",
+          "transcription": "もしかしたらかれはそれをしっているかもしれません。",
+          "mean": "Maybe he knows that."
+        },
+        {
+          "content": "もしかしたらそのメールを削除してしまったかもしれない。",
+          "transcription": "もしかしたらそのメールをさくじょしてしまったかもしれない。",
+          "mean": "Maybe you deleted the email."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もしかしたら ～かもしれない"
+    }
+  ],
+  "title": "もしかしたら => perhaps; maybe; perchance; by any chance ~",
+  "_id": "a00e4e13fdfb47a4b904a622e7c2b79a"
+}

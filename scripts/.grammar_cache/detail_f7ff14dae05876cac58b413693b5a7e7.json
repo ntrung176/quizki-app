@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1904,
+  "usages": [
+    {
+      "explain": "Used to describe the current state, when the speaker wants to express that they are feeling \"unable to remain calm or indifferent forever\". Often accompanied by words indicating emotions or attitudes like: laugh, cry, rejoice, thank, reassure...",
+      "note": null,
+      "examples": [
+        {
+          "content": "夫が亡くなって一ヶ月が過ぎた。これからの生活を考えると泣いてばかりもいられない。",
+          "transcription": "おっとがなくなっていちかげつがすぎた。これからのせいかつをかんがえるとないてばかりもいられない。",
+          "mean": "A month has passed since my husband passed away. I can't help but cry when I think about my future life."
+        },
+        {
+          "content": "早く仕事を見つけてのんびりしてばかりもいられない",
+          "transcription": "はやくしごとをみつけてのんびりしてばかりもいられない",
+          "mean": "I can't just find a job quickly and relax."
+        },
+        {
+          "content": "白昼夢していてばかりもいられない。",
+          "transcription": "はくちゅうむしていてばかりもいられない。",
+          "mean": "I can't just daydream."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－て + ばかりもいられない"
+    }
+  ],
+  "title": "..... ばかりもいられない => can't keep doing ~",
+  "_id": "f7ff14dae05876cac58b413693b5a7e7"
+}

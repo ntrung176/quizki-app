@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5075,
+  "usages": [
+    {
+      "explain": "The word 「すら」in Japanese is often used to present an extreme example, indicating that if even that particular thing is the case, then how much more so for other things. It has a similar meaning to 「さえ」but is more formal or literary.<br/>\nWhen used with a noun (N) as the subject, it often comes with ですら.",
+      "note": null,
+      "examples": [
+        {
+          "content": "忙しくて食事をとる時間すらない。",
+          "transcription": "いそがしくてしょくじをとるじかんすらない。",
+          "mean": "I'm so busy that I don't even have time to eat."
+        },
+        {
+          "content": "そんな簡単なこと、子供ですらできる。",
+          "transcription": "そんなかんたんなこと、こどもですらできる。",
+          "mean": "Even a child can do such a simple thing."
+        },
+        {
+          "content": "試験前には10分の休憩時間すら惜しんで勉強したものだ。",
+          "transcription": "しけんまえにはじゅっぷんのきゅうけいじかんすらおしんでべんきょうしたものだ。",
+          "mean": "I used to study hard, even taking a 10-minute break before the exam."
+        },
+        {
+          "content": "腰が痛くて、起き上がることすら難しかった。",
+          "transcription": "こしがいたくて、おきあがることすらむずかしかった。",
+          "mean": "My lower back hurt and it was difficult to even get up."
+        },
+        {
+          "content": "その映画は感動的なストーリーで、普段は泣かない大人達ですら涙を流していた。",
+          "transcription": "そのえいがはかんどうてきなストーリーで、ふだんはなかないおとなたちですらなみだをながしていた。",
+          "mean": "The movie was such a moving story that even adults who don't usually cry were moved to tears."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+すら<br/>\nN+ですら"
+    }
+  ],
+  "title": "すら/ですら => even ~ (with emphasis)",
+  "_id": "57b40b0e775e4912a3ba1f277562d9f2"
+}

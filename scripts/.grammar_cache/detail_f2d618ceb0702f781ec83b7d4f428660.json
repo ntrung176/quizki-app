@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2943,
+  "usages": [
+    {
+      "explain": "V-ません is the negative form of V-ます. In question sentences, we do not change the word order of the sentence but simply add the particle 「か」at the end of the sentence or replace the interrogative word in the position of the sentence element to be asked.\nIn responses, we repeat the verb from the question sentence and be careful not to use 「そうです」or「そうじゃありません」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は魚を食べません。",
+          "transcription": "わたしはさかなをたべません。",
+          "mean": "I don't eat fish."
+        },
+        {
+          "content": "明日サントスさんは働きません。",
+          "transcription": "あしたさんとすさんははたらきません。",
+          "mean": "Mr. Santos won't be working tomorrow."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ません"
+    }
+  ],
+  "title": "ません => be not doing something",
+  "_id": "f2d618ceb0702f781ec83b7d4f428660"
+}

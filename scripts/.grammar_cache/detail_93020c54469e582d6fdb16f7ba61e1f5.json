@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3115,
+  "usages": [
+    {
+      "explain": "☞The verb in the ない form is combined with といけない. ☞A sentence pattern used to express \"have to do something.\"",
+      "note": "☞This sentence pattern can be used to ask how much... is needed. For example, \"では、どのくらいのぶんぽうちしき（文法知識）がないといけないか？\" means \"So how much grammar knowledge is needed?\"\n☞In addition, this sentence pattern is equivalent to the pattern ～しなければなりません which means \"must do.\"",
+      "examples": [
+        {
+          "content": "論文を書くためにはこの本を読まないといけない。",
+          "transcription": "ろんぶんをかくためにはこのほんをよまないといけない。",
+          "mean": "I have to read this book in order to write my thesis."
+        },
+        {
+          "content": "能力試験に合格するために、一生懸命勉強しないといけない。",
+          "transcription": "のうりょくしけんにごうかくするために、いっしょうけんめいべんきょうしないといけない。",
+          "mean": "I have to study hard to pass the proficiency test."
+        }
+      ],
+      "mean": ": must do; have an obligation to do ~",
+      "synopsis": "V ない→ ないといけない"
+    }
+  ],
+  "title": "～ないといけない      => must do; have an obligation to do ~",
+  "_id": "93020c54469e582d6fdb16f7ba61e1f5"
+}

@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 742,
+  "usages": [
+    {
+      "explain": null,
+      "note": null,
+      "examples": [
+        {
+          "content": "嫌なら嫌なりの理由があるはずだ。",
+          "transcription": "いやならいやなりのりゆうがあるはずだ。",
+          "mean": "If you don't like it, there must be a reason why you don't like it."
+        },
+        {
+          "content": "若いなら若いなりにやってみればいい。",
+          "transcription": "わかいならわかいなりにやってみればいい。",
+          "mean": "If you are young, try doing it as a young person."
+        },
+        {
+          "content": "貧乏なら貧乏なりに楽しく生きられる方法がある。",
+          "transcription": "びんぼうならびんぼうなりにたのしくいきられるほうほうがある。",
+          "mean": "If you are poor, there are ways to live happily in poverty."
+        },
+        {
+          "content": "我々の要求を受け入れられないなら、受け入れられないなりにもっと誠意を持って対応すべきだ。",
+          "transcription": "われわれのようきゅうをうけいれられないなら、うけいれられないなりにもっとせいいをもってたいおうすべきだ。",
+          "mean": "If you cannot accept our demands, you should respond with more sincerity."
+        },
+        {
+          "content": "金があるならあるなりに心配ごともつきまとう。",
+          "transcription": "きむがあるならあるなりにしんぱいごともつきまとう。",
+          "mean": "If you have money, you will also have worries."
+        },
+        {
+          "content": "新しいビジネスを始めるなら始めるなりの準備というものが必要だ。",
+          "transcription": "あたらしいビジネスをはじめるならはじめるなりのじゅんびというものがひつようだ。",
+          "mean": "When starting a new business, you need to prepare before starting."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N+なら N+なり\n<br/>✦Na+なら Na+なり\n<br/>✦Aい+なら Aい+なり<br/>✦ Vる+なら Vる+なり"
+    }
+  ],
+  "title": "～ なら…なり => suitable; in one's own way / style",
+  "_id": "f7ff14dae05876cac58b41369316e0aa"
+}

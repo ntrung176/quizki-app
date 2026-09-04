@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1974,
+  "usages": [
+    {
+      "explain": "Used to assert and emphasize that the presentation is a fact based on logical grounds. It is often used when presenting one's thoughts to persuade the listener.",
+      "note": null,
+      "examples": [
+        {
+          "content": "６人とも車で来るわけだから、うちの前にずらっと６台路上駐車することになるね。",
+          "transcription": "ろくにんともくるまでくるわけだから、うちのまえにずらっとろくだいろじょうちゅうしゃすることになるね。",
+          "mean": "All six of us will be coming by car, so six cars will be parked on the street in front of our house."
+        },
+        {
+          "content": "私は古本屋めぐりが好きで、暇があると古本屋を回っては掘り出し物を探しているわけだが、最近はいい古本屋が少なくなってきたので残念に思っている。",
+          "transcription": "わたしはふるほんやめぐりがすきで、ひまがあるとふるほんやをまわってはほりだしものをさがしているわけだが、さいきんはいいふるほんやがすくなくなってきたのでざんねんにおもっている。",
+          "mean": "I love visiting second-hand bookstores, and whenever I have free time, I go to second-hand bookstores looking for bargains, but I feel sad that there are fewer and fewer good second-hand bookstores these days."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・ A ・Naな・ Nの + わけだ"
+    }
+  ],
+  "title": "わけだ => As you know (affirming a fact)",
+  "_id": "f7ff14dae05876cac58b413693c0cc6b"
+}

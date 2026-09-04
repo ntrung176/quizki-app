@@ -1,0 +1,43 @@
+{
+  "level": "N4",
+  "mobileId": 2724,
+  "usages": [
+    {
+      "explain": "Describes a relatively small quantity or number of occurrences.",
+      "note": null,
+      "examples": [
+        {
+          "content": "すぐに来ます。何分もかかりません。",
+          "transcription": "すぐにきます。なにぶんもかかりません。",
+          "mean": "I'll be there soon. It doesn't take many minutes."
+        },
+        {
+          "content": "こんな良いチャンスは、人生に何度もない。",
+          "transcription": "こんなよいちゃんすは、じんせいになんどもない。",
+          "mean": "You will never have such a good opportunity in your life."
+        },
+        {
+          "content": "期末試験まで後何日もない。",
+          "transcription": "きまつしけんまでこうなんにちもない。",
+          "mean": "There are only a few days left until the final exam."
+        },
+        {
+          "content": "木村さんは何ヶ月も姿を見せなかった。",
+          "transcription": "きむらさんはなんかげつもすがたをみせなかった。",
+          "mean": "Kimura didn't show up for months."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なん＋quantifier＋ も...ない"
+    },
+    {
+      "explain": "Note: this structure can also express a large quantity or number.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "なん...も...ない => nothing; (not) ~ at all; there's no need to ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f276e3a"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2982,
+  "usages": [
+    {
+      "explain": "何か（なにか）means \"something\". The particles 「へ」and 「を」after it can be omitted.",
+      "note": null,
+      "examples": [
+        {
+          "content": "喉が乾いたから、何か (を) 飲みたいです。",
+          "transcription": "のどがかわいたから、なにか(を)のみたいです。",
+          "mean": "I'm thirsty, so I'd like to drink something."
+        },
+        {
+          "content": "私は何か (を) したいです。",
+          "transcription": "わたしはなにか(を)したいです。",
+          "mean": "I want to do something."
+        }
+      ],
+      "mean": null,
+      "synopsis": "何か + verd"
+    }
+  ],
+  "title": "何か => Something",
+  "_id": "f2d618ceb0702f781ec83b7d4f472876"
+}

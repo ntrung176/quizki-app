@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1032,
+  "usages": [
+    {
+      "explain": "Used to assert that regarding a person, thing, or event, \"being B is more correct than being A\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はすらっとしていると言うよりむしろ痩せている。",
+          "transcription": "かのじょはすらっとしているというよりむしろやせている。",
+          "mean": "She is rather thin than slender."
+        },
+        {
+          "content": "彼らは歌っていると言うよりむしろ叫んでいる。",
+          "transcription": "かれらはうたっているというよりむしろさけんでいる。",
+          "mean": "They are shouting rather than singing."
+        },
+        {
+          "content": "その社員は働くと言うよりむしろ勉強するためにこのオフィスに来ている。",
+          "transcription": "そのしゃいんははたらくというよりむしろべんきょうするためにこのおふぃすにきている。",
+          "mean": "The employee comes to this office to study rather than work."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A + というよりむしろ + B だ"
+    }
+  ],
+  "title": "というよりむしろ…だ => not so much A as B / B rather than A",
+  "_id": "f7ff14dae05876cac58b4136933ec751"
+}

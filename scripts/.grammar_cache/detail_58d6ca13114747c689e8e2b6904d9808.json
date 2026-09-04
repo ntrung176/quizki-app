@@ -1,0 +1,46 @@
+{
+  "level": "N4",
+  "mobileId": 5564,
+  "usages": [
+    {
+      "explain": "「という意味だ」is used to explain the meaning of a word or a phrase (X).",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは飽きやすいという意味です。",
+          "transcription": "それはあきやすいといういみです。",
+          "mean": "It means you get bored easily."
+        },
+        {
+          "content": "「立入禁止」は入るなという意味です。",
+          "transcription": "「たちいりきんし」ははいるなといういみです。",
+          "mean": "\"No trespassing\" means not to enter."
+        },
+        {
+          "content": "「Cảm ơn」は日本語で「ありがとう」という意味です。",
+          "transcription": "「Cảm ơn」はにほんごで「ありがとう」といういみです。",
+          "mean": "\"Cảm ơn\" means \"thank you\" in Japanese."
+        },
+        {
+          "content": "この標識は落石に注意しなさいという意味です。",
+          "transcription": "このひょうしきはらくせきにちゅういしなさいといういみです。",
+          "mean": "This sign means be careful of falling rocks."
+        },
+        {
+          "content": "スペイン語ではそれは「こんにちは」という意味です。",
+          "transcription": "スペインごではそれは「こんにちは」といういみです。",
+          "mean": "In Spanish it means \"hello.\""
+        },
+        {
+          "content": "『このマークはどいう意味ですか。』『洗濯機で洗えるという意味です。』",
+          "transcription": "『このマークはどいういみですか。』『せんたくきであらえるといういみです。』",
+          "mean": "``What does this mark mean? \"It means that it can be washed in a washing machine. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "X は Sentence (formal form) という意味だ<br/>X は 「verbatim」 という意味だ"
+    }
+  ],
+  "title": "という意味だ => This means...",
+  "_id": "58d6ca13114747c689e8e2b6904d9808"
+}

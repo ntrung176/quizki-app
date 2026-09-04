@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1115,
+  "usages": [
+    {
+      "explain": "It's often followed by nouns like 「時／場合／こと」(time/case/situation). Expresses the idea \"it seems like such a situation might occur\". Used for serious and undesirable situations like \"fatal accidents\", \"life-threatening situations\", \"serious disasters\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼にもしものことがあったら、どうやって暮らそうか。",
+          "transcription": "かれにもしものことがあったら、どうやってくらそうか。",
+          "mean": "If something were to happen to him, how would he live?"
+        },
+        {
+          "content": "もしもの場合にはすぐ私に電話してください。",
+          "transcription": "もしものばあいにはすぐわたしにでんわしてください。",
+          "mean": "If anything happens, please call me immediately."
+        },
+        {
+          "content": "そんな大きい津波はよく起こらないが、もしもの時のために準備をしておいた方がいい。",
+          "transcription": "そんなおおきいつなみはよくおこらないが、もしものときのためにじゅんびをしておいたほうがいい。",
+          "mean": "Although such large tsunamis do not occur often, it is better to be prepared just in case."
+        }
+      ],
+      "mean": null,
+      "synopsis": "もしもの + N"
+    }
+  ],
+  "title": "もしも => uncertainly...",
+  "_id": "f7ff14dae05876cac58b4136934a0945"
+}

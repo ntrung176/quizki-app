@@ -1,0 +1,33 @@
+{
+  "level": "N5",
+  "mobileId": 2909,
+  "usages": [
+    {
+      "explain": "The negative form of adjectives with the い ending is formed by removing い and adding くないです.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の高校は大きくないです。",
+          "transcription": "わたしのこうこうはおおきくないです。",
+          "mean": "My high school isn't big."
+        },
+        {
+          "content": "この雑誌は楽しくないです。",
+          "transcription": "このざっしはたのしくないです。",
+          "mean": "This magazine is not fun."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": "Note: In the special case of the adjective いい (good), いいです changes to よくないです.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "くないです => Adjective negation",
+  "_id": "f2d618ceb0702f781ec83b7d4f3e320d"
+}

@@ -1,0 +1,96 @@
+{
+  "level": "N3",
+  "mobileId": 5333,
+  "usages": [
+    {
+      "explain": "「どうしても」is used to express:<br/>\n1. The determination and strong desire of the speaker, indicating that to achieve their goal or desire, they are willing to do whatever it takes.<br/>\n2. The helplessness of the speaker, indicating that no matter how hard they try, they cannot achieve the desired result. Often used with a negative sentence.<br/>\n3. The inevitability, the inescapable nature of a situation, indicating that no matter what is done, the result will not change.\n\nThank you for pointing that out!",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はどうしても自分の家がほしい。",
+          "transcription": "わたしはどうしてもじぶんのいえがほしい。",
+          "mean": "I really want my own home."
+        },
+        {
+          "content": "家族が反対したが、私はどうしても彼女と結婚したいと思っていた。",
+          "transcription": "かぞくがはんたいしたが、わたしはどうしてもかのじょとけっこんしたいとおもっていた。",
+          "mean": "Although my family was against it, I really wanted to marry her."
+        },
+        {
+          "content": "競争率が恐ろしいのは知っているけれど、 どうしてもあの会社に応募したい。",
+          "transcription": "きょうそうりつがおそろしいのはしっているけれど、 どうしてもあのかいしゃにおうぼしたい。",
+          "mean": "I know that the competition is scary, but I really want to apply to that company."
+        },
+        {
+          "content": "あなたはそれがどうしても必要なら再度連絡ください。",
+          "transcription": "あなたはそれがどうしてもひつようならさいどれんらくください。",
+          "mean": "Please contact us again if you really need it."
+        },
+        {
+          "content": "何度も計算してみたんだが, どうしても帳尻が合わない。",
+          "transcription": "なんどもけいさんしてみたんだが, どうしてもちょうじりがあわない。",
+          "mean": "I've tried calculating it many times, but it just doesn't add up."
+        },
+        {
+          "content": "他の問題はできたのだが、この問題だけはどうしても解けない。",
+          "transcription": "ほかのもんだいはできたのだが、このもんだいだけはどうしてもとけない。",
+          "mean": "I was able to solve other problems, but I just can't solve this one."
+        },
+        {
+          "content": "どうしても車が動かなかったので、私達は歩いて行くことにした。",
+          "transcription": "どうしてもくるまがうごかなかったので、わたしたちはあるいていくことにした。",
+          "mean": "Since the car wouldn't start, we decided to walk."
+        },
+        {
+          "content": "彼女は怒っているときは母親の言うことをどうしても聞こうとしない。",
+          "transcription": "かのじょはおっている時はははおやのいうことをどうしてもきこうとしない。",
+          "mean": "She refuses to listen to her mother when she is angry."
+        },
+        {
+          "content": "どうしても来られないときは連絡してください。",
+          "transcription": "どうしてもこられないときはれんらくしてください。",
+          "mean": "Please contact me if you are unable to come."
+        },
+        {
+          "content": "どうしても彼女の電話番号が思い出せない。",
+          "transcription": "どうしてもかのじょのでんわばんごうがおもいだせない。",
+          "mean": "I can't remember her phone number no matter how much I try."
+        },
+        {
+          "content": "牛乳飲むと、どうしてもお腹が痛くなるんです。",
+          "transcription": "ぎゅうにゅうのむと、どうしてもおなかがいたくなるんです。",
+          "mean": "When I drink milk, I always get a stomach ache."
+        },
+        {
+          "content": "食べると、どうしても眠くなる。",
+          "transcription": "たべると、どうしてもねむくなる。",
+          "mean": "I always feel sleepy when I eat."
+        },
+        {
+          "content": "寝る前にお腹いっぱいに食べると、どうしても寝れなくなっちゃうんだよね。",
+          "transcription": "ねるまえにおなかいっぱいにたべると、どうしてもねむれなくなっちゃうんだよね。",
+          "mean": "If you eat a full meal before going to bed, you'll have trouble sleeping."
+        },
+        {
+          "content": "どうしてもヘリコプターには乗りたくない。",
+          "transcription": "どうしてもヘリコプターにはのりたくない。",
+          "mean": "I really don't want to ride in a helicopter."
+        },
+        {
+          "content": "どうしても君のことが好きだ。",
+          "transcription": "どうしてもきみのことが好きだ。",
+          "mean": "I really like you."
+        },
+        {
+          "content": "駅まではどうしても1時間はかかる。",
+          "transcription": "えきまではどうしてもいちじかんはかかる。",
+          "mean": "It definitely takes an hour to get to the station."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうしても+Sentence"
+    }
+  ],
+  "title": "どうしても => no matter what; at any cost; after all ~",
+  "_id": "cc2357abd66449e6b00c233ab7979153"
+}

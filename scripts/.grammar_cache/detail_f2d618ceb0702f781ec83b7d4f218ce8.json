@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2684,
+  "usages": [
+    {
+      "explain": "Expresses an action or effect that has not yet become a reality.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はまだ朝ごはんを食べていない。",
+          "transcription": "わたしはまだあさごはんをたべていない。",
+          "mean": "I haven't eaten breakfast yet."
+        },
+        {
+          "content": "彼はまだ客お客さんに知らせていない。",
+          "transcription": "かれはまだきゃくおきゃくさんにしらせていない。",
+          "mean": "He hasn't informed the customers yet."
+        },
+        {
+          "content": "彼女は結婚についてまだはっきりと決めていない。",
+          "transcription": "かのじょはけっこんについてまだはっきりときめていない。",
+          "mean": "She hasn't decided yet about marriage."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ていない"
+    }
+  ],
+  "title": "ていない => have not yet ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f218ce8"
+}

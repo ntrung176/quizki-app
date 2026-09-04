@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2838,
+  "usages": [
+    {
+      "explain": "Used to list consecutively similar things with the meaning \"and\". When listing nouns, it means \"simultaneously\" rather than sequentially in time. Used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "春休みに日本、韓国、それから中国の3カ国を回ってきた。",
+          "transcription": "はるやすみににっぽん、かんこく、それからちゅうごくの3かこくをまわってきた。",
+          "mean": "During spring break, I visited three countries: Japan, South Korea, and China."
+        },
+        {
+          "content": "英語のクラスは火曜日と金曜日、それから日曜日にやっています。",
+          "transcription": "えいごのくらすはかようびときんようび、それからにちようびにやっています。",
+          "mean": "English classes are held on Tuesdays, Fridays, and Sundays."
+        },
+        {
+          "content": "二人の添乗員は小林さん、それから田中さんです。",
+          "transcription": "ににんのてんじょういんはこばやしさん、それからたなかさんです。",
+          "mean": "The two tour guides were Mr. Kobayashi and Mr. Tanaka."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + それから + N"
+    }
+  ],
+  "title": "それから => and; and then; after that; since then",
+  "_id": "f2d618ceb0702f781ec83b7d4f35b317"
+}

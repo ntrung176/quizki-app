@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5212,
+  "usages": [
+    {
+      "explain": "「のに対して」expresses the contrast or opposition between two events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "都市で人口が増えているのに対し、農村では減っている。",
+          "transcription": "としでじんこうがふえているのにたいし、のうそんではへっている。",
+          "mean": "While the population is increasing in cities, it is decreasing in rural areas."
+        },
+        {
+          "content": "長男は真面目なのに対して、次男は遊んでばかりで学校もよく休む。",
+          "transcription": "ちょうなんはまじめなのにたいして、じなんはあそんでばかりでがっこうもよくやすむ。",
+          "mean": "The eldest son is very serious, while the second son only plays and often misses school."
+        },
+        {
+          "content": "この店の利用する人は、昼間は主婦が多い。それに対して、夕方は会社員が多い。",
+          "transcription": "このみせのりようするひとは、ひるまはしゅふがおおい。それにたいして、ゆうがたはかいしゃいんがおおい。",
+          "mean": "Most of the people who use this store during the day are housewives. On the other hand, in the evening there are many office workers."
+        },
+        {
+          "content": "8月の日本の季節は夏なのに対して、オーストラリアの季節は冬です。",
+          "transcription": "はちがつのにほんのきせつはなつなのにたいして、オーストラリアのきせつはふゆです。",
+          "mean": "The season in Japan in August is summer, while the season in Australia is winter."
+        },
+        {
+          "content": "一般的なビールのアルコール度数が5%であるのに対して、このビールは9%もあります。",
+          "transcription": "いっぱんてきなビールのアルコールどすうがごパーセントであるのにたいして、このビールはきゅうパーセントもあります。",
+          "mean": "While regular beer has an alcohol content of 5%, this beer has an alcohol content of 9%."
+        },
+        {
+          "content": "母がとてもおしゃべりだったのに対し、父は寡黙な人でした。",
+          "transcription": "ははがとてもおしゃべりだったのにたいし、ちちはかもくなひとでした。",
+          "mean": "While my mother was very talkative, my father was a quiet person."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form) のに+対して / 対し / 対しては / 対しても / 対するN' / 対してのN'<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>/A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>な/N<s>だ</s>である)\n<br/><br/>これ/それ に+対して / 対し / 対しては / 対しても / 対するN' / 対してのN'"
+    }
+  ],
+  "title": "のに対して =>  towards; against; regarding; in contrast with ~",
+  "_id": "a0e99cd28896496a82cfa8139f0d479b"
+}

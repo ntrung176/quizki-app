@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5277,
+  "usages": [
+    {
+      "explain": "「というものでもない」is used to partially negate or indirectly negate a common perception or viewpoint. The clause before it is often in the conditional form like 「～ば」「～なら」「～たら」or expresses contrast like 「からといって」.「というものでもない」gives a softer nuance compared to「というものではない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "何でも多ければいいというものでもない。",
+          "transcription": "なんでもおおければいいというものでもない。",
+          "mean": "It's not like more of anything is better."
+        },
+        {
+          "content": "お金があれば幸せだというものでもない。",
+          "transcription": "おかねがあればしあわせだというものでもない。",
+          "mean": "Money doesn't necessarily mean happiness."
+        },
+        {
+          "content": "値段が高ければ良い品物というものでもない。",
+          "transcription": "ねだんがたかければよいしなものというものでもない。",
+          "mean": "A high price does not necessarily mean a good product."
+        },
+        {
+          "content": "いい大学を卒業したからとって、いい会社に就職できるというものでもない。",
+          "transcription": "いいだいがくをそつぎょうしたからとって、いいかいしゃにしゅうしょくできるというものでもない。",
+          "mean": "Just because you graduated from a good university doesn't mean you can get a job at a good company."
+        },
+        {
+          "content": "自分なら簡単にできると思っていたが、自信だけでなんとかなるというものではなかった。",
+          "transcription": "じぶんならかんたんにできるとおもっていたが、じしんだけでなんとかなるというものではなかった。",
+          "mean": "I thought I could do it easily, but confidence alone wasn't enough."
+        },
+        {
+          "content": "私の日本語クラスは、絶対に毎週参加しなければいけないというものではない。",
+          "transcription": "わたしのにほんごクラスは、ぜったいにまいしゅうさんかしなければいけないというものではない。",
+          "mean": "My Japanese class is not something that you absolutely have to attend every week."
+        },
+        {
+          "content": "経済や市場との関係も考えながら議論を続けている。忘れたというものではない。",
+          "transcription": "けいざいやしじょうとのかんけいもかんがえながらぎろんをつづけている。わすれたというものではない。",
+          "mean": "Discussions continue while also considering the relationship with the economy and markets. It's not like I forgot."
+        },
+        {
+          "content": "お金があるからといって、幸せというものではない。",
+          "transcription": "おかねがあるからといって、しあわせというものではない。",
+          "mean": "Just because you have money doesn't mean you're happy."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+というもので(も/は)ない<br/>(In this particular case: A<s>な</s>だ và Nだ だ can be obmitted)"
+    }
+  ],
+  "title": "というものでもない =>  there is no guarantee that…; not necessarily ~",
+  "_id": "999111989a7b481a83e8c6f058f9c98c"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 946,
+  "usages": [
+    {
+      "explain": "Used with pairs of contrasting verbs, such as (go - not go), (win - lose), and at the end of the sentence, there are often expressions like (depending on), (decided by) to express the meaning (the choice of which is decided by...).",
+      "note": null,
+      "examples": [
+        {
+          "content": "続けるも諦めるもあなたにかかっている。",
+          "transcription": "つづけるもあきらめるもあなたにかかっている。",
+          "mean": "It's up to you whether you continue or give up."
+        },
+        {
+          "content": "合格するもしないも努力しだいだ。",
+          "transcription": "ごうかくするもしないもどりょくしだいだ。",
+          "mean": "Whether you pass or not depends on your efforts."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + も + V-る/Vない + も"
+    }
+  ],
+  "title": "... も ... も => too; also; as well",
+  "_id": "f7ff14dae05876cac58b41369332f488"
+}

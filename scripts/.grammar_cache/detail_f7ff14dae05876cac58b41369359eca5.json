@@ -1,0 +1,38 @@
+{
+  "level": "N1",
+  "mobileId": 1235,
+  "usages": [
+    {
+      "explain": "● Expresses the speaker's firm belief in something.  <br/>● Note: In the form [ものとおもっている], it indicates that the subject of the sentence is the one holding the belief.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そういうことはないものと思うが、一応確かめてみよう。",
+          "transcription": "そういうことはないものとおもうが、いちおうたしかめてみよう。",
+          "mean": "I don't think that's the case, but let's check just in case."
+        },
+        {
+          "content": "先生は、学生たちも一緒に参加するものと思っている。",
+          "transcription": "せんせいは、がくせいたちもいっしょにさんかするものとおもっている。",
+          "mean": "The teacher expects the students to participate as well."
+        },
+        {
+          "content": "妹が東大の入式に絶対合格するもと思いう。",
+          "transcription": "いもうとがとうだいのいりしきにぜったいごうかくするもとおもいう。",
+          "mean": "I'm sure my sister will pass the entrance exam to the University of Tokyo."
+        }
+      ],
+      "mean": "Believe~",
+      "synopsis": "formal form + ものとおもう"
+    },
+    {
+      "explain": null,
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～ものとおもう => Believe~",
+  "_id": "f7ff14dae05876cac58b41369359eca5"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 948,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"looking at it broadly...\". Used when evaluating the characteristics or traits of a person or thing. It has a similar meaning to 「どちらかといえば」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はどちらかというと、チームワークが苦手である。",
+          "transcription": "わたしはどちらかというと、ちーむわーくがにがてである。",
+          "mean": "If anything, I'm not good at teamwork."
+        },
+        {
+          "content": "日本のクリスマスはどちらかというと、&amp;nbsp;恋人たちの日です。",
+          "transcription": "にっぽんのくりすますはどちらかというと、&amp;nbsp;こいびとたちのにちです。",
+          "mean": "Christmas in Japan is more of a day for lovers."
+        },
+        {
+          "content": "ロンドンも悪くないが、どちらかというと私はパリの方が好きだ。",
+          "transcription": "ろんどんもわるくないが、どちらかというとわたしはぱりのほうがすきだ。",
+          "mean": "London is not bad, but I prefer Paris."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どちらかというと ～"
+    }
+  ],
+  "title": "どちらかというと => Overall, it can be said",
+  "_id": "f7ff14dae05876cac58b413693334ff7"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2701,
+  "usages": [
+    {
+      "explain": "Indicates an undetermined quantity or price, used when the specific number is not known or not necessary to specify.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いくらなら案内してもらってもいいとこちらから先に提示します。",
+          "transcription": "いくらならあんないしてもらってもいいとこちらからさきにていじします。",
+          "mean": "I will first suggest how much guidance you can give me."
+        },
+        {
+          "content": "市場に出す品物は、それぞれいくらで売るということを決めてこの書類に金額を書き込んでください。",
+          "transcription": "しじょうにだすしなものは、それぞれいくらでうるということをきめてこのしょるいにきんがくをかきこんでください。",
+          "mean": "Decide how much you want to sell each item you will sell for the market, and write the amount on this document."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いくら => no matter how (Undetermined)",
+  "_id": "f2d618ceb0702f781ec83b7d4f23d695"
+}

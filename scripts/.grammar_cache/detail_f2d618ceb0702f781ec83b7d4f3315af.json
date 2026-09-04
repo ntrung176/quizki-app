@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2822,
+  "usages": [
+    {
+      "explain": "In the case of using with Sino-Japanese nouns, use the form 「ごNだ」. This is a respectful form similar to 「お ... になる」 but is used limitedly in certain fixed phrases.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今年は暑い日が続いていますが、お元気でお過ごしですか。",
+          "transcription": "ことしはあついひがつづいていますが、おげんきでおすごしですか。",
+          "mean": "It's been hot this year, but how are you doing?"
+        },
+        {
+          "content": "いつまでご滞在ですか。",
+          "transcription": "いつまでごたいざいですか。",
+          "mean": "Until when are you staying?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "お Vます だご N だ"
+    }
+  ],
+  "title": "お…です => Have..., are..., will...",
+  "_id": "f2d618ceb0702f781ec83b7d4f3315af"
+}

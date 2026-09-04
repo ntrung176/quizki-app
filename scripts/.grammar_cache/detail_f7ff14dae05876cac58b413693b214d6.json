@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1875,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"considered to be..., regarded as...\". However, this phrase is often used in cases where the truth is uncertain.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本では木村拓哉が一番人気のある歌手ともくされている。",
+          "transcription": "にっぽんではきむらたくやがいちばんにんきのあるかしゅともくされている。",
+          "mean": "In Japan, Takuya Kimura is considered the most popular singer."
+        },
+        {
+          "content": "大統領選挙で最有力候補ともくされているのは、オバマ氏です。",
+          "transcription": "だいとうりょうせんきょでさいゆうりょくこうほともくされているのは、おばましです。",
+          "mean": "Mr. Obama is considered the most likely candidate in the presidential election."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N と + もくされている"
+    }
+  ],
+  "title": "もくされている => to be considered as (A)",
+  "_id": "f7ff14dae05876cac58b413693b214d6"
+}

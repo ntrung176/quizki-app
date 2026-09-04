@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1399,
+  "usages": [
+    {
+      "explain": "Used to criticize or condemn by repeating the words of the other person. The form 「なんて」 can also be used alone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今頃になってなくしただなんてよく言えますね。<br><br>",
+          "transcription": "いまごろになってなくしただなんてよくいえますね。<br><br>",
+          "mean": "I can easily say that I lost it by now. &lt;br&gt;&lt;br&gt;"
+        },
+        {
+          "content": "約束したのに、来られなかっただなんて、ひどい。",
+          "transcription": "やくそくしたのに、こられなかっただなんて、ひどい。",
+          "mean": "It's terrible that you couldn't come even though you promised."
+        }
+      ],
+      "mean": null,
+      "synopsis": "だなんて～"
+    }
+  ],
+  "title": "だなんて => give examples; things like; something like; show modesty; make light of ~",
+  "_id": "f7ff14dae05876cac58b413693706749"
+}

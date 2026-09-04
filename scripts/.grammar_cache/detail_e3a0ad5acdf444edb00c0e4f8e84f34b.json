@@ -1,0 +1,61 @@
+{
+  "level": "N4",
+  "mobileId": 5559,
+  "usages": [
+    {
+      "explain": "「てすみません」is used to express an apology for something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "遅れてすみません。",
+          "transcription": "おくれてすみません。",
+          "mean": "Forgive me for being late."
+        },
+        {
+          "content": "心配をかけてすみません。",
+          "transcription": "しんぱいをかけてすみません。",
+          "mean": "Sorry for making you worry."
+        },
+        {
+          "content": "電話に出れなくてすみません。",
+          "transcription": "でんわにでれなくてすみません。",
+          "mean": "Sorry for not being able to answer the phone."
+        },
+        {
+          "content": "朝早くにお電話してすみません。",
+          "transcription": "あさはやくにおでんわしてすみません。",
+          "mean": "Sorry for calling you so early in the morning."
+        },
+        {
+          "content": "ご迷惑をかけてすみませんでした。",
+          "transcription": "ごめいわくをかけてすみませんでした。",
+          "mean": "Sorry for the inconvenience."
+        },
+        {
+          "content": "宿題をするのを忘れてすみません。",
+          "transcription": "しゅくだいをするのをわすれてすみません。",
+          "mean": "I'm sorry for forgetting to do my homework."
+        },
+        {
+          "content": "あなたのお弁当を食べちゃってすみません。",
+          "transcription": "あなたのおべんとうをたべちゃってすみません。",
+          "mean": "I'm sorry I ate your lunch."
+        },
+        {
+          "content": "返事が遅くなってすみませんでした。",
+          "transcription": "へんじがおそくなってすみませんでした。",
+          "mean": "Sorry for the late reply."
+        },
+        {
+          "content": "その予定を何度も変更してすみません。",
+          "transcription": "そのよていをなんどもへんこうしてすみません。",
+          "mean": "Sorry for changing that schedule so many times."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+すみません"
+    }
+  ],
+  "title": "てすみません => I'm sorry for...",
+  "_id": "e3a0ad5acdf444edb00c0e4f8e84f34b"
+}

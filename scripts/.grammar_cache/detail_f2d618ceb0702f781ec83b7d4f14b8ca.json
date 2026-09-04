@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2587,
+  "usages": [
+    {
+      "explain": "Used at the end of a sentence to show informality, familiarity, avoiding use with unfamiliar people or older people.",
+      "note": null,
+      "examples": [
+        {
+          "content": "やっぱだめだったわ。",
+          "transcription": "やっぱだめだったわ。",
+          "mean": "It turned out to be no good."
+        },
+        {
+          "content": "さむかったわ。",
+          "transcription": "さむかったわ。",
+          "mean": "It was cold."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...わ"
+    }
+  ],
+  "title": "...わ => feminine sentence ending particle",
+  "_id": "f2d618ceb0702f781ec83b7d4f14b8ca"
+}

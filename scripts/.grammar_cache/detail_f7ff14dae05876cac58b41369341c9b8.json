@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1054,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"regard, consider ... as ...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は辞書を枕として横になった。",
+          "transcription": "かのじょはじしょをまくらとしてよこになった。",
+          "mean": "She lay down using the dictionary as a pillow."
+        },
+        {
+          "content": "石油を原料とする製品はたくさんある。",
+          "transcription": "せきゆをげんりょうとするせいひんはたくさんある。",
+          "mean": "There are many products that are made from petroleum."
+        },
+        {
+          "content": "この科目では40点以下を不合格をとする。",
+          "transcription": "このかもくでは40てんいかをふごうかくをとする。",
+          "mean": "A score of 40 points or less will be considered a failure in this subject."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N を N + とする"
+    }
+  ],
+  "title": "を…とする => is considered, is regarded as",
+  "_id": "f7ff14dae05876cac58b41369341c9b8"
+}

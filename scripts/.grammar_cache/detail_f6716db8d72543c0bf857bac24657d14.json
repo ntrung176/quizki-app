@@ -1,0 +1,41 @@
+{
+  "level": "N5",
+  "mobileId": 5640,
+  "usages": [
+    {
+      "explain": "「てもいい」expresses permission to do something.<br/>\nIf you turn this structure into a question, you get a sentence used to request permission from someone to do something, or to confirm whether a general rule allows that action. Accordingly, the responses will also differ. For example:<br/>\n+ 君の隣に座ってもいいですか。 (Asking for permission)<br/>\n➔ To grant permission: はい。/ はい、いいです。/ はい、どうぞ。<br/>\n➔ To decline: いいえ。/ いいえ、ちょっと...<br/>\n+ このマンションでは、犬を飼ってもいいんですか。 (Confirming permission according to a rule)\n➔ Allowed: はい、飼ってもいいんですよ。 (In this case, people often do not omit the verb in the response.)<br/>\n➔ Not allowed: いいえ、いけません。 etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ここでたばこを吸ってもいいです。",
+          "transcription": "ここでたばこをすってもいいです。",
+          "mean": "You can smoke here."
+        },
+        {
+          "content": "この傘を使ってもいいですよ。",
+          "transcription": "このかさをつかってもいいですよ。",
+          "mean": "You can use this umbrella."
+        },
+        {
+          "content": "君の隣に座ってもいいですか。",
+          "transcription": "きみのとなりにすわってもいいですか。",
+          "mean": "May I sit next to you?"
+        },
+        {
+          "content": "『ここで写真を撮ってもいいですか。』『ええ、いいです。』",
+          "transcription": "『ここでしゃしんをとってもいいですか。』『ええ、いいです。』",
+          "mean": "\"May I take pictures here. ” “Yes, that’s fine. ”"
+        },
+        {
+          "content": "『たばこを 吸ってもいいですか。』『すみません。いけません。』",
+          "transcription": "『たばこをすってもいいですか。』『すみません。いけません。』",
+          "mean": "``Can I smoke? \"\"sorry. Don't. ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+もいい"
+    }
+  ],
+  "title": "てもいい => is OK to ~; is alright to ~; may I ~?",
+  "_id": "f6716db8d72543c0bf857bac24657d14"
+}

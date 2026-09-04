@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2442,
+  "usages": [
+    {
+      "explain": "This phrase describes a sense of surprise, \"given the situation, how is it possible that...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "この靴はあれで２万円なら安いものだ。",
+          "transcription": "このくつはあれでにまんえんならやすいものだ。",
+          "mean": "These shoes are cheap at 20,000 yen."
+        },
+        {
+          "content": "彼はあれで野球初めてなんですか。すまるでプロの選手みたいだ。。",
+          "transcription": "かれはあれでやきゅうはじめてなんですか。すまるでぷろのせんしゅみたいだ。。",
+          "mean": "Is this his first time playing baseball? He looks like a professional player. ."
+        },
+        {
+          "content": "その悪い小説はあれでノーベル文学賞を受賞したんですか。",
+          "transcription": "そのわるいしょうせつはあれでのーべるぶんがくしょうをじゅしょうしたんですか。",
+          "mean": "Did that bad novel win the Nobel Prize for Literature?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "あれで"
+    }
+  ],
+  "title": "あれで => In such a situation…, it is really…",
+  "_id": "f2d618ceb0702f781ec83b7d4f016dc4"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 2613,
+  "usages": [
+    {
+      "explain": "Indicates an unlimited state, meaning \"as much as you want\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "あなたの愚痴をいくらでも聞きます。",
+          "transcription": "あなたのぐちをいくらでもききます。",
+          "mean": "I'll listen to your complaints as much as I want."
+        },
+        {
+          "content": "彼を信じているから金をいくらでも安心して預ける。",
+          "transcription": "かれをしんじているからきんをいくらでもあんしんしてあづける。",
+          "mean": "I trust him so I can safely entrust him with any amount of money."
+        },
+        {
+          "content": "彼の代わりならいくらでもいるから、やめられても全然困らない。",
+          "transcription": "かれのかわりならいくらでもいるから、やめられてもぜんぜんこまらない。",
+          "mean": "There are plenty of people to replace him, so I wouldn't be bothered if he quit."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "いくらでも => no matter how much...",
+  "_id": "f2d618ceb0702f781ec83b7d4f1857a3"
+}

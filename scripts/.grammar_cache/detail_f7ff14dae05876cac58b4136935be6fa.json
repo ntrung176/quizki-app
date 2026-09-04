@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1250,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: \"it seems that way.\" Used in contexts where \"the character doesn't say it outright, but it can be inferred from their words and actions.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はこの仕事をしたくないふしがある。",
+          "transcription": "かのじょはこのしごとをしたくないふしがある。",
+          "mean": "She probably doesn't want to do this job."
+        },
+        {
+          "content": "彼の態度には、どことなく怪しいふしがある。",
+          "transcription": "かれのたいどには、どことなくあやしいふしがある。",
+          "mean": "There is something suspicious about his attitude."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ふしがある"
+    }
+  ],
+  "title": "ふしがある => Seem",
+  "_id": "f7ff14dae05876cac58b4136935be6fa"
+}

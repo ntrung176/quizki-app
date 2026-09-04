@@ -1,0 +1,71 @@
+{
+  "level": "N4",
+  "mobileId": 5479,
+  "usages": [
+    {
+      "explain": "「でしょう」expresses a high degree of certainty or likelihood of the speaker's assumption based on obtained information. It is not used to state one's own information, and often appears in statements made by professionals such as weather forecasters, news commentators, scientists, doctors, etc.<br/>\nThe casual form often used in daily conversations instead of 「でしょう」 is 「だろう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は雨が降るでしょう。",
+          "transcription": "あしたはあめがふるでしょう。",
+          "mean": "it will be rainy tomorrow."
+        },
+        {
+          "content": "北海道の冬は寒いでしょう。",
+          "transcription": "ほっかいどうのふゆはさむいでしょう。",
+          "mean": "Winter in Hokkaido can be cold."
+        },
+        {
+          "content": "6時までに彼は帰ってくるでしょう。",
+          "transcription": "ろくじまでにかれはかえってくるでしょう。",
+          "mean": "He will be back by 6 o'clock."
+        },
+        {
+          "content": "プロジェクトが終わったから、これから暇でしょう。",
+          "transcription": "プロジェクトがおわったから、これからひまでしょう。",
+          "mean": "The project is finished, so I'll have some free time now."
+        },
+        {
+          "content": "今日は平日だから、映画館はすいているでしょう。",
+          "transcription": "きょうはへいじつだから、えいがかんはすいているでしょう。",
+          "mean": "It's a weekday, so the movie theater will be empty."
+        },
+        {
+          "content": "明日は土曜日ですから、動物園が込んでいるでしょうね。",
+          "transcription": "あしたはどようびですから、どうぶつえんがこんでいるでしょうね。",
+          "mean": "Tomorrow is Saturday, so the zoo will probably be crowded."
+        },
+        {
+          "content": "田中さんは来ないでしょう。",
+          "transcription": "たなかさんはこないでしょう。",
+          "mean": "Mr. Tanaka won't come."
+        },
+        {
+          "content": "昨日、グリーンチームが勝ったでしょう。",
+          "transcription": "きのう、グリーンチームがかったでしょう。",
+          "mean": "The green team would have won yesterday."
+        },
+        {
+          "content": "これはファイナリストにも予想外のチョイスだったでしょう。",
+          "transcription": "これはファイナリストにもよそがいのチョイスだったでしょう。",
+          "mean": "This was probably an unexpected choice for the finalists."
+        },
+        {
+          "content": "明日は雨が降るだろう。",
+          "transcription": "あしたはあめがふるだろう。",
+          "mean": "It will rain tomorrow."
+        },
+        {
+          "content": "プロジェクトが終わったから、これから暇だろう。",
+          "transcription": "プロジェクトがおわったから、これからひまだろう。",
+          "mean": "The project is finished, so I'll have some free time from now on."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+でしょう / だろう<br/>Aい (formal form)+でしょう / だろう<br/>Aな (formal form)+でしょう / だろう<br/>(In this particular case: A<s>な</s>だ ➔ A<s>なだ</s>)<br/>N (formal form)+でしょう / だろう<br/>(In this particular case: Nだ ➔ N<s>だ</s>)"
+    }
+  ],
+  "title": "でしょう/だろう =>  right?, isn't it?, correct?",
+  "_id": "a6008aeaccf643fdb0026b51c3c5f950"
+}

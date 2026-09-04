@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5304,
+  "usages": [
+    {
+      "explain": "「を<ruby><rb>問</rb><rp>(</rp><rt>と</rt><rp>)</rp></ruby>わず」indicates that something is not an issue; there is no distinction regarding that thing. Some nouns commonly used with this structure include 経験 (experience), 年齢 (age), 性別 (gender), 学歴 (educational background), 国籍 (nationality), 天候 (weather), 昼夜 (day and night), and so on.",
+      "note": null,
+      "examples": [
+        {
+          "content": "年齢を問わず多くの人々が集まった。",
+          "transcription": "ねんれいをとわずおおくのひとびとがあつまった。",
+          "mean": "Many people gathered regardless of age."
+        },
+        {
+          "content": "経験の有無を問わず、募集。",
+          "transcription": "けいけんのうむをとわず、ぼしゅう。",
+          "mean": "We are recruiting regardless of experience."
+        },
+        {
+          "content": "このスポーツクラブは年齢を問わず、誰でも入れます。",
+          "transcription": "このスポーツクラブはねんれいをとわずだれでもはいれます。",
+          "mean": "This sports club is open to anyone, regardless of age."
+        },
+        {
+          "content": "この公園では季節を問わず、美しい花が見られます。",
+          "transcription": "このこうえんではきせつをとわず、うつくしいはながみられます。",
+          "mean": "Beautiful flowers can be seen in this park regardless of the season."
+        },
+        {
+          "content": "老若男女を問わず、彼のファンは多い。",
+          "transcription": "ろうじゃくだんじょをとわず、かれのファンはおおい。",
+          "mean": "He has many fans, both young and old."
+        },
+        {
+          "content": "このカフェは昼夜を問わず賑わっている。",
+          "transcription": "このかふぇはちゅうやをとわずにぎわっている。",
+          "mean": "This cafe is busy day and night."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+問わず"
+    }
+  ],
+  "title": "を問わず => regardless of; irrespective of; no matter~",
+  "_id": "7a6c376970664ed4bcc83d681c866c58"
+}

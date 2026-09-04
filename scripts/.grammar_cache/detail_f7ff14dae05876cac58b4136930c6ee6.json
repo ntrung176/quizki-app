@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 664,
+  "usages": [
+    {
+      "explain": "✦Used to emphasize an unfavorable situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "冗談にもほどがある。",
+          "transcription": "じょうだんにもほどがある。",
+          "mean": "There's a point in joking."
+        },
+        {
+          "content": "無灯火の上にメールをしながら自転車に乗るなんて、非常識にも程がありますよ。",
+          "transcription": "むともしびのうえにメールをしながらじてんしゃにのるなんて、ひじょうしきにもほどがありますよ。",
+          "mean": "Riding a bicycle with no lights on while texting is beyond insane."
+        },
+        {
+          "content": "途中で仕事を投げ出すなんて、無責任にもほどがある。",
+          "transcription": "とちゅうでしごとをなげだすなんて、むせきにんにもほどがある。",
+          "mean": "It would be irresponsible to abandon the job mid-way."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V (root form) + にもほどがある</div><div>✦N + にもほどがある</div><div>✦いadj + にもほどがある</div><div>✦なadj + にもほどがある</div>"
+    }
+  ],
+  "title": "～にも程がある => there is a limit to what is acceptable; to go too far",
+  "_id": "f7ff14dae05876cac58b4136930c6ee6"
+}

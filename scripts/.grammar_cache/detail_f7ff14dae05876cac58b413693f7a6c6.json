@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 2371,
+  "usages": [
+    {
+      "explain": "✦Brings up something unfavorable for the speaker and expresses a somewhat dissatisfied choice: if forced to choose between two sides, it's better to choose the lesser of two evils.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あんなことになるなら、死んだほうがましだ。",
+          "transcription": "あんなことになるなら、しんだほうがましだ。",
+          "mean": "If something like that happens, I'd rather die."
+        },
+        {
+          "content": "<span style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\">彼</span>と結婚する？わたしなら、悪夢のほうがましだ！",
+          "transcription": "かれとけっこんする？わたしなら、あくむのほうがましだ！",
+          "mean": "&lt;span style=\"color: rgb(85, 85, 85); font-family: Arial, Helvetica, sans-serif; font-size: 13px;\"&gt;Will you marry him&lt;/span&gt;? For me, nightmares are better!"
+        },
+        {
+          "content": "途中でやめるぐらいなら始めからやらないほうがましだ。",
+          "transcription": "とちゅうでやめるぐらいならはじめからやらないほうがましだ。",
+          "mean": "It's better not to start in the first place than to quit halfway."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦<span>V formal form + ほうがましだ</span>eht + ほうがましだ"
+    }
+  ],
+  "title": "～ ほうがましだ => better than; would rather ~",
+  "_id": "f7ff14dae05876cac58b413693f7a6c6"
+}

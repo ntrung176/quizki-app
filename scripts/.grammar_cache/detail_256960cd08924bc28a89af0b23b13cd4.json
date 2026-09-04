@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 5058,
+  "usages": [
+    {
+      "explain": "「もさることながら」expresses the idea that the first clause is already a certain way, but the second clause is even more noteworthy. This structure is often used in formal writing or speaking such as speeches... it emphasizes the content of the second clause and is typically used to talk about positive events.",
+      "note": null,
+      "examples": [
+        {
+          "content": "結果もさることながら、原因が問題だ。",
+          "transcription": "けっかもさることながら、げんいんがもんだいだ。",
+          "mean": "The cause is as important as the result."
+        },
+        {
+          "content": "進学先の決定については、親の希望もさることながら、本人の希望が第一だろう。",
+          "transcription": "しんがくさきのけっていについては、おやのきぼうもさることながら、ほんにんのきぼうがだいいちだろう。",
+          "mean": "When it comes to deciding where to go to college, the child's own wishes will come first, not to mention the wishes of their parents."
+        },
+        {
+          "content": "アキラ社は製品の性能の良さもさることながら、アフターケアの良さで客の信頼を得ている。",
+          "transcription": "アキラしゃはせいひんのせいのうのよさもさることながら、アフターケアのよさできゃくのしんらいをえている。",
+          "mean": "Akira has earned the trust of its customers not only for its products' excellent performance, but also for its excellent after-sales care."
+        },
+        {
+          "content": "ここは、春の景色もさることながら、夏もヒマワリが一面に広がりとても素晴らしい。",
+          "transcription": "ここは、はるのけしきもさることながら、なつもヒマワリがいちめんにひろがりとてもすばらしい。",
+          "mean": "The scenery here is not only spectacular in spring, but also in summer, where sunflowers spread all over the place."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+もさることながら"
+    }
+  ],
+  "title": "もさることながら => one may well say so, but~; not only... but also ~",
+  "_id": "256960cd08924bc28a89af0b23b13cd4"
+}

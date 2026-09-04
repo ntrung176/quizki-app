@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5481,
+  "usages": [
+    {
+      "explain": "「が必要」is used to express that something is necessary or needed.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは必要だ。",
+          "transcription": "それはひつようだ。",
+          "mean": "It is necessary."
+        },
+        {
+          "content": "君が必要だ。",
+          "transcription": "きみがひつようだ。",
+          "mean": "I need you."
+        },
+        {
+          "content": "サインは必要ですか。",
+          "transcription": "サインはひつようですか？",
+          "mean": "Do I need a signature?"
+        },
+        {
+          "content": "サッカーを練習する場所が必要です。",
+          "transcription": "サッカーをれんしゅうするばしょがひつようです。",
+          "mean": "I need a place to practice soccer."
+        },
+        {
+          "content": "私は少し考える時間が必要です。",
+          "transcription": "わたしはすこしかんがえるじかんがひつようです。",
+          "mean": "I need some time to think."
+        },
+        {
+          "content": "試合が近い。練習が必要だよ！",
+          "transcription": "しあいがちかい。れんしゅうがひつようだよ！",
+          "mean": "The game is close. I need practice!"
+        },
+        {
+          "content": "夫婦はお互いに理解しあうことが必要だ。",
+          "transcription": "ふうふはおたがいにりかいしあうことがひつようだ。",
+          "mean": "Husbands and wives need to understand each other."
+        },
+        {
+          "content": "このプロジェクトを成功させるには、少なくとも４人は必要だ。",
+          "transcription": "このプロジェクトをせいこうさせるには、すくなくともよにんはひつようだ。",
+          "mean": "We need at least four people to make this project a success."
+        },
+        {
+          "content": "私達には、皆が公平に扱われるための、明確な一連の規則が必要だ。",
+          "transcription": "わたしたちには、みながこうへいにあつかわれるための、めいかくないちれんのきそくがひつようだ。",
+          "mean": "We need a clear set of rules to ensure everyone is treated fairly."
+        },
+        {
+          "content": "日本の学生はまだ、科学の世界のトップレベルでは努力が必要です。",
+          "transcription": "にほんのがくせいはまだ、かがくのせかいのトップレベルではどりょくがひつようです。",
+          "mean": "Japanese students still have to work hard to reach the top levels of the scientific world."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+が必要<br/> N+は必要"
+    }
+  ],
+  "title": "が必要 => need; necessary",
+  "_id": "af078fd9952643b4ab6f9f497f5d87b8"
+}

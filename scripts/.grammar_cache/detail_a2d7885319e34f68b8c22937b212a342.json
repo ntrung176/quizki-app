@@ -1,0 +1,51 @@
+{
+  "level": "N2",
+  "mobileId": 5297,
+  "usages": [
+    {
+      "explain": "「を中心に」is used to indicate the central, main, or principal part of a scope, field, action, phenomenon, or state...",
+      "note": null,
+      "examples": [
+        {
+          "content": "東京を中心に関東地方は台風の影響で風が強くなっています。",
+          "transcription": "とうきょうをちゅうしんにかんとうちほうはたいふうのえいきょうでかぜがつよくなっています。",
+          "mean": "The Kanto region, centered on Tokyo, is experiencing strong winds due to the typhoon."
+        },
+        {
+          "content": "この店はスキー用品を中心にしたスポーツ専門店です。",
+          "transcription": "このみせはスキーようひんをちゅうしんにしたスポーツせんもんてんです。",
+          "mean": "This store is a sports specialty store that mainly sells ski equipment."
+        },
+        {
+          "content": "この会は中村さんを中心としたボランティアグループです。",
+          "transcription": "このかいはなかむらさんをちゅうしんとしたボランティアグループです。",
+          "mean": "This group is a volunteer group led by Mr. Nakamura."
+        },
+        {
+          "content": "文法を中心にして勉強したい。",
+          "transcription": "ぶんぽうをちゅうしんにしてべんきょうしたい。",
+          "mean": "I want to study mainly grammar."
+        },
+        {
+          "content": "その施設を中心として半径1キロ以内は立入禁止区域となっている。",
+          "transcription": "そのしせつをとしてはんけいいちキロいないはたちいりきんしくいきとなっている。",
+          "mean": "The area within a 1km radius around the facility is a restricted area."
+        },
+        {
+          "content": "地球は太陽を中心として回っている。",
+          "transcription": "ちきゅうはたいようをちゅうしんとしてまわっている。",
+          "mean": "The earth revolves around the sun."
+        },
+        {
+          "content": "山田さんを中心にして新しい委員会ができました。",
+          "transcription": "やまださんをちゅうしんにしてあたらしいいいんかいができました。",
+          "mean": "A new committee was formed with Mr. Yamada at the center."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+中心に / 中心にして<br/> Nを+中心にしたN<br/> Nを+中心として<br/> Nを+中心としたN"
+    }
+  ],
+  "title": "を中心に => focused on; centered on~",
+  "_id": "a2d7885319e34f68b8c22937b212a342"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 848,
+  "usages": [
+    {
+      "explain": "■ Means \"in a brief moment, in the blink of an eye\". <br/>■ The scope of usage is narrower than 「瞬間」(in a blink of an eye). <br/>■ Used in writing, less common in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "目を離したせつな、子供は波にのまれていった。",
+          "transcription": "めをはなしたせつな、こどもはなみにのまれていった。",
+          "mean": "Setsuna looked away, and the child was swept away by the waves."
+        },
+        {
+          "content": "他のとことを見たせつな彼をいつから出かけた。",
+          "transcription": "たのとことをみたせつなかれをいつからでかけた。",
+          "mean": "When did you see him go out after seeing someone else?"
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～Vた + せつな => moment, instant, juncture",
+  "_id": "f7ff14dae05876cac58b41369325d1ca"
+}

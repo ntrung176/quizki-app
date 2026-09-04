@@ -1,0 +1,61 @@
+{
+  "level": "N3",
+  "mobileId": 5371,
+  "usages": [
+    {
+      "explain": "「ますように」is used to express the earnest wish or hope of the speaker.",
+      "note": null,
+      "examples": [
+        {
+          "content": "合格しますように。",
+          "transcription": "ごうかくしますように。",
+          "mean": "I hope you pass."
+        },
+        {
+          "content": "母の病気が治りますように。",
+          "transcription": "ははのびょうきがなおりますように。",
+          "mean": "I hope my mother's illness gets better."
+        },
+        {
+          "content": "インフルエンザにかかりませんように。",
+          "transcription": "インフルエンザにかかりませんように。",
+          "mean": "I hope you don't catch the flu."
+        },
+        {
+          "content": "いい仕事が見つかりますように。",
+          "transcription": "いいしごとがみつかりますように。",
+          "mean": "I hope you find a good job."
+        },
+        {
+          "content": "私が作った曲を皆さんが喜んでくれますように。",
+          "transcription": "わたしがつくったきょくをみなさんがよろこんでくれますように。",
+          "mean": "I hope everyone enjoys the songs I created."
+        },
+        {
+          "content": "あなたが無事に家に帰れますように。",
+          "transcription": "あなたがぶじにいえにかえれますように。",
+          "mean": "May you return home safe!"
+        },
+        {
+          "content": "明日晴れますように。",
+          "transcription": "あしたはれますように。",
+          "mean": "I hope it's sunny tomorrow."
+        },
+        {
+          "content": "戦争が起こりませんように。",
+          "transcription": "せんそうがおこりませんように",
+          "mean": "May there be no war!"
+        },
+        {
+          "content": "良い一年になりますように。",
+          "transcription": "よいいちねんになりますように。",
+          "mean": "I hope you have a good year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます+ように<br/> Vません+ように<br/> Vれます+ように"
+    }
+  ],
+  "title": "ますように => making a wish",
+  "_id": "2ea9c5fa582645c9936609a6a2698aad"
+}

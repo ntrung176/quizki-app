@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1597,
+  "usages": [
+    {
+      "explain": "Used to command someone to do something immediately. This structure is similar to the imperative forms 「て」,「れ」, but is used when the other person refuses to act, thus causing annoyance or anger for the speaker. <br/>This structure is pronounced with a lowered tone, lacks politeness, and is commonly used by men.",
+      "note": null,
+      "examples": [
+        {
+          "content": "おい行かないか。<br>",
+          "transcription": "おいいかないか。<br>",
+          "mean": "Hey, why don't you go? &lt;br&gt;"
+        },
+        {
+          "content": "黙らないか。",
+          "transcription": "だまらないか。",
+          "mean": "Won't you shut up?"
+        },
+        {
+          "content": "止めないか。",
+          "transcription": "とめないか。",
+          "mean": "Why don't you stop it?"
+        },
+        {
+          "content": "早く食べないか。",
+          "transcription": "はやくたべないか。",
+          "mean": "Why don't you eat quickly?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V + ないか"
+    }
+  ],
+  "title": "ないか => right? (Orders)",
+  "_id": "f7ff14dae05876cac58b4136938d4ebf"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1945,
+  "usages": [
+    {
+      "explain": "Expresses the idea that a certain amount is sufficient to form or achieve something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その装飾品なら二十万ドンも出せば買えるよ。",
+          "transcription": "そのそうしょくひんならにじゅうまんどんもだせばかえるよ。",
+          "mean": "You can buy that ornament for 200,000 dong."
+        },
+        {
+          "content": "こんな料理は三分もあれば食べ終わる。",
+          "transcription": "こんなりょうりはさんぷんもあればたべおわる。",
+          "mean": "You can finish eating a dish like this in less than three minutes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + も…ば"
+    }
+  ],
+  "title": "…も…ば => just",
+  "_id": "f7ff14dae05876cac58b413693bc3710"
+}

@@ -1,0 +1,91 @@
+{
+  "level": "N2",
+  "mobileId": 5098,
+  "usages": [
+    {
+      "explain": "The phrase enclosed in brackets and tags <br/>\n「あまり」 expresses something exceeding a certain degree, resulting in an undesirable or abnormal outcome. <br/>\nNote: This structure can be used with adjectives ending in い in nominalized forms such as 「～さ」or 「～み」. For example: 楽しい ➔ 楽しさ/楽しみ、悲しい ➔ 悲しさ/悲しみ...",
+      "note": null,
+      "examples": [
+        {
+          "content": "緊張のあまり、体が震えた。",
+          "transcription": "きんちょうのあまり、からだがふるえた。",
+          "mean": "I was so nervous that my body was shaking."
+        },
+        {
+          "content": "発表の日、緊張のあまり、お腹が痛くなってしまった。",
+          "transcription": "はっぴょうのひ、きんちょうのあまり、おなかがいたくなってしまった。",
+          "mean": "On the day of the presentation, I was so nervous that my stomach hurt."
+        },
+        {
+          "content": "そのコンサートでは興奮のあまり気を失うファンも続出した。",
+          "transcription": "そのコンサートではこうふんのあまりきをうしなうファンもぞくしゅつした。",
+          "mean": "At the concert, many fans fainted from excitement."
+        },
+        {
+          "content": "この街では、暑さのあまり、道のアスファルトが溶けたそうだ。",
+          "transcription": "このまちでは、あつさのあまり、みちのアスファルトがとけたそうだ。",
+          "mean": "In this city, the asphalt on the roads is said to have melted due to the heat."
+        },
+        {
+          "content": "事件の現場を見てしまった私はショックのあまり声も出なかった。",
+          "transcription": "じけんのげんばをみてしまったわたしはショックのあまりこえもでなかった。",
+          "mean": "When I saw the scene of the incident, I was so shocked that I couldn't even make a sound."
+        },
+        {
+          "content": "田舎に引っ越したばかりのころは、寂しさのあまり友達に毎日のように電話したものだ。",
+          "transcription": "いなかにひっこしたばかりのころは、さびしさのあまりともだちにまいにちのようにでんわしたものだ。",
+          "mean": "When I first moved to the countryside, I was so lonely that I called my friends almost every day."
+        },
+        {
+          "content": "心配するあまり、母は寝込んでしまった。",
+          "transcription": "しんぱいするあまり、はははねこんでしまった。",
+          "mean": "My mother was so worried that she fell asleep."
+        },
+        {
+          "content": "母は一人暮らしの私を心配するあまり、毎日のように電話をかけてくる。",
+          "transcription": "はははひとりぐらしのわたしをしんぱいするあまり、まいにちのようにでんわをかけてくる。",
+          "mean": "My mother calls me almost every day because she is worried about me because I live alone."
+        },
+        {
+          "content": "社長は社員全員に恐れられているあまりに、誰も社長の提案を否定しない。",
+          "transcription": "しゃちょうはしゃいんぜんいんにおそれられているあまりに、だれもしゃちょうのていあんをひていしない。",
+          "mean": "The president is so feared by all his employees that no one will deny his proposal."
+        },
+        {
+          "content": "急いでいたあまりに、大事な書類を家に忘れて来てしまった。",
+          "transcription": "いそいでいたあまりに、だいじなしょるいをいえにわすれてきてしまった。",
+          "mean": "I was in such a hurry that I forgot an important document at home."
+        },
+        {
+          "content": "試験では考えすぎたあまり、時間が足りず、最後まで解けなかった。",
+          "transcription": "しけんではかんがえすぎたあまり、じかんがたりず、さいごまでとけなかった。",
+          "mean": "I thought so much during the exam that I didn't have enough time to solve it all the way to the end."
+        },
+        {
+          "content": "嬉しさのあまりに、泣いてしまった。",
+          "transcription": "うれしさのあまりに、ないてしまった。",
+          "mean": "I was so happy that I cried."
+        },
+        {
+          "content": "恋人と別れてしまって、悲しみのあまり、次の日会社を休んでしまいました。",
+          "transcription": "こいびととわかれてしまって、かなしみのあまり、つぎのひかいしゃをやすんでしまいました。",
+          "mean": "I broke up with my boyfriend, and I was so sad that I took the next day off from work."
+        },
+        {
+          "content": "彼女が綺麗なあまり、見惚れてしまった。",
+          "transcription": "かのじょがきれいなあまり、みほれてしまった。",
+          "mean": "She was so beautiful that I fell in love with her."
+        },
+        {
+          "content": "ゲームに夢中なあまり、お母さんの呼び声が聞こえませんでした。",
+          "transcription": "ゲームにむちゅうなあまり、おかあさんのよびごえがきこえませんでした。",
+          "mean": "I was so absorbed in the game that I didn't hear my mother's call."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vる/Vた+あまり (に)<br/> Aな+あまり (に)<br/> Nの+あまり (に)"
+    }
+  ],
+  "title": "あまり(に) => too much; so much… that; excessively ~",
+  "_id": "1414288521de485db84f2fabe54f9dbd"
+}

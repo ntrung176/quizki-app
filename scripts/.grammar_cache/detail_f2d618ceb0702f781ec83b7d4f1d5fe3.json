@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2653,
+  "usages": [
+    {
+      "explain": "Indicates a limited degree of money, time, or quantity required for a state, action, or event to occur.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一週間でこの工事が完了できますか。",
+          "transcription": "いっしゅうかんでこのこうじがかんりょうできますか。",
+          "mean": "Can this work be completed in one week?"
+        },
+        {
+          "content": "100ドルで間に合いますか。",
+          "transcription": "100どるでまにあいますか。",
+          "mean": "Will $100 be enough?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Lượng từで"
+    }
+  ],
+  "title": "Lượng từで => Quantifierで",
+  "_id": "f2d618ceb0702f781ec83b7d4f1d5fe3"
+}

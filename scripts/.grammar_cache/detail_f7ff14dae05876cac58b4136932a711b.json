@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 882,
+  "usages": [
+    {
+      "explain": "Use the structure 「A わけだから B てもとうぜんだ」 to express the meaning \"if based on the fact that A, then it's natural that B would be the case\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はもう３０歳のわけだから、結婚していても当然だろう。",
+          "transcription": "かれはもうさんぜろさいのわけだから、けっこんしていてもとうぜんだろう。",
+          "mean": "He's already 30 years old, so it's only natural that he's married."
+        },
+        {
+          "content": "彼は機械工学を卒業したわけだから車が修理できても当然だ。",
+          "transcription": "かれはきかいこうがくをそつぎょうしたわけだからくるまがしゅうりできてもとうぜんだ。",
+          "mean": "He graduated in mechanical engineering, so it's no surprise that he can repair cars."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・ A ・Naな・ Nの + わけだから...てもとうぜんだ"
+    }
+  ],
+  "title": "わけだから...てもとうぜんだ => Because, ..., it's only natural; no wonder; might as well ~",
+  "_id": "f7ff14dae05876cac58b4136932a711b"
+}

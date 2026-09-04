@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 5045,
+  "usages": [
+    {
+      "explain": "「こそあれ」is used to acknowledge that the preceding clause is correct, but the following clause is what's truly important, noteworthy, or worth mentioning (in the affirmative form), or absolutely impossible (in the negative form).",
+      "note": null,
+      "examples": [
+        {
+          "content": "苦労こそあれ、介護の仕事はやりがいがある。",
+          "transcription": "くろうこそあれ、かいごのしごとはやりがいがある。",
+          "mean": "Although it is difficult, nursing care work is rewarding."
+        },
+        {
+          "content": "彼の日本語は小さい間違いこそあれ、ほとんど完璧だ。",
+          "transcription": "かれのにほんごはちいさいまちがいこそあれ、ほとんどかんぺきだ。",
+          "mean": "His Japanese is almost perfect, with some small mistakes."
+        },
+        {
+          "content": "ここは、不便でこそあれ、緑が多くていいところです。",
+          "transcription": "ここは、ふべんでこそあれ、みどりがおおくていいところです。",
+          "mean": "Although this place may be inconvenient, it is a good place with a lot of greenery."
+        },
+        {
+          "content": "生涯独身の人は増えこそあれ、減ることはない。",
+          "transcription": "しょうがいどくしんのひとはふえこそあれ、へることはない。",
+          "mean": "The number of people who remain single throughout their lives is increasing, but not decreasing."
+        },
+        {
+          "content": "私は人が嫌がる汚れ仕事こそあれ、他人に迷惑をかける生き方はしてこなかった。",
+          "transcription": "わたしはひとがいやがるよごれしごとこそあれ、たにんにめいわくをかけるいきかたはしてこなかった。",
+          "mean": "Even though I did dirty work that other people disliked, I never lived a life that caused trouble for others."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nこそ+あれ/あるが<br/> A<s>な</s>でこそ+あれ/あるが<br/>V<s>ます</s>こそ+あれ/あるが"
+    }
+  ],
+  "title": "こそあれ => and; although; but ~",
+  "_id": "a6c0d46b48ee4e3e84be6f0ed32b5b19"
+}

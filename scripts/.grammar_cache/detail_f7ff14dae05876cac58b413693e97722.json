@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2264,
+  "usages": [
+    {
+      "explain": "中（ちゅう）is used with time-related nouns to express \"within a certain period of time\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "午前中は、学校へ行って、午後は図書館で自習する予定だ。",
+          "transcription": "ごぜんちゅうは、がっこうへいって、ごごはとしょかんでじしゅうするよていだ。",
+          "mean": "I plan to go to school in the morning and study by myself at the library in the afternoon."
+        },
+        {
+          "content": "冬休み中にスキーの練習をするつもりだ。",
+          "transcription": "ふゆやすみちゅうにすきーのれんしゅうをするつもりだ。",
+          "mean": "I'm planning to practice skiing during winter vacation."
+        },
+        {
+          "content": "彼は兵役期間中に病気になった。",
+          "transcription": "かれはへいえききかんちゅうにびょうきになった。",
+          "mean": "He became ill during his military service."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 中"
+    }
+  ],
+  "title": "中 => During the period (Term)",
+  "_id": "f7ff14dae05876cac58b413693e97722"
+}

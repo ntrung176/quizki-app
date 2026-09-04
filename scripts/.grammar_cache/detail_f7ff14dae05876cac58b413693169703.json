@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 741,
+  "usages": [
+    {
+      "explain": "■ Often used at the beginning of dialogue.<br/>■ Synonymous with 「そうだといい」.<br/>■ Used with the meaning \"It would be great if it were like that\".<br/>■ Followed by words like 「が」 (but), 「けども」 (but), 「けど」(but (only used in speech)). Also used in expressions like 「それだといいが」, 「そうだといいけど」.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "A：みんな今頃安全な場所に避難していますよ。",
+          "transcription": "A：みんないまごろあんぜんなばしょにひなんしていますよ。",
+          "mean": "A: Everyone has evacuated to a safe place by now."
+        },
+        {
+          "content": "そうだといいわよねえ。",
+          "transcription": "そうだといいわよねえ。",
+          "mean": "I hope so."
+        },
+        {
+          "content": "そう[本当]だといいんだがなあ。",
+          "transcription": "そう[ほんとう]だといいんだがなあ。",
+          "mean": "I hope that's true."
+        }
+      ],
+      "mean": "It would be nice if; should; I hope ~",
+      "synopsis": null
+    }
+  ],
+  "title": "～だといい => It would be nice if; should; I hope ~",
+  "_id": "f7ff14dae05876cac58b413693169703"
+}

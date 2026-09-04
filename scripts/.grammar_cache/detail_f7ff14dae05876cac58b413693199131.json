@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 762,
+  "usages": [
+    {
+      "explain": "✦ Used to negate the degree, with the meaning 「それほど ... ではない」 (not ... to that extent).",
+      "note": null,
+      "examples": [
+        {
+          "content": "金など大したことはない。",
+          "transcription": "きんなどたいしたことはない。",
+          "mean": "Money is not a big deal."
+        },
+        {
+          "content": "大したこともない災難。",
+          "transcription": "たいしたこともないさいなん。",
+          "mean": "A minor disaster."
+        },
+        {
+          "content": "そんなことは大した問題じゃない。",
+          "transcription": "そんなことはたいしたもんだいじゃない。",
+          "mean": "That's not a big problem."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "～たいしたことはない => trivial,not amounting to much",
+  "_id": "f7ff14dae05876cac58b413693199131"
+}

@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5308,
+  "usages": [
+    {
+      "explain": "「やら～やら」is used to list or mention one or two examples from among many. It is often used to express dissatisfaction or fatigue due to too many things happening or needing to be worried about... It has a similar meaning to「や～や～など」and「たり～たり」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "帰国前は飛行機の予約をするやらお土産を買うやらで忙しい。",
+          "transcription": "きこくまえはひこうきのよやくをするやらおみやげをかうやらでいそがしい。",
+          "mean": "Before returning home, I was busy making flight reservations and buying souvenirs."
+        },
+        {
+          "content": "10年ぶりにうちのチームが優勝した。歌うやら踊るやら、大騒ぎだった。",
+          "transcription": "じゅうねんぶりにうちのチームがゆうしょうした。うたうやらおどるやら、おおさわぎだった。",
+          "mean": "Our team won the championship for the first time in 10 years. There was a lot of commotion, singing and dancing."
+        },
+        {
+          "content": "部屋を借りるのに敷金やら礼金やら、たくさんお金を使った。",
+          "transcription": "へやをかりるのにしききんやられいきんやら、たくさんおかねをつかった。",
+          "mean": "I spent a lot of money, including deposits and key money, to rent a room."
+        },
+        {
+          "content": "彼の部屋は汚れた皿やら古新聞やらが散らかっていて、とても汚い。",
+          "transcription": "かれのへやはよごれたさらやらふるしんぶんやらがちらかっていて、とてもきたない。",
+          "mean": "His room is very dirty, with dirty dishes and old newspapers strewn about."
+        },
+        {
+          "content": "恋人と別れた。悲しいやら寂しいやらで涙が止まらない。",
+          "transcription": "こいびととわかれた。かなしいやらさびしいやらでなみだがとまらない。",
+          "mean": "I broke up with my lover. I can't stop crying because I'm sad and lonely."
+        },
+        {
+          "content": "お酒を飲みすぎて頭が痛いやら苦しいやら大変だった。",
+          "transcription": "おさけをのみすぎてあたまがいたいやらくるしいやらたいへんだった。",
+          "mean": "I drank so much alcohol that I got headaches and was in pain."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 やら N2 やら<br/> V1 (root form) やら V2 (root form) やら<br/> Aい1 やら Aい2 やら"
+    }
+  ],
+  "title": "やら～やら => such things as A and B; A and B and so on ~",
+  "_id": "8ad7bdd5372845d2b24a444d6ee9a184"
+}

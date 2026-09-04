@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2398,
+  "usages": [
+    {
+      "explain": "Expresses the feeling of \"not knowing what to say\", \"not understanding the issue.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんな間違いになって、なんとも謝罪しようがありません。",
+          "transcription": "こんなまちがいになって、なんともしゃざいしようがありません。",
+          "mean": "There is no way I can apologize for such a mistake."
+        },
+        {
+          "content": "非常に敏感な問題なので、なんとも説明しようがありません。",
+          "transcription": "ひじょうにびんかんなもんだいなので、なんともせつめいしようがありません。",
+          "mean": "It's a very sensitive issue, so there's no way to explain it."
+        },
+        {
+          "content": "失敗するかどうか、今はなんとも肯定しようがない。",
+          "transcription": "しっぱいするかどうか、いまはなんともこうていしようがない。",
+          "mean": "Right now, I can't confirm whether or not I will fail."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんとも + V- ます + ようがない"
+    }
+  ],
+  "title": "なんとも～ようがない => There's no way to do ..., don't know what to do...",
+  "_id": "f7ff14dae05876cac58b413693fb4fd1"
+}

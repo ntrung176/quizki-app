@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2257,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of \"not to that extent, not that much\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女の作ったケーキはそう美味しくなかったが全部食べた。",
+          "transcription": "かのじょのつくったけーきはそうおいしくなかったがぜんぶたべた。",
+          "mean": "The cake she made wasn't that delicious, but I ate it all."
+        },
+        {
+          "content": "この問題はそう複雑じゃないと思う。",
+          "transcription": "このもんだいはそうふくざつじゃないとおもう。",
+          "mean": "I don't think this problem is that complicated."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そう～ない"
+    }
+  ],
+  "title": "そう...ない => very unlikely to; showing no signs of ~",
+  "_id": "f7ff14dae05876cac58b413693e83921"
+}

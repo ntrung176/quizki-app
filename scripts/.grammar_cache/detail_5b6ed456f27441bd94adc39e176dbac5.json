@@ -1,0 +1,91 @@
+{
+  "level": "N2",
+  "mobileId": 5109,
+  "usages": [
+    {
+      "explain": "The 「だけに」expresses the following meanings:<br/>\n1. Because there is a reason or cause as in the preceding clause, the result in the subsequent clause is appropriate. This structure emphasizes the reason or cause. The subsequent clause represents a state and can be used in conjunction with さすがに. \"Precisely because/Indeed...\"<br/>\n2. Because of the reason or cause in the preceding clause, when the actual outcome contradicts expectations, the result in the subsequent clause becomes even more serious or strong. The subsequent clause represents a state and is often used with かえって or なおさら. \"Precisely because... so even more...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "駅が近いだけに、家賃も高い。",
+          "transcription": "えきがちかいだけに、やちんもたかい。",
+          "mean": "The rent is high because the station is close."
+        },
+        {
+          "content": "成績が悪いだけに、人一倍努力するよりほかはない。",
+          "transcription": "せいせきがわるいだけに、ひといちばいどりょくするよりほかはない。",
+          "mean": "Since my grades are poor, I have no choice but to try harder than anyone else."
+        },
+        {
+          "content": "このホテルは５つ星ホテルだけに、サービスが充実している。",
+          "transcription": "このホテルはいつつぼしホテルだけに、サービスがじゅうじつしている。",
+          "mean": "As a 5 star hotel, this hotel offers a full range of services."
+        },
+        {
+          "content": "彼女は日本語を20年教えているだけに、教え方がとても上手だ。",
+          "transcription": "かのじょはにほんごをにじゅうねんおしえているだけに、おしえかたがとてもじょうずだ。",
+          "mean": "She has been teaching Japanese for 20 years, so she is very good at teaching."
+        },
+        {
+          "content": "田中さんは小学校の時にアメリカで生活していただけに、英語の発音はネイティブのようだ。",
+          "transcription": "たなかさんはしょうがっこうのときにアメリカでせいかつしていただけに、えいごのはつおんはネイティブのようだ。",
+          "mean": "Mr. Tanaka lived in America when he was in elementary school, so his English pronunciation is like that of a native speaker."
+        },
+        {
+          "content": "一度失敗しているだけに、今回は最初からかなり慎重にやっているようだ。",
+          "transcription": "いちどしっぱいしているだけに、こんかいはさいしょからかなりしんちょうにやっているようだ。",
+          "mean": "Since he has failed once, it seems like he is being very careful from the beginning this time."
+        },
+        {
+          "content": "このバッグは安いだけに、すぐに壊れてしまった。",
+          "transcription": "このバッグはやすいだけに、すぐにこわれてしまった。",
+          "mean": "This bag was cheap, but it broke quickly."
+        },
+        {
+          "content": "この辺りは田舎だけに、この時間帯は１時間に１本しか電車がありません。",
+          "transcription": "このあたりはいなかだけに、このじかんたいはいちじかんにいっぽんしかでんしゃがありません。",
+          "mean": "Since this area is in the countryside, there is only one train per hour at this time of day."
+        },
+        {
+          "content": "小林さんはアルバイトの経験が豊富なだけに、色々なことをよく知っている。",
+          "transcription": "こばやしさんはアルバイトのけいけんがほうふなだけに、いろいろなことをよくしっている。",
+          "mean": "Mr. Kobayashi has a lot of experience working part-time, so he knows a lot of things."
+        },
+        {
+          "content": "彼はドイツに20年住んでいただけに、さすがにドイツ語はペラペラだ。",
+          "transcription": "かれはドイツににじゅうねんすんでいただけに、さすがにドイツごはペラペラだ。",
+          "mean": "He lived in Germany for 20 years, so he is fluent in German."
+        },
+        {
+          "content": "彼は期待が大きかっただけにかえって、落選と分かったときの失望も大きかった。",
+          "transcription": "かれはきたいがおおきかっただけにかえって、らくせんとわかったときのしつぼうもおおきかった。",
+          "mean": "Although he had high expectations, he was also disappointed when he found out that he had not been selected."
+        },
+        {
+          "content": "新しい携帯電話が盗まれてしまいました。昨日買ったばかりだけに、本当にショックだ。",
+          "transcription": "あたらしいけいたいでんわがぬすまれてしまいました。きのうかったばかりだけに、ほんとうにショックだ。",
+          "mean": "My new cell phone was stolen. I'm really shocked since I just bought it yesterday."
+        },
+        {
+          "content": "一生懸命努力してきただけになおさら、合格の知らせを聞いたときはうれしかった。",
+          "transcription": "いっしょうけんめいどりょくしてきただけになおさら、ごうかくのしらせをきいたときはうれしかった。",
+          "mean": "I was so happy when I heard the news that I had passed, especially since I had worked so hard."
+        },
+        {
+          "content": "この町は電車などの交通機関がないだけになおさら、人々にとっては車が大切なのです。",
+          "transcription": "このまちはでんしゃなどのこうつうきかんがないだけになおさら、ひとびとにとってはくるまがたいせつなのです。",
+          "mean": "Cars are even more important to people in this town, especially since there is no public transportation such as trains."
+        },
+        {
+          "content": "試験のために一生懸命勉強しただけに、不合格のショックは大きかった。",
+          "transcription": "しけんのためにいっしょうけんめいべんきょうしただけに、ふごうかくのショックはおおきかった。",
+          "mean": "I had studied hard for the exam, so failing was a huge shock."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+だけに<br/>(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>な/A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>/N<s>だ</s>である)"
+    }
+  ],
+  "title": "だけに => being the case; precisely because; as one would expect",
+  "_id": "5b6ed456f27441bd94adc39e176dbac5"
+}

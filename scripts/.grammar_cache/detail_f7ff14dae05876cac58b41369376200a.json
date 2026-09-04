@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1435,
+  "usages": [
+    {
+      "explain": "Used to disclose something after absorbing the other person's story. What follows is often the speaker's attitude or explanation to the listener.",
+      "note": null,
+      "examples": [
+        {
+          "content": "じつのところ、彼は私の意見にいつも反対します。",
+          "transcription": "じつのところ、かれはわたしのいけんにいつもはんたいします。",
+          "mean": "In fact, he always disagrees with my opinion."
+        },
+        {
+          "content": "じつのところ、私は彼女について何も知りません。",
+          "transcription": "じつのところ、わたしはかのじょについてなにもしりません。",
+          "mean": "Actually, I don't know anything about her."
+        }
+      ],
+      "mean": null,
+      "synopsis": "じつのところ～"
+    }
+  ],
+  "title": "じつのところ => in fact, as a matter of fact, by the way",
+  "_id": "f7ff14dae05876cac58b41369376200a"
+}

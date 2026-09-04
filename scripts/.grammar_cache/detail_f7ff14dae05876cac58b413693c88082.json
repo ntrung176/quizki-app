@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2032,
+  "usages": [
+    {
+      "explain": "Follows action verbs to provide examples of similar actions or behaviors.",
+      "note": null,
+      "examples": [
+        {
+          "content": "教師の不足については、教師が教える時間数を増やすとか、一つの教室で複式の授業をするとかの方法で何とか乗り切ることにしたい。",
+          "transcription": "きょうしのふそくについては、きょうしがおしえるじかんすうをふやすとか、ひとつのきょうしつでふくしきのじゅぎょうをするとかのほうほうでなんとかのりきることにしたい。",
+          "mean": "Regarding the shortage of teachers, we would like to try to overcome the problem by increasing the number of teaching hours that teachers have or by holding multiple classes in one classroom."
+        },
+        {
+          "content": "奨学金をもらっていない外国人留学生には授業料を免除するとか、部屋代の安い宿舎を提供するとかして、経済面での援助をする必要がある。",
+          "transcription": "しょうがくきんをもらっていないがいこくじんりゅうがくせいにはじゅぎょうりょうをめんじょするとか、へやだいのやすいしゅくしゃをていきょうするとかして、けいざいめんでのえんじょをするひつようがある。",
+          "mean": "It is necessary to provide financial support to foreign students who do not receive scholarships, such as by waiving tuition fees or providing low-cost accommodation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Goes after the verb that describes the action."
+    }
+  ],
+  "title": "... るとか ... るとか => それとも... または",
+  "_id": "f7ff14dae05876cac58b413693c88082"
+}

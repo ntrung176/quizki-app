@@ -1,0 +1,61 @@
+{
+  "level": "N5",
+  "mobileId": 5635,
+  "usages": [
+    {
+      "explain": "「てあげる」is used to describe doing something for someone else with a sense of kindness or helpfulness, indicating that the action will be beneficial to the other person. Here are some points to note:<br/>\n\nThis structure implies doing a favor for someone, so if the doer of the action (N1) is \"I\" and the receiver of the favor (N2) is the listener, caution should be exercised. If you want to suggest something to help the listener (who is not very close to you), you can use「ましょうか」instead.<br/>\nWhen N1 is \"I,\" N2 should be someone of equal or lower status than \"I.\" Avoid using this structure for someone of higher status or someone not very familiar.<br/>\nWhen N2 is \"I\" (私) or someone in the speaker's group, you can use「くれる」instead of「あげる」.<br/>\nDepending on the verb V, the particle に after N2 can also be replaced with を、と...<br/>\nWhen N is something possessed by N2, instead of N2にNを, you can use N2のNを.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は木村さんに本を貸してあげました。",
+          "transcription": "わたしはきむらさんにほんをかしてあげました。",
+          "mean": "I lent Mr. Kimura a book."
+        },
+        {
+          "content": "彼女にプレゼントを買ってあげます。",
+          "transcription": "かのじょにプレゼントをかってあげます。",
+          "mean": "I'll buy her a present."
+        },
+        {
+          "content": "お金を貸してあげます。",
+          "transcription": "おかねをかしてあげます。",
+          "mean": "I'll lend you the money."
+        },
+        {
+          "content": "私は生徒をほめてあげました。",
+          "transcription": "わたしはせいとをほめてあげました。",
+          "mean": "I praised the students."
+        },
+        {
+          "content": "私は木村さんの息子と遊んであげました。",
+          "transcription": "わたしはきむらさんのむすことあそんであげました。",
+          "mean": "I played with Mr. Kimura's son."
+        },
+        {
+          "content": "私は妹の宿題を見てあげました。",
+          "transcription": "わたしはいもうとのしゅくだいをみてあげました。",
+          "mean": "I looked at my sister's homework."
+        },
+        {
+          "content": "妹は父にお弁当を作ってあげました。",
+          "transcription": "いもうとはちちにおべんとうをつくってあげました。",
+          "mean": "My sister made a lunch box for my father."
+        },
+        {
+          "content": "君のために何でもやってあげる。",
+          "transcription": "きみのためになんでもやってあげる。",
+          "mean": "I'll do anything for you."
+        },
+        {
+          "content": "私は風邪を引いた小林さんに代わってレポートを出してあげました。",
+          "transcription": "わたしはかぜをひいたこばやしさんにかわってレポートをだしてあげました。",
+          "mean": "I submitted a report on behalf of Mr. Kobayashi who had caught a cold."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は N2に Nを Vて+あげる"
+    }
+  ],
+  "title": "てあげる => to do for; to do a favor",
+  "_id": "31adbad3f36c4b02bbfc670bf529bd32"
+}

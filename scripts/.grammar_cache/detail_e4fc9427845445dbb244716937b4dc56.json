@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5549,
+  "usages": [
+    {
+      "explain": "「ために」is used to indicate the purpose of the subject when performing the action that follows. When 「ために」is used with a noun, it expresses \"for the benefit\" of that noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "健康のために、毎朝走っています。",
+          "transcription": "けんこうのために、まいあさはしっています。",
+          "mean": "I run every morning for my health."
+        },
+        {
+          "content": "今度の面接のために、このスーツを買いました。",
+          "transcription": "こんどのめんせつのために、このスーツをかいました。",
+          "mean": "I bought this suit for my upcoming interview."
+        },
+        {
+          "content": "来週の試験のために、漢字を勉強しておきました。",
+          "transcription": "らいしゅうのしけんのために、かんじをべんきょうしておきました。",
+          "mean": "I have been studying kanji for the exam next week."
+        },
+        {
+          "content": "バイオリンの練習のために、家に防音室を作りました。",
+          "transcription": "バイオリンのれんしゅうのために、いえにぼうおんしつをつくりました。",
+          "mean": "I built a soundproof room at home to practice my violin."
+        },
+        {
+          "content": "来年から一人暮らしするために、お金を貯めています。",
+          "transcription": "らいねんからひとりぐらしするために、おかねをためています。",
+          "mean": "I am saving money so that I can start living alone next year."
+        },
+        {
+          "content": "このフラッシュカードは、単語を覚えるために作りました。",
+          "transcription": "このフラッシュカードは、たんごをおぼえるためにつくりました。",
+          "mean": "These flashcards are designed to help you memorize words."
+        },
+        {
+          "content": "彼氏に会うために、東京に行きます。",
+          "transcription": "かれしにあうために、とうきょうにいきます。",
+          "mean": "I'm going to Tokyo to meet my boyfriend."
+        },
+        {
+          "content": "日本へ旅行をするために、貯金しています。",
+          "transcription": "にほんへりょこうをするために、ちょきんしています。",
+          "mean": "I'm saving money to travel to Japan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ために、<br/> Nの+ために、"
+    }
+  ],
+  "title": "ために => for; in order to; for the benefit of; because of; as a result of ~",
+  "_id": "e4fc9427845445dbb244716937b4dc56"
+}

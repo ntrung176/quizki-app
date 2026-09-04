@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1751,
+  "usages": [
+    {
+      "explain": "Expresses \"no matter how..., still...\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "いかなる理由でも支払い期限の延長はできません。",
+          "transcription": "いかなるりゆうでもしはらいきげんのえんちょうはできません。",
+          "mean": "Payment deadlines cannot be extended for any reason."
+        },
+        {
+          "content": "田中さんはいかなる困難にであっても、気を落とすことはない。",
+          "transcription": "たなかさんはいかなるこんなんにであっても、きをおとすことはない。",
+          "mean": "Mr. Tanaka never gets discouraged, no matter how difficult the situation."
+        },
+        {
+          "content": "いかなる状況でも部屋を離れてはならない。",
+          "transcription": "いかなるじょうきょうでもへやをはなれてはならない。",
+          "mean": "Under no circumstances must you leave the room."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いかなる~でも/ても"
+    }
+  ],
+  "title": "いかなる ... でも => any kind of; every; whatsoever; whatever",
+  "_id": "f7ff14dae05876cac58b413693a1362c"
+}

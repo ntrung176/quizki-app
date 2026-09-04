@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5177,
+  "usages": [
+    {
+      "explain": "「ものなら」expresses the strong desire or longing of the speaker, indicating a fervent wish that a difficult or unlikely assumption would come true. The following clause typically contains expressions of desire or commands such as 「たい」, 「ほしい」, 「みろ」, etc",
+      "note": null,
+      "examples": [
+        {
+          "content": "帰れるものなら、今すぐ国へ帰りたい。",
+          "transcription": "かえれるものなら、いますぐくにへかえりたい。",
+          "mean": "If I could, I would like to go back to my country right away."
+        },
+        {
+          "content": "やれるもんなら、やってみろ。",
+          "transcription": "やれるもんなら、やってみろ。",
+          "mean": "If you can do it, try it."
+        },
+        {
+          "content": "人生をやり直せるものなら、やり直したい。",
+          "transcription": "じんせいをやりなおせるものなら、やりなおしたい。",
+          "mean": "If I could start my life over again, I would."
+        },
+        {
+          "content": "食べれるものなら、世界中の珍味を食べてみたい。",
+          "transcription": "たべれるものなら、せかいじゅうのちんみをたべてみたい。",
+          "mean": "I want to try delicacies from all over the world if I can."
+        },
+        {
+          "content": "自然破壊を止められるものなら、何としてでも止めたい。",
+          "transcription": "しぜんはかいをとめられるものなら、なんとしてでもとめたい。",
+          "mean": "I want to do whatever it takes to stop the destruction of nature."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (potential form)+ものなら<br/> V (potential form)+もんなら"
+    }
+  ],
+  "title": "ものなら => if I/we could; if [A] is possible, then [B]; if one can do something, then ~",
+  "_id": "2f7a767e05be429f950880296c661935"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1400,
+  "usages": [
+    {
+      "explain": "Accompanied by 「...だろう」 (probably), 「まい」 (probably not) to express the speaker's confident speculation. <br/><br/>The phrase 「まず...まい」 means 「まず...ないだろう」 but is a formal, written expression. Without 「だろう」, the speculation appears stronger and more certain.",
+      "note": null,
+      "examples": [
+        {
+          "content": "田中さんなら、まず東京大学に合格するまい。",
+          "transcription": "たなかさんなら、まずとうきょうだいがくにごうかくするまい。",
+          "mean": "If it were Mr. Tanaka, he would not be able to get into the University of Tokyo."
+        },
+        {
+          "content": "この難病ではまず助かるまい。",
+          "transcription": "このなんびょうではまずたすかるまい。",
+          "mean": "There is no way to survive this incurable disease."
+        },
+        {
+          "content": "このプロジェクトに賛成する人はまずいない。",
+          "transcription": "このぷろじぇくとにさんせいするひとはまずいない。",
+          "mean": "Hardly anyone will support this project."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まず...だろう/ ...まい"
+    }
+  ],
+  "title": "まず...だろう/ ...まい => Surely...",
+  "_id": "f7ff14dae05876cac58b41369370ae9c"
+}

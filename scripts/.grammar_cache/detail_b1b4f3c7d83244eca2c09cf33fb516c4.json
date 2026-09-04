@@ -1,0 +1,66 @@
+{
+  "level": "N4",
+  "mobileId": 5480,
+  "usages": [
+    {
+      "explain": "「でございます」is a more formal version of 「です」and is often used by employees when communicating with customers or in formal situations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私からは以上でございます。",
+          "transcription": "わたしからはいじょうでございます。",
+          "mean": "That's all from me."
+        },
+        {
+          "content": "婦人の服の売り場は3階でございます。",
+          "transcription": "ふじんのふくのうりばはさんかいでございます。",
+          "mean": "The women's clothing department is on the third floor."
+        },
+        {
+          "content": "お客様、こちらはお釣でございます。",
+          "transcription": "おきゃくさま、こちらはおつりでございます。",
+          "mean": "Dear customer, this is your change."
+        },
+        {
+          "content": "初めまして、経理部の佐藤でございます。",
+          "transcription": "初めまして、けいりぶのさとうでございます。",
+          "mean": "Nice to meet you, I'm Sato from the Accounting Department."
+        },
+        {
+          "content": "私は東京大学の2年生でございます。",
+          "transcription": "わたしはとうきょうだいがくのにねんせいでございます。",
+          "mean": "I am a second year student at the University of Tokyo."
+        },
+        {
+          "content": "当社へのお問い合わせは初めてでございますか。",
+          "transcription": "とうしゃへのおといあわせははじめてでございますか。",
+          "mean": "Is this your first time contacting us?"
+        },
+        {
+          "content": "ご提案頂いた改良方法は検討中でございます。",
+          "transcription": "ごていあんいただいたかいりょうほうほうはけんとうちゅうでございます。",
+          "mean": "We are currently considering the improvement method you suggested."
+        },
+        {
+          "content": "申し訳ございません、お店は予約で満員でございます。",
+          "transcription": "もうしわけございません、おみせはよやくでまんいんでございます。",
+          "mean": "We are sorry, but the restaurant is fully booked."
+        },
+        {
+          "content": "今度講習会を開催することになりました。ご参加いただけたら幸いでございます。",
+          "transcription": "こんどこうしゅうかいをかいさいすることになりました。ごさんかいただけたらさいわいでございます。",
+          "mean": "We are planning to hold a training session this time. We would be happy if you could join us."
+        },
+        {
+          "content": "もちろん録画ではございません。中継でございます。",
+          "transcription": "もちろんろくがではございません。ちゅうけいでございます。",
+          "mean": "Of course it is not a recording. This is a live broadcast."
+        }
+      ],
+      "mean": null,
+      "synopsis": "です ➔ でございます<br/>ではありません ➔ でございません"
+    }
+  ],
+  "title": "でございます => to be (honorific)",
+  "_id": "b1b4f3c7d83244eca2c09cf33fb516c4"
+}

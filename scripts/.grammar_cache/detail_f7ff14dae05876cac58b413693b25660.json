@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1877,
+  "usages": [
+    {
+      "explain": "Expresses the meaning: the extent of what is predicted from the mentioned event is not significant.",
+      "note": null,
+      "examples": [
+        {
+          "content": "サッカーが趣味だと言っても、そんなにするわけではない。",
+          "transcription": "さっかーがしゅみだといっても、そんなにするわけではない。",
+          "mean": "Even though I say soccer is my hobby, it doesn't mean I do it that much."
+        },
+        {
+          "content": "病気になったと言っても、そんなに深刻じゃない。",
+          "transcription": "びょうきになったといっても、そんなにしんこくじゃない。",
+          "mean": "Even though I'm sick, it's not that serious."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～といっても～ない"
+    }
+  ],
+  "title": "…といっても…ない => although I say; although one might say ~",
+  "_id": "f7ff14dae05876cac58b413693b25660"
+}

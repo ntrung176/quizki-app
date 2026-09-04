@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 3183,
+  "usages": [
+    {
+      "explain": "「～ようです」is a way of expressing a subjective speculation based on information the speaker has received through their senses. Sometimes the adverb 「どうも」, which implies uncertainty about the truth of what one is saying, is used in conjunction with this sentence pattern.",
+      "note": "☞ The difference between 「～そうです」and「～ようです」:<br>\n☞ 「～そうです」expresses a visual observation-based speculation on gestures or appearances.<br>\n鈴木さんは 忙（いそが）しそうです。<br>\nMr. Suzuki looks busy.<br>\n\n☞ 「～ようです」expresses the speaker's speculation based on information they have read or heard.<br>\n鈴木さんは 忙（いそが）しいようです。<br>\nIt seems like Mr. Suzuki is busy.",
+      "examples": [
+        {
+          "content": "バスがなかなか来ないので、授業に間に合わないようです。",
+          "transcription": "ばすがなかなかこないので、じゅぎょうにまにあわないようです。",
+          "mean": "It seems like I won't be able to make it to class in time because the bus doesn't come often."
+        },
+        {
+          "content": "彼女は風をひいたようだ。",
+          "transcription": "かのじょはかぜをひいたようだ。",
+          "mean": "She seems to have caught a cold."
+        },
+        {
+          "content": "彼は良人のようです。",
+          "transcription": "かれはりょうじんのようです。",
+          "mean": "He seems like a good guy."
+        }
+      ],
+      "mean": ": similar to, seem",
+      "synopsis": "普通形（Aな→な／N→の）＋ よう"
+    }
+  ],
+  "title": "～よう      => similar to, seem",
+  "_id": "93020c54469e582d6fdb16f7ba63c2fc"
+}

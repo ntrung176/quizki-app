@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1350,
+  "usages": [
+    {
+      "explain": "Expresses the meaning that no matter how one thinks about it, there is no reason or basis to consider it correct.",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんなに難しい宿題が小学生に解ける道理がない。",
+          "transcription": "こんなにむずかしいしゅくだいがしょうがくせいにとけるどうりがない。",
+          "mean": "There is no way elementary school students can solve such difficult homework."
+        },
+        {
+          "content": "親なら子供にどんな要求をしてもいいなどという道理はない。",
+          "transcription": "おやならこどもにどんなようきゅうをしてもいいなどというどうりはない。",
+          "mean": "There is no reason for parents to be allowed to make any demands on their children."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～どうりがない"
+    }
+  ],
+  "title": "…どうりがない => No reason...",
+  "_id": "f7ff14dae05876cac58b41369369cfab"
+}

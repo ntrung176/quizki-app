@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1475,
+  "usages": [
+    {
+      "explain": "✦ Comes after a noun indicating an area or time period... and expresses the meaning of \"not just confined to that scope\", \"not just that\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "農作物は、台風に襲われた直後にとどまらず、一年中その影響を受ける。",
+          "transcription": "のうさくもつは、たいふうにおそわれたちょくごにとどまらず、いちねんじゅうそのえいきょうをうける。",
+          "mean": "Crops are affected not only immediately after a typhoon hits, but throughout the year."
+        },
+        {
+          "content": "この服は一部の女性にとどまらず、多くの人に大人気だそうだ。<br>",
+          "transcription": "このふくはいちぶのじょせいにとどまらず、おおくのにんにだいにんきだそうだ。<br>",
+          "mean": "This clothing is said to be very popular with many people, not just some women. &lt;br&gt;"
+        },
+        {
+          "content": "<div>ボーナスの減額げんがくにとどまらず、手当てあてまでカットされた。</div><div><br></div>",
+          "transcription": "ぼーなすのげんがくげんがくにとどまらず、てあてあてまでかっとされた。",
+          "mean": "&lt;div&gt;Not only were bonuses reduced, but allowances were also cut. &lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;"
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N/ V(root form) + にとどまらず"
+    }
+  ],
+  "title": "～にとどまらず => not limited to; not only… but also ~",
+  "_id": "f7ff14dae05876cac58b4136937c1a1a"
+}

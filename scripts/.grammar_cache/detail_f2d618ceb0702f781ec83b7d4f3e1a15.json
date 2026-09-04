@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2908,
+  "usages": [
+    {
+      "explain": "This is a structure about possession as well as the ability of oneself or others, so 「が」 is used instead of 「を」 or 「へ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "わたしはフランス語がわかります。",
+          "transcription": "わたしはふらんすごがわかります。",
+          "mean": "I understand French."
+        },
+        {
+          "content": "母はアラビア語が少し分かります。",
+          "transcription": "はははあらびあごがすこしわかります。",
+          "mean": "My mother understands a little Arabic."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + が + わかります"
+    }
+  ],
+  "title": "がわかります => Capacity",
+  "_id": "f2d618ceb0702f781ec83b7d4f3e1a15"
+}

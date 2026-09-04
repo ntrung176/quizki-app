@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1611,
+  "usages": [
+    {
+      "explain": "Cites an extreme example to imply that things of lesser degree would naturally have the same result. Additionally, it can be accompanied by particles such as 「さえ」(even), 「まで」(even to the point of)... to emphasize the meaning.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本語をはじめて三年になりますが、まだ一番簡単な漢字も書けません。",
+          "transcription": "にほんごをはじめてさんねんになりますが、まだいちばんかんたんなかんじもかけません。",
+          "mean": "It's been three years since I started learning Japanese, but I still can't write even the simplest kanji."
+        },
+        {
+          "content": "あの男の顔を見るのも嫌だ。",
+          "transcription": "あのおとこのかおをみるのもいやだ。",
+          "mean": "I don't even want to see that man's face."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (＋trợ từ) も\nV-るの も"
+    }
+  ],
+  "title": "Ví dụ cực đoan + も => Both, just...also",
+  "_id": "f7ff14dae05876cac58b4136938f2ec7"
+}

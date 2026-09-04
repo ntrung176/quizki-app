@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2231,
+  "usages": [
+    {
+      "explain": "Describing the resultant state of an action or effect, with verbs like \"始まる\" (begin), \"乾く\" (dry), \"開く\" (open), \"閉まる\" (close).",
+      "note": null,
+      "examples": [
+        {
+          "content": "春はもう始まっている。",
+          "transcription": "はるはもうはじまっている。",
+          "mean": "Spring has already begun."
+        },
+        {
+          "content": "赤ちゃんの服はもう乾いている。",
+          "transcription": "あかちゃんのふくはもうかわいている。",
+          "mean": "The baby's clothes are already dry."
+        },
+        {
+          "content": "窓はもう閉まっている。",
+          "transcription": "まどはもうしまっている。",
+          "mean": "The window is already closed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ている"
+    }
+  ],
+  "title": "ている => Already done",
+  "_id": "f7ff14dae05876cac58b413693e4ee7c"
+}

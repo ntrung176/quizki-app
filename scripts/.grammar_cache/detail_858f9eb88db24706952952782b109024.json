@@ -1,0 +1,41 @@
+{
+  "level": "N2",
+  "mobileId": 5215,
+  "usages": [
+    {
+      "explain": "「につれて」expresses the idea that as the preceding clause (Noun/Verb) changes, the following clause also changes as a result of being influenced by the preceding clause.<br/>\nIn most cases, 「につれて」and 「にしたがって」can be interchangeable. However, they cannot be replaced in cases where:<br/>\n- 「につれて」only indicates changes in the same direction. On the other hand, 「にしたがって」can indicate changes in the same direction (such as both clauses increasing or decreasing) and in opposite directions (such as the preceding clause increasing while the following decreases).<br/>\n- The following clause of 「につれて」does not use structures that express the speaker's volition. In contrast, the following clause of 「にしたがって」can use structures that express the speaker's volition or not.<br/><br/>\n「につれて」is used in formal speech (like speeches) or in written language, while 「につれ」is the spoken form of 「につれて」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "温度が上がるにつれて、湿度も上がった。",
+          "transcription": "おんどがあがるにつれて、しつどもあがった。",
+          "mean": "As the temperature rose, so did the humidity."
+        },
+        {
+          "content": "成長するにつれて、娘は無口になってきた。",
+          "transcription": "せいちょうするにつれて、むすめはむくちになってきた。",
+          "mean": "As my daughter grew older, she became quiet."
+        },
+        {
+          "content": "会社規模の拡大につれて、より規模の大きな工場が必要になった。",
+          "transcription": "かいしゃきぼのかくだいにつれて、よりきぼのおおきなこうじょうがひつようになった。",
+          "mean": "As the company expanded, a larger factory was needed."
+        },
+        {
+          "content": "子供の成長につれて、様々な悩みが出てきます。",
+          "transcription": "こどものせいちょうにつれて、さまざまななやみがでてきます。",
+          "mean": "As children grow, various problems arise."
+        },
+        {
+          "content": "調査が進むにつれ、震災の被害のひどさが明らかになってきた。",
+          "transcription": "ちょうさがすすむにつれ、しんさいのひがいのひどさがあきらかになってきた。",
+          "mean": "As the investigation progressed, the severity of the damage caused by the earthquake became clear."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+つれて / つれ<br/> V (root form)に+つれて / つれ"
+    }
+  ],
+  "title": "につれて =>  as; in proportion to; with; as… then ~",
+  "_id": "858f9eb88db24706952952782b109024"
+}

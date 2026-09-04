@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5228,
+  "usages": [
+    {
+      "explain": "「を除いて」expresses the idea of \"except for N\" or \"aside from N,\" where N is considered the exception, and everything else is the same. This structure is often used in writing. In spoken language,「を除けば」or「のほかは」are more commonly used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は日曜日を除いて毎日働いている。",
+          "transcription": "かれはにちようびをのぞいてまいにちはたらいている。",
+          "mean": "He works every day save Sundays."
+        },
+        {
+          "content": "私は火曜日を除いてはいつでも空いています。",
+          "transcription": "わたしはかようびをのぞいてはいつでもあいています。",
+          "mean": "I'm free any day except Tuesday."
+        },
+        {
+          "content": "私を除いて、この部屋には誰もいませんでした。",
+          "transcription": "わたしをのぞいて、このへやにはだれもいませんでした。",
+          "mean": "There was no one else in this room except me."
+        },
+        {
+          "content": "この本は2、3の間違いを除いて、とても良い本です。",
+          "transcription": "このほんはに、さんのまちがいをのぞいて、とてもよいほんです。",
+          "mean": "This book is very good except for a few mistakes."
+        },
+        {
+          "content": "今回の試験は一番難しいものを除いて、すべての問題に答えた。",
+          "transcription": "こんかいのしけんはいちばんむずかしいものをのぞいてすべてのもんだいにこたえた。",
+          "mean": "I answered all the questions on this exam except for the most difficult one."
+        },
+        {
+          "content": "この仕事は楽だし、給料もいいし、通勤時間が長いことを除けば文句ない。",
+          "transcription": "このしごとはらくだし、きゅうりょうもいいし、つうきんじかんがながいことをのぞけばもんくない。",
+          "mean": "This job is easy, the pay is good, and I have no complaints except for the long commute."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを+除いて(は)<br/> Nを+除けば"
+    }
+  ],
+  "title": "を除いて => except; with the exception of; excluding ~",
+  "_id": "9193b3e0cc674364afb08d5d882ad454"
+}

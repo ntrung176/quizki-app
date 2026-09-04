@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5363,
+  "usages": [
+    {
+      "explain": "「くらい/ぐらい」is used to:<br/>\n\n1. Express a degree by comparison. It can usually be replaced with「ほど」, but when the degree is very high, only「ほど」is used. \"To the extent that...\"<br/>\n2. Express a minimum degree. \"At least...\"<br/>\n3. Express a low degree with a sense of disdain or mockery. \"Just about that much...\"<br/>\n\nNote: When used with meaning 1, the verb is conjugated in the forms Vる and Vない.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼とは冗談を言い合えるぐらい仲が良い。",
+          "transcription": "かれとはじょうだんをいいあえるぐらいなかがよい。",
+          "mean": "I get along well enough to joke with him."
+        },
+        {
+          "content": "宿題が多すぎて、泣きたいくらいだ。",
+          "transcription": "しゅくだいがおおすぎて、なきたいくらいだ。",
+          "mean": "I have so much homework that I want to cry."
+        },
+        {
+          "content": "この洗剤は、面白いほど汚れが落ちる。",
+          "transcription": "このせんざいは、おもしろいほどよごれがおちる。",
+          "mean": "This detergent removes dirt at an interesting rate."
+        },
+        {
+          "content": "あきるほど食べた。",
+          "transcription": "あきるほどたべた。",
+          "mean": "I ate as much as I could."
+        },
+        {
+          "content": "普通の人が食べられないくらい辛い料理は、料理とは呼べない。",
+          "transcription": "ふつうのひとがたべられないくらいからいりょうりは、りょうりとはよべない。",
+          "mean": "Dishes that are too spicy for ordinary people to eat cannot be called cuisine."
+        },
+        {
+          "content": "悩みがあるなら、話ぐらい聞いてあげるよ。",
+          "transcription": "なやみがあるなら、はなしぐらいきいてあげるよ。",
+          "mean": "If you have any concerns, I'll listen to you."
+        },
+        {
+          "content": "一回会ったぐらいで結婚を決めるなんて、勇気があるよね。",
+          "transcription": "いっかいあったぐらいでけっこんをきめるなんて、ゆうきがあるよね。",
+          "mean": "It takes a lot of courage for you to decide to get married after just meeting once."
+        },
+        {
+          "content": "自分の荷物くらい自分で持って。",
+          "transcription": "じぶんのにもつくらいじぶんでもって。",
+          "mean": "Bring your own baggage."
+        },
+        {
+          "content": "こんな小な荷物ぐらい、自分一人で運べます。",
+          "transcription": "こんなちいさなにもつぐらい、じぶんひとりではこべます。",
+          "mean": "I can carry such small luggage by myself."
+        },
+        {
+          "content": "ちょっと時間に遅れたくらいで、あんなに怒らなくてもいいのに。",
+          "transcription": "ちょっとじかんにおくれたくらいで、あんなにおこらなくてもいいのに。",
+          "mean": "You shouldn't have gotten so angry just because you were a little late."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Aい/Aな/N/V (formal form) くらい+だ/に/のN<br/> Aい/Aな/N/V (formal form) ぐらい+だ/に/のN<br/> Aい/Aな/N/V (formal form) ほど+だ/に/のN"
+    }
+  ],
+  "title": "くらい/ぐらい => approximately; about; around; to the extent ~",
+  "_id": "b210842e091848418eeb6b6adf3039d5"
+}

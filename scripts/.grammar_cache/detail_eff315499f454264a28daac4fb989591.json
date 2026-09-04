@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5331,
+  "usages": [
+    {
+      "explain": "「ですから」is a conjunction that connects two sentences. The second sentence presents the result or consequence stemming from the reason stated in the first sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この機械はとても熱いです。ですから、触らないでください。",
+          "transcription": "このきかいはとてもあついです。ですから、さわらないでください。",
+          "mean": "This machine is very hot. So please don't touch it."
+        },
+        {
+          "content": "今度は特別の場合です。ですから、どっさり気張ってください。",
+          "transcription": "こんどはとくべつのばあいです。ですから、どっさりきばってください。",
+          "mean": "This is a special case. So please be very careful."
+        },
+        {
+          "content": "これが規則です。ですから、それに従って行動してください。",
+          "transcription": "これがきそくです。ですから、それにしたがってこうどうしてください。",
+          "mean": "This is the rule. So act accordingly."
+        },
+        {
+          "content": "途中からは入れません。ですから、絶対に遅れないように来てください。",
+          "transcription": "とちゅうからははいれません。ですから、ぜったいにおくれないようにきてください。",
+          "mean": "You cannot enter from the middle. Therefore, please be sure to come so as not to be late."
+        },
+        {
+          "content": "仕事は5時半に終わります。ですから、5時半以降ならいつでもいいよ。",
+          "transcription": "しごとはごじはんにおわります。ですから、ごじはんいこうならいつでもいいよ。",
+          "mean": "Work ends at 5:30. So anytime after 5:30 is fine."
+        },
+        {
+          "content": "天気予報では午後から雨だそうです。ですから、傘を持っていたほうがいいですよ。",
+          "transcription": "てんきよほうではごごからあめだそうです。ですから、かさをもっていたほうがいいですよ。",
+          "mean": "The weather forecast says it will rain in the afternoon. Therefore, it is better to carry an umbrella."
+        },
+        {
+          "content": "明日から旅行に行きます。ですから、申し訳ありませんが、来週のパーティーには出席できません。",
+          "transcription": "あしたからりょこうにいきます。ですから、もうしわけありませんが、らいしゅうのパーティーにはしゅっせきできません。",
+          "mean": "I'm going on a trip starting tomorrow. So, I'm sorry, but I won't be able to attend the party next week."
+        },
+        {
+          "content": "明日から出張に行きます。ですから、残念ですがあなたの結婚式に出席できません。",
+          "transcription": "あしたからしゅっちょうにいきます。ですから、ざんねんですがあなたのけっこんしきにしゅっせきできません、",
+          "mean": "I'm going on a business trip tomorrow. So, I'm afraid I won't be able to attend your wedding."
+        },
+        {
+          "content": "既に給料の支払いはしました。ですから、銀行の口座を確認してください。",
+          "transcription": "すでにきゅうりょうのしはらいはしました、ですから、ぎんこうのこうざをかくにんしてください。",
+          "mean": "I have already paid my salary. So please check your bank account."
+        },
+        {
+          "content": "日本の会社で働くのは本当にストレスが溜まります。ですから、海外で働きたいです。",
+          "transcription": "にほんのかいしゃではたらくのはほんとうにストレスがたまります。ですから、かいがいではたらきたいです。",
+          "mean": "Working in a Japanese company is really stressful. That's why I want to work abroad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A。ですから、B"
+    }
+  ],
+  "title": "ですから => because, so, therefore",
+  "_id": "eff315499f454264a28daac4fb989591"
+}

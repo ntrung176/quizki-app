@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1215,
+  "usages": [
+    {
+      "explain": "Expresses the speaker's emotions to such an extent that they cannot be determined.",
+      "note": null,
+      "examples": [
+        {
+          "content": "家の近くに地下鉄が通って、どんなに便利なことだろう。",
+          "transcription": "いえのちかくにちかてつがかよって、どんなにべんりなことだろう。",
+          "mean": "How convenient it would be to have a subway near my house."
+        },
+        {
+          "content": "離れて暮らしているあなたのことをご両親はどんなに心配していることだろう。",
+          "transcription": "はなれてくらしているあなたのことをごりょうしんはどんなにしんぱいしていることだろう。",
+          "mean": "I wonder how worried your parents must be about you living far away."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Naな + ことだろう"
+    }
+  ],
+  "title": "ことだろう => how…!; what…!",
+  "_id": "f7ff14dae05876cac58b4136935756a3"
+}

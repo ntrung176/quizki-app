@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1724,
+  "usages": [
+    {
+      "explain": "It means the highest level of N, emphasizing N to enhance the accuracy of the situation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "中村さんはいかなる困難にも負けないほど強い精神力の持ち主だった。",
+          "transcription": "なかむらさんはいかなるこんなんにもまけないほどつよいせいしんりょくのもちぬしだった。",
+          "mean": "Mr. Nakamura had a strong mental strength that would allow him to overcome any difficulties."
+        },
+        {
+          "content": "警察はいつもいかなる事態にも対処できる態勢にある。",
+          "transcription": "けいさつはいつもいかなるじたいにもたいしょできるたいせいにある。",
+          "mean": "Police are always ready to deal with any situation."
+        },
+        {
+          "content": "神へのいかなる信仰も拒絶する。",
+          "transcription": "かみへのいかなるしんこうもきょぜつする。",
+          "mean": "Reject any belief in God."
+        }
+      ],
+      "mean": null,
+      "synopsis": "いかなる N (+auxiliary) も"
+    }
+  ],
+  "title": "いかなる => any kind of; every; whatsoever; whatever",
+  "_id": "f7ff14dae05876cac58b4136939dcb5c"
+}

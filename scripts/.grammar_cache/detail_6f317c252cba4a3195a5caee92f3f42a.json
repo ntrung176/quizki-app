@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5309,
+  "usages": [
+    {
+      "explain": "「よりほか(は)ない」expresses the idea that in this difficult situation, even though one doesn't want to, there is no other way, no other choice but to do so. This expression is formal and in spoken language, 「しかない」is more common.",
+      "note": null,
+      "examples": [
+        {
+          "content": "全力をつくした。あとは祈るよりほかない。",
+          "transcription": "ぜんりょくをつくした。あとはいのるよりほかない。",
+          "mean": "I tried my best. All that remains is to pray."
+        },
+        {
+          "content": "もう後には戻れない。前進するほかない。",
+          "transcription": "もうあとにはもどれない。ぜんしんするほかない。",
+          "mean": "I can't go back now. There is no choice but to move forward."
+        },
+        {
+          "content": "ほかに方法がないから、歩いて行くよりほかはない。",
+          "transcription": "ほかにほうほうがないから、あるいていくよりほかはない。",
+          "mean": "There is no other option, so we have no choice but to walk."
+        },
+        {
+          "content": "本当のことを言うよりほかなかった。",
+          "transcription": "ほんとうのことをいうよりほかなかった。",
+          "mean": "I had no choice but to tell the truth."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form) より+ほか(は)ない"
+    }
+  ],
+  "title": "よりほか(は)ない => to have no choice but ~",
+  "_id": "6f317c252cba4a3195a5caee92f3f42a"
+}

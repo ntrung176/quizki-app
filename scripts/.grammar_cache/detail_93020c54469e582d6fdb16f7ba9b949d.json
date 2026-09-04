@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3103,
+  "usages": [
+    {
+      "explain": "✦ ([A-な may or may not have だ)<br/>\n☞ Extremely ~ (unable to fully express in words, expresses surprise, exclamation).<br/>\n✦ といったらない can be replaced with といったらありはしない (ありゃしない)\" or \"ったらない<br/>\n✦ This pattern is often used to describe bad things, with a negative connotation.<br/>\n✦ Can be used in spoken language, conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "試験を返された時の彼の顔ったらなかった。",
+          "transcription": "しけんをかえされたときのかれのかおったらなかった。",
+          "mean": "The look on his face when he got the exam back was blank."
+        },
+        {
+          "content": "突然爆発音がしたので、驚いたといったらなかった。",
+          "transcription": "とつぜんばくはつおんがしたので、おどろいたといったらなかった。",
+          "mean": "Suddenly I heard an explosion, so I didn't say I was surprised."
+        },
+        {
+          "content": "彼は不潔だといったらい。",
+          "transcription": "かれはふけつだといったらい。",
+          "mean": "He said he was filthy."
+        },
+        {
+          "content": "昨日見た映画は、つまらないといったらなかった。",
+          "transcription": "きのうみたえいがは、つまらないといったらなかった。",
+          "mean": "The movie I saw yesterday was not boring."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦Aい・Vる・Vた・N ＋ といったらない"
+    }
+  ],
+  "title": "～といったらない      => extremely; very; nothing more … than this; as … as it could possibly be; beyond words",
+  "_id": "93020c54469e582d6fdb16f7ba9b949d"
+}

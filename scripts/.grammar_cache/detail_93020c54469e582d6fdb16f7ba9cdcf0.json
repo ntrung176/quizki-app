@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3109,
+  "usages": [
+    {
+      "explain": "■ Unable to express in words but will use actions, attitudes to convey~<br/>\n■ Used to describe the situation of others without using it for one's own affairs.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "彼は、信じられないとばかりに、口を開けたまま彼女を見つめていた。",
+          "transcription": "かれは、しんじられないとばかりに、くちをあけたままかのじょをみつめていた。",
+          "mean": "He stared at her with his mouth open in disbelief."
+        },
+        {
+          "content": "課長は余計な質問はするなとばかりに私ににらみつけた。",
+          "transcription": "かちょうはよけいなしつもんはするなとばかりにわたしににらみつけた。",
+          "mean": "The manager glared at me, telling me not to ask any unnecessary questions."
+        },
+        {
+          "content": "開発計画について意見交換会が行われた。",
+          "transcription": "かいはつけいかくについていけんこうかんかいがおこなわれた。",
+          "mean": "A meeting was held to exchange opinions regarding the development plan."
+        }
+      ],
+      "mean": "as if to say; as though~",
+      "synopsis": "～とばかり（に）"
+    }
+  ],
+  "title": "～とばかり（に）      => as if to say; as though~",
+  "_id": "93020c54469e582d6fdb16f7ba9cdcf0"
+}

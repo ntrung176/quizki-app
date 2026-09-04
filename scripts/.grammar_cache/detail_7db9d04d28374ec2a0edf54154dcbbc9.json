@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5347,
+  "usages": [
+    {
+      "explain": "「かける」 describes an action that is not yet finished or completed, still in progress. This unfinished action can be intentional or aimless.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この本はまだ読みかけだ。",
+          "transcription": "このほんはまだよみかけだ。",
+          "mean": "I'm still reading this book."
+        },
+        {
+          "content": "お風呂に入りかけたときに電話が鳴った。",
+          "transcription": "おふろにはいりかけたときにでんわがなった。",
+          "mean": "I was about to take a bath when the phone rang."
+        },
+        {
+          "content": "彼は何か言いかけて辞めた。",
+          "transcription": "かれはなにかいいかけてやめた。",
+          "mean": "He said something and quit."
+        },
+        {
+          "content": "母に食べかけのりんごを捨てられた。",
+          "transcription": "ははにたべかけのりんごをすてられた。",
+          "mean": "My mother threw away a half-eaten apple."
+        },
+        {
+          "content": "テーブルの上に食べかけのケーキが置いてある。",
+          "transcription": "テーブルのうえにたべかけのケーキがおいてある。",
+          "mean": "There is a half-eaten cake on the table."
+        },
+        {
+          "content": "風邪は治りかけたが、またひどくなってしまった。",
+          "transcription": "かぜはなおりかけたが、またひどくなってしまった。",
+          "mean": "My cold was getting better, but it got worse again."
+        },
+        {
+          "content": "私は雑誌を見かけるが母に市場に行かせてしまった。",
+          "transcription": "わたしはざっしをみかけるがははにいちばにいかせてしまった。",
+          "mean": "I saw a magazine, but my mother made me go to the market."
+        },
+        {
+          "content": "この瓶は私の飲みかけのビールだ。",
+          "transcription": "このびんはわたしののみかけのビールだ。",
+          "mean": "This bottle is my half-finished beer."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V<s>ます</s>かけだ<br/> V<s>ます</s>かける<br/>V<s>ます</s>かけ のN"
+    }
+  ],
+  "title": "かける => half-; not yet finished; in the middle of~",
+  "_id": "7db9d04d28374ec2a0edf54154dcbbc9"
+}

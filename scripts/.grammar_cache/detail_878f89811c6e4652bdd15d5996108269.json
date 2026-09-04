@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 5431,
+  "usages": [
+    {
+      "explain": "「てはじめて」expresses the idea that after performing a certain action, one begins to realize or understand something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "先生に注意されてはじめて、漢字の間違いに気が付いた。",
+          "transcription": "せんせいにちゅういされてはじめて、かんじのまちがいにきがついた。",
+          "mean": "It wasn't until my teacher warned me that I realized I had made a mistake in the kanji."
+        },
+        {
+          "content": "歌舞伎を見てはじめて、日本文化に興味を持った。",
+          "transcription": "かぶきをみてはじめて、にほんぶんかにきょうみをもった。",
+          "mean": "It wasn't until I saw Kabuki that I became interested in Japanese culture."
+        },
+        {
+          "content": "入院してはじめて、健康の重要さが分かりました。",
+          "transcription": "にゅういんしてはじめて、けんこうのじゅうようさがわかりました。",
+          "mean": "It wasn't until I was hospitalized that I realized the importance of health."
+        },
+        {
+          "content": "ギターを弾くことをやめては初めてギターのことに大好きになった。",
+          "transcription": "ギターをひくことをやめてははじめてギターのことにだいすきになった。",
+          "mean": "It was only after I quit playing guitar that I realized how much I liked it"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて+(は)はじめて"
+    }
+  ],
+  "title": "て(は)はじめて => not until; only after (first time)",
+  "_id": "878f89811c6e4652bdd15d5996108269"
+}

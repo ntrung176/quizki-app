@@ -1,0 +1,41 @@
+{
+  "level": "N1",
+  "mobileId": 3093,
+  "usages": [
+    {
+      "explain": "✦ Presents a hypothesis with the result being bad if that hypothesis comes true.",
+      "note": null,
+      "examples": [
+        {
+          "content": "指導教授の意見に反論でもしたら、単位をもらえないのは確実だ。",
+          "transcription": "しどうきょうじゅのいけんにはんろんでもしたら、たんいをもらえないのはかくじつだ。",
+          "mean": "If you disagree with your supervisor's opinion, you will definitely not receive credit."
+        },
+        {
+          "content": "汚い手で目をこするんじゃない。",
+          "transcription": "きたないてでめをこするんじゃない。",
+          "mean": "Don't rub your eyes with dirty hands."
+        },
+        {
+          "content": "借りたカメラを壊しでもしたら大変だから、子供には触らせないようにしよう。",
+          "transcription": "かりたカメラをこわしでもしたらたいへんだから、こどもにはさわらせないようにしよう。",
+          "mean": "If you break a borrowed camera, you'll be in trouble, so don't let your children touch it."
+        },
+        {
+          "content": "一度練習を始めでもしたら、何時間も続ける。",
+          "transcription": "いちどれんしゅうをはじめでもしたら、なんじかんもつづける。",
+          "mean": "Once you start practicing, you continue for hours."
+        },
+        {
+          "content": "相談しないで決定でもしたら、あとで怒られるよ。",
+          "transcription": "そうだんしないでけっていでもしたら、あとでおこられるよ。",
+          "mean": "If you make a decision without consulting me, you'll get scolded later."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V ます・ する N ＋ でもしたら"
+    }
+  ],
+  "title": "～でもしたら      => If … then",
+  "_id": "93020c54469e582d6fdb16f7ba9a15c2"
+}

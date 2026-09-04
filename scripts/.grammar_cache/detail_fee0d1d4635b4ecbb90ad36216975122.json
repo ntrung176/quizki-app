@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5469,
+  "usages": [
+    {
+      "explain": "ようになる is used to indicate a change in habit or state of an object, event. Although there is a form \"ないようになる,\" the form \"なくなる\" is more commonly used.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ここの電気は人が通るとつくようになっています。",
+          "transcription": "ここのでんきはひとがとおるとつくようになっています。",
+          "mean": "The electricity here is turned on when someone passes by."
+        },
+        {
+          "content": "このインターホンは留守に誰が来たか分かるようになっている。",
+          "transcription": "このインターホンはるすにだれがきたかわかるようになっている。",
+          "mean": "This intercom is designed to let you know who came in when you were away."
+        },
+        {
+          "content": "毎日、日本のテレビを見たら日本人の話が分かるようになりました。",
+          "transcription": "まいにち、にほんのテレビをみたらにほんじんのはなしがわかるようになりました。",
+          "mean": "When I watch Japanese TV every day, I can now understand what Japanese people are saying."
+        },
+        {
+          "content": "日本語の勉強を始めてから、日本語で漫画を読んだり、アニメを見たりするようになりました。",
+          "transcription": "にほんごのべんきょうをはじめてから、にほんごでまんがをよんだり、アニメをみたりするようになりました。",
+          "mean": "After I started studying Japanese, I started reading manga and watching anime in Japanese."
+        },
+        {
+          "content": "大学生になってから自分で弁当を作るようになりました。",
+          "transcription": "だいがくせいになってからじぶんでべんとうをつくるようになりました。",
+          "mean": "After I became a university student, I started making my own lunch boxes."
+        },
+        {
+          "content": "大学生になってからはテレビを見なくなりました。",
+          "transcription": "だいがくせいになってからはテレビをみなくなりました。",
+          "mean": "After I became a university student, I stopped watching TV."
+        },
+        {
+          "content": "社会人になってからはゲームをしなくなりました。",
+          "transcription": "しゃかいじんになってからはゲームをしなくなりました。",
+          "mean": "After I became a member of society, I stopped playing games."
+        },
+        {
+          "content": "友達と大喧嘩して以来、一度も話さなくなりました。",
+          "transcription": "ともだちとおおげんかしていらい、いちどもはなさなくなりました。",
+          "mean": "Ever since I had a big fight with my friend, we have never talked to each other."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ようになる<br/>Vな<s>い</s>く+なる"
+    }
+  ],
+  "title": "ようになる => to reach the point that; to come to be that; to turn into ~",
+  "_id": "fee0d1d4635b4ecbb90ad36216975122"
+}

@@ -1,0 +1,33 @@
+{
+  "level": "N3",
+  "mobileId": 2355,
+  "usages": [
+    {
+      "explain": "Used to point out, as an example, a specific content expressed by the noun following it. The noun following indicates a higher-level concept than the one expressed by the preceding noun.",
+      "note": null,
+      "examples": [
+        {
+          "content": "妹は、キムパプのような簡単な料理しか作れません。",
+          "transcription": "いもうとは、きむぱぷのようなかんたんなりょうりしかつくれません。",
+          "mean": "My sister can only make simple dishes like kimbap."
+        },
+        {
+          "content": "「アポ」のような外来語は、とても難しいですね。",
+          "transcription": "「あぽ」のようながいらいごは、とてもむずかしいですね。",
+          "mean": "Foreign words like \"apo\" are very difficult to understand."
+        }
+      ],
+      "mean": null,
+      "synopsis": "...ような N"
+    },
+    {
+      "explain": "Note: In the case of receiving a noun phrase, even without \"ような\", a sentence can be formed, but whether or not \"ような\" is included, the meaning of the sentence will be different.<br/>Example: In the case of \"処方薬を飲んでもよくならないような場合\"<br/>It means there are many other cases besides this one, and we're just using this case as an example. <br/>If \"ような\" is omitted, this is a statement limited to a specific case.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "のような... => just like; just as; similar to..",
+  "_id": "f7ff14dae05876cac58b413693f58516"
+}

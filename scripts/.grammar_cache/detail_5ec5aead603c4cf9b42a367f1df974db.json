@@ -1,0 +1,66 @@
+{
+  "level": "N5",
+  "mobileId": 5613,
+  "usages": [
+    {
+      "explain": "The particle 「も」has the meaning of \"also\" or \"too,\" and is used to add something of the same kind to what was mentioned before, such as objects, events, people, etc.<br/>\nSometimes, the first object, event, or person is not explicitly mentioned but is understood from the context of the conversation or text. For example, in the sentence 「今日も曇りだ。」(Today is also cloudy.), we understand that yesterday or on previous days it was also cloudy.<br/>\n「も」doesn't just directly follow nouns but can also come after particles like に、へ、で、と. When the original particle is が (indicating the subject), は, or を, 「も」replaces them.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私もベトナム人です。",
+          "transcription": "わたしもベトナムじんです。",
+          "mean": "I'm also Vietnamese."
+        },
+        {
+          "content": "私も寿司が好きです。",
+          "transcription": "わたしもすしがすきです。",
+          "mean": "I also like sushi."
+        },
+        {
+          "content": "私も日本語を勉強します。",
+          "transcription": "わたしもにほんごをべんきょうします。",
+          "mean": "I also study Japanese."
+        },
+        {
+          "content": "父は医者です。母も医者です。",
+          "transcription": "わたしのちちはいしゃです。ははもいしゃです。",
+          "mean": "My father is a doctor. My mother is also a doctor."
+        },
+        {
+          "content": "私は桜大学の学生です。あなたもですか。",
+          "transcription": "わたしはさくらだいがくのがくせいです。あなたもですか。",
+          "mean": "I am a student at Sakura University. You too."
+        },
+        {
+          "content": "河村さんは会社員です。木村さんも会社員です。",
+          "transcription": "かわむらさんはかいしゃいんです。きむらさんもかいしゃいんです。",
+          "mean": "Mr. Kawamura is a company employee. Mr. Kimura is also a company employee."
+        },
+        {
+          "content": "私も日本のアニメが好きですよ。ずっと中学生の時からです。",
+          "transcription": "わたしもにほんのアニメがすきですよ。ずっとちゅうがくせいのときからです。",
+          "mean": "I also like Japanese anime. It's been since I was in middle school."
+        },
+        {
+          "content": "学校で、キムさんと話しました。サイモンさんとも話しました。",
+          "transcription": "がっこうで、キムさんとはなしました。サイモンさんともはなしました。",
+          "mean": "I talked to Kim at school. I also talked to Simon."
+        },
+        {
+          "content": "夏休みに北海道に行きました。沖縄にも行きました。",
+          "transcription": "なつやすみにほっかいどうにいきました。おきなわにもいきました。",
+          "mean": "I went to Hokkaido during summer vacation. I also went to Okinawa."
+        },
+        {
+          "content": "私は肉も魚も好きじゃありません。",
+          "transcription": "わたしはにくもさかなもすきじゃありません。",
+          "mean": "I don't like meat or fish."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+も"
+    }
+  ],
+  "title": "も => too; also; as well",
+  "_id": "5ec5aead603c4cf9b42a367f1df974db"
+}

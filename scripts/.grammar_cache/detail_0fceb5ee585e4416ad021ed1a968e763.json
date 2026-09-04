@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5289,
+  "usages": [
+    {
+      "explain": "「うちに」 expresses the idea of taking advantage of a situation that is still ongoing and unchanged to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本にいるうちに日本語が上手になりたいです。",
+          "transcription": "にほんにいるうちににほんごがじょうずになりたいです。",
+          "mean": "I want to improve my Japanese while I'm still in Japan."
+        },
+        {
+          "content": "お金があるうちにほしいものを買っておきます。",
+          "transcription": "おかねがあるうちにほしいものをかっておきます。",
+          "mean": "Buy what you want while you have the money."
+        },
+        {
+          "content": "子供が寝ているうちに掃除をしてしまいましょう。",
+          "transcription": "こどもがねているうちにそうじをしてしまいましょう。",
+          "mean": "Clean while the kids are sleeping."
+        },
+        {
+          "content": "忘れないうちにメモしておこう。",
+          "transcription": "わすれないうちにメモしておこう。",
+          "mean": "Make a note of it before you forget."
+        },
+        {
+          "content": "若いうちに一生懸命勉強しなさい。",
+          "transcription": "わかいうちにいっしょうけんめいべんきょうしなさい。",
+          "mean": "Study hard while you are young."
+        },
+        {
+          "content": "温かいうちに早く食べてください。",
+          "transcription": "あたたかいうちにはやくたべてください。",
+          "mean": "Please eat quickly while it is still warm."
+        },
+        {
+          "content": "桜がきれいなうちにお花見に行きましょう。",
+          "transcription": "さくらがきれいなうちにおはなみにいきましょう。",
+          "mean": "Let's go to cherry blossom viewing while the cherry blossoms are still beautiful."
+        },
+        {
+          "content": "両親が元気なうちに旅行に連れていきたい。",
+          "transcription": "りょうしんがげんきなうちにりょこうにつれていきたい。",
+          "mean": "I want to take my parents on a trip while they are still healthy."
+        },
+        {
+          "content": "学生のうちに将来のことを考えておいたほうがいい。",
+          "transcription": "がくせいのうちにしょうらいのことをかんがえておいたほうがいい。",
+          "mean": "It is better to think about the future while still a student."
+        },
+        {
+          "content": "独身のうちにたくさん遊んでおきたい。",
+          "transcription": "どくしんのうちにたくさんあそんでおきたい。",
+          "mean": "I want to play a lot while I'm single."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+うちに<br/>Vない+うちに<br/> Vている+うちに<br> Aい+うちに<br/>Aな+うちに<br/> Nの+うちに</br>"
+    }
+  ],
+  "title": "うちに => While; Before ~",
+  "_id": "0fceb5ee585e4416ad021ed1a968e763"
+}

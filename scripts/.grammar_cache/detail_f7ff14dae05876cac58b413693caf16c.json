@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2051,
+  "usages": [
+    {
+      "explain": "Expresses a speculative judgment of the speaker that \"it cannot be asserted with certainty, but perhaps it is so.\" Here, the speaker's confidence level is lower than with 「だろう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あそこを歩いている人は山田さんではないか。",
+          "transcription": "あそこをあるいているひとはやまださんではないか。",
+          "mean": "Isn't the person walking over there Mr. Yamada?"
+        },
+        {
+          "content": "小林は佐藤が本当に好きなのではないか。",
+          "transcription": "こばやしはさとうがほんとうにすきなのではないか。",
+          "mean": "I think Kobayashi really likes Sato."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A + のではないか <br/>Na・N + (なの)ではないか"
+    }
+  ],
+  "title": "ではないか => right? isn't it?",
+  "_id": "f7ff14dae05876cac58b413693caf16c"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1512,
+  "usages": [
+    {
+      "explain": "Used to deny the other person's thoughts about one's actions and emphasize that actually, those thoughts are incorrect.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私はなにも、あなたの行動を批判しているわけではないんです。",
+          "transcription": "わたしはなにも、あなたのこうどうをひはんしているわけではないんです。",
+          "mean": "I'm not criticizing your actions in any way."
+        },
+        {
+          "content": "私はなにもこの任務を引き受けたくないわけではないのです。",
+          "transcription": "わたしはなにもこのにんむをひきうけたくないわけではないのです。",
+          "mean": "It's not that I don't want to take on this mission."
+        },
+        {
+          "content": "私はなにもあなたが嫌いでその計画を反対したわけではないのです。",
+          "transcription": "わたしはなにもあなたがきらいでそのけいかくをはんたいしたわけではないのです。",
+          "mean": "It's not that I disliked you or objected to your plan."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにも～わけではない"
+    }
+  ],
+  "title": "なにも～わけではない => it doesn't mean that; it is not the case that; I don't mean that; it is not true that",
+  "_id": "f7ff14dae05876cac58b41369381bca6"
+}

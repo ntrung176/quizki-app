@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1956,
+  "usages": [
+    {
+      "explain": "Lists events with completely opposite content or conflicting impressions, indicating contradictory feelings or coexistence of contradictory meanings in the speaker. 「ようでもあるし」 is more literary in nature.",
+      "note": null,
+      "examples": [
+        {
+          "content": "僕の言ったことが彼女には分かったようでもあり、全く理解していないようでもある。",
+          "transcription": "ぼくのいったことがかのじょにはわかったようでもあり、まったくりかいしていないようでもある。",
+          "mean": "It seemed like she understood what I said, and sometimes she didn't understand at all."
+        },
+        {
+          "content": "アルパカは馬のようでもあり、ラクダのようでもある。",
+          "transcription": "あるぱかはうまのようでもあり、らくだのようでもある。",
+          "mean": "An alpaca looks like a horse and a camel."
+        },
+        {
+          "content": "木村さんは本当は結婚したい気持ちがあるようでもあるし、まったくその気がないようでもある。",
+          "transcription": "きむらさんはほんとうはけっこんしたいきもちがあるようでもあるし、まったくそのきがないようでもある。",
+          "mean": "Kimura-san seems to really want to get married, but it also seems like she has no desire at all."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nの／Naな／A／V + ようでもあり／ようでもあるし"
+    }
+  ],
+  "title": "...ようでもあり / ようでもあるし => It seems like..., or rather, it also seems like...",
+  "_id": "f7ff14dae05876cac58b413693be08a1"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 2247,
+  "usages": [
+    {
+      "explain": "It demonstrates the speaker's determination that if the current approach doesn't work, they won't be pessimistic but will choose another option.",
+      "note": null,
+      "examples": [
+        {
+          "content": "家族があくまで反対するなら、家を出るまでのことだ。",
+          "transcription": "かぞくがあくまではんたいするなら、いえをでるまでのことだ。",
+          "mean": "If the family strongly opposes it, then they can leave the house."
+        },
+        {
+          "content": "もし昇進試験に不合格しても、私はあきらめない。もう一年がんばるまでのことだ。",
+          "transcription": "もししょうしんしけんにふごうかくしても、わたしはあきらめない。もういちねんがんばるまでのことだ。",
+          "mean": "Even if I fail the promotion exam, I won't give up. That is until I try my best for another year."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V－る + まで (のこと）だ"
+    }
+  ],
+  "title": "...まで (のこと) だ => only; just; nothing else",
+  "_id": "f7ff14dae05876cac58b413693e6e319"
+}

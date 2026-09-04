@@ -1,0 +1,48 @@
+{
+  "level": "N1",
+  "mobileId": 777,
+  "usages": [
+    {
+      "explain": "✦ This is a construction in which the clause expresses the content of thought or speech serving as an attribute to the noun. Used in formal expressions. The noun is often related to language activities like 「手紙、返事、依頼、提案、警告、命令」(letter, reply, request, proposal, warning, order), etc., or mental activities like 「意見、見解、考え、希望」(opinion, viewpoint, thought, hope), etc. It's used when talking about the thoughts or statements of others.",
+      "note": null,
+      "examples": [
+        {
+          "content": "恩師から結婚式には出席できないとの返事を受け取った。",
+          "transcription": "おんしからけっこんしきにはしゅっせきできないとのへんじをうけとった。",
+          "mean": "I received a reply from my teacher saying that he would not be able to attend the wedding."
+        },
+        {
+          "content": "学生から、留学するため、一年休学させてほしいとの希望が出されている。",
+          "transcription": "がくせいから、りゅうがくするため、いちねんきゅうがくさせてほしいとのきぼうがだされている。",
+          "mean": "Students have requested that they take a year off to study abroad."
+        },
+        {
+          "content": "この件については、次回の審議に回してはどうかとの議長の提案に全員賛成した。",
+          "transcription": "このけんについては、じかいのしんぎにまわしてはどうかとのぎちょうのていあんにぜんいんさんせいした。",
+          "mean": "All members agreed with the chair's suggestion that this matter be referred to the next discussion."
+        },
+        {
+          "content": "来月から一年間、札幌の支社に出向せよとの辞令を受けた。",
+          "transcription": "らいげつからいちねんかん、さっぽろのししゃにしゅっこうせよとのじれいをうけた。",
+          "mean": "I received an appointment to work at the Sapporo branch office for one year starting next month."
+        },
+        {
+          "content": "文部大臣は、学校教育を改善するためには、高等教育機関の入学試験制度の抜本的改革が必要だとの見解を述べた。",
+          "transcription": "もんぶだいじんは、がっこうきょういくをかいぜんするためには、こうとうきょういくきかんのにゅうがくしけんせいどのばっぽんてきかいかくがひつようだとのけんかいをのべた。",
+          "mean": "The Minister of Education expressed the view that fundamental reform of the entrance examination system for higher education institutions is necessary in order to improve school education."
+        }
+      ],
+      "mean": null,
+      "synopsis": "…とのN"
+    },
+    {
+      "explain": "✦ Note: When expressing one's own thoughts, it's common not to use 「との」but rather 「という」as in the following example: 私は夫婦別姓を合法化すべきだという意見をもっている。",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "…との => ...is..., ...that...",
+  "_id": "f7ff14dae05876cac58b4136931ba463"
+}

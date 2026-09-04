@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 5087,
+  "usages": [
+    {
+      "explain": "「ときている」expresses the idea: precisely because the preceding clause has such characteristics or qualities, it leads to the result in the following clause; because the preceding clause is like that, naturally there will be the result in the following clause. This structure is used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そのレストランは安くて美味しいときているから、いつも客でいっぱいだ。",
+          "transcription": "そのレストランはやすくておいしいときているから、いつもきゃくでいっぱいだ。",
+          "mean": "The restaurant is always full of customers because it's cheap and delicious."
+        },
+        {
+          "content": "給料が安くて物価が高いときているから、暮らしは困る。",
+          "transcription": "きゅうりょうがやすくてぶっかがたかいときているから、くらしはこまる。",
+          "mean": "Living is difficult because salaries are low and prices are high."
+        },
+        {
+          "content": "安田さんは明るくて優秀ときているので、就職には困らないでしょう。",
+          "transcription": "やすださんはあかるくてゆうしゅうときているので、しゅうしょくにはこまらないでしょう。",
+          "mean": "Mr. Yasuda is bright and talented, so he will have no trouble finding a job."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+ときているから/ときているので"
+    }
+  ],
+  "title": "ときているから/ときているので => because of ~",
+  "_id": "325c02bb05054b81ae3f7d7337e110e0"
+}

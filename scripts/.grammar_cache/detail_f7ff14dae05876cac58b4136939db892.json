@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1723,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"seems like it.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女はそんなに怒っているふうでもなかった。",
+          "transcription": "かのじょはそんなにおこっているふうでもなかった。",
+          "mean": "She didn't seem that angry."
+        },
+        {
+          "content": "久しぶりに会った山田さんは、とても悲しいで、生活にも困っているふうだった。",
+          "transcription": "ひさしぶりにあったやまださんは、とてもかなしいで、せいかつにもこまっているふうだった。",
+          "mean": "When I met Mr. Yamada for the first time in a while, he seemed very sad and struggling with his daily life."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Na + な + ふう\nA-い + ふう\nV-ている/V-た + ふう"
+    }
+  ],
+  "title": "…風 => in the style of (A)",
+  "_id": "f7ff14dae05876cac58b4136939db892"
+}

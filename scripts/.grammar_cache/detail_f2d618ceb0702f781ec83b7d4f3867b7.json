@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2856,
+  "usages": [
+    {
+      "explain": "中（じゅう/ちゅう）is used with words indicating time, deadlines to mean \"throughout that time.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は彼女を午前中ずっと待っていた。",
+          "transcription": "かれはかのじょをごぜんちゅうずっとまっていた。",
+          "mean": "He had been waiting for her all morning."
+        },
+        {
+          "content": "彼は一日中 勉強する。",
+          "transcription": "かれはいちにちちゅうべんきょうする。",
+          "mean": "he studies all day long."
+        },
+        {
+          "content": "彼は年中病気になっている。",
+          "transcription": "かれはねんじゅうびょうきになっている。",
+          "mean": "He has been sick all year round."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + 中"
+    }
+  ],
+  "title": "ちゅう => currently; during; at some point; throughout; before the end of ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f3867b7"
+}

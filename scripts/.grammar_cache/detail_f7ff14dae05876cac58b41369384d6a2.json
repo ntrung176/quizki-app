@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1533,
+  "usages": [
+    {
+      "explain": "Expresses the essence of the object itself.",
+      "note": null,
+      "examples": [
+        {
+          "content": "枠そのものの方が絵よりも高価です。",
+          "transcription": "わくそのもののほうがえよりもこうかです。",
+          "mean": "The frame itself is more expensive than the painting."
+        },
+        {
+          "content": "この仕事が退屈じゃない。私そのものはやる気がないんだ。",
+          "transcription": "このしごとがたいくつじゃない。わたしそのものはやるきがないんだ。",
+          "mean": "This job isn't boring. I just don't have any motivation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + そのもの"
+    }
+  ],
+  "title": "...そのもの => Myself...",
+  "_id": "f7ff14dae05876cac58b41369384d6a2"
+}

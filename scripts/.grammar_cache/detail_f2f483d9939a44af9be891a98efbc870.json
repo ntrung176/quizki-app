@@ -1,0 +1,71 @@
+{
+  "level": "N2",
+  "mobileId": 5172,
+  "usages": [
+    {
+      "explain": "「も～ば～も」is used to:<br/>1. Evaluate something by presenting evidence that \"not only this side but also the other side\" is the same. Both sides must have the same tone, either good or bad.<br/>2. Indicate that something has many cases, possibilities, components...<br/>3. Show the two contrasting sides of something.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は勉強もできれば、スポーツもできる。",
+          "transcription": "かれはべんきょうもできれば、スポーツもできる。",
+          "mean": "He can study and play sports."
+        },
+        {
+          "content": "私は歌も下手なら、ダンスも下手だ。",
+          "transcription": "わたしはうたもへたなら、ダンスもへただ。",
+          "mean": "If I'm not good at singing, I'm also bad at dancing."
+        },
+        {
+          "content": "この町にはデパートもなければ、大型スーパーもない。",
+          "transcription": "このまちにはデパートもなければ、おおがたスーパーもない。",
+          "mean": "There are no department stores or large supermarkets in this town."
+        },
+        {
+          "content": "前の会社は給料も安ければ、残業も多かったので、辞めて正解だったよ。",
+          "transcription": "まえのかいしゃはきゅうりょうもやすければ、ざんぎょうもおおかったのでやめてせいかいだったよ。",
+          "mean": "At my previous company, the pay was low and there was a lot of overtime, so I made the right decision to quit."
+        },
+        {
+          "content": "私は本を読むのが大好きで、小説も読めば、ノンフィクションも読みます。",
+          "transcription": "わたしはほんをよむのがだいすきで、しょうせつもよめば、ノンフィクションもよみます。",
+          "mean": "I love reading books, both novels and non-fiction."
+        },
+        {
+          "content": "彼は腕の良い料理人で、中華も作れれば、フレンチも作れる。",
+          "transcription": "かれはうでのよいりょうりにんで、ちゅうかもつくれれば、フレンチもつくれる。",
+          "mean": "He is a skilled cook, and if he can cook Chinese food, he can also cook French food."
+        },
+        {
+          "content": "あのテレビタレントは歌も歌えば、ドラマにも出演する。",
+          "transcription": "あのテレビタレントはうたもうたえば、ドラマにもしゅつえんする。",
+          "mean": "That TV personality can sing and appear in dramas."
+        },
+        {
+          "content": "犬が好きな人もいれば、嫌いな人もいる。",
+          "transcription": "いぬがすきなひともいれば、きらいなひともいる。",
+          "mean": "Some people like dogs, and some people hate them."
+        },
+        {
+          "content": "彼女に電話する日もあれば、しない日もある。",
+          "transcription": "かのじょにでんわするひもあれば、しないひもある。",
+          "mean": "Some days I call her, some days I don't."
+        },
+        {
+          "content": "世の中には、運命というものを信じる人もいれば、信じない人もいる。",
+          "transcription": "よのなかには、うんめいというものをしんじるひともいれば、しんじないひともいる。",
+          "mean": "In this world, there are people who believe in fate and people who don't."
+        },
+        {
+          "content": "先週は台風なら、今週は大雨か。なかなか外に遊びに行けないなあ。",
+          "transcription": "せんしゅうはたいふうなら、こんしゅうはおおあめか。なかなかそとにあそびにいけないなあ。",
+          "mean": "If there was a typhoon last week, there will be heavy rain this week. I can't really go out to play."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1も V/Aい/Aな/N (conditional form) N2も V/Aい/Aな/N (formal form)"
+    }
+  ],
+  "title": "も～ば～も => and; also; as well; either/or; neither/nor",
+  "_id": "f2f483d9939a44af9be891a98efbc870"
+}

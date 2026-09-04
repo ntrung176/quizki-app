@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2562,
+  "usages": [
+    {
+      "explain": "Placed at the beginning of a sentence, used to draw a conclusion based on newly acquired information. 「じゃ」 is often extended to \"じゃあ\" and is a familiar way of saying \"では\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は日本に4年住んでいるんですよ。では、日本語が上手ですね。",
+          "transcription": "かれ、にっぽんに4ねんすんでいるんですよ。じゃ、にほんごがじょうずですね。",
+          "mean": "He has lived in Japan for four years. So, your Japanese is good."
+        },
+        {
+          "content": "急用があっちゃって。じゃ、映画を見に行けないの。",
+          "transcription": "きゅうようがあっちゃって。じゃ、えいがをみにいけないの。",
+          "mean": "I had something urgent to do. So I can't go see a movie."
+        }
+      ],
+      "mean": null,
+      "synopsis": "じゃ(あ)/では～"
+    }
+  ],
+  "title": "じゃ(あ) / では => If so, Well (then), In that case",
+  "_id": "f2d618ceb0702f781ec83b7d4f11f65c"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 2884,
+  "usages": [
+    {
+      "explain": "The form 「ている」 is used to express a completed state at some point in the future. On the other hand, the form 「ていた」 is used to express a completed state in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "妹がこの高校に入るころには、私はもう卒業しているだろう。",
+          "transcription": "いもうとがこのこうこうにはいるころには、わたしはもうそつぎょうしているだろう。",
+          "mean": "By the time my sister enters this high school, I will have already graduated."
+        },
+        {
+          "content": "遅刻した山田が劇場に着いたときにはもうコンサートが始まっていた。",
+          "transcription": "ちこくしたやまだがげきじょうについたときにはもうこんさーとがはじまっていた。",
+          "mean": "When Yamada arrived late, the concert had already begun."
+        },
+        {
+          "content": "先生が気づいたとき、学生はもう逃げていた。",
+          "transcription": "せんせいがきづいたとき、がくせいはもうにげていた。",
+          "mean": "When the teacher noticed, the student had already run away."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ている"
+    }
+  ],
+  "title": "ている => Already...(completed)",
+  "_id": "f2d618ceb0702f781ec83b7d4f3b16be"
+}

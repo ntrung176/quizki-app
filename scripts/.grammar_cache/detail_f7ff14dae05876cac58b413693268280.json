@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 853,
+  "usages": [
+    {
+      "explain": "✦ Often used in the form of タ as 「みこみちがいだった」,「みこみはずれだつた」 to express a different meaning from expectations. <br/>It can also be said as 「みこみがはずれた」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女には大いに期待していたが、まったくの見込み違いだった",
+          "transcription": "かのじょにはおおいにきたいしていたが、まったくのみこみちがいだった",
+          "mean": "I had high hopes for her, but my expectations were completely wrong."
+        },
+        {
+          "content": "今年は冷夏で、クーラー丁などの電気製品はさっぱり売れなかった。猛暑を期待していたのに、見込みはずれだった。",
+          "transcription": "ことしはれいかで、くーらーひのとなどのでんきせいひんはさっぱりうれなかった。もうしょをきたいしていたのに、みこみはずれだった。",
+          "mean": "This year was a cold summer, and electrical products such as air conditioners did not sell well. I was hoping for a heat wave, but I was disappointed."
+        },
+        {
+          "content": "見込み違いから赤字を出す。",
+          "transcription": "みこみちがいからあかじをだす。",
+          "mean": "Incurring a deficit due to miscalculation."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦The incident was unexpected and not as expected"
+    }
+  ],
+  "title": "～みこみちがい / みこみはずれ> => ～Contrary to expectations",
+  "_id": "f7ff14dae05876cac58b413693268280"
+}

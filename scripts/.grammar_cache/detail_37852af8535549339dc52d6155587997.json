@@ -1,0 +1,51 @@
+{
+  "level": "N4",
+  "mobileId": 5543,
+  "usages": [
+    {
+      "explain": "「それは」is used to succinctly refer back to something that the other person just said, instead of repeating it verbatim.",
+      "note": null,
+      "examples": [
+        {
+          "content": "それは心配ですね。その後は彼女がどうしましたか。",
+          "transcription": "それはしんぱいですね。そのあとはかのじょがどうしましたか。",
+          "mean": "That's worrying. What did she do after that?"
+        },
+        {
+          "content": "それは残念ですね。次の試験は頑張ってくださいね。",
+          "transcription": "それはざんねんですね。つぎのしけんはがんばってくださいね。",
+          "mean": "That's a shame. Good luck on your next exam."
+        },
+        {
+          "content": "それは私も同じです。最後の質問はBの答えを選びました。",
+          "transcription": "それはわたしもおなじです。さいごのしつもんはビのこたえをえらびました。",
+          "mean": "The same goes for me. For the last question, I chose answer B."
+        },
+        {
+          "content": "それは楽しそうですね。私も日本へ行きたいけど、お金が足りないから辞めました。",
+          "transcription": "それはたのしそうですね。わたしもにほんへいきたいけど、おかねがたりないからやめました。",
+          "mean": "That sounds like fun. I also want to go to Japan, but I quit because I didn't have enough money."
+        },
+        {
+          "content": "『ブロードウェイでミュージカルを見たいと思うんですが...』『それはいいですね。』",
+          "transcription": "『ブロードウェイでミュージカルをみたいとおもうんですが...』『それはいいですね。』",
+          "mean": "``I'd like to see a musical on Broadway...'' ``That's great. ”"
+        },
+        {
+          "content": "『来月から大阪の本社に転勤なんです。』『それはおめでとうございます。』",
+          "transcription": "『らいげつからおおさかのほんしゃにてんきんなんです。』『それはおめでとうございます。』",
+          "mean": "``Starting next month, I will be transferred to the head office in Osaka. ``Congratulations on that. ”"
+        },
+        {
+          "content": "『時々頭や胃が痛くなるんです。』『それはいけませんね。』",
+          "transcription": "『ときどきあたまやいがいたくなるんです。』『それはいけませんね。』",
+          "mean": "``Sometimes my head and stomach hurt. ``That's not right.'' ”"
+        }
+      ],
+      "mean": null,
+      "synopsis": "それは～"
+    }
+  ],
+  "title": "それは => That/That's it",
+  "_id": "37852af8535549339dc52d6155587997"
+}

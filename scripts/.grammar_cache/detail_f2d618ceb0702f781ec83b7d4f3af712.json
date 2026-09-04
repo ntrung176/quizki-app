@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2883,
+  "usages": [
+    {
+      "explain": "Modify the noun that follows and express various meanings of that noun, such as characteristics, states, types, quantities, etc.",
+      "note": null,
+      "examples": [
+        {
+          "content": "我が家には3人の娘がいます。",
+          "transcription": "わがやには3にんのむすめがいます。",
+          "mean": "We have three daughters at home."
+        },
+        {
+          "content": "彼女に青色の花をあげる。",
+          "transcription": "かのじょにあおいろのはなをあげる。",
+          "mean": "Give her a blue flower."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Modifies the noun that follows."
+    }
+  ],
+  "title": "N1 の N2 => N2 has the property or quantity N1 (Property)",
+  "_id": "f2d618ceb0702f781ec83b7d4f3af712"
+}

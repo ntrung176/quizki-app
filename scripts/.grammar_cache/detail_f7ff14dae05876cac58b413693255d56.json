@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 843,
+  "usages": [
+    {
+      "explain": "Expresses the idea of doing something without achieving anything. This expression implies a sense of frustration and despair.",
+      "note": null,
+      "examples": [
+        {
+          "content": "いまから反対してもどうなるものでもない。",
+          "transcription": "いまからはんたいしてもどうなるものでもない。",
+          "mean": "Nothing will happen if you object now."
+        },
+        {
+          "content": "私はもう一度彼女と話してもどうなるものでもないと思った。",
+          "transcription": "わたしはもういちどかのじょとはなしてもどうなるものでもないとおもった。",
+          "mean": "I thought there would be no point in talking to her again."
+        },
+        {
+          "content": "政治の観点は変わらないのだから、彼を説得してもどうなるものでもない。",
+          "transcription": "せいじのかんてんはかわらないのだから、かれをせっとくしてもどうなるものでもない。",
+          "mean": "There's no point in trying to convince him, since his political viewpoint hasn't changed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vて + もどうなるものでもない"
+    }
+  ],
+  "title": "てもどうなるものでもない => It's no use; can't do anything",
+  "_id": "f7ff14dae05876cac58b413693255d56"
+}

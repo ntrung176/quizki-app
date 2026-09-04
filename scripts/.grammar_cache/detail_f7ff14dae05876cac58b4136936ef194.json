@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1387,
+  "usages": [
+    {
+      "explain": "Expresses regret about things that happened in the past.",
+      "note": null,
+      "examples": [
+        {
+          "content": "車を何台も買ったほど贅沢にしなかったら、今いい生活をすごしているだろうに。",
+          "transcription": "くるまをなんだいもかったほどぜいたくにしなかったら、いまいいせいかつをすごしているだろうに。",
+          "mean": "If I hadn't been so lavish as to buy so many cars, I would be living a good life right now."
+        },
+        {
+          "content": "昔一生懸命勉強したら、今は医者か弁護士かいい仕事をしただろうに。",
+          "transcription": "むかしいっしょうけんめいべんきょうしたら、いまはいしゃかべんごしかいいしごとをしただろうに。",
+          "mean": "If I had studied hard in the past, I would have gotten a good job as a doctor or a lawyer now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～だろうに"
+    }
+  ],
+  "title": "…だろうに => surely…",
+  "_id": "f7ff14dae05876cac58b4136936ef194"
+}

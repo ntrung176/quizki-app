@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1822,
+  "usages": [
+    {
+      "explain": "切る（きる）expresses the meaning \"to give up, to end\" an action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "別れてからも前の恋人を思い切ることがなかなかできない。",
+          "transcription": "わかれてからもまえのこいびとをおもいきることがなかなかできない。",
+          "mean": "Even after we broke up, I still have a hard time thinking about my ex-lover."
+        },
+        {
+          "content": "ベトナムに止まりたい思いを断ち切って日本へ留学した。",
+          "transcription": "べとなむにとまりたいおもいをたちきってにっぽんへりゅうがくした。",
+          "mean": "I gave up my desire to stay in Vietnam and went to Japan to study."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vます + 切る"
+    }
+  ],
+  "title": "切る => Give up, stop...",
+  "_id": "f7ff14dae05876cac58b413693ab5972"
+}

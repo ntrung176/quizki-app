@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 3242,
+  "usages": [
+    {
+      "explain": "This is used to make requests or give commands to the listener.<br/>\nThis pattern is often used in situations such as when parents speak to their children or teachers speak to students.<br/>\nIt is somewhat gentler than the imperative form of the verb. Therefore, women often prefer to use this pattern rather than the imperative form of the verb. However, this pattern is not used with superiors.",
+      "note": null,
+      "examples": [
+        {
+          "content": "５ページの注釈を見なさい。",
+          "transcription": "ごぺーじのちゅうしゃくをみなさい。",
+          "mean": "See notes on page 5."
+        },
+        {
+          "content": "１から１０まで数えなさい。",
+          "transcription": "１から１０までかぞえなさい。",
+          "mean": "Count from 1 to 10."
+        },
+        {
+          "content": "３０分間走り続けなさい。",
+          "transcription": "３０ぷんかんはしりつづけなさい。",
+          "mean": "Continue running for 30 minutes."
+        },
+        {
+          "content": "今彼女に電話しなさい。",
+          "transcription": "いまかのじょにでんわしなさい。",
+          "mean": "Call her now."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます + なさい"
+    }
+  ],
+  "title": "なさい   => do this (soft/firm command)",
+  "_id": "93020c54469e582d6fdb16f7ba6654b9"
+}

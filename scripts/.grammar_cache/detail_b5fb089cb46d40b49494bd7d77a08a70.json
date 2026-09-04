@@ -1,0 +1,86 @@
+{
+  "level": "N5",
+  "mobileId": 5652,
+  "usages": [
+    {
+      "explain": "「より～ほうが」<br/>\n\n- Expresses a comparison where N2/A2/V2 has a certain characteristic that is superior to N1/A1/V1.<br/>\n- The clauses より and ほうが can be switched without changing the meaning of the sentence. For example:<br/>\n   〇 みかんよりりんごのほうが好きです。 (I like apples more than oranges.)<br/>\n   〇 りんごのほうがみかんより好きです。 (I like apples more than oranges.)<br/>\n\n- The part of the comparison after ほうが cannot be in the negative form. For example:<br/>\n   ✖ みかんよりりんごのほうが好きじゃない。 (I don't like apples more than oranges.)",
+      "note": null,
+      "examples": [
+        {
+          "content": "猫より虎のほうが大きいです。",
+          "transcription": "ねこよりとらのほうがおおきいです。",
+          "mean": "A tiger is bigger than a cat."
+        },
+        {
+          "content": "カレーより焼肉のほうが好きです。",
+          "transcription": "カレーよりやきにくのほうがすきです。",
+          "mean": "I prefer yakiniku to curry."
+        },
+        {
+          "content": "自転車より車のほうが早いです。",
+          "transcription": "じてんしゃよりくるまのほうがはやいです。",
+          "mean": "A car is faster than a bicycle."
+        },
+        {
+          "content": "私より田中さんのほうが背が高いです。",
+          "transcription": "わたしよりたなかさんのほうがせがたかいです。",
+          "mean": "Tanaka-san is taller than me."
+        },
+        {
+          "content": "男性より女性のほうが寿命が高い。",
+          "transcription": "だんせいよりじょせいのほうがじゅみょうがたかい。",
+          "mean": "Women live longer than men."
+        },
+        {
+          "content": "ナナさんより木村さんのほうが字が綺麗です。",
+          "transcription": "ナナさんよりきむらさんのほうがじがきれいです。",
+          "mean": "Kimura-san's handwriting is more beautiful than Nana-san's."
+        },
+        {
+          "content": "そのパソコンよりこのパソコンのほうが便利です。",
+          "transcription": "そのパソコンよりこのパソコンのほうがべんりです。",
+          "mean": "This computer is more convenient than that computer."
+        },
+        {
+          "content": "高いより安いほうがいいですね。",
+          "transcription": "たかいよりやすいほうがいいですね。",
+          "mean": "It's better to be cheap than expensive."
+        },
+        {
+          "content": "コーヒーは冷たいより熱いほうが好きです。",
+          "transcription": "コーヒーはつめたいよりあついほうがすきです。",
+          "mean": "I prefer coffee hot to cold."
+        },
+        {
+          "content": "きれいより可愛いほうが好かれる？",
+          "transcription": "きれいよりかわいいほうがすかれる？",
+          "mean": "Do people prefer cute to pretty?"
+        },
+        {
+          "content": "そんな紛らわしいより簡単なほうがいいと思います。",
+          "transcription": "そんなまぎらわしいよりかんたんなほうがいいとおもいます。",
+          "mean": "I think it's better to be simple than that confusing."
+        },
+        {
+          "content": "サッカーは自分でするより見るほうが好きだ。",
+          "transcription": "さっかーはじぶんでするよりみるほうがすきだ。",
+          "mean": "I like watching soccer more than playing it myself."
+        },
+        {
+          "content": "一人で食べるよりみんなと一緒に食べるほうが楽しいです。",
+          "transcription": "ひとりでたべるよりみんなといっしょにたべるほうがたのしいです。",
+          "mean": "Eating with others is more fun than eating alone."
+        },
+        {
+          "content": "みんなと一緒に食べるほうが一人で食べるより楽しいです。",
+          "transcription": "みんなといっしょにたべるほうがひとりでたべるよりたのしいです。",
+          "mean": "Eating with others is more fun than eating alone."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1 より N2 のほうが <br/>\nAい1 より Aい2 ほうが<br/>\nA<s>な</s>1 より Aな2 ほうが<br/>\nV1 (root form) より V2 (root form) ほうが"
+    }
+  ],
+  "title": "より～ほうが => is more than",
+  "_id": "b5fb089cb46d40b49494bd7d77a08a70"
+}

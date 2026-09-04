@@ -1,0 +1,41 @@
+{
+  "level": "N4",
+  "mobileId": 3032,
+  "usages": [
+    {
+      "explain": "♦ The way to change verbs into the passive causative form:<br/>\n☞ Group I: Change い to あ and add せられる. Examples: かきます→かかせられます, はなします→はなさせられます. Shortened forms: 書かせられます→書かされる, 話させられます→cannot be shortened due to pronunciation obstacles.<br/>\n☞ Group II: Remove る and add させられる. Examples: みます→みさせられます, あけます→あけさせられます.<br/>\n☞ Group III: します→させられます, きます→こさせられます.<br/>\n♦ N1 is made to do something by N2.<br/>\n♦ Expresses an action being forced to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "木村さんは毎日、上司に残業をさせられました。",
+          "transcription": "きむらさんはまいにち、じょうしにざんぎょうをさせられました。",
+          "mean": "Mr. Kimura's boss made him work overtime every day."
+        },
+        {
+          "content": "50歳になって、海外に転勤させられるとは思ってもみなかった。",
+          "transcription": "50さいになって、かいがいにてんきんさせられるとはおもってもみなかった。",
+          "mean": "I never thought that I would be transferred overseas when I turned 50."
+        },
+        {
+          "content": "1ヵ月に１回 フランス語の作文を書かされました。",
+          "transcription": "1かげつにいちかいふらんすごのさくぶんをかかされました。",
+          "mean": "I was asked to write an essay in French once a month."
+        },
+        {
+          "content": "みんなの前で英語であいさつをさせられました。",
+          "transcription": "みんなのまえでえいごであいさつをさせられました。",
+          "mean": "I was made to greet everyone in English."
+        },
+        {
+          "content": "きのうは、母に4時間も勉強させられた。",
+          "transcription": "きのうは、ははに4じかんもべんきょうさせられた。",
+          "mean": "Yesterday, my mother made me study for four hours."
+        }
+      ],
+      "mean": ": causative-passive form",
+      "synopsis": "N1 は N2 に V（使役受身）"
+    }
+  ],
+  "title": "～Ｖ使役受身      => causative-passive form",
+  "_id": "93020c54469e582d6fdb16f7ba661b3c"
+}

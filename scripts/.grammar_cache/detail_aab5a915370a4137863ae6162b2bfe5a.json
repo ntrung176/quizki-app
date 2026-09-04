@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 5050,
+  "usages": [
+    {
+      "explain": "「くらいなら」expresses the idea of preferring the action in the following clause over the action in the preceding clause. This structure helps the speaker emphasize their absolute refusal or rejection of the action in the first clause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "そんなことをするくらいなら、死んだほうがましだ。",
+          "transcription": "そんなことをするくらいなら、しんだほうがましだ。",
+          "mean": "I would rather die than do that."
+        },
+        {
+          "content": "友達を傷つけるぐらいなら、自分が我慢したほうがいい。",
+          "transcription": "ともだちをきずつけるぐらいなら、じぶんががまんしたほうがいい。",
+          "mean": "I'd rather hold back than hurt my friend."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+くらいなら<br/> V (root form)+ぐらいなら"
+    }
+  ],
+  "title": "くらいなら/ぐらいなら => rather than (do …)​",
+  "_id": "aab5a915370a4137863ae6162b2bfe5a"
+}

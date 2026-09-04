@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 5401,
+  "usages": [
+    {
+      "explain": "「に比べて」is used to compare one thing, event, or person (B) with another thing, event, or person (N/sentence).<br/>\n\nThis structure can replace 「より」at a more advanced level, but because it is quite formal, in everyday spoken language it's better to use 「より」.<br/>\n\n「に比べ」is a more formal or written form of 「に比べて」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "試験問題は昨年に比べて易しくなった。",
+          "transcription": "しけんもんだいはさくねんにくらべてやさしくなった。",
+          "mean": "The exam questions are easier than last year."
+        },
+        {
+          "content": "店で買うのに比べ、通信販売は便利だが、欠点もある。",
+          "transcription": "みせでかうのにくらべ、つうしんはんばいはべんりだが、けってんもある。",
+          "mean": "Mail order is more convenient than buying at a store, but it also has its drawbacks."
+        },
+        {
+          "content": "東京に比べて大阪のほうが物価が安い。",
+          "transcription": "とうきょうにくらべておおさかのほうがぶっかがやすい。",
+          "mean": "Prices are cheaper in Osaka than in Tokyo."
+        },
+        {
+          "content": "今年は去年に比べて寒い。",
+          "transcription": "ことしはきょねんにくらべてさむい。",
+          "mean": "This year is colder than last year."
+        },
+        {
+          "content": "新しく買った携帯電話はおしゃれできれいだが、前のが使いやすかったのに比べて使いにくい。",
+          "transcription": "あたらしくかったけいたいでんわはおしゃれできれいだが、まえのがつかいやすかったのにくらべてつかいにくい。",
+          "mean": "The new cell phone I bought is stylish and clean, but it's harder to use than the previous one."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+比べて / 比べ Bは<br/> Sentence のに+比べて / 比べ Bは"
+    }
+  ],
+  "title": "に比べて => compared to; in comparison to ~",
+  "_id": "7581917f3c0c4838a194f5954d936566"
+}

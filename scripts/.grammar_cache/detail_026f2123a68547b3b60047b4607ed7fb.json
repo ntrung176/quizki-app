@@ -1,0 +1,46 @@
+{
+  "level": "N1",
+  "mobileId": 5077,
+  "usages": [
+    {
+      "explain": "「たところで」 expresses the subjective judgment of the speaker that regardless of how an action is performed in the preceding clause, the outcome in the subsequent clause will not change as expected or will remain the same.<br/>The second clause (V2) always appears in the negative form, avoiding expressions of intention, command, or request such as 「てください」or 「ましょう」 and it does not take a past tense form.<br/>It is often accompanied by words such as どんなに (however much), いくら (no matter how much), たとえ (even if), ちょっとぐらい (just a little), 今ごろ (by now)...",
+      "note": null,
+      "examples": [
+        {
+          "content": "何回読んだところで、意味は全くわからない。",
+          "transcription": "なんかいよんだところで、いみはまったくわからない。",
+          "mean": "No matter how many times I read it, I still don't understand the meaning."
+        },
+        {
+          "content": "そんな多額の借金は、家を売ったところで、到底返せない。",
+          "transcription": "そんなたがくのしゃっきんは、いえをうったところで、とうていかえせない。",
+          "mean": "Even if I sell my house, I will never be able to repay such a large amount of debt."
+        },
+        {
+          "content": "どんなに走ったところで、絶対に間に合わないだろう。",
+          "transcription": "どんなにはしったところで、ぜったいにまにあわないだろう。",
+          "mean": "No matter how hard I ran, I would never make it in time."
+        },
+        {
+          "content": "部長に説明したところで、叱れるだけだ。",
+          "transcription": "ぶちょうにせつめいしたところで、しかれるだけだ。",
+          "mean": "Even if you explain it to the manager, he will only scold you."
+        },
+        {
+          "content": "今ごろがんばってみたところで、失敗するだろう。",
+          "transcription": "いまごろがんばってみたところで、しっぱいするだろう。",
+          "mean": "If I tried now, I would probably fail."
+        },
+        {
+          "content": "いくらいい服を買ったところで、どうせ着ていくところがないんだから無駄になるだけだ。",
+          "transcription": "いくらいいふくをかったところで、どうせきていくところがないんだからむだになるだけだ。",
+          "mean": "No matter how nice the clothes you buy, it's just a waste because there's nowhere to wear it anyway."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V1た+ところで、V2"
+    }
+  ],
+  "title": "たところで => Even if; no matter (who, what, when, where, why, how)",
+  "_id": "026f2123a68547b3b60047b4607ed7fb"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2877,
+  "usages": [
+    {
+      "explain": "This is the answer to the structure [Noun 1 と Noun 2 とどちら Adjective ですか].",
+      "note": null,
+      "examples": [
+        {
+          "content": "私は夏より冬のほうが好きです。",
+          "transcription": "わたしはなつよりふゆのほうがすきです。",
+          "mean": "I like winter more than summer."
+        },
+        {
+          "content": "量より質のほうが大切だ。",
+          "transcription": "りょうよりしつのほうがたいせつだ。",
+          "mean": "Quality is more important than quantity."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + のほうが + A-い/ Na-な + です"
+    }
+  ],
+  "title": "のほうが...です => one is better than the other",
+  "_id": "f2d618ceb0702f781ec83b7d4f3a637b"
+}

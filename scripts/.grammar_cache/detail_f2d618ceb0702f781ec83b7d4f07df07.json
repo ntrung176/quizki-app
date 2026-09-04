@@ -1,0 +1,48 @@
+{
+  "level": "N4",
+  "mobileId": 2492,
+  "usages": [
+    {
+      "explain": "予定だ（よていだ）describes something that the speaker plans or intends to do. This plan has been officially decided.",
+      "note": null,
+      "examples": [
+        {
+          "content": "来月日本へ出張する予定です。",
+          "transcription": "らいげつにっぽんへしゅっちょうするよていです。",
+          "mean": "I am planning to go on a business trip to Japan next month."
+        },
+        {
+          "content": "会議は１２時までの予定です。",
+          "transcription": "かいぎはいちにじまでのよていです。",
+          "mean": "The meeting is scheduled to last until 12:00."
+        },
+        {
+          "content": "東京へ行く予定だ。",
+          "transcription": "とうきょうへいくよていだ。",
+          "mean": "I'm planning to go to Tokyo."
+        },
+        {
+          "content": "東京へ行くつもりだ。",
+          "transcription": "とうきょうへいくつもりだ。",
+          "mean": "I'm going to Tokyo."
+        },
+        {
+          "content": "東京へ行こうと思う。",
+          "transcription": "とうきょうへいこうとおもう。",
+          "mean": "I'm thinking of going to Tokyo."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る・Nの + 予定だ"
+    },
+    {
+      "explain": "Distinguishing between 「予定だ」, 「つもりだ」, and 「ようと思う」. 「予定だ」 differs from the other two patterns in that it describes a pre-planned schedule or plan, not just the intention of the speaker. Both 「つもりだ」 and 「ようと思う」 express the speaker's intention to do something, but 「つもりだ」 indicates an intention that has been formed beforehand, while 「ようと思う」 expresses a more spontaneous intention that comes up at the moment of speaking.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "よていだ => plan to, intend to",
+  "_id": "f2d618ceb0702f781ec83b7d4f07df07"
+}

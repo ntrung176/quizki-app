@@ -1,0 +1,33 @@
+{
+  "level": "N4",
+  "mobileId": 2645,
+  "usages": [
+    {
+      "explain": "Expresses the meaning of continuation, maintaining a state without change.",
+      "note": null,
+      "examples": [
+        {
+          "content": "寒いので暖房はつけたままにしておいてください。",
+          "transcription": "さむいのでだんぼうはつけたままにしておいてください。",
+          "mean": "It's cold so please leave the heating on."
+        },
+        {
+          "content": "そのボタンを押したままにしておいてください。",
+          "transcription": "そのぼたんをおしたままにしておいてください。",
+          "mean": "Keep that button pressed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + ままにする"
+    },
+    {
+      "explain": "Note: Distinguish between ままになる and ままにする. ままになる is used with the implication that the state maintains itself and does not mention the object of the action. ままにする indicates that the state is maintained by an external force.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "ままにする => as, to do as ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f1c88b4"
+}

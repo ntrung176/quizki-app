@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1351,
+  "usages": [
+    {
+      "explain": "Expresses unexpected content, contrary to predictions. Used when feeling like complaining or criticizing someone. This is a colloquial usage.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は自分ではなにもしない。そのくせ、文句だけは言う。",
+          "transcription": "かれはじぶんではなにもしない。そのくせ、もんくだけはいう。",
+          "mean": "he doesn't do anything himself. Despite that, I only complain."
+        },
+        {
+          "content": "このアパートは便利じゃない。そのうち、家賃がとても高い。",
+          "transcription": "このあぱーとはべんりじゃない。そのうち、やちんがとてもたかい。",
+          "mean": "This apartment is not convenient. Meanwhile, the rent is very high."
+        }
+      ],
+      "mean": null,
+      "synopsis": "そのくせ～"
+    }
+  ],
+  "title": "そのくせ => and yet; though; in spite of; despite ~",
+  "_id": "f7ff14dae05876cac58b41369369fc52"
+}

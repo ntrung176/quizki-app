@@ -1,0 +1,51 @@
+{
+  "level": "N5",
+  "mobileId": 5606,
+  "usages": [
+    {
+      "explain": "「くれる」 is similar to 「あげる」 in that they both express the idea of \"someone doing something for someone else,\" but they differ in that the recipient (N2) of the action must be \"me\" or someone closely associated with \"me\" (more intimate or closer to \"me\" than N1). Note:<br/>\n\n-「くれる」 carries the nuance that \"the person doing (N1) actively wants to perform the action for (N2),\" thereby also expressing the speaker's gratitude \"me\" towards the doer (N1).<br/>\n- When the recipient (N2) is \"me,\" \"私に\" can be omitted.<br/>\n- Depending on the verb V, the particle に after N2 can be replaced with を or と.<br/>\n- When N is the possession of N2, \"N2にNを\" can be replaced with \"N2のNを.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "母はセーターを送ってくれました。",
+          "transcription": "はははセーターをおくってくれました。",
+          "mean": "My mother sent me a sweater."
+        },
+        {
+          "content": "彼女は弁当を作ってくれます。",
+          "transcription": "かのじょはべんとうをつくってくれます。",
+          "mean": "She makes a bento."
+        },
+        {
+          "content": "山田さんは母にお菓子を買ってくれました。",
+          "transcription": "やまださんはははにおかしをかってくれました。",
+          "mean": "Mr. Yamada bought sweets for my mother."
+        },
+        {
+          "content": "田中さんは妹を迎えに行ってくれました。",
+          "transcription": "たなかさんはいもうとをむかえにいってくれました。",
+          "mean": "Mr. Tanaka went to pick up his sister."
+        },
+        {
+          "content": "吉田さんは息子と遊んでくれました。",
+          "transcription": "よしださんはむすことあそんでくれました。",
+          "mean": "Mr. Yoshida played with his son."
+        },
+        {
+          "content": "小林さんは私の荷物を運んでくれました。",
+          "transcription": "こばやしさんはわたしのにもつをはこんでくれました。",
+          "mean": "Mr. Kobayashi carried my luggage."
+        },
+        {
+          "content": "先生は私にこの漢字の意味を説明してくれた。",
+          "transcription": "せんせいはわたしにこのかんじのいみをせつめいしてくれた。",
+          "mean": "The teacher explained to me the meaning of this kanji."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N1は N2に Nを Vて+くれる"
+    }
+  ],
+  "title": "てくれる => to do a favor; do something for someone",
+  "_id": "082338fe3ad3438d8186288169dfbcb8"
+}

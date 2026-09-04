@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5403,
+  "usages": [
+    {
+      "explain": "「にしては」is used to express a fact that is contrary to what one might expect or imagine. The part before 'にしては' represents the imagination or prediction, while the part after it indicates the actual, contrasting fact.",
+      "note": null,
+      "examples": [
+        {
+          "content": "外国人にしては、日本語が上手だ。",
+          "transcription": "がいこくじんにしては、にほんごがじょうずだ。",
+          "mean": "For a foreigner, his Japanese is good."
+        },
+        {
+          "content": "初めてにしては、よくできました。",
+          "transcription": "はじめてにしては、よくできました。",
+          "mean": "Well done for my first time."
+        },
+        {
+          "content": "たくさん勉強したにしては、低い点数だった。",
+          "transcription": "たくさんべんきょうしたにしては、ひくいてんすうだった。",
+          "mean": "Even though I studied a lot, I got a low score."
+        },
+        {
+          "content": "父は50歳にしては、若く見える。",
+          "transcription": "ちちはごじゅっさいにしては、わかくみえる。",
+          "mean": "My father looks young even though he is 50 years old."
+        },
+        {
+          "content": "2年もアメリカに住んでいたにしては、彼女は英語が下手だ。",
+          "transcription": "にねんもアメリカにすんでいたにしては、かのじょはえいごがへただ。",
+          "mean": "Even though she has lived in America for two years, she is not good at English."
+        },
+        {
+          "content": "日本に来たことがないにしては、日本をよく知っているね。",
+          "transcription": "にほんにきたことがないにしては、にほんをよくしっているね。",
+          "mean": "Even though you have never been to Japan, you know Japan very well."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N/V (formal form)+にしては<br/>(almost doesn’t go along with adjectives)"
+    }
+  ],
+  "title": "にしては => for; considering it’s (something or someone)",
+  "_id": "4bd03be8892e4d10a715fc46184ba944"
+}

@@ -1,0 +1,56 @@
+{
+  "level": "N3",
+  "mobileId": 5344,
+  "usages": [
+    {
+      "explain": "「一体」 is frequently used in interrogative sentences, indicating the speaker's uncertain or unclear attitude towards a particular matter, thereby emphasizing suspicion or interrogation towards the listener.",
+      "note": null,
+      "examples": [
+        {
+          "content": "一体どこで彼に会ったんだ。",
+          "transcription": "いったいどこでかれにあったんだ。",
+          "mean": "Where on earth did you meet him?"
+        },
+        {
+          "content": "あなたは一体何をしていますか。",
+          "transcription": "あなたはいったいなにをしていますか。",
+          "mean": "what on earth are you doing?"
+        },
+        {
+          "content": "あの人は一体何の者だ？",
+          "transcription": "あのひとはいったいなんのものだ？",
+          "mean": "Who the hell is that person?"
+        },
+        {
+          "content": "彼女は一体どこに住んでいるだろう。",
+          "transcription": "かのじょはいったいどこにすんでいるだろう。",
+          "mean": "Where on earth would she live?"
+        },
+        {
+          "content": "一体誰が彼女にそんなことを言ったのか。",
+          "transcription": "いったいだれがかのじょにそんなことをいったのか。",
+          "mean": "Who the hell said that to her?"
+        },
+        {
+          "content": "この騒ぎは一体なんですか。",
+          "transcription": "このさわぎはいったいなんですか。",
+          "mean": "What is all this fuss about?"
+        },
+        {
+          "content": "君が欲しいのは一体何だ。",
+          "transcription": "きみがほしいのはいったいなんだ。",
+          "mean": "What exactly do you want?"
+        },
+        {
+          "content": "一体彼の話は本当だろうか。",
+          "transcription": "いったいかれのはなしはほんとうだろうか。",
+          "mean": "Can his story be true?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "一体+Question"
+    }
+  ],
+  "title": "一体 => …the heck; …in the world; …on earth",
+  "_id": "01c17e3ed9db4936bcda28e1d322bd3a"
+}

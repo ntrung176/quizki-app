@@ -1,0 +1,56 @@
+{
+  "level": "N5",
+  "mobileId": 5604,
+  "usages": [
+    {
+      "explain": "「けど」is used to connect two clauses with contrasting meanings, showing a contrast or contradiction. This conjunction has a similar meaning to 「けれど」and「が」but is less formal and is commonly used in everyday conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "遅いけど、宿題がまだあるから寝られません。",
+          "transcription": "おそいけど、しゅくだいがまだあるからねられません。",
+          "mean": "It's late, but I still have homework so I can't sleep."
+        },
+        {
+          "content": "朝寝坊したけど、学校に間に合いました。",
+          "transcription": "あさねぼうしたけど、がっこうにまにあいました。",
+          "mean": "I overslept in the morning, but I made it to school on time."
+        },
+        {
+          "content": "たくさん勉強したけど、テストの点数がよくなかったです。",
+          "transcription": "たくさんべんきょうしたけど、テストのてんすうがよくなかったです。",
+          "mean": "I studied a lot, but my test scores were not good."
+        },
+        {
+          "content": "お腹がすいたけど、今食べたくない。",
+          "transcription": "おなかがすいたけど、いまたべたくない。",
+          "mean": "I'm hungry, but I don't want to eat right now."
+        },
+        {
+          "content": "日本の生活がよかったけど、まだベトナムへ帰りたかった。",
+          "transcription": "にほんのせいかつがよかったけど、まだベトナムへかえりたかった。",
+          "mean": "Life in Japan was good, but I still wanted to go back to Vietnam."
+        },
+        {
+          "content": "これは高いけど、君が好きなら買ってあげる。",
+          "transcription": "これはたかいけど、きみがすきならかってあげる。",
+          "mean": "This is expensive, but if you like it, I'll buy it."
+        },
+        {
+          "content": "あのかばんは綺麗だけど、高いから買いません。",
+          "transcription": "あのかばんはきれいだけど、たかいからかいません。",
+          "mean": "That bag is beautiful, but it's expensive so I won't buy it."
+        },
+        {
+          "content": "昨日は私の誕生日だったけど、彼は帰らなかった。",
+          "transcription": "きのうはわたしのたんじょうびだったけど、かれはかえらなかった。",
+          "mean": "Yesterday was my birthday, but he didn't come home."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Clause 1 (formal form) けど、Clause 2<br/>"
+    }
+  ],
+  "title": "けど => but; however; although ~",
+  "_id": "3eaa4b6d22c24e2c88244e8c5d0c2117"
+}

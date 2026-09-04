@@ -1,0 +1,106 @@
+{
+  "level": "N3",
+  "mobileId": 5399,
+  "usages": [
+    {
+      "explain": "「によって」<br/>\n1. Indicates the cause or reason for an event. \"Due to...\"/\"Because of...\"<br/>\n2. Indicates the method or means of doing something. \"By means of...\"/\"Using...\"<br/>\nNote: It's difficult to use「によって」when referring to everyday tools (knives, scissors, phones) used in a personal manner. However, it can be used in the form of「によるN'」.<br/>\n\nExample:\n合否の結果は後日書面で連絡します。電話による問い合わせは受け付けません。\n(The results of the pass or fail will be notified in writing later. We do not accept inquiries by phone.)<br/>\n\n3. Indicates a condition under which something will change accordingly. After「によって」, verbs indicating change such as 違う (to differ), 異なる (to vary), 変わる (to change) are often used. Alternatively, the predicate itself can be「による」without the need for another verb indicating change. When adding the particle は, it becomes「によっては」, indicating a special case that could occur under the condition mentioned.<br/>\n\n「により」is a more formal version of「によって」and is used more frequently in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "不注意によって、大事故が発生した。",
+          "transcription": "ふちゅういによって、だいじこがはっせいした。",
+          "mean": "A major accident occurred due to carelessness."
+        },
+        {
+          "content": "台風によって、屋根が飛ばされた。",
+          "transcription": "たいふうによって、やねがとばされた。",
+          "mean": "The roof was blown off by the typhoon."
+        },
+        {
+          "content": "スマホを長時間使用することによって、肩こりが生じることもある。",
+          "transcription": "スマホをちょうじかんしようすることによって、かたこりがしょうじることもある。",
+          "mean": "Using a smartphone for a long time can cause stiff shoulders."
+        },
+        {
+          "content": "話し合いによって、問題を解決する。",
+          "transcription": "はなしあいによって、もんだいをかいけつする。",
+          "mean": "Solve problems through discussion."
+        },
+        {
+          "content": "この織物は今でも昔ながらの製法により織られている。",
+          "transcription": "このおりものはいまでもむかしながらのせいほうによりおられている。",
+          "mean": "This fabric is still woven using traditional methods."
+        },
+        {
+          "content": "最近拳銃による強盗事件が多発している。",
+          "transcription": "さいきんけんじゅうによるごうとうじけんがたはつしている。",
+          "mean": "There has been an increase in robberies using handguns recently."
+        },
+        {
+          "content": "この本は有名な作家によって書かれました。",
+          "transcription": "この本はゆうめいなさっかによって書かれました。",
+          "mean": "This book was written by a famous author."
+        },
+        {
+          "content": "人によって考え方が違います。",
+          "transcription": "ひとによってかんがえかたがちがいます。",
+          "mean": "People have different ways of thinking."
+        },
+        {
+          "content": "新聞によってニュースの伝え方が違う。",
+          "transcription": "しんぶんによってニュースのつたえかたがちがう。",
+          "mean": "News is reported differently depending on the newspaper."
+        },
+        {
+          "content": "商品によって、一番売れるシーズンは異なる。",
+          "transcription": "しょうひんによって、いちばんうれるシーズンはことなる。",
+          "mean": "The best selling season varies depending on the product."
+        },
+        {
+          "content": "話し方によって、相手に与える印象は変わる。",
+          "transcription": "はなしかたによって、あいてにあたえるいんしょうはかわる。",
+          "mean": "The impression you leave on the other person changes depending on how you speak."
+        },
+        {
+          "content": "話す相手によって、言葉遣いを変える必要がある。",
+          "transcription": "はなすあいてによって、ことばづかいをかえるひつようがある。",
+          "mean": "You need to change your language depending on the person you are speaking to."
+        },
+        {
+          "content": "あの人が行くかどうかによって、私も行くか決めます。",
+          "transcription": "あのひとがいくかどうかによって、わたしもいくかきめます。",
+          "mean": "I will decide whether to go depending on whether that person goes or not."
+        },
+        {
+          "content": "人数によっては、いつもと違う会場を借りようと思います。",
+          "transcription": "にんずうによっては、いつもとちがうかいじょうをかりようとおもいます。",
+          "mean": "Depending on the number of people, we might rent a different venue than usual."
+        },
+        {
+          "content": "日にちによっては、空いている時もある。",
+          "transcription": "ひにちによっては、あいているときもある。",
+          "mean": "Depending on the date, it may be empty."
+        },
+        {
+          "content": "好きな食べ物は人による。",
+          "transcription": "すきなたべものはひとによる。",
+          "mean": "Favorite food depends on the person."
+        },
+        {
+          "content": "大量のご注文による値引きは、ご注文の数によります。",
+          "transcription": "たいりょうのごちゅうもんによるねびきは、ごちゅうもんのかずによります。",
+          "mean": "The quantity discounts are according to the size of the order."
+        },
+        {
+          "content": "未成年者の飲酒は、法律により禁じられている。",
+          "transcription": "みせいねんしゃのいんしゅは、ほうりつによりきんじられている。",
+          "mean": "Underage drinking is prohibited by law."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+によって <br/> N+によっては <br/> N+により <br/>N+による<br/>N+によるN'"
+    }
+  ],
+  "title": "によって => by means of; due to; owing to; because of ~",
+  "_id": "372a744cc5a14671bfb58048b2c0e128"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1319,
+  "usages": [
+    {
+      "explain": "Used to strongly negate \"absolutely not\", \"definitely not to be repeated\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "こんなひどい仕事は二度としたくない。",
+          "transcription": "こんなひどいしごとはにどとしたくない。",
+          "mean": "I never want to do such a terrible job again."
+        },
+        {
+          "content": "こんな幸運は二度と訪れないだろう。",
+          "transcription": "こんなこううんはにどとおとずれないだろう。",
+          "mean": "Such luck will never come again."
+        },
+        {
+          "content": "あんな料理がまずいレストランには二度と行きたくない。",
+          "transcription": "あんなりょうりがまずいれすとらんにはにどといきたくない。",
+          "mean": "I don't want to go to a restaurant with such bad food again."
+        }
+      ],
+      "mean": null,
+      "synopsis": "にどと + Vない"
+    }
+  ],
+  "title": "にどと～ない => No...second time",
+  "_id": "f7ff14dae05876cac58b41369365ce52"
+}

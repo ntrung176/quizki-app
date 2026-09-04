@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 1823,
+  "usages": [
+    {
+      "explain": "■ Used with verbs or nouns indicating time, age, position, events, etc., to express the meaning \"in a situation reaching this level\".<br/>■ Followed by expressions indicating judgment: If the situation changes, then of course, the matter will also change accordingly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "社会人ともなると、服装や言葉遣いにも気をつけなければならない。",
+          "transcription": "しゃかいじんともなると、ふくそうやことばづかいにもきをつけなければならない。",
+          "mean": "When you become a member of society, you have to be careful about your clothes and the way you speak."
+        },
+        {
+          "content": "主婦ともなると、独身時代のような自由な時間はなくなる。",
+          "transcription": "しゅふともなると、どくしんじだいのようなじゆうなじかんはなくなる。",
+          "mean": "When you become a housewife, you no longer have the free time you had when you were single."
+        },
+        {
+          "content": "子供は小さいときは素直だが、中学生ともなると、親の言うことを聞かなくなる。",
+          "transcription": "こどもはちいさいときはすなおだが、ちゅうがくせいともなると、おやのいうことをきかなくなる。",
+          "mean": "Children are obedient when they are young, but by the time they reach middle school, they no longer listen to what their parents say."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>■Vる／ Vた／ Vない + ともなると </div><div>■N + ともなると</div>"
+    }
+  ],
+  "title": "～と(も)なると/と(も)なれば => ～Just, whenever, once",
+  "_id": "f7ff14dae05876cac58b413693ab88ae"
+}

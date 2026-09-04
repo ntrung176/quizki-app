@@ -1,0 +1,71 @@
+{
+  "level": "N3",
+  "mobileId": 5454,
+  "usages": [
+    {
+      "explain": "Sure, here is the translation with the 「」 and <br/> tags preserved:\n\n「は～で<ruby><rb>有名</rb><rp>(</rp><rt>ゆうめい</rt><rp>)</rp></ruby>」indicates that a person, place, thing, etc., is famous or well-known for a certain quality, aspect, or field.",
+      "note": null,
+      "examples": [
+        {
+          "content": "日本は電子製品で有名です。",
+          "transcription": "にほんはでんしせいひんでゆうめいです。",
+          "mean": "Japan is famous for electronic products."
+        },
+        {
+          "content": "京都は古いお寺があることで有名だ。",
+          "transcription": "きょうとはふるいおてらがあることでゆうめいだ。",
+          "mean": "Kyoto is famous for its old temples."
+        },
+        {
+          "content": "この学校はフットボールが強いことで有名です。",
+          "transcription": "このがっこうはフットボールがつよいことでゆうめいです。",
+          "mean": "This school is famous for its strong football."
+        },
+        {
+          "content": "あのレストランは値段が安いことで有名です。",
+          "transcription": "あのレストランはねだんがやすいことでゆうめいです。",
+          "mean": "That restaurant is famous for its low prices."
+        },
+        {
+          "content": "彼は珍しい動物をたくさん飼っていることで有名です。",
+          "transcription": "かれはめずらしいどうぶつをたくさんかっていることでゆうめいです。",
+          "mean": "He is famous for having many rare animals."
+        },
+        {
+          "content": "ハワイは新婚旅行やバカンスの所で有名ですね。",
+          "transcription": "ハワイはしんこんりょこうやバカンスのところでゆうめいですね。",
+          "mean": "Hawaii is famous for honeymoons and vacations."
+        },
+        {
+          "content": "その動物園は、日本で一番パンダが多いことで有名です。",
+          "transcription": "そのどうぶつえんは、にほんでいちばんパンダがおおいことでゆうめいです。",
+          "mean": "The zoo is famous for having the most pandas in Japan."
+        },
+        {
+          "content": "この町は温泉で有名ですよ。時間があれば行ってみてください。",
+          "transcription": "このまちはおんせんでゆうめいですよ。じかんがあればいってみてください。",
+          "mean": "This town is famous for its hot springs. Please go if you have time."
+        },
+        {
+          "content": "日本は安全なことで有名です。",
+          "transcription": "にほんはあんぜんなことでゆうめいです。",
+          "mean": "Japan is famous for being safe."
+        },
+        {
+          "content": "日本のトイレはきれいで有名だ。",
+          "transcription": "にほんのトイレはきれいでゆうめいだ。",
+          "mean": "Japanese toilets are famous for being clean."
+        },
+        {
+          "content": "スイスは何で有名ですか。",
+          "transcription": "スイスはなんでゆうめいですか。",
+          "mean": "What is Switzerland famous for?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+で有名<br/>A<s>な</s>/Aなこと+で有名<br/> Aいこと+で有名<br/>Vること+で有名<br/>"
+    }
+  ],
+  "title": "は～で有名 => famous for ~",
+  "_id": "49ef693400fa4e5b8c1973189484890f"
+}

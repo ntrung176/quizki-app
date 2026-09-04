@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1442,
+  "usages": [
+    {
+      "explain": "Expresses the idea of solving a certain situation, where the only option left is to do something, even though it may not be desired. Also expressed as 「...ほかしかたがない」, 「...以外にしかたがない」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "アメリカに引越したら英語を勉強するより仕方がない。",
+          "transcription": "あめりかにひっこしたらえいごをべんきょうするよりしかたがない。",
+          "mean": "If I move to America, I have no choice but to study English."
+        },
+        {
+          "content": "体の調子が悪くなってきたので仕事を辞めるより仕方がない。",
+          "transcription": "からだのちょうしがわるくなってきたのでしごとをやめるよりしかたがない。",
+          "mean": "My health has deteriorated, so I have no choice but to quit my job."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る + よりしかたがない"
+    }
+  ],
+  "title": "よりしかたがない => There is no choice but, Can't be helped, Inevitable",
+  "_id": "f7ff14dae05876cac58b4136937731f7"
+}

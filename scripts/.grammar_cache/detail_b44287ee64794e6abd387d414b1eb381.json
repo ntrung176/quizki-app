@@ -1,0 +1,96 @@
+{
+  "level": "N4",
+  "mobileId": 5569,
+  "usages": [
+    {
+      "explain": "「受身形」is the passive form of a verb, often used in passive sentences to indicate that the subject is affected by someone or something's action (directly or indirectly). Specifically:<br/><br/>\n\n1. Direct Passive:<br/>\n- N1 receives direct action from N2. V is a passive verb, and the \"bị/được\" form depends on the meaning of this passive verb. If V has its own direct object (N), then this object is marked with を. Examples:<br/>\n　田中さんは木村さんに殴られた。(Tanaka was hit by Kimura.)<br/>\n　私は先生に褒められた。(I was praised by the teacher.)<br/>\n　母は私に買い物を頼まれました。(My mother asked me to do the shopping.)<br/><br/>\n \n2. Indirect Passive:<br/>\na. N1 receives indirect action from N2, where N2 acts upon something that N1 possesses (body part, belongings, someone related to N1...). V is a passive verb. Examples:<br/>\n　私は知らない人に足を踏まれた。(I got stepped on by a stranger.)<br/>\n　私は泥棒に財布を盗まれた。(My wallet was stolen by a thief.)<br/>\n　私は先生に娘を褒められた。(My daughter was praised by the teacher.)<br/><br/>\n\nb. While N1 doesn't directly receive the action, they are inconvenienced by N2's action. V is an intransitive verb. Examples:<br/>\n　私は子供に泣かれた。(My child kept crying.)<br/>\n　父に死なれて、大学を続けられなくなりました。(Because of my father's death, I couldn't continue university.)<br/>\n* Note:<br/>\n　+ Not always negative, for example:<br/>\n　きれいな女性に微笑まれて、ドキドキした。(I felt excited when smiled at by a beautiful woman.)<br/>\n　+ When N2 is an inanimate object and its action occurs naturally, the passive form is less common.<br/>\n　石に突然、落ちられました。✖ (Not commonly used in passive)<br/>\n　電気に消えられて、困りました。✖ (Not commonly used in passive)<br/>\n　Riêng「雨に降られました。」is a special case.<br/><br/>\n\n3. Passive for Objectivity:<br/>\n- N1 is an event, occurrence. N2 is a famous person; many people (indefinite number); an unspecified someone; or an object that can be omitted. Examples:<br/>\n　「源氏物語」は紫式部によって書かれた。(\"The Tale of Genji\" was written by Murasaki Shikibu.)<br/>\n　この雑誌は多くの人に読まれている。(This magazine is read by many people.)<br/>\n　花壇の花は何者かに切りとられた。(The flowers in the flower bed were cut by someone.)<br/>\n　この建物は100年前に建てられました。(This building was constructed 100 years ago.)<br/><br/>\n\n- When V is a creative activity (creation, invention, discovery, construction...), に after N2 changes to によって. Examples:<br/>\n　電話はベルによって発明されました。(The telephone was invented by Bell.)<br/>\n　漢字は中国人によって作られて、後日本に流入されたそうですよ。(Chinese characters were created by Chinese people and later introduced to Japan.)",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は会社のものを盗んだから、警察に捕まえられた。",
+          "transcription": "かれはかいしゃのものをぬすんだから、けいさつにつかまえられた。",
+          "mean": "He was caught by the police because he stole something from the company."
+        },
+        {
+          "content": "彼は会社の許可なしで計画を漏らしていたから、会社にクビをされました。",
+          "transcription": "かれはかいしゃのきょかなしでけいかくをもらしていたから、かいしゃにクビをされました。",
+          "mean": "He was fired by the company because he had leaked the plans without the company's permission."
+        },
+        {
+          "content": "私は先生に褒められました。",
+          "transcription": "わたしはせんせいにほめられました。",
+          "mean": "I was praised by my teacher."
+        },
+        {
+          "content": "今日は先輩に2回を注意されました。",
+          "transcription": "きょうはせんぱいににかいをちゅういされました。",
+          "mean": "My senior warned me twice today."
+        },
+        {
+          "content": "姉に部屋の掃除を頼まれました。",
+          "transcription": "あねにへやのそうじをたのまれました。",
+          "mean": "My sister asked me to clean her room."
+        },
+        {
+          "content": "僕は知らない男に道を聞かれました。",
+          "transcription": "ぼくはしらないおとこにみちをきかれました。",
+          "mean": "A man I didn't know asked me for directions."
+        },
+        {
+          "content": "私は知らない人に足を踏まれた。",
+          "transcription": "わたしはしらないひとにあしをふまれた。",
+          "mean": "My foot was stepped on by a stranger."
+        },
+        {
+          "content": "妹に携帯電話を壊されました。",
+          "transcription": "いもうとにけいたいでんわをこわされました。",
+          "mean": "My sister broke my cell phone."
+        },
+        {
+          "content": "友人に彼氏を取られた。",
+          "transcription": "ゆうじんにかれしをとられた。",
+          "mean": "My friend took my boyfriend."
+        },
+        {
+          "content": "毎日書いている日記を友人に見られた。",
+          "transcription": "まいにちかいているにっきをゆうじんにみられた。",
+          "mean": "A friend saw the diary I wrote every day."
+        },
+        {
+          "content": "急に社員に辞められた。",
+          "transcription": "きゅうにしゃいんにやめられた。",
+          "mean": "The employee suddenly resigned."
+        },
+        {
+          "content": "雨に降られて、服が濡れてしまった。",
+          "transcription": "あめにふられて、ふくがぬれてしまった。",
+          "mean": "It was raining and my clothes got wet."
+        },
+        {
+          "content": "『こころ』は夏目井漱石によって書かれました。",
+          "transcription": "『こころ』はなつめいそうせきによってかかれました。",
+          "mean": "\"Kokoro\" was written by Natsume Soseki."
+        },
+        {
+          "content": "この雑誌は多くの人に読まれている。",
+          "transcription": "このざっしはおおくのひとによまれている。",
+          "mean": "This magazine is read by many people."
+        },
+        {
+          "content": "金庫が誰かに開けられた。",
+          "transcription": "きんこがだれかにあけられた。",
+          "mean": "Someone opened the safe."
+        },
+        {
+          "content": "あのビールは30年前に建てられました。",
+          "transcription": "あのビールはさんじゅうねんまえにたてられました。",
+          "mean": "That beer was built 30 years ago."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Group 1: (い)ます ➔ (あ)れます (Eg: 行きます ➔ 行かれます)<br/> Group 2: (え)ます ➔ (え)られます (Eg: 食べます ➔ 食べられます)<br/>Group 3: します ➔ されます (Eg: 勉強します ➔ 勉強されます)<br/> きます ➔ こられます (Eg: 学校へきます ➔ 学校へこられます)<br/><br/>\n1. N1は N2に (Nを) V (intransitive passive form)<br/>\n2.a. N1は N2に Nを V (intransitive passive form)<br/>\n2.b. N1は N2に V (intransitive passive form)<br/>\n3. N1は/が (N2に) V (passive form)"
+    }
+  ],
+  "title": "受身形 => Passive voice",
+  "_id": "b44287ee64794e6abd387d414b1eb381"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 932,
+  "usages": [
+    {
+      "explain": "Used when discovering the cause or reason for a certain result, after applying the speaker's knowledge or common societal thinking.<br/>Similar in meaning to 「やはり」, but 「さすがに...だけのことはある」is only used in positive evaluations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "他のチームに簡単に勝てた。さすがに全国チャンピオンだけのことはある。",
+          "transcription": "たのちーむにかんたんにかてた。さすがにぜんこくちゃんぴおんだけのことはある。",
+          "mean": "We easily beat the other teams. As expected, there are things that only happen to national champions."
+        },
+        {
+          "content": "佐藤さんは東京大学に合格した。さすがに一生懸命勉強しているだけのことはあるね。",
+          "transcription": "さとうさんはとうきょうだいがくにごうかくした。さすがにいっしょうけんめいべんきょうしているだけのことはあるね。",
+          "mean": "Mr. Sato was accepted to the University of Tokyo. It's just that I'm studying hard."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だけのことはある\nA－い / Naな + だけのことはある\nV + だけのことはある"
+    }
+  ],
+  "title": "さすがに…だけのことはある => no wonder; as expected of; not … for nothing; not … with nothing to show for it",
+  "_id": "f7ff14dae05876cac58b4136933162ac"
+}

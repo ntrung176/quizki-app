@@ -1,0 +1,86 @@
+{
+  "level": "N3",
+  "mobileId": 5402,
+  "usages": [
+    {
+      "explain": "「にしても/にしろ/にせよ」expresses the following ideas:<br/>\n1. Despite acknowledging that the situation will be as stated, it is still hard to accept because reality exceeds imagination. The second clause expresses the speaker's viewpoint, opinion, or dissatisfaction. There is a fixed phrase often used, それにしても, meaning \"even so / nevertheless / however...\"<br/>\n2. Regardless of how the situation or action in the first clause is, it does not affect the situation or action in the second clause. The second clause also expresses the speaker's viewpoint, opinion, or dissatisfaction.<br/>\n「にしても」is commonly used in everyday spoken language, while 「にしろ/にせよ」are more formal and are often used in writing or speeches. 「にせよ」is more formal than 「にしろ」.<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "遅れるとは聞いていたけど、それにしても田中さん、遅いね。",
+          "transcription": "おくれるとはきいていたけど、それにしてもたなかさん、おそいね。",
+          "mean": "I heard you'd be late, but Tanaka-san, you're late."
+        },
+        {
+          "content": "今回の試験は合格したにしても、点数はあまり良くないと思う。",
+          "transcription": "こんかいのしけんはごうかくしたにしても、てんすうはあまりよくないとおもう。",
+          "mean": "Even if I passed this exam, I don't think my score was very good."
+        },
+        {
+          "content": "合格ラインぎりぎりだったにしても、努力の成果で合格したのだから喜ぶべきだ。",
+          "transcription": "ごうかくラインぎりぎりだったにしても、どりょくのけっかでごうかくしたのだからよろこぶべきだ。",
+          "mean": "Even if you were just on the verge of passing, you should be happy because you passed as a result of your hard work."
+        },
+        {
+          "content": "全然勉強しなかったにしろ、0点はひどい結果だと思う。",
+          "transcription": "ぜんぜんべんきょうしなかったにしろ、れいてんはひどいけっかだとおもう。",
+          "mean": "Even if you didn't study at all, I think a score of 0 is a terrible result."
+        },
+        {
+          "content": "料理をあまり作らないにしろ、カップラーメンも作れないのは信じられない。",
+          "transcription": "りょうりをあまりつくらないにしろ、カップラーメンもつくれないのはしんじられない。",
+          "mean": "Even though I don't cook much, I can't believe I can't even make cup ramen."
+        },
+        {
+          "content": "彼は新入社員にせよ、仕事ができない。",
+          "transcription": "かれはしんにゅうしゃいんにせよ、しごとができない。",
+          "mean": "Even though he is a new employee, he cannot do his job."
+        },
+        {
+          "content": "このパソコンは2万円にせよ、品質が低い。",
+          "transcription": "このパソコンはにまんえんにせよ、ひんしつがひくい。",
+          "mean": "Even though this computer costs 20,000 yen, its quality is low."
+        },
+        {
+          "content": "台風が来たにしても、仕事を休むことはできない。",
+          "transcription": "たいふうがきたにしても、しごとをやすむことはできない。",
+          "mean": "Even if a typhoon comes, I can't take time off from work."
+        },
+        {
+          "content": "会社の規則が厳しくなって、最近は残業するにしても、上司の許可が必要だ。",
+          "transcription": "かいしゃのきそくがきびしくなって、さいきんはざんぎょうするにしても、じょうしのきょかがひつようだ。",
+          "mean": "Company rules have become stricter, and even if you want to work overtime these days, you need permission from your boss."
+        },
+        {
+          "content": "どんな仕事をするにしても、人間関係は大切だ。",
+          "transcription": "どんなしごとをするにしても、にんげんかんけいはたいせつだ。",
+          "mean": "No matter what kind of work you do, human relationships are important."
+        },
+        {
+          "content": "いくら貧しかったにしろ、万引きは立派な犯罪だ。",
+          "transcription": "いくらまずしかったにしろ、まんびきはりっぱなはんざいだ。",
+          "mean": "No matter how poor you are, shoplifting is a serious crime."
+        },
+        {
+          "content": "小さい会社であるにしろ、税金はしっかり納めなければならない。",
+          "transcription": "ちいさいかいしゃであるにしろ、ぜいきんはしっかりおさめなければならない。",
+          "mean": "Even if you are a small company, you must pay taxes."
+        },
+        {
+          "content": "どんな理由があったにせよ、連絡もなく採用試験に遅刻したら内定獲得は難しいだろう。",
+          "transcription": "どんなりゆうがあったにせよ、れんらくもなくさいようしけんにちこくしたらないていかくとくはむずかしいだろう。",
+          "mean": "Whatever the reason, if you show up late for the recruitment exam without any notice, it will be difficult to get a job offer."
+        },
+        {
+          "content": "時間がないにせよ、プロジェクトを成功させるためには計画をしっかり練らなければならない。",
+          "transcription": "じかんがないにせよ、プロジェクトをせいこうさせるためにはけいかくをしっかりねらなければならない。",
+          "mean": "Even if you don't have the time, you need to plan well in order to make your project a success."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+にしても / にしろ / にせよ<br/>\n(In this particular case: A<s>な</s>だ ➔ A<s>だ</s>/A<s>だ</s>である<br/> Nだ ➔ N<s>だ</s>/N<s>だ</s>である)"
+    }
+  ],
+  "title": "にしても/にしろ/にせよ => even if; regardless; whether… or ~",
+  "_id": "c4d14c9c9ece47b3b236ba46f02abda9"
+}

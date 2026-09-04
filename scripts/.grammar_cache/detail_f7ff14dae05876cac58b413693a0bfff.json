@@ -1,0 +1,36 @@
+{
+  "level": "N3",
+  "mobileId": 1748,
+  "usages": [
+    {
+      "explain": "The meaning and usage are similar to 「ただろう」, expressing speculation about an event. Used in both written and spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "父は若い時はとても格好いかったろう。",
+          "transcription": "ちちはわかいときはとてもかっこういかったろう。",
+          "mean": "My father must have been very cool when he was young."
+        },
+        {
+          "content": "彼女の生活は大変だったろう。",
+          "transcription": "かのじょのせいかつはたいへんだったろう。",
+          "mean": "Her life must have been difficult."
+        },
+        {
+          "content": "確かに嬉しかったろう。",
+          "transcription": "たしかにうれしかったろう。",
+          "mean": "I'm sure he was happy."
+        },
+        {
+          "content": "喉が乾いたろう。",
+          "transcription": "のどがかわいたろう。",
+          "mean": "Your throat must be dry."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na-だったろう\nA-かったろう\nV-たろう"
+    }
+  ],
+  "title": "たろう => probably is ~",
+  "_id": "f7ff14dae05876cac58b413693a0bfff"
+}

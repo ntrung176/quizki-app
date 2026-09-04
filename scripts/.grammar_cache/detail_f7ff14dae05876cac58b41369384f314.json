@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1534,
+  "usages": [
+    {
+      "explain": "Conveys the meaning \"even if the action or event in the preceding clause occurs, the action or event in the following clause is not affected\".<br/><br/>This is an informal way of saying 「といっても」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その骨董品は高いったって六千ドルも出せば買える。",
+          "transcription": "そのこっとうひんはこういったってろくせんどるもだせばかえる。",
+          "mean": "The antique item is expensive, but you can buy it for as much as six thousand dollars."
+        },
+        {
+          "content": "リラックスには、なんてったって音楽が一番ですよ。",
+          "transcription": "りらっくすには、なんてったっておんがくがいちばんですよ。",
+          "mean": "Music is the best way to relax."
+        }
+      ],
+      "mean": null,
+      "synopsis": "～ったって"
+    }
+  ],
+  "title": "…ったって => even if; even though; no matter how ~",
+  "_id": "f7ff14dae05876cac58b41369384f314"
+}

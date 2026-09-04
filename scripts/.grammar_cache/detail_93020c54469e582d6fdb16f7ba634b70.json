@@ -1,0 +1,31 @@
+{
+  "level": "N5",
+  "mobileId": 3227,
+  "usages": [
+    {
+      "explain": "The use of 「でしょう」is to confirm information and express a desire for the listener to agree. It is typically used with a rising intonation at the end of the sentence.「でしょう」is a more formal form of「だろう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "明日は月曜日でしょう。",
+          "transcription": "あしたはげつようびでしょう。",
+          "mean": "Tomorrow will be Monday."
+        },
+        {
+          "content": "これは山田さんの本でしょう。",
+          "transcription": "これはやまださんのほんでしょう。",
+          "mean": "This must be Mr. Yamada's book."
+        },
+        {
+          "content": "あなたも京都に行くでしょう。",
+          "transcription": "あなたもきょうとにいくでしょう。",
+          "mean": "You will also go to Kyoto."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V・A・Na・N + でしょう"
+    }
+  ],
+  "title": "でしょう   => I think; it seems; probably; right?",
+  "_id": "93020c54469e582d6fdb16f7ba634b70"
+}

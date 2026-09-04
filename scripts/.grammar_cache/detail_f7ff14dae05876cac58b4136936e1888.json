@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 1379,
+  "usages": [
+    {
+      "explain": "Used with a noun referring to a person to evaluate that no one is better than that person. It can also be expressed as [...にかかっては].",
+      "note": null,
+      "examples": [
+        {
+          "content": "山田さんにあっては、どんな卓球の選手でも勝てそうにありませんね。",
+          "transcription": "やまださんにあっては、どんなたっきゅうのせんしゅでもかてそうにありませんね。",
+          "mean": "No table tennis player would be able to beat Mr. Yamada."
+        },
+        {
+          "content": "あの子にあっては、冗談も誠と信じられる。",
+          "transcription": "あのこにあっては、じょうだんもまこととしんじられる。",
+          "mean": "With that kid, even jokes can be believed to be sincere."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + にあっては"
+    }
+  ],
+  "title": "にあっては => Under ~ conditions or circumstances, Suited to",
+  "_id": "f7ff14dae05876cac58b4136936e1888"
+}

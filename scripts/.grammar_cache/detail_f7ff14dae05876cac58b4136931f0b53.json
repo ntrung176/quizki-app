@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 802,
+  "usages": [
+    {
+      "explain": "It describes means or methods, commonly used in spoken language.",
+      "note": null,
+      "examples": [
+        {
+          "content": "行動でもって決心を証明しなさい。",
+          "transcription": "こうどうでもってけっしんをしょうめいしなさい。",
+          "mean": "Prove your determination by action."
+        },
+        {
+          "content": "理論だけは不十分だ。実際でもって示してください。",
+          "transcription": "りろんだけはふじゅうぶんだ。じっさいでもってしめしてください。",
+          "mean": "Theory alone is not enough. Please demonstrate it in practice."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + でもって"
+    }
+  ],
+  "title": "でもって => by means of; with",
+  "_id": "f7ff14dae05876cac58b4136931f0b53"
+}

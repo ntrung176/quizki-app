@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1612,
+  "usages": [
+    {
+      "explain": "Describing the meaning of \"both...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "鈴木さんも秋田さんも、フランス語はあまり上手じゃないでしょう。",
+          "transcription": "すずきさんもあきたさんも、ふらんすごはあまりじょうずじゃないでしょう。",
+          "mean": "Neither Suzuki-san nor Akita-san speak French very well."
+        },
+        {
+          "content": "ハロン湾まではフェリーでも船でも行ける。",
+          "transcription": "はろんわんまではふぇりーでもふねでもいける。",
+          "mean": "You can reach Halong Bay by ferry or boat."
+        },
+        {
+          "content": "小林さんにも中村さんにも知らせておきました。",
+          "transcription": "こばやしさんにもなかむらさんにもしらせておきました。",
+          "mean": "I informed both Mr. Kobayashi and Mr. Nakamura."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N も N も"
+    }
+  ],
+  "title": "...も...も => N also N...",
+  "_id": "f7ff14dae05876cac58b4136938f625a"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 3193,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate that something cannot be stopped, unbearable, and one has to do a certain action.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その名前をきいて彼はある不快な印象を禁じえなかった。",
+          "transcription": "そのなまえをきいてかれはあるふかいないんしょうをきんじえなかった。",
+          "mean": "When he heard that name, he couldn't help but feel a certain unpleasant impression."
+        },
+        {
+          "content": "彼女の身の上話を聞いて、涙を禁じ得ない。",
+          "transcription": "かのじょのみのうえばなしをきいて、なみだをきんじえない。",
+          "mean": "When I heard her story, I couldn't help crying."
+        },
+        {
+          "content": "大手企業が相次いで倒産すると聞いて、驚きを禁じえない。",
+          "transcription": "おおてきぎょうがあいついでとうさんするときいて、おどろきをきんじえない。",
+          "mean": "I can't help but be surprised to hear that major companies are going bankrupt one after another."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦N ＋ を禁じ得ない"
+    }
+  ],
+  "title": "～をきんじえない（～を禁じ得ない） => can't help but; can't refrain from ~",
+  "_id": "93020c54469e582d6fdb16f7ba91eb3d"
+}

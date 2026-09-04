@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2820,
+  "usages": [
+    {
+      "explain": "Express determination, decision about an action in the future. With the form 「ことにした」, you can convey the meaning of \"has decided, is determined\". 「こととする」 has the same meaning but is a more formal and stylistic form used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "今晩はどこへも行かないで勉強することにした。",
+          "transcription": "こんばんはどこへもいかないでべんきょうすることにした。",
+          "mean": "I decided to study without going anywhere tonight."
+        },
+        {
+          "content": "これからはあまり辛い物を食べないことにする。",
+          "transcription": "これからはあまりつらいものをたべないことにする。",
+          "mean": "I will not eat spicy food from now on."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る/ V-ない + ことにする"
+    }
+  ],
+  "title": "ことにする => to decide on",
+  "_id": "f2d618ceb0702f781ec83b7d4f32bb75"
+}

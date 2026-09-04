@@ -1,0 +1,41 @@
+{
+  "level": "N3",
+  "mobileId": 2138,
+  "usages": [
+    {
+      "explain": "After 「ように」 are verbs indicating thought or feeling, such as 「思う」, 「思われる」, 「見える」, 「感じる」... Used to present one's impressions or arguments subtly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "二度と君とは話ができないように思います。",
+          "transcription": "にどときみとははなしができないようにおもいます。",
+          "mean": "I don't think I'll ever be able to talk to you again."
+        },
+        {
+          "content": "彼女は金持ちであるように思われる。",
+          "transcription": "かのじょはかねもちであるようにおもわれる。",
+          "mean": "She appears to be rich."
+        },
+        {
+          "content": "彼女はテストに対して緊張しているように見える。",
+          "transcription": "かのじょはてすとにたいしてきんちょうしているようにみえる。",
+          "mean": "She looks nervous about the test."
+        },
+        {
+          "content": "いなかに行ってくると前より健康になったように感じる。",
+          "transcription": "いなかにいってくるとまえよりけんこうになったようにかんじる。",
+          "mean": "When I go to the countryside, I feel healthier than before."
+        },
+        {
+          "content": "彼らの考えは私たちには全く異質のものであるように感じられる。",
+          "transcription": "かれらのかんがえはわたしたちにはまったくいしつのものであるようにかんじられる。",
+          "mean": "Their ideas seem totally alien to us."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A／V + ように おもう（思う）/ かんじる（感じる）/ みえる（見える）"
+    }
+  ],
+  "title": "...ようにおもう / かんじる => Looks like ~; Seems like ~; Appears like ~",
+  "_id": "f7ff14dae05876cac58b413693d82350"
+}

@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5490,
+  "usages": [
+    {
+      "explain": "「させていただけませんか」is used when you want to request permission from someone to do something.",
+      "note": null,
+      "examples": [
+        {
+          "content": "週末に彼と遊びに行かせていただけませんか。",
+          "transcription": "しゅうまつにかれとあそびにいかせていただけませんか。",
+          "mean": "Could you please let me go out with him on the weekend?"
+        },
+        {
+          "content": "ちょっと暑いですから窓を開けさせていただけませんか。",
+          "transcription": "ちょっとあついですからまどをあけさせていただけませんか。",
+          "mean": "It's a bit hot, so could you please open the window?"
+        },
+        {
+          "content": "すみません、この店の写真を撮らせていただけませんか。",
+          "transcription": "すみません、このみせのしゃしんをとらせていただけませんか。",
+          "mean": "Excuse me, could I take a photo of this store?"
+        },
+        {
+          "content": "友達の結婚式があるので、早退させていただけませんか。",
+          "transcription": "ともだちのけっこんしきがあるので、そうたいさせていただけませんか。",
+          "mean": "I have a friend's wedding coming up, so could I leave early?"
+        },
+        {
+          "content": "すぐに戻ってきますから少し荷物を置かせていただけませんか。",
+          "transcription": "すぐにもどってきますからすこしにもつをおかせていただけませんか。",
+          "mean": "I'll be back soon, so could you leave my luggage for a while?"
+        },
+        {
+          "content": "発表の練習をしたいんですが、会議室を使わせていただけませんか。",
+          "transcription": "はっぴょうのれんしゅうをしたいんですが、かいぎしつをつかわせていただけませんか。",
+          "mean": "I would like to practice my presentation, but could I use your conference room?"
+        },
+        {
+          "content": "来週、ベトナムから家族が来るので一週間を休ませていただけませんか。",
+          "transcription": "らいしゅう、ベトナムからかぞくがくるのでいっしゅうかんをやすませていただけませんか。",
+          "mean": "My family is coming from Vietnam next week, so could I take a week off?"
+        },
+        {
+          "content": "レポートを書くために使いたいので、この記事をコピーさせていただけませんか。",
+          "transcription": "レポートをかくためにつかいたいので、このきじをコピーさせていただけませんか。",
+          "mean": "I would like to use it to write a report, so could I make a copy of this article?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (causative form)て+いただけませんか<br/> 行きます ➔ 行かせて<br/> 食べます ➔ 食べさせて<br/> 説明します➔ 説明させて<br/>\nv.v."
+    }
+  ],
+  "title": "させていただけませんか => Could you please let me do...",
+  "_id": "b3ee811e344840e99523c02860492983"
+}

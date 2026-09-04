@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2315,
+  "usages": [
+    {
+      "explain": "The following are expressions of quantity, indicating that the speaker considers the quantity to be small.",
+      "note": null,
+      "examples": [
+        {
+          "content": "財布の中に残っていたお金はわずか５０００ドンだった。",
+          "transcription": "さいふのなかにのこっていたおかねはわずか5000どんだった。",
+          "mean": "The only money left in his wallet was 5,000 dong."
+        },
+        {
+          "content": "そのコンサートの出席者はわずか６人だった。",
+          "transcription": "そのこんさーとのしゅっせきしゃはわずか6にんだった。",
+          "mean": "There were only six people in attendance at the concert."
+        },
+        {
+          "content": "わずか１時間でそんなに難しい問題を成し遂げた。",
+          "transcription": "わずかいちじかんでそんなにむずかしいもんだいをなしとげた。",
+          "mean": "He completed such a difficult problem in just one hour."
+        }
+      ],
+      "mean": null,
+      "synopsis": "わずか + Quantity word"
+    }
+  ],
+  "title": "わずか => only, merely, (a) little, small quantity",
+  "_id": "f7ff14dae05876cac58b413693f0b611"
+}

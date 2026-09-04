@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 1943,
+  "usages": [
+    {
+      "explain": "Indicates that the quantity of something is more than a certain level.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "その記者会見の出席者は５０名あまりだった。",
+          "transcription": "そのきしゃかいけんのしゅっせきしゃはごぜろめいあまりだった。",
+          "mean": "There were about 50 people in attendance at the press conference."
+        },
+        {
+          "content": "火事発生から一ヶ月あまりが経って、ようやく原因が発表られた。",
+          "transcription": "かじはっせいからいちかげつあまりがたって、ようやくげんいんがはっぴょうられた。",
+          "mean": "More than a month after the fire broke out, the cause was finally announced."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity word + あまり"
+    }
+  ],
+  "title": "あまり => so much…",
+  "_id": "f7ff14dae05876cac58b413693bbfb79"
+}

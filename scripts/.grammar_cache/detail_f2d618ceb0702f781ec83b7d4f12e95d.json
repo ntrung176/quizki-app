@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2568,
+  "usages": [
+    {
+      "explain": "以下のように（いかのように）is used to present the content following it.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の言葉は以下のように要約できる。",
+          "transcription": "かれのことばはいかのようにようやくできる。",
+          "mean": "His words can be summarized as follows."
+        },
+        {
+          "content": "職員の選考に関する規則は以下のように定める。",
+          "transcription": "しょくいんのせんこうにかんするきそくはいかのようにさだめる。",
+          "mean": "Rules regarding the selection of staff are established as follows."
+        }
+      ],
+      "mean": null,
+      "synopsis": "以下のように"
+    }
+  ],
+  "title": "いかのように => As below",
+  "_id": "f2d618ceb0702f781ec83b7d4f12e95d"
+}

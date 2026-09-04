@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2726,
+  "usages": [
+    {
+      "explain": "Expresses the idea of needing a certain quantity to perform an action, to make something happen. Additionally, 「ば」、「と」 can also be used. Often at the end of the sentence, it's a way for the speaker to express their speculation such as 「だろう」(\"I suppose\"),「でしょう」(\"It might be\"),「と思う」(\"I think\").",
+      "note": null,
+      "examples": [
+        {
+          "content": "この問題なら、一時間もあればできるだろう。",
+          "transcription": "このもんだいなら、いちじかんもあればできるだろう。",
+          "mean": "This problem can be solved in less than an hour."
+        },
+        {
+          "content": "少々お待ちください。５分もしたら、社長は戻っていらっしゃると思います。",
+          "transcription": "しょうしょうおまちください。ごふんもしたら、ぶちょうはもどっていらっしゃるとおもいます。",
+          "mean": "please wait a moment. I think the president will be back in five minutes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity words + も…たら"
+    }
+  ],
+  "title": "も …たら => if; in the case; supposing ~",
+  "_id": "f2d618ceb0702f781ec83b7d4f27950a"
+}

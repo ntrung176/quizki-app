@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5126,
+  "usages": [
+    {
+      "explain": "「げ」expresses the speaker's impression of a person, thing, or event based on their appearance or what is observed externally about that person, thing, or event. It is commonly used in writing. It is not used to talk about superiors.\n\nIn addition to adjectives, 「げ」also pairs with certain nouns and verbs. For example: ありげ、なさげ、大人げ、自慢げ...\n\nWhen modifying a noun, 「げ」becomes 「げな」, and when modifying a verb, 「げ」becomes 「げに」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "あの人は寂しげな目をしている。",
+          "transcription": "あのひとはさびしげなめをしている。",
+          "mean": "That person has lonely eyes."
+        },
+        {
+          "content": "その人は退屈げに雑誌のページをめくっていた。",
+          "transcription": "そのひとはたいくつげにざっしのページをめくっていた。",
+          "mean": "The man was flipping through the pages of a magazine with boredom."
+        },
+        {
+          "content": "二人は親しげに話している。",
+          "transcription": "ふたりはしたしげにはなしている。",
+          "mean": "The two are talking friendly."
+        },
+        {
+          "content": "彼は何か言いたげだった。",
+          "transcription": "かれはなにかいいたげだった。",
+          "mean": "He looked like he wanted to say something."
+        },
+        {
+          "content": "そう言って彼女は自慢げに新しいパソコンを見せてくれた。",
+          "transcription": "そういってかのじょはじまんげにあたらしいパソコンをみせてくれた。",
+          "mean": "She proudly showed me her new computer."
+        },
+        {
+          "content": "男は意味ありげな笑いを浮かべた。",
+          "transcription": "おとこはいみありげなわらいをうかべた。",
+          "mean": "The man smiled meaningfully."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A<s>い</s>+げ<br/>A<s>な</s>+げ<br/> Vた<s>い</s>+げ"
+    }
+  ],
+  "title": "げ => looks like; seems like; appears to ~",
+  "_id": "1652920e81f3464c8c216c2ce220cddd"
+}

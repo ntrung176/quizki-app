@@ -1,0 +1,36 @@
+{
+  "level": "N4",
+  "mobileId": 1551,
+  "usages": [
+    {
+      "explain": "Follows a noun indicating a person or thing, to express something beneficial for that person or thing. Additionally, there is an older expression 「N がため」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "健康のために、朝の散歩を日課としている。",
+          "transcription": "けんこうのために、あさのさんぽをにっかとしている。",
+          "mean": "For my health, I make it a daily routine to take a walk in the morning."
+        },
+        {
+          "content": "彼は子供のためにタバコをやめました。",
+          "transcription": "かれはこどものためにたばこをやめました。",
+          "mean": "He quit smoking for the sake of his children."
+        },
+        {
+          "content": "世界平和のために、国際会議が来月開かれる。",
+          "transcription": "せかいへいわのために、こくさいかいぎがらいげつひらかれる。",
+          "mean": "An international conference will be held next month for world peace."
+        },
+        {
+          "content": "勉強のために睡眠時間を削った。",
+          "transcription": "べんきょうのためにすいみんじかんをけずった。",
+          "mean": "I cut back on my sleep time to study."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + のため"
+    }
+  ],
+  "title": "のため => for; in order to; for the benefit of; because of; as a result of ~",
+  "_id": "f7ff14dae05876cac58b4136938725f4"
+}

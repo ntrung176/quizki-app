@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5353,
+  "usages": [
+    {
+      "explain": "「切る」\n1. To complete or finish something (completely, thoroughly).\n2. To express an emotion or feeling as \"extremely, intensely\"...\n「切れる」\nCan complete or finish something from start to end.\n「切れない」\nUnable to complete or finish something (due to too much, beyond capability...)",
+      "note": null,
+      "examples": [
+        {
+          "content": "長い小説を2日間で読み切った。",
+          "transcription": "ながいしょうせつをふつかかんでよみきった。",
+          "mean": "I finished reading a long novel in two days."
+        },
+        {
+          "content": "ご飯の量が多くて食べ切れないよ。",
+          "transcription": "ごはんのりょうがおおくてたべきれないよ。",
+          "mean": "There's so much rice that I can't finish it all."
+        },
+        {
+          "content": "数え切れないほどたくさん星が光っている。",
+          "transcription": "かぞえきれないほどたくさんほしがひかっている。",
+          "mean": "There are countless stars shining."
+        },
+        {
+          "content": "今日はもう魚が全部売り切れた。",
+          "transcription": "きょうはもうさかながぜんぶうりきれた。",
+          "mean": "All the fish are already sold out today."
+        },
+        {
+          "content": "どんなに食べ物が多くても食べ切れるぐらいお腹すいた。",
+          "transcription": "どんなにたべものがおおくてもたべきれるぐらいおなかすいた。",
+          "mean": "I was so hungry that I could eat no matter how much food I had."
+        },
+        {
+          "content": "15キロを走り切るのはすごく大変なことだ。",
+          "transcription": "じゅうごキロをはしりきるのはすごくたいへんなことだ。",
+          "mean": "Running 15km is extremely difficult."
+        },
+        {
+          "content": "お金を使い切ってしまった。",
+          "transcription": "おかねをつかいきってしまった。",
+          "mean": "I ran out of money."
+        },
+        {
+          "content": "山田さんは疲れ切って、熟睡している。",
+          "transcription": "やまださんはつかれきって、じゅくすいしている。",
+          "mean": "Mr. Yamada was exhausted and was sleeping soundly."
+        },
+        {
+          "content": "息子は大学を卒業しても働かず、毎日家でアニメばかりみていて、私は困り切っている。",
+          "transcription": "むすこはだいがくをそつぎょうしてもはたらかず、まいにちいえでアニメばかりみていて、わたしはこまりきっている。",
+          "mean": "My son doesn't work even after graduating from university, and he only watches anime every day at home, which is really bothering me."
+        },
+        {
+          "content": "鈴木さんは疲れきった顔をして帰って来た。",
+          "transcription": "すずきさんはつかれきったかおをしてかえってきた。",
+          "mean": "Mr. Suzuki came home looking exhausted."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nを V<s>ます</s>+切る<br/>Nが V<s>ます</s>+切れる / 切れない"
+    }
+  ],
+  "title": "切る/切れる/切れない => to do something completely to the end/unable to do; too much to finish/complete",
+  "_id": "508ed87fb728447fbba1fe4d2e635fa4"
+}

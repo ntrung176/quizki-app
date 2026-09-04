@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2211,
+  "usages": [
+    {
+      "explain": "Used to blame or scold those with equal or lower status. These are expressions aimed at making the other person clearly aware of their responsibility for the undesirable situation, often spoken in a condescending tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "悪いのは田中さんのほうではないか。",
+          "transcription": "わるいのはたなかさんのほうではないか。",
+          "mean": "Isn't it Mr. Tanaka's fault?"
+        },
+        {
+          "content": "それではほかの者が困るではないか。",
+          "transcription": "それではほかのものがこまるではないか。",
+          "mean": "Wouldn't that be a problem for others?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N (な) + ではないか\nNa (な) + ではないか\nA-い + ではないか\nV-る/ V-た/ V-ない + ではないか"
+    }
+  ],
+  "title": "...ではないか => Isn't it... or what?, so that means... got it? (accusatory)",
+  "_id": "f7ff14dae05876cac58b413693e206f9"
+}

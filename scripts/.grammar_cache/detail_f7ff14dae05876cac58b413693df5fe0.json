@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2193,
+  "usages": [
+    {
+      "explain": "To indicate the subject of a subordinate clause, people often use the particle 「が」, but in cases where the subordinate clause modifies a noun, such as 「絵」 in the sentence 「彼女の書いた絵」, instead of using 「が」, people use 「の」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女の書いた絵はすばらしい。",
+          "transcription": "かのじょのかいたえはすばらしい。",
+          "mean": "The pictures she drew are wonderful."
+        },
+        {
+          "content": "佐藤先生の歌う声が聞こえる。",
+          "transcription": "さとうせんせいのうたうこえがきこえる。",
+          "mean": "I can hear Mr. Sato's singing voice."
+        }
+      ],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "N1 の...N2 => The N2 of N1...",
+  "_id": "f7ff14dae05876cac58b413693df5fe0"
+}

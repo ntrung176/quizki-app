@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5273,
+  "usages": [
+    {
+      "explain": "Keep the 「」and <br/> tags while translating:\n「としても/にしても」is used to express the idea that regardless of how the situation or action in the preceding clause unfolds, it does not affect the situation or action in the following clause. The following clause typically expresses the speaker's viewpoint, judgment, or dissatisfaction.",
+      "note": null,
+      "examples": [
+        {
+          "content": "行くとしても、旅行者としてしか行けない。",
+          "transcription": "いくとしても、りょこうしゃとしてしかいけない。",
+          "mean": "Even if you go, you can only go as a tourist."
+        },
+        {
+          "content": "もし男に生まれたとしても、この仕事をしたい。",
+          "transcription": "もし男に生まれたとしても、このしごとをしたい。",
+          "mean": "Even if I was born a man, I would want to do this job."
+        },
+        {
+          "content": "たとえ冗談だとしても、言っていいことと悪いことがあるでしょ。",
+          "transcription": "たとえじょうだんだとしても、いっていいこととわるいことがあるでしょ。",
+          "mean": "There are good and bad things to say, even if it's a joke."
+        },
+        {
+          "content": "犯罪を犯したら未成年だとしても、厳重に処罰すべきだ。",
+          "transcription": "はんざいをおかしたらみせいねんだとしても、げんじゅうにしょばつすべきだ。",
+          "mean": "Even if a person commits a crime and is a minor, he or she should be severely punished."
+        },
+        {
+          "content": "その話が本当だとしても、どうしても信じることができない。",
+          "transcription": "そのはなしがほんとうだとしても、どうしてもしんじることができない。",
+          "mean": "Even if the story were true, I just couldn't believe it."
+        },
+        {
+          "content": "親はしないほうがいいと言ったとしても、私はこの仕事をすると決める。",
+          "transcription": "おやはしないほうがいいといったとしても、わたしはこのしごとをするときめる。",
+          "mean": "Even if my parents say I shouldn't do it, I decide to do this job."
+        },
+        {
+          "content": "たとえ彼はお金持ちだとしても、私は彼と結婚したくない。",
+          "transcription": "たとえかれはおかねもちだとしても、わたしはかれとけっこんしたくない。",
+          "mean": "Even though he is rich, I don't want to marry him."
+        },
+        {
+          "content": "山田さんのアドバイスがなかったとしても、やっぱり大学を変えていただろう。",
+          "transcription": "やまださんのあどばいすがなかったとしても、やっぱりだいがくをかえていただろう。",
+          "mean": "Even without Yamada-san's advice, I still would have changed universities."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V/Aい/Aな/N (formal form)+としても"
+    }
+  ],
+  "title": "としても => assuming; even if ~",
+  "_id": "51ecb3a9ebee42a3ade0033048d54fe0"
+}

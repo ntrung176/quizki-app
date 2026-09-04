@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 960,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"assuming such an event happens / even if it is true\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "仮に核戦争が起こったとしても、人類は滅亡するだろう。",
+          "transcription": "かりにかくせんそうがおこったとしても、じんるいはめつぼうするだろう。",
+          "mean": "Even if a nuclear war were to occur, humanity would be wiped out."
+        },
+        {
+          "content": "仮に明日雨が降っても、試合は延期されるだろう。",
+          "transcription": "かりにあしたあめがふっても、しあいはえんきされるだろう。",
+          "mean": "Even if it rains tomorrow, the game will be postponed."
+        }
+      ],
+      "mean": null,
+      "synopsis": "かりに～ても / としても"
+    }
+  ],
+  "title": "かりに...ても / としても => even if",
+  "_id": "f7ff14dae05876cac58b413693349084"
+}

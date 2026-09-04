@@ -1,0 +1,66 @@
+{
+  "level": "N2",
+  "mobileId": 5170,
+  "usages": [
+    {
+      "explain": "「も<ruby><rb>同然</rb><rp>(</rp><rt>どうぜん</rt><rp>)</rp></ruby>」indicates a state that, while not exactly true, is close to it. It means \"almost the same as\" or \"virtually equivalent to.\"<br/>\n\nIt has a similar meaning to「とほとんど同じ」(almost the same as), but「も<ruby><rb>同然</rb><rp>(</rp><rt>どうぜん</rt><rp>)</rp></ruby>」emphasizes the subjective evaluation and emotional aspect of the speaker, so it carries a more subjective tone.",
+      "note": null,
+      "examples": [
+        {
+          "content": "この車は中古車といっても新品も同然だ。",
+          "transcription": "このくるまはちゅうこしゃといってもしんぴんもどうぜんだ。",
+          "mean": "Even though this car is a used car, it is as good as new."
+        },
+        {
+          "content": "彼の財産はないも同然だ。",
+          "transcription": "かれのざいさんはないもどうぜんだ。",
+          "mean": "It's as if he had no assets."
+        },
+        {
+          "content": "田中さんの一家とは親しくて、家族も同然のお付き合いをしています。",
+          "transcription": "たなかさんのいっかとはしたしくて、かぞくもどうぜんのおつきあいをしています。",
+          "mean": "I am close to Mr. Tanaka's family and treat them like family."
+        },
+        {
+          "content": "アキラ社の株価が暴落して、私の持っていた株券は紙くず同然になってしまった。",
+          "transcription": "アキラしゃのかぶかがぼうらくして、わたしのもっていたかぶけんはかみくずどうぜんになってしまった。",
+          "mean": "Akira's stock price plummeted, and the stock certificates I owned were reduced to nothing but paper."
+        },
+        {
+          "content": "彼女の死は自殺だったとしても、勤務状況を見ると、会社に殺されたも同然だ。",
+          "transcription": "かのじょのしんはじさつだったとしても、きんむじょうきょうをみると、かいしゃにころされたもどうぜんだ。",
+          "mean": "Even if her death was a suicide, looking at her work conditions, it's as if she was killed by the company."
+        },
+        {
+          "content": "試合終了10分前で4点も差があるんだから、負けたも同然ですよ。",
+          "transcription": "しあいしゅうりょうじゅっぷんまえでよんてんもさがあるんだから、まけたもどうぜんですよ。",
+          "mean": "It was 10 minutes before the end of the game and we were still 4 points behind, so it was as good as a loss."
+        },
+        {
+          "content": "ポロ同然に捨てられて、彼は会社に復讐を誓った。",
+          "transcription": "ポロどうぜんにすてられて、かれはかいしゃにふくしゅうをちかった。",
+          "mean": "Abandoned like a polo, he vowed revenge on the company."
+        },
+        {
+          "content": "電気代はタダ同然になる。",
+          "transcription": "でんきだいはタダどうぜんになる。",
+          "mean": "Electricity bills will be almost free."
+        },
+        {
+          "content": "実の娘同然に大切に育ててくれた。",
+          "transcription": "みのむすめどうぜんにたいせつにそだててくれた。",
+          "mean": "He raised her with care as if she were his own daughter."
+        },
+        {
+          "content": "彼は借金を溜まって夜逃げ同然に町を去った。",
+          "transcription": "かれはしゃっきんをたまってよにげどうぜんにまちをさった。",
+          "mean": "He accumulated debts and left town in the middle of the night."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vた/Vない も+<ruby><rb>同然</rb><rp>(</rp><rt>どうぜん</rt><rp>)</rp></ruby>だ / <ruby><rb>同然</rb><rp>(</rp><rt>どうぜん</rt><rp>)</rp></ruby>のN<br/> \nN (も)+<ruby><rb>同然</rb><rp>(</rp><rt>どうぜん</rt><rp>)</rp></ruby>だ / <ruby><rb>同然</rb><rp>(</rp><rt>どうぜん</rt><rp>)</rp></ruby>のN / <ruby><rb>同然</rb><rp>(</rp><rt>どうぜん</rt><rp>)</rp></ruby>に"
+    }
+  ],
+  "title": "も同然 => just like; same as ~",
+  "_id": "3745fff9c523430b8ac92c576ead7b17"
+}

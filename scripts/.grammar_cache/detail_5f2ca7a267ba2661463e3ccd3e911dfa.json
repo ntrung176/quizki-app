@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 3246,
+  "usages": [
+    {
+      "explain": "「なんという」is used to ask for the name of something or an event. A casual way to say this is 「なんていう」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その猫はなんという名前ですか。",
+          "transcription": "そのねこはなんというなまえですか。",
+          "mean": "What is that cat's name?"
+        },
+        {
+          "content": "あの高いのはなんという木ですか。",
+          "transcription": "あのたかいのはなんというきですか。",
+          "mean": "What kind of tree is that tall?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "なんという～"
+    }
+  ],
+  "title": "なんという => What is the name of ...",
+  "_id": "5f2ca7a267ba2661463e3ccd3e911dfa"
+}

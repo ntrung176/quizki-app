@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 1513,
+  "usages": [
+    {
+      "explain": "Used when one cannot express a certain situation clearly.",
+      "note": null,
+      "examples": [
+        {
+          "content": "なにやら変な音がする。",
+          "transcription": "なにやらへんなおとがする。",
+          "mean": "Something sounds strange."
+        },
+        {
+          "content": "なにやら雪が降りそうですね。",
+          "transcription": "なにやらゆきがおりそうですね。",
+          "mean": "It looks like it's going to snow."
+        },
+        {
+          "content": "この映画を見ていたら、なにやら悲しい感じになってしまった。",
+          "transcription": "このえいがをみていたら、なにやらかなしいかんじになってしまった。",
+          "mean": "While watching this movie, I felt a bit sad."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにやら"
+    }
+  ],
+  "title": "なにやら => something, some kind of",
+  "_id": "f7ff14dae05876cac58b41369381e5ef"
+}

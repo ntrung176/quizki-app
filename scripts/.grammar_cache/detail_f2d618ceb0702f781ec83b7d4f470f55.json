@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2981,
+  "usages": [
+    {
+      "explain": "In this sentence pattern, particles are used with verbs like 「はいります」(to enter), 「のります」(to ride) to indicate pointing to. Additionally, the particle 「を」is used with verbs like 「でます」(to leave), 「おります」(to get off) to indicate the starting point, origin.",
+      "note": null,
+      "examples": [
+        {
+          "content": "10時に家を出ます。",
+          "transcription": "10じにいえをでます。",
+          "mean": "I will leave the house at 10 o'clock."
+        },
+        {
+          "content": "ミラーさんは今晩に飛行機に乗ります。",
+          "transcription": "みらーさんはこんばんにひこうきにのります。",
+          "mean": "Mr. Miller will be on a plane tonight."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + に V-ます"
+    }
+  ],
+  "title": "にV-ます => Starting point",
+  "_id": "f2d618ceb0702f781ec83b7d4f470f55"
+}

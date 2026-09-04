@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1703,
+  "usages": [
+    {
+      "explain": "Expresses the meaning \"whenever there's a reason,...\" followed by expressions describing human behavior, implying that the behavior is always repeated. It can also be said as [なにかにつけて].",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女は何かと言うと他人の悪口を言っている。",
+          "transcription": "かのじょはなにかというとたにんのわるぐちをいっている。",
+          "mean": "She always talks bad about other people."
+        },
+        {
+          "content": "父は何かと言うと、私の間違いを持ちだしてくる。",
+          "transcription": "ちちはなにかというと、わたしのまちがいをもちだしてくる。",
+          "mean": "Whenever I say anything, my father brings up my mistakes."
+        },
+        {
+          "content": "上司には何かと言うと叱られた。",
+          "transcription": "じょうしにはなにかというとしかられた。",
+          "mean": "When I said something to my boss, he scolded me."
+        }
+      ],
+      "mean": null,
+      "synopsis": "なにかというと"
+    }
+  ],
+  "title": "なにかというと => If someone says something…",
+  "_id": "f7ff14dae05876cac58b4136939ad2c9"
+}

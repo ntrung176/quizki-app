@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 658,
+  "usages": [
+    {
+      "explain": "<div>✦It is a way of expressing the intention to do something in order to achieve a certain purpose.<div><div>✦This is a formal expression, with a literary style, and an archaic way of speaking, but still used in modern language.<div><div>✦Because it expresses the speaker's intention, the clause after it does not go along with sentences that involve actions towards others such as requests, commands, prohibitions, persuasions...</div></div></div></div></div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は一日も早く借金を返すべく、必死で働いている。",
+          "transcription": "かれはいちにちもはやくしゃっきんをかえすべく、ひっしではたらいている。",
+          "mean": "He is working hard to pay off his debt as soon as possible."
+        },
+        {
+          "content": "ウイルスの感染経路を明らかにすべく調査が行われた。",
+          "transcription": "ういるすのかんせんけいろをあきらかにすべくちょうさがおこなわれた。",
+          "mean": "An investigation was conducted to clarify the route of infection of the virus."
+        },
+        {
+          "content": "開幕式に間に合わせるべく突貫工事が行われている。",
+          "transcription": "かいまくしきにまにあわせるべくとっかんこうじがおこなわれている。",
+          "mean": "Construction work is being carried out in order to be ready in time for the opening ceremony."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div>✦V (root form) + べく</div><div>✦Exception : する -> するべく/すべく</div>"
+    }
+  ],
+  "title": "～べく => in order to; for the purpose of ~",
+  "_id": "f7ff14dae05876cac58b4136930be1d0"
+}

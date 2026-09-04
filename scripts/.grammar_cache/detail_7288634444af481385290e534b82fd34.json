@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 5247,
+  "usages": [
+    {
+      "explain": "「したがって」is used to connect two clauses, where the first clause presents a cause or reason, and the second clause presents the result or consequence of that cause.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は真面目で誠実な人だ。したがって、みんなから信頼されている。",
+          "transcription": "かれはまじめでせいじつなひとだ。したがって、みんなからしんらいされている。",
+          "mean": "He is a serious and sincere person. Therefore, it is trusted by everyone."
+        },
+        {
+          "content": "教授は急用で来られません。したがって、講義は中止です。",
+          "transcription": "きょうじゅはきゅうようでこられません。したがって、こうぎはちゅうしです。",
+          "mean": "The professor cannot come due to urgent business. Therefore, the lecture has been canceled."
+        }
+      ],
+      "mean": null,
+      "synopsis": "A (reason)。したがって、B (result)"
+    }
+  ],
+  "title": "したがって => as; therefore; in accordance with; according to; consequently ~",
+  "_id": "7288634444af481385290e534b82fd34"
+}

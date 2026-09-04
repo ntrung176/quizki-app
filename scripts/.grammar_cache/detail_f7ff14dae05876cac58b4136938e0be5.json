@@ -1,0 +1,31 @@
+{
+  "level": "N4",
+  "mobileId": 1602,
+  "usages": [
+    {
+      "explain": "Expresses the action of moving the object upwards.",
+      "note": null,
+      "examples": [
+        {
+          "content": "その力士は大きな机を軽々と持ち上げた。",
+          "transcription": "そのりきしはおおきなつくえをかるがるともちあげた。",
+          "mean": "The sumo wrestler easily lifted a large desk."
+        },
+        {
+          "content": "彼は新聞を取り上げて読んだ。",
+          "transcription": "かれはしんぶんをとりあげてよんだ。",
+          "mean": "He picked up the newspaper and read it."
+        },
+        {
+          "content": "彼女はカーテンを引き上げた。",
+          "transcription": "かのじょはかーてんをひきあげた。",
+          "mean": "She pulled up the curtain."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-ます＋あげる"
+    }
+  ],
+  "title": "あげる => ...Up (Upwards)",
+  "_id": "f7ff14dae05876cac58b4136938e0be5"
+}

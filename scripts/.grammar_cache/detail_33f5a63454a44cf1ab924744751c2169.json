@@ -1,0 +1,96 @@
+{
+  "level": "N3",
+  "mobileId": 5339,
+  "usages": [
+    {
+      "explain": "「はずだ」 expresses the speaker's confident assertion based on a certain basis (a fact, situation, experience, memory, etc.) that something is, was, or will definitely happen. \"Surely...\"/\"It must be that...\"<br/>\n「はずがない」 expresses the speaker's confident assertion based on a certain basis that something is completely unlikely to happen. Compared to \"「ないはず」,\" this structure emphasizes that the possibility of something happening is even lower. It can be replaced with \"「わけがない」.\" \"Surely not...\"/\"There's no way...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "私の記憶が正しければ、ここには郵便局があったはずです。",
+          "transcription": "わたしのきおくがただしければ、ここにはゆうびんきょくがあったはずです。",
+          "mean": "If I remember correctly, there was a post office here."
+        },
+        {
+          "content": "今日は日曜日だから、銀行は閉まっているはずだ。",
+          "transcription": "きょうはにちようびだから、ぎんこうはしまっているはずだ。",
+          "mean": "Today is Sunday, so banks should be closed."
+        },
+        {
+          "content": "いい薬を使ったから、きっとすぐ治るはずですよ。",
+          "transcription": "いいくすりをつかったから、きっとすぐなおるはずですよ。",
+          "mean": "I've used good medicine, so I'm sure it will heal quickly."
+        },
+        {
+          "content": "田中さんは今、旅行中だから、家にいないはずだ。",
+          "transcription": "たなかさんはいま、りょこうちゅうだから、いえにいないはずだ。",
+          "mean": "Mr. Tanaka is currently traveling, so he shouldn't be at home."
+        },
+        {
+          "content": "彼はもう寝ているはずです。部屋が静かですから。",
+          "transcription": "かれはもうねているはずです。へやがしずかですから。",
+          "mean": "He should be asleep already. The room is quiet."
+        },
+        {
+          "content": "今日は雨が降るはずです。天気予報でそう言っていましたから。",
+          "transcription": "きょうはあめがふるはずです。てんきよほうでそういっていましたから。",
+          "mean": "It's supposed to rain today. That's what the weather forecast said."
+        },
+        {
+          "content": "あの人の専門はプログラミングだと聞きました。あの人はプログラミングが上手なはずだから、彼にお願いしてみよう。",
+          "transcription": "あのひとのせんもんはぷろぐらみんぐだとききました。あのひとはぷろぐらみんぐがじょうずなはずだから、かれにおねがいしてみよう。",
+          "mean": "I heard that his specialty is programming. That person must be good at programming, so let's ask him."
+        },
+        {
+          "content": "電車はすぐ来るはずです。この時間は、2分に1本ぐらい来ますからね。",
+          "transcription": "でんしゃはすぐくるはずです。このじかんは、にふんにいっぽんぐらいきますからね。",
+          "mean": "The train should be coming soon. At this time, there's about one train coming every two minutes."
+        },
+        {
+          "content": "あの人は、今はフランスにいるはずです。Facebookで写真を見ました。",
+          "transcription": "あのひとは、いまはフランスにいるはずです。フェイスブックでしゃしんをみました。",
+          "mean": "That person should be in France now. I saw the photo on Facebook."
+        },
+        {
+          "content": "時計がないけど、今は3時のはずです。1時間ぐらい前は2時だったので。",
+          "transcription": "とけいがないけど、いまはさんじのはずです。いちじかんぐらいまえはにじだったので。",
+          "mean": "I don't have a clock, but it should be 3 o'clock now. It was 2 o'clock about an hour ago."
+        },
+        {
+          "content": "今日はルームメイトが部屋でパーティーをするから、うるさいはずです。",
+          "transcription": "きょうはるーむめいとがへやでぱーてぃーをするから、うるさいはずです。",
+          "mean": "My roommate is having a party in her room today, so it should be noisy."
+        },
+        {
+          "content": "こんなに大きなケーキ、１人で食べられるはずがない。",
+          "transcription": "こんなにおおきなケーキ、ひとりでたべられるはずがない。",
+          "mean": "There's no way one person could eat such a big cake."
+        },
+        {
+          "content": "彼女は嘘をつくはずがない。",
+          "transcription": "かのじょはうそをつくはずがない。",
+          "mean": "She can't lie."
+        },
+        {
+          "content": "真面目な田中さんが、無断で休むはずがない。",
+          "transcription": "まじめなたなかさんが、むだんでやすむはずがない。",
+          "mean": "Mr. Tanaka is a serious man, so there is no way he would take time off without permission."
+        },
+        {
+          "content": "田中さんはいつもチョコレートを食べていますから、嫌いなはずがない。",
+          "transcription": "たなかさんはいつもチョコレートをたべていますから、きらいなはずがない。",
+          "mean": "Mr. Tanaka eats chocolate all the time, so there's no way he doesn't like it."
+        },
+        {
+          "content": "優しい田中さんはこんなひどいことをするはずがない。",
+          "transcription": "やさしいたなかさんはこんなひどいことをするはずがない。",
+          "mean": "Mr. Tanaka, a kind person, would never do such a terrible thing."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+はずだ / はずがない<br/>Aい (formal form)+はずだ / はずがない<br/>Aな (formal form)+はずだ / はずがない<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>/A<s>だ</s>である<br/>N (formal form)+はずだ / はずがない<br/>(In this particular case: Nだ ➔ N<s>だ</s>の/N<s>だ</s>である)"
+    }
+  ],
+  "title": "はずだ/はずがない => it must be; it should be (expectation)/cannot be (impossible)",
+  "_id": "33f5a63454a44cf1ab924744751c2169"
+}

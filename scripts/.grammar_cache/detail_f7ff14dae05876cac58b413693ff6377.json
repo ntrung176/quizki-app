@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2426,
+  "usages": [
+    {
+      "explain": "This is an expression used to emphasize [たら], with a slightly archaic tone. Used to express a hypothetical condition or a condition contrary to fact. Often used in songs, while in spoken language [たら] is more common.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私が神様だったなら、癌にかかったあの子を助けてあげられるのに。",
+          "transcription": "わたしがかみさまだったなら、がんにかかったあのこをたすけてあげられるのに。",
+          "mean": "If I were God, I could help that child with cancer."
+        },
+        {
+          "content": "その宝くじのチケットを買ったなら百万長者になったのに。",
+          "transcription": "そのたからくじのちけっとをかったならひゃくまんちょうじゃになったのに。",
+          "mean": "If I had bought that lottery ticket, I would have become a millionaire."
+        },
+        {
+          "content": "私が魚だったなら大きな大洋を自由に泳ぎ回りたい。",
+          "transcription": "わたしがさかなだったならおおきなたいようをじゆうにおよぎまわりたい。",
+          "mean": "If I were a fish, I would want to swim freely in the great ocean."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N／Na + だったなら\nA-かったなら\nV-たなら"
+    }
+  ],
+  "title": "たなら => if; in the case that ~",
+  "_id": "f7ff14dae05876cac58b413693ff6377"
+}

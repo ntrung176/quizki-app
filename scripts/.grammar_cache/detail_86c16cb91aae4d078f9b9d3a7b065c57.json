@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5459,
+  "usages": [
+    {
+      "explain": "「わりには」expresses a fact that is better or worse than what the speaker imagined based on information (Verb/Adjective/Noun) they knew beforehand. It is usually not used in formal sentences.",
+      "note": null,
+      "examples": [
+        {
+          "content": "お金がないと言っているわりに、よく買い物をするね。",
+          "transcription": "おかねがないといっているわりに、よくかいものをするね。",
+          "mean": "Even though you say you don't have money, you often go shopping."
+        },
+        {
+          "content": "あのチーム、負けたわりには悔しそうにしていないのが不思議だ。",
+          "transcription": "あのチーム、まけたわりにはくやしそうにしていないのがふしぎだ。",
+          "mean": "It's strange that that team didn't seem disappointed even though they lost."
+        },
+        {
+          "content": "この靴は値段が高いわりに、よく売れる。",
+          "transcription": "このくつはねだんがたかいわりに、よくうれる。",
+          "mean": "Although these shoes are expensive, they sell well."
+        },
+        {
+          "content": "彼女は細いわりには、体が丈夫だ。",
+          "transcription": "かのじょはほそいわりには、からだがじょうぶだ。",
+          "mean": "Although she is thin, she has a strong body."
+        },
+        {
+          "content": "この野菜は安かったわりに美味しい。",
+          "transcription": "このやさいはやすかったわりにおいしい。",
+          "mean": "This vegetable is cheap but delicious."
+        },
+        {
+          "content": "この海はきれいなわりには、人が少ない。",
+          "transcription": "このうみはきれいなわりには、ひとがすくない。",
+          "mean": "Although this sea is beautiful, there are not many people."
+        },
+        {
+          "content": "最初は不満げだったわりに、今は楽しんでいる。",
+          "transcription": "さいしょはふまんげだったわりに、いまはたのしんでいる。",
+          "mean": "Although I was dissatisfied at first, I am now enjoying it."
+        },
+        {
+          "content": "彼は年のわりには若く見える。",
+          "transcription": "かれはとしのわりにはわかくみえる。",
+          "mean": "He looks young for his age."
+        },
+        {
+          "content": "子供のわりにはたくさん知っているね。",
+          "transcription": "こどものわりにはたくさんしっているね。",
+          "mean": "You know a lot for a kid."
+        },
+        {
+          "content": "会議が小規模だったわりには、参加国が多かったように思う。",
+          "transcription": "かいぎがしょうきぼだったわりには、さんかこくがおおかったようにおもう。",
+          "mean": "Although the conference was small, I think there were many participating countries."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+わりに(は)<br/>Aい (formal form)+わりに(は)<br/>Aな (formal form)+わりに(は)<br/>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>/A<s>だ</s>である)<br/>N (formal form)+わりに(は)<br/> (In this particular case: Nだ ➔ N<s>だ</s>の/N<s>だ</s>である)"
+    }
+  ],
+  "title": "わりには => for, despite, although, unexpectedly",
+  "_id": "86c16cb91aae4d078f9b9d3a7b065c57"
+}

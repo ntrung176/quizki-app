@@ -1,0 +1,31 @@
+{
+  "level": "N1",
+  "mobileId": 692,
+  "usages": [
+    {
+      "explain": "以上 (の)（いじょう）(の) is used to summarize the points that have been mentioned.",
+      "note": null,
+      "examples": [
+        {
+          "content": "砂糖、山田、田中、以上の３人はすぐに校長室に来なさい。",
+          "transcription": "さとう、やまだ、たなか、いじょうのさんにんはすぐにこうちょうしつにきなさい。",
+          "mean": "Sugar, Yamada, Tanaka, please come to the principal's office immediately."
+        },
+        {
+          "content": "イギリス、オーストラリア、アメリカ、フランス、以上の４か国は中国人の留学生がたくさんいる国だ。",
+          "transcription": "いぎりす、おーすとらりあ、あめりか、ふらんす、いじょうのよんかこくはちゅうごくじんのりゅうがくせいがたくさんいるくにだ。",
+          "mean": "The UK, Australia, America, and France are the four countries that have a large number of Chinese students studying abroad."
+        },
+        {
+          "content": "自分の趣味、長所、短所、将来の夢、以上４点を述べて自己紹介文を書きなさい。",
+          "transcription": "じぶんのしゅみ、ちょうしょ、たんしょ、しょうらいのゆめ、いじょうよんてんをのべてじこしょうかいぶんをかきなさい。",
+          "mean": "Write a self-introduction statement stating your hobbies, strengths, weaknesses, and dreams for the future."
+        }
+      ],
+      "mean": null,
+      "synopsis": "以上 (の)＋quantity words/ N"
+    }
+  ],
+  "title": "以上 (の) => Just mentioned above",
+  "_id": "f7ff14dae05876cac58b413693104664"
+}

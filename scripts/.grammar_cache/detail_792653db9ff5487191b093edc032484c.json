@@ -1,0 +1,46 @@
+{
+  "level": "N3",
+  "mobileId": 5382,
+  "usages": [
+    {
+      "explain": "「より(も)むしろ」is used to express:<br/>\n\n1. The thing after it has a higher degree or quality compared to the thing before it. It can be translated as \"rather than\" or \"more than\".<br/>\n2. When there is a choice between two, the thing after it is preferred. It can be translated as \"rather... than\".<br/>",
+      "note": null,
+      "examples": [
+        {
+          "content": "自由な考え方が必要とされる仕事は、大人よりむしろ小さい子供の方が得意かもしれません。",
+          "transcription": "じゆうなかんがえかたがひつようとされるしごとは、おとなよりむしろちいさいこどものほうがとくいかもしれません。",
+          "mean": "Children may be better at tasks that require free thinking than adults."
+        },
+        {
+          "content": "観光客向けの商品より、むしろ地元の人がよく買う物の方が、お土産にはお勧めです。",
+          "transcription": "かんこうきゃくむけのしょうひんより、むしろじもとのひとがよくかうもののほうが、おみやげにはおすすめです。",
+          "mean": "Rather than products aimed at tourists, we recommend items that are often purchased by locals as souvenirs."
+        },
+        {
+          "content": "私は人見知りで、直接会うより、むしろ電話で話した方が上手にしゃべれます。",
+          "transcription": "わたしはひとみしりで、ちょくせつあうより、むしろでんわではなしたほうがじょうずにしゃべれます。",
+          "mean": "I'm a shy person, and I'm better at talking on the phone than in person."
+        },
+        {
+          "content": "遅くまで残業するより、むしろ早く帰ってしっかり頭と体を休んだ方が、効率がいい。",
+          "transcription": "おそくまでざんぎょうするより、むしろはやくかえってしっかりあたまとからだをやすんだほうが、こうりつがいい。",
+          "mean": "Rather than working overtime late, it is more efficient to go home early and rest your mind and body."
+        },
+        {
+          "content": "その自慢する人に頼むより、むしろ自分でやった方がいい。",
+          "transcription": "そのじまんするひとにたのむより、むしろじぶんでやったほうがいい。",
+          "mean": "It's better to do it yourself than to ask someone to do it yourself."
+        },
+        {
+          "content": "こんなに激しい雨が降ることを知っていたら、海に行くより、むしろ家にいた方がいいじゃないか。",
+          "transcription": "こんなにはげしいあめがふることをしっていたら、うみにいくより、むしろいえにいたほうがいいじゃないか。",
+          "mean": "If you knew it was going to rain this hard, wouldn't it be better to stay at home instead of going to the beach?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+より(も) むしろ<br/>\nV (root form)+より(も) むしろ<br/>\nVている+より(も) むしろ"
+    }
+  ],
+  "title": "より(も)むしろ => rather; instead; better ~",
+  "_id": "792653db9ff5487191b093edc032484c"
+}

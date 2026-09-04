@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 2957,
+  "usages": [
+    {
+      "explain": "Used in greetings to emphasize apologies or thanks. In some cases, the latter part can be omitted. In reality, sometimes this form is used to express a polite greeting without any particular emotion.",
+      "note": null,
+      "examples": [
+        {
+          "content": "現状の価格についてご連絡いただき、どうもありがとうございます。",
+          "transcription": "げんじょうのかかくについてごれんらくいただき、どうもありがとうございます。",
+          "mean": "Thank you for contacting us regarding current pricing."
+        },
+        {
+          "content": "返事が遅くなってどうもすみません。",
+          "transcription": "へんじがおそくなってどうもすみません。",
+          "mean": "Sorry for the late reply."
+        }
+      ],
+      "mean": null,
+      "synopsis": "どうも is often used in greetings to emphasize thanks or apology."
+    }
+  ],
+  "title": "どうも => Used to greet",
+  "_id": "f2d618ceb0702f781ec83b7d4f442a8d"
+}

@@ -1,0 +1,66 @@
+{
+  "level": "N3",
+  "mobileId": 5338,
+  "usages": [
+    {
+      "explain": "「ふと」expresses an action or event that happens suddenly, unexpectedly, or spontaneously.",
+      "note": null,
+      "examples": [
+        {
+          "content": "ふと街で彼に会った。",
+          "transcription": "ふとまちでかれにあった。",
+          "mean": "I met him on the street by chance."
+        },
+        {
+          "content": "彼女はふと名案を思いついた。",
+          "transcription": "かのじょはふとめいあんをおもいついた。",
+          "mean": "She hit upon a good idea."
+        },
+        {
+          "content": "財布がないのにふと気がついた。",
+          "transcription": "さいふがないのにふときがついた。",
+          "mean": "I suddenly realized that I didn't have my wallet."
+        },
+        {
+          "content": "私はあの店で珍しいものをふと見つけた。",
+          "transcription": "わたしはあのみせでめずらしいものをふとみつけた。",
+          "mean": "I suddenly found something unusual at that store."
+        },
+        {
+          "content": "素晴らしい考えがふとあたまに浮かんだ。",
+          "transcription": "すばらしいかんがえがふとあたまにうかんだ。",
+          "mean": "A wonderful idea suddenly occurred to me."
+        },
+        {
+          "content": "彼はわざとそうしたのだとふと私は思った。",
+          "transcription": "かれはわざとそうしたのだとふとわたしはおもった。",
+          "mean": "It occurred to me that he had done it on purpose."
+        },
+        {
+          "content": "仕事中に、ふと窓の外を見ると、雨が降り始めていた。",
+          "transcription": "しごとちゅうに、ふとまどのそとをみると、あめがふりはじめていた。",
+          "mean": "While I was at work, I suddenly looked out the window and saw that it was starting to rain."
+        },
+        {
+          "content": "学校に行く途中、ふと今日は母の誕生日だったことを思い出した。",
+          "transcription": "がっこうにいくとちゅう、ふときょうはははのたんじょうびだったことをおもいだした。",
+          "mean": "On my way to school, I suddenly remembered that today was my mother's birthday."
+        },
+        {
+          "content": "夜道を歩いているときに、ふと上を見たら星がとてもきれいだった。",
+          "transcription": "よみちをあるいているときに、ふとうえをみたらほしがとてもきれいだった。",
+          "mean": "While walking down the street at night, I suddenly looked up and saw the stars were so beautiful."
+        },
+        {
+          "content": "ふと見上げると、桜の花びらが散っている。",
+          "transcription": "ふとみあげると、さくらのはなびらがちっている。",
+          "mean": "When I suddenly looked up, I saw cherry blossom petals falling."
+        }
+      ],
+      "mean": null,
+      "synopsis": "ふと+Sentence"
+    }
+  ],
+  "title": "ふと =>  suddenly; accidentally; unexpectedly; unintentionally ~",
+  "_id": "298540ea4ac14db1963843d36d43bb72"
+}

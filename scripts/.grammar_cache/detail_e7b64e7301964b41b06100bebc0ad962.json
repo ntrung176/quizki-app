@@ -1,0 +1,56 @@
+{
+  "level": "N2",
+  "mobileId": 5158,
+  "usages": [
+    {
+      "explain": "「からすると/からすれば/からしたら」indicates the standpoint, perspective, viewpoint, basis, etc., upon which the statement or opinion following it is based.<br/>\nHere, N can refer to a person or an organization. For example: 私からすると (From my standpoint)",
+      "note": null,
+      "examples": [
+        {
+          "content": "症状からすると、心臓の病気かもしれません。",
+          "transcription": "しょうじょうからすると、しんぞうのびょうきかもしれません。",
+          "mean": "Judging from the symptoms, it may be a heart disease."
+        },
+        {
+          "content": "周りの態度からすると、あの方が社長ではないでしょうか。",
+          "transcription": "まわりのたいどからすると、あのかたがしゃちょうではないでしょうか。",
+          "mean": "Judging from the attitude of those around him, I think that person is the president."
+        },
+        {
+          "content": "親からすれば、子供はいくつになっても子供で心配なものだ。",
+          "transcription": "おやからすれば、こどもはいくつになってもこどもでしんぱいなものだ。",
+          "mean": "From a parent's point of view, children are still children and are something to worry about, no matter how old they are."
+        },
+        {
+          "content": "この1年間の成績からすれば、合格の可能性は十分になる。",
+          "transcription": "このいちねんかんのせいせきからすれば、ごうかくのかのうせいはじゅうぶんになる。",
+          "mean": "Judging from your grades over the past year, you have a good chance of passing."
+        },
+        {
+          "content": "あの態度からしたら、彼女は引き下がる気は全くないようだ。",
+          "transcription": "あのたいどからしたら、かのじょはひきさがるきはまったくないようだ。",
+          "mean": "Judging by her attitude, it seems like she has no intention of backing down."
+        },
+        {
+          "content": "私からすると、たった2年でN1に合格するなんて信じられません。",
+          "transcription": "わたしからすると、たったにねんでエヌいちにごうかくするなんてしんじられません。",
+          "mean": "From my point of view, I can't believe that I passed N1 in just 2 years."
+        },
+        {
+          "content": "客からすれば、安ければ安いほど嬉しい。",
+          "transcription": "きゃくからすれば、やすければやすいほどうれしい。",
+          "mean": "From a customer's perspective, the cheaper the price, the happier they are."
+        },
+        {
+          "content": "会社からしたら、優秀な学生をたくさん採用したいはずだ。",
+          "transcription": "かいしゃからしたら、ゆうしゅうながくせいをたくさんさいようしたいはずだ。",
+          "mean": "From a company's perspective, they would want to hire as many talented students as possible."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+からすると<br/> N+からすれば<br/> N+からしたら"
+    }
+  ],
+  "title": "からすると/からすれば/からしたら => judging from; considering; by the look of ~",
+  "_id": "e7b64e7301964b41b06100bebc0ad962"
+}

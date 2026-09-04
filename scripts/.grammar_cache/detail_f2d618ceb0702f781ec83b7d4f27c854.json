@@ -1,0 +1,26 @@
+{
+  "level": "N4",
+  "mobileId": 2728,
+  "usages": [
+    {
+      "explain": "Used together with「 あったでしょうか」、「あろうか」... to express a rough amount based on the speaker's subjective judgment.",
+      "note": null,
+      "examples": [
+        {
+          "content": "昔、祖母の家の庭に大きいな木があった。高さは5mもあっただろうか。杉か何かだったと思う。",
+          "transcription": "むかし、そぼのいえのにわにおおきいなきがあった。たかさは5mもあっただろうか。すぎかなにかだったとおもう。",
+          "mean": "A long time ago, there was a big tree in my grandmother's garden. It was probably 5m high. I think it was cedar or something."
+        },
+        {
+          "content": "昨日の晩は直径5センチもあろうかという氷の固まりが降ってきた。",
+          "transcription": "きのうのばんはちょっけい5せんちもあろうかというこおりのかたまりがふってきた。",
+          "mean": "Last night, chunks of ice with diameters of up to 5 cm were falling."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Quantity words + も...か"
+    }
+  ],
+  "title": "Từ chỉ số lượng + も...か => Probably (quantity)",
+  "_id": "f2d618ceb0702f781ec83b7d4f27c854"
+}

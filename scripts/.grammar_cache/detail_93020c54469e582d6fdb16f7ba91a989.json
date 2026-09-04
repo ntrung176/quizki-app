@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 3126,
+  "usages": [
+    {
+      "explain": "✦ Used to indicate that due to a certain object/event being natural, there's no need to take action that should normally be taken with that object/event.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼に振られたからといって、泣くにはあたらない。",
+          "transcription": "かれにふられたからといって、なくにはあたらない。",
+          "mean": "There's no point in crying just because he dumped you."
+        },
+        {
+          "content": "その程度のことで怒るにはあたらない。",
+          "transcription": "そのていどのことでおこるにはあたらない。",
+          "mean": "There's no point in getting angry over something like that."
+        },
+        {
+          "content": "私の考えでは、彼女の行為は非難されるにはあたらないと思う。",
+          "transcription": "わたしのかんがえでは、かのじょのこういはひなんされるにはあたらないとおもう。",
+          "mean": "In my opinion, her actions are not reprehensible."
+        },
+        {
+          "content": "彼の才能は小学生のころから注目されていた。",
+          "transcription": "かれのさいのうはしょうがくせいのころからちゅうもくされていた。",
+          "mean": "His talent has been noticed since he was an elementary school student."
+        }
+      ],
+      "mean": "✦it's not worth; there's no need to; does not correspond to ~",
+      "synopsis": "✦Vる・N ＋ にはあたらない"
+    }
+  ],
+  "title": "～に（は）あたらない      => it's not worth; there's no need to; does not correspond to ~",
+  "_id": "93020c54469e582d6fdb16f7ba91a989"
+}

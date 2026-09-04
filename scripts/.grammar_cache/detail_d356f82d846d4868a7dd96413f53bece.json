@@ -1,0 +1,46 @@
+{
+  "level": "N5",
+  "mobileId": 5643,
+  "usages": [
+    {
+      "explain": "「と」connects two clauses in a sentence, where the clause after it is the inevitable result of the clause before it, or a discovery after performing the action in the previous clause.<br/>\n\n「と」is often used to explain the operation of machinery or in instructions.<br/>\n\nNotes:<br/>\n- The clause after it should not be used to express the wishes, desires, invitations, or requests of the speaker. For example:<br/>\n  - 時間があると、宿題をします。✖ (When I have time, I will do my homework.) ✖<br/>\n  - 時間があると、ちょっと手伝ってください。✖ (When I have time, please help me a little.) ✖<br/>\n- It can be used to talk about a behavior as a habit of the speaker, because in this case, the level of will in the action is low. For example:<br/>\n  - お腹がすくと、私はいつもコンビニへ行きます。 (When I get hungry, I always go to the convenience store.)<br/>\n\n- When the subject is not the speaker, the clause after it can be followed by a verb indicating will. For example:<br/>\n  - 彼は時間があると、宿題をします。 (When he has time, he does his homework.)",
+      "note": null,
+      "examples": [
+        {
+          "content": "このボタンを押すと、お釣りが出ます。",
+          "transcription": "このボタンをおすと、おつりがでます。",
+          "mean": "Press this button to get change."
+        },
+        {
+          "content": "これを回すと、音が大きくなります。",
+          "transcription": "これをまわすと、おとがおおきくなります。",
+          "mean": "Turning this will make the sound louder."
+        },
+        {
+          "content": "右へ曲がると、郵便局があります。",
+          "transcription": "みぎへまがると、ゆうびんきょくがあります。",
+          "mean": "Turn right and you will see the post office."
+        },
+        {
+          "content": "このボタンを引くと、ドアが開きます。",
+          "transcription": "このボタンをひくと、ドアがあきます。",
+          "mean": "Pull this button to open the door."
+        },
+        {
+          "content": "私は彼の顔を見ると、いつも元気になります。",
+          "transcription": "わたしはかれのかおをみると、いつもげんきになります。",
+          "mean": "I always feel better when I see his face."
+        },
+        {
+          "content": "アレルギーがあるので、猫に触ると体がかゆくなります。",
+          "transcription": "アレルギーがあるので、ねこにさわるとからだがかゆくなります。",
+          "mean": "I have an allergy, so when I touch a cat my body itches."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+と"
+    }
+  ],
+  "title": "と => whenever [A] happens, [B] also happens",
+  "_id": "d356f82d846d4868a7dd96413f53bece"
+}

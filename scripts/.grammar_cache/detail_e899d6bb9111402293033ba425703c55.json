@@ -1,0 +1,61 @@
+{
+  "level": "N2",
+  "mobileId": 5207,
+  "usages": [
+    {
+      "explain": "「にしたがって」<br/>\n1. Comes after a noun referring to a person, law, rule, etc., to indicate that the action following is carried out in accordance with the instructions of that person, law, rule, etc. \"According to...\"<br/>\n\n2. Follows a noun or verb expressing a change to describe the idea that the preceding clause (N/V) changes, and the following clause (because it is influenced/dependent on the preceding clause) also changes accordingly.<br/>\n\nWith this meaning, in most cases,「にしたがって」and「につれて」can be used interchangeably. The cases where they cannot be substituted for each other are due to the following differences:<br/>\n- 「にしたがって」can show both changes in the same direction (such as both clauses increasing or decreasing) and opposite directions (like the first clause increasing, the second decreasing).「につれて」only shows changes in the same direction.<br/>\n- The clause after 「にしたがって」can use a structure to express the speaker's intention or not. The clause after 「につれて」does not use a structure to express the speaker's intention.<br/>\n\n\"The more... the more...\"<br/><br/>\n「にしたがい」is a more formal form used in formal speeches or written language, synonymous with「にしたがって」.<br/>\nThe Kanji for「にしたがって」is「に従って」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "地震が起きた場合は、スタッフの指示にしたがって避難してください。",
+          "transcription": "じしんがおきたばあいは、スタッフのしじにしたがってひなんしてください。",
+          "mean": "If an earthquake occurs, please evacuate according to the staff's instructions."
+        },
+        {
+          "content": "矢印にしたがって進んでください。",
+          "transcription": "やじるしにしたがってすすんでください。",
+          "mean": "Please follow the arrow."
+        },
+        {
+          "content": "市のルールにしたがってゴミを捨てなければいけない。",
+          "transcription": "しのルールにしたがってゴミをすてなければいけない。",
+          "mean": "You must dispose of garbage according to city rules."
+        },
+        {
+          "content": "寒くなるにしたがって、風邪を引く人が多くなります。",
+          "transcription": "さむくなるにしたがって、かぜをひくひとがおおくなります。",
+          "mean": "As the weather gets colder, more people catch colds."
+        },
+        {
+          "content": "日本での生活に慣れるにしたがって、日本人の友達が増えた。",
+          "transcription": "にほんでのせいかつになれるにしたがって、にほんじんのともだちがふえた。",
+          "mean": "As I got used to life in Japan, I started making more Japanese friends."
+        },
+        {
+          "content": "北へ行くにしたがって、紅葉は早くなる。",
+          "transcription": "きたへいくにしたがって、こうようははやくなる。",
+          "mean": "The further north you go, the earlier the leaves turn."
+        },
+        {
+          "content": "上に登るにしたがって、霧が濃くなってくる。",
+          "transcription": "うえにのぼるにしたがって、きりがこくなってくる。",
+          "mean": "As we climb higher, the fog becomes thicker."
+        },
+        {
+          "content": "試験の日が近づくにしたがい、不安と緊張で眠れない日が続く。",
+          "transcription": "しけんのひがちかづくにしたがい、ふあんときんちょうでねむれないひがつづく。",
+          "mean": "As the exam day approaches, I find myself unable to sleep due to anxiety and nervousness."
+        },
+        {
+          "content": "通勤客が増えるにしたがって、今後、バスの本数を増やしていこうと思っている。",
+          "transcription": "つうきんきゃくがふえるにしたがって、こんご、バスのほんすうをふやしていこうとおもっている。",
+          "mean": "As the number of commuters increases, we plan to increase the number of buses in the future."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Nに+したがって / したがい<br/>\nV (root form)に+したがって / したがい"
+    }
+  ],
+  "title": "にしたがって => as; therefore; in accordance with; according to; consequently ~",
+  "_id": "e899d6bb9111402293033ba425703c55"
+}

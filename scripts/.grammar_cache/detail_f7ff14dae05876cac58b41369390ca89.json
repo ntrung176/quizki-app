@@ -1,0 +1,43 @@
+{
+  "level": "N5",
+  "mobileId": 1627,
+  "usages": [
+    {
+      "explain": "Describing an action or event that continues throughout the time indicated by \"まで.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "昨日午後10時まで働いた。",
+          "transcription": "きのうごごいちぜろじまではたらいた。",
+          "mean": "I worked until 10pm yesterday."
+        },
+        {
+          "content": "天気予報によれば、日曜日までずっと雪が降っている。",
+          "transcription": "てんきよほうによれば、にちようびまでずっとゆきがふっている。",
+          "mean": "According to the weather forecast, it will continue to snow until Sunday."
+        },
+        {
+          "content": "彼女が結婚するなんて、昨日山田さんに聞くまで知らなかった。",
+          "transcription": "かのじょがけっこんするなんて、きのうやまださんにきくまでしらなかった。",
+          "mean": "I didn't know that she was getting married until I asked Mr. Yamada yesterday."
+        },
+        {
+          "content": "彼女は結婚して退職するまで日本の会社で働いていたそうだ。",
+          "transcription": "かのじょはけっこんしてたいしょくするまでにっぽんのかいしゃではたらいていたそうだ。",
+          "mean": "Apparently she worked at a Japanese company until she got married and retired."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-る・N \n+ まで"
+    },
+    {
+      "explain": "Note: The sentence pattern 「...まで...する」 expresses an action continuing until a certain point in time. On the other hand, 「...までに...する」 indicates an action occurring by a certain time, not a continuous one. Therefore, in sentences with 「...までに」, words expressing continuity cannot be used.  <br/>✗ 「5時までにここで待っています。」  <br/> ✓ 「5時までここで待っています。」 (I will wait here until 5 o'clock.)",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "まで => until; as far as; to (an extent); even ~",
+  "_id": "f7ff14dae05876cac58b41369390ca89"
+}

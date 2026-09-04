@@ -1,0 +1,56 @@
+{
+  "level": "N4",
+  "mobileId": 5486,
+  "usages": [
+    {
+      "explain": "「必要がある」expresses the need to do something V.<br/>「必要がない」, on the other hand, expresses the lack of need to do something V.\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼らは休む必要がある。",
+          "transcription": "かれらはやすむひつようがある。",
+          "mean": "they need to rest."
+        },
+        {
+          "content": "もっと勉強する必要がある。",
+          "transcription": "もっとべんきょうするひつようがある。",
+          "mean": "I need to study more."
+        },
+        {
+          "content": "まず、この部屋を掃除する必要がある。",
+          "transcription": "まず、このへやをそうじするひつようがある。",
+          "mean": "First, we need to clean this room."
+        },
+        {
+          "content": "弟は今日学校に行く必要がない。",
+          "transcription": "おとうとはきょうがっこうにいくひつようがない。",
+          "mean": "My younger brother doesn't need to go to school today."
+        },
+        {
+          "content": "わざわざ店まで買いに行く必要がないよ。",
+          "transcription": "わざわざみせまでかいにいくひつようがないよ。",
+          "mean": "There's no need to go all the way to the store to buy it."
+        },
+        {
+          "content": "何でそんなことをする必要があるんですか。",
+          "transcription": "なんでそんなことをするひつようがあるんですか。",
+          "mean": "Why do you need to do that?"
+        },
+        {
+          "content": "医者は彼にたばこをやめる必要があると言った。",
+          "transcription": "いしゃはかれにたばこをやめるひつようがあるといった。",
+          "mean": "The doctor told him he needed to quit smoking."
+        },
+        {
+          "content": "日本の会社で働くために、JLPT N3に合格する必要がある。",
+          "transcription": "にほんのかいしゃではたらくために、ジェーエルピーティーエヌサンにごうかくするひつようがある。",
+          "mean": "In order to work at a Japanese company, you need to pass JLPT N3."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+必要がある<br/> V (root form)+必要がない"
+    }
+  ],
+  "title": "必要がある => Need/Need to",
+  "_id": "f3b6560d4c9645348b8a851bb841cb0f"
+}

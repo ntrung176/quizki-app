@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 2011,
+  "usages": [
+    {
+      "explain": "Used after a clause to express the content: someone has a certain way of behaving contrary to the truth, or perceives the situation in such a way. In the case of following a noun, the form will be「N（だ）ということ」. In the case of following a verb, the form will be in a form with or without 「という」. 「こととする」 has the same meaning and is a more stylized form used in writing.",
+      "note": null,
+      "examples": [
+        {
+          "content": "私のせい（だ）ということにしておきなさい。",
+          "transcription": "わたしのせい（だ）ということにしておきなさい。",
+          "mean": "Just pretend it's my fault."
+        },
+        {
+          "content": "今回の契約はなかった（という）ことにしよう。",
+          "transcription": "こんかいのけいやくはなかった（という）ことにしよう。",
+          "mean": "Let's pretend that there was no contract this time."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N（だ）+ ということにする\nNa-だ + ということにする\nV-た +（という）ことにする"
+    }
+  ],
+  "title": "ことにする => Treat as if... (Handling)",
+  "_id": "f7ff14dae05876cac58b413693c5e086"
+}

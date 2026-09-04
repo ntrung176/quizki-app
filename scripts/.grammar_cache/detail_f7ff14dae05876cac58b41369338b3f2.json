@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 987,
+  "usages": [
+    {
+      "explain": "This is used to explain the cause or reason for an action that has been or will be taken.<br/>The particle 「も」is used to emphasize that it is a particular action. Sometimes, 「のだ」can be used instead of 「からだ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "わざわざ東京までその時計を買いに行ったというのも、部長を喜ばせたかったからだ。",
+          "transcription": "わざわざとうきょうまでそのとけいをかいにいったというのも、ぶちょうをよろこばせたかったからだ。",
+          "mean": "The reason why I went all the way to Tokyo to buy the watch was because I wanted to please the manager."
+        },
+        {
+          "content": "社長が怒ったというのも、部下が嘘をついたからだ。",
+          "transcription": "しゃちょうがおこったというのも、ぶかがうそをついたからだ。",
+          "mean": "The president was angry because his subordinate lied."
+        }
+      ],
+      "mean": null,
+      "synopsis": "というのも + V-た + からだ"
+    }
+  ],
+  "title": "というのも…からだ => This is because…",
+  "_id": "f7ff14dae05876cac58b41369338b3f2"
+}

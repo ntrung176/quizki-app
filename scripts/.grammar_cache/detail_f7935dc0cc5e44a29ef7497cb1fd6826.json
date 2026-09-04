@@ -1,0 +1,36 @@
+{
+  "level": "N2",
+  "mobileId": 5196,
+  "usages": [
+    {
+      "explain": "「に関わって」indicates that the subject being discussed is related to, affects, or is involved with N. The noun N here often refers to serious or dangerous matters.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼は汚職事件に関わって逮捕された。",
+          "transcription": "かれはおしょくじけんにかかわってたいほされた。",
+          "mean": "He was arrested in connection with a corruption case."
+        },
+        {
+          "content": "息子はマスコミに関わる仕事をしている。",
+          "transcription": "むすこはマスコミにかかわるしごとをしている。",
+          "mean": "My son works in the media."
+        },
+        {
+          "content": "あれは命に関わる病気です。",
+          "transcription": "あれはいのちにかかわるびょうきです。",
+          "mean": "That is a life-threatening disease."
+        },
+        {
+          "content": "プライバシーに関わることですので、教えられません。",
+          "transcription": "プライバシーにかかわることですので、おしえられません。",
+          "mean": "I can't tell you because it's a privacy issue."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N+に関わって<br/> N+に関わり<br/>N+に関わる<br/> N+に関わるN'"
+    }
+  ],
+  "title": "に関わって => to relate to; to have to do with; relating to ~",
+  "_id": "f7935dc0cc5e44a29ef7497cb1fd6826"
+}

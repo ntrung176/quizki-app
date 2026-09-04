@@ -1,0 +1,31 @@
+{
+  "level": "N2",
+  "mobileId": 5175,
+  "usages": [
+    {
+      "explain": "「ものではない」is used to express something that according to common sense, proper behavior, or general norms, should not be done. It indirectly advises or gently warns the listener. The subject in the sentence is generally not specifically directed at the listener but is speaking in a general sense to everyone. It should not be used with superiors.<br/>\n\n「もんじゃない」is often used in daily conversations.",
+      "note": null,
+      "examples": [
+        {
+          "content": "目上の人にそんな言い方をするものではない。",
+          "transcription": "めうえのひとにそんないいかたをするものではない。",
+          "mean": "You shouldn't say things like that to someone superior to you."
+        },
+        {
+          "content": "口の中に物を入れたまましゃべるもんじゃないよ。",
+          "transcription": "くちのなかにものをいれたまましゃべるもんじゃないよ。",
+          "mean": "Don't talk with something in your mouth."
+        },
+        {
+          "content": "借りた本に書き込むをするものではない。",
+          "transcription": "かりたほんにかきこむをするものではない。",
+          "mean": "This is not something you should write in a borrowed book."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (root form)+ものではない<br/> V (root form)+もんじゃない"
+    }
+  ],
+  "title": "ものではない => shouldn’t do something; it’s impossible to ~",
+  "_id": "916b08b31cdf43cfa1324b05ef3b1c35"
+}

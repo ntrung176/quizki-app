@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 714,
+  "usages": [
+    {
+      "explain": "This expression carries the meaning of \"without necessity\", \"without permission\", or \"on one's own accord\". <br/>✦It often follows statements of prohibition, such as 「みだりに...するな／してはいけない」(don't do something recklessly). In everyday spoken language, it's often expressed as 「勝手に...しないでくだし」(please don't do something without permission).\n<br/>✦This is a formal and written style of expression.",
+      "note": null,
+      "examples": [
+        {
+          "content": "みだりに動物にえさを与えないでください。",
+          "transcription": "みだりにどうぶつにえさをあたえないでください。",
+          "mean": "Please do not feed animals indiscriminately."
+        },
+        {
+          "content": "新聞と言えども、個人のプライバシーをみだりに公表することは許さない。",
+          "transcription": "しんぶんといえども、こじんのプライバシーをみだりにこうひょうすることはゆるさない。",
+          "mean": "Even though it is a newspaper, we do not allow individuals' privacy to be published indiscriminately."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦After みだりに are often sentences about prohibiting human actions."
+    }
+  ],
+  "title": "～みだりに => recklessly; indiscriminately; arbitrarily",
+  "_id": "f7ff14dae05876cac58b413693131e44"
+}

@@ -1,0 +1,43 @@
+{
+  "level": "N5",
+  "mobileId": 2867,
+  "usages": [
+    {
+      "explain": "「 どこ」is an interrogative word asking about a location, while「 どちら」is an interrogative word asking about a direction. However,「 どちら」can also be used to ask about a location. In this case,「 どちら」carries a more polite tone than「 どこ」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "会議室はどこですか。",
+          "transcription": "かいぎしつはどこですか。",
+          "mean": "Where is the conference room?"
+        },
+        {
+          "content": "お国はどちらですか。",
+          "transcription": "おくにはどちらですか。",
+          "mean": "Which is your country."
+        },
+        {
+          "content": "学校はどこですか。",
+          "transcription": "がっこうはどこですか。",
+          "mean": "Where is your school?"
+        },
+        {
+          "content": "会社はどちらですか。",
+          "transcription": "かいしゃはどちらですか。",
+          "mean": "Which company is it?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "どこ"
+    },
+    {
+      "explain": "Note: In addition, when asking about the name of a country, company, school, organization, or affiliated institution, we also use the interrogative words 「 どこ」or「 どちら」  instead of 「 なん」. In this case, 「 どちら」 also conveys a more polite tone than 「 どこ」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "どこ => Where...",
+  "_id": "f2d618ceb0702f781ec83b7d4f39890d"
+}

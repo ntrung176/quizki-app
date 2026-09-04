@@ -1,0 +1,26 @@
+{
+  "level": "N1",
+  "mobileId": 691,
+  "usages": [
+    {
+      "explain": "✦This is a colloquial expression, formed by adding the prohibition particle な to the honorific form of the verb 「する」which is 「なさい」. It is only used in intimate relationships and is often used by older people. In polite situations, it can be replaced with 「ないでください」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "風邪などひきなさんな。",
+          "transcription": "かぜなどひきなさんな。",
+          "mean": "Don't catch a cold."
+        },
+        {
+          "content": "大丈夫だから、そんなに心配しなさんな。",
+          "transcription": "だいじょうぶだから、そんなにしんぱいしなさんな。",
+          "mean": "It's okay, so don't worry too much."
+        }
+      ],
+      "mean": null,
+      "synopsis": "✦V + なさんな"
+    }
+  ],
+  "title": "～なさんな => (Please) do not, Do not, Don't (prohibitive)",
+  "_id": "f7ff14dae05876cac58b41369310202e"
+}

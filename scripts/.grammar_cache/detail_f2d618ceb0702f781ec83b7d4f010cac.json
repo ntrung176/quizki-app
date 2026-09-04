@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 2439,
+  "usages": [
+    {
+      "explain": "To express the meaning of \"not necessarily, not entirely, not exactly...\"",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼女の態度からして、まんざら彼が嫌いでもないようだ。",
+          "transcription": "かのじょのたいどからして、まんざらかれがきらいでもないようだ。",
+          "mean": "Judging from her attitude, it doesn't seem like she hates him at all."
+        },
+        {
+          "content": "彼の演奏はまんざら捨てたものではなかった。",
+          "transcription": "かれのえんそうはまんざらすてたものではなかった。",
+          "mean": "His performance wasn't completely discarded."
+        },
+        {
+          "content": "初めのうち私は犬が怖かったが、今ではまんざら嫌でもない。",
+          "transcription": "はじめのうちわたしはいぬがこわかったが、いまではまんざらいやでもない。",
+          "mean": "At first I was afraid of dogs, but now I don't really hate them."
+        }
+      ],
+      "mean": null,
+      "synopsis": "まんざら…でもない/ではない"
+    }
+  ],
+  "title": "まんざら…でもない/ではない => (not) altogether; (not) wholly",
+  "_id": "f2d618ceb0702f781ec83b7d4f010cac"
+}

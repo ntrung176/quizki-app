@@ -1,0 +1,26 @@
+{
+  "level": "N5",
+  "mobileId": 3019,
+  "usages": [
+    {
+      "explain": "Modifies the noun that follows, indicating that the preceding noun is the possessor, the place of belonging for the following noun.",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "これはあなたの傘じゃないですか。",
+          "transcription": "これはあなたのかさじゃないですか。",
+          "mean": "Isn't this your umbrella?"
+        },
+        {
+          "content": "日本の物価はとても高い。",
+          "transcription": "にっぽんのぶっかはとてもたかい。",
+          "mean": "Prices in Japan are very high."
+        }
+      ],
+      "mean": null,
+      "synopsis": "Modify the noun following it."
+    }
+  ],
+  "title": "N1 の N2 => N2 of N1 (possessive)",
+  "_id": "f2d618ceb0702f781ec83b7d4f4bdd29"
+}

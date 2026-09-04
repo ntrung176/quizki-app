@@ -1,0 +1,46 @@
+{
+  "level": "N2",
+  "mobileId": 5287,
+  "usages": [
+    {
+      "explain": "「上に」is used to describe a situation or event not only having one characteristic/content but also another. The characteristics/contents in the first and second clauses of「上に」must have the same direction of emotion, either both positive or both negative. It can be translated as \"on top of that\" or \"not only... but also...\"<br/>\n\n「その上」means \"in addition, furthermore,\" used as a conjunction to add to the previous sentence.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼の妹は美人の上に性格も良い。",
+          "transcription": "かれのいもうとはびじんのうえにせいかくもよい。",
+          "mean": "His younger sister is not only beautiful but also has a good personality."
+        },
+        {
+          "content": "今日は曇っている上に風が強いので、とても寒く感じられる。",
+          "transcription": "きょうはくもっているうえにかぜがつよいので、とてもさむくかんじられる。",
+          "mean": "It's cloudy today and the wind is strong, so it feels very cold."
+        },
+        {
+          "content": "昨日はごちそうになった上、お土産までいただき、ありがとうございました。",
+          "transcription": "きのうはごちそうになったうえ、おみやげまでいただき、ありがとうございました。",
+          "mean": "Thank you very much for the feast yesterday and for giving me a souvenir."
+        },
+        {
+          "content": "今時の若者は敬語も使えない上、礼儀も知らない。",
+          "transcription": "いまどきのわかものはけいごもつかえないうえ、れいぎもしらない。",
+          "mean": "Young people today can't use honorific language, and they don't know how to be polite."
+        },
+        {
+          "content": "この本は漢字が多い。その上、字が小さいので子供には読みにくい。",
+          "transcription": "このほんはかんじがおおい。そのうえ、じがちいさいのでこどもにはよみにくい。",
+          "mean": "This book has a lot of kanji. Additionally, the font is small, making it difficult for children to read."
+        },
+        {
+          "content": "電気で動く車は静かな上に環境に優しいので、注目されつつある。",
+          "transcription": "でんきでうごくくるまはしずかなうえにかんきょうにやさしいので、ちゅうもくされつつある。",
+          "mean": "Electric cars are attracting attention because they are quiet and environmentally friendly."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V (formal form)+上(に)<br/>Aい (formal form)+上(に)<br/>Aな (formal form)+上(に)<br>(In this particular case: A<s>な</s>だ ➔ Aな<s>だ</s>/A<s>だ</s>である)<br/>N (formal form)+上(に)<br/>(In this particular case: Nだ ➔ N<s>だ</s>の/N<s>だ</s>である)</br>"
+    }
+  ],
+  "title": "上に => as well; besides; in addition to; not only… but also ~",
+  "_id": "bc4330c75d8f48d8a6c215a5d4f2a6f5"
+}

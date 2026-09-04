@@ -1,0 +1,26 @@
+{
+  "level": "N3",
+  "mobileId": 2563,
+  "usages": [
+    {
+      "explain": "Expresses surprise when someone has done difficult things or unexpected events have occurred.",
+      "note": null,
+      "examples": [
+        {
+          "content": "彼はよくもあんな難しい日本語が一年でマスターできたもんだね。",
+          "transcription": "かれはよくもあんなむずかしいにほんごがいちねんでますたーできたもんだね。",
+          "mean": "He was able to master such difficult Japanese in just one year."
+        },
+        {
+          "content": "あんな暑い天気の中でエアコンをつけずにそのままに寝ていました。どうやって暑さを凌いでいたんですか。",
+          "transcription": "あんなあついてんきのなかでえあこんをつけずにそのままにねていました。どうやってあつさをしのいでいたんですか。",
+          "mean": "In such hot weather, I slept without turning on the air conditioner. How did you beat the heat?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "よく(も)"
+    }
+  ],
+  "title": "よく(も) => How the hell is it possible, that ...?",
+  "_id": "f2d618ceb0702f781ec83b7d4f121c06"
+}

@@ -1,0 +1,31 @@
+{
+  "level": "N3",
+  "mobileId": 1950,
+  "usages": [
+    {
+      "explain": "Used in quotations as a shortened form of 「言っている・聞いたなど」. It is used as a conjunction in the middle of a sentence (similar to ても / でも) but is less formal, typically used in daily conversation.",
+      "note": null,
+      "examples": [
+        {
+          "content": "小川さん、今日は休むって言ってたよ。",
+          "transcription": "おがわさん、きょうはやすむっていってたよ。",
+          "mean": "Mr. Ogawa said he would take a day off today."
+        },
+        {
+          "content": "佐藤さんの奥さんは料理の先生だって。",
+          "transcription": "さとうさんのおくさんはりょうりのせんせいだって。",
+          "mean": "Mr. Sato's wife is a cooking teacher."
+        },
+        {
+          "content": "山川君、先生が教員室まで来てくださいって。",
+          "transcription": "やまかわくん、せんせいがきょういんしつまできてくださいって。",
+          "mean": "Mr. Yamakawa, your teacher asked you to come to the teacher's room."
+        }
+      ],
+      "mean": null,
+      "synopsis": "V-た + って<br/>A-い (く) + たって<br/>A-な+ だって<br/>N + だって"
+    }
+  ],
+  "title": "って => They said...",
+  "_id": "f7ff14dae05876cac58b413693bd23f4"
+}

@@ -1,0 +1,26 @@
+{
+  "level": "N2",
+  "mobileId": 1398,
+  "usages": [
+    {
+      "explain": "Gives an example of an action, implying there are other similar actions. This is a colloquial way of saying 「など」.",
+      "note": null,
+      "examples": [
+        {
+          "content": "週末はテレビを見たりなんかして過ごす。",
+          "transcription": "しゅうまつはてれびをみたりなんかしてすごす。",
+          "mean": "I spend my weekends watching TV and doing things like that."
+        },
+        {
+          "content": "どうして泣き出したりなんかして。",
+          "transcription": "どうしてなきだしたりなんかして。",
+          "mean": "Why did I start crying?"
+        }
+      ],
+      "mean": null,
+      "synopsis": "Vたり + なんかして"
+    }
+  ],
+  "title": "たりなんかして => besides, there are things similar to that",
+  "_id": "f7ff14dae05876cac58b413693703903"
+}

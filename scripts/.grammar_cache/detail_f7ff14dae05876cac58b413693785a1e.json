@@ -1,0 +1,36 @@
+{
+  "level": "N1",
+  "mobileId": 1448,
+  "usages": [
+    {
+      "explain": "<div>■ Often used when wanting to compare, likening things where in reality they are different but appear very similar.<div><div>■ Typically used in writing or novels, hardly used in casual conversation.<div><div>■ In spoken language, use 「まるで」.「ごとし」is a term used in writing, which can be transformed into various forms like ごとき/ごとく／ちょうど／さながら.<div><div></div></div></div></div></div></div></div>",
+      "note": "\n                                                                                            ",
+      "examples": [
+        {
+          "content": "その日はあたかも春のような陽気だった。",
+          "transcription": "そのひはあたかもはるのようなようきだった。",
+          "mean": "That day was as sunny as spring."
+        },
+        {
+          "content": "人生はあたかもはかなく消える夢のごときものである。",
+          "transcription": "じんせいはあたかもはかなくきえるゆめのごときものである。",
+          "mean": "Life is like a fleeting dream."
+        },
+        {
+          "content": "彼は、あたかも自分が会の中心人物であるかのように振る舞っていた。",
+          "transcription": "かれは、あたかもじぶんがかいのちゅうしんじんぶつであるかのようにふるまっていた。",
+          "mean": "He acted as if he were the central figure in the group."
+        },
+        {
+          "content": "彼女はいつも、あたかも目の前にその光景が浮かび上がってくるかのような話し方で、人々を魅了する。",
+          "transcription": "かのじょはいつも、あたかもめのまえにそのこうけいがうかびあがってくるかのようなはなしかたで、ひとびとをみりょうする。",
+          "mean": "She always captivates people with the way she speaks, as if the scene is unfolding before her eyes."
+        }
+      ],
+      "mean": null,
+      "synopsis": "<div><br/></div><div>■あたかも + N （であるか）のようだ </div><div>■あたかも + N（であるか）のことし </div><div>■あたかも + V + かのようだ </div><div>■あたかも + V + かのことし</div>"
+    }
+  ],
+  "title": "～あたかも => just like",
+  "_id": "f7ff14dae05876cac58b413693785a1e"
+}

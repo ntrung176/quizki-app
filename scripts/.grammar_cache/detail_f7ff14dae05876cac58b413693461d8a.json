@@ -1,0 +1,33 @@
+{
+  "level": "N2",
+  "mobileId": 1087,
+  "usages": [
+    {
+      "explain": "Used with forms like 「...と聞く／聞いている／聞いた」to express the meaning \"heard that story like that\".",
+      "note": null,
+      "examples": [
+        {
+          "content": "この村は昔は沼地だったと聞く。",
+          "transcription": "このむらはむかしはぬまちだったときく。",
+          "mean": "I heard that this village used to be a swamp."
+        },
+        {
+          "content": "噂で、あの二人が離婚したと聞いた。",
+          "transcription": "うわさで、あのににんがりこんしたときいた。",
+          "mean": "I heard through rumors that those two got divorced."
+        }
+      ],
+      "mean": null,
+      "synopsis": "N + だときく\nNa + だときく\nA + ときく\nV + ときく"
+    },
+    {
+      "explain": "Note: 「と聞く」is only used in writing, not in the polite form 「と聞きます」.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "... ときく => I heard",
+  "_id": "f7ff14dae05876cac58b413693461d8a"
+}

@@ -1,0 +1,50 @@
+{
+  "level": "N5",
+  "mobileId": 2901,
+  "usages": [
+    {
+      "explain": "Conjugation of verbs into the て-form for Group I verbs:<br/>～う、～る、～つ  → ～って<div>～す → ～して</div><div>～く → ～いて</div><div>～ぐ → ～いで</div><div>～む、～ぬ、～ぶ → ～んで</div>",
+      "note": null,
+      "examples": [
+        {
+          "content": "すみませんが、あの本を取ってください。",
+          "transcription": "すみませんが、あのほんをとってください。",
+          "mean": "Excuse me, but please take that book."
+        },
+        {
+          "content": "この届書に住所と名前を書いてください。",
+          "transcription": "このとどけしょにじゅうしょとなまえをかいてください。",
+          "mean": "Please write your address and name on this notification."
+        },
+        {
+          "content": "今、私はご飯を食べています。",
+          "transcription": "いま、わたしはごはんをたべています。",
+          "mean": "I'm eating rice now."
+        },
+        {
+          "content": "弟は朝からずっと自分の部屋で勉強をしています。",
+          "transcription": "おとうとはあさからずっとじぶんのへやでべんきょうをしています。",
+          "mean": "My younger brother has been studying in his room all morning."
+        }
+      ],
+      "mean": null,
+      "synopsis": "The verb conjugated into the て」 form is often used in enumerating sentences, indicating actions done sequentially or concurrently."
+    },
+    {
+      "explain": "Conjugation of verbs into the て-form for Group II verbs:<br/>Remove the る ending and add て<br/>Note:居る、見る、借りる、浴びる... are Group II verbs.",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    },
+    {
+      "explain": "Conjugation of verbs into the て-form for Group III verbs:<br/><div>行く「いく」 → 行って「いって」</div><div>来る「くる」 → 来て「きて」</div><div>する → して</div>",
+      "note": null,
+      "examples": [],
+      "mean": null,
+      "synopsis": null
+    }
+  ],
+  "title": "て形 => Te form",
+  "_id": "f2d618ceb0702f781ec83b7d4f3d6fdd"
+}
