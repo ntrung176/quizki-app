@@ -5,6 +5,7 @@ import {
     Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Sparkles, Clock, CheckCircle
 } from 'lucide-react';
 import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints, deleteGrammarPoint } from '../../utils/grammarService';
+import { speakExampleSentence } from '../../utils/audio';
 import { showToast } from '../../utils/toast';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../config/firebase';
@@ -12,6 +13,9 @@ import { getAuth } from 'firebase/auth';
 import { recordRecentGrammar } from '../../utils/grammarHistory';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
+import MaziiStructureCard from '../grammar/MaziiStructureCard';
+import MaziiExampleItem from '../grammar/MaziiExampleItem';
+import MaziiSectionRow from '../grammar/MaziiSectionRow';
 
 // Fallback illustration data for ~あげく
 const FALLBACK_VISUAL = {
@@ -29,7 +33,7 @@ const FALLBACK_TIPS = [
 ];
 
 const FALLBACK_EXAMPLES = [
-    { ja: "けんかのあげく、私たちは口 các きかなくなりました。", vi: "Sau nhiều lần cãi vã, chúng tôi đã không còn nói chuyện với nhau nữa." },
+    { ja: "けんかのあげく、私たちは口をきかなくなりました。", vi: "Sau nhiều lần cãi vã, chúng tôi đã không còn nói chuyện với nhau nữa." },
     { ja: "散々迷ったあげく、何も買わずに店を出た。", vi: "Sau một hồi phân vân mãi, cuối cùng tôi đã rời cửa hàng mà không mua gì cả." }
 ];
 
@@ -52,6 +56,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     const [editForm, setEditForm] = useState({
         pattern: '',
         meaningShort: '',
+        meaning: '',
         meaningFull: '',
         structureRaw: '',
         tips: [],
@@ -126,13 +131,13 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                 meaningShort: gp.meaningShort || '',
                 meaning: gp.meaning || '',
                 meaningFull: gp.meaningFull || '',
-                structureRaw: gp.structure ? gp.structure.map(s => s.type === 'highlight' ? `*${s.text}` : s.text).join(' + ') : '',
+                structureRaw: gp.structureRaw || (gp.connection ? gp.connection.join('\n') : (gp.structure ? (Array.isArray(gp.structure) ? gp.structure.map(s => s.text || s).join(' + ') : gp.structure) : '')),
                 tips: gp.tips ? [...gp.tips] : [],
                 examples: gp.examples ? [...gp.examples] : [],
                 visual: gp.visual ? {
                     title: gp.visual.title || '',
                     imageLabel: gp.visual.imageLabel || '',
-                    image: gp.visual.image || gp.visual.leftImage || '', // Migration fallback from leftImage
+                    image: gp.visual.image || gp.visual.leftImage || '',
                     sentenceJa: gp.visual.sentenceJa || '',
                     sentenceJaUnderline: gp.visual.sentenceJaUnderline || '',
                     descriptionVi: gp.visual.descriptionVi || ''
@@ -148,45 +153,39 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }
     }, [gp, isEditing]);
 
-    // Reconstruct the structure formula lines intelligently from connection, structureRaw, or structure
+    // Reconstruct the structure formula lines cleanly for Mazii display
     const structureLines = useMemo(() => {
         if (!gp) return [];
-        const splitFormulas = (str) => {
-            if (typeof str !== 'string' || !str.trim()) return [];
-            const rawLines = str.split(/\n+/).map(s => s.trim()).filter(Boolean);
-            const result = [];
-            for (const rLine of rawLines) {
-                // Split by space-slash-space " / " or slashes followed by new formula prefixes (e.g., ご, お, N, V, A, Adj, ~, 〜)
-                const subLines = rLine.split(/(?:\s+[/／]\s+|\s*[/／]\s*(?=[おごVNA]|N|V|A|Adj|[~〜]|ない|て|た|の|な))/gi)
+        const cleanLines = (arrOrStr) => {
+            if (!arrOrStr) return [];
+            if (Array.isArray(arrOrStr)) {
+                return arrOrStr
+                    .map(item => typeof item === 'string' ? item : item?.text || '')
                     .map(s => s.trim())
                     .filter(Boolean);
-                result.push(...subLines);
             }
-            return result;
+            if (typeof arrOrStr === 'string') {
+                return arrOrStr.split(/\n+/).map(s => s.trim()).filter(Boolean);
+            }
+            return [];
         };
 
         if (Array.isArray(gp.connection) && gp.connection.length > 0) {
-            const lines = [];
-            gp.connection.forEach(c => {
-                const text = typeof c === 'string' ? c : c?.text || '';
-                lines.push(...splitFormulas(text));
-            });
+            const lines = cleanLines(gp.connection);
             if (lines.length > 0) return lines;
         }
         if (gp.structureRaw && typeof gp.structureRaw === 'string') {
-            return splitFormulas(gp.structureRaw);
+            const lines = cleanLines(gp.structureRaw);
+            if (lines.length > 0) return lines;
         }
         if (gp.structure) {
-            if (typeof gp.structure === 'string') {
-                return splitFormulas(gp.structure);
-            }
             if (Array.isArray(gp.structure)) {
-                const lines = [];
-                gp.structure.forEach(s => {
-                    const text = typeof s === 'string' ? s : s?.text || '';
-                    lines.push(...splitFormulas(text));
-                });
-                if (lines.length > 0) return lines;
+                const tokens = gp.structure.map(s => typeof s === 'string' ? s : s?.text || '').filter(Boolean);
+                if (tokens.length > 0) {
+                    return [tokens.join(' + ')];
+                }
+            } else if (typeof gp.structure === 'string') {
+                return cleanLines(gp.structure);
             }
         }
         return [];
@@ -213,13 +212,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
 
     const parseStructure = (raw) => {
         if (!raw) return [];
-        return raw.split('+').map(s => {
-            const t = s.trim();
-            if (t.startsWith('*')) return { text: t.slice(1), type: 'highlight' };
-            if (t.startsWith('V')) return { text: t, type: 'verb' };
-            if (t.startsWith('N') || t.startsWith('A')) return { text: t, type: 'noun' };
-            return { text: t, type: 'connector' };
-        });
+        return raw.split('\n').map(s => s.trim()).filter(Boolean).map(line => ({ text: line, type: 'connector' }));
     };
 
     // Firebase Storage upload helper
@@ -287,6 +280,8 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             meaningShort: editForm.meaningShort.trim(),
             meaning: editForm.meaning.trim(),
             meaningFull: editForm.meaningFull.trim(),
+            structureRaw: editForm.structureRaw.trim(),
+            connection: editForm.structureRaw.split('\n').map(s => s.trim()).filter(Boolean),
             structure: parseStructure(editForm.structureRaw),
             tips: editForm.tips.map(t => ({ ...t, text: t.text.trim() })).filter(t => t.text),
             examples: editForm.examples.map(ex => ({ ja: ex.ja.trim(), vi: ex.vi.trim() })).filter(ex => ex.ja || ex.vi),
@@ -305,6 +300,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         if (success) {
             setGp(updatedData);
             setIsEditing(false);
+            showToast("Lưu ngữ pháp thành công", "success");
         } else {
             alert("Lỗi khi lưu ngữ pháp vào Firestore.");
         }
@@ -344,20 +340,6 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }));
     };
 
-    const handleAddTip = () => {
-        setEditForm(f => ({
-            ...f,
-            tips: [...f.tips, { icon: '💡', text: '' }]
-        }));
-    };
-
-    const handleRemoveTip = (idx) => {
-        setEditForm(f => ({
-            ...f,
-            tips: f.tips.filter((_, i) => i !== idx)
-        }));
-    };
-
     // Calculate progression details
     const currentIndex = points.findIndex(p => p.id === grammarId);
     const hasProgress = points.length > 0 && currentIndex !== -1;
@@ -373,125 +355,9 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
 
     // Text to Speech
     const speakText = (text) => {
-        speakExampleSentence(text);
-    };
-
-    // Helper to highlight N, A, V symbols and strikethrough tags (<s>...</s> or ~...~)
-    const highlightNAV = (text) => {
-        if (!text) return text;
-
-        const renderWithStrikethrough = (inputStr) => {
-            if (typeof inputStr !== 'string') return inputStr;
-            const delRegex = /(?:<s>|<del>|~~|~)(.*?)(?:<\/s>|<\/del>|~~|~)/gi;
-            const parts = inputStr.split(delRegex);
-            if (parts.length <= 1) return inputStr;
-
-            return parts.map((chunk, idx) => {
-                if (idx % 2 === 1) {
-                    return (
-                        <span key={idx} className="line-through decoration-rose-500 decoration-2 text-slate-400 dark:text-slate-500 font-semibold mx-0.5">
-                            {chunk}
-                        </span>
-                    );
-                }
-                return chunk;
-            });
-        };
-
-        const navRegex = /(V-(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|受身形|使役|使役形|使役受身|条件形|ば|命令形|普通形|辞書形)|V(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|受身形|使役|使役形|使役受身|条件形|ば|命令形|普通形|辞書形)|V(?:（bỏ ます）|\(bỏ ます\)|\(stem\)|\[stem\])|A-(?:い|な|く|stem|普通形)|A(?:い|な|く|stem|普通形)|A(?:（bỏ い\/な）|\(bỏ い\/na\))|Adj-(?:い|な|く)|Adj(?:い|な|く)|Na|N-(?:の|である|に|な|普通形)|N(?:の|である|に|な|普通形)|V|A|N|Adj)/g;
-        const parts = text.split(navRegex);
-        if (parts.length <= 1) return renderWithStrikethrough(text);
-
-        return (
-            <>
-                {parts.map((part, index) => {
-                    if (index % 2 === 1) {
-                        if (part.startsWith('V')) {
-                            return (
-                                <span key={index} className="inline-flex items-center justify-center bg-emerald-500/15 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/60 px-2 py-0.5 rounded-lg mx-0.5 text-xs md:text-sm font-black align-middle shadow-2xs tracking-tight">
-                                    {part}
-                                </span>
-                            );
-                        }
-                        if (part.startsWith('A') || part.startsWith('Adj') || part === 'Na') {
-                            return (
-                                <span key={index} className="inline-flex items-center justify-center bg-amber-500/15 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-700/60 px-2 py-0.5 rounded-lg mx-0.5 text-xs md:text-sm font-black align-middle shadow-2xs tracking-tight">
-                                    {part}
-                                </span>
-                            );
-                        }
-                        if (part.startsWith('N')) {
-                            return (
-                                <span key={index} className="inline-flex items-center justify-center bg-rose-500/15 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border border-rose-300 dark:border-rose-900/60 px-2 py-0.5 rounded-lg mx-0.5 text-xs md:text-sm font-black align-middle shadow-2xs tracking-tight">
-                                    {part}
-                                </span>
-                            );
-                        }
-                    }
-                    return <React.Fragment key={index}>{renderWithStrikethrough(part)}</React.Fragment>;
-                })}
-            </>
-        );
-    };
-
-    // Helper to highlight targeted patterns in sentences & structure formulas automatically
-    const renderHighlightedText = (text, highlight, isStructure = false) => {
-        if (!highlight || !text) return isStructure ? highlightNAV(text) : text;
-
-        // Clean the pattern: remove leading tildes
-        let basePattern = highlight.replace(/^[~〜]/, '').trim();
-        if (!basePattern) return isStructure ? highlightNAV(text) : text;
-
-        // Escape regex special chars and convert optional parentheses to optional groups
-        let regexStr = basePattern.replace(/\(([^)]+)\)/g, '(?:$1)?');
-
-        try {
-            const regex = new RegExp(`(${regexStr})`, 'g');
-            const parts = text.split(regex);
-            if (parts.length > 1) {
-                return (
-                    <>
-                        {parts.map((part, index) => {
-                            if (index % 2 === 1) {
-                                return (
-                                    <span key={index} className={isStructure 
-                                        ? "font-black text-amber-950 dark:text-slate-950 bg-amber-300 dark:bg-amber-400 border border-amber-400 dark:border-amber-300 px-2.5 py-0.5 rounded-lg mx-0.5 shadow-sm text-base md:text-lg no-underline"
-                                        : "underline decoration-2 underline-offset-4 font-bold text-indigo-650 dark:text-indigo-400"}>
-                                        {part}
-                                    </span>
-                                );
-                            }
-                            return (
-                                <React.Fragment key={index}>
-                                    {isStructure ? highlightNAV(part) : part}
-                                </React.Fragment>
-                            );
-                        })}
-                    </>
-                );
-            }
-        } catch (e) {
-            console.error("Highlight regex error:", e);
+        if (text) {
+            speakExampleSentence(text);
         }
-
-        // Fallback to simple inclusion match
-        let simplePattern = basePattern.replace(/\([^)]+\)/g, '');
-        if (simplePattern && text.includes(simplePattern)) {
-            const parts = text.split(simplePattern);
-            return (
-                <>
-                    {isStructure ? highlightNAV(parts[0]) : parts[0]}
-                    <span className={isStructure 
-                        ? "font-black text-amber-950 dark:text-slate-950 bg-amber-300 dark:bg-amber-400 border border-amber-400 dark:border-amber-300 px-2.5 py-0.5 rounded-lg mx-0.5 shadow-sm text-base md:text-lg no-underline"
-                        : "underline decoration-2 underline-offset-4 font-bold text-indigo-650 dark:text-indigo-400"}>
-                        {simplePattern}
-                    </span>
-                    {isStructure ? highlightNAV(parts[1]) : parts[1]}
-                </>
-            );
-        }
-
-        return isStructure ? highlightNAV(text) : text;
     };
 
     // Get the visual illustration details
@@ -515,7 +381,6 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         ? gp.examples
         : ((gp.pattern?.includes('あげk') || gp.pattern?.includes('あげく')) ? FALLBACK_EXAMPLES : []);
 
-    // Smart language-detection to handle swapped admin database fields
     const isJapanese = (t) => {
         if (!t) return false;
         return /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/.test(t);
@@ -541,6 +406,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             } else if (item && typeof item === 'object') {
                 const jaText = (item.ja || '').trim();
                 const viText = (item.vi || '').trim();
+                const furigana = (item.furigana || '').trim();
 
                 if (jaText && !viText && isJapanese(jaText) && i + 1 < displayExamples.length) {
                     const nextItem = displayExamples[i + 1];
@@ -548,13 +414,13 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                     const nextVi = (nextItem?.vi || '').trim();
 
                     if (nextJa && !isJapanese(nextJa) && !nextVi) {
-                        result.push({ ja: jaText, vi: nextJa });
+                        result.push({ ja: jaText, vi: nextJa, furigana });
                         i++;
                         continue;
                     }
                 }
                 if (jaText || viText) {
-                    result.push({ ja: jaText, vi: viText });
+                    result.push({ ja: jaText, vi: viText, furigana });
                 }
             }
         }
@@ -599,6 +465,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                     </div>
                 </div>
             )}
+
             {/* Editing mode layout */}
             {isEditing ? (
                 <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-6 space-y-4 shadow-sm w-full">
@@ -609,7 +476,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             <label className="text-xs font-bold text-slate-500 mb-1 block">Mẫu ngữ pháp</label>
                             <input value={editForm.pattern} onChange={e => setEditForm(f => ({ ...f, pattern: e.target.value }))}
                                 placeholder="Mẫu (VD: 〜際(に))"
-                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold" />
+                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-bold font-japanese" />
                         </div>
                         <div>
                             <label className="text-xs font-bold text-slate-500 mb-1 block">Dịch ngữ pháp (Nghĩa ngắn)</label>
@@ -640,46 +507,24 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                        <div>
-                            <label className="text-xs font-bold text-slate-500 mb-1 block">Đường dẫn ảnh minh hoạ</label>
-                            <input value={editForm.visual.image} onChange={e => setEditForm(f => ({ ...f, visual: { ...f.visual, image: e.target.value } }))}
-                                placeholder="VD: /images/grammar/ageku_miss.png hoặc URL"
-                                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none" />
-                        </div>
-                        <div onPaste={handleImagePasteOrDrop} onDrop={handleImagePasteOrDrop} onDragOver={e => e.preventDefault()}
-                            className="border border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-3 text-center cursor-pointer hover:bg-slate-100/50 dark:hover:bg-slate-800/40 transition-colors relative flex items-center justify-center min-h-[42px]">
-                            {uploadingState ? (
-                                <p className="text-xs text-indigo-500 font-bold animate-pulse">Đang tải ảnh lên...</p>
-                            ) : (
-                                <div className="flex items-center gap-2">
-                                    <p className="text-[11px] text-slate-500 font-semibold">Ctrl+V / thả ảnh vào đây để upload</p>
-                                    {editForm.visual.image && (
-                                        <img src={editForm.visual.image} alt="preview" className="h-6 object-contain rounded border border-slate-200 shadow-xs" />
-                                    )}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
                     <div>
-                        <label className="text-xs font-bold text-slate-500 mb-1 block">Cấu trúc (dùng + ngăn cách, *đọc highlight): VD: V-た + *際(ni) + N-no</label>
-                        <input value={editForm.structureRaw} onChange={e => setEditForm(f => ({ ...f, structureRaw: e.target.value }))}
-                            placeholder="Cấu trúc..."
+                        <label className="text-xs font-bold text-slate-500 mb-1 block">Cấu trúc công thức (Mỗi dòng 1 công thức)</label>
+                        <textarea value={editForm.structureRaw} onChange={e => setEditForm(f => ({ ...f, structureRaw: e.target.value }))} rows={3}
+                            placeholder={"V (root form) + のにひきかえ\nN + （である）のにひきかえ\nなadj + な/である + のにひきかえ"}
                             className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-mono" />
                     </div>
 
                     <div>
                         <label className="text-xs font-bold text-slate-500 mb-1 block">Giải thích chi tiết (GIẢI THÍCH)</label>
-                        <textarea value={editForm.meaningFull} onChange={e => setEditForm(f => ({ ...f, meaningFull: e.target.value }))} rows={3}
+                        <textarea value={editForm.meaningFull} onChange={e => setEditForm(f => ({ ...f, meaningFull: e.target.value }))} rows={4}
                             placeholder="Ý nghĩa chi tiết..."
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none resize-none" />
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none" />
                     </div>
 
                     {/* Examples Editor */}
                     <div className="space-y-2 w-full">
                         <div className="flex items-center justify-between">
-                            <label className="text-xs font-bold text-slate-500">Các ví dụ khác</label>
+                            <label className="text-xs font-bold text-slate-500">Các ví dụ</label>
                             <button onClick={handleAddExample} className="text-xs text-indigo-600 font-bold hover:underline flex items-center gap-1">
                                 <Plus className="w-3.5 h-3.5" /> Thêm ví dụ
                             </button>
@@ -696,7 +541,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                         newExs[idx].ja = e.target.value;
                                         setEditForm(f => ({ ...f, examples: newExs }));
                                     }} placeholder="Câu tiếng Nhật..."
-                                        className="w-full px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded text-sm font-bold" />
+                                        className="w-full px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded text-sm font-bold font-japanese" />
                                 </div>
                                 <div>
                                     <label className="text-[9px] font-bold text-slate-400 uppercase">Tiếng Việt</label>
@@ -713,151 +558,137 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                 </div>
             ) : (
 
-                /* Reading/Study Layout */
-                <>
-                    {/* Header: Back button on the far left, badge & title next to it, Admin on the far right */}
+                /* Mazii Form Reading/Study Layout */
+                <div className="bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 md:p-8 shadow-sm space-y-6 w-full">
+                    {/* Header: Back button, Pattern Title, Meaning in corner brackets, JLPT badge, Audio button, Admin actions */}
                     <div className="flex items-start justify-between gap-4 w-full">
-                        <div className="flex items-start gap-4 flex-1 min-w-0">
+                        <div className="flex items-start gap-3.5 flex-1 min-w-0">
                             {/* Back Button */}
                             <button
                                 onClick={() => navigate(backUrl)}
-                                className="flex items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 transition-colors shadow-sm shrink-0 mt-1"
+                                className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 mt-0.5 cursor-pointer"
+                                title="Quay lại"
                             >
-                                <ChevronLeft className="w-5 h-5" />
+                                <ChevronLeft className="w-4 h-4" />
                             </button>
 
-                            {/* Badge & Pattern Title */}
-                            <div className="flex flex-col gap-2 flex-1 min-w-0">
-
-                                <div className="flex flex-wrap items-center gap-3.5 w-full">
-                                    <div className="w-9 h-9 rounded-full bg-[#3b6070] dark:bg-slate-700 text-white flex items-center justify-center font-bold text-lg shrink-0">
-                                        {hasProgress ? currentIndex + 1 : 1}
-                                    </div>
-                                    <h1 className="text-3xl font-bold text-slate-800 dark:text-white break-all">
+                            {/* Main Title & Description */}
+                            <div className="flex flex-col gap-1.5 flex-1 min-w-0">
+                                {/* Pattern Title in Mazii Blue */}
+                                <div className="flex items-center gap-2.5 flex-wrap">
+                                    <h1 className="text-2xl md:text-3xl font-bold text-[#1d70b8] dark:text-sky-400 font-japanese tracking-normal">
                                         {gp.pattern}
                                     </h1>
-                                    <span className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900/40 px-3.5 py-1 rounded-xl text-sm font-bold tracking-wide break-all">
-                                        {gp.meaningShort}
-                                    </span>
+
+                                    {/* Audio button for the pattern */}
+                                    <button
+                                        type="button"
+                                        onClick={() => speakText(gp.pattern)}
+                                        className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 dark:hover:text-blue-300 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                                        title="Nghe phát âm mẫu câu"
+                                    >
+                                        <Volume2 className="w-3.5 h-3.5" />
+                                    </button>
                                 </div>
 
-                                {/* Representative Example Sentence (without outer box card) */}
-                                {(jpText || viText) && (
-                                    <div className="mt-3 md:pl-[50px] space-y-2 animate-fade-in w-full">
-                                        {jpText && (
-                                            <div
-                                                className="bg-[#f1f5f9] dark:bg-slate-700/50 hover:bg-[#e2e8f0] dark:hover:bg-slate-700/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-6 py-2.5 flex items-center w-fit cursor-pointer transition-all active:scale-[0.98] shadow-sm"
-                                                onClick={() => speakText(jpText)}
-                                            >
-                                                <p className="text-base md:text-lg font-bold text-slate-855 dark:text-slate-200 tracking-wide font-japanese">
-                                                    {renderHighlightedText(jpText, gp.pattern)}
-                                                </p>
-                                            </div>
-                                        )}
-
-                                        {viText && (
-                                            <p className="text-slate-500 dark:text-slate-400 italic text-xs md:text-sm pl-2 leading-relaxed break-words w-full">
-                                                "{viText}"
-                                            </p>
-                                        )}
-                                    </div>
+                                {/* Short Meaning enclosed in Japanese brackets 「...」 */}
+                                {(gp.meaningShort || gp.meaning) && (
+                                    <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 font-normal font-japanese leading-relaxed">
+                                        <span className="text-slate-400 dark:text-slate-500 select-none font-light mr-0.5">「</span>
+                                        <span>{gp.meaningShort || gp.meaning}</span>
+                                        <span className="text-slate-400 dark:text-slate-500 select-none font-light ml-0.5">」</span>
+                                    </p>
                                 )}
+
+                                {/* JLPT Level Badge (Mazii Orange) */}
+                                <div className="pt-0.5 flex items-center gap-2">
+                                    <span className="bg-[#f59e0b] text-white px-2 py-0.5 rounded text-[11px] font-bold tracking-wider uppercase inline-block select-none">
+                                        JLPT {gp.level || 'N3'}
+                                    </span>
+                                </div>
                             </div>
                         </div>
 
                         {isAdmin && (
-                            <div className="shrink-0 pt-1 flex items-center gap-2">
+                            <div className="shrink-0 pt-0.5 flex items-center gap-2">
                                 <button onClick={() => setIsEditing(true)}
-                                    className="px-3.5 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-indigo-200 dark:border-indigo-900/40 shadow-sm transition-all">
+                                    className="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-indigo-200 dark:border-indigo-900/40 shadow-xs transition-all cursor-pointer">
                                     <Settings className="w-3.5 h-3.5" /> Sửa
                                 </button>
                                 <button onClick={handleDeleteDetail} disabled={saving}
-                                    className="px-3.5 py-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-rose-200 dark:border-rose-900/40 shadow-sm disabled:opacity-50 transition-all">
+                                    className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-rose-200 dark:border-rose-900/40 shadow-xs disabled:opacity-50 transition-all cursor-pointer">
                                     <Trash2 className="w-3.5 h-3.5 text-rose-500" /> Xóa
                                 </button>
                             </div>
                         )}
                     </div>
 
-                    {/* Zen Visual Image Card (Khung hình - only if image exists) */}
+                    {/* Divider */}
+                    <div className="border-b border-slate-100 dark:border-slate-800/80 my-2"></div>
+
+                    {/* Visual Illustration Card (if exists) */}
                     {visualData && visualData.image && (
-                        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-4 shadow-sm w-fit mx-auto flex justify-center">
+                        <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-3xl p-4 shadow-sm w-fit mx-auto flex justify-center my-4">
                             <img
                                 src={visualData.image}
                                 alt={visualData.imageLabel || "Visual illustration"}
-                                className="max-h-[480px] max-w-full object-contain rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/10 dark:bg-slate-900/20 shadow-sm p-2"
+                                className="max-h-[420px] max-w-full object-contain rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/40 shadow-sm p-2"
                             />
                         </div>
                     )}
 
-                    {/* Explanations & Warnings Grid (Now with Ý nghĩa, Cấu trúc, and Giải thích) */}
-                    <div className="w-full space-y-6">
-                        {/* Ý NGHĨA Box */}
-                        {gp.meaning && (
-                            <div className="flex items-start gap-4 md:gap-6 w-full min-w-0">
-                                {/* Left boxed label */}
-                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
-                                    Ý nghĩa
-                                </div>
-                                {/* Right Content */}
-                                <div className="flex-1 min-w-0 pt-1">
-                                    <p className="text-base font-bold text-slate-800 dark:text-white leading-relaxed break-words w-full whitespace-pre-wrap">
-                                        {gp.meaning}
-                                    </p>
-                                </div>
-                            </div>
-                        )}
-
-                        {/* CẤU TRÚC KẾT HỢP Box */}
+                    {/* Standard Mazii Structured Form Sections */}
+                    <div className="w-full space-y-7">
+                        {/* 1. CẤU TRÚC */}
                         {structureLines.length > 0 && (
-                            <div className="flex items-start gap-4 md:gap-6 w-full min-w-0">
-                                {/* Left boxed label */}
-                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
+                            <div className="space-y-2">
+                                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
                                     Cấu trúc
-                                </div>
-                                {/* Right Content - Stacked structure formula pills */}
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex flex-col gap-2.5">
-                                        {structureLines.map((line, idx) => (
-                                            <div key={idx} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-2xl text-base font-bold text-slate-700 dark:text-slate-300 font-japanese tracking-wide shadow-sm flex items-center gap-2 flex-wrap w-fit">
-                                                {renderHighlightedText(line, gp.pattern, true)}
-                                            </div>
-                                        ))}
-                                    </div>
+                                </h2>
+                                <div className="space-y-1 pl-0.5">
+                                    {structureLines.map((line, idx) => (
+                                        <MaziiStructureCard key={idx} formula={line} pattern={gp.pattern} isFirst={idx === 0} />
+                                    ))}
                                 </div>
                             </div>
                         )}
 
-                        {/* GIẢI THÍCH Box */}
+                        {/* 2. NGHĨA (GIẢI THÍCH) */}
                         {gp.meaningFull && (
-                            <div className="flex items-start gap-4 md:gap-6 w-full min-w-0">
-                                {/* Left boxed label */}
-                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
-                                    Giải thích
-                                </div>
-                                {/* Right Content */}
-                                <div className="flex-1 min-w-0 pt-1">
-                                    <p className="text-base font-semibold text-slate-700 dark:text-slate-300 leading-relaxed break-words w-full whitespace-pre-wrap">
-                                        {gp.meaningFull}
-                                    </p>
+                            <div className="space-y-2">
+                                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+                                    Nghĩa
+                                </h2>
+                                <div className="space-y-3 pl-0.5 text-slate-700 dark:text-slate-200 text-sm md:text-[15px] leading-relaxed">
+                                    {gp.meaningFull.split(/\n\s*\n/).filter(Boolean).map((para, pIdx) => {
+                                        const lines = para.split('\n');
+                                        return (
+                                            <p key={pIdx} className="leading-relaxed break-words font-normal">
+                                                {lines.map((l, lIdx) => (
+                                                    <React.Fragment key={lIdx}>
+                                                        {l}
+                                                        {lIdx < lines.length - 1 && <br />}
+                                                    </React.Fragment>
+                                                ))}
+                                            </p>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
 
-                        {/* CHÚ Ý / MẸO HỌC Box */}
+                        {/* 3. CHÚ Ý (if any) */}
                         {displayTips && displayTips.length > 0 && (
-                            <div className="flex items-start gap-4 md:gap-6 w-full min-w-0 animate-fade-in">
-                                {/* Left boxed label */}
-                                <div className="px-4 py-1.5 border-2 border-slate-700 dark:border-slate-400 bg-slate-50 dark:bg-slate-900 rounded-xl text-xs md:text-sm font-bold text-slate-800 dark:text-slate-200 shrink-0 w-28 md:w-36 text-center tracking-wide uppercase select-none shadow-sm mt-0.5">
+                            <div className="space-y-2">
+                                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
                                     Chú ý
-                                </div>
-                                {/* Right Content */}
-                                <div className="flex-1 min-w-0 pt-1 space-y-2">
+                                </h2>
+                                <div className="space-y-2.5 w-full pl-0.5">
                                     {displayTips.map((tip, idx) => {
                                         const cleanText = (tip.text || '').replace(/^[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{1F600}-\u{1F64F}💡]\s*/u, '');
                                         return (
-                                            <div key={idx} className="flex items-start gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 leading-relaxed bg-amber-50/40 dark:bg-amber-950/10 border border-amber-100/60 dark:border-amber-900/20 px-4 py-3 rounded-2xl shadow-sm">
-                                                <span className="shrink-0">{tip.icon || '💡'}</span>
+                                            <div key={idx} className="flex items-start gap-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed bg-amber-500/10 dark:bg-amber-950/20 border border-amber-500/30 dark:border-amber-900/40 px-4 py-3 rounded-2xl shadow-2xs">
+                                                <span className="shrink-0 text-base">{tip.icon || '💡'}</span>
                                                 <p className="break-words w-full">{cleanText}</p>
                                             </div>
                                         );
@@ -865,66 +696,42 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                 </div>
                             </div>
                         )}
-                    </div>
 
-                    {/* Other Examples Section */}
-                    {normalizedExamples.length > 0 && (
-                        <div className="w-full">
-                            <div className="flex items-center gap-3 mt-4 mb-5">
-                                <div className="w-1.5 h-6 bg-[#3b6070] dark:bg-teal-600 rounded-full"></div>
-                                <h2 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
-                                    CÁC VÍ DỤ KHÁC (EXAMPLES)
+                        {/* 4. VÍ DỤ */}
+                        {normalizedExamples.length > 0 && (
+                            <div className="space-y-3">
+                                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+                                    Ví dụ
                                 </h2>
-                            </div>
-
-                            <div className="space-y-4 w-full">
-                                {normalizedExamples.map((ex, i) => {
-                                    // Circular styles index styling
-                                    const circleStyles = [
-                                        "border-emerald-500/30 text-emerald-600 dark:text-emerald-455 bg-emerald-50/50 dark:bg-emerald-950/20",
-                                        "border-purple-500/30 text-purple-650 dark:text-purple-400 bg-purple-50/50 dark:bg-purple-950/20",
-                                        "border-sky-500/30 text-sky-600 dark:text-sky-455 bg-sky-50/50 dark:bg-sky-950/20",
-                                    ];
-                                    const style = circleStyles[i % circleStyles.length];
-
-                                    return (
-                                        <div
+                                <div className="space-y-2.5 w-full">
+                                    {normalizedExamples.map((ex, i) => (
+                                        <MaziiExampleItem
                                             key={i}
-                                            className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 flex items-start shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer w-full min-w-0"
-                                            onClick={() => speakText(ex.ja)}
-                                        >
-                                            <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center font-bold text-sm shrink-0 mr-4 ${style}`}>
-                                                {i + 1}
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                                <p className="font-bold text-base md:text-lg text-slate-800 dark:text-white leading-relaxed break-words w-full font-japanese">
-                                                    {renderHighlightedText(ex.ja, gp.pattern)}
-                                                </p>
-                                                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 break-words w-full">
-                                                    {ex.vi}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
+                                            example={ex}
+                                            pattern={gp.pattern}
+                                            index={i}
+                                            onPlayAudio={speakText}
+                                        />
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
 
                     {/* Bottom Progress Bar & Completed/Next Action */}
                     {hasProgress && (
-                        <div className="flex flex-col items-center gap-5 pt-8 w-full">
-                            {/* Finish & Next button */}
+                        <div className="flex flex-col items-center gap-5 pt-8 w-full border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleNextClick}
-                                className="bg-[#3b6070] hover:bg-[#2c4956] text-white font-bold rounded-2xl px-10 py-3.5 shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
+                                className="bg-[#1d70b8] hover:bg-[#155b96] text-white font-bold rounded-2xl px-10 py-3.5 shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
                             >
                                 {nextGp ? 'HOÀN THÀNH & TIẾP TỤC' : 'HOÀN THÀNH BÀI HỌC'}
                                 <ChevronRight className="w-4 h-4" />
                             </button>
                         </div>
                     )}
-                </>
+                </div>
+
             )}
 
             {/* Lesson Completed Overlay Modal */}

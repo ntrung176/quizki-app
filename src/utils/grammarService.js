@@ -90,10 +90,10 @@ export const getSharedGrammarData = async () => {
                         const pointCount = Array.isArray(json)
                             ? json.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || 0), 0), 0)
                             : 0;
-                        if (pointCount > 0) {
+                        if (pointCount >= 1000) {
                             data = json;
                         } else {
-                            console.warn('CDN grammar_data is empty (0 points), falling back to local bundle.');
+                            console.warn(`CDN grammar_data only has ${pointCount} points (< 1000), falling back to local bundle.`);
                         }
                     }
                 } catch (cdnErr) {
@@ -101,7 +101,7 @@ export const getSharedGrammarData = async () => {
                 }
             }
 
-            // 2. Fallback to local bundle files /data/grammar_data.json
+            // 2. Fallback to local bundle files /data/grammar_data.json (contains all 4,290 points)
             if (!data) {
                 try {
                     console.log('Falling back to local bundle files for Grammar cache (/data/grammar_data.json)');
@@ -652,7 +652,7 @@ export const deleteGrammarPointsBatch = async (items) => {
         }));
         return true;
     } catch (e) {
-        console.error('Batch delete grammar points error:', e);
+            console.error('Batch delete grammar points error:', e);
         return false;
     }
 };
@@ -662,53 +662,71 @@ export const deleteGrammarPointsBatch = async (items) => {
 export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => {
     const editedMap = getEditedGrammarMap();
     const localEdited = editedMap[grammarId];
-    // Try Master Bank query directly
-    try {
-        const masterRef = doc(db, masterGrammarPath(), grammarId);
-        const masterSnap = await getDoc(masterRef);
-        if (masterSnap.exists()) {
-            const data = masterSnap.data();
-            const merged = localEdited ? { ...data, ...localEdited } : data;
-            return {
-                ...merged,
-                id: masterSnap.id,
-                textbookId: textbookId || 'master',
-                lessonId: lessonId || 'master',
-                textbook: { id: 'master', title: `Kho Ngữ Pháp (${merged.level || 'N4'})`, titleVi: `Kho Ngữ Pháp (${merged.level || 'N4'})` },
-                lesson: { id: 'master', title: 'Kho Ngữ Pháp Trung Tâm', meaning: 'Kho Ngữ Pháp Gốc' }
-            };
-        }
-    } catch (e) {
-        console.warn("Master bank fetch for grammar point failed:", e);
-    }
 
-    // Try CDN first
+    // 1. Try CDN / local bundle first (has canonical Mazii structure, connection, furigana)
+    let cdnFound = null;
     try {
         const data = await getSharedGrammarData();
-        if (data) {
+        if (data && Array.isArray(data)) {
             for (const textbook of data) {
                 if (textbookId && textbook.id !== textbookId) continue;
                 for (const lesson of textbook.lessons || []) {
                     if (lessonId && lesson.id !== lessonId) continue;
                     const found = (lesson.points || []).find(pt => pt.id === grammarId);
                     if (found) {
-                        const mergedFound = localEdited ? { ...found, ...localEdited } : found;
-                        return {
-                            ...mergedFound,
+                        cdnFound = {
+                            ...found,
                             textbookId: textbook.id,
                             lessonId: lesson.id,
                             textbook: { id: textbook.id, title: textbook.title, titleVi: textbook.titleVi, levels: textbook.levels, category: textbook.category, color: textbook.color },
                             lesson: { id: lesson.id, title: lesson.title, meaning: lesson.meaning, sectionLabel: lesson.sectionLabel, isPremium: lesson.isPremium }
                         };
+                        break;
                     }
                 }
+                if (cdnFound) break;
             }
         }
     } catch (err) {
         console.warn("CDN lookup for grammar point failed:", err);
     }
 
-    // Try in-memory SWR pointsCache first (extremely fast)
+    // 2. Try Master Bank query from Firestore & merge
+    try {
+        const masterRef = doc(db, masterGrammarPath(), grammarId);
+        const masterSnap = await getDoc(masterRef);
+        if (masterSnap.exists()) {
+            const data = masterSnap.data();
+            const baseData = cdnFound ? { ...cdnFound, ...data } : data;
+            // Preserve clean connection & structureRaw from canonical data if Firestore lacks them
+            if ((!baseData.connection || baseData.connection.length === 0) && cdnFound?.connection) {
+                baseData.connection = cdnFound.connection;
+            }
+            if (!baseData.structureRaw && cdnFound?.structureRaw) {
+                baseData.structureRaw = cdnFound.structureRaw;
+            }
+            if ((!baseData.structure || baseData.structure.length === 0) && cdnFound?.structure) {
+                baseData.structure = cdnFound.structure;
+            }
+            const merged = localEdited ? { ...baseData, ...localEdited } : baseData;
+            return {
+                ...merged,
+                id: masterSnap.id,
+                textbookId: textbookId || cdnFound?.textbookId || 'master',
+                lessonId: lessonId || cdnFound?.lessonId || 'master',
+                textbook: cdnFound?.textbook || { id: 'master', title: `Kho Ngữ Pháp (${merged.level || 'N4'})`, titleVi: `Kho Ngữ Pháp (${merged.level || 'N4'})` },
+                lesson: cdnFound?.lesson || { id: 'master', title: 'Kho Ngữ Pháp Trung Tâm', meaning: 'Kho Ngữ Pháp Gốc' }
+            };
+        }
+    } catch (e) {
+        console.warn("Master bank fetch for grammar point failed:", e);
+    }
+
+    if (cdnFound) {
+        return localEdited ? { ...cdnFound, ...localEdited } : cdnFound;
+    }
+
+    // 3. Try in-memory SWR pointsCache
     if (textbookId && lessonId) {
         const key = `${textbookId}/${lessonId}`;
         if (pointsCache[key]) {

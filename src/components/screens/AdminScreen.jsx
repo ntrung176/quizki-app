@@ -180,9 +180,19 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     };
 
     const fetchAllGrammarData = async () => {
+        let baseTextbooks = [];
+        try {
+            const res = await fetch('/data/grammar_data.json');
+            if (res.ok) {
+                baseTextbooks = await res.json();
+            }
+        } catch (e) {
+            console.warn('Could not load /data/grammar_data.json as base:', e);
+        }
+
         const textbooksPath = `artifacts/${appId}/grammarTextbooks`;
         const textbooksSnap = await getDocs(collection(db, textbooksPath));
-        const textbooks = await Promise.all(textbooksSnap.docs.map(async (tbDoc) => {
+        const firestoreTextbooks = await Promise.all(textbooksSnap.docs.map(async (tbDoc) => {
             const tb = { id: tbDoc.id, ...tbDoc.data(), lessons: [] };
             const lessonsSnap = await getDocs(collection(db, `${textbooksPath}/${tbDoc.id}/lessons`));
             tb.lessons = await Promise.all(lessonsSnap.docs.map(async (lessonDoc) => {
@@ -194,18 +204,26 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             tb.lessons.sort((a, b) => (a.order || 0) - (b.order || 0));
             return tb;
         }));
-        textbooks.sort((a, b) => (a.order || 0) - (b.order || 0));
 
-        const totalPoints = textbooks.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || 0), 0), 0);
-        if (totalPoints === 0) {
-            console.log('Firestore grammar has 0 points, loading /data/grammar_data.json for CDN sync...');
-            const res = await fetch('/data/grammar_data.json');
-            if (res.ok) {
-                return await res.json();
+        const mergedMap = new Map();
+        baseTextbooks.forEach(tb => mergedMap.set(tb.id, tb));
+        firestoreTextbooks.forEach(tb => {
+            if (tb.id === 'master_bank' && (!tb.lessons || tb.lessons.length === 0 || (tb.lessons[0]?.points?.length || 0) === 0)) {
+                return;
             }
-        }
+            if (mergedMap.has(tb.id)) {
+                const existing = mergedMap.get(tb.id);
+                const lsMap = new Map((existing.lessons || []).map(l => [l.id, l]));
+                (tb.lessons || []).forEach(l => lsMap.set(l.id, { ...(lsMap.get(l.id) || {}), ...l }));
+                mergedMap.set(tb.id, { ...existing, ...tb, lessons: Array.from(lsMap.values()) });
+            } else {
+                mergedMap.set(tb.id, tb);
+            }
+        });
 
-        return textbooks;
+        const result = Array.from(mergedMap.values());
+        result.sort((a, b) => (a.order || 0) - (b.order || 0));
+        return result;
     };
 
     const fetchAllJlptTestsData = async () => {
