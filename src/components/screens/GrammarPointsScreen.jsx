@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-    ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, PenTool, FileJson,
+    ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, ChevronLeft, PenTool, FileJson,
     Clipboard, Check, AlertCircle, Sparkles, Clock, X,
     Loader2, Award, ClipboardCheck, Lightbulb, Sparkle, Eye, CheckCircle, BookOpen, Search, ListPlus, CheckSquare, Square
 } from 'lucide-react';
@@ -15,6 +15,8 @@ import { storage } from '../../config/firebase';
 import { aiCheckGrammarAnswer, aiGenerateGrammarPointsJson } from '../../utils/aiProvider';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { showToast } from '../../utils/toast';
+import { TopTabBar } from '../ui';
+import { GRAMMAR_TABS } from '../../config/tabs';
 
 const SAMPLE_POINTS_JSON = `[
   {
@@ -701,7 +703,14 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
         setShowJsonImport(false);
     };
 
-    if (!textbook || !lesson) return <div className="p-8 text-center text-slate-500">Đang tải...</div>;
+    if (!textbook || !lesson) {
+        return (
+            <div className="w-full pb-8">
+                <TopTabBar tabs={GRAMMAR_TABS} />
+                <div className="p-8 text-center text-slate-500">Đang tải...</div>
+            </div>
+        );
+    }
 
     if (lesson.isReview) {
         const exercises = lesson.exercises || [];
@@ -723,29 +732,56 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
         }
 
         return (
-            <div className="max-w-3xl mx-auto space-y-5 animate-fade-in px-4 md:px-0">
-                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex items-start justify-between gap-4">
-                    <div>
-                        <button onClick={() => navigate(`/grammar/textbook/${textbookId}`)} className="flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline mb-2 font-mono">
-                            <ArrowLeft className="w-3.5 h-3.5" /> Quay lại
-                        </button>
-                        <p className="text-xs font-mono font-bold text-slate-400 mb-1">{textbook.title || textbook.titleVi} • {lesson.sectionLabel}</p>
-                        <h1 className="text-2xl font-black text-slate-900 dark:text-white">{lesson.title}</h1>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">{lesson.meaning || 'Bài ôn tập tổng hợp'}</p>
-                    </div>
-                    {isAdmin && (
-                        <div className="flex gap-2 shrink-0">
-                            <button onClick={() => { setShowAddQuizPanel(!showAddQuizPanel); setShowReviewImportPanel(false); }}
-                                className="flex items-center gap-1.5 px-3 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl transition-all border border-emerald-200 dark:border-emerald-800/80 shadow-sm">
-                                <Plus className="w-3.5 h-3.5" /> Thêm Trắc nghiệm
+            <div className="w-full pb-8">
+                <TopTabBar tabs={GRAMMAR_TABS} />
+                <div className="max-w-3xl mx-auto space-y-5 animate-fade-in px-4 md:px-0 mt-4">
+                    {/* Header Banner */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-sm">
+                        <div className="flex items-start gap-3.5 flex-1 min-w-0">
+                            <button
+                                onClick={() => navigate(`/grammar/textbook/${textbookId}`)}
+                                className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 mt-0.5 cursor-pointer"
+                                title="Quay lại danh sách bài học"
+                            >
+                                <ChevronLeft className="w-4 h-4" />
                             </button>
-                            <button onClick={() => { setShowReviewImportPanel(!showReviewImportPanel); setShowAddQuizPanel(false); }}
-                                className="flex items-center gap-1.5 px-3 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl transition-all border border-indigo-200 dark:border-indigo-800/80 shadow-sm">
-                                <FileJson className="w-3.5 h-3.5" /> Nhập Đặt câu (JSON)
-                            </button>
+                            <div className="flex-1 min-w-0">
+                                <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+                                    {(textbook.levels || []).map(lvl => (
+                                        <span key={lvl} className="px-2.5 py-0.5 text-[10px] font-black rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 uppercase tracking-wider">
+                                            {lvl}
+                                        </span>
+                                    ))}
+                                    {lesson.sectionLabel && (
+                                        <span className="px-2.5 py-0.5 text-[10px] font-bold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                                            {lesson.sectionLabel}
+                                        </span>
+                                    )}
+                                    <span className="px-2.5 py-0.5 text-[10px] font-bold rounded-md bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800">
+                                        📝 Ôn tập tổng hợp
+                                    </span>
+                                </div>
+                                <h1 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
+                                    {lesson.title}
+                                </h1>
+                                <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">
+                                    {lesson.meaning || 'Bài luyện tập trắc nghiệm & đặt câu'}
+                                </p>
+                            </div>
                         </div>
-                    )}
-                </div>
+                        {isAdmin && (
+                            <div className="flex flex-wrap gap-2 shrink-0 sm:self-center">
+                                <button onClick={() => { setShowAddQuizPanel(!showAddQuizPanel); setShowReviewImportPanel(false); }}
+                                    className="flex items-center gap-1.5 px-3 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl transition-all border border-emerald-200 dark:border-emerald-800/80 shadow-2xs cursor-pointer">
+                                    <Plus className="w-3.5 h-3.5" /> Thêm Trắc nghiệm
+                                </button>
+                                <button onClick={() => { setShowReviewImportPanel(!showReviewImportPanel); setShowAddQuizPanel(false); }}
+                                    className="flex items-center gap-1.5 px-3 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl transition-all border border-indigo-200 dark:border-indigo-800/80 shadow-2xs cursor-pointer">
+                                    <FileJson className="w-3.5 h-3.5" /> Nhập Đặt câu (JSON)
+                                </button>
+                            </div>
+                        )}
+                    </div>
 
                 {/* ADMIN JSON TRANSLATE IMPORT PANEL */}
                 {isAdmin && showReviewImportPanel && (
@@ -1145,36 +1181,64 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                         </div>
                     </>
                 )}
+                </div>
             </div>
         );
     }
 
     return (
-        <div className="max-w-4xl mx-auto space-y-6 animate-fade-in px-4 md:px-0">
-            <div>
-                <button onClick={() => navigate(`/grammar/textbook/${textbookId}`)} className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline mb-3">
-                    <ArrowLeft className="w-3.5 h-3.5" /> Quay lại
-                </button>
-                <h1 className="text-xl font-bold text-slate-800 dark:text-white">{textbook.title || textbook.titleVi} - {lesson.sectionLabel}</h1>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{lesson.title} • {lesson.meaning}</p>
-            </div>
+        <div className="w-full pb-8">
+            <TopTabBar tabs={GRAMMAR_TABS} />
+            <div className="max-w-4xl mx-auto space-y-6 animate-fade-in px-4 md:px-0 mt-4">
+                {/* Header Banner */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-sm">
+                    <div className="flex items-start gap-3.5 flex-1 min-w-0">
+                        <button
+                            onClick={() => navigate(`/grammar/textbook/${textbookId}`)}
+                            className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 mt-0.5 cursor-pointer"
+                            title="Quay lại danh sách bài học"
+                        >
+                            <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <div className="flex-1 min-w-0">
+                            <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+                                {(textbook.levels || []).map(lvl => (
+                                    <span key={lvl} className="px-2.5 py-0.5 text-[10px] font-black rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 uppercase tracking-wider">
+                                        {lvl}
+                                    </span>
+                                ))}
+                                {lesson.sectionLabel && (
+                                    <span className="px-2.5 py-0.5 text-[10px] font-bold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                                        {lesson.sectionLabel}
+                                    </span>
+                                )}
+                            </div>
+                            <h1 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
+                                {lesson.title}
+                            </h1>
+                            <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">
+                                {lesson.meaning ? `${lesson.meaning} • ` : ''}{points.length} mẫu ngữ pháp
+                            </p>
+                        </div>
+                    </div>
 
-            {isAdmin && (
-                <div className="flex flex-wrap gap-2">
-                    <button onClick={openMasterBankModal}
-                        className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl transition-colors shadow-sm cursor-pointer">
-                        <ListPlus className="w-4 h-4" /> Chọn từ Kho Ngữ Pháp
-                    </button>
-                    <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm(EMPTY_FORM); }}
-                        className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors">
-                        <Plus className="w-4 h-4" /> Thêm mẫu ngữ pháp
-                    </button>
-                    <button onClick={() => { setShowJsonImport(true); setShowAdd(false); setImportError(''); setImportSuccess(''); }}
-                        className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl transition-colors border border-slate-200 dark:border-slate-700">
-                        <FileJson className="w-4 h-4 text-indigo-500" /> Nhập bằng JSON
-                    </button>
+                    {isAdmin && (
+                        <div className="flex flex-wrap gap-2 shrink-0 sm:self-center">
+                            <button onClick={openMasterBankModal}
+                                className="flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm cursor-pointer">
+                                <ListPlus className="w-3.5 h-3.5" /> Kho Ngữ Pháp
+                            </button>
+                            <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm(EMPTY_FORM); }}
+                                className="flex items-center gap-1.5 px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm cursor-pointer">
+                                <Plus className="w-3.5 h-3.5" /> Thêm mẫu ngữ pháp
+                            </button>
+                            <button onClick={() => { setShowJsonImport(true); setShowAdd(false); setImportError(''); setImportSuccess(''); }}
+                                className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold rounded-xl transition-all border border-slate-200 dark:border-slate-700 shadow-2xs cursor-pointer">
+                                <FileJson className="w-3.5 h-3.5 text-indigo-500" /> Nhập bằng JSON
+                            </button>
+                        </div>
+                    )}
                 </div>
-            )}
 
             {showAdd && isAdmin && (
                 <div className="bg-white dark:bg-slate-800 border border-slate-250 dark:border-slate-700 rounded-3xl p-6 space-y-4 shadow-sm w-full">
@@ -1411,43 +1475,61 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             )}
 
             {points.length === 0 && <p className="text-center text-slate-400 py-12">Chưa có mẫu ngữ pháp nào. {isAdmin ? 'Nhấn "Thêm mẫu ngữ pháp" hoặc "Nhập bằng JSON" để bắt đầu.' : ''}</p>}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 w-full">
                 {points.map(gp => (
-                    <div key={gp.id} className="group relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 min-w-0 w-full">
-                        <button onClick={() => navigate(`/grammar/detail/${gp.id}?tb=${textbookId}&ls=${lessonId}`)} className="w-full text-left">
-                            <h3 className="text-lg font-bold text-slate-800 dark:text-white pr-16 break-all">{gp.pattern}</h3>
-                            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 break-all">{gp.meaningShort}</p>
+                    <div key={gp.id} className="group relative bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 sm:p-5 hover:border-blue-400/60 dark:hover:border-blue-500/50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 min-w-0 flex flex-col justify-between">
+                        <button onClick={() => navigate(`/grammar/detail/${gp.id}?tb=${textbookId}&ls=${lessonId}`)} className="w-full text-left cursor-pointer">
+                            <div className="flex items-start justify-between gap-2 pr-12">
+                                <h3 className="text-lg sm:text-xl font-bold text-[#1d70b8] dark:text-sky-400 font-japanese leading-snug group-hover:text-blue-700 dark:group-hover:text-sky-300 transition-colors">
+                                    {gp.pattern}
+                                </h3>
+                            </div>
+                            {(gp.meaningShort || gp.meaning) && (
+                                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed line-clamp-2">
+                                    {gp.meaningShort || gp.meaning}
+                                </p>
+                            )}
                         </button>
+                        <div className="flex items-center justify-between gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80">
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                                <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}`)}
+                                    className="flex items-center gap-1 text-[11px] font-bold px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-[#1d70b8] dark:bg-blue-950/40 dark:text-sky-300 dark:hover:bg-blue-900/50 rounded-lg transition-colors border border-blue-200/60 dark:border-blue-800/50 cursor-pointer shadow-2xs"
+                                    title="Làm bài tập trắc nghiệm & đặt câu">
+                                    <PenTool className="w-3 h-3" /> Luyện tập
+                                </button>
+                                {isAdmin && (
+                                    <>
+                                        <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=translate`)}
+                                            className="flex items-center gap-1 text-[11px] font-bold px-2 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer">
+                                            <Plus className="w-3 h-3 text-indigo-500" /> Đặt câu
+                                        </button>
+                                        <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=quiz`)}
+                                            className="flex items-center gap-1 text-[11px] font-bold px-2 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer">
+                                            <Plus className="w-3 h-3 text-emerald-500" /> Trắc nghiệm
+                                        </button>
+                                    </>
+                                )}
+                            </div>
+                            <button onClick={() => navigate(`/grammar/detail/${gp.id}?tb=${textbookId}&ls=${lessonId}`)}
+                                className="w-7 h-7 rounded-full bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-400 hover:text-[#1d70b8] dark:hover:text-sky-300 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                                title="Xem chi tiết">
+                                <ChevronRight className="w-4 h-4" />
+                            </button>
+                        </div>
                         {isAdmin && (
-                            <div className="flex gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-700/50">
-                                <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=translate`)}
-                                    className="flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-650 dark:bg-indigo-950/40 dark:text-indigo-400 dark:hover:bg-indigo-950 rounded-lg transition-colors border border-indigo-100 dark:border-indigo-900/40">
-                                    <Plus className="w-3 h-3" /> Thêm đặt câu
-                                </button>
-                                <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=quiz`)}
-                                    className="flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-650 dark:bg-emerald-950/40 dark:text-emerald-400 dark:hover:bg-emerald-950 rounded-lg transition-colors border border-emerald-100 dark:border-emerald-900/40">
-                                    <Plus className="w-3 h-3" /> Thêm trắc nghiệm
-                                </button>
+                            <div className="absolute top-3.5 right-3.5 flex items-center gap-1">
+                                <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/40 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all cursor-pointer" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
+                                <button onClick={async () => {
+                                    const confirmed = window.showConfirm
+                                        ? await window.showConfirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`, { type: 'danger', confirmText: 'Xóa ngay' })
+                                        : window.confirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`);
+                                    if (confirmed) {
+                                        const ok = await deleteGrammarPoint(textbookId, lessonId, gp.id);
+                                        if (ok) showToast(`Đã xóa "${gp.pattern}"`, 'success');
+                                    }
+                                }} className="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-all cursor-pointer" title="Xóa ngữ pháp"><Trash2 className="w-3.5 h-3.5" /></button>
                             </div>
                         )}
-                        <div className="absolute top-3 right-3 flex items-center gap-1 shrink-0">
-                            {isAdmin && (
-                                <>
-                                    <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 transition-all opacity-80 hover:opacity-100 md:opacity-0 md:group-hover:opacity-100" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /></button>
-                                    <button onClick={async () => {
-                                        const confirmed = window.showConfirm
-                                            ? await window.showConfirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`, { type: 'danger', confirmText: 'Xóa ngay' })
-                                            : window.confirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`);
-                                        if (confirmed) {
-                                            const ok = await deleteGrammarPoint(textbookId, lessonId, gp.id);
-                                            if (ok) showToast(`Đã xóa "${gp.pattern}"`, 'success');
-                                        }
-                                    }} className="p-1.5 rounded-lg hover:bg-red-100 dark:hover:bg-red-950/50 text-red-500 transition-all opacity-80 hover:opacity-100 md:opacity-0 md:group-hover:opacity-100" title="Xóa ngữ pháp"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
-                                </>
-                            )}
-                            <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}`)} className="p-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 transition-colors" title="Làm bài tập"><PenTool className="w-4 h-4" /></button>
-                            <ChevronRight className="w-4 h-4 text-slate-300" />
-                        </div>
                     </div>
                 ))}
             </div>
@@ -1583,6 +1665,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                     </div>
                 </div>
             )}
+            </div>
         </div>
     );
 };

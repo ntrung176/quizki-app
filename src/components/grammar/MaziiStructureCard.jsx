@@ -136,8 +136,8 @@ function translateText(str) {
  * Renders structured grammar formulas with:
  * - Color-coded badge chips for Verbs, Nouns, Adjectives, Clauses
  * - Elegant framed card row with subtle border & shadow
- * - Strikethrough <s>...</s> support
- * - Clean operators (+, /) and bold Japanese pattern segments
+ * - Strikethrough <s>...</s> / <del>...</del> / <strike>...</strike> support
+ * - Clean operators (+, /, ➔) and bold Japanese pattern segments
  */
 const MaziiStructureCard = ({ formula, pattern, isFirst = true }) => {
     if (!formula || typeof formula !== 'string') return null;
@@ -155,37 +155,56 @@ const MaziiStructureCard = ({ formula, pattern, isFirst = true }) => {
     const numberPrefix = numberMatch ? numberMatch[1] : null;
     const textContent = numberMatch ? numberMatch[2] : cleanFormula;
 
+    // Standardize operators
+    const normalizedText = textContent
+        .replace(/✚/g, ' + ')
+        .replace(/(?:➔|->)/g, ' ➔ ');
+
+    // Protect HTML tags (<s>...</s>, <del>...</del>, <strike>...</strike>) so that / does not split them
+    const tagPlaceholders = [];
+    const protectedFormula = normalizedText.replace(/<(?:s|del|strike)>[\s\S]*?<\/(?:s|del|strike)>/gi, (match) => {
+        const id = `__TAG_${tagPlaceholders.length}__`;
+        tagPlaceholders.push(match);
+        return id;
+    });
+
+    // Tokenize: Grammatical labels (requiring unicode letter boundaries), operators (+, /, ➔), placeholders
+    const tokenRegex = /(__TAG_\d+__|(?<![\p{L}\p{N}])V\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])V-(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|使役|使役受身|条件形|ば|命令形|普通形|辞書形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:な|い)?adj(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A-(?:い|な|く|stem|普通形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A[いな]?\d*(?:\s*\([^)]+\))?|(?<![\p{L}\p{N}])Na\d*(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])N\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Danh từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Tính từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:Mệnh đề|Câu)\s*\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|\+|\/|／|➔)/giu;
+
+    const rawParts = protectedFormula.split(tokenRegex).filter(p => p !== undefined && p !== '');
+
+    // Restore protected tags into parts
+    const parts = rawParts.map(part => {
+        return part.replace(/__TAG_(\d+)__/g, (_, idx) => tagPlaceholders[Number(idx)] || '');
+    });
+
     // Render HTML strikethrough inside a token
     const renderWithStrikethrough = (str, keyPrefix = '') => {
-        const parts = str.split(/(<\/?(?:s|del)>)/gi);
+        if (!str) return null;
+        const subparts = str.split(/(<\/?(?:s|del|strike)>)/gi);
         let inStrike = false;
 
-        return parts.map((part, idx) => {
-            if (/^<(?:s|del)>$/i.test(part)) {
+        return subparts.map((sub, idx) => {
+            if (/^<(?:s|del|strike)>$/i.test(sub)) {
                 inStrike = true;
                 return null;
             }
-            if (/^<\/(?:s|del)>$/i.test(part)) {
+            if (/^<\/(?:s|del|strike)>$/i.test(sub)) {
                 inStrike = false;
                 return null;
             }
-            if (!part) return null;
+            if (!sub) return null;
 
             if (inStrike) {
                 return (
-                    <del key={`${keyPrefix}-${idx}`} className="line-through opacity-70 decoration-slate-400 dark:decoration-slate-500">
-                        {part}
+                    <del key={`${keyPrefix}-${idx}`} className="line-through opacity-70 decoration-slate-400 dark:decoration-slate-500 font-medium px-0.5">
+                        {sub}
                     </del>
                 );
             }
-            return <span key={`${keyPrefix}-${idx}`}>{part}</span>;
+            return <span key={`${keyPrefix}-${idx}`}>{sub}</span>;
         }).filter(Boolean);
     };
-
-    // Regex to detect distinct grammatical units
-    const tokenRegex = /(V\d*(?:\s*\([^)]+\))?|V-(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|使役|使役受身|条件形|ば|命令形|普通形|辞書形)|(?:な|い)?adj(?:\s*\([^)]+\))?|A-(?:い|な|く|stem|普通形)|A[いな]?\d*(?:\s*\([^)]+\))?|Na\d*|N\d*(?:\s*\([^)]+\))?|Mệnh đề\s*\d*(?:\s*\([^)]+\))?|Câu\s*\d*|\+|\/|／)/gi;
-
-    const parts = textContent.split(tokenRegex).filter(Boolean);
 
     const renderToken = (token, idx) => {
         const t = token.trim();
@@ -205,6 +224,15 @@ const MaziiStructureCard = ({ formula, pattern, isFirst = true }) => {
             return (
                 <span key={idx} className="text-slate-300 dark:text-slate-600 font-bold px-1.5 select-none text-xs">
                     /
+                </span>
+            );
+        }
+
+        // Operator ➔
+        if (t === '➔') {
+            return (
+                <span key={idx} className="text-slate-400 dark:text-slate-500 font-bold px-1 select-none text-xs">
+                    ➔
                 </span>
             );
         }

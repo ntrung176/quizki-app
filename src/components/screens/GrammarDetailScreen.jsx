@@ -373,9 +373,22 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }
         : ((gp.pattern?.includes('あげく') || gp.pattern?.includes('あげk')) ? FALLBACK_VISUAL : null);
 
-    const displayTips = gp.tips?.length > 0
+    const rawTips = gp.tips?.length > 0
         ? gp.tips
         : ((gp.pattern?.includes('あげk') || gp.pattern?.includes('あげく')) ? FALLBACK_TIPS : []);
+
+    const validTips = rawTips
+        .map(tip => {
+            if (!tip) return null;
+            const text = typeof tip === 'string' ? tip : (tip.text || '');
+            const cleanText = text.replace(/^[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{1F600}-\u{1F64F}💡]\s*/u, '').trim();
+            if (!cleanText) return null;
+            return {
+                icon: (typeof tip === 'object' && tip.icon) ? tip.icon : '💡',
+                text: cleanText
+            };
+        })
+        .filter(Boolean);
 
     const displayExamples = gp.examples?.length > 0
         ? gp.examples
@@ -678,21 +691,18 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         )}
 
                         {/* 3. CHÚ Ý (if any) */}
-                        {displayTips && displayTips.length > 0 && (
+                        {validTips.length > 0 && (
                             <div className="space-y-2">
                                 <h2 className="text-lg font-bold text-slate-900 dark:text-white">
                                     Chú ý
                                 </h2>
                                 <div className="space-y-2.5 w-full pl-0.5">
-                                    {displayTips.map((tip, idx) => {
-                                        const cleanText = (tip.text || '').replace(/^[\u{1F300}-\u{1F9FF}\u{2600}-\u{26FF}\u{1F600}-\u{1F64F}💡]\s*/u, '');
-                                        return (
-                                            <div key={idx} className="flex items-start gap-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed bg-amber-500/10 dark:bg-amber-950/20 border border-amber-500/30 dark:border-amber-900/40 px-4 py-3 rounded-2xl shadow-2xs">
-                                                <span className="shrink-0 text-base">{tip.icon || '💡'}</span>
-                                                <p className="break-words w-full">{cleanText}</p>
-                                            </div>
-                                        );
-                                    })}
+                                    {validTips.map((tip, idx) => (
+                                        <div key={idx} className="flex items-start gap-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed bg-amber-500/10 dark:bg-amber-950/20 border border-amber-500/30 dark:border-amber-900/40 px-4 py-3 rounded-2xl shadow-2xs">
+                                            <span className="shrink-0 text-base">{tip.icon || '💡'}</span>
+                                            <p className="break-words w-full">{tip.text}</p>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         )}

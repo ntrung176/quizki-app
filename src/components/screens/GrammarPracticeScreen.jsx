@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkle, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson, Plus } from 'lucide-react'
+import { ArrowLeft, CheckCircle, Eye, Lightbulb, Sparkle, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson, Plus, ChevronLeft } from 'lucide-react';
 import { fetchGrammarPointById, updateGrammarPoint } from '../../utils/grammarService';
 import { aiCheckGrammarAnswer } from '../../utils/aiProvider';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
+import { TopTabBar } from '../ui';
+import { GRAMMAR_TABS } from '../../config/tabs';
 
 const formatExplanation = (text) => {
     if (!text) return null;
@@ -244,7 +246,22 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
         }
     }, [activeTab]);
 
-    if (loading) return <div className="p-8 text-center text-slate-500">Đang tải...</div>;
+    if (loading) {
+        return (
+            <div className="w-full pb-8">
+                <TopTabBar tabs={GRAMMAR_TABS} />
+                <div className="animate-fade-in text-center p-8 text-slate-500">Đang tải...</div>
+            </div>
+        );
+    }
+    if (!gp) {
+        return (
+            <div className="w-full pb-8">
+                <TopTabBar tabs={GRAMMAR_TABS} />
+                <div className="animate-fade-in text-center p-8 text-slate-500">Không tìm thấy ngữ pháp.</div>
+            </div>
+        );
+    }
 
     const exercises = gp?.exercises || [];
     const quizzes = gp?.quizzes || [];
@@ -498,29 +515,61 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
     }
 
     return (
-        <div className="max-w-3xl mx-auto space-y-5 animate-fade-in">
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex items-start justify-between gap-4">
-                <div>
-                    <button onClick={() => navigate(`/grammar/detail/${grammarId}?tb=${tb}&ls=${ls}`)} className="flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline mb-2 font-mono">
-                        <ArrowLeft className="w-3.5 h-3.5" /> Quay lại mẫu ngữ pháp
-                    </button>
-                    {gp.textbook && <p className="text-xs font-mono font-bold text-slate-400 mb-1">{gp.textbook.title || gp.textbook.titleVi} • {gp.lesson?.sectionLabel} {gp.lesson?.title}</p>}
-                    <h1 className="text-2xl font-black text-slate-900 dark:text-white">{gp.pattern}</h1>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">{gp.meaningShort}</p>
-                </div>
-                {isAdmin && (
-                    <div className="flex gap-2 shrink-0">
-                        <button onClick={() => { setShowAddExercisePanel(!showAddExercisePanel); setShowAddQuizPanel(false); }}
-                            className="flex items-center gap-1.5 px-3 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl transition-all border border-indigo-200 dark:border-indigo-800/80 shadow-sm">
-                            <Plus className="w-3.5 h-3.5" /> Thêm đặt câu
+        <div className="w-full pb-8">
+            <TopTabBar tabs={GRAMMAR_TABS} />
+            <div className="max-w-3xl mx-auto space-y-5 animate-fade-in px-4 md:px-0 mt-4">
+                {/* Header Banner */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-sm">
+                    <div className="flex items-start gap-3.5 flex-1 min-w-0">
+                        <button
+                            onClick={() => {
+                                if (tb && ls) {
+                                    navigate(`/grammar/detail/${grammarId}?tb=${tb}&ls=${ls}`);
+                                } else {
+                                    navigate(`/grammar/detail/${grammarId}`);
+                                }
+                            }}
+                            className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 mt-0.5 cursor-pointer"
+                            title="Quay lại chi tiết mẫu ngữ pháp"
+                        >
+                            <ChevronLeft className="w-4 h-4" />
                         </button>
-                        <button onClick={() => { setShowAddQuizPanel(!showAddQuizPanel); setShowAddExercisePanel(false); }}
-                            className="flex items-center gap-1.5 px-3 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl transition-all border border-emerald-200 dark:border-emerald-800/80 shadow-sm">
-                            <Plus className="w-3.5 h-3.5" /> Thêm Trắc nghiệm
-                        </button>
+                        <div className="flex-1 min-w-0">
+                            {gp.textbook && (
+                                <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+                                    {(gp.textbook.levels || []).map(lvl => (
+                                        <span key={lvl} className="px-2.5 py-0.5 text-[10px] font-black rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 uppercase tracking-wider">
+                                            {lvl}
+                                        </span>
+                                    ))}
+                                    {gp.lesson?.sectionLabel && (
+                                        <span className="px-2.5 py-0.5 text-[10px] font-bold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                                            {gp.lesson?.sectionLabel}
+                                        </span>
+                                    )}
+                                </div>
+                            )}
+                            <h1 className="text-xl md:text-2xl font-bold text-[#1d70b8] dark:text-sky-400 font-japanese leading-tight">
+                                {gp.pattern}
+                            </h1>
+                            <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">
+                                {gp.meaningShort || gp.meaning || 'Luyện tập ngữ pháp'}
+                            </p>
+                        </div>
                     </div>
-                )}
-            </div>
+                    {isAdmin && (
+                        <div className="flex flex-wrap gap-2 shrink-0 sm:self-center">
+                            <button onClick={() => { setShowAddExercisePanel(!showAddExercisePanel); setShowAddQuizPanel(false); }}
+                                className="flex items-center gap-1.5 px-3 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl transition-all border border-indigo-200 dark:border-indigo-800/80 shadow-2xs cursor-pointer">
+                                <Plus className="w-3.5 h-3.5" /> Thêm đặt câu
+                            </button>
+                            <button onClick={() => { setShowAddQuizPanel(!showAddQuizPanel); setShowAddExercisePanel(false); }}
+                                className="flex items-center gap-1.5 px-3 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl transition-all border border-emerald-200 dark:border-emerald-800/80 shadow-2xs cursor-pointer">
+                                <Plus className="w-3.5 h-3.5" /> Thêm Trắc nghiệm
+                            </button>
+                        </div>
+                    )}
+                </div>
 
             {/* ADMIN ADD EXERCISE PANEL (MANUAL & JSON) */}
             {isAdmin && showAddExercisePanel && (
@@ -967,6 +1016,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                     </div>
                 </>
             )}
+            </div>
         </div>
     );
 };

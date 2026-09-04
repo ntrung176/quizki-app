@@ -88,7 +88,7 @@ export const getSharedGrammarData = async () => {
                     if (res && res.ok) {
                         const json = await res.json();
                         const pointCount = Array.isArray(json)
-                            ? json.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || 0), 0), 0)
+                            ? json.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || ls.grammarPoints?.length || 0), 0) + (tb.grammarPoints?.length || 0), 0)
                             : 0;
                         if (pointCount >= 1000) {
                             data = json;
@@ -125,7 +125,13 @@ export const getSharedGrammarData = async () => {
                         if (lesson.points) {
                             lesson.points = lesson.points.map(p => editedMap[p.id] ? { ...p, ...editedMap[p.id] } : p);
                         }
+                        if (lesson.grammarPoints) {
+                            lesson.grammarPoints = lesson.grammarPoints.map(p => editedMap[p.id] ? { ...p, ...editedMap[p.id] } : p);
+                        }
                     });
+                    if (textbook.grammarPoints) {
+                        textbook.grammarPoints = textbook.grammarPoints.map(p => editedMap[p.id] ? { ...p, ...editedMap[p.id] } : p);
+                    }
                 });
             }
             return cachedGrammarData;
