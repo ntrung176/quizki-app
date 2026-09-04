@@ -8,7 +8,7 @@ import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase
 import { getAuth } from 'firebase/auth';
 import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
-import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS, getCardPreviewIntervals, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
@@ -20,19 +20,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { speakExampleSentence } from '../../utils/audio';
 
 const getPreviewIntervals = (srs, cardId = null) => {
-    const ratings = ['again', 'hard', 'good', 'easy'];
-    const result = {};
-    const seed = cardId || (srs ? (srs.id || srs.grammarId || srs.title) : null);
-    for (const r of ratings) {
-        const preview = calculateAnkiSRS(srs, r, seed);
-        if (preview.state === 'REVIEW') {
-            const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
-            result[r] = days * 1440;
-        } else {
-            result[r] = preview.interval || 1;
-        }
-    }
-    return result;
+    return getCardPreviewIntervals(srs, cardId);
 };
 
 const formatInterval = (minutes) => {

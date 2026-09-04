@@ -75,18 +75,7 @@ const getPreviewIntervals = (card, sessionSrs = null) => {
         lastReviewed: card.lastReviewed || null
     };
 
-    const ratings = ['again', 'hard', 'good', 'easy'];
-    const result = {};
-    for (const r of ratings) {
-        const preview = calculateAnkiSRS(srsState, r, cardId);
-        if (preview.state === 'REVIEW') {
-            const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
-            result[r] = days * 1440;
-        } else {
-            result[r] = preview.interval || 1;
-        }
-    }
-    return result;
+    return getCardPreviewIntervals(srsState, cardId);
 };
 
 const SRSVocabScreen = ({

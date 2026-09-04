@@ -492,8 +492,20 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
     let fuzzedInterval = newInterval;
 
     if (nextState === 'REVIEW') {
-        // Apply Fuzz Factor for intervals >= 3 days to smooth daily card distribution
-        fuzzedInterval = applyFuzzFactor(newInterval, cardSeed);
+        const hardBase = Math.max(currentInterval + 1, Math.floor(currentInterval * HARD_MULTIPLIER));
+        const goodBase = Math.max(hardBase + 1, Math.floor(currentInterval * currentEase));
+        const easyBase = Math.max(goodBase + 1, Math.floor(currentInterval * currentEase * EASY_BONUS));
+
+        // Enforce strict monotonicity when applying Fuzz: Hard < Good < Easy
+        const fuzzedHard = applyFuzzFactor(hardBase, cardSeed ? `${cardSeed}_hard` : null);
+        const fuzzedGood = Math.max(fuzzedHard + 1, applyFuzzFactor(goodBase, cardSeed ? `${cardSeed}_good` : null));
+        const fuzzedEasy = Math.max(fuzzedGood + 1, applyFuzzFactor(easyBase, cardSeed ? `${cardSeed}_easy` : null));
+
+        if (normRating === 'hard') fuzzedInterval = fuzzedHard;
+        else if (normRating === 'good') fuzzedInterval = fuzzedGood;
+        else if (normRating === 'easy') fuzzedInterval = fuzzedEasy;
+        else fuzzedInterval = newInterval;
+
         // Calculate target timestamp anchored to 5:00 AM cutoff on scheduled day
         const targetTimestamp = calculateDayCutoffTimestamp(fuzzedInterval);
         nextReviewOffsetMs = Math.max(60000, targetTimestamp - Date.now());
@@ -515,6 +527,36 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
         isLeech: newLapseCount >= 3,
         nextReviewOffsetMs: nextReviewOffsetMs
     };
+};
+
+/**
+ * Calculates the preview intervals for all 4 ratings ('again', 'hard', 'good', 'easy')
+ * with strict monotonicity guarantee (Again < Hard < Good < Easy).
+ */
+export const getCardPreviewIntervals = (srs, cardId = null) => {
+    const ratings = ['again', 'hard', 'good', 'easy'];
+    const result = {};
+    const seed = cardId || (srs ? (srs.id || srs.kanji || srs.character || srs.cardId) : null);
+    
+    for (const r of ratings) {
+        const preview = calculateAnkiSRS(srs, r, seed);
+        if (preview.state === 'REVIEW') {
+            const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
+            result[r] = days * 1440;
+        } else {
+            result[r] = preview.interval || 1;
+        }
+    }
+
+    // Strict safety check to prevent any UI display inversions
+    if (result.good !== undefined && result.hard !== undefined && result.good <= result.hard && result.good >= 1440) {
+        result.good = result.hard + 1440;
+    }
+    if (result.easy !== undefined && result.good !== undefined && result.easy <= result.good && result.easy >= 1440) {
+        result.easy = result.good + 1440;
+    }
+
+    return result;
 };
 
 // Default Cutoff Hour (5:00 AM local time)

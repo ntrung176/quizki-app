@@ -11,7 +11,7 @@ import { getAuth } from 'firebase/auth';
 import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs } from '../../utils/kanjiService';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
-import { formatCountdown, getCardState, calculateAnkiSRS, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS, getCardPreviewIntervals, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations'
@@ -25,19 +25,7 @@ import { useLanguage } from '../../context/LanguageContext';
  * Lấy interval preview cho mỗi nút đánh giá (hiển thị cho user)
  */
 const getPreviewIntervals = (srs, cardId = null) => {
-    const ratings = ['again', 'hard', 'good', 'easy'];
-    const result = {};
-    const seed = cardId || (srs ? (srs.id || srs.kanji || srs.character) : null);
-    for (const r of ratings) {
-        const preview = calculateAnkiSRS(srs, r, seed);
-        if (preview.state === 'REVIEW') {
-            const days = Math.round(preview.fuzzedInterval || preview.interval || 1);
-            result[r] = days * 1440;
-        } else {
-            result[r] = preview.interval || 1;
-        }
-    }
-    return result;
+    return getCardPreviewIntervals(srs, cardId);
 };
 
 const formatInterval = (minutes) => {
