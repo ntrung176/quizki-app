@@ -383,13 +383,13 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
         const isLeech = (lapseCount || 0) >= 3;
         const hardIntVal = isLeech
             ? Math.max(1, Math.floor(refInterval * 0.10))
-            : Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.25)));
+            : Math.max(1, Math.min(refInterval, Math.floor(refInterval * 0.10)));
         const goodIntVal = isLeech
             ? Math.max(hardIntVal + 1, Math.floor(refInterval * 0.20))
-            : Math.max(hardIntVal + 1, Math.min(refInterval + 1, Math.floor(refInterval * 0.5)));
+            : Math.max(hardIntVal + 1, Math.min(refInterval + 1, Math.floor(refInterval * 0.20)));
         const easyIntVal = isLeech
-            ? Math.max(goodIntVal + 1, Math.floor(refInterval * 0.50))
-            : Math.max(goodIntVal + 1, Math.min(refInterval + 3, Math.floor(refInterval * 0.85)));
+            ? Math.max(goodIntVal + 1, Math.floor(refInterval * 0.40))
+            : Math.max(goodIntVal + 1, Math.min(refInterval + 3, Math.floor(refInterval * 0.50)));
 
         switch (normRating) {
             case 'again':
@@ -400,24 +400,25 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
                 newLearningStep = 0;
                 break;
             case 'hard':
-                // Thay vì giữ ở Relearning (phút), cho tốt nghiệp với số ngày nhỏ hơn Good
+                // Tốt nghiệp với chu kỳ giảm xuống 10% chu kỳ trước khi quên
                 nextState = 'REVIEW';
-                newInterval = hardIntVal; // Giảm xuống 10% chu kỳ trước khi quên
+                newInterval = hardIntVal;
                 newEase = currentEase - 0.15;
                 newLearningStep = null;
                 newIsLapsed = false;
                 newPrelapseInterval = null;
                 break;
             case 'good':
+                // Tốt nghiệp với chu kỳ giảm xuống 20% chu kỳ trước khi quên (phạt 80%)
                 nextState = 'REVIEW';
-                newInterval = goodIntVal; // Giảm xuống 20% chu kỳ trước khi quên (phạt 80%)
+                newInterval = goodIntVal;
                 newLearningStep = null;
                 newIsLapsed = false;
                 newPrelapseInterval = null;
                 break;
             case 'easy':
                 nextState = 'REVIEW';
-                newInterval = easyIntVal; 
+                newInterval = easyIntVal; // 50% chu kỳ trước khi quên
                 newEase = currentEase + 0.15;
                 newLearningStep = null;
                 newIsLapsed = false;
@@ -492,19 +493,24 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
     let fuzzedInterval = newInterval;
 
     if (nextState === 'REVIEW') {
-        const hardBase = Math.max(currentInterval + 1, Math.floor(currentInterval * HARD_MULTIPLIER));
-        const goodBase = Math.max(hardBase + 1, Math.floor(currentInterval * currentEase));
-        const easyBase = Math.max(goodBase + 1, Math.floor(currentInterval * currentEase * EASY_BONUS));
+        if (currentState === 'REVIEW') {
+            const hardBase = Math.max(currentInterval + 1, Math.floor(currentInterval * HARD_MULTIPLIER));
+            const goodBase = Math.max(hardBase + 1, Math.floor(currentInterval * currentEase));
+            const easyBase = Math.max(goodBase + 1, Math.floor(currentInterval * currentEase * EASY_BONUS));
 
-        // Enforce strict monotonicity when applying Fuzz: Hard < Good < Easy
-        const fuzzedHard = applyFuzzFactor(hardBase, cardSeed ? `${cardSeed}_hard` : null);
-        const fuzzedGood = Math.max(fuzzedHard + 1, applyFuzzFactor(goodBase, cardSeed ? `${cardSeed}_good` : null));
-        const fuzzedEasy = Math.max(fuzzedGood + 1, applyFuzzFactor(easyBase, cardSeed ? `${cardSeed}_easy` : null));
+            // Enforce strict monotonicity when applying Fuzz: Hard < Good < Easy
+            const fuzzedHard = applyFuzzFactor(hardBase, cardSeed ? `${cardSeed}_hard` : null);
+            const fuzzedGood = Math.max(fuzzedHard + 1, applyFuzzFactor(goodBase, cardSeed ? `${cardSeed}_good` : null));
+            const fuzzedEasy = Math.max(fuzzedGood + 1, applyFuzzFactor(easyBase, cardSeed ? `${cardSeed}_easy` : null));
 
-        if (normRating === 'hard') fuzzedInterval = fuzzedHard;
-        else if (normRating === 'good') fuzzedInterval = fuzzedGood;
-        else if (normRating === 'easy') fuzzedInterval = fuzzedEasy;
-        else fuzzedInterval = newInterval;
+            if (normRating === 'hard') fuzzedInterval = fuzzedHard;
+            else if (normRating === 'good') fuzzedInterval = fuzzedGood;
+            else if (normRating === 'easy') fuzzedInterval = fuzzedEasy;
+            else fuzzedInterval = newInterval;
+        } else {
+            // Khi tốt nghiệp từ NEW / LEARNING / RELEARNING vào REVIEW: giữ nguyên chu kỳ chuẩn (1, 2, 4 ngày)
+            fuzzedInterval = newInterval;
+        }
 
         // Calculate target timestamp anchored to 5:00 AM cutoff on scheduled day
         const targetTimestamp = calculateDayCutoffTimestamp(fuzzedInterval);
