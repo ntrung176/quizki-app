@@ -429,7 +429,7 @@ export const decodeTelex = (str = '') => {
  * Tách các thành phần của từ tiếng Nhật (Kanji part, Kana reading part, full word)
  */
 export const extractJapaneseParts = (card = {}) => {
-    const rawFront = card.front || card.vocabulary || card.word || card.character || '';
+    const rawFront = card.pattern || card.front || card.vocabulary || card.word || card.character || '';
     const rawReading = card.reading || card.furigana || card.frontWithFurigana || '';
     
     // Tách phần Kanji và phần trong ngoặc
@@ -448,7 +448,7 @@ export const extractJapaneseParts = (card = {}) => {
         : (Array.isArray(rawSinoViet) ? rawSinoViet : []);
 
     // Tách các nghĩa tiếng Việt độc lập
-    const rawMeaning = card.back || card.meaning || '';
+    const rawMeaning = card.meaningShort || card.meaning || card.meaningFull || card.back || '';
     const meaningList = typeof rawMeaning === 'string'
         ? rawMeaning.split(/[,;\n/|]+/).map(s => s.trim()).filter(Boolean)
         : (Array.isArray(rawMeaning) ? rawMeaning : []);

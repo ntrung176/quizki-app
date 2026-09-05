@@ -11,9 +11,11 @@ import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
 import { isVocabCardDue, isSrsCardDue, isKanjiMastered, isVocabCardMastered, parseNextReviewMs } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
+import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/grammarService';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { isEnglishCard } from '../../utils/englishVocab';
+import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 
 // HomeScreen Component - Cyber-AI Futuristic Edition
 const HomeScreen = ({
@@ -52,6 +54,18 @@ const HomeScreen = ({
         }
     });
 
+    // 3. Instant Summary Cache cho Grammar Stats
+    const [grammarSrsStats, setGrammarSrsStats] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_grammar_srs_stats');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                return { ...parsed, isInitialLoading: false };
+            }
+        } catch (_) {}
+        return { total: null, dueCount: null, isInitialLoading: true };
+    });
+
     const [cachedStreak, setCachedStreak] = useState(() => {
         try {
             const cached = localStorage.getItem('quizki_cached_user_streak');
@@ -71,6 +85,81 @@ const HomeScreen = ({
 
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
     const [showAddOptions, setShowAddOptions] = useState(false);
+
+    // SRS Mode Select Modal Configuration directly on Home Screen
+    const [modeModalConfig, setModeModalConfig] = useState({
+        isOpen: false,
+        type: null, // 'vocab' | 'kanji' | 'grammar'
+        title: '',
+        cardCount: 0,
+        route: '',
+        hasDue: false,
+    });
+
+    const handleTriggerReview = (type) => {
+        if (type === 'vocab') {
+            const dueCount = stats.dueCards ?? 0;
+            setModeModalConfig({
+                isOpen: true,
+                type: 'vocab',
+                title: 'Chọn chế độ ôn tập Từ vựng',
+                cardCount: dueCount,
+                route: ROUTES.VOCAB_REVIEW,
+                hasDue: dueCount > 0,
+            });
+        } else if (type === 'kanji') {
+            const dueCount = kanjiSrsStats.dueCount ?? 0;
+            setModeModalConfig({
+                isOpen: true,
+                type: 'kanji',
+                title: 'Chọn chế độ ôn tập Kanji',
+                cardCount: dueCount,
+                route: ROUTES.KANJI_REVIEW,
+                hasDue: dueCount > 0,
+            });
+        } else if (type === 'grammar') {
+            const dueCount = grammarSrsStats.dueCount ?? 0;
+            setModeModalConfig({
+                isOpen: true,
+                type: 'grammar',
+                title: 'Chọn chế độ ôn tập Ngữ pháp',
+                cardCount: dueCount,
+                route: ROUTES.GRAMMAR_REVIEW,
+                hasDue: dueCount > 0,
+            });
+        }
+    };
+
+    const handleSelectSrsMode = (mode) => {
+        const { type, route, hasDue } = modeModalConfig;
+        setModeModalConfig(prev => ({ ...prev, isOpen: false }));
+
+        if (type === 'vocab') {
+            try {
+                const saved = localStorage.getItem('quizki_flashcard_settings_v2');
+                const parsed = saved ? JSON.parse(saved) : {};
+                localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify({
+                    ...parsed,
+                    reviewType: mode
+                }));
+            } catch (_) {}
+        } else if (type === 'kanji') {
+            try {
+                localStorage.setItem('quizki_kanji_review_type', mode);
+            } catch (_) {}
+        } else if (type === 'grammar') {
+            try {
+                const saved = localStorage.getItem('quizki_grammar_flashcard_settings_v1');
+                const parsed = saved ? JSON.parse(saved) : {};
+                localStorage.setItem('quizki_grammar_flashcard_settings_v1', JSON.stringify({
+                    ...parsed,
+                    reviewType: mode
+                }));
+            } catch (_) {}
+        }
+
+        navigate(route, hasDue ? { state: { autoStart: true, reviewType: mode } } : { state: { reviewType: mode } });
+    };
 
     // Fetch kanji SRS stats + activity dates synchronized with Kanji module
     useEffect(() => {
@@ -116,6 +205,40 @@ const HomeScreen = ({
             });
         }).catch(err => {
             console.error('Error fetching kanji list in HomeScreen:', err);
+        });
+
+        return () => {
+            isMounted = false;
+            unsub();
+        };
+    }, [userId]);
+
+    // Fetch grammar SRS stats synchronized with Grammar module
+    useEffect(() => {
+        if (!userId) return;
+        let isMounted = true;
+        let unsub = () => {};
+
+        getSharedGrammarPointsList().then(gList => {
+            if (!isMounted) return;
+            unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+                if (!isMounted) return;
+                let total = 0, dueCount = 0;
+                const now = Date.now();
+                (gList || []).forEach(g => {
+                    const data = freshSrs && freshSrs[g.id];
+                    if (data) {
+                        total++;
+                        if (isSrsCardDue(data, now)) dueCount++;
+                    }
+                });
+                setGrammarSrsStats({ total, dueCount, isInitialLoading: false });
+                try {
+                    localStorage.setItem('quizki_cached_grammar_srs_stats', JSON.stringify({ total, dueCount }));
+                } catch (_) {}
+            });
+        }).catch(err => {
+            console.error('Error fetching grammar list in HomeScreen:', err);
         });
 
         return () => {
@@ -200,6 +323,10 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
             ? 'Đang cập nhật...'
             : `${kanjiSrsStats.dueCount ?? 0} ${t('home.kanjiDueSubtitle', 'chữ kanji cần ôn tập')}`;
 
+        const grammarDueSubtitle = grammarSrsStats.isInitialLoading && grammarSrsStats.dueCount === null
+            ? 'Đang cập nhật...'
+            : `${grammarSrsStats.dueCount ?? 0} ${t('home.grammarDueSubtitle', 'mẫu ngữ pháp cần ôn tập')}`;
+
         if (isEnglishMode) {
             return [
                 {
@@ -283,14 +410,14 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
             {
                 id: 'grammar-review',
                 title: t('home.reviewGrammarTitle', 'Ôn Tập Ngữ Pháp'),
-                subtitle: t('home.reviewGrammarSub', 'Luyện tập bài tập mẫu câu'),
+                subtitle: grammarDueSubtitle,
                 icon: Repeat2,
                 gradient: 'from-purple-600 via-purple-500 to-pink-500',
                 glow: 'shadow-purple-500/25 border border-purple-400/40',
                 route: ROUTES.GRAMMAR_REVIEW,
             },
         ];
-    }, [t, stats.dueCards, stats.isInitialLoading, kanjiSrsStats.dueCount, kanjiSrsStats.isInitialLoading, isEnglishMode]);
+    }, [t, stats.dueCards, stats.isInitialLoading, kanjiSrsStats.dueCount, kanjiSrsStats.isInitialLoading, grammarSrsStats.dueCount, grammarSrsStats.isInitialLoading, isEnglishMode]);
 
     // Greeting based on time
     const getGreeting = () => {
@@ -412,7 +539,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
             <div className={`grid grid-cols-2 ${isEnglishMode ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-3 sm:gap-4`}>
                 {/* Card 1: Vocab Review */}
                 <div 
-                    onClick={() => navigate(ROUTES.VOCAB_REVIEW, (stats.dueCards ?? 0) > 0 ? { state: { autoStart: true } } : undefined)}
+                    onClick={() => handleTriggerReview('vocab')}
                     className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-rose-500/40 hover:shadow-rose-500/10"
                 >
                     <div className="flex items-center gap-3 min-w-0">
@@ -430,7 +557,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                 {/* Card 2: Kanji Review / New Cards */}
                 {!isEnglishMode ? (
                     <div 
-                        onClick={() => navigate(ROUTES.KANJI_REVIEW, (kanjiSrsStats.dueCount ?? 0) > 0 ? { state: { autoStart: true } } : undefined)}
+                        onClick={() => handleTriggerReview('kanji')}
                         className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-amber-500/40 hover:shadow-amber-500/10"
                     >
                         <div className="flex items-center gap-3 min-w-0">
@@ -446,7 +573,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                     </div>
                 ) : (
                     <div 
-                        onClick={() => navigate(ROUTES.VOCAB_REVIEW, (stats.dueCards ?? 0) > 0 ? { state: { autoStart: true } } : undefined)}
+                        onClick={() => handleTriggerReview('vocab')}
                         className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-amber-500/40 hover:shadow-amber-500/10"
                     >
                         <div className="flex items-center gap-3 min-w-0">
@@ -515,9 +642,14 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                             onClick={() => {
                                 if (action.id === 'add') {
                                     setShowAddOptions(true);
+                                } else if (action.id === 'vocab-review') {
+                                    handleTriggerReview('vocab');
+                                } else if (action.id === 'kanji-review') {
+                                    handleTriggerReview('kanji');
+                                } else if (action.id === 'grammar-review') {
+                                    handleTriggerReview('grammar');
                                 } else {
-                                    const isDueAvailable = action.id === 'vocab-review' ? stats.dueCards > 0 : (action.id === 'kanji-review' ? kanjiSrsStats.dueCount > 0 : true);
-                                    navigate(action.route, isDueAvailable ? { state: { autoStart: true } } : undefined);
+                                    navigate(action.route);
                                 }
                             }}
                             className={`relative group isolate bg-gradient-to-br ${action.gradient} text-white rounded-2xl p-5 text-left transition-all duration-300 hover:scale-[1.02] active:scale-98 overflow-hidden min-h-[110px] cursor-pointer shadow-lg select-none border border-white/10 ${action.glow}`}
@@ -614,6 +746,15 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
             <StreakCelebration 
                 dailyActivityLogs={dailyActivityLogs}
                 currentCalculatedStreak={calculatedStreak}
+            />
+
+            {/* SRS Mode Selection Modal directly on Home Screen */}
+            <SrsModeSelectModal
+                isOpen={modeModalConfig.isOpen}
+                onClose={() => setModeModalConfig(prev => ({ ...prev, isOpen: false }))}
+                title={modeModalConfig.title}
+                cardCount={modeModalConfig.cardCount}
+                onSelectMode={handleSelectSrsMode}
             />
         </div>
     );

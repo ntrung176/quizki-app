@@ -465,7 +465,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         if (location.state?.autoStart && !hasAutoStartedRef.current && !loading && !reviewMode) {
             if (dueKanji.length > 0) {
                 hasAutoStartedRef.current = true;
-                startReview();
+                if (location.state?.reviewType) {
+                    setTypingMode(location.state.reviewType === 'typing');
+                }
+                runStartReview();
             } else {
                 hasAutoStartedRef.current = true; // No due kanji, stay on overview tab
             }

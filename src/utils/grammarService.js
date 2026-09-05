@@ -81,7 +81,7 @@ export const getSharedGrammarData = async () => {
             if (cacheConfig && cacheConfig.grammarUrl) {
                 try {
                     console.log('Using Firebase Storage CDN for Grammar cache');
-                    const urlWithBuster = cacheConfig.grammarUrl.includes('?') 
+                    const urlWithBuster = cacheConfig.grammarUrl.includes('?')
                         ? `${cacheConfig.grammarUrl}&t=${cacheConfig.exportedAt || Date.now()}`
                         : `${cacheConfig.grammarUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
                     const res = await fetch(urlWithBuster);
@@ -173,7 +173,7 @@ export const subscribeTextbooks = (callback, isAdmin = false) => {
         textbooksUnsub = onSnapshot(colRef, async (snapshot) => {
             const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
             items.sort((a, b) => (a.order || 0) - (b.order || 0));
-            
+
             const cdnData = await getSharedGrammarData().catch(() => null);
             let finalItems = items;
             if ((!items || items.length === 0 || (items.length === 1 && items[0].id === 'master_bank')) && cdnData && cdnData.length > 0) {
@@ -266,7 +266,7 @@ export const deleteTextbook = async (textbookId) => {
 export const subscribeLessons = (textbookId, callback, isAdmin = false) => {
     if (!textbookId) {
         callback([]);
-        return () => {};
+        return () => { };
     }
 
     // Try CDN / local bundle first
@@ -301,7 +301,7 @@ export const subscribeLessons = (textbookId, callback, isAdmin = false) => {
         lessonsUnsubs[textbookId] = onSnapshot(colRef, async (snapshot) => {
             const items = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
             items.sort((a, b) => (a.order || 0) - (b.order || 0));
-            
+
             let finalItems = items;
             if ((!items || items.length === 0) && textbookId) {
                 const cdnData = await getSharedGrammarData().catch(() => null);
@@ -392,7 +392,7 @@ export const deleteLesson = async (textbookId, lessonId) => {
 export const subscribeGrammarPoints = (textbookId, lessonId, callback, isAdmin = false) => {
     if (!textbookId || !lessonId) {
         callback([]);
-        return () => {};
+        return () => { };
     }
 
     const key = `${textbookId}/${lessonId}`;
@@ -538,7 +538,7 @@ export const updateEditedGrammarLocalCache = (pointId, data) => {
 export const clearEditedGrammarLocalCache = () => {
     try {
         localStorage.removeItem(EDITED_GRAMMAR_KEY);
-    } catch (_) {}
+    } catch (_) { }
 };
 
 export const updateGrammarPoint = async (textbookId, lessonId, grammarId, data) => {
@@ -627,9 +627,9 @@ export const deleteGrammarPoint = async (textbookId, lessonId, grammarId) => {
         clearSharedGrammarPointsListCache();
         cachedGrammarData = null;
         if (textbookId && lessonId && textbookId !== 'master') {
-            await deleteDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId)).catch(() => {});
+            await deleteDoc(doc(db, grammarPointsPath(textbookId, lessonId), grammarId)).catch(() => { });
         }
-        await deleteDoc(doc(db, masterGrammarPath(), grammarId)).catch(() => {});
+        await deleteDoc(doc(db, masterGrammarPath(), grammarId)).catch(() => { });
         return true;
     } catch (e) {
         console.error('Delete grammar point error:', e);
@@ -651,14 +651,14 @@ export const deleteGrammarPointsBatch = async (items) => {
             const ls = typeof item === 'string' ? null : item.lessonId;
             const promises = [];
             if (tb && ls && tb !== 'master') {
-                promises.push(deleteDoc(doc(db, grammarPointsPath(tb, ls), gid)).catch(() => {}));
+                promises.push(deleteDoc(doc(db, grammarPointsPath(tb, ls), gid)).catch(() => { }));
             }
-            promises.push(deleteDoc(doc(db, masterGrammarPath(), gid)).catch(() => {}));
+            promises.push(deleteDoc(doc(db, masterGrammarPath(), gid)).catch(() => { }));
             return Promise.all(promises);
         }));
         return true;
     } catch (e) {
-            console.error('Batch delete grammar points error:', e);
+        console.error('Batch delete grammar points error:', e);
         return false;
     }
 };
@@ -1000,8 +1000,8 @@ export const importDirectGrammarPointsFromJson = async (jsonInput, defaultLevel 
                 });
             };
 
-            const structureParsed = Array.isArray(rawGp.structure) 
-                ? rawGp.structure 
+            const structureParsed = Array.isArray(rawGp.structure)
+                ? rawGp.structure
                 : parseStructure(rawGp.structureRaw || rawGp.structure || '');
 
             const tipsParsed = Array.isArray(rawGp.tips)
@@ -1094,7 +1094,7 @@ export const getMasterGrammarPoints = async () => {
         const deletedSet = getDeletedGrammarIds();
         const snap = await getDocs(collection(db, masterGrammarPath()));
         let list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        
+
         if (list.length === 0) {
             const cdnData = await getSharedGrammarData().catch(() => null);
             if (cdnData) {
@@ -1360,7 +1360,7 @@ export const getSharedGrammarSrs = async (userId) => {
  * Returns an unsubscribe function for the caller's callback only.
  */
 export const subscribeGrammarSrs = (userId, callback) => {
-    if (!userId) return () => {};
+    if (!userId) return () => { };
 
     // If user changed, tear down the old listener entirely
     if (cachedUserIdForGrammarSrs && cachedUserIdForGrammarSrs !== userId) {

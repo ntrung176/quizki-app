@@ -10,7 +10,7 @@ import useMenuTransition from '../../hooks/useMenuTransition';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
-import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue, isLeechCard } from '../../utils/srs';
+import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue, isLeechCard, getCardPreviewIntervals } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
@@ -637,6 +637,12 @@ const SRSVocabScreen = ({
             const dueCardsOnly = filteredCards.filter(c => isDue(c));
             if (dueCardsOnly.length > 0) {
                 hasAutoStartedRef.current = true;
+                if (location.state?.reviewType) {
+                    setCardSettings(prev => ({
+                        ...prev,
+                        reviewType: location.state.reviewType
+                    }));
+                }
                 startFolderReview(dueCardsOnly, 'global');
             } else {
                 hasAutoStartedRef.current = true; // No due cards, stay on overview tab

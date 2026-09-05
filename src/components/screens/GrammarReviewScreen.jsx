@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2, Cpu, Repeat2 } from 'lucide-react';
+import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2, Cpu, Repeat2, Settings, Keyboard, CreditCard } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
@@ -18,6 +18,10 @@ import { GRAMMAR_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
 import { speakExampleSentence } from '../../utils/audio';
+import GrammarFlashcard from '../grammar/GrammarFlashcard';
+import GrammarFlashcardSettingsModal, { DEFAULT_GRAMMAR_FLASHCARD_SETTINGS } from '../grammar/GrammarFlashcardSettingsModal';
+import SrsTypingInput from '../srs/SrsTypingInput';
+import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 
 const getPreviewIntervals = (srs, cardId = null) => {
     return getCardPreviewIntervals(srs, cardId);
@@ -77,6 +81,31 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
     const [showLeechManager, setShowLeechManager] = useState(false);
     const leechGrammarItems = useMemo(() => grammarList.filter(g => isLeechCard(srsData[g.id]) || isLeechCard(g)), [grammarList, srsData]);
+
+    const [flashcardSettings, setFlashcardSettings] = useState(() => {
+        try {
+            const saved = localStorage.getItem('quizki_grammar_flashcard_settings_v1');
+            if (saved) {
+                return { ...DEFAULT_GRAMMAR_FLASHCARD_SETTINGS, ...JSON.parse(saved) };
+            }
+        } catch (e) { }
+        return DEFAULT_GRAMMAR_FLASHCARD_SETTINGS;
+    });
+    const [showSettingsModal, setShowSettingsModal] = useState(false);
+    const [showModeModal, setShowModeModal] = useState(false);
+    const [pendingReviewCards, setPendingReviewCards] = useState(null);
+    const [hasCheckedTyping, setHasCheckedTyping] = useState(false);
+
+    useEffect(() => {
+        setHasCheckedTyping(false);
+    }, [currentReviewIndex, reviewMode]);
+
+    const handleUpdateSettings = (newSettings) => {
+        setFlashcardSettings(newSettings);
+        try {
+            localStorage.setItem('quizki_grammar_flashcard_settings_v1', JSON.stringify(newSettings));
+        } catch (e) { }
+    };
 
     const handleResetGrammarLeech = (item) => {
         if (!item || !item.id) return;
@@ -346,18 +375,24 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
     const [isPreparingSession, setIsPreparingSession] = useState(false);
 
-    const startReview = () => {
-        if (dueGrammar.length === 0) return;
+    const runStartReview = (customList = null) => {
+        const validList = Array.isArray(customList) && customList.length > 0
+            ? customList
+            : (Array.isArray(pendingReviewCards) && pendingReviewCards.length > 0 ? pendingReviewCards : dueGrammar);
+
+        if (!Array.isArray(validList) || validList.length === 0) return;
+
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
         const uniqueDueGrammar = Array.from(
-            new Map(dueGrammar.map(c => [String(c.id), c])).values()
+            new Map(validList.map(c => [String(c.id), c])).values()
         );
         activeReviewCardIds.current = new Set(uniqueDueGrammar.map(c => String(c.id)));
         setReviewQueue(uniqueDueGrammar);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
+        setPendingReviewCards(null);
 
         // Show high-tech pre-warming screen
         setIsPreparingSession(true);
@@ -371,6 +406,14 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }, 400);
     };
 
+    const startReview = (customList = null) => {
+        const validCustomList = Array.isArray(customList) && customList.length > 0 ? customList : null;
+        const targetList = validCustomList || dueGrammar;
+        if (!Array.isArray(targetList) || targetList.length === 0) return;
+        setPendingReviewCards(validCustomList);
+        setShowModeModal(true);
+    };
+
     const hasAutoStartedRef = useRef(false);
 
     // Auto start review session when navigated from Home Screen
@@ -378,7 +421,13 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (location.state?.autoStart && !hasAutoStartedRef.current && !loading && !reviewMode) {
             if (dueGrammar.length > 0) {
                 hasAutoStartedRef.current = true;
-                startReview();
+                if (location.state?.reviewType) {
+                    handleUpdateSettings({
+                        ...flashcardSettings,
+                        reviewType: location.state.reviewType
+                    });
+                }
+                runStartReview();
             } else {
                 hasAutoStartedRef.current = true; // No due grammar, stay on overview tab
             }
@@ -663,11 +712,27 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
                 return;
             }
-            if (e.key === ' ') { e.preventDefault(); setIsFlipped(f => !f); playFlipSound(); }
-            if (e.key === '1') handleRating('again');
-            if (e.key === '2') handleRating('hard');
-            if (e.key === '3') handleRating('good');
-            if (e.key === '4') handleRating('easy');
+            const isTyping = flashcardSettings?.reviewType === 'typing';
+            if (e.key === ' ') {
+                if (isTyping && !hasCheckedTyping) return;
+                e.preventDefault();
+                setIsFlipped(f => !f);
+                playFlipSound();
+            }
+            if (!isTyping || hasCheckedTyping) {
+                if (e.key === '1') handleRating('again');
+                if (e.key === '2') handleRating('hard');
+                if (e.key === '3') handleRating('good');
+                if (e.key === '4') handleRating('easy');
+            }
+            if (e.key === 's' || e.key === 'S') {
+                e.preventDefault();
+                setShowSettingsModal(s => !s);
+            }
+            if (e.key === 'r' || e.key === 'R' || e.key === 'p' || e.key === 'P') {
+                e.preventDefault();
+                if (currentCard?.pattern) speakText(currentCard.pattern);
+            }
             if (e.key === 'Backspace' || e.key === 'z' || (e.key === 'z' && e.ctrlKey)) {
                 e.preventDefault();
                 handleUndo();
@@ -675,7 +740,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory]);
+    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory, flashcardSettings, hasCheckedTyping]);
 
     if (loading) {
         return (
@@ -707,22 +772,63 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
 
         return (
-            <div className="w-full min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-6 animate-fade-in">
-                <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4 transition-all duration-300">
-                    <div className="w-full flex justify-between mb-2">
+            <div className="w-full min-h-[calc(100vh-80px)] flex items-center justify-center px-3 sm:px-4 py-6 animate-fade-in">
+                <div className="w-[760px] max-w-full flex flex-col justify-center items-center space-y-4 transition-all duration-300">
+                    <div className="w-full flex justify-between items-center mb-2 gap-2">
                         <button onClick={exitReview}
-                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
+                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2 cursor-pointer">
                             <ChevronLeft className="w-4 h-4" />
                             <span className="text-sm font-medium">Trở lại</span>
                         </button>
 
-                        {reviewHistory.length > 0 && (
-                            <button onClick={handleUndo}
-                                className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2">
-                                <RotateCcw className="w-4 h-4" />
-                                <span className="text-sm font-medium">Quay lại</span>
+                        <div className="flex items-center gap-2">
+                            {/* Quick Review Type Switcher (Flashcard 3D vs Typing Input) */}
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    handleUpdateSettings({
+                                        ...flashcardSettings,
+                                        reviewType: flashcardSettings.reviewType === 'typing' ? 'flashcard' : 'typing'
+                                    });
+                                }}
+                                className={`p-2.5 flex items-center justify-center rounded-xl shadow-md border transition-all hover:scale-105 gap-1.5 cursor-pointer ${
+                                    flashcardSettings.reviewType === 'typing'
+                                        ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800'
+                                        : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                }`}
+                                title={flashcardSettings.reviewType === 'typing' ? "Đang ở chế độ Gõ phím (Typing) - Nhấn để đổi sang Thẻ 3D" : "Đang ở chế độ Thẻ Flashcard 3D - Nhấn để đổi sang Gõ phím"}
+                            >
+                                {flashcardSettings.reviewType === 'typing' ? (
+                                    <>
+                                        <Keyboard className="w-4 h-4 text-emerald-500" />
+                                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hidden sm:inline">Gõ phím</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <CreditCard className="w-4 h-4 text-indigo-500" />
+                                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hidden sm:inline">Thẻ 3D</span>
+                                    </>
+                                )}
                             </button>
-                        )}
+
+                            <button
+                                type="button"
+                                onClick={() => setShowSettingsModal(true)}
+                                className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-md border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-1.5 cursor-pointer"
+                                title="Cấu hình thẻ (Phím S)"
+                            >
+                                <Settings className="w-4 h-4 text-indigo-500" />
+                                <span className="text-sm font-medium hidden sm:inline">Cài đặt</span>
+                            </button>
+
+                            {reviewHistory.length > 0 && (
+                                <button onClick={handleUndo}
+                                    className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2 cursor-pointer">
+                                    <RotateCcw className="w-4 h-4" />
+                                    <span className="text-sm font-medium hidden sm:inline">Quay lại</span>
+                                </button>
+                            )}
+                        </div>
                     </div>
 
                     <div className="w-full space-y-2">
@@ -735,87 +841,100 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         </div>
                     </div>
 
-                    <div className="w-full relative" style={{ perspective: '1000px', height: '360px' }}>
-                        <div
-                            className={`w-full relative card-slide ${slideDirection === 'left' ? 'slide-out-left' : slideDirection === 'right' ? 'slide-out-right' : ''}`}
-                            style={{
-                                width: '100%',
-                                height: '360px',
-                                transition: slideDirection ? 'transform 0.12s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.12s ease' : 'transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
-                            }}
-                        >
-                            <div
-                                onClick={() => { setIsFlipped(f => !f); playFlipSound(); }}
-                                style={{
-                                    position: 'relative',
-                                    width: '100%',
-                                    height: '100%',
-                                    transformStyle: 'preserve-3d',
-                                    transition: isAnimatingFlip ? 'transform 0.4s cubic-bezier(0.4,0,0.2,1)' : 'none',
-                                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                    {/* Rich Grammar SRS Flashcard */}
+                    <GrammarFlashcard
+                        card={currentCard}
+                        isFlipped={isFlipped}
+                        onFlip={() => {
+                            if (flashcardSettings.reviewType === 'typing' && !hasCheckedTyping) return;
+                            setIsFlipped(f => !f);
+                            playFlipSound();
+                        }}
+                        isAnimatingFlip={isAnimatingFlip}
+                        slideDirection={slideDirection}
+                        settings={flashcardSettings}
+                        onSpeak={speakText}
+                        hasCheckedTyping={hasCheckedTyping}
+                    />
+
+                    {/* Typing Input for Grammar */}
+                    {flashcardSettings.reviewType === 'typing' && (
+                        <div className="w-full mt-1">
+                            <SrsTypingInput
+                                card={currentCard}
+                                isFlipped={isFlipped}
+                                isReversed={flashcardSettings.studyMode === 'vi_to_ja'}
+                                expectedLanguage={flashcardSettings.studyMode === 'vi_to_ja' ? 'ja' : 'ja'}
+                                onFlip={() => {
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                    playFlipSound();
                                 }}
-                            >
-                                {/* Front */}
-                                <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none p-6"
-                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                                    <div className="text-4xl font-bold text-gray-800 dark:text-white select-none text-center tracking-wide font-japanese">{currentCard.pattern}</div>
-                                    <div className="absolute bottom-6 left-0 right-0 text-center">
-                                        <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">Nhấn để lật thẻ</span>
-                                    </div>
-                                </div>
-                                {/* Back */}
-                                <div className="bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none"
-                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', overflowY: 'auto' }}>
-                                    <div className="text-center space-y-3 w-full">
-                                        <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{currentCard.pattern}</div>
-                                        <div className="text-lg text-cyan-600 dark:text-cyan-400 font-bold">{currentCard.meaningShort || currentCard.meaning || '—'}</div>
-                                        {currentCard.meaning && currentCard.meaningShort && (
-                                            <div className="text-sm text-gray-600 dark:text-gray-300 font-medium px-4">{currentCard.meaning}</div>
-                                        )}
-                                        {currentCard.examples && currentCard.examples.length > 0 && (
-                                            <div className="text-left w-full bg-slate-50 dark:bg-slate-900/60 rounded-2xl p-4 border border-slate-100 dark:border-slate-800 space-y-2 max-h-[140px] overflow-y-auto">
-                                                <div className="text-xs font-bold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wider flex items-center justify-between">
-                                                    <span>Câu ví dụ:</span>
-                                                    <button
-                                                        onClick={(e) => { e.stopPropagation(); speakText(currentCard.examples[0].ja); }}
-                                                        className="p-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95 text-slate-550 hover:text-indigo-500"
-                                                    >
-                                                        <Volume2 className="w-3.5 h-3.5" />
-                                                    </button>
-                                                </div>
-                                                <p className="text-sm font-bold text-gray-800 dark:text-slate-200 leading-relaxed font-japanese">
-                                                    {currentCard.examples[0].ja}
-                                                </p>
-                                                <p className="text-xs text-slate-500 dark:text-slate-450 italic">
-                                                    "{currentCard.examples[0].vi}"
-                                                </p>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
+                                onCheck={() => {
+                                    setHasCheckedTyping(true);
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                    playFlipSound();
+                                }}
+                                onQuickRate={(rating) => handleRating(rating)}
+                                placeholder={
+                                    flashcardSettings.studyMode === 'vi_to_ja'
+                                        ? "Nhập mẫu ngữ pháp tiếng Nhật (ví dụ: づらい, てたまらない)..."
+                                        : "Nhập mẫu ngữ pháp tiếng Nhật tương ứng..."
+                                }
+                            />
+                        </div>
+                    )}
+
+                    {/* Rating Buttons: Shown in flashcard mode OR after submitting answer in typing mode */}
+                    {(flashcardSettings.reviewType !== 'typing' || hasCheckedTyping) && (
+                        <div className="w-full space-y-3 animate-fade-in mt-2">
+                            <div className="grid grid-cols-4 gap-2.5 w-full">
+                                {[
+                                    { key: 'again', label: 'Quên rồi', interval: intervals.again, gradient: 'from-red-500 to-rose-500', bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/70 dark:text-red-500/60' },
+                                    { key: 'hard', label: 'Khó', interval: intervals.hard, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-50 dark:bg-orange-900/20', border: 'border-orange-200 dark:border-orange-800/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/70 dark:text-orange-500/60' },
+                                    { key: 'good', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500 to-green-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'border-emerald-200 dark:border-emerald-800/50', text: 'text-emerald-600 dark:text-emerald-400', sub: 'text-emerald-400/70 dark:text-emerald-500/60' },
+                                    { key: 'easy', label: 'Dễ', interval: intervals.easy, gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/70 dark:text-blue-500/60' },
+                                ].map(btn => (
+                                    <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
+                                        className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer`}>
+                                        <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
+                                        <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
+                                    </button>
+                                ))}
+                            </div>
+
+                            <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
                             </div>
                         </div>
-                    </div>
+                    )}
 
-                    <div className="grid grid-cols-4 gap-2.5 w-full">
-                        {[
-                            { key: 'again', label: 'Quên rồi', interval: intervals.again, gradient: 'from-red-500 to-rose-500', bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/70 dark:text-red-500/60' },
-                            { key: 'hard', label: 'Khó', interval: intervals.hard, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-50 dark:bg-orange-900/20', border: 'border-orange-200 dark:border-orange-800/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/70 dark:text-orange-500/60' },
-                            { key: 'good', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500 to-green-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'border-emerald-200 dark:border-emerald-800/50', text: 'text-emerald-600 dark:text-emerald-400', sub: 'text-emerald-400/70 dark:text-emerald-500/60' },
-                            { key: 'easy', label: 'Dễ', interval: intervals.easy, gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/70 dark:text-blue-500/60' },
-                        ].map(btn => (
-                            <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95`}>
-                                <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
-                                <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
-                            </button>
-                        ))}
-                    </div>
+                    {/* Settings Modal inside Review Session */}
+                    <GrammarFlashcardSettingsModal
+                        isOpen={showSettingsModal}
+                        onClose={() => setShowSettingsModal(false)}
+                        settings={flashcardSettings}
+                        onUpdateSettings={handleUpdateSettings}
+                    />
 
-                    <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
-                        <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
-                        <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
-                    </div>
+                    {/* SRS Mode Selection Modal */}
+                    <SrsModeSelectModal
+                        isOpen={showModeModal}
+                        onClose={() => {
+                            setShowModeModal(false);
+                            setPendingReviewCards(null);
+                        }}
+                        title="Chọn chế độ ôn tập Ngữ pháp"
+                        subtitle="Lựa chọn phương pháp ôn tập phù hợp với bạn"
+                        cardCount={(Array.isArray(pendingReviewCards) ? pendingReviewCards : dueGrammar).length}
+                        onSelectMode={(mode) => {
+                            handleUpdateSettings({ ...flashcardSettings, reviewType: mode });
+                            const list = Array.isArray(pendingReviewCards) ? pendingReviewCards : dueGrammar;
+                            runStartReview(list);
+                        }}
+                    />
                 </div>
             </div>
         );
@@ -900,7 +1019,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 <button
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        startReviewSession(newlyDueGrammar);
+                                        startReview(newlyDueGrammar);
                                     }}
                                     className="flex-1 w-full py-3.5 px-4 bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
                                 >
@@ -925,6 +1044,31 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             </div>
                         )}
                     </div>
+
+                    {/* Grammar Flashcard Settings Modal */}
+                    <GrammarFlashcardSettingsModal
+                        isOpen={showSettingsModal}
+                        onClose={() => setShowSettingsModal(false)}
+                        settings={flashcardSettings}
+                        onUpdateSettings={handleUpdateSettings}
+                    />
+
+                    {/* SRS Mode Selection Modal */}
+                    <SrsModeSelectModal
+                        isOpen={showModeModal}
+                        onClose={() => {
+                            setShowModeModal(false);
+                            setPendingReviewCards(null);
+                        }}
+                        title="Chọn chế độ ôn tập Ngữ pháp"
+                        subtitle="Lựa chọn phương pháp ôn tập phù hợp với bạn"
+                        cardCount={(Array.isArray(pendingReviewCards) ? pendingReviewCards : dueGrammar).length}
+                        onSelectMode={(mode) => {
+                            handleUpdateSettings({ ...flashcardSettings, reviewType: mode });
+                            const list = Array.isArray(pendingReviewCards) ? pendingReviewCards : dueGrammar;
+                            runStartReview(list);
+                        }}
+                    />
                 </div>
             </div>
         );
@@ -938,7 +1082,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 {/* Cyber-AI Hero Banner */}
                 <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
                     <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 dark:bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="space-y-3 text-center md:text-left">
@@ -956,6 +1100,14 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 >
                                     <span>🩸 {t('grammar.leechCards', 'Thẻ Khó')} ({leechGrammarItems.length})</span>
                                 </button>
+                                <button
+                                    onClick={() => setShowSettingsModal(true)}
+                                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 border border-indigo-200/80 dark:border-indigo-800/80 text-indigo-700 dark:text-indigo-300 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
+                                    title="Cấu hình thẻ ôn tập"
+                                >
+                                    <Settings className="w-3.5 h-3.5 text-indigo-500" />
+                                    <span>Cài đặt thẻ</span>
+                                </button>
                             </div>
                             <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
                                 {t('grammar.title', 'Ôn tập Ngữ pháp')}
@@ -971,7 +1123,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-black uppercase tracking-wider">{t('grammar.dueGrammarLabel', 'Mẫu câu cần ôn tập')}</span>
                             {stats.dueToday > 0 ? (
                                 <button
-                                    onClick={startReview}
+                                    onClick={() => startReview()}
                                     className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-lime-400 via-emerald-600 to-green-700 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
                                 >
                                     {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
@@ -1105,6 +1257,30 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }))}
                 scopeType="grammar"
                 onResetLeechCount={handleResetGrammarLeech}
+            />
+
+            {/* Grammar Flashcard Settings Modal */}
+            <GrammarFlashcardSettingsModal
+                isOpen={showSettingsModal}
+                onClose={() => setShowSettingsModal(false)}
+                settings={flashcardSettings}
+                onUpdateSettings={handleUpdateSettings}
+            />
+
+            {/* SRS Mode Selection Modal (Flashcard vs Anki Typing) */}
+            <SrsModeSelectModal
+                isOpen={showModeModal}
+                onClose={() => {
+                    setShowModeModal(false);
+                    setPendingReviewCards(null);
+                }}
+                title="Chọn chế độ ôn tập Ngữ pháp"
+                subtitle="Lựa chọn phương pháp ôn tập phù hợp với bạn"
+                cardCount={(pendingReviewCards || dueGrammar).length}
+                onSelectMode={(mode) => {
+                    handleUpdateSettings({ ...flashcardSettings, reviewType: mode });
+                    runStartReview(pendingReviewCards || dueGrammar);
+                }}
             />
         </div>
     );
