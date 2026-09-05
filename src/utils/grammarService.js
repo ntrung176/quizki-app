@@ -77,8 +77,24 @@ export const getSharedGrammarData = async () => {
             console.log('Fetching shared grammar data...');
             let data = null;
 
-            // 1. Try Firebase Storage CDN if available
-            if (cacheConfig && cacheConfig.grammarUrl) {
+            // 1. Try local bundle files /data/grammar_data.json first (contains latest updated Vietnamese translations)
+            try {
+                const dataRes = await fetch('/data/grammar_data.json');
+                if (dataRes && dataRes.ok) {
+                    const json = await dataRes.json();
+                    const pointCount = Array.isArray(json)
+                        ? json.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || ls.grammarPoints?.length || 0), 0) + (tb.grammarPoints?.length || 0), 0)
+                        : 0;
+                    if (pointCount >= 1000) {
+                        data = json;
+                    }
+                }
+            } catch (localErr) {
+                console.warn('Local bundle grammar fetch failed, trying CDN fallback:', localErr);
+            }
+
+            // 2. Try Firebase Storage CDN if local bundle was not loaded
+            if (!data && cacheConfig && cacheConfig.grammarUrl) {
                 try {
                     console.log('Using Firebase Storage CDN for Grammar cache');
                     const urlWithBuster = cacheConfig.grammarUrl.includes('?')
@@ -92,29 +108,14 @@ export const getSharedGrammarData = async () => {
                             : 0;
                         if (pointCount >= 1000) {
                             data = json;
-                        } else {
-                            console.warn(`CDN grammar_data only has ${pointCount} points (< 1000), falling back to local bundle.`);
                         }
                     }
                 } catch (cdnErr) {
-                    console.warn('CDN grammar fetch failed, falling back to local bundle:', cdnErr);
+                    console.warn('CDN grammar fetch failed:', cdnErr);
                 }
             }
 
-            // 2. Fallback to local bundle files /data/grammar_data.json (contains all 4,290 points)
-            if (!data) {
-                try {
-                    console.log('Falling back to local bundle files for Grammar cache (/data/grammar_data.json)');
-                    const dataRes = await fetch('/data/grammar_data.json');
-                    if (dataRes && dataRes.ok) {
-                        data = await dataRes.json();
-                    }
-                } catch (localErr) {
-                    console.warn('Local bundle grammar fetch failed:', localErr);
-                }
-            }
-
-            if (!data) throw new Error('No grammar data available from CDN or local bundle');
+            if (!data) throw new Error('No grammar data available from local bundle or CDN');
 
             cachedGrammarData = data;
             lastLoadedExportedAt = currentExport || null;

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import {
     ArrowLeft, Play, Lightbulb, PenTool, Layers, Settings, Save, Trash2, Plus, X,
-    Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Sparkles, Clock, CheckCircle
+    Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Sparkles, Clock, CheckCircle, BookOpen
 } from 'lucide-react';
 import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints, deleteGrammarPoint } from '../../utils/grammarService';
 import { speakExampleSentence } from '../../utils/audio';
@@ -654,11 +654,14 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                     <div className="w-full space-y-7">
                         {/* 1. CẤU TRÚC */}
                         {structureLines.length > 0 && (
-                            <div className="space-y-2">
-                                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-                                    Cấu trúc
+                            <div className="space-y-3">
+                                <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                                    <span className="w-7 h-7 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/70 dark:border-indigo-800/70 flex items-center justify-center shrink-0 shadow-2xs">
+                                        <Layers className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                                    </span>
+                                    <span>Cấu trúc</span>
                                 </h2>
-                                <div className="space-y-1 pl-0.5">
+                                <div className="space-y-1.5 pl-0.5">
                                     {structureLines.map((line, idx) => (
                                         <MaziiStructureCard key={idx} formula={line} pattern={gp.pattern} isFirst={idx === 0} />
                                     ))}
@@ -666,11 +669,14 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             </div>
                         )}
 
-                        {/* 2. NGHĨA (GIẢI THÍCH) */}
+                        {/* 2. GIẢI THÍCH */}
                         {gp.meaningFull && (
-                            <div className="space-y-2">
-                                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-                                    Nghĩa
+                            <div className="space-y-3">
+                                <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                                    <span className="w-7 h-7 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200/70 dark:border-sky-800/70 flex items-center justify-center shrink-0 shadow-2xs">
+                                        <BookOpen className="w-3.5 h-3.5 text-[#1d70b8] dark:text-sky-400" />
+                                    </span>
+                                    <span>Giải thích</span>
                                 </h2>
                                 <div className="space-y-3 pl-0.5 text-slate-700 dark:text-slate-200 text-sm md:text-[15px] leading-relaxed">
                                     {gp.meaningFull.split(/\n\s*\n/).filter(Boolean).map((para, pIdx) => {
@@ -692,9 +698,12 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
 
                         {/* 3. CHÚ Ý (if any) */}
                         {validTips.length > 0 && (
-                            <div className="space-y-2">
-                                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-                                    Chú ý
+                            <div className="space-y-3">
+                                <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                                    <span className="w-7 h-7 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200/70 dark:border-amber-800/70 flex items-center justify-center shrink-0 shadow-2xs">
+                                        <Lightbulb className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                                    </span>
+                                    <span>Chú ý</span>
                                 </h2>
                                 <div className="space-y-2.5 w-full pl-0.5">
                                     {validTips.map((tip, idx) => (
@@ -710,8 +719,11 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         {/* 4. VÍ DỤ */}
                         {normalizedExamples.length > 0 && (
                             <div className="space-y-3">
-                                <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-                                    Ví dụ
+                                <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                                    <span className="w-7 h-7 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/70 dark:border-emerald-800/70 flex items-center justify-center shrink-0 shadow-2xs">
+                                        <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                                    </span>
+                                    <span>Ví dụ</span>
                                 </h2>
                                 <div className="space-y-2.5 w-full">
                                     {normalizedExamples.map((ex, i) => (

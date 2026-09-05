@@ -21,6 +21,22 @@ const TRANSLATIONS = [
     [/\bUsed\s+as\s+a\s+speculative\s+expression\s+with\s+the\s+same\s+meaning\s+as\b/gi, 'Dùng như cách nói phỏng đoán với ý nghĩa tương tự như'],
     [/\bUsed\s+to\b/gi, 'Dùng để'],
 
+    // Additional structure descriptions and pronouns
+    [/\bare\s+all\s+positional\s+pronouns\.?/gi, 'đều là các đại từ chỉ vị trí, phương hướng.'],
+    [/\ball\s+positional\s+pronouns\.?/gi, 'các đại từ chỉ vị trí, phương hướng.'],
+    [/\bpositional\s+pronouns\.?/gi, 'đại từ chỉ vị trí, phương hướng'],
+    [/\bpositional\s+pronoun\.?/gi, 'đại từ chỉ vị trí, phương hướng'],
+    [/\bis\s+often\s+used\s+in\s+greetings\s+to\s+emphasize\s+thanks\s+or\s+apology\.?/gi, 'thường được dùng trong chào hỏi để nhấn mạnh lời cảm ơn hoặc xin lỗi.'],
+    [/\bis\s+used\s+as\s+a\s+trợ\s+từ\s+in\s+a\s+Câu\.?/gi, 'được dùng làm trợ từ trong câu.'],
+    [/\bis\s+used\s+as\s+a\s+particle\s+in\s+a\s+sentence\.?/gi, 'được dùng làm trợ từ trong câu.'],
+    [/\bis\s+a\s+Nhóm\s+(\d+)\s+Động\s+từ\.?/gi, 'là các động từ nhóm $1.'],
+    [/\bis\s+a\s+Group\s+(\d+)\s+Verb\.?/gi, 'là các động từ nhóm $1.'],
+    [/\bis\s+a\s+liên\s+từ\.?/gi, 'là một liên từ.'],
+    [/\bis\s+a\s+conjunction\.?/gi, 'là một liên từ.'],
+    [/\bis\s+a\s+particle\.?/gi, 'là một trợ từ.'],
+    [/\bis\s+a\s+trợ\s+từ\.?/gi, 'là một trợ từ.'],
+    [/\bNote:?/gi, 'Chú ý:'],
+
     // Verb forms with adjectives/nouns
     [/\bV\s*\(\s*affirmative\s+(?:formal|plain)\s+form\s*\)/gi, 'V (thể thông thường dạng khẳng định)'],
     [/\bV\s*\(\s*affirmative\s+sentence\s*\)/gi, 'V (câu khẳng định)'],
@@ -139,10 +155,11 @@ function translateText(str) {
  * - Strikethrough <s>...</s> / <del>...</del> / <strike>...</strike> support
  * - Clean operators (+, /, ➔) and bold Japanese pattern segments
  */
-const MaziiStructureCard = ({ formula, pattern, isFirst = true }) => {
-    if (!formula || typeof formula !== 'string') return null;
+const MaziiStructureCard = ({ formula, structure, pattern, isFirst = true, index }) => {
+    const rawFormula = formula || (typeof structure === 'string' ? structure : structure?.text) || '';
+    if (!rawFormula || typeof rawFormula !== 'string') return null;
 
-    let cleanFormula = formula
+    let cleanFormula = rawFormula
         .replace(/^[✦•\-\*🔹]\s*/, '')
         .trim();
 
@@ -169,7 +186,7 @@ const MaziiStructureCard = ({ formula, pattern, isFirst = true }) => {
     });
 
     // Tokenize: Grammatical labels (requiring unicode letter boundaries), operators (+, /, ➔), placeholders
-    const tokenRegex = /(__TAG_\d+__|(?<![\p{L}\p{N}])V\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])V-(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|使役|使役受身|条件形|ば|命令形|普通形|辞書形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:な|い)?adj(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A-(?:い|な|く|stem|普通形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A[いな]?\d*(?:\s*\([^)]+\))?|(?<![\p{L}\p{N}])Na\d*(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])N\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Danh từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Tính từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:Mệnh đề|Câu)\s*\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|\+|\/|／|➔)/giu;
+    const tokenRegex = /((?<![\p{L}\p{N}])V(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])V-(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|使役|使役受身|条件形|ば|命令形|普通形|辞書形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:な|い)?adj(?:__TAG_\d+__)?(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A-(?:い|な|く|stem|普通形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A[いな]?(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Na(?:__TAG_\d+__)?\d*(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])N(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Danh từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Tính từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:Mệnh đề|Câu)\s*\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|__TAG_\d+__|\+|\/|／|➔)/giu;
 
     const rawParts = protectedFormula.split(tokenRegex).filter(p => p !== undefined && p !== '');
 
@@ -256,7 +273,7 @@ const MaziiStructureCard = ({ formula, pattern, isFirst = true }) => {
         }
 
         // Adjective token
-        if (/^(?:(?:な|い)?adj|A|Na|Tính từ)/i.test(t)) {
+        if (/^(?:(?:な|い)?adj|A[いな\d\-(]|Na|Tính từ)/i.test(t) || t === 'A' || t === 'Na') {
             return (
                 <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20 font-japanese tracking-normal">
                     {renderWithStrikethrough(t, `a-${idx}`)}
@@ -282,14 +299,14 @@ const MaziiStructureCard = ({ formula, pattern, isFirst = true }) => {
     };
 
     return (
-        <div className="group bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3 md:p-3.5 flex items-start gap-3 transition-all duration-150 shadow-2xs hover:border-blue-300 dark:hover:border-blue-600/60 w-full">
+        <div className="group bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3 md:p-3.5 flex items-center gap-3 transition-all duration-150 shadow-2xs hover:border-blue-300 dark:hover:border-blue-600/60 w-full">
             {/* Index badge or blue bullet */}
             {isNumbered ? (
-                <span className="w-5 h-5 rounded-full bg-[#1d70b8]/15 dark:bg-sky-400/20 text-[#1d70b8] dark:text-sky-300 text-xs font-black flex items-center justify-center shrink-0 mt-0.5 select-none">
+                <span className="w-5 h-5 rounded-full bg-[#1d70b8]/15 dark:bg-sky-400/20 text-[#1d70b8] dark:text-sky-300 text-xs font-black flex items-center justify-center shrink-0 select-none">
                     {numberPrefix.replace('.', '')}
                 </span>
             ) : (
-                <span className="w-5 h-5 rounded-full bg-blue-50 dark:bg-slate-700/50 text-[#1d70b8] dark:text-sky-400 text-xs font-black flex items-center justify-center shrink-0 mt-0.5 select-none">
+                <span className="w-5 h-5 rounded-full bg-blue-50 dark:bg-slate-700/50 text-[#1d70b8] dark:text-sky-400 text-xs font-black flex items-center justify-center shrink-0 select-none">
                     ●
                 </span>
             )}

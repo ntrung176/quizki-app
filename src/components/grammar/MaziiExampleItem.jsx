@@ -154,9 +154,60 @@ function buildRubySegments(ja, furigana) {
 }
 
 /**
+ * Extract distinct searchable keywords from grammar pattern
+ * Examples:
+ * - "から～まで" -> ["から", "まで"]
+ * - "もし～たら/もし～ば" -> ["たら", "もし", "ば"]
+ * - "～ないといけない" -> ["ないといけない"]
+ * - "ここ／そこ／あそこ／こちら／そちら／あちら" -> ["こちら", "そちら", "あちら", "あそこ", "ここ", "そこ"]
+ * - "～際（に）" -> ["際に", "際"]
+ */
+function extractHighlightKeywords(pattern) {
+    if (!pattern || typeof pattern !== 'string') return [];
+
+    const cleaned = pattern
+        .replace(/^[✦•\-\*🔹~〜\s]+/, '')
+        .trim();
+
+    if (!cleaned) return [];
+
+    // Split on variants: /, ／, |, hoặc, hay
+    const variants = cleaned.split(/[\/／|]|(?:\s+hay\s+)|\n/).map(v => v.trim()).filter(Boolean);
+    const keywords = new Set();
+
+    for (const variant of variants) {
+        // Remove explanatory notes like (thể...), (stem), (V-ます)
+        const cleanVar = variant
+            .replace(/\((?:thể|stem|dạng|câu|mệnh đề)[^)]*\)/gi, '')
+            .replace(/\([^\p{L}\p{N}]*\)/gu, '')
+            .trim();
+
+        // Split on connectors / tildes: ~, ～, +, ✚, ->, ➔, ＋, spaces
+        const pieces = cleanVar.split(/[~～\+✚➔\->＋\s]+/).map(p => p.trim()).filter(Boolean);
+
+        for (const p of pieces) {
+            const withoutParens = p.replace(/[\(\)（）]/g, '').trim();
+            const withOptionalRemoved = p.replace(/[\(（][^)]*[\)）]/g, '').trim();
+
+            const isPlaceholder = /^(?:V\d*|N\d*|A\d*|Na\d*|S\d*|adj|Danh từ|Tính từ|Động từ|Mệnh đề|Câu)$/i.test(withoutParens);
+
+            if (!isPlaceholder) {
+                if (withoutParens.length >= 1) keywords.add(withoutParens);
+                if (withOptionalRemoved.length >= 1) keywords.add(withOptionalRemoved);
+            }
+        }
+    }
+
+    // Sort keywords by length descending so longer words match first
+    return Array.from(keywords)
+        .filter(k => k && k.length > 0 && !/^[\s,.:;!?~～\-–—]+$/.test(k))
+        .sort((a, b) => b.length - a.length);
+}
+
+/**
  * MaziiExampleItem
  * Renders an example sentence in a clean 2-tier layout:
- * - Top: Japanese sentence with furigana directly above the Kanji
+ * - Top: Japanese sentence with furigana directly above the Kanji and smart grammar highlights
  * - Bottom: Vietnamese translation
  */
 const MaziiExampleItem = ({ example, pattern, index, onPlayAudio }) => {
@@ -183,10 +234,18 @@ const MaziiExampleItem = ({ example, pattern, index, onPlayAudio }) => {
         return buildRubySegments(jaText, furigana);
     }, [jaText, furigana]);
 
-    const basePattern = (pattern || '')
-        .replace(/^[~〜]/, '')
-        .replace(/\([^)]+\)/g, '')
-        .trim();
+    const keywords = useMemo(() => {
+        return extractHighlightKeywords(pattern);
+    }, [pattern]);
+
+    const highlightRegex = useMemo(() => {
+        if (!keywords || keywords.length === 0) return null;
+        const escaped = keywords
+            .map(kw => kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+            .filter(Boolean);
+        if (escaped.length === 0) return null;
+        return new RegExp(`(${escaped.join('|')})`, 'g');
+    }, [keywords]);
 
     return (
         <div
@@ -209,13 +268,18 @@ const MaziiExampleItem = ({ example, pattern, index, onPlayAudio }) => {
 
             {/* Content area: 2 Tiers */}
             <div className="flex-1 min-w-0 space-y-1.5">
-                {/* Tier 1: Japanese sentence with Ruby furigana */}
+                {/* Tier 1: Japanese sentence with Ruby furigana & grammar highlights */}
                 <div className="text-base md:text-lg font-medium text-slate-800 dark:text-slate-100 leading-relaxed break-words font-japanese">
-                    {segments.map((seg, idx) => {
-                        const isPatternMatch = basePattern && seg.text.includes(basePattern);
+                    {segments.map((seg, segIdx) => {
+                        // 1. Ruby Segment (Kanji + Furigana)
                         if (seg.rt) {
+                            const isRubyMatch = keywords.some(kw =>
+                                seg.text.includes(kw) || kw.includes(seg.text) ||
+                                (seg.rt && (seg.rt.includes(kw) || kw.includes(seg.rt)))
+                            );
+
                             return (
-                                <ruby key={idx} className={`ruby-group ${isPatternMatch ? 'text-[#1d70b8] dark:text-sky-400 font-bold' : ''}`}>
+                                <ruby key={segIdx} className={`ruby-group ${isRubyMatch ? 'text-[#1d70b8] dark:text-sky-400 font-bold' : ''}`}>
                                     {seg.text}
                                     <rt className="text-[10px] md:text-[11px] text-slate-400 dark:text-slate-400 font-normal select-none leading-none">
                                         {seg.rt}
@@ -223,14 +287,29 @@ const MaziiExampleItem = ({ example, pattern, index, onPlayAudio }) => {
                                 </ruby>
                             );
                         }
-                        if (isPatternMatch) {
+
+                        // 2. Plain Text Segment (Kana / Particles / Punctuation)
+                        if (highlightRegex) {
+                            const parts = seg.text.split(highlightRegex);
                             return (
-                                <span key={idx} className="text-[#1d70b8] dark:text-sky-400 font-bold">
-                                    {seg.text}
+                                <span key={segIdx}>
+                                    {parts.map((p, pIdx) => {
+                                        if (!p) return null;
+                                        const isMatch = keywords.includes(p);
+                                        if (isMatch) {
+                                            return (
+                                                <span key={pIdx} className="text-[#1d70b8] dark:text-sky-400 font-bold">
+                                                    {p}
+                                                </span>
+                                            );
+                                        }
+                                        return <span key={pIdx}>{p}</span>;
+                                    })}
                                 </span>
                             );
                         }
-                        return <span key={idx}>{seg.text}</span>;
+
+                        return <span key={segIdx}>{seg.text}</span>;
                     })}
                 </div>
 

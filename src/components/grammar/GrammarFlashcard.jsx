@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect, useRef } from 'react';
-import { Volume2, Sparkles, BookOpen, Layers, HelpCircle } from 'lucide-react';
+import { Volume2, BookOpen, Layers } from 'lucide-react';
 import MaziiStructureCard from './MaziiStructureCard';
 import MaziiExampleItem from './MaziiExampleItem';
 
@@ -135,24 +135,28 @@ const GrammarFlashcard = ({
     // Extracting structures / connection list
     const structuresList = useMemo(() => {
         if (!card) return [];
+        let list = [];
         if (Array.isArray(card.connection) && card.connection.length > 0) {
-            return card.connection.map(c => (typeof c === 'string' ? c.trim() : c)).filter(Boolean);
-        }
-        if (Array.isArray(card.structures) && card.structures.length > 0) {
-            return card.structures.map(s => (typeof s === 'string' ? s.trim() : s?.text || s)).filter(Boolean);
-        }
-        if (card.structure) {
+            list = card.connection;
+        } else if (Array.isArray(card.structures) && card.structures.length > 0) {
+            list = card.structures;
+        } else if (card.structure) {
             if (Array.isArray(card.structure)) {
-                return card.structure.map(s => (typeof s === 'string' ? s.trim() : s?.text || s)).filter(Boolean);
+                list = card.structure;
+            } else if (typeof card.structure === 'string' && card.structure.trim()) {
+                list = card.structure.split(/\r?\n/);
             }
-            if (typeof card.structure === 'string' && card.structure.trim()) {
-                return card.structure.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
-            }
+        } else if (card.structureRaw && typeof card.structureRaw === 'string') {
+            list = card.structureRaw.split(/\r?\n/);
         }
-        if (card.structureRaw && typeof card.structureRaw === 'string') {
-            return card.structureRaw.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
-        }
-        return [];
+
+        return list
+            .map(item => {
+                if (typeof item === 'string') return item.trim();
+                if (item && typeof item === 'object') return (item.text || item.formula || item.structure || '').trim();
+                return '';
+            })
+            .filter(Boolean);
     }, [card?.connection, card?.structures, card?.structure, card?.structureRaw]);
 
     // Extracting examples list
@@ -186,19 +190,11 @@ const GrammarFlashcard = ({
         return getGrammarCardScaleStyles(card, structuresList, examplesList);
     }, [card, structuresList, examplesList]);
 
-    // Hint generator when learning Vietnamese -> Japanese
-    const hintText = useMemo(() => {
-        if (effectiveStudyMode !== 'vi_to_ja' || !settings.showHint) return '';
-        const pattern = card?.pattern || '';
-        if (!pattern) return '';
-        const clean = pattern.replace(/^[~〜]/, '').trim();
-        if (clean.length <= 1) return `Bắt đầu bằng: "${clean}"`;
-        return `Gợi ý: ${clean[0]}... (${clean.length} ký tự)`;
-    }, [effectiveStudyMode, settings.showHint, card?.pattern]);
-
     if (!card) return null;
 
     const levelBadge = card.level || card.jlpt || 'N3';
+    const isFrontShowingPattern = effectiveStudyMode === 'ja_to_vi' && !isTypingMode;
+    const showPatternOnBack = !isFrontShowingPattern;
 
     const handlePlayAudio = (text, e) => {
         e?.stopPropagation?.();
@@ -315,12 +311,6 @@ const GrammarFlashcard = ({
                                     >
                                         {cleanShortMeaning}
                                     </h2>
-                                    {hintText && (
-                                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/80 text-amber-700 dark:text-amber-300 text-xs font-medium mt-2">
-                                            <HelpCircle className="w-3.5 h-3.5" />
-                                            <span>{hintText}</span>
-                                        </div>
-                                    )}
                                 </div>
                             )}
                         </div>
@@ -328,9 +318,8 @@ const GrammarFlashcard = ({
                         {/* Front Footer / Flip Hint */}
                         <div className="w-full text-center">
                             {!isTypingMode ? (
-                                <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold border border-indigo-200/60 dark:border-indigo-800/60 shadow-2xs group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:bg-indigo-600 dark:group-hover:text-white transition-all">
-                                    <Sparkles className="w-3.5 h-3.5" />
-                                    <span>Nhấn thẻ hoặc bấm Space để lật</span>
+                                <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold border border-indigo-200/60 dark:border-indigo-800/60 shadow-2xs group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:bg-indigo-600 dark:group-hover:text-white transition-all">
+                                    Nhấn thẻ hoặc bấm Space để lật
                                 </span>
                             ) : (
                                 <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">
@@ -354,36 +343,52 @@ const GrammarFlashcard = ({
                         }}
                     >
                         <div className={`${scale.sectionGap || 'space-y-4'} w-full`}>
-                            {/* Back Header: Level & Pattern Title with Speaker */}
-                            <div className="flex items-center justify-between border-b border-slate-150 dark:border-slate-800 pb-3">
-                                <div className="flex items-center gap-3">
-                                    <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-400">
-                                        JLPT {levelBadge}
-                                    </span>
-                                    <h3
-                                        className={`${scale.backPatternSize || 'text-2xl md:text-3xl'} font-black text-emerald-600 dark:text-emerald-400 font-japanese`}
-                                    >
-                                        {card.pattern}
-                                    </h3>
-                                </div>
+                            {/* Back Header: Reveal Japanese Pattern when front was Vietnamese meaning */}
+                            {showPatternOnBack && (
+                                <div className="flex items-center justify-between border-b border-slate-150 dark:border-slate-800 pb-3">
+                                    <div className="flex items-center gap-3">
+                                        {settings.showLevel !== false && (
+                                            <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-400">
+                                                JLPT {levelBadge}
+                                            </span>
+                                        )}
+                                        <h3
+                                            className={`${scale.backPatternSize || 'text-2xl md:text-3xl'} font-black text-emerald-600 dark:text-emerald-400 font-japanese`}
+                                        >
+                                            {card.pattern}
+                                        </h3>
+                                    </div>
 
-                                {settings.audioEnabled && (
-                                    <button
-                                        type="button"
-                                        onClick={(e) => handlePlayAudio(card.pattern, e)}
-                                        title="Nghe phát âm mẫu câu"
-                                        className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 shadow-2xs"
-                                    >
-                                        <Volume2 className="w-4 h-4" />
-                                    </button>
-                                )}
-                            </div>
+                                    {settings.audioEnabled && (
+                                        <button
+                                            type="button"
+                                            onClick={(e) => handlePlayAudio(card.pattern, e)}
+                                            title="Nghe phát âm mẫu câu"
+                                            className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 shadow-2xs"
+                                        >
+                                            <Volume2 className="w-4 h-4" />
+                                        </button>
+                                    )}
+                                </div>
+                            )}
 
                             {/* Back Meaning Box (Deduplicated & Auto-fit) */}
                             {settings.showMeaning !== false && (
                                 <div className="bg-gradient-to-r from-sky-50/80 to-indigo-50/60 dark:from-sky-950/30 dark:to-indigo-950/20 border border-sky-200/70 dark:border-sky-800/50 rounded-2xl p-4 space-y-1">
-                                    <div className="text-[11px] font-bold text-[#1d70b8] dark:text-sky-400 uppercase tracking-wider">
-                                        Ý nghĩa:
+                                    <div className="flex items-center justify-between">
+                                        <div className="text-[11px] font-bold text-[#1d70b8] dark:text-sky-400 uppercase tracking-wider">
+                                            Ý nghĩa:
+                                        </div>
+                                        {!showPatternOnBack && settings.audioEnabled && (
+                                            <button
+                                                type="button"
+                                                onClick={(e) => handlePlayAudio(card.pattern, e)}
+                                                title="Nghe phát âm mẫu câu"
+                                                className="w-7 h-7 rounded-full flex items-center justify-center bg-white/80 dark:bg-slate-800/80 border border-sky-200/60 dark:border-sky-700/60 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 shadow-2xs"
+                                            >
+                                                <Volume2 className="w-3.5 h-3.5" />
+                                            </button>
+                                        )}
                                     </div>
                                     <div
                                         className={`${scale.backMeaningSize || 'text-lg md:text-xl'} font-bold text-slate-800 dark:text-slate-100 leading-snug`}
@@ -411,8 +416,11 @@ const GrammarFlashcard = ({
                                             .map((st, idx) => (
                                                 <MaziiStructureCard
                                                     key={idx}
+                                                    formula={typeof st === 'string' ? st : (st?.text || '')}
                                                     structure={st}
+                                                    pattern={card.pattern}
                                                     index={idx}
+                                                    isFirst={idx === 0}
                                                 />
                                             ))}
                                     </div>
@@ -436,33 +444,33 @@ const GrammarFlashcard = ({
                                                 >
                                                     <MaziiExampleItem
                                                         example={{
-                                                            ja: ex.ja,
-                                                            vi:
-                                                                settings.showExampleVi !== false
-                                                                    ? ex.vi
-                                                                    : '',
-                                                            furigana:
-                                                                settings.showFurigana !== false
-                                                                    ? ex.furigana
-                                                                    : '',
-                                                        }}
-                                                        pattern={card.pattern}
-                                                        index={idx}
-                                                        onPlayAudio={(jaText) =>
-                                                            handlePlayAudio(jaText)
-                                                        }
-                                                    />
-                                                </div>
-                                            ))}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
+                                                             ja: ex.ja,
+                                                             vi:
+                                                                 settings.showExampleVi !== false
+                                                                     ? ex.vi
+                                                                     : '',
+                                                             furigana:
+                                                                 settings.showFurigana !== false
+                                                                     ? ex.furigana
+                                                                     : '',
+                                                         }}
+                                                         pattern={card.pattern}
+                                                         index={idx}
+                                                         onPlayAudio={(jaText) =>
+                                                             handlePlayAudio(jaText)
+                                                         }
+                                                     />
+                                                 </div>
+                                             ))}
+                                     </div>
+                                 </div>
+                             )}
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     );
+ };
 
-export default GrammarFlashcard;
+ export default GrammarFlashcard;
