@@ -530,7 +530,7 @@ const LessonDetailView = ({
                                         <div className="flex cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors" onClick={() => {
                                             revealCard(i);
                                             if (v.audioBase64) { playAudio(v.audioBase64, word); }
-                                            else { speakJapanese(word); }
+                                            else { speakJapanese(word, null, null, null, v.reading || ''); }
                                         }}>
                                             <div className="w-10 shrink-0 bg-gray-50 dark:bg-gray-700/50 flex flex-col items-center justify-center gap-1 border-r border-gray-100 dark:border-gray-700">
                                                 <span className="text-xs font-bold text-gray-400 dark:text-gray-500">{i + 1}</span>
@@ -559,7 +559,7 @@ const LessonDetailView = ({
                                                                     onClick={(e) => {
                                                                         e.stopPropagation();
                                                                         if (v.audioBase64) { playAudio(v.audioBase64, word); }
-                                                                        else { speakJapanese(word); }
+                                                                        else { speakJapanese(word, null, null, null, v.reading || ''); }
                                                                     }}
                                                                     className={`p-1 rounded-lg transition-all hover:scale-110 shrink-0 cursor-pointer ${v.audioBase64
                                                                         ? 'text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 hover:text-sky-600'

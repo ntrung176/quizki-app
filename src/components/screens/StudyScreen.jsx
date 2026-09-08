@@ -78,7 +78,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
             playCorrectSound();
             if (audioEnabled) {
                 setTimeout(() => {
-                    speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null, card.audioVoiceId);
+                    speakJapanese(card, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
                 }, 500);
             }
             setTimeout(() => onCorrect(), 1200);
@@ -86,7 +86,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
             playIncorrectSound();
             if (audioEnabled) {
                 setTimeout(() => {
-                    speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null, card.audioVoiceId);
+                    speakJapanese(card, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
                 }, 500);
             }
         }
@@ -220,7 +220,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
             playCorrectSound();
             if (audioEnabled) {
                 setTimeout(() => {
-                    speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null, card.audioVoiceId);
+                    speakJapanese(card, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
                 }, 500);
             }
             setTimeout(() => onCorrect(), 1200);
@@ -232,7 +232,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
             playIncorrectSound();
             if (audioEnabled) {
                 setTimeout(() => {
-                    speakJapanese(correctFront, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null, card.audioVoiceId);
+                    speakJapanese(card, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
                 }, 500);
             }
             setTimeout(() => {

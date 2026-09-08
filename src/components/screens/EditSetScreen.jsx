@@ -184,7 +184,7 @@ const EditSetScreen = ({
                 if (c.id === id) {
                     return {
                         ...c,
-                        front: cardIsEng ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
+                        front: aiData.front || c.front,
                         back: aiData.meaning || c.back,
                         ipa: cardIsEng ? (aiData.ipa || c.ipa || '') : '',
                         sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || c.sinoVietnamese),

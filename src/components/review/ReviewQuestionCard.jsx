@@ -182,7 +182,7 @@ const ReviewQuestionCard = ({
                                 {/* Dictation mode: Show audio button */}
                                 <div className="flex flex-col items-center gap-3">
                                     <button
-                                        onClick={() => speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId)}
+                                        onClick={() => speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)}
                                         className="p-5 sm:p-6 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 hover:text-indigo-200 rounded-full transition-all shadow-lg hover:shadow-indigo-500/20 hover:scale-110 active:scale-95 border-2 border-indigo-400/30 cursor-pointer"
                                         title="Phát âm thanh"
                                     >

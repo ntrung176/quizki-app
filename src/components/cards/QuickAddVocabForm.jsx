@@ -136,7 +136,7 @@ const QuickAddVocabForm = ({
                 if (c.id === id) {
                     return {
                         ...c,
-                        front: cardIsEng ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
+                        front: aiData.front || c.front,
                         back: aiData.meaning || '',
                         ipa: cardIsEng ? (aiData.ipa || '') : '',
                         sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
@@ -211,6 +211,8 @@ const QuickAddVocabForm = ({
                 const success = await onSave({
                     front: card.front,
                     back: card.back,
+                    reading: card.reading || '',
+                    accent: card.accent || '',
                     ipa: card.ipa || '',
                     targetLanguage: card.targetLanguage || (isEnglishMode ? 'en' : 'ja'),
                     synonym: card.synonym || '',

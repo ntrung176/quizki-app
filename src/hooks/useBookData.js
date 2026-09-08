@@ -905,7 +905,7 @@ export const useBookData = ({
                     if (v.exampleAudioBase64) newCardData.exampleAudioBase64 = v.exampleAudioBase64;
                     if (!newCardData.audioBase64) {
                         try {
-                            const res = await generateAudioSilentWithVoice(word, 'ryota');
+                            const res = await generateAudioSilentWithVoice(word, 'ryota', v.reading || '');
                             if (res && res.base64) newCardData.audioBase64 = res.base64;
                         } catch(e) {}
                     }
@@ -989,7 +989,7 @@ export const useBookData = ({
                     if (v.exampleAudioBase64) newCardData.exampleAudioBase64 = v.exampleAudioBase64;
                     if (!newCardData.audioBase64) {
                         try {
-                            const res = await generateAudioSilentWithVoice(word, 'ryota');
+                            const res = await generateAudioSilentWithVoice(word, 'ryota', v.reading || '');
                             if (res && res.base64) newCardData.audioBase64 = res.base64;
                         } catch(e) {}
                     }
@@ -1063,7 +1063,7 @@ export const useBookData = ({
                     if (v.exampleAudioBase64) newCardData.exampleAudioBase64 = v.exampleAudioBase64;
                     if (!newCardData.audioBase64) {
                         try {
-                            const res = await generateAudioSilentWithVoice(word, 'ryota');
+                            const res = await generateAudioSilentWithVoice(word, 'ryota', v.reading || '');
                             if (res && res.base64) newCardData.audioBase64 = res.base64;
                         } catch(e) {}
                     }

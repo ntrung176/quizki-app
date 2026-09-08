@@ -60,7 +60,6 @@ const getCardScaleStyles = (card, settings) => {
     const hasSinoViet = Boolean(card.sinoVietnamese && settings?.back?.hanviet !== false);
     const hasSynonym = Boolean(card.synonym && settings?.back?.synonym !== false);
     const hasMnemonic = Boolean(card.userMnemonic || card.customMnemonic || card.mnemonic || isLeechCard(card));
-    const hasNuance = Boolean(card.nuance && settings?.back?.nuance === true);
 
     // Tính điểm mật độ nội dung (Density Score)
     let densityScore = 0;
@@ -79,7 +78,6 @@ const getCardScaleStyles = (card, settings) => {
     if (hasImage) densityScore += 1.5;
     if (hasMnemonic) densityScore += 1;
     if (hasSinoViet && hasSynonym) densityScore += 1;
-    if (hasNuance) densityScore += 0.5;
 
     // 3. Phân cấp kích thước font chữ & khoảng cách dựa trên densityScore
     let wordSize = "text-3xl sm:text-4xl md:text-5xl font-black leading-snug";
@@ -357,8 +355,6 @@ const Flashcard = ({
         const showMeaning = !cardSettings?.swapSides && (isTypingMode || cardSettings.back.meaning);
         const showHanviet = isTypingMode || cardSettings.back.hanviet;
         const showSynonym = isTypingMode || cardSettings.back.synonym;
-        // Ở chế độ typing: Không hiển thị sắc thái trên thẻ mà xem qua popup nút bóng đèn ở thanh công cụ trên cùng
-        const showNuance = !isTypingMode && cardSettings.back.nuance === true;
         const showExample = isTypingMode || cardSettings.back.example;
         const showPitchAccent = isTypingMode || cardSettings.back.pitchAccent !== false;
         const showSynonymFurigana = isTypingMode || cardSettings.back.synonymFurigana !== false;
@@ -556,11 +552,6 @@ const Flashcard = ({
                                     )}
                                 </span>
                             )}
-                        </div>
-                    )}
-                    {showNuance && card.nuance && (
-                        <div className="text-xs text-amber-700 dark:text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-xl p-2 max-w-full text-left font-medium mt-1">
-                            💡 <span className="font-bold">Sắc thái:</span> {card.nuance}
                         </div>
                     )}
                     {(() => {

@@ -141,7 +141,11 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
         }
     };
     const xpDetails = React.useMemo(() => {
-        const xp = Number(profile?.xp || profile?.score || profile?.totalXp || 0);
+        const xp = Math.max(
+            Number(profile?.xp || 0),
+            Number(profile?.score || 0),
+            Number(profile?.totalXp || 0)
+        );
         return getLevelFromXp(xp);
     }, [profile?.xp, profile?.score, profile?.totalXp]);
 

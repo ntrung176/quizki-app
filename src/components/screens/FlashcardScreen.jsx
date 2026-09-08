@@ -219,7 +219,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         if (currentCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
             // Chỉ phát âm thanh khi lật từ mặt trước sang mặt sau (newFlippedState === true)
             if (newFlippedState) {
-                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
             }
         }
     }, [isFlipped, currentCard, cardSettings.autoPlayAudio, cardSettings.audioEnabled, onSaveCardAudio]);
@@ -579,7 +579,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                                            speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                                         }}
                                         className="p-1.5 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
                                         title="Phát âm"
@@ -751,7 +751,6 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                                     <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
                                                 </div>
                                             )}
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.nuance !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, nuance: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Sắc thái / Ngữ cảnh</span></label>
                                         </div>
                                     </div>
                                 </>

@@ -179,7 +179,7 @@ const BatchAiModal = ({
                     generatedCards.push({
                         id: `new_${Date.now()}_${i}_${Math.random()}`,
                         isNew: true,
-                        front: cardIsEng ? (aiData.front || word) : (aiData.frontWithFurigana || aiData.front || word),
+                        front: aiData.front || word,
                         back: aiData.meaning || '',
                         ipa: cardIsEng ? (aiData.ipa || '') : '',
                         sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),

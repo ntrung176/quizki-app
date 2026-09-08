@@ -8,7 +8,7 @@ export const generateEnglishVocabPrompt = (frontText, contextPos = '', contextLe
     return `You are an expert English-Vietnamese dictionary assistant. Output data ONLY for the English word/phrase: "${frontText}"${contextPos ? ` (Part of speech: ${contextPos})` : ''}${contextLevel ? ` [Level: ${contextLevel}]` : ''}${hasMeaning ? ` [Requested Meaning: ${contextMeaning}]` : ''}.
 DO NOT convert or translate the English word "${frontText}" into Japanese, Hiragana, or Kanji under any circumstances.
 JSON ONLY, NO MARKDOWN, NO BACKTICKS:
-{"front":"${frontText}","meaning":"trí thông minh, sự hiểu biết","ipa":"/ɪnˈtɛlɪdʒəns/","pos":"noun","level":"B2","synonym":"intellect, wisdom","example":"Artificial ＿＿＿＿ is transforming modern medicine.","exampleMeaning":"Trí tuệ nhân tạo đang biến đổi ngành y học hiện đại.","nuance":"Thường đi theo cụm: emotional intelligence (EQ), artificial intelligence (AI), high/superior intelligence."}
+{"front":"${frontText}","meaning":"trí thông minh, sự hiểu biết","ipa":"/ɪnˈtɛlɪdʒəns/","pos":"noun","level":"B2","synonym":"intellect, wisdom","example":"Artificial intelligence is transforming modern medicine.","exampleMeaning":"Trí tuệ nhân tạo đang biến đổi ngành y học hiện đại.","nuance":"Thường đi theo cụm: emotional intelligence (EQ), artificial intelligence (AI), high/superior intelligence."}
 
 MANDATORY RULES FOR ENGLISH VOCABULARY:
 1. front: ALWAYS KEEP EXACTLY the original English word/phrase "${frontText}". Do NOT translate it into Japanese, Hiragana, or Kanji.
@@ -17,7 +17,7 @@ MANDATORY RULES FOR ENGLISH VOCABULARY:
 4. pos: Choose one of: "noun", "verb", "adjective", "adverb", "preposition", "conjunction", "pronoun", "phrasal_verb", "idiom", "other".
 5. level: CEFR level (A1, A2, B1, B2, C1, C2) or test score (IELTS, TOEIC).
 6. synonym: 2-3 common English synonyms (e.g. "intellect, wisdom").
-7. example: Exactly 1 natural English example sentence. Replace "${frontText}" with ＿＿＿＿ (4 underscores).
+7. example: Exactly 1 natural, complete English example sentence showing common usage or collocation of "${frontText}". Do NOT use underscores or blank masks. Keep "${frontText}" intact in the sentence.
 8. exampleMeaning: Natural Vietnamese translation for the example sentence.
 9. nuance: Usage notes, collocations, or grammar context.
 
@@ -25,13 +25,13 @@ DO NOT OUTPUT ANY JAPANESE CHARACTERS (KANJI, HIRAGANA, KATAKANA). OUTPUT VALID 
 };
 
 export const generateEnglishMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `You are an expert English teacher. Create 1 short, natural, and clear example sentence for the English vocabulary "${frontText}" with the specific Vietnamese meaning "${targetMeaning}".
+    return `You are an expert English teacher. Create 1 short, natural, and clear example sentence showing the most common usage/collocation for the English vocabulary "${frontText}" with the specific Vietnamese meaning "${targetMeaning}".
 
 REQUIREMENTS:
-1. Concise & Natural: The example sentence must be natural, concise (max 10-14 words), with clear context showing the meaning "${targetMeaning}".
-2. Target word replacement: In the English sentence, replace the word "${frontText}" (or its inflected forms) with ＿＿＿＿ (4 underscores).
+1. Concise & Natural: The example sentence must be natural, concise (max 10-14 words), with clear context showing the common usage of "${frontText}" and the meaning "${targetMeaning}".
+2. Keep full word: Keep the complete word "${frontText}" (or its inflected forms) in the sentence. Do NOT use underscores or blank masks.
 3. "exampleMeaning": Natural Vietnamese translation for the example sentence.
 
 JSON ONLY (no markdown, no backticks):
-{"example":"[short English sentence containing ＿＿＿＿]","exampleMeaning":"[Vietnamese translation]"}`;
+{"example":"[short complete English sentence containing ${frontText}]","exampleMeaning":"[Vietnamese translation]"}`;
 };

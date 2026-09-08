@@ -494,52 +494,45 @@ Yêu cầu cấu trúc kết quả:
 - meaning: Giữ nguyên nghĩa "${contextMeaning}".
 - nuance: Giải thích cấu trúc ngữ pháp kết hợp chính xác (cách chia động từ/danh từ/tính từ đi kèm với ngữ pháp này) và cách dùng/sắc thái cụ thể của nghĩa này.`;
 
-            exampleRule = `4. example: CHỈ 1 CÂU ví dụ tiêu biểu xuất sắc nhất thể hiện ĐÚNG nghĩa "${contextMeaning}" của ngữ pháp "${frontText}". Hãy thay thế cấu trúc ngữ pháp "${frontText}" (bao gồm cả các hậu tố/cách chia nếu có) bằng ＿＿＿＿. Câu ví dụ phải tự nhiên, chuẩn Nhật Bản, có ngữ cảnh rõ ràng, phản ánh đúng cấu trúc ngữ pháp kết hợp chính xác. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
+            exampleRule = `4. example: CHỈ 1 CÂU ví dụ tiêu biểu xuất sắc nhất thể hiện ĐÚNG nghĩa "${contextMeaning}" và cách dùng thông dụng của ngữ pháp "${frontText}". Giữ nguyên vẹn cấu trúc ngữ pháp "${frontText}" trong câu (TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿, KHÔNG che từ). Câu ví dụ phải tự nhiên, chuẩn Nhật Bản, có ngữ cảnh rõ ràng, phản ánh đúng cấu trúc ngữ pháp kết hợp chính xác. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
         } else {
             grammarInstruction = `Bạn đang tạo thẻ ngữ pháp cho cấu trúc "${frontText}". Vì cấu trúc ngữ pháp này có thể có nhiều nghĩa khác nhau, bạn phải:
 Yêu cầu cấu trúc kết quả:
 - meaning: Liệt kê đầy đủ và chính xác tất cả các nghĩa phổ biến của ngữ pháp này, đánh số thứ tự rõ ràng (Ví dụ: "1. Nghĩa A; 2. Nghĩa B; 3. Nghĩa C").
 - nuance: Với mỗi nghĩa ở trên, hãy giải thích rõ cấu trúc ngữ pháp kết hợp chính xác (cách chia động từ, danh từ, tính từ đi kèm) và bối cảnh/sắc thái sử dụng tương ứng.`;
 
-            exampleRule = `4. example: Đối với MỖI nghĩa của ngữ pháp được liệt kê ở trường "meaning", hãy viết 1 câu ví dụ tương ứng tiêu biểu nhất thể hiện đặc trưng của nghĩa đó (đánh số 1, 2, 3... tương ứng trên từng dòng). Hãy thay thế cấu trúc ngữ pháp "${frontText}" trong mỗi câu ví dụ bằng ＿＿＿＿. Các câu ví dụ phải có cấu trúc kết hợp chuẩn xác tuyệt đối, tự nhiên, chuẩn Nhật Bản. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
+            exampleRule = `4. example: Đối với MỖI nghĩa của ngữ pháp được liệt kê ở trường "meaning", hãy viết 1 câu ví dụ tương ứng tiêu biểu nhất thể hiện cách dùng thông dụng đặc trưng của nghĩa đó (đánh số 1, 2, 3... tương ứng trên từng dòng). Giữ nguyên cấu trúc ngữ pháp "${frontText}" trong câu (TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿, KHÔNG che từ). Các câu ví dụ phải có cấu trúc kết hợp chuẩn xác tuyệt đối, tự nhiên, chuẩn Nhật Bản. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
             exampleMeaningRule = `5. exampleMeaning: Dịch nghĩa tiếng Việt tương ứng cho từng câu ví dụ ở trên, phân dòng và đánh số 1, 2, 3... khớp hoàn toàn với các câu ví dụ ở trường "example".`;
         }
     } else {
         // Build example rule dynamically based on level
-        exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết câu ví dụ tự nhiên bằng tiếng Nhật với ngữ cảnh phong phú, rõ ràng để thể hiện rõ nét nghĩa được nêu trong trường "meaning", giúp người học dễ hiểu và phân biệt bối cảnh sử dụng của từ này. Tránh các câu quá ngắn hoặc chung chung (như "Đây là...", "Tôi thích..."). KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
+        exampleRule = `4. example: CHỈ 1 CÂU VÍ DỤ HOÀN CHỈNH. Viết câu ví dụ tự nhiên bằng tiếng Nhật thể hiện CÁCH DÙNG THÔNG DỤNG NHẤT (collocation / ngữ cảnh phổ biến trong đời sống hoặc công việc) của từ "${frontText}". Giữ nguyên vẹn từ vựng "${frontText}" trong câu (TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿, KHÔNG che từ). Tránh các câu quá ngắn hoặc chung chung (như "Đây là...", "Tôi thích..."). KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
         if (contextLevel === 'N5') {
-            exampleRule = `4. example: CHỈ 1 CÂU. Thay từ gốc "${frontText}" bằng ＿＿＿＿. Viết bằng HIRAGANA chủ yếu, câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ) nhưng có ngữ cảnh rõ ràng thể hiện đúng nghĩa, phân cách từ rõ ràng. KHÔNG thêm ngoặc phiên âm furigana.`;
+            exampleRule = `4. example: CHỈ 1 CÂU VÍ DỤ HOÀN CHỈNH. Viết câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ) thể hiện cách dùng thông dụng của từ "${frontText}". Giữ nguyên vẹn từ vựng trong câu (TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿, KHÔNG che từ), viết bằng HIRAGANA và Kanji đơn giản. KHÔNG thêm ngoặc phiên âm furigana.`;
         }
     }
 
     return `Từ điển Nhật-Việt. Từ: "${frontText}"${contextPos ? ` (Từ loại: ${contextPos})` : ''}${contextLevel ? ` [Cấp độ: ${contextLevel}]` : ''}${hasMeaning ? ` [Nghĩa yêu cầu: ${contextMeaning}]` : ''}
 JSON only, không markdown/backtick:
-{"frontWithFurigana":"水道（すいどう）","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管（はいかん）","synonymSinoVietnamese":"PHỐI QUẢN","example":"＿＿＿＿の水が止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt.","reading":"すいどう","accent":"0"}
+{"front":"${frontText}","reading":"すいどう","meaning":"đường ống nước","pos":"noun","level":"N3","sinoVietnamese":"THUỶ ĐẠO","synonym":"配管","synonymReading":"はいかん","synonymSinoVietnamese":"PHỐI QUẢN","example":"水道の水が止まった。","exampleMeaning":"Nước đường ống đã ngừng chảy.","nuance":"Chỉ hệ thống cấp nước sinh hoạt.","accent":"0"}
 
 ${grammarInstruction}
 
 QUY TẮC BẮT BUỘC:
 1. Giữ nguyên cụm từ dài: Nếu người dùng nhập cụm từ dài hoặc cả câu (Ví dụ: "日本語を勉強する", "お腹が空いた"), TUYỆT ĐỐI KHÔNG được rút gọn thành từ vựng đơn (như "勉強する", "空く"). Hãy giữ nguyên vẹn cụm từ gốc đó. Nếu cụm từ nhập có lỗi chính tả/ngữ pháp, hãy chuẩn hóa/sửa nó thành cụm từ chuẩn chính xác nhưng giữ nguyên độ dài và ý định gốc.
-2. Từ vựng (frontWithFurigana) & Từ đồng nghĩa (synonym) định dạng cách đọc:
-   - BẮT BUỘC dùng định dạng: "Từ gốc（cách đọc hiragana của CẢ TỪ）".
-   - Ngoặc cách đọc phải đặt duy nhất ở CUỐI CÙNG sau toàn bộ từ gốc. Tuyệt đối KHÔNG chèn ngoặc cách đọc vào giữa các nhóm chữ trong từ gốc.
-   - Đối với các cụm từ dài hoặc cụm động từ/tính từ chứa nhiều từ/nhiều chữ Kanji (Ví dụ: "お土産を届ける"), TUYỆT ĐỐI KHÔNG được chia thành nhiều ngoặc như "お土産（おみやげ）を届ける（おとどける）", mà BẮT BUỘC phải viết một ngoặc đọc duy nhất ở cuối cùng cho toàn bộ cụm: "お土産を届ける（おみやげをとどける）".
-   - Đối với từ gốc có chứa Katakana xen lẫn Kanji/Hiragana (Ví dụ: "スマホを使う"), trong ngoặc đọc phải giữ nguyên phần chữ Katakana tương ứng và chuyển các chữ Kanji sang Hiragana (Ví dụ: "スマホを使う（スマホをつかう）", chứ không viết là "スマホを使う（すまほをつかう）" hay cắt ngắn).
-   - Ví dụ ĐÚNG: "顔認証（かおにんしょう）", "振り込む（ふりこむ）", "スマホを使う（スマホをつかう）", "お土産を届ける（おみやげをとどける）"
-   - Ví dụ SAI: "顔（かお）認証（にんしょう）", "振（ふ）り込（こ）む", "スマホ（すまほ）を使う（つかう）", "お土産（おみやげ） को届ける（おとどける）"
-   - Trả về trường "frontWithFurigana" cho từ gốc và "synonym" cho từ đồng nghĩa.
-
-2. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống. Đặc biệt, nếu từ gốc là một cụm từ dài, câu, collocation hoặc có pos là "phrase" (Ví dụ: "進学を契機にテニス部に入った"), thì trường "meaning" BẮT BUỘC phải là một bản dịch tiếng Việt tự nhiên, thoát ý duy nhất cho TOÀN BỘ cụm từ/câu đó. TUYỆT ĐỐI KHÔNG dịch tách nhỏ từng vế hoặc liệt kê nhiều nghĩa rời rạc phân cách bởi dấu chấm phẩy (;).'}
-3. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
+2. front (Từ gốc): Chữ Hán/từ vựng thuần túy (TUYỆT ĐỐI KHÔNG chứa ngoặc phiên âm furigana, ví dụ "募集", "水道", "食べる", "日本語を勉強する", "スマホを使う").
+3. reading (Cách đọc): BẮT BUỘC điền cách đọc chỉ bằng chữ Hiragana/Katakana cho TOÀN BỘ từ gốc/cụm từ (Ví dụ: "ぼしゅう", "すいどう", "たべる", "にほんごをべんきょうする", "スマホをつかう"). TUYỆT ĐỐI KHÔNG chứa chữ Hán (Kanji).
+4. synonym (Từ đồng nghĩa): Chữ Hán/từ thuần túy (TUYỆT ĐỐI KHÔNG chứa ngoặc phiên âm, ví dụ "配管"). N5 hoặc không có -> "".
+5. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống. Đặc biệt, nếu từ gốc là một cụm từ dài, câu, collocation hoặc có pos là "phrase" (Ví dụ: "進学を契機にテニス部に入った"), thì trường "meaning" BẮT BUỘC phải là một bản dịch tiếng Việt tự nhiên, thoát ý duy nhất cho TOÀN BỘ cụm từ/câu đó. TUYỆT ĐỐI KHÔNG dịch tách nhỏ từng vế hoặc liệt kê nhiều nghĩa rời rạc phân cách bởi dấu chấm phẩy (;).'}
+6. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
    - pos: Bắt buộc chọn một trong các chuỗi sau: "noun" (danh từ), "verb" (động từ), "suru_verb" (danh động từ - suru verb), "adj-i" (tính từ -い), "adj-na" (tính từ -な), "noun/adj-na" (danh từ kiêm tính từ -な), "adverb" (trạng từ), "conjunction" (liên từ), "particle" (trợ từ), "grammar" (ngữ pháp), "phrase" (cụm từ), "other" (khác).
 
 ${exampleRule}
 ${exampleMeaningRule}
-6. sinoVietnamese: BẮT BUỘC dịch ĐẦY ĐỦ TẤT CẢ các chữ Kanji xuất hiện trong từ vựng/cụm từ (bao gồm cả tiền tố, hậu tố hay các Kanji phụ trong cụm dài) sang âm Hán Việt viết IN HOA, ngăn cách bằng dấu cách. Tuyệt đối không được lược bỏ, rút gọn hay dịch thiếu bất kỳ chữ Kanji nào. Không Kanji→"". KHÔNG bịa.
-7. nuance: ${isGrammar ? 'Chi tiết cấu trúc ngữ pháp kết hợp chính xác và sắc thái sử dụng theo hướng dẫn ở trên.' : 'Chi tiết bối cảnh sử dụng.'}
-8. synonym/synonymSinoVietnamese: Cùng/dễ hơn JLPT. N5→"". Không bịa. synonymSinoVietnamese = BẮT BUỘC dịch đầy đủ tất cả chữ Kanji của synonym sang âm Hán Việt.
-9. level: N5-N1, không rõ→"".
-10. reading: Bắt buộc điền cách đọc chỉ bằng chữ Hiragana/Katakana của từ gốc (không chứa Kanji, ví dụ: "すいどう", "たべる").
+7. sinoVietnamese: BẮT BUỘC dịch ĐẦY ĐỦ TẤT CẢ các chữ Kanji xuất hiện trong từ vựng/cụm từ (bao gồm cả tiền tố, hậu tố hay các Kanji phụ trong cụm dài) sang âm Hán Việt viết IN HOA, ngăn cách bằng dấu cách. Tuyệt đối không được lược bỏ, rút gọn hay dịch thiếu bất kỳ chữ Kanji nào. Không Kanji→"". KHÔNG bịa.
+8. nuance: ${isGrammar ? 'Chi tiết cấu trúc ngữ pháp kết hợp chính xác và sắc thái sử dụng theo hướng dẫn ở trên.' : 'Chi tiết bối cảnh sử dụng.'}
+9. synonymSinoVietnamese: BẮT BUỘC dịch đầy đủ tất cả chữ Kanji của synonym sang âm Hán Việt nếu có synonym.
+10. level: N5-N1, không rõ→"".
 11. accent: Bắt buộc điền số biểu thị cao độ từ vựng (Pitch Accent), ví dụ: '0', '1', '2', '3' (0=bình bình Heiban, 1=đầu cao Atamadaka, v.v.). Nếu không có hoặc không rõ, điền "0".
 
 Không trả lời gì ngoài JSON.`;
@@ -551,7 +544,7 @@ export const generateEnglishVocabPrompt = (frontText, contextPos = '', contextLe
     return `You are an expert English-Vietnamese dictionary assistant. Output data ONLY for the English word/phrase: "${frontText}"${contextPos ? ` (Part of speech: ${contextPos})` : ''}${contextLevel ? ` [Level: ${contextLevel}]` : ''}${hasMeaning ? ` [Requested Meaning: ${contextMeaning}]` : ''}.
 DO NOT convert or translate the English word "${frontText}" into Japanese, Hiragana, or Kanji under any circumstances.
 JSON ONLY, NO MARKDOWN, NO BACKTICKS:
-{"front":"${frontText}","meaning":"trí thông minh, sự hiểu biết","ipa":"/ɪnˈtɛlɪdʒəns/","pos":"noun","level":"B2","synonym":"intellect, wisdom","example":"Artificial ＿＿＿＿ is transforming modern medicine.","exampleMeaning":"Trí tuệ nhân tạo đang biến đổi ngành y học hiện đại.","nuance":"Thường đi theo cụm: emotional intelligence (EQ), artificial intelligence (AI), high/superior intelligence."}
+{"front":"${frontText}","meaning":"trí thông minh, sự hiểu biết","ipa":"/ɪnˈtɛlɪdʒəns/","pos":"noun","level":"B2","synonym":"intellect, wisdom","example":"Artificial intelligence is transforming modern medicine.","exampleMeaning":"Trí tuệ nhân tạo đang biến đổi ngành y học hiện đại.","nuance":"Thường đi theo cụm: emotional intelligence (EQ), artificial intelligence (AI), high/superior intelligence."}
 
 MANDATORY RULES FOR ENGLISH VOCABULARY:
 1. front: ALWAYS KEEP EXACTLY the original English word/phrase "${frontText}". Do NOT translate it into Japanese, Hiragana, or Kanji.
@@ -560,7 +553,7 @@ MANDATORY RULES FOR ENGLISH VOCABULARY:
 4. pos: Choose one of: "noun", "verb", "adjective", "adverb", "preposition", "conjunction", "pronoun", "phrasal_verb", "idiom", "other".
 5. level: CEFR level (A1, A2, B1, B2, C1, C2) or test score (IELTS, TOEIC).
 6. synonym: 2-3 common English synonyms (e.g. "intellect, wisdom").
-7. example: Exactly 1 natural English example sentence. Replace "${frontText}" with ＿＿＿＿ (4 underscores).
+7. example: Exactly 1 natural, complete English example sentence showing common usage/collocation of "${frontText}". Do NOT use underscores or blank masks. Keep "${frontText}" intact in the sentence.
 8. exampleMeaning: Natural Vietnamese translation for the example sentence.
 9. nuance: Usage notes, collocations, or grammar context.
 
@@ -568,28 +561,28 @@ DO NOT OUTPUT ANY JAPANESE CHARACTERS (KANJI, HIRAGANA, KATAKANA). OUTPUT VALID 
 };
 
 export const generateEnglishMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `You are an expert English teacher. Create 1 short, natural, and clear example sentence for the English vocabulary "${frontText}" with the specific Vietnamese meaning "${targetMeaning}".
+    return `You are an expert English teacher. Create 1 short, natural, and clear example sentence showing the most common usage/collocation for the English vocabulary "${frontText}" with the specific Vietnamese meaning "${targetMeaning}".
 
 REQUIREMENTS:
-1. Concise & Natural: The example sentence must be natural, concise (max 10-14 words), with clear context showing the meaning "${targetMeaning}".
-2. Target word replacement: In the English sentence, replace the word "${frontText}" (or its inflected forms) with ＿＿＿＿ (4 underscores).
+1. Concise & Natural: The example sentence must be natural, concise (max 10-14 words), with clear context showing the common usage of "${frontText}" and the meaning "${targetMeaning}".
+2. Keep full word: Keep the complete word "${frontText}" (or its inflected forms) in the sentence. Do NOT use underscores or blank masks.
 3. "exampleMeaning": Natural Vietnamese translation for the example sentence.
 
 JSON ONLY (no markdown, no backticks):
-{"example":"[short English sentence containing ＿＿＿＿]","exampleMeaning":"[Vietnamese translation]"}`;
+{"example":"[short complete English sentence containing ${frontText}]","exampleMeaning":"[Vietnamese translation]"}`;
 };
 
 export const generateMoreExamplePrompt = (frontText, targetMeaning) => {
-    return `Bạn là giáo viên tiếng Nhật. Hãy tạo 1 câu ví dụ ngắn gọn, tự nhiên và dễ hiểu cho từ vựng "${frontText}" với nghĩa cụ thể là "${targetMeaning}".
+    return `Bạn là giáo viên tiếng Nhật. Hãy tạo 1 câu ví dụ ngắn gọn, tự nhiên và thể hiện CÁCH DÙNG THÔNG DỤNG NHẤT (collocation / ngữ cảnh quen thuộc) cho từ vựng "${frontText}" với nghĩa cụ thể là "${targetMeaning}".
 
 YÊU CẦU:
-1. Ngắn gọn & Tự nhiên: Câu ví dụ phải tự nhiên nhưng NGẮN GỌN, súc tích (tối đa 12-15 từ), có ngữ cảnh rõ ràng thể hiện đúng nghĩa "${targetMeaning}" của từ "${frontText}". Tránh các câu quá dài dòng, dông dài hoặc quá phức tạp.
-2. Thay thế từ gốc: Trong câu tiếng Nhật, bắt buộc thay thế từ "${frontText}" (hoặc dạng chia của nó) bằng ký tự "＿＿＿＿" (4 dấu gạch dưới).
+1. Ngắn gọn & Tự nhiên: Câu ví dụ phải tự nhiên nhưng NGẮN GỌN, súc tích (tối đa 12-15 từ), có ngữ cảnh rõ ràng thể hiện cách dùng thông dụng theo đúng nghĩa "${targetMeaning}" của từ "${frontText}". Tránh các câu quá dài dòng, dông dài hoặc quá phức tạp.
+2. Giữ nguyên từ vựng: Giữ nguyên vẹn từ "${frontText}" (hoặc dạng chia ngữ pháp tự nhiên của nó) trong câu. TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿ hay che từ.
 3. Không thêm phiên âm/furigana/romaji hay bất kỳ dấu ngoặc nào vào câu tiếng Nhật.
 4. "exampleMeaning": Dịch nghĩa tiếng Việt ngắn gọn, tự nhiên và chính xác với câu ví dụ.
 
 JSON ONLY (không markdown, không giải thích):
-{"example":"[câu tiếng Nhật ngắn gọn có chứa ＿＿＿＿]","exampleMeaning":"[nghĩa tiếng Việt ngắn gọn]"}`;
+{"example":"[câu ví dụ tiếng Nhật hoàn chỉnh có chứa ${frontText}]","exampleMeaning":"[nghĩa tiếng Việt ngắn gọn]"}`;
 };
 
 
@@ -665,14 +658,16 @@ const lookupBookVocabInAI = async (key) => {
                 if (match) {
                     console.log(`📚 aiAssistVocab: Found "${key}" in book database!`);
                     const rawFront = match.word || match.front || key;
-                    const formattedFront = await ensureFuriganaFormat(rawFront, match.reading);
-                    const formattedSynonym = match.synonym ? await ensureFuriganaFormat(match.synonym) : '';
+                    const bracketMatch = rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/);
+                    const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                    const cleanReading = match.reading || (bracketMatch ? bracketMatch[2].trim() : '');
+                    const cleanSynonym = (match.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim();
                     
                     return {
-                        front: formattedFront,
-                        frontWithFurigana: formattedFront,
+                        front: cleanFront,
+                        frontWithFurigana: cleanFront,
                         meaning: match.meaning || match.back || match.meaningVi || match.vietnamese || '',
-                        synonym: formattedSynonym,
+                        synonym: cleanSynonym,
                         example: match.example || '',
                         exampleMeaning: match.exampleMeaning || '',
                         nuance: match.nuance || match.note || '',
@@ -680,7 +675,7 @@ const lookupBookVocabInAI = async (key) => {
                         level: match.level || '',
                         sinoVietnamese: match.sinoVietnamese || '',
                         synonymSinoVietnamese: '',
-                        reading: match.reading || '',
+                        reading: cleanReading,
                         accent: match.accent !== undefined && match.accent !== null ? String(match.accent) : '',
                         _fromBook: true,
                         _docPath: lessonData._docPath,
@@ -707,13 +702,16 @@ const lookupSharedVocabInAI = async (key) => {
         if (docSnap.exists()) {
             console.log(`📚 aiAssistVocab: Found "${key}" in sharedVocabulary (exact ID)!`);
             const data = docSnap.data();
-            const formattedFront = await ensureFuriganaFormat(data.front || data.frontWithFurigana || key);
-            const formattedSynonym = data.synonym ? await ensureFuriganaFormat(data.synonym) : '';
+            const rawFront = data.front || data.frontWithFurigana || key;
+            const bracketMatch = rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/);
+            const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+            const cleanReading = data.reading || (bracketMatch ? bracketMatch[2].trim() : '');
+            const cleanSynonym = (data.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim();
             return {
-                front: formattedFront,
-                frontWithFurigana: formattedFront,
+                front: cleanFront,
+                frontWithFurigana: cleanFront,
                 meaning: data.back || data.meaning || '',
-                synonym: formattedSynonym,
+                synonym: cleanSynonym,
                 example: data.example || '',
                 exampleMeaning: data.exampleMeaning || '',
                 nuance: data.nuance || '',
@@ -721,7 +719,7 @@ const lookupSharedVocabInAI = async (key) => {
                 level: data.level || '',
                 sinoVietnamese: data.sinoVietnamese || '',
                 synonymSinoVietnamese: data.synonymSinoVietnamese || '',
-                reading: data.reading || '',
+                reading: cleanReading,
                 accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
                 _fromShared: true
             };
@@ -734,13 +732,16 @@ const lookupSharedVocabInAI = async (key) => {
             if (docSnap.exists()) {
                 console.log(`📚 aiAssistVocab: Found "${key}" in sharedVocabulary (lower ID)!`);
                 const data = docSnap.data();
-                const formattedFront = await ensureFuriganaFormat(data.front || data.frontWithFurigana || key);
-                const formattedSynonym = data.synonym ? await ensureFuriganaFormat(data.synonym) : '';
+                const rawFront = data.front || data.frontWithFurigana || key;
+                const bracketMatch = rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/);
+                const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                const cleanReading = data.reading || (bracketMatch ? bracketMatch[2].trim() : '');
+                const cleanSynonym = (data.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim();
                 return {
-                    front: formattedFront,
-                    frontWithFurigana: formattedFront,
+                    front: cleanFront,
+                    frontWithFurigana: cleanFront,
                     meaning: data.back || data.meaning || '',
-                    synonym: formattedSynonym,
+                    synonym: cleanSynonym,
                     example: data.example || '',
                     exampleMeaning: data.exampleMeaning || '',
                     nuance: data.nuance || '',
@@ -748,7 +749,7 @@ const lookupSharedVocabInAI = async (key) => {
                     level: data.level || '',
                     sinoVietnamese: data.sinoVietnamese || '',
                     synonymSinoVietnamese: data.synonymSinoVietnamese || '',
-                    reading: data.reading || '',
+                    reading: cleanReading,
                     accent: data.accent !== undefined && data.accent !== null ? String(data.accent) : '',
                     _fromShared: true
                 };
@@ -831,32 +832,40 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
         if (result.pos) result.pos = normalizePosKey(result.pos);
 
         if (!isEnglish) {
+            // Normalize front & reading: Bóc tách ngoặc furigana nếu AI vô tình trả về ngoặc
+            const rawFront = (result.front || result.frontWithFurigana || frontText).trim();
+            const bracketMatch = rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/);
+            if (bracketMatch) {
+                result.front = bracketMatch[1].trim();
+                if (!result.reading) {
+                    result.reading = bracketMatch[2].trim();
+                }
+            } else {
+                result.front = rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+            }
+            result.frontWithFurigana = result.front;
+
+            // Normalize synonym: Bỏ ngoặc nếu có
+            if (result.synonym) {
+                const synBracket = result.synonym.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/);
+                if (synBracket) {
+                    result.synonym = synBracket[1].trim();
+                    if (!result.synonymReading) result.synonymReading = synBracket[2].trim();
+                } else {
+                    result.synonym = result.synonym.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                }
+            }
+
             // Ghi đè âm Hán Việt bằng bảng tra cứu cứng (chỉ cho tiếng Nhật)
-            const lookupHV = getSinoVietnamese(frontText);
+            const lookupHV = getSinoVietnamese(result.front || frontText);
             if (lookupHV) {
-                console.log(`📘 Hán Việt lookup: "${frontText}" → "${lookupHV}" (AI: "${result.sinoVietnamese || ''}")`);
+                console.log(`📘 Hán Việt lookup: "${result.front || frontText}" → "${lookupHV}" (AI: "${result.sinoVietnamese || ''}")`);
                 result.sinoVietnamese = lookupHV;
             }
 
-            try {
-                if (!result.frontWithFurigana) {
-                    result.frontWithFurigana = result.frontText || frontText;
-                }
-
-                // Định dạng ngoặc Hiragana
-                if (result.frontWithFurigana) {
-                    result.frontWithFurigana = await ensureFuriganaFormat(result.frontWithFurigana);
-                }
-                if (result.synonym) {
-                    result.synonym = await ensureFuriganaFormat(result.synonym);
-                }
-
-                // Xử lý câu ví dụ
-                if (result.example) {
-                    result.example = cleanJapaneseExampleSentence(result.example);
-                }
-            } catch (e) {
-                console.error("Kuroshiro conversion failed:", e);
+            // Xử lý câu ví dụ
+            if (result.example) {
+                result.example = cleanJapaneseExampleSentence(result.example);
             }
         } else {
             result.targetLanguage = 'en';
@@ -1440,18 +1449,19 @@ Dưới đây là một từ vựng đang bị lỗi hoặc thiếu thông tin t
 
 Hãy dùng trí tuệ nhân tạo để sửa chữa, hoàn thiện và tạo lại từ vựng này thành một từ vựng tiếng Nhật chuẩn chỉnh, đầy đủ trường thông tin.
 
-QUY TẮC PHÁN HỒI:
+QUY TẮC PHẢN HỒI:
 Trả về duy nhất một đối tượng JSON có định dạng sau:
 {
-  "front": "Từ gốc chuẩn hóa định dạng Kanji(Hiragana) hoặc Katakana, bắt buộc đặt ngoặc phiên âm ở cuối từ nếu chứa Kanji (ví dụ: '勉強する（べんきょうする）', '日本語（にほんご）', '美味しい（おいしい）'). Nếu thuần Kana thì không cần ngoặc (ví dụ: 'あたま', 'カメラ').",
+  "front": "Từ gốc chuẩn hóa CHỈ GỒM CHỮ HÁN/KANA (TUYỆT ĐỐI KHÔNG CHỨA NGOẶC PHIÊN ÂM FURIGANA, ví dụ: '勉強する', '日本語', '美味しい').",
+  "reading": "Cách đọc Hiragana/Katakana của từ gốc (ví dụ: 'べんきょうする', 'にほんご', 'おいしい').",
   "back": "Nghĩa tiếng Việt chuẩn, gọn gàng, dịch đúng ngữ pháp/ngữ nghĩa. Nếu là cụm từ/câu dài, hãy dịch thoát ý nguyên cụm/câu thành một bản dịch tự nhiên duy nhất, tuyệt đối không tách rời hay liệt kê các nghĩa nhỏ phân cách bởi dấu chấm phẩy (;).",
   "sinoVietnamese": "Chữ Hán Việt viết hoa của từ (ví dụ: 'MIỄN CƯỜNG', 'NHẬT BẢN', 'MỸ VỊ'). Nếu từ không chứa Kanji thì để trống.",
   "pos": "Một trong các phân loại sau: 'noun', 'verb', 'adjective_i', 'adjective_na', 'adverb', 'pronoun', 'phrase', 'suru_verb'. Hãy chọn phân loại chính xác nhất.",
   "level": "Trình độ JLPT tương ứng của từ ('N5', 'N4', 'N3', 'N2', 'N1'), hoặc để trống nếu không rõ.",
   "nuance": "Giải thích ngắn gọn sắc thái hoặc ngữ cảnh sử dụng (ví dụ: Dùng lịch sự, Dùng thân mật, Chỉ cảm giác...), nếu không có thì để trống.",
-  "example": "Một câu ví dụ bằng tiếng Nhật đơn giản, thực tế, có kèm ngoặc phiên âm ở cuối câu nếu chứa Kanji (ví dụ: '日本語を勉強する（にほんごをべんきょうする）。')",
+  "example": "Một câu ví dụ bằng tiếng Nhật đơn giản, thực tế, không chứa ngoặc furigana.",
   "exampleMeaning": "Nghĩa tiếng Việt của câu ví dụ.",
-  "synonym": "Từ đồng nghĩa tiếng Nhật nếu có, cũng theo định dạng Kanji(Hiragana) hoặc để trống.",
+  "synonym": "Từ đồng nghĩa tiếng Nhật thuần túy (không chứa ngoặc) nếu có, hoặc để trống.",
   "synonymSinoVietnamese": "Hán Việt của từ đồng nghĩa viết hoa nếu có, hoặc để trống."
 }
 `;
@@ -1461,10 +1471,11 @@ Trả về duy nhất một đối tượng JSON có định dạng sau:
         const result = parseJsonFromAI(responseText);
         if (result) {
             if (result.front) {
-                result.front = await ensureFuriganaFormat(result.front);
+                result.front = result.front.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                result.frontWithFurigana = result.front;
             }
             if (result.synonym) {
-                result.synonym = await ensureFuriganaFormat(result.synonym);
+                result.synonym = result.synonym.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
             }
         }
         return result || null;
@@ -1631,30 +1642,30 @@ export const generateVocabForKanjiWithAI = async (kanjiChar, kanjiDoc = null) =>
 ${kunInstruction}
 ${onInstruction}
 
-Mỗi từ vựng phải có câu ví dụ tự nhiên với từ bị che thành ＿＿＿＿.
+Mỗi từ vựng phải có câu ví dụ tự nhiên hoàn chỉnh thể hiện cách dùng thông dụng của từ đó (không che từ, không dùng ＿＿＿＿).
 
 TRẢ VỀ DUY NHẤT MỘT MẢNG JSON, KHÔNG DÙNG MARKDOWN BACKTICKS, KHÔNG CÓ THÊM BẤT KỲ VĂN BẢN NÀO KHÁC:
 [
   {
-    "word": "授業中（じゅぎょうちゅう）",
+    "word": "授業中",
     "reading": "じゅぎょうちゅう",
     "sinoViet": "THỤ NGHIỆP TRUNG",
     "meaning": "Trong giờ học; đang trong tiết học",
     "pos": "Cụm từ / Thành ngữ",
     "level": "N3",
-    "example": "＿＿＿＿は携帯電話の電源を切ってください。",
+    "example": "授業中は携帯電話の電源を切ってください。",
     "exampleMeaning": "Trong giờ học xin hãy tắt nguồn điện thoại di động.",
     "nuance": "Dùng trong trường học hoặc lớp học."
   }
 ]
 
 QUY TẮC BẮT BUỘC:
-1. word: Định dạng "TừGốc（phiên âm hiragana cho cả từ trong ngoặc đơn ở cuối cùng）".
+1. word: Từ gốc thuần túy (không chứa ngoặc phiên âm).
 2. reading: Chỉ chứa Hiragana/Katakana đọc cho từ đó.
 3. sinoViet: Âm Hán Việt viết IN HOA đầy đủ cho các chữ Kanji có trong từ vựng đó.
 4. pos: Chọn 1 trong các chuỗi: "Danh từ", "Động từ nhóm 1 (Tự động từ)", "Động từ nhóm 1 (Tha động từ)", "Động từ nhóm 2", "Động từ nhóm 3 (Suru)", "Tính từ đuôi -i", "Tính từ đuôi -na", "Phụ từ / Trạng từ", "Liên từ", "Cụm từ / Thành ngữ".
 5. level: N5, N4, N3, N2, N1.
-6. example: Thay từ vựng trong câu ví dụ bằng ＿＿＿＿. KHÔNG thêm phiên âm ngoặc đơn vào câu ví dụ.
+6. example: Câu ví dụ tiếng Nhật hoàn chỉnh thể hiện cách dùng thông dụng của từ vựng. TUYỆT ĐỐI KHÔNG dùng ＿＿＿＿, KHÔNG che từ, KHÔNG thêm phiên âm ngoặc đơn vào câu ví dụ.
 7. exampleMeaning: Dịch nghĩa câu ví dụ sang tiếng Việt tự nhiên.
 8. nuance: Giải thích ngắn gọn bối cảnh sử dụng (1 câu).`;
 

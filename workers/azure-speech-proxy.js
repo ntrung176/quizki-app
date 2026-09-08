@@ -82,7 +82,9 @@ export default {
                 }
 
                 const azureUrl = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
-                const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="ja-JP"><voice xml:lang="ja-JP" name="${voiceName}">${text}</voice></speak>`;
+                const isEng = voiceName.startsWith('en-');
+                const xmlLang = isEng ? 'en-US' : 'ja-JP';
+                const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${voiceName}">${text}</voice></speak>`;
 
                 const response = await fetch(azureUrl, {
                     method: 'POST',

@@ -5,7 +5,7 @@ import { cleanJapaneseExampleSentence } from '../../utils/furiganaHelper';
 
 const SAMPLE_PROMPT = `Hãy tạo cho tôi danh sách từ vựng tiếng Nhật theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào).
 
-LƯU Ý QUAN TRỌNG VỀ CÂU VÍ DỤ: Hãy thay thế từ gốc (hoặc dạng chia của từ gốc) trong câu ví dụ bằng ＿＿＿＿ để che phần từ vựng.
+LƯU Ý QUAN TRỌNG VỀ CÂU VÍ DỤ: Hãy tạo câu ví dụ tự nhiên hoàn chỉnh thể hiện cách dùng thông dụng của từ vựng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
 
 [
   {
@@ -15,7 +15,7 @@ LƯU Ý QUAN TRỌNG VỀ CÂU VÍ DỤ: Hãy thay thế từ gốc (hoặc dạ
     "sinoVietnamese": "Âm Hán Việt (ví dụ: MIỄN CƯỜNG)",
     "pos": "Từ loại (ví dụ: Danh từ / Động từ nhóm 3)",
     "level": "Cấp độ JLPT (ví dụ: N5 / N4 / N3 / N2 / N1)",
-    "example": "Câu ví dụ tiếng Nhật đã ẩn từ vựng (ví dụ: 毎日日本語を＿＿＿＿します。)",
+    "example": "Câu ví dụ tiếng Nhật hoàn chỉnh thể hiện cách dùng thông dụng (ví dụ: 毎日日本語を勉強します。)",
     "exampleMeaning": "Dịch câu ví dụ tiếng Việt (ví dụ: Tôi học tiếng Nhật mỗi ngày.)",
     "synonym": "Từ đồng nghĩa nếu có (ví dụ: 学習)",
     "synonymSinoVietnamese": "Hán Việt từ đồng nghĩa (ví dụ: HỌC TẬP)",
@@ -207,7 +207,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                             setErrorMsg('');
                         }}
                         rows={6}
-                        placeholder={`Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ",\n    "level": "N5",\n    "example": "毎日日本語を＿＿＿＿します。",\n    "exampleMeaning": "Tôi học tiếng Nhật mỗi ngày.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong ngữ cảnh học tập kiến thức, thi cử."\n  }\n]`}
+                        placeholder={`Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ",\n    "level": "N5",\n    "example": "毎日日本語を勉強します。",\n    "exampleMeaning": "Tôi học tiếng Nhật mỗi ngày.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong ngữ cảnh học tập kiến thức, thi cử."\n  }\n]`}
                         className="w-full p-3.5 text-xs font-mono bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 transition-all custom-scrollbar"
                     />
                     {errorMsg && (

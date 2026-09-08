@@ -289,7 +289,7 @@ export const useReviewData = ({
         if (card && (card.reviewType === 'dictation' || reviewMode === 'dictation')) {
             if (reviewAudioEnabled) {
                 timeoutId = setTimeout(() => {
-                    speakJapanese(card.front, card.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null, card.audioVoiceId);
+                    speakJapanese(card, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null);
                 }, 300);
             }
         }
@@ -397,7 +397,7 @@ export const useReviewData = ({
                 setIsFlipped(prev => {
                     const newFlippedState = !prev;
                     if (newFlippedState && currentCard && cardSettings.autoPlayAudio) {
-                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                        speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                     }
                     return newFlippedState;
                 });
@@ -454,7 +454,7 @@ export const useReviewData = ({
         setIsFlipped(newFlippedState);
         if (currentCard && cardSettings.autoPlayAudio && cardSettings.audioEnabled !== false) {
             if (newFlippedState) {
-                speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId);
+                speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
             }
         }
     }, [isFlipped, currentCard, cardSettings.autoPlayAudio, cardSettings.audioEnabled, onSaveCardAudio]);
@@ -782,15 +782,14 @@ export const useReviewData = ({
                 celebrateCorrectAnswer();
 
                 if (reviewAudioEnabled) {
-                    speakJapanese(currentCard.front, currentCard.audioBase64,
+                    speakJapanese(currentCard, null,
                         onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
                             if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
                                 onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
                                     console.warn('⚠️ Failed to persist audio:', e.message);
                                 });
                             }
-                        } : null,
-                        currentCard.audioVoiceId
+                        } : null
                     ).catch(e => console.warn('⚠️ Audio playback error (continuing):', e.message));
                 }
 
@@ -815,15 +814,14 @@ export const useReviewData = ({
                 if (reviewAudioEnabled) {
                     setTimeout(() => {
                         if (isMountedRef.current && !audioAbortRef.current) {
-                            speakJapanese(currentCard.front, currentCard.audioBase64,
+                            speakJapanese(currentCard, null,
                                 onSaveCardAudio && isMountedRef.current ? (b64, vid) => {
                                     if (isMountedRef.current && !audioAbortRef.current && onSaveCardAudio) {
                                         onSaveCardAudio(currentCard.id, b64, vid).catch(e => {
                                             console.warn('⚠️ Failed to persist audio:', e.message);
                                         });
                                     }
-                                } : null,
-                                currentCard.audioVoiceId
+                                } : null
                             ).catch(e => {
                                 console.warn('⚠️ Audio playback error:', e.message);
                             });
@@ -1077,7 +1075,7 @@ export const useReviewData = ({
             setIsRevealed(true);
             if (isCorrect) {
                 if (reviewAudioEnabled) {
-                    speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId)
+                    speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
                         .catch(e => console.warn('⚠️ Audio error:', e.message));
                 }
                 await new Promise(resolve => setTimeout(resolve, 700));
@@ -1085,7 +1083,7 @@ export const useReviewData = ({
             } else {
                 if (reviewAudioEnabled) {
                     setTimeout(() => {
-                        speakJapanese(currentCard.front, currentCard.audioBase64, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null, currentCard.audioVoiceId)
+                        speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)
                             .catch(e => console.warn('⚠️ Audio error:', e.message));
                     }, 500);
                 }

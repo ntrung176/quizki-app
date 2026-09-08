@@ -1,23 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Clock } from 'lucide-react';
 
 const SrsCountdownTimer = ({ targetMs, onExpire, label = 'TIẾP SAU' }) => {
     const [secondsLeft, setSecondsLeft] = useState(() =>
         Math.max(0, Math.ceil((targetMs - Date.now()) / 1000))
     );
+    const onExpireRef = useRef(onExpire);
+    onExpireRef.current = onExpire;
 
     useEffect(() => {
-        setSecondsLeft(Math.max(0, Math.ceil((targetMs - Date.now()) / 1000)));
-        const timer = setInterval(() => {
+        const checkTime = () => {
             const left = Math.max(0, Math.ceil((targetMs - Date.now()) / 1000));
             setSecondsLeft(left);
             if (left <= 0) {
+                if (onExpireRef.current) onExpireRef.current();
+                return false;
+            }
+            return true;
+        };
+
+        if (!checkTime()) return;
+
+        const timer = setInterval(() => {
+            if (!checkTime()) {
                 clearInterval(timer);
-                if (onExpire) onExpire();
             }
         }, 1000);
         return () => clearInterval(timer);
-    }, [targetMs, onExpire]);
+    }, [targetMs]);
 
     if (secondsLeft <= 0) {
         return null;

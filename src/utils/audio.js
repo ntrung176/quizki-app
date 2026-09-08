@@ -225,20 +225,22 @@ export const googleTTS = async (text, lang = null) => {
 /**
  * Microsoft Azure Speech API cho từ vựng (chất lượng cao, chuẩn pitch accent)
  */
-export const azureTTS = async (text) => {
+export const azureTTS = async (text, reading = '') => {
     const key = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const region = import.meta.env.VITE_AZURE_SPEECH_REGION || 'eastasia';
     const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
 
     if (!proxyUrl && !key) return null;
-    if (!text) return null;
+    if (!text && !reading) return null;
 
     const voiceId = getTTSVoice();
     const speed = 0.8;
     const volume = 'default';
-    const isEng = isEnglishText(text);
+    const textToSpeak = extractReadingText(text, reading);
+    if (!textToSpeak) return null;
 
-    const cacheKey = `azure:${voiceId}:${isEng ? 'en' : 'ja'}:${speed}:${volume}:${text}`;
+    const isEng = isEnglishText(textToSpeak);
+    const cacheKey = `azure:${voiceId}:${isEng ? 'en' : 'ja'}:${speed}:${volume}:${textToSpeak}`;
     if (ttsCache.has(cacheKey)) {
         return ttsCache.get(cacheKey);
     }
@@ -260,7 +262,7 @@ export const azureTTS = async (text) => {
 
     let cachedAudio = null;
     if (volume === 'default') {
-        cachedAudio = await lookupSharedAudio(text, gender);
+        cachedAudio = await lookupSharedAudio(textToSpeak, gender);
     }
     if (cachedAudio) {
         const audioSrc = cachedAudio.startsWith('data:audio')
@@ -281,12 +283,6 @@ export const azureTTS = async (text) => {
     }
 
     try {
-        let ssmlText = text;
-        if (speed !== 1.0 || volume !== 'default') {
-            const volumeAttr = volume !== 'default' ? ` volume="${volume}"` : '';
-            ssmlText = `<prosody rate="${speed}"${volumeAttr}>${text}</prosody>`;
-        }
-
         let response;
         if (proxyUrl) {
             const baseProxy = proxyUrl.replace(/\/+$/, '');
@@ -296,14 +292,14 @@ export const azureTTS = async (text) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    text: ssmlText,
+                    text: textToSpeak,
                     voiceName: azureVoiceName
                 })
             });
         } else {
             const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
             const xmlLang = isEng ? 'en-US' : 'ja-JP';
-            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${azureVoiceName}">${ssmlText}</voice></speak>`;
+            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${azureVoiceName}">${textToSpeak}</voice></speak>`;
 
             response = await fetch(url, {
                 method: 'POST',
@@ -346,7 +342,7 @@ export const azureTTS = async (text) => {
         ttsCache.set(cacheKey, result);
 
         if (volume === 'default') {
-            saveSharedAudio(text, base64, gender);
+            saveSharedAudio(textToSpeak, base64, gender);
         }
 
         return result;
@@ -379,22 +375,30 @@ const JAP_HOMOGRAPHS = {
     '汚れ': { default: 'よごれ', alternatives: ['けがれ'] },
 };
 
-const extractReadingText = (text) => {
-    if (!text) return '';
+export const extractReadingText = (text, reading = '') => {
+    if (!text && !reading) return '';
+    const rawText = String(text || '').trim();
+    const rawReading = String(reading || '').trim();
 
-    const mainText = text.split('（')[0].split('(')[0].trim();
-    const readingMatch = text.match(/[（(]([^）)]+)[）)]/);
+    // 1. If text has bracket format: e.g. "募集（ぼしゅう）" or "方（ほう）"
+    const bracketMatch = rawText.match(/[（(]([^）)]+)[）)]/);
+    const mainText = rawText.split('（')[0].split('(')[0].trim();
+    
+    let candidateReading = rawReading;
+    if (bracketMatch) {
+        candidateReading = bracketMatch[1].trim();
+    }
 
-    if (readingMatch) {
-        const candidate = readingMatch[1].trim();
-        const hasJapanese = /[\u3040-\u309F\u30A0-\u30FF]/.test(candidate);
-        const hasLatin = /[a-zA-Z]/.test(candidate);
+    if (candidateReading) {
+        const hasJapanese = /[\u3040-\u309F\u30A0-\u30FF]/.test(candidateReading);
+        const hasLatin = /[a-zA-Z]/.test(candidateReading);
 
+        // For Japanese TTS, if valid Kana reading exists without Latin, pass Kana reading to ensure exact pronunciation in Azure TTS
         if (hasJapanese && !hasLatin) {
-            return `<sub alias="${candidate}">${mainText}</sub>`;
+            return candidateReading;
         }
     }
-    return mainText;
+    return mainText || rawText;
 };
 
 const loadWebVoice = (isEng, voiceId) => {
@@ -414,7 +418,7 @@ const loadWebVoice = (isEng, voiceId) => {
     return matchedVoice;
 };
 
-const speakWithWebSpeech = (text) => {
+const speakWithWebSpeech = (text, reading = '') => {
     return new Promise((resolve) => {
         let isResolved = false;
         const safeResolve = () => {
@@ -430,7 +434,8 @@ const speakWithWebSpeech = (text) => {
             safeResolve();
         }, 3000);
 
-        if (!text || !window.speechSynthesis) return safeResolve();
+        if (!text && !reading) return safeResolve();
+        if (!window.speechSynthesis) return safeResolve();
 
         try {
             if (window.speechSynthesis.paused) {
@@ -439,7 +444,7 @@ const speakWithWebSpeech = (text) => {
             window.speechSynthesis.cancel();
         } catch (_) {}
 
-        let cleanText = extractReadingText(text);
+        let cleanText = extractReadingText(text, reading);
         if (cleanText.includes('<sub alias=')) {
             const match = cleanText.match(/alias="([^"]+)"/);
             if (match) cleanText = match[1];
@@ -487,7 +492,7 @@ export const safeCancelSpeechSynthesis = () => {
     }
 };
 
-const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
+const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading = '') => {
     return new Promise(async (resolve) => {
         let isResolved = false;
         const safeResolve = () => {
@@ -502,9 +507,9 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
             safeResolve();
         }, 5000);
 
-        if (!text) return safeResolve();
+        if (!text && !reading) return safeResolve();
 
-        const cleanText = extractReadingText(text);
+        const cleanText = extractReadingText(text, reading);
         if (!cleanText) return safeResolve();
 
         if (currentAudioObj) {
@@ -523,7 +528,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
         // Từ vựng: Ưu tiên dùng Microsoft Azure TTS
         if (azureKey || proxyUrl) {
             try {
-                result = await azureTTS(cleanText);
+                result = await azureTTS(cleanText, reading);
             } catch (e) {
                 console.warn('Azure TTS error:', e);
             }
@@ -539,7 +544,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
             };
             currentAudioObj.onerror = async () => {
                 currentAudioObj = null;
-                await speakWithWebSpeech(cleanText);
+                await speakWithWebSpeech(cleanText, reading);
                 safeResolve();
             };
             try {
@@ -549,7 +554,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
                 }
                 await currentAudioObj.play();
             } catch (e) {
-                await speakWithWebSpeech(cleanText);
+                await speakWithWebSpeech(cleanText, reading);
                 safeResolve();
             }
 
@@ -559,27 +564,9 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null) => {
             return;
         }
 
-        // Fallback: Google Translate TTS hoặc Web Speech API
-        try {
-            const isEng = isEnglishText(cleanText);
-            const targetLang = isEng ? 'en' : 'ja';
-            const googleUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
-            const audioObj = new Audio(googleUrl);
-            currentAudioObj = audioObj;
-            audioObj.onended = () => {
-                currentAudioObj = null;
-                safeResolve();
-            };
-            audioObj.onerror = async () => {
-                currentAudioObj = null;
-                await speakWithWebSpeech(cleanText);
-                safeResolve();
-            };
-            await audioObj.play();
-        } catch (e) {
-            await speakWithWebSpeech(cleanText);
-            safeResolve();
-        }
+        // Fallback: Web Speech API (khi không có mạng hoặc Azure proxy offline)
+        await speakWithWebSpeech(cleanText, reading);
+        safeResolve();
     });
 };
 
@@ -587,7 +574,7 @@ let globalAudioSessionId = 0;
 
 // ============== PLAY AUDIO ==============
 
-export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
+export const playAudio = (base64Data, text = '', onAudioGenerated = null, cardVoiceId = null, reading = '') => {
     globalAudioSessionId++;
     const currentSessionId = globalAudioSessionId;
 
@@ -636,26 +623,37 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null) => {
             };
             currentAudioObj.onerror = async () => {
                 if (globalAudioSessionId !== currentSessionId) return safeResolve();
-                await speakWithTTS(text, onAudioGenerated, currentSessionId);
+                await speakWithTTS(text, onAudioGenerated, currentSessionId, reading);
                 safeResolve();
             };
             currentAudioObj.play().catch(async () => {
                 if (globalAudioSessionId !== currentSessionId) return safeResolve();
-                await speakWithTTS(text, onAudioGenerated, currentSessionId);
+                await speakWithTTS(text, onAudioGenerated, currentSessionId, reading);
                 safeResolve();
             });
-        } else if (text) {
+        } else if (text || reading) {
             if (globalAudioSessionId !== currentSessionId) return safeResolve();
-            speakWithTTS(text, onAudioGenerated, currentSessionId).then(safeResolve);
+            speakWithTTS(text, onAudioGenerated, currentSessionId, reading).then(safeResolve);
         } else {
             safeResolve();
         }
     });
 };
 
-export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null, cardVoiceId = null) => {
-    if (!text && !audioBase64) return Promise.resolve();
+export const speakJapanese = (cardOrText, audioBase64 = null, onAudioGenerated = null, cardVoiceId = null, reading = '') => {
+    if (!cardOrText && !audioBase64) return Promise.resolve();
 
+    // Support receiving card object directly
+    if (typeof cardOrText === 'object' && cardOrText !== null) {
+        const card = cardOrText;
+        const text = card.front || card.word || '';
+        const effectiveAudioBase64 = card.audioBase64 || audioBase64;
+        const effectiveVoiceId = card.audioVoiceId || cardVoiceId;
+        const effectiveReading = card.reading || reading;
+        return speakJapanese(text, effectiveAudioBase64, onAudioGenerated, effectiveVoiceId, effectiveReading);
+    }
+
+    const text = String(cardOrText || '');
     const currentVoiceId = getTTSVoice();
     let effectiveBase64 = audioBase64;
 
@@ -668,20 +666,20 @@ export const speakJapanese = (text, audioBase64 = null, onAudioGenerated = null,
         }
     }
 
-    if (effectiveBase64) return playAudio(effectiveBase64, text || '', onAudioGenerated);
-    const textToSpeak = extractReadingText(text);
-    return textToSpeak ? playAudio(null, textToSpeak, onAudioGenerated) : Promise.resolve();
+    if (effectiveBase64) return playAudio(effectiveBase64, text || '', onAudioGenerated, cardVoiceId, reading);
+    const textToSpeak = extractReadingText(text, reading);
+    return textToSpeak ? playAudio(null, textToSpeak, onAudioGenerated, cardVoiceId, reading) : Promise.resolve();
 };
 
-export const generateAudioSilent = async (text) => {
-    if (!text) return null;
-    const cleanText = extractReadingText(text);
+export const generateAudioSilent = async (text, reading = '') => {
+    if (!text && !reading) return null;
+    const cleanText = extractReadingText(text, reading);
     if (!cleanText) return null;
     const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
     try {
         if (azureKey || proxyUrl) {
-            const result = await azureTTS(cleanText);
+            const result = await azureTTS(cleanText, reading);
             if (result && result.base64) return { base64: result.base64, voiceId: result.voiceId };
         }
     } catch (e) {
@@ -690,8 +688,8 @@ export const generateAudioSilent = async (text) => {
     return null;
 };
 
-export const generateAudioSilentWithVoice = async (text, voiceId) => {
-    return generateAudioSilent(text);
+export const generateAudioSilentWithVoice = async (text, voiceId, reading = '') => {
+    return generateAudioSilent(text, reading);
 };
 
 /**

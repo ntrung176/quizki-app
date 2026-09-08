@@ -493,7 +493,7 @@ const SRSVocabScreen = ({
                 }
                 return b.total - a.total;
             });
-    }, [allCards, folders, cardFolders]);
+    }, [allCards, folders, cardFolders, filteredCards, dashboardTick]);
 
     useEffect(() => {
         if (vocabSetStartIndex >= folderStats.length) {
@@ -505,19 +505,17 @@ const SRSVocabScreen = ({
     const savedSessionInfo = null;
 
     const nextDueVocabInfo = useMemo(() => {
-        const now = Date.now();
+        const now = dashboardTick;
         let earliest = Infinity;
         filteredCards.forEach(c => {
             if (c.srsEnabled !== false) {
                 const localSrs = sessionSrsData.current[c.id];
-                const nextReviewVal = localSrs ? localSrs.nextReview_back : c.nextReview_back;
+                const nextReviewVal = localSrs 
+                    ? (localSrs.nextReview_back || localSrs.nextReview) 
+                    : (c.nextReview_back !== undefined ? c.nextReview_back : (c.nextReview !== undefined ? c.nextReview : (c.srsData?.nextReview || c.srsData?.nextReview_back)));
                 if (!nextReviewVal) return;
 
-                const reviewTime = nextReviewVal instanceof Date
-                    ? nextReviewVal.getTime()
-                    : (nextReviewVal.seconds
-                        ? nextReviewVal.seconds * 1000
-                        : new Date(nextReviewVal).getTime());
+                const reviewTime = parseNextReviewMs(nextReviewVal);
 
                 if (reviewTime > now && reviewTime < earliest) {
                     earliest = reviewTime;
@@ -525,7 +523,7 @@ const SRSVocabScreen = ({
             }
         });
         return earliest === Infinity ? null : earliest;
-    }, [filteredCards]);
+    }, [filteredCards, dashboardTick]);
 
     const countdownText = useMemo(() => {
         if (!nextDueVocabInfo) return null;
@@ -1040,15 +1038,11 @@ const SRSVocabScreen = ({
                 const playKey = `${currentCard.id}_${currentReviewIndex}_${isFlipped}`;
                 if (lastPlayedKeyRef.current !== playKey) {
                     lastPlayedKeyRef.current = playKey;
-                    const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
-                    if (cardText) {
-                        speakJapanese(
-                            cardText,
-                            currentCard.audioBase64 || currentCard.audioUrl || null,
-                            onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null,
-                            currentCard.audioVoiceId
-                        );
-                    }
+                    speakJapanese(
+                        currentCard,
+                        null,
+                        onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null
+                    );
                 }
             }
         }
@@ -1124,15 +1118,11 @@ const SRSVocabScreen = ({
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 if (currentCard) {
-                                                    const cardText = currentCard.front || currentCard.vocabulary || currentCard.word || currentCard.kanji || currentCard.term || '';
-                                                    if (cardText) {
-                                                        speakJapanese(
-                                                            cardText,
-                                                            currentCard.audioBase64 || currentCard.audioUrl || null,
-                                                            onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null,
-                                                            currentCard.audioVoiceId
-                                                        );
-                                                    }
+                                                    speakJapanese(
+                                                        currentCard,
+                                                        null,
+                                                        onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null
+                                                    );
                                                 }
                                             }}
                                             data-tour-id="FLASHCARD_SPEAKER"
@@ -1358,7 +1348,6 @@ const SRSVocabScreen = ({
                                                 <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
                                             </div>
                                         )}
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.nuance === true} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, nuance: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Sắc thái / Ghi chú (trong thẻ)</span></label>
                                         <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
                                         {cardSettings.back.example && (
                                             <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">

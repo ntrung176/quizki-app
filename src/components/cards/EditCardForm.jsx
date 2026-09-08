@@ -23,6 +23,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
     const [level, setLevel] = useState(card?.level || '');
     const [sinoVietnamese, setSinoVietnamese] = useState(card?.sinoVietnamese || '');
     const [synonymSinoVietnamese, setSynonymSinoVietnamese] = useState(card?.synonymSinoVietnamese || '');
+    const [reading, setReading] = useState(card?.reading || '');
     const [imagePreview, setImagePreview] = useState(card?.imageBase64 || null);
     const [_isSaving, setIsSaving] = useState(false); // eslint-disable-line no-unused-vars
     const [isAiLoading, setIsAiLoading] = useState(false);
@@ -72,6 +73,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             synonym, example, exampleMeaning, nuance, pos, level,
             sinoVietnamese: isEng ? '' : sinoVietnamese,
             synonymSinoVietnamese: isEng ? '' : synonymSinoVietnamese,
+            reading: isEng ? '' : reading.trim(),
             targetLanguage: isEng ? 'en' : 'ja',
             imageBase64: imagePreview,
             audioBase64: null
@@ -106,12 +108,18 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                 setFront(aiData.front || front);
                 setIpa(aiData.ipa || formatIPA(card?.ipa));
                 setSinoVietnamese('');
+                setReading('');
             } else {
-                if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
+                const rawFront = (aiData.front || aiData.frontWithFurigana || front).trim();
+                const bracketMatch = rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/);
+                const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                const cleanReading = aiData.reading || (bracketMatch ? bracketMatch[2].trim() : '');
+                setFront(cleanFront);
                 if (aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese);
+                if (cleanReading) setReading(cleanReading);
             }
             if (aiData.meaning) setBack(aiData.meaning);
-            if (aiData.synonym) setSynonym(aiData.synonym);
+            if (aiData.synonym) setSynonym((aiData.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim());
             if (aiData.synonymSinoVietnamese && !cardIsEnglish) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
             if (aiData.example) setExample(aiData.example);
             if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning);
@@ -275,8 +283,11 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                                 </>
                             ) : (
                                 <>
+                                    <input type="text" value={reading} onChange={(e) => setReading(e.target.value)} placeholder="Cách đọc (Hiragana)" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 font-japanese" />
                                     <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
-                                    <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                    <div className="col-span-2">
+                                        <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                    </div>
                                 </>
                             )}
                         </div>

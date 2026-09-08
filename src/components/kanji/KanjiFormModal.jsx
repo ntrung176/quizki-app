@@ -43,7 +43,7 @@ const SAMPLE_KANJI_VOCAB_JSON = `[
     "meaning": "Tiếng Nhật, Ngôn ngữ Nhật Bản",
     "pos": "Danh từ",
     "level": "N5",
-    "example": "毎日＿＿＿＿を勉強しています。",
+    "example": "毎日日本語を勉強しています。",
     "exampleMeaning": "Tôi học tiếng Nhật mỗi ngày.",
     "synonym": "国語",
     "synonymSinoVietnamese": "QUỐC NGỮ",
@@ -429,9 +429,9 @@ const KanjiFormModal = ({
                                     </div>
                                     <div className="space-y-3 pt-2 border-t border-slate-200 dark:border-slate-700">
                                         <div>
-                                            <label className={LABEL_BASE}>Câu ví dụ tiếng Nhật (Đã che từ bằng ＿＿＿＿)</label>
+                                            <label className={LABEL_BASE}>Câu ví dụ tiếng Nhật</label>
                                             <input value={newVocab.example || ''} onChange={e => setNewVocab({ ...newVocab, example: e.target.value })}
-                                                className={`${INPUT_BASE} font-japanese`} placeholder="毎日＿＿＿＿を勉強しています。" />
+                                                className={`${INPUT_BASE} font-japanese`} placeholder="毎日日本語を勉強しています。" />
                                         </div>
                                         <div>
                                             <label className={LABEL_BASE}>Dịch câu ví dụ tiếng Việt</label>

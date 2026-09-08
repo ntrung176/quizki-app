@@ -131,7 +131,9 @@ export const CardEditorItem = ({
                         <p className={`text-sm sm:text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
                             {card.front || (isEnglishMode ? 'Thuật ngữ (Tiếng Anh)' : 'Thuật ngữ (Tiếng Nhật)')}
                         </p>
-                        <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">THUẬT NGỮ</p>
+                        <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">
+                            {card.reading ? `${card.reading} • ` : (card.ipa ? `${card.ipa} • ` : '')}THUẬT NGỮ
+                        </p>
                     </div>
                     <div className="border-b border-slate-100 dark:border-slate-800 pb-1.5 sm:pb-2">
                         <p className={`text-sm sm:text-lg font-bold ${card.back ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
@@ -415,85 +417,52 @@ export const CardEditorItem = ({
                     </div>
                 </div>
 
-                {/* Từ loại & Hán Việt */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.partOfSpeech', 'TỪ LOẠI')}</label>
-                        <div className="relative">
-                            {/* Trigger Button */}
-                            <button
-                                type="button"
-                                onClick={() => setPosDropdownOpen(!posDropdownOpen)}
-                                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 outline-none text-left flex justify-between items-center cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition-colors"
-                            >
-                                <span>
-                                    {card.pos ? (
-                                        card.pos === 'grammar' ? (
-                                            `Ngữ pháp ${card.level ? `(${card.level})` : ''}`
+                {/* Cách đọc (Hiragana) / Phiên âm (IPA) & Hán Việt */}
+                {cardIsEnglish ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">PHIÊN ÂM (IPA)</label>
+                            <input
+                                type="text"
+                                value={card.ipa || ''}
+                                onChange={(e) => onUpdate(card.id, 'ipa', e.target.value)}
+                                placeholder="/ɪnˈtɛlɪdʒəns/..."
+                                className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors font-mono"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.partOfSpeech', 'TỪ LOẠI')}</label>
+                            <div className="relative">
+                                {/* Trigger Button */}
+                                <button
+                                    type="button"
+                                    onClick={() => setPosDropdownOpen(!posDropdownOpen)}
+                                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 outline-none text-left flex justify-between items-center cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition-colors"
+                                >
+                                    <span>
+                                        {card.pos ? (
+                                            card.pos === 'grammar' ? (
+                                                `Ngữ pháp ${card.level ? `(${card.level})` : ''}`
+                                            ) : (
+                                                getPosLabel(card.pos)
+                                            )
                                         ) : (
-                                            getPosLabel(card.pos)
-                                        )
-                                    ) : (
-                                        '-- Chọn từ loại --'
-                                    )}
-                                </span>
-                                <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
-                            </button>
+                                            '-- Chọn từ loại --'
+                                        )}
+                                    </span>
+                                    <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
+                                </button>
 
-                            {/* Dropdown Menu */}
-                            {posDropdownOpen && (
-                                <>
-                                    <div 
-                                        className="fixed inset-0 z-40" 
-                                        onClick={() => setPosDropdownOpen(false)} 
-                                    />
-                                    
-                                    <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
-                                        {Object.entries(cardIsEnglish ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
-                                            if (key === 'grammar') {
-                                                return (
-                                                    <div key={key} className="relative group/grammar">
-                                                        <button
-                                                            type="button"
-                                                            onClick={(e) => {
-                                                                if (window.innerWidth <= 768) {
-                                                                    e.preventDefault();
-                                                                    e.stopPropagation();
-                                                                    setShowLevels(!showLevels);
-                                                                } else {
-                                                                    onUpdate(card.id, 'pos', 'grammar');
-                                                                    onUpdate(card.id, 'level', '');
-                                                                    setPosDropdownOpen(false);
-                                                                }
-                                                            }}
-                                                            className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left flex justify-between items-center"
-                                                        >
-                                                            <span>Ngữ pháp</span>
-                                                            <span className="text-[10px] text-slate-400">▶</span>
-                                                        </button>
-
-                                                        {/* Sub-menu for JLPT levels */}
-                                                        <div className={`absolute left-full top-0 ml-1 w-24 rounded-lg bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 py-1 ${showLevels ? 'block' : 'hidden md:group-hover/grammar:block'}`}>
-                                                            {JLPT_LEVELS.map((lvl) => (
-                                                                <button
-                                                                    key={lvl.value}
-                                                                    type="button"
-                                                                    onClick={(e) => {
-                                                                        e.stopPropagation();
-                                                                        onUpdate(card.id, 'pos', 'grammar');
-                                                                        onUpdate(card.id, 'level', lvl.value);
-                                                                        setPosDropdownOpen(false);
-                                                                    }}
-                                                                    className="w-full px-3 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left text-xs font-semibold"
-                                                                >
-                                                                    {lvl.label}
-                                                                </button>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                );
-                                            }
-                                            return (
+                                {/* Dropdown Menu */}
+                                {posDropdownOpen && (
+                                    <>
+                                        <div 
+                                            className="fixed inset-0 z-40" 
+                                            onClick={() => setPosDropdownOpen(false)} 
+                                        />
+                                        
+                                        <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
+                                            {Object.entries(ENGLISH_POS_TYPES).map(([key, value]) => (
                                                 <button
                                                     key={key}
                                                     type="button"
@@ -506,30 +475,139 @@ export const CardEditorItem = ({
                                                 >
                                                     {value.label}
                                                 </button>
-                                            );
-                                        })}
-                                    </div>
-                                </>
-                            )}
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{cardIsEnglish ? 'PHIÊN ÂM (IPA)' : t('forms.kanjiReading', 'HÁN VIỆT')}</label>
-                        <input
-                            type="text"
-                            value={cardIsEnglish ? (card.ipa || '') : (card.sinoVietnamese || '')}
-                            onChange={(e) => {
-                                if (cardIsEnglish) {
-                                    onUpdate(card.id, 'ipa', e.target.value);
-                                } else {
-                                    onUpdate(card.id, 'sinoVietnamese', e.target.value);
-                                }
-                            }}
-                            placeholder={cardIsEnglish ? '/ɪnˈtɛlɪdʒəns/...' : 'Âm Hán Việt...'}
-                            className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
-                        />
-                    </div>
-                </div>
+                ) : (
+                    <>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.reading', 'CÁCH ĐỌC (HIRAGANA)')}</label>
+                                <input
+                                    type="text"
+                                    value={card.reading || ''}
+                                    onChange={(e) => onUpdate(card.id, 'reading', e.target.value)}
+                                    placeholder="Ví dụ: ぼしゅう, たべる..."
+                                    className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors font-japanese"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.kanjiReading', 'HÁN VIỆT')}</label>
+                                <input
+                                    type="text"
+                                    value={card.sinoVietnamese || ''}
+                                    onChange={(e) => onUpdate(card.id, 'sinoVietnamese', e.target.value)}
+                                    placeholder="Âm Hán Việt..."
+                                    className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Từ loại (Tiếng Nhật) */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.partOfSpeech', 'TỪ LOẠI')}</label>
+                                <div className="relative">
+                                    {/* Trigger Button */}
+                                    <button
+                                        type="button"
+                                        onClick={() => setPosDropdownOpen(!posDropdownOpen)}
+                                        className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 outline-none text-left flex justify-between items-center cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition-colors"
+                                    >
+                                        <span>
+                                            {card.pos ? (
+                                                card.pos === 'grammar' ? (
+                                                    `Ngữ pháp ${card.level ? `(${card.level})` : ''}`
+                                                ) : (
+                                                    getPosLabel(card.pos)
+                                                )
+                                            ) : (
+                                                '-- Chọn từ loại --'
+                                            )}
+                                        </span>
+                                        <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
+                                    </button>
+
+                                    {/* Dropdown Menu */}
+                                    {posDropdownOpen && (
+                                        <>
+                                            <div 
+                                                className="fixed inset-0 z-40" 
+                                                onClick={() => setPosDropdownOpen(false)} 
+                                            />
+                                            
+                                            <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
+                                                {Object.entries(POS_TYPES).map(([key, value]) => {
+                                                    if (key === 'grammar') {
+                                                        return (
+                                                            <div key={key} className="relative group/grammar">
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={(e) => {
+                                                                        if (window.innerWidth <= 768) {
+                                                                            e.preventDefault();
+                                                                            e.stopPropagation();
+                                                                            setShowLevels(!showLevels);
+                                                                        } else {
+                                                                            onUpdate(card.id, 'pos', 'grammar');
+                                                                            onUpdate(card.id, 'level', '');
+                                                                            setPosDropdownOpen(false);
+                                                                        }
+                                                                    }}
+                                                                    className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left flex justify-between items-center"
+                                                                >
+                                                                    <span>Ngữ pháp</span>
+                                                                    <span className="text-[10px] text-slate-400">▶</span>
+                                                                </button>
+
+                                                                {/* Sub-menu for JLPT levels */}
+                                                                <div className={`absolute left-full top-0 ml-1 w-24 rounded-lg bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 py-1 ${showLevels ? 'block' : 'hidden md:group-hover/grammar:block'}`}>
+                                                                    {JLPT_LEVELS.map((lvl) => (
+                                                                        <button
+                                                                            key={lvl.value}
+                                                                            type="button"
+                                                                            onClick={(e) => {
+                                                                                e.stopPropagation();
+                                                                                onUpdate(card.id, 'pos', 'grammar');
+                                                                                onUpdate(card.id, 'level', lvl.value);
+                                                                                setPosDropdownOpen(false);
+                                                                            }}
+                                                                            className="w-full px-3 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left text-xs font-semibold"
+                                                                        >
+                                                                            {lvl.label}
+                                                                        </button>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        );
+                                                    }
+                                                    return (
+                                                        <button
+                                                            key={key}
+                                                            type="button"
+                                                            onClick={() => {
+                                                                onUpdate(card.id, 'pos', key);
+                                                                onUpdate(card.id, 'level', '');
+                                                                setPosDropdownOpen(false);
+                                                            }}
+                                                            className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left"
+                                                        >
+                                                            {value.label}
+                                                        </button>
+                                                    );
+                                                })}
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                )}
 
                 {/* Ví dụ & Ngữ cảnh */}
                 <div className="bg-slate-50/50 dark:bg-slate-900/20 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/80 space-y-4">
@@ -880,20 +958,25 @@ const AddCardForm = ({
 
             setCards(prev => prev.map(c => {
                 if (c.id === id) {
+                    const rawFront = cardIsEng ? (aiData.front || c.front) : (aiData.front || aiData.frontWithFurigana || c.front);
+                    const bracketMatch = !cardIsEng ? rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/) : null;
+                    const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                    const cleanReading = !cardIsEng ? (aiData.reading || (bracketMatch ? bracketMatch[2].trim() : c.reading || '')) : '';
+
                     return {
                         ...c,
-                        front: cardIsEng ? (aiData.front || c.front) : (aiData.frontWithFurigana || aiData.front || c.front),
+                        front: cleanFront,
                         back: aiData.meaning || '',
                         ipa: cardIsEng ? (aiData.ipa || c.ipa || '') : '',
                         sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
-                        synonym: aiData.synonym || '',
+                        synonym: (aiData.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim(),
                         synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
                         pos: aiData.pos || selectedPos || '',
                         level: aiData.level || selectedLevel || '',
-                        reading: cardIsEng ? '' : (aiData.reading || ''),
+                        reading: cleanReading,
                         accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
                         targetLanguage: cardIsEng ? 'en' : 'ja'
                     };

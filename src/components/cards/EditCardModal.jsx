@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Loader2, X, Image as ImageIcon, Music, Volume2, Trash2, Check, ChevronDown, AlertTriangle } from 'lucide-react';
+import { Loader2, X, Image as ImageIcon, Music, Volume2, Trash2, Check, ChevronDown, AlertTriangle, Wrench, RefreshCw, ShieldAlert } from 'lucide-react';
 import { POS_TYPES, ENGLISH_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
-import { playAudio } from '../../utils/audio';
+import { playAudio, generateAudioSilent } from '../../utils/audio';
 import { db } from '../../config/firebase';
 import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 
@@ -29,60 +29,57 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
     const [accent, setAccent] = useState(card?.accent || '');
     const [imagePreview, setImagePreview] = useState(card?.imageBase64 || null);
     const [customAudio, setCustomAudio] = useState(card?.audioBase64 || '');
+    const [audioFixed, setAudioFixed] = useState(card?.audioFixed || false);
+    const [customHiragana, setCustomHiragana] = useState(card?.reading || '');
+    const [isGeneratingAudio, setIsGeneratingAudio] = useState(false);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false);
     const [posDropdownOpen, setPosDropdownOpen] = useState(false);
     const [showLevels, setShowLevels] = useState(false);
-    const [isReportingAudio, setIsReportingAudio] = useState(false);
-    const [reportedAudio, setReportedAudio] = useState(false);
 
-    const handleReportAudioError = async () => {
-        setIsReportingAudio(true);
+    const handlePreFixAudio = () => {
+        if (audioFixed || card?.audioFixed) {
+            showToast("Từ vựng này đã được sửa audio trước đó (Tối đa 1 lần/từ).", "warning");
+            return;
+        }
+        const trimmedReading = customHiragana.trim();
+        if (!trimmedReading) {
+            showToast("Vui lòng nhập cách đọc bằng Hiragana chuẩn xác.", "warning");
+            return;
+        }
+        if (!cardIsEnglish) {
+            const isKana = /^[\u3040-\u309F\u30A0-\u30FF\s・ー]+$/.test(trimmedReading);
+            if (!isKana) {
+                showToast("Cách đọc tiếng Nhật phải nhập bằng Hiragana hoặc Katakana (VD: もくどく).", "warning");
+                return;
+            }
+        }
+        setShowConfirmModal(true);
+    };
+
+    const executeFixAudio = async () => {
+        setShowConfirmModal(false);
+        const trimmedReading = customHiragana.trim();
+        setIsGeneratingAudio(true);
         try {
-            const normalizedWord = front.split('（')[0].split('(')[0].trim();
-            const normalizedLower = normalizedWord.toLowerCase();
-            
-            // 1. Try finding in sharedVocabulary
-            let docRef = doc(db, 'sharedVocabulary', normalizedWord);
-            let docSnap = await getDoc(docRef);
-            
-            if (!docSnap.exists() && normalizedWord !== normalizedLower) {
-                docRef = doc(db, 'sharedVocabulary', normalizedLower);
-                docSnap = await getDoc(docRef);
-            }
-            
-            if (docSnap.exists()) {
-                await updateDoc(docRef, {
-                    reportedAudioError: true,
-                    reportedError: true
-                });
+            const result = await generateAudioSilent(trimmedReading, trimmedReading);
+            if (result && result.base64) {
+                setCustomAudio(result.base64);
+                setAudioFixed(true);
+                if (!cardIsEnglish) {
+                    setReading(trimmedReading);
+                }
+                showToast("Đã tạo audio mới thành công! (Mỗi từ chỉ được sửa 1 lần)", "success");
+                playAudio(result.base64, front, null, null, trimmedReading);
             } else {
-                // If it doesn't exist, create a draft in sharedVocabulary
-                await setDoc(docRef, {
-                    front: front.trim(),
-                    back: back.trim(),
-                    sinoVietnamese: sinoVietnamese.trim(),
-                    pos: pos,
-                    level: level,
-                    synonym: synonym.trim(),
-                    nuance: nuance.trim(),
-                    example: example.trim(),
-                    exampleMeaning: exampleMeaning.trim(),
-                    synonymSinoVietnamese: synonymSinoVietnamese.trim(),
-                    reportedAudioError: true,
-                    reportedError: true,
-                    createdAt: Date.now(),
-                    updatedAt: Date.now()
-                });
+                throw new Error("Không thể tạo audio từ máy chủ Microsoft Azure TTS. Vui lòng thử lại.");
             }
-            
-            setReportedAudio(true);
-            showToast("Đã gửi báo cáo lỗi audio thành công!", "success");
-        } catch (error) {
-            console.error("Lỗi khi báo cáo lỗi audio:", error);
-            showToast("Không thể gửi báo cáo lỗi audio: " + error.message, "error");
+        } catch (err) {
+            console.error("Fix audio error:", err);
+            showToast("Lỗi khi tạo audio: " + err.message, "error");
         } finally {
-            setIsReportingAudio(false);
+            setIsGeneratingAudio(false);
         }
     };
 
@@ -119,11 +116,12 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
             synonym, example, exampleMeaning, nuance, pos, level,
             sinoVietnamese: isEng ? '' : sinoVietnamese,
             synonymSinoVietnamese: isEng ? '' : synonymSinoVietnamese,
-            reading: isEng ? '' : reading.trim(),
+            reading: isEng ? '' : (customHiragana.trim() || reading.trim()),
             accent: isEng ? '' : accent.trim(),
             targetLanguage: isEng ? 'en' : 'ja',
             imageBase64: imagePreview,
-            audioBase64: card?.audioBase64 || null
+            audioBase64: customAudio || card?.audioBase64 || null,
+            audioFixed: audioFixed || card?.audioFixed || false
         });
         setIsSaving(false);
         onClose();
@@ -161,13 +159,17 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                 setReading('');
                 setAccent('');
             } else {
-                if (aiData.frontWithFurigana) setFront(aiData.frontWithFurigana);
+                const rawFront = (aiData.front || aiData.frontWithFurigana || front).trim();
+                const bracketMatch = rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/);
+                const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                const cleanReading = aiData.reading || (bracketMatch ? bracketMatch[2].trim() : '');
+                setFront(cleanFront);
                 if (aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese);
-                if (aiData.reading) setReading(aiData.reading);
+                if (cleanReading) setReading(cleanReading);
                 if (aiData.accent !== undefined) setAccent(String(aiData.accent));
             }
             if (aiData.meaning) setBack(aiData.meaning);
-            if (aiData.synonym) setSynonym(aiData.synonym);
+            if (aiData.synonym) setSynonym((aiData.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim());
             if (aiData.synonymSinoVietnamese && !isEng) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
             if (aiData.example) setExample(aiData.example);
             if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning);
@@ -309,13 +311,16 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                             <div className="grid grid-cols-2 gap-2">
                                 {cardIsEnglish ? (
                                     <>
-                                        <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder="Phiên âm (IPA)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder="Phiên âm (IPA)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 font-mono" />
                                         <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
                                     </>
                                 ) : (
                                     <>
+                                        <input type="text" value={reading} onChange={(e) => setReading(e.target.value)} placeholder="Cách đọc (Hiragana)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 font-japanese" />
                                         <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
-                                        <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <div className="col-span-2">
+                                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        </div>
                                     </>
                                 )}
                             </div>
@@ -338,51 +343,75 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                         </div>
                                     )}
                                 </div>
-                                <div className="pt-2 border-t border-gray-200 dark:border-gray-600">
-                                    <div className="text-indigo-650 dark:text-indigo-400 text-sm font-medium flex items-center justify-between">
-                                        <div className="flex items-center">
-                                            <Music className="w-4 h-4 mr-2" />
-                                            <span>Audio</span>
+                                <div className="pt-3 border-t border-gray-200 dark:border-gray-700 space-y-3">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center text-sm font-bold text-indigo-600 dark:text-indigo-400">
+                                            <Volume2 className="w-4 h-4 mr-1.5" />
+                                            <span>Sửa Audio Phát Âm</span>
                                         </div>
-                                    </div>
-                                    <div className="mt-2 flex items-center justify-between bg-gray-50 dark:bg-gray-700/30 p-2 rounded-lg">
-                                        {customAudio ? (
-                                            <>
-                                                <div className="flex items-center gap-2">
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => playAudio(customAudio)}
-                                                        className="p-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-lg flex items-center gap-1.5 text-xs font-bold transition-all cursor-pointer"
-                                                    >
-                                                        <Volume2 className="w-3.5 h-3.5" />
-                                                        Nghe thử
-                                                    </button>
-                                                </div>
-                                                
-                                                {reportedAudio ? (
-                                                    <span className="text-xs text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
-                                                        <Check className="w-3.5 h-3.5" />
-                                                        Đã báo cáo lỗi
-                                                    </span>
-                                                ) : (
-                                                    <button
-                                                        type="button"
-                                                        onClick={handleReportAudioError}
-                                                        disabled={isReportingAudio}
-                                                        className="px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-650 dark:bg-red-900/20 dark:hover:bg-red-900/30 dark:text-red-400 rounded-lg text-xs font-bold flex items-center gap-1 transition-all cursor-pointer"
-                                                    >
-                                                        {isReportingAudio ? (
-                                                            <Loader2 className="w-3 h-3 animate-spin" />
-                                                        ) : (
-                                                            <AlertTriangle className="w-3.5 h-3.5" />
-                                                        )}
-                                                        Báo cáo lỗi audio
-                                                    </button>
-                                                )}
-                                            </>
-                                        ) : (
-                                            <span className="text-xs text-gray-400 italic">Không có file audio</span>
+                                        {customAudio && (
+                                            <button
+                                                type="button"
+                                                onClick={() => playAudio(customAudio, front, null, null, customHiragana || reading)}
+                                                className="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 rounded-lg flex items-center gap-1 text-xs font-bold transition-all cursor-pointer shadow-sm active:scale-95"
+                                            >
+                                                <Volume2 className="w-3.5 h-3.5" />
+                                                Nghe thử
+                                            </button>
                                         )}
+                                    </div>
+
+                                    {/* Fix Audio Input & Action */}
+                                    <div className="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 p-3 rounded-xl space-y-2.5">
+                                        <div className="flex items-center justify-between">
+                                            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                                                <Wrench className="w-3.5 h-3.5 text-indigo-500" />
+                                                <span>{cardIsEnglish ? 'Nhập từ chuẩn tiếng Anh:' : 'Nhập cách đọc Hiragana đúng:'}</span>
+                                            </label>
+                                            {(audioFixed || card?.audioFixed) && (
+                                                <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 rounded-full flex items-center gap-1 border border-emerald-300 dark:border-emerald-800">
+                                                    <Check className="w-3 h-3" /> Đã sửa (1/1 lần)
+                                                </span>
+                                            )}
+                                        </div>
+
+                                        <div className="flex gap-2">
+                                            <input
+                                                type="text"
+                                                value={customHiragana}
+                                                onChange={(e) => setCustomHiragana(e.target.value)}
+                                                placeholder={cardIsEnglish ? "Nhập từ chuẩn..." : "Nhập Hiragana đúng (VD: もくどく, たべる...)"}
+                                                disabled={audioFixed || card?.audioFixed || isGeneratingAudio}
+                                                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 outline-none disabled:bg-slate-100 dark:disabled:bg-slate-800/80 disabled:cursor-not-allowed font-medium"
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter') {
+                                                        e.preventDefault();
+                                                        if (!audioFixed && !card?.audioFixed && customHiragana.trim() && !isGeneratingAudio) {
+                                                            handlePreFixAudio();
+                                                        }
+                                                    }
+                                                }}
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={handlePreFixAudio}
+                                                disabled={audioFixed || card?.audioFixed || isGeneratingAudio || !customHiragana.trim()}
+                                                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 shadow-sm ${
+                                                    audioFixed || card?.audioFixed
+                                                        ? 'bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 cursor-not-allowed'
+                                                        : isGeneratingAudio || !customHiragana.trim()
+                                                        ? 'bg-indigo-300 dark:bg-indigo-900/50 text-white cursor-not-allowed'
+                                                        : 'bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer active:scale-95'
+                                                }`}
+                                            >
+                                                {isGeneratingAudio ? (
+                                                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                                ) : (
+                                                    <RefreshCw className="w-3.5 h-3.5" />
+                                                )}
+                                                <span>{audioFixed || card?.audioFixed ? 'Đã sửa' : 'Tạo audio'}</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -400,6 +429,65 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                     </button>
                 </div>
             </div>
+
+            {/* Warning & Confirmation Modal */}
+            {showConfirmModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-fade-in" onClick={() => setShowConfirmModal(false)}>
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden border border-gray-200 dark:border-gray-700 animate-scale-up" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-700/80 bg-amber-50/70 dark:bg-amber-950/40">
+                            <h3 className="text-sm font-extrabold text-amber-800 dark:text-amber-300 flex items-center gap-2">
+                                <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0" />
+                                <span>Xác nhận sửa Audio (Chỉ 1 lần duy nhất)</span>
+                            </h3>
+                            <button onClick={() => setShowConfirmModal(false)} className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-lg cursor-pointer">
+                                <X className="w-4 h-4" />
+                            </button>
+                        </div>
+
+                        <div className="p-4 space-y-3.5">
+                            <div className="p-3 bg-slate-50 dark:bg-slate-750/70 rounded-xl border border-slate-200/80 dark:border-slate-700 space-y-1.5 text-xs">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium">Từ vựng:</span>
+                                    <span className="text-slate-900 dark:text-white font-extrabold text-sm">{front}</span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium">Cách đọc tạo Audio:</span>
+                                    <span className="text-indigo-600 dark:text-indigo-400 font-extrabold text-sm font-japanese">{customHiragana.trim()}</span>
+                                </div>
+                            </div>
+
+                            <div className="p-3 bg-amber-50 dark:bg-amber-950/50 border border-amber-300/80 dark:border-amber-800/60 rounded-xl text-xs leading-relaxed text-amber-900 dark:text-amber-200 space-y-1.5">
+                                <div className="font-bold flex items-center gap-1.5 text-amber-800 dark:text-amber-300">
+                                    <ShieldAlert className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                                    <span>Quy định sửa Audio:</span>
+                                </div>
+                                <p className="text-[11px] leading-relaxed text-amber-800 dark:text-amber-300">
+                                    Mỗi từ vựng chỉ được phép sửa audio <strong>1 lần duy nhất</strong> bằng cách nhập cách đọc Hiragana chuẩn xác. Nghiêm cấm hành vi spam, cố tình nhập sai hoặc phá hoại hệ thống — nếu vi phạm sẽ bị <strong>khóa tài khoản vĩnh viễn</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="p-4 bg-gray-50 dark:bg-gray-800/80 border-t border-gray-100 dark:border-gray-700 flex gap-2.5">
+                            <button
+                                type="button"
+                                onClick={() => setShowConfirmModal(false)}
+                                className="flex-1 py-2.5 px-3 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-200 transition-all cursor-pointer"
+                            >
+                                Hủy / Kiểm tra lại
+                            </button>
+                            <button
+                                type="button"
+                                onClick={executeFixAudio}
+                                className="flex-1 py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-indigo-200 dark:shadow-indigo-900/50 flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                            >
+                                <Check className="w-4 h-4" />
+                                Xác nhận & Tạo Audio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <PremiumLockedModal isOpen={showPremiumModal} onClose={() => setShowPremiumModal(false)} />
         </div>
     );

@@ -248,12 +248,12 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
         return Math.max(score, xp, totalXp);
     }, []);
 
-    // Điểm XP của người dùng hiện tại
+    // Điểm XP của người dùng hiện tại (luôn lấy giá trị cao nhất giữa profile và leaderboard để tránh bị tụt/nhảy số)
     const myScore = useMemo(() => {
+        const userProfileScore = computeScore(profile);
         const me = leaderboardData.find(u => u.id === userId);
-        if (me) return computeScore(me);
-        if (profile?.score !== undefined && profile?.score !== null) return Number(profile.score);
-        return Number(profile?.xp || profile?.totalXp || 0);
+        const meScore = computeScore(me);
+        return Math.max(userProfileScore, meScore);
     }, [leaderboardData, userId, profile, computeScore]);
 
     // Thông tin cấp độ Level & XP progress
@@ -293,7 +293,9 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
         };
     }, [dailyActivityLogs]);
 
-    // Tự động đồng bộ số liệu người dùng hiện tại vào Firestore publicStats
+    // Tự động đồng bộ số liệu người dùng hiện tại vào Firestore publicStats (có kiểm tra chống lặp vòng vô tận)
+    const lastSyncedPayloadRef = React.useRef('');
+
     useEffect(() => {
         if (!userId || !publicStatsPath || !db) return;
         const statsRef = doc(db, publicStatsPath, userId);
@@ -315,11 +317,26 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
             kanjiAddedLast7Days: myWeeklyStats.kanjiLast7Days || 0,
             reviewsLast7Days: myWeeklyStats.reviewsLast7Days || 0,
             activeDaysLast7Days: myWeeklyStats.activeDaysLast7Days || 0,
-            weeklyScore: myWeeklyStats.weeklyXp || 0,
-            lastUpdated: serverTimestamp ? serverTimestamp() : { toDate: () => new Date() }
+            weeklyScore: myWeeklyStats.weeklyXp || 0
         };
-        setDoc(statsRef, payload, { merge: true }).catch(e => console.warn('Lỗi đồng bộ public stats:', e));
-    }, [userId, publicStatsPath, profile?.displayName, profile?.avatar, profile?.photoURL, xpDetails.level, myScore, totalCards, vocabMastery.mastered, kanjiSrsStats.total, kanjiSrsStats.mastered, streak, myWeeklyStats, t]);
+
+        const serialized = JSON.stringify(payload);
+        if (lastSyncedPayloadRef.current === serialized) {
+            return;
+        }
+        lastSyncedPayloadRef.current = serialized;
+
+        setDoc(statsRef, {
+            ...payload,
+            updatedAt: Date.now()
+        }, { merge: true }).catch(e => console.warn('Lỗi đồng bộ public stats:', e));
+    }, [
+        userId, publicStatsPath, profile?.displayName, profile?.avatar, profile?.photoURL, 
+        xpDetails.level, myScore, totalCards, vocabMastery.mastered, 
+        kanjiSrsStats.total, kanjiSrsStats.mastered, streak, 
+        myWeeklyStats.addedLast7Days, myWeeklyStats.kanjiLast7Days, myWeeklyStats.reviewsLast7Days, 
+        myWeeklyStats.activeDaysLast7Days, myWeeklyStats.weeklyXp, t
+    ]);
 
     // ==================== TỔNG HỢP DANH SÁCH BẢNG XẾP HẠNG ====================
     // 1. Danh sách người dùng Bảng xếp hạng tuần
