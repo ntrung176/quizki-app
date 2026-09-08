@@ -609,16 +609,17 @@ const Flashcard = ({
                     })()}
                     {showExample && card.example && (
                         <div 
-                            className={`mt-1 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[45px] ${scale.exampleMaxHeight || 'max-h-[150px] sm:max-h-[220px]'} no-scrollbar cursor-pointer`}
+                            className={`mt-1 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[45px] ${scale.exampleMaxHeight || 'max-h-[150px] sm:max-h-[220px]'} no-scrollbar cursor-default`}
                             onTouchStart={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                             onTouchEnd={(e) => e.stopPropagation()}
+                            onClick={(e) => e.stopPropagation()}
                         >
                             {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                 return (
-                                    <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-indigo-500/30'} pl-3 pr-8`}>
-                                        <div className={`${scale.exampleTextSize} ${exampleTextClass} ${isEnglishCard ? 'font-sans' : 'font-japanese'} leading-relaxed`}>
+                                    <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-indigo-500/30'} pl-3 pr-12 min-h-[38px] flex flex-col justify-center`}>
+                                        <div className={`${scale.exampleTextSize} ${exampleTextClass} ${isEnglishCard ? 'font-sans' : 'font-japanese'} leading-relaxed select-text`}>
                                             {isEnglishCard ? ex : <FuriganaText text={ex} forceHide={showExampleFurigana === false} />}
                                         </div>
                                         {meaning && showExampleMeaning !== false && (
@@ -630,14 +631,17 @@ const Flashcard = ({
                                                 e.stopPropagation();
                                                 speakExampleSentence(ex);
                                             }}
-                                            className={`absolute right-1 top-1/2 -translate-y-1/2 p-1.5 rounded-xl transition-all cursor-pointer ${
+                                            onTouchStart={(e) => e.stopPropagation()}
+                                            onTouchEnd={(e) => e.stopPropagation()}
+                                            className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 min-w-[40px] min-h-[40px] rounded-xl transition-all flex items-center justify-center z-30 cursor-pointer active:scale-90 touch-manipulation shadow-sm ${
                                                 variant === 'review' || variant === 'emerald'
-                                                    ? 'text-white/70 hover:text-white hover:bg-white/20'
-                                                    : 'text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                                    ? 'text-white/80 hover:text-white bg-white/15 hover:bg-white/25 active:bg-white/35'
+                                                    : 'text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/95 hover:bg-slate-200 dark:bg-slate-800/95 dark:hover:bg-slate-700 active:bg-indigo-100 dark:active:bg-indigo-900/50'
                                             }`}
                                             title="Nghe câu ví dụ"
+                                            aria-label="Phát âm câu ví dụ"
                                         >
-                                            <Volume2 className="w-3.5 h-3.5" />
+                                            <Volume2 className="w-4 h-4 shrink-0" />
                                         </button>
                                     </div>
                                 );

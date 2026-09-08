@@ -432,10 +432,10 @@ const speakWithWebSpeech = (text, reading = '') => {
         const safetyTimeout = setTimeout(() => {
             console.warn('⚠️ Web Speech synthesis timed out');
             safeResolve();
-        }, 3000);
+        }, 4000);
 
         if (!text && !reading) return safeResolve();
-        if (!window.speechSynthesis) return safeResolve();
+        if (typeof window === 'undefined' || !window.speechSynthesis) return safeResolve();
 
         try {
             if (window.speechSynthesis.paused) {
@@ -444,7 +444,10 @@ const speakWithWebSpeech = (text, reading = '') => {
             window.speechSynthesis.cancel();
         } catch (_) {}
 
-        let cleanText = extractReadingText(text, reading);
+        let cleanText = reading ? extractReadingText(text, reading) : cleanTextForTTS(text);
+        if (!cleanText) cleanText = String(text || '').trim();
+        if (!cleanText) return safeResolve();
+
         if (cleanText.includes('<sub alias=')) {
             const match = cleanText.match(/alias="([^"]+)"/);
             if (match) cleanText = match[1];
@@ -455,7 +458,7 @@ const speakWithWebSpeech = (text, reading = '') => {
 
         const utterance = new SpeechSynthesisUtterance(cleanText);
         utterance.lang = isEng ? 'en-US' : 'ja-JP';
-        utterance.rate = isEng ? 1.0 : 0.9;
+        utterance.rate = isEng ? 1.0 : 0.92;
         utterance.pitch = 1;
 
         const webVoice = loadWebVoice(isEng, voiceId);
@@ -742,7 +745,7 @@ export const speakExampleSentence = (text, lang = 'ja') => {
 
         const safetyTimeout = setTimeout(() => {
             safeResolve();
-        }, 10000);
+        }, 8000);
 
         if (!text) return safeResolve();
 
@@ -758,10 +761,14 @@ export const speakExampleSentence = (text, lang = 'ja') => {
         }
         safeCancelSpeechSynthesis();
 
-        const isEng = isEnglishText(cleanText);
-        const targetLang = isEng ? 'en' : (lang || 'ja');
-
-        // Resume AudioContext if suspended
+        // 1. Prime / resume speech synthesis & audio context synchronously within user gesture
+        if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+            try {
+                if (window.speechSynthesis.paused) {
+                    window.speechSynthesis.resume();
+                }
+            } catch (_) {}
+        }
         try {
             const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
             if (AudioCtxClass && AudioCtxClass.state === 'suspended') {
@@ -769,40 +776,51 @@ export const speakExampleSentence = (text, lang = 'ja') => {
             }
         } catch (_) {}
 
-        const googleUrls = [
-            `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=tw-ob&q=${encodeURIComponent(cleanText)}`,
-            `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=dict-chrome-ex&q=${encodeURIComponent(cleanText)}`,
-            `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=gtx&q=${encodeURIComponent(cleanText)}`
-        ];
+        const isEng = isEnglishText(cleanText);
+        const targetLang = isEng ? 'en' : (lang || 'ja');
 
-        let attemptIdx = 0;
+        // Detect mobile / touch environment
+        const isMobile = typeof navigator !== 'undefined' && (
+            /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+            (navigator.maxTouchPoints && navigator.maxTouchPoints > 1)
+        );
 
-        const playNextUrl = () => {
-            if (globalAudioSessionId !== currentSessionId) return safeResolve();
-            if (attemptIdx >= googleUrls.length) {
-                // If all Google endpoints fail (e.g. offline), fallback ONLY to Web Speech API (NEVER Azure)
+        // On mobile devices, Web Speech API provides instant, native, 100% reliable audio without CORS/403 blocks
+        if (isMobile && typeof window !== 'undefined' && 'speechSynthesis' in window) {
+            speakWithWebSpeech(cleanText).then(safeResolve).catch(safeResolve);
+            return;
+        }
+
+        // On desktop, attempt Google TTS audio stream with immediate WebSpeech fallback
+        const googleUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${targetLang}&client=tw-ob&q=${encodeURIComponent(cleanText)}`;
+        const audio = new Audio(googleUrl);
+        currentAudioObj = audio;
+
+        let hasFallbackTriggered = false;
+        const triggerFallback = () => {
+            if (hasFallbackTriggered) return;
+            hasFallbackTriggered = true;
+            if (globalAudioSessionId === currentSessionId) {
                 speakWithWebSpeech(cleanText).then(safeResolve).catch(safeResolve);
-                return;
-            }
-
-            const currentUrl = googleUrls[attemptIdx++];
-            const audio = new Audio(currentUrl);
-            currentAudioObj = audio;
-
-            audio.onended = () => {
-                currentAudioObj = null;
+            } else {
                 safeResolve();
-            };
-
-            audio.onerror = () => {
-                playNextUrl();
-            };
-
-            audio.play().catch(() => {
-                playNextUrl();
-            });
+            }
         };
 
-        playNextUrl();
+        audio.onended = () => {
+            currentAudioObj = null;
+            safeResolve();
+        };
+
+        audio.onerror = () => {
+            triggerFallback();
+        };
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                triggerFallback();
+            });
+        }
     });
 };
