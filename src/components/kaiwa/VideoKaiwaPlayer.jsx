@@ -361,18 +361,18 @@ const VideoKaiwaPlayer = ({
     return (
         <div 
             ref={playerContainerRef} 
-            className="flex flex-col bg-white dark:bg-slate-950 rounded-3xl overflow-hidden shadow-xl dark:shadow-2xl border border-slate-200/90 dark:border-slate-800 text-slate-900 dark:text-white font-sans select-none w-full h-full max-h-full justify-between"
+            className="flex flex-col bg-white dark:bg-slate-950 rounded-none lg:rounded-3xl overflow-hidden shadow-none lg:shadow-xl dark:shadow-2xl border-0 lg:border border-slate-200/90 dark:border-slate-800 text-slate-900 dark:text-white font-sans select-none w-full h-full max-h-full justify-between"
         >
             {/* 1. Video Container with clean IFrame (Full Width 16:9, Native 1x) */}
             <div 
-                className="shrink-0 relative w-full aspect-video bg-black rounded-t-3xl overflow-hidden group cursor-pointer flex items-center justify-center select-none"
+                className="shrink-0 relative w-full aspect-video bg-black rounded-none lg:rounded-t-3xl overflow-hidden group cursor-pointer flex items-center justify-center select-none"
                 onMouseEnter={() => setIsHoveringVideo(true)}
                 onMouseLeave={() => setIsHoveringVideo(false)}
                 onClick={handleTogglePlay}
             >
                 {/* 100% Full Width IFrame (1x Native) */}
-                <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none rounded-t-3xl overflow-hidden">
-                    <div ref={iframeRef} className="w-full h-full rounded-t-3xl overflow-hidden" />
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none rounded-none lg:rounded-t-3xl overflow-hidden">
+                    <div ref={iframeRef} className="w-full h-full rounded-none lg:rounded-t-3xl overflow-hidden" />
                 </div>
             </div>
 
@@ -405,7 +405,7 @@ const VideoKaiwaPlayer = ({
             </div>
 
             {/* 3. Custom Web Player Controls Toolbar (Thanh công cụ Web ở giữa) */}
-            <div className="shrink-0 p-2.5 sm:p-3.5 bg-white/95 dark:bg-slate-950/95 border-t border-slate-200/80 dark:border-slate-800/80 space-y-2 sm:space-y-2.5 rounded-b-3xl">
+            <div className="shrink-0 p-2.5 sm:p-3.5 bg-white/95 dark:bg-slate-950/95 border-t border-slate-200/80 dark:border-slate-800/80 space-y-2 sm:space-y-2.5 rounded-none lg:rounded-b-3xl">
                 {/* Timeline Scrubber Track */}
                 <div className="flex items-center gap-2.5 sm:gap-3 text-xs font-mono font-bold">
                     <span className="px-2 py-0.5 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 min-w-[46px] text-center font-black text-[11px] sm:text-xs">{formatTime(currentTime)}</span>
@@ -425,9 +425,9 @@ const VideoKaiwaPlayer = ({
                 </div>
 
                 {/* Centered Controls Row */}
-                <div className="flex items-center justify-between gap-2 pt-0.5 flex-wrap sm:flex-nowrap">
+                <div className="flex items-center justify-between gap-1.5 sm:gap-2 pt-0.5">
                     {/* Left Group: Subtitle Options & Back */}
-                    <div className="flex items-center gap-1.5 order-2 sm:order-1">
+                    <div className="flex items-center gap-1 sm:gap-1.5">
                         {onBack && (
                             <button
                                 type="button"
@@ -514,7 +514,7 @@ const VideoKaiwaPlayer = ({
                     </div>
 
                     {/* Center Group: Main Playback Cluster (Centered Prominently) */}
-                    <div className="flex items-center justify-center gap-1.5 sm:gap-2 order-1 sm:order-2 mx-auto">
+                    <div className="flex items-center justify-center gap-1 sm:gap-2">
                         {/* Prev Sentence */}
                         <button
                             onClick={handlePrevSentence}
@@ -587,7 +587,7 @@ const VideoKaiwaPlayer = ({
                     </div>
 
                     {/* Right Group: Volume, Speed, Fullscreen */}
-                    <div className="flex items-center gap-1.5 order-3">
+                    <div className="flex items-center gap-1 sm:gap-1.5">
                         {/* Volume Control */}
                         <div className="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-slate-900/80 p-1 rounded-xl border border-slate-200 dark:border-slate-800">
                             <button

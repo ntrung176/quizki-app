@@ -1,7 +1,7 @@
 import { collection, doc, getDocs, setDoc, deleteDoc, updateDoc, query, orderBy } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { SEED_KAIWA_VIDEOS } from '../components/kaiwa/videoKaiwaConstants';
-import { callKaiwaAI, parseJsonFromAI } from '../utils/aiProvider';
+import { callAI, callKaiwaAI, parseJsonFromAI } from '../utils/aiProvider';
 
 const KAIWA_COLLECTION = `artifacts/${appId}/kaiwaVideos`;
 const CACHE_KEY = 'quizki_kaiwa_videos_cache';
@@ -12,7 +12,7 @@ export const extractYoutubeId = (url) => {
     const cleanUrl = url.trim();
     // Direct ID check (11 chars)
     if (/^[a-zA-Z0-9_-]{11}$/.test(cleanUrl)) return cleanUrl;
-    
+
     // Regex for youtube.com/watch?v=, youtu.be/, youtube.com/shorts/, youtube.com/embed/
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
     const match = cleanUrl.match(regExp);
@@ -26,7 +26,7 @@ export const getKaiwaVideos = async () => {
     try {
         const q = collection(db, KAIWA_COLLECTION);
         const snapshot = await getDocs(q);
-        
+
         let firestoreVideos = [];
         if (!snapshot.empty) {
             snapshot.forEach(docSnap => {
@@ -120,69 +120,197 @@ export const deleteKaiwaVideo = async (videoId) => {
     }
 };
 
-// Parse SRT/VTT Subtitle text into structured Subtitle items
-export const parseSrtToSubtitles = (srtContent) => {
-    if (!srtContent) return [];
-    
+// Parse Time string into total seconds (supports "0:01", "00:01", "01:23.456", "01:02:03", etc.)
+export const parseTimeToSeconds = (timeStr) => {
+    if (!timeStr) return 0;
+    const clean = timeStr.trim().replace(/[\[\]\(\)]/g, '').replace(',', '.');
+    const parts = clean.split(':');
+    if (parts.length === 3) {
+        return parseFloat(parts[0]) * 3600 + parseFloat(parts[1]) * 60 + parseFloat(parts[2]);
+    } else if (parts.length === 2) {
+        return parseFloat(parts[0]) * 60 + parseFloat(parts[1]);
+    } else if (parts.length === 1) {
+        return parseFloat(parts[0]) || 0;
+    }
+    return 0;
+};
+
+// Universal Subtitle & Transcript Parser: Supports SRT, VTT, and timestamped text documents like [0:01]: Text
+export const parseTextToSubtitles = (content) => {
+    if (!content || typeof content !== 'string') return [];
+
     // Normalize line endings
-    const normalized = srtContent.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-    const blocks = normalized.split(/\n\s*\n/);
+    const normalized = content.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
+    if (!normalized) return [];
+
     const results = [];
-
-    const timeToSeconds = (timeStr) => {
-        const parts = timeStr.trim().replace(',', '.').split(':');
-        if (parts.length === 3) {
-            return parseFloat(parts[0]) * 3600 + parseFloat(parts[1]) * 60 + parseFloat(parts[2]);
-        } else if (parts.length === 2) {
-            return parseFloat(parts[0]) * 60 + parseFloat(parts[1]);
-        }
-        return 0;
-    };
-
     let count = 1;
-    blocks.forEach(block => {
-        const lines = block.trim().split('\n').filter(Boolean);
-        if (lines.length >= 2) {
-            let timeLine = lines[0];
-            let textLines = lines.slice(1);
 
-            if (!timeLine.includes('-->') && lines.length >= 3) {
-                timeLine = lines[1];
-                textLines = lines.slice(2);
-            }
+    // 1. Check if it's standard SRT / VTT with `-->`
+    if (normalized.includes('-->')) {
+        const blocks = normalized.split(/\n\s*\n/);
+        blocks.forEach(block => {
+            const lines = block.trim().split('\n').filter(Boolean);
+            if (lines.length >= 2) {
+                let timeLine = lines[0];
+                let textLines = lines.slice(1);
 
-            if (timeLine.includes('-->')) {
-                const [startStr, endStr] = timeLine.split('-->');
-                const start = timeToSeconds(startStr);
-                const end = timeToSeconds(endStr);
-                const fullText = textLines.join(' ').trim();
+                if (!timeLine.includes('-->') && lines.length >= 3) {
+                    timeLine = lines[1];
+                    textLines = lines.slice(2);
+                }
 
-                if (fullText && end > start) {
-                    results.push({
-                        id: count++,
-                        start: Math.round(start * 10) / 10,
-                        end: Math.round(end * 10) / 10,
-                        ja: fullText,
-                        furigana: fullText,
-                        vi: '',
-                        keywords: [],
-                        grammar: []
-                    });
+                if (timeLine.includes('-->')) {
+                    const [startStr, endStr] = timeLine.split('-->');
+                    const start = parseTimeToSeconds(startStr);
+                    const end = parseTimeToSeconds(endStr);
+                    const fullText = textLines.join(' ').replace(/\[音楽\]|\[Music\]/gi, '').trim();
+
+                    if (fullText && end > start) {
+                        results.push({
+                            id: count++,
+                            start: Math.round(start * 10) / 10,
+                            end: Math.round(end * 10) / 10,
+                            ja: fullText,
+                            furigana: fullText,
+                            vi: '',
+                            keywords: [],
+                            grammar: []
+                        });
+                    }
                 }
             }
+        });
+
+        if (results.length > 0) return results;
+    }
+
+    // 2. Check line-by-line for timestamped transcript or document format
+    // Matches: [0:01]: Text, [00:01] Text, 0:01: Text, 0:01 - Text, 01:23 Text, (0:01) Text
+    const timeLineRegex = /^\s*[\[\(]?\s*(\d{1,2}(?::\d{1,2}){1,2}(?:[.,]\d{1,3})?)\s*[\]\)]?\s*[:\-\s]?\s*(.*)$/;
+    const rawLines = normalized.split('\n');
+    const parsedEntries = [];
+
+    for (let i = 0; i < rawLines.length; i++) {
+        const line = rawLines[i].trim();
+        if (!line) continue;
+
+        const match = line.match(timeLineRegex);
+        if (match) {
+            const timeStr = match[1];
+            let text = match[2]?.trim() || '';
+
+            // If text is empty on the same line, check if the next line is the text (YouTube transcript two-line format)
+            if (!text && i + 1 < rawLines.length) {
+                const nextLine = rawLines[i + 1].trim();
+                if (nextLine && !nextLine.match(timeLineRegex)) {
+                    text = nextLine;
+                    i++; // skip next line as it was consumed
+                }
+            }
+
+            // Clean noise markers like [音楽] or [Music]
+            text = text.replace(/\[音楽\]|\[Music\]/gi, '').trim();
+
+            // Ignore lines that are only punctuation or numbers
+            if (text && !/^[。、\.\,\s\d]+$/.test(text)) {
+                const startSec = parseTimeToSeconds(timeStr);
+                parsedEntries.push({
+                    start: startSec,
+                    text: text
+                });
+            }
         }
-    });
+    }
+
+    if (parsedEntries.length > 0) {
+        // Calculate realistic end times
+        for (let i = 0; i < parsedEntries.length; i++) {
+            const entry = parsedEntries[i];
+            const start = entry.start;
+            let end;
+
+            if (i < parsedEntries.length - 1) {
+                const nextStart = parsedEntries[i + 1].start;
+                if (nextStart > start) {
+                    end = nextStart;
+                } else {
+                    end = start + Math.min(Math.max(entry.text.length * 0.35, 3), 8);
+                }
+            } else {
+                end = start + Math.min(Math.max(entry.text.length * 0.35, 4), 10);
+            }
+
+            if (end <= start) end = start + 3;
+
+            results.push({
+                id: count++,
+                start: Math.round(start * 10) / 10,
+                end: Math.round(end * 10) / 10,
+                ja: entry.text,
+                furigana: entry.text,
+                vi: '',
+                keywords: [],
+                grammar: []
+            });
+        }
+
+        return results;
+    }
+
+    // 3. Fallback: Plain text sentences (split by lines or Japanese periods)
+    const sentences = normalized
+        .split(/[\n\r]+/)
+        .map(s => s.trim().replace(/\[音楽\]|\[Music\]/gi, ''))
+        .filter(s => s.length > 0 && !/^[。、\.\,\s\d]+$/.test(s));
+
+    if (sentences.length > 0) {
+        let currentTime = 0;
+        sentences.forEach(sent => {
+            const duration = Math.min(Math.max(sent.length * 0.35, 3.5), 8);
+            results.push({
+                id: count++,
+                start: Math.round(currentTime * 10) / 10,
+                end: Math.round((currentTime + duration) * 10) / 10,
+                ja: sent,
+                furigana: sent,
+                vi: '',
+                keywords: [],
+                grammar: []
+            });
+            currentTime += duration;
+        });
+    }
 
     return results;
 };
 
+// Backward-compatible alias
+export const parseSrtToSubtitles = parseTextToSubtitles;
+
 // Use AI to generate Furigana, Vietnamese Translation & Vocab from raw Japanese Transcript (supports chunking for any list size)
 export const generateAiSubtitles = async (rawJapaneseTextOrSubtitles, topicContext = '', onProgress = null, abortRef = { current: false }) => {
+    // Helper to call AI with OpenRouter -> Google Gemini fallback
+    const executeAiPrompt = async (prompt) => {
+        try {
+            const aiResponse = await callKaiwaAI(prompt, [], 'Trả về mảng JSON phụ đề dịch nghĩa và furigana.');
+            const parsed = parseJsonFromAI(aiResponse);
+            if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        } catch (e) {
+            console.warn('callKaiwaAI failed, trying direct callAI fallback...', e?.message);
+        }
+        // Direct callAI fallback
+        const aiResponse = await callAI(prompt, null, 'kaiwa_agent');
+        const parsed = parseJsonFromAI(aiResponse);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        throw new Error('Không thể phân tích dữ liệu JSON từ phản hồi AI.');
+    };
+
     // If input is an array of subtitles (e.g. from SRT upload or existing subtitle list)
     if (Array.isArray(rawJapaneseTextOrSubtitles)) {
         const items = [...rawJapaneseTextOrSubtitles];
         const total = items.length;
-        const BATCH_SIZE = 15; // Process 15 sentences per request for fast & high-precision translation
+        const BATCH_SIZE = 10; // Process 10 sentences per request for fast & high-precision translation
         const updatedList = [...items];
 
         for (let i = 0; i < total; i += BATCH_SIZE) {
@@ -200,7 +328,7 @@ export const generateAiSubtitles = async (rawJapaneseTextOrSubtitles, topicConte
             const prompt = `Bạn là chuyên gia ngôn ngữ tiếng Nhật và biên dịch viên phụ đề chuyên nghiệp (Japanese -> Vietnamese).
 Nhiệm vụ: Hãy phân tích từng câu tiếng Nhật sau:
 1. Gán Furigana cho tất cả Kanji theo cú pháp chuẩn: {Kanji|furigana} (Ví dụ: {皆|みな}さん, {元気|げんき}ですか). TUYỆT ĐỐI KHÔNG thêm khoảng trắng giữa các từ tiếng Nhật.
-2. Dịch nghĩa tiếng Việt tự nhiên, chuẩn ngữ cảnh giao tiếp vào trường "vi".
+2. Dịch nghĩa tiếng Việt tự nhiên, chuẩn xác theo ngữ cảnh giao tiếp vào trường "vi" (BẮT BUỘC có bản dịch tiếng Việt, KHÔNG để trống).
 3. Trích xuất 1-2 từ vựng quan trọng (nếu có) vào "keywords": [{ "word": "...", "reading": "...", "meaning": "...", "level": "N5-N1" }].
 
 Chủ đề video: ${topicContext || 'Hội thoại giao tiếp Nhật Bản'}
@@ -208,7 +336,7 @@ Chủ đề video: ${topicContext || 'Hội thoại giao tiếp Nhật Bản'}
 Dữ liệu đầu vào:
 ${JSON.stringify(chunkPromptData, null, 2)}
 
-BẮT BUỘC trả về ĐÚNG 1 mảng JSON thuần (KHÔNG kèm markdown, KHÔNG kèm văn bản ngoài JSON):
+BẮT BUỘC trả về ĐÚNG 1 mảng JSON thuần (KHÔNG kèm markdown ngoài JSON):
 [
   {
     "id": 1,
@@ -222,8 +350,7 @@ BẮT BUỘC trả về ĐÚNG 1 mảng JSON thuần (KHÔNG kèm markdown, KHÔ
 ]`;
 
             try {
-                const aiResponse = await callKaiwaAI(prompt, [], 'Trả về mảng JSON phụ đề dịch nghĩa và furigana.');
-                const parsedChunk = parseJsonFromAI(aiResponse);
+                const parsedChunk = await executeAiPrompt(prompt);
 
                 if (Array.isArray(parsedChunk)) {
                     parsedChunk.forEach(item => {
@@ -259,7 +386,7 @@ BẮT BUỘC trả về ĐÚNG 1 mảng JSON thuần (KHÔNG kèm markdown, KHÔ
 
     // If input is raw text string (user pasted raw text)
     const prompt = `Bạn là chuyên gia ngôn ngữ tiếng Nhật và dịch thuật phụ đề phim/video Kaiwa.
-Nhiệm vụ: Hãy phân tách đoạn văn bản tiếng Nhật dưới đây thành các câu phụ đề theo thứ tự, gán Furigana dạng {Kanji|furigana}, dịch nghĩa Tiếng Việt tự nhiên theo ngữ cảnh, và trích xuất từ vựng quan trọng.
+Nhiệm vụ: Hãy phân tách đoạn văn bản tiếng Nhật dưới đây thành các câu phụ đề theo thứ tự, gán Furigana dạng {Kanji|furigana}, dịch nghĩa Tiếng Việt tự nhiên theo ngữ cảnh vào trường "vi" (BẮT BUỘC), và trích xuất từ vựng quan trọng.
 
 Chủ đề video: ${topicContext || 'Hội thoại giao tiếp Nhật Bản'}
 
@@ -282,10 +409,5 @@ BẮT BUỘC trả về định dạng JSON thuần (KHÔNG kèm markdown ngoài
   }
 ]`;
 
-    const aiResponse = await callKaiwaAI(prompt, [], 'Hãy tạo cấu trúc JSON phụ đề song ngữ đầy đủ.');
-    const parsed = parseJsonFromAI(aiResponse);
-    if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
-    }
-    throw new Error('Dữ liệu AI trả về không phải mảng JSON hợp lệ.');
+    return await executeAiPrompt(prompt);
 };

@@ -455,9 +455,28 @@ export const parseJsonFromAI = (text) => {
         return JSON.parse(jsonStr);
     } catch (_) {}
 
-    // 2. Fix unescaped quotes inside JSON string field values (e.g. "replyVi": "Text with "quote" inside")
+    // 2. Extract JSON Array [...] or Object candidate {...} if wrapped in intro/outro text
     try {
-        const sanitized = jsonStr.replace(/("(?:replyVi|replyJa|explanationVi|pronunciationTips|userOriginal|correctedJa|meaning|example|exampleMeaning|nuance|mnemonic)"\s*:\s*")([\s\S]*?)("\s*,\s*"\w+"|\s*}\s*$)/g, (match, prefix, val, suffix) => {
+        const firstBracket = jsonStr.indexOf('[');
+        const lastBracket = jsonStr.lastIndexOf(']');
+        if (firstBracket !== -1 && lastBracket > firstBracket) {
+            const candidate = jsonStr.substring(firstBracket, lastBracket + 1);
+            return JSON.parse(candidate);
+        }
+    } catch (_) {}
+
+    try {
+        const firstBrace = jsonStr.indexOf('{');
+        const lastBrace = jsonStr.lastIndexOf('}');
+        if (firstBrace !== -1 && lastBrace > firstBrace) {
+            const candidate = jsonStr.substring(firstBrace, lastBrace + 1);
+            return JSON.parse(candidate);
+        }
+    } catch (_) {}
+
+    // 3. Fix unescaped quotes inside JSON string field values (e.g. "replyVi": "Text with "quote" inside")
+    try {
+        const sanitized = jsonStr.replace(/("(?:replyVi|replyJa|explanationVi|pronunciationTips|userOriginal|correctedJa|meaning|example|exampleMeaning|nuance|mnemonic|vi|furigana|ja)"\s*:\s*")([\s\S]*?)("\s*,\s*"\w+"|\s*}\s*$)/g, (match, prefix, val, suffix) => {
             // Escape any inner unescaped double quotes inside value
             const cleanVal = val.replace(/(?<!\\)"/g, '’');
             return prefix + cleanVal + suffix;
@@ -465,7 +484,7 @@ export const parseJsonFromAI = (text) => {
         return JSON.parse(sanitized);
     } catch (_) {}
 
-    // 3. Structural repair and parse
+    // 4. Structural repair and parse
     try {
         const repaired = repairTruncatedJson(jsonStr);
         const parsed = JSON.parse(repaired);
@@ -1056,7 +1075,9 @@ Chỉ trả về JSON hợp lệ.`;
 export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMessage = '', forcedModel = null) => {
     const keys = getOpenRouterKeys();
     if (keys.length === 0) {
-        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
+        const historyText = conversationHistory.map(m => `${m.role === 'assistant' ? 'AI' : 'User'}: ${m.content}`).join('\n');
+        const prompt = `${systemPrompt}\n\n${historyText ? `Lịch sử hội thoại:\n${historyText}\n\n` : ''}Người dùng: ${userMessage}`;
+        return callAI(prompt, forcedModel, 'kaiwa_agent');
     }
 
     let activeModel = forcedModel;
@@ -1158,15 +1179,16 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
             throw new Error(`OpenRouter API error: ${status}`);
         } catch (error) {
             clearTimeout(timeoutId);
-            if (error.message?.startsWith('OpenRouter API error')) throw error;
-            console.error(`❌ OpenRouter Kaiwa network/timeout error:`, error.message);
             if (keyIndex < keys.length - 1) {
                 return callWithMessagesRetry(messagesList, keyIndex + 1, modelIndex, preferredModel);
             }
             if (modelIndex < models.length - 1) {
                 return callWithMessagesRetry(messagesList, 0, modelIndex + 1, preferredModel);
             }
-            throw error;
+            console.warn('⚠️ OpenRouter thất bại, chuyển sang Google Gemini fallback qua callAI...');
+            const historyText = conversationHistory.map(m => `${m.role === 'assistant' ? 'AI' : 'User'}: ${m.content}`).join('\n');
+            const prompt = `${systemPrompt}\n\n${historyText ? `Lịch sử hội thoại:\n${historyText}\n\n` : ''}Người dùng: ${userMessage}`;
+            return callAI(prompt, forcedModel, 'kaiwa_agent');
         }
     };
 

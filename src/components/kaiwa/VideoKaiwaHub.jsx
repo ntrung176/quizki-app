@@ -177,9 +177,9 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
             {currentVideo ? (
                 <div className="w-full h-full max-h-full flex-1 flex flex-col min-h-0 overflow-hidden">
                     {/* Main Video & Transcript Grid - Expansive Full Width Layout */}
-                    <div className="flex-1 min-h-0 h-full max-h-full grid grid-cols-1 lg:grid-cols-12 gap-2.5 items-stretch w-full overflow-hidden">
+                    <div className="flex-1 min-h-0 h-full max-h-full grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-2.5 items-stretch w-full overflow-hidden">
                         {/* Left: Video Player with Web App Controls Only */}
-                        <div className="lg:col-span-8 xl:col-span-8 flex flex-col min-h-0 h-full max-h-full overflow-hidden">
+                        <div className="lg:col-span-8 xl:col-span-8 flex flex-col min-h-0 h-auto lg:h-full lg:max-h-full overflow-hidden shrink-0 lg:shrink">
                             <VideoKaiwaPlayer
                                 video={currentVideo}
                                 activeSubIndex={activeSubIndex}
@@ -216,7 +216,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                         </div>
 
                         {/* Right: Sidebar Transcript with Admin Inline Editing */}
-                        <div className="lg:col-span-4 xl:col-span-4 flex flex-col min-h-0 h-full max-h-full overflow-hidden">
+                        <div className="lg:col-span-4 xl:col-span-4 flex flex-col min-h-0 flex-1 h-full max-h-full overflow-hidden">
                             <VideoKaiwaTranscript
                                 video={currentVideo}
                                 allVideos={videos}

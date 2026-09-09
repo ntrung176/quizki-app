@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-    X, Plus, Trash2, Sparkles, Upload, Link as LinkIcon, 
+import {
+    X, Plus, Trash2, Sparkles, Upload, Link as LinkIcon,
     Save, CheckCircle2, AlertCircle, FileText, Film, Eye, Edit3, StopCircle, RefreshCw
 } from 'lucide-react';
 import { KAIWA_LEVELS, KAIWA_CATEGORIES } from './videoKaiwaConstants';
-import { extractYoutubeId, parseSrtToSubtitles, generateAiSubtitles, saveKaiwaVideo } from '../../services/videoKaiwaService';
+import { extractYoutubeId, parseTextToSubtitles, parseSrtToSubtitles, generateAiSubtitles, saveKaiwaVideo } from '../../services/videoKaiwaService';
 
 const VideoKaiwaAdminModal = ({
     isOpen,
@@ -20,7 +20,7 @@ const VideoKaiwaAdminModal = ({
     const [category, setCategory] = useState('daily');
     const [description, setDescription] = useState('');
     const [subtitles, setSubtitles] = useState([]);
-    
+
     // Subtitle input tabs: 'ai' | 'upload' | 'manual'
     const [subInputTab, setSubInputTab] = useState('ai');
     const [rawJapaneseText, setRawJapaneseText] = useState('');
@@ -73,25 +73,41 @@ const VideoKaiwaAdminModal = ({
 
     // Handle AI Auto Subtitle Generation & Translation
     const handleGenerateAiSubtitles = async (overrideInput = null) => {
-        const input = overrideInput || (rawJapaneseText.trim() ? rawJapaneseText : subtitles);
-        if ((!Array.isArray(input) && !input.trim()) || (Array.isArray(input) && input.length === 0)) {
-            setErrorMsg('Vui lòng dán văn bản tiếng Nhật hoặc tải file phụ đề SRT để AI phân tích!');
-            return;
+        let input = overrideInput;
+
+        if (!input) {
+            if (!rawJapaneseText.trim()) {
+                if (subtitles.length > 0) {
+                    input = subtitles;
+                } else {
+                    setErrorMsg('Vui lòng dán văn bản tiếng Nhật hoặc tải file phụ đề/transcript để AI phân tích!');
+                    return;
+                }
+            } else {
+                // Try parsing the raw text (supports [0:01]: Text, SRT, VTT, or plain text)
+                const parsed = parseTextToSubtitles(rawJapaneseText);
+                if (parsed.length > 0) {
+                    input = parsed;
+                    setSubtitles(parsed);
+                } else {
+                    input = rawJapaneseText;
+                }
+            }
         }
 
         abortAiRef.current = false;
         setIsGeneratingAi(true);
         setErrorMsg('');
         setSuccessMsg('');
-        
+
         const totalItems = Array.isArray(input) ? input.length : 1;
         setAiProgress({ current: 0, total: totalItems, percent: 0 });
 
         try {
             const topicStr = `${title || 'Video Kaiwa'} - Cấp độ ${level}`;
             const generated = await generateAiSubtitles(
-                input, 
-                topicStr, 
+                input,
+                topicStr,
                 (prog) => {
                     setAiProgress(prog);
                     if (prog.subtitles) {
@@ -115,6 +131,22 @@ const VideoKaiwaAdminModal = ({
         }
     };
 
+    // Quick import raw text/transcript directly into table without waiting for AI
+    const handleQuickParseOnly = () => {
+        if (!rawJapaneseText.trim()) {
+            setErrorMsg('Vui lòng dán nội dung văn bản hoặc transcript tiếng Nhật!');
+            return;
+        }
+        const parsed = parseTextToSubtitles(rawJapaneseText);
+        if (parsed.length > 0) {
+            setSubtitles(parsed);
+            setSubInputTab('manual');
+            setSuccessMsg(`📋 Đã trích xuất ${parsed.length} câu từ văn bản thành công! Bạn có thể bấm "⚡ Dịch AI" bất kỳ lúc nào.`);
+        } else {
+            setErrorMsg('Không thể nhận diện câu từ văn bản. Vui lòng kiểm tra lại!');
+        }
+    };
+
     // Stop ongoing AI Generation
     const handleStopAi = () => {
         abortAiRef.current = true;
@@ -123,7 +155,7 @@ const VideoKaiwaAdminModal = ({
         setSuccessMsg('Đã dừng tiến trình AI. Các câu đã dịch trước đó vẫn được lưu.');
     };
 
-    // Handle SRT File Upload & Auto-offer AI translation
+    // Handle Subtitle / Document / Transcript File Upload (.srt, .vtt, .txt)
     const handleFileUpload = (e) => {
         const file = e.target.files?.[0];
         if (!file) return;
@@ -132,16 +164,16 @@ const VideoKaiwaAdminModal = ({
         reader.onload = (event) => {
             const content = event.target?.result;
             if (typeof content === 'string') {
-                const parsed = parseSrtToSubtitles(content);
+                const parsed = parseTextToSubtitles(content);
                 if (parsed.length > 0) {
                     setSubtitles(parsed);
                     setSubInputTab('manual');
-                    setSuccessMsg(`📂 Đã nhập ${parsed.length} câu từ file SRT thành công!`);
-                    
+                    setSuccessMsg(`📂 Đã nhập ${parsed.length} câu từ file văn bản/phụ đề thành công! Đang gọi AI gắn Furigana và dịch Tiếng Việt...`);
+
                     // Automatically trigger AI Furigana & Vietnamese translation for all parsed sentences
                     handleGenerateAiSubtitles(parsed);
                 } else {
-                    setErrorMsg('Không đọc được cấu trúc phụ đề từ file này. Vui lòng kiểm tra định dạng .srt!');
+                    setErrorMsg('Không đọc được cấu trúc văn bản hoặc phụ đề từ file này. Vui lòng kiểm tra lại nội dung!');
                 }
             }
         };
@@ -272,9 +304,9 @@ const VideoKaiwaAdminModal = ({
 
                         {youtubeId && (
                             <div className="p-3 bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-3">
-                                <img 
-                                    src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`} 
-                                    alt="Thumbnail" 
+                                <img
+                                    src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}
+                                    alt="Thumbnail"
                                     className="w-24 aspect-video rounded-lg object-cover bg-slate-800"
                                 />
                                 <div className="text-xs space-y-0.5">
@@ -370,7 +402,7 @@ const VideoKaiwaAdminModal = ({
                                 </button>
                             </div>
                             <div className="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                <div 
+                                <div
                                     className="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300 rounded-full"
                                     style={{ width: `${aiProgress.percent}%` }}
                                 />
@@ -388,27 +420,24 @@ const VideoKaiwaAdminModal = ({
                                 <button
                                     type="button"
                                     onClick={() => setSubInputTab('ai')}
-                                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                                        subInputTab === 'ai' ? 'bg-amber-500 text-slate-950 shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
-                                    }`}
+                                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${subInputTab === 'ai' ? 'bg-amber-500 text-slate-950 shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
+                                        }`}
                                 >
-                                    ⚡ AI Auto-Sub
+                                    ⚡ AI Auto-Sub & Text
                                 </button>
                                 <button
                                     type="button"
                                     onClick={() => setSubInputTab('upload')}
-                                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                                        subInputTab === 'upload' ? 'bg-amber-500 text-slate-950 shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
-                                    }`}
+                                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${subInputTab === 'upload' ? 'bg-amber-500 text-slate-950 shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
+                                        }`}
                                 >
-                                    📂 Tải file SRT
+                                    📂 Tải file (.srt, .txt)
                                 </button>
                                 <button
                                     type="button"
                                     onClick={() => setSubInputTab('manual')}
-                                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                                        subInputTab === 'manual' ? 'bg-amber-500 text-slate-950 shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
-                                    }`}
+                                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${subInputTab === 'manual' ? 'bg-amber-500 text-slate-950 shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'
+                                        }`}
                                 >
                                     ✍️ Chỉnh sửa ({subtitles.length})
                                 </button>
@@ -419,36 +448,46 @@ const VideoKaiwaAdminModal = ({
                         {subInputTab === 'ai' && (
                             <div className="p-4 bg-amber-50/40 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/40 rounded-2xl space-y-3">
                                 <p className="text-xs text-slate-600 dark:text-slate-300">
-                                    Dán toàn bộ đoạn thoại tiếng Nhật hoặc transcript của video. AI sẽ tự động phân tách mốc thời gian, tạo Furigana và dịch nghĩa tiếng Việt chuẩn xác:
+                                    Dán toàn bộ transcript có mốc thời gian dạng <code className="bg-amber-100 dark:bg-amber-900/50 px-1 py-0.5 rounded text-amber-800 dark:text-amber-200 font-mono text-[11px]">[0:01]: câu tiếng Nhật...</code>, cấu trúc SRT hoặc văn bản thuần. Hệ thống sẽ tự động nhận diện mốc thời gian và dịch song ngữ:
                                 </p>
                                 <textarea
-                                    rows={4}
-                                    placeholder="Dán nội dung tiếng Nhật tại đây..."
+                                    rows={5}
+                                    placeholder={`Ví dụ dán transcript:\n[0:01]: 今日から9月。\n[0:09]: 商品がスキャンされる度に鳴ってしまうほど...`}
                                     value={rawJapaneseText}
                                     onChange={(e) => setRawJapaneseText(e.target.value)}
-                                    className="w-full p-3 bg-white dark:bg-slate-900 rounded-xl border border-amber-200 dark:border-amber-800 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                    className="w-full p-3 bg-white dark:bg-slate-900 rounded-xl border border-amber-200 dark:border-amber-800 text-xs text-slate-800 dark:text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-amber-500"
                                 />
-                                <button
-                                    type="button"
-                                    onClick={() => handleGenerateAiSubtitles()}
-                                    disabled={isGeneratingAi}
-                                    className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xs rounded-xl flex items-center gap-2 shadow-md transition cursor-pointer disabled:opacity-50"
-                                >
-                                    <Sparkles className="w-4 h-4" />
-                                    <span>{isGeneratingAi ? 'Đang gọi AI phân tích & dịch...' : '⚡ Bắt đầu tạo Phụ đề bằng AI'}</span>
-                                </button>
+                                <div className="flex items-center gap-2 flex-wrap">
+                                    <button
+                                        type="button"
+                                        onClick={() => handleGenerateAiSubtitles()}
+                                        disabled={isGeneratingAi}
+                                        className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xs rounded-xl flex items-center gap-2 shadow-md transition cursor-pointer disabled:opacity-50"
+                                    >
+                                        <Sparkles className="w-4 h-4" />
+                                        <span>{isGeneratingAi ? 'Đang gọi AI phân tích & dịch...' : '⚡ Bắt đầu tạo Phụ đề & Dịch AI'}</span>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={handleQuickParseOnly}
+                                        disabled={isGeneratingAi}
+                                        className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                                    >
+                                        <span>📋 Nhập vào bảng (Chưa dịch)</span>
+                                    </button>
+                                </div>
                             </div>
                         )}
 
-                        {/* TAB B: Upload SRT */}
+                        {/* TAB B: Upload SRT / Document */}
                         {subInputTab === 'upload' && (
                             <div className="p-6 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl text-center space-y-2 bg-slate-50 dark:bg-slate-950/40">
                                 <Upload className="w-8 h-8 text-amber-500 mx-auto" />
-                                <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Chọn file phụ đề .SRT hoặc .VTT từ máy tính</p>
-                                <p className="text-[11px] text-slate-500 dark:text-slate-400">Hệ thống sẽ tự động nhập thời gian và gọi AI dịch nghĩa Tiếng Việt + tạo Furigana</p>
+                                <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Chọn file .SRT, .VTT hoặc file văn bản .TXT từ máy tính</p>
+                                <p className="text-[11px] text-slate-500 dark:text-slate-400">Hỗ trợ nhận diện file phụ đề chuẩn và các file transcript dạng [0:01]: Text</p>
                                 <input
                                     type="file"
-                                    accept=".srt,.vtt,.txt"
+                                    accept=".srt,.vtt,.txt,.doc,.docx,.json"
                                     onChange={handleFileUpload}
                                     className="text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-500 file:text-slate-950 cursor-pointer"
                                 />

@@ -87,19 +87,6 @@ const KanjiNavHeader = ({
 
     return (
         <div className="flex flex-col gap-4">
-            {/* Simple Hero Header Banner */}
-            <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-900 dark:text-white shadow-sm dark:shadow-xl">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-                <div className="relative z-10 max-w-2xl space-y-1.5">
-                    <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                        Tra cứu Kanji
-                    </h1>
-                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-                        Khám phá và tra cứu hệ thống Kanji, nghĩa và âm Hán-Việt với bộ công cụ hiện đại.
-                    </p>
-                </div>
-            </div>
-
             {/* Search & Action Controls Row */}
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch sm:items-center">
                 {/* Search Input - Expanded / Flex-1 */}

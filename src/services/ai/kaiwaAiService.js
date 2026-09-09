@@ -1,9 +1,11 @@
-import { getOpenRouterKeys, OPENROUTER_MODELS, getEffectiveModel, extractOpenRouterText } from '../../utils/aiProvider';
+import { getOpenRouterKeys, OPENROUTER_MODELS, getEffectiveModel, extractOpenRouterText, callAI } from '../../utils/aiProvider';
 
 export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMessage = '', forcedModel = null) => {
     const keys = getOpenRouterKeys();
     if (keys.length === 0) {
-        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
+        const historyText = conversationHistory.map(m => `${m.role === 'assistant' ? 'AI' : 'User'}: ${m.content}`).join('\n');
+        const prompt = `${systemPrompt}\n\n${historyText ? `Lịch sử hội thoại:\n${historyText}\n\n` : ''}Người dùng: ${userMessage}`;
+        return callAI(prompt, forcedModel, 'kaiwa_agent');
     }
 
     let activeModel = forcedModel;
@@ -104,15 +106,16 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
             throw new Error(`OpenRouter API error: ${status}`);
         } catch (error) {
             clearTimeout(timeoutId);
-            if (error.message?.startsWith('OpenRouter API error')) throw error;
-            console.error(`❌ OpenRouter Kaiwa network/timeout error:`, error.message);
             if (keyIndex < keys.length - 1) {
                 return callWithMessagesRetry(messagesList, keyIndex + 1, modelIndex, preferredModel);
             }
             if (modelIndex < models.length - 1) {
                 return callWithMessagesRetry(messagesList, 0, modelIndex + 1, preferredModel);
             }
-            throw error;
+            console.warn('⚠️ OpenRouter thất bại, chuyển sang Google Gemini fallback qua callAI...');
+            const historyText = conversationHistory.map(m => `${m.role === 'assistant' ? 'AI' : 'User'}: ${m.content}`).join('\n');
+            const prompt = `${systemPrompt}\n\n${historyText ? `Lịch sử hội thoại:\n${historyText}\n\n` : ''}Người dùng: ${userMessage}`;
+            return callAI(prompt, forcedModel, 'kaiwa_agent');
         }
     };
 
