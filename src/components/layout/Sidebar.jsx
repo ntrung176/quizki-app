@@ -8,7 +8,7 @@ import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { 
     Home, BookOpen, LogOut, Sun, Moon, Sparkle, ChevronRight, ChevronLeft, X, 
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell, 
-    MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe
+    MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe, Film
 } from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
 import LanguageSelector from '../ui/LanguageSelector';
@@ -403,8 +403,9 @@ const Sidebar = ({
 
         items.push(
             { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, group: 'Học tập' },
-            { id: 'JLPT_TEST', icon: FileCheck, label: isEnglishMode ? 'Luyện thi IELTS/TOEIC' : t('nav.jlptTest', 'Luyện đề JLPT'), route: ROUTES.JLPT_TEST, group: 'Luyện tập & AI' },
+            { id: 'VIDEO_KAIWA', icon: Film, label: 'Video Kaiwa', route: ROUTES.VIDEO_KAIWA, group: 'Luyện tập & AI' },
             { id: 'JLPT_KAIWA', icon: MessageSquare, label: t('nav.kaiwa', 'Phòng Kaiwa AI'), route: ROUTES.JLPT_KAIWA, group: 'Luyện tập & AI' },
+            { id: 'JLPT_TEST', icon: FileCheck, label: isEnglishMode ? 'Luyện thi IELTS/TOEIC' : t('nav.jlptTest', 'Luyện đề JLPT'), route: ROUTES.JLPT_TEST, group: 'Luyện tập & AI' },
             { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB, group: 'Cộng đồng' },
         );
 
@@ -420,8 +421,9 @@ const Sidebar = ({
         if (item.id === 'VOCAB_LIST') return path.includes('/vocab') || path.includes('/books');
         if (item.id === 'KANJI_STUDY') return path.includes('/kanji');
         if (item.id === 'GRAMMAR') return path.includes('/grammar');
+        if (item.id === 'VIDEO_KAIWA') return path.includes('/kaiwa/video') || path === ROUTES.VIDEO_KAIWA;
         if (item.id === 'JLPT_TEST') return path.includes('/jlpt/test') || path.includes('/jlpt/admin');
-        if (item.id === 'JLPT_KAIWA') return path.includes('/jlpt/kaiwa') || path.includes('/kaiwa');
+        if (item.id === 'JLPT_KAIWA') return (path.includes('/jlpt/kaiwa') || path === '/kaiwa') && !path.includes('/kaiwa/video');
         if (item.id === 'HUB') return path.includes('/hub') || path.includes('/stats');
         if (item.id === 'ADMIN') return path.includes('/admin');
         return path.startsWith(item.route);
@@ -740,7 +742,7 @@ const Sidebar = ({
             )}
 
             {/* Desktop Cyber-AI Futuristic Sidebar */}
-            <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
+            <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-[width] duration-200 ease-out ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
                 {/* Cyber Brand Logo */}
                 <div className={`p-4 border-b border-slate-200 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
                     <Link

@@ -309,6 +309,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setPendingStartTest(test);
     };
 
+    const retakeTest = (test) => {
+        const targetTest = test || activeTest;
+        if (!targetTest) return;
+        let isPremium = targetTest?.isPremium;
+        if (isPremium && !hasPremiumAccess) {
+            setLockedPkgName('jlpt_prep');
+            setShowPremiumModal(true);
+            return;
+        }
+        setShowResult(false);
+        setShowDetailedReview(false);
+        initTest(targetTest, wasRealExam ? 'real' : 'practice');
+    };
+
     const initTest = (test, mode = 'practice') => {
         setPendingStartTest(null);
         setActiveTest(test);
@@ -320,6 +334,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setCurrentQuestionIdx(0);
         setAnswers({});
         setShowResult(false);
+        setShowDetailedReview(false);
         setTestStartTime(Date.now());
         setWasRealExam(mode === 'real');
 
@@ -708,53 +723,63 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         const results = getResults();
         const passed = results.percentage >= 60;
         return (
-            <JLPTTestResultView
-                activeTest={activeTest}
-                showDetailedReview={showDetailedReview}
-                setShowDetailedReview={setShowDetailedReview}
-                currentSectionIdx={currentSectionIdx}
-                currentQuestionIdx={currentQuestionIdx}
-                answers={answers}
-                results={results}
-                passed={passed}
-                wasRealExam={wasRealExam}
-                timeTaken={timeTaken}
-                formatTime={formatTime}
-                exitTest={exitTest}
-                startTest={startTest}
-                goToQuestion={goToQuestion}
-                nextQuestion={nextQuestion}
-                prevQuestion={prevQuestion}
-                canEdit={canEdit}
-                handleToggleTestFixed={handleToggleTestFixed}
-                showSettingsMenu={showSettingsMenu}
-                setShowSettingsMenu={setShowSettingsMenu}
-                settingsMenuRef={settingsMenuRef}
-                showFurigana={showFurigana}
-                setShowFurigana={setShowFurigana}
-                furiganaColor={furiganaColor}
-                setFuriganaColor={setFuriganaColor}
-                furiganaStyleElement={furiganaStyleElement}
-                isFullscreen={isFullscreen}
-                toggleFullscreen={toggleFullscreen}
-                containerRef={containerRef}
-                notes={notes}
-                editingReviewNoteKey={editingReviewNoteKey}
-                setEditingReviewNoteKey={setEditingReviewNoteKey}
-                reviewNoteDraft={reviewNoteDraft}
-                setReviewNoteDraft={setReviewNoteDraft}
-                reviewNoteTab={reviewNoteTab}
-                setReviewNoteTab={setReviewNoteTab}
-                reviewDrawDraftStrokes={reviewDrawDraftStrokes}
-                setReviewDrawDraftStrokes={setReviewDrawDraftStrokes}
-                reviewDrawDraftDataUrl={reviewDrawDraftDataUrl}
-                setReviewDrawDraftDataUrl={setReviewDrawDraftDataUrl}
-                saveNotesMultiple={saveNotesMultiple}
-                deleteNotesMultiple={deleteNotesMultiple}
-                editingQuestionData={editingQuestionData}
-                setEditingQuestionData={setEditingQuestionData}
-                handleSaveQuestionHtml={handleSaveQuestionHtml}
-            />
+            <>
+                <JLPTTestResultView
+                    activeTest={activeTest}
+                    showDetailedReview={showDetailedReview}
+                    setShowDetailedReview={setShowDetailedReview}
+                    currentSectionIdx={currentSectionIdx}
+                    currentQuestionIdx={currentQuestionIdx}
+                    answers={answers}
+                    results={results}
+                    passed={passed}
+                    wasRealExam={wasRealExam}
+                    timeTaken={timeTaken}
+                    formatTime={formatTime}
+                    exitTest={exitTest}
+                    startTest={retakeTest}
+                    retakeTest={retakeTest}
+                    goToQuestion={goToQuestion}
+                    nextQuestion={nextQuestion}
+                    prevQuestion={prevQuestion}
+                    canEdit={canEdit}
+                    handleToggleTestFixed={handleToggleTestFixed}
+                    showSettingsMenu={showSettingsMenu}
+                    setShowSettingsMenu={setShowSettingsMenu}
+                    settingsMenuRef={settingsMenuRef}
+                    showFurigana={showFurigana}
+                    setShowFurigana={setShowFurigana}
+                    furiganaColor={furiganaColor}
+                    setFuriganaColor={setFuriganaColor}
+                    furiganaStyleElement={furiganaStyleElement}
+                    isFullscreen={isFullscreen}
+                    toggleFullscreen={toggleFullscreen}
+                    containerRef={containerRef}
+                    notes={notes}
+                    editingReviewNoteKey={editingReviewNoteKey}
+                    setEditingReviewNoteKey={setEditingReviewNoteKey}
+                    reviewNoteDraft={reviewNoteDraft}
+                    setReviewNoteDraft={setReviewNoteDraft}
+                    reviewNoteTab={reviewNoteTab}
+                    setReviewNoteTab={setReviewNoteTab}
+                    reviewDrawDraftStrokes={reviewDrawDraftStrokes}
+                    setReviewDrawDraftStrokes={setReviewDrawDraftStrokes}
+                    reviewDrawDraftDataUrl={reviewDrawDraftDataUrl}
+                    setReviewDrawDraftDataUrl={setReviewDrawDraftDataUrl}
+                    saveNotesMultiple={saveNotesMultiple}
+                    deleteNotesMultiple={deleteNotesMultiple}
+                    editingQuestionData={editingQuestionData}
+                    setEditingQuestionData={setEditingQuestionData}
+                    handleSaveQuestionHtml={handleSaveQuestionHtml}
+                />
+                {renderModeSelectionModal()}
+                <PremiumLockedModal 
+                    isOpen={showPremiumModal} 
+                    onClose={() => setShowPremiumModal(false)} 
+                    pkgName={lockedPkgName} 
+                />
+                {renderPrintElements()}
+            </>
         );
     }
 

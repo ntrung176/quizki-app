@@ -1177,17 +1177,12 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                 /* SIMPLIFIED ELEVATED SETUP PANEL (MOBILE-FIRST) */
                 <div className="w-full max-w-3xl mx-auto space-y-5 sm:space-y-6 relative z-10 py-2 px-1 sm:px-0">
                     {/* Header */}
-                    <div className="text-center space-y-2">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
-                            <Sparkles className="w-3.5 h-3.5 text-cyan-500 animate-pulse" />
-                            <span>{isEnglishMode ? 'AI VOICE SPEAKING AGENT' : 'NEURAL KAIWA AGENT'}</span>
-                        </div>
-
-                        <h1 className="text-xl sm:text-2xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                            {isEnglishMode ? 'Phòng Luyện Nói Tiếng Anh AI' : 'Phòng Kaiwa AI Bản Xứ'}
+                    <div className="text-center space-y-1.5">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                            {isEnglishMode ? 'Phòng Luyện Nói Tiếng Anh' : 'Phòng Kaiwa AI Bản Xứ'}
                         </h1>
 
-                        <p className="text-slate-600 dark:text-slate-400 text-xs md:text-sm max-w-lg mx-auto font-medium">
+                        <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm max-w-md mx-auto font-medium">
                             Luyện phản xạ giao tiếp tự nhiên và nhận phản hồi trực tiếp từ Giáo viên AI.
                         </p>
                     </div>

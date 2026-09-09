@@ -531,39 +531,34 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
     }
 
     return (
-        <div className="space-y-6 max-w-4xl mx-auto pb-24 animate-fade-in">
+        <div className="space-y-5 sm:space-y-6 w-full max-w-4xl mx-auto px-2.5 sm:px-4 pb-24 animate-fade-in overflow-x-hidden">
             {/* ==================== HEADER PROFILE & STATS HUD ==================== */}
-            <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 md:p-7 text-slate-800 dark:text-slate-100 shadow-xl group">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 dark:bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 w-60 h-60 bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-                <div className="relative z-10 space-y-5">
+                <div className="relative z-10 space-y-4 sm:space-y-5">
                     {/* User Info Bar */}
-                    <div className="flex items-center gap-4">
-                        <div className="w-16 h-16 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 bg-slate-100 dark:bg-slate-800 border-2 border-amber-400 shadow-md text-2xl">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 bg-slate-100 dark:bg-slate-800 border-2 border-amber-400 shadow-md text-xl sm:text-2xl">
                             {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U', true)}
                         </div>
                         <div className="min-w-0 flex-1">
-                            <div className="flex items-center gap-2 mb-1 flex-wrap">
-                                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/60 text-indigo-700 dark:text-indigo-400 text-[10px] font-mono font-bold uppercase tracking-wider">
-                                    <Cpu className="w-3 h-3 text-indigo-600 dark:text-indigo-400" />
-                                    <span>HỒ SƠ HỌC TẬP</span>
-                                </div>
-                                {isUserPremiumActive(profile) && (
-                                    <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-sm">
+                            {isUserPremiumActive(profile) && (
+                                <div className="mb-1">
+                                    <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1 shadow-xs">
                                         <Crown className="w-2.5 h-2.5 fill-white text-white" />
                                         PREMIUM
                                     </span>
-                                )}
-                            </div>
-                            <div className="flex items-center gap-2 flex-wrap">
-                                <h2 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white tracking-tight truncate">
+                                </div>
+                            )}
+                            <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                                <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight truncate max-w-[180px] sm:max-w-none">
                                     {profile.displayName || 'Bạn'}
                                 </h2>
-                                <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[11px] font-black font-mono px-2.5 py-0.5 rounded-lg shadow-sm">
+                                <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[10px] sm:text-[11px] font-black font-mono px-2 py-0.5 rounded-lg shadow-sm">
                                     LV {xpDetails.level}
                                 </span>
-                                <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[10px] font-bold font-mono px-2.5 py-0.5 rounded-lg">
+                                <span className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[9px] sm:text-[10px] font-bold font-mono px-2 py-0.5 rounded-lg truncate max-w-[120px]">
                                     {getLevelTitle(xpDetails.level, t)}
                                 </span>
                             </div>
@@ -571,14 +566,14 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                     </div>
 
                     {/* XP Progress Bar */}
-                    <div className="bg-slate-50 dark:bg-slate-950/80 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
-                        <div className="flex justify-between items-center text-xs font-bold font-mono text-slate-700 dark:text-slate-300">
+                    <div className="bg-slate-50 dark:bg-slate-950/80 p-3 sm:p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-1.5 sm:space-y-2">
+                        <div className="flex justify-between items-center text-[11px] sm:text-xs font-bold font-mono text-slate-700 dark:text-slate-300">
                             <span className="flex items-center gap-1.5">
-                                <Sparkle className="w-4 h-4 text-amber-500" /> Tiến trình Cấp độ {xpDetails.level}
+                                <Sparkle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" /> Tiến trình Cấp độ {xpDetails.level}
                             </span>
                             <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">{formatScore(xpDetails.remainingXp)} / {formatScore(xpDetails.nextLevelXp)} XP</span>
                         </div>
-                        <div className="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5">
+                        <div className="w-full h-2 sm:h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5">
                             <div 
                                 className="h-full bg-gradient-to-r from-amber-400 via-orange-400 to-emerald-400 rounded-full transition-all duration-500 ease-out shadow-sm"
                                 style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
@@ -587,78 +582,78 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                     </div>
 
                     {/* 5 Core Simple Stats Grid */}
-                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 bg-slate-50 dark:bg-slate-950/80 p-3 rounded-2xl border border-slate-200 dark:border-slate-800 font-mono">
+                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-2.5 bg-slate-50 dark:bg-slate-950/80 p-2.5 sm:p-3 rounded-2xl border border-slate-200 dark:border-slate-800 font-mono">
                         <div className="text-center p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 shadow-sm">
-                            <div className="text-lg md:text-xl font-black text-slate-900 dark:text-white leading-tight">{formatScore(totalCards)}</div>
-                            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Từ vựng</div>
+                            <div className="text-base sm:text-xl font-black text-slate-900 dark:text-white leading-tight">{formatScore(totalCards)}</div>
+                            <div className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Từ vựng</div>
                         </div>
                         <div className="text-center p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 shadow-sm">
-                            <div className="text-lg md:text-xl font-black text-slate-900 dark:text-white leading-tight">{formatScore(kanjiSrsStats.total)}</div>
-                            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Kanji</div>
+                            <div className="text-base sm:text-xl font-black text-slate-900 dark:text-white leading-tight">{formatScore(kanjiSrsStats.total)}</div>
+                            <div className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Kanji</div>
                         </div>
                         <div className="text-center p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 shadow-sm">
-                            <div className="text-lg md:text-xl font-black text-emerald-600 dark:text-emerald-400 leading-tight">{formatScore(vocabMastery.mastered)}</div>
-                            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Từ đã thuộc</div>
+                            <div className="text-base sm:text-xl font-black text-emerald-600 dark:text-emerald-400 leading-tight">{formatScore(vocabMastery.mastered)}</div>
+                            <div className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Từ đã thuộc</div>
                         </div>
                         <div className="text-center p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 shadow-sm">
-                            <div className="text-lg md:text-xl font-black text-emerald-600 dark:text-emerald-400 leading-tight">{formatScore(kanjiSrsStats.mastered)}</div>
-                            <div className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Kanji thuộc</div>
+                            <div className="text-base sm:text-xl font-black text-emerald-600 dark:text-emerald-400 leading-tight">{formatScore(kanjiSrsStats.mastered)}</div>
+                            <div className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase mt-1">Kanji thuộc</div>
                         </div>
                         <div className="col-span-2 sm:col-span-1 text-center p-2 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border border-amber-200/60 dark:border-amber-900/40 shadow-sm">
-                            <div className="text-lg md:text-xl font-black text-amber-600 dark:text-amber-400 leading-tight flex items-center justify-center gap-1">
+                            <div className="text-base sm:text-xl font-black text-amber-600 dark:text-amber-400 leading-tight flex items-center justify-center gap-1">
                                 <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
                                 {formatScore(myScore)}
                             </div>
-                            <div className="text-[10px] text-amber-700 dark:text-amber-300 font-bold uppercase mt-1">Điểm XP</div>
+                            <div className="text-[9px] sm:text-[10px] text-amber-700 dark:text-amber-300 font-bold uppercase mt-1">Điểm XP</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* ==================== 2 LEADERBOARD TABS SWITCHER ==================== */}
-            <div className="flex items-center justify-center p-1.5 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 max-w-md mx-auto shadow-md">
+            <div className="flex items-center justify-center p-1 sm:p-1.5 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 max-w-md mx-auto shadow-md w-full">
                 <button
                     onClick={() => { setActiveLeaderboardTab('weekly'); setDisplayCount(20); }}
-                    className={`flex-1 py-2.5 px-4 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    className={`flex-1 py-2 sm:py-2.5 px-2 sm:px-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer min-w-0 ${
                         activeLeaderboardTab === 'weekly'
-                            ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white shadow-lg font-black scale-102'
+                            ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white shadow-md font-black'
                             : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                 >
-                    <Trophy className="w-4 h-4 text-yellow-300 fill-yellow-300" />
-                    <span>🏆 Đua Top Tuần này</span>
+                    <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-300 fill-yellow-300 shrink-0" />
+                    <span className="truncate">Đua Top Tuần này</span>
                 </button>
 
                 <button
                     onClick={() => { setActiveLeaderboardTab('allTime'); setDisplayCount(20); }}
-                    className={`flex-1 py-2.5 px-4 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    className={`flex-1 py-2 sm:py-2.5 px-2 sm:px-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer min-w-0 ${
                         activeLeaderboardTab === 'allTime'
-                            ? 'bg-gradient-to-r from-indigo-600 via-sky-500 to-cyan-500 text-white shadow-lg font-black scale-102'
+                            ? 'bg-gradient-to-r from-indigo-600 via-sky-500 to-cyan-500 text-white shadow-md font-black'
                             : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                 >
-                    <Crown className="w-4 h-4 text-amber-300 fill-amber-300" />
-                    <span>👑 Bảng Vàng Cao Thủ</span>
+                    <Crown className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 fill-amber-300 shrink-0" />
+                    <span className="truncate">Bảng Vàng Cao Thủ</span>
                 </button>
             </div>
 
             {/* ==================== BANNER / COUNTDOWN INFO ==================== */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                 <div>
-                    <h3 className="font-black text-slate-900 dark:text-white flex items-center gap-2 text-base">
+                    <h3 className="font-black text-slate-900 dark:text-white flex items-center gap-2 text-sm sm:text-base">
                         {activeLeaderboardTab === 'weekly' ? (
                             <>
-                                <Trophy className="w-5 h-5 text-amber-500 fill-amber-400" />
+                                <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 fill-amber-400 shrink-0" />
                                 Bảng Xếp Hạng Năng Nổ Tuần Này
                             </>
                         ) : (
                             <>
-                                <Crown className="w-5 h-5 text-amber-500 fill-amber-400" />
+                                <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 fill-amber-400 shrink-0" />
                                 Bảng Vàng Cao Thủ Toàn Hệ Thống
                             </>
                         )}
                     </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
                         {activeLeaderboardTab === 'weekly'
                             ? 'Xếp hạng tất cả học viên theo tiến độ học, ôn tập và điểm XP tích lũy trong 7 ngày qua.'
                             : 'Vinh danh tất cả học viên có tổng điểm XP, số lượng từ vựng & chữ Hán xuất sắc nhất.'}
@@ -666,8 +661,8 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                 </div>
 
                 {activeLeaderboardTab === 'weekly' && timeLeft && (
-                    <div className="flex items-center gap-2 px-3.5 py-1.5 bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 rounded-2xl border border-rose-200/60 dark:border-rose-900/40 font-mono text-xs font-bold w-fit shrink-0">
-                        <Flame className="w-4 h-4 fill-rose-500 text-rose-500 animate-pulse" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 rounded-xl sm:rounded-2xl border border-rose-200/60 dark:border-rose-900/40 font-mono text-[11px] sm:text-xs font-bold w-fit shrink-0">
+                        <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-rose-500 text-rose-500 animate-pulse" />
                         <span>Tổng kết sau: {timeLeft}</span>
                     </div>
                 )}
@@ -675,102 +670,108 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
 
             {/* ==================== TOP 3 PODIUM DISPLAY ==================== */}
             {!searchTerm.trim() && podiumList.length > 0 && (
-                <div className="max-w-2xl mx-auto my-2">
-                    <div className="grid grid-cols-3 gap-2.5 sm:gap-4 pt-6 items-end">
+                <div className="w-full max-w-2xl mx-auto my-1 sm:my-2 px-0.5">
+                    <div className="grid grid-cols-3 gap-1.5 sm:gap-4 pt-5 sm:pt-6 items-end w-full">
                         {/* 2nd Place (Silver) */}
-                        {podiumList[1] && (
-                            <div className="flex flex-col items-center group cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[1].id)}>
-                                <div className="relative mb-2">
-                                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-4 border-slate-300 overflow-hidden bg-white dark:bg-slate-800 shadow-lg group-hover:scale-105 transition-all">
-                                        <div className="w-full h-full flex items-center justify-center text-xl bg-slate-100 dark:bg-slate-800">
-                                            {getAvatarDisplayNode(podiumList[1].avatar, podiumList[1].displayName, podiumList[1].id === userId)}
+                        <div className="flex flex-col items-center min-w-0 w-full">
+                            {podiumList[1] ? (
+                                <div className="flex flex-col items-center group cursor-pointer w-full min-w-0" onClick={() => handleToggleExpandUser(podiumList[1].id)}>
+                                    <div className="relative mb-1.5 sm:mb-2">
+                                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 sm:border-4 border-slate-300 overflow-hidden bg-white dark:bg-slate-800 shadow-md group-hover:scale-105 transition-all">
+                                            <div className="w-full h-full flex items-center justify-center text-base sm:text-xl bg-slate-100 dark:bg-slate-800">
+                                                {getAvatarDisplayNode(podiumList[1].avatar, podiumList[1].displayName, podiumList[1].id === userId)}
+                                            </div>
+                                        </div>
+                                        <div className="absolute -top-1.5 -right-1 bg-slate-300 text-slate-800 rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center text-[10px] sm:text-xs font-bold border-2 border-white shadow">
+                                            2
                                         </div>
                                     </div>
-                                    <div className="absolute -top-2.5 -right-1.5 bg-slate-300 text-slate-800 rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs font-bold border-2 border-white shadow">
-                                        2
+                                    <div className="text-center bg-white dark:bg-slate-900 rounded-xl sm:rounded-2xl p-1.5 sm:p-3.5 border border-slate-200 dark:border-slate-800 w-full shadow-sm group-hover:shadow-md transition-all min-w-0">
+                                        <p className="font-bold text-[11px] sm:text-sm truncate text-slate-800 dark:text-slate-100 max-w-full">
+                                            {podiumList[1].displayName || 'Học viên'}
+                                        </p>
+                                        <p className="text-[9px] sm:text-[10px] text-slate-400 mt-0.5 truncate max-w-full">
+                                            {formatScore(podiumList[1].totalCards || 0)} từ · {formatScore(podiumList[1].kanjiTotal || 0)} kanji
+                                        </p>
+                                        <div className="mt-1 sm:mt-1.5 text-indigo-600 dark:text-indigo-400 font-bold text-[10px] sm:text-xs flex items-center justify-center gap-0.5 font-mono">
+                                            <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-yellow-400 text-yellow-400 shrink-0" />
+                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[1].weeklyScore || podiumList[1].computedScore) : podiumList[1].computedScore)}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="text-center bg-white dark:bg-slate-900 rounded-2xl p-2.5 sm:p-3.5 border border-slate-200 dark:border-slate-800 w-full shadow-md group-hover:shadow-lg transition-all">
-                                    <p className="font-bold text-xs sm:text-sm truncate text-slate-800 dark:text-slate-100 max-w-full">
-                                        {podiumList[1].displayName || 'Học viên'}
-                                    </p>
-                                    <p className="text-[10px] text-slate-400 mt-0.5 whitespace-nowrap">
-                                        {formatScore(podiumList[1].totalCards || 0)} từ · {formatScore(podiumList[1].kanjiTotal || 0)} kanji
-                                    </p>
-                                    <div className="mt-1.5 text-indigo-600 dark:text-indigo-400 font-bold text-xs flex items-center justify-center gap-0.5 font-mono">
-                                        <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                                        {formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[1].weeklyScore || podiumList[1].computedScore) : podiumList[1].computedScore)}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+                            ) : <div className="w-full" />}
+                        </div>
 
                         {/* 1st Place (Gold Crown) */}
-                        {podiumList[0] && (
-                            <div className="flex flex-col items-center group z-10 cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[0].id)}>
-                                <div className="relative mb-2">
-                                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 text-yellow-500 animate-bounce">
-                                        <Crown className="w-7 h-7 fill-yellow-500 text-yellow-500 drop-shadow-md" />
-                                    </div>
-                                    <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-full border-4 border-yellow-400 overflow-hidden bg-white dark:bg-slate-800 shadow-xl group-hover:scale-105 transition-all ring-4 ring-yellow-400/20">
-                                        <div className="w-full h-full flex items-center justify-center text-2xl bg-amber-50 dark:bg-amber-950/20">
-                                            {getAvatarDisplayNode(podiumList[0].avatar, podiumList[0].displayName, podiumList[0].id === userId)}
+                        <div className="flex flex-col items-center min-w-0 w-full z-10">
+                            {podiumList[0] ? (
+                                <div className="flex flex-col items-center group cursor-pointer w-full min-w-0" onClick={() => handleToggleExpandUser(podiumList[0].id)}>
+                                    <div className="relative mb-1.5 sm:mb-2">
+                                        <div className="absolute -top-4 sm:-top-5 left-1/2 -translate-x-1/2 text-yellow-500 animate-bounce">
+                                            <Crown className="w-5 h-5 sm:w-7 sm:h-7 fill-yellow-500 text-yellow-500 drop-shadow-md" />
+                                        </div>
+                                        <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full border-3 sm:border-4 border-yellow-400 overflow-hidden bg-white dark:bg-slate-800 shadow-lg group-hover:scale-105 transition-all ring-2 sm:ring-4 ring-yellow-400/20">
+                                            <div className="w-full h-full flex items-center justify-center text-lg sm:text-2xl bg-amber-50 dark:bg-amber-950/20">
+                                                {getAvatarDisplayNode(podiumList[0].avatar, podiumList[0].displayName, podiumList[0].id === userId)}
+                                            </div>
+                                        </div>
+                                        <div className="absolute -top-1 -right-1 bg-yellow-400 text-yellow-950 rounded-full w-5 h-5 sm:w-7 sm:h-7 flex items-center justify-center text-[10px] sm:text-sm font-black border-2 border-white shadow">
+                                            1
                                         </div>
                                     </div>
-                                    <div className="absolute -top-1 -right-1 bg-yellow-400 text-yellow-950 rounded-full w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center text-xs sm:text-sm font-black border-2 border-white shadow">
-                                        1
+                                    <div className="text-center bg-gradient-to-b from-amber-50/90 to-white dark:from-amber-950/30 dark:to-slate-900 rounded-xl sm:rounded-2xl p-2 sm:p-4 border-2 border-yellow-300 dark:border-yellow-600/40 w-full shadow-md group-hover:shadow-lg transition-all ring-2 sm:ring-4 ring-yellow-400/10 min-w-0">
+                                        <p className="font-black text-xs sm:text-base truncate text-yellow-800 dark:text-yellow-400 max-w-full">
+                                            {podiumList[0].displayName || 'Học viên'}
+                                        </p>
+                                        <p className="text-[9px] sm:text-[10px] text-slate-400 mt-0.5 truncate max-w-full">
+                                            {formatScore(podiumList[0].totalCards || 0)} từ · {formatScore(podiumList[0].kanjiTotal || 0)} kanji
+                                        </p>
+                                        <div className="mt-1 sm:mt-2 text-yellow-700 dark:text-yellow-300 font-black text-[11px] sm:text-sm flex items-center justify-center gap-0.5 sm:gap-1 font-mono">
+                                            <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400 shrink-0" />
+                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[0].weeklyScore || podiumList[0].computedScore) : podiumList[0].computedScore)}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="text-center bg-gradient-to-b from-amber-50/80 to-white dark:from-amber-950/30 dark:to-slate-900 rounded-2xl p-3 sm:p-4 border-2 border-yellow-300 dark:border-yellow-600/40 w-full shadow-lg group-hover:shadow-xl transition-all ring-4 ring-yellow-400/10">
-                                    <p className="font-black text-xs sm:text-base truncate text-yellow-800 dark:text-yellow-400 max-w-full">
-                                        {podiumList[0].displayName || 'Học viên'}
-                                    </p>
-                                    <p className="text-[10px] text-slate-400 mt-0.5 whitespace-nowrap">
-                                        {formatScore(podiumList[0].totalCards || 0)} từ · {formatScore(podiumList[0].kanjiTotal || 0)} kanji
-                                    </p>
-                                    <div className="mt-2 text-yellow-700 dark:text-yellow-300 font-black text-sm flex items-center justify-center gap-1 font-mono">
-                                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                                        {formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[0].weeklyScore || podiumList[0].computedScore) : podiumList[0].computedScore)}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+                            ) : <div className="w-full" />}
+                        </div>
 
                         {/* 3rd Place (Bronze) */}
-                        {podiumList[2] && (
-                            <div className="flex flex-col items-center group cursor-pointer" onClick={() => handleToggleExpandUser(podiumList[2].id)}>
-                                <div className="relative mb-2">
-                                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-4 border-amber-600 overflow-hidden bg-white dark:bg-slate-800 shadow-lg group-hover:scale-105 transition-all">
-                                        <div className="w-full h-full flex items-center justify-center text-xl bg-orange-50 dark:bg-orange-950/20">
-                                            {getAvatarDisplayNode(podiumList[2].avatar, podiumList[2].displayName, podiumList[2].id === userId)}
+                        <div className="flex flex-col items-center min-w-0 w-full">
+                            {podiumList[2] ? (
+                                <div className="flex flex-col items-center group cursor-pointer w-full min-w-0" onClick={() => handleToggleExpandUser(podiumList[2].id)}>
+                                    <div className="relative mb-1.5 sm:mb-2">
+                                        <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 sm:border-4 border-amber-600 overflow-hidden bg-white dark:bg-slate-800 shadow-md group-hover:scale-105 transition-all">
+                                            <div className="w-full h-full flex items-center justify-center text-base sm:text-xl bg-orange-50 dark:bg-orange-950/20">
+                                                {getAvatarDisplayNode(podiumList[2].avatar, podiumList[2].displayName, podiumList[2].id === userId)}
+                                            </div>
+                                        </div>
+                                        <div className="absolute -top-1.5 -right-1 bg-amber-600 text-white rounded-full w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center text-[10px] sm:text-xs font-bold border-2 border-white shadow">
+                                            3
                                         </div>
                                     </div>
-                                    <div className="absolute -top-2.5 -right-1.5 bg-amber-600 text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs font-bold border-2 border-white shadow">
-                                        3
+                                    <div className="text-center bg-white dark:bg-slate-900 rounded-xl sm:rounded-2xl p-1.5 sm:p-3.5 border border-slate-200 dark:border-slate-800 w-full shadow-sm group-hover:shadow-md transition-all min-w-0">
+                                        <p className="font-bold text-[11px] sm:text-sm truncate text-slate-800 dark:text-slate-100 max-w-full">
+                                            {podiumList[2].displayName || 'Học viên'}
+                                        </p>
+                                        <p className="text-[9px] sm:text-[10px] text-slate-400 mt-0.5 truncate max-w-full">
+                                            {formatScore(podiumList[2].totalCards || 0)} từ · {formatScore(podiumList[2].kanjiTotal || 0)} kanji
+                                        </p>
+                                        <div className="mt-1 sm:mt-1.5 text-indigo-600 dark:text-indigo-400 font-bold text-[10px] sm:text-xs flex items-center justify-center gap-0.5 font-mono">
+                                            <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-yellow-400 text-yellow-400 shrink-0" />
+                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[2].weeklyScore || podiumList[2].computedScore) : podiumList[2].computedScore)}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="text-center bg-white dark:bg-slate-900 rounded-2xl p-2.5 sm:p-3.5 border border-slate-200 dark:border-slate-800 w-full shadow-md group-hover:shadow-lg transition-all">
-                                    <p className="font-bold text-xs sm:text-sm truncate text-slate-800 dark:text-slate-100 max-w-full">
-                                        {podiumList[2].displayName || 'Học viên'}
-                                    </p>
-                                    <p className="text-[10px] text-slate-400 mt-0.5 whitespace-nowrap">
-                                        {formatScore(podiumList[2].totalCards || 0)} từ · {formatScore(podiumList[2].kanjiTotal || 0)} kanji
-                                    </p>
-                                    <div className="mt-1.5 text-indigo-600 dark:text-indigo-400 font-bold text-xs flex items-center justify-center gap-0.5 font-mono">
-                                        <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                                        {formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[2].weeklyScore || podiumList[2].computedScore) : podiumList[2].computedScore)}
-                                    </div>
-                                </div>
-                            </div>
-                        )}
+                            ) : <div className="w-full" />}
+                        </div>
                     </div>
                 </div>
             )}
 
             {/* ==================== MAIN LEADERBOARD LIST TABLE ==================== */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden">
                 {/* Search and Sort Toolbar */}
-                <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 space-y-4">
+                <div className="p-3.5 sm:p-5 border-b border-slate-200 dark:border-slate-800 space-y-3 sm:space-y-4">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                         {/* Search Box */}
                         <div className="relative flex-1">
@@ -782,13 +783,13 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                                 placeholder="Tìm kiếm người học..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="block w-full pl-9 pr-4 py-2 border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/60 placeholder-slate-400 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                className="block w-full pl-9 pr-4 py-2 border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/60 placeholder-slate-400 text-slate-800 dark:text-slate-100 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                             />
                         </div>
 
                         {/* Sort Options */}
-                        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-                            <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 whitespace-nowrap">Sắp xếp:</span>
+                        <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+                            <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 dark:text-slate-500 whitespace-nowrap">Sắp xếp:</span>
                             {[
                                 { id: 'score', label: 'Điểm XP', icon: Star },
                                 { id: 'vocab', label: 'Từ vựng', icon: BookOpen },
@@ -802,13 +803,13 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                                     <button
                                         key={opt.id}
                                         onClick={() => { setSortBy(opt.id); setDisplayCount(20); }}
-                                        className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all border cursor-pointer whitespace-nowrap ${
+                                        className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all border cursor-pointer whitespace-nowrap ${
                                             isActive
                                                 ? 'bg-indigo-600 border-indigo-500 text-white shadow-sm'
                                                 : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
                                         }`}
                                     >
-                                        <Icon className="w-3.5 h-3.5" />
+                                        <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                                         <span>{opt.label}</span>
                                     </button>
                                 );
@@ -825,10 +826,10 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                             const isMe = user.id === userId;
                             const isExpanded = expandedUser === user.id;
 
-                            const rankIcon = rank === 1 ? <Crown className="w-5 h-5 text-yellow-500 fill-yellow-100 dark:fill-yellow-900/30" />
-                                : rank === 2 ? <Medal className="w-5 h-5 text-slate-400 fill-slate-100 dark:fill-slate-800" />
-                                    : rank === 3 ? <Medal className="w-5 h-5 text-amber-600 fill-amber-100 dark:fill-amber-900/30" />
-                                        : <span className="text-xs font-bold text-slate-400 dark:text-slate-500 w-5 text-center font-mono">#{rank}</span>;
+                            const rankIcon = rank === 1 ? <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500 fill-yellow-100 dark:fill-yellow-900/30" />
+                                : rank === 2 ? <Medal className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 fill-slate-100 dark:fill-slate-800" />
+                                    : rank === 3 ? <Medal className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 fill-amber-100 dark:fill-amber-900/30" />
+                                        : <span className="text-[11px] sm:text-xs font-bold text-slate-400 dark:text-slate-500 w-5 text-center font-mono">#{rank}</span>;
 
                             const scoreValue = activeLeaderboardTab === 'weekly' 
                                 ? (user.weeklyScore || user.computedScore || 0)
@@ -846,36 +847,36 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                                     {/* Main Row */}
                                     <div 
                                         onClick={() => handleToggleExpandUser(user.id)}
-                                        className="flex items-center gap-3 p-3.5 sm:p-4 cursor-pointer"
+                                        className="flex items-center gap-2.5 sm:gap-3 p-3 sm:p-4 cursor-pointer"
                                     >
-                                        <div className="flex-shrink-0 w-7 flex justify-center">{rankIcon}</div>
+                                        <div className="flex-shrink-0 w-6 sm:w-7 flex justify-center">{rankIcon}</div>
 
-                                        <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-lg font-bold">
+                                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-base sm:text-lg font-bold">
                                             {getAvatarDisplayNode(user.avatar, user.displayName || 'U', isMe)}
                                         </div>
 
                                         <div className="flex-1 min-w-0">
-                                            <div className="flex items-center gap-1.5 flex-wrap">
-                                                <p className={`text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-800 dark:text-slate-100'}`}>
+                                            <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap">
+                                                <p className={`text-xs sm:text-sm font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-800 dark:text-slate-100'}`}>
                                                     {user.displayName || 'Học viên'}
                                                 </p>
                                                 {isMe && (
-                                                    <span className="bg-indigo-600 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">
+                                                    <span className="bg-indigo-600 text-white text-[7px] sm:text-[8px] font-black px-1.5 py-0.5 rounded uppercase">
                                                         BẠN
                                                     </span>
                                                 )}
                                                 {user.level && (
-                                                    <span className="bg-sky-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">
+                                                    <span className="bg-sky-500 text-white text-[7px] sm:text-[8px] font-black px-1.5 py-0.5 rounded uppercase">
                                                         LV {user.level}
                                                     </span>
                                                 )}
                                                 {user.title && (
-                                                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[8px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[90px]">
+                                                    <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-[7px] sm:text-[8px] font-semibold px-1.5 py-0.5 rounded truncate max-w-[80px] sm:max-w-[90px]">
                                                         {user.title}
                                                     </span>
                                                 )}
                                                 {isUserPremiumActive(user) && (
-                                                    <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase flex items-center gap-0.5 shadow-sm">
+                                                    <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[7px] sm:text-[8px] font-black px-1.5 py-0.5 rounded uppercase flex items-center gap-0.5 shadow-sm">
                                                         <Crown className="w-2 h-2 fill-white text-white" />
                                                         PREMIUM
                                                     </span>
@@ -883,25 +884,25 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                                             </div>
 
                                             {/* Simple stats badges */}
-                                            <div className="flex items-center gap-2 sm:gap-3 text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-1 flex-wrap">
+                                            <div className="flex items-center gap-1.5 sm:gap-3 text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5 sm:mt-1 flex-wrap">
                                                 <span>📚 <strong>{formatScore(user.totalCards || 0)}</strong> từ ({formatScore(user.mastered || 0)} thuộc)</span>
                                                 <span>·</span>
                                                 <span>🈸 <strong>{formatScore(user.kanjiTotal || 0)}</strong> kanji ({formatScore(user.kanjiMastered || 0)} thuộc)</span>
                                                 <span>·</span>
                                                 <span className="flex items-center gap-0.5 text-orange-500">
-                                                    <Flame className="w-3.5 h-3.5 fill-orange-500" />
+                                                    <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-orange-500" />
                                                     <strong>{formatScore(user.streak || 0)}</strong> ngày
                                                 </span>
                                             </div>
                                         </div>
 
                                         {/* Score */}
-                                        <div className="text-right flex-shrink-0">
-                                            <div className="text-sm sm:text-base font-black text-amber-600 dark:text-amber-400 flex items-center gap-1 justify-end font-mono">
-                                                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                                                {formatScore(scoreValue)}
+                                        <div className="text-right flex-shrink-0 pl-1">
+                                            <div className="text-xs sm:text-base font-black text-amber-600 dark:text-amber-400 flex items-center gap-0.5 sm:gap-1 justify-end font-mono">
+                                                <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400 shrink-0" />
+                                                <span>{formatScore(scoreValue)}</span>
                                             </div>
-                                            <div className="text-[10px] text-slate-400 font-bold uppercase">
+                                            <div className="text-[9px] sm:text-[10px] text-slate-400 font-bold uppercase">
                                                 {activeLeaderboardTab === 'weekly' ? 'Điểm tuần' : 'Tổng XP'}
                                             </div>
                                         </div>

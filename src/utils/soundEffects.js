@@ -187,39 +187,127 @@ export function playCompletionFanfare() {
     }
 }
 
-// ==================== POMODORO BREAK CHIME ALARM ====================
-export function playBreakAlarmSound() {
+// ==================== FOCUS MODE ZEN CHIMES ====================
+
+/**
+ * Âm thanh bắt đầu phiên tập trung: Chuông thiền Zen 3 nốt ấm áp, du dương, tạo cảm hứng tập trung sâu
+ */
+export function playFocusStartSound() {
     if (!isSfxEnabled()) return;
     const volume = getSfxVolume();
     try {
         const ctx = getSharedAudioContext();
         if (!ctx) return;
 
-        // Try playing fanfare MP3
-        playCompletionFanfare();
+        // Ascending harmonic chime: D4 (293.66Hz), A4 (440Hz), D5 (587.33Hz)
+        const notes = [293.66, 440.00, 587.33];
+        notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            const filter = ctx.createBiquadFilter();
 
-        // Synthesize crystal 4-tone marimba chime (C5, E5, G5, C6)
+            osc.type = 'sine';
+            const startTime = ctx.currentTime + idx * 0.14;
+            osc.frequency.setValueAtTime(freq, startTime);
+
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(2400, startTime);
+            filter.frequency.exponentialRampToValueAtTime(800, startTime + 1.2);
+
+            gain.gain.setValueAtTime(0, startTime);
+            gain.gain.linearRampToValueAtTime(volume * 0.22, startTime + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 1.2);
+
+            osc.connect(filter);
+            filter.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start(startTime);
+            osc.stop(startTime + 1.25);
+        });
+    } catch (e) {
+        console.warn('Focus start sound error:', e);
+    }
+}
+
+/**
+ * Âm thanh báo đến giờ nghỉ giải lao: Chuông gió êm dịu, nhẹ nhàng, nhắc nhở thư giãn mắt và tinh thần
+ */
+export function playBreakReminderSound() {
+    if (!isSfxEnabled()) return;
+    const volume = getSfxVolume();
+    try {
+        const ctx = getSharedAudioContext();
+        if (!ctx) return;
+
+        // Soft, gentle descending relaxation chime: E5 (659.25Hz), B4 (493.88Hz), G#4 (415.30Hz), E4 (329.63Hz)
+        const notes = [659.25, 493.88, 415.30, 329.63];
+        notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            const filter = ctx.createBiquadFilter();
+
+            osc.type = 'sine';
+            const startTime = ctx.currentTime + idx * 0.18;
+            osc.frequency.setValueAtTime(freq, startTime);
+
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(1800, startTime);
+            filter.frequency.exponentialRampToValueAtTime(600, startTime + 1.4);
+
+            gain.gain.setValueAtTime(0, startTime);
+            gain.gain.linearRampToValueAtTime(volume * 0.2, startTime + 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 1.4);
+
+            osc.connect(filter);
+            filter.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start(startTime);
+            osc.stop(startTime + 1.45);
+        });
+    } catch (e) {
+        console.warn('Break reminder sound error:', e);
+    }
+}
+
+/**
+ * Âm thanh khi hoàn thành toàn bộ chu kỳ phiên tập trung
+ */
+export function playFocusCompleteSound() {
+    if (!isSfxEnabled()) return;
+    const volume = getSfxVolume();
+    try {
+        const ctx = getSharedAudioContext();
+        if (!ctx) return;
+
+        // Warm harmonious chime: C5 (523.25Hz), E5 (659.25Hz), G5 (783.99Hz), C6 (1046.50Hz)
         const notes = [523.25, 659.25, 783.99, 1046.50];
         notes.forEach((freq, idx) => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
 
             osc.type = 'sine';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.12);
+            const startTime = ctx.currentTime + idx * 0.12;
+            osc.frequency.setValueAtTime(freq, startTime);
 
-            gain.gain.setValueAtTime(0, ctx.currentTime + idx * 0.12);
-            gain.gain.linearRampToValueAtTime(volume * 0.35, ctx.currentTime + idx * 0.12 + 0.02);
-            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.12 + 0.8);
+            gain.gain.setValueAtTime(0, startTime);
+            gain.gain.linearRampToValueAtTime(volume * 0.22, startTime + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 1.3);
 
             osc.connect(gain);
             gain.connect(ctx.destination);
 
-            osc.start(ctx.currentTime + idx * 0.12);
-            osc.stop(ctx.currentTime + idx * 0.12 + 0.85);
+            osc.start(startTime);
+            osc.stop(startTime + 1.35);
         });
     } catch (e) {
-        console.warn('Break alarm sound error:', e);
+        console.warn('Focus complete sound error:', e);
     }
+}
+
+export function playBreakAlarmSound() {
+    playBreakReminderSound();
 }
 
 // ==================== BACKGROUND MUSIC SYSTEM ====================

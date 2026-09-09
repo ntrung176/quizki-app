@@ -1,11 +1,75 @@
 import React, { createContext, useContext, useState, useEffect, useRef, useMemo } from 'react';
 import { showToast } from '../utils/toast';
-import { playCompletionFanfare, playCorrectSound, playBreakAlarmSound } from '../utils/soundEffects';
+import { playFocusStartSound, playBreakReminderSound, playFocusCompleteSound } from '../utils/soundEffects';
 
 const FocusContext = createContext();
 
 const STORAGE_KEY_STATS = 'quizki_focus_stats';
 const STORAGE_KEY_CONFIG = 'quizki_focus_config';
+
+/**
+ * Chia tổng thời gian người dùng chọn thành các chu kỳ Pomodoro chuẩn (tối đa 25 phút/phiên tập trung)
+ * và các khoảng nghỉ ngắn 5 phút ở giữa (giống cơ chế Windows Focus Sessions).
+ */
+export const buildFocusSchedule = (totalMinutes, skipBreaks = false) => {
+    const mins = Math.max(5, totalMinutes || 25);
+    if (skipBreaks || mins <= 25) {
+        return [
+            {
+                id: 'focus-1',
+                type: 'focus',
+                durationMinutes: mins,
+                durationSeconds: mins * 60,
+                periodIndex: 1,
+                totalPeriods: 1
+            }
+        ];
+    }
+
+    const schedule = [];
+    let remaining = mins;
+    const focusChunks = [];
+
+    // Chia thành các đoạn tối đa 25 phút
+    while (remaining > 0) {
+        if (remaining >= 25) {
+            focusChunks.push(25);
+            remaining -= 25;
+        } else {
+            focusChunks.push(remaining);
+            remaining = 0;
+        }
+    }
+
+    const totalFocusCount = focusChunks.length;
+
+    focusChunks.forEach((chunkMins, idx) => {
+        schedule.push({
+            id: `focus-${idx + 1}`,
+            type: 'focus',
+            durationMinutes: chunkMins,
+            durationSeconds: chunkMins * 60,
+            periodIndex: idx + 1,
+            totalPeriods: totalFocusCount
+        });
+
+        // Thêm nghỉ giải lao ở giữa các phiên tập trung
+        if (idx < totalFocusCount - 1) {
+            const isLongBreak = (idx + 1) % 4 === 0;
+            const breakMins = isLongBreak ? 15 : 5;
+            schedule.push({
+                id: `break-${idx + 1}`,
+                type: 'break',
+                durationMinutes: breakMins,
+                durationSeconds: breakMins * 60,
+                breakIndex: idx + 1,
+                totalBreaks: totalFocusCount - 1
+            });
+        }
+    });
+
+    return schedule;
+};
 
 export const FocusProvider = ({ children }) => {
     // Configuration states
@@ -14,10 +78,10 @@ export const FocusProvider = ({ children }) => {
             const saved = localStorage.getItem(STORAGE_KEY_CONFIG);
             if (saved) {
                 const parsed = JSON.parse(saved);
-                return parsed.targetMinutes || 40;
+                return parsed.targetMinutes || 60;
             }
         } catch (e) {}
-        return 40;
+        return 60;
     });
 
     const [skipBreaks, setSkipBreaks] = useState(() => {
@@ -48,7 +112,14 @@ export const FocusProvider = ({ children }) => {
     const [currentMode, setCurrentMode] = useState('focus'); // 'focus' | 'break'
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // Schedule queue
+    const [sessionSchedule, setSessionSchedule] = useState([]);
+    const [currentScheduleIndex, setCurrentScheduleIndex] = useState(0);
+
     const timerRef = useRef(null);
+
+    const currentPeriod = sessionSchedule[currentScheduleIndex] || null;
+    const nextPeriod = sessionSchedule[currentScheduleIndex + 1] || null;
 
     // Save config changes
     useEffect(() => {
@@ -83,55 +154,66 @@ export const FocusProvider = ({ children }) => {
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);
         };
-    }, [status, currentMode, skipBreaks, targetMinutes]);
+    }, [status, currentScheduleIndex, sessionSchedule]);
 
-    // Handle session / break transition
+    // Handle period transition
     const handleTimerCompletion = () => {
-        playBreakAlarmSound();
+        const schedule = sessionSchedule;
+        const currentItem = schedule[currentScheduleIndex];
+        const nextIndex = currentScheduleIndex + 1;
 
-        if (currentMode === 'focus') {
-            // Completed a focus session!
-            const addedMinutes = Math.round(totalSeconds / 60);
+        if (currentItem && currentItem.type === 'focus') {
             setStats(prev => ({
-                completedSessions: prev.completedSessions + 1,
-                totalFocusMinutes: prev.totalFocusMinutes + addedMinutes
+                ...prev,
+                totalFocusMinutes: prev.totalFocusMinutes + currentItem.durationMinutes
             }));
+        }
 
-            if (skipBreaks) {
-                showToast(`🎉 Xuất sắc! Đã hoàn thành phiên tập trung ${addedMinutes} phút!`, 'success');
-                setStatus('idle');
-                setCurrentMode('focus');
+        if (nextIndex < schedule.length) {
+            const nextItem = schedule[nextIndex];
+            setCurrentScheduleIndex(nextIndex);
+            setCurrentMode(nextItem.type);
+            setStatus(nextItem.type === 'focus' ? 'focusing' : 'break');
+            setTotalSeconds(nextItem.durationSeconds);
+            setSecondsLeft(nextItem.durationSeconds);
+
+            if (nextItem.type === 'break') {
+                playBreakReminderSound();
+                showToast(`☕ Đã xong phiên tập trung! Hãy nghỉ ngơi ${nextItem.durationMinutes} phút nhé.`, 'success', 5000);
             } else {
-                // Determine break duration (5 min for short break, 15 min for long break after 4 sessions)
-                const isLongBreak = (stats.completedSessions + 1) % 4 === 0;
-                const breakMins = isLongBreak ? 15 : 5;
-                const breakSecs = breakMins * 60;
-
-                showToast(`🎉 Đã xong phiên tập trung! Hãy nghỉ giải lao ${breakMins} phút ☕`, 'success', 5000);
-                setCurrentMode('break');
-                setStatus('break');
-                setSecondsLeft(breakSecs);
-                setTotalSeconds(breakSecs);
+                playFocusStartSound();
+                showToast(`🎯 Hết giờ nghỉ! Bắt đầu phiên tập trung (${nextItem.periodIndex}/${nextItem.totalPeriods}) - ${nextItem.durationMinutes} phút!`, 'info', 5000);
             }
         } else {
-            // Completed a break!
-            showToast('🎯 Hết giờ nghỉ giải lao! Bắt đầu phiên tập trung mới nào!', 'info', 5000);
-            setCurrentMode('focus');
+            // Completed all periods in the entire session!
+            playFocusCompleteSound();
+            setStats(prev => ({
+                ...prev,
+                completedSessions: prev.completedSessions + 1
+            }));
+            showToast(`🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn phiên tập trung ${targetMinutes} phút!`, 'success', 6000);
             setStatus('idle');
+            setCurrentMode('focus');
+            setSessionSchedule([]);
+            setCurrentScheduleIndex(0);
         }
     };
 
     // Actions
     const startFocusSession = (customMins = targetMinutes, customSkipBreaks = skipBreaks) => {
-        const mins = customMins || 40;
-        const totalSecs = mins * 60;
+        const mins = customMins || 60;
+        const schedule = buildFocusSchedule(mins, customSkipBreaks);
         setTargetMinutes(mins);
         setSkipBreaks(customSkipBreaks);
-        setCurrentMode('focus');
-        setTotalSeconds(totalSecs);
-        setSecondsLeft(totalSecs);
+        setSessionSchedule(schedule);
+        setCurrentScheduleIndex(0);
+
+        const firstItem = schedule[0];
+        setCurrentMode(firstItem.type);
+        setTotalSeconds(firstItem.durationSeconds);
+        setSecondsLeft(firstItem.durationSeconds);
         setStatus('focusing');
-        playCorrectSound();
+        playFocusStartSound();
 
         // Trigger full screen mode for maximum focus
         try {
@@ -142,7 +224,10 @@ export const FocusProvider = ({ children }) => {
             }
         } catch (e) {}
 
-        showToast(`🎯 Đã bắt đầu phiên tập trung ${mins} phút!`, 'success');
+        const focusText = firstItem.totalPeriods > 1 
+            ? `Phiên 1/${firstItem.totalPeriods} (${firstItem.durationMinutes} phút)` 
+            : `${firstItem.durationMinutes} phút`;
+        showToast(`🎯 Đã bắt đầu phiên tập trung: ${focusText}!`, 'success');
     };
 
     const pauseSession = () => {
@@ -154,8 +239,16 @@ export const FocusProvider = ({ children }) => {
 
     const resumeSession = () => {
         if (status === 'paused') {
-            setStatus(previousStatus || 'focusing');
+            setStatus(previousStatus || (currentMode === 'break' ? 'break' : 'focusing'));
+            if (currentMode === 'focus') {
+                playFocusStartSound();
+            }
         }
+    };
+
+    const skipToNextPeriod = () => {
+        if (status === 'idle') return;
+        handleTimerCompletion();
     };
 
     const stopSession = () => {
@@ -163,6 +256,8 @@ export const FocusProvider = ({ children }) => {
         setSecondsLeft(0);
         setTotalSeconds(0);
         setCurrentMode('focus');
+        setSessionSchedule([]);
+        setCurrentScheduleIndex(0);
         showToast('Đã dừng phiên tập trung.', 'info');
     };
 
@@ -172,13 +267,24 @@ export const FocusProvider = ({ children }) => {
         return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     };
 
-    // Calculate break info text
+    // Calculate break info text for setup view
     const getBreakInfoText = (mins, isSkip) => {
-        if (isSkip) return 'Bỏ qua giờ nghỉ ngơi.';
-        if (mins < 30) return 'Bạn sẽ có 1 lần nghỉ ngắn (5 phút).';
-        if (mins < 60) return 'Bạn sẽ có 1 lần nghỉ ngắn (5 phút).';
-        const breaks = Math.floor(mins / 30);
-        return `Bạn sẽ có ${breaks} lần nghỉ (5 - 15 phút).`;
+        if (isSkip) return 'Bỏ qua giờ nghỉ ngơi (học liên tục).';
+        if (mins <= 25) return `1 phiên tập trung (${mins} phút), không nghỉ giữa giờ.`;
+        const schedule = buildFocusSchedule(mins, isSkip);
+        const focusItems = schedule.filter(s => s.type === 'focus');
+        const breakItems = schedule.filter(s => s.type === 'break');
+        const breakdownStr = focusItems.map(f => `${f.durationMinutes}m`).join(', ');
+        return `Bạn sẽ có ${breakItems.length} lần nghỉ (5 phút) giữa ${focusItems.length} phiên (${breakdownStr}).`;
+    };
+
+    // Up next display text
+    const getUpNextText = () => {
+        if (!nextPeriod) return 'Hoàn thành phiên học 🎉';
+        if (nextPeriod.type === 'break') {
+            return `Nghỉ giải lao ${nextPeriod.durationMinutes} phút`;
+        }
+        return `Phiên tập trung (${nextPeriod.periodIndex}/${nextPeriod.totalPeriods}) - ${nextPeriod.durationMinutes} phút`;
     };
 
     const value = useMemo(() => ({
@@ -193,13 +299,40 @@ export const FocusProvider = ({ children }) => {
         totalSeconds,
         isModalOpen,
         setIsModalOpen,
+        sessionSchedule,
+        currentScheduleIndex,
+        currentPeriod,
+        nextPeriod,
+        getUpNextText,
         startFocusSession,
         pauseSession,
         resumeSession,
+        skipToNextPeriod,
         stopSession,
         formatTime,
         getBreakInfoText
-    }), [targetMinutes, setTargetMinutes, skipBreaks, setSkipBreaks, stats, status, currentMode, secondsLeft, totalSeconds, isModalOpen, setIsModalOpen, startFocusSession, pauseSession, resumeSession, stopSession]);
+    }), [
+        targetMinutes, 
+        setTargetMinutes, 
+        skipBreaks, 
+        setSkipBreaks, 
+        stats, 
+        status, 
+        currentMode, 
+        secondsLeft, 
+        totalSeconds, 
+        isModalOpen, 
+        setIsModalOpen, 
+        sessionSchedule, 
+        currentScheduleIndex, 
+        currentPeriod, 
+        nextPeriod, 
+        startFocusSession, 
+        pauseSession, 
+        resumeSession, 
+        skipToNextPeriod, 
+        stopSession
+    ]);
 
     return (
         <FocusContext.Provider value={value}>

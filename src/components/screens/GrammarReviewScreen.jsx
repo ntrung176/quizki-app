@@ -1079,59 +1079,53 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             <TopTabBar tabs={GRAMMAR_TABS} />
 
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
-                {/* Cyber-AI Hero Banner */}
-                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/10 dark:bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-60 h-60 bg-emerald-500/10 dark:bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
+                {/* Unified Hero Banner */}
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="space-y-3 text-center md:text-left">
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
-                                    <Cpu className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-spin-slow" />
-                                    <span>[GRAMMAR SRS ENGINE]</span>
-                                </div>
-                                <button
-                                    onClick={() => setShowLeechManager(true)}
-                                    className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${leechGrammarItems.length > 0
-                                            ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
-                                            : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
-                                        }`}
-                                >
-                                    <span>🩸 {t('grammar.leechCards', 'Thẻ Khó')} ({leechGrammarItems.length})</span>
-                                </button>
+                    <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+                        <div className="space-y-1.5 text-center md:text-left flex-1">
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                                    {t('grammar.title', 'Ôn tập Ngữ pháp')}
+                                </h1>
+                                {leechGrammarItems.length > 0 && (
+                                    <button
+                                        onClick={() => setShowLeechManager(true)}
+                                        className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition-colors cursor-pointer"
+                                    >
+                                        <span>{t('grammar.leechCards', 'Thẻ Khó')} ({leechGrammarItems.length})</span>
+                                    </button>
+                                )}
                                 <button
                                     onClick={() => setShowSettingsModal(true)}
-                                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 border border-indigo-200/80 dark:border-indigo-800/80 text-indigo-700 dark:text-indigo-300 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm"
+                                    className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
                                     title="Cấu hình thẻ ôn tập"
                                 >
-                                    <Settings className="w-3.5 h-3.5 text-indigo-500" />
                                     <span>Cài đặt thẻ</span>
                                 </button>
                             </div>
-                            <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                                {t('grammar.title', 'Ôn tập Ngữ pháp')}
-                            </h1>
-                            <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
+                            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md font-medium leading-relaxed">
                                 {t('grammar.subtitle', 'Ứng dụng thuật toán lặp lại ngắt quãng để tự động lên lịch ôn tập cho các cấu trúc ngữ pháp bạn đã học.')}
                             </p>
                         </div>
-                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 shadow-inner">
-                            <span className="text-5xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-1">
+
+                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 dark:border-slate-800 text-center w-full md:w-60 shrink-0 shadow-xs">
+                            <span className="text-3xl sm:text-4xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-0.5">
                                 {stats.dueToday}
                             </span>
-                            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-mono font-black uppercase tracking-wider">{t('grammar.dueGrammarLabel', 'Mẫu câu cần ôn tập')}</span>
+                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{t('grammar.dueGrammarLabel', 'Mẫu câu cần ôn tập')}</span>
                             {stats.dueToday > 0 ? (
                                 <button
                                     onClick={() => startReview()}
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-lime-400 via-emerald-600 to-green-700 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer"
+                                    className="mt-3 w-full py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all shadow-md bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white active:scale-95 cursor-pointer min-h-[40px]"
                                 >
                                     {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
                             ) : (
                                 <button
                                     disabled
-                                    className="mt-4 w-full py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed"
+                                    className="mt-3 w-full py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed min-h-[40px]"
                                 >
                                     {t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}
                                 </button>

@@ -1484,54 +1484,48 @@ const SRSVocabScreen = ({
 
 
 
-                {/* Today's Focus Overview Banner - Cyber-AI HUD Header */}
-                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 p-4 sm:p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl group">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 dark:bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+                {/* Unified Hero Banner */}
+                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
-                        <div className="space-y-2 sm:space-y-3 text-center md:text-left max-w-lg">
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-1.5 sm:gap-2">
-                                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
-                                    <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
-                                    <span>[NEURAL SRS ENGINE] {t('vocab.srsEngine', 'ÔN TẬP NGẮT QUÃNG')}</span>
-                                </div>
-                                <button
-                                    onClick={() => setShowLeechManager(true)}
-                                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${leechVocabCards.length > 0
-                                            ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
-                                            : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
-                                        }`}
-                                >
-                                    <span>🩸 {t('vocab.leechCards', 'Thẻ Khó')} ({leechVocabCards.length})</span>
-                                </button>
+                        <div className="space-y-1.5 text-center md:text-left max-w-lg flex-1">
+                            <div className="flex items-center justify-center md:justify-start gap-2.5">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                                    {t('vocab.title', 'Ôn tập Từ vựng')}
+                                </h1>
+                                {leechVocabCards.length > 0 && (
+                                    <button
+                                        onClick={() => setShowLeechManager(true)}
+                                        className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition-colors cursor-pointer"
+                                    >
+                                        <span>{t('vocab.leechCards', 'Thẻ Khó')} ({leechVocabCards.length})</span>
+                                    </button>
+                                )}
                             </div>
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                                {t('vocab.title', 'Ôn tập Từ vựng')}
-                            </h1>
-                            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
+                            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
                                 {t('vocab.subtitle', 'Củng cố trí nhớ dài hạn bằng phương pháp lặp lại ngắt quãng thông minh.')}
                             </p>
                         </div>
 
-                        <div className="flex flex-row md:flex-col items-center justify-between bg-slate-50 dark:bg-slate-950/90 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 border border-slate-200 dark:border-cyan-500/30 text-center w-full md:w-64 shrink-0 shadow-md gap-3">
+                        <div className="flex flex-row md:flex-col items-center justify-between bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 dark:border-slate-800 text-center w-full md:w-60 shrink-0 shadow-xs gap-3">
                             <div className="flex flex-col items-start md:items-center text-left md:text-center">
-                                <span className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight font-mono leading-none">
+                                <span className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight font-mono leading-none">
                                     {savedSessionInfo ? savedSessionInfo.remaining : globalStats.due}
                                 </span>
-                                <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 font-mono font-extrabold uppercase tracking-wider mt-0.5">{t('vocab.dueWordsLabel', 'TỪ VỰNG ĐẾN HẠN ÔN')}</span>
+                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-0.5">{t('vocab.dueWordsLabel', 'TỪ VỰNG ĐẾN HẠN ÔN')}</span>
                             </div>
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="md:mt-4 px-4 py-2.5 md:w-full rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-amber-500 to-orange-500 text-white hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer shrink-0 min-h-[44px]"
+                                    className="md:mt-3 px-4 py-2.5 md:w-full rounded-xl text-xs font-bold tracking-wide uppercase transition-all shadow-md bg-gradient-to-r from-amber-500 to-orange-500 text-white active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shrink-0 min-h-[40px]"
                                 >
                                     {t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}
                                 </button>
                             ) : globalStats.due > 0 ? (
                                 <button
                                     onClick={handleResumeGlobal}
-                                    className="md:mt-4 px-4 py-2.5 md:w-full rounded-xl text-xs font-bold font-mono tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer shrink-0 min-h-[44px]"
+                                    className="md:mt-3 px-4 py-2.5 md:w-full rounded-xl text-xs font-bold tracking-wide uppercase transition-all shadow-md bg-gradient-to-r from-cyan-600 via-indigo-600 to-sky-600 text-white active:scale-95 cursor-pointer shrink-0 min-h-[40px]"
                                 >
                                     {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
@@ -1540,7 +1534,7 @@ const SRSVocabScreen = ({
                             ) : (
                                 <button
                                     disabled
-                                    className="md:mt-4 px-3 py-2 md:w-full rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed shrink-0"
+                                    className="md:mt-3 px-3 py-2 md:w-full rounded-xl text-xs font-bold tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed shrink-0 min-h-[40px]"
                                 >
                                     {t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}
                                 </button>

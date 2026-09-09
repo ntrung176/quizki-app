@@ -24,6 +24,8 @@ export const useAppNavigation = () => {
             'IMPORT': ROUTES.IMPORT,
             'ADMIN': ROUTES.ADMIN,
             'SETTINGS': ROUTES.SETTINGS,
+            'JLPT_KAIWA': ROUTES.JLPT_KAIWA,
+            'VIDEO_KAIWA': ROUTES.VIDEO_KAIWA,
         };
         const route = routeMap[viewName] || ROUTES.HOME;
         if (location.pathname !== route) {
@@ -58,6 +60,8 @@ export const useAppNavigation = () => {
         if (path === ROUTES.SETTINGS) return 'SETTINGS';
         if (path === ROUTES.JLPT_TEST) return 'JLPT_TEST';
         if (path === ROUTES.JLPT_ADMIN) return 'JLPT_ADMIN';
+        if (path === ROUTES.JLPT_KAIWA || path.startsWith('/jlpt/kaiwa')) return 'JLPT_KAIWA';
+        if (path === ROUTES.VIDEO_KAIWA || path.startsWith('/kaiwa/video')) return 'VIDEO_KAIWA';
         return 'HOME';
     }, [location.pathname]);
 

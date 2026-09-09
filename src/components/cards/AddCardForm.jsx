@@ -1176,26 +1176,22 @@ const AddCardForm = ({
 
             <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-6 space-y-8 animate-fade-in">
 
-                {/* Cyber-AI Hero Header */}
-                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-3xl p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl relative group">
-                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <div className="space-y-1">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-wider">
-                                <Cpu className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
-                                <span>[NEURAL CREATOR HUD]</span>
-                            </div>
-                            <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                {/* Unified Hero Header */}
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
+                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+                        <div className="space-y-1 flex-1">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
                                 {t('forms.addSetTitle', 'Thêm học phần mới')}
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 text-sm font-medium">
+                            <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-medium">
                                 {t('forms.addSetSub', 'Tạo lộ trình học tập của bạn với bộ sưu tập từ vựng tập trung.')}
                             </p>
                         </div>
-                        <div className="flex items-center gap-3 shrink-0">
+                        <div className="flex items-center gap-2.5 shrink-0">
                             <button
                                 type="button"
                                 onClick={onBack}
-                                className="px-6 py-2.5 text-xs font-mono font-bold rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 transition-colors shadow-sm cursor-pointer"
+                                className="px-5 py-2.5 text-xs font-bold rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 transition-colors shadow-xs cursor-pointer min-h-[40px]"
                             >
                                 {t('common.cancel', 'Hủy')}
                             </button>
@@ -1204,10 +1200,10 @@ const AddCardForm = ({
                                 onClick={handleSaveSet}
                                 disabled={isSaving}
                                 data-tour-id="SAVE_SET_BTN"
-                                className="px-6 py-2.5 text-xs font-mono font-bold rounded-xl text-white bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-600 hover:to-indigo-700 shadow-md transition-all disabled:opacity-50 flex items-center gap-2 hover:scale-105 active:scale-95 cursor-pointer"
+                                className="px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-700 hover:to-indigo-700 shadow-md transition-all disabled:opacity-50 flex items-center gap-1.5 active:scale-95 cursor-pointer min-h-[40px]"
                             >
                                 {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
-                                {t('forms.createSetBtn', 'Tạo học phần')}
+                                <span>{t('forms.createSetBtn', 'Tạo học phần')}</span>
                             </button>
                         </div>
                     </div>

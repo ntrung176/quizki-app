@@ -476,42 +476,35 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                 vocabCollectionPath={vocabCollectionPath}
             />
 
-            {/* Anti-Slop Bento Hero Header */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-800/80 rounded-3xl p-5 sm:p-8 text-white shadow-2xl group">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-500/15 transition-all duration-700"></div>
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/15 transition-all duration-700"></div>
+            {/* Unified Hero Header */}
+            <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-900 dark:text-white shadow-sm dark:shadow-xl group">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
                 
-                <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                    <div className="space-y-3.5 max-w-2xl">
-                        <div className="flex flex-wrap items-center gap-2.5">
-                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono font-semibold uppercase tracking-wider backdrop-blur-md">
-                                <Sparkle className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-                                <span>QUIZKI AI DASHBOARD • {getGreeting().toUpperCase()}</span>
-                            </span>
-                        </div>
-
-                        <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+                <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6">
+                    <div className="space-y-2 max-w-2xl flex-1">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
                             {displayName ? `${displayName}!` : t('home.helloUser', 'Chào bạn!')}
                         </h1>
 
-                        <div className="p-3.5 sm:p-4 bg-slate-950/60 backdrop-blur-md border border-slate-800/80 rounded-2xl shadow-inner">
-                            <p className="text-slate-300 text-xs sm:text-sm font-medium italic leading-relaxed">
+                        <div className="p-3 bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/80 rounded-xl shadow-2xs">
+                            <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-medium italic leading-relaxed">
                                 "{todayQuote}"
                             </p>
                         </div>
                     </div>
 
                     {/* Telemetry Stats Pills */}
-                    <div className="flex flex-wrap items-center gap-2.5 font-mono">
-                        <div className="flex items-center gap-2 bg-slate-950/80 border border-slate-800 rounded-2xl px-4 py-2.5 shadow-lg text-xs sm:text-sm font-bold backdrop-blur-md hover:border-orange-500/40 transition-colors">
-                            <Flame className="w-4 h-4 text-orange-500 shrink-0 animate-bounce" />
-                            <span className="text-slate-200">{stats.streak ?? 0} {t('home.dayStreak', 'ngày streak')}</span>
+                    <div className="flex flex-wrap items-center gap-2 font-mono">
+                        <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/70 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-bold shadow-xs">
+                            <Flame className="w-4 h-4 text-orange-500 shrink-0" />
+                            <span className="text-slate-700 dark:text-slate-200">{stats.streak ?? 0} {t('home.dayStreak', 'ngày streak')}</span>
                         </div>
-                        <div className="flex items-center gap-2 bg-slate-950/80 border border-slate-800 rounded-2xl px-4 py-2.5 shadow-lg text-xs sm:text-sm font-bold backdrop-blur-md hover:border-amber-500/40 transition-colors">
-                            <Trophy className="w-4 h-4 text-amber-400 shrink-0" />
-                            <span className="text-slate-200 flex items-center gap-1">
+                        <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/70 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-bold shadow-xs">
+                            <Trophy className="w-4 h-4 text-amber-500 shrink-0" />
+                            <span className="text-slate-700 dark:text-slate-200 flex items-center gap-1">
                                 {stats.isInitialLoading && stats.masteredCards === null ? (
-                                    <span className="inline-block h-3.5 w-6 bg-slate-800 rounded animate-pulse" />
+                                    <span className="inline-block h-3.5 w-6 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
                                 ) : (
                                     stats.masteredCards ?? 0
                                 )}{' '}
@@ -519,11 +512,11 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                             </span>
                         </div>
                         {!isEnglishMode && (
-                            <div className="flex items-center gap-2 bg-slate-950/80 border border-slate-800 rounded-2xl px-4 py-2.5 shadow-lg text-xs sm:text-sm font-bold backdrop-blur-md hover:border-emerald-500/40 transition-colors">
-                                <Languages className="w-4 h-4 text-emerald-400 shrink-0" />
-                                <span className="text-slate-200 flex items-center gap-1">
+                            <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/70 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-bold shadow-xs">
+                                <Languages className="w-4 h-4 text-emerald-500 shrink-0" />
+                                <span className="text-slate-700 dark:text-slate-200 flex items-center gap-1">
                                     {kanjiSrsStats.isInitialLoading && kanjiSrsStats.mastered === null ? (
-                                        <span className="inline-block h-3.5 w-8 bg-slate-800 rounded animate-pulse" />
+                                        <span className="inline-block h-3.5 w-8 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
                                     ) : (
                                         kanjiSrsStats.mastered ?? 0
                                     )}{' '}

@@ -64,6 +64,7 @@ const AdminScreen = lazyWithRetry(() => import('./screens/AdminScreen'));
 const JLPTAdminScreen = lazyWithRetry(() => import('./screens/JLPTAdminScreen'));
 const JLPTTestScreen = lazyWithRetry(() => import('./screens/JLPTTestScreen'));
 const JLPTKaiwaScreen = lazyWithRetry(() => import('./screens/JLPTKaiwaScreen'));
+const VideoKaiwaScreen = lazyWithRetry(() => import('./screens/VideoKaiwaScreen'));
 const BookScreen = lazyWithRetry(() => import('./screens/BookScreen'));
 const KanjiScreen = lazyWithRetry(() => import('./screens/KanjiScreen'));
 const GrammarPointsScreen = lazyWithRetry(() => import('./screens/GrammarPointsScreen'));
@@ -1401,6 +1402,20 @@ const AppRoutes = ({
                                     </div>
                                 </div>
                             )}
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* Video Kaiwa & Shadowing */}
+                <Route
+                    path={ROUTES.VIDEO_KAIWA}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <VideoKaiwaScreen 
+                                profile={profile} 
+                                isAdmin={isAdmin} 
+                                awardXP={awardXP}
+                            />
                         </ProtectedRoute>
                     }
                 />

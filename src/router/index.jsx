@@ -35,9 +35,10 @@ export const ROUTES = {
     SYNONYM_QUIZ: '/vocab/review/synonym',
     TEST: '/vocab/review/test',
 
-    // JLPT Test
+    // JLPT & Kaiwa
     JLPT_TEST: '/jlpt/test',
     JLPT_KAIWA: '/jlpt/kaiwa',
+    VIDEO_KAIWA: '/kaiwa/video',
     JLPT_ADMIN: '/jlpt/admin',
 
     // Grammar: /grammar/*

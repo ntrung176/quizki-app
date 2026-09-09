@@ -24,6 +24,7 @@ const JLPTTestResultView = ({
     formatTime,
     exitTest,
     startTest,
+    retakeTest,
     goToQuestion,
     nextQuestion,
     prevQuestion,
@@ -521,7 +522,7 @@ const JLPTTestResultView = ({
                     <button onClick={exitTest} className="px-6 py-3 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white rounded-xl text-sm font-bold transition cursor-pointer">
                         Về trang danh sách
                     </button>
-                    <button onClick={() => startTest(activeTest)} className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold transition cursor-pointer">
+                    <button onClick={() => (retakeTest || startTest)(activeTest)} className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold transition cursor-pointer">
                         Làm lại đề này
                     </button>
                     <button onClick={() => setShowDetailedReview(true)} className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold transition cursor-pointer">

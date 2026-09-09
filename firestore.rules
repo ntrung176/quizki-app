@@ -332,6 +332,19 @@ service cloud.firestore {
         allow write: if hasAdminPrivileges(appId);
       }
     }
+
+    // ============================================
+    // 6.1. KAIWA VIDEOS (Video hội thoại & song ngữ)
+    // ============================================
+    match /artifacts/{appId}/kaiwaVideos/{videoId} {
+      allow read: if true;
+      allow write: if hasAdminPrivileges(appId);
+      
+      match /{subcollection}/{docId} {
+        allow read: if true;
+        allow write: if hasAdminPrivileges(appId);
+      }
+    }
     
     // ============================================
     // 7. FEEDBACK (Góp ý)

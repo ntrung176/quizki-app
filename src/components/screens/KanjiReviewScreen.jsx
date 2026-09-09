@@ -1191,51 +1191,46 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
 
 
-                {/* Cyber-AI Hero Banner */}
-                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-slate-800 dark:text-slate-100 shadow-xl group">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 dark:bg-rose-500/15 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-60 h-60 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
+                {/* Unified Hero Banner */}
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/5 dark:bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
-                        <div className="space-y-2 sm:space-y-3 text-center md:text-left w-full md:w-auto">
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-400 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
-                                    <Cpu className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 animate-spin-slow" />
-                                    <span>[KANJI SRS ENGINE]</span>
-                                </div>
-                                <button
-                                    onClick={() => setShowLeechManager(true)}
-                                    className={`inline-flex items-center gap-1 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-sm ${leechKanjiItems.length > 0
-                                            ? 'bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 animate-pulse'
-                                            : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
-                                        }`}
-                                >
-                                    <span>🩸 {t('kanji.leechCards', 'Thẻ Khó')} ({leechKanjiItems.length})</span>
-                                </button>
+                        <div className="space-y-1.5 text-center md:text-left w-full md:w-auto flex-1">
+                            <div className="flex items-center justify-center md:justify-start gap-2.5">
+                                <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                                    {t('kanji.title', 'Ôn tập Kanji')}
+                                </h1>
+                                {leechKanjiItems.length > 0 && (
+                                    <button
+                                        onClick={() => setShowLeechManager(true)}
+                                        className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400 hover:bg-rose-500/20 transition-colors cursor-pointer"
+                                    >
+                                        <span>{t('kanji.leechCards', 'Thẻ Khó')} ({leechKanjiItems.length})</span>
+                                    </button>
+                                )}
                             </div>
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                                {t('kanji.title', 'Ôn tập Kanji')}
-                            </h1>
-                            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md font-medium leading-relaxed">
+                            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md font-medium leading-relaxed">
                                 {t('kanji.subtitle', 'Củng cố trí nhớ dài hạn bằng phương pháp lặp lại ngắt quãng thông minh.')}
                             </p>
                         </div>
-                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 shadow-inner">
-                            <span className="text-4xl sm:text-5xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-1">
+
+                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 dark:border-slate-800 text-center w-full md:w-60 shrink-0 shadow-xs">
+                            <span className="text-3xl sm:text-4xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-0.5">
                                 {savedSessionInfo ? savedSessionInfo.remaining : stats.dueToday}
                             </span>
-                            <span className="text-[9px] sm:text-[10px] text-rose-600 dark:text-rose-400 font-mono font-black uppercase tracking-wider">{t('kanji.dueKanjiLabel', 'Chữ Kanji cần ôn tập')}</span>
+                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{t('kanji.dueKanjiLabel', 'Chữ Kanji cần ôn tập')}</span>
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="mt-3 w-full py-2.5 sm:py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 animate-pulse flex items-center justify-center gap-1.5 cursor-pointer min-h-[44px]"
+                                    className="mt-3 w-full py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all shadow-md bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer min-h-[40px]"
                                 >
                                     {t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}
                                 </button>
                             ) : stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
-                                    className="mt-3 w-full py-2.5 sm:py-3 rounded-xl text-xs font-mono font-black tracking-wider uppercase transition-all shadow-md bg-gradient-to-r from-red-400 via-rose-700 to-red-600 text-white hover:shadow-lg hover:scale-105 active:scale-95 cursor-pointer min-h-[44px]"
+                                    className="mt-3 w-full py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all shadow-md bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white active:scale-95 cursor-pointer min-h-[40px]"
                                 >
                                     {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
                                 </button>
@@ -1244,7 +1239,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                             ) : (
                                 <button
                                     disabled
-                                    className="mt-3 w-full py-2.5 sm:py-3 rounded-xl text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed min-h-[44px]"
+                                    className="mt-3 w-full py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed min-h-[40px]"
                                 >
                                     {t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}
                                 </button>
