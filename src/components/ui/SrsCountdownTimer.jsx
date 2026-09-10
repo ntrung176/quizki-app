@@ -37,12 +37,14 @@ const SrsCountdownTimer = ({ targetMs, onExpire, label = 'TIẾP SAU' }) => {
     const mins = Math.floor((secondsLeft % 3600) / 60);
     const secs = secondsLeft % 60;
     const pad = (n) => String(n).padStart(2, '0');
-    const formatted = `${pad(hours)}:${pad(mins)}:${pad(secs)}`;
+    const formatted = hours > 0
+        ? `${pad(hours)}:${pad(mins)}:${pad(secs)}`
+        : `${pad(mins)}:${pad(secs)}`;
 
     return (
         <button
             disabled
-            className="md:mt-4 px-4 py-2.5 md:w-full rounded-xl text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 cursor-not-allowed flex items-center justify-center gap-1.5 shrink-0 min-h-[44px]"
+            className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 cursor-not-allowed flex items-center justify-center gap-1.5 shrink-0 min-h-[42px]"
         >
             <Clock className="w-3.5 h-3.5 animate-spin-slow shrink-0" />
             <span>{label}: {formatted}</span>

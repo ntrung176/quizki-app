@@ -41,6 +41,29 @@ const VideoKaiwaCategoryRow = ({
         });
     };
 
+    // Dynamic soft fade gradient mask for overflowing edges
+    const getMaskStyle = () => {
+        if (canScrollLeft && canScrollRight) {
+            return {
+                maskImage: 'linear-gradient(to right, transparent, black 40px, black calc(100% - 64px), transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent, black 40px, black calc(100% - 64px), transparent 100%)'
+            };
+        }
+        if (canScrollRight) {
+            return {
+                maskImage: 'linear-gradient(to right, black 0%, black calc(100% - 64px), transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, black 0%, black calc(100% - 64px), transparent 100%)'
+            };
+        }
+        if (canScrollLeft) {
+            return {
+                maskImage: 'linear-gradient(to right, transparent 0%, black 40px, black 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40px, black 100%)'
+            };
+        }
+        return {};
+    };
+
     if (!videos || videos.length === 0) {
         if (!userIsAdmin) return null;
     }
@@ -97,12 +120,27 @@ const VideoKaiwaCategoryRow = ({
                 </div>
             </div>
 
-            {/* Horizontal Movie Cards Carousel Container */}
-            <div className="relative">
+            {/* Horizontal Movie Cards Carousel Container with Soft Edge Fading */}
+            <div className="relative group/carousel">
+                {/* Left Subtle Glow / Shadow Edge */}
+                <div
+                    className={`pointer-events-none absolute -left-1 top-0 bottom-3 w-8 sm:w-12 bg-gradient-to-r from-white/90 via-white/40 to-transparent dark:from-slate-950/90 dark:via-slate-950/40 dark:to-transparent z-10 transition-opacity duration-300 ${
+                        canScrollLeft ? 'opacity-100' : 'opacity-0'
+                    }`}
+                />
+
+                {/* Right Subtle Glow / Shadow Edge */}
+                <div
+                    className={`pointer-events-none absolute -right-1 top-0 bottom-3 w-12 sm:w-20 bg-gradient-to-l from-white/90 via-white/40 to-transparent dark:from-slate-950/90 dark:via-slate-950/40 dark:to-transparent z-10 transition-opacity duration-300 ${
+                        canScrollRight ? 'opacity-100' : 'opacity-0'
+                    }`}
+                />
+
                 <div
                     ref={rowRef}
                     onScroll={checkScrollButtons}
-                    className="flex items-stretch gap-4 sm:gap-5 overflow-x-auto scrollbar-none scroll-smooth pb-3 pt-1 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                    style={getMaskStyle()}
+                    className="flex items-stretch gap-4 sm:gap-5 overflow-x-auto scrollbar-none scroll-smooth pb-3 pt-1 px-1 pr-4 sm:pr-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden transition-[mask-image] duration-300"
                 >
                     {videos.map(video => (
                         <VideoKaiwaMovieCard

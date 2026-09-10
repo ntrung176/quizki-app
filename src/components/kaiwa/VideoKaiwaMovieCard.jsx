@@ -30,7 +30,7 @@ const VideoKaiwaMovieCard = ({
     return (
         <div
             onClick={() => onSelectVideo?.(video)}
-            className={`group relative flex flex-col bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800/90 shadow-xs hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] dark:shadow-none dark:hover:shadow-[0_12px_28px_rgba(0,0,0,0.5)] hover:border-pink-300 dark:hover:border-pink-500/50 transition-all duration-300 overflow-hidden cursor-pointer select-none ${cardWidthClass}`}
+            className={`group relative flex flex-col bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] hover:shadow-[0_16px_32px_-6px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.4)] dark:hover:shadow-[0_16px_32px_-6px_rgba(0,0,0,0.7)] hover:border-pink-300/80 dark:hover:border-pink-500/50 transition-all duration-300 overflow-hidden cursor-pointer select-none ${cardWidthClass}`}
         >
             {/* Thumbnail Poster with Cinema Overlay */}
             <div className="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useRef, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { showToast } from '../utils/toast';
 import { playFocusStartSound, playBreakReminderSound, playFocusCompleteSound } from '../utils/soundEffects';
 
@@ -8,11 +8,11 @@ const STORAGE_KEY_STATS = 'quizki_focus_stats';
 const STORAGE_KEY_CONFIG = 'quizki_focus_config';
 
 /**
- * Chia tổng thời gian người dùng chọn thành các chu kỳ Pomodoro chuẩn (tối đa 25 phút/phiên tập trung)
- * và các khoảng nghỉ ngắn 5 phút ở giữa (giống cơ chế Windows Focus Sessions).
+ * Chia tổng thời gian người dùng chọn thành các chu kỳ Pomodoro chuẩn (25 phút/phiên tập trung),
+ * nghỉ ngắn 5 phút giữa các phiên, và cứ mỗi 2 phiên tập trung thì được nghỉ dài 10 phút.
  */
 export const buildFocusSchedule = (totalMinutes, skipBreaks = false) => {
-    const mins = Math.max(5, totalMinutes || 25);
+    const mins = Math.max(25, totalMinutes || 25);
     if (skipBreaks || mins <= 25) {
         return [
             {
@@ -30,7 +30,7 @@ export const buildFocusSchedule = (totalMinutes, skipBreaks = false) => {
     let remaining = mins;
     const focusChunks = [];
 
-    // Chia thành các đoạn tối đa 25 phút
+    // Chia thành các đoạn chuẩn Pomodoro 25 phút
     while (remaining > 0) {
         if (remaining >= 25) {
             focusChunks.push(25);
@@ -53,13 +53,15 @@ export const buildFocusSchedule = (totalMinutes, skipBreaks = false) => {
             totalPeriods: totalFocusCount
         });
 
-        // Thêm nghỉ giải lao ở giữa các phiên tập trung
+        // Thêm nghỉ giải lao ở giữa các phiên tập trung:
+        // Cứ mỗi 2 phiên học (sau phiên 2, 4, 6...) thì nghỉ dài 10 phút, các phiên khác nghỉ ngắn 5 phút
         if (idx < totalFocusCount - 1) {
-            const isLongBreak = (idx + 1) % 4 === 0;
-            const breakMins = isLongBreak ? 15 : 5;
+            const isLongBreak = (idx + 1) % 2 === 0;
+            const breakMins = isLongBreak ? 10 : 5;
             schedule.push({
                 id: `break-${idx + 1}`,
                 type: 'break',
+                isLongBreak,
                 durationMinutes: breakMins,
                 durationSeconds: breakMins * 60,
                 breakIndex: idx + 1,
@@ -72,16 +74,18 @@ export const buildFocusSchedule = (totalMinutes, skipBreaks = false) => {
 };
 
 export const FocusProvider = ({ children }) => {
-    // Configuration states
+    // Configuration states (Mặc định các mốc Pomodoro: 25, 50, 75, 100...)
     const [targetMinutes, setTargetMinutes] = useState(() => {
         try {
             const saved = localStorage.getItem(STORAGE_KEY_CONFIG);
             if (saved) {
                 const parsed = JSON.parse(saved);
-                return parsed.targetMinutes || 60;
+                if (parsed.targetMinutes) {
+                    return Math.max(25, Math.round(parsed.targetMinutes / 25) * 25);
+                }
             }
         } catch (e) {}
-        return 60;
+        return 50;
     });
 
     const [skipBreaks, setSkipBreaks] = useState(() => {
@@ -117,6 +121,22 @@ export const FocusProvider = ({ children }) => {
     const [currentScheduleIndex, setCurrentScheduleIndex] = useState(0);
 
     const timerRef = useRef(null);
+    const scheduleRef = useRef([]);
+    const scheduleIndexRef = useRef(0);
+    const statusRef = useRef('idle');
+
+    // Synchronize refs for zero-stale closure access
+    useEffect(() => {
+        scheduleRef.current = sessionSchedule;
+    }, [sessionSchedule]);
+
+    useEffect(() => {
+        scheduleIndexRef.current = currentScheduleIndex;
+    }, [currentScheduleIndex]);
+
+    useEffect(() => {
+        statusRef.current = status;
+    }, [status]);
 
     const currentPeriod = sessionSchedule[currentScheduleIndex] || null;
     const nextPeriod = sessionSchedule[currentScheduleIndex + 1] || null;
@@ -135,32 +155,14 @@ export const FocusProvider = ({ children }) => {
         } catch (e) {}
     }, [stats]);
 
-    // Timer Ticker Effect
-    useEffect(() => {
-        if (status === 'focusing' || status === 'break') {
-            timerRef.current = setInterval(() => {
-                setSecondsLeft(prev => {
-                    if (prev <= 1) {
-                        handleTimerCompletion();
-                        return 0;
-                    }
-                    return prev - 1;
-                });
-            }, 1000);
-        } else {
-            if (timerRef.current) clearInterval(timerRef.current);
-        }
+    // Advance to next period cleanly
+    const advanceToNextPeriod = useCallback(() => {
+        const schedule = scheduleRef.current;
+        const currIdx = scheduleIndexRef.current;
+        if (!schedule || schedule.length === 0) return;
 
-        return () => {
-            if (timerRef.current) clearInterval(timerRef.current);
-        };
-    }, [status, currentScheduleIndex, sessionSchedule]);
-
-    // Handle period transition
-    const handleTimerCompletion = () => {
-        const schedule = sessionSchedule;
-        const currentItem = schedule[currentScheduleIndex];
-        const nextIndex = currentScheduleIndex + 1;
+        const currentItem = schedule[currIdx];
+        const nextIdx = currIdx + 1;
 
         if (currentItem && currentItem.type === 'focus') {
             setStats(prev => ({
@@ -169,9 +171,10 @@ export const FocusProvider = ({ children }) => {
             }));
         }
 
-        if (nextIndex < schedule.length) {
-            const nextItem = schedule[nextIndex];
-            setCurrentScheduleIndex(nextIndex);
+        if (nextIdx < schedule.length) {
+            const nextItem = schedule[nextIdx];
+            scheduleIndexRef.current = nextIdx;
+            setCurrentScheduleIndex(nextIdx);
             setCurrentMode(nextItem.type);
             setStatus(nextItem.type === 'focus' ? 'focusing' : 'break');
             setTotalSeconds(nextItem.durationSeconds);
@@ -179,7 +182,8 @@ export const FocusProvider = ({ children }) => {
 
             if (nextItem.type === 'break') {
                 playBreakReminderSound();
-                showToast(`☕ Đã xong phiên tập trung! Hãy nghỉ ngơi ${nextItem.durationMinutes} phút nhé.`, 'success', 5000);
+                const breakTypeStr = nextItem.isLongBreak ? 'nghỉ dài' : 'nghỉ giải lao';
+                showToast(`☕ Đã xong phiên tập trung! Hãy ${breakTypeStr} ${nextItem.durationMinutes} phút nhé.`, 'success', 5000);
             } else {
                 playFocusStartSound();
                 showToast(`🎯 Hết giờ nghỉ! Bắt đầu phiên tập trung (${nextItem.periodIndex}/${nextItem.totalPeriods}) - ${nextItem.durationMinutes} phút!`, 'info', 5000);
@@ -191,22 +195,57 @@ export const FocusProvider = ({ children }) => {
                 ...prev,
                 completedSessions: prev.completedSessions + 1
             }));
-            showToast(`🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn phiên tập trung ${targetMinutes} phút!`, 'success', 6000);
+            showToast(`🎉 Xuất sắc! Bạn đã hoàn thành trọn vẹn tất cả các phiên tập trung Pomodoro!`, 'success', 6000);
             setStatus('idle');
             setCurrentMode('focus');
             setSessionSchedule([]);
             setCurrentScheduleIndex(0);
+            scheduleIndexRef.current = 0;
+            scheduleRef.current = [];
         }
-    };
+    }, []);
+
+    // Timer Ticker Effect
+    useEffect(() => {
+        if (status === 'focusing' || status === 'break') {
+            if (timerRef.current) clearInterval(timerRef.current);
+
+            timerRef.current = setInterval(() => {
+                setSecondsLeft(prev => {
+                    if (prev <= 1) {
+                        setTimeout(() => {
+                            advanceToNextPeriod();
+                        }, 0);
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+        } else {
+            if (timerRef.current) {
+                clearInterval(timerRef.current);
+                timerRef.current = null;
+            }
+        }
+
+        return () => {
+            if (timerRef.current) {
+                clearInterval(timerRef.current);
+                timerRef.current = null;
+            }
+        };
+    }, [status, currentScheduleIndex, advanceToNextPeriod]);
 
     // Actions
     const startFocusSession = (customMins = targetMinutes, customSkipBreaks = skipBreaks) => {
-        const mins = customMins || 60;
+        const mins = customMins || 50;
         const schedule = buildFocusSchedule(mins, customSkipBreaks);
         setTargetMinutes(mins);
         setSkipBreaks(customSkipBreaks);
         setSessionSchedule(schedule);
         setCurrentScheduleIndex(0);
+        scheduleRef.current = schedule;
+        scheduleIndexRef.current = 0;
 
         const firstItem = schedule[0];
         setCurrentMode(firstItem.type);
@@ -218,9 +257,7 @@ export const FocusProvider = ({ children }) => {
         // Trigger full screen mode for maximum focus
         try {
             if (typeof document !== 'undefined' && document.documentElement && document.documentElement.requestFullscreen && !document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(e => {
-                    console.log('Fullscreen request ignored or blocked by browser:', e);
-                });
+                document.documentElement.requestFullscreen().catch(() => {});
             }
         } catch (e) {}
 
@@ -248,16 +285,19 @@ export const FocusProvider = ({ children }) => {
 
     const skipToNextPeriod = () => {
         if (status === 'idle') return;
-        handleTimerCompletion();
+        advanceToNextPeriod();
     };
 
     const stopSession = () => {
+        if (timerRef.current) clearInterval(timerRef.current);
         setStatus('idle');
         setSecondsLeft(0);
         setTotalSeconds(0);
         setCurrentMode('focus');
         setSessionSchedule([]);
         setCurrentScheduleIndex(0);
+        scheduleRef.current = [];
+        scheduleIndexRef.current = 0;
         showToast('Đã dừng phiên tập trung.', 'info');
     };
 
@@ -270,19 +310,30 @@ export const FocusProvider = ({ children }) => {
     // Calculate break info text for setup view
     const getBreakInfoText = (mins, isSkip) => {
         if (isSkip) return 'Bỏ qua giờ nghỉ ngơi (học liên tục).';
-        if (mins <= 25) return `1 phiên tập trung (${mins} phút), không nghỉ giữa giờ.`;
+        if (mins <= 25) return `1 phiên tập trung (25 phút), không nghỉ giữa giờ.`;
         const schedule = buildFocusSchedule(mins, isSkip);
         const focusItems = schedule.filter(s => s.type === 'focus');
         const breakItems = schedule.filter(s => s.type === 'break');
-        const breakdownStr = focusItems.map(f => `${f.durationMinutes}m`).join(', ');
-        return `Bạn sẽ có ${breakItems.length} lần nghỉ (5 phút) giữa ${focusItems.length} phiên (${breakdownStr}).`;
+        const shortBreaks = breakItems.filter(b => !b.isLongBreak).length;
+        const longBreaks = breakItems.filter(b => b.isLongBreak).length;
+
+        let breakDesc = '';
+        if (shortBreaks > 0 && longBreaks > 0) {
+            breakDesc = `${shortBreaks} lần nghỉ ngắn (5 phút) & ${longBreaks} lần nghỉ dài (10 phút)`;
+        } else if (longBreaks > 0) {
+            breakDesc = `${longBreaks} lần nghỉ dài (10 phút)`;
+        } else {
+            breakDesc = `${shortBreaks} lần nghỉ ngắn (5 phút)`;
+        }
+
+        return `Bạn sẽ có ${breakDesc} giữa ${focusItems.length} phiên Pomodoro (${focusItems.map(f => `${f.durationMinutes}p`).join(', ')}).`;
     };
 
     // Up next display text
     const getUpNextText = () => {
         if (!nextPeriod) return 'Hoàn thành phiên học 🎉';
         if (nextPeriod.type === 'break') {
-            return `Nghỉ giải lao ${nextPeriod.durationMinutes} phút`;
+            return nextPeriod.isLongBreak ? `Nghỉ dài ${nextPeriod.durationMinutes} phút` : `Nghỉ giải lao ${nextPeriod.durationMinutes} phút`;
         }
         return `Phiên tập trung (${nextPeriod.periodIndex}/${nextPeriod.totalPeriods}) - ${nextPeriod.durationMinutes} phút`;
     };
@@ -327,11 +378,7 @@ export const FocusProvider = ({ children }) => {
         currentScheduleIndex, 
         currentPeriod, 
         nextPeriod, 
-        startFocusSession, 
-        pauseSession, 
-        resumeSession, 
-        skipToNextPeriod, 
-        stopSession
+        advanceToNextPeriod
     ]);
 
     return (

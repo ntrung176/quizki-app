@@ -686,6 +686,7 @@ const SRSVocabScreen = ({
         if (!reviewMode) return;
         const intervalId = setInterval(() => {
             const now = Date.now();
+            setLastTick(now);
             const waiting = getLearningCardsWaiting();
             const dueNow = waiting.filter(w => w.nextReview <= now);
             if (dueNow.length > 0) {
@@ -1374,18 +1375,17 @@ const SRSVocabScreen = ({
     if (reviewMode && !currentCard) {
         const waiting = getLearningCardsWaiting();
         if (waiting.length > 0) {
-            const now = Date.now();
+            const now = lastTick;
             const earliestNextReview = Math.min(...waiting.map(w => w.nextReview));
             const secondsLeft = Math.max(0, Math.ceil((earliestNextReview - now) / 1000));
 
-            let countdownText = "";
-            if (secondsLeft < 60) {
-                countdownText = `${secondsLeft} giây`;
-            } else {
-                const mins = Math.floor(secondsLeft / 60);
-                const secs = secondsLeft % 60;
-                countdownText = `${mins} phút ${secs} giây`;
-            }
+            const pad = (n) => String(n).padStart(2, '0');
+            const hours = Math.floor(secondsLeft / 3600);
+            const mins = Math.floor((secondsLeft % 3600) / 60);
+            const secs = secondsLeft % 60;
+            const formattedCountdown = hours > 0
+                ? `${pad(hours)}:${pad(mins)}:${pad(secs)}`
+                : `${pad(mins)}:${pad(secs)}`;
 
             return (
                 <div className="min-h-screen flex flex-col justify-center items-center px-4 bg-transparent py-8 animate-fade-in">
@@ -1402,9 +1402,10 @@ const SRSVocabScreen = ({
                             </p>
                         </div>
 
-                        <div className="px-6 py-3 bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white rounded-2xl shadow-lg flex items-center gap-2 font-mono">
-                            <span className="text-xs font-semibold uppercase tracking-wider">Thẻ tiếp theo sau:</span>
-                            <span className="text-lg font-black tracking-widest">{countdownText}</span>
+                        <div className="px-6 py-3 bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white rounded-2xl shadow-lg flex items-center gap-2.5 font-mono">
+                            <Clock className="w-4 h-4 animate-spin-slow shrink-0" />
+                            <span className="text-xs font-semibold uppercase tracking-wider">TIẾP SAU:</span>
+                            <span className="text-xl font-black tracking-widest">{formattedCountdown}</span>
                         </div>
 
                         <div className="flex justify-center w-full">
@@ -1449,14 +1450,14 @@ const SRSVocabScreen = ({
                                         e.stopPropagation();
                                         requestStartReview(newlyDueCards, activeFolderIdRef.current || 'global', 'Tiếp tục ôn tập');
                                     }}
-                                    className="flex-1 w-full py-3.5 px-4 bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
+                                    className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(16,185,129,0.45)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.75)] transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
                                 >
                                     <Repeat2 className="w-4 h-4" />
-                                    Tiếp tục ôn tập ({newlyDueCards.length} thẻ)
+                                    <span>Tiếp tục ôn tập ({newlyDueCards.length} thẻ)</span>
                                 </button>
                                 <button
                                     onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                    className="w-full sm:w-auto py-3.5 px-5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-xl transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer text-center"
+                                    className="w-full sm:w-auto py-3.5 px-6 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer text-center"
                                 >
                                     Kết thúc
                                 </button>
@@ -1465,7 +1466,7 @@ const SRSVocabScreen = ({
                             <div className="flex justify-center w-full">
                                 <button
                                     onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                    className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
+                                    className="w-full py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-[0_8px_20px_rgba(16,185,129,0.35)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.6)] transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
                                 >
                                     Kết thúc phiên ôn tập
                                 </button>
@@ -1518,25 +1519,27 @@ const SRSVocabScreen = ({
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="md:mt-3 px-4 py-2.5 md:w-full rounded-xl text-xs font-bold tracking-wide uppercase transition-all shadow-md bg-gradient-to-r from-amber-500 to-orange-500 text-white active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer shrink-0 min-h-[40px]"
+                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-[0_8px_20px_rgba(245,158,11,0.45)] hover:shadow-[0_12px_28px_rgba(245,158,11,0.75)] transform hover:scale-[1.03] bg-gradient-to-r from-amber-500 to-orange-500 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
                                 >
-                                    {t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}
+                                    <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
+                                    <span>{t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}</span>
                                 </button>
                             ) : globalStats.due > 0 ? (
                                 <button
                                     onClick={handleResumeGlobal}
-                                    className="md:mt-3 px-4 py-2.5 md:w-full rounded-xl text-xs font-bold tracking-wide uppercase transition-all shadow-md bg-gradient-to-r from-cyan-600 via-indigo-600 to-sky-600 text-white active:scale-95 cursor-pointer shrink-0 min-h-[40px]"
+                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-[0_8px_20px_rgba(6,182,212,0.45)] hover:shadow-[0_12px_28px_rgba(6,182,212,0.75)] transform hover:scale-[1.03] bg-gradient-to-r from-cyan-600 via-indigo-600 to-sky-600 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
                                 >
-                                    {t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}
+                                    <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
+                                    <span>{t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}</span>
                                 </button>
                             ) : nextDueVocabInfo > 0 ? (
                                 <SrsCountdownTimer targetMs={nextDueVocabInfo} onExpire={() => setDashboardTick(Date.now())} />
                             ) : (
                                 <button
                                     disabled
-                                    className="md:mt-3 px-3 py-2 md:w-full rounded-xl text-xs font-bold tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed shrink-0 min-h-[40px]"
+                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-2 shrink-0 min-h-[42px]"
                                 >
-                                    {t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}
+                                    <span>{t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}</span>
                                 </button>
                             )}
                         </div>

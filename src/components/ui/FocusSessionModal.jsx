@@ -5,6 +5,7 @@ import {
     Play, 
     Pause, 
     Square, 
+    SkipForward,
     ChevronUp, 
     ChevronDown, 
     Coffee, 
@@ -32,6 +33,7 @@ const FocusSessionModal = () => {
         startFocusSession,
         pauseSession,
         resumeSession,
+        skipToNextPeriod,
         stopSession,
         formatTime,
         getBreakInfoText
@@ -42,11 +44,11 @@ const FocusSessionModal = () => {
     if (!isModalOpen) return null;
 
     const handleIncrement = () => {
-        setTargetMinutes(prev => Math.min(180, prev + 5));
+        setTargetMinutes(prev => Math.min(200, (Math.floor(prev / 25) + 1) * 25));
     };
 
     const handleDecrement = () => {
-        setTargetMinutes(prev => Math.max(5, prev - 5));
+        setTargetMinutes(prev => Math.max(25, (Math.ceil(prev / 25) - 1) * 25));
     };
 
     const isRunning = status === 'focusing' || status === 'break';
@@ -63,7 +65,8 @@ const FocusSessionModal = () => {
             return `Phiên tập trung (${currentPeriod.periodIndex}/${currentPeriod.totalPeriods})`;
         }
         if (currentPeriod?.type === 'break') {
-            return `Nghỉ giải lao (${currentPeriod.breakIndex}/${currentPeriod.totalBreaks})`;
+            const breakName = currentPeriod.isLongBreak ? 'Nghỉ dài' : 'Nghỉ giải lao';
+            return `${breakName} (${currentPeriod.breakIndex}/${currentPeriod.totalBreaks})`;
         }
         return isBreak ? 'Giờ nghỉ giải lao' : 'Phiên tập trung';
     };
@@ -138,7 +141,7 @@ const FocusSessionModal = () => {
                                         {targetMinutes}
                                     </span>
                                     <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest mt-1 block">
-                                        phút
+                                        phút ({Math.max(1, Math.round(targetMinutes / 25))} phiên)
                                     </span>
                                 </div>
 
@@ -147,7 +150,7 @@ const FocusSessionModal = () => {
                                         type="button"
                                         onClick={handleIncrement}
                                         className="p-1.5 rounded-lg hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                                        title="Tăng 5 phút"
+                                        title="Tăng 25 phút (1 phiên)"
                                     >
                                         <ChevronUp className="w-5 h-5" />
                                     </button>
@@ -155,7 +158,7 @@ const FocusSessionModal = () => {
                                         type="button"
                                         onClick={handleDecrement}
                                         className="p-1.5 rounded-lg hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                                        title="Giảm 5 phút"
+                                        title="Giảm 25 phút (1 phiên)"
                                     >
                                         <ChevronDown className="w-5 h-5" />
                                     </button>
@@ -163,22 +166,26 @@ const FocusSessionModal = () => {
                             </div>
                         </div>
 
-                        {/* Quick Presets */}
-                        <div className="flex items-center justify-center gap-2 flex-wrap">
-                            {[15, 25, 40, 60, 90].map(m => (
-                                <button
-                                    key={m}
-                                    type="button"
-                                    onClick={() => setTargetMinutes(m)}
-                                    className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
-                                        targetMinutes === m
-                                            ? 'bg-sky-500 text-slate-950 shadow-md border border-sky-400 font-black'
-                                            : 'bg-slate-800/60 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-700/50'
-                                    }`}
-                                >
-                                    {m === 25 ? '25p (Pomodoro)' : `${m}p`}
-                                </button>
-                            ))}
+                        {/* Quick Presets: 25, 50, 75, 100 Pomodoro Milestones */}
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            {[25, 50, 75, 100].map(m => {
+                                const count = m / 25;
+                                return (
+                                    <button
+                                        key={m}
+                                        type="button"
+                                        onClick={() => setTargetMinutes(m)}
+                                        className={`py-2 px-2.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex flex-col items-center justify-center ${
+                                            targetMinutes === m
+                                                ? 'bg-sky-500 text-slate-950 shadow-md border border-sky-400 font-black scale-105'
+                                                : 'bg-slate-800/60 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-700/50'
+                                        }`}
+                                    >
+                                        <span className="font-extrabold">{m} phút</span>
+                                        <span className="text-[10px] opacity-80">{count} phiên</span>
+                                    </button>
+                                );
+                            })}
                         </div>
 
                         {/* Break Info & Checkbox */}
@@ -278,7 +285,7 @@ const FocusSessionModal = () => {
                                             {formatTime(secondsLeft)}
                                         </span>
                                         <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest mt-1">
-                                            {isBreak ? 'Giờ nghỉ' : 'Còn lại'}
+                                            {isBreak ? (currentPeriod?.isLongBreak ? 'Nghỉ dài' : 'Nghỉ ngắn') : 'Còn lại'}
                                         </span>
                                     </div>
                                 ) : (
@@ -299,34 +306,44 @@ const FocusSessionModal = () => {
                             </div>
                         </div>
 
-                        {/* Action Controls: Play/Pause Cyan Button + Direct End Session Button */}
-                        <div className="flex items-center justify-center gap-4">
+                        {/* Action Controls: Play/Pause + Skip to next period + Direct End Session Button */}
+                        <div className="flex items-center justify-center gap-3">
                             {/* Main Cyan Action Button */}
                             {isPaused ? (
                                 <button
                                     type="button"
                                     onClick={resumeSession}
-                                    className="w-14 h-14 rounded-full bg-sky-400 hover:bg-sky-300 text-slate-950 flex items-center justify-center shadow-lg shadow-sky-500/25 transition-all active:scale-95 cursor-pointer"
+                                    className="w-13 h-13 rounded-full bg-sky-400 hover:bg-sky-300 text-slate-950 flex items-center justify-center shadow-lg shadow-sky-500/25 transition-all active:scale-95 cursor-pointer"
                                     title="Tiếp tục"
                                 >
-                                    <Play className="w-6 h-6 fill-slate-950 ml-0.5" />
+                                    <Play className="w-5 h-5 fill-slate-950 ml-0.5" />
                                 </button>
                             ) : (
                                 <button
                                     type="button"
                                     onClick={pauseSession}
-                                    className="w-14 h-14 rounded-full bg-sky-400 hover:bg-sky-300 text-slate-950 flex items-center justify-center shadow-lg shadow-sky-500/25 transition-all active:scale-95 cursor-pointer"
+                                    className="w-13 h-13 rounded-full bg-sky-400 hover:bg-sky-300 text-slate-950 flex items-center justify-center shadow-lg shadow-sky-500/25 transition-all active:scale-95 cursor-pointer"
                                     title="Tạm dừng"
                                 >
-                                    <Pause className="w-6 h-6 fill-slate-950" />
+                                    <Pause className="w-5 h-5 fill-slate-950" />
                                 </button>
                             )}
+
+                            {/* Skip / Next Period Button */}
+                            <button
+                                type="button"
+                                onClick={skipToNextPeriod}
+                                className="w-11 h-11 rounded-full bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center border border-slate-700/80 transition-all active:scale-95 cursor-pointer"
+                                title="Chuyển sang phiên tiếp theo"
+                            >
+                                <SkipForward className="w-4 h-4" />
+                            </button>
 
                             {/* Direct Stop / End Session Button */}
                             <button
                                 type="button"
                                 onClick={stopSession}
-                                className="w-12 h-12 rounded-full bg-slate-800/90 hover:bg-rose-500/20 text-slate-300 hover:text-rose-400 flex items-center justify-center border border-slate-700/80 hover:border-rose-500/30 transition-all active:scale-95 cursor-pointer"
+                                className="w-11 h-11 rounded-full bg-slate-800/90 hover:bg-rose-500/20 text-slate-300 hover:text-rose-400 flex items-center justify-center border border-slate-700/80 hover:border-rose-500/30 transition-all active:scale-95 cursor-pointer"
                                 title="Kết thúc phiên học"
                             >
                                 <Square className="w-4 h-4 fill-current" />
