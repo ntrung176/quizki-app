@@ -226,11 +226,13 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
         return `${m}:${String(s).padStart(2, '0')}`;
     };
 
-    // Compute all unique keywords across the active video
-    const allVideoKeywords = useMemo(() => {
-        if (!currentVideo?.subtitles) return [];
+    // Compute all unique keywords and grammar across the active video
+    const { allVideoKeywords, allVideoGrammar } = useMemo(() => {
+        if (!currentVideo?.subtitles) return { allVideoKeywords: [], allVideoGrammar: [] };
         const keywords = [];
+        const grammar = [];
         const seenWords = new Set();
+        const seenGrammar = new Set();
         currentVideo.subtitles.forEach(sub => {
             (sub.keywords || []).forEach(kw => {
                 if (kw && kw.word && !seenWords.has(kw.word)) {
@@ -238,8 +240,16 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                     keywords.push(kw);
                 }
             });
+            (sub.grammar || []).forEach(g => {
+                if (!g) return;
+                const key = typeof g === 'object' ? (g.point || g.structure || g.grammar || g.title || g.meaning || JSON.stringify(g)) : String(g);
+                if (!seenGrammar.has(key)) {
+                    seenGrammar.add(key);
+                    grammar.push(g);
+                }
+            });
         });
-        return keywords;
+        return { allVideoKeywords: keywords, allVideoGrammar: grammar };
     }, [currentVideo]);
 
     // Automatically pause video whenever Shadowing modal is opened
@@ -282,6 +292,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                 isLoopingSentence={isLoopingSentence}
                                 setIsLoopingSentence={setIsLoopingSentence}
                                 allKeywords={allVideoKeywords}
+                                allGrammar={allVideoGrammar}
                                 onOpenShadowingModal={() => {
                                     setIsPlaying(false);
                                     if (currentVideo.subtitles?.[activeSubIndex]) {
@@ -672,6 +683,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                 onClose={() => setShadowingSub(null)}
                 subtitle={shadowingSub}
                 allKeywords={allVideoKeywords}
+                allGrammar={allVideoGrammar}
                 onReplayAudio={() => {
                     if (shadowingSub) {
                         seekHandlerRef.current?.(shadowingSub.start, true, shadowingSub.end);

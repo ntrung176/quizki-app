@@ -336,12 +336,12 @@ export const parseTextToSubtitles = (content) => {
 // Backward-compatible alias
 export const parseSrtToSubtitles = parseTextToSubtitles;
 
-// Use AI to generate Furigana, Vietnamese Translation & Vocab from raw Japanese Transcript (supports chunking for any list size)
+// Use AI to generate Furigana, Vietnamese Translation & Comprehensive Vocab/Grammar from raw Japanese Transcript / SRT
 export const generateAiSubtitles = async (rawJapaneseTextOrSubtitles, topicContext = '', onProgress = null, abortRef = { current: false }) => {
     // Helper to call AI with OpenRouter -> Google Gemini fallback
     const executeAiPrompt = async (prompt) => {
         try {
-            const aiResponse = await callKaiwaAI(prompt, [], 'Trả về mảng JSON phụ đề dịch nghĩa và furigana.');
+            const aiResponse = await callKaiwaAI(prompt, [], 'Trả về mảng JSON phụ đề dịch nghĩa, furigana, từ vựng và ngữ pháp.');
             const parsed = parseJsonFromAI(aiResponse);
             if (Array.isArray(parsed) && parsed.length > 0) return parsed;
         } catch (e) {
@@ -358,7 +358,7 @@ export const generateAiSubtitles = async (rawJapaneseTextOrSubtitles, topicConte
     if (Array.isArray(rawJapaneseTextOrSubtitles)) {
         const items = [...rawJapaneseTextOrSubtitles];
         const total = items.length;
-        const BATCH_SIZE = 8; // Process 8 sentences per request for fast & high-precision extraction
+        const BATCH_SIZE = 6; // Process 6 sentences per request for deep & 100% comprehensive linguistic extraction
         const updatedList = [...items];
 
         for (let i = 0; i < total; i += BATCH_SIZE) {
@@ -370,24 +370,40 @@ export const generateAiSubtitles = async (rawJapaneseTextOrSubtitles, topicConte
             const chunk = items.slice(i, i + BATCH_SIZE);
             const chunkPromptData = chunk.map(c => ({
                 id: c.id,
-                ja: c.ja
+                ja: c.ja || c.furigana
             }));
 
-            const prompt = `Bạn là chuyên gia ngôn ngữ tiếng Nhật và biên dịch viên phụ đề chuyên nghiệp (Japanese -> Vietnamese).
-Nhiệm vụ: Hãy phân tích kỹ từng câu thoại tiếng Nhật sau:
-1. Gán Furigana cho TẤT CẢ chữ Hán (Kanji) theo cú pháp chuẩn: {Kanji|furigana} (Ví dụ: {皆|みな}さん, {元気|げんき}ですか, {自然|しぜん}な, {考|かんが}えると). TUYỆT ĐỐI KHÔNG tự ý chèn thêm khoảng trắng giữa các từ tiếng Nhật hoặc trong cú pháp furigana.
-2. Dịch nghĩa tiếng Việt tự nhiên, mượt mà và chuẩn xác theo ngữ cảnh hội thoại vào trường "vi" (BẮT BUỘC có bản dịch tiếng Việt, KHÔNG để trống).
-3. TRÍCH XUẤT CHI TIẾT TỪ VỰNG & CỤM TỪ (KEYWORDS) - RẤT QUAN TRỌNG:
-   - Trích xuất ĐẦY ĐỦ từ 2 đến 6 từ vựng cốt lõi, động từ (dạng từ điển hoặc cụm phổ biến: 考える, 聞き取る, 練習する, 話し合う), tính từ (自然な, 難しい), danh từ ghép/cụm danh từ (リスニング, 日本語, 練習), phó từ (実は, だんだん), và các cụm quán ngữ giao tiếp quan trọng xuất hiện trong câu vào mảng "keywords".
-   - Mục đích: Giúp học viên khi rê chuột/hover vào bất kỳ từ/cụm từ nào trong câu thoại đều được hiển thị giải nghĩa tiếng Việt chi tiết.
-   - Mỗi item trong keywords phải gồm:
-     * "word": từ vựng/cụm từ dạng Kanji/Kana chuẩn (VD: "考える", "自然な", "皆さん", "日本語", "聞き取る")
-     * "reading": cách đọc Hiragana chuẩn (VD: "かんがえる", "しぜんな", "みなさん", "にほんご", "ききとる")
-     * "meaning": nghĩa tiếng Việt súc tích, dễ hiểu theo đúng ngữ cảnh câu (VD: "suy nghĩ, cân nhắc", "tự nhiên", "mọi người", "tiếng Nhật", "nghe hiểu")
-     * "level": cấp độ JLPT ("N5", "N4", "N3", "N2", "N1")
-4. Trích xuất mẫu ngữ pháp quan trọng (nếu có) vào mảng "grammar": [{ "point": "...", "meaning": "...", "level": "N3" }].
+            const prompt = `Bạn là chuyên gia ngôn ngữ học Tiếng Nhật và biên dịch viên phụ đề chuyên nghiệp (Japanese Linguistic & Subtitle Expert).
+Nhiệm vụ: Hãy phân tích ngữ nghĩa TOÀN DIỆN từng câu thoại tiếng Nhật dưới đây:
 
-Chủ đề video: ${topicContext || 'Hội thoại giao tiếp tiếng Nhật'}
+1. GÁN FURIGANA CHO TẤT CẢ CHỮ HÁN (KANJI):
+   - Cú pháp chuẩn: {Kanji|furigana} (Ví dụ: {小田急電鉄|おだきゅうでんてつ}, {抜|ぬ}き{取|と}り, {払|はら}い{戻|もど}し, {自然|しぜん}な, {考|かんが}えると).
+   - TUYỆT ĐỐI KHÔNG chèn khoảng trắng thừa giữa các từ tiếng Nhật hoặc trong ngoặc furigana.
+
+2. DỊCH NGHĨA TIẾNG VIỆT ("vi"):
+   - Bản dịch tiếng Việt tự nhiên, mượt mà và chuẩn xác theo ngữ cảnh câu thoại (BẮT BUỘC có, KHÔNG để trống).
+
+3. TRÍCH XUẤT TOÀN BỘ TẤT CẢ TỪ VỰNG TRONG CÂU ("keywords") - RẤT QUAN TRỌNG:
+   - Mục tiêu: Bao phủ (cover) 100% các từ vựng có nghĩa trong câu để người học di chuột vào BẤT KỲ từ/cụm từ nào cũng xem được nghĩa tiếng Việt chi tiết.
+   - Bóc tách ĐẦY ĐỦ:
+     * Tất cả danh từ đơn & danh từ ghép (VD: 小田急電鉄, 駅員, 使用済み, 切符, 不正, 処理, 現金, 万円, 懲戒解雇...)
+     * Tất cả động từ đơn & động từ ghép (dạng từ điển hoặc dạng xuất hiện: 抜き取る, 払い戻す, 処理する, 得る, 分かる, される...)
+     * Tất cả tính từ, phó từ, lượng từ, liên từ (VD: およそ, 実は, だんだん...)
+     * Các cụm từ/thành ngữ cố định
+   - Mỗi item trong "keywords":
+     * "word": từ vựng/cụm từ chuẩn Kanji/Kana (BẮT BUỘC đúng chính tả tiếng Nhật)
+     * "reading": cách đọc Hiragana chuẩn
+     * "meaning": nghĩa tiếng Việt súc tích, chính xác theo ngữ cảnh
+     * "level": cấp độ JLPT ("N5", "N4", "N3", "N2", "N1")
+
+4. TRÍCH XUẤT CÁC CẤU TRÚC NGỮ PHÁP ("grammar"):
+   - Mọi cấu trúc ngữ pháp, mẫu câu, biến đổi động từ đặc biệt trong câu (VD: "〜に対して", "〜ている / 〜している", "〜ということです", "〜ていた", "〜される (thể bị động)", "〜て (nối câu)", "〜およそ", "〜において"...)
+   - Mỗi item trong "grammar":
+     * "point": mẫu ngữ pháp (VD: "〜に対して", "〜ということです")
+     * "meaning": ý nghĩa và cách dùng ngắn gọn bằng tiếng Việt
+     * "level": cấp độ JLPT ("N5", "N4", "N3", "N2", "N1")
+
+Chủ đề video: ${topicContext || 'Hội thoại tiếng Nhật'}
 
 Dữ liệu đầu vào:
 ${JSON.stringify(chunkPromptData, null, 2)}
@@ -396,17 +412,26 @@ BẮT BUỘC trả về ĐÚNG 1 mảng JSON thuần (KHÔNG kèm markdown ngoà
 [
   {
     "id": 1,
-    "furigana": "{皆|みな}さん、{自然|しぜん}な{日本語|にほんご}を{一緒|いっしょ}に{考|かんが}えましょう！",
-    "vi": "Mọi người ơi, hãy cùng nhau suy nghĩ về tiếng Nhật tự nhiên nhé!",
+    "furigana": "{小田急電鉄|おだきゅうでんてつ}の{駅員|えきいん}が{使用済|しようず|み}の{切符|きっぷ}を{不正|ふせい}に{処理|しょり}して{現金|げんきん}およそ1500{万円|まんえん}を{得|え}ていたことが{分|わ}かり、{懲戒解雇|ちょうかいかいこ}されました。",
+    "vi": "Phát hiện nhân viên ga Odakyu xử lý bất hợp pháp vé đã qua sử dụng để chiếm đoạt khoảng 15 triệu yên tiền mặt và đã bị sa thải kỷ luật.",
     "keywords": [
-      { "word": "皆さん", "reading": "みなさん", "meaning": "mọi người, các bạn", "level": "N5" },
-      { "word": "自然な", "reading": "しぜんな", "meaning": "tự nhiên", "level": "N3" },
-      { "word": "日本語", "reading": "にほんご", "meaning": "tiếng Nhật", "level": "N5" },
-      { "word": "一緒に", "reading": "いっしょに", "meaning": "cùng nhau", "level": "N5" },
-      { "word": "考える", "reading": "かんがえる", "meaning": "suy nghĩ, cân nhắc", "level": "N4" }
+      { "word": "小田急電鉄", "reading": "おだきゅうでんてつ", "meaning": "Công ty đường sắt Odakyu", "level": "N2" },
+      { "word": "駅員", "reading": "えきいん", "meaning": "nhân viên nhà ga", "level": "N4" },
+      { "word": "使用済み", "reading": "しようずみ", "meaning": "đã qua sử dụng", "level": "N3" },
+      { "word": "切符", "reading": "きっぷ", "meaning": "vé", "level": "N5" },
+      { "word": "不正", "reading": "ふせい", "meaning": "bất hợp pháp, gian lận", "level": "N3" },
+      { "word": "処理する", "reading": "しょりする", "meaning": "xử lý, giải quyết", "level": "N3" },
+      { "word": "現金", "reading": "げんきん", "meaning": "tiền mặt", "level": "N4" },
+      { "word": "およそ", "reading": "およそ", "meaning": "khoảng, xấp xỉ", "level": "N3" },
+      { "word": "万円", "reading": "まんえん", "meaning": "vạn yên (10.000 yên)", "level": "N5" },
+      { "word": "得る", "reading": "える", "meaning": "thu được, kiếm được", "level": "N3" },
+      { "word": "分かる", "reading": "わかる", "meaning": "hiểu, phát hiện ra", "level": "N5" },
+      { "word": "懲戒解雇", "reading": "ちょうかいかいこ", "meaning": "sa thải kỷ luật", "level": "N1" }
     ],
     "grammar": [
-      { "point": "〜ましょう", "meaning": "hãy cùng nhau (lời rủ rê, đề nghị lịch sự)", "level": "N5" }
+      { "point": "〜ていた", "meaning": "diễn tả hành động đang diễn ra trong quá khứ", "level": "N5" },
+      { "point": "〜ことが分かる", "meaning": "phát hiện ra sự việc / sự thật được sáng tỏ", "level": "N3" },
+      { "point": "〜される", "meaning": "thể bị động (bị / được làm gì)", "level": "N4" }
     ]
   }
 ]`;
@@ -447,10 +472,10 @@ BẮT BUỘC trả về ĐÚNG 1 mảng JSON thuần (KHÔNG kèm markdown ngoà
     }
 
     // If input is raw text string (user pasted raw text)
-    const prompt = `Bạn là chuyên gia ngôn ngữ tiếng Nhật và dịch thuật phụ đề phim/video Kaiwa.
-Nhiệm vụ: Hãy phân tách đoạn văn bản tiếng Nhật dưới đây thành các câu phụ đề theo thứ tự, gán Furigana dạng {Kanji|furigana}, dịch nghĩa Tiếng Việt tự nhiên theo ngữ cảnh vào trường "vi" (BẮT BUỘC), và trích xuất chi tiết từ 2-6 từ vựng/cụm từ quan trọng vào "keywords" cho từng câu thoại.
+    const prompt = `Bạn là chuyên gia ngôn ngữ học tiếng Nhật và dịch thuật phụ đề phim/video Kaiwa chuyên nghiệp.
+Nhiệm vụ: Hãy phân tách đoạn văn bản tiếng Nhật dưới đây thành các câu phụ đề theo thứ tự, gán Furigana dạng {Kanji|furigana}, dịch nghĩa Tiếng Việt tự nhiên vào trường "vi" (BẮT BUỘC), và trích xuất TOÀN BỘ 100% từ vựng vào "keywords" cùng các cấu trúc ngữ pháp vào "grammar" cho từng câu thoại để phục vụ tính năng tra từ khi rê chuột.
 
-Chủ đề video: ${topicContext || 'Hội thoại giao tiếp tiếng Nhật'}
+Chủ đề video: ${topicContext || 'Hội thoại tiếng Nhật'}
 
 Văn bản:
 ${rawJapaneseTextOrSubtitles.slice(0, 3000)}
@@ -461,18 +486,191 @@ BẮT BUỘC trả về định dạng JSON thuần (KHÔNG kèm markdown ngoài
     "id": 1,
     "start": 0.0,
     "end": 5.0,
-    "ja": "自然な日本語を一緒に考えましょう！",
-    "furigana": "{自然|しぜん}な{日本語|にほんご}を{一緒|いっしょ}に{考|かんが}えましょう！",
-    "vi": "Hãy cùng nhau suy nghĩ về tiếng Nhật tự nhiên nhé!",
+    "ja": "小田急電鉄の駅員が使用済みの切符を不正に処理して現金およそ1500万円を得ていたことが分かり、懲戒解雇されました。",
+    "furigana": "{小田急電鉄|おだきゅうでんてつ}の{駅員|えきいん}が{使用済|しようず|み}の{切符|きっぷ}を{不正|ふせい}に{処理|しょり}して{現金|げんきん}およそ1500{万円|まんえん}を{得|え}ていたことが{分|わ}かり、{懲戒解雇|ちょうかいかいこ}されました。",
+    "vi": "Phát hiện nhân viên ga Odakyu xử lý bất hợp pháp vé đã qua sử dụng để chiếm đoạt khoảng 15 triệu yên tiền mặt và đã bị sa thải kỷ luật.",
     "keywords": [
-      { "word": "自然な", "reading": "しぜんな", "meaning": "tự nhiên", "level": "N3" },
-      { "word": "日本語", "reading": "にほんご", "meaning": "tiếng Nhật", "level": "N5" },
-      { "word": "一緒に", "reading": "いっしょに", "meaning": "cùng nhau", "level": "N5" },
-      { "word": "考える", "reading": "かんがえる", "meaning": "suy nghĩ, cân nhắc", "level": "N4" }
+      { "word": "小田急電鉄", "reading": "おだきゅうでんてつ", "meaning": "Công ty đường sắt Odakyu", "level": "N2" },
+      { "word": "駅員", "reading": "えきいん", "meaning": "nhân viên nhà ga", "level": "N4" },
+      { "word": "使用済み", "reading": "しようずみ", "meaning": "đã qua sử dụng", "level": "N3" },
+      { "word": "切符", "reading": "きっぷ", "meaning": "vé", "level": "N5" },
+      { "word": "不正", "reading": "ふせい", "meaning": "bất hợp pháp, gian lận", "level": "N3" },
+      { "word": "処理する", "reading": "しょりする", "meaning": "xử lý, giải quyết", "level": "N3" },
+      { "word": "現金", "reading": "げんきん", "meaning": "tiền mặt", "level": "N4" },
+      { "word": "およそ", "reading": "およそ", "meaning": "khoảng, xấp xỉ", "level": "N3" },
+      { "word": "万円", "reading": "まんえん", "meaning": "vạn yên (10.000 yên)", "level": "N5" },
+      { "word": "得る", "reading": "える", "meaning": "thu được, kiếm được", "level": "N3" },
+      { "word": "分かる", "reading": "わかる", "meaning": "hiểu, phát hiện ra", "level": "N5" },
+      { "word": "懲戒解雇", "reading": "ちょうかいかいこ", "meaning": "sa thải kỷ luật", "level": "N1" }
     ],
-    "grammar": []
+    "grammar": [
+      { "point": "〜ていた", "meaning": "diễn tả hành động đang diễn ra trong quá khứ", "level": "N5" },
+      { "point": "〜ことが分かる", "meaning": "phát hiện ra sự việc / sự thật được sáng tỏ", "level": "N3" },
+      { "point": "〜される", "meaning": "thể bị động (bị / được làm gì)", "level": "N4" }
+    ]
   }
 ]`;
 
     return await executeAiPrompt(prompt);
 };
+
+/**
+ * Deeply analyzes all sentences in a video to extract comprehensive vocabulary (all content words)
+ * and grammatical structures for hover lookup.
+ * 
+ * @param {Array} subtitles - Array of subtitle objects ({ id, start, end, ja, furigana, vi, keywords, grammar })
+ * @param {string} topicContext - Video title or topic description
+ * @param {Function} onProgress - Progress callback ({ current, total, percent, subtitles })
+ * @param {Object} abortRef - Abort controller ref
+ * @returns {Promise<Array>} Updated subtitles array with comprehensive keywords and grammar
+ */
+export const enrichVideoKeywordsAndGrammarWithAI = async (subtitles, topicContext = '', onProgress = null, abortRef = { current: false }) => {
+    if (!Array.isArray(subtitles) || subtitles.length === 0) return [];
+
+    const items = [...subtitles];
+    const total = items.length;
+    const BATCH_SIZE = 6;
+    const updatedList = items.map(s => ({
+        ...s,
+        keywords: Array.isArray(s.keywords) ? [...s.keywords] : [],
+        grammar: Array.isArray(s.grammar) ? [...s.grammar] : []
+    }));
+
+    for (let i = 0; i < total; i += BATCH_SIZE) {
+        if (abortRef && abortRef.current) {
+            console.log('AI enrichment aborted by user.');
+            break;
+        }
+
+        const chunk = updatedList.slice(i, i + BATCH_SIZE);
+        const chunkPromptData = chunk.map(c => ({
+            id: c.id,
+            ja: c.ja || c.furigana,
+            vi: c.vi || ''
+        }));
+
+        const prompt = `Bạn là chuyên gia ngôn ngữ học Tiếng Nhật và từ điển học chuyên sâu (Japanese Linguistic Expert).
+Nhiệm vụ: Hãy phân tích ngữ nghĩa TOÀN DIỆN từng câu tiếng Nhật dưới đây để phục vụ tính năng "Di chuột xem giải nghĩa từng từ (Hover Meaning Lookup)":
+
+1. TRÍCH XUẤT TOÀN BỘ TẤT CẢ TỪ VỰNG TRONG CÂU ("keywords"):
+   - Mục tiêu: Bao phủ (cover) 100% các từ vựng có nghĩa trong câu để người học di chuột vào BẤT KỲ từ/cụm từ nào cũng xem được nghĩa tiếng Việt chi tiết.
+   - Bóc tách ĐẦY ĐỦ:
+     * Tất cả danh từ đơn & danh từ ghép (VD: 小田急電鉄, 駅員, 使用済み, 切符, 不正, 処理, 現金, 万円, 懲戒解雇...)
+     * Tất cả động từ (dạng nguyên thể hoặc dạng xuất hiện: 処理する, 得る, 分かる, される...)
+     * Tất cả tính từ, phó từ, lượng từ, liên từ (VD: およそ, 実は, だんだん...)
+     * Các cụm từ/thành ngữ cố định
+   - Mỗi item trong "keywords":
+     * "word": từ vựng/cụm từ chuẩn Kanji/Kana (BẮT BUỘC đúng chính tả tiếng Nhật)
+     * "reading": cách đọc Hiragana chuẩn
+     * "meaning": nghĩa tiếng Việt tự nhiên, chính xác theo ngữ cảnh câu
+     * "level": cấp độ JLPT ("N5", "N4", "N3", "N2", "N1")
+
+2. TRÍCH XUẤT CÁC CẤU TRÚC NGỮ PHÁP ("grammar"):
+   - Mọi cấu trúc ngữ pháp, mẫu câu, biến đổi động từ đặc biệt trong câu (VD: "〜ていた", "〜が分かる", "〜される (thể bị động)", "〜て (nối câu)", "〜およそ", "〜において"...)
+   - Mỗi item trong "grammar":
+     * "point": mẫu ngữ pháp (VD: "〜ていた", "〜される")
+     * "meaning": ý nghĩa và cách dùng ngắn gọn bằng tiếng Việt (VD: "diễn tả hành động đang diễn ra trong quá khứ", "thể bị động - bị/được")
+     * "level": cấp độ JLPT ("N5", "N4", "N3", "N2", "N1")
+
+3. CẬP NHẬT FURIGANA VÀ DỊCH NGHĨA:
+   - "furigana": gán Furigana dạng {Kanji|furigana} cho tất cả chữ Hán.
+   - "vi": bản dịch tiếng Việt chuẩn xác theo ngữ cảnh.
+
+Chủ đề: ${topicContext || 'Hội thoại tiếng Nhật'}
+
+Dữ liệu đầu vào:
+${JSON.stringify(chunkPromptData, null, 2)}
+
+BẮT BUỘC trả về định dạng JSON thuần (KHÔNG kèm markdown, KHÔNG bọc \`\`\`json):
+[
+  {
+    "id": 1,
+    "furigana": "{小田急電鉄|おだきゅうでんてつ}の{駅員|えきいん}が{使用済|しようず|み}の{切符|きっぷ}を{不正|ふせい}に{処理|しょり}して{現金|げんきん}およそ1500{万円|まんえん}を{得|え}ていたことが{分|わ}かり、{懲戒解雇|ちょうかいかいこ}されました。",
+    "vi": "Phát hiện nhân viên ga Odakyu xử lý bất hợp pháp vé đã qua sử dụng để chiếm đoạt khoảng 15 triệu yên tiền mặt và đã bị sa thải kỷ luật.",
+    "keywords": [
+      { "word": "小田急電鉄", "reading": "おだきゅうでんてつ", "meaning": "Công ty đường sắt Odakyu", "level": "N2" },
+      { "word": "駅員", "reading": "えきいん", "meaning": "nhân viên nhà ga", "level": "N4" },
+      { "word": "使用済み", "reading": "しようずみ", "meaning": "đã qua sử dụng", "level": "N3" },
+      { "word": "切符", "reading": "きっぷ", "meaning": "vé", "level": "N5" },
+      { "word": "不正", "reading": "ふせい", "meaning": "bất hợp pháp, gian lận", "level": "N3" },
+      { "word": "処理する", "reading": "しょりする", "meaning": "xử lý, giải quyết", "level": "N3" },
+      { "word": "現金", "reading": "げんきん", "meaning": "tiền mặt", "level": "N4" },
+      { "word": "およそ", "reading": "およそ", "meaning": "khoảng, xấp xỉ", "level": "N3" },
+      { "word": "万円", "reading": "まんえん", "meaning": "vạn yên (10.000 yên)", "level": "N5" },
+      { "word": "得る", "reading": "える", "meaning": "thu được, kiếm được", "level": "N3" },
+      { "word": "分かる", "reading": "わかる", "meaning": "hiểu, phát hiện ra", "level": "N5" },
+      { "word": "懲戒解雇", "reading": "ちょうかいかいこ", "meaning": "sa thải kỷ luật", "level": "N1" }
+    ],
+    "grammar": [
+      { "point": "〜ていた", "meaning": "diễn tả hành động đang diễn ra trong quá khứ", "level": "N5" },
+      { "point": "〜ことが分かる", "meaning": "phát hiện ra sự việc / sự thật được sáng tỏ", "level": "N3" },
+      { "point": "〜される", "meaning": "thể bị động (bị / được làm gì)", "level": "N4" }
+    ]
+  }
+]`;
+
+        try {
+            const aiResponse = await callAI(prompt, null, 'kaiwa_agent');
+            const parsedChunk = parseJsonFromAI(aiResponse);
+
+            if (Array.isArray(parsedChunk)) {
+                parsedChunk.forEach(item => {
+                    const idx = updatedList.findIndex(u => u.id === item.id);
+                    if (idx >= 0) {
+                        // Merge keywords (deduplicate by word)
+                        const existingKws = updatedList[idx].keywords || [];
+                        const newKws = Array.isArray(item.keywords) ? item.keywords : [];
+                        const mergedKwMap = new Map();
+                        existingKws.forEach(k => { if (k?.word) mergedKwMap.set(k.word, k); });
+                        newKws.forEach(k => { if (k?.word) mergedKwMap.set(k.word, k); });
+
+                        // Merge grammar
+                        const existingGrammar = updatedList[idx].grammar || [];
+                        const newGrammar = Array.isArray(item.grammar) ? item.grammar : [];
+                        const mergedGrammarMap = new Map();
+                        existingGrammar.forEach(g => {
+                            const key = typeof g === 'object' ? (g.point || g.structure || g.grammar || g.meaning) : g;
+                            if (key) mergedGrammarMap.set(key, g);
+                        });
+                        newGrammar.forEach(g => {
+                            const key = typeof g === 'object' ? (g.point || g.structure || g.grammar || g.meaning) : g;
+                            if (key) mergedGrammarMap.set(key, g);
+                        });
+
+                        updatedList[idx] = {
+                            ...updatedList[idx],
+                            furigana: item.furigana || updatedList[idx].furigana || updatedList[idx].ja,
+                            vi: item.vi || updatedList[idx].vi,
+                            keywords: Array.from(mergedKwMap.values()),
+                            grammar: Array.from(mergedGrammarMap.values())
+                        };
+                    }
+                });
+            }
+        } catch (chunkErr) {
+            console.warn(`Lỗi khi AI phân tích cụm câu ${i + 1} - ${Math.min(i + BATCH_SIZE, total)}:`, chunkErr);
+        }
+
+        if (onProgress) {
+            const current = Math.min(i + BATCH_SIZE, total);
+            onProgress({
+                current,
+                total,
+                percent: Math.round((current / total) * 100),
+                subtitles: updatedList
+            });
+        }
+    }
+
+    return updatedList;
+};
+
+/**
+ * Analyzes a single subtitle sentence to extract all keywords and grammar points.
+ */
+export const enrichSingleSubtitleWithAI = async (subtitle, topicContext = '') => {
+    if (!subtitle) return subtitle;
+    const res = await enrichVideoKeywordsAndGrammarWithAI([subtitle], topicContext);
+    return res[0] || subtitle;
+};
+

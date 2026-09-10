@@ -26,7 +26,8 @@ const VideoKaiwaPlayer = ({
     onBack,
     isAdmin,
     onEditVideo,
-    allKeywords = []
+    allKeywords = [],
+    allGrammar = []
 }) => {
     const playerContainerRef = useRef(null);
     const iframeRef = useRef(null);
@@ -555,9 +556,9 @@ const VideoKaiwaPlayer = ({
             </div>
 
             {/* 2. KHUNG PLAYER Ở DƯỚI RIÊNG BIỆT (Card 2) - Bao gồm ô script ở trên và thanh điều khiển ở dưới, bo tròn toàn bộ */}
-            <div className="flex-1 min-h-0 flex flex-col justify-between bg-white dark:bg-slate-950 border border-slate-200/90 dark:border-slate-800 rounded-2xl lg:rounded-3xl overflow-hidden shadow-none">
+            <div className="relative z-30 flex-1 min-h-0 flex flex-col justify-between bg-white dark:bg-slate-950 border border-slate-200/90 dark:border-slate-800 rounded-2xl lg:rounded-3xl shadow-none overflow-visible">
                 {/* 2A. Interactive Dual Subtitles Display Box (Khung Script Phụ Đề ở trên của Khung Player) */}
-                <div className="flex-1 min-h-[55px] lg:min-h-[80px] overflow-y-auto p-2 sm:p-2.5 lg:p-4 bg-transparent flex flex-col justify-center items-center text-center px-3 sm:px-4 relative z-20">
+                <div className="flex-1 min-h-[70px] lg:min-h-[90px] overflow-visible pt-4 sm:pt-6 pb-2 px-3 sm:px-4 lg:px-6 bg-transparent flex flex-col justify-center items-center text-center relative z-40">
                     {currentSub ? (
                         <div className="space-y-1 sm:space-y-1.5 lg:space-y-2 max-w-4xl mx-auto my-auto py-0.5 sm:py-1 transition-opacity duration-200">
                             {/* Japanese Subtitle with Furigana */}
@@ -567,6 +568,7 @@ const VideoKaiwaPlayer = ({
                                     showFurigana={showFurigana} 
                                     onWordClick={onWordLookup}
                                     keywords={allKeywords.length > 0 ? allKeywords : (currentSub.keywords || [])}
+                                    grammar={allGrammar.length > 0 ? allGrammar : (currentSub.grammar || [])}
                                 />
                             </div>
 
@@ -586,7 +588,7 @@ const VideoKaiwaPlayer = ({
                 </div>
 
                 {/* 2B. Custom Web Player Controls Toolbar (Thanh công cụ ở dưới của Khung Player) */}
-                <div className="shrink-0 p-2 sm:p-2.5 lg:p-3.5 bg-slate-50/50 dark:bg-slate-900/50 border-t border-slate-200/80 dark:border-slate-800/80 space-y-1.5 sm:space-y-2 lg:space-y-2.5">
+                <div className="shrink-0 p-2 sm:p-2.5 lg:p-3.5 bg-slate-50/50 dark:bg-slate-900/50 border-t border-slate-200/80 dark:border-slate-800/80 space-y-1.5 sm:space-y-2 lg:space-y-2.5 rounded-b-2xl lg:rounded-b-3xl relative z-10">
                     {/* Timeline Scrubber Track */}
                     <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 text-xs font-mono font-bold">
                         <span className="px-1.5 sm:px-2 py-0.5 rounded-xl bg-[#f494bc]/15 text-[#db2777] dark:text-[#f494bc] min-w-[40px] sm:min-w-[46px] text-center font-black text-[10px] sm:text-xs">{formatTime(currentTime)}</span>

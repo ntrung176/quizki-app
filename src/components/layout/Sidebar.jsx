@@ -23,6 +23,7 @@ import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/gra
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { useFocus } from '../../context/FocusContext';
+import { useChatUnreadCount } from '../../hooks/useChatUnreadCount';
 
 const renderTextWithClickableLinks = (text) => {
     if (!text || typeof text !== 'string') return text;
@@ -73,6 +74,8 @@ const Sidebar = ({
         setIsModalOpen: setIsFocusModalOpen, 
         formatTime: formatFocusTime 
     } = useFocus();
+
+    const unreadChatCount = useChatUnreadCount(userId, isAdmin);
 
     const isPremium = useMemo(() => {
         if (isPremiumProp === true) return true;
@@ -702,9 +705,16 @@ const Sidebar = ({
                                     setIsMobileMenuOpen(false);
                                     window.dispatchEvent(new CustomEvent('open-admin-chat'));
                                 }}
-                                className="flex items-center justify-center gap-1.5 p-2 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 text-[11px] font-bold cursor-pointer hover:bg-cyan-500/20 transition-colors"
+                                className="flex items-center justify-center gap-1.5 p-2 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 text-[11px] font-bold cursor-pointer hover:bg-cyan-500/20 transition-colors relative"
                             >
-                                <MessageSquare className="w-3.5 h-3.5" />
+                                <div className="relative flex items-center justify-center">
+                                    <MessageSquare className="w-3.5 h-3.5" />
+                                    {unreadChatCount > 0 && (
+                                        <span className="absolute -top-1.5 -right-2 bg-rose-500 text-white text-[9px] font-black font-mono rounded-full min-w-[14px] h-3.5 px-0.5 flex items-center justify-center shadow-sm animate-pulse">
+                                            {unreadChatCount > 99 ? '99+' : unreadChatCount}
+                                        </span>
+                                    )}
+                                </div>
                                 <span>Chat</span>
                             </button>
 
@@ -946,20 +956,31 @@ const Sidebar = ({
                         {isCollapsed ? (
                             <button
                                 onClick={() => setIsCollapsed(false)}
-                                className="w-full py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer shadow-sm"
-                                title="Mở rộng Sidebar"
+                                className="w-full py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer shadow-sm relative"
+                                title={unreadChatCount > 0 ? `Mở rộng Sidebar (${unreadChatCount} tin nhắn chưa đọc)` : "Mở rộng Sidebar"}
                             >
                                 <ChevronRight className="w-5 h-5" />
+                                {unreadChatCount > 0 && (
+                                    <span className="absolute top-1.5 right-1.5 flex h-2.5 w-2.5">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span>
+                                    </span>
+                                )}
                             </button>
                         ) : (
                             <div className="flex items-center justify-between p-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-sm w-full">
                                 {/* Chatbox with Admin Button */}
                                 <button
                                     onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
-                                    className="p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer"
-                                    title="Chatbox hỗ trợ với Admin"
+                                    className="p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer relative"
+                                    title={unreadChatCount > 0 ? `Chatbox hỗ trợ (${unreadChatCount} tin nhắn chưa đọc)` : "Chatbox hỗ trợ với Admin"}
                                 >
                                     <MessageSquare className="w-4.5 h-4.5" />
+                                    {unreadChatCount > 0 && (
+                                        <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-black font-mono rounded-full min-w-[17px] h-4 px-1 flex items-center justify-center shadow-md animate-bounce">
+                                            {unreadChatCount > 99 ? '99+' : unreadChatCount}
+                                        </span>
+                                    )}
                                 </button>
 
                                 {/* Pomodoro Focus Clock Button */}

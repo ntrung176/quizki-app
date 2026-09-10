@@ -192,13 +192,17 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
                 setHasNewMessage(!!data.hasUnreadUser);
                 setHasUnreadAdmin(!!data.hasUnreadAdmin);
                 setAdminLastActive(data.adminLastActive || null);
+
+                if (isOpen && data.hasUnreadUser) {
+                    setDoc(statusDocRef, { hasUnreadUser: false }, { merge: true }).catch(console.error);
+                }
             }
         }, (error) => {
             console.error("Error listening to unread status:", error);
         });
 
         return () => unsubscribe();
-    }, [userId]);
+    }, [userId, isOpen]);
 
     // Heartbeat to update user presence in this chat thread
     useEffect(() => {

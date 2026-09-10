@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef, useMemo, memo } from 'react';
 import { 
     MessageSquare, BookOpen, Layers, Play, Mic, Star, Sparkles, 
     Check, ChevronRight, Bookmark, ArrowUpRight, Volume2, Search, Film,
-    Edit2, Trash2, Plus, X, Save
+    Edit2, Trash2, Plus, X, Save, Loader2, Wand2, RefreshCw
 } from 'lucide-react';
 import FuriganaRenderer from './FuriganaRenderer';
+import { enrichVideoKeywordsAndGrammarWithAI, enrichSingleSubtitleWithAI } from '../../services/videoKaiwaService';
 
 // Memoized Single Dialogue Card Component with Admin Inline Editing
 const TranscriptDialogueItem = memo(({
@@ -18,6 +19,7 @@ const TranscriptDialogueItem = memo(({
     isAdmin,
     isEditing,
     keywords = [],
+    grammar = [],
     onStartEdit,
     onSaveEdit,
     onCancelEdit,
@@ -25,6 +27,8 @@ const TranscriptDialogueItem = memo(({
     onAddSubAfter,
     onSeekToSub,
     onOpenShadowing,
+    onEnrichSingleSub,
+    isEnrichingSingle,
     itemRef
 }) => {
     // Local edit state
@@ -236,6 +240,7 @@ const TranscriptDialogueItem = memo(({
                         text={sub.furigana || sub.ja} 
                         showFurigana={showFurigana} 
                         keywords={keywords.length > 0 ? keywords : (sub.keywords || [])}
+                        grammar={grammar.length > 0 ? grammar : (sub.grammar || [])}
                     />
                 </div>
 
@@ -247,8 +252,24 @@ const TranscriptDialogueItem = memo(({
                 )}
             </div>
 
-            {/* Action Icons: Admin Edit & Shadowing (Centered) */}
+            {/* Action Icons: AI Enrich, Admin Edit & Shadowing (Centered) */}
             <div className="flex items-center gap-1 shrink-0 self-center">
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onEnrichSingleSub?.(actualIndex);
+                    }}
+                    disabled={isEnrichingSingle}
+                    title="AI Bổ sung phân tích từ vựng & ngữ pháp cho câu này"
+                    className="p-1.5 rounded-xl text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors shrink-0 opacity-70 group-hover:opacity-100 cursor-pointer disabled:opacity-50"
+                >
+                    {isEnrichingSingle ? (
+                        <Loader2 className="w-3.5 h-3.5 animate-spin text-amber-500" />
+                    ) : (
+                        <Sparkles className="w-3.5 h-3.5 text-amber-500/80" />
+                    )}
+                </button>
+
                 {isAdmin && (
                     <button
                         onClick={(e) => {
@@ -295,6 +316,11 @@ const VideoKaiwaTranscript = ({
     const [activeTab, setActiveTab] = useState('transcript'); // 'transcript' | 'analysis' | 'playlist'
     const [filterQuery, setFilterQuery] = useState('');
     const [editingSubIndex, setEditingSubIndex] = useState(null);
+    const [isEnrichingAI, setIsEnrichingAI] = useState(false);
+    const [enrichProgress, setEnrichProgress] = useState(null);
+    const [enrichingSubId, setEnrichingSubId] = useState(null);
+    const abortEnrichRef = useRef(false);
+
     const listContainerRef = useRef(null);
     const activeItemRef = useRef(null);
     const isUserInteractingRef = useRef(false);
@@ -302,6 +328,63 @@ const VideoKaiwaTranscript = ({
 
     const subtitles = video?.subtitles || [];
     const currentSub = activeSubIndex >= 0 ? subtitles[activeSubIndex] : null;
+
+    // AI Enrichment Handlers
+    const handleRunAiEnrichment = async () => {
+        if (!subtitles || subtitles.length === 0) return;
+        if (isEnrichingAI) return;
+
+        abortEnrichRef.current = false;
+        setIsEnrichingAI(true);
+        setEnrichProgress({ current: 0, total: subtitles.length, percent: 0 });
+
+        try {
+            const enrichedSubs = await enrichVideoKeywordsAndGrammarWithAI(
+                subtitles,
+                video?.title || '',
+                (prog) => {
+                    setEnrichProgress(prog);
+                },
+                abortEnrichRef
+            );
+
+            if (enrichedSubs && enrichedSubs.length > 0) {
+                onUpdateSubtitles?.(enrichedSubs);
+            }
+        } catch (err) {
+            console.error('Error enriching keywords with AI:', err);
+            alert('Có lỗi khi AI phân tích từ vựng: ' + (err.message || ''));
+        } finally {
+            setIsEnrichingAI(false);
+            setEnrichProgress(null);
+        }
+    };
+
+    const handleCancelAiEnrichment = () => {
+        abortEnrichRef.current = true;
+        setIsEnrichingAI(false);
+        setEnrichProgress(null);
+    };
+
+    const handleEnrichSingleSub = async (actualIdx) => {
+        const targetSub = subtitles[actualIdx];
+        if (!targetSub || enrichingSubId !== null) return;
+
+        setEnrichingSubId(actualIdx);
+        try {
+            const enriched = await enrichSingleSubtitleWithAI(targetSub, video?.title || '');
+            if (enriched) {
+                const nextSubs = [...subtitles];
+                nextSubs[actualIdx] = enriched;
+                onUpdateSubtitles?.(nextSubs);
+            }
+        } catch (err) {
+            console.error('Error enriching single subtitle:', err);
+            alert('Có lỗi khi AI phân tích câu này: ' + (err.message || ''));
+        } finally {
+            setEnrichingSubId(null);
+        }
+    };
 
     // Handlers for Admin Editing
     const handleStartEdit = (actualIdx) => {
@@ -418,14 +501,18 @@ const VideoKaiwaTranscript = ({
 
         subtitles.forEach(sub => {
             (sub.keywords || []).forEach(kw => {
-                if (!seenWords.has(kw.word)) {
-                    seenWords.add(kw.word);
-                    keywords.push(kw);
+                if (kw && typeof kw === 'object' && kw.word) {
+                    if (!seenWords.has(kw.word)) {
+                        seenWords.add(kw.word);
+                        keywords.push(kw);
+                    }
                 }
             });
             (sub.grammar || []).forEach(g => {
-                if (!seenGrammar.has(g)) {
-                    seenGrammar.add(g);
+                if (!g) return;
+                const key = typeof g === 'object' ? (g.point || g.structure || g.grammar || g.title || g.meaning || JSON.stringify(g)) : String(g);
+                if (!seenGrammar.has(key)) {
+                    seenGrammar.add(key);
                     grammar.push(g);
                 }
             });
@@ -517,6 +604,7 @@ const VideoKaiwaTranscript = ({
                                             isAdmin={isAdmin}
                                             isEditing={isEditing}
                                             keywords={allKeywords}
+                                            grammar={allGrammar}
                                             onStartEdit={handleStartEdit}
                                             onSaveEdit={handleSaveEdit}
                                             onCancelEdit={handleCancelEdit}
@@ -524,6 +612,8 @@ const VideoKaiwaTranscript = ({
                                             onAddSubAfter={handleAddSubAfter}
                                             onSeekToSub={onSeekToSub}
                                             onOpenShadowing={onOpenShadowing}
+                                            onEnrichSingleSub={handleEnrichSingleSub}
+                                            isEnrichingSingle={enrichingSubId === actualIndex}
                                             itemRef={isActive ? activeItemRef : null}
                                         />
                                     );
@@ -540,6 +630,58 @@ const VideoKaiwaTranscript = ({
                 {/* ================= TAB 2: PHÂN TÍCH (ANALYSIS - Rollable) ================= */}
                 {activeTab === 'analysis' && (
                     <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 [scrollbar-width:thin] [scrollbar-color:#cbd5e1_#f8fafc] dark:[scrollbar-color:#64748b_#1e293b] [&::-webkit-scrollbar]:w-2.5 [&::-webkit-scrollbar-thumb]:bg-slate-300 dark:[&::-webkit-scrollbar-thumb]:bg-slate-600 hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-slate-500 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-100 dark:[&::-webkit-scrollbar-track]:bg-slate-900/60">
+                        {/* AI Deep Extraction Card / Banner */}
+                        <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-amber-500/10 via-pink-500/10 to-indigo-500/10 dark:from-amber-950/40 dark:via-pink-950/30 dark:to-indigo-950/40 border border-amber-300/60 dark:border-amber-700/60 shadow-xs space-y-3">
+                            <div className="flex items-start justify-between gap-2">
+                                <div className="space-y-1">
+                                    <div className="flex items-center gap-1.5 font-black text-xs text-amber-700 dark:text-amber-300">
+                                        <Wand2 className="w-4 h-4 text-amber-500 animate-pulse" />
+                                        <span>AI Trích xuất toàn diện Từ vựng & Ngữ pháp</span>
+                                    </div>
+                                    <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        Bóc tách 100% từ vựng (danh từ, động từ, tính từ, phó từ) và các cấu trúc ngữ pháp để rê chuột vào bất kỳ từ nào cũng hiển thị nghĩa tiếng Việt.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {isEnrichingAI ? (
+                                <div className="space-y-2 p-2.5 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-amber-200 dark:border-amber-900/50">
+                                    <div className="flex items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200">
+                                        <span className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                            Đang phân tích câu {enrichProgress?.current || 0} / {enrichProgress?.total || subtitles.length}...
+                                        </span>
+                                        <span className="font-mono text-amber-600 dark:text-amber-400">{enrichProgress?.percent || 0}%</span>
+                                    </div>
+                                    <div className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                        <div
+                                            className="h-full bg-gradient-to-r from-amber-500 to-pink-500 transition-all duration-300 rounded-full"
+                                            style={{ width: `${enrichProgress?.percent || 0}%` }}
+                                        />
+                                    </div>
+                                    <div className="flex justify-end">
+                                        <button
+                                            type="button"
+                                            onClick={handleCancelAiEnrichment}
+                                            className="text-[11px] text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 font-bold transition cursor-pointer"
+                                        >
+                                            Hủy dừng
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <button
+                                    type="button"
+                                    onClick={handleRunAiEnrichment}
+                                    disabled={subtitles.length === 0}
+                                    className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 hover:from-amber-600 hover:via-pink-600 hover:to-rose-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition transform active:scale-98 cursor-pointer disabled:opacity-50"
+                                >
+                                    <Sparkles className="w-4 h-4" />
+                                    <span>{allKeywords.length > 0 ? 'Bổ sung / Phân tích lại toàn bộ với AI' : 'Bắt đầu phân tích AI cho cả bài'}</span>
+                                </button>
+                            )}
+                        </div>
+
                         {/* Current sentence keywords if active */}
                         {currentSub?.keywords && currentSub.keywords.length > 0 && (
                             <div className="p-3.5 bg-pink-50/20 dark:bg-slate-900/90 border-2 border-[#f494bc] dark:border-[#f494bc]/80 rounded-2xl space-y-2.5 shadow-xs">
@@ -547,28 +689,70 @@ const VideoKaiwaTranscript = ({
                                     <Sparkles className="w-3.5 h-3.5 text-[#db2777] dark:text-[#f494bc]" /> Từ vựng trong câu đang phát
                                 </span>
                                 <div className="space-y-2">
-                                    {currentSub.keywords.map((kw, i) => (
-                                        <div key={i} className="flex items-center justify-between gap-2 p-2.5 bg-white dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/50 shadow-xs transition-colors">
-                                            <div>
-                                                <div className="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
-                                                    <span>{kw.word}</span>
-                                                    {kw.reading && kw.reading !== kw.word && (
-                                                        <span className="text-[10px] font-normal text-slate-500 dark:text-slate-400">({kw.reading})</span>
+                                    {currentSub.keywords.map((kw, i) => {
+                                        if (!kw) return null;
+                                        const wordText = typeof kw === 'object' ? (kw.word || '') : String(kw);
+                                        const readingText = typeof kw === 'object' ? (kw.reading || '') : '';
+                                        const meaningText = typeof kw === 'object' ? (typeof kw.meaning === 'string' ? kw.meaning : '') : '';
+
+                                        return (
+                                            <div key={i} className="flex items-center justify-between gap-2 p-2.5 bg-white dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/50 shadow-xs transition-colors">
+                                                <div>
+                                                    <div className="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
+                                                        <span>{wordText}</span>
+                                                        {readingText && readingText !== wordText && (
+                                                            <span className="text-[10px] font-normal text-slate-500 dark:text-slate-400">({readingText})</span>
+                                                        )}
+                                                    </div>
+                                                    {meaningText && (
+                                                        <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{meaningText}</div>
                                                     )}
                                                 </div>
-                                                <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{kw.meaning}</div>
+                                                {onSaveToFlashcard && typeof kw === 'object' && (
+                                                    <button
+                                                        onClick={() => onSaveToFlashcard(kw)}
+                                                        title="Lưu vào Flashcard"
+                                                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer"
+                                                    >
+                                                        <Bookmark className="w-3.5 h-3.5" />
+                                                    </button>
+                                                )}
                                             </div>
-                                            {onSaveToFlashcard && (
-                                                <button
-                                                    onClick={() => onSaveToFlashcard(kw)}
-                                                    title="Lưu vào Flashcard"
-                                                    className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer"
-                                                >
-                                                    <Bookmark className="w-3.5 h-3.5" />
-                                                </button>
-                                            )}
-                                        </div>
-                                    ))}
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Current sentence grammar if active */}
+                        {currentSub?.grammar && currentSub.grammar.length > 0 && (
+                            <div className="p-3.5 bg-indigo-50/20 dark:bg-slate-900/90 border-2 border-indigo-400 dark:border-indigo-500/80 rounded-2xl space-y-2.5 shadow-xs">
+                                <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+                                    <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> Ngữ pháp trong câu đang phát
+                                </span>
+                                <div className="space-y-1.5">
+                                    {currentSub.grammar.map((g, i) => {
+                                        const isObj = typeof g === 'object' && g !== null;
+                                        const pointText = isObj ? (g.point || g.structure || g.grammar || g.title || '') : String(g);
+                                        const meaningText = isObj ? (g.meaning || g.explanation || '') : '';
+                                        const levelText = isObj ? g.level : null;
+
+                                        return (
+                                            <div key={i} className="p-2.5 bg-white dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-indigo-400/50 shadow-xs transition-colors">
+                                                <div className="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
+                                                    <span>{pointText}</span>
+                                                    {levelText && (
+                                                        <span className="text-[8px] font-bold px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                                                            {levelText}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                {meaningText && (
+                                                    <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{meaningText}</div>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
@@ -579,33 +763,43 @@ const VideoKaiwaTranscript = ({
                                 Tất cả từ vựng trong video ({allKeywords.length})
                             </span>
                             <div className="space-y-2">
-                                {allKeywords.map((kw, i) => (
-                                    <div key={i} className="flex items-center justify-between gap-2 p-2.5 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/40 transition-colors">
-                                        <div>
-                                            <div className="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
-                                                <span>{kw.word}</span>
-                                                {kw.reading && kw.reading !== kw.word && (
-                                                    <span className="text-[10px] font-normal text-slate-500 dark:text-slate-400">({kw.reading})</span>
-                                                )}
-                                                {kw.level && (
-                                                    <span className="text-[8px] font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                                                        {kw.level}
-                                                    </span>
+                                {allKeywords.map((kw, i) => {
+                                    if (!kw) return null;
+                                    const wordText = typeof kw === 'object' ? (kw.word || '') : String(kw);
+                                    const readingText = typeof kw === 'object' ? (kw.reading || '') : '';
+                                    const meaningText = typeof kw === 'object' ? (typeof kw.meaning === 'string' ? kw.meaning : '') : '';
+                                    const levelText = typeof kw === 'object' ? kw.level : null;
+
+                                    return (
+                                        <div key={i} className="flex items-center justify-between gap-2 p-2.5 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/40 transition-colors">
+                                            <div>
+                                                <div className="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
+                                                    <span>{wordText}</span>
+                                                    {readingText && readingText !== wordText && (
+                                                        <span className="text-[10px] font-normal text-slate-500 dark:text-slate-400">({readingText})</span>
+                                                    )}
+                                                    {levelText && (
+                                                        <span className="text-[8px] font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                                                            {levelText}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                {meaningText && (
+                                                    <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{meaningText}</div>
                                                 )}
                                             </div>
-                                            <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{kw.meaning}</div>
+                                            {onSaveToFlashcard && typeof kw === 'object' && (
+                                                <button
+                                                    onClick={() => onSaveToFlashcard(kw)}
+                                                    title="Lưu vào Flashcard"
+                                                    className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer shadow-xs"
+                                                >
+                                                    <Bookmark className="w-3.5 h-3.5" />
+                                                </button>
+                                            )}
                                         </div>
-                                        {onSaveToFlashcard && (
-                                            <button
-                                                onClick={() => onSaveToFlashcard(kw)}
-                                                title="Lưu vào Flashcard"
-                                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer shadow-xs"
-                                            >
-                                                <Bookmark className="w-3.5 h-3.5" />
-                                            </button>
-                                        )}
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </div>
 
@@ -616,11 +810,28 @@ const VideoKaiwaTranscript = ({
                                     Mẫu ngữ pháp trọng tâm ({allGrammar.length})
                                 </span>
                                 <div className="space-y-1.5">
-                                    {allGrammar.map((g, i) => (
-                                        <div key={i} className="p-2.5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/50 rounded-xl text-xs font-bold text-slate-900 dark:text-white transition-colors">
-                                            {g}
-                                        </div>
-                                    ))}
+                                    {allGrammar.map((g, i) => {
+                                        const isObj = typeof g === 'object' && g !== null;
+                                        const pointText = isObj ? (g.point || g.structure || g.grammar || g.title || '') : String(g);
+                                        const meaningText = isObj ? (g.meaning || g.explanation || '') : '';
+                                        const levelText = isObj ? g.level : null;
+
+                                        return (
+                                            <div key={i} className="p-2.5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/50 rounded-xl text-xs text-slate-900 dark:text-white transition-colors">
+                                                <div className="font-bold flex items-center gap-1.5">
+                                                    <span>{pointText}</span>
+                                                    {levelText && (
+                                                        <span className="text-[8px] font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                                                            {levelText}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                {meaningText && (
+                                                    <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{meaningText}</div>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}

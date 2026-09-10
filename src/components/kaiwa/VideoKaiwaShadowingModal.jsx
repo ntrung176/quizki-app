@@ -3,7 +3,7 @@ import {
     X, Mic, MicOff, Volume2, RotateCcw, CheckCircle2, AlertCircle, 
     Sparkles, Star, Trophy, Award, ArrowRight, Zap, RefreshCw, Loader2
 } from 'lucide-react';
-import FuriganaRenderer from './FuriganaRenderer';
+import FuriganaRenderer, { getParsedTokens } from './FuriganaRenderer';
 import { playFocusCompleteSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { callWhisperSTT } from '../../utils/aiProvider';
 
@@ -12,6 +12,7 @@ const VideoKaiwaShadowingModal = ({
     onClose,
     subtitle,
     allKeywords = [],
+    allGrammar = [],
     onReplayAudio,
     awardXP
 }) => {
@@ -87,8 +88,9 @@ const VideoKaiwaShadowingModal = ({
             .replace(/[、。！？\s\.,!?～〜ー・\(\)（）]/gu, '')
             .toLowerCase();
 
-        const targetKanji = clean(rawJa.replace(/\{([^|]+)\|([^}]+)\}/g, '$1'));
-        const targetKana = clean((rawFurigana || rawJa).replace(/\{([^|]+)\|([^}]+)\}/g, '$2'));
+        const tokens = getParsedTokens(rawFurigana || rawJa);
+        const targetKanji = clean(tokens.map(t => t.isRuby ? (t.kanji + (t.okurigana || '')) : (t.text || '')).join(''));
+        const targetKana = clean(tokens.map(t => t.isRuby ? (t.reading + (t.okurigana || '')) : (t.text || '')).join(''));
         const cleanSpoken = clean(spoken);
 
         if (!cleanSpoken) return 0;
@@ -311,6 +313,7 @@ const VideoKaiwaShadowingModal = ({
                             text={subtitle.furigana || subtitle.ja} 
                             showFurigana={true} 
                             keywords={allKeywords.length > 0 ? allKeywords : (subtitle.keywords || [])}
+                            grammar={allGrammar.length > 0 ? allGrammar : (subtitle.grammar || [])}
                         />
                     </div>
 
