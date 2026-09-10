@@ -6,27 +6,18 @@ import {
 } from 'lucide-react';
 import FuriganaRenderer from './FuriganaRenderer';
 
-const BADGE_COLORS = [
-    'bg-blue-100 text-blue-700 dark:bg-blue-950/80 dark:text-blue-300 border-blue-200 dark:border-blue-800/60',
-    'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/60',
-    'bg-purple-100 text-purple-700 dark:bg-purple-950/80 dark:text-purple-300 border-purple-200 dark:border-purple-800/60',
-    'bg-amber-100 text-amber-700 dark:bg-amber-950/80 dark:text-amber-300 border-amber-200 dark:border-amber-800/60',
-    'bg-rose-100 text-rose-700 dark:bg-rose-950/80 dark:text-rose-300 border-rose-200 dark:border-rose-800/60',
-    'bg-cyan-100 text-cyan-700 dark:bg-cyan-950/80 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800/60'
-];
-
 // Memoized Single Dialogue Card Component with Admin Inline Editing
 const TranscriptDialogueItem = memo(({
     sub,
     actualIndex,
     idx,
     isActive,
-    badgeColor,
     formattedTime,
     showFurigana,
     showVietnamese,
     isAdmin,
     isEditing,
+    keywords = [],
     onStartEdit,
     onSaveEdit,
     onCancelEdit,
@@ -205,66 +196,59 @@ const TranscriptDialogueItem = memo(({
         <div
             ref={itemRef}
             onClick={() => onSeekToSub?.(sub.start)}
-            className={`p-3 sm:p-3.5 rounded-2xl border transition-colors duration-200 cursor-pointer group flex items-start gap-3 relative ${
+            className={`p-3 sm:p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer group flex items-center gap-3 sm:gap-3.5 relative ${
                 isActive
-                    ? 'bg-gradient-to-r from-purple-50 via-indigo-50/70 to-purple-50 dark:from-[#2a1e3b] dark:via-[#1e1b2e] dark:to-[#2a1e3b] border-purple-500 dark:border-purple-400 shadow-md shadow-purple-500/15 ring-1 ring-purple-400/40'
-                    : 'bg-white/85 dark:bg-slate-900/70 hover:bg-indigo-50/40 dark:hover:bg-indigo-950/30 border-slate-200/80 dark:border-slate-800/80 hover:border-indigo-300 dark:hover:border-indigo-600/60 shadow-2xs'
+                    ? 'bg-pink-50/25 dark:bg-slate-900/95 border-2 border-[#f494bc] dark:border-[#f494bc] shadow-md shadow-pink-500/10 ring-2 ring-[#f494bc]/30'
+                    : 'bg-white/85 dark:bg-slate-900/70 hover:bg-pink-50/15 dark:hover:bg-slate-850 border-slate-200/90 dark:border-slate-800/90 hover:border-[#f494bc]/50 shadow-2xs'
             }`}
         >
-            {/* Circular / Rounded-2xl Play Button on Left */}
-            <div className={`w-8.5 h-8.5 rounded-2xl flex items-center justify-center shrink-0 mt-0.5 transition-colors duration-200 ${
-                isActive
-                    ? 'bg-gradient-to-br from-purple-600 to-indigo-600 text-white shadow-md shadow-purple-600/30'
-                    : 'bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/70 dark:to-slate-800 border border-indigo-100 dark:border-indigo-900/50 text-indigo-600 dark:text-indigo-400 group-hover:from-indigo-600 group-hover:to-blue-600 group-hover:text-white shadow-2xs'
-            }`}>
-                <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+            {/* Left Column: Sentence Number, Centered Play Button, Timestamp (Outside text area to prevent furigana collision) */}
+            <div className="flex flex-col items-center justify-center shrink-0 gap-1 self-center min-w-[34px]">
+                {/* Sentence Number Pill */}
+                <span className={`px-1.5 py-0.5 rounded-md text-[9px] font-mono transition-colors text-center ${
+                    isActive
+                        ? 'bg-[#f494bc] text-slate-950 border border-[#f494bc] font-black shadow-2xs'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700/60 font-bold'
+                }`}>
+                    {String((actualIndex >= 0 ? actualIndex : idx) + 1).padStart(2, '0')}
+                </span>
+
+                {/* Centered Circular / Rounded-2xl Play Button */}
+                <div className={`w-8 h-8 rounded-2xl flex items-center justify-center transition-all duration-200 ${
+                    isActive
+                        ? 'bg-[#f494bc] text-slate-950 font-black shadow-md shadow-pink-500/20'
+                        : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 group-hover:bg-[#f494bc] group-hover:text-slate-950 group-hover:border-[#f494bc] shadow-2xs'
+                }`}>
+                    <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                </div>
+
+                {/* Timestamp */}
+                <span className="text-[9px] font-mono text-slate-400 dark:text-slate-500 font-bold text-center">
+                    {formattedTime}
+                </span>
             </div>
 
-            {/* Text Content Column */}
-            <div className="flex-1 min-w-0 space-y-1">
-                {/* Sentence Number & Timestamp Pill */}
-                <div className="flex items-center gap-1.5">
-                    <span className={`px-1.5 py-0.2 rounded border text-[9px] font-mono font-black ${
-                        isActive
-                            ? 'bg-purple-500 text-white border-purple-600 shadow-2xs'
-                            : badgeColor
-                    }`}>
-                        {String((actualIndex >= 0 ? actualIndex : idx) + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 font-bold">
-                        {formattedTime}
-                    </span>
-                    {isActive && (
-                        <span className="px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 text-[9px] font-black uppercase tracking-wider ml-auto shadow-2xs flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
-                            Đang phát
-                        </span>
-                    )}
+            {/* Text Content Column (Clean Japanese with unhindered Furigana + Vietnamese translation) */}
+            <div className="flex-1 min-w-0 space-y-1 py-0.5">
+                {/* Japanese sentence with Furigana (Black & White text) */}
+                <div className="text-sm sm:text-base font-bold leading-relaxed text-slate-900 dark:text-white drop-shadow-xs">
+                    <FuriganaRenderer 
+                        text={sub.furigana || sub.ja} 
+                        showFurigana={showFurigana} 
+                        keywords={keywords.length > 0 ? keywords : (sub.keywords || [])}
+                    />
                 </div>
 
-                {/* Japanese sentence with Furigana */}
-                <div className={`text-sm sm:text-base font-bold leading-relaxed ${
-                    isActive 
-                        ? 'text-purple-950 dark:text-white drop-shadow-xs' 
-                        : 'text-slate-800 dark:text-slate-100 group-hover:text-indigo-950 dark:group-hover:text-white'
-                }`}>
-                    <FuriganaRenderer text={sub.furigana || sub.ja} showFurigana={showFurigana} />
-                </div>
-
-                {/* Vietnamese translation */}
+                {/* Vietnamese translation (Black & White text) */}
                 {showVietnamese && sub.vi && (
-                    <p className={`text-xs leading-relaxed ${
-                        isActive 
-                            ? 'text-purple-900 dark:text-purple-200 font-medium' 
-                            : 'text-slate-500 dark:text-slate-400'
-                    }`}>
+                    <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-300 font-medium">
                         {sub.vi}
                     </p>
                 )}
             </div>
 
-            {/* Action Icons: Admin Edit & Shadowing */}
-            <div className="flex items-center gap-1 shrink-0">
+            {/* Action Icons: Admin Edit & Shadowing (Centered) */}
+            <div className="flex items-center gap-1 shrink-0 self-center">
                 {isAdmin && (
                     <button
                         onClick={(e) => {
@@ -272,7 +256,7 @@ const TranscriptDialogueItem = memo(({
                             onStartEdit?.(actualIndex);
                         }}
                         title="Chỉnh sửa câu này (Admin)"
-                        className="p-1.5 rounded-xl text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-100/70 dark:hover:bg-indigo-950/60 transition-colors cursor-pointer opacity-70 group-hover:opacity-100"
+                        className="p-1.5 rounded-xl text-slate-400 hover:text-[#db2777] dark:hover:text-[#f494bc] hover:bg-pink-50 dark:hover:bg-pink-950/40 transition-colors cursor-pointer opacity-70 group-hover:opacity-100"
                     >
                         <Edit2 className="w-3.5 h-3.5" />
                     </button>
@@ -285,7 +269,7 @@ const TranscriptDialogueItem = memo(({
                             onOpenShadowing(sub);
                         }}
                         title="Luyện nói câu này"
-                        className="p-1.5 rounded-xl text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-300 hover:bg-indigo-100/70 dark:hover:bg-indigo-950/60 transition-colors shrink-0 opacity-0 group-hover:opacity-100 cursor-pointer"
+                        className="p-1.5 rounded-xl text-slate-400 hover:text-[#db2777] dark:hover:text-[#f494bc] hover:bg-pink-50 dark:hover:bg-pink-950/40 transition-colors shrink-0 opacity-0 group-hover:opacity-100 cursor-pointer"
                     >
                         <Mic className="w-4 h-4" />
                     </button>
@@ -451,14 +435,14 @@ const VideoKaiwaTranscript = ({
     }, [subtitles]);
 
     return (
-        <div className="flex flex-col bg-white/95 dark:bg-[#14161d] border border-slate-200/90 dark:border-slate-800/90 rounded-3xl shadow-xl dark:shadow-2xl overflow-hidden h-full max-h-full w-full font-sans text-slate-900 dark:text-white backdrop-blur-md">
+        <div className="flex flex-col bg-white/95 dark:bg-[#14161d] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl lg:rounded-3xl shadow-none overflow-hidden h-full max-h-full w-full font-sans text-slate-900 dark:text-white backdrop-blur-md">
             {/* 1. Header Tabs Switcher */}
-            <div className="shrink-0 px-4 pt-3 bg-slate-50/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800 flex items-center justify-start gap-6 text-xs font-bold">
+            <div className="shrink-0 px-4 pt-3 bg-slate-50/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800 flex items-center justify-start gap-6 text-xs font-bold rounded-t-2xl lg:rounded-t-3xl">
                 <button
                     onClick={() => setActiveTab('transcript')}
                     className={`pb-2.5 transition-all relative cursor-pointer ${
                         activeTab === 'transcript'
-                            ? 'text-rose-600 dark:text-rose-500 font-extrabold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-rose-600 dark:after:bg-rose-500 after:rounded-full'
+                            ? 'text-[#db2777] dark:text-[#f494bc] font-extrabold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-[#f494bc] after:rounded-full'
                             : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                 >
@@ -469,7 +453,7 @@ const VideoKaiwaTranscript = ({
                     onClick={() => setActiveTab('analysis')}
                     className={`pb-2.5 transition-all relative cursor-pointer ${
                         activeTab === 'analysis'
-                            ? 'text-rose-600 dark:text-rose-500 font-extrabold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-rose-600 dark:after:bg-rose-500 after:rounded-full'
+                            ? 'text-[#db2777] dark:text-[#f494bc] font-extrabold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-[#f494bc] after:rounded-full'
                             : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                 >
@@ -480,11 +464,11 @@ const VideoKaiwaTranscript = ({
                     onClick={() => setActiveTab('playlist')}
                     className={`pb-2.5 transition-all relative cursor-pointer ${
                         activeTab === 'playlist'
-                            ? 'text-rose-600 dark:text-rose-500 font-extrabold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-rose-600 dark:after:bg-rose-500 after:rounded-full'
+                            ? 'text-[#db2777] dark:text-[#f494bc] font-extrabold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-[#f494bc] after:rounded-full'
                             : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                 >
-                    Tập ({allVideos.length})
+                    Video khác ({allVideos.length})
                 </button>
             </div>
 
@@ -502,7 +486,7 @@ const VideoKaiwaTranscript = ({
                                     placeholder="Tìm câu trong video..."
                                     value={filterQuery}
                                     onChange={(e) => setFilterQuery(e.target.value)}
-                                    className="w-full pl-8 pr-3 py-1.5 bg-white dark:bg-slate-900/90 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-rose-500 border border-slate-200 dark:border-slate-800 font-sans shadow-xs"
+                                    className="w-full pl-8 pr-3 py-1.5 bg-white dark:bg-slate-900/90 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[#f494bc] border border-slate-200 dark:border-slate-800 font-sans shadow-xs"
                                 />
                             </div>
                         </div>
@@ -519,7 +503,6 @@ const VideoKaiwaTranscript = ({
                                     const actualIndex = subtitles.indexOf(sub);
                                     const isActive = actualIndex === activeSubIndex;
                                     const isEditing = actualIndex === editingSubIndex;
-                                    const badgeColor = BADGE_COLORS[actualIndex % BADGE_COLORS.length];
 
                                     return (
                                         <TranscriptDialogueItem
@@ -528,12 +511,12 @@ const VideoKaiwaTranscript = ({
                                             actualIndex={actualIndex}
                                             idx={idx}
                                             isActive={isActive}
-                                            badgeColor={badgeColor}
                                             formattedTime={formatTime(sub.start)}
                                             showFurigana={showFurigana}
                                             showVietnamese={showVietnamese}
                                             isAdmin={isAdmin}
                                             isEditing={isEditing}
+                                            keywords={allKeywords}
                                             onStartEdit={handleStartEdit}
                                             onSaveEdit={handleSaveEdit}
                                             onCancelEdit={handleCancelEdit}
@@ -559,27 +542,27 @@ const VideoKaiwaTranscript = ({
                     <div className="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 [scrollbar-width:thin] [scrollbar-color:#cbd5e1_#f8fafc] dark:[scrollbar-color:#64748b_#1e293b] [&::-webkit-scrollbar]:w-2.5 [&::-webkit-scrollbar-thumb]:bg-slate-300 dark:[&::-webkit-scrollbar-thumb]:bg-slate-600 hover:[&::-webkit-scrollbar-thumb]:bg-slate-400 dark:hover:[&::-webkit-scrollbar-thumb]:bg-slate-500 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-slate-100 dark:[&::-webkit-scrollbar-track]:bg-slate-900/60">
                         {/* Current sentence keywords if active */}
                         {currentSub?.keywords && currentSub.keywords.length > 0 && (
-                            <div className="p-3 bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/40 rounded-2xl space-y-2">
-                                <span className="text-[10px] font-black text-amber-700 dark:text-amber-400 uppercase tracking-wider flex items-center gap-1">
-                                    <Sparkles className="w-3 h-3 text-amber-500 dark:text-amber-400" /> Từ vựng trong câu đang phát
+                            <div className="p-3.5 bg-pink-50/20 dark:bg-slate-900/90 border-2 border-[#f494bc] dark:border-[#f494bc]/80 rounded-2xl space-y-2.5 shadow-xs">
+                                <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+                                    <Sparkles className="w-3.5 h-3.5 text-[#db2777] dark:text-[#f494bc]" /> Từ vựng trong câu đang phát
                                 </span>
                                 <div className="space-y-2">
                                     {currentSub.keywords.map((kw, i) => (
-                                        <div key={i} className="flex items-center justify-between gap-2 p-2.5 bg-white dark:bg-slate-900/90 rounded-xl border border-amber-200/80 dark:border-amber-900/40 shadow-xs">
+                                        <div key={i} className="flex items-center justify-between gap-2 p-2.5 bg-white dark:bg-slate-900/90 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/50 shadow-xs transition-colors">
                                             <div>
                                                 <div className="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
                                                     <span>{kw.word}</span>
                                                     {kw.reading && kw.reading !== kw.word && (
-                                                        <span className="text-[10px] font-normal text-amber-600 dark:text-amber-400">({kw.reading})</span>
+                                                        <span className="text-[10px] font-normal text-slate-500 dark:text-slate-400">({kw.reading})</span>
                                                     )}
                                                 </div>
-                                                <div className="text-[11px] text-slate-600 dark:text-slate-400">{kw.meaning}</div>
+                                                <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{kw.meaning}</div>
                                             </div>
                                             {onSaveToFlashcard && (
                                                 <button
                                                     onClick={() => onSaveToFlashcard(kw)}
                                                     title="Lưu vào Flashcard"
-                                                    className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-amber-950/60 text-slate-600 dark:text-slate-300 hover:text-amber-700 dark:hover:text-amber-400 transition-colors cursor-pointer"
+                                                    className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer"
                                                 >
                                                     <Bookmark className="w-3.5 h-3.5" />
                                                 </button>
@@ -592,31 +575,31 @@ const VideoKaiwaTranscript = ({
 
                         {/* All Vocabulary in Video */}
                         <div className="space-y-2">
-                            <span className="text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                            <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider block">
                                 Tất cả từ vựng trong video ({allKeywords.length})
                             </span>
                             <div className="space-y-2">
                                 {allKeywords.map((kw, i) => (
-                                    <div key={i} className="flex items-center justify-between gap-2 p-2.5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                    <div key={i} className="flex items-center justify-between gap-2 p-2.5 bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/40 transition-colors">
                                         <div>
-                                            <div className="font-bold text-xs text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
+                                            <div className="font-bold text-xs text-slate-900 dark:text-white flex items-center gap-1.5">
                                                 <span>{kw.word}</span>
                                                 {kw.reading && kw.reading !== kw.word && (
-                                                    <span className="text-[10px] font-normal text-indigo-600 dark:text-indigo-400">({kw.reading})</span>
+                                                    <span className="text-[10px] font-normal text-slate-500 dark:text-slate-400">({kw.reading})</span>
                                                 )}
                                                 {kw.level && (
-                                                    <span className="text-[8px] font-bold px-1.5 py-0.2 rounded bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300">
+                                                    <span className="text-[8px] font-bold px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                                                         {kw.level}
                                                     </span>
                                                 )}
                                             </div>
-                                            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{kw.meaning}</div>
+                                            <div className="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">{kw.meaning}</div>
                                         </div>
                                         {onSaveToFlashcard && (
                                             <button
                                                 onClick={() => onSaveToFlashcard(kw)}
                                                 title="Lưu vào Flashcard"
-                                                className="p-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors cursor-pointer shadow-xs"
+                                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer shadow-xs"
                                             >
                                                 <Bookmark className="w-3.5 h-3.5" />
                                             </button>
@@ -629,12 +612,12 @@ const VideoKaiwaTranscript = ({
                         {/* Grammar Points */}
                         {allGrammar.length > 0 && (
                             <div className="space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-                                <span className="text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                                <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider block">
                                     Mẫu ngữ pháp trọng tâm ({allGrammar.length})
                                 </span>
                                 <div className="space-y-1.5">
                                     {allGrammar.map((g, i) => (
-                                        <div key={i} className="p-2.5 bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/40 rounded-xl text-xs font-bold text-indigo-800 dark:text-indigo-300">
+                                        <div key={i} className="p-2.5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-[#f494bc]/50 rounded-xl text-xs font-bold text-slate-900 dark:text-white transition-colors">
                                             {g}
                                         </div>
                                     ))}
@@ -655,7 +638,7 @@ const VideoKaiwaTranscript = ({
                                     onClick={() => onSelectVideo?.(v)}
                                     className={`p-2.5 rounded-2xl border flex items-center gap-3 transition-all cursor-pointer ${
                                         isCurrent
-                                            ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-400 dark:border-sky-500 ring-1 ring-sky-300 dark:ring-sky-400/40 shadow-xs'
+                                            ? 'bg-pink-50/25 dark:bg-slate-900/95 border-2 border-[#f494bc] ring-1 ring-[#f494bc]/40 shadow-xs'
                                             : 'bg-slate-50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-850 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300'
                                     }`}
                                 >
@@ -674,16 +657,16 @@ const VideoKaiwaTranscript = ({
                                     {/* Video Info */}
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-1.5 mb-0.5">
-                                            <span className="px-1.5 py-0.2 rounded text-[8px] font-black bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300">
+                                            <span className="px-1.5 py-0.2 rounded text-[8px] font-black bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                                                 {v.level || 'JLPT'}
                                             </span>
                                             {isCurrent && (
-                                                <span className="text-[8px] font-black text-sky-600 dark:text-sky-400 uppercase">
+                                                <span className="text-[8px] font-black text-[#db2777] dark:text-[#f494bc] uppercase">
                                                     ● Đang phát
                                                 </span>
                                             )}
                                         </div>
-                                        <p className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate">
+                                        <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
                                             {v.title}
                                         </p>
                                         <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate mt-0.5">

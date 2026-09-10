@@ -310,7 +310,7 @@ export const generateAiSubtitles = async (rawJapaneseTextOrSubtitles, topicConte
     if (Array.isArray(rawJapaneseTextOrSubtitles)) {
         const items = [...rawJapaneseTextOrSubtitles];
         const total = items.length;
-        const BATCH_SIZE = 10; // Process 10 sentences per request for fast & high-precision translation
+        const BATCH_SIZE = 8; // Process 8 sentences per request for fast & high-precision extraction
         const updatedList = [...items];
 
         for (let i = 0; i < total; i += BATCH_SIZE) {
@@ -326,12 +326,20 @@ export const generateAiSubtitles = async (rawJapaneseTextOrSubtitles, topicConte
             }));
 
             const prompt = `Bạn là chuyên gia ngôn ngữ tiếng Nhật và biên dịch viên phụ đề chuyên nghiệp (Japanese -> Vietnamese).
-Nhiệm vụ: Hãy phân tích từng câu tiếng Nhật sau:
-1. Gán Furigana cho tất cả Kanji theo cú pháp chuẩn: {Kanji|furigana} (Ví dụ: {皆|みな}さん, {元気|げんき}ですか). TUYỆT ĐỐI KHÔNG thêm khoảng trắng giữa các từ tiếng Nhật.
-2. Dịch nghĩa tiếng Việt tự nhiên, chuẩn xác theo ngữ cảnh giao tiếp vào trường "vi" (BẮT BUỘC có bản dịch tiếng Việt, KHÔNG để trống).
-3. Trích xuất 1-2 từ vựng quan trọng (nếu có) vào "keywords": [{ "word": "...", "reading": "...", "meaning": "...", "level": "N5-N1" }].
+Nhiệm vụ: Hãy phân tích kỹ từng câu thoại tiếng Nhật sau:
+1. Gán Furigana cho TẤT CẢ chữ Hán (Kanji) theo cú pháp chuẩn: {Kanji|furigana} (Ví dụ: {皆|みな}さん, {元気|げんき}ですか, {自然|しぜん}な, {考|かんが}えると). TUYỆT ĐỐI KHÔNG tự ý chèn thêm khoảng trắng giữa các từ tiếng Nhật hoặc trong cú pháp furigana.
+2. Dịch nghĩa tiếng Việt tự nhiên, mượt mà và chuẩn xác theo ngữ cảnh hội thoại vào trường "vi" (BẮT BUỘC có bản dịch tiếng Việt, KHÔNG để trống).
+3. TRÍCH XUẤT CHI TIẾT TỪ VỰNG & CỤM TỪ (KEYWORDS) - RẤT QUAN TRỌNG:
+   - Trích xuất ĐẦY ĐỦ từ 2 đến 6 từ vựng cốt lõi, động từ (dạng từ điển hoặc cụm phổ biến: 考える, 聞き取る, 練習する, 話し合う), tính từ (自然な, 難しい), danh từ ghép/cụm danh từ (リスニング, 日本語, 練習), phó từ (実は, だんだん), và các cụm quán ngữ giao tiếp quan trọng xuất hiện trong câu vào mảng "keywords".
+   - Mục đích: Giúp học viên khi rê chuột/hover vào bất kỳ từ/cụm từ nào trong câu thoại đều được hiển thị giải nghĩa tiếng Việt chi tiết.
+   - Mỗi item trong keywords phải gồm:
+     * "word": từ vựng/cụm từ dạng Kanji/Kana chuẩn (VD: "考える", "自然な", "皆さん", "日本語", "聞き取る")
+     * "reading": cách đọc Hiragana chuẩn (VD: "かんがえる", "しぜんな", "みなさん", "にほんご", "ききとる")
+     * "meaning": nghĩa tiếng Việt súc tích, dễ hiểu theo đúng ngữ cảnh câu (VD: "suy nghĩ, cân nhắc", "tự nhiên", "mọi người", "tiếng Nhật", "nghe hiểu")
+     * "level": cấp độ JLPT ("N5", "N4", "N3", "N2", "N1")
+4. Trích xuất mẫu ngữ pháp quan trọng (nếu có) vào mảng "grammar": [{ "point": "...", "meaning": "...", "level": "N3" }].
 
-Chủ đề video: ${topicContext || 'Hội thoại giao tiếp Nhật Bản'}
+Chủ đề video: ${topicContext || 'Hội thoại giao tiếp tiếng Nhật'}
 
 Dữ liệu đầu vào:
 ${JSON.stringify(chunkPromptData, null, 2)}
@@ -340,12 +348,18 @@ BẮT BUỘC trả về ĐÚNG 1 mảng JSON thuần (KHÔNG kèm markdown ngoà
 [
   {
     "id": 1,
-    "furigana": "{皆|みな}さん、こんにちは！",
-    "vi": "Xin chào mọi người!",
+    "furigana": "{皆|みな}さん、{自然|しぜん}な{日本語|にほんご}を{一緒|いっしょ}に{考|かんが}えましょう！",
+    "vi": "Mọi người ơi, hãy cùng nhau suy nghĩ về tiếng Nhật tự nhiên nhé!",
     "keywords": [
-      { "word": "皆さん", "reading": "みなさん", "meaning": "mọi người", "level": "N5" }
+      { "word": "皆さん", "reading": "みなさん", "meaning": "mọi người, các bạn", "level": "N5" },
+      { "word": "自然な", "reading": "しぜんな", "meaning": "tự nhiên", "level": "N3" },
+      { "word": "日本語", "reading": "にほんご", "meaning": "tiếng Nhật", "level": "N5" },
+      { "word": "一緒に", "reading": "いっしょに", "meaning": "cùng nhau", "level": "N5" },
+      { "word": "考える", "reading": "かんがえる", "meaning": "suy nghĩ, cân nhắc", "level": "N4" }
     ],
-    "grammar": []
+    "grammar": [
+      { "point": "〜ましょう", "meaning": "hãy cùng nhau (lời rủ rê, đề nghị lịch sự)", "level": "N5" }
+    ]
   }
 ]`;
 
@@ -386,9 +400,9 @@ BẮT BUỘC trả về ĐÚNG 1 mảng JSON thuần (KHÔNG kèm markdown ngoà
 
     // If input is raw text string (user pasted raw text)
     const prompt = `Bạn là chuyên gia ngôn ngữ tiếng Nhật và dịch thuật phụ đề phim/video Kaiwa.
-Nhiệm vụ: Hãy phân tách đoạn văn bản tiếng Nhật dưới đây thành các câu phụ đề theo thứ tự, gán Furigana dạng {Kanji|furigana}, dịch nghĩa Tiếng Việt tự nhiên theo ngữ cảnh vào trường "vi" (BẮT BUỘC), và trích xuất từ vựng quan trọng.
+Nhiệm vụ: Hãy phân tách đoạn văn bản tiếng Nhật dưới đây thành các câu phụ đề theo thứ tự, gán Furigana dạng {Kanji|furigana}, dịch nghĩa Tiếng Việt tự nhiên theo ngữ cảnh vào trường "vi" (BẮT BUỘC), và trích xuất chi tiết từ 2-6 từ vựng/cụm từ quan trọng vào "keywords" cho từng câu thoại.
 
-Chủ đề video: ${topicContext || 'Hội thoại giao tiếp Nhật Bản'}
+Chủ đề video: ${topicContext || 'Hội thoại giao tiếp tiếng Nhật'}
 
 Văn bản:
 ${rawJapaneseTextOrSubtitles.slice(0, 3000)}
@@ -399,11 +413,14 @@ BẮT BUỘC trả về định dạng JSON thuần (KHÔNG kèm markdown ngoài
     "id": 1,
     "start": 0.0,
     "end": 5.0,
-    "ja": "皆さん、こんにちは！",
-    "furigana": "{皆|みな}さん、こんにちは！",
-    "vi": "Xin chào mọi người!",
+    "ja": "自然な日本語を一緒に考えましょう！",
+    "furigana": "{自然|しぜん}な{日本語|にほんご}を{一緒|いっしょ}に{考|かんが}えましょう！",
+    "vi": "Hãy cùng nhau suy nghĩ về tiếng Nhật tự nhiên nhé!",
     "keywords": [
-      { "word": "皆さん", "reading": "みなさん", "meaning": "mọi người", "level": "N5" }
+      { "word": "自然な", "reading": "しぜんな", "meaning": "tự nhiên", "level": "N3" },
+      { "word": "日本語", "reading": "にほんご", "meaning": "tiếng Nhật", "level": "N5" },
+      { "word": "一緒に", "reading": "いっしょに", "meaning": "cùng nhau", "level": "N5" },
+      { "word": "考える", "reading": "かんがえる", "meaning": "suy nghĩ, cân nhắc", "level": "N4" }
     ],
     "grammar": []
   }

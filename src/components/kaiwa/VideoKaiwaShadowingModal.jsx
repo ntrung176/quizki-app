@@ -11,6 +11,7 @@ const VideoKaiwaShadowingModal = ({
     isOpen,
     onClose,
     subtitle,
+    allKeywords = [],
     onReplayAudio,
     awardXP
 }) => {
@@ -300,14 +301,17 @@ const VideoKaiwaShadowingModal = ({
                 </div>
 
                 {/* Target Sentence Display Box (Clean, without top buttons) */}
-                <div className="p-5 bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-2.5 text-center">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block">
+                <div className="p-5 bg-slate-50 dark:bg-slate-950/70 border-2 border-[#f494bc]/60 dark:border-[#f494bc]/40 rounded-2xl space-y-2.5 text-center">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#db2777] dark:text-[#f494bc] block">
                         CÂU MẪU CẦN ĐỌC
                     </span>
 
-                    {/* Japanese text with Furigana */}
-                    <div className="text-xl sm:text-2xl font-bold text-amber-600 dark:text-amber-400 leading-loose py-1">
-                        <FuriganaRenderer text={subtitle.furigana || subtitle.ja} showFurigana={true} />
+                    <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-loose py-1">
+                        <FuriganaRenderer 
+                            text={subtitle.furigana || subtitle.ja} 
+                            showFurigana={true} 
+                            keywords={allKeywords.length > 0 ? allKeywords : (subtitle.keywords || [])}
+                        />
                     </div>
 
                     {/* Vietnamese translation */}
@@ -402,7 +406,7 @@ const VideoKaiwaShadowingModal = ({
                                 ? 'bg-rose-500 hover:bg-rose-600 text-white animate-pulse shadow-rose-500/30'
                                 : isTranscribing
                                     ? 'bg-slate-300 dark:bg-slate-800 text-slate-500 cursor-not-allowed'
-                                    : 'bg-gradient-to-r from-indigo-600 via-sky-600 to-indigo-600 hover:from-indigo-500 hover:to-sky-500 text-white shadow-indigo-500/25 active:scale-98'
+                                    : 'bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 shadow-[0_6px_20px_rgba(244,148,188,0.4)] active:scale-98'
                         }`}
                     >
                         {isListening ? (

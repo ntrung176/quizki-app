@@ -465,7 +465,7 @@ const VideoKaiwaAdminModal = ({
                                         className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-xs rounded-xl flex items-center gap-2 shadow-md transition cursor-pointer disabled:opacity-50"
                                     >
                                         <Sparkles className="w-4 h-4" />
-                                        <span>{isGeneratingAi ? 'Đang gọi AI phân tích & dịch...' : '⚡ Bắt đầu tạo Phụ đề & Dịch AI'}</span>
+                                        <span>{isGeneratingAi ? 'Đang gọi AI phân tích & trích xuất từ vựng...' : '⚡ Phân tích AI (Furigana, Dịch & Từ vựng)'}</span>
                                     </button>
                                     <button
                                         type="button"
@@ -510,7 +510,7 @@ const VideoKaiwaAdminModal = ({
                                             className="px-3.5 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black rounded-lg flex items-center gap-1.5 shadow-sm transition cursor-pointer disabled:opacity-50"
                                         >
                                             <Sparkles className="w-3.5 h-3.5" />
-                                            <span>✨ AI Dịch & Furigana toàn bộ ({subtitles.length} câu)</span>
+                                            <span>✨ AI Dịch, Furigana & Trích xuất từ vựng ({subtitles.length} câu)</span>
                                         </button>
                                     </div>
                                 )}
