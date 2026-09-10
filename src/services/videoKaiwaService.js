@@ -1,10 +1,51 @@
 import { collection, doc, getDocs, setDoc, deleteDoc, updateDoc, query, orderBy } from 'firebase/firestore';
-import { db, appId } from '../config/firebase';
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
+import { db, storage, appId } from '../config/firebase';
 import { SEED_KAIWA_VIDEOS } from '../components/kaiwa/videoKaiwaConstants';
 import { callAI, callKaiwaAI, parseJsonFromAI } from '../utils/aiProvider';
+import { saveVideoBlobToIndexedDb, deleteVideoBlobFromIndexedDb } from '../utils/indexedDbVideoStorage';
 
 const KAIWA_COLLECTION = `artifacts/${appId}/kaiwaVideos`;
 const CACHE_KEY = 'quizki_kaiwa_videos_cache';
+
+// Upload a video file to Firebase Storage with progress tracking
+export const uploadKaiwaVideoFile = (file, videoId, onProgress = null) => {
+    return new Promise((resolve, reject) => {
+        if (!file || !storage) {
+            return reject(new Error('Firebase Storage không khả dụng hoặc file không hợp lệ.'));
+        }
+
+        const cleanName = (file.name || `${videoId}.mp4`).replace(/[^a-zA-Z0-9._-]/g, '_');
+        const storagePath = `kaiwaVideos/${videoId}/${cleanName}`;
+        const storageRef = ref(storage, storagePath);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            'state_changed',
+            (snapshot) => {
+                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                if (onProgress) {
+                    onProgress(progress);
+                }
+            },
+            (error) => {
+                console.warn('Lỗi upload video lên Firebase Storage:', error);
+                reject(error);
+            },
+            async () => {
+                try {
+                    const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref);
+                    resolve({
+                        downloadUrl,
+                        storagePath
+                    });
+                } catch (e) {
+                    reject(e);
+                }
+            }
+        );
+    });
+};
 
 // Extract YouTube Video ID from any standard URL, short link, or embed URL
 export const extractYoutubeId = (url) => {
@@ -111,7 +152,14 @@ export const deleteKaiwaVideo = async (videoId) => {
         console.warn('Cache delete error:', e);
     }
 
-    // 2. Delete from Firestore
+    // 2. Clean up IndexedDB blob if exists
+    try {
+        await deleteVideoBlobFromIndexedDb(videoId);
+    } catch (idbErr) {
+        console.warn('IndexedDB cleanup error:', idbErr);
+    }
+
+    // 3. Delete from Firestore
     try {
         const docRef = doc(db, KAIWA_COLLECTION, videoId);
         await deleteDoc(docRef);

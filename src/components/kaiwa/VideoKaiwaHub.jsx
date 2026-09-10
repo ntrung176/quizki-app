@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { 
     Film, Sparkles, Search, Filter, Play, Plus, Trash2, Edit3, 
     ArrowLeft, Link as LinkIcon, BookOpen, Layers, CheckCircle2, 
-    Bookmark, Zap, ShieldAlert, Award, ChevronDown
+    Bookmark, Zap, ShieldAlert, Award, ChevronDown, HardDrive, Video, Upload
 } from 'lucide-react';
 import { KAIWA_LEVELS, KAIWA_CATEGORIES } from './videoKaiwaConstants';
-import { getKaiwaVideos, saveKaiwaVideo, deleteKaiwaVideo, extractYoutubeId } from '../../services/videoKaiwaService';
+import { getKaiwaVideos, saveKaiwaVideo, deleteKaiwaVideo, extractYoutubeId, parseTextToSubtitles } from '../../services/videoKaiwaService';
+import { extractVideoThumbnailAndMetadata } from '../../utils/videoThumbnailHelper';
+import { saveVideoBlobToIndexedDb } from '../../utils/indexedDbVideoStorage';
 import VideoKaiwaPlayer from './VideoKaiwaPlayer';
 import VideoKaiwaTranscript from './VideoKaiwaTranscript';
 import VideoKaiwaShadowingModal from './VideoKaiwaShadowingModal';
@@ -21,7 +23,13 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
     const [selectedLevel, setSelectedLevel] = useState('all');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [searchQuery, setSearchQuery] = useState('');
+    
+    // Quick Player State (Admin/Custom Practice)
+    const [quickSourceTab, setQuickSourceTab] = useState('youtube'); // 'youtube' | 'file'
     const [customUrl, setCustomUrl] = useState('');
+    const [quickVideoFile, setQuickVideoFile] = useState(null);
+    const [quickSubFile, setQuickSubFile] = useState(null);
+    const [isProcessingQuickFile, setIsProcessingQuickFile] = useState(false);
     
     // Active Playing Video State
     const [currentVideo, setCurrentVideo] = useState(null);
@@ -38,6 +46,8 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
     const [notification, setNotification] = useState('');
 
     const seekHandlerRef = useRef(null);
+    const quickVideoInputRef = useRef(null);
+    const quickSubInputRef = useRef(null);
     const userIsAdmin = isAdmin || (profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email));
 
     // Fetch Videos on Mount
@@ -67,8 +77,8 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
         return matchesLevel && matchesCat && matchesSearch;
     });
 
-    // Handle Custom YouTube Link Submission (Admin Only)
-    const handleStartCustomVideo = () => {
+    // Handle Custom YouTube Link Submission
+    const handleStartCustomYoutube = () => {
         if (!userIsAdmin) return;
         const yId = extractYoutubeId(customUrl);
         if (!yId) {
@@ -79,8 +89,9 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
         const customVideoObj = {
             id: `custom_${yId}`,
             youtubeId: yId,
+            videoType: 'youtube',
             title: 'Video YouTube Tự Do',
-            channelTitle: 'Người dùng tải lên',
+            channelTitle: 'Người dùng dán link',
             level: 'N3',
             category: 'daily',
             duration: 300,
@@ -92,7 +103,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                     end: 300,
                     ja: 'YouTube Video Player (Đang phát video riêng của bạn)',
                     furigana: 'YouTube Video Player (Đang phát video riêng của bạn)',
-                    vi: 'Bạn có thể xem video và luyện nghe theo phụ đề gốc trên YouTube.',
+                    vi: 'Bạn có thể xem video và luyện nghe theo phụ đề trên video.',
                     keywords: []
                 }
             ]
@@ -100,7 +111,69 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
 
         setCurrentVideo(customVideoObj);
         setActiveSubIndex(0);
-        setCurrentTime(0);
+    };
+
+    // Handle Quick Local Video File Playback
+    const handleStartCustomVideoFile = async (videoFile, subFile = null) => {
+        if (!videoFile) return;
+
+        setIsProcessingQuickFile(true);
+        try {
+            const localId = `local_${Date.now()}`;
+            const cleanTitle = videoFile.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
+
+            // Cache in IndexedDB for smooth persistent retrieval
+            await saveVideoBlobToIndexedDb(localId, videoFile, { title: cleanTitle });
+
+            let meta = { duration: 300, thumbnail: '' };
+            try {
+                meta = await extractVideoThumbnailAndMetadata(videoFile);
+            } catch (err) {
+                console.warn('Metadata extraction error:', err);
+            }
+
+            let parsedSubtitles = [];
+            if (subFile) {
+                const subText = await subFile.text();
+                parsedSubtitles = parseTextToSubtitles(subText);
+            }
+
+            if (parsedSubtitles.length === 0) {
+                const dur = meta.duration ? Math.ceil(meta.duration) : 300;
+                parsedSubtitles = [
+                    {
+                        id: 1,
+                        start: 0,
+                        end: dur,
+                        ja: 'Đang phát file video từ máy tính của bạn',
+                        furigana: 'Đang phát file video từ máy tính của bạn',
+                        vi: 'Bạn có thể bấm "Sửa" để thêm phụ đề song ngữ và gọi AI dịch nghĩa!',
+                        keywords: []
+                    }
+                ];
+            }
+
+            const customVideoObj = {
+                id: localId,
+                videoType: 'file',
+                sourceType: 'file',
+                title: cleanTitle,
+                channelTitle: 'Video máy tính',
+                level: 'N3',
+                category: 'daily',
+                duration: meta.duration ? Math.ceil(meta.duration) : 300,
+                thumbnail: meta.thumbnail || '',
+                subtitles: parsedSubtitles
+            };
+
+            setCurrentVideo(customVideoObj);
+            setActiveSubIndex(0);
+        } catch (e) {
+            console.error(e);
+            alert('Lỗi khi mở file video: ' + e.message);
+        } finally {
+            setIsProcessingQuickFile(false);
+        }
     };
 
     // Handle Delete Video (Admin)
@@ -195,9 +268,9 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
             {/* ========================================================================= */}
             {currentVideo ? (
                 <div className="w-full h-full max-h-full flex-1 flex flex-col min-h-0 overflow-hidden">
-                    {/* Main Video & Transcript Layout - Responsive flex on mobile, 12-col grid on desktop */}
+                    {/* Main Video & Transcript Layout */}
                     <div className="flex-1 min-h-0 h-full max-h-full flex flex-col lg:grid lg:grid-cols-12 gap-0 lg:gap-2.5 items-stretch w-full overflow-hidden">
-                        {/* Left / Top: Video Player with Web App Controls Only */}
+                        {/* Left / Top: Video Player with Web App Controls */}
                         <div className="w-full lg:col-span-8 xl:col-span-8 flex flex-col shrink-0 lg:shrink min-h-0 h-auto lg:h-full lg:max-h-full">
                             <VideoKaiwaPlayer
                                 video={currentVideo}
@@ -249,7 +322,6 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                 onSelectVideo={(newVid) => {
                                     setCurrentVideo(newVid);
                                     setActiveSubIndex(0);
-                                    setCurrentTime(0);
                                 }}
                                 onOpenShadowing={(sub) => {
                                     setIsPlaying(false);
@@ -267,7 +339,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                 /* CASE B: VIDEO HUB LIBRARY (CINEMA / MOVIE STREAMING LAYOUT)                */
                 /* ========================================================================= */
                 <div className="space-y-6 sm:space-y-8 pb-16">
-                    {/* 1. Netflix Spotlight Hero Banner (Featured Top Video) - Luôn hiển thị kể cả khi tìm kiếm */}
+                    {/* 1. Netflix Spotlight Hero Banner (Featured Top Video) */}
                     {videos.length > 0 && (
                         <VideoKaiwaHeroBanner
                             video={videos[0]}
@@ -279,17 +351,43 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                         />
                     )}
 
-                    {/* 2. Admin Only: Custom YouTube Link Quick Learner & Admin Add Button */}
+                    {/* 2. Quick Video Player & Admin Add Action Box */}
                     {userIsAdmin && (
                         <div className="bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md space-y-3">
                             <div className="flex items-center justify-between gap-2 flex-wrap">
-                                <span className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2">
-                                    <LinkIcon className="w-4 h-4 text-amber-500" />
-                                    <span>Tự học theo link YouTube riêng</span>
-                                    <span className="px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider rounded-md bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
-                                        BETA - ADMIN
+                                <div className="flex items-center gap-2">
+                                    <span className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                                        <Film className="w-4 h-4 text-amber-500" />
+                                        <span>Tự học video riêng</span>
                                     </span>
-                                </span>
+
+                                    {/* Tab Toggle: YouTube vs File */}
+                                    <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-xl text-[11px] font-bold">
+                                        <button
+                                            type="button"
+                                            onClick={() => setQuickSourceTab('youtube')}
+                                            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                                                quickSourceTab === 'youtube'
+                                                    ? 'bg-amber-500 text-slate-950 shadow-xs font-black'
+                                                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                                            }`}
+                                        >
+                                            YouTube
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => setQuickSourceTab('file')}
+                                            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                                                quickSourceTab === 'file'
+                                                    ? 'bg-amber-500 text-slate-950 shadow-xs font-black'
+                                                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                                            }`}
+                                        >
+                                            File Máy Tính (.mp4)
+                                        </button>
+                                    </div>
+                                </div>
+
                                 <button
                                     onClick={() => {
                                         setEditingVideo(null);
@@ -301,22 +399,82 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                 </button>
                             </div>
 
-                            <div className="flex items-center gap-2">
-                                <input
-                                    type="text"
-                                    placeholder="Dán đường dẫn YouTube tại đây (ví dụ: https://www.youtube.com/watch?v=...)"
-                                    value={customUrl}
-                                    onChange={(e) => setCustomUrl(e.target.value)}
-                                    className="flex-1 p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 font-mono"
-                                />
-                                <button
-                                    onClick={handleStartCustomVideo}
-                                    className="px-6 py-2.5 sm:py-3 bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black text-xs rounded-full flex items-center gap-1.5 shadow-[0_6px_18px_rgba(244,148,188,0.4)] hover:shadow-[0_10px_25px_rgba(244,148,188,0.7)] transition-all cursor-pointer shrink-0"
-                                >
-                                    <Play className="w-4 h-4 fill-slate-950 text-slate-950" />
-                                    <span>Mở Video</span>
-                                </button>
-                            </div>
+                            {/* Quick YouTube Input */}
+                            {quickSourceTab === 'youtube' && (
+                                <div className="flex items-center gap-2">
+                                    <input
+                                        type="text"
+                                        placeholder="Dán đường dẫn YouTube tại đây (ví dụ: https://www.youtube.com/watch?v=...)"
+                                        value={customUrl}
+                                        onChange={(e) => setCustomUrl(e.target.value)}
+                                        className="flex-1 p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 font-mono"
+                                    />
+                                    <button
+                                        onClick={handleStartCustomYoutube}
+                                        className="px-6 py-2.5 sm:py-3 bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black text-xs rounded-full flex items-center gap-1.5 shadow-[0_6px_18px_rgba(244,148,188,0.4)] hover:shadow-[0_10px_25px_rgba(244,148,188,0.7)] transition-all cursor-pointer shrink-0"
+                                    >
+                                        <Play className="w-4 h-4 fill-slate-950 text-slate-950" />
+                                        <span>Mở Video</span>
+                                    </button>
+                                </div>
+                            )}
+
+                            {/* Quick File Video Input */}
+                            {quickSourceTab === 'file' && (
+                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                                    {/* Video File Trigger */}
+                                    <input
+                                        ref={quickVideoInputRef}
+                                        type="file"
+                                        accept="video/*,.mp4,.webm,.mov,.m4v,.mkv,.avi,.ogg"
+                                        onChange={(e) => setQuickVideoFile(e.target.files?.[0] || null)}
+                                        className="hidden"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => quickVideoInputRef.current?.click()}
+                                        className="flex-1 p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-800/60 hover:bg-amber-50/50 dark:hover:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs text-left font-medium text-slate-700 dark:text-slate-200 flex items-center justify-between gap-2 cursor-pointer transition"
+                                    >
+                                        <div className="flex items-center gap-2 truncate">
+                                            <HardDrive className="w-4 h-4 text-amber-500 shrink-0" />
+                                            <span className="truncate">
+                                                {quickVideoFile ? `📹 ${quickVideoFile.name} (${(quickVideoFile.size / (1024 * 1024)).toFixed(1)} MB)` : 'Chọn file video (.mp4, .webm, .mov)...'}
+                                            </span>
+                                        </div>
+                                        <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 shrink-0">Chọn file</span>
+                                    </button>
+
+                                    {/* Subtitle File Optional Trigger */}
+                                    <input
+                                        ref={quickSubInputRef}
+                                        type="file"
+                                        accept=".srt,.vtt,.txt"
+                                        onChange={(e) => setQuickSubFile(e.target.files?.[0] || null)}
+                                        className="hidden"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => quickSubInputRef.current?.click()}
+                                        className="px-3 py-2.5 sm:py-3 bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1.5 cursor-pointer shrink-0"
+                                        title="Đính kèm file phụ đề .srt hoặc .vtt (tùy chọn)"
+                                    >
+                                        <Upload className="w-3.5 h-3.5 text-slate-400" />
+                                        <span className="text-[11px] truncate max-w-[120px]">
+                                            {quickSubFile ? `Phụ đề: ${quickSubFile.name}` : '+ File SRT (Tùy chọn)'}
+                                        </span>
+                                    </button>
+
+                                    {/* Start Play Button */}
+                                    <button
+                                        disabled={!quickVideoFile || isProcessingQuickFile}
+                                        onClick={() => handleStartCustomVideoFile(quickVideoFile, quickSubFile)}
+                                        className="px-6 py-2.5 sm:py-3 bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black text-xs rounded-full flex items-center justify-center gap-1.5 shadow-[0_6px_18px_rgba(244,148,188,0.4)] hover:shadow-[0_10px_25px_rgba(244,148,188,0.7)] transition-all cursor-pointer shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
+                                    >
+                                        <Play className="w-4 h-4 fill-slate-950 text-slate-950" />
+                                        <span>{isProcessingQuickFile ? 'Đang mở...' : 'Phát Ngay'}</span>
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     )}
 

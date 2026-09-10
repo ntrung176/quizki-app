@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
     X, Plus, Trash2, Sparkles, Upload, Link as LinkIcon,
-    Save, CheckCircle2, AlertCircle, FileText, Film, Eye, Edit3, StopCircle, RefreshCw
+    Save, CheckCircle2, AlertCircle, FileText, Film, Eye, Edit3, StopCircle, RefreshCw,
+    Video, Globe, HardDrive, Check
 } from 'lucide-react';
 import { KAIWA_LEVELS, KAIWA_CATEGORIES } from './videoKaiwaConstants';
-import { extractYoutubeId, parseTextToSubtitles, parseSrtToSubtitles, generateAiSubtitles, saveKaiwaVideo } from '../../services/videoKaiwaService';
+import { extractYoutubeId, parseTextToSubtitles, parseSrtToSubtitles, generateAiSubtitles, saveKaiwaVideo, uploadKaiwaVideoFile } from '../../services/videoKaiwaService';
+import { extractVideoThumbnailAndMetadata } from '../../utils/videoThumbnailHelper';
+import { saveVideoBlobToIndexedDb } from '../../utils/indexedDbVideoStorage';
 
 const VideoKaiwaAdminModal = ({
     isOpen,
@@ -12,8 +15,23 @@ const VideoKaiwaAdminModal = ({
     editingVideo = null,
     onSaveSuccess
 }) => {
+    // Source Type: 'youtube' | 'file' | 'direct'
+    const [sourceType, setSourceType] = useState('youtube');
+
+    // YouTube State
     const [youtubeUrl, setYoutubeUrl] = useState('');
     const [youtubeId, setYoutubeId] = useState('');
+
+    // File Upload State
+    const [selectedVideoFile, setSelectedVideoFile] = useState(null);
+    const [filePreviewUrl, setFilePreviewUrl] = useState('');
+    const [directVideoUrl, setDirectVideoUrl] = useState('');
+    const [customThumbnail, setCustomThumbnail] = useState('');
+    const [extractedDuration, setExtractedDuration] = useState(0);
+    const [uploadProgress, setUploadProgress] = useState(null);
+    const [isExtractingMetadata, setIsExtractingMetadata] = useState(false);
+
+    // Meta State
     const [title, setTitle] = useState('');
     const [channelTitle, setChannelTitle] = useState('');
     const [level, setLevel] = useState('N3');
@@ -31,20 +49,43 @@ const VideoKaiwaAdminModal = ({
     const [successMsg, setSuccessMsg] = useState('');
 
     const abortAiRef = useRef(false);
+    const videoInputRef = useRef(null);
 
     useEffect(() => {
         if (editingVideo) {
+            const isFile = Boolean(editingVideo.videoUrl || editingVideo.fileUrl || editingVideo.videoType === 'file' || (!editingVideo.youtubeId && editingVideo.videoUrl));
+            const isDirect = Boolean(editingVideo.videoUrl && editingVideo.videoUrl.startsWith('http') && !editingVideo.youtubeId);
+
+            if (isDirect) {
+                setSourceType('direct');
+                setDirectVideoUrl(editingVideo.videoUrl);
+            } else if (isFile) {
+                setSourceType('file');
+                setFilePreviewUrl(editingVideo.videoUrl || editingVideo.fileUrl || '');
+            } else {
+                setSourceType('youtube');
+            }
+
             setYoutubeUrl(editingVideo.youtubeId ? `https://www.youtube.com/watch?v=${editingVideo.youtubeId}` : '');
             setYoutubeId(editingVideo.youtubeId || '');
+            setCustomThumbnail(editingVideo.thumbnail || '');
+            setExtractedDuration(editingVideo.duration || 0);
             setTitle(editingVideo.title || '');
             setChannelTitle(editingVideo.channelTitle || '');
             setLevel(editingVideo.level || 'N3');
             setCategory(editingVideo.category || 'daily');
             setDescription(editingVideo.description || '');
             setSubtitles(editingVideo.subtitles || []);
+            setSelectedVideoFile(null);
         } else {
+            setSourceType('youtube');
             setYoutubeUrl('');
             setYoutubeId('');
+            setSelectedVideoFile(null);
+            setFilePreviewUrl('');
+            setDirectVideoUrl('');
+            setCustomThumbnail('');
+            setExtractedDuration(0);
             setTitle('');
             setChannelTitle('');
             setLevel('N3');
@@ -55,8 +96,18 @@ const VideoKaiwaAdminModal = ({
         setErrorMsg('');
         setSuccessMsg('');
         setAiProgress(null);
+        setUploadProgress(null);
         abortAiRef.current = false;
     }, [editingVideo, isOpen]);
+
+    // Clean up preview object URL on unmount
+    useEffect(() => {
+        return () => {
+            if (filePreviewUrl && filePreviewUrl.startsWith('blob:')) {
+                try { URL.revokeObjectURL(filePreviewUrl); } catch (e) {}
+            }
+        };
+    }, [filePreviewUrl]);
 
     if (!isOpen) return null;
 
@@ -67,7 +118,70 @@ const VideoKaiwaAdminModal = ({
         const extracted = extractYoutubeId(val);
         if (extracted) {
             setYoutubeId(extracted);
+            setCustomThumbnail(`https://img.youtube.com/vi/${extracted}/hqdefault.jpg`);
             setErrorMsg('');
+        }
+    };
+
+    // Handle Video File Selection (.mp4, .webm, .mov, etc.)
+    const handleVideoFileChange = async (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        setSelectedVideoFile(file);
+        setErrorMsg('');
+        setIsExtractingMetadata(true);
+
+        // Revoke previous blob if any
+        if (filePreviewUrl && filePreviewUrl.startsWith('blob:')) {
+            try { URL.revokeObjectURL(filePreviewUrl); } catch (err) {}
+        }
+
+        const objectUrl = URL.createObjectURL(file);
+        setFilePreviewUrl(objectUrl);
+
+        // Auto-fill title if empty
+        if (!title.trim()) {
+            const cleanName = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
+            setTitle(cleanName);
+        }
+        if (!channelTitle.trim()) {
+            setChannelTitle('Video máy tính');
+        }
+
+        try {
+            const meta = await extractVideoThumbnailAndMetadata(file);
+            if (meta.thumbnail) {
+                setCustomThumbnail(meta.thumbnail);
+            }
+            if (meta.duration) {
+                setExtractedDuration(Math.ceil(meta.duration));
+            }
+            setSuccessMsg(`📹 Đã nhận file "${file.name}" (${(file.size / (1024 * 1024)).toFixed(1)} MB)!`);
+        } catch (err) {
+            console.warn('Lỗi trích xuất thumbnail video:', err);
+        } finally {
+            setIsExtractingMetadata(false);
+        }
+    };
+
+    // Handle Direct Video URL change
+    const handleDirectUrlChange = async (e) => {
+        const val = e.target.value;
+        setDirectVideoUrl(val);
+        setErrorMsg('');
+
+        if (val.trim().startsWith('http')) {
+            setIsExtractingMetadata(true);
+            try {
+                const meta = await extractVideoThumbnailAndMetadata(val.trim());
+                if (meta.thumbnail) setCustomThumbnail(meta.thumbnail);
+                if (meta.duration) setExtractedDuration(Math.ceil(meta.duration));
+            } catch (err) {
+                console.warn(err);
+            } finally {
+                setIsExtractingMetadata(false);
+            }
         }
     };
 
@@ -180,10 +294,18 @@ const VideoKaiwaAdminModal = ({
         reader.readAsText(file);
     };
 
-    // Save Video to Firestore & Local Storage
+    // Save Video to Firestore & Local Storage & IndexedDB
     const handleSave = async () => {
-        if (!youtubeId) {
+        if (sourceType === 'youtube' && !youtubeId) {
             setErrorMsg('Vui lòng nhập Link YouTube hợp lệ!');
+            return;
+        }
+        if (sourceType === 'file' && !selectedVideoFile && !filePreviewUrl && !editingVideo?.videoUrl) {
+            setErrorMsg('Vui lòng chọn file video từ máy tính (.mp4, .webm, .mov)!');
+            return;
+        }
+        if (sourceType === 'direct' && !directVideoUrl.trim()) {
+            setErrorMsg('Vui lòng nhập đường dẫn video trực tiếp hợp lệ!');
             return;
         }
         if (!title.trim()) {
@@ -198,17 +320,53 @@ const VideoKaiwaAdminModal = ({
         setIsSaving(true);
         setErrorMsg('');
         setSuccessMsg('');
+
+        const videoId = editingVideo?.id || `video_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`;
+        let finalVideoUrl = editingVideo?.videoUrl || editingVideo?.fileUrl || '';
+
         try {
+            // If user selected a new video file:
+            if (selectedVideoFile) {
+                // 1. Save blob to IndexedDB for local instant playback
+                await saveVideoBlobToIndexedDb(videoId, selectedVideoFile, {
+                    title: title.trim(),
+                    level,
+                    category
+                });
+
+                // 2. Attempt to upload to Firebase Storage if available (optional for CDN cloud access)
+                try {
+                    setSuccessMsg('Đang tải video lên bộ nhớ đám mây...');
+                    const uploadRes = await uploadKaiwaVideoFile(selectedVideoFile, videoId, (p) => {
+                        setUploadProgress(p);
+                    });
+                    if (uploadRes?.downloadUrl) {
+                        finalVideoUrl = uploadRes.downloadUrl;
+                    }
+                } catch (uploadErr) {
+                    console.warn('Firebase Storage upload error (video will still work locally via IndexedDB):', uploadErr);
+                }
+            } else if (sourceType === 'direct') {
+                finalVideoUrl = directVideoUrl.trim();
+            }
+
+            const lastSubEnd = subtitles[subtitles.length - 1]?.end;
+            const finalDuration = extractedDuration || (lastSubEnd ? Math.ceil(lastSubEnd) : 300);
+
             const videoData = {
-                id: editingVideo?.id || `video_${Date.now()}`,
-                youtubeId,
+                id: videoId,
+                videoType: sourceType,
+                sourceType,
+                youtubeId: sourceType === 'youtube' ? youtubeId : null,
+                videoUrl: sourceType === 'youtube' ? null : (finalVideoUrl || filePreviewUrl || ''),
+                fileUrl: sourceType === 'file' ? (finalVideoUrl || filePreviewUrl || '') : null,
                 title: title.trim(),
-                channelTitle: channelTitle.trim(),
+                channelTitle: channelTitle.trim() || (sourceType === 'file' ? 'Video máy tính' : 'QuizKi Master'),
                 level,
                 category,
                 description: description.trim(),
-                thumbnail: `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`,
-                duration: subtitles[subtitles.length - 1]?.end ? Math.ceil(subtitles[subtitles.length - 1].end) : 300,
+                thumbnail: customThumbnail || (sourceType === 'youtube' ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : ''),
+                duration: finalDuration,
                 subtitlesCount: subtitles.length,
                 subtitles
             };
@@ -221,6 +379,7 @@ const VideoKaiwaAdminModal = ({
             setErrorMsg('Lỗi khi lưu video: ' + e.message);
         } finally {
             setIsSaving(false);
+            setUploadProgress(null);
         }
     };
 
@@ -265,9 +424,9 @@ const VideoKaiwaAdminModal = ({
                         </div>
                         <div>
                             <h3 className="text-base font-black text-slate-900 dark:text-white">
-                                {editingVideo ? 'Chỉnh Sửa Video Kaiwa' : 'Thêm Video Kaiwa YouTube Mới'}
+                                {editingVideo ? 'Chỉnh Sửa Video Kaiwa' : 'Thêm Video Kaiwa Mới'}
                             </h3>
-                            <p className="text-xs text-slate-400">Quản lý bài học video, phân tách phụ đề song ngữ và Furigana</p>
+                            <p className="text-xs text-slate-400">Hỗ trợ import video từ File (.mp4, .webm) hoặc YouTube kèm phụ đề song ngữ</p>
                         </div>
                     </div>
                     <button onClick={onClose} className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer">
@@ -284,40 +443,186 @@ const VideoKaiwaAdminModal = ({
                         </div>
                     )}
 
-                    {/* YouTube URL & Preview */}
-                    <div className="space-y-3">
-                        <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
-                            Link Video YouTube *
+                    {/* SOURCE TYPE SELECTOR TABS */}
+                    <div className="space-y-2">
+                        <label className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 block">
+                            Chọn Nguồn Video
                         </label>
-                        <div className="flex items-center gap-2">
-                            <div className="relative flex-1">
+                        <div className="grid grid-cols-3 gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl">
+                            <button
+                                type="button"
+                                onClick={() => setSourceType('youtube')}
+                                className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                                    sourceType === 'youtube'
+                                        ? 'bg-red-600 text-white shadow-md'
+                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                                }`}
+                            >
+                                <Video className="w-4 h-4" />
+                                <span>YouTube URL</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => setSourceType('file')}
+                                className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                                    sourceType === 'file'
+                                        ? 'bg-amber-500 text-slate-950 shadow-md'
+                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                                }`}
+                            >
+                                <HardDrive className="w-4 h-4" />
+                                <span>File Video (.mp4)</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => setSourceType('direct')}
+                                className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                                    sourceType === 'direct'
+                                        ? 'bg-indigo-600 text-white shadow-md'
+                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                                }`}
+                            >
+                                <Globe className="w-4 h-4" />
+                                <span>Direct Link URL</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* SOURCE OPTION A: YOUTUBE */}
+                    {sourceType === 'youtube' && (
+                        <div className="space-y-3 p-4 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
+                                Đường Dẫn YouTube *
+                            </label>
+                            <div className="relative">
                                 <LinkIcon className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                                 <input
                                     type="text"
                                     placeholder="https://www.youtube.com/watch?v=... hoặc https://youtu.be/..."
                                     value={youtubeUrl}
                                     onChange={handleUrlChange}
-                                    className="w-full pl-9 pr-3 py-2.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500 font-mono"
+                                    className="w-full pl-9 pr-3 py-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500 font-mono"
                                 />
                             </div>
-                        </div>
 
-                        {youtubeId && (
-                            <div className="p-3 bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-3">
-                                <img
-                                    src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}
-                                    alt="Thumbnail"
-                                    className="w-24 aspect-video rounded-lg object-cover bg-slate-800"
-                                />
-                                <div className="text-xs space-y-0.5">
-                                    <p className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                                        <CheckCircle2 className="w-3.5 h-3.5" /> ID YouTube hợp lệ: {youtubeId}
-                                    </p>
-                                    <p className="text-[11px] text-slate-400">Thumbnail tự động lấy từ YouTube CDN</p>
+                            {youtubeId && (
+                                <div className="p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-3">
+                                    <img
+                                        src={`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`}
+                                        alt="Thumbnail"
+                                        className="w-24 aspect-video rounded-lg object-cover bg-slate-800"
+                                    />
+                                    <div className="text-xs space-y-0.5">
+                                        <p className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                                            <CheckCircle2 className="w-3.5 h-3.5" /> ID YouTube hợp lệ: {youtubeId}
+                                        </p>
+                                        <p className="text-[11px] text-slate-400">Thumbnail tự động lấy từ YouTube CDN</p>
+                                    </div>
                                 </div>
+                            )}
+                        </div>
+                    )}
+
+                    {/* SOURCE OPTION B: FILE VIDEO (.MP4, .WEBM, .MOV) */}
+                    {sourceType === 'file' && (
+                        <div className="space-y-3 p-4 bg-amber-50/40 dark:bg-amber-950/20 rounded-2xl border border-amber-200/60 dark:border-amber-900/40">
+                            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
+                                Chọn File Video Từ Máy Tính (.mp4, .webm, .mov, .mkv) *
+                            </label>
+                            
+                            <div 
+                                onClick={() => videoInputRef.current?.click()}
+                                className="p-6 border-2 border-dashed border-amber-300 dark:border-amber-700/80 hover:border-amber-500 rounded-2xl text-center space-y-2 bg-white/60 dark:bg-slate-900/60 cursor-pointer transition-all"
+                            >
+                                <HardDrive className="w-8 h-8 text-amber-500 mx-auto" />
+                                <p className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                                    {selectedVideoFile ? selectedVideoFile.name : 'Bấm vào đây để chọn file video từ thiết bị của bạn'}
+                                </p>
+                                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                                    Hỗ trợ MP4, WebM, MOV, M4V, MKV. Tự động trích xuất khung hình và thời lượng.
+                                </p>
+                                <input
+                                    ref={videoInputRef}
+                                    type="file"
+                                    accept="video/*,.mp4,.webm,.mov,.m4v,.mkv,.avi,.ogg"
+                                    onChange={handleVideoFileChange}
+                                    className="hidden"
+                                />
                             </div>
-                        )}
-                    </div>
+
+                            {/* Video File Preview & Metadata Snapshot */}
+                            {(filePreviewUrl || customThumbnail) && (
+                                <div className="p-3 bg-white dark:bg-slate-900 rounded-2xl border border-amber-200 dark:border-amber-800 flex items-center gap-3">
+                                    {customThumbnail ? (
+                                        <img
+                                            src={customThumbnail}
+                                            alt="Thumbnail Frame"
+                                            className="w-24 aspect-video rounded-lg object-cover bg-slate-800 border"
+                                        />
+                                    ) : (
+                                        <div className="w-24 aspect-video rounded-lg bg-slate-800 flex items-center justify-center text-slate-400">
+                                            <Film className="w-6 h-6" />
+                                        </div>
+                                    )}
+                                    <div className="text-xs space-y-0.5 flex-1">
+                                        <p className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                                            <CheckCircle2 className="w-3.5 h-3.5" /> File Video Đã Sẵn Sàng
+                                        </p>
+                                        <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                                            Thời lượng: {extractedDuration ? `${Math.floor(extractedDuration / 60)}:${String(extractedDuration % 60).padStart(2, '0')}` : 'Tự động tính'}
+                                            {selectedVideoFile ? ` • ${(selectedVideoFile.size / (1024 * 1024)).toFixed(1)} MB` : ''}
+                                        </p>
+                                        <p className="text-[10px] text-amber-600 dark:text-amber-400 font-medium">
+                                            ✓ Tự động lưu an toàn trong IndexedDB của máy và đồng bộ lên đám mây khi xuất bản.
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+
+                            {isExtractingMetadata && (
+                                <div className="text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-2 animate-pulse">
+                                    <RefreshCw className="w-4 h-4 animate-spin" />
+                                    <span>Đang trích xuất ảnh bìa thumbnail và thời lượng video...</span>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {/* SOURCE OPTION C: DIRECT VIDEO URL */}
+                    {sourceType === 'direct' && (
+                        <div className="space-y-3 p-4 bg-indigo-50/40 dark:bg-indigo-950/20 rounded-2xl border border-indigo-200/60 dark:border-indigo-900/40">
+                            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
+                                Đường Dẫn Video Trực Tiếp (Direct URL .mp4 / .webm) *
+                            </label>
+                            <div className="relative">
+                                <Globe className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                <input
+                                    type="text"
+                                    placeholder="https://example.com/videos/lesson01.mp4"
+                                    value={directVideoUrl}
+                                    onChange={handleDirectUrlChange}
+                                    className="w-full pl-9 pr-3 py-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
+                                />
+                            </div>
+
+                            {customThumbnail && (
+                                <div className="p-3 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-3">
+                                    <img
+                                        src={customThumbnail}
+                                        alt="Thumbnail"
+                                        className="w-24 aspect-video rounded-lg object-cover bg-slate-800"
+                                    />
+                                    <div className="text-xs space-y-0.5">
+                                        <p className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                                            <CheckCircle2 className="w-3.5 h-3.5" /> Đã kết nối luồng video trực tiếp
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    )}
 
                     {/* Basic Meta: Title, Channel, Level, Category */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -359,7 +664,7 @@ const VideoKaiwaAdminModal = ({
                         </div>
 
                         <div className="space-y-1.5 sm:col-span-2">
-                            <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Tên Kênh / Tác giả</label>
+                            <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Tên Kênh / Tác giả / Nguồn</label>
                             <input
                                 type="text"
                                 placeholder="Ví dụ: 【プロが教える介護技術】やしのきチャンネル"
@@ -381,6 +686,18 @@ const VideoKaiwaAdminModal = ({
                         <div className="p-3 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 rounded-xl text-xs text-emerald-700 dark:text-emerald-300 font-medium flex items-center gap-2">
                             <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-500" />
                             <span>{successMsg}</span>
+                        </div>
+                    )}
+
+                    {/* Upload Cloud Progress Bar */}
+                    {uploadProgress !== null && (
+                        <div className="p-3 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 rounded-xl space-y-1.5">
+                            <div className="flex items-center justify-between text-xs font-bold text-indigo-700 dark:text-indigo-300">
+                                <span>Đang tải video lên Firebase Storage: {uploadProgress}%</span>
+                            </div>
+                            <div className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div className="h-full bg-indigo-500 transition-all duration-200" style={{ width: `${uploadProgress}%` }} />
+                            </div>
                         </div>
                     )}
 
@@ -598,7 +915,7 @@ const VideoKaiwaAdminModal = ({
                         className="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition cursor-pointer disabled:opacity-50"
                     >
                         <Save className="w-4 h-4" />
-                        <span>{isSaving ? 'Đang lưu vào Firestore...' : 'Lưu & Xuất Bản Video'}</span>
+                        <span>{isSaving ? 'Đang lưu video...' : 'Lưu & Xuất Bản Video'}</span>
                     </button>
                 </div>
             </div>

@@ -643,12 +643,16 @@ const VideoKaiwaTranscript = ({
                                     }`}
                                 >
                                     {/* Thumbnail Preview */}
-                                    <div className="w-20 aspect-video rounded-lg overflow-hidden bg-slate-950 shrink-0 relative">
-                                        <img 
-                                            src={v.thumbnail || `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`} 
-                                            alt={v.title} 
-                                            className="w-full h-full object-cover" 
-                                        />
+                                    <div className="w-20 aspect-video rounded-lg overflow-hidden bg-slate-950 shrink-0 relative flex items-center justify-center">
+                                        {(v.thumbnail || v.youtubeId) ? (
+                                            <img 
+                                                src={v.thumbnail || `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg`} 
+                                                alt={v.title} 
+                                                className="w-full h-full object-cover" 
+                                            />
+                                        ) : (
+                                            <Film className="w-5 h-5 text-amber-500/70" />
+                                        )}
                                         <span className="absolute bottom-0.5 right-0.5 px-1 rounded bg-black/80 text-white text-[8px] font-mono">
                                             {v.duration ? `${Math.floor(v.duration / 60)}m` : 'Video'}
                                         </span>

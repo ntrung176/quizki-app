@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Layers, Edit3, Trash2, Sparkles, MessageSquare, Clock } from 'lucide-react';
+import { Play, Layers, Edit3, Trash2, Sparkles, MessageSquare, Clock, Film, HardDrive, Video } from 'lucide-react';
 import { KAIWA_LEVELS, KAIWA_CATEGORIES } from './videoKaiwaConstants';
 
 const LEVEL_COLOR_MAP = {
@@ -24,6 +24,8 @@ const VideoKaiwaMovieCard = ({
     const levelBadgeColor = LEVEL_COLOR_MAP[video.level] || 'bg-amber-500 text-slate-950';
     const subCount = video.subtitles?.length || 0;
     const categoryMeta = KAIWA_CATEGORIES.find(c => c.id === video.category);
+    const isFileSource = Boolean(video.videoUrl || video.fileUrl || video.videoType === 'file' || !video.youtubeId);
+    const thumbnailSrc = video.thumbnail || (video.youtubeId ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg` : '');
 
     return (
         <div
@@ -31,13 +33,20 @@ const VideoKaiwaMovieCard = ({
             className={`group relative flex flex-col bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800/90 shadow-xs hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)] dark:shadow-none dark:hover:shadow-[0_12px_28px_rgba(0,0,0,0.5)] hover:border-pink-300 dark:hover:border-pink-500/50 transition-all duration-300 overflow-hidden cursor-pointer select-none ${cardWidthClass}`}
         >
             {/* Thumbnail Poster with Cinema Overlay */}
-            <div className="relative aspect-video bg-slate-950 overflow-hidden">
-                <img
-                    src={video.thumbnail || `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                    alt={video.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+            <div className="relative aspect-video bg-slate-950 overflow-hidden flex items-center justify-center">
+                {thumbnailSrc ? (
+                    <img
+                        src={thumbnailSrc}
+                        alt={video.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex flex-col items-center justify-center text-slate-500">
+                        <Film className="w-10 h-10 text-amber-500/70" />
+                        <span className="text-[10px] font-bold mt-1 text-slate-400">Video Bài Học</span>
+                    </div>
+                )}
 
                 {/* Smooth Vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 opacity-70 group-hover:opacity-85 transition-opacity duration-300" />
@@ -56,12 +65,24 @@ const VideoKaiwaMovieCard = ({
                         {video.level || 'JLPT'}
                     </span>
 
-                    {/* Category / Topic Badge */}
-                    {categoryMeta && (
-                        <span className="px-2 py-0.5 rounded-lg bg-slate-900/90 backdrop-blur-md text-white border border-slate-700/80 text-[9px] font-bold tracking-tight shadow-md max-w-[150px] truncate">
-                            {categoryMeta.title || categoryMeta.label}
-                        </span>
-                    )}
+                    {/* Source & Category Badge */}
+                    <div className="flex items-center gap-1">
+                        {isFileSource ? (
+                            <span className="px-1.5 py-0.5 rounded-md bg-amber-500/90 text-slate-950 text-[9px] font-black uppercase tracking-wider shadow-md flex items-center gap-1">
+                                <HardDrive className="w-2.5 h-2.5" /> File
+                            </span>
+                        ) : (
+                            <span className="px-1.5 py-0.5 rounded-md bg-red-600/90 text-white text-[9px] font-black uppercase tracking-wider shadow-md flex items-center gap-1">
+                                <Video className="w-2.5 h-2.5" /> YT
+                            </span>
+                        )}
+
+                        {categoryMeta && (
+                            <span className="px-2 py-0.5 rounded-lg bg-slate-900/90 backdrop-blur-md text-white border border-slate-700/80 text-[9px] font-bold tracking-tight shadow-md max-w-[130px] truncate">
+                                {categoryMeta.title || categoryMeta.label}
+                            </span>
+                        )}
+                    </div>
                 </div>
 
                 {/* Bottom Floating Badges */}

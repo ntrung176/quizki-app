@@ -3,9 +3,10 @@ import {
     Play, Pause, RotateCcw, RotateCw, Repeat, Volume2, VolumeX, 
     Maximize, Minimize, Settings, Sparkles, Mic, BookOpen, Eye, EyeOff,
     Check, ChevronRight, Layers, SlidersHorizontal, Info, SkipBack, SkipForward, RefreshCw,
-    ArrowLeft, Edit3, Languages
+    ArrowLeft, Edit3, Languages, Film, Loader2
 } from 'lucide-react';
 import FuriganaRenderer from './FuriganaRenderer';
+import { resolveVideoSourceUrl } from '../../utils/indexedDbVideoStorage';
 
 const VideoKaiwaPlayer = ({
     video,
@@ -29,9 +30,11 @@ const VideoKaiwaPlayer = ({
 }) => {
     const playerContainerRef = useRef(null);
     const iframeRef = useRef(null);
-    const playerRef = useRef(null);
+    const playerRef = useRef(null); // YouTube Player instance
+    const videoElRef = useRef(null); // HTML5 Video element ref
     const progressBarRef = useRef(null);
 
+    const [resolvedVideoUrl, setResolvedVideoUrl] = useState(video?.videoUrl || video?.fileUrl || '');
     const [currentTime, setCurrentTime] = useState(0);
     const [isApiReady, setIsApiReady] = useState(false);
     const [duration, setDuration] = useState(video?.duration || 0);
@@ -42,11 +45,55 @@ const VideoKaiwaPlayer = ({
     const [showSubtitleMenu, setShowSubtitleMenu] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [isHoveringVideo, setIsHoveringVideo] = useState(false);
+    const [isBuffering, setIsBuffering] = useState(false);
 
     const timeIntervalRef = useRef(null);
     const subtitleMenuRef = useRef(null);
+    const segmentTimeoutRef = useRef(null);
+    const activeSubIndexRef = useRef(activeSubIndex);
+    const isLoopingRef = useRef(isLoopingSentence);
+
+    useEffect(() => {
+        activeSubIndexRef.current = activeSubIndex;
+    }, [activeSubIndex]);
+
+    useEffect(() => {
+        isLoopingRef.current = isLoopingSentence;
+    }, [isLoopingSentence]);
+
     const subtitles = video?.subtitles || [];
     const currentSub = (activeSubIndex >= 0 && activeSubIndex < subtitles.length) ? subtitles[activeSubIndex] : (subtitles.length > 0 ? subtitles[0] : null);
+
+    // Determine if this is a YouTube video or a File/Direct video
+    const isYouTube = Boolean(video?.youtubeId && !video?.videoUrl && !video?.fileUrl && video?.videoType !== 'file');
+
+    // Resolve video URL safely without resetting source if URL is already active
+    useEffect(() => {
+        let isMounted = true;
+        const resolveUrl = async () => {
+            if (!video) return;
+            if (isYouTube) {
+                setResolvedVideoUrl('');
+                return;
+            }
+
+            const direct = video.videoUrl || video.fileUrl;
+            if (direct) {
+                setResolvedVideoUrl(prev => prev === direct ? prev : direct);
+                return;
+            }
+
+            const src = await resolveVideoSourceUrl(video);
+            if (isMounted && src) {
+                setResolvedVideoUrl(prev => prev === src ? prev : src);
+            }
+        };
+
+        resolveUrl();
+        return () => {
+            isMounted = false;
+        };
+    }, [video?.id, video?.videoUrl, video?.fileUrl, isYouTube]);
 
     // Click outside listener for Subtitle Menu
     useEffect(() => {
@@ -63,8 +110,10 @@ const VideoKaiwaPlayer = ({
         };
     }, [showSubtitleMenu]);
 
-    // Load YouTube IFrame API
+    // Load YouTube IFrame API if YouTube video is present
     useEffect(() => {
+        if (!isYouTube) return;
+
         if (!window.YT) {
             const tag = document.createElement('script');
             tag.src = 'https://www.youtube.com/iframe_api';
@@ -76,11 +125,11 @@ const VideoKaiwaPlayer = ({
         } else {
             setIsApiReady(true);
         }
-    }, []);
+    }, [isYouTube]);
 
-    // Initialize YouTube Player with native controls completely HIDDEN
+    // Initialize YouTube Player
     useEffect(() => {
-        if (!isApiReady || !video?.youtubeId || !iframeRef.current) return;
+        if (!isYouTube || !isApiReady || !video?.youtubeId || !iframeRef.current) return;
 
         if (playerRef.current && typeof playerRef.current.destroy === 'function') {
             try { playerRef.current.destroy(); } catch (e) { console.warn(e); }
@@ -106,16 +155,16 @@ const VideoKaiwaPlayer = ({
             videoId: video.youtubeId,
             playerVars: {
                 autoplay: 0,
-                controls: 0, // Hide YouTube's native UI controls
-                disablekb: 1, // Disable YouTube internal keyboard
+                controls: 0,
+                disablekb: 1,
                 enablejsapi: 1,
                 autohide: 1,
                 modestbranding: 1,
                 rel: 0,
                 fs: 0,
                 playsinline: 1,
-                iv_load_policy: 3, // Hide video annotations
-                cc_load_policy: 3, // 3 explicitly disables CC subtitles
+                iv_load_policy: 3,
+                cc_load_policy: 3,
                 cc_lang_pref: 'none',
                 origin: window.location.origin
             },
@@ -126,16 +175,18 @@ const VideoKaiwaPlayer = ({
                     clearCaptions(event.target);
                 },
                 onApiChange: (event) => {
-                    // YouTube loads captions module asynchronously via onApiChange
                     clearCaptions(event.target);
                 },
                 onStateChange: (event) => {
-                    // YT.PlayerState.PLAYING === 1, PAUSED === 2, ENDED === 0
                     if (event.data === 1) {
                         setIsPlaying(true);
+                        setIsBuffering(false);
                         clearCaptions(event.target);
                     } else if (event.data === 2 || event.data === 0) {
                         setIsPlaying(false);
+                        setIsBuffering(false);
+                    } else if (event.data === 3) {
+                        setIsBuffering(true);
                     }
                 }
             }
@@ -147,10 +198,12 @@ const VideoKaiwaPlayer = ({
                 try { playerRef.current.destroy(); } catch (e) { console.warn(e); }
             }
         };
-    }, [isApiReady, video?.youtubeId]);
+    }, [isYouTube, isApiReady, video?.youtubeId]);
 
-    // Synchronize video time and active subtitle
+    // Synchronize YouTube video time and active subtitle
     useEffect(() => {
+        if (!isYouTube) return;
+
         if (isPlaying) {
             timeIntervalRef.current = setInterval(() => {
                 if (playerRef.current && typeof playerRef.current.getCurrentTime === 'function') {
@@ -158,8 +211,8 @@ const VideoKaiwaPlayer = ({
                     setCurrentTime(curr);
 
                     // A-B Loop current sentence
-                    if (isLoopingSentence && currentSub) {
-                        if (curr >= currentSub.end - 0.1 || curr < currentSub.start - 0.5) {
+                    if (isLoopingRef.current && currentSub && currentSub.end > currentSub.start + 0.3) {
+                        if (curr >= currentSub.end - 0.05 || curr < currentSub.start - 0.5) {
                             playerRef.current.seekTo(currentSub.start, true);
                             setCurrentTime(currentSub.start);
                             return;
@@ -167,12 +220,13 @@ const VideoKaiwaPlayer = ({
                     } else {
                         // Identify active subtitle index
                         const subIdx = subtitles.findIndex(s => curr >= s.start && curr <= s.end);
-                        if (subIdx !== -1 && subIdx !== activeSubIndex) {
+                        if (subIdx !== -1 && subIdx !== activeSubIndexRef.current) {
+                            activeSubIndexRef.current = subIdx;
                             setActiveSubIndex(subIdx);
                         }
                     }
                 }
-            }, 60);
+            }, 80);
         } else {
             if (timeIntervalRef.current) clearInterval(timeIntervalRef.current);
         }
@@ -180,36 +234,92 @@ const VideoKaiwaPlayer = ({
         return () => {
             if (timeIntervalRef.current) clearInterval(timeIntervalRef.current);
         };
-    }, [isPlaying, isLoopingSentence, currentSub, activeSubIndex, subtitles]);
+    }, [isYouTube, isPlaying, currentSub, subtitles, setActiveSubIndex]);
 
-    const segmentTimeoutRef = useRef(null);
+    // HTML5 Video event listeners & synchronization (fluid, lightweight, high performance)
+    const handleHtml5TimeUpdate = () => {
+        if (!videoElRef.current) return;
+        const curr = videoElRef.current.currentTime;
+        setCurrentTime(curr);
 
-    // Seek helper with segment auto-stop support
+        // A-B Loop current sentence
+        if (isLoopingRef.current && currentSub && currentSub.end > currentSub.start + 0.3) {
+            if (curr >= currentSub.end - 0.05 || curr < currentSub.start - 0.5) {
+                videoElRef.current.currentTime = currentSub.start;
+                setCurrentTime(currentSub.start);
+                return;
+            }
+        } else {
+            // Identify active subtitle index
+            const subIdx = subtitles.findIndex(s => curr >= s.start && curr <= s.end);
+            if (subIdx !== -1 && subIdx !== activeSubIndexRef.current) {
+                activeSubIndexRef.current = subIdx;
+                setActiveSubIndex(subIdx);
+            }
+        }
+    };
+
+    const handleHtml5LoadedMetadata = () => {
+        if (videoElRef.current) {
+            const dur = videoElRef.current.duration;
+            if (dur && !isNaN(dur)) {
+                setDuration(dur);
+            }
+            videoElRef.current.playbackRate = playbackRate;
+            videoElRef.current.volume = volume / 100;
+            videoElRef.current.muted = isMuted;
+        }
+    };
+
+    // Seek helper with segment auto-stop support (works for BOTH YouTube and HTML5 video)
     const seekToSeconds = useCallback((sec, autoPlay = true, stopAtSec = null) => {
         if (segmentTimeoutRef.current) {
             clearTimeout(segmentTimeoutRef.current);
             segmentTimeoutRef.current = null;
         }
 
-        if (playerRef.current && typeof playerRef.current.seekTo === 'function') {
-            playerRef.current.seekTo(sec, true);
-            setCurrentTime(sec);
-            if (autoPlay && typeof playerRef.current.playVideo === 'function') {
-                playerRef.current.playVideo();
-                setIsPlaying(true);
+        if (isYouTube) {
+            if (playerRef.current && typeof playerRef.current.seekTo === 'function') {
+                playerRef.current.seekTo(sec, true);
+                setCurrentTime(sec);
+                if (autoPlay && typeof playerRef.current.playVideo === 'function') {
+                    playerRef.current.playVideo();
+                    setIsPlaying(true);
 
-                if (stopAtSec && stopAtSec > sec) {
-                    const durationMs = Math.max(500, (stopAtSec - sec) * 1000);
-                    segmentTimeoutRef.current = setTimeout(() => {
-                        if (playerRef.current && typeof playerRef.current.pauseVideo === 'function') {
-                            playerRef.current.pauseVideo();
-                            setIsPlaying(false);
-                        }
-                    }, durationMs);
+                    if (stopAtSec && stopAtSec > sec) {
+                        const durationMs = Math.max(500, (stopAtSec - sec) * 1000);
+                        segmentTimeoutRef.current = setTimeout(() => {
+                            if (playerRef.current && typeof playerRef.current.pauseVideo === 'function') {
+                                playerRef.current.pauseVideo();
+                                setIsPlaying(false);
+                            }
+                        }, durationMs);
+                    }
+                }
+            }
+        } else {
+            // HTML5 Video Seek
+            if (videoElRef.current) {
+                videoElRef.current.currentTime = sec;
+                setCurrentTime(sec);
+                if (autoPlay) {
+                    const playPromise = videoElRef.current.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(err => console.warn('Play interrupted/prevented:', err));
+                    }
+
+                    if (stopAtSec && stopAtSec > sec) {
+                        const durationMs = Math.max(500, (stopAtSec - sec) * 1000);
+                        segmentTimeoutRef.current = setTimeout(() => {
+                            if (videoElRef.current) {
+                                videoElRef.current.pause();
+                            }
+                        }, durationMs);
+                    }
                 }
             }
         }
-    }, [setIsPlaying]);
+    }, [isYouTube, setIsPlaying]);
 
     // Expose seek handler to parent
     useEffect(() => {
@@ -218,29 +328,37 @@ const VideoKaiwaPlayer = ({
         }
     }, [onSeekTo, seekToSeconds]);
 
-    // Sync isPlaying state changes from parent to YouTube player
-    useEffect(() => {
-        if (!isPlaying && playerRef.current && typeof playerRef.current.pauseVideo === 'function') {
-            try {
-                const state = playerRef.current.getPlayerState?.();
-                if (state === 1) { // If playing
-                    playerRef.current.pauseVideo();
-                }
-            } catch (e) {}
-        }
-    }, [isPlaying]);
-
     // Toggle Play/Pause
     const handleTogglePlay = useCallback(() => {
-        if (!playerRef.current) return;
-        if (isPlaying) {
-            playerRef.current.pauseVideo?.();
-            setIsPlaying(false);
-        } else {
-            playerRef.current.playVideo?.();
-            setIsPlaying(true);
+        if (segmentTimeoutRef.current) {
+            clearTimeout(segmentTimeoutRef.current);
+            segmentTimeoutRef.current = null;
         }
-    }, [isPlaying, setIsPlaying]);
+
+        if (isYouTube) {
+            if (!playerRef.current) return;
+            if (isPlaying) {
+                playerRef.current.pauseVideo?.();
+                setIsPlaying(false);
+            } else {
+                playerRef.current.playVideo?.();
+                setIsPlaying(true);
+            }
+        } else {
+            if (!videoElRef.current) return;
+            if (videoElRef.current.paused) {
+                const playPromise = videoElRef.current.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        setIsPlaying(true);
+                    }).catch(e => console.warn('Play error:', e));
+                }
+            } else {
+                videoElRef.current.pause();
+                setIsPlaying(false);
+            }
+        }
+    }, [isYouTube, isPlaying, setIsPlaying]);
 
     // Spacebar shortcut for Play/Pause
     useEffect(() => {
@@ -311,8 +429,14 @@ const VideoKaiwaPlayer = ({
     // Playback Speed
     const handleChangeSpeed = (speed) => {
         setPlaybackRate(speed);
-        if (playerRef.current && typeof playerRef.current.setPlaybackRate === 'function') {
-            playerRef.current.setPlaybackRate(speed);
+        if (isYouTube) {
+            if (playerRef.current && typeof playerRef.current.setPlaybackRate === 'function') {
+                playerRef.current.setPlaybackRate(speed);
+            }
+        } else {
+            if (videoElRef.current) {
+                videoElRef.current.playbackRate = speed;
+            }
         }
         setShowSpeedMenu(false);
     };
@@ -321,20 +445,34 @@ const VideoKaiwaPlayer = ({
     const handleVolumeChange = (newVol) => {
         setVolume(newVol);
         setIsMuted(newVol === 0);
-        if (playerRef.current) {
-            playerRef.current.setVolume?.(newVol);
-            if (newVol > 0) playerRef.current.unMute?.();
+        if (isYouTube) {
+            if (playerRef.current) {
+                playerRef.current.setVolume?.(newVol);
+                if (newVol > 0) playerRef.current.unMute?.();
+            }
+        } else {
+            if (videoElRef.current) {
+                videoElRef.current.volume = newVol / 100;
+                videoElRef.current.muted = (newVol === 0);
+            }
         }
     };
 
     const handleToggleMute = () => {
-        if (!playerRef.current) return;
-        if (isMuted) {
-            playerRef.current.unMute?.();
-            setIsMuted(false);
+        if (isYouTube) {
+            if (!playerRef.current) return;
+            if (isMuted) {
+                playerRef.current.unMute?.();
+                setIsMuted(false);
+            } else {
+                playerRef.current.mute?.();
+                setIsMuted(true);
+            }
         } else {
-            playerRef.current.mute?.();
-            setIsMuted(true);
+            if (!videoElRef.current) return;
+            const nextMuted = !isMuted;
+            videoElRef.current.muted = nextMuted;
+            setIsMuted(nextMuted);
         }
     };
 
@@ -364,17 +502,56 @@ const VideoKaiwaPlayer = ({
             ref={playerContainerRef} 
             className="flex flex-col gap-2.5 w-full h-auto lg:h-full lg:max-h-full font-sans select-none justify-between shrink-0 lg:shrink min-h-0 text-slate-900 dark:text-white"
         >
-            {/* 1. KHUNG VIDEO YOUTUBE RIÊNG BIỆT (Card 1) - Bo tròn 4 góc */}
+            {/* 1. KHUNG VIDEO YOUTUBE HOẶC FILE VIDEO RIÊNG BIỆT (Card 1) - Bo tròn 4 góc */}
             <div 
                 className="shrink-0 relative w-full aspect-video bg-black rounded-2xl lg:rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-800 shadow-none group cursor-pointer flex items-center justify-center select-none"
                 onMouseEnter={() => setIsHoveringVideo(true)}
                 onMouseLeave={() => setIsHoveringVideo(false)}
                 onClick={handleTogglePlay}
             >
-                {/* 100% Full Width IFrame (1x Native) */}
-                <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none rounded-2xl lg:rounded-3xl overflow-hidden">
-                    <div ref={iframeRef} className="w-full h-full rounded-2xl lg:rounded-3xl overflow-hidden" />
-                </div>
+                {isYouTube ? (
+                    /* 100% Full Width IFrame (1x Native) */
+                    <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none rounded-2xl lg:rounded-3xl overflow-hidden">
+                        <div ref={iframeRef} className="w-full h-full rounded-2xl lg:rounded-3xl overflow-hidden" />
+                    </div>
+                ) : (
+                    /* HTML5 Native Video Player */
+                    <div className="w-full h-full flex items-center justify-center bg-black relative">
+                        {resolvedVideoUrl ? (
+                            <video
+                                ref={videoElRef}
+                                src={resolvedVideoUrl}
+                                playsInline
+                                preload="auto"
+                                crossOrigin="anonymous"
+                                onTimeUpdate={handleHtml5TimeUpdate}
+                                onLoadedMetadata={handleHtml5LoadedMetadata}
+                                onPlay={() => setIsPlaying(true)}
+                                onPause={() => setIsPlaying(false)}
+                                onEnded={() => setIsPlaying(false)}
+                                onWaiting={() => setIsBuffering(true)}
+                                onPlaying={() => {
+                                    setIsBuffering(false);
+                                    setIsPlaying(true);
+                                }}
+                                onCanPlay={() => setIsBuffering(false)}
+                                className="w-full h-full object-contain"
+                            />
+                        ) : (
+                            <div className="flex flex-col items-center justify-center gap-2 text-slate-400 p-6 text-center">
+                                <Film className="w-10 h-10 animate-pulse text-amber-500" />
+                                <p className="text-xs font-bold">Đang tải dữ liệu video...</p>
+                            </div>
+                        )}
+
+                        {/* Buffering Spinner Overlay */}
+                        {isBuffering && (
+                            <div className="absolute inset-0 bg-black/40 flex items-center justify-center pointer-events-none z-10">
+                                <Loader2 className="w-10 h-10 text-amber-400 animate-spin" />
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
 
             {/* 2. KHUNG PLAYER Ở DƯỚI RIÊNG BIỆT (Card 2) - Bao gồm ô script ở trên và thanh điều khiển ở dưới, bo tròn toàn bộ */}
@@ -572,8 +749,14 @@ const VideoKaiwaPlayer = ({
                             {onOpenShadowingModal && (
                                 <button
                                     onClick={() => {
-                                        if (playerRef.current && typeof playerRef.current.pauseVideo === 'function') {
-                                            playerRef.current.pauseVideo();
+                                        if (isYouTube) {
+                                            if (playerRef.current && typeof playerRef.current.pauseVideo === 'function') {
+                                                playerRef.current.pauseVideo();
+                                            }
+                                        } else {
+                                            if (videoElRef.current) {
+                                                videoElRef.current.pause();
+                                            }
                                         }
                                         setIsPlaying(false);
                                         onOpenShadowingModal();
@@ -586,7 +769,7 @@ const VideoKaiwaPlayer = ({
                                 </button>
                             )}
 
-                            {/* Hover Volume Control (Nút âm thanh chỉ hiện icon, khi di chuột tới mới trượt mở slider) */}
+                            {/* Hover Volume Control */}
                             <div className="group/vol relative flex items-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-800 p-1.5 sm:p-2 transition-all shadow-xs cursor-pointer">
                                 <button
                                     type="button"

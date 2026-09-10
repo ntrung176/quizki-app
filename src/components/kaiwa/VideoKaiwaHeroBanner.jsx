@@ -11,16 +11,21 @@ const VideoKaiwaHeroBanner = ({
 
     const categoryMeta = KAIWA_CATEGORIES.find(c => c.id === video.category);
     const subCount = video.subtitles?.length || 0;
+    const thumbnailSrc = video.thumbnail || (video.youtubeId ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg` : '');
 
     return (
         <div className="relative overflow-hidden rounded-3xl bg-slate-900 dark:bg-slate-950 border border-slate-200/90 dark:border-slate-800 shadow-xl dark:shadow-2xl group select-none">
             {/* Background Backdrop Image with Rich Cinematic Gradients */}
             <div className="absolute inset-0 z-0 overflow-hidden">
-                <img
-                    src={video.thumbnail || `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                    alt={video.title}
-                    className="w-full h-full object-cover object-center scale-105 filter blur-xs group-hover:scale-110 transition-transform duration-700 opacity-40 dark:opacity-30"
-                />
+                {thumbnailSrc ? (
+                    <img
+                        src={thumbnailSrc}
+                        alt={video.title}
+                        className="w-full h-full object-cover object-center scale-105 filter blur-xs group-hover:scale-110 transition-transform duration-700 opacity-40 dark:opacity-30"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-slate-900 opacity-40" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent z-10" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10" />
                 <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/15 dark:bg-pink-500/10 rounded-full blur-3xl pointer-events-none z-10" />
@@ -89,11 +94,15 @@ const VideoKaiwaHeroBanner = ({
                     onClick={() => onSelectVideo?.(video)}
                     className="hidden md:block w-72 lg:w-80 shrink-0 aspect-video rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl relative group/card cursor-pointer transform hover:scale-105 transition-all duration-300"
                 >
-                    <img
-                        src={video.thumbnail || `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                        alt={video.title}
-                        className="w-full h-full object-cover"
-                    />
+                    {thumbnailSrc ? (
+                        <img
+                            src={thumbnailSrc}
+                            alt={video.title}
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <div className="w-full h-full bg-slate-900" />
+                    )}
                     <div className="absolute inset-0 bg-black/40 group-hover/card:bg-black/20 transition-colors flex items-center justify-center">
                         <div className="w-14 h-14 rounded-full bg-[#f494bc] text-slate-950 flex items-center justify-center shadow-[0_8px_24px_rgba(244,148,188,0.6)] ring-4 ring-white/30 group-hover/card:scale-110 group-hover/card:shadow-[0_12px_30px_rgba(244,148,188,0.85)] transition-all duration-300">
                             <Play className="w-7 h-7 fill-slate-950 ml-0.5 text-slate-950" />
