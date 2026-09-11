@@ -306,7 +306,10 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                             <RotateCcw className="w-4 h-4" /> Làm lại
                         </button>
                         <button
-                            onClick={onComplete || onBack}
+                            onClick={() => {
+                                if (onComplete) onComplete();
+                                else if (onBack) onBack();
+                            }}
                             className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
                         >
                             Xong <ChevronRight className="w-4 h-4" />

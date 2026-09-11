@@ -278,8 +278,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             const now = Date.now();
             let earliest = Infinity;
             const futureEntries = [];
-            Object.values(srsData).forEach(srs => {
-                const next = parseNextReviewMs(srs.nextReview);
+            Object.values(srsData || {}).forEach(srs => {
+                if (!srs) return;
+                const next = parseNextReviewMs(srs.nextReview || srs.nextReview_back || srs.lastReviewed);
                 if (next > now) { futureEntries.push(next); if (next < earliest) earliest = next; }
             });
             if (earliest === Infinity) return null;
@@ -301,9 +302,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [lastTick, setLastTick] = useState(Date.now());
 
     const getLearningCardsWaiting = () => {
-        return Object.entries(srsData)
+        return Object.entries(srsData || {})
             .filter(([id, srs]) => {
-                if (!activeReviewCardIds.current.has(id)) return false;
+                if (!srs || !activeReviewCardIds.current.has(id)) return false;
 
                 const stateStr = (srs.state || srs.srsState || '').toUpperCase();
                 if (stateStr === 'REVIEW') return false;
@@ -311,12 +312,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                 const nextReviewVal = srs.nextReview || srs.nextReview_back;
                 if (nextReviewVal) {
-                    const reviewTime = nextReviewVal instanceof Date
-                        ? nextReviewVal.getTime()
-                        : (nextReviewVal.seconds
-                            ? nextReviewVal.seconds * 1000
-                            : new Date(nextReviewVal).getTime());
-                    if (!isNaN(reviewTime) && reviewTime - Date.now() > 12 * 60 * 60 * 1000) {
+                    const reviewTime = parseNextReviewMs(nextReviewVal);
+                    if (reviewTime > 0 && reviewTime - Date.now() > 12 * 60 * 60 * 1000) {
                         return false;
                     }
                 }
@@ -325,14 +322,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             })
             .map(([id, srs]) => {
                 const nextReviewVal = srs.nextReview || srs.nextReview_back;
-                const reviewTime = nextReviewVal instanceof Date
-                    ? nextReviewVal.getTime()
-                    : (nextReviewVal.seconds
-                        ? nextReviewVal.seconds * 1000
-                        : new Date(nextReviewVal).getTime());
+                const reviewTime = parseNextReviewMs(nextReviewVal);
                 return {
                     id,
-                    nextReview: isNaN(reviewTime) ? Date.now() : reviewTime
+                    nextReview: reviewTime > 0 ? reviewTime : Date.now()
                 };
             });
     };
@@ -956,7 +949,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     if (reviewMode && !currentCard) {
         const waiting = getLearningCardsWaiting();
         if (waiting.length > 0) {
-            const now = lastTick;
+            const now = reviewTick;
             const earliestNextReview = Math.min(...waiting.map(w => w.nextReview));
             const secondsLeft = Math.max(0, Math.ceil((earliestNextReview - now) / 1000));
 
@@ -992,7 +985,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         <div className="flex justify-center w-full">
                             <button
                                 onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                className="w-full py-3.5 px-4 bg-gray-100 hover:bg-gray-250 dark:bg-slate-700 dark:hover:bg-slate-650 active:scale-95 text-gray-700 dark:text-gray-200 font-bold text-sm rounded-xl transition-all border border-gray-200 dark:border-slate-600 cursor-pointer text-center relative z-30 touch-manipulation"
+                                className="w-full py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-full transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
                             >
                                 Kết thúc phiên ôn tập
                             </button>
@@ -1032,7 +1025,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 <button
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        startReview(newlyDueGrammar);
+                                        runStartReview(newlyDueGrammar);
                                     }}
                                     className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(16,185,129,0.45)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.75)] transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
                                 >

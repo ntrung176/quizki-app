@@ -36,6 +36,9 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
                 fetchedCards.push({ ...docSnap.data(), id: docSnap.id });
             });
             setAllCards(fetchedCards);
+            try {
+                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(fetchedCards));
+            } catch (_) { }
             setIsLoading(false);
         }, (error) => {
             console.error("Lỗi tải danh sách từ vựng:", error);
@@ -172,16 +175,22 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             };
         }
 
-        setAllCards(prevCards => prevCards.map(card => {
-            if (card.id === cardId) {
-                return {
-                    ...card,
-                    ...updatedFields,
-                    ...(newMasteryState ? { masteryState: newMasteryState } : {})
-                };
-            }
-            return card;
-        }));
+        setAllCards(prevCards => {
+            const next = prevCards.map(card => {
+                if (String(card.id) === String(cardId)) {
+                    return {
+                        ...card,
+                        ...updatedFields,
+                        ...(newMasteryState ? { masteryState: newMasteryState } : {})
+                    };
+                }
+                return card;
+            });
+            try {
+                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(next));
+            } catch (_) { }
+            return next;
+        });
 
         if (userId && vocabCollectionPath) {
             try {
@@ -192,7 +201,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
                     ...(newMasteryState ? { masteryState: newMasteryState } : {}),
                     updatedAt: Date.now()
                 });
-                await updateDoc(cardRef, firestoreData);
+                await setDoc(cardRef, firestoreData, { merge: true });
             } catch (err) {
                 console.warn('⚠️ Failed to persist card mastery state to Firestore:', err);
             }
@@ -277,17 +286,23 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
         const safeCardId = String(realCardId);
 
-        setAllCards(prevCards => prevCards.map(c => {
-            if (String(c.id) === safeCardId) {
-                return { ...c, ...patchData, updatedAt: Date.now() };
-            }
-            return c;
-        }));
+        setAllCards(prevCards => {
+            const next = prevCards.map(c => {
+                if (String(c.id) === safeCardId) {
+                    return { ...c, ...patchData, updatedAt: Date.now() };
+                }
+                return c;
+            });
+            try {
+                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(next));
+            } catch (_) { }
+            return next;
+        });
 
         if (userId && vocabCollectionPath) {
             try {
                 const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
-                await updateDoc(cardRef, cleanFirestoreData({ ...patchData, updatedAt: Date.now() }));
+                await setDoc(cardRef, cleanFirestoreData({ ...patchData, updatedAt: Date.now() }), { merge: true });
             } catch (err) {
                 console.warn('⚠️ Failed to persist card changes to Firestore:', err);
             }
@@ -324,12 +339,18 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         if (!targetCardId) return;
 
         const safeId = String(targetCardId);
-        setAllCards(prevCards => prevCards.map(c => {
-            if (String(c.id) === safeId) {
-                return { ...c, srsEnabled: nextSrsState, updatedAt: Date.now() };
-            }
-            return c;
-        }));
+        setAllCards(prevCards => {
+            const next = prevCards.map(c => {
+                if (String(c.id) === safeId) {
+                    return { ...c, srsEnabled: nextSrsState, updatedAt: Date.now() };
+                }
+                return c;
+            });
+            try {
+                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(next));
+            } catch (_) { }
+            return next;
+        });
 
         if (userId && vocabCollectionPath) {
             try {

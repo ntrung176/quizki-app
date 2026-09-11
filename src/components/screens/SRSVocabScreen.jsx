@@ -16,6 +16,7 @@ import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
+import { POINTS } from '../../utils/scoring';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 
@@ -405,7 +406,7 @@ const SRSVocabScreen = ({
     }, [currentReviewIndex, reviewQueue]);
 
     // Safely determine if a card is due
-    const isDue = (card) => {
+    const isDue = (card, now = dashboardTick) => {
         if (!card || card.srsEnabled === false) return false;
         // Merge with local session SRS data if available
         const localSrs = sessionSrsData.current[card.id];
@@ -413,9 +414,9 @@ const SRSVocabScreen = ({
             const nextReviewVal = localSrs.nextReview_back || localSrs.nextReview;
             const reviewTime = parseNextReviewMs(nextReviewVal);
             if (reviewTime === 0) return true;
-            return reviewTime <= dashboardTick;
+            return reviewTime <= now;
         }
-        return isVocabCardDue(card, dashboardTick);
+        return isVocabCardDue(card, now);
     };
 
     // Calculate comprehensive stats for each folder (including completed ones)
@@ -675,7 +676,7 @@ const SRSVocabScreen = ({
                 const reviewTime = parseNextReviewMs(nextReviewVal);
                 return {
                     id,
-                    nextReview: reviewTime === 0 ? Date.now() : reviewTime
+                    nextReview: reviewTime > 0 ? reviewTime : Date.now()
                 };
             });
     };
@@ -815,7 +816,7 @@ const SRSVocabScreen = ({
             srsLapseCount: result.lapseCount,
             srsPrelapseInterval: result.prelapseInterval,
             srsState: result.state,
-            nextReview_back: new Date(nowTime + nextReviewOffset),
+            nextReview_back: nowTime + nextReviewOffset,
             lastReviewed: nowTime,
             state: result.state,
             interval: result.interval,
@@ -828,13 +829,26 @@ const SRSVocabScreen = ({
             delete intervalCacheRef.current[card.id];
         }
 
+        // Calculate XP reward synchronously
+        const ratingStr = String(rating || 'good').toLowerCase();
+        const xpReward = POINTS?.SRS_VOCAB?.[ratingStr] || POINTS?.SRS_VOCAB?.good || 4;
+        sessionXpRef.current += xpReward;
+
         // Call parent update vocab srs rating on Firestore asynchronously
         if (onUpdateVocabSrsRating) {
             pendingWriteIds.current.add(card.id);
-            const xp = onUpdateVocabSrsRating(card.id, { ...newSrs, rating }, (success) => {
+            try {
+                const res = onUpdateVocabSrsRating(card.id, { ...newSrs, rating }, (success) => {
+                    pendingWriteIds.current.delete(card.id);
+                });
+                if (res && typeof res.catch === 'function') {
+                    res.catch(() => {
+                        pendingWriteIds.current.delete(card.id);
+                    });
+                }
+            } catch (err) {
                 pendingWriteIds.current.delete(card.id);
-            });
-            sessionXpRef.current += (xp || 0);
+            }
         }
 
         // 1. Determine if card graduated/completed in this session or needs waiting for next review
@@ -1411,7 +1425,7 @@ const SRSVocabScreen = ({
                         <div className="flex justify-center w-full">
                             <button
                                 onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                className="w-full py-3.5 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-xl transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
+                                className="w-full py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-full transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
                             >
                                 Kết thúc phiên ôn tập
                             </button>
@@ -1448,7 +1462,7 @@ const SRSVocabScreen = ({
                                 <button
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        requestStartReview(newlyDueCards, activeFolderIdRef.current || 'global', 'Tiếp tục ôn tập');
+                                        startFolderReview(newlyDueCards, activeFolderIdRef.current || 'global');
                                     }}
                                     className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(16,185,129,0.45)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.75)] transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
                                 >
@@ -1474,6 +1488,18 @@ const SRSVocabScreen = ({
                         )}
                     </div>
                 </div>
+
+                {/* SRS Mode Selection Modal (Flashcard vs Anki Typing) */}
+                <SrsModeSelectModal
+                    isOpen={srsModeModalData.isOpen}
+                    onClose={() => setSrsModeModalData(prev => ({ ...prev, isOpen: false }))}
+                    title={srsModeModalData.title}
+                    cardCount={srsModeModalData.count}
+                    onSelectMode={(mode) => {
+                        setCardSettings(prev => ({ ...prev, reviewType: mode }));
+                        startFolderReview(srsModeModalData.cards, srsModeModalData.folderId);
+                    }}
+                />
             </div>
         );
     }
