@@ -60,41 +60,43 @@ const getCardScaleStyles = (card, settings) => {
     const hasSinoViet = Boolean(card.sinoVietnamese && settings?.back?.hanviet !== false);
     const hasSynonym = Boolean(card.synonym && settings?.back?.synonym !== false);
     const hasMnemonic = Boolean(card.userMnemonic || card.customMnemonic || card.mnemonic || isLeechCard(card));
+    const showMeaning = !isSwap && Boolean(settings?.back?.meaning !== false && card.back);
 
-    // Tính điểm mật độ nội dung (Density Score)
-    let densityScore = 0;
+    // Tính điểm mật độ chữ cho Typography (Text Density Score for font-sizes)
+    let textDensityScore = 0;
 
-    if (exampleLines >= 3 || exampleLength > 140) densityScore += 4;
-    else if (exampleLines === 2 || exampleLength > 70) densityScore += 2.5;
-    else if (exampleLines === 1) densityScore += 1.5;
+    if (exampleLines >= 3 || exampleLength > 140) textDensityScore += 3;
+    else if (exampleLines === 2 || exampleLength > 70) textDensityScore += 2;
+    else if (exampleLines === 1) textDensityScore += 1;
 
-    if (meaningLength > 140 || meaningLines >= 4) densityScore += 3.5;
-    else if (meaningLength > 75 || meaningLines >= 3) densityScore += 2;
-    else if (meaningLength > 35 || meaningLines >= 2) densityScore += 1;
+    if (showMeaning) {
+        if (meaningLength > 140 || meaningLines >= 4) textDensityScore += 3.5;
+        else if (meaningLength > 75 || meaningLines >= 3) textDensityScore += 2;
+        else if (meaningLength > 35 || meaningLines >= 2) textDensityScore += 1;
+    }
 
-    if (readingLength > 16) densityScore += 2;
-    else if (readingLength > 8) densityScore += 1;
+    if (readingLength > 16) textDensityScore += 2;
+    else if (readingLength > 8) textDensityScore += 1;
 
-    if (hasImage) densityScore += 1.5;
-    if (hasMnemonic) densityScore += 1;
-    if (hasSinoViet && hasSynonym) densityScore += 1;
+    if (hasImage) textDensityScore += 1.5;
+    if (hasMnemonic) textDensityScore += 1;
+    if (hasSinoViet && hasSynonym) textDensityScore += 1;
 
-    // 3. Phân cấp kích thước font chữ & khoảng cách dựa trên densityScore
+    // 3. Phân cấp kích thước font chữ & khoảng cách dựa trên textDensityScore
     let wordSize = "text-3xl sm:text-4xl md:text-5xl font-black leading-snug";
     let meaningSize = "text-xl sm:text-2xl md:text-3xl font-bold mt-1.5 leading-snug";
     let hanvietSize = "text-[13px] md:text-sm font-bold";
-    let exampleBoxPadding = "p-3.5 sm:p-4.5";
-    let exampleItemGap = "space-y-2";
+    let exampleBoxPadding = "p-3 sm:p-3.5 md:p-4";
+    let exampleItemGap = "space-y-1.5 sm:space-y-2";
     let exampleTitleSize = "text-[12px]";
-    let exampleTextSize = "text-[15px] sm:text-[17px] md:text-[19px] leading-relaxed font-bold";
-    let exampleMeaningSize = "text-[13px] sm:text-[14px] md:text-[15px] font-sans mt-1 leading-relaxed";
-    let exampleMaxHeight = "max-h-[160px] sm:max-h-[200px]";
+    let exampleTextSize = "text-[14px] sm:text-[16px] md:text-[17.5px] leading-relaxed font-bold";
+    let exampleMeaningSize = "text-[12px] sm:text-[13px] md:text-[14px] font-sans mt-0.5 leading-relaxed";
     let cardPadding = "p-4 sm:p-5 md:p-6";
     let contentGap = "space-y-2 sm:space-y-2.5";
     let imageMobileSize = "w-16 h-16 sm:w-20 sm:h-20";
 
-    if (densityScore >= 5.5) {
-        // Tầng 4: Siêu thu gọn (Nhiều ví dụ dài + nghĩa dài + ghi chú/ảnh)
+    if (textDensityScore >= 5.5) {
+        // Tầng 4: Siêu thu gọn (Nhiều nội dung đồng thời)
         wordSize = "text-base sm:text-lg md:text-xl font-bold leading-tight";
         meaningSize = "text-sm sm:text-base md:text-lg font-semibold mt-0.5 leading-snug";
         hanvietSize = "text-[11px] sm:text-xs font-semibold";
@@ -103,11 +105,10 @@ const getCardScaleStyles = (card, settings) => {
         exampleTitleSize = "text-[9.5px]";
         exampleTextSize = "text-[11.5px] sm:text-[12.5px] leading-snug font-medium";
         exampleMeaningSize = "text-[10px] sm:text-[11px] font-sans leading-tight mt-0.5";
-        exampleMaxHeight = "max-h-[105px] sm:max-h-[125px]";
         cardPadding = "p-3 sm:p-3.5";
         contentGap = "space-y-1 sm:space-y-1.5";
         imageMobileSize = "w-12 h-12 sm:w-14 sm:h-14";
-    } else if (densityScore >= 3.5) {
+    } else if (textDensityScore >= 3.5) {
         // Tầng 3: Thu gọn vừa (2 ví dụ hoặc nghĩa dài)
         wordSize = "text-lg sm:text-xl md:text-2xl font-extrabold leading-snug";
         meaningSize = "text-base sm:text-lg md:text-xl font-bold mt-0.5 leading-snug";
@@ -117,11 +118,10 @@ const getCardScaleStyles = (card, settings) => {
         exampleTitleSize = "text-[10.5px]";
         exampleTextSize = "text-[13px] sm:text-[14px] leading-snug font-semibold";
         exampleMeaningSize = "text-[11px] sm:text-[12px] font-sans leading-snug mt-0.5";
-        exampleMaxHeight = "max-h-[125px] sm:max-h-[150px]";
         cardPadding = "p-3.5 sm:p-4";
         contentGap = "space-y-1.5 sm:space-y-2";
         imageMobileSize = "w-14 h-14 sm:w-16 sm:h-16";
-    } else if (densityScore >= 2) {
+    } else if (textDensityScore >= 2) {
         // Tầng 2: Trung bình (1 ví dụ hoặc nghĩa vừa phải)
         wordSize = "text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug";
         meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-1 leading-snug";
@@ -129,9 +129,8 @@ const getCardScaleStyles = (card, settings) => {
         exampleBoxPadding = "p-3 sm:p-3.5";
         exampleItemGap = "space-y-1.5";
         exampleTitleSize = "text-[11.5px]";
-        exampleTextSize = "text-[14px] sm:text-[15.5px] md:text-[17px] leading-relaxed font-bold";
-        exampleMeaningSize = "text-[12px] sm:text-[13px] font-sans leading-snug mt-0.5";
-        exampleMaxHeight = "max-h-[145px] sm:max-h-[175px]";
+        exampleTextSize = "text-[13.5px] sm:text-[15px] md:text-[16.5px] leading-relaxed font-bold";
+        exampleMeaningSize = "text-[11.5px] sm:text-[12.5px] font-sans leading-snug mt-0.5";
         cardPadding = "p-4 sm:p-5";
         contentGap = "space-y-1.5 sm:space-y-2";
         imageMobileSize = "w-16 h-16 sm:w-20 sm:h-20";
@@ -143,6 +142,44 @@ const getCardScaleStyles = (card, settings) => {
         if (meaningLength > 30) {
             meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-1 leading-snug";
         }
+    }
+
+    // 4. Tính toán không gian thực tế còn lại cho khung ví dụ (Dynamic Example Max Height)
+    // Ước lượng mức chiếm dụng chiều cao của các thành phần phi ví dụ (Reading, Meaning, Hán Việt, Đồng nghĩa, Mẹo nhớ, Ảnh mobile)
+    let nonExampleOccupancy = 0;
+    
+    // Header đọc/kanji
+    if (readingLength > 16) nonExampleOccupancy += 1.3;
+    else if (readingLength > 8) nonExampleOccupancy += 1.0;
+    else nonExampleOccupancy += 0.8;
+
+    // Nghĩa
+    if (showMeaning) {
+        if (meaningLength > 100 || meaningLines >= 3) nonExampleOccupancy += 2.5;
+        else if (meaningLength > 40 || meaningLines >= 2) nonExampleOccupancy += 1.6;
+        else if (meaningLength > 0) nonExampleOccupancy += 1.0;
+    }
+
+    // Hán Việt & Đồng nghĩa
+    if (hasSinoViet && hasSynonym) nonExampleOccupancy += 1.2;
+    else if (hasSinoViet || hasSynonym) nonExampleOccupancy += 0.7;
+
+    // Mẹo nhớ cá nhân / Thẻ leech
+    if (hasMnemonic) nonExampleOccupancy += 2.0;
+
+    // Ảnh mobile trong dòng
+    if (hasImage) nonExampleOccupancy += 1.8;
+
+    // Tận dụng tối đa không gian phía dưới khi thẻ không có nhiều trường thông tin phụ
+    let exampleMaxHeight = "max-h-[250px] sm:max-h-[280px] md:max-h-[295px]";
+    if (nonExampleOccupancy >= 6.0) {
+        exampleMaxHeight = "max-h-[115px] sm:max-h-[140px] md:max-h-[155px]";
+    } else if (nonExampleOccupancy >= 4.5) {
+        exampleMaxHeight = "max-h-[150px] sm:max-h-[180px] md:max-h-[195px]";
+    } else if (nonExampleOccupancy >= 3.0) {
+        exampleMaxHeight = "max-h-[190px] sm:max-h-[220px] md:max-h-[235px]";
+    } else if (nonExampleOccupancy >= 1.8) {
+        exampleMaxHeight = "max-h-[225px] sm:max-h-[255px] md:max-h-[270px]";
     }
 
     return {
@@ -483,7 +520,7 @@ const Flashcard = ({
 
                     {/* Khi ở chế độ swapSides: Hiển thị lại từ vựng Kanji/Furigana ở mặt đáp án */}
                     {cardSettings?.swapSides && (
-                        <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${wordColorClass} select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
+                        <div className={`${scale.wordSize || 'text-3xl font-extrabold'} shrink-0 font-bold ${wordColorClass} select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
                             {isEnglishCard ? (
                                 <span>{card.front}</span>
                             ) : (
@@ -493,7 +530,7 @@ const Flashcard = ({
                     )}
                     {isEnglishCard ? (
                         (formatIPA(card.ipa, card.front) || card.pos) && (
-                            <div className="flex items-center justify-center gap-2 flex-wrap mb-1">
+                            <div className="flex items-center justify-center gap-2 flex-wrap mb-1 shrink-0">
                                 {formatIPA(card.ipa, card.front) && (isTypingMode || cardSettings.back.ipa !== false) && (
                                     <span className="text-base sm:text-lg font-mono font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
                                         {formatIPA(card.ipa, card.front)}
@@ -511,7 +548,7 @@ const Flashcard = ({
                         )
                     ) : (
                         showReading && (
-                            <div className={`${scale.wordSize || 'text-3xl font-extrabold'} font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
+                            <div className={`${scale.wordSize || 'text-3xl font-extrabold'} shrink-0 font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
                                 {renderReadingWithPitchAccent()}
                                 {card.pos && (
                                     <span className={variant === 'review' || variant === 'emerald' ? 
@@ -525,12 +562,12 @@ const Flashcard = ({
                         )
                     )}
                     {showMeaning && (
-                        <div className={`${scale.meaningSize} font-bold ${meaningColorClass} break-words whitespace-pre-line leading-relaxed max-w-full px-2`}>
+                        <div className={`${scale.meaningSize} shrink-0 font-bold ${meaningColorClass} break-words whitespace-pre-line leading-relaxed max-w-full px-2`}>
                             {card.back}
                         </div>
                     )}
                     {((showHanviet && (card.sinoVietnamese || card.ipa)) || (showSynonym && card.synonym)) && (
-                        <div className={`flex items-baseline justify-center gap-2 sm:gap-3 ${scale.hanvietSize || 'text-[13px] md:text-[14px]'} font-bold mt-0.5 flex-wrap`}>
+                        <div className={`flex items-baseline justify-center gap-2 sm:gap-3 ${scale.hanvietSize || 'text-[13px] md:text-[14px]'} shrink-0 font-bold mt-0.5 flex-wrap`}>
                             {showHanviet && (card.sinoVietnamese || card.ipa) && (
                                 <span className={`inline-flex items-baseline ${variant === 'review' || variant === 'emerald' ? 'text-yellow-300' : 'text-slate-700 dark:text-slate-300'}`}>
                                     <span className={variant === 'review' || variant === 'emerald' ? "text-emerald-100 font-normal mr-1" : "text-slate-400 dark:text-slate-500 font-normal mr-1"}>
@@ -579,7 +616,7 @@ const Flashcard = ({
 
                         if (isLeech || hasCustomMnemonic) {
                             return (
-                                <div className="w-full text-left mt-1.5">
+                                <div className="w-full text-left mt-1.5 shrink-0">
                                     {(card.userMnemonic || card.customMnemonic || card.mnemonic) ? (
                                         <div className="text-xs text-amber-950 dark:text-amber-100 bg-amber-500/15 border border-amber-500/30 rounded-2xl p-2.5 max-w-full font-medium leading-relaxed flex items-start justify-between gap-2 shadow-sm">
                                             <div className="flex-1">
@@ -609,7 +646,7 @@ const Flashcard = ({
                     })()}
                     {showExample && card.example && (
                         <div 
-                            className={`mt-1 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto flex-1 min-h-[45px] ${scale.exampleMaxHeight || 'max-h-[150px] sm:max-h-[220px]'} no-scrollbar cursor-default`}
+                            className={`mt-1 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto ${scale.exampleMaxHeight || 'max-h-[250px] sm:max-h-[280px]'} no-scrollbar cursor-default`}
                             onTouchStart={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                             onTouchEnd={(e) => e.stopPropagation()}
