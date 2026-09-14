@@ -379,8 +379,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return () => clearInterval(intervalId);
     }, [reviewMode, currentReviewIndex, grammarList, srsData]);
 
-    const [isPreparingSession, setIsPreparingSession] = useState(false);
-
     const runStartReview = (customList = null) => {
         const validList = Array.isArray(customList) && customList.length > 0
             ? customList
@@ -400,16 +398,24 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setReviewHistory([]);
         setPendingReviewCards(null);
 
-        // Show high-tech pre-warming screen
-        setIsPreparingSession(true);
-
+        // Pre-warm audio asynchronously in background without blocking UI
         setTimeout(() => {
-            setIsPreparingSession(false);
-            setReviewMode(true);
-            if (setIsReviewActive) {
-                setIsReviewActive(true);
-            }
-        }, 400);
+            try {
+                if (typeof window !== 'undefined') {
+                    if (window.speechSynthesis) window.speechSynthesis.getVoices();
+                    const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+                    if (AudioCtxClass) {
+                        const tempCtx = new AudioCtxClass();
+                        if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
+                    }
+                }
+            } catch (_) { }
+        }, 50);
+
+        setReviewMode(true);
+        if (setIsReviewActive) {
+            setIsReviewActive(true);
+        }
     };
 
     const startReview = (customList = null) => {
@@ -759,9 +765,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         );
     }
 
-    if (isPreparingSession) {
-        return <SrsPrewarmLoader title="Ngữ Pháp" count={reviewQueue.length} />;
-    }
 
     if (reviewMode && currentCard) {
         const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, reps: 0 };
