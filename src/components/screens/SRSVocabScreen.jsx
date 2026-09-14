@@ -550,7 +550,7 @@ const SRSVocabScreen = ({
     }, [folderStats]);
 
     const startFolderReview = (dueCards, folderId = 'global') => {
-        if (dueCards.length === 0) return;
+        if (!dueCards || dueCards.length === 0) return;
         activeFolderIdRef.current = folderId;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
@@ -563,36 +563,30 @@ const SRSVocabScreen = ({
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
-
-        // Pre-calculate preview intervals & fuzz factors for all queue cards during prewarming screen
         intervalCacheRef.current = {};
-        uniqueDueCards.forEach(c => {
-            intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
-        });
 
-        // Show calculating & prewarming screen before Card #1
-        setIsPreparingSession(true);
+        // Instant review mode activation
+        setIsPreparingSession(false);
+        setReviewMode(true);
+        if (setIsReviewActive) {
+            try { setIsReviewActive(true); } catch (_) { }
+        }
 
-        // Pre-warm WebKit AudioContext and SpeechSynthesis on initial user tap
-        try {
-            if (typeof window !== 'undefined') {
-                if (window.speechSynthesis) window.speechSynthesis.getVoices();
-                const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
-                if (AudioCtxClass) {
-                    const tempCtx = new AudioCtxClass();
-                    if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
-                }
-            }
-        } catch (_) { }
-
-        // Transition seamlessly to Card #1 after pre-warming phase
+        // Asynchronously pre-warm WebKit Audio without blocking UI thread
         setTimeout(() => {
-            setIsPreparingSession(false);
-            setReviewMode(true);
-            if (setIsReviewActive) {
-                setIsReviewActive(true);
-            }
-        }, 400);
+            try {
+                if (typeof window !== 'undefined') {
+                    if (window.speechSynthesis && typeof window.speechSynthesis.getVoices === 'function') {
+                        window.speechSynthesis.getVoices();
+                    }
+                    const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+                    if (AudioCtxClass) {
+                        const tempCtx = new AudioCtxClass();
+                        if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
+                    }
+                }
+            } catch (_) { }
+        }, 50);
     };
 
     const handleAction = (folderId, actionType, cards) => {
@@ -911,39 +905,35 @@ const SRSVocabScreen = ({
         if (isExitingRef.current) return;
         isExitingRef.current = true;
 
-        if (typeof shouldAwardXp !== 'boolean') shouldAwardXp = true;
-        if (shouldAwardXp && sessionXpRef.current > 0 && awardXP) {
-            try {
-                const p = awardXP(sessionXpRef.current);
-                if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
-            } catch (e) {
-                console.warn('AwardXP error:', e);
-            }
-        }
+        const earnedXp = sessionXpRef.current;
         sessionXpRef.current = 0;
 
-        let exitAttempts = 0;
-        const checkPendingAndExit = () => {
-            if (pendingWriteIds.current.size > 0 && exitAttempts < 5) {
-                exitAttempts++;
-                setTimeout(checkPendingAndExit, 100);
-                return;
+        // Immediate UI transition back to overview
+        setReviewMode(false);
+        setDashboardTick(Date.now());
+        if (setIsReviewActive) {
+            try { setIsReviewActive(false); } catch (e) { }
+        }
+
+        // Defer non-critical background synchronization to prevent UI freezing
+        setTimeout(() => {
+            if (shouldAwardXp !== false && earnedXp > 0 && awardXP) {
+                try {
+                    const p = awardXP(earnedXp);
+                    if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
+                } catch (e) {
+                    console.warn('AwardXP error:', e);
+                }
             }
-            pendingWriteIds.current.clear();
-            setReviewMode(false);
-            setDashboardTick(Date.now());
             try {
                 window.dispatchEvent(new Event('srs-updated'));
             } catch (e) { }
             if (onRefreshCards) {
                 try { onRefreshCards(); } catch (e) { console.warn('onRefreshCards error:', e); }
             }
-            if (setIsReviewActive) {
-                try { setIsReviewActive(false); } catch (e) { }
-            }
+            pendingWriteIds.current.clear();
             isExitingRef.current = false;
-        };
-        checkPendingAndExit();
+        }, 50);
     };
 
     const handleUndo = () => {

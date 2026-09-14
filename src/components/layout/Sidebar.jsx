@@ -281,14 +281,27 @@ const Sidebar = ({
     }, []);
 
     useEffect(() => {
+        let debounceTimer = null;
         const handleSrsUpdate = () => {
-            setSidebarTick(Date.now());
-            updateKanjiCount();
-            updateGrammarCount();
+            if (debounceTimer) clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+                    window.requestIdleCallback(() => {
+                        setSidebarTick(Date.now());
+                        updateKanjiCount();
+                        updateGrammarCount();
+                    }, { timeout: 1000 });
+                } else {
+                    setSidebarTick(Date.now());
+                    updateKanjiCount();
+                    updateGrammarCount();
+                }
+            }, 300);
         };
         window.addEventListener('srs-updated', handleSrsUpdate);
         const intervalId = setInterval(handleSrsUpdate, 30000);
         return () => {
+            if (debounceTimer) clearTimeout(debounceTimer);
             window.removeEventListener('srs-updated', handleSrsUpdate);
             clearInterval(intervalId);
         };

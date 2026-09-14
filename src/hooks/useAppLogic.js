@@ -55,7 +55,11 @@ export const useAppLogic = () => {
         showToast(text, type);
     }, []);
     const [levelUpInfo, setLevelUpInfo] = useState(null);
-    const [isReviewActive, setIsReviewActive] = useState(false);
+    const isReviewActiveRef = useRef(false);
+    const setIsReviewActive = useCallback((val) => {
+        isReviewActiveRef.current = !!val;
+    }, []);
+    const isReviewActive = false;
     const [isRealExamActive, setIsRealExamActive] = useState(false);
     const [editingCard, setEditingCard] = useState(null);
 

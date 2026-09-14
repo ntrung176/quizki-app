@@ -398,7 +398,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const runStartReview = (customList = null) => {
         const list = customList || dueKanji;
-        if (list.length === 0) return;
+        if (!list || list.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
         const uniqueDueKanji = Array.from(
@@ -410,16 +410,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         setIsFlipped(false);
         setReviewHistory([]);
 
-        // Show high-tech pre-warming screen
-        setIsPreparingSession(true);
-
-        setTimeout(() => {
-            setIsPreparingSession(false);
-            setReviewMode(true);
-            if (setIsReviewActive) {
-                setIsReviewActive(true);
-            }
-        }, 400);
+        // Instant review mode activation
+        setIsPreparingSession(false);
+        setReviewMode(true);
+        if (setIsReviewActive) {
+            try { setIsReviewActive(true); } catch (_) { }
+        }
     };
 
     const startReview = (customList = null) => {
@@ -632,35 +628,32 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         if (isExitingRef.current) return;
         isExitingRef.current = true;
 
-        if (typeof shouldAwardXp !== 'boolean') shouldAwardXp = true;
-        if (shouldAwardXp && sessionXpRef.current > 0 && awardXP) {
-            try {
-                const p = awardXP(sessionXpRef.current);
-                if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
-            } catch (e) {
-                console.warn('AwardXP error:', e);
-            }
-        }
+        const earnedXp = sessionXpRef.current;
         sessionXpRef.current = 0;
-        let exitAttempts = 0;
-        const waitForWrites = () => {
-            if (pendingWriteIds.current.size > 0 && exitAttempts < 5) {
-                exitAttempts++;
-                setTimeout(waitForWrites, 100);
-            } else {
-                pendingWriteIds.current.clear();
-                setReviewMode(false);
-                setDashboardTick(Date.now());
+
+        // Immediate UI transition back to overview
+        setReviewMode(false);
+        setDashboardTick(Date.now());
+        if (setIsReviewActive) {
+            try { setIsReviewActive(false); } catch (e) { }
+        }
+
+        // Defer non-critical background synchronization to prevent UI freezing
+        setTimeout(() => {
+            if (shouldAwardXp !== false && earnedXp > 0 && awardXP) {
                 try {
-                    window.dispatchEvent(new Event('srs-updated'));
-                } catch (e) { }
-                if (setIsReviewActive) {
-                    try { setIsReviewActive(false); } catch (e) { }
+                    const p = awardXP(earnedXp);
+                    if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
+                } catch (e) {
+                    console.warn('AwardXP error:', e);
                 }
-                isExitingRef.current = false;
             }
-        };
-        setTimeout(waitForWrites, 50);
+            try {
+                window.dispatchEvent(new Event('srs-updated'));
+            } catch (e) { }
+            pendingWriteIds.current.clear();
+            isExitingRef.current = false;
+        }, 50);
     };
 
     const handleUndo = () => {
