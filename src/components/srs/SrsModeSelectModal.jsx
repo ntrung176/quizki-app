@@ -106,4 +106,4 @@ const SrsModeSelectModal = ({
     );
 };
 
-export default SrsModeSelectModal;
+export default React.memo(SrsModeSelectModal);

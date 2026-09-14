@@ -104,13 +104,15 @@ const TopTabBar = ({ tabs, theme }) => {
         }
     };
 
-    // Use layout effect for zero-flash initial positioning
-    const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
-
-    useIsomorphicLayoutEffect(() => {
-        const animate = isMounted.current;
-        updateIndicator(animate);
-        isMounted.current = true;
+    // Use async requestAnimationFrame in useEffect to prevent blocking layout reflow on mobile
+    useEffect(() => {
+        let frameId = requestAnimationFrame(() => {
+            updateIndicator(isMounted.current);
+            isMounted.current = true;
+        });
+        return () => {
+            if (frameId) cancelAnimationFrame(frameId);
+        };
     }, [location.pathname, location.search, tabs, language]);
 
     // Handle resize smoothly
@@ -185,5 +187,5 @@ const TopTabBar = ({ tabs, theme }) => {
     );
 };
 
-export default TopTabBar;
+export default React.memo(TopTabBar);
 
