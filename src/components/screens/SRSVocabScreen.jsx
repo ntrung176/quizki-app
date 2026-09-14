@@ -365,6 +365,7 @@ const SRSVocabScreen = ({
     // Local review queue state
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+    const [isPreparingSession, setIsPreparingSession] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
     const [hasCheckedTyping, setHasCheckedTyping] = useState(false);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
@@ -569,24 +570,29 @@ const SRSVocabScreen = ({
             intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
         });
 
-        // Pre-warm WebKit AudioContext and SpeechSynthesis on background thread
-        setTimeout(() => {
-            try {
-                if (typeof window !== 'undefined') {
-                    if (window.speechSynthesis) window.speechSynthesis.getVoices();
-                    const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
-                    if (AudioCtxClass) {
-                        const tempCtx = new AudioCtxClass();
-                        if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
-                    }
-                }
-            } catch (_) { }
-        }, 50);
+        // Show calculating & prewarming screen before Card #1
+        setIsPreparingSession(true);
 
-        setReviewMode(true);
-        if (setIsReviewActive) {
-            setIsReviewActive(true);
-        }
+        // Pre-warm WebKit AudioContext and SpeechSynthesis
+        try {
+            if (typeof window !== 'undefined') {
+                if (window.speechSynthesis) window.speechSynthesis.getVoices();
+                const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioCtxClass) {
+                    const tempCtx = new AudioCtxClass();
+                    if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
+                }
+            }
+        } catch (_) { }
+
+        // Transition seamlessly to Card #1 after pre-warming phase
+        setTimeout(() => {
+            setIsPreparingSession(false);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        }, 400);
     };
 
     const handleAction = (folderId, actionType, cards) => {
@@ -1057,6 +1063,9 @@ const SRSVocabScreen = ({
         }
     }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, cardSettings.audioEnabled, reviewQueue]);
 
+    if (isPreparingSession) {
+        return <SrsPrewarmLoader title="Từ Vựng" count={reviewQueue.length} />;
+    }
 
     // ==================== LOCAL SRS REVIEW MODE ====================
     const currentCard = (reviewMode && reviewQueue.length > 0) ? reviewQueue[currentReviewIndex] : null;

@@ -407,6 +407,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         return () => clearInterval(intervalId);
     }, [reviewMode, currentReviewIndex, kanjiMap, srsData]);
 
+    const [isPreparingSession, setIsPreparingSession] = useState(false);
+
     const runStartReview = (customList = null) => {
         const list = customList || dueKanji;
         if (list.length === 0) return;
@@ -421,24 +423,28 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         setIsFlipped(false);
         setReviewHistory([]);
 
-        // Pre-warm audio asynchronously in background without blocking UI
-        setTimeout(() => {
-            try {
-                if (typeof window !== 'undefined') {
-                    if (window.speechSynthesis) window.speechSynthesis.getVoices();
-                    const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
-                    if (AudioCtxClass) {
-                        const tempCtx = new AudioCtxClass();
-                        if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
-                    }
-                }
-            } catch (_) { }
-        }, 50);
+        // Show calculating & prewarming screen before Card #1
+        setIsPreparingSession(true);
 
-        setReviewMode(true);
-        if (setIsReviewActive) {
-            setIsReviewActive(true);
-        }
+        // Pre-warm audio asynchronously in background
+        try {
+            if (typeof window !== 'undefined') {
+                if (window.speechSynthesis) window.speechSynthesis.getVoices();
+                const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioCtxClass) {
+                    const tempCtx = new AudioCtxClass();
+                    if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
+                }
+            }
+        } catch (_) { }
+
+        setTimeout(() => {
+            setIsPreparingSession(false);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        }, 400);
     };
 
     const startReview = (customList = null) => {
@@ -793,6 +799,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         );
     }
 
+    if (isPreparingSession) {
+        return <SrsPrewarmLoader title="Kanji" count={reviewQueue.length} />;
+    }
 
     if (reviewMode && currentCard) {
         const srs = srsData[currentCard.id] || { interval: 0, ease: 2.5, reps: 0 };

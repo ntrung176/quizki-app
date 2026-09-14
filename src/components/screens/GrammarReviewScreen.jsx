@@ -94,6 +94,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [showSettingsModal, setShowSettingsModal] = useState(false);
     const [showModeModal, setShowModeModal] = useState(false);
     const [pendingReviewCards, setPendingReviewCards] = useState(null);
+    const [isPreparingSession, setIsPreparingSession] = useState(false);
     const [hasCheckedTyping, setHasCheckedTyping] = useState(false);
 
     useEffect(() => {
@@ -411,24 +412,28 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setReviewHistory([]);
         setPendingReviewCards(null);
 
-        // Pre-warm audio asynchronously in background without blocking UI
-        setTimeout(() => {
-            try {
-                if (typeof window !== 'undefined') {
-                    if (window.speechSynthesis) window.speechSynthesis.getVoices();
-                    const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
-                    if (AudioCtxClass) {
-                        const tempCtx = new AudioCtxClass();
-                        if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
-                    }
-                }
-            } catch (_) { }
-        }, 50);
+        // Show calculating & prewarming screen before Card #1
+        setIsPreparingSession(true);
 
-        setReviewMode(true);
-        if (setIsReviewActive) {
-            setIsReviewActive(true);
-        }
+        // Pre-warm audio asynchronously in background without blocking UI
+        try {
+            if (typeof window !== 'undefined') {
+                if (window.speechSynthesis) window.speechSynthesis.getVoices();
+                const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioCtxClass) {
+                    const tempCtx = new AudioCtxClass();
+                    if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
+                }
+            }
+        } catch (_) { }
+
+        setTimeout(() => {
+            setIsPreparingSession(false);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        }, 400);
     };
 
     const startReview = (customList = null) => {
@@ -776,6 +781,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 </div>
             </div>
         );
+    }
+
+    if (isPreparingSession) {
+        return <SrsPrewarmLoader title="Ngữ Pháp" count={reviewQueue.length} />;
     }
 
 
