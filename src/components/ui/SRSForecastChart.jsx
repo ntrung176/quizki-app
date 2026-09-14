@@ -65,8 +65,8 @@ const SRSForecastChart = ({ items = [], daysCount = 14, title }) => {
                         const isPeak = peakDay && peakDay.count > 0 && item.count === peakDay.count && item.count > 0;
 
                         return (
-                            <div 
-                                key={item.dayOffset} 
+                            <div
+                                key={item.dayOffset}
                                 className="flex-1 flex flex-col items-center justify-end h-full group relative"
                             >
                                 {/* Tooltip on hover */}
@@ -75,31 +75,28 @@ const SRSForecastChart = ({ items = [], daysCount = 14, title }) => {
                                 </div>
 
                                 {/* Bar Value Label */}
-                                <span className={`text-[10px] sm:text-xs font-bold mb-1 transition-colors ${
-                                    isToday ? 'text-rose-500 dark:text-rose-400' : 'text-slate-500 dark:text-slate-400 group-hover:text-indigo-500'
-                                }`}>
+                                <span className={`text-[10px] sm:text-xs font-bold mb-1 transition-colors ${isToday ? 'text-rose-500 dark:text-rose-400' : 'text-slate-500 dark:text-slate-400 group-hover:text-indigo-500'
+                                    }`}>
                                     {item.count > 0 ? item.count : ''}
                                 </span>
 
                                 {/* Bar Graphic */}
                                 <div className="w-full max-w-[28px] bg-slate-100 dark:bg-slate-800/60 rounded-t-md overflow-hidden flex items-end h-full">
-                                    <div 
-                                        className={`w-full rounded-t-md transition-all duration-500 ease-out ${
-                                            isToday 
-                                                ? 'bg-gradient-to-t from-rose-500 to-amber-500 shadow-md shadow-rose-500/20' 
-                                                : isPeak 
-                                                    ? 'bg-gradient-to-t from-amber-500 to-yellow-400' 
+                                    <div
+                                        className={`w-full rounded-t-md transition-all duration-500 ease-out ${isToday
+                                                ? 'bg-gradient-to-t from-rose-500 to-amber-500 shadow-md shadow-rose-500/20'
+                                                : isPeak
+                                                    ? 'bg-gradient-to-t from-amber-500 to-yellow-400'
                                                     : 'bg-gradient-to-t from-indigo-500 to-cyan-400 group-hover:from-indigo-400 group-hover:to-cyan-300'
-                                        }`}
+                                            }`}
                                         style={{ height: `${item.count > 0 ? heightPercent : 4}%` }}
                                     />
                                 </div>
 
                                 {/* X-axis Label */}
                                 <div className="mt-2 text-center">
-                                    <p className={`text-[10px] sm:text-xs font-semibold ${
-                                        isToday ? 'text-rose-600 dark:text-rose-400 font-bold' : 'text-slate-600 dark:text-slate-400'
-                                    }`}>
+                                    <p className={`text-[10px] sm:text-xs font-semibold ${isToday ? 'text-rose-600 dark:text-rose-400 font-bold' : 'text-slate-600 dark:text-slate-400'
+                                        }`}>
                                         {item.dayLabel}
                                     </p>
                                     <p className="text-[9px] text-slate-400 dark:text-slate-500 hidden sm:block">
@@ -115,4 +112,4 @@ const SRSForecastChart = ({ items = [], daysCount = 14, title }) => {
     );
 };
 
-export default React.memo(SRSForecastChart);
+export default SRSForecastChart;

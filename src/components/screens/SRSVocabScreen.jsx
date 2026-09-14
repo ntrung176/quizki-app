@@ -511,8 +511,8 @@ const SRSVocabScreen = ({
         filteredCards.forEach(c => {
             if (c.srsEnabled !== false) {
                 const localSrs = sessionSrsData.current[c.id];
-                const nextReviewVal = localSrs 
-                    ? (localSrs.nextReview_back || localSrs.nextReview) 
+                const nextReviewVal = localSrs
+                    ? (localSrs.nextReview_back || localSrs.nextReview)
                     : (c.nextReview_back !== undefined ? c.nextReview_back : (c.nextReview !== undefined ? c.nextReview : (c.srsData?.nextReview || c.srsData?.nextReview_back)));
                 if (!nextReviewVal) return;
 
@@ -550,7 +550,7 @@ const SRSVocabScreen = ({
     }, [folderStats]);
 
     const startFolderReview = (dueCards, folderId = 'global') => {
-        if (!dueCards || dueCards.length === 0) return;
+        if (dueCards.length === 0) return;
         activeFolderIdRef.current = folderId;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
@@ -563,30 +563,36 @@ const SRSVocabScreen = ({
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
+
+        // Pre-calculate preview intervals & fuzz factors for all queue cards during prewarming screen
         intervalCacheRef.current = {};
+        uniqueDueCards.forEach(c => {
+            intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
+        });
 
-        // Instant review mode activation
-        setIsPreparingSession(false);
-        setReviewMode(true);
-        if (setIsReviewActive) {
-            try { setIsReviewActive(true); } catch (_) { }
-        }
+        // Show calculating & prewarming screen before Card #1
+        setIsPreparingSession(true);
 
-        // Asynchronously pre-warm WebKit Audio without blocking UI thread
-        setTimeout(() => {
-            try {
-                if (typeof window !== 'undefined') {
-                    if (window.speechSynthesis && typeof window.speechSynthesis.getVoices === 'function') {
-                        window.speechSynthesis.getVoices();
-                    }
-                    const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
-                    if (AudioCtxClass) {
-                        const tempCtx = new AudioCtxClass();
-                        if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
-                    }
+        // Pre-warm WebKit AudioContext and SpeechSynthesis on initial user tap
+        try {
+            if (typeof window !== 'undefined') {
+                if (window.speechSynthesis) window.speechSynthesis.getVoices();
+                const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioCtxClass) {
+                    const tempCtx = new AudioCtxClass();
+                    if (tempCtx.state === 'suspended') tempCtx.resume().catch(() => { });
                 }
-            } catch (_) { }
-        }, 50);
+            }
+        } catch (_) { }
+
+        // Transition seamlessly to Card #1 after pre-warming phase
+        setTimeout(() => {
+            setIsPreparingSession(false);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        }, 400);
     };
 
     const handleAction = (folderId, actionType, cards) => {
@@ -905,35 +911,39 @@ const SRSVocabScreen = ({
         if (isExitingRef.current) return;
         isExitingRef.current = true;
 
-        const earnedXp = sessionXpRef.current;
+        if (typeof shouldAwardXp !== 'boolean') shouldAwardXp = true;
+        if (shouldAwardXp && sessionXpRef.current > 0 && awardXP) {
+            try {
+                const p = awardXP(sessionXpRef.current);
+                if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
+            } catch (e) {
+                console.warn('AwardXP error:', e);
+            }
+        }
         sessionXpRef.current = 0;
 
-        // Immediate UI transition back to overview
-        setReviewMode(false);
-        setDashboardTick(Date.now());
-        if (setIsReviewActive) {
-            try { setIsReviewActive(false); } catch (e) { }
-        }
-
-        // Defer non-critical background synchronization to prevent UI freezing
-        setTimeout(() => {
-            if (shouldAwardXp !== false && earnedXp > 0 && awardXP) {
-                try {
-                    const p = awardXP(earnedXp);
-                    if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
-                } catch (e) {
-                    console.warn('AwardXP error:', e);
-                }
+        let exitAttempts = 0;
+        const checkPendingAndExit = () => {
+            if (pendingWriteIds.current.size > 0 && exitAttempts < 5) {
+                exitAttempts++;
+                setTimeout(checkPendingAndExit, 100);
+                return;
             }
+            pendingWriteIds.current.clear();
+            setReviewMode(false);
+            setDashboardTick(Date.now());
             try {
                 window.dispatchEvent(new Event('srs-updated'));
             } catch (e) { }
             if (onRefreshCards) {
                 try { onRefreshCards(); } catch (e) { console.warn('onRefreshCards error:', e); }
             }
-            pendingWriteIds.current.clear();
+            if (setIsReviewActive) {
+                try { setIsReviewActive(false); } catch (e) { }
+            }
             isExitingRef.current = false;
-        }, 50);
+        };
+        checkPendingAndExit();
     };
 
     const handleUndo = () => {
@@ -1111,8 +1121,8 @@ const SRSVocabScreen = ({
                                             setShowNuancePopup(prev => !prev);
                                         }}
                                         className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border ${currentCard.nuance
-                                                ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300'
-                                                : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                            ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300'
+                                            : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
                                             }`}
                                         title="Sắc thái từ vựng"
                                     >
@@ -1147,8 +1157,8 @@ const SRSVocabScreen = ({
                                             }));
                                         }}
                                         className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border cursor-pointer ${cardSettings.swapSides
-                                                ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
-                                                : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                            ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
+                                            : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
                                             }`}
                                         title={cardSettings.swapSides ? "Đang hiện Nghĩa tiếng Việt trước. Nhấn để đổi sang hiện Tiếng Nhật trước" : "Đang hiện Tiếng Nhật trước. Nhấn để đổi sang hiện Nghĩa tiếng Việt trước"}
                                     >
@@ -1636,8 +1646,8 @@ const SRSVocabScreen = ({
                             )}
 
                             <div className={`grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 overflow-hidden ${isAnimating
-                                    ? (animationDirection === 'left' ? 'animate-slide-in-right' : 'animate-slide-in-left')
-                                    : ''
+                                ? (animationDirection === 'left' ? 'animate-slide-in-right' : 'animate-slide-in-left')
+                                : ''
                                 }`}>
                                 {folderStats.slice(vocabSetStartIndex, vocabSetStartIndex + 3).map(folder => (
                                     <div

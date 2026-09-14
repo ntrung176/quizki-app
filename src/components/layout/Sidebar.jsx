@@ -5,9 +5,9 @@ import { auth, db, appId } from '../../config/firebase';
 import { collection, query, onSnapshot, doc, orderBy, limit } from 'firebase/firestore';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
-import { 
-    Home, BookOpen, LogOut, Sun, Moon, Sparkle, ChevronRight, ChevronLeft, X, 
-    List, Repeat2, FileCheck, Languages, Shield, Crown, Bell, 
+import {
+    Home, BookOpen, LogOut, Sun, Moon, Sparkle, ChevronRight, ChevronLeft, X,
+    List, Repeat2, FileCheck, Languages, Shield, Crown, Bell,
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe, Film
 } from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
@@ -51,15 +51,15 @@ const renderTextWithClickableLinks = (text) => {
 };
 
 // Sidebar Component - Restored Exact Original Menus with Chatbox & Help Buttons Integrated at Bottom
-const Sidebar = ({ 
-    isDarkMode, 
-    setIsDarkMode, 
-    displayName, 
-    isAdmin, 
-    userId, 
-    allCards = [], 
-    isPremium: isPremiumProp = undefined, 
-    avatar, 
+const Sidebar = ({
+    isDarkMode,
+    setIsDarkMode,
+    displayName,
+    isAdmin,
+    userId,
+    allCards = [],
+    isPremium: isPremiumProp = undefined,
+    avatar,
     profile,
     onTriggerTour
 }) => {
@@ -67,12 +67,12 @@ const Sidebar = ({
     const location = useLocation();
     const { t } = useLanguage();
     const { targetLanguage, isEnglishMode } = useTargetLanguage();
-    const { 
-        status: focusStatus, 
-        secondsLeft: focusSecondsLeft, 
-        targetMinutes: targetFocusMinutes, 
-        setIsModalOpen: setIsFocusModalOpen, 
-        formatTime: formatFocusTime 
+    const {
+        status: focusStatus,
+        secondsLeft: focusSecondsLeft,
+        targetMinutes: targetFocusMinutes,
+        setIsModalOpen: setIsFocusModalOpen,
+        formatTime: formatFocusTime
     } = useFocus();
 
     const unreadChatCount = useChatUnreadCount(userId, isAdmin);
@@ -118,7 +118,7 @@ const Sidebar = ({
     // Avatar display helper
     const renderAvatar = () => {
         const isPhotoUrl = (v) => typeof v === 'string' && (v.startsWith('data:image/') || v.startsWith('http://') || v.startsWith('https://'));
-        
+
         const AVATAR_EMOJIS = {
             fox: '🦊', cat: '🐱', dog: '🐶', rabbit: '🐰', bear: '🐻', panda: '🐼', koala: '🐨', tiger: '🐯', lion: '🦁', cow: '🐮',
             pig: '🐷', mouse: '🐭', hamster: '🐹', penguin: '🐧', chicken: '🐔', duck: '🦆', owl: '🦉', eagle: '🦅', parrot: '🦜', flamingo: '🦩',
@@ -145,12 +145,12 @@ const Sidebar = ({
                 />
             );
         }
-        
+
         const emoji = AVATAR_EMOJIS[activeAvatar];
         if (emoji) {
             return <span className="text-lg select-none">{emoji}</span>;
         }
-        
+
         return fallbackChar;
     };
 
@@ -166,7 +166,7 @@ const Sidebar = ({
         try {
             localStorage.setItem('quizki_sidebar_collapsed', String(isCollapsed));
             window.dispatchEvent(new CustomEvent('sidebar-collapse-toggle', { detail: isCollapsed }));
-        } catch (e) {}
+        } catch (e) { }
     }, [isCollapsed]);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const lastMobileToggleRef = useRef(0);
@@ -181,7 +181,7 @@ const Sidebar = ({
         lastMobileToggleRef.current = now;
         setIsMobileMenuOpen(prev => !prev);
     }, []);
-    
+
     // Notifications state
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
     const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -194,7 +194,7 @@ const Sidebar = ({
                 const parsed = JSON.parse(cached);
                 return parsed.dueCount || 0;
             }
-        } catch (_) {}
+        } catch (_) { }
         return 0;
     });
     const [grammarDueCount, setGrammarDueCount] = useState(() => {
@@ -204,7 +204,7 @@ const Sidebar = ({
                 const parsed = JSON.parse(cached);
                 return parsed.dueCount || 0;
             }
-        } catch (_) {}
+        } catch (_) { }
         return 0;
     });
     const [globalNotifications, setGlobalNotifications] = useState([]);
@@ -281,27 +281,14 @@ const Sidebar = ({
     }, []);
 
     useEffect(() => {
-        let debounceTimer = null;
         const handleSrsUpdate = () => {
-            if (debounceTimer) clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => {
-                if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-                    window.requestIdleCallback(() => {
-                        setSidebarTick(Date.now());
-                        updateKanjiCount();
-                        updateGrammarCount();
-                    }, { timeout: 1000 });
-                } else {
-                    setSidebarTick(Date.now());
-                    updateKanjiCount();
-                    updateGrammarCount();
-                }
-            }, 300);
+            setSidebarTick(Date.now());
+            updateKanjiCount();
+            updateGrammarCount();
         };
         window.addEventListener('srs-updated', handleSrsUpdate);
         const intervalId = setInterval(handleSrsUpdate, 30000);
         return () => {
-            if (debounceTimer) clearTimeout(debounceTimer);
             window.removeEventListener('srs-updated', handleSrsUpdate);
             clearInterval(intervalId);
         };
@@ -311,7 +298,7 @@ const Sidebar = ({
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
-        let unsub = () => {};
+        let unsub = () => { };
 
         const timer = setTimeout(() => {
             getSharedKanjiList().then(kList => {
@@ -339,7 +326,7 @@ const Sidebar = ({
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
-        let unsub = () => {};
+        let unsub = () => { };
 
         const timer = setTimeout(() => {
             getSharedGrammarPointsList().then(gList => {
@@ -468,8 +455,8 @@ const Sidebar = ({
             <div
                 ref={popoverRef}
                 className={`absolute z-50 w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-cyan-500/40 rounded-2xl shadow-2xl p-4 text-left ${isMobile
-                        ? 'right-0 top-12 max-h-[80vh] overflow-y-auto'
-                        : 'left-4 top-16 max-h-[70vh] overflow-y-auto'
+                    ? 'right-0 top-12 max-h-[80vh] overflow-y-auto'
+                    : 'left-4 top-16 max-h-[70vh] overflow-y-auto'
                     }`}
             >
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2 mb-3">
@@ -550,11 +537,10 @@ const Sidebar = ({
                         return (
                             <div
                                 key={notif.id}
-                                className={`p-3 rounded-xl border flex items-start gap-3 transition-all ${
-                                    isRead 
-                                        ? 'bg-slate-50/50 dark:bg-slate-900/40 border-slate-100 dark:border-slate-800/60 opacity-80' 
+                                className={`p-3 rounded-xl border flex items-start gap-3 transition-all ${isRead
+                                        ? 'bg-slate-50/50 dark:bg-slate-900/40 border-slate-100 dark:border-slate-800/60 opacity-80'
                                         : 'bg-cyan-50/60 dark:bg-cyan-950/40 border-cyan-200/60 dark:border-cyan-800/50'
-                                }`}
+                                    }`}
                             >
                                 <div className="w-8 h-8 rounded-lg bg-cyan-100 dark:bg-cyan-900/60 flex items-center justify-center flex-shrink-0 mt-0.5">
                                     <Bell className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
@@ -681,13 +667,12 @@ const Sidebar = ({
                                         if (item.disabled) e.preventDefault();
                                         else setIsMobileMenuOpen(false);
                                     }}
-                                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all relative ${
-                                        item.disabled
+                                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all relative ${item.disabled
                                             ? 'cursor-not-allowed opacity-40 text-slate-400'
                                             : active
-                                            ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
-                                            : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
-                                    }`}
+                                                ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
+                                                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                                        }`}
                                 >
                                     {active && !item.disabled && (
                                         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-cyan-500 dark:bg-cyan-400 rounded-r-full shadow-[0_0_8px_rgba(6,182,212,0.8)]" />
@@ -901,26 +886,25 @@ const Sidebar = ({
                                         onClick={(e) => {
                                             if (item.disabled) e.preventDefault();
                                         }}
-                                        className={`w-full flex items-center justify-between ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 relative ${
-                                            item.disabled
+                                        className={`w-full flex items-center justify-between ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 relative ${item.disabled
                                                 ? 'cursor-not-allowed opacity-40 text-slate-400'
                                                 : isMenuActive(item)
-                                                ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
-                                                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
-                                        }`}
+                                                    ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
+                                                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
+                                            }`}
                                         title={isCollapsed ? item.label : undefined}
                                     >
                                         {isMenuActive(item) && !item.disabled && (
                                             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-cyan-500 dark:bg-cyan-400 rounded-l-full shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
                                         )}
-                                        
+
                                         <div className="flex items-center space-x-3 min-w-0">
                                             <item.icon className={`w-4.5 h-4.5 ${isMenuActive(item) ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-500 dark:text-slate-400 group-hover:text-cyan-500'}`} />
                                             {!isCollapsed && (
                                                 <span className="text-xs font-semibold truncate">{item.label}</span>
                                             )}
                                         </div>
-                                        
+
                                         {!isCollapsed && item.badge > 0 && (
                                             <span className="px-2 py-0.5 rounded-full text-[10px] font-black font-mono bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-400 border border-rose-200 dark:border-rose-800/60 shadow-sm">
                                                 {item.badge}
@@ -972,11 +956,10 @@ const Sidebar = ({
                     {/* Upgrade Account Button */}
                     <Link
                         to={ROUTES.UPGRADE}
-                        className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 font-mono text-xs font-bold ${
-                            location.pathname === ROUTES.UPGRADE
+                        className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 font-mono text-xs font-bold ${location.pathname === ROUTES.UPGRADE
                                 ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
                                 : 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-300/60 dark:border-amber-700/50 hover:bg-amber-500/20'
-                        }`}
+                            }`}
                         title={isCollapsed ? t('common.upgrade', 'Nâng cấp tài khoản') : undefined}
                     >
                         <Crown className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
@@ -1018,11 +1001,10 @@ const Sidebar = ({
                                 {/* Pomodoro Focus Clock Button */}
                                 <button
                                     onClick={() => setIsFocusModalOpen(true)}
-                                    className={`p-2 rounded-lg transition-colors cursor-pointer relative ${
-                                        focusStatus === 'focusing' || focusStatus === 'break' || focusStatus === 'paused'
+                                    className={`p-2 rounded-lg transition-colors cursor-pointer relative ${focusStatus === 'focusing' || focusStatus === 'break' || focusStatus === 'paused'
                                             ? 'text-purple-500 bg-purple-500/20 font-bold'
                                             : 'text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/50'
-                                    }`}
+                                        }`}
                                     title="Đồng hồ tập trung Focus Session"
                                 >
                                     <Timer className="w-4.5 h-4.5" />

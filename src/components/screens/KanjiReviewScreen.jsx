@@ -398,7 +398,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const runStartReview = (customList = null) => {
         const list = customList || dueKanji;
-        if (!list || list.length === 0) return;
+        if (list.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
         const uniqueDueKanji = Array.from(
@@ -410,12 +410,16 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         setIsFlipped(false);
         setReviewHistory([]);
 
-        // Instant review mode activation
-        setIsPreparingSession(false);
-        setReviewMode(true);
-        if (setIsReviewActive) {
-            try { setIsReviewActive(true); } catch (_) { }
-        }
+        // Show high-tech pre-warming screen
+        setIsPreparingSession(true);
+
+        setTimeout(() => {
+            setIsPreparingSession(false);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        }, 400);
     };
 
     const startReview = (customList = null) => {
@@ -628,32 +632,35 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         if (isExitingRef.current) return;
         isExitingRef.current = true;
 
-        const earnedXp = sessionXpRef.current;
-        sessionXpRef.current = 0;
-
-        // Immediate UI transition back to overview
-        setReviewMode(false);
-        setDashboardTick(Date.now());
-        if (setIsReviewActive) {
-            try { setIsReviewActive(false); } catch (e) { }
-        }
-
-        // Defer non-critical background synchronization to prevent UI freezing
-        setTimeout(() => {
-            if (shouldAwardXp !== false && earnedXp > 0 && awardXP) {
-                try {
-                    const p = awardXP(earnedXp);
-                    if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
-                } catch (e) {
-                    console.warn('AwardXP error:', e);
-                }
-            }
+        if (typeof shouldAwardXp !== 'boolean') shouldAwardXp = true;
+        if (shouldAwardXp && sessionXpRef.current > 0 && awardXP) {
             try {
-                window.dispatchEvent(new Event('srs-updated'));
-            } catch (e) { }
-            pendingWriteIds.current.clear();
-            isExitingRef.current = false;
-        }, 50);
+                const p = awardXP(sessionXpRef.current);
+                if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
+            } catch (e) {
+                console.warn('AwardXP error:', e);
+            }
+        }
+        sessionXpRef.current = 0;
+        let exitAttempts = 0;
+        const waitForWrites = () => {
+            if (pendingWriteIds.current.size > 0 && exitAttempts < 5) {
+                exitAttempts++;
+                setTimeout(waitForWrites, 100);
+            } else {
+                pendingWriteIds.current.clear();
+                setReviewMode(false);
+                setDashboardTick(Date.now());
+                try {
+                    window.dispatchEvent(new Event('srs-updated'));
+                } catch (e) { }
+                if (setIsReviewActive) {
+                    try { setIsReviewActive(false); } catch (e) { }
+                }
+                isExitingRef.current = false;
+            }
+        };
+        setTimeout(waitForWrites, 50);
     };
 
     const handleUndo = () => {
@@ -804,8 +811,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                     toggleKanjiSwapSides();
                                 }}
                                 className={`p-2.5 rounded-xl flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-md border cursor-pointer ${kanjiSwapSides
-                                        ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
-                                        : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                                    ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
+                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700'
                                     }`}
                                 title={kanjiSwapSides ? "Đang hiện Hán Việt/Nghĩa trước. Nhấn để đổi sang hiện Chữ Kanji trước" : "Đang hiện Chữ Kanji trước. Nhấn để đổi sang hiện Hán Việt/Nghĩa trước"}
                             >

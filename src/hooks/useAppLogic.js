@@ -55,11 +55,7 @@ export const useAppLogic = () => {
         showToast(text, type);
     }, []);
     const [levelUpInfo, setLevelUpInfo] = useState(null);
-    const isReviewActiveRef = useRef(false);
-    const setIsReviewActive = useCallback((val) => {
-        isReviewActiveRef.current = !!val;
-    }, []);
-    const isReviewActive = false;
+    const [isReviewActive, setIsReviewActive] = useState(false);
     const [isRealExamActive, setIsRealExamActive] = useState(false);
     const [editingCard, setEditingCard] = useState(null);
 
@@ -202,7 +198,7 @@ export const useAppLogic = () => {
         setDoc(statsRef, {
             streak: calculatedStreak || 0,
             lastActive: Date.now()
-        }, { merge: true }).catch(() => {});
+        }, { merge: true }).catch(() => { });
     }, [userId, publicStatsCollectionPath, calculatedStreak]);
 
     useEffect(() => {

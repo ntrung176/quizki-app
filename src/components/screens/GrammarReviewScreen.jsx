@@ -400,12 +400,16 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setReviewHistory([]);
         setPendingReviewCards(null);
 
-        // Instant review mode activation
-        setIsPreparingSession(false);
-        setReviewMode(true);
-        if (setIsReviewActive) {
-            try { setIsReviewActive(true); } catch (_) { }
-        }
+        // Show high-tech pre-warming screen
+        setIsPreparingSession(true);
+
+        setTimeout(() => {
+            setIsPreparingSession(false);
+            setReviewMode(true);
+            if (setIsReviewActive) {
+                setIsReviewActive(true);
+            }
+        }, 400);
     };
 
     const startReview = (customList = null) => {
@@ -618,32 +622,35 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (isExitingRef.current) return;
         isExitingRef.current = true;
 
-        const earnedXp = sessionXpRef.current;
-        sessionXpRef.current = 0;
-
-        // Immediate UI transition back to overview
-        setReviewMode(false);
-        setDashboardTick(Date.now());
-        if (setIsReviewActive) {
-            try { setIsReviewActive(false); } catch (e) { }
-        }
-
-        // Defer non-critical background synchronization to prevent UI freezing
-        setTimeout(() => {
-            if (shouldAwardXp !== false && earnedXp > 0 && awardXP) {
-                try {
-                    const p = awardXP(earnedXp);
-                    if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
-                } catch (e) {
-                    console.warn('AwardXP error:', e);
-                }
-            }
+        if (typeof shouldAwardXp !== 'boolean') shouldAwardXp = true;
+        if (shouldAwardXp && sessionXpRef.current > 0 && awardXP) {
             try {
-                window.dispatchEvent(new Event('srs-updated'));
-            } catch (e) { }
-            pendingWriteIds.current.clear();
-            isExitingRef.current = false;
-        }, 50);
+                const p = awardXP(sessionXpRef.current);
+                if (p && typeof p.catch === 'function') p.catch(e => console.warn('AwardXP catch:', e));
+            } catch (e) {
+                console.warn('AwardXP error:', e);
+            }
+        }
+        sessionXpRef.current = 0;
+        let exitAttempts = 0;
+        const waitForWrites = () => {
+            if (pendingWriteIds.current.size > 0 && exitAttempts < 5) {
+                exitAttempts++;
+                setTimeout(waitForWrites, 100);
+            } else {
+                pendingWriteIds.current.clear();
+                setReviewMode(false);
+                setDashboardTick(Date.now());
+                try {
+                    window.dispatchEvent(new Event('srs-updated'));
+                } catch (e) { }
+                if (setIsReviewActive) {
+                    try { setIsReviewActive(false); } catch (e) { }
+                }
+                isExitingRef.current = false;
+            }
+        };
+        setTimeout(waitForWrites, 50);
     };
 
     const handleUndo = () => {
@@ -790,11 +797,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                         reviewType: flashcardSettings.reviewType === 'typing' ? 'flashcard' : 'typing'
                                     });
                                 }}
-                                className={`p-2.5 flex items-center justify-center rounded-xl shadow-md border transition-all hover:scale-105 gap-1.5 cursor-pointer ${
-                                    flashcardSettings.reviewType === 'typing'
+                                className={`p-2.5 flex items-center justify-center rounded-xl shadow-md border transition-all hover:scale-105 gap-1.5 cursor-pointer ${flashcardSettings.reviewType === 'typing'
                                         ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800'
                                         : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
-                                }`}
+                                    }`}
                                 title={flashcardSettings.reviewType === 'typing' ? "Đang ở chế độ Gõ phím (Typing) - Nhấn để đổi sang Thẻ 3D" : "Đang ở chế độ Thẻ Flashcard 3D - Nhấn để đổi sang Gõ phím"}
                             >
                                 {flashcardSettings.reviewType === 'typing' ? (
