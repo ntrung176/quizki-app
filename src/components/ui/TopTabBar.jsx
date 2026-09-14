@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -64,7 +64,8 @@ const TopTabBar = ({ tabs, theme }) => {
     const location = useLocation();
     const { t, language } = useLanguage();
     const containerRef = useRef(null);
-    const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
+    const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0, animated: false });
+    const isMounted = useRef(false);
 
     const themeClasses = getThemeClasses(location.pathname, tabs, theme);
 
@@ -82,48 +83,58 @@ const TopTabBar = ({ tabs, theme }) => {
         return tab.label;
     };
 
-    useEffect(() => {
+    const updateIndicator = (animate = true) => {
         if (!containerRef.current) return;
+        const activeIndex = tabs.findIndex(tab => isTabActive(tab, location.pathname, location.search));
 
-        let frameId;
-        const updateIndicator = () => {
-            if (!containerRef.current) return;
-            const activeIndex = tabs.findIndex(tab => isTabActive(tab, location.pathname, location.search));
-
-            if (activeIndex >= 0) {
-                const tabsElements = containerRef.current.querySelectorAll('.tab-item');
-                const activeElement = tabsElements[activeIndex];
-                
-                if (activeElement) {
-                    setIndicatorStyle({
-                        left: activeElement.offsetLeft,
-                        width: activeElement.offsetWidth,
-                        opacity: 1
-                    });
-                }
-            } else {
-                setIndicatorStyle({ left: 0, width: 0, opacity: 0 });
+        if (activeIndex >= 0) {
+            const tabsElements = containerRef.current.querySelectorAll('.tab-item');
+            const activeElement = tabsElements[activeIndex];
+            
+            if (activeElement) {
+                setIndicatorStyle({
+                    left: activeElement.offsetLeft,
+                    width: activeElement.offsetWidth,
+                    opacity: 1,
+                    animated: animate
+                });
             }
-        };
+        } else {
+            setIndicatorStyle(prev => ({ ...prev, opacity: 0 }));
+        }
+    };
 
-        frameId = requestAnimationFrame(updateIndicator);
-        return () => {
-            if (frameId) cancelAnimationFrame(frameId);
-        };
+    // Use layout effect for zero-flash initial positioning
+    const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
+    useIsomorphicLayoutEffect(() => {
+        const animate = isMounted.current;
+        updateIndicator(animate);
+        isMounted.current = true;
     }, [location.pathname, location.search, tabs, language]);
+
+    // Handle resize smoothly
+    useEffect(() => {
+        const handleResize = () => updateIndicator(false);
+        window.addEventListener('resize', handleResize, { passive: true });
+        return () => window.removeEventListener('resize', handleResize);
+    }, [tabs]);
 
     return (
         <div className="w-full sticky top-14 lg:top-3 z-30 pt-2 pb-2 px-2 sm:px-4 flex justify-center">
             {/* Floating Anti-Slop Glass Capsule Container */}
-            <div className={`w-full max-w-xl sm:max-w-max p-1.5 rounded-2xl bg-white/85 dark:bg-slate-900/85 backdrop-blur-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-xl transition-all duration-300 overflow-hidden ${themeClasses.shadow}`}>
+            <div className={`w-full max-w-xl sm:max-w-max p-1.5 rounded-2xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 shadow-xl transition-shadow duration-200 overflow-hidden ${themeClasses.shadow}`}>
                 <div className="relative flex items-center justify-between w-full space-x-1" ref={containerRef}>
-                    {/* Sliding Capsule Pill Indicator */}
+                    {/* Sliding Capsule Pill Indicator (GPU-accelerated translate3d) */}
                     <div 
-                        className={`absolute top-0 bottom-0 rounded-xl bg-gradient-to-r ${themeClasses.gradient} shadow-lg shadow-indigo-500/25 transition-all duration-300 ease-out z-0`}
+                        className={`absolute top-0 bottom-0 rounded-xl bg-gradient-to-r ${themeClasses.gradient} shadow-lg shadow-indigo-500/25 z-0 transform-gpu ${
+                            indicatorStyle.animated ? 'transition-all duration-250 ease-out' : 'transition-none'
+                        }`}
                         style={{ 
-                            left: `${indicatorStyle.left}px`, 
+                            transform: `translate3d(${indicatorStyle.left}px, 0, 0)`,
                             width: `${indicatorStyle.width}px`,
-                            opacity: indicatorStyle.opacity
+                            opacity: indicatorStyle.opacity,
+                            willChange: 'transform, width'
                         }}
                     />
 
@@ -144,14 +155,14 @@ const TopTabBar = ({ tabs, theme }) => {
                             <Link
                                 key={tab.id}
                                 to={destination}
-                                className={`tab-item group relative z-10 flex-1 flex items-center justify-center space-x-1.5 px-2 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold whitespace-nowrap rounded-xl transition-all duration-200 min-h-[40px] select-none active:scale-95 ${
+                                className={`tab-item group relative z-10 flex-1 flex items-center justify-center space-x-1.5 px-2 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold whitespace-nowrap rounded-xl transition-colors duration-150 min-h-[40px] select-none active:scale-95 ${
                                     isActive
                                         ? 'text-white drop-shadow-sm'
                                         : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
                                 }`}
                             >
                                 {tab.icon && (
-                                    <tab.icon className={`w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-110 ${
+                                    <tab.icon className={`w-4 h-4 shrink-0 transition-transform duration-150 group-hover:scale-110 ${
                                         isActive 
                                             ? 'text-white' 
                                             : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300'
@@ -175,3 +186,4 @@ const TopTabBar = ({ tabs, theme }) => {
 };
 
 export default TopTabBar;
+

@@ -71,15 +71,33 @@ const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 const LEVEL_COLORS = {
     N5: 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-md shadow-emerald-200 dark:shadow-emerald-900/40',
     N4: 'bg-sky-500 hover:bg-sky-600 text-white shadow-md shadow-sky-200 dark:shadow-sky-900/40',
-    N3: 'bg-sky-500 hover:bg-sky-600 text-white shadow-md shadow-sky-200 dark:shadow-sky-900/40',
+    N3: 'bg-indigo-500 hover:bg-indigo-600 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/40',
     N2: 'bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/40',
     N1: 'bg-rose-500 hover:bg-rose-600 text-white shadow-md shadow-rose-900/40',
+};
+
+const LEVEL_BADGE_COLORS = {
+    N5: 'bg-emerald-500 text-white',
+    N4: 'bg-sky-500 text-white',
+    N3: 'bg-indigo-500 text-white',
+    N2: 'bg-amber-500 text-white',
+    N1: 'bg-rose-500 text-white',
+};
+
+const getGrammarLevel = (gp) => {
+    const raw = (gp.level || gp.jlpt || '').toUpperCase();
+    if (raw.includes('N1')) return 'N1';
+    if (raw.includes('N2')) return 'N2';
+    if (raw.includes('N3')) return 'N3';
+    if (raw.includes('N4')) return 'N4';
+    if (raw.includes('N5')) return 'N5';
+    return 'N5';
 };
 
 const LEVEL_BORDER_COLORS = {
     N5: 'border-emerald-500',
     N4: 'border-sky-500',
-    N3: 'border-sky-500',
+    N3: 'border-indigo-500',
     N2: 'border-amber-500',
     N1: 'border-rose-500',
 };
@@ -203,29 +221,77 @@ const GrammarListScreen = ({ isAdmin }) => {
         return () => unsubSrs();
     }, [userId]);
 
-    // Update query params in URL
+    // Debounce URL params sync so rapid typing doesn't lock UI or spam history
     useEffect(() => {
-        const params = {};
-        if (selectedLevel) params.level = selectedLevel;
-        if (searchQuery) params.search = searchQuery;
-        setSearchParams(params);
-    }, [selectedLevel, searchQuery]);
+        const timer = setTimeout(() => {
+            const params = {};
+            if (selectedLevel) params.level = selectedLevel;
+            if (searchQuery.trim()) params.search = searchQuery.trim();
+            setSearchParams(params, { replace: true });
+        }, 350);
+        return () => clearTimeout(timer);
+    }, [selectedLevel, searchQuery, setSearchParams]);
 
+    // Precomputed flattened search index (calculated ONCE when grammar list changes)
+    const indexedGrammarList = useMemo(() => {
+        return grammarList.map(gp => {
+            if (!gp) return null;
+            const levelStr = String(gp.level || gp.jlpt || 'N5').toUpperCase();
+            const structureStr = typeof gp.structureRaw === 'string' 
+                ? gp.structureRaw 
+                : (Array.isArray(gp.structure) ? JSON.stringify(gp.structure) : (typeof gp.structure === 'string' ? gp.structure : ''));
+            const examplesStr = typeof gp.examplesRaw === 'string'
+                ? gp.examplesRaw
+                : (Array.isArray(gp.examples) ? JSON.stringify(gp.examples) : '');
+            const tipsStr = typeof gp.tipsRaw === 'string'
+                ? gp.tipsRaw
+                : (Array.isArray(gp.tips) ? JSON.stringify(gp.tips) : '');
+            const meaningFullStr = typeof gp.meaningFull === 'string' ? gp.meaningFull : '';
+
+            const searchIndex = [
+                gp.pattern || '',
+                gp.meaningShort || '',
+                gp.meaning || '',
+                gp.textbookTitle || '',
+                structureStr,
+                meaningFullStr,
+                examplesStr,
+                tipsStr
+            ].join(' ').toLowerCase();
+
+            return {
+                ...gp,
+                _levelStr: levelStr,
+                _searchIndex: searchIndex,
+                _cleanLevel: getGrammarLevel(gp)
+            };
+        }).filter(Boolean);
+    }, [grammarList]);
+
+    // Deferred value so input typing is 100% instant (0ms latency)
+    const deferredSearchQuery = React.useDeferredValue(searchQuery);
+    const isSearching = deferredSearchQuery.trim().length > 0;
+
+    // Instant O(N) substring search
     const filteredGrammar = useMemo(() => {
-        return grammarList.filter(gp => {
-            const levelStr = gp.level || gp.jlpt || 'N5';
-            const matchesLevel = levelStr.toUpperCase().includes(selectedLevel.toUpperCase());
+        const query = deferredSearchQuery.trim().toLowerCase();
+        if (!query) {
+            const targetLevel = selectedLevel.toUpperCase();
+            return indexedGrammarList.filter(gp => gp._levelStr.includes(targetLevel));
+        }
+        return indexedGrammarList.filter(gp => gp._searchIndex.includes(query));
+    }, [indexedGrammarList, selectedLevel, deferredSearchQuery]);
 
-            const query = searchQuery.trim().toLowerCase();
-            const matchesSearch = query === '' || 
-                (gp.pattern && gp.pattern.toLowerCase().includes(query)) ||
-                (gp.meaningShort && gp.meaningShort.toLowerCase().includes(query)) ||
-                (gp.meaning && gp.meaning.toLowerCase().includes(query)) ||
-                (gp.textbookTitle && gp.textbookTitle.toLowerCase().includes(query));
+    // Progressive rendering pagination to keep DOM small and fast
+    const [visibleCount, setVisibleCount] = useState(36);
 
-            return matchesLevel && matchesSearch;
-        });
-    }, [grammarList, selectedLevel, searchQuery]);
+    useEffect(() => {
+        setVisibleCount(36);
+    }, [selectedLevel, deferredSearchQuery]);
+
+    const visibleGrammar = useMemo(() => {
+        return filteredGrammar.slice(0, visibleCount);
+    }, [filteredGrammar, visibleCount]);
 
     const toggleSelectItem = (id) => {
         setSelectedGrammarIds(prev => {
@@ -351,27 +417,50 @@ const GrammarListScreen = ({ isAdmin }) => {
             <TopTabBar tabs={GRAMMAR_TABS} />
 
             <div className="max-w-6xl mx-auto px-4 mt-6 space-y-6 animate-fade-in">
-                {/* Level selector tabs */}
-                <div className="flex flex-wrap items-center justify-center gap-3">
-                    {JLPT_LEVELS.map(lvl => {
-                        const isActive = selectedLevel === lvl;
-                        return (
+                {/* Level selector tabs & Global Search status */}
+                <div className="flex flex-col items-center gap-3">
+                    <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                        {JLPT_LEVELS.map(lvl => {
+                            const isActive = !isSearching && selectedLevel === lvl;
+                            return (
+                                <button
+                                    key={lvl}
+                                    onClick={() => {
+                                        setSelectedLevel(lvl);
+                                        if (isSearching) setSearchQuery('');
+                                    }}
+                                    className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold transition-all duration-200 transform-gpu active:scale-95 cursor-pointer ${
+                                        isActive 
+                                            ? LEVEL_COLORS[lvl] 
+                                            : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-750'
+                                    }`}
+                                >
+                                    {lvl}
+                                </button>
+                            );
+                        })}
+                    </div>
+
+                    {isSearching && (
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-300 text-xs font-bold animate-fade-in shadow-xs">
+                            <Sparkles className="w-3.5 h-3.5 text-cyan-500 animate-pulse" />
+                            <span>Tìm kiếm trên toàn bộ cấp độ (N5 - N1): {filteredGrammar.length} kết quả khớp</span>
                             <button
-                                key={lvl}
-                                onClick={() => setSelectedLevel(lvl)}
-                                className={`px-6 py-2.5 rounded-2xl text-sm font-extrabold transition-all duration-300 transform active:scale-95 ${isActive ? LEVEL_COLORS[lvl] : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-350 border border-slate-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-750'}`}
+                                type="button"
+                                onClick={() => setSearchQuery('')}
+                                className="ml-1 text-cyan-600 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-200 underline cursor-pointer"
                             >
-                                {lvl}
+                                Xóa tìm kiếm
                             </button>
-                        );
-                    })}
+                        </div>
+                    )}
                 </div>
 
                 {/* Search Bar & Admin Controls */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-gray-200/60 dark:border-slate-700/60 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div className="space-y-1 text-center md:text-left">
-                        <h2 className="text-lg font-extrabold text-gray-800 dark:text-white flex items-center justify-center md:justify-start gap-2">
-                            Tra cứu cấu trúc Ngữ pháp
+                <div className="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border border-gray-200/60 dark:border-slate-700/60 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div className="space-y-1 text-center md:text-left w-full md:w-auto">
+                        <h2 className="text-base sm:text-lg font-extrabold text-gray-800 dark:text-white flex items-center justify-center md:justify-start gap-2 flex-wrap">
+                            <span>Tra cứu cấu trúc Ngữ pháp</span>
                             {isAdmin && (
                                 <div className="flex items-center gap-2">
                                     <button
@@ -402,19 +491,29 @@ const GrammarListScreen = ({ isAdmin }) => {
                             )}
                         </h2>
                         <p className="text-xs text-gray-400 dark:text-gray-500">
-                            Tìm kiếm qua các mẫu câu, dịch nghĩa hoặc các bài học trong sách giáo khoa.
+                            Tìm kiếm qua các mẫu câu, dịch nghĩa hoặc cấu trúc trên toàn bộ các cấp độ JLPT.
                         </p>
                     </div>
 
-                    <div className="relative w-full md:w-80">
-                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <div className="relative w-full md:w-96">
+                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                         <input
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="Nhập mẫu câu hoặc nghĩa..."
-                            className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-750 rounded-xl outline-none text-slate-800 dark:text-slate-100 placeholder:text-gray-400"
+                            className="w-full pl-10 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-750 rounded-2xl outline-none text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all shadow-xs"
                         />
+                        {searchQuery && (
+                            <button
+                                type="button"
+                                onClick={() => setSearchQuery('')}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                title="Xóa từ khóa tìm kiếm"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        )}
                     </div>
                 </div>
 
@@ -461,101 +560,125 @@ const GrammarListScreen = ({ isAdmin }) => {
 
                 {/* List Results */}
                 {filteredGrammar.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {filteredGrammar.map(gp => {
-                            const isBookmarked = userGrammarSRS.has(gp.id);
-                            const isSelected = selectedGrammarIds.has(gp.id);
-                            return (
-                                <div
-                                    key={gp.id}
-                                    onClick={() => {
-                                        if (isBatchMode) {
-                                            toggleSelectItem(gp.id);
-                                        } else {
-                                            const currentParams = new URLSearchParams(searchParams);
-                                            currentParams.set('from', 'list');
-                                            currentParams.set('tb', gp.textbookId || '');
-                                            currentParams.set('ls', gp.lessonId || '');
-                                            navigate(`/grammar/detail/${gp.id}?${currentParams.toString()}`);
-                                        }
-                                    }}
-                                    className={`bg-white dark:bg-slate-800 border rounded-3xl p-5 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] relative group overflow-hidden ${
-                                        isSelected
-                                            ? 'border-indigo-500 ring-2 ring-indigo-500/40 bg-indigo-50/20 dark:bg-indigo-950/30'
-                                            : 'border-gray-250/70 dark:border-slate-700/60 hover:border-slate-350 dark:hover:border-slate-600'
-                                    }`}
-                                >
-                                    {/* Action buttons (Bookmark & Admin Delete / Checkbox) */}
-                                    <div className="absolute top-4 right-4 flex items-center gap-1.5 z-10">
-                                        {isBatchMode ? (
-                                            <div
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    toggleSelectItem(gp.id);
-                                                }}
-                                                className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all cursor-pointer ${
-                                                    isSelected
-                                                        ? 'bg-indigo-600 text-white shadow-sm'
-                                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-400 border border-slate-300 dark:border-slate-600'
-                                                }`}
-                                            >
-                                                {isSelected && <Check className="w-4 h-4 stroke-[3]" />}
-                                            </div>
-                                        ) : (
-                                            <>
-                                                {isAdmin && (
-                                                    <button
-                                                        onClick={async (e) => {
-                                                            e.stopPropagation();
-                                                            const confirmed = window.showConfirm
-                                                                ? await window.showConfirm(`Bạn có chắc chắn muốn xóa mẫu ngữ pháp "${gp.pattern}" không?`, { type: 'danger', confirmText: 'Xóa ngay' })
-                                                                : window.confirm(`Bạn có chắc chắn muốn xóa mẫu ngữ pháp "${gp.pattern}" không?`);
-                                                            if (confirmed) {
-                                                                const ok = await deleteGrammarPoint(gp.textbookId, gp.lessonId, gp.id);
-                                                                if (ok) {
-                                                                    setGrammarList(prev => prev.filter(item => item.id !== gp.id));
-                                                                    showToast(`Đã xóa ngữ pháp "${gp.pattern}"`, 'success');
-                                                                } else {
-                                                                    showToast('Xóa ngữ pháp thất bại', 'error');
-                                                                }
-                                                            }
-                                                        }}
-                                                        className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200/80 dark:border-rose-800/80 text-rose-500 hover:bg-rose-100 dark:hover:bg-rose-900/80 transition-all duration-200 shadow-sm"
-                                                        title="Xóa mẫu ngữ pháp này"
-                                                    >
-                                                        <Trash2 className="w-4 h-4 text-rose-500" />
-                                                    </button>
-                                                )}
-
-                                                <button
-                                                    onClick={(e) => toggleBookmark(e, gp)}
-                                                    className={`p-2 rounded-xl border transition-all duration-200 active:scale-95 ${isBookmarked ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-200/60 text-indigo-650 dark:text-indigo-400' : 'bg-slate-50 dark:bg-slate-900 border-slate-200/80 dark:border-slate-750 text-slate-400 hover:text-indigo-500'}`}
-                                                    title="Lưu ôn tập (SRS)"
+                    <div className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {visibleGrammar.map(gp => {
+                                const isBookmarked = userGrammarSRS.has(gp.id);
+                                const isSelected = selectedGrammarIds.has(gp.id);
+                                return (
+                                    <div
+                                        key={gp.id}
+                                        onClick={() => {
+                                            if (isBatchMode) {
+                                                toggleSelectItem(gp.id);
+                                            } else {
+                                                const currentParams = new URLSearchParams(searchParams);
+                                                currentParams.set('from', 'list');
+                                                currentParams.set('tb', gp.textbookId || '');
+                                                currentParams.set('ls', gp.lessonId || '');
+                                                navigate(`/grammar/detail/${gp.id}?${currentParams.toString()}`);
+                                            }
+                                        }}
+                                        className={`bg-white dark:bg-slate-800 border rounded-3xl p-5 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[160px] relative group overflow-hidden ${
+                                            isSelected
+                                                ? 'border-indigo-500 ring-2 ring-indigo-500/40 bg-indigo-50/20 dark:bg-indigo-950/30'
+                                                : 'border-gray-250/70 dark:border-slate-700/60 hover:border-slate-350 dark:hover:border-slate-600'
+                                        }`}
+                                    >
+                                        {/* Action buttons (Bookmark & Admin Delete / Checkbox) */}
+                                        <div className="absolute top-4 right-4 flex items-center gap-1.5 z-10">
+                                            {isBatchMode ? (
+                                                <div
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        toggleSelectItem(gp.id);
+                                                    }}
+                                                    className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all cursor-pointer ${
+                                                        isSelected
+                                                            ? 'bg-indigo-600 text-white shadow-sm'
+                                                            : 'bg-slate-100 dark:bg-slate-700 text-slate-400 border border-slate-300 dark:border-slate-600'
+                                                    }`}
                                                 >
-                                                    <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-indigo-500' : ''}`} />
-                                                </button>
-                                            </>
-                                        )}
-                                    </div>
+                                                    {isSelected && <Check className="w-4 h-4 stroke-[3]" />}
+                                                </div>
+                                            ) : (
+                                                <>
+                                                    {isAdmin && (
+                                                        <button
+                                                            onClick={async (e) => {
+                                                                e.stopPropagation();
+                                                                const confirmed = window.showConfirm
+                                                                    ? await window.showConfirm(`Bạn có chắc chắn muốn xóa mẫu ngữ pháp "${gp.pattern}" không?`, { type: 'danger', confirmText: 'Xóa ngay' })
+                                                                    : window.confirm(`Bạn có chắc chắn muốn xóa mẫu ngữ pháp "${gp.pattern}" không?`);
+                                                                if (confirmed) {
+                                                                    const ok = await deleteGrammarPoint(gp.textbookId, gp.lessonId, gp.id);
+                                                                    if (ok) {
+                                                                        setGrammarList(prev => prev.filter(item => item.id !== gp.id));
+                                                                        showToast(`Đã xóa ngữ pháp "${gp.pattern}"`, 'success');
+                                                                    } else {
+                                                                        showToast('Xóa ngữ pháp thất bại', 'error');
+                                                                    }
+                                                                }
+                                                            }}
+                                                            className="p-2 rounded-xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200/80 dark:border-rose-800/80 text-rose-500 hover:bg-rose-100 dark:hover:bg-rose-900/80 transition-all duration-200 shadow-sm"
+                                                            title="Xóa mẫu ngữ pháp này"
+                                                        >
+                                                            <Trash2 className="w-4 h-4 text-rose-500" />
+                                                        </button>
+                                                    )}
 
-                                    <div className="space-y-2 pr-10">
-                                        <div className="flex items-center gap-1.5 text-[10px] text-gray-400 font-bold uppercase tracking-wider">
-                                            <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
-                                            <span className="truncate max-w-[150px]">{gp.textbookTitle}</span>
+                                                    <button
+                                                        onClick={(e) => toggleBookmark(e, gp)}
+                                                        className={`p-2 rounded-xl border transition-all duration-200 active:scale-95 ${isBookmarked ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-200/60 text-indigo-650 dark:text-indigo-400' : 'bg-slate-50 dark:bg-slate-900 border-slate-200/80 dark:border-slate-750 text-slate-400 hover:text-indigo-500'}`}
+                                                        title="Lưu ôn tập (SRS)"
+                                                    >
+                                                        <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-indigo-500' : ''}`} />
+                                                    </button>
+                                                </>
+                                            )}
                                         </div>
 
-                                        <h3 className="font-bold text-slate-800 dark:text-white text-lg leading-tight group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors font-japanese">
-                                            {gp.pattern}
-                                        </h3>
-                                    </div>
+                                        <div className="space-y-2 pr-10">
+                                            <div className="flex items-center gap-2 flex-wrap">
+                                                <span className={`px-2 py-0.5 rounded-lg text-[10px] font-black shadow-xs ${
+                                                    LEVEL_BADGE_COLORS[getGrammarLevel(gp)] || 'bg-slate-600 text-white'
+                                                }`}>
+                                                    {getGrammarLevel(gp)}
+                                                </span>
+                                                <div className="flex items-center gap-1.5 text-[10px] text-slate-400 dark:text-slate-400 font-bold uppercase tracking-wider">
+                                                    <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
+                                                    <span className="truncate max-w-[140px] sm:max-w-[200px]">{gp.textbookTitle || 'Kho ngữ pháp gốc'}</span>
+                                                </div>
+                                            </div>
 
-                                    <div className="pt-4 border-t border-slate-100 dark:border-slate-750/70 flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
-                                        <span className="line-clamp-1 flex-1 pr-2">{gp.meaningShort || gp.meaning}</span>
-                                        <ExternalLink className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 group-hover:text-indigo-400 transition-colors shrink-0" />
+                                            <h3 className="font-bold text-slate-800 dark:text-white text-lg leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors font-japanese">
+                                                {gp.pattern}
+                                            </h3>
+                                        </div>
+
+                                        <div className="pt-4 border-t border-slate-100 dark:border-slate-750/70 flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+                                            <span className="line-clamp-1 flex-1 pr-2">{gp.meaningShort || gp.meaning}</span>
+                                            <ExternalLink className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 group-hover:text-indigo-400 transition-colors shrink-0" />
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
+
+                        {/* Load More Button when list is large */}
+                        {filteredGrammar.length > visibleCount && (
+                            <div className="flex flex-col items-center justify-center pt-4 pb-2 gap-2">
+                                <button
+                                    onClick={() => setVisibleCount(prev => prev + 36)}
+                                    className="px-6 py-2.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 font-bold text-xs sm:text-sm border border-indigo-200 dark:border-indigo-800 transition-all shadow-sm active:scale-95 cursor-pointer"
+                                >
+                                    Hiển thị thêm {Math.min(36, filteredGrammar.length - visibleCount)} / {filteredGrammar.length - visibleCount} mẫu ngữ pháp còn lại
+                                </button>
+                                <span className="text-[11px] text-slate-400 font-medium">
+                                    Đang hiển thị {visibleGrammar.length} trên tổng số {filteredGrammar.length} kết quả
+                                </span>
+                            </div>
+                        )}
                     </div>
                 ) : (
                     <div className="bg-white dark:bg-slate-800 rounded-3xl p-16 shadow-sm border border-gray-200/60 dark:border-slate-700/60 text-center space-y-4">

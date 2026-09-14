@@ -46,11 +46,26 @@ import {
 // Helper for resilient lazy loading that handles network/re-deploy chunk errors smoothly
 const lazyWithRetry = (componentImport) =>
     React.lazy(async () => {
+        const routeKey = 'chunk_retry_' + window.location.pathname;
+        const hasRefreshed = sessionStorage.getItem(routeKey);
         try {
-            return await componentImport();
+            const component = await componentImport();
+            sessionStorage.removeItem(routeKey);
+            return component;
         } catch (error) {
-            console.warn('⚠️ Dynamic chunk import failed, retrying once...', error);
-            await new Promise(resolve => setTimeout(resolve, 500));
+            console.warn('⚠️ Dynamic chunk import failed (có thể vừa deploy bản mới)...', error);
+            
+            // Nếu chưa tải lại trang lần nào cho route này, reload ngay để lấy bundle mới nhất
+            if (!hasRefreshed) {
+                sessionStorage.setItem(routeKey, 'true');
+                console.log('🔄 Đang tự động làm mới trang để tải tài nguyên mới nhất...');
+                window.location.reload();
+                return new Promise(() => {}); // Chờ reload
+            }
+
+            // Đã reload rồi mà vẫn lỗi (mất mạng thực sự) -> thử lại lần cuối sau 1s
+            sessionStorage.removeItem(routeKey);
+            await new Promise(resolve => setTimeout(resolve, 1000));
             try {
                 return await componentImport();
             } catch (retryErr) {
