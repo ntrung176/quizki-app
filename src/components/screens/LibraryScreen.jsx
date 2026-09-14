@@ -347,146 +347,131 @@ const LibraryScreen = ({
         <div className="w-full pb-16 min-h-screen bg-transparent">
             <TopTabBar tabs={VOCAB_TABS} />
 
-            <div className="max-w-6xl mx-auto px-4 md:px-8 mt-6 space-y-8 animate-fade-in">
-                {/* Header Row */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="max-w-6xl mx-auto px-4 md:px-8 mt-6 space-y-7 animate-fade-in">
+                {/* Header Section with Full-Width Search Bar */}
+                <div className="space-y-4">
                     <div className="space-y-1">
-                        <h1 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">{t('library.vocabTitle', 'Thư viện Từ vựng')}</h1>
+                        <h1 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                            {t('library.vocabTitle', 'Thư viện Từ vựng')}
+                        </h1>
                         <p className="text-slate-500 dark:text-slate-400 text-xs md:text-sm font-medium">
                             {t('library.vocabSub', 'Quản lý các thư mục, học phần học tập cá nhân và kéo thả để phân loại dễ dàng.')}
                         </p>
                     </div>
-                    <div className="flex flex-wrap items-center gap-3">
-                        {/* Search Bar with Auto-suggest Dropdown */}
-                        <div ref={searchContainerRef} className="relative w-full sm:w-72 md:w-80">
-                            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                            <input
-                                type="text"
-                                placeholder={t('common.searchPlaceholder', 'Tìm kiếm từ vựng, học phần...')}
-                                value={searchQuery}
-                                onChange={(e) => {
-                                    setSearchQuery(e.target.value);
-                                    setIsSearchDropdownOpen(true);
+
+                    {/* Full-width Search Bar with Auto-suggest Dropdown */}
+                    <div ref={searchContainerRef} className="relative w-full">
+                        <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <input
+                            type="text"
+                            placeholder={t('common.searchPlaceholder', 'Tìm kiếm từ vựng, học phần...')}
+                            value={searchQuery}
+                            onChange={(e) => {
+                                setSearchQuery(e.target.value);
+                                setIsSearchDropdownOpen(true);
+                            }}
+                            onFocus={() => setIsSearchDropdownOpen(true)}
+                            className="w-full pl-10 pr-10 py-3 text-xs sm:text-sm font-medium rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 shadow-sm transition-all"
+                        />
+                        {searchQuery && (
+                            <button 
+                                type="button"
+                                onClick={() => {
+                                    setSearchQuery('');
+                                    setIsSearchDropdownOpen(false);
                                 }}
-                                onFocus={() => setIsSearchDropdownOpen(true)}
-                                className="w-full pl-9 pr-8 py-2.5 text-xs font-medium rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm transition-all"
-                            />
-                            {searchQuery && (
-                                <button 
-                                    type="button"
-                                    onClick={() => {
-                                        setSearchQuery('');
-                                        setIsSearchDropdownOpen(false);
-                                    }}
-                                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-0.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                                >
-                                    <X className="w-3.5 h-3.5" />
-                                </button>
-                            )}
-
-                            {/* Sổ ra danh sách từ vựng liên quan khi gõ tìm kiếm */}
-                            {isSearchDropdownOpen && searchQuery.trim().length > 0 && (
-                                <div className="absolute top-full mt-2 left-0 sm:left-auto sm:right-0 w-[calc(100vw-2rem)] sm:w-[460px] md:w-[500px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-2xl z-50 overflow-hidden animate-fade-in divide-y divide-slate-100 dark:divide-slate-800/60 font-sans">
-                                    <div className="px-3.5 py-2.5 bg-slate-50/90 dark:bg-slate-800/50 flex items-center justify-between">
-                                        <div className="flex items-center gap-1.5">
-                                            <Sparkles className="w-3.5 h-3.5 text-indigo-500 animate-pulse" />
-                                            <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
-                                                Từ vựng khớp ({globalMatchedCards.length})
-                                            </span>
-                                        </div>
-                                        <span className="text-[10px] text-slate-400 font-medium italic">
-                                            Bấm vào từ để chỉnh sửa trực tiếp
-                                        </span>
-                                    </div>
-
-                                    <div className="max-h-[340px] overflow-y-auto p-2 space-y-1.5 custom-scrollbar">
-                                        {globalMatchedCards.length === 0 ? (
-                                            <div className="py-8 text-center text-xs text-slate-400 dark:text-slate-500 italic">
-                                                Không tìm thấy từ vựng nào khớp với &quot;{searchQuery}&quot;
-                                            </div>
-                                        ) : (
-                                            globalMatchedCards.slice(0, 50).map((c) => {
-                                                const setInfo = getCardStudySetInfo(c);
-                                                return (
-                                                    <div
-                                                        key={c.id}
-                                                        onClick={() => {
-                                                            setEditingCard(c);
-                                                            setIsSearchDropdownOpen(false);
-                                                        }}
-                                                        className="w-full text-left p-2.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/40 hover:bg-indigo-50/90 dark:hover:bg-indigo-950/50 border border-slate-100 dark:border-slate-800/70 hover:border-indigo-300 dark:hover:border-indigo-800 transition-all flex items-center justify-between gap-3 group cursor-pointer"
-                                                    >
-                                                        <div className="min-w-0 flex-1 space-y-0.5">
-                                                            <div className="flex items-center gap-2 flex-wrap">
-                                                                <span className="font-japanese font-bold text-sm text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                                                                    <FuriganaText text={c.frontWithFurigana || c.front} />
-                                                                </span>
-                                                                {c.sinoVietnamese && (
-                                                                    <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.2 rounded border border-amber-200/50 dark:border-amber-800/40">
-                                                                        {c.sinoVietnamese}
-                                                                    </span>
-                                                                )}
-                                                            </div>
-                                                            <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-1 font-medium">
-                                                                {c.back}
-                                                            </p>
-                                                            <div className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400">
-                                                                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-200/60 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 font-medium">
-                                                                    <Folder className="w-2.5 h-2.5 text-indigo-500 shrink-0" />
-                                                                    <span className="truncate max-w-[140px] sm:max-w-[200px]">{setInfo.name}</span>
-                                                                </span>
-                                                                {setInfo.parentName && (
-                                                                    <span className="text-slate-400 text-[9px]">
-                                                                        (trong {setInfo.parentName})
-                                                                    </span>
-                                                                )}
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="shrink-0 flex items-center gap-1.5">
-                                                            <button
-                                                                type="button"
-                                                                onClick={(e) => {
-                                                                    e.stopPropagation();
-                                                                    setEditingCard(c);
-                                                                    setIsSearchDropdownOpen(false);
-                                                                }}
-                                                                className="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-[11px] font-bold flex items-center gap-1 shadow-xs transition-transform active:scale-95 cursor-pointer"
-                                                                title="Chỉnh sửa từ vựng này"
-                                                            >
-                                                                <Edit3 className="w-3 h-3" />
-                                                                <span>Sửa</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                );
-                                            })
-                                        )}
-                                        {globalMatchedCards.length > 50 && (
-                                            <p className="text-center text-[10px] text-slate-400 italic py-1 font-medium">
-                                                Hiển thị 50 / {globalMatchedCards.length} từ vựng khớp...
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                        {onAddParentFolder && (
-                            <button
-                                onClick={() => setShowCreateFolderModal(true)}
-                                className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 border border-slate-200 dark:border-slate-700 cursor-pointer shadow-sm"
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                             >
-                                <FolderPlus className="w-4 h-4 text-indigo-500" />
-                                {t('library.newFolder', '+ Thư mục mới')}
+                                <X className="w-4 h-4" />
                             </button>
                         )}
-                        <button 
-                            onClick={onNavigateToAdd}
-                            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-md transition-all flex items-center gap-1.5 shrink-0 hover:scale-105 active:scale-95 cursor-pointer"
-                        >
-                            <Plus className="w-4 h-4" />
-                            {t('library.newSet', '+ Tạo học phần mới')}
-                        </button>
+
+                        {/* Sổ ra danh sách từ vựng liên quan khi gõ tìm kiếm */}
+                        {isSearchDropdownOpen && searchQuery.trim().length > 0 && (
+                            <div className="absolute top-full mt-2 inset-x-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-2xl z-50 overflow-hidden animate-fade-in divide-y divide-slate-100 dark:divide-slate-800/60 font-sans">
+                                <div className="px-4 py-2.5 bg-slate-50/90 dark:bg-slate-800/50 flex items-center justify-between">
+                                    <div className="flex items-center gap-1.5">
+                                        <Sparkles className="w-3.5 h-3.5 text-cyan-500 animate-pulse" />
+                                        <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
+                                            Từ vựng khớp ({globalMatchedCards.length})
+                                        </span>
+                                    </div>
+                                    <span className="text-[10px] text-slate-400 font-medium italic">
+                                        Bấm vào từ để chỉnh sửa trực tiếp
+                                    </span>
+                                </div>
+
+                                <div className="max-h-[340px] overflow-y-auto p-2 space-y-1.5 custom-scrollbar">
+                                    {globalMatchedCards.length === 0 ? (
+                                        <div className="py-8 text-center text-xs text-slate-400 dark:text-slate-500 italic">
+                                            Không tìm thấy từ vựng nào khớp với &quot;{searchQuery}&quot;
+                                        </div>
+                                    ) : (
+                                        globalMatchedCards.slice(0, 50).map((c) => {
+                                            const setInfo = getCardStudySetInfo(c);
+                                            return (
+                                                <div
+                                                    key={c.id}
+                                                    onClick={() => {
+                                                        setEditingCard(c);
+                                                        setIsSearchDropdownOpen(false);
+                                                    }}
+                                                    className="w-full text-left p-2.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/40 hover:bg-cyan-50/80 dark:hover:bg-cyan-950/40 border border-slate-100 dark:border-slate-800/70 hover:border-cyan-300 dark:hover:border-cyan-800 transition-all flex items-center justify-between gap-3 group cursor-pointer"
+                                                >
+                                                    <div className="min-w-0 flex-1 space-y-0.5">
+                                                        <div className="flex items-center gap-2 flex-wrap">
+                                                            <span className="font-japanese font-bold text-sm text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                                                                <FuriganaText text={c.frontWithFurigana || c.front} />
+                                                            </span>
+                                                            {c.sinoVietnamese && (
+                                                                <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.2 rounded border border-amber-200/50 dark:border-amber-800/40">
+                                                                    {c.sinoVietnamese}
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                        <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-1 font-medium">
+                                                            {c.back}
+                                                        </p>
+                                                        <div className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400">
+                                                            <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-200/60 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 font-medium">
+                                                                <Folder className="w-2.5 h-2.5 text-cyan-500 shrink-0" />
+                                                                <span className="truncate max-w-[140px] sm:max-w-[200px]">{setInfo.name}</span>
+                                                            </span>
+                                                            {setInfo.parentName && (
+                                                                <span className="text-slate-400 text-[9px]">
+                                                                    (trong {setInfo.parentName})
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="shrink-0 flex items-center gap-1.5">
+                                                        <button
+                                                            type="button"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setEditingCard(c);
+                                                                setIsSearchDropdownOpen(false);
+                                                            }}
+                                                            className="px-2.5 py-1.5 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg text-[11px] font-bold flex items-center gap-1 shadow-xs transition-transform active:scale-95 cursor-pointer"
+                                                            title="Chỉnh sửa từ vựng này"
+                                                        >
+                                                            <Edit3 className="w-3 h-3" />
+                                                            <span>Sửa</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })
+                                    )}
+                                    {globalMatchedCards.length > 50 && (
+                                        <p className="text-center text-[10px] text-slate-400 italic py-1 font-medium">
+                                            Hiển thị 50 / {globalMatchedCards.length} từ vựng khớp...
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -496,13 +481,13 @@ const LibraryScreen = ({
                         <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
                             <button 
                                 onClick={() => setActiveParentFolderId(null)}
-                                className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-1 font-bold"
+                                className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1 font-bold"
                             >
                                 <Library className="w-4 h-4" />
                                 {t('tabs.library', 'Thư viện')}
                             </button>
                             <ChevronRight className="w-4 h-4 text-slate-400" />
-                            <div className="flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/40 px-3 py-1 rounded-lg text-indigo-600 dark:text-indigo-400 font-bold">
+                            <div className="flex items-center gap-1.5 bg-cyan-50 dark:bg-cyan-950/40 px-3 py-1 rounded-lg text-cyan-600 dark:text-cyan-400 font-bold">
                                 <FolderOpen className="w-4 h-4" />
                                 <span>{activeFolderName}</span>
                             </div>
@@ -538,16 +523,29 @@ const LibraryScreen = ({
                 {/* 1. PARENT FOLDERS GRID SECTION - Only show at root level */}
                 {(!activeParentFolderId || searchQuery) && (
                     <div className="space-y-4">
-                        <div className="flex items-center justify-between">
-                            <h2 className="text-lg font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
-                                <Folder className="w-5 h-5 text-indigo-500" />
-                                {t('library.managedFolders', 'Thư mục quản lý')} ({parentFoldersWithCounts.length})
+                        <div className="flex items-center justify-between gap-3">
+                            <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                <Folder className="w-5 h-5 text-cyan-500" />
+                                <span>{t('library.managedFolders', 'Thư mục quản lý')}</span>
+                                <span className="text-xs font-mono font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
+                                    ({parentFoldersWithCounts.length})
+                                </span>
                             </h2>
+
+                            {onAddParentFolder && (
+                                <button
+                                    onClick={() => setShowCreateFolderModal(true)}
+                                    className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 border border-slate-200 dark:border-slate-700 cursor-pointer shadow-xs active:scale-95"
+                                >
+                                    <FolderPlus className="w-4 h-4 text-cyan-500" />
+                                    <span>{t('library.newFolder', '+ Thư mục mới')}</span>
+                                </button>
+                            )}
                         </div>
 
                         {parentFoldersWithCounts.length === 0 ? (
                             <div className="p-6 sm:p-8 text-center bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md text-slate-400 dark:text-slate-500 text-xs italic">
-                                {searchQuery ? 'Không tìm thấy thư mục nào phù hợp.' : 'Chưa có thư mục nào. Bạn có thể nhấn "Thư mục mới" ở trên để phân loại học phần.'}
+                                {searchQuery ? 'Không tìm thấy thư mục nào phù hợp.' : 'Chưa có thư mục nào. Bạn có thể nhấn "+ Thư mục mới" ở trên để phân loại học phần.'}
                             </div>
                         ) : (
                             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5">
@@ -644,15 +642,28 @@ const LibraryScreen = ({
 
                 {/* 2. STUDY SETS LIST GRID */}
                 <div className="space-y-4">
-                    <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
-                        <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-500" />
-                        {searchQuery ? 'Kết quả tìm kiếm học phần' : (activeParentFolderId ? 'Học phần trong thư mục này' : t('library.studySets', 'Học phần'))} ({filteredStudySets.length})
-                        {draggedStudySetId && (
-                            <span className="text-[10px] sm:text-xs bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400 font-mono font-bold px-2.5 py-0.5 rounded-full animate-pulse">
-                                Kéo thả học phần vào thư mục
+                    <div className="flex items-center justify-between gap-3 flex-wrap">
+                        <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
+                            <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" />
+                            <span>{searchQuery ? 'Kết quả tìm kiếm học phần' : (activeParentFolderId ? 'Học phần trong thư mục này' : t('library.studySets', 'Học phần'))}</span>
+                            <span className="text-xs font-mono font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
+                                ({filteredStudySets.length})
                             </span>
-                        )}
-                    </h2>
+                            {draggedStudySetId && (
+                                <span className="text-[10px] sm:text-xs bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400 font-mono font-bold px-2.5 py-0.5 rounded-full animate-pulse">
+                                    Kéo thả học phần vào thư mục
+                                </span>
+                            )}
+                        </h2>
+
+                        <button 
+                            onClick={onNavigateToAdd}
+                            className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/20 transition-all flex items-center gap-1.5 shrink-0 hover:scale-105 active:scale-95 cursor-pointer"
+                        >
+                            <Plus className="w-4 h-4" />
+                            <span>{t('library.newSet', '+ Tạo học phần mới')}</span>
+                        </button>
+                    </div>
 
                     <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-3.5 py-2.5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-2">
                         {t('library.dragTip', '💡 Mẹo: Nhấn icon Di chuyển hoặc kéo thả học phần vào các thư mục để sắp xếp dễ dàng hơn.')}
