@@ -282,6 +282,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         };
     }, [kanjiMap, srsData, dueKanji]);
 
+    const forecastItems = useMemo(() => {
+        return (kanjiList || []).map(k => ({
+            id: k.id,
+            state: srsData[k.id]?.state,
+            nextReview: srsData[k.id]?.nextReview || srsData[k.id]?.nextReview_back || 0,
+            nextReview_back: srsData[k.id]?.nextReview_back || srsData[k.id]?.nextReview || 0,
+            reps: srsData[k.id]?.reps || 0,
+            interval: srsData[k.id]?.interval || 0,
+            learningStep: srsData[k.id]?.learningStep,
+            isDue: srsData[k.id] ? isSrsCardDue(srsData[k.id], dashboardTick) : false
+        }));
+    }, [kanjiList, srsData, dashboardTick]);
+
     const [nextReviewText, setNextReviewText] = useState(null);
     const [isNextReviewCountdown, setIsNextReviewCountdown] = useState(false);
     const [nextRoundCount, setNextRoundCount] = useState(0);
@@ -1267,16 +1280,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 {/* SRS Forecast Chart */}
                 {kanjiList.length > 0 && (
                     <SRSForecastChart
-                        items={kanjiList.map(k => ({
-                            id: k.id,
-                            state: srsData[k.id]?.state,
-                            nextReview: srsData[k.id]?.nextReview || srsData[k.id]?.nextReview_back || 0,
-                            nextReview_back: srsData[k.id]?.nextReview_back || srsData[k.id]?.nextReview || 0,
-                            reps: srsData[k.id]?.reps || 0,
-                            interval: srsData[k.id]?.interval || 0,
-                            learningStep: srsData[k.id]?.learningStep,
-                            isDue: srsData[k.id] ? isSrsCardDue(srsData[k.id], dashboardTick) : false
-                        }))}
+                        items={forecastItems}
                         daysCount={14}
                         title="Dự Báo Kanji Đến Hạn (14 Ngày Tới)"
                     />

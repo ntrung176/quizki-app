@@ -18,6 +18,8 @@ const LeechManagerModal = ({
     onSaveMnemonic,
     onGeminiAssist
 }) => {
+    if (!isOpen) return null;
+
     const { t } = useLanguage();
     const [selectedTab, setSelectedTab] = useState(scopeType);
     const [editingMnemonicId, setEditingMnemonicId] = useState(null);
@@ -26,9 +28,9 @@ const LeechManagerModal = ({
     const activeTab = scopeType !== 'all' ? scopeType : selectedTab;
 
     // Extract leech items
-    const leechVocab = useMemo(() => vocabCards.filter(c => isLeechCard(c)), [vocabCards]);
-    const leechKanji = useMemo(() => kanjiItems.filter(k => isLeechCard(k)), [kanjiItems]);
-    const leechGrammar = useMemo(() => grammarItems.filter(g => isLeechCard(g)), [grammarItems]);
+    const leechVocab = useMemo(() => (isOpen ? vocabCards.filter(c => isLeechCard(c)) : []), [isOpen, vocabCards]);
+    const leechKanji = useMemo(() => (isOpen ? kanjiItems.filter(k => isLeechCard(k)) : []), [isOpen, kanjiItems]);
+    const leechGrammar = useMemo(() => (isOpen ? grammarItems.filter(g => isLeechCard(g)) : []), [isOpen, grammarItems]);
 
     const currentCount = useMemo(() => {
         if (scopeType === 'vocab') return leechVocab.length;
@@ -55,8 +57,6 @@ const LeechManagerModal = ({
             ...leechGrammar.map(item => ({ ...item, leechType: 'grammar' }))
         ];
     }, [activeTab, leechVocab, leechKanji, leechGrammar]);
-
-    if (!isOpen) return null;
 
     return createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md animate-fade-in">
@@ -268,4 +268,4 @@ const LeechManagerModal = ({
     );
 };
 
-export default LeechManagerModal;
+export default React.memo(LeechManagerModal);

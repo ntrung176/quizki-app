@@ -269,6 +269,19 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return result;
     }, [srsData]);
 
+    const forecastItems = useMemo(() => {
+        return (grammarList || []).map(g => ({
+            id: g.id,
+            state: srsData[g.id]?.state,
+            nextReview: srsData[g.id]?.nextReview || srsData[g.id]?.nextReview_back || 0,
+            nextReview_back: srsData[g.id]?.nextReview_back || srsData[g.id]?.nextReview || 0,
+            reps: srsData[g.id]?.reps || 0,
+            interval: srsData[g.id]?.interval || 0,
+            learningStep: srsData[g.id]?.learningStep,
+            isDue: srsData[g.id] ? isSrsCardDue(srsData[g.id], dashboardTick) : false
+        }));
+    }, [grammarList, srsData, dashboardTick]);
+
     const [nextReviewText, setNextReviewText] = useState(null);
     const [isNextReviewCountdown, setIsNextReviewCountdown] = useState(false);
     const [nextRoundCount, setNextRoundCount] = useState(0);
@@ -927,22 +940,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         onUpdateSettings={handleUpdateSettings}
                     />
 
-                    {/* SRS Mode Selection Modal */}
-                    <SrsModeSelectModal
-                        isOpen={showModeModal}
-                        onClose={() => {
-                            setShowModeModal(false);
-                            setPendingReviewCards(null);
-                        }}
-                        title="Chọn chế độ ôn tập Ngữ pháp"
-                        subtitle="Lựa chọn phương pháp ôn tập phù hợp với bạn"
-                        cardCount={(Array.isArray(pendingReviewCards) ? pendingReviewCards : dueGrammar).length}
-                        onSelectMode={(mode) => {
-                            handleUpdateSettings({ ...flashcardSettings, reviewType: mode });
-                            const list = Array.isArray(pendingReviewCards) ? pendingReviewCards : dueGrammar;
-                            runStartReview(list);
-                        }}
-                    />
                 </div>
             </div>
         );
@@ -1061,22 +1058,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         onUpdateSettings={handleUpdateSettings}
                     />
 
-                    {/* SRS Mode Selection Modal */}
-                    <SrsModeSelectModal
-                        isOpen={showModeModal}
-                        onClose={() => {
-                            setShowModeModal(false);
-                            setPendingReviewCards(null);
-                        }}
-                        title="Chọn chế độ ôn tập Ngữ pháp"
-                        subtitle="Lựa chọn phương pháp ôn tập phù hợp với bạn"
-                        cardCount={(Array.isArray(pendingReviewCards) ? pendingReviewCards : dueGrammar).length}
-                        onSelectMode={(mode) => {
-                            handleUpdateSettings({ ...flashcardSettings, reviewType: mode });
-                            const list = Array.isArray(pendingReviewCards) ? pendingReviewCards : dueGrammar;
-                            runStartReview(list);
-                        }}
-                    />
                 </div>
             </div>
         );
@@ -1189,16 +1170,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 {/* SRS Forecast Chart */}
                 {grammarList.length > 0 && (
                     <SRSForecastChart
-                        items={grammarList.map(g => ({
-                            id: g.id,
-                            state: srsData[g.id]?.state,
-                            nextReview: srsData[g.id]?.nextReview || srsData[g.id]?.nextReview_back || 0,
-                            nextReview_back: srsData[g.id]?.nextReview_back || srsData[g.id]?.nextReview || 0,
-                            reps: srsData[g.id]?.reps || 0,
-                            interval: srsData[g.id]?.interval || 0,
-                            learningStep: srsData[g.id]?.learningStep,
-                            isDue: srsData[g.id] ? isSrsCardDue(srsData[g.id], dashboardTick) : false
-                        }))}
+                        items={forecastItems}
                         daysCount={14}
                         title="Dự Báo Ngữ Pháp Đến Hạn (14 Ngày Tới)"
                     />

@@ -112,4 +112,4 @@ const SRSForecastChart = ({ items = [], daysCount = 14, title }) => {
     );
 };
 
-export default SRSForecastChart;
+export default React.memo(SRSForecastChart);

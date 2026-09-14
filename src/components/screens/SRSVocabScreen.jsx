@@ -1480,17 +1480,6 @@ const SRSVocabScreen = ({
                     </div>
                 </div>
 
-                {/* SRS Mode Selection Modal (Flashcard vs Anki Typing) */}
-                <SrsModeSelectModal
-                    isOpen={srsModeModalData.isOpen}
-                    onClose={() => setSrsModeModalData(prev => ({ ...prev, isOpen: false }))}
-                    title={srsModeModalData.title}
-                    cardCount={srsModeModalData.count}
-                    onSelectMode={(mode) => {
-                        setCardSettings(prev => ({ ...prev, reviewType: mode }));
-                        startFolderReview(srsModeModalData.cards, srsModeModalData.folderId);
-                    }}
-                />
             </div>
         );
     }
