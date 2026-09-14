@@ -1332,10 +1332,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             <LeechManagerModal
                 isOpen={showLeechManager}
                 onClose={() => setShowLeechManager(false)}
-                kanjiItems={kanjiList.map(k => ({
+                kanjiItems={showLeechManager ? kanjiList.map(k => ({
                     ...k,
                     lapseCount: srsData[k.id]?.lapseCount || 0
-                }))}
+                })) : []}
                 scopeType="kanji"
                 onResetLeechCount={handleResetKanjiLeech}
             />

@@ -1253,10 +1253,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             <LeechManagerModal
                 isOpen={showLeechManager}
                 onClose={() => setShowLeechManager(false)}
-                grammarItems={grammarList.map(g => ({
+                grammarItems={showLeechManager ? grammarList.map(g => ({
                     ...g,
                     lapseCount: srsData[g.id]?.lapseCount || 0
-                }))}
+                })) : []}
                 scopeType="grammar"
                 onResetLeechCount={handleResetGrammarLeech}
             />
