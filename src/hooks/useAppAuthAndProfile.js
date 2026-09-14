@@ -10,8 +10,21 @@ import { getOpenRouterKeys } from '../utils/aiProvider';
 export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, setEditingCard, setNotification }) => {
     const [authReady, setAuthReady] = useState(false);
     const [userId, setUserId] = useState(null);
-    const [rawProfile, setProfile] = useState(null);
-    const [isProfileLoading, setIsProfileLoading] = useState(true);
+    const [rawProfile, setProfile] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_user_profile');
+            return cached ? JSON.parse(cached) : null;
+        } catch (_) {
+            return null;
+        }
+    });
+    const [isProfileLoading, setIsProfileLoading] = useState(() => {
+        try {
+            return !localStorage.getItem('quizki_cached_user_profile');
+        } catch (_) {
+            return true;
+        }
+    });
     const [adminConfig, setAdminConfig] = useState(null);
     const [activePopup, setActivePopup] = useState(null);
     const [geminiApiKeys] = useState(() => getOpenRouterKeys());
@@ -33,7 +46,11 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         const docRef = doc(db, settingsDocPath);
         const unsubscribe = onSnapshot(docRef, (docSnap) => {
             if (docSnap.exists()) {
-                setProfile(docSnap.data());
+                const data = docSnap.data();
+                setProfile(data);
+                try {
+                    localStorage.setItem('quizki_cached_user_profile', JSON.stringify(data));
+                } catch (_) {}
             } else {
                 setProfile(null);
             }
@@ -280,6 +297,7 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                 clearUserSrsCache();
                 clearKanjiProgressCache();
 
+                localStorage.removeItem('quizki_cached_user_profile');
                 localStorage.removeItem('quizki_vocab_review_session');
                 localStorage.removeItem('quizki_kanji_review_session');
                 localStorage.removeItem('last_kanji_lesson');
@@ -293,16 +311,17 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
             setAuthReady(true);
         });
 
-        getSharedBookGroups().catch(() => { });
         return () => unsubscribe();
     }, []);
 
+    // Defer background kanji progress/srs sync slightly to allow 0ms first meaningful paint
     useEffect(() => {
-        getSharedKanjiList().catch(() => { });
-        getSharedVocabList().catch(() => { });
         if (!userId) return;
-        getSharedKanjiSrs(userId).catch(() => { });
-        getSharedKanjiProgress(userId).catch(() => { });
+        const timer = setTimeout(() => {
+            getSharedKanjiSrs(userId).catch(() => { });
+            getSharedKanjiProgress(userId).catch(() => { });
+        }, 500);
+        return () => clearTimeout(timer);
     }, [userId]);
 
     const awardXP = useCallback(async (amount) => {

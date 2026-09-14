@@ -24,8 +24,8 @@ const MobileDebugConsole = ({ isAdmin = false }) => {
 
             const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
             
-            // Default enabled for Admin on Mobile, or explicit debug=true in URL / localStorage
-            const shouldEnable = (isAdmin && isMobileDevice) || urlDebug === 'true' || storedDebug === 'true';
+            // Only enable when explicitly requested via URL ?debug=true or localStorage quizki_debug=true
+            const shouldEnable = urlDebug === 'true' || storedDebug === 'true';
 
             if (shouldEnable) {
                 if (window.eruda) {

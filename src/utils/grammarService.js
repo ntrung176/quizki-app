@@ -1222,98 +1222,116 @@ export const assignGrammarPointsToLesson = async (textbookId, lessonId, selected
 };
 
 export const getSharedGrammarPointsList = async () => {
-    const deletedSet = getDeletedGrammarIds();
-    const allPoints = [];
-    const seenIds = new Set();
-
-    // 1. Fetch points directly from Master Grammar Bank
-    try {
-        const masterSnap = await getDocs(collection(db, masterGrammarPath()));
-        for (const d of masterSnap.docs) {
-            const mp = { id: d.id, ...d.data() };
-            if (!deletedSet.has(mp.id) && !seenIds.has(mp.id)) {
-                seenIds.add(mp.id);
-                allPoints.push({
-                    ...mp,
-                    textbookId: mp.textbookId || 'master',
-                    lessonId: mp.lessonId || 'master',
-                    textbookTitle: mp.textbookTitle || `Kho Ngữ Pháp (${mp.level || 'N4'})`,
-                    lessonTitle: mp.lessonTitle || 'Kho Ngữ Pháp Trung Tâm',
-                });
-            }
-        }
-    } catch (e) {
-        console.warn("Fetch masterGrammarPoints in getSharedGrammarPointsList failed:", e);
+    if (cachedSharedGrammarPointsList && cachedSharedGrammarPointsList.length > 0) {
+        return cachedSharedGrammarPointsList;
+    }
+    if (grammarPointsListPromise) {
+        return grammarPointsListPromise;
     }
 
-    // 2. Fetch points from CDN / Shared Textbook Data
-    try {
-        const data = await getSharedGrammarData();
-        if (data) {
-            for (const textbook of data) {
-                for (const lesson of textbook.lessons || []) {
-                    for (const point of lesson.points || []) {
-                        if (!deletedSet.has(point.id) && !seenIds.has(point.id)) {
-                            seenIds.add(point.id);
-                            allPoints.push({
-                                ...point,
-                                textbookId: textbook.id,
-                                lessonId: lesson.id,
-                                textbookTitle: textbook.title || textbook.titleVi || '',
-                                lessonTitle: lesson.title || '',
-                            });
+    grammarPointsListPromise = (async () => {
+        try {
+            const deletedSet = getDeletedGrammarIds();
+            const allPoints = [];
+            const seenIds = new Set();
+
+            // 1. Fetch points from CDN / Shared Textbook Data first (faster & reliable)
+            try {
+                const data = await getSharedGrammarData();
+                if (data) {
+                    for (const textbook of data) {
+                        for (const lesson of textbook.lessons || []) {
+                            for (const point of lesson.points || []) {
+                                if (!deletedSet.has(point.id) && !seenIds.has(point.id)) {
+                                    seenIds.add(point.id);
+                                    allPoints.push({
+                                        ...point,
+                                        textbookId: textbook.id,
+                                        lessonId: lesson.id,
+                                        textbookTitle: textbook.title || textbook.titleVi || '',
+                                        lessonTitle: lesson.title || '',
+                                    });
+                                }
+                            }
                         }
                     }
                 }
+            } catch (e) {
+                console.warn("CDN getSharedGrammarPointsList failed:", e);
             }
-        }
-    } catch (e) {
-        console.warn("CDN getSharedGrammarPointsList failed:", e);
-    }
 
-    // 3. Fallback: Fetch points from Firestore textbooks subcollections if empty
-    if (allPoints.length === 0) {
-        try {
-            const textbooksSnap = await getDocs(collection(db, textbooksPath()));
-            for (const tbDoc of textbooksSnap.docs) {
-                const lessonsSnap = await getDocs(collection(db, lessonsPath(tbDoc.id)));
-                for (const lessonDoc of lessonsSnap.docs) {
-                    const pointsSnap = await getDocs(collection(db, grammarPointsPath(tbDoc.id, lessonDoc.id)));
-                    pointsSnap.docs.forEach(pDoc => {
-                        if (!deletedSet.has(pDoc.id) && !seenIds.has(pDoc.id)) {
-                            seenIds.add(pDoc.id);
-                            allPoints.push({
-                                ...pDoc.data(),
-                                id: pDoc.id,
-                                textbookId: tbDoc.id,
-                                lessonId: lessonDoc.id,
-                                textbookTitle: tbDoc.data().title || tbDoc.data().titleVi || '',
-                                lessonTitle: lessonDoc.data().title || '',
+            // 2. Fetch points directly from Master Grammar Bank
+            try {
+                const masterSnap = await getDocs(collection(db, masterGrammarPath()));
+                for (const d of masterSnap.docs) {
+                    const mp = { id: d.id, ...d.data() };
+                    if (!deletedSet.has(mp.id) && !seenIds.has(mp.id)) {
+                        seenIds.add(mp.id);
+                        allPoints.push({
+                            ...mp,
+                            textbookId: mp.textbookId || 'master',
+                            lessonId: mp.lessonId || 'master',
+                            textbookTitle: mp.textbookTitle || `Kho Ngữ Pháp (${mp.level || 'N4'})`,
+                            lessonTitle: mp.lessonTitle || 'Kho Ngữ Pháp Trung Tâm',
+                        });
+                    }
+                }
+            } catch (e) {
+                console.warn("Fetch masterGrammarPoints in getSharedGrammarPointsList failed:", e);
+            }
+
+            // 3. Fallback: Fetch points from Firestore textbooks subcollections if empty
+            if (allPoints.length === 0) {
+                try {
+                    const textbooksSnap = await getDocs(collection(db, textbooksPath()));
+                    for (const tbDoc of textbooksSnap.docs) {
+                        const lessonsSnap = await getDocs(collection(db, lessonsPath(tbDoc.id)));
+                        for (const lessonDoc of lessonsSnap.docs) {
+                            const pointsSnap = await getDocs(collection(db, grammarPointsPath(tbDoc.id, lessonDoc.id)));
+                            pointsSnap.docs.forEach(pDoc => {
+                                if (!deletedSet.has(pDoc.id) && !seenIds.has(pDoc.id)) {
+                                    seenIds.add(pDoc.id);
+                                    allPoints.push({
+                                        ...pDoc.data(),
+                                        id: pDoc.id,
+                                        textbookId: tbDoc.id,
+                                        lessonId: lessonDoc.id,
+                                        textbookTitle: tbDoc.data().title || tbDoc.data().titleVi || '',
+                                        lessonTitle: lessonDoc.data().title || '',
+                                    });
+                                }
                             });
                         }
-                    });
+                    }
+                } catch (e) {
+                    console.warn("Firestore fallback getSharedGrammarPointsList failed:", e);
                 }
             }
-        } catch (e) {
-            console.warn("Firestore fallback getSharedGrammarPointsList failed:", e);
-        }
-    }
 
-    // 4. Merge locally edited grammar points (persisted across F5 refreshes before CDN sync)
-    const editedMap = getEditedGrammarMap();
-    if (Object.keys(editedMap).length > 0) {
-        for (let i = 0; i < allPoints.length; i++) {
-            const p = allPoints[i];
-            if (editedMap[p.id]) {
-                allPoints[i] = {
-                    ...p,
-                    ...editedMap[p.id]
-                };
+            // 4. Merge locally edited grammar points (persisted across F5 refreshes before CDN sync)
+            const editedMap = getEditedGrammarMap();
+            if (Object.keys(editedMap).length > 0) {
+                for (let i = 0; i < allPoints.length; i++) {
+                    const p = allPoints[i];
+                    if (editedMap[p.id]) {
+                        allPoints[i] = {
+                            ...p,
+                            ...editedMap[p.id]
+                        };
+                    }
+                }
             }
-        }
-    }
 
-    return sortGrammarPointsByCreationTime(allPoints);
+            const sorted = sortGrammarPointsByCreationTime(allPoints);
+            cachedSharedGrammarPointsList = sorted;
+            return sorted;
+        } catch (err) {
+            grammarPointsListPromise = null;
+            throw err;
+        }
+    })();
+
+    return grammarPointsListPromise;
 };
 
 // ============== GRAMMAR SRS SYSTEM ==============

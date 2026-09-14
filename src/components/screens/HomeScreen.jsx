@@ -161,88 +161,92 @@ const HomeScreen = ({
         navigate(route, hasDue ? { state: { autoStart: true, reviewType: mode } } : { state: { reviewType: mode } });
     };
 
-    // Fetch kanji SRS stats + activity dates synchronized with Kanji module
+    // Fetch kanji SRS stats + activity dates synchronized with Kanji module (deferred for instant 0ms first paint)
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
         let unsub = () => {};
 
-        getSharedKanjiList().then(kList => {
-            if (!isMounted) return;
-            const validKanjiIds = new Set((kList || []).map(k => k.id));
-
-            unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+        const timer = setTimeout(() => {
+            getSharedKanjiList().then(kList => {
                 if (!isMounted) return;
-                let total = 0, learning = 0, mastered = 0, dueCount = 0;
-                const now = Date.now();
-                const actDates = [];
-                const toDateStr = (ts) => {
-                    if (!ts) return null;
-                    const d = new Date(ts);
-                    if (isNaN(d.getTime())) return null;
-                    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                };
+                unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+                    if (!isMounted) return;
+                    let total = 0, learning = 0, mastered = 0, dueCount = 0;
+                    const now = Date.now();
+                    const actDates = [];
+                    const toDateStr = (ts) => {
+                        if (!ts) return null;
+                        const d = new Date(ts);
+                        if (isNaN(d.getTime())) return null;
+                        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+                    };
 
-                (kList || []).forEach(k => {
-                    const data = (freshSrs && freshSrs[k.id]) ? freshSrs[k.id] : (k.srsData || null);
-                    if (data) {
-                        total++;
-                        if (isKanjiMastered(data)) mastered++;
-                        else learning++;
-                        if (isSrsCardDue(data, now)) dueCount++;
-                        if (data.lastReview) {
-                            const dateStr = toDateStr(data.lastReview);
-                            if (dateStr) actDates.push(dateStr);
+                    (kList || []).forEach(k => {
+                        const data = (freshSrs && freshSrs[k.id]) ? freshSrs[k.id] : (k.srsData || null);
+                        if (data) {
+                            total++;
+                            if (isKanjiMastered(data)) mastered++;
+                            else learning++;
+                            if (isSrsCardDue(data, now)) dueCount++;
+                            if (data.lastReview) {
+                                const dateStr = toDateStr(data.lastReview);
+                                if (dateStr) actDates.push(dateStr);
+                            }
                         }
-                    }
-                });
+                    });
 
-                setKanjiSrsStats({ total, learning, mastered, dueCount, isInitialLoading: false });
-                setKanjiActivityDates(actDates);
-                try {
-                    localStorage.setItem('quizki_cached_kanji_srs_stats', JSON.stringify({ total, learning, mastered, dueCount }));
-                } catch (_) {}
+                    setKanjiSrsStats({ total, learning, mastered, dueCount, isInitialLoading: false });
+                    setKanjiActivityDates(actDates);
+                    try {
+                        localStorage.setItem('quizki_cached_kanji_srs_stats', JSON.stringify({ total, learning, mastered, dueCount }));
+                    } catch (_) {}
+                });
+            }).catch(err => {
+                console.error('Error fetching kanji list in HomeScreen:', err);
             });
-        }).catch(err => {
-            console.error('Error fetching kanji list in HomeScreen:', err);
-        });
+        }, 300);
 
         return () => {
             isMounted = false;
+            clearTimeout(timer);
             unsub();
         };
     }, [userId]);
 
-    // Fetch grammar SRS stats synchronized with Grammar module
+    // Fetch grammar SRS stats synchronized with Grammar module (deferred for instant 0ms first paint)
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
         let unsub = () => {};
 
-        getSharedGrammarPointsList().then(gList => {
-            if (!isMounted) return;
-            unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+        const timer = setTimeout(() => {
+            getSharedGrammarPointsList().then(gList => {
                 if (!isMounted) return;
-                let total = 0, dueCount = 0;
-                const now = Date.now();
-                (gList || []).forEach(g => {
-                    const data = freshSrs && freshSrs[g.id];
-                    if (data) {
-                        total++;
-                        if (isSrsCardDue(data, now)) dueCount++;
-                    }
+                unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+                    if (!isMounted) return;
+                    let total = 0, dueCount = 0;
+                    const now = Date.now();
+                    (gList || []).forEach(g => {
+                        const data = freshSrs && freshSrs[g.id];
+                        if (data) {
+                            total++;
+                            if (isSrsCardDue(data, now)) dueCount++;
+                        }
+                    });
+                    setGrammarSrsStats({ total, dueCount, isInitialLoading: false });
+                    try {
+                        localStorage.setItem('quizki_cached_grammar_srs_stats', JSON.stringify({ total, dueCount }));
+                    } catch (_) {}
                 });
-                setGrammarSrsStats({ total, dueCount, isInitialLoading: false });
-                try {
-                    localStorage.setItem('quizki_cached_grammar_srs_stats', JSON.stringify({ total, dueCount }));
-                } catch (_) {}
+            }).catch(err => {
+                console.error('Error fetching grammar list in HomeScreen:', err);
             });
-        }).catch(err => {
-            console.error('Error fetching grammar list in HomeScreen:', err);
-        });
+        }, 400);
 
         return () => {
             isMounted = false;
+            clearTimeout(timer);
             unsub();
         };
     }, [userId]);
@@ -466,6 +470,18 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
     ];
     const todayTip = learningTips[new Date().getDate() % learningTips.length];
 
+    const effectiveDisplayName = useMemo(() => {
+        if (displayName) return displayName;
+        try {
+            const cached = localStorage.getItem('quizki_cached_user_profile');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                if (parsed?.displayName) return parsed.displayName;
+            }
+        } catch (_) {}
+        return '';
+    }, [displayName]);
+
     return (
         <div className="flex flex-col max-w-7xl mx-auto gap-4 sm:gap-6 p-3 sm:p-5 md:p-8 animate-fade-in relative z-10 font-sans selection:bg-cyan-500/20">
             {/* Book Vocab Sync Notification */}
@@ -484,7 +500,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                 <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6">
                     <div className="space-y-2 max-w-2xl flex-1">
                         <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-                            {displayName ? `${displayName}!` : t('home.helloUser', 'Chào bạn!')}
+                            {effectiveDisplayName ? `${effectiveDisplayName}!` : t('home.helloUser', 'Chào bạn!')}
                         </h1>
 
                         <div className="p-3 bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/80 rounded-xl shadow-2xs">

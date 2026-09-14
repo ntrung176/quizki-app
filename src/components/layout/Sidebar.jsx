@@ -127,35 +127,28 @@ const Sidebar = ({
             rhino: '🦏', hippo: '🦛', camel: '🐫', deer: '🦌', wolf: '🐺', bat: '🦇', raccoon: '🦝', sloth: '🦥', hedgehog: '🦔', shrimp: '🦐',
         };
 
+        const activeName = displayName || profile?.displayName || auth?.currentUser?.displayName || (auth?.currentUser?.email ? auth.currentUser.email.split('@')[0] : '');
+        const activeAvatar = avatar || profile?.avatar || profile?.photoURL || auth?.currentUser?.photoURL;
+
         const fallbackChar = (
-            <span className="text-lg select-none">
-                {displayName ? displayName.charAt(0).toUpperCase() : '👤'}
+            <span className="text-lg select-none font-bold">
+                {activeName ? activeName.charAt(0).toUpperCase() : '👤'}
             </span>
         );
 
-        if (isPhotoUrl(avatar)) {
+        if (isPhotoUrl(activeAvatar)) {
             return (
                 <SafeAvatarImage
-                    src={avatar}
+                    src={activeAvatar}
                     alt="Avatar"
                     fallback={fallbackChar}
                 />
             );
         }
         
-        const emoji = AVATAR_EMOJIS[avatar];
+        const emoji = AVATAR_EMOJIS[activeAvatar];
         if (emoji) {
             return <span className="text-lg select-none">{emoji}</span>;
-        }
-        
-        if (auth?.currentUser?.photoURL) {
-            return (
-                <SafeAvatarImage
-                    src={auth.currentUser.photoURL}
-                    alt="Avatar"
-                    fallback={fallbackChar}
-                />
-            );
         }
         
         return fallbackChar;
@@ -194,8 +187,26 @@ const Sidebar = ({
     const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
     const [isLangWheelModalOpen, setIsLangWheelModalOpen] = useState(false);
     const profileRef = useRef(null);
-    const [kanjiDueCount, setKanjiDueCount] = useState(0);
-    const [grammarDueCount, setGrammarDueCount] = useState(0);
+    const [kanjiDueCount, setKanjiDueCount] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_kanji_srs_stats');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                return parsed.dueCount || 0;
+            }
+        } catch (_) {}
+        return 0;
+    });
+    const [grammarDueCount, setGrammarDueCount] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_grammar_srs_stats');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                return parsed.dueCount || 0;
+            }
+        } catch (_) {}
+        return 0;
+    });
     const [globalNotifications, setGlobalNotifications] = useState([]);
     const [readNotificationIds, setReadNotificationIds] = useState(() => {
         try {
@@ -283,52 +294,58 @@ const Sidebar = ({
         };
     }, [updateKanjiCount, updateGrammarCount]);
 
-    // Listen to Kanji SRS due count synchronized with Kanji module
+    // Listen to Kanji SRS due count synchronized with Kanji module (deferred to prevent main thread blocking)
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
         let unsub = () => {};
 
-        getSharedKanjiList().then(kList => {
-            if (!isMounted) return;
-            kanjiListRef.current = kList || [];
-
-            unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+        const timer = setTimeout(() => {
+            getSharedKanjiList().then(kList => {
                 if (!isMounted) return;
-                kanjiSrsRef.current = freshSrs || {};
-                updateKanjiCount();
+                kanjiListRef.current = kList || [];
+
+                unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+                    if (!isMounted) return;
+                    kanjiSrsRef.current = freshSrs || {};
+                    updateKanjiCount();
+                });
+            }).catch(err => {
+                console.error('Error fetching kanji list in Sidebar:', err);
             });
-        }).catch(err => {
-            console.error('Error fetching kanji list in Sidebar:', err);
-        });
+        }, 500);
 
         return () => {
             isMounted = false;
+            clearTimeout(timer);
             unsub();
         };
     }, [userId, updateKanjiCount]);
 
-    // Listen to Grammar SRS due count synchronized with Grammar module
+    // Listen to Grammar SRS due count synchronized with Grammar module (deferred)
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
         let unsub = () => {};
 
-        getSharedGrammarPointsList().then(gList => {
-            if (!isMounted) return;
-            grammarListRef.current = gList || [];
-
-            unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+        const timer = setTimeout(() => {
+            getSharedGrammarPointsList().then(gList => {
                 if (!isMounted) return;
-                grammarSrsRef.current = freshSrs || {};
-                updateGrammarCount();
+                grammarListRef.current = gList || [];
+
+                unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+                    if (!isMounted) return;
+                    grammarSrsRef.current = freshSrs || {};
+                    updateGrammarCount();
+                });
+            }).catch(err => {
+                console.error('Error fetching grammar list in Sidebar:', err);
             });
-        }).catch(err => {
-            console.error('Error fetching grammar list in Sidebar:', err);
-        });
+        }, 600);
 
         return () => {
             isMounted = false;
+            clearTimeout(timer);
             unsub();
         };
     }, [userId, updateGrammarCount]);
@@ -571,8 +588,8 @@ const Sidebar = ({
                 </Link>
 
                 <div className="flex items-center space-x-2">
-                    {/* Mobile Avatar Settings Link */}
-                    {displayName && (
+                    {/* Mobile Avatar Settings Link - Rendered unconditionally at 0ms */}
+                    {(userId || auth?.currentUser) && (
                         <Link
                             to={ROUTES.SETTINGS}
                             onClick={() => setIsMobileMenuOpen(false)}
@@ -613,7 +630,7 @@ const Sidebar = ({
             {isMobileMenuOpen && (
                 <div className="lg:hidden fixed inset-x-0 top-[56px] bottom-0 z-[99998] bg-white/98 dark:bg-slate-950/98 backdrop-blur-2xl flex flex-col justify-between overflow-y-auto animate-fade-in p-3 space-y-4 shadow-2xl">
                     {/* User Profile Capsule on Mobile Drawer Header */}
-                    {displayName && (
+                    {(userId || auth?.currentUser) && (
                         <Link
                             to={ROUTES.SETTINGS}
                             onClick={() => setIsMobileMenuOpen(false)}
@@ -624,11 +641,13 @@ const Sidebar = ({
                             </div>
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-1.5">
-                                    <span className="font-extrabold text-sm text-slate-800 dark:text-white truncate">{displayName}</span>
+                                    <span className="font-extrabold text-sm text-slate-800 dark:text-white truncate">
+                                        {displayName || profile?.displayName || auth?.currentUser?.displayName || (auth?.currentUser?.email ? auth.currentUser.email.split('@')[0] : 'Người học')}
+                                    </span>
                                     {isPremium ? (
                                         <span className="bg-amber-500/15 text-amber-600 dark:text-amber-400 text-[9px] font-mono font-black px-1.5 py-0.5 rounded border border-amber-500/30">PREMIUM</span>
                                     ) : (
-                                        <span className="bg-slate-200 dark:bg-slate-800 text-slate-500 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded">FREE</span>
+                                        <span className="bg-slate-200/60 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded">FREE</span>
                                     )}
                                 </div>
                                 <p className="text-[10px] text-slate-400 font-mono mt-0.5">LV {xpDetails.level} • {getLevelTitle(xpDetails.level)}</p>

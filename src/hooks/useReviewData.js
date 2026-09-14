@@ -13,8 +13,7 @@ import { flashCorrect, launchFanfare, celebrateCorrectAnswer } from '../utils/ce
 import { playCorrectSound, playIncorrectSound, playFlipSound } from '../utils/soundEffects';
 import { saveStudyProgress } from '../utils/studyProgressService';
 import { useTargetLanguage } from '../context/TargetLanguageContext';
-import { DEFAULT_CARD_SETTINGS, formatMultipleMeanings } from '../components/review/reviewHelpers';
-import { normalize, toHiragana as toHira } from '../utils/ankiDiff';
+import { normalize, toHiragana as toHira, extractReadings } from '../utils/ankiDiff';
 
 export const useReviewData = ({
     cards: initialCards,
@@ -683,7 +682,7 @@ export const useReviewData = ({
                 return { label: 'Từ đồng nghĩa', text: currentCard.synonym, image: currentCard.imageBase64, icon: MessageSquare, color: 'text-blue-600' };
             case 'example': {
                 const wordToMask = getWordForMasking(currentCard.front);
-                const readingForMask = getReadingForMasking(currentCard.front);
+                const readingForMask = currentCard.reading || getReadingForMasking(currentCard.front);
                 const exampleLines = (currentCard.example || '').split('\n').filter(e => e.trim());
                 const exampleMeaningLines = (currentCard.exampleMeaning || '').split('\n').filter(e => e.trim());
                 const firstExample = exampleLines[0] || currentCard.example;
@@ -707,18 +706,23 @@ export const useReviewData = ({
         const userAnswer = normalizeAnswer(inputValue);
         let isCorrect = false;
 
+        const rawFront = currentCard.front || '';
+        const kanjiPart = rawFront.split('（')[0].split('(')[0].trim();
+        const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
+        const kanaPart = kanaPartMatch ? kanaPartMatch[1].trim() : '';
+        const readings = extractReadings(currentCard);
+        const normalizedReadings = readings.map(r => toHiragana(normalizeAnswer(r))).filter(Boolean);
+
+        const normalizedKanji = toHiragana(normalizeAnswer(kanjiPart));
+        const normalizedKana = toHiragana(normalizeAnswer(kanaPart));
+        const normalizedFull = toHiragana(normalizeAnswer(rawFront));
+        const normalizedUser = toHiragana(userAnswer);
+
         if (inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') {
-            const rawFront = currentCard.front;
-            const kanjiPart = rawFront.split('（')[0].split('(')[0];
-            const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
-            const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
-
-            const normalizedKanji = toHiragana(normalizeAnswer(kanjiPart));
-            const normalizedKana = toHiragana(normalizeAnswer(kanaPart));
-            const normalizedFull = toHiragana(normalizeAnswer(rawFront));
-            const normalizedUser = toHiragana(userAnswer);
-
-            isCorrect = normalizedUser === normalizedKanji || (kanaPart && normalizedUser === normalizedKana) || normalizedUser === normalizedFull;
+            isCorrect = normalizedUser === normalizedKanji || 
+                        (kanaPart && normalizedUser === normalizedKana) || 
+                        normalizedUser === normalizedFull ||
+                        normalizedReadings.includes(normalizedUser);
 
             if (!isCorrect && currentCard.pos === 'adj_na') {
                 const buildAdjNa = (val) => {
@@ -733,13 +737,14 @@ export const useReviewData = ({
                     ...buildAdjNa(normalizedKanji),
                     ...(kanaPart ? buildAdjNa(normalizedKana) : []),
                     ...buildAdjNa(normalizedFull),
+                    ...normalizedReadings.flatMap(r => buildAdjNa(r))
                 ]);
                 isCorrect = accepted.has(normalizedUser);
             }
         } else {
             const userAnswerNormalized = normalize(inputValue);
 
-            const rawMeanings = currentCard.back.split(/[,;，；\n/|~～〜\u301C\uFF5E]+/);
+            const rawMeanings = (currentCard.back || '').split(/[,;，；\n/|~～〜\u301C\uFF5E]+/);
             const meanings = rawMeanings.map(m => normalize(m.replace(/^\d+\.\s*/, '').trim())).filter(m => m.length > 0);
 
             isCorrect = meanings.some(meaning => {
@@ -751,14 +756,10 @@ export const useReviewData = ({
             });
 
             if (!isCorrect) {
-                const rawFront = currentCard.front;
-                const kanjiPart = rawFront.split('（')[0].split('(')[0];
-                const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
-                const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
-                const normalizedKanji = toHiragana(normalizeAnswer(kanjiPart));
-                const normalizedKana = toHiragana(normalizeAnswer(kanaPart));
-                const normalizedUser = toHiragana(userAnswer);
-                isCorrect = normalizedUser === normalizedKanji || (kanaPart && normalizedUser === normalizedKana);
+                isCorrect = normalizedUser === normalizedKanji || 
+                            (kanaPart && normalizedUser === normalizedKana) || 
+                            normalizedUser === normalizedFull ||
+                            normalizedReadings.includes(normalizedUser);
             }
         }
 
@@ -956,16 +957,23 @@ export const useReviewData = ({
         const retypeAns = normalizeAnswer(inputValue);
         let isRetypeCorrect = false;
 
+        const rawFront = currentCard.front || '';
+        const kanjiPart = rawFront.split('（')[0].split('(')[0].trim();
+        const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
+        const kanaPart = kanaPartMatch ? kanaPartMatch[1].trim() : '';
+        const readings = extractReadings(currentCard);
+        const normalizedReadings = readings.map(r => toHiragana(normalizeAnswer(r))).filter(Boolean);
+
+        const normalizedKanji = toHiragana(normalizeAnswer(kanjiPart));
+        const normalizedKana = toHiragana(normalizeAnswer(kanaPart));
+        const normalizedFull = toHiragana(normalizeAnswer(rawFront));
+        const normalizedRetype = toHiragana(retypeAns);
+
         if (inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') {
-            const rawFront = currentCard.front;
-            const kanjiPart = rawFront.split('（')[0].split('(')[0];
-            const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
-            const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
-            const normalizedKanji = toHiragana(normalizeAnswer(kanjiPart));
-            const normalizedKana = toHiragana(normalizeAnswer(kanaPart));
-            const normalizedFull = toHiragana(normalizeAnswer(rawFront));
-            const normalizedRetype = toHiragana(retypeAns);
-            isRetypeCorrect = normalizedRetype === normalizedKanji || (kanaPart && normalizedRetype === normalizedKana) || normalizedRetype === normalizedFull;
+            isRetypeCorrect = normalizedRetype === normalizedKanji || 
+                              (kanaPart && normalizedRetype === normalizedKana) || 
+                              normalizedRetype === normalizedFull ||
+                              normalizedReadings.includes(normalizedRetype);
 
             if (!isRetypeCorrect && currentCard.pos === 'adj_na') {
                 const buildAdjNa = (val) => {
@@ -980,13 +988,14 @@ export const useReviewData = ({
                     ...buildAdjNa(normalizedKanji),
                     ...(kanaPart ? buildAdjNa(normalizedKana) : []),
                     ...buildAdjNa(normalizedFull),
+                    ...normalizedReadings.flatMap(r => buildAdjNa(r))
                 ]);
                 isRetypeCorrect = accepted.has(normalizedRetype);
             }
         } else {
             const normalizeVietnamese = (text) => text.toLowerCase().trim().replace(/\s+/g, ' ');
             const userAnswerNorm = normalizeVietnamese(inputValue);
-            const rawMeanings = currentCard.back.split(/[,;，；\n]/);
+            const rawMeanings = (currentCard.back || '').split(/[,;，；\n]/);
             const meanings = rawMeanings.map(m => normalizeVietnamese(m.replace(/^\d+\.\s*/, '').trim())).filter(m => m.length > 0);
             isRetypeCorrect = meanings.some(meaning => {
                 if (!meaning) return false;
@@ -995,6 +1004,12 @@ export const useReviewData = ({
                 if (userAnswerNorm.length >= 3 && meaning.includes(userAnswerNorm)) return true;
                 return false;
             });
+            if (!isRetypeCorrect) {
+                isRetypeCorrect = normalizedRetype === normalizedKanji || 
+                                  (kanaPart && normalizedRetype === normalizedKana) || 
+                                  normalizedRetype === normalizedFull ||
+                                  normalizedReadings.includes(normalizedRetype);
+            }
         }
 
         if (isRetypeCorrect) {

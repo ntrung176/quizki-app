@@ -632,6 +632,47 @@ const KanjiSRSListScreen = () => {
         }
     };
 
+    const handleDeleteSingleKanji = async (character) => {
+        if (!userId || !character) return;
+        const kanjiDoc = kanjiList.find(k => k.character === character);
+        const targetId = kanjiDoc?.id || character;
+        const actualId = srsData[targetId] ? targetId : Object.keys(srsData).find(k => k === character || (kanjiDoc && k === kanjiDoc.id));
+        if (!actualId) {
+            showToast('Không tìm thấy dữ liệu SRS cho chữ này', 'error');
+            return;
+        }
+
+        const confirmed = await showConfirm(`Xóa chữ Kanji "${character}" khỏi danh sách ôn tập SRS? Dữ liệu tiến độ học của chữ này sẽ bị mất hoàn toàn.`, {
+            type: 'danger',
+            confirmText: 'Xóa bỏ'
+        });
+        if (!confirmed) return;
+
+        setDeleting(true);
+        try {
+            await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, actualId));
+            setSrsData(prev => {
+                const next = { ...prev };
+                delete next[actualId];
+                updateCachedUserSrs(userId, actualId, null);
+                return next;
+            });
+            setSelectedIds(prev => {
+                const next = new Set(prev);
+                next.delete(actualId);
+                return next;
+            });
+            setShowDetailModal(false);
+            setSelectedKanjiChar(null);
+            showToast(`Đã xóa chữ "${character}" khỏi danh sách ôn tập!`, 'success');
+        } catch (e) {
+            console.error('Error deleting single kanji SRS:', e);
+            showToast('Lỗi khi xóa: ' + e.message, 'error');
+        } finally {
+            setDeleting(false);
+        }
+    };
+
     const openKanjiDetail = (character) => {
         setSelectedKanjiChar(character);
         setShowDetailModal(true);
@@ -1254,12 +1295,19 @@ const KanjiSRSListScreen = () => {
                                             {/* Checkbox trigger block */}
                                             <div 
                                                 onClick={(e) => { e.stopPropagation(); toggleSelect(kanji.id); }} 
-                                                className="absolute left-2.5 top-2.5 opacity-0 group-hover:opacity-100 transition-opacity z-10"
+                                                className={`absolute left-2.5 top-2.5 z-20 p-1 -m-1 cursor-pointer transition-opacity ${
+                                                    isSelected || selectedIds.size > 0 
+                                                        ? 'opacity-100' 
+                                                        : 'opacity-100 sm:opacity-0 sm:group-hover:opacity-100'
+                                                }`}
+                                                title={isSelected ? "Bỏ chọn" : "Chọn Kanji này"}
                                             >
-                                                <div className={`w-5 h-5 rounded-lg border-2 flex items-center justify-center transition-colors bg-white ${
-                                                    isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-slate-300'
+                                                <div className={`w-5 h-5 rounded-lg border-2 flex items-center justify-center transition-all ${
+                                                    isSelected 
+                                                        ? 'bg-red-500 border-red-500 text-white shadow-xs scale-105' 
+                                                        : 'bg-white/95 dark:bg-slate-700/95 border-slate-300 dark:border-slate-500 hover:border-slate-400'
                                                 }`}>
-                                                    {isSelected && <span className="text-[10px]">✓</span>}
+                                                    {isSelected && <span className="text-[10px] font-bold">✓</span>}
                                                 </div>
                                             </div>
 
@@ -1637,10 +1685,20 @@ const KanjiSRSListScreen = () => {
                                     </div>
 
                                     {/* Actions */}
-                                    <div className="flex gap-3 pt-2">
+                                    <div className="flex flex-col gap-2.5 pt-2">
                                         <button
+                                            type="button"
+                                            disabled={deleting}
+                                            onClick={() => handleDeleteSingleKanji(selectedKanjiChar)}
+                                            className="w-full py-3 bg-red-500/10 hover:bg-red-500/20 active:bg-red-500/30 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/60 rounded-2xl font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-50"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                            <span>{deleting ? 'Đang xóa...' : 'Xóa khỏi danh sách ôn tập'}</span>
+                                        </button>
+                                        <button
+                                            type="button"
                                             onClick={() => { setShowDetailModal(false); setSelectedKanjiChar(null); }}
-                                            className="flex-1 py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl font-bold text-xs tracking-wider uppercase transition-all shadow-md"
+                                            className="w-full py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl font-bold text-xs tracking-wider uppercase transition-all shadow-md cursor-pointer"
                                         >
                                             Quay lại
                                         </button>

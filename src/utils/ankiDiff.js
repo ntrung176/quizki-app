@@ -428,14 +428,102 @@ export const decodeTelex = (str = '') => {
 /**
  * Tách các thành phần của từ tiếng Nhật (Kanji part, Kana reading part, full word)
  */
+/**
+ * Trích xuất toàn bộ các cách đọc Kana/Hiragana hợp lệ từ thẻ từ vựng
+ * Bao gồm: card.reading, card.furigana, card.frontWithFurigana ([furigana]),
+ * phần trong ngoặc đơn ở front, âm on/kun (nếu là kanji), và hỗ trợ phân tách nhiều cách đọc (, / 、 ;)
+ */
+export const extractReadings = (card = {}) => {
+    if (!card) return [];
+    const readings = new Set();
+
+    const addReading = (raw) => {
+        if (!raw || typeof raw !== 'string') return;
+        // Tách theo dấu phẩy, chấm phẩy, gạch chéo, xuống dòng, dấu chấm giữa
+        const parts = raw.split(/[,;，；/、\n|]+/).map(s => s.trim()).filter(Boolean);
+        for (const p of parts) {
+            // Loại bỏ dấu chấm ngăn cách okurigana (ví dụ: おこな.う -> おこなう, はい.る -> はいる)
+            // Loại bỏ dấu chấm giữa (・), dấu ngã (~, ～, 〜)
+            const clean = p
+                .replace(/[.・･~～〜〰]/g, '')
+                .replace(/（[^）]*）/g, '')
+                .replace(/\([^)]*\)/g, '')
+                .trim();
+            if (clean) {
+                readings.add(clean);
+                const hira = toHiragana(clean);
+                if (hira) readings.add(hira);
+            }
+        }
+    };
+
+    // 1. Từ card.reading
+    if (card.reading) {
+        if (Array.isArray(card.reading)) {
+            card.reading.forEach(r => addReading(r));
+        } else {
+            addReading(card.reading);
+        }
+    }
+
+    // 2. Từ card.furigana
+    if (card.furigana) {
+        if (typeof card.furigana === 'string') {
+            if (card.furigana.includes('[') && card.furigana.includes(']')) {
+                const extractedKana = card.furigana
+                    .replace(/\[([^\]]+)\]/g, '$1')
+                    .replace(/[\u4e00-\u9faf\u3400-\u4dbf々〆ヵヶ]/g, '')
+                    .replace(/[.・･~～〜〰]/g, '')
+                    .trim();
+                if (extractedKana) addReading(extractedKana);
+            } else {
+                addReading(card.furigana);
+            }
+        }
+    }
+
+    // 3. Từ card.frontWithFurigana (ví dụ: 受[じゅ]験[けん] -> じゅけん, 行[い]く -> いく)
+    if (card.frontWithFurigana && typeof card.frontWithFurigana === 'string') {
+        const extractedKana = card.frontWithFurigana
+            .replace(/\[([^\]]+)\]/g, '$1')
+            .replace(/[\u4e00-\u9faf\u3400-\u4dbf々〆ヵヶ]/g, '')
+            .replace(/[.・･~～〜〰]/g, '')
+            .trim();
+        if (extractedKana) addReading(extractedKana);
+    }
+
+    // 4. Từ card.front / pattern / word / character có chứa ngoặc đơn (ví dụ: 受験（じゅけん）)
+    const rawFront = card.pattern || card.front || card.vocabulary || card.word || card.character || '';
+    if (typeof rawFront === 'string') {
+        const matches = [...rawFront.matchAll(/（([^）]+)）/g), ...rawFront.matchAll(/\(([^)]+)\)/g)];
+        for (const m of matches) {
+            if (m[1]) addReading(m[1]);
+        }
+        // Nếu front vốn dĩ là Kana hoàn toàn (không có chữ Hán)
+        if (!/[\u4e00-\u9faf\u3400-\u4dbf]/.test(rawFront)) {
+            addReading(rawFront);
+        }
+    }
+
+    // 5. Từ card.on / card.onyomi, card.kun / card.kunyomi (cho thẻ Kanji)
+    if (card.on || card.onyomi) addReading(card.on || card.onyomi);
+    if (card.kun || card.kunyomi) addReading(card.kun || card.kunyomi);
+
+    return Array.from(readings);
+};
+
+/**
+ * Tách các thành phần của từ tiếng Nhật (Kanji part, Kana reading part, full word)
+ */
 export const extractJapaneseParts = (card = {}) => {
     const rawFront = card.pattern || card.front || card.vocabulary || card.word || card.character || '';
     const rawReading = card.reading || card.furigana || card.frontWithFurigana || '';
     
     // Tách phần Kanji và phần trong ngoặc
     const kanjiPart = rawFront.split('（')[0].split('(')[0].trim();
-    const kanaMatch = (rawFront + ' ' + rawReading).match(/（([^）]+)）/) || (rawFront + ' ' + rawReading).match(/\(([^)]+)\)/);
-    const kanaPart = kanaMatch ? kanaMatch[1].trim() : (rawReading ? rawReading.trim() : (kanjiPart ? '' : rawFront));
+    const readingList = extractReadings(card);
+    const kanaMatch = (rawFront + ' ' + (typeof rawReading === 'string' ? rawReading : '')).match(/（([^）]+)）/) || (rawFront + ' ' + (typeof rawReading === 'string' ? rawReading : '')).match(/\(([^)]+)\)/);
+    const kanaPart = readingList[0] || (kanaMatch ? kanaMatch[1].trim() : (typeof rawReading === 'string' && rawReading ? rawReading.trim() : (kanjiPart ? '' : rawFront)));
 
     // Lấy thêm âm On/Kun nếu là Kanji card
     const onReading = card.on || card.onyomi || '';
@@ -456,6 +544,7 @@ export const extractJapaneseParts = (card = {}) => {
     return {
         kanjiPart,
         kanaPart,
+        readingList,
         rawFront,
         rawReading,
         onReading,
@@ -482,8 +571,9 @@ export const checkAnswerMatch = (userInput = '', card = {}) => {
     const candidates = [
         parts.kanjiPart,
         parts.kanaPart,
+        ...parts.readingList,
         parts.rawFront,
-        parts.rawReading,
+        typeof parts.rawReading === 'string' ? parts.rawReading : '',
         parts.onReading,
         parts.kunReading,
         parts.sinoViet,
@@ -498,6 +588,7 @@ export const checkAnswerMatch = (userInput = '', card = {}) => {
         const normCand = toHiragana(normalize(cand));
         if (normInput === normCand || telexInput === normCand) return true;
         if (normalize(cleanInput) === normalize(cand)) return true;
+        if (decodeTelex(cleanInput) && normalize(decodeTelex(cleanInput)) === normalize(cand)) return true;
     }
 
     // 2. Hỗ trợ tính từ đuôi な
@@ -595,12 +686,13 @@ export const calculateAnkiDiff = (userInput = '', card = {}, options = {}) => {
     const normInput = toHiragana(normalize(cleanInput));
 
     const kanjiCandidate = parts.kanjiPart || parts.rawFront || '';
-    const kanaCandidate = parts.kanaPart || parts.rawReading || '';
+    const kanaCandidate = parts.kanaPart || (typeof parts.rawReading === 'string' ? parts.rawReading : '');
     const isKanjiCard = Boolean(card.character && !card.front);
 
     const candidates = [
         kanjiCandidate,
         kanaCandidate,
+        ...parts.readingList,
         parts.onReading,
         parts.kunReading,
         parts.sinoViet,
@@ -651,7 +743,7 @@ export const calculateAnkiDiff = (userInput = '', card = {}, options = {}) => {
         let bestScore = -1;
         bestTarget = kanaCandidate || kanjiCandidate || parts.meaning || '';
 
-        for (const cand of [kanaCandidate, kanjiCandidate, parts.sinoViet].filter(Boolean)) {
+        for (const cand of [kanaCandidate, ...parts.readingList, kanjiCandidate, parts.sinoViet].filter(Boolean)) {
             const cleanCand = cand.split('（')[0].split('(')[0].trim();
             const dp = computeLCS(cleanInput, cleanCand);
             const score = dp[cleanInput.length][cleanCand.length];

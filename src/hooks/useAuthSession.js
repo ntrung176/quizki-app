@@ -141,7 +141,6 @@ export const useAuthSession = ({ setNotification, setAllCards, setReviewCards, s
             setAuthReady(true);
         });
 
-        getSharedBookGroups().catch(() => { });
         return () => unsubscribe();
     }, []);
 

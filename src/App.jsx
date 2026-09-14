@@ -19,6 +19,7 @@ import CyberTechBackground from './components/ui/CyberTechBackground';
 import LevelUpModal from './components/ui/LevelUpModal';
 import { useAppLogic } from './hooks/useAppLogic';
 import MobileDebugConsole from './components/ui/MobileDebugConsole';
+import ScrollToTop from './components/ui/ScrollToTop';
 
 const AppContent = () => {
     const location = useLocation();
@@ -47,7 +48,10 @@ const AppContent = () => {
 
     return (
         <div className={`min-h-screen font-sans ${isDarkMode ? 'dark text-slate-100' : 'text-slate-900'} relative transition-colors duration-200`}>
-            {/* Automatic Eruda DevTools Mobile Debug Console for Admin */}
+            {/* Automatic Scroll To Top on Route Change */}
+            <ScrollToTop />
+
+            {/* Automatic Eruda DevTools Mobile Debug Console for Admin (when enabled) */}
             <MobileDebugConsole isAdmin={userHasAdminPrivileges} />
 
             {/* Cyberpunk tech grid background animation */}

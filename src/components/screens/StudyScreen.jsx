@@ -9,25 +9,34 @@ import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgress
 import FuriganaText from '../ui/FuriganaText';
 import { shuffleArray } from '../../utils/textProcessing';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
-import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
-import { normalize, toHiragana } from '../../utils/ankiDiff';
+import { normalize, toHiragana, extractReadings } from '../../utils/ankiDiff';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
-const checkJapaneseAnswer = (userInput, cardFront, pos) => {
-    const rawFront = cardFront || '';
-    const kanjiPart = rawFront.split('（')[0].split('(')[0];
+const checkJapaneseAnswer = (userInput, cardOrFront, pos) => {
+    if (!userInput || !userInput.trim()) return false;
+    const card = typeof cardOrFront === 'object' && cardOrFront !== null ? cardOrFront : { front: cardOrFront, pos };
+    const rawFront = card.front || card.vocabulary || card.word || '';
+    const actualPos = pos || card.pos;
+
+    const kanjiPart = rawFront.split('（')[0].split('(')[0].trim();
     const kanaPartMatch = rawFront.match(/（([^）]+)）/) || rawFront.match(/\(([^)]+)\)/);
-    const kanaPart = kanaPartMatch ? kanaPartMatch[1] : '';
+    const kanaPart = kanaPartMatch ? kanaPartMatch[1].trim() : '';
+
+    const readings = extractReadings(card);
+    const normalizedReadings = readings.map(r => toHiragana(normalize(r))).filter(Boolean);
 
     const normalizedKanji = toHiragana(normalize(kanjiPart));
     const normalizedKana = toHiragana(normalize(kanaPart));
     const normalizedFull = toHiragana(normalize(rawFront));
     const normalizedInput = toHiragana(normalize(userInput));
 
-    let isCorrect = normalizedInput === normalizedKanji || (kanaPart && normalizedInput === normalizedKana) || normalizedInput === normalizedFull;
+    let isCorrect = normalizedInput === normalizedKanji || 
+                    (kanaPart && normalizedInput === normalizedKana) || 
+                    normalizedInput === normalizedFull ||
+                    normalizedReadings.includes(normalizedInput);
 
-    if (!isCorrect && pos === 'adj_na') {
+    if (!isCorrect && actualPos === 'adj_na') {
         const buildAdjNa = (val) => {
             if (!val) return [];
             if (val.endsWith('な')) {
@@ -40,6 +49,7 @@ const checkJapaneseAnswer = (userInput, cardFront, pos) => {
             ...buildAdjNa(normalizedKanji),
             ...(kanaPart ? buildAdjNa(normalizedKana) : []),
             ...buildAdjNa(normalizedFull),
+            ...normalizedReadings.flatMap(r => buildAdjNa(r))
         ]);
         isCorrect = accepted.has(normalizedInput);
     }
@@ -214,7 +224,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
 
     const check = () => {
         if (!input.trim()) return;
-        const isCorrect = checkJapaneseAnswer(input, correctFront, card.pos);
+        const isCorrect = checkJapaneseAnswer(input, card, card.pos);
         if (isCorrect) {
             setFeedback('correct');
             playCorrectSound();
@@ -243,7 +253,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
 
     const handleRetypeCheck = () => {
         if (!input.trim()) return;
-        const isCorrect = checkJapaneseAnswer(input, correctFront, card.pos);
+        const isCorrect = checkJapaneseAnswer(input, card, card.pos);
         if (isCorrect) {
             setNeedsRetype(false);
             setFeedback(null);

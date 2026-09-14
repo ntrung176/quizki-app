@@ -679,6 +679,10 @@ const AppRoutes = ({
                                 onRenameParentFolder={onRenameParentFolder}
                                 onDeleteParentFolder={onDeleteParentFolder}
                                 onMoveStudySetToParentFolder={onMoveStudySetToParentFolder}
+                                onSaveChanges={handleSaveChanges}
+                                onUpdateCard={handleUpdateCard}
+                                onGeminiAssist={handleGeminiAssist}
+                                canUserUseAI={canUserUseAI}
                             />
                         </ProtectedRoute>
                     }

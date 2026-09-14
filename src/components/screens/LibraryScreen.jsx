@@ -1,12 +1,15 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, GraduationCap, Play, FolderPlus, Edit3, FolderOpen, ArrowLeft, Move, Cpu } from 'lucide-react'
+import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, GraduationCap, Play, FolderPlus, Edit3, FolderOpen, ArrowLeft, Move, Cpu, Sparkles, BookOpen, ExternalLink } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { isVocabCardMastered } from '../../utils/srs';
+import EditCardModal from '../cards/EditCardModal';
+import FuriganaText from '../ui/FuriganaText';
+import { showToast } from '../../utils/toast';
 
 const LibraryScreen = ({ 
     allCards = [], 
@@ -20,7 +23,11 @@ const LibraryScreen = ({
     onAddParentFolder,
     onRenameParentFolder,
     onDeleteParentFolder,
-    onMoveStudySetToParentFolder
+    onMoveStudySetToParentFolder,
+    onSaveChanges,
+    onUpdateCard,
+    onGeminiAssist,
+    canUserUseAI
 }) => {
     const navigate = useNavigate();
     const { t } = useLanguage();
@@ -38,6 +45,12 @@ const LibraryScreen = ({
     const [editingStudySet, setEditingStudySet] = useState(null); // { id, name }
     const [movingStudySet, setMovingStudySet] = useState(null); // { id, name, parentId }
 
+    // Direct card editing popup state
+    const [editingCard, setEditingCard] = useState(null);
+    const [isSearchDropdownOpen, setIsSearchDropdownOpen] = useState(false);
+    const [expandedMatchSetIds, setExpandedMatchSetIds] = useState(new Set());
+    const searchContainerRef = useRef(null);
+
     // Parent Folder states
     const [activeParentFolderId, setActiveParentFolderId] = useState(null);
     const [dragOverFolderId, setDragOverFolderId] = useState(null);
@@ -49,10 +62,13 @@ const LibraryScreen = ({
     const [activeMenuStudySetId, setActiveMenuStudySetId] = useState(null); // For mobile/dropdown move action
     const [draggedStudySetId, setDraggedStudySetId] = useState(null); // Track if a study set is being dragged
 
-    // Close move menu on outside click
+    // Close move menu and search dropdown on outside click
     useEffect(() => {
-        const handleOutsideClick = () => {
+        const handleOutsideClick = (e) => {
             setActiveMenuStudySetId(null);
+            if (searchContainerRef.current && !searchContainerRef.current.contains(e.target)) {
+                setIsSearchDropdownOpen(false);
+            }
         };
         window.addEventListener('click', handleOutsideClick);
         return () => window.removeEventListener('click', handleOutsideClick);
@@ -91,6 +107,54 @@ const LibraryScreen = ({
         return sortedRootSets[0];
     }, [foldersWithCounts, existingParentIds]);
 
+    // Toggle expand for matched cards in a study set
+    const toggleExpandMatchSet = useCallback((setId) => {
+        setExpandedMatchSetIds(prev => {
+            const next = new Set(prev);
+            if (next.has(setId)) {
+                next.delete(setId);
+            } else {
+                next.add(setId);
+            }
+            return next;
+        });
+    }, []);
+
+    // Get Study Set info for a specific card
+    const getCardStudySetInfo = useCallback((card) => {
+        if (!card) return { id: 'unfiled', name: 'Chưa phân loại', parentName: null };
+        const folderId = cardFolders[card.id] || card.folderId;
+        if (!folderId || folderId === 'unfiled') {
+            return { id: 'unfiled', name: 'Chưa phân loại', parentName: null };
+        }
+        const folder = folders.find(f => f.id === folderId);
+        if (!folder) {
+            return { id: 'unfiled', name: 'Chưa phân loại', parentName: null };
+        }
+        const parentFolder = folder.parentId ? parentFolders.find(p => p.id === folder.parentId) : null;
+        return {
+            id: folder.id,
+            name: folder.name,
+            parentName: parentFolder?.name || null
+        };
+    }, [cardFolders, folders, parentFolders]);
+
+    // Global matched cards across all study sets for the search dropdown
+    const globalMatchedCards = useMemo(() => {
+        if (!searchQuery || !searchQuery.trim()) return [];
+        const query = searchQuery.trim().toLowerCase();
+        return filteredAllCards.filter(c => 
+            (c.front || '').toLowerCase().includes(query) ||
+            (c.reading || '').toLowerCase().includes(query) ||
+            (c.frontWithFurigana || '').toLowerCase().includes(query) ||
+            (c.back || '').toLowerCase().includes(query) ||
+            (c.sinoVietnamese || '').toLowerCase().includes(query) ||
+            (c.synonym || '').toLowerCase().includes(query) ||
+            (c.example || '').toLowerCase().includes(query) ||
+            (c.exampleMeaning || '').toLowerCase().includes(query)
+        );
+    }, [filteredAllCards, searchQuery]);
+
     // Filter and sort Study Sets based on active parent folder and search query
     const filteredStudySets = useMemo(() => {
         const result = foldersWithCounts.filter(f => {
@@ -99,6 +163,8 @@ const LibraryScreen = ({
             const matchesVocab = searchQuery
                 ? folderCards.some(c => 
                     (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.reading || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.frontWithFurigana || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                     (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                     (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                     (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
@@ -160,6 +226,8 @@ const LibraryScreen = ({
                 const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id || c.folderId === f.id);
                 return folderCards.some(c => 
                     (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.reading || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (c.frontWithFurigana || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                     (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                     (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                     (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
@@ -289,23 +357,118 @@ const LibraryScreen = ({
                         </p>
                     </div>
                     <div className="flex flex-wrap items-center gap-3">
-                        {/* Search Bar */}
-                        <div className="relative w-full sm:w-60">
-                            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                        {/* Search Bar with Auto-suggest Dropdown */}
+                        <div ref={searchContainerRef} className="relative w-full sm:w-72 md:w-80">
+                            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                             <input
                                 type="text"
-                                placeholder={t('common.searchPlaceholder', 'Tìm kiếm học phần, thư mục...')}
+                                placeholder={t('common.searchPlaceholder', 'Tìm kiếm từ vựng, học phần...')}
                                 value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-9 pr-8 py-2.5 text-xs font-medium rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm"
+                                onChange={(e) => {
+                                    setSearchQuery(e.target.value);
+                                    setIsSearchDropdownOpen(true);
+                                }}
+                                onFocus={() => setIsSearchDropdownOpen(true)}
+                                className="w-full pl-9 pr-8 py-2.5 text-xs font-medium rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-sm transition-all"
                             />
                             {searchQuery && (
                                 <button 
-                                    onClick={() => setSearchQuery('')}
-                                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                                    type="button"
+                                    onClick={() => {
+                                        setSearchQuery('');
+                                        setIsSearchDropdownOpen(false);
+                                    }}
+                                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-0.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                                 >
                                     <X className="w-3.5 h-3.5" />
                                 </button>
+                            )}
+
+                            {/* Sổ ra danh sách từ vựng liên quan khi gõ tìm kiếm */}
+                            {isSearchDropdownOpen && searchQuery.trim().length > 0 && (
+                                <div className="absolute top-full mt-2 left-0 sm:left-auto sm:right-0 w-[calc(100vw-2rem)] sm:w-[460px] md:w-[500px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-2xl z-50 overflow-hidden animate-fade-in divide-y divide-slate-100 dark:divide-slate-800/60 font-sans">
+                                    <div className="px-3.5 py-2.5 bg-slate-50/90 dark:bg-slate-800/50 flex items-center justify-between">
+                                        <div className="flex items-center gap-1.5">
+                                            <Sparkles className="w-3.5 h-3.5 text-indigo-500 animate-pulse" />
+                                            <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
+                                                Từ vựng khớp ({globalMatchedCards.length})
+                                            </span>
+                                        </div>
+                                        <span className="text-[10px] text-slate-400 font-medium italic">
+                                            Bấm vào từ để chỉnh sửa trực tiếp
+                                        </span>
+                                    </div>
+
+                                    <div className="max-h-[340px] overflow-y-auto p-2 space-y-1.5 custom-scrollbar">
+                                        {globalMatchedCards.length === 0 ? (
+                                            <div className="py-8 text-center text-xs text-slate-400 dark:text-slate-500 italic">
+                                                Không tìm thấy từ vựng nào khớp với &quot;{searchQuery}&quot;
+                                            </div>
+                                        ) : (
+                                            globalMatchedCards.slice(0, 50).map((c) => {
+                                                const setInfo = getCardStudySetInfo(c);
+                                                return (
+                                                    <div
+                                                        key={c.id}
+                                                        onClick={() => {
+                                                            setEditingCard(c);
+                                                            setIsSearchDropdownOpen(false);
+                                                        }}
+                                                        className="w-full text-left p-2.5 rounded-xl bg-slate-50/70 dark:bg-slate-800/40 hover:bg-indigo-50/90 dark:hover:bg-indigo-950/50 border border-slate-100 dark:border-slate-800/70 hover:border-indigo-300 dark:hover:border-indigo-800 transition-all flex items-center justify-between gap-3 group cursor-pointer"
+                                                    >
+                                                        <div className="min-w-0 flex-1 space-y-0.5">
+                                                            <div className="flex items-center gap-2 flex-wrap">
+                                                                <span className="font-japanese font-bold text-sm text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                                                    <FuriganaText text={c.frontWithFurigana || c.front} />
+                                                                </span>
+                                                                {c.sinoVietnamese && (
+                                                                    <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.2 rounded border border-amber-200/50 dark:border-amber-800/40">
+                                                                        {c.sinoVietnamese}
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                            <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-1 font-medium">
+                                                                {c.back}
+                                                            </p>
+                                                            <div className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400">
+                                                                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-200/60 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 font-medium">
+                                                                    <Folder className="w-2.5 h-2.5 text-indigo-500 shrink-0" />
+                                                                    <span className="truncate max-w-[140px] sm:max-w-[200px]">{setInfo.name}</span>
+                                                                </span>
+                                                                {setInfo.parentName && (
+                                                                    <span className="text-slate-400 text-[9px]">
+                                                                        (trong {setInfo.parentName})
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="shrink-0 flex items-center gap-1.5">
+                                                            <button
+                                                                type="button"
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    setEditingCard(c);
+                                                                    setIsSearchDropdownOpen(false);
+                                                                }}
+                                                                className="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-[11px] font-bold flex items-center gap-1 shadow-xs transition-transform active:scale-95 cursor-pointer"
+                                                                title="Chỉnh sửa từ vựng này"
+                                                            >
+                                                                <Edit3 className="w-3 h-3" />
+                                                                <span>Sửa</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })
+                                        )}
+                                        {globalMatchedCards.length > 50 && (
+                                            <p className="text-center text-[10px] text-slate-400 italic py-1 font-medium">
+                                                Hiển thị 50 / {globalMatchedCards.length} từ vựng khớp...
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
                             )}
                         </div>
                         {onAddParentFolder && (
@@ -608,25 +771,51 @@ const LibraryScreen = ({
                                     {searchQuery && (() => {
                                         const matchedCards = filteredAllCards.filter(c => cardFolders[c.id] === folder.id || c.folderId === folder.id).filter(c => 
                                             (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                            (c.reading || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                            (c.frontWithFurigana || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                                             (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                                             (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                                             (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
                                         );
                                         if (matchedCards.length > 0) {
+                                            const isExpanded = expandedMatchSetIds.has(folder.id);
+                                            const displayCards = isExpanded ? matchedCards : matchedCards.slice(0, 3);
                                             return (
-                                                <div className="mt-2 flex flex-wrap gap-1 bg-emerald-50/50 dark:bg-emerald-950/20 p-2 rounded-xl border border-emerald-100 dark:border-emerald-900/30">
-                                                    <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 block w-full mb-0.5">
-                                                        Từ vựng khớp ({matchedCards.length}):
-                                                    </span>
-                                                    {matchedCards.slice(0, 2).map((c, idx) => (
-                                                        <span key={idx} className="text-[10px] px-1.5 py-0.5 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 rounded font-medium">
-                                                            {c.front} ({c.back})
+                                                <div className="mt-2.5 flex flex-wrap gap-1.5 bg-emerald-50/70 dark:bg-emerald-950/30 p-2.5 rounded-xl border border-emerald-200/60 dark:border-emerald-900/40">
+                                                    <div className="flex items-center justify-between w-full mb-1">
+                                                        <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
+                                                            <Sparkles className="w-3 h-3 text-emerald-500" />
+                                                            Từ vựng khớp ({matchedCards.length}):
                                                         </span>
+                                                        <span className="text-[9px] text-emerald-600/80 dark:text-emerald-400/80 italic font-medium">Bấm để sửa</span>
+                                                    </div>
+                                                    {displayCards.map((c, idx) => (
+                                                        <button
+                                                            key={c.id || idx}
+                                                            type="button"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                setEditingCard(c);
+                                                            }}
+                                                            className="text-[11px] px-2 py-1 bg-white dark:bg-slate-900 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 text-emerald-900 dark:text-emerald-200 rounded-lg font-medium border border-emerald-200 dark:border-emerald-800 transition-all hover:scale-105 active:scale-95 flex items-center gap-1.5 shadow-xs cursor-pointer group/btn"
+                                                            title="Bấm để chỉnh sửa trực tiếp từ vựng này"
+                                                        >
+                                                            <span className="font-japanese font-bold"><FuriganaText text={c.frontWithFurigana || c.front} /></span>
+                                                            <span className="text-slate-500 dark:text-slate-400 text-[10px]">({c.back})</span>
+                                                            <Edit3 className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400 opacity-60 group-hover/btn:opacity-100 shrink-0" />
+                                                        </button>
                                                     ))}
-                                                    {matchedCards.length > 2 && (
-                                                        <span className="text-[9px] text-slate-400 font-medium self-center ml-1 font-mono">
-                                                            +{matchedCards.length - 2} khác
-                                                        </span>
+                                                    {matchedCards.length > 3 && (
+                                                        <button
+                                                            type="button"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                toggleExpandMatchSet(folder.id);
+                                                            }}
+                                                            className="text-[10px] px-2 py-1 bg-emerald-100/80 dark:bg-emerald-900/60 hover:bg-emerald-200 dark:hover:bg-emerald-800 text-emerald-800 dark:text-emerald-300 rounded-md font-mono font-bold transition-colors self-center cursor-pointer"
+                                                        >
+                                                            {isExpanded ? 'Thu gọn' : `+${matchedCards.length - 3} khác`}
+                                                        </button>
                                                     )}
                                                 </div>
                                             );
@@ -955,6 +1144,25 @@ const LibraryScreen = ({
                         </div>
                     </form>
                 </div>
+            )}
+            {/* EDIT VOCABULARY CARD MODAL POPUP */}
+            {editingCard && (
+                <EditCardModal
+                    card={editingCard}
+                    onSave={async (cardIdOrData, updatedData) => {
+                        if (onSaveChanges) {
+                            await onSaveChanges(cardIdOrData, updatedData);
+                        } else if (onUpdateCard) {
+                            await onUpdateCard(cardIdOrData, 'all', updatedData);
+                        }
+                        setEditingCard(null);
+                        showToast('Đã cập nhật từ vựng thành công!', 'success');
+                    }}
+                    onClose={() => setEditingCard(null)}
+                    onGeminiAssist={onGeminiAssist}
+                    allCards={allCards}
+                    canUserUseAI={canUserUseAI}
+                />
             )}
         </div>
     );
