@@ -576,7 +576,7 @@ const Sidebar = ({
     return (
         <>
             {/* Top Fixed Mobile Header Bar - Fixed at z-[99999] above everything with Safe Area Inset Support */}
-            <header className="lg:hidden fixed top-0 left-0 right-0 z-[99999] bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-b border-slate-200/80 dark:border-slate-800/80 px-4 pb-2.5 pt-[max(0.625rem,env(safe-area-inset-top))] flex items-center justify-between shadow-lg">
+            <header className="lg:hidden fixed top-0 left-0 right-0 z-[99999] bg-white dark:bg-slate-900 border-b border-slate-200/90 dark:border-slate-800/90 px-4 pb-2.5 pt-[max(0.625rem,env(safe-area-inset-top))] flex items-center justify-between shadow-xs">
                 <Link to={ROUTES.HOME} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center space-x-2.5 group active:scale-95 transition-transform">
                     <div className="w-9 h-9 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 group-hover:scale-105 transition-transform">
                         <BookOpen className="w-5 h-5" />
@@ -627,7 +627,7 @@ const Sidebar = ({
 
             {/* Mobile menu drawer - Full-height Overlay anchored beneath Top Header Bar */}
             {isMobileMenuOpen && (
-                <div className="lg:hidden fixed inset-x-0 top-[56px] bottom-0 z-[99998] bg-white/98 dark:bg-slate-950/98 backdrop-blur-2xl flex flex-col justify-between overflow-y-auto animate-fade-in p-3 space-y-4 shadow-2xl">
+                <div className="lg:hidden fixed inset-x-0 top-[calc(3.5rem+env(safe-area-inset-top,0px))] bottom-0 z-[99998] bg-white dark:bg-slate-950 flex flex-col justify-between overflow-y-auto animate-fade-in p-3 space-y-4 shadow-2xl">
                     {/* User Profile Capsule on Mobile Drawer Header */}
                     {(userId || auth?.currentUser) && (
                         <Link
