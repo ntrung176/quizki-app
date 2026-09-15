@@ -3,23 +3,39 @@ import { X, Copy, Check, FileJson, Download, AlertCircle } from 'lucide-react';
 import { showToast } from '../../utils/toast';
 import { cleanJapaneseExampleSentence } from '../../utils/furiganaHelper';
 
-const SAMPLE_PROMPT = `Hãy tạo cho tôi danh sách từ vựng tiếng Nhật theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào).
+const SAMPLE_PROMPT = `Hãy tạo cho tôi danh sách từ vựng tiếng Nhật theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
 
-LƯU Ý QUAN TRỌNG VỀ CÂU VÍ DỤ: Hãy tạo câu ví dụ tự nhiên hoàn chỉnh thể hiện cách dùng thông dụng của từ vựng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
+LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
+1. Mỗi từ vựng hãy tạo từ 2 đến 3 câu ví dụ tự nhiên hoàn chỉnh thể hiện các ngữ cảnh và cấu trúc câu thông dụng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
+2. Phân dòng (\\n) và đánh số thứ tự 1., 2., 3. cho từng câu ví dụ ở trường "example".
+3. Dịch nghĩa tiếng Việt tương ứng cho từng câu ở trường "exampleMeaning", phân dòng (\\n) và đánh số 1., 2., 3. khớp hoàn toàn với các câu ở trường "example".
 
 [
   {
-    "front": "Từ vựng / Kanji (ví dụ: 勉強)",
-    "reading": "Cách đọc Hiragana (ví dụ: べんきょう)",
-    "back": "Nghĩa tiếng Việt (ví dụ: Học tập, học hành)",
-    "sinoVietnamese": "Âm Hán Việt (ví dụ: MIỄN CƯỜNG)",
-    "pos": "Từ loại (ví dụ: Danh từ / Động từ nhóm 3)",
-    "level": "Cấp độ JLPT (ví dụ: N5 / N4 / N3 / N2 / N1)",
-    "example": "Câu ví dụ tiếng Nhật hoàn chỉnh thể hiện cách dùng thông dụng (ví dụ: 毎日日本語を勉強します。)",
-    "exampleMeaning": "Dịch câu ví dụ tiếng Việt (ví dụ: Tôi học tiếng Nhật mỗi ngày.)",
-    "synonym": "Từ đồng nghĩa nếu có (ví dụ: 学習)",
-    "synonymSinoVietnamese": "Hán Việt từ đồng nghĩa (ví dụ: HỌC TẬP)",
-    "nuance": "Sắc thái / Ghi chú ngữ cảnh (ví dụ: Dùng trong ngữ cảnh học tập kiến thức, thi cử)"
+    "front": "勉強",
+    "reading": "べんきょう",
+    "back": "Học tập, học hành; nghiên cứu",
+    "sinoVietnamese": "MIỄN CƯỜNG",
+    "pos": "Danh từ / Động từ nhóm 3",
+    "level": "N5",
+    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。\\n3. 社会に出てからの方が勉強になることが多い。",
+    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.\\n3. Sau khi ra xã hội có nhiều điều giúp mình học hỏi được hơn.",
+    "synonym": "学習",
+    "synonymSinoVietnamese": "HỌC TẬP",
+    "nuance": "Dùng cho việc học tập kiến thức, thi cử hoặc học hỏi trải nghiệm thực tế."
+  },
+  {
+    "front": "約束",
+    "reading": "やくそく",
+    "back": "Lời hứa, hẹn ước; cuộc hẹn",
+    "sinoVietnamese": "ƯỚC THÚC",
+    "pos": "Danh từ / Động từ nhóm 3",
+    "level": "N5",
+    "example": "1. 明日友達と会う約束があります。\\n2. 一度した約束は必ず守らなければならない。",
+    "exampleMeaning": "1. Ngày mai tôi có hẹn gặp bạn bè.\\n2. Lời hứa một khi đã đưa ra thì nhất định phải giữ.",
+    "synonym": "契り",
+    "synonymSinoVietnamese": "KHẾ",
+    "nuance": "Dùng cho cả cuộc hẹn (appointment) lẫn lời hứa (promise)."
   }
 ]`;
 
@@ -97,9 +113,36 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                 const sinoVietnamese = String(item.sinoVietnamese || item.hanViet || item.sino_vietnamese || '').trim();
                 const pos = String(item.pos || item.partOfSpeech || item.type || '').trim();
                 const level = String(item.level || item.jlpt || item.jlptLevel || '').trim();
-                const rawExample = String(item.example || item.exampleSentence || item.sentence || '').trim();
+
+                let rawExample = '';
+                let rawExampleMeaning = '';
+
+                if (Array.isArray(item.examples) && item.examples.length > 0) {
+                    const exList = [];
+                    const exMeanList = [];
+                    item.examples.forEach((ex, exIdx) => {
+                        if (typeof ex === 'string') {
+                            exList.push(ex.match(/^\d+\./) ? ex : `${exIdx + 1}. ${ex}`);
+                        } else if (ex && typeof ex === 'object') {
+                            const sentence = ex.sentence || ex.ja || ex.japanese || ex.example || ex.text || '';
+                            const meaning = ex.meaning || ex.vi || ex.vietnamese || ex.exampleMeaning || ex.translation || '';
+                            if (sentence) exList.push(sentence.match(/^\d+\./) ? sentence : `${exIdx + 1}. ${sentence}`);
+                            if (meaning) exMeanList.push(meaning.match(/^\d+\./) ? meaning : `${exIdx + 1}. ${meaning}`);
+                        }
+                    });
+                    rawExample = exList.join('\n');
+                    rawExampleMeaning = exMeanList.join('\n');
+                } else {
+                    rawExample = Array.isArray(item.example)
+                        ? item.example.map((ex, exIdx) => (String(ex).match(/^\d+\./) ? String(ex) : `${exIdx + 1}. ${ex}`)).join('\n')
+                        : String(item.example || item.exampleSentence || item.sentence || '').trim();
+                    rawExampleMeaning = Array.isArray(item.exampleMeaning)
+                        ? item.exampleMeaning.map((exM, exMIdx) => (String(exM).match(/^\d+\./) ? String(exM) : `${exMIdx + 1}. ${exM}`)).join('\n')
+                        : String(item.exampleMeaning || item.exampleTranslation || item.example_meaning || item.sentence_meaning || '').trim();
+                }
+
                 const example = cleanJapaneseExampleSentence(rawExample);
-                const exampleMeaning = String(item.exampleMeaning || item.exampleTranslation || item.example_meaning || item.sentence_meaning || '').trim();
+                const exampleMeaning = rawExampleMeaning.trim();
                 const synonym = String(item.synonym || item.synonyms || '').trim();
                 const synonymSinoVietnamese = String(item.synonymSinoVietnamese || item.synonymHanViet || item.synonym_sino_vietnamese || '').trim();
                 const nuance = String(item.nuance || item.note || item.notes || '').trim();
@@ -207,7 +250,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                             setErrorMsg('');
                         }}
                         rows={6}
-                        placeholder={`Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ",\n    "level": "N5",\n    "example": "毎日日本語を勉強します。",\n    "exampleMeaning": "Tôi học tiếng Nhật mỗi ngày.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong ngữ cảnh học tập kiến thức, thi cử."\n  }\n]`}
+                        placeholder={`Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ / Động từ nhóm 3",\n    "level": "N5",\n    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。",\n    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong học tập kiến thức, thi cử."\n  }\n]`}
                         className="w-full p-3.5 text-xs font-mono bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 transition-all custom-scrollbar"
                     />
                     {errorMsg && (

@@ -259,6 +259,6 @@ export const cleanJapaneseExampleSentence = (text) => {
         str = str.replace(/([\(（][\u3040-\u309F\u30A0-\u30FF\s]+[\)）])/g, '');
     }
 
-    // Clean any remaining double spaces
-    return str.replace(/\s+/g, ' ').trim();
+    // Clean any remaining double spaces while preserving line breaks
+    return str.split('\n').map(line => line.replace(/[^\S\r\n]+/g, ' ').trim()).join('\n').trim();
 };
