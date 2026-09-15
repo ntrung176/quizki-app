@@ -7,11 +7,11 @@ export const DEFAULT_CARD_SETTINGS = {
     },
     back: {
         meaning: true,
+        furigana: true,
+        word: false,
         hanviet: true,
         synonym: false,
         example: false,
-        word: false,
-        furigana: false,
         reading: false,
         exampleFurigana: true,
         exampleMeaning: true,

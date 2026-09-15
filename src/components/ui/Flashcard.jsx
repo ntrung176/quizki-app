@@ -518,13 +518,13 @@ const Flashcard = ({
                         </div>
                     )}
 
-                    {/* Khi ở chế độ swapSides: Hiển thị lại từ vựng Kanji/Furigana ở mặt đáp án */}
-                    {cardSettings?.swapSides && (
+                    {/* Hiển thị từ vựng Kanji/Furigana ở mặt đáp án khi swapSides hoặc khi bật cardSettings.back.word */}
+                    {(cardSettings?.swapSides || cardSettings.back?.word) && (
                         <div className={`${scale.wordSize || 'text-3xl font-extrabold'} shrink-0 font-bold ${wordColorClass} select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
                             {isEnglishCard ? (
                                 <span>{card.front}</span>
                             ) : (
-                                <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} forceHide={false} className="break-words whitespace-normal text-center" />
+                                <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} forceHide={cardSettings.back?.furigana === false} className="break-words whitespace-normal text-center" />
                             )}
                         </div>
                     )}
