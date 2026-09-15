@@ -109,8 +109,8 @@
   "library": {
     "vocabTitle": "Perpustakaan Kosakata",
     "vocabSub": "Kelola folder pribadi, set pelajaran, dan tarik & lepas untuk pengelompokan mudah.",
-    "newFolder": "+ Folder Baru",
-    "newSet": "+ Buat Set Baru",
+    "newFolder": "Folder Baru",
+    "newSet": "Buat Set Baru",
     "managedFolders": "Folder Kelolaan",
     "studySets": "Set Pelajaran",
     "dragTip": "💡 Tips: Anda dapat menahan dan menarik set pelajaran ke dalam folder untuk kemudahan penataan.",
@@ -128,14 +128,14 @@
     "setDescriptionLabel": "TAMBAH DESKRIPSI",
     "setDescriptionPlaceholder": "Jelaskan tujuan dari set kosakata ini...",
     "addCover": "Tambah Gambar Sampul",
-    "addRow": "+ Tambah Baris Baru",
+    "addRow": "Tambah Baris Baru",
     "aiBatch": "Generasi AI Masal",
     "ocrAdd": "Tambah Kata dari Gambar",
     "japaneseTerm": "ISTILAH JEPANG *",
     "definition": "DEFINISI *",
     "partOfSpeech": "JENIS KATA",
     "kanjiReading": "CARA BACA KANJI",
-    "addExample": "+ Tambah Kalimat Contoh",
+    "addExample": "Tambah Kalimat Contoh",
     "additionalOptions": "OPSI TAMBAHAN (GAMBAR, SINONIM, CATATAN)"
   },
   "books": {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Check, X, Loader2 } from 'lucide-react';
+import { Lightbulb, Check, X, Loader2 } from 'lucide-react';
 import { showToast } from '../../utils/toast';
 
 const InlineMnemonicEditor = ({
@@ -84,7 +84,7 @@ const InlineMnemonicEditor = ({
                     {isGeneratingAi ? (
                         <Loader2 className="w-3.5 h-3.5 animate-spin" />
                     ) : (
-                        <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                        <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
                     )}
                     AI Gợi ý
                 </button>

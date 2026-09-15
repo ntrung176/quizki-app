@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Settings, User, Volume2, VolumeX, Music, Sun, Moon, ArrowLeft, Save, Check, X, Palette, Shield, Trash2, Upload, Play, Mic, Edit, Type, Camera, Gift, Copy, Crown, Award, Sparkles, Zap, Eye, EyeOff } from 'lucide-react';
+import { 
+    Settings, User, Volume2, VolumeX, Sun, Moon, ArrowLeft, 
+    Save, Check, Shield, Upload, Play, Edit, Type, Camera, 
+    Gift, Copy, Crown, Award, Eye, EyeOff, Sparkles, RefreshCw
+} from 'lucide-react';
 import AvatarCropper from '../ui/AvatarCropper';
 import { SafeAvatarImage } from '../ui';
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
-import {
-    getSfxVolume, isSfxEnabled
-} from '../../utils/soundEffects';
+import { getSfxVolume, isSfxEnabled } from '../../utils/soundEffects';
 import { linkWithPopup, GoogleAuthProvider, unlink } from 'firebase/auth';
-import { auth } from '../../config/firebase';
+import { auth, db, appId } from '../../config/firebase';
+import { doc, setDoc } from 'firebase/firestore';
 import { showToast } from '../../utils/toast';
 import { TTS_VOICES, getTTSVoice, setTTSVoice, speakJapanese } from '../../utils/audio';
 import { getReferralStats, submitReferralCode } from '../../utils/referralService';
@@ -23,16 +26,88 @@ const getSettings = () => {
     } catch { return {}; }
 };
 const saveSettings = (settings) => {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    try {
+        localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    } catch (_) {}
 };
+
+// 50 clean cartoon animal avatars
+const AVATAR_LIST = [
+    { id: 'default', emoji: '👤', name: 'Mặc định' },
+    { id: 'fox', emoji: '🦊', name: 'Cáo' },
+    { id: 'cat', emoji: '🐱', name: 'Mèo' },
+    { id: 'dog', emoji: '🐶', name: 'Chó' },
+    { id: 'rabbit', emoji: '🐰', name: 'Thỏ' },
+    { id: 'bear', emoji: '🐻', name: 'Gấu' },
+    { id: 'panda', emoji: '🐼', name: 'Gấu trúc' },
+    { id: 'koala', emoji: '🐨', name: 'Koala' },
+    { id: 'tiger', emoji: '🐯', name: 'Hổ' },
+    { id: 'lion', emoji: '🦁', name: 'Sư tử' },
+    { id: 'cow', emoji: '🐮', name: 'Bò' },
+    { id: 'pig', emoji: '🐷', name: 'Heo' },
+    { id: 'mouse', emoji: '🐭', name: 'Chuột' },
+    { id: 'hamster', emoji: '🐹', name: 'Hamster' },
+    { id: 'penguin', emoji: '🐧', name: 'Chim cánh cụt' },
+    { id: 'chicken', emoji: '🐔', name: 'Gà' },
+    { id: 'duck', emoji: '🦆', name: 'Vịt' },
+    { id: 'owl', emoji: '🦉', name: 'Cú' },
+    { id: 'eagle', emoji: '🦅', name: 'Đại bàng' },
+    { id: 'parrot', emoji: '🦜', name: 'Vẹt' },
+    { id: 'flamingo', emoji: '🦩', name: 'Hồng hạc' },
+    { id: 'frog', emoji: '🐸', name: 'Ếch' },
+    { id: 'turtle', emoji: '🐢', name: 'Rùa' },
+    { id: 'snake', emoji: '🐍', name: 'Rắn' },
+    { id: 'dragon', emoji: '🐉', name: 'Rồng' },
+    { id: 'whale', emoji: '🐳', name: 'Cá voi' },
+    { id: 'dolphin', emoji: '🐬', name: 'Cá heo' },
+    { id: 'octopus', emoji: '🐙', name: 'Bạch tuộc' },
+    { id: 'fish', emoji: '🐠', name: 'Cá' },
+    { id: 'shark', emoji: '🦈', name: 'Cá mập' },
+    { id: 'butterfly', emoji: '🦋', name: 'Bướm' },
+    { id: 'bee', emoji: '🐝', name: 'Ong' },
+    { id: 'ladybug', emoji: '🐞', name: 'Bọ rùa' },
+    { id: 'snail', emoji: '🐌', name: 'Ốc sên' },
+    { id: 'monkey', emoji: '🐵', name: 'Khỉ' },
+    { id: 'gorilla', emoji: '🦍', name: 'Khỉ đột' },
+    { id: 'horse', emoji: '🐴', name: 'Ngựa' },
+    { id: 'unicorn', emoji: '🦄', name: 'Kỳ lân' },
+    { id: 'zebra', emoji: '🦓', name: 'Ngựa vằn' },
+    { id: 'giraffe', emoji: '🦒', name: 'Hươu cao cổ' },
+    { id: 'elephant', emoji: '🐘', name: 'Voi' },
+    { id: 'rhino', emoji: '🦏', name: 'Tê giác' },
+    { id: 'hippo', emoji: '🦛', name: 'Hà mã' },
+    { id: 'camel', emoji: '🐫', name: 'Lạc đà' },
+    { id: 'deer', emoji: '🦌', name: 'Hươu' },
+    { id: 'wolf', emoji: '🐺', name: 'Sói' },
+    { id: 'bat', emoji: '🦇', name: 'Dơi' },
+    { id: 'raccoon', emoji: '🦝', name: 'Gấu mèo' },
+    { id: 'sloth', emoji: '🦥', name: 'Lười' },
+    { id: 'hedgehog', emoji: '🦔', name: 'Nhím' },
+];
+
+const getAvatarEmoji = (id) => AVATAR_LIST.find(a => a.id === id)?.emoji || '👤';
+const isCustomPhoto = (avatarValue) => typeof avatarValue === 'string' && avatarValue.startsWith('data:image/');
+const isPhotoUrl = (avatarValue) => typeof avatarValue === 'string' && (avatarValue.startsWith('data:image/') || avatarValue.startsWith('http://') || avatarValue.startsWith('https://'));
+
 // ==================== Settings Screen ====================
-const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = () => {}, userId = null, onUpdateProfileName = null, onUpdateAvatar = null, onChangePassword = null, isAdmin = false, userProfile = null, onBack = null }) => {
+const SettingsScreen = ({ 
+    profile = null, 
+    isDarkMode = false, 
+    setIsDarkMode = () => {}, 
+    userId = null, 
+    onUpdateProfileName = null, 
+    onUpdateAvatar = null, 
+    onChangePassword = null, 
+    isAdmin = false, 
+    userProfile = null, 
+    onBack = null 
+}) => {
     const navigate = useNavigate();
     const { isEnglishMode } = useTargetLanguage();
     const [activeTab, setActiveTab] = useState('account');
 
     const effectiveProfile = profile || userProfile;
-    const effectiveUserId = userId || effectiveProfile?.uid;
+    const effectiveUserId = userId || effectiveProfile?.uid || auth?.currentUser?.uid;
 
     const isPremiumUser = (effectiveProfile?.unlockedSpecializedPackages && (
         effectiveProfile.unlockedSpecializedPackages.includes('premium') ||
@@ -60,8 +135,8 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
     ) || false;
 
     const getActivePackageName = () => {
-        if (!hasPremium) return 'Thành viên Free';
-        const packages = profile?.unlockedSpecializedPackages || [];
+        if (!hasPremium) return 'Thành viên Miễn phí';
+        const packages = effectiveProfile?.unlockedSpecializedPackages || [];
         if (packages.includes('premium_3y')) return 'Premium 3 Năm';
         if (packages.includes('premium_1y')) return 'Premium 1 Năm';
         if (packages.includes('premium_1m')) return 'Premium 1 Tháng';
@@ -76,22 +151,99 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
         return 'Premium';
     };
 
+    // XP calculation
+    const xpDetails = useMemo(() => {
+        const xp = Math.max(
+            Number(effectiveProfile?.xp || 0),
+            Number(effectiveProfile?.score || 0),
+            Number(effectiveProfile?.totalXp || 0)
+        );
+        return getLevelFromXp(xp);
+    }, [effectiveProfile?.xp, effectiveProfile?.score, effectiveProfile?.totalXp]);
+
+    // Profile Edit state
+    const [displayName, setDisplayName] = useState(effectiveProfile?.displayName || '');
+    const [isEditingName, setIsEditingName] = useState(false);
+    const [isSavingName, setIsSavingName] = useState(false);
+
+    // Password State
+    const [oldPassword, setOldPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [showOldPassword, setShowOldPassword] = useState(false);
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [isSavingPassword, setIsSavingPassword] = useState(false);
+
+    // Avatar state
+    const [showAvatarPicker, setShowAvatarPicker] = useState(false);
+    const [showAvatarCropper, setShowAvatarCropper] = useState(false);
+    const [avatarTab, setAvatarTab] = useState('emoji'); // 'emoji' | 'photo'
+
+    // Linked providers state
+    const [linkedProviders, setLinkedProviders] = useState([]);
+    const [isLinking, setIsLinking] = useState(false);
+
     // Referral States
     const [refStats, setRefStats] = useState({ totalInvited: 0, premiumInvited: 0, friends: [] });
     const [loadingStats, setLoadingStats] = useState(true);
     const [enteredCode, setEnteredCode] = useState('');
     const [submitLoading, setSubmitLoading] = useState(false);
-    const [successMsg, setSuccessMsg] = useState('');
-    const [errorMsg, setErrorMsg] = useState('');
     const [copied, setCopied] = useState(false);
     const [copiedRaw, setCopiedRaw] = useState(false);
 
-    // Fetch Referral Stats
+    // General Settings State
+    const cloudSettings = effectiveProfile?.appSettings || {};
+    const localSettings = getSettings();
+
+    const [sfxVolume, setSfxVolume] = useState(() => {
+        if (cloudSettings.sfxVolume !== undefined) return cloudSettings.sfxVolume;
+        return getSfxVolume();
+    });
+    const [sfxEnabled, setSfxEnabled] = useState(() => {
+        if (cloudSettings.sfxEnabled !== undefined) return cloudSettings.sfxEnabled;
+        return isSfxEnabled();
+    });
+    const [furiganaColor, setFuriganaColor] = useState(() => {
+        return cloudSettings.furiganaColor || localSettings.furiganaColor || '#2563eb';
+    });
+    const [furiganaFontSize, setFuriganaFontSize] = useState(() => {
+        return cloudSettings.furiganaFontSize || localSettings.furiganaFontSize || '0.6em';
+    });
+    const [ttsVoice, setTtsVoiceState] = useState(() => {
+        return cloudSettings.ttsVoice || getTTSVoice();
+    });
+    const [ttsSpeed, setTtsSpeed] = useState(() => {
+        if (cloudSettings.ttsSpeed !== undefined) return cloudSettings.ttsSpeed;
+        return localSettings.ttsSpeed !== undefined ? localSettings.ttsSpeed : 1.0;
+    });
+    const [ttsVolume, setTtsVolume] = useState(() => {
+        return cloudSettings.ttsVolume || localSettings.ttsVolume || 'default';
+    });
+    const [isPreviewingVoice, setIsPreviewingVoice] = useState(false);
+    const [isSavingSettings, setIsSavingSettings] = useState(false);
+    const [saveSuccess, setSaveSuccess] = useState(false);
+
+    // Synchronize initial name when profile loads
     useEffect(() => {
-        if (!userId) return;
+        if (effectiveProfile?.displayName) {
+            setDisplayName(effectiveProfile.displayName);
+        }
+    }, [effectiveProfile?.displayName]);
+
+    // Check linked providers
+    useEffect(() => {
+        if (auth?.currentUser) {
+            setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
+        }
+    }, [auth?.currentUser, auth?.currentUser?.providerData]);
+
+    // Fetch referral statistics
+    useEffect(() => {
+        if (!effectiveUserId) return;
         const fetchStats = async () => {
             try {
-                const stats = await getReferralStats(userId);
+                const stats = await getReferralStats(effectiveUserId);
                 setRefStats(stats);
             } catch (e) {
                 console.error('Lỗi tải thống kê giới thiệu:', e);
@@ -100,18 +252,118 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
             }
         };
         fetchStats();
-    }, [userId]);
+    }, [effectiveUserId]);
 
-    const handleCopyCode = () => {
-        const link = profile?.referralCode ? `${window.location.origin}/?ref=${profile.referralCode}` : '';
-        if (!link) return;
-        navigator.clipboard.writeText(link);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+    // Handle Save Profile Display Name
+    const handleSaveProfile = async () => {
+        if (!displayName.trim()) return;
+        setIsSavingName(true);
+        try {
+            if (onUpdateProfileName) {
+                await onUpdateProfileName(displayName.trim());
+            }
+            showToast('Đã cập nhật tên hiển thị thành công!', 'success');
+            setIsEditingName(false);
+        } catch (e) {
+            showToast('Lỗi: ' + e.message, 'error');
+        } finally {
+            setIsSavingName(false);
+        }
     };
 
+    // Handle select avatar
+    const handleSelectAvatar = async (avatarValue) => {
+        if (!onUpdateAvatar) return;
+        try {
+            await onUpdateAvatar(avatarValue);
+            setShowAvatarPicker(false);
+            setShowAvatarCropper(false);
+            showToast('Đã cập nhật ảnh đại diện!', 'success');
+        } catch (e) {
+            showToast('Lỗi: ' + e.message, 'error');
+        }
+    };
+
+    // Handle change password
+    const handleChangePassword = async () => {
+        if (linkedProviders.includes('password') && !oldPassword) {
+            showToast('Vui lòng nhập mật khẩu hiện tại', 'warning');
+            return;
+        }
+        if (newPassword.length < 6) {
+            showToast('Mật khẩu phải có ít nhất 6 ký tự', 'warning');
+            return;
+        }
+        if (newPassword !== confirmPassword) {
+            showToast('Mật khẩu xác nhận không khớp', 'error');
+            return;
+        }
+        setIsSavingPassword(true);
+        try {
+            await onChangePassword(oldPassword, newPassword);
+            setOldPassword('');
+            setNewPassword('');
+            setConfirmPassword('');
+            const hasPassword = linkedProviders.includes('password');
+            showToast(hasPassword ? 'Đã đổi mật khẩu thành công!' : 'Đã tạo mật khẩu thành công!', 'success');
+        } catch (e) {
+            console.error('Lỗi đổi mật khẩu:', e);
+            if (e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') {
+                showToast('Mật khẩu hiện tại không đúng.', 'error');
+            } else if (e.code === 'auth/requires-recent-login') {
+                showToast('Vì lý do bảo mật, bạn cần đăng xuất và đăng nhập lại trước khi tạo/đổi mật khẩu.', 'warning');
+            } else {
+                showToast('Lỗi: ' + (e.message || 'Không thể đổi mật khẩu'), 'error');
+            }
+        } finally {
+            setIsSavingPassword(false);
+        }
+    };
+
+    // Handle Link Google
+    const handleLinkGoogle = async () => {
+        if (!auth?.currentUser) return;
+        setIsLinking(true);
+        try {
+            const provider = new GoogleAuthProvider();
+            await linkWithPopup(auth.currentUser, provider);
+            setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
+            showToast('Đã liên kết tài khoản Google thành công!', 'success');
+        } catch (e) {
+            console.error('Lỗi liên kết:', e);
+            if (e.code === 'auth/credential-already-in-use') {
+                showToast('Tài khoản Google này đã gắn với người dùng khác.', 'error');
+            } else {
+                showToast('Lỗi liên kết: ' + e.message, 'error');
+            }
+        } finally {
+            setIsLinking(false);
+        }
+    };
+
+    // Handle Unlink Google
+    const handleUnlinkGoogle = async () => {
+        if (!auth?.currentUser) return;
+        if (linkedProviders.length <= 1) {
+            showToast('Không thể hủy liên kết phương thức đăng nhập duy nhất.', 'warning');
+            return;
+        }
+        setIsLinking(true);
+        try {
+            await unlink(auth.currentUser, 'google.com');
+            setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
+            showToast('Đã hủy liên kết tài khoản Google.', 'success');
+        } catch (e) {
+            console.error('Lỗi hủy liên kết:', e);
+            showToast('Lỗi: ' + e.message, 'error');
+        } finally {
+            setIsLinking(false);
+        }
+    };
+
+    // Referral Handlers
     const handleCopyRawCode = () => {
-        const code = profile?.referralCode || '';
+        const code = effectiveProfile?.referralCode || '';
         if (!code) return;
         navigator.clipboard.writeText(code);
         setCopiedRaw(true);
@@ -119,145 +371,76 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
     };
 
     const handleApplyReferral = async () => {
-        if (!enteredCode.trim() || !userId) return;
+        if (!enteredCode.trim() || !effectiveUserId) return;
         setSubmitLoading(true);
-        setErrorMsg('');
-        setSuccessMsg('');
         try {
-            const res = await submitReferralCode(userId, profile?.displayName || 'Người dùng', enteredCode.trim());
+            const res = await submitReferralCode(effectiveUserId, effectiveProfile?.displayName || 'Người dùng', enteredCode.trim());
             if (res.success) {
-                setSuccessMsg('Áp dụng mã giới thiệu thành công! Bạn nhận được 15 ngày Premium.');
-                showToast('Thành công', 'Áp dụng mã giới thiệu thành công!');
+                showToast('Áp dụng mã giới thiệu thành công! Bạn nhận được 1 tháng Premium.', 'success');
                 setTimeout(() => {
                     window.location.reload();
                 }, 1000);
             } else {
-                setErrorMsg(res.error || 'Mã không hợp lệ hoặc đã xảy ra lỗi.');
+                showToast(res.error || 'Mã không hợp lệ hoặc đã xảy ra lỗi.', 'error');
             }
         } catch (e) {
-            setErrorMsg(e.message || 'Mã không hợp lệ hoặc đã xảy ra lỗi.');
+            showToast(e.message || 'Mã không hợp lệ hoặc đã xảy ra lỗi.', 'error');
         } finally {
             setSubmitLoading(false);
         }
     };
-    const xpDetails = React.useMemo(() => {
-        const xp = Math.max(
-            Number(profile?.xp || 0),
-            Number(profile?.score || 0),
-            Number(profile?.totalXp || 0)
-        );
-        return getLevelFromXp(xp);
-    }, [profile?.xp, profile?.score, profile?.totalXp]);
 
-    // Account state
-    const [displayName, setDisplayName] = useState(effectiveProfile?.displayName || '');
-    const [isEditingName, setIsEditingName] = useState(false);
-    const [oldPassword, setOldPassword] = useState('');
-    const [newPassword, setNewPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [showOldPassword, setShowOldPassword] = useState(false);
-    const [showNewPassword, setShowNewPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [accountMsg, setAccountMsgState] = useState('');
-    const setAccountMsg = (msg) => {
-        if (!msg) {
-            setAccountMsgState('');
-            return;
-        }
-        setAccountMsgState(msg);
-        const isError = msg.includes('Lỗi') || msg.includes('không khớp') || msg.includes('không đúng') || msg.includes('gắn với người dùng khác') || msg.includes('thất bại');
-        const isWarning = msg.includes('Vui lòng') || msg.includes('Không thể') || msg.includes('Vì lý do bảo mật') || msg.includes('ít nhất');
-        const type = isError ? 'error' : (isWarning ? 'warning' : 'success');
-        showToast(msg, type);
-    };
-    const [isSaving, setIsSaving] = useState(false);
-    const [showAvatarPicker, setShowAvatarPicker] = useState(false);
-    const [showAvatarCropper, setShowAvatarCropper] = useState(false);
-    const [avatarTab, setAvatarTab] = useState('emoji'); // 'emoji' | 'photo'
-
-    // Update display name when profile changes
-    useEffect(() => {
-        if (effectiveProfile?.displayName) setDisplayName(effectiveProfile.displayName);
-    }, [effectiveProfile?.displayName]);
-
-    // Handle save profile
-    const handleSaveProfile = async () => {
-        if (!displayName.trim()) return;
-        setIsSaving(true);
+    // Save & Cloud Sync General Settings
+    const handleSaveGeneralSettings = async () => {
+        setIsSavingSettings(true);
         try {
-            if (onUpdateProfileName) {
-                await onUpdateProfileName(displayName.trim());
+            const settingsObj = {
+                furiganaColor,
+                furiganaFontSize,
+                sfxEnabled,
+                sfxVolume,
+                ttsVoice,
+                ttsSpeed,
+                ttsVolume,
+                isDarkMode
+            };
+
+            // 1. Save locally
+            saveSettings(settingsObj);
+            setTTSVoice(ttsVoice);
+            localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+            if (furiganaColor) {
+                document.documentElement.style.setProperty('--furigana-color', furiganaColor);
             }
-            setAccountMsg('Đã cập nhật tên hiển thị thành công!');
-        } catch (e) {
-            setAccountMsg('Lỗi: ' + e.message);
+            if (furiganaFontSize) {
+                document.documentElement.style.setProperty('--furigana-font-size', furiganaFontSize);
+            }
+            window.dispatchEvent(new Event('quizki-settings-changed'));
+
+            // 2. Sync to Firestore for web and mobile shared usage
+            if (effectiveUserId && db && appId) {
+                const profileRef = doc(db, `artifacts/${appId}/users/${effectiveUserId}/settings/profile`);
+                await setDoc(profileRef, {
+                    appSettings: settingsObj,
+                    updatedAt: Date.now()
+                }, { merge: true });
+            }
+
+            setSaveSuccess(true);
+            showToast('Đã lưu và đồng bộ cài đặt thành công!', 'success');
+            setTimeout(() => setSaveSuccess(false), 2500);
+        } catch (err) {
+            console.error('Lỗi khi lưu cài đặt:', err);
+            showToast('Lỗi khi đồng bộ cài đặt: ' + (err.message || 'Không thể lưu'), 'error');
+        } finally {
+            setIsSavingSettings(false);
         }
-        setIsSaving(false);
     };
 
-    // 50 cute cartoon animal avatars
-    const AVATAR_LIST = [
-        { id: 'default', emoji: '👤', name: 'Mặc định' },
-        { id: 'fox', emoji: '🦊', name: 'Cáo' },
-        { id: 'cat', emoji: '🐱', name: 'Mèo' },
-        { id: 'dog', emoji: '🐶', name: 'Chó' },
-        { id: 'rabbit', emoji: '🐰', name: 'Thỏ' },
-        { id: 'bear', emoji: '🐻', name: 'Gấu' },
-        { id: 'panda', emoji: '🐼', name: 'Gấu trúc' },
-        { id: 'koala', emoji: '🐨', name: 'Koala' },
-        { id: 'tiger', emoji: '🐯', name: 'Hổ' },
-        { id: 'lion', emoji: '🦁', name: 'Sư tử' },
-        { id: 'cow', emoji: '🐮', name: 'Bò' },
-        { id: 'pig', emoji: '🐷', name: 'Heo' },
-        { id: 'mouse', emoji: '🐭', name: 'Chuột' },
-        { id: 'hamster', emoji: '🐹', name: 'Hamster' },
-        { id: 'penguin', emoji: '🐧', name: 'Chim cánh cụt' },
-        { id: 'chicken', emoji: '🐔', name: 'Gà' },
-        { id: 'duck', emoji: '🦆', name: 'Vịt' },
-        { id: 'owl', emoji: '🦉', name: 'Cú' },
-        { id: 'eagle', emoji: '🦅', name: 'Đại bàng' },
-        { id: 'parrot', emoji: '🦜', name: 'Vẹt' },
-        { id: 'flamingo', emoji: '🦩', name: 'Hồng hạc' },
-        { id: 'frog', emoji: '🐸', name: 'Ếch' },
-        { id: 'turtle', emoji: '🐢', name: 'Rùa' },
-        { id: 'snake', emoji: '🐍', name: 'Rắn' },
-        { id: 'dragon', emoji: '🐉', name: 'Rồng' },
-        { id: 'whale', emoji: '🐳', name: 'Cá voi' },
-        { id: 'dolphin', emoji: '🐬', name: 'Cá heo' },
-        { id: 'octopus', emoji: '🐙', name: 'Bạch tuộc' },
-        { id: 'fish', emoji: '🐠', name: 'Cá' },
-        { id: 'shark', emoji: '🦈', name: 'Cá mập' },
-        { id: 'butterfly', emoji: '🦋', name: 'Bướm' },
-        { id: 'bee', emoji: '🐝', name: 'Ong' },
-        { id: 'ladybug', emoji: '🐞', name: 'Bọ rùa' },
-        { id: 'snail', emoji: '🐌', name: 'Ốc sên' },
-        { id: 'monkey', emoji: '🐵', name: 'Khỉ' },
-        { id: 'gorilla', emoji: '🦍', name: 'Khỉ đột' },
-        { id: 'horse', emoji: '🐴', name: 'Ngựa' },
-        { id: 'unicorn', emoji: '🦄', name: 'Kỳ lân' },
-        { id: 'zebra', emoji: '🦓', name: 'Ngựa vằn' },
-        { id: 'giraffe', emoji: '🦒', name: 'Hươu cao cổ' },
-        { id: 'elephant', emoji: '🐘', name: 'Voi' },
-        { id: 'rhino', emoji: '🦏', name: 'Tê giác' },
-        { id: 'hippo', emoji: '🦛', name: 'Hà mã' },
-        { id: 'camel', emoji: '🐫', name: 'Lạc đà' },
-        { id: 'deer', emoji: '🦌', name: 'Hươu' },
-        { id: 'wolf', emoji: '🐺', name: 'Sói' },
-        { id: 'bat', emoji: '🦇', name: 'Dơi' },
-        { id: 'raccoon', emoji: '🦝', name: 'Gấu mèo' },
-        { id: 'sloth', emoji: '🦥', name: 'Lười' },
-        { id: 'hedgehog', emoji: '🦔', name: 'Nhím' },
-        { id: 'shrimp', emoji: '🦐', name: 'Tôm' },
-    ];
-    const getAvatarEmoji = (id) => AVATAR_LIST.find(a => a.id === id)?.emoji || '🦊';
-        // Kiểm tra avatar có phải ảnh custom hoặc URL không
-    const isCustomPhoto = (avatarValue) => typeof avatarValue === 'string' && avatarValue.startsWith('data:image/');
-    const isPhotoUrl = (avatarValue) => typeof avatarValue === 'string' && (avatarValue.startsWith('data:image/') || avatarValue.startsWith('http://') || avatarValue.startsWith('https://'));
-    // Lấy display content cho avatar
-    const getAvatarDisplay = (avatarValue, sizeClass = 'text-5xl') => {
+    const getAvatarDisplay = (avatarValue) => {
         const fallbackChar = (
-            <span className={sizeClass}>
-                {profile?.displayName ? profile.displayName.charAt(0).toUpperCase() : '👤'}
+            <span className="text-3xl font-black text-slate-700 dark:text-slate-200">
+                {effectiveProfile?.displayName ? effectiveProfile.displayName.charAt(0).toUpperCase() : '👤'}
             </span>
         );
 
@@ -284,320 +467,165 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
             }
             return fallbackChar;
         }
-        return <span className={sizeClass}>{getAvatarEmoji(avatarValue)}</span>;
+        return <span className="text-4xl leading-none">{getAvatarEmoji(avatarValue)}</span>;
     };
-    // Linked accounts state
-    const [linkedProviders, setLinkedProviders] = useState([]);
-    const [isLinking, setIsLinking] = useState(false);
-    // Settings state
-    const [sfxVolume, setSfxVolume] = useState(() => getSfxVolume());
-    const [sfxEnabled, setSfxEnabled] = useState(() => isSfxEnabled());
-    const [furiganaEnabled, setFuriganaEnabled] = useState(() => {
-        const settings = getSettings();
-        return settings.furiganaEnabled !== false;
-    });
-    const [furiganaColor, setFuriganaColor] = useState(() => {
-        const settings = getSettings();
-        return settings.furiganaColor || '#8b5cf6'; // Default color
-    });
-    const [furiganaFontSize, setFuriganaFontSize] = useState(() => {
-        const settings = getSettings();
-        return settings.furiganaFontSize || '0.6em'; // Default size
-    });
 
-    // TTS voice state
-    const [ttsVoice, setTtsVoiceState] = useState(() => getTTSVoice());
-    const [ttsSpeed, setTtsSpeed] = useState(() => {
-        const settings = getSettings();
-        return settings.ttsSpeed !== undefined ? settings.ttsSpeed : 1.0;
-    });
-    const [ttsVolume, setTtsVolume] = useState(() => {
-        const settings = getSettings();
-        return settings.ttsVolume || 'default';
-    });
-    const [isPreviewingVoice, setIsPreviewingVoice] = useState(false);
-    // Load available providers
-    useEffect(() => {
-        if (auth?.currentUser) {
-            setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
-        }
-    }, [auth?.currentUser, auth?.currentUser?.providerData]);
-    // Save settings whenever they change
-    useEffect(() => {
-        const settings = getSettings();
-        settings.sfxVolume = sfxVolume;
-        settings.sfxEnabled = sfxEnabled;
-        settings.furiganaEnabled = furiganaEnabled;
-        settings.furiganaColor = furiganaColor;
-        settings.furiganaFontSize = furiganaFontSize;
-        settings.ttsSpeed = ttsSpeed;
-        settings.ttsVolume = ttsVolume;
-        saveSettings(settings);
-        // Dispatch event for other components to react
-        window.dispatchEvent(new Event('quizki-settings-changed'));
-    }, [sfxVolume, sfxEnabled, furiganaEnabled, furiganaColor, furiganaFontSize, ttsSpeed, ttsVolume]);
-    // Handle select avatar (emoji id hoặc base64 data URL)
-    const handleSelectAvatar = async (avatarValue) => {
-        if (!onUpdateAvatar) return;
-        try {
-            await onUpdateAvatar(avatarValue);
-            setShowAvatarPicker(false);
-            setShowAvatarCropper(false);
-            setAccountMsg('Đã cập nhật ảnh đại diện!');
-            setTimeout(() => setAccountMsg(''), 3000);
-        } catch (e) {
-            setAccountMsg('Lỗi: ' + e.message);
-        }
-    };
-    // Handle cropped photo confirm
-    const handleCroppedPhoto = async (base64) => {
-        await handleSelectAvatar(base64);
-    };
-    // Handle change password
-    const handleChangePassword = async () => {
-        if (linkedProviders.includes('password') && !oldPassword) {
-            setAccountMsg('Vui lòng nhập mật khẩu hiện tại');
-            return;
-        }
-        if (newPassword.length < 6) {
-            setAccountMsg('Mật khẩu phải có ít nhất 6 ký tự');
-            return;
-        }
-        if (newPassword !== confirmPassword) {
-            setAccountMsg('Mật khẩu xác nhận không khớp');
-            return;
-        }
-        setIsSaving(true);
-        try {
-            await onChangePassword(oldPassword, newPassword);
-            setOldPassword('');
-            setNewPassword('');
-            const hasPassword = linkedProviders.includes('password');
-            setAccountMsg(hasPassword ? 'Đã đổi mật khẩu thành công!' : 'Đã tạo mật khẩu thành công!');
-            setTimeout(() => setAccountMsg(''), 3000);
-        } catch (e) {
-            console.error('Lỗi đổi mật khẩu:', e);
-            if (e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') {
-                setAccountMsg('Mật khẩu hiện tại không đúng.');
-            } else if (e.code === 'auth/requires-recent-login') {
-                setAccountMsg('Vì lý do bảo mật, bạn cần đăng xuất và đăng nhập lại trước khi tạo/đổi mật khẩu.');
-            } else {
-                setAccountMsg('Lỗi: ' + (e.message || 'Không thể đổi mật khẩu'));
-            }
-        }
-        setIsSaving(false);
-    };
-    // Handle Link Google
-    const handleLinkGoogle = async () => {
-        if (!auth?.currentUser) return;
-        setIsLinking(true);
-        try {
-            const provider = new GoogleAuthProvider();
-            await linkWithPopup(auth.currentUser, provider);
-            setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
-            setAccountMsg('Đã liên kết tài khoản Google thành công!');
-            setTimeout(() => setAccountMsg(''), 3000);
-        } catch (e) {
-            console.error('Lỗi liên kết:', e);
-            if (e.code === 'auth/credential-already-in-use') {
-                setAccountMsg('Tài khoản Google này đã gắn với người dùng khác. Hãy đăng nhập tài khoản đó và xoá dữ liệu nếu muốn liên kết.');
-            } else {
-                setAccountMsg('Lỗi liên kết: ' + e.message);
-            }
-        }
-        setIsLinking(false);
-    };
-    // Handle Unlink Google
-    const handleUnlinkGoogle = async () => {
-        if (!auth?.currentUser) return;
-        if (linkedProviders.length <= 1) {
-            setAccountMsg('Không thể hủy liên kết phương thức đăng nhập duy nhất.');
-            return;
-        }
-        setIsLinking(true);
-        try {
-            await unlink(auth.currentUser, 'google.com');
-            setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
-            setAccountMsg('Đã hủy liên kết tài khoản Google.');
-            setTimeout(() => setAccountMsg(''), 3000);
-        } catch (e) {
-            console.error('Lỗi hủy liên kết:', e);
-            setAccountMsg('Lỗi: ' + e.message);
-        }
-        setIsLinking(false);
-    };
     const tabs = [
         { id: 'account', label: 'Tài khoản', icon: User },
         { id: 'referral', label: 'Giới thiệu bạn bè', icon: Gift },
         { id: 'general', label: 'Cài đặt chung', icon: Settings },
     ];
+
     return (
-        <div className="space-y-6">
+        <div className="w-full space-y-6 pb-12">
             {/* Header */}
-            <div className="flex items-center gap-4 border-b border-gray-100 dark:border-gray-700 pb-4">
+            <div className="flex items-center gap-3.5 border-b border-slate-200 dark:border-slate-800 pb-4">
                 <Link
                     to={ROUTES.HOME}
-                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 transition-colors"
+                    className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all active:scale-95"
                 >
                     <ArrowLeft className="w-5 h-5" />
                 </Link>
                 <div>
-                    <h2 className="text-2xl font-black text-gray-800 dark:text-gray-100 flex items-center gap-2">
-                        <Settings className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                    <h1 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+                        <Settings className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                         Cài đặt
-                    </h2>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Quản lý tài khoản và tùy chỉnh ứng dụng</p>
+                    </h1>
+                    <p className="text-slate-500 dark:text-slate-400 text-xs mt-0.5">
+                        Quản lý tài khoản, giới thiệu bạn bè và tùy chỉnh ứng dụng
+                    </p>
                 </div>
             </div>
+
             {/* Tab Navigation */}
-            <div className="flex rounded-xl bg-gray-100 dark:bg-gray-800 p-1 gap-1">
+            <div className="flex rounded-xl bg-slate-100 dark:bg-slate-800/80 p-1 gap-1 border border-slate-200/50 dark:border-slate-700/50">
                 {tabs.map(tab => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-sm font-bold transition-all ${activeTab === tab.id
-                            ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm'
-                            : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-                            }`}
+                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                            activeTab === tab.id
+                                ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm'
+                                : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
+                        }`}
                     >
                         <tab.icon className="w-4 h-4" />
-                        <span className="hidden sm:inline">{tab.label}</span>
+                        <span>{tab.label}</span>
                     </button>
                 ))}
             </div>
-            {/* ==================== ACCOUNT TAB ==================== */}
+
+            {/* ==================== TAB 1: TÀI KHOẢN (ACCOUNT) ==================== */}
             {activeTab === 'account' && (
-                <div className="space-y-4">
-                    {/* Avatar Section & Subscription Info */}
-                    <div className="bg-white dark:bg-gray-800/90 p-5 sm:p-6 rounded-3xl border border-slate-100 dark:border-slate-700/70 shadow-sm transition-all">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-                            {/* Left Column: Avatar & User Details */}
+                <div className="space-y-5">
+                    {/* Hồ sơ & Gói học tập */}
+                    <div className="bg-white dark:bg-slate-800 p-5 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-6">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                            {/* Cột trái: Avatar & Thông tin */}
                             <div className="lg:col-span-7 flex flex-col sm:flex-row gap-5 items-start">
-                                {/* Avatar Wrapper */}
+                                {/* Avatar */}
                                 <div className="flex flex-col items-center gap-2 shrink-0">
                                     <div className="relative group">
                                         <div
-                                            className="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden bg-gradient-to-br from-indigo-100 via-sky-100 to-purple-100 dark:from-indigo-900/50 dark:to-purple-900/30 flex items-center justify-center text-4xl sm:text-5xl shadow-md ring-4 ring-indigo-50 dark:ring-slate-700/40 cursor-pointer hover:scale-105 transition-all duration-200"
+                                            className="w-20 h-20 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-700 flex items-center justify-center border-2 border-slate-200 dark:border-slate-600 cursor-pointer hover:opacity-90 transition-all"
                                             onClick={() => setShowAvatarPicker(!showAvatarPicker)}
-                                            title="Bấm để đổi avatar"
+                                            title="Thay đổi ảnh đại diện"
                                         >
-                                            {getAvatarDisplay(profile?.avatar)}
+                                            {getAvatarDisplay(effectiveProfile?.avatar)}
                                         </div>
                                         <button
                                             onClick={() => setShowAvatarPicker(!showAvatarPicker)}
-                                            className="absolute -bottom-0.5 -right-0.5 w-7 h-7 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full flex items-center justify-center shadow-md transition-transform hover:scale-110 active:scale-95 cursor-pointer ring-2 ring-white dark:ring-gray-800"
-                                            title="Thay đổi ảnh đại diện"
+                                            className="absolute -bottom-1 -right-1 w-7 h-7 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-full flex items-center justify-center shadow transition-all cursor-pointer ring-2 ring-white dark:ring-slate-800"
+                                            title="Đổi avatar"
                                         >
                                             <Camera className="w-3.5 h-3.5" />
                                         </button>
                                     </div>
 
-                                    {/* Action Pills below Avatar */}
+                                    {/* Nút chọn Avatar */}
                                     <div className="flex items-center gap-1.5 mt-1">
                                         <button
                                             onClick={() => { setShowAvatarPicker(!showAvatarPicker); setAvatarTab('emoji'); }}
-                                            className="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 text-indigo-600 dark:text-indigo-300 rounded-lg text-[11px] font-bold transition-all flex items-center gap-1 border border-indigo-100 dark:border-indigo-800/40 cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
-                                            title="Kho Avatar Cartoon"
+                                            className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg text-[11px] font-semibold transition-all cursor-pointer active:scale-95"
                                         >
-                                            <span>🎨</span>
-                                            <span>Emoji</span>
+                                            Emoji
                                         </button>
                                         <button
                                             onClick={() => setShowAvatarCropper(true)}
-                                            className="px-2.5 py-1 bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 dark:hover:bg-sky-900/80 text-sky-600 dark:text-sky-300 rounded-lg text-[11px] font-bold transition-all flex items-center gap-1 border border-sky-100 dark:border-sky-800/40 cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
-                                            title="Tải ảnh từ máy"
+                                            className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg text-[11px] font-semibold transition-all cursor-pointer active:scale-95"
                                         >
-                                            <Camera className="w-3 h-3 text-sky-500" />
-                                            <span>Tải ảnh</span>
+                                            Tải ảnh
                                         </button>
                                     </div>
                                 </div>
 
-                                {/* User Info Stack */}
-                                <div className="flex-1 space-y-3 min-w-0 w-full">
+                                {/* Thông tin người dùng */}
+                                <div className="flex-1 space-y-3 w-full">
                                     <div>
                                         {isEditingName ? (
-                                            <div className="flex flex-col gap-2 p-3 bg-gradient-to-r from-indigo-50/90 via-sky-50/90 to-purple-50/90 dark:from-slate-800/90 dark:via-indigo-950/40 dark:to-slate-800/90 rounded-2xl border border-indigo-200/80 dark:border-indigo-800/50 shadow-md animate-in fade-in zoom-in-95 duration-150 max-w-sm mb-2">
-                                                <div className="flex items-center justify-between">
-                                                    <span className="text-[10px] font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
-                                                        <User className="w-3 h-3 text-indigo-500" /> Đổi tên hiển thị
-                                                    </span>
-                                                </div>
-                                                <div className="flex items-center gap-2">
-                                                    <input
-                                                        type="text"
-                                                        value={displayName}
-                                                        onChange={(e) => setDisplayName(e.target.value)}
-                                                        onKeyDown={async (e) => {
-                                                            if (e.key === 'Enter' && displayName.trim() && displayName !== (effectiveProfile?.displayName || '')) {
-                                                                await handleSaveProfile();
-                                                                setIsEditingName(false);
-                                                            }
-                                                        }}
-                                                        placeholder="Nhập tên hiển thị mới..."
-                                                        className="flex-1 px-3 py-1.5 bg-white dark:bg-slate-900 border border-indigo-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 dark:focus:border-indigo-400 text-slate-800 dark:text-white text-sm font-bold outline-none shadow-sm transition-all"
-                                                        autoFocus
-                                                    />
-                                                    <button
-                                                        onClick={async () => {
-                                                            await handleSaveProfile();
-                                                            setIsEditingName(false);
-                                                        }}
-                                                        disabled={isSaving || !displayName.trim()}
-                                                        className="px-4 py-1.5 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white rounded-xl text-xs font-bold transition-all disabled:opacity-50 flex items-center gap-1.5 shadow-sm cursor-pointer hover:scale-105 active:scale-95 shrink-0"
-                                                    >
-                                                        {isSaving ? (
-                                                            <div className="animate-spin w-3 h-3 border-2 border-white border-t-transparent rounded-full" />
-                                                        ) : (
-                                                            <Check className="w-3.5 h-3.5" />
-                                                        )}
-                                                        Lưu
-                                                    </button>
-                                                </div>
+                                            <div className="flex items-center gap-2 mb-1.5">
+                                                <input
+                                                    type="text"
+                                                    value={displayName}
+                                                    onChange={(e) => setDisplayName(e.target.value)}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === 'Enter') handleSaveProfile();
+                                                        if (e.key === 'Escape') setIsEditingName(false);
+                                                    }}
+                                                    placeholder="Nhập tên hiển thị..."
+                                                    className="flex-1 px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-blue-400 dark:border-blue-500 rounded-lg text-slate-900 dark:text-white text-sm font-bold outline-none"
+                                                    autoFocus
+                                                />
+                                                <button
+                                                    onClick={handleSaveProfile}
+                                                    disabled={isSavingName || !displayName.trim()}
+                                                    className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-lg text-xs font-bold transition-all disabled:opacity-50 cursor-pointer"
+                                                >
+                                                    {isSavingName ? '...' : 'Lưu'}
+                                                </button>
+                                                <button
+                                                    onClick={() => setIsEditingName(false)}
+                                                    className="px-2 py-1.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 active:scale-95 text-slate-600 dark:text-slate-300 rounded-lg text-xs font-bold cursor-pointer transition-colors"
+                                                >
+                                                    Hủy
+                                                </button>
                                             </div>
                                         ) : (
-                                            <div className="flex flex-col gap-1.5 mb-1">
-                                                <div className="flex items-center gap-2.5 flex-wrap">
-                                                    <h3 className="font-black text-slate-800 dark:text-white text-2xl tracking-tight leading-none">{effectiveProfile?.displayName || profile?.displayName || 'Chưa đặt tên'}</h3>
-                                                    <button
-                                                        onClick={() => {
-                                                            setDisplayName(effectiveProfile?.displayName || profile?.displayName || '');
-                                                            setIsEditingName(true);
-                                                        }}
-                                                        className="px-2.5 py-1 text-xs font-bold text-indigo-600 dark:text-indigo-300 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/80 rounded-xl transition-all flex items-center gap-1 cursor-pointer hover:scale-105 active:scale-95 shadow-2xs border border-indigo-100 dark:border-indigo-800/40"
-                                                        title="Chỉnh sửa tên hiển thị"
-                                                    >
-                                                        <Edit className="w-3 h-3" />
-                                                        <span>Đổi tên</span>
-                                                    </button>
-                                                </div>
-                                                
-                                                <div className="flex items-center gap-2 flex-wrap">
-                                                    <span className="bg-gradient-to-r from-sky-500 to-indigo-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider flex items-center gap-1 shadow-2xs">
-                                                        <span>LV {xpDetails.level}</span>
-                                                    </span>
-                                                    <span className="bg-slate-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 text-[11px] font-bold px-2.5 py-0.5 rounded-full truncate max-w-[140px]" title={getLevelTitle(xpDetails.level)}>
-                                                        {getLevelTitle(xpDetails.level)}
-                                                    </span>
-                                                </div>
+                                            <div className="flex items-center gap-2 flex-wrap mb-1">
+                                                <h3 className="font-black text-slate-900 dark:text-white text-xl">
+                                                    {effectiveProfile?.displayName || 'Chưa đặt tên'}
+                                                </h3>
+                                                <button
+                                                    onClick={() => {
+                                                        setDisplayName(effectiveProfile?.displayName || '');
+                                                        setIsEditingName(true);
+                                                    }}
+                                                    className="p-1 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+                                                    title="Đổi tên"
+                                                >
+                                                    <Edit className="w-3.5 h-3.5" />
+                                                </button>
                                             </div>
                                         )}
-                                        <p className="text-slate-400 dark:text-slate-500 text-xs font-medium mt-1 flex items-center gap-1">
-                                            <span>📧</span> {effectiveProfile?.email || profile?.email || 'Không có email'}
+
+                                        <p className="text-slate-500 dark:text-slate-400 text-xs">
+                                            {effectiveProfile?.email || auth?.currentUser?.email || 'Không có email'}
                                         </p>
                                     </div>
-                                    
-                                    {/* XP Progress Bar Widget */}
-                                    <div className="w-full space-y-1.5 bg-slate-50/90 dark:bg-slate-900/50 p-3 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-inner">
-                                        <div className="flex justify-between items-center text-[11px] font-bold text-slate-500 dark:text-slate-400">
-                                            <span className="flex items-center gap-1 uppercase tracking-wider text-[10px]">
-                                                <Zap className="w-3 h-3 text-amber-500 fill-amber-500" /> Tiến trình cấp độ
+
+                                    {/* Cấp độ & Thanh tiến trình XP */}
+                                    <div className="space-y-1.5 pt-1">
+                                        <div className="flex justify-between items-center text-xs font-semibold">
+                                            <span className="text-blue-600 dark:text-blue-400 font-bold">
+                                                Lv. {xpDetails.level} • {getLevelTitle(xpDetails.level)}
                                             </span>
-                                            <span className="font-mono text-xs">{xpDetails.remainingXp} / {xpDetails.nextLevelXp} XP</span>
+                                            <span className="text-slate-400 font-mono text-[11px]">
+                                                {xpDetails.remainingXp.toLocaleString()} / {xpDetails.nextLevelXp.toLocaleString()} XP
+                                            </span>
                                         </div>
-                                        <div className="w-full h-2 bg-slate-200/80 dark:bg-slate-700/80 rounded-full overflow-hidden p-[1px]">
+                                        <div className="w-full h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                                             <div 
-                                                className="h-full bg-gradient-to-r from-amber-400 via-emerald-400 to-teal-400 rounded-full transition-all duration-300 shadow-xs"
+                                                className="h-full bg-emerald-500 rounded-full transition-all duration-300"
                                                 style={{ width: `${Math.min(100, Math.round((xpDetails.remainingXp / xpDetails.nextLevelXp) * 100))}%` }}
                                             />
                                         </div>
@@ -605,160 +633,103 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
                                 </div>
                             </div>
 
-                            {/* Divider for desktop screen */}
-                            <div className="hidden lg:flex lg:col-span-1 justify-center items-center">
-                                <div className="w-[1px] h-4/5 bg-slate-100 dark:bg-slate-700/80" />
-                            </div>
-
-                            {/* Right Column: Premium Subscription Info Card */}
-                            <div className="lg:col-span-4 flex flex-col justify-between p-4 rounded-2xl bg-gradient-to-br from-amber-500/5 via-orange-500/5 to-amber-500/10 dark:from-amber-950/30 dark:via-slate-800 dark:to-slate-800 border border-amber-200/60 dark:border-amber-800/40 shadow-xs space-y-4">
-                                <div className="space-y-2.5">
+                            {/* Cột phải: Gói học tập */}
+                            <div className="lg:col-span-5 p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-4">
+                                <div className="space-y-2">
                                     <div className="flex items-center justify-between">
-                                        <h4 className="text-[11px] font-black text-amber-600 dark:text-amber-400 uppercase tracking-wider flex items-center gap-1">
-                                            <Crown className="w-3.5 h-3.5 fill-amber-500 text-amber-500" /> Gói học tập hiện tại
-                                        </h4>
+                                        <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                                            Gói học tập
+                                        </span>
+                                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                                            hasPremium 
+                                                ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300' 
+                                                : 'bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300'
+                                        }`}>
+                                            {hasPremium ? 'PREMIUM' : 'FREE'}
+                                        </span>
                                     </div>
 
-                                    <div className="flex items-center gap-2">
-                                        {hasPremium ? (
-                                            <>
-                                                <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wider flex items-center gap-1 shadow-xs">
-                                                    <Crown className="w-3 h-3 fill-white text-white animate-pulse" /> PREMIUM
-                                                </span>
-                                                <span className="font-black text-base text-slate-800 dark:text-white">
-                                                    {getActivePackageName()}
-                                                </span>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <span className="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wider">
-                                                    FREE
-                                                </span>
-                                                <span className="font-black text-base text-slate-800 dark:text-white">
-                                                    Thành viên Miễn phí
-                                                </span>
-                                            </>
-                                        )}
+                                    <div className="font-extrabold text-base text-slate-800 dark:text-white">
+                                        {getActivePackageName()}
                                     </div>
 
-                                    <div className="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                    <div className="text-xs text-slate-500 dark:text-slate-400">
                                         {hasPremium ? (
-                                            <>
-                                                <div className="flex items-center gap-1.5">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                                                    <span>Trạng thái: <strong className="text-emerald-600 dark:text-emerald-400">Đang hoạt động</strong></span>
-                                                </div>
-                                                <div className="flex items-center gap-1.5">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                                                    <span>Hạn dùng: <strong className="text-indigo-600 dark:text-indigo-400">
-                                                        {profile.premiumExpiresAt ? (
-                                                            (() => {
-                                                                const date = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
-                                                                return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
-                                                            })()
-                                                        ) : 'Vĩnh viễn'}
-                                                    </strong></span>
-                                                </div>
-                                            </>
+                                            <div>
+                                                Hạn dùng: <strong className="text-slate-700 dark:text-slate-200">
+                                                    {effectiveProfile?.premiumExpiresAt ? (
+                                                        (() => {
+                                                             const date = effectiveProfile.premiumExpiresAt.toDate ? effectiveProfile.premiumExpiresAt.toDate() : new Date(effectiveProfile.premiumExpiresAt);
+                                                             return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+                                                        })()
+                                                    ) : 'Vĩnh viễn'}
+                                                </strong>
+                                            </div>
                                         ) : (
-                                            <p className="leading-relaxed text-xs">
-                                                Mở khóa không giới hạn các tính năng AI, Từ vựng, Ngữ pháp và Kanji Zen.
-                                            </p>
+                                            <span>Mở khóa không giới hạn tính năng AI và bài học Zen.</span>
                                         )}
                                     </div>
                                 </div>
 
-                                <div>
-                                    <button
-                                        onClick={() => navigate(ROUTES.UPGRADE)}
-                                        className="w-full py-2.5 px-4 text-xs font-extrabold bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl shadow-md shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
-                                    >
-                                        <Crown className="w-4 h-4 fill-white text-white" />
-                                        <span>{hasPremium ? 'Gia hạn / Mua thêm gói' : 'Nâng cấp Premium ngay'}</span>
-                                    </button>
-                                </div>
+                                <button
+                                    onClick={() => navigate(ROUTES.UPGRADE)}
+                                    className="w-full py-2.5 px-4 text-xs font-bold bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 active:scale-98 text-white rounded-xl shadow-md shadow-amber-500/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                >
+                                    <Crown className="w-3.5 h-3.5 fill-white text-white" />
+                                    <span>{hasPremium ? 'Gia hạn / Quản lý gói' : 'Nâng cấp Premium ngay'}</span>
+                                </button>
                             </div>
                         </div>
 
-                        {/* Avatar Picker Grid */}
+                        {/* Avatar Picker popdown */}
                         {showAvatarPicker && (
-                            <div className="border-t border-gray-100 dark:border-gray-700 mt-5 pt-4 space-y-3">
-                                {/* Tabs: Emoji / Ảnh */}
-                                <div className="flex rounded-xl bg-gray-100 dark:bg-gray-700 p-1 gap-1">
+                            <div className="border-t border-slate-100 dark:border-slate-700/80 pt-4 space-y-3">
+                                <div className="flex rounded-lg bg-slate-100 dark:bg-slate-700 p-1 gap-1 max-w-xs">
                                     <button
                                         onClick={() => setAvatarTab('emoji')}
-                                        className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all ${avatarTab === 'emoji' ? 'bg-white dark:bg-gray-600 text-indigo-600 dark:text-indigo-400 shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}
+                                        className={`flex-1 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${avatarTab === 'emoji' ? 'bg-white dark:bg-slate-600 text-blue-600 dark:text-blue-400 shadow-xs' : 'text-slate-500'}`}
                                     >
-                                        🎨 Emoji
+                                        Emoji
                                     </button>
                                     <button
                                         onClick={() => setAvatarTab('photo')}
-                                        className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 ${avatarTab === 'photo' ? 'bg-white dark:bg-gray-600 text-sky-600 dark:text-sky-400 shadow-sm' : 'text-gray-500 dark:text-gray-400'}`}
+                                        className={`flex-1 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${avatarTab === 'photo' ? 'bg-white dark:bg-slate-600 text-blue-600 dark:text-blue-400 shadow-xs' : 'text-slate-500'}`}
                                     >
-                                        <Camera className="w-3 h-3" /> Ảnh của bạn
+                                        Ảnh của bạn
                                     </button>
                                 </div>
+
                                 {avatarTab === 'emoji' && (
-                                    <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-64 overflow-y-auto pr-1">
+                                    <div className="grid grid-cols-6 sm:grid-cols-10 gap-2 max-h-56 overflow-y-auto p-1">
                                         {AVATAR_LIST.map(avatar => {
-                                             const isActive = profile?.avatar === avatar.id || (!profile?.avatar && avatar.id === 'default');
-                                             return (
-                                                 <button
-                                                     key={avatar.id}
-                                                     onClick={() => handleSelectAvatar(avatar.id)}
-                                                     className={`group relative flex flex-col items-center p-2 rounded-xl transition-all ${isActive
-                                                         ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-400 scale-105 shadow-md'
-                                                         : 'bg-gray-50 dark:bg-gray-700/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:scale-110 border border-gray-100 dark:border-gray-600'}`}
-                                                     title={avatar.name}
-                                                 >
-                                                     <span className="text-2xl">{avatar.emoji}</span>
-                                                     <span className="text-[9px] text-gray-400 dark:text-gray-500 mt-0.5 truncate max-w-full leading-tight">{avatar.name}</span>
-                                                     {isActive && (
-                                                         <div className="absolute -top-1 -right-1 w-4 h-4 bg-indigo-500 rounded-full flex items-center justify-center">
-                                                             <Check className="w-2.5 h-2.5 text-white" />
-                                                         </div>
-                                                     )}
-                                                 </button>
-                                             );
-                                         })}
+                                            const isActive = effectiveProfile?.avatar === avatar.id || (!effectiveProfile?.avatar && avatar.id === 'default');
+                                            return (
+                                                <button
+                                                    key={avatar.id}
+                                                    onClick={() => handleSelectAvatar(avatar.id)}
+                                                    className={`flex flex-col items-center p-2 rounded-xl transition-all cursor-pointer ${
+                                                        isActive
+                                                            ? 'bg-blue-50 dark:bg-blue-950/40 border-2 border-blue-500'
+                                                            : 'bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-600'
+                                                    }`}
+                                                    title={avatar.name}
+                                                >
+                                                    <span className="text-2xl">{avatar.emoji}</span>
+                                                </button>
+                                            );
+                                        })}
                                     </div>
                                 )}
+
                                 {avatarTab === 'photo' && (
-                                    <div className="space-y-3">
-                                        {isCustomPhoto(profile?.avatar) ? (
-                                            <div className="flex items-center gap-4 p-3 bg-sky-50 dark:bg-sky-900/20 rounded-xl border border-sky-200 dark:border-sky-800">
-                                                <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 border-sky-300 dark:border-sky-700">
-                                                    <img src={profile.avatar} alt="Current avatar" className="w-full h-full object-cover" />
-                                                </div>
-                                                <div className="flex-1">
-                                                    <p className="text-xs font-bold text-sky-700 dark:text-sky-300">Ảnh hiện tại</p>
-                                                    <p className="text-[10px] text-sky-500 dark:text-sky-400 mt-0.5">Ảnh tùy chỉnh đang được sử dụng</p>
-                                                </div>
-                                                <button
-                                                    onClick={() => handleSelectAvatar('default')}
-                                                    className="text-xs text-red-500 hover:text-red-650 font-medium px-2 py-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
-                                                >
-                                                    Xóa
-                                                </button>
-                                            </div>
-                                        ) : (
-                                            <div className="flex flex-col items-center gap-3 py-4">
-                                                <div className="w-16 h-16 rounded-full bg-sky-100 dark:bg-sky-900/20 flex items-center justify-center">
-                                                    <Camera className="w-7 h-7 text-sky-400" />
-                                                </div>
-                                                <p className="text-sm text-gray-500 dark:text-gray-400 text-center">Chưa có ảnh tùy chỉnh</p>
-                                            </div>
-                                        )}
+                                    <div className="space-y-3 max-w-sm">
                                         <button
                                             onClick={() => { setShowAvatarPicker(false); setShowAvatarCropper(true); }}
-                                            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white text-sm font-bold shadow-md shadow-sky-200 dark:shadow-sky-900/20 transition-all"
+                                            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white text-xs font-bold transition-colors cursor-pointer"
                                         >
                                             <Upload className="w-4 h-4" />
-                                            Tải ảnh mới lên
+                                            Tải ảnh mới từ thiết bị
                                         </button>
-                                        <p className="text-center text-[10px] text-gray-400 dark:text-gray-600">
-                                            Hỗ trợ JPG, PNG, WebP · Có thể cắt và chỉnh vị trí
-                                        </p>
                                     </div>
                                 )}
                             </div>
@@ -768,105 +739,108 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
                     {/* Avatar Cropper Modal */}
                     {showAvatarCropper && (
                         <AvatarCropper
-                            onConfirm={handleCroppedPhoto}
+                            onConfirm={async (base64) => {
+                                await handleSelectAvatar(base64);
+                            }}
                             onCancel={() => setShowAvatarCropper(false)}
-                            currentAvatarUrl={isCustomPhoto(profile?.avatar) ? profile.avatar : null}
+                            currentAvatarUrl={isCustomPhoto(effectiveProfile?.avatar) ? effectiveProfile.avatar : null}
                         />
                     )}
 
-                    {/* Change / Create Password */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <Shield className="w-4 h-4" /> {linkedProviders.includes('password') ? 'Đổi mật khẩu' : 'Tạo mật khẩu'}
+                    {/* Đổi mật khẩu */}
+                    <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-4">
+                        <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                            <Shield className="w-4 h-4 text-blue-500" />
+                            {linkedProviders.includes('password') ? 'Đổi mật khẩu' : 'Tạo mật khẩu đăng nhập'}
                         </h3>
-                        {!linkedProviders.includes('password') && (
-                            <p className="text-xs text-gray-500 dark:text-gray-400">
-                                Bạn đang đăng nhập bằng Google. Hãy tạo một mật khẩu để có thể linh hoạt đăng nhập bằng Email và Mật khẩu.
-                            </p>
-                        )}
-                        {linkedProviders.includes('password') && (
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {linkedProviders.includes('password') && (
+                                <div className="sm:col-span-2">
+                                    <label className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+                                        Mật khẩu hiện tại
+                                    </label>
+                                    <div className="relative">
+                                        <input
+                                            type={showOldPassword ? 'text' : 'password'}
+                                            value={oldPassword}
+                                            onChange={(e) => setOldPassword(e.target.value)}
+                                            className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
+                                            placeholder="Nhập mật khẩu hiện tại"
+                                        />
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowOldPassword(!showOldPassword)}
+                                            className="absolute inset-y-0 right-0 px-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
+                                        >
+                                            {showOldPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mật khẩu hiện tại</label>
+                                <label className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+                                    Mật khẩu mới
+                                </label>
                                 <div className="relative">
                                     <input
-                                        type={showOldPassword ? 'text' : 'password'}
-                                        value={oldPassword}
-                                        onChange={(e) => setOldPassword(e.target.value)}
-                                        className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm outline-none"
-                                        placeholder="Nhập mật khẩu hiện tại"
+                                        type={showNewPassword ? 'text' : 'password'}
+                                        value={newPassword}
+                                        onChange={(e) => setNewPassword(e.target.value)}
+                                        className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
+                                        placeholder="Ít nhất 6 ký tự"
                                     />
                                     <button
                                         type="button"
-                                        onClick={() => setShowOldPassword(!showOldPassword)}
-                                        className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer"
-                                        tabIndex={-1}
+                                        onClick={() => setShowNewPassword(!showNewPassword)}
+                                        className="absolute inset-y-0 right-0 px-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
                                     >
-                                        {showOldPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                        {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                                     </button>
                                 </div>
                             </div>
-                        )}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mật khẩu mới</label>
-                            <div className="relative">
-                                <input
-                                    type={showNewPassword ? 'text' : 'password'}
-                                    value={newPassword}
-                                    onChange={(e) => setNewPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm outline-none"
-                                    placeholder="Nhập mật khẩu mới (ít nhất 6 ký tự)"
-                                />
-                                <button
-                                    type="button"
-                                    onClick={() => setShowNewPassword(!showNewPassword)}
-                                    className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer"
-                                    tabIndex={-1}
-                                >
-                                    {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                                </button>
+
+                            <div>
+                                <label className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+                                    Xác nhận mật khẩu
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        type={showConfirmPassword ? 'text' : 'password'}
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
+                                        placeholder="Nhập lại mật khẩu mới"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                        className="absolute inset-y-0 right-0 px-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 cursor-pointer"
+                                    >
+                                        {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Xác nhận mật khẩu</label>
-                            <div className="relative">
-                                <input
-                                    type={showConfirmPassword ? 'text' : 'password'}
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 text-sm outline-none"
-                                    placeholder="Nhập lại mật khẩu mới"
-                                />
-                                <button
-                                    type="button"
-                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                    className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer"
-                                    tabIndex={-1}
-                                >
-                                    {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                                </button>
-                            </div>
+
+                        <div className="flex justify-end pt-2">
+                            <button
+                                onClick={handleChangePassword}
+                                disabled={isSavingPassword || !newPassword || !confirmPassword}
+                                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 disabled:opacity-50 text-white rounded-xl font-bold text-xs transition-all cursor-pointer shadow-xs"
+                            >
+                                {isSavingPassword ? 'Đang lưu...' : (linkedProviders.includes('password') ? 'Cập nhật mật khẩu' : 'Tạo mật khẩu')}
+                            </button>
                         </div>
-                        <button
-                            onClick={handleChangePassword}
-                            disabled={isSaving || !newPassword || !confirmPassword}
-                            className="w-full py-2.5 bg-gradient-to-r from-sky-500 to-indigo-500 dark:from-sky-600 dark:to-indigo-600 text-white rounded-xl font-bold text-sm hover:from-sky-600 hover:to-indigo-600 disabled:opacity-50 transition-all"
-                        >
-                            {linkedProviders.includes('password') ? 'Đổi mật khẩu' : 'Tạo mật khẩu'}
-                        </button>
                     </div>
-                    {/* Associated Accounts */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <svg className="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                            </svg>
+
+                    {/* Tài khoản liên kết */}
+                    <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-3">
+                        <h3 className="text-sm font-bold text-slate-800 dark:text-white">
                             Tài khoản liên kết
                         </h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                            Liên kết với Google để có thể đăng nhập bằng một chạm, đồng bộ thiết bị.
-                        </p>
-                        <div className="flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-xl">
+                        <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 rounded-xl">
                             <div className="flex items-center gap-3">
                                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -875,17 +849,18 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
                                     <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
                                 </svg>
                                 <div>
-                                    <p className="text-sm font-bold text-gray-800 dark:text-gray-200">Google</p>
-                                    <p className="text-xs text-gray-500">
-                                        {linkedProviders.includes('google.com') ? 'Đã liên kết' : 'Chưa liên kết'}
+                                    <p className="text-xs font-bold text-slate-800 dark:text-slate-200">Google</p>
+                                    <p className="text-[11px] text-slate-400">
+                                        {linkedProviders.includes('google.com') ? 'Đã liên kết đăng nhập 1-chạm' : 'Chưa liên kết'}
                                     </p>
                                 </div>
                             </div>
+
                             {linkedProviders.includes('google.com') ? (
                                 <button
                                     onClick={handleUnlinkGoogle}
                                     disabled={isLinking || linkedProviders.length <= 1}
-                                    className="px-3 py-1.5 text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/40 disabled:opacity-50 transition-all"
+                                    className="px-3 py-1.5 text-xs font-bold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 rounded-lg transition-colors disabled:opacity-50 cursor-pointer active:scale-95"
                                 >
                                     Hủy liên kết
                                 </button>
@@ -893,9 +868,9 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
                                 <button
                                     onClick={handleLinkGoogle}
                                     disabled={isLinking}
-                                    className="px-3 py-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/40 disabled:opacity-50 transition-all"
+                                    className="px-3 py-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40 rounded-lg transition-colors disabled:opacity-50 cursor-pointer active:scale-95"
                                 >
-                                    {isLinking ? 'Đang xử lý...' : 'Liên kết'}
+                                    {isLinking ? '...' : 'Liên kết ngay'}
                                 </button>
                             )}
                         </div>
@@ -903,209 +878,161 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
                 </div>
             )}
 
-            {/* ==================== REFERRAL TAB ==================== */}
+            {/* ==================== TAB 2: GIỚI THIỆU BẠN BÈ (REFERRAL) ==================== */}
             {activeTab === 'referral' && (
-                <div className="space-y-4">
-                    {/* ==================== REFERRAL SECTION ==================== */}
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-6">
-                        <div className="flex items-center gap-3 pb-4 border-b border-gray-150/50 dark:border-gray-700">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-indigo-50 dark:shadow-none">
-                                <Gift className="w-5 h-5" />
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1.5">
-                                    Giới thiệu bạn bè & Nhận quà lũy tiến
-                                    <span className="bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
-                                        hot
-                                    </span>
-                                </h3>
-                                <p className="text-gray-500 dark:text-slate-400 text-xs mt-0.5">
-                                    Chia sẻ link giới thiệu của bạn cho bạn bè. Khi bạn bè đăng ký tài khoản mới: Bạn nhận ngay 3 ngày Premium và bạn bè nhận ngay 15 ngày Premium dùng thử. Khi họ nâng cấp gói Premium chính thức, bạn sẽ nhận thêm ngày Premium lũy tiến cực khủng!
-                                </p>
-                            </div>
+                <div className="space-y-5">
+                    {/* Header info */}
+                    <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-4">
+                        <div>
+                            <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
+                                <Gift className="w-5 h-5 text-blue-500" />
+                                Giới thiệu bạn bè nhận ngày Premium
+                            </h3>
+                            <p className="text-slate-500 dark:text-slate-400 text-xs mt-1 leading-relaxed">
+                                Người nhập mã nhận ngay <strong>+1 tháng Premium</strong>. Bạn nhận thưởng tích lũy: bạn 1 & 2 nhận <strong>+15 ngày</strong>, bạn 3 nhận <strong>+20 ngày</strong>, từ bạn 4+ nhận <strong>+1 tháng/bạn</strong>.
+                            </p>
                         </div>
 
-                        {!isPremiumUser && (
-                            <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-white shadow-md shadow-orange-100 dark:shadow-none flex-shrink-0">
-                                        <Crown className="w-6 h-6 text-white fill-white/10" />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-sm font-extrabold text-gray-900 dark:text-white">Tài khoản của bạn chưa nâng cấp Premium</h4>
-                                        <p className="text-gray-500 dark:text-slate-450 text-xs mt-0.5 leading-relaxed">
-                                            Nâng cấp gói Premium ngay hôm nay để học không giới hạn, hoặc **chia sẻ link giới thiệu bên dưới** cho bạn bè để nhận ngày Premium tích lũy!
+                        {/* 3 Panels Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {/* Panel 1: Mã giới thiệu của bạn */}
+                            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-3">
+                                <div>
+                                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                                        Mã giới thiệu của bạn
+                                    </span>
+                                    <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">
+                                        Mỗi mã có thể dùng cho nhiều bạn bè.
+                                    </p>
+                                </div>
+
+                                <div className="flex items-center justify-between bg-white dark:bg-slate-800 px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xs">
+                                    <span className="text-base font-black font-mono tracking-wider text-blue-600 dark:text-blue-400">
+                                        {effectiveProfile?.referralCode || '...'}
+                                    </span>
+                                    <button
+                                        onClick={handleCopyRawCode}
+                                        className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/50 active:scale-95 text-blue-600 dark:text-blue-400 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
+                                        title="Sao chép mã"
+                                    >
+                                        {copiedRaw ? (
+                                            <>
+                                                <Check className="w-3.5 h-3.5 text-emerald-500" />
+                                                <span className="text-emerald-600 dark:text-emerald-400">Đã chép</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Copy className="w-3.5 h-3.5" />
+                                                <span>Sao chép</span>
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Panel 2: Nhập mã bạn bè */}
+                            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-3">
+                                <div>
+                                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                                        Nhập mã bạn bè
+                                    </span>
+                                    <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">
+                                        Mỗi tài khoản chỉ có 1 người giới thiệu.
+                                    </p>
+                                </div>
+
+                                {effectiveProfile?.referredBy ? (
+                                    <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 p-3 rounded-xl text-xs space-y-0.5">
+                                        <div className="flex items-center gap-1.5">
+                                            <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                                            <p className="font-bold text-emerald-700 dark:text-emerald-300">Đã liên kết người giới thiệu</p>
+                                        </div>
+                                        <p className="text-slate-600 dark:text-slate-300 text-[11px] pl-5.5">
+                                            Bởi: <strong>{effectiveProfile.referredBy.name}</strong> ({effectiveProfile.referredBy.code})
                                         </p>
-                                    </div>
-                                </div>
-                                <button
-                                    type="button"
-                                    onClick={() => navigate(ROUTES.UPGRADE)}
-                                    className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold rounded-xl hover:shadow-md hover:scale-[1.02] transition-all flex items-center gap-1.5 shadow-sm shadow-amber-100 dark:shadow-none whitespace-nowrap cursor-pointer"
-                                >
-                                    <Sparkles className="w-3.5 h-3.5" /> Nâng cấp Premium
-                                </button>
-                            </div>
-                        )}
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {/* Panel 1: Share Link */}
-                            <div className="bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-slate-900/40 dark:to-slate-805/20 p-5 rounded-2xl border border-indigo-100/40 dark:border-slate-800 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h4 className="text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider mb-2">Link giới thiệu của bạn</h4>
-                                    <p className="text-gray-500 dark:text-slate-450 text-[11px] leading-relaxed">
-                                        Sao chép link này gửi cho bạn bè. Khi họ đăng ký tài khoản mới qua link của bạn, bạn nhận ngay **3 ngày Premium** và bạn bè nhận ngay **15 ngày Premium dùng thử**!
-                                    </p>
-                                </div>
-                                <div className="space-y-3">
-                                    <div className="space-y-1">
-                                        <label className="text-[9px] font-bold text-indigo-500/80 dark:text-indigo-400/80 uppercase tracking-wider">Link chia sẻ</label>
-                                        <div className="w-full flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-indigo-150/40 dark:border-slate-700 font-mono text-[11px] font-semibold text-indigo-650 dark:text-indigo-400 shadow-sm relative overflow-hidden break-all select-all">
-                                            <span>{profile?.referralCode ? `${window.location.origin}/?ref=${profile.referralCode}` : 'ĐANG KHỞI TẠO...'}</span>
-                                            <button
-                                                type="button"
-                                                onClick={handleCopyCode}
-                                                className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-gray-500 hover:text-indigo-600 transition-colors flex-shrink-0 ml-1"
-                                                title="Copy link giới thiệu"
-                                            >
-                                                {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                                            </button>
-                                        </div>
-                                        {copied && <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 text-center">✓ Đã copy link thành công!</p>}
-                                    </div>
-
-                                    <div className="space-y-1">
-                                        <label className="text-[9px] font-bold text-indigo-500/80 dark:text-indigo-400/80 uppercase tracking-wider">Mã giới thiệu riêng</label>
-                                        <div className="w-full flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-indigo-150/40 dark:border-slate-700 font-mono text-[11px] font-bold text-indigo-650 dark:text-indigo-400 shadow-sm relative overflow-hidden select-all">
-                                            <span>{profile?.referralCode || 'ĐANG KHỞI TẠO...'}</span>
-                                            <button
-                                                type="button"
-                                                onClick={handleCopyRawCode}
-                                                className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-gray-500 hover:text-indigo-600 transition-colors flex-shrink-0 ml-1"
-                                                title="Copy mã giới thiệu"
-                                            >
-                                                {copiedRaw ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                                            </button>
-                                        </div>
-                                        {copiedRaw && <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 text-center">✓ Đã copy mã thành công!</p>}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Panel 2: Enter code */}
-                            <div className="p-5 rounded-2xl border border-gray-150/50 dark:border-gray-700 bg-gray-50/20 dark:bg-slate-900/10 flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider mb-2">Nhập mã giới thiệu của bạn bè</h4>
-                                    <p className="text-gray-500 dark:text-slate-450 text-[11px] leading-relaxed">
-                                        Nếu link giới thiệu không tự động nhận diện, bạn có thể nhập thủ công mã giới thiệu của bạn bè tại đây để nhận **15 ngày Premium** dùng thử và người giới thiệu cũng được cộng **3 ngày Premium**!
-                                    </p>
-                                </div>
-
-                                {profile?.referredBy ? (
-                                    <div className="bg-emerald-50/50 dark:bg-emerald-950/10 border border-emerald-100/50 dark:border-emerald-900/40 px-4 py-3 rounded-xl flex items-center gap-2.5">
-                                        <div className="w-7 h-7 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600">
-                                            <Check className="w-4 h-4" />
-                                        </div>
-                                        <div className="text-xs">
-                                            <p className="font-semibold text-emerald-800 dark:text-emerald-450">Đã nhập mã giới thiệu</p>
-                                            <p className="text-gray-500 dark:text-slate-400 text-[10px]">Bởi: <span className="font-bold">{profile.referredBy.name}</span></p>
-                                        </div>
                                     </div>
                                 ) : (
                                     <div className="space-y-2">
                                         <div className="flex gap-2">
                                             <input
                                                 type="text"
-                                                placeholder="Nhập mã ví dụ: QKXXXXXX"
+                                                placeholder="Mã ví dụ: QKXXXXXX"
                                                 value={enteredCode}
                                                 onChange={(e) => setEnteredCode(e.target.value.toUpperCase())}
-                                                className="flex-1 px-3 py-2 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-650 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-900/40 text-gray-900 dark:text-white font-mono uppercase"
+                                                className="flex-1 px-3 py-2 text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-blue-500 font-mono font-bold uppercase"
                                             />
                                             <button
-                                                type="button"
                                                 onClick={handleApplyReferral}
                                                 disabled={submitLoading || !enteredCode.trim()}
-                                                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow cursor-pointer transition-all flex items-center justify-center"
+                                                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 active:scale-95 disabled:opacity-50 text-white font-bold text-xs rounded-xl transition-all cursor-pointer shadow-xs whitespace-nowrap"
                                             >
-                                                {submitLoading ? '...' : 'Gửi'}
+                                                {submitLoading ? '...' : 'Gửi mã'}
                                             </button>
                                         </div>
-                                        {errorMsg && <p className="text-[10px] text-red-500 dark:text-red-400 font-medium">{errorMsg}</p>}
-                                        {successMsg && <p className="text-[10px] text-emerald-600 dark:text-emerald-450 font-medium">{successMsg}</p>}
+                                        <p className="text-[10px] text-slate-400">Nhận ngay +1 tháng Premium khi nhập mã.</p>
                                     </div>
                                 )}
                             </div>
 
-                            {/* Panel 3: Stats Summary */}
-                            <div className="p-5 rounded-2xl border border-gray-150/50 dark:border-gray-700 bg-gray-50/20 dark:bg-slate-900/10 flex flex-col justify-between">
+                            {/* Panel 3: Thống kê */}
+                            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-3">
                                 <div>
-                                    <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider mb-2.5">Thống kê giới thiệu của bạn</h4>
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <div className="bg-white dark:bg-slate-800 p-3 rounded-xl border border-gray-100 dark:border-slate-700 text-center">
-                                            <span className="text-[10px] text-gray-400 uppercase font-bold block mb-0.5">Số lượt mời</span>
-                                            <span className="text-xl font-extrabold text-gray-800 dark:text-white">{loadingStats ? '...' : refStats.totalInvited}</span>
-                                        </div>
-                                        <div className="bg-white dark:bg-slate-800 p-3 rounded-xl border border-gray-100 dark:border-slate-700 text-center">
-                                            <span className="text-[10px] text-amber-500 uppercase font-bold block mb-0.5">Lên Premium</span>
-                                            <span className="text-xl font-extrabold text-amber-600 dark:text-amber-400 flex items-center justify-center gap-0.5">
-                                                <Crown className="w-4 h-4 fill-amber-500/20 text-amber-500" />
-                                                {loadingStats ? '...' : refStats.premiumInvited}
-                                            </span>
-                                        </div>
-                                    </div>
+                                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                                        Thống kê giới thiệu
+                                    </span>
+                                    <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">
+                                        Số lượng bạn bè đã nhập mã của bạn.
+                                    </p>
                                 </div>
 
-                                <div className="mt-4 pt-3 border-t border-gray-100 dark:border-slate-750 text-[10px] text-gray-500 dark:text-slate-400 flex items-center justify-between">
-                                    <span>Thành viên Free đã mời:</span>
-                                    <span className="font-bold text-gray-800 dark:text-slate-300">
-                                        {loadingStats ? '...' : refStats.totalInvited - refStats.premiumInvited} người
-                                    </span>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <div className="bg-white dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-center">
+                                        <span className="text-[10px] text-slate-400 block font-semibold">Đã mời</span>
+                                        <span className="text-lg font-black text-slate-900 dark:text-white">
+                                            {loadingStats ? '...' : refStats.totalInvited}
+                                        </span>
+                                    </div>
+                                    <div className="bg-white dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-center">
+                                        <span className="text-[10px] text-amber-500 block font-semibold">Premium</span>
+                                        <span className="text-lg font-black text-amber-600 dark:text-amber-400">
+                                            {loadingStats ? '...' : refStats.premiumInvited}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Progressive Reward Map */}
-                        <div className="border border-indigo-50/80 dark:border-slate-750 bg-indigo-50/10 dark:bg-slate-900/10 rounded-2xl p-5 space-y-4">
-                            <div className="flex items-center gap-1.5">
-                                <Award className="w-4 h-4 text-sky-600" />
-                                <h4 className="text-xs font-bold text-gray-800 dark:text-slate-200">
-                                    Bản đồ phần thưởng Premium lũy tiến (Khi bạn bè nâng cấp Premium)
-                                </h4>
-                            </div>
+                        {/* Bản đồ phần thưởng lũy tiến */}
+                        <div className="border-t border-slate-100 dark:border-slate-700/80 pt-4 space-y-3">
+                            <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
+                                Thưởng lũy tiến theo số lượt bạn bè giới thiệu:
+                            </span>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 relative z-10">
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                                 {[
                                     { step: 1, label: 'Bạn thứ 1', bonus: '+15 ngày' },
-                                    { step: 2, label: 'Bạn thứ 2', bonus: '+30 ngày' },
-                                    { step: 3, label: 'Bạn thứ 3', bonus: '+45 ngày' },
-                                    { step: 4, label: 'Bạn thứ 4+', bonus: '+60 ngày/bạn' }
+                                    { step: 2, label: 'Bạn thứ 2', bonus: '+15 ngày' },
+                                    { step: 3, label: 'Bạn thứ 3', bonus: '+20 ngày' },
+                                    { step: 4, label: 'Bạn thứ 4+', bonus: '+1 tháng/bạn' }
                                 ].map((milestone) => {
-                                    const isAchieved = refStats.premiumInvited >= milestone.step || (milestone.step === 4 && refStats.premiumInvited >= 4);
-                                    const isActiveNext = refStats.premiumInvited === milestone.step - 1;
-                                    
+                                    const isAchieved = refStats.totalInvited >= milestone.step;
+                                    const isNext = refStats.totalInvited === milestone.step - 1;
+
                                     return (
                                         <div
                                             key={milestone.step}
-                                            className={`p-3.5 rounded-xl border flex flex-col items-center justify-between text-center relative overflow-hidden transition-all ${
+                                            className={`p-3 rounded-xl border text-center transition-all ${
                                                 isAchieved
-                                                    ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-800 dark:text-emerald-400'
-                                                    : isActiveNext
-                                                    ? 'bg-sky-500/10 border-sky-500/30 text-sky-800 dark:text-sky-400 shadow-sm shadow-sky-100 dark:shadow-none animate-pulse'
-                                                    : 'bg-white dark:bg-slate-800 border-gray-150/40 dark:border-slate-700 text-gray-400'
+                                                    ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
+                                                    : isNext
+                                                    ? 'bg-blue-50/50 dark:bg-blue-950/20 border-blue-300 dark:border-blue-800 text-blue-800 dark:text-blue-300'
+                                                    : 'bg-slate-50 dark:bg-slate-900/30 border-slate-200 dark:border-slate-700 text-slate-400'
                                             }`}
                                         >
-                                            <div className="absolute top-1.5 right-2 text-[8px] font-black uppercase tracking-wider">
-                                                {isAchieved ? (
-                                                    <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-0.5">✓ ĐÃ CỘNG</span>
-                                                ) : isActiveNext ? (
-                                                    <span className="text-sky-600 dark:text-sky-400 flex items-center gap-0.5 animate-bounce">TỚI LƯỢT</span>
-                                                ) : (
-                                                    <span>CHƯA ĐẠT</span>
-                                                )}
-                                            </div>
-                                            <span className="text-[10px] font-extrabold block mb-1 uppercase tracking-wider">{milestone.label}</span>
-                                            <span className={`text-sm font-black mt-1 ${isAchieved ? 'text-emerald-700 dark:text-emerald-300' : isActiveNext ? 'text-sky-700 dark:text-sky-300' : 'text-gray-700 dark:text-slate-350'}`}>
-                                                {milestone.bonus}
+                                            <span className="text-[10px] font-bold block uppercase">{milestone.label}</span>
+                                            <span className="text-sm font-black mt-0.5 block">{milestone.bonus}</span>
+                                            <span className="text-[9px] mt-1 block font-semibold opacity-80">
+                                                {isAchieved ? '✓ Đã nhận' : isNext ? 'Kế tiếp' : 'Chưa đạt'}
                                             </span>
                                         </div>
                                     );
@@ -1113,279 +1040,321 @@ const SettingsScreen = ({ profile = null, isDarkMode = false, setIsDarkMode = ()
                             </div>
                         </div>
 
-                        {/* Referred Friends History */}
-                        <div className="space-y-3">
-                            <div className="flex items-center justify-between">
-                                <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider">Lịch sử giới thiệu bạn bè</h4>
-                                <span className="text-[10px] text-gray-400">Đã cập nhật mới nhất</span>
-                            </div>
+                        {/* Lịch sử giới thiệu */}
+                        <div className="border-t border-slate-100 dark:border-slate-700/80 pt-4 space-y-3">
+                            <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
+                                Danh sách bạn bè đã mời
+                            </span>
 
                             {loadingStats ? (
-                                <div className="text-center py-6 text-xs text-gray-400">Đang tải lịch sử giới thiệu...</div>
+                                <div className="text-center py-4 text-xs text-slate-400">Đang tải...</div>
                             ) : refStats.friends.length === 0 ? (
-                                <div className="text-center py-8 border border-dashed border-gray-200 dark:border-slate-700 rounded-xl text-xs text-gray-400">
-                                    Chưa có bạn bè nào nhập mã giới thiệu của bạn. Hãy chia sẻ mã để nhận quà nhé!
+                                <div className="text-center py-6 border border-dashed border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-400">
+                                    Chưa có bạn bè nào nhập mã giới thiệu của bạn.
                                 </div>
                             ) : (
-                                <div className="overflow-hidden border border-gray-150/40 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800">
-                                    <div className="overflow-x-auto">
-                                        <table className="min-w-full divide-y divide-gray-100 dark:divide-slate-750 text-xs">
-                                            <thead className="bg-gray-50 dark:bg-slate-900/50 text-[10px] font-bold uppercase text-gray-400">
-                                                <tr>
-                                                    <th scope="col" className="px-4 py-2.5 text-left">Tên bạn bè</th>
-                                                    <th scope="col" className="px-4 py-2.5 text-center">Trạng thái</th>
-                                                    <th scope="col" className="px-4 py-2.5 text-center">Mốc quà tặng</th>
-                                                    <th scope="col" className="px-4 py-2.5 text-right">Thời gian</th>
+                                <div className="overflow-hidden border border-slate-200 dark:border-slate-700 rounded-xl">
+                                    <table className="min-w-full divide-y divide-slate-150 dark:divide-slate-700 text-xs">
+                                        <thead className="bg-slate-50 dark:bg-slate-900/50 text-[10px] font-bold uppercase text-slate-400">
+                                            <tr>
+                                                <th className="px-4 py-2.5 text-left">Tên bạn bè</th>
+                                                <th className="px-4 py-2.5 text-center">Gói</th>
+                                                <th className="px-4 py-2.5 text-right">Ngày tham gia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+                                            {refStats.friends.map((friend) => (
+                                                <tr key={friend.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-750/30">
+                                                    <td className="px-4 py-2.5 text-left font-semibold">{friend.name}</td>
+                                                    <td className="px-4 py-2.5 text-center">
+                                                        <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase ${
+                                                            friend.status === 'premium' 
+                                                                ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300' 
+                                                                : 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300'
+                                                        }`}>
+                                                            {friend.status === 'premium' ? 'Premium' : 'Free'}
+                                                        </span>
+                                                    </td>
+                                                    <td className="px-4 py-2.5 text-right text-slate-400 text-[11px]">
+                                                        {new Date(friend.createdAt).toLocaleDateString('vi-VN')}
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            <tbody className="divide-y divide-gray-100 dark:divide-slate-750 text-gray-700 dark:text-slate-300 font-medium">
-                                                {refStats.friends.map((friend) => (
-                                                    <tr key={friend.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-750/30 transition-colors">
-                                                        <td className="px-4 py-3 text-left font-bold text-gray-900 dark:text-white">
-                                                            {friend.name}
-                                                        </td>
-                                                        <td className="px-4 py-3 text-center">
-                                                            {friend.status === 'premium' ? (
-                                                                <span className="inline-flex items-center gap-1 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 font-black px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider">
-                                                                    <Crown className="w-2.5 h-2.5 fill-amber-500/20 text-amber-500" />
-                                                                    PREMIUM
-                                                                </span>
-                                                            ) : (
-                                                                <span className="inline-flex bg-gray-100 dark:bg-gray-700/50 text-gray-500 dark:text-slate-400 px-2 py-0.5 rounded-full text-[9px] uppercase font-bold tracking-wider">
-                                                                    FREE
-                                                                </span>
-                                                            )}
-                                                        </td>
-                                                        <td className="px-4 py-3 text-center font-bold text-gray-800 dark:text-slate-300">
-                                                            {friend.rewardIndex !== undefined ? `Bạn thứ ${friend.rewardIndex}` : 'Chưa kích hoạt'}
-                                                        </td>
-                                                        <td className="px-4 py-3 text-right text-gray-400">
-                                                            {new Date(friend.createdAt).toLocaleDateString('vi-VN')}
-                                                        </td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                            ))}
+                                        </tbody>
+                                    </table>
                                 </div>
                             )}
                         </div>
                     </div>
                 </div>
             )}
-            {/* ==================== GENERAL SETTINGS TAB ==================== */}
+
+            {/* ==================== TAB 3: CÀI ĐẶT CHUNG (GENERAL SETTINGS) ==================== */}
             {activeTab === 'general' && (
                 <div className="space-y-4">
-                    {/* Display Properties */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <Type className="w-4 h-4" /> Hiển thị
-                        </h3>
-                        {/* Furigana Toggle */}
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                <div>
-                                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Hiển thị phiên âm (Furigana)</p>
-                                    <p className="text-xs text-gray-400 dark:text-gray-500">Cho phép hiển thị cách đọc Hiragana trên chữ Hán.</p>
-                                </div>
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs divide-y divide-slate-100 dark:divide-slate-700/80">
+                        {/* 1. Hiển thị phiên âm (Furigana) */}
+                        <div className="p-5 sm:p-6 space-y-4">
+                            <div className="space-y-0.5">
+                                <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    <Type className="w-4 h-4 text-blue-500" />
+                                    Phiên âm chữ Hán (Furigana)
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">
+                                    Tùy chỉnh màu sắc và kích thước chữ phiên âm hiển thị đồng bộ trên toàn hệ thống
+                                </p>
                             </div>
-                            <button
-                                onClick={() => setFuriganaEnabled(!furiganaEnabled)}
-                                className={`relative w-12 h-6 rounded-full transition-colors ${furiganaEnabled ? 'bg-indigo-500' : 'bg-gray-300 dark:bg-gray-600'}`}
-                            >
-                                <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform`}
-                                    style={{ left: furiganaEnabled ? '26px' : '2px' }}
-                                />
-                            </button>
-                        </div>
-                        {/* Furigana Settings (Only when enabled) */}
-                        {furiganaEnabled && (
-                            <div className="border-t border-gray-100 dark:border-gray-700 pt-4 mt-4 space-y-4">
-                                <div className="space-y-2">
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Màu chữ phiên âm</span>
-                                        <span className="w-6 h-6 rounded-full border border-gray-300 dark:border-gray-600 shadow-sm" style={{ backgroundColor: furiganaColor }}></span>
-                                    </div>
-                                    <div className="flex gap-2">
-                                        {/* Color options */}
+
+                            <div className="pt-2 space-y-4">
+                                {/* Màu sắc */}
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                    <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
+                                        Màu chữ phiên âm
+                                    </span>
+                                    <div className="flex items-center gap-2">
                                         {[
-                                            { color: '#8b5cf6', name: 'Tím (Mặc định)' },
-                                            { color: '#f59e0b', name: 'Vàng/Cam' },
-                                            { color: '#3b82f6', name: 'Xanh dương' },
-                                            { color: '#ef4444', name: 'Đỏ' },
-                                            { color: '#10b981', name: 'Xanh ngọc' },
-                                            { color: '#9ca3af', name: 'Xám nhạt' }
+                                            { color: '#2563eb', name: 'Xanh dương' },
+                                            { color: '#0284c7', name: 'Xanh biển' },
+                                            { color: '#059669', name: 'Xanh lá' },
+                                            { color: '#d97706', name: 'Cam' },
+                                            { color: '#dc2626', name: 'Đỏ' },
+                                            { color: '#4b5563', name: 'Xám chì' }
                                         ].map((setting) => (
                                             <button
                                                 key={setting.color}
+                                                type="button"
                                                 onClick={() => setFuriganaColor(setting.color)}
-                                                className={`w-8 h-8 rounded-full shadow-sm border-2 flex items-center justify-center transition-transform hover:scale-110 ${furiganaColor === setting.color ? 'border-indigo-500 scale-110' : 'border-transparent'}`}
+                                                className={`w-7 h-7 rounded-full transition-transform hover:scale-110 flex items-center justify-center cursor-pointer ${
+                                                    furiganaColor === setting.color ? 'ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-slate-800' : ''
+                                                }`}
                                                 style={{ backgroundColor: setting.color }}
                                                 title={setting.name}
                                             >
-                                                {furiganaColor === setting.color && <Check className="w-4 h-4 text-white drop-shadow-md" />}
+                                                {furiganaColor === setting.color && <Check className="w-3.5 h-3.5 text-white" />}
                                             </button>
                                         ))}
                                     </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Kích thước chữ phiên âm</span>
-                                    </div>
-                                    <div className="grid grid-cols-3 gap-2">
+
+                                {/* Kích thước */}
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                    <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
+                                        Kích thước chữ phiên âm
+                                    </span>
+                                    <div className="flex rounded-lg bg-slate-100 dark:bg-slate-700 p-1 gap-1">
                                         {[
-                                            { value: '0.5em', label: 'Nhỏ', sample: 'text-xs' },
-                                            { value: '0.6em', label: 'Vừa', sample: 'text-sm' },
-                                            { value: '0.8em', label: 'Lớn', sample: 'text-base' }
+                                            { value: '0.5em', label: 'Nhỏ' },
+                                            { value: '0.6em', label: 'Vừa' },
+                                            { value: '0.8em', label: 'Lớn' }
                                         ].map((size) => (
                                             <button
                                                 key={size.value}
+                                                type="button"
                                                 onClick={() => setFuriganaFontSize(size.value)}
-                                                className={`py-2 rounded-xl border transition-colors ${furiganaFontSize === size.value
-                                                    ? 'bg-indigo-50 border-indigo-400 text-indigo-700 dark:bg-indigo-900/30 dark:border-indigo-500 dark:text-indigo-300'
-                                                    : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700'
-                                                    }`}
+                                                className={`px-3 py-1 rounded-md text-xs font-semibold transition-all cursor-pointer ${
+                                                    furiganaFontSize === size.value
+                                                        ? 'bg-white dark:bg-slate-600 text-blue-600 dark:text-blue-400 shadow-xs'
+                                                        : 'text-slate-600 dark:text-slate-300'
+                                                }`}
                                             >
-                                                <span className={`block font-bold ${size.sample}`}>あ</span>
-                                                <span className="text-[10px] mt-1">{size.label}</span>
+                                                {size.label}
                                             </button>
                                         ))}
                                     </div>
                                 </div>
-                            </div>
-                        )}
-                    </div>
-                    {/* Sound Effects */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <Volume2 className="w-4 h-4" /> Âm thanh
-                        </h3>
-                        {/* SFX Toggle */}
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3">
-                                {sfxEnabled ? <Volume2 className="w-5 h-5 text-indigo-500" /> : <VolumeX className="w-5 h-5 text-gray-400" />}
-                                <div>
-                                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Hiệu ứng âm thanh</p>
-                                    <p className="text-xs text-gray-400 dark:text-gray-500">Âm thanh khi trả lời đúng/sai</p>
+
+                                {/* Xem trước trực tiếp */}
+                                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
+                                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Xem trước hiển thị:</span>
+                                    <div className="text-base font-bold text-slate-800 dark:text-white font-japanese">
+                                        <ruby style={{ rubyPosition: 'over', lineHeight: '2.4' }}>
+                                            日本語
+                                            <rt style={{ fontSize: furiganaFontSize, color: furiganaColor, paddingBottom: '3px' }}>にほんご</rt>
+                                        </ruby>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+
+                        {/* 2. Âm thanh hiệu ứng */}
+                        <div className="p-5 sm:p-6 space-y-4">
+                            <div className="flex items-center justify-between">
+                                <div className="space-y-0.5">
+                                    <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                        <Volume2 className="w-4 h-4 text-blue-500" />
+                                        Hiệu ứng âm thanh
+                                    </h3>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                                        Phát âm thanh thông báo khi trả lời Đúng hoặc Sai trong bài học
+                                    </p>
+                                </div>
+                                <button
+                                    onClick={() => setSfxEnabled(!sfxEnabled)}
+                                    className={`relative w-11 h-6 rounded-full transition-colors cursor-pointer shrink-0 ${
+                                        sfxEnabled ? 'bg-blue-600' : 'bg-slate-300 dark:bg-slate-600'
+                                    }`}
+                                >
+                                    <span 
+                                        className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${
+                                            sfxEnabled ? 'left-5.5' : 'left-0.5'
+                                        }`}
+                                    />
+                                </button>
+                            </div>
+
+                            {sfxEnabled && (
+                                <div className="pt-2 space-y-2">
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-slate-500 font-semibold">Âm lượng hiệu ứng</span>
+                                        <span className="font-bold text-blue-600 dark:text-blue-400">{Math.round(sfxVolume * 100)}%</span>
+                                    </div>
+                                    <input
+                                        type="range"
+                                        min="0"
+                                        max="100"
+                                        value={sfxVolume * 100}
+                                        onChange={(e) => setSfxVolume(Number(e.target.value) / 100)}
+                                        className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                    />
+                                </div>
+                            )}
+                        </div>
+
+                        {/* 3. Giọng đọc phát âm AI */}
+                        <div className="p-5 sm:p-6 space-y-4">
+                            <div className="space-y-0.5">
+                                <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    <Play className="w-4 h-4 text-blue-500" />
+                                    Giọng đọc phát âm AI
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">
+                                    Chọn giọng đọc mẫu phát âm cho từ vựng và câu ví dụ
+                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-3">
+                                {Object.values(TTS_VOICES).map(voice => (
+                                    <button
+                                        key={voice.id}
+                                        onClick={() => {
+                                            setTtsVoiceState(voice.id);
+                                        }}
+                                        className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer ${
+                                            ttsVoice === voice.id
+                                                ? 'border-blue-600 bg-blue-50/60 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 shadow-xs'
+                                                : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                                        }`}
+                                    >
+                                        <div className="flex items-center gap-2.5">
+                                            <span className="text-lg">{voice.gender === 'Female' ? '👩' : '👨'}</span>
+                                            <span className="text-xs font-bold text-slate-800 dark:text-white">
+                                                Giọng {voice.label}
+                                            </span>
+                                        </div>
+                                        {ttsVoice === voice.id && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
+                                    </button>
+                                ))}
+                            </div>
+
                             <button
-                                onClick={() => setSfxEnabled(!sfxEnabled)}
-                                className={`relative w-12 h-6 rounded-full transition-colors ${sfxEnabled ? 'bg-indigo-500' : 'bg-gray-300 dark:bg-gray-600'}`}
+                                onClick={() => {
+                                    setIsPreviewingVoice(true);
+                                    setTTSVoice(ttsVoice);
+                                    speakJapanese(isEnglishMode ? 'Hello, this is your pronunciation assistant.' : 'こんにちは、こちらは音声テストです。');
+                                    setTimeout(() => setIsPreviewingVoice(false), 2500);
+                                }}
+                                disabled={isPreviewingVoice}
+                                className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 active:scale-98 text-slate-700 dark:text-slate-200 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                             >
-                                <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${sfxEnabled ? 'left-6.5 translate-x-0' : 'left-0.5'}`}
-                                    style={{ left: sfxEnabled ? '26px' : '2px' }}
-                                />
+                                {isPreviewingVoice ? (
+                                    <>
+                                        <div className="w-3.5 h-3.5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                                        <span>Đang phát thử...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Play className="w-3.5 h-3.5" />
+                                        <span>Nghe thử giọng đọc</span>
+                                    </>
+                                )}
                             </button>
                         </div>
-                        {/* SFX Volume */}
-                        {sfxEnabled && (
-                            <div className="space-y-2">
-                                <div className="flex justify-between items-center">
-                                    <span className="text-sm text-gray-600 dark:text-gray-400">Âm lượng hiệu ứng</span>
-                                    <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{Math.round(sfxVolume * 100)}%</span>
-                                </div>
-                                <input
-                                    type="range"
-                                    min="0"
-                                    max="100"
-                                    value={sfxVolume * 100}
-                                    onChange={(e) => setSfxVolume(Number(e.target.value) / 100)}
-                                    className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full appearance-none cursor-pointer accent-indigo-500"
-                                />
+
+                        {/* 4. Chủ đề giao diện */}
+                        <div className="p-5 sm:p-6 space-y-4">
+                            <div className="space-y-0.5">
+                                <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    <Sun className="w-4 h-4 text-blue-500" />
+                                    Chủ đề giao diện
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">
+                                    Tùy chỉnh chế độ hiển thị sáng hoặc tối
+                                </p>
                             </div>
-                        )}
 
+                            <div className="grid grid-cols-2 gap-3">
+                                <button
+                                    onClick={() => setIsDarkMode(false)}
+                                    className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer ${
+                                        !isDarkMode
+                                            ? 'border-blue-600 bg-blue-50/60 dark:bg-blue-950/30'
+                                            : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                                    }`}
+                                >
+                                    <div className="flex items-center gap-2.5">
+                                        <Sun className="w-4 h-4 text-amber-500" />
+                                        <span className="text-xs font-bold text-slate-800 dark:text-white">Giao diện Sáng</span>
+                                    </div>
+                                    {!isDarkMode && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
+                                </button>
+
+                                <button
+                                    onClick={() => setIsDarkMode(true)}
+                                    className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer ${
+                                        isDarkMode
+                                            ? 'border-blue-600 bg-blue-50/60 dark:bg-blue-950/30'
+                                            : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                                    }`}
+                                >
+                                    <div className="flex items-center gap-2.5">
+                                        <Moon className="w-4 h-4 text-sky-400" />
+                                        <span className="text-xs font-bold text-slate-800 dark:text-white">Giao diện Tối</span>
+                                    </div>
+                                    {isDarkMode && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    {/* TTS Voice Selector */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <Mic className="w-4 h-4" /> Giọng đọc phát âm AI
-                        </h3>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
-                            Chọn giọng AI đọc phát âm (Tự động chuyển giữa Tiếng Anh chuẩn IPA & Tiếng Nhật)
-                        </p>
-                        <div className="grid grid-cols-2 gap-3">
-                             {/* Giọng đọc buttons are here */}
-                             {Object.values(TTS_VOICES).map(voice => (
-                                 <button
-                                     key={voice.id}
-                                     onClick={() => {
-                                         setTTSVoice(voice.id);
-                                         setTtsVoiceState(voice.id);
-                                     }}
-                                     className={`p-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${ttsVoice === voice.id
-                                         ? 'border-cyan-400 bg-cyan-50 dark:bg-cyan-900/20 shadow-lg shadow-cyan-100 dark:shadow-cyan-900/20'
-                                         : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
-                                         }`}
-                                 >
-                                     <div className={`w-12 h-12 rounded-full flex items-center justify-center shadow-inner ${voice.gender === 'Female'
-                                         ? 'bg-gradient-to-br from-pink-400 to-rose-500'
-                                         : 'bg-gradient-to-br from-blue-400 to-indigo-500'
-                                         }`}>
-                                         <span className="text-xl text-white">{voice.gender === 'Female' ? '👩' : '👨'}</span>
-                                     </div>
-                                     <span className={`text-sm font-bold ${ttsVoice === voice.id ? 'text-cyan-700 dark:text-cyan-400' : 'text-gray-500 dark:text-gray-400'}`}>
-                                         Giọng {voice.label}
-                                     </span>
-                                     {ttsVoice === voice.id && <Check className="w-4 h-4 text-cyan-500" />}
-                                 </button>
-                             ))}
-                         </div>
 
+                    {/* Nút LƯU CÀI ĐẶT (ĐỒNG BỘ WEB & MOBILE) */}
+                    <div className="pt-2 flex justify-end">
                         <button
-                            onClick={() => {
-                                setIsPreviewingVoice(true);
-                                speakJapanese(isEnglishMode ? 'Hello, I am your English pronunciation assistant.' : 'こんにちは、私はあなたの日本語の先生です。');
-                                setTimeout(() => setIsPreviewingVoice(false), 3000);
-                            }}
-                            disabled={isPreviewingVoice}
-                            className="w-full py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-bold text-sm hover:from-cyan-600 hover:to-blue-600 disabled:opacity-50 transition-all flex items-center justify-center gap-2 mt-2"
+                            onClick={handleSaveGeneralSettings}
+                            disabled={isSavingSettings}
+                            className="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 active:scale-98 text-white rounded-xl font-bold text-sm shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                         >
-                            {isPreviewingVoice ? (
-                                <><div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" /> Đang phát...</>
+                            {isSavingSettings ? (
+                                <>
+                                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                    <span>Đang lưu và đồng bộ...</span>
+                                </>
+                            ) : saveSuccess ? (
+                                <>
+                                    <Check className="w-4 h-4 text-emerald-300" />
+                                    <span>Đã lưu cài đặt!</span>
+                                </>
                             ) : (
-                                <><Play className="w-4 h-4" /> Nghe thử giọng đọc</>
+                                <>
+                                    <Save className="w-4 h-4" />
+                                    <span>Lưu cài đặt</span>
+                                </>
                             )}
                         </button>
-                    </div>
-                    {/* Theme */}
-                    <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-2">
-                            <Palette className="w-4 h-4" /> Giao diện
-                        </h3>
-                        <div className="grid grid-cols-2 gap-3">
-                            <button
-                                onClick={() => setIsDarkMode(false)}
-                                className={`p-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${!isDarkMode
-                                    ? 'border-amber-400 bg-amber-50 dark:bg-amber-900/20 shadow-lg shadow-amber-100 dark:shadow-amber-900/20'
-                                    : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
-                                    }`}
-                            >
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-300 to-orange-400 flex items-center justify-center shadow-inner">
-                                    <Sun className="w-6 h-6 text-white" />
-                                </div>
-                                <span className={`text-sm font-bold ${!isDarkMode ? 'text-amber-700 dark:text-amber-400' : 'text-gray-500 dark:text-gray-400'}`}>Sáng</span>
-                                {!isDarkMode && <Check className="w-4 h-4 text-amber-500" />}
-                            </button>
-                            <button
-                                onClick={() => setIsDarkMode(true)}
-                                className={`p-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${isDarkMode
-                                    ? 'border-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 shadow-lg shadow-indigo-100 dark:shadow-indigo-900/20'
-                                    : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
-                                    }`}
-                            >
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-sky-600 flex items-center justify-center shadow-inner">
-                                    <Moon className="w-6 h-6 text-white" />
-                                </div>
-                                <span className={`text-sm font-bold ${isDarkMode ? 'text-indigo-700 dark:text-indigo-400' : 'text-gray-500 dark:text-gray-400'}`}>Tối</span>
-                                {isDarkMode && <Check className="w-4 h-4 text-indigo-500" />}
-                            </button>
-                        </div>
                     </div>
                 </div>
             )}
         </div>
     );
 };
+
 export default SettingsScreen;

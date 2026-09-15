@@ -109,8 +109,8 @@
   "library": {
     "vocabTitle": "词汇文库",
     "vocabSub": "管理个人文件夹与词汇集，支持拖拽快速归类。",
-    "newFolder": "+ 新建文件夹",
-    "newSet": "+ 创建新词集",
+    "newFolder": "新建文件夹",
+    "newSet": "创建新词集",
     "managedFolders": "管理文件夹",
     "studySets": "词汇集",
     "dragTip": "💡 提示：按住并拖拽词汇集至文件夹，即可轻松进行分类与整理。",
@@ -128,14 +128,14 @@
     "setDescriptionLabel": "添加描述",
     "setDescriptionPlaceholder": "描述本词汇集的学习目标...",
     "addCover": "添加封面图片",
-    "addRow": "+ 添加新行",
+    "addRow": "添加新行",
     "aiBatch": "AI 批量生成",
     "ocrAdd": "拍照/图片识别添加",
     "japaneseTerm": "日语词汇 *",
     "definition": "中文释义 *",
     "partOfSpeech": "词性",
     "kanjiReading": "汉字读音/假名",
-    "addExample": "+ 添加例句",
+    "addExample": "添加例句",
     "additionalOptions": "附加选项 (图片、同义词、笔记)"
   },
   "books": {

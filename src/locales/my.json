@@ -86,13 +86,13 @@
     "setTitlePlaceholder": "ဥပမာ - N3 ဝေါဟာရ သင်ခန်းစာ ၁...",
     "setDescriptionLabel": "ဖော်ပြချက် ထည့်ရန်",
     "addCover": "ကာဗာပုံ ထည့်မည်",
-    "addRow": "+ စာကြောင်းသစ် ထည့်မည်",
+    "addRow": "စာကြောင်းသစ် ထည့်မည်",
     "aiBatch": "AI ဖြင့် အများအပြား ထည့်မည်",
     "ocrAdd": "ဓာတ်ပုံမှ ဝေါဟာရ ထုတ်ယူမည်",
     "japaneseTerm": "ဂျပန်စာ ဝေါဟာရ",
     "definition": "အဓိပ္ပာယ်",
     "partOfSpeech": "ဝါစင်္ဂ",
     "kanjiReading": "ခန်ဂျီ အသံထွက်",
-    "addExample": "+ ဥပမာ စာကြောင်း ထည့်မည်"
+    "addExample": "ဥပမာ စာကြောင်း ထည့်မည်"
   }
 }

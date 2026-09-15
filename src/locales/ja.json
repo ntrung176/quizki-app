@@ -109,8 +109,8 @@
   "library": {
     "vocabTitle": "単語ライブラリ",
     "vocabSub": "フォルダや個人的な学習セットを簡単に整理できます。",
-    "newFolder": "+ 新しいフォルダ",
-    "newSet": "+ 単語帳を作成",
+    "newFolder": "新しいフォルダ",
+    "newSet": "単語帳を作成",
     "managedFolders": "管理フォルダ",
     "studySets": "単語帳",
     "dragTip": "💡 ヒント: ドラッグ＆ドロップで単語帳をフォルダに移動できます。",
@@ -128,14 +128,14 @@
     "setDescriptionLabel": "説明の追加",
     "setDescriptionPlaceholder": "この単語帳の目的を入力...",
     "addCover": "カバー画像を追加",
-    "addRow": "+ 行を追加",
+    "addRow": "行を追加",
     "aiBatch": "AIで一括生成",
     "ocrAdd": "画像から単語を抽出",
     "japaneseTerm": "単語 / 用語",
     "definition": "意味 / 定義",
     "partOfSpeech": "品詞",
     "kanjiReading": "読み方",
-    "addExample": "+ 例文を追加",
+    "addExample": "例文を追加",
     "additionalOptions": "追加オプション（画像、類義語、メモ）"
   },
   "books": {

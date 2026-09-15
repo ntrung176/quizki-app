@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Copy, Check, FileJson, Sparkles, Download, AlertCircle } from 'lucide-react';
+import { X, Copy, Check, FileJson, Download, AlertCircle } from 'lucide-react';
 import { showToast } from '../../utils/toast';
 import { cleanJapaneseExampleSentence } from '../../utils/furiganaHelper';
 
@@ -176,21 +176,21 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                 </div>
 
                 {/* Full Prompt AI Copy Box */}
-                <div className="p-4 bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 rounded-2xl space-y-2.5">
+                <div className="p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-2.5">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-indigo-700 dark:text-indigo-300 font-bold text-xs">
-                            <Sparkles className="w-4 h-4 text-indigo-500" />
+                        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-bold text-xs">
+                            <FileJson className="w-4 h-4 text-blue-500" />
                             <span>Prompt AI đầy đủ các trường từ vựng (ChatGPT / Gemini / Claude)</span>
                         </div>
                         <button
                             onClick={handleCopyPrompt}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer shrink-0"
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer shrink-0"
                         >
                             {copiedPrompt ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                             <span>{copiedPrompt ? 'Đã chép Prompt!' : 'Sao chép Prompt'}</span>
                         </button>
                     </div>
-                    <pre className="text-[11px] font-mono leading-relaxed bg-white/90 dark:bg-slate-950/90 p-3.5 rounded-xl border border-indigo-100 dark:border-indigo-900/50 text-slate-700 dark:text-slate-300 whitespace-pre-wrap max-h-56 overflow-y-auto custom-scrollbar">
+                    <pre className="text-[11px] font-mono leading-relaxed bg-white/90 dark:bg-slate-950/90 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 whitespace-pre-wrap max-h-56 overflow-y-auto custom-scrollbar">
                         {SAMPLE_PROMPT}
                     </pre>
                 </div>

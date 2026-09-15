@@ -84,9 +84,27 @@ export const submitReferralCode = async (userId, displayName, enteredCode) => {
             referrerExpiry = exp?.toDate ? exp.toDate().getTime() : Number(exp || 0);
         }
 
-        // 3. Execute transaction to safely award 15 days Premium to referee, save referredBy, award 3 days to referrer and create referral document
-        let newExpiryReferee = Date.now() + 15 * 24 * 60 * 60 * 1000;
-        let newExpiryReferrer = Date.now() + 3 * 24 * 60 * 60 * 1000;
+        // 3. Count existing referrals of this referrer to calculate progressive reward
+        const referralsRef = collection(db, `artifacts/${appId}/referrals`);
+        const qReferrals = query(referralsRef, where('referrerId', '==', referrerId));
+        const referralsSnap = await getDocs(qReferrals);
+        const nextFriendIndex = referralsSnap.size + 1; // Lượt bạn bè thứ mấy
+
+        // Thưởng người giới thiệu: bạn 1 & 2 = 15 ngày, bạn 3 = 20 ngày, bạn 4+ = 1 tháng (30 ngày)
+        let rewardDaysForReferrer = 15;
+        if (nextFriendIndex <= 2) {
+            rewardDaysForReferrer = 15;
+        } else if (nextFriendIndex === 3) {
+            rewardDaysForReferrer = 20;
+        } else {
+            rewardDaysForReferrer = 30;
+        }
+
+        const REFERRER_REWARD_MS = rewardDaysForReferrer * 24 * 60 * 60 * 1000;
+        const REFEREE_TRIAL_MS = 30 * 24 * 60 * 60 * 1000;  // +1 tháng Premium cho người nhập mã
+
+        let newExpiryReferee = Date.now() + REFEREE_TRIAL_MS;
+        let newExpiryReferrer = Date.now() + REFERRER_REWARD_MS;
         await runTransaction(db, async (transaction) => {
             const refereeProfileDoc = await transaction.get(profileRef);
 
@@ -97,10 +115,10 @@ export const submitReferralCode = async (userId, displayName, enteredCode) => {
             const currentExpiry = refereeProfileDoc.data().premiumExpiresAt || 0;
             const currentExpiryMs = currentExpiry?.toDate ? currentExpiry.toDate().getTime() : Number(currentExpiry || 0);
             const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();
-            newExpiryReferee = baseTime + 15 * 24 * 60 * 60 * 1000;
+            newExpiryReferee = baseTime + REFEREE_TRIAL_MS;
 
             const referrerBase = referrerExpiry > Date.now() ? referrerExpiry : Date.now();
-            newExpiryReferrer = referrerBase + 3 * 24 * 60 * 60 * 1000;
+            newExpiryReferrer = referrerBase + REFERRER_REWARD_MS;
 
             // Update Referee Profile
             transaction.update(profileRef, {
@@ -115,7 +133,7 @@ export const submitReferralCode = async (userId, displayName, enteredCode) => {
                 }
             });
 
-            // Update Referrer Profile (award 3 days Premium immediately)
+            // Update Referrer Profile (award progressive Premium immediately)
             // Note: Since we verified the referrer user exists via userStats lookup, we perform the update directly
             transaction.update(referrerProfileRef, {
                 isPremiumUnlocked: true,
@@ -130,7 +148,9 @@ export const submitReferralCode = async (userId, displayName, enteredCode) => {
                 referredId: userId,
                 referredName: displayName || 'Người dùng mới',
                 status: 'pending',
-                rewarded: false,
+                rewarded: true,
+                rewardDays: rewardDaysForReferrer,
+                friendIndex: nextFriendIndex,
                 createdAt: Date.now(),
                 updatedAt: Date.now()
             });
@@ -205,15 +225,13 @@ export const checkAndApplyReferralRewards = async (referredUserId, referredName)
         // 3. Calculate rewards based on the progressive scale
         let premiumDays = 15;
 
-        if (premiumCount === 1) {
-            premiumDays = 15;
-        } else if (premiumCount === 2) {
-            premiumDays = 30;
+        if (premiumCount <= 2) {
+            premiumDays = 15; // Bạn thứ 1 và 2: +15 ngày
         } else if (premiumCount === 3) {
-            premiumDays = 45;
+            premiumDays = 20; // Bạn thứ 3: +20 ngày
         } else {
-            // 4th friend onwards
-            premiumDays = 60;
+            // Bạn thứ 4 trở đi: +1 tháng (30 ngày)
+            premiumDays = 30;
         }
 
         const durationMs = premiumDays * 24 * 60 * 60 * 1000;

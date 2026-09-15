@@ -88,8 +88,8 @@ ruby {
 }
 
 ruby rt {
-  font-size: 0.55em;
-  color: #e11d48; /* Beautiful rose-600 for light mode */
+  font-size: var(--furigana-font-size, 0.55em);
+  color: var(--furigana-color, #2563eb);
   font-weight: 600;
   letter-spacing: normal !important;
   text-align: center;
@@ -102,7 +102,7 @@ ruby rt {
 }
 
 html.dark ruby rt {
-  color: #fb7185; /* Beautiful rose-400 for dark mode */
+  color: var(--furigana-color, #2563eb);
 }
 
 ruby rp {

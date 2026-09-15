@@ -109,8 +109,8 @@
   "library": {
     "vocabTitle": "Vocabulary Library",
     "vocabSub": "Manage your personal folders, study sets, and drag & drop for easy categorization.",
-    "newFolder": "+ New Folder",
-    "newSet": "+ Create New Set",
+    "newFolder": "New Folder",
+    "newSet": "Create New Set",
     "managedFolders": "Managed Folders",
     "studySets": "Study Sets",
     "dragTip": "💡 Tip: You can click, hold and drag study sets into folders for easy organization.",
@@ -128,14 +128,14 @@
     "setDescriptionLabel": "ADD DESCRIPTION",
     "setDescriptionPlaceholder": "Describe the objective of this word set...",
     "addCover": "Add Cover Image",
-    "addRow": "+ Add New Row",
+    "addRow": "Add New Row",
     "aiBatch": "AI Batch Generation",
     "ocrAdd": "Add Words from Image",
     "japaneseTerm": "JAPANESE TERM *",
     "definition": "DEFINITION *",
     "partOfSpeech": "PART OF SPEECH",
     "kanjiReading": "KANJI READING",
-    "addExample": "+ Add Example Sentence",
+    "addExample": "Add Example Sentence",
     "additionalOptions": "ADDITIONAL OPTIONS (IMAGE, SYNONYMS, NOTES)"
   },
   "books": {

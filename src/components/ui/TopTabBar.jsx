@@ -39,8 +39,8 @@ const getThemeClasses = (pathname, tabs, themeProp) => {
         tabs?.some(t => t.id?.startsWith('kanji') || t.route?.startsWith('/kanji'))
     ) {
         return {
-            gradient: 'from-red-500 via-rose-600 to-red-600',
-            shadow: 'shadow-rose-500/25 dark:shadow-rose-950/40',
+            bg: 'bg-rose-600',
+            shadow: 'shadow-rose-500/20 dark:shadow-rose-950/40',
         };
     }
     if (
@@ -50,13 +50,13 @@ const getThemeClasses = (pathname, tabs, themeProp) => {
         tabs?.some(t => t.id?.startsWith('grammar') || t.route?.startsWith('/grammar'))
     ) {
         return {
-            gradient: 'from-emerald-500 via-green-600 to-emerald-600',
-            shadow: 'shadow-emerald-500/25 dark:shadow-emerald-950/40',
+            bg: 'bg-emerald-600',
+            shadow: 'shadow-emerald-500/20 dark:shadow-emerald-950/40',
         };
     }
     return {
-        gradient: 'from-cyan-500 via-indigo-600 to-sky-500',
-        shadow: 'shadow-cyan-500/20 dark:shadow-cyan-950/20',
+        bg: 'bg-blue-600',
+        shadow: 'shadow-blue-500/20 dark:shadow-blue-950/20',
     };
 };
 
@@ -129,7 +129,7 @@ const TopTabBar = ({ tabs, theme }) => {
                 <div className="relative flex items-center justify-between w-full space-x-1" ref={containerRef}>
                     {/* Sliding Capsule Pill Indicator (GPU-accelerated translate3d) */}
                     <div 
-                        className={`absolute top-0 bottom-0 rounded-xl bg-gradient-to-r ${themeClasses.gradient} shadow-lg shadow-indigo-500/25 z-0 transform-gpu ${
+                        className={`absolute top-0 bottom-0 rounded-xl ${themeClasses.bg} shadow-md shadow-slate-900/10 z-0 transform-gpu ${
                             indicatorStyle.animated ? 'transition-all duration-250 ease-out' : 'transition-none'
                         }`}
                         style={{ 

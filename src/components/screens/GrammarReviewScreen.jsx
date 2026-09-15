@@ -1116,7 +1116,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             {stats.dueToday > 0 ? (
                                 <button
                                     onClick={() => startReview()}
-                                    className="mt-3 w-full py-2.5 px-5 rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-[0_8px_20px_rgba(16,185,129,0.45)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.75)] transform hover:scale-[1.03] bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer min-h-[42px]"
+                                    className="mt-3 w-full py-2.5 px-5 rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md shadow-emerald-500/25 hover:shadow-lg transform hover:scale-[1.03] bg-emerald-600 hover:bg-emerald-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer min-h-[42px]"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}</span>

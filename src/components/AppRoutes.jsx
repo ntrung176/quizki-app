@@ -2,6 +2,7 @@ import React from 'react';
 import LoadingIndicator from './ui/LoadingIndicator';
 import { Routes, Route, Navigate, useNavigate, useParams, useLocation } from 'react-router-dom';
 import { ROUTES, ProtectedRoute, PublicOnlyRoute } from '../router';
+import { SectionErrorBoundary } from './ErrorBoundary';
 import { getAuth } from 'firebase/auth';
 import { saveStudyCompletion } from '../utils/studyProgressService';
 import UpgradeScreen from './ui/AiCreditShop';
@@ -586,16 +587,17 @@ const AppRoutes = ({
 
     return (
         <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900"><LoadingIndicator text="Đang nạp tính năng..." /></div>}>
-            <Routes>
-                {/* Public routes */}
-                <Route
-                    path={ROUTES.LOGIN}
-                    element={
-                        <PublicOnlyRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <LoginScreen />
-                        </PublicOnlyRoute>
-                    }
-                />
+            <SectionErrorBoundary name="Màn hình ứng dụng">
+                <Routes>
+                    {/* Public routes */}
+                    <Route
+                        path={ROUTES.LOGIN}
+                        element={
+                            <PublicOnlyRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                                <LoginScreen />
+                            </PublicOnlyRoute>
+                        }
+                    />
 
                 {/* Legal public routes */}
                 <Route path={ROUTES.PRIVACY} element={<PrivacyScreen />} />
@@ -1475,8 +1477,9 @@ const AppRoutes = ({
                 {/* Catch all - redirect to home */}
                 <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
             </Routes>
-        </React.Suspense>
-    );
+        </SectionErrorBoundary>
+    </React.Suspense>
+);
 };
 
 export default AppRoutes;

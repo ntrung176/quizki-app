@@ -109,8 +109,8 @@
   "library": {
     "vocabTitle": "Thư viện Từ vựng",
     "vocabSub": "Quản lý các thư mục, học phần học tập cá nhân và kéo thả để phân loại dễ dàng.",
-    "newFolder": "+ Thư mục mới",
-    "newSet": "+ Tạo học phần mới",
+    "newFolder": "Thư mục mới",
+    "newSet": "Tạo học phần mới",
     "managedFolders": "Thư mục quản lý",
     "studySets": "Học phần",
     "dragTip": "💡 Mẹo: Bạn có thể nhấn giữ và kéo thả các học phần vào các thư mục để sắp xếp và phân loại chúng dễ dàng hơn.",
@@ -128,14 +128,14 @@
     "setDescriptionLabel": "THÊM MÔ TẢ",
     "setDescriptionPlaceholder": "Mô tả mục tiêu của bộ từ vựng này...",
     "addCover": "Thêm ảnh bìa",
-    "addRow": "+ Thêm dòng mới",
+    "addRow": "Thêm dòng mới",
     "aiBatch": "Tạo bằng AI hàng loạt",
     "ocrAdd": "Thêm từ vựng theo ảnh",
     "japaneseTerm": "THUẬT NGỮ (TIẾNG NHẬT)",
     "definition": "ĐỊNH NGHĨA",
     "partOfSpeech": "TỪ LOẠI",
     "kanjiReading": "HÁN VIỆT",
-    "addExample": "+ Thêm câu ví dụ",
+    "addExample": "Thêm câu ví dụ",
     "additionalOptions": "TÙY CHỌN BỔ SUNG (ẢNH, ĐỒNG NGHĨA, GHI CHÚ)"
   },
   "books": {

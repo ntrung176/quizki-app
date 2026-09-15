@@ -6,6 +6,17 @@ import App from './App.jsx'
 import AppErrorBoundary from './components/ErrorBoundary.jsx'
 import { showToast, showConfirm } from './utils/toast';
 
+// Initialize global furigana CSS variables from saved settings
+try {
+  const savedSettings = JSON.parse(localStorage.getItem('quizki-settings') || '{}');
+  if (savedSettings.furiganaColor) {
+    document.documentElement.style.setProperty('--furigana-color', savedSettings.furiganaColor);
+  }
+  if (savedSettings.furiganaFontSize) {
+    document.documentElement.style.setProperty('--furigana-font-size', savedSettings.furiganaFontSize);
+  }
+} catch (_) {}
+
 // Expose toast systems globally to avoid repeating imports
 window.showToast = showToast;
 window.showConfirm = showConfirm;

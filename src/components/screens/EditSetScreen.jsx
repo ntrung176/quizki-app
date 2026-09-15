@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Plus, Loader2, Image as ImageIcon, Check, X, Sparkle, Folder, AlertTriangle, FileJson, Camera } from 'lucide-react'
+import { Plus, Loader2, Image as ImageIcon, Check, X, Folder, AlertTriangle, FileJson, Camera, Wrench, ChevronDown } from 'lucide-react';
 
 import { compressImage } from '../../utils/image';
 import { TopTabBar } from '../ui';
+import { SectionErrorBoundary } from '../ErrorBoundary';
 import { VOCAB_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 import { CardEditorItem } from '../cards/AddCardForm';
@@ -83,6 +84,7 @@ const EditSetScreen = ({
     const [isBatchModalOpen, setIsBatchModalOpen] = useState(false);
     const [batchModalInitialTab, setBatchModalInitialTab] = useState('text');
     const [isJsonModalOpen, setIsJsonModalOpen] = useState(false);
+    const [isToolsMenuOpen, setIsToolsMenuOpen] = useState(false);
 
     const handleImportJsonCards = (newCards) => {
         if (!newCards || newCards.length === 0) return;
@@ -466,23 +468,23 @@ const EditSetScreen = ({
         <div className="w-full pb-32 bg-slate-50 dark:bg-gray-900 min-h-screen">
             <TopTabBar tabs={VOCAB_TABS} />
 
-            <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-6 space-y-8 animate-fade-in">
+            <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-4 sm:mt-5 space-y-4 sm:space-y-4.5 animate-fade-in">
 
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-1">
-                        <h2 className="text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
+                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
                             Chỉnh sửa học phần
                         </h2>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm">
+                        <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm">
                             Cập nhật thông tin chi tiết và danh sách từ vựng của học phần.
                         </p>
                     </div>
-                    <div className="flex items-center gap-3 shrink-0">
+                    <div className="flex items-center gap-2.5 shrink-0">
                         <button
                             type="button"
                             onClick={onBack}
-                            className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                            className="px-5 py-2.5 text-xs font-bold rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 transition-colors shadow-xs cursor-pointer min-h-[40px]"
                         >
                             Hủy
                         </button>
@@ -490,7 +492,7 @@ const EditSetScreen = ({
                             type="button"
                             onClick={handleSaveSet}
                             disabled={isSaving}
-                            className="px-6 py-2.5 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#1a3543] dark:bg-indigo-600 dark:hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2"
+                            className="px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 shadow-md transition-all disabled:opacity-50 flex items-center gap-1.5 active:scale-95 cursor-pointer min-h-[40px]"
                         >
                             {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
                             Lưu học phần
@@ -499,8 +501,8 @@ const EditSetScreen = ({
                 </div>
 
                 {/* Metadata Card */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-md border border-slate-200 dark:border-slate-800">
-                    <div className="space-y-5">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 md:p-7 shadow-md border border-slate-200 dark:border-slate-800">
+                    <div className="space-y-4 sm:space-y-5">
                         <div>
                             <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">TIÊU ĐỀ HỌC PHẦN</label>
                             <input
@@ -508,7 +510,7 @@ const EditSetScreen = ({
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 placeholder="VD: Từ vựng N3 bài 1..."
-                                className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
+                                className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
                         <div>
@@ -518,106 +520,136 @@ const EditSetScreen = ({
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 placeholder="Mô tả mục tiêu của bộ từ vựng này..."
-                                className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-400 text-base text-slate-600 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
+                                className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 text-base text-slate-600 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
                     </div>
                 </div>
 
-                {/* Control Action Row */}
-                <div className="flex items-center justify-between pt-2">
-                    <button
-                        type="button"
-                        onClick={handleAddCardRow}
-                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-xl text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 dark:text-slate-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700/60 transition-all shadow-sm cursor-pointer"
-                    >
-                        <Plus className="w-4 h-4" />
-                        Thêm dòng mới
-                    </button>
-                    <div className="flex flex-wrap gap-2.5">
-                        {onGeminiAssist && (
-                            <>
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        if (!canUserUseAI) {
-                                            setShowPremiumModal(true);
-                                            return;
-                                        }
-                                        setBatchModalInitialTab('text');
-                                        setIsBatchModalOpen(true);
-                                    }}
-                                    className="flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-xl text-indigo-650 bg-indigo-50 hover:bg-indigo-100 border border-indigo-100 dark:text-indigo-400 dark:bg-slate-800 dark:border-indigo-900/50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
-                                >
-                                    <span className="text-[9px] font-black bg-indigo-200/60 dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 rounded-md">AI</span>
-                                    Tạo bằng AI hàng loạt
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        if (!canUserUseAI) {
-                                            setShowPremiumModal(true);
-                                            return;
-                                        }
-                                        setBatchModalInitialTab('image');
-                                        setIsBatchModalOpen(true);
-                                    }}
-                                    className="flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-xl text-purple-650 bg-purple-50 hover:bg-purple-100 border border-purple-100 dark:text-purple-400 dark:bg-slate-800 dark:border-purple-900/50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
-                                >
-                                    <Camera className="w-3.5 h-3.5 text-purple-500" />
-                                    Tạo từ vựng từ ảnh (OCR)
-                                </button>
-                            </>
-                        )}
+                {/* Tools Menu Row - Equal Symmetrical Spacing & Distinct Color */}
+                <div className="flex items-center justify-end relative z-20">
+                    <div className="relative">
                         <button
                             type="button"
-                            onClick={() => setIsJsonModalOpen(true)}
-                            className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-xl text-sky-650 bg-sky-50 hover:bg-sky-100 border border-sky-100 dark:text-sky-400 dark:bg-slate-800 dark:border-sky-900/50 dark:hover:bg-slate-700 transition-all shadow-sm cursor-pointer"
+                            onClick={() => setIsToolsMenuOpen(!isToolsMenuOpen)}
+                            className="flex items-center gap-2 px-3.5 py-1.5 sm:py-2 text-xs font-bold rounded-xl text-blue-700 dark:text-blue-300 bg-blue-50/90 hover:bg-blue-100 dark:bg-slate-800 dark:hover:bg-slate-750 border border-blue-200/90 dark:border-blue-800/80 transition-all shadow-xs cursor-pointer active:scale-95"
                         >
-                            <FileJson className="w-4 h-4 text-sky-500" />
-                            Nhập JSON thủ công
+                            <div className="w-5 h-5 rounded-lg bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+                                <Wrench className="w-3 h-3" />
+                            </div>
+                            <span>Công cụ</span>
+                            <ChevronDown className={`w-3.5 h-3.5 text-blue-500 dark:text-blue-400 transition-transform duration-200 ${isToolsMenuOpen ? 'rotate-180' : ''}`} />
                         </button>
+
+                        {isToolsMenuOpen && (
+                            <>
+                                <div 
+                                    className="fixed inset-0 z-40" 
+                                    onClick={() => setIsToolsMenuOpen(false)} 
+                                />
+                                <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-slate-200 dark:border-slate-700 py-1.5 z-50 animate-scale-up divide-y divide-slate-100 dark:divide-slate-700/60">
+                                    <div className="p-1 space-y-0.5">
+                                        {onGeminiAssist && (
+                                            <>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setIsToolsMenuOpen(false);
+                                                        if (!canUserUseAI) {
+                                                            setShowPremiumModal(true);
+                                                            return;
+                                                        }
+                                                        setBatchModalInitialTab('text');
+                                                        setIsBatchModalOpen(true);
+                                                    }}
+                                                    className="w-full px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-colors cursor-pointer text-left"
+                                                >
+                                                    <span className="w-6 h-6 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-400 flex items-center justify-center text-[10px] font-black shrink-0">
+                                                        AI
+                                                    </span>
+                                                    <span>Tạo bằng AI hàng loạt</span>
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setIsToolsMenuOpen(false);
+                                                        if (!canUserUseAI) {
+                                                            setShowPremiumModal(true);
+                                                            return;
+                                                        }
+                                                        setBatchModalInitialTab('image');
+                                                        setIsBatchModalOpen(true);
+                                                    }}
+                                                    className="w-full px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-colors cursor-pointer text-left"
+                                                >
+                                                    <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                                                        <Camera className="w-3.5 h-3.5" />
+                                                    </div>
+                                                    <span>Tạo từ vựng từ ảnh (OCR)</span>
+                                                </button>
+                                            </>
+                                        )}
+                                    </div>
+                                    <div className="p-1">
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setIsToolsMenuOpen(false);
+                                                setIsJsonModalOpen(true);
+                                            }}
+                                            className="w-full px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-colors cursor-pointer text-left"
+                                        >
+                                            <div className="w-6 h-6 rounded-lg bg-sky-100 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
+                                                <FileJson className="w-3.5 h-3.5" />
+                                            </div>
+                                            <span>Nhập JSON thủ công</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
 
                 {/* Cards List */}
-                <div className="space-y-6">
+                <div className="space-y-3 sm:space-y-3.5">
                     {cards.map((card, index) => (
-                        <CardEditorItem
-                            key={card.id}
-                            card={card}
-                            index={index}
-                            isActive={activeCardId === card.id}
-                            onActivate={setActiveCardId}
-                            onUpdate={handleUpdateCard}
-                            onDelete={handleDeleteCardFromUI}
-                            onAiAssist={handleAiAssist}
-                            onGenerateMoreExample={onGenerateMoreExample}
-                            aiCreditsRemaining={aiCreditsRemaining}
-                            isAiLoading={isAiLoadingMap[card.id]}
-                            frontInputRef={activeCardId === card.id ? activeFrontInputRef : null}
-                        />
+                        <SectionErrorBoundary key={card.id} name={`Thẻ #${index + 1}`} minimal>
+                            <CardEditorItem
+                                card={card}
+                                index={index}
+                                isActive={activeCardId === card.id}
+                                onActivate={setActiveCardId}
+                                onUpdate={handleUpdateCard}
+                                onDelete={handleDeleteCardFromUI}
+                                onAiAssist={handleAiAssist}
+                                onGenerateMoreExample={onGenerateMoreExample}
+                                aiCreditsRemaining={aiCreditsRemaining}
+                                isAiLoading={isAiLoadingMap[card.id]}
+                                frontInputRef={activeCardId === card.id ? activeFrontInputRef : null}
+                            />
+                        </SectionErrorBoundary>
                     ))}
                 </div>
 
                 {/* Add Card Button */}
-                <div className="pt-6 flex justify-center">
+                <div className="pt-1 flex justify-center">
                     <button
                         type="button"
                         onClick={handleAddCardRow}
-                        className="flex flex-col items-center justify-center gap-2 p-6 rounded-3xl bg-white dark:bg-gray-800 border-2 border-dashed border-slate-200 dark:border-gray-700 text-slate-450 hover:text-indigo-600 hover:border-indigo-400 dark:hover:text-indigo-400 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 font-bold text-sm w-full transition-all"
+                        className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-4 rounded-2xl bg-white dark:bg-gray-800 border-2 border-dashed border-slate-200 dark:border-gray-700 text-slate-500 hover:text-blue-600 hover:border-blue-400 dark:hover:text-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/30 dark:hover:bg-slate-800 font-bold text-xs sm:text-sm w-full transition-all cursor-pointer"
                     >
-                        <Plus className="w-5 h-5" />
+                        <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                         THÊM THẺ MỚI
                     </button>
                 </div>
 
                 {/* Bottom Actions for Desktop */}
-                <div className="hidden md:flex items-center justify-end gap-3 pt-6 border-t border-slate-200 dark:border-gray-800">
+                <div className="hidden md:flex items-center justify-end gap-2.5 pt-3.5 border-t border-slate-200 dark:border-gray-800">
                     <button
                         type="button"
                         onClick={onBack}
-                        className="px-6 py-2.5 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                        className="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm cursor-pointer"
                     >
                         Hủy
                     </button>
@@ -625,7 +657,7 @@ const EditSetScreen = ({
                         type="button"
                         onClick={handleSaveSet}
                         disabled={isSaving}
-                        className="px-6 py-2.5 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#1a3543] dark:bg-indigo-600 dark:hover:bg-indigo-700 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2"
+                        className="px-6 py-2 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2 cursor-pointer"
                     >
                         {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
                         Lưu học phần
@@ -638,7 +670,7 @@ const EditSetScreen = ({
                 <button
                     type="button"
                     onClick={onBack}
-                    className="flex-1 px-4 py-3 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors flex items-center justify-center shadow-sm"
+                    className="flex-1 px-4 py-3 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors flex items-center justify-center shadow-sm cursor-pointer"
                 >
                     Hủy
                 </button>
@@ -646,7 +678,7 @@ const EditSetScreen = ({
                     type="button"
                     onClick={handleSaveSet}
                     disabled={isSaving}
-                    className="flex-1 px-4 py-3 text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 transition-colors disabled:opacity-50 flex items-center justify-center shadow-md"
+                    className="flex-1 px-4 py-3 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 transition-colors disabled:opacity-50 flex items-center justify-center shadow-md cursor-pointer"
                 >
                     {isSaving ? <Loader2 className="w-4 h-4 animate-spin mr-1.5" /> : <Check className="w-4 h-4 mr-1.5" />}
                     Lưu học phần
@@ -654,24 +686,28 @@ const EditSetScreen = ({
             </div>
 
             {/* Bulk AI Creation Modal */}
-            <BatchAiModal
-                isOpen={isBatchModalOpen}
-                initialTab={batchModalInitialTab}
-                onClose={() => setIsBatchModalOpen(false)}
-                onGeminiAssist={onGeminiAssist}
-                onExtractVocabFromImage={onExtractVocabFromImage}
-                aiCreditsRemaining={aiCreditsRemaining}
-                onGenerateComplete={handleBatchAiComplete}
-                existingCards={cards}
-            />
+            <SectionErrorBoundary name="Tạo từ vựng bằng AI" onDismiss={() => setIsBatchModalOpen(false)}>
+                <BatchAiModal
+                    isOpen={isBatchModalOpen}
+                    initialTab={batchModalInitialTab}
+                    onClose={() => setIsBatchModalOpen(false)}
+                    onGeminiAssist={onGeminiAssist}
+                    onExtractVocabFromImage={onExtractVocabFromImage}
+                    aiCreditsRemaining={aiCreditsRemaining}
+                    onGenerateComplete={handleBatchAiComplete}
+                    existingCards={cards}
+                />
+            </SectionErrorBoundary>
 
             {/* Manual JSON Import Modal */}
-            <JsonImportModal
-                isOpen={isJsonModalOpen}
-                onClose={() => setIsJsonModalOpen(false)}
-                onImport={handleImportJsonCards}
-                existingCards={cards}
-            />
+            <SectionErrorBoundary name="Nhập JSON thủ công" onDismiss={() => setIsJsonModalOpen(false)}>
+                <JsonImportModal
+                    isOpen={isJsonModalOpen}
+                    onClose={() => setIsJsonModalOpen(false)}
+                    onImport={handleImportJsonCards}
+                    existingCards={cards}
+                />
+            </SectionErrorBoundary>
 
             {/* Folder Selector Dialog */}
             {showFolderSelector && (

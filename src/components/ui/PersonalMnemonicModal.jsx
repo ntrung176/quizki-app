@@ -144,7 +144,7 @@ const PersonalMnemonicModal = ({
                             {isGeneratingAi ? (
                                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
                             ) : (
-                                <Sparkles className="w-3.5 h-3.5" />
+                                <Lightbulb className="w-3.5 h-3.5" />
                             )}
                             AI Gợi ý mẹo nhớ
                         </button>

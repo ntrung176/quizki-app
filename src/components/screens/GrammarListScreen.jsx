@@ -68,12 +68,36 @@ Hãy giúp tôi tạo dữ liệu JSON cho các mẫu ngữ pháp tiếng Nhật
 
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
+const JLPT_LEVEL_TABS = [
+    { key: 'ALL', label: 'Tất cả' },
+    { key: 'N5', label: 'N5' },
+    { key: 'N4', label: 'N4' },
+    { key: 'N3', label: 'N3' },
+    { key: 'N2', label: 'N2' },
+    { key: 'N1', label: 'N1' },
+];
+
 const LEVEL_COLORS = {
+    ALL: 'bg-[#204051] hover:bg-[#162e3b] text-white shadow-md dark:bg-slate-700 dark:hover:bg-slate-600',
     N5: 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-md shadow-emerald-200 dark:shadow-emerald-900/40',
     N4: 'bg-sky-500 hover:bg-sky-600 text-white shadow-md shadow-sky-200 dark:shadow-sky-900/40',
     N3: 'bg-indigo-500 hover:bg-indigo-600 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/40',
     N2: 'bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/40',
     N1: 'bg-rose-500 hover:bg-rose-600 text-white shadow-md shadow-rose-900/40',
+};
+
+const removeVietnameseTones = (str) => {
+    if (!str) return '';
+    return str
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd')
+        .replace(/Đ/g, 'D');
+};
+
+const normalizePattern = (str) => {
+    if (!str) return '';
+    return str.replace(/[~～〜\.\.\.…/・\s\(\)（）\-\+]/g, '').toLowerCase();
 };
 
 const LEVEL_BADGE_COLORS = {
@@ -232,38 +256,32 @@ const GrammarListScreen = ({ isAdmin }) => {
         return () => clearTimeout(timer);
     }, [selectedLevel, searchQuery, setSearchParams]);
 
-    // Precomputed flattened search index (calculated ONCE when grammar list changes)
+    // Precomputed structured search index (calculated ONCE when grammar list changes)
     const indexedGrammarList = useMemo(() => {
         return grammarList.map(gp => {
             if (!gp) return null;
-            const levelStr = String(gp.level || gp.jlpt || 'N5').toUpperCase();
-            const structureStr = typeof gp.structureRaw === 'string' 
-                ? gp.structureRaw 
-                : (Array.isArray(gp.structure) ? JSON.stringify(gp.structure) : (typeof gp.structure === 'string' ? gp.structure : ''));
-            const examplesStr = typeof gp.examplesRaw === 'string'
-                ? gp.examplesRaw
-                : (Array.isArray(gp.examples) ? JSON.stringify(gp.examples) : '');
-            const tipsStr = typeof gp.tipsRaw === 'string'
-                ? gp.tipsRaw
-                : (Array.isArray(gp.tips) ? JSON.stringify(gp.tips) : '');
-            const meaningFullStr = typeof gp.meaningFull === 'string' ? gp.meaningFull : '';
+            const cleanLevel = getGrammarLevel(gp);
+            const patternRaw = (gp.pattern || gp.title || '').trim();
+            const patternLower = patternRaw.toLowerCase();
+            const patternClean = normalizePattern(patternRaw);
 
-            const searchIndex = [
-                gp.pattern || '',
-                gp.meaningShort || '',
-                gp.meaning || '',
-                gp.textbookTitle || '',
-                structureStr,
-                meaningFullStr,
-                examplesStr,
-                tipsStr
-            ].join(' ').toLowerCase();
+            const meaningRaw = [gp.meaningShort || '', gp.meaning || '', gp.meaningVi || ''].filter(Boolean).join(' ').trim();
+            const meaningLower = meaningRaw.toLowerCase();
+            const meaningNoTones = removeVietnameseTones(meaningLower);
+
+            const structureRaw = (typeof gp.structureRaw === 'string' ? gp.structureRaw : (typeof gp.structure === 'string' ? gp.structure : '')).toLowerCase();
+            const textbookTitle = (gp.textbookTitle || '').toLowerCase();
 
             return {
                 ...gp,
-                _levelStr: levelStr,
-                _searchIndex: searchIndex,
-                _cleanLevel: getGrammarLevel(gp)
+                _cleanLevel: cleanLevel,
+                _patternRaw: patternRaw,
+                _patternLower: patternLower,
+                _patternClean: patternClean,
+                _meaningLower: meaningLower,
+                _meaningNoTones: meaningNoTones,
+                _structureRaw: structureRaw,
+                _textbookTitle: textbookTitle
             };
         }).filter(Boolean);
     }, [grammarList]);
@@ -272,14 +290,61 @@ const GrammarListScreen = ({ isAdmin }) => {
     const deferredSearchQuery = React.useDeferredValue(searchQuery);
     const isSearching = deferredSearchQuery.trim().length > 0;
 
-    // Instant O(N) substring search
+    // Accurate weighted search with simultaneous level filtering
     const filteredGrammar = useMemo(() => {
         const query = deferredSearchQuery.trim().toLowerCase();
+        const normQ = normalizePattern(query);
+        const nonToneQ = removeVietnameseTones(query);
+
+        // 1. Filter by Level
+        const levelMatchedList = selectedLevel === 'ALL'
+            ? indexedGrammarList
+            : indexedGrammarList.filter(gp => gp._cleanLevel === selectedLevel);
+
+        // If no search query, return all items in the selected level
         if (!query) {
-            const targetLevel = selectedLevel.toUpperCase();
-            return indexedGrammarList.filter(gp => gp._levelStr.includes(targetLevel));
+            return levelMatchedList;
         }
-        return indexedGrammarList.filter(gp => gp._searchIndex.includes(query));
+
+        // 2. Score and Filter by Query
+        const scored = [];
+        for (let i = 0; i < levelMatchedList.length; i++) {
+            const gp = levelMatchedList[i];
+            let score = 0;
+
+            // Pattern Match (Highest Priority)
+            if (gp._patternClean === normQ || gp._patternLower === query) {
+                score = 100;
+            } else if (gp._patternClean.startsWith(normQ) || gp._patternLower.startsWith(query)) {
+                score = 80;
+            } else if (normQ && gp._patternClean.includes(normQ)) {
+                score = 60;
+            } else if (gp._patternLower.includes(query)) {
+                score = 50;
+            } 
+            // Meaning Match (Vietnamese / English)
+            else if (gp._meaningLower.includes(query)) {
+                score = 40;
+            } else if (nonToneQ.length >= 2 && gp._meaningNoTones.includes(nonToneQ)) {
+                score = 35;
+            } 
+            // Structure / Syntax Match
+            else if (gp._structureRaw && gp._structureRaw.includes(query)) {
+                score = 20;
+            }
+            // Textbook Title Match
+            else if (gp._textbookTitle && gp._textbookTitle.includes(query)) {
+                score = 10;
+            }
+
+            if (score > 0) {
+                scored.push({ gp, score });
+            }
+        }
+
+        // Sort by relevance score descending
+        scored.sort((a, b) => b.score - a.score);
+        return scored.map(item => item.gp);
     }, [indexedGrammarList, selectedLevel, deferredSearchQuery]);
 
     // Progressive rendering pagination to keep DOM small and fast
@@ -417,43 +482,27 @@ const GrammarListScreen = ({ isAdmin }) => {
             <TopTabBar tabs={GRAMMAR_TABS} />
 
             <div className="max-w-6xl mx-auto px-4 mt-6 space-y-6 animate-fade-in">
-                {/* Level selector tabs & Global Search status */}
+                {/* Level selector tabs */}
                 <div className="flex flex-col items-center gap-3">
                     <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-                        {JLPT_LEVELS.map(lvl => {
-                            const isActive = !isSearching && selectedLevel === lvl;
+                        {JLPT_LEVEL_TABS.map(tab => {
+                            const isActive = selectedLevel === tab.key;
                             return (
                                 <button
-                                    key={lvl}
-                                    onClick={() => {
-                                        setSelectedLevel(lvl);
-                                        if (isSearching) setSearchQuery('');
-                                    }}
-                                    className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold transition-all duration-200 transform-gpu active:scale-95 cursor-pointer ${
+                                    key={tab.key}
+                                    type="button"
+                                    onClick={() => setSelectedLevel(tab.key)}
+                                    className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold transition-all duration-200 transform-gpu active:scale-95 cursor-pointer ${
                                         isActive 
-                                            ? LEVEL_COLORS[lvl] 
+                                            ? LEVEL_COLORS[tab.key] 
                                             : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-750'
                                     }`}
                                 >
-                                    {lvl}
+                                    {tab.label}
                                 </button>
                             );
                         })}
                     </div>
-
-                    {isSearching && (
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-700 dark:text-cyan-300 text-xs font-bold animate-fade-in shadow-xs">
-                            <Sparkles className="w-3.5 h-3.5 text-cyan-500 animate-pulse" />
-                            <span>Tìm kiếm trên toàn bộ cấp độ (N5 - N1): {filteredGrammar.length} kết quả khớp</span>
-                            <button
-                                type="button"
-                                onClick={() => setSearchQuery('')}
-                                className="ml-1 text-cyan-600 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-200 underline cursor-pointer"
-                            >
-                                Xóa tìm kiếm
-                            </button>
-                        </div>
-                    )}
                 </div>
 
                 {/* Search Bar & Admin Controls */}
@@ -706,7 +755,7 @@ const GrammarListScreen = ({ isAdmin }) => {
                             </div>
                             <div className="flex items-center gap-2">
                                 <button onClick={handleCopyAiPrompt} className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 dark:bg-amber-950/40 hover:bg-amber-100 text-amber-700 dark:text-amber-300 text-xs font-bold rounded-xl transition-all border border-amber-200 dark:border-amber-900/40 shadow-sm cursor-pointer">
-                                    {promptCopied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Sparkles className="w-3.5 h-3.5 text-amber-500" />}
+                                    {promptCopied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5 text-amber-500" />}
                                     {promptCopied ? 'Đã copy Prompt!' : 'Copy Prompt AI'}
                                 </button>
                                 <button
@@ -745,10 +794,9 @@ const GrammarListScreen = ({ isAdmin }) => {
                             </div>
 
                             {/* AI Raw Text Conversion Box */}
-                            <div className="bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/40 rounded-2xl p-4 space-y-3">
+                            <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 space-y-3">
                                 <div className="flex items-center justify-between">
-                                    <label className="font-bold text-xs text-indigo-900 dark:text-indigo-200 flex items-center gap-1.5">
-                                        <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                                    <label className="font-bold text-xs text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
                                         1. Dán văn bản / ghi chú thô vào đây (AI sẽ tự động chuẩn hóa sang JSON):
                                     </label>
                                 </div>
@@ -757,15 +805,15 @@ const GrammarListScreen = ({ isAdmin }) => {
                                     value={rawAiInput}
                                     onChange={e => setRawAiInput(e.target.value)}
                                     rows={3}
-                                    className="w-full text-xs px-3 py-2 bg-white dark:bg-slate-950 border border-indigo-200 dark:border-indigo-800 rounded-xl outline-none focus:border-indigo-500 font-sans"
+                                    className="w-full text-xs px-3 py-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl outline-none focus:border-emerald-500 font-sans"
                                 />
                                 <button
                                     onClick={handleAiGenerateJson}
                                     disabled={aiGenerating || !rawAiInput.trim()}
-                                    className="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
+                                    className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
                                 >
-                                    {aiGenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4 text-amber-300" />}
-                                    {aiGenerating ? 'AI đang phân tích & tự động tạo JSON chuẩn...' : '🤖 Tự động tạo JSON chuẩn từ văn bản thô (Bằng AI)'}
+                                    {aiGenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Cpu className="w-4 h-4" />}
+                                    {aiGenerating ? 'AI đang phân tích & tự động tạo JSON chuẩn...' : 'Tự động tạo JSON chuẩn từ văn bản thô (Bằng AI)'}
                                 </button>
                             </div>
 
@@ -789,7 +837,7 @@ const GrammarListScreen = ({ isAdmin }) => {
 
                             <div className="bg-slate-50 dark:bg-slate-950/60 p-3 rounded-2xl border border-slate-200/80 dark:border-slate-800 space-y-1">
                                 <p className="text-[11px] font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1">
-                                    <Sparkles className="w-3.5 h-3.5 text-amber-500 inline" /> Tự động xử lý thông minh:
+                                    <Check className="w-3.5 h-3.5 text-emerald-500 inline" /> Tự động xử lý thông minh:
                                 </p>
                                 <p className="text-[11px] text-slate-400 leading-relaxed">
                                     Hệ thống tự tạo giáo trình & bài học phù hợp nếu chưa có. Không cần thao tác thủ công tạo giáo trình trước!

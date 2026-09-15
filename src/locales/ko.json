@@ -109,8 +109,8 @@
   "library": {
     "vocabTitle": "어휘 단어장",
     "vocabSub": "개인 폴더와 단어장을 관리하고 드래그 앤 드롭으로 쉽게 분류하세요.",
-    "newFolder": "+ 새 폴더",
-    "newSet": "+ 새 단어장 만들기",
+    "newFolder": "새 폴더",
+    "newSet": "새 단어장 만들기",
     "managedFolders": "관리 폴더",
     "studySets": "단어장",
     "dragTip": "💡 팁: 단어장을 클릭하고 드래그하여 폴더로 이동시키면 손쉽게 정리할 수 있습니다.",
@@ -128,14 +128,14 @@
     "setDescriptionLabel": "설명 추가",
     "setDescriptionPlaceholder": "이 단어장의 학습 목표를 설명하세요...",
     "addCover": "커버 이미지 추가",
-    "addRow": "+ 새 행 추가",
+    "addRow": "새 행 추가",
     "aiBatch": "AI 일괄 생성",
     "ocrAdd": "이미지로 단어 추가",
     "japaneseTerm": "일본어 단어 *",
     "definition": "의미 (뜻) *",
     "partOfSpeech": "품사",
     "kanjiReading": "한자 읽기",
-    "addExample": "+ 예문 추가",
+    "addExample": "예문 추가",
     "additionalOptions": "추가 옵션 (이미지, 동의어, 메모)"
   },
   "books": {

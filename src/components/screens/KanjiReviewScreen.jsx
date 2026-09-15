@@ -1218,7 +1218,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="mt-3 w-full py-2.5 px-5 rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-[0_8px_20px_rgba(244,63,94,0.45)] hover:shadow-[0_12px_28px_rgba(244,63,94,0.75)] transform hover:scale-[1.03] bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer min-h-[42px]"
+                                    className="mt-3 w-full py-2.5 px-5 rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md shadow-amber-500/25 hover:shadow-lg transform hover:scale-[1.03] bg-amber-500 hover:bg-amber-600 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer min-h-[42px]"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}</span>
@@ -1226,7 +1226,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                             ) : stats.dueToday > 0 ? (
                                 <button
                                     onClick={startReview}
-                                    className="mt-3 w-full py-2.5 px-5 rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-[0_8px_20px_rgba(244,63,94,0.45)] hover:shadow-[0_12px_28px_rgba(244,63,94,0.75)] transform hover:scale-[1.03] bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer min-h-[42px]"
+                                    className="mt-3 w-full py-2.5 px-5 rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md shadow-rose-500/25 hover:shadow-lg transform hover:scale-[1.03] bg-rose-600 hover:bg-rose-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer min-h-[42px]"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}</span>

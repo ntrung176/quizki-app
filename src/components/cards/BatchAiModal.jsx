@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Sparkle, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera } from 'lucide-react'
+import { Cpu, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera, FileText } from 'lucide-react';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { getLanguageService } from '../../languages';
@@ -275,10 +275,10 @@ const BatchAiModal = ({
                 onClick={e => e.stopPropagation()}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-700 bg-gradient-to-r from-indigo-50/50 to-sky-50/55 dark:from-slate-900 dark:to-slate-900">
+                <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
-                            {activeTab === 'image' ? <ImageIcon className="w-5 h-5" /> : <Sparkle className="w-5 h-5 animate-pulse" />}
+                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                            {activeTab === 'image' ? <ImageIcon className="w-5 h-5" /> : <Cpu className="w-5 h-5" />}
                         </div>
                         <div>
                             <h3 className="font-bold text-slate-800 dark:text-white text-lg">
@@ -305,7 +305,7 @@ const BatchAiModal = ({
                     {isGenerating ? (
                         <div className="space-y-6 py-4">
                             <div className="flex items-center justify-between text-sm">
-                                <span className="font-bold text-indigo-650 dark:text-indigo-400 flex items-center gap-1.5">
+                                <span className="font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
                                     <Loader2 className="w-4 h-4 animate-spin animate-infinite" />
                                     Đang phân tích từ vựng...
                                 </span>
@@ -317,7 +317,7 @@ const BatchAiModal = ({
                             {/* Progress bar */}
                             <div className="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden shadow-inner">
                                 <div 
-                                    className="bg-gradient-to-r from-indigo-500 to-sky-500 h-full rounded-full transition-all duration-300 shadow-md"
+                                    className="bg-blue-600 h-full rounded-full transition-all duration-300 shadow-sm"
                                     style={{ width: `${(progress.current / progress.total) * 100}%` }}
                                 ></div>
                             </div>
@@ -330,7 +330,7 @@ const BatchAiModal = ({
                                 </div>
                                 <button
                                     onClick={handleStopGeneration}
-                                    className="px-4 py-2 bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-105 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-450 text-xs font-bold rounded-lg transition-all flex items-center gap-1 border border-rose-100 dark:border-rose-900/30"
+                                    className="px-4 py-2 bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-lg transition-all flex items-center gap-1 border border-rose-100 dark:border-rose-900/30"
                                 >
                                     <StopCircle className="w-4 h-4" /> Dừng lại
                                 </button>
@@ -367,11 +367,11 @@ const BatchAiModal = ({
                                     onClick={() => setActiveTab('text')}
                                     className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                                         activeTab === 'text'
-                                            ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                            ? 'bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 shadow-sm'
                                             : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
                                     }`}
                                 >
-                                    <Sparkle className="w-3.5 h-3.5" />
+                                    <FileText className="w-3.5 h-3.5" />
                                     Tạo bằng văn bản
                                 </button>
                                 <button
@@ -379,7 +379,7 @@ const BatchAiModal = ({
                                     onClick={() => setActiveTab('image')}
                                     className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                                         activeTab === 'image'
-                                            ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                            ? 'bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 shadow-sm'
                                             : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
                                     }`}
                                 >
@@ -400,14 +400,14 @@ const BatchAiModal = ({
                                             value={textInput}
                                             onChange={(e) => setTextInput(e.target.value)}
                                             placeholder="Ví dụ:&#10;食べる&#10;図書館&#10;美味しい"
-                                            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-mono leading-relaxed"
+                                            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-mono leading-relaxed"
                                         />
                                     </div>
 
                                     {/* Warnings/Credits Info */}
-                                    <div className="bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 rounded-xl p-3.5 text-xs text-indigo-700 dark:text-indigo-300 space-y-1.5">
+                                    <div className="bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 rounded-xl p-3.5 text-xs text-blue-700 dark:text-blue-300 space-y-1.5">
                                         <div className="flex items-center gap-1.5 font-bold">
-                                            <Sparkle className="w-3.5 h-3.5 text-indigo-500" />
+                                            <Cpu className="w-3.5 h-3.5 text-blue-500" />
                                             Cơ chế hoạt động của AI
                                         </div>
                                         <p className="leading-relaxed">
@@ -421,8 +421,8 @@ const BatchAiModal = ({
                             {activeTab === 'image' && (
                                 <div className="space-y-4">
                                     {isOcrLoading ? (
-                                        <div className="border-2 border-dashed border-indigo-200 dark:border-indigo-800 rounded-2xl p-10 text-center bg-slate-50 dark:bg-slate-900/30">
-                                            <Loader2 className="w-10 h-10 animate-spin mx-auto text-indigo-600 mb-3" />
+                                        <div className="border-2 border-dashed border-blue-200 dark:border-blue-800 rounded-2xl p-10 text-center bg-slate-50 dark:bg-slate-900/30">
+                                            <Loader2 className="w-10 h-10 animate-spin mx-auto text-blue-600 mb-3" />
                                             <p className="text-sm font-bold text-slate-700 dark:text-slate-300">Đang phân tích chữ trong hình ảnh...</p>
                                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Quá trình này có thể mất vài giây. Vui lòng chờ.</p>
                                         </div>
@@ -439,9 +439,9 @@ const BatchAiModal = ({
                                             </div>
                                             <button
                                                 onClick={handleStartOcr}
-                                                className="w-full py-3 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white text-sm font-bold rounded-xl shadow-md shadow-indigo-200 dark:shadow-none hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                                                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2"
                                             >
-                                                <Sparkle className="w-4 h-4" />
+                                                <Cpu className="w-4 h-4" />
                                                 Bắt đầu quét & trích xuất từ ảnh
                                             </button>
                                         </div>
@@ -449,7 +449,7 @@ const BatchAiModal = ({
                                         <div 
                                             onDragOver={handleDragOver}
                                             onDrop={handleDrop}
-                                            className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-indigo-400 rounded-2xl p-6 text-center bg-slate-50 dark:bg-slate-900/20 transition-all"
+                                            className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-blue-400 rounded-2xl p-6 text-center bg-slate-50 dark:bg-slate-900/20 transition-all"
                                         >
                                             <Upload className="w-8 h-8 mx-auto text-slate-400 dark:text-slate-500 mb-3" />
                                             <p className="text-sm font-bold text-slate-700 dark:text-slate-300">
@@ -463,7 +463,7 @@ const BatchAiModal = ({
                                                 <button
                                                     type="button"
                                                     onClick={() => cameraInputRef.current?.click()}
-                                                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700 text-white text-xs font-bold rounded-xl shadow-sm hover:shadow-md transition-all"
+                                                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow-sm hover:shadow-md transition-all"
                                                 >
                                                     <Camera className="w-4 h-4" />
                                                     Chụp ảnh bằng Camera
@@ -497,13 +497,13 @@ const BatchAiModal = ({
                                     )}
 
                                     {/* Image Scan Warning */}
-                                    <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl p-3.5 text-xs text-amber-700 dark:text-amber-305 space-y-1">
+                                    <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl p-3.5 text-xs text-amber-700 dark:text-amber-300 space-y-1">
                                         <div className="flex items-center gap-1.5 font-bold">
-                                            <Sparkle className="w-3.5 h-3.5 text-indigo-500" />
+                                            <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
                                             Lưu ý quét ảnh
                                         </div>
                                         <p className="leading-relaxed">
-                                            Các từ sau khi trích xuất từ ảnh chụp sẽ tự động xuất hiện ở tab <strong>Nhập danh sách chữ</strong> để bạn có thể xem lại trước khi tạo thẻ bằng AI.
+                                            Các từ sau khi trích xuất từ ảnh chụp sẽ tự động xuất hiện ở tab <strong>Tạo bằng văn bản</strong> để bạn có thể xem lại trước khi tạo thẻ bằng AI.
                                         </p>
                                     </div>
                                 </div>
@@ -526,7 +526,7 @@ const BatchAiModal = ({
                             <button
                                 onClick={handleStartGeneration}
                                 disabled={isOcrLoading || !textInput.trim()}
-                                className="px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 disabled:from-slate-300 disabled:to-slate-300 dark:disabled:from-slate-700 dark:disabled:to-slate-700 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 disabled:shadow-none"
+                                className="px-5 py-2.5 bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 disabled:opacity-50 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 disabled:shadow-none cursor-pointer"
                             >
                                 <Play className="w-4 h-4 fill-current" />
                                 Bắt đầu tạo bằng AI

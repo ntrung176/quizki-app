@@ -1534,7 +1534,7 @@ const SRSVocabScreen = ({
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-[0_8px_20px_rgba(245,158,11,0.45)] hover:shadow-[0_12px_28px_rgba(245,158,11,0.75)] transform hover:scale-[1.03] bg-gradient-to-r from-amber-500 to-orange-500 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
+                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.03] bg-amber-500 hover:bg-amber-600 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}</span>
@@ -1542,7 +1542,7 @@ const SRSVocabScreen = ({
                             ) : globalStats.due > 0 ? (
                                 <button
                                     onClick={handleResumeGlobal}
-                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-[0_8px_20px_rgba(6,182,212,0.45)] hover:shadow-[0_12px_28px_rgba(6,182,212,0.75)] transform hover:scale-[1.03] bg-gradient-to-r from-cyan-600 via-indigo-600 to-sky-600 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
+                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md shadow-blue-500/25 hover:shadow-lg transform hover:scale-[1.03] bg-blue-600 hover:bg-blue-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}</span>

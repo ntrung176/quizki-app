@@ -233,11 +233,28 @@ const parseFuriganaText = (text) => {
  */
 const FuriganaText = ({ text, knownReading = '', className = '', forceHide = false, showReadingOnly = false }) => {
     const [processedText, setProcessedText] = useState(text || '');
-    const [settingEnabled, setSettingEnabled] = useState(true);
-    const [furiganaColor, setFuriganaColor] = useState('#8b5cf6');
-    const [furiganaFontSize, setFuriganaFontSize] = useState('0.42em');
+    const [furiganaColor, setFuriganaColor] = useState(() => {
+        try {
+            const saved = localStorage.getItem('quizki-settings');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                return parsed.furiganaColor || '#2563eb';
+            }
+        } catch (_) {}
+        return '#2563eb';
+    });
+    const [furiganaFontSize, setFuriganaFontSize] = useState(() => {
+        try {
+            const saved = localStorage.getItem('quizki-settings');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                return parsed.furiganaFontSize || '0.6em';
+            }
+        } catch (_) {}
+        return '0.6em';
+    });
 
-    const furiganaEnabled = !forceHide && settingEnabled;
+    const furiganaEnabled = !forceHide;
 
     useEffect(() => {
         const loadSettings = () => {
@@ -245,15 +262,15 @@ const FuriganaText = ({ text, knownReading = '', className = '', forceHide = fal
                 const savedObj = localStorage.getItem('quizki-settings');
                 if (savedObj) {
                     const parsed = JSON.parse(savedObj);
-                    setSettingEnabled(parsed.furiganaEnabled !== false);
-                    setFuriganaColor(parsed.furiganaColor || '#8b5cf6');
-                    const size = parsed.furiganaFontSize;
-                    setFuriganaFontSize(size && size !== '0.6em' ? size : '0.42em');
+                    if (parsed.furiganaColor) {
+                        setFuriganaColor(parsed.furiganaColor);
+                    }
+                    if (parsed.furiganaFontSize) {
+                        setFuriganaFontSize(parsed.furiganaFontSize);
+                    }
                 }
             } catch (e) { }
         };
-
-        loadSettings();
 
         const handleSettingsChange = () => loadSettings();
         window.addEventListener('quizki-settings-changed', handleSettingsChange);

@@ -51,6 +51,27 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                 try {
                     localStorage.setItem('quizki_cached_user_profile', JSON.stringify(data));
                 } catch (_) {}
+                // Sync cloud appSettings across Web and Mobile
+                if (data.appSettings && typeof data.appSettings === 'object') {
+                    try {
+                        const currentLocal = JSON.parse(localStorage.getItem('quizki-settings') || '{}');
+                        const merged = { ...currentLocal, ...data.appSettings };
+                        localStorage.setItem('quizki-settings', JSON.stringify(merged));
+                        if (data.appSettings.ttsVoice) {
+                            localStorage.setItem('quizki_tts_voice', data.appSettings.ttsVoice);
+                        }
+                        if (data.appSettings.isDarkMode !== undefined) {
+                            localStorage.setItem('darkMode', data.appSettings.isDarkMode ? 'true' : 'false');
+                        }
+                        if (data.appSettings.furiganaColor) {
+                            document.documentElement.style.setProperty('--furigana-color', data.appSettings.furiganaColor);
+                        }
+                        if (data.appSettings.furiganaFontSize) {
+                            document.documentElement.style.setProperty('--furigana-font-size', data.appSettings.furiganaFontSize);
+                        }
+                        window.dispatchEvent(new Event('quizki-settings-changed'));
+                    } catch (_) {}
+                }
             } else {
                 setProfile(null);
             }
@@ -143,7 +164,14 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
     }, [userId, isAdmin, adminConfig, hasPremium]);
 
     const userHasAdminPrivileges = useMemo(() => {
-        return hasAdminPrivileges(adminConfig, userId, isAdmin);
+        const hasPriv = hasAdminPrivileges(adminConfig, userId, isAdmin);
+        if (typeof window !== 'undefined') {
+            window.__QUIZKI_IS_ADMIN__ = Boolean(hasPriv);
+            try {
+                sessionStorage.setItem('quizki_is_admin', hasPriv ? 'true' : 'false');
+            } catch (_) {}
+        }
+        return hasPriv;
     }, [adminConfig, userId, isAdmin]);
 
     useEffect(() => {

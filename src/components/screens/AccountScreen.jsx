@@ -172,7 +172,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
             const { submitReferralCode } = await import('../../utils/referralService');
             const res = await submitReferralCode(currentUserId, profile?.displayName, enteredCode);
             if (res.success) {
-                setSuccessMsg(`Nhập mã giới thiệu thành công! Bạn đã được nhận ngay 15 ngày dùng thử Premium miễn phí.`);
+                setSuccessMsg(`Nhập mã giới thiệu thành công! Bạn đã được nhận ngay 1 tháng Premium miễn phí.`);
                 setEnteredCode('');
                 // Fetch stats again
                 const { getReferralStats } = await import('../../utils/referralService');
@@ -436,7 +436,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             onClick={() => navigate(ROUTES.UPGRADE)}
                             className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold rounded-xl hover:shadow-md hover:scale-[1.02] transition-all flex items-center gap-1.5 shadow-sm shadow-amber-100 dark:shadow-none whitespace-nowrap cursor-pointer"
                         >
-                            <Sparkles className="w-3.5 h-3.5" /> Nâng cấp Premium
+                            <Crown className="w-3.5 h-3.5" /> Nâng cấp Premium
                         </button>
                     </div>
                 )}
@@ -631,7 +631,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                                 <td className="px-4 py-3 text-center">
                                                     {friend.status === 'premium' ? (
                                                         <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center gap-1">
-                                                            <Sparkles className="w-3 h-3 text-emerald-500" />
+                                                            <Check className="w-3.5 h-3.5 text-emerald-500" />
                                                             Đã nhận quà Premium
                                                         </span>
                                                     ) : (
