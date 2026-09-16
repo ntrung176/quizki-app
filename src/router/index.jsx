@@ -21,7 +21,10 @@ export const ROUTES = {
     VOCAB_EDIT: '/vocab/edit/:id',       // Chỉnh sửa từ vựng
     VOCAB_EDIT_SET: '/vocab/edit-set/:id',// Chỉnh sửa học phần
 
-    // Kanji: /kanji/*
+    // Alphabet & Character Systems: /kana, /hangul, /ipa, /kanji/*
+    KANA: '/kana',                       // Bảng chữ cái Hiragana & Katakana
+    HANGUL: '/hangul',                   // Bảng chữ cái tiếng Hàn (Hangul)
+    IPA: '/ipa',                         // Bảng phiên âm quốc tế (IPA / Phonics)
     KANJI_STUDY: '/kanji/study',         // Học Kanji (lộ trình)
     KANJI_LESSON: '/kanji/study/lesson', // Bài học Kanji (flashcard + test)
     KANJI_REVIEW: '/kanji/review',       // Ôn tập Kanji (SRS)

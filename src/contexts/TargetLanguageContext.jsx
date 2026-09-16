@@ -6,6 +6,7 @@ import { showToast } from '../utils/toast';
 export const SUPPORTED_TARGET_LANGUAGES = [
     { code: 'ja', name: 'Tiếng Nhật', nativeName: '日本語', flag: '🇯🇵', countryCode: 'jp', testName: 'JLPT', characterSystem: 'Kanji & Kana' },
     { code: 'en', name: 'Tiếng Anh', nativeName: 'English', flag: '🇬🇧', countryCode: 'gb', testName: 'IELTS / TOEIC', characterSystem: 'Alphabet & IPA', disabled: true },
+    { code: 'ko', name: 'Tiếng Hàn', nativeName: '한국어', flag: '🇰🇷', countryCode: 'kr', testName: 'TOPIK', characterSystem: 'Hangul', disabled: true },
 ];
 
 const TargetLanguageContext = createContext();
@@ -22,8 +23,9 @@ export const TargetLanguageProvider = ({ children }) => {
         const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
         const isUserAdmin = isAdminOverride || (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
 
-        if (newLang === 'en' && !isUserAdmin) {
-            showToast('Tính năng học Tiếng Anh đang trong quá trình phát triển (Chỉ dành cho Admin thử nghiệm)!', 'info');
+        const targetLangMeta = SUPPORTED_TARGET_LANGUAGES.find(l => l.code === newLang);
+        if (targetLangMeta?.disabled && !isUserAdmin) {
+            showToast(`Tính năng học ${targetLangMeta.name} đang trong quá trình phát triển (Chỉ dành cho Admin thử nghiệm)!`, 'info');
             return;
         }
         if (!SUPPORTED_TARGET_LANGUAGES.some(l => l.code === newLang)) return;
@@ -54,10 +56,11 @@ export const TargetLanguageProvider = ({ children }) => {
                         const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
                         const isUserAdmin = (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
 
-                        if (cloudLang === 'en' && !isUserAdmin) {
+                        const targetMeta = SUPPORTED_TARGET_LANGUAGES.find(l => l.code === cloudLang);
+                        if (targetMeta?.disabled && !isUserAdmin) {
                             setTargetLanguageState('ja');
                             localStorage.setItem('quizki_target_language', 'ja');
-                        } else if (SUPPORTED_TARGET_LANGUAGES.some(l => l.code === cloudLang)) {
+                        } else if (targetMeta) {
                             setTargetLanguageState(cloudLang);
                             localStorage.setItem('quizki_target_language', cloudLang);
                         }
@@ -78,6 +81,7 @@ export const TargetLanguageProvider = ({ children }) => {
         activeTargetConfig,
         isJapaneseMode: targetLanguage === 'ja',
         isEnglishMode: targetLanguage === 'en',
+        isKoreanMode: targetLanguage === 'ko',
         SUPPORTED_TARGET_LANGUAGES
     }), [targetLanguage, setTargetLanguage, activeTargetConfig]);
 

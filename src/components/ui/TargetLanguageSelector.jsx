@@ -28,15 +28,16 @@ const TargetLanguageSelector = ({ minimal = false, isAdmin = false }) => {
             return;
         }
 
-        if (langCode === 'en' && !isAdmin) {
-            showToast('Tính năng học Tiếng Anh đang trong quá trình phát triển (Chỉ dành cho Admin thử nghiệm)!', 'info');
+        const selectedLang = SUPPORTED_TARGET_LANGUAGES.find(l => l.code === langCode);
+        if (selectedLang?.disabled && !isAdmin) {
+            showToast(`Tính năng học ${selectedLang.name} đang trong quá trình phát triển (Chỉ dành cho Admin thử nghiệm)!`, 'info');
             setIsOpen(false);
             return;
         }
 
         setTargetLanguage(langCode, isAdmin);
         setIsOpen(false);
-        showToast(`Đã chuyển sang ${langCode === 'en' ? 'Tiếng Anh (BETA)' : 'Tiếng Nhật'}!`, 'success');
+        showToast(`Đã chuyển sang ${selectedLang?.name || langCode}${selectedLang?.disabled ? ' (BETA)' : ''}!`, 'success');
 
         const path = location.pathname.toLowerCase();
         // Nếu đang ở bất kỳ học phần, màn hình sửa, ôn tập, hoặc trang đặc thù:

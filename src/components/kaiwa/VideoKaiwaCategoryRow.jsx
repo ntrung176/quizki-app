@@ -21,8 +21,8 @@ const VideoKaiwaCategoryRow = ({
     const checkScrollButtons = () => {
         if (!rowRef.current) return;
         const { scrollLeft, scrollWidth, clientWidth } = rowRef.current;
-        setCanScrollLeft(scrollLeft > 10);
-        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+        setCanScrollLeft(scrollLeft > 4);
+        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 4);
     };
 
     useEffect(() => {
@@ -33,35 +33,18 @@ const VideoKaiwaCategoryRow = ({
 
     const handleScroll = (direction) => {
         if (!rowRef.current) return;
-        const { scrollLeft, clientWidth } = rowRef.current;
-        const scrollAmount = clientWidth * 0.75;
-        rowRef.current.scrollTo({
-            left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        const container = rowRef.current;
+        const firstCard = container.firstElementChild;
+        if (!firstCard) return;
+
+        const style = window.getComputedStyle(container);
+        const gap = parseFloat(style.columnGap || style.gap) || 16;
+        const itemScrollAmount = firstCard.offsetWidth + gap;
+
+        container.scrollBy({
+            left: direction === 'left' ? -itemScrollAmount : itemScrollAmount,
             behavior: 'smooth'
         });
-    };
-
-    // Dynamic soft fade gradient mask for overflowing edges
-    const getMaskStyle = () => {
-        if (canScrollLeft && canScrollRight) {
-            return {
-                maskImage: 'linear-gradient(to right, transparent, black 40px, black calc(100% - 64px), transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent, black 40px, black calc(100% - 64px), transparent 100%)'
-            };
-        }
-        if (canScrollRight) {
-            return {
-                maskImage: 'linear-gradient(to right, black 0%, black calc(100% - 64px), transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, black 0%, black calc(100% - 64px), transparent 100%)'
-            };
-        }
-        if (canScrollLeft) {
-            return {
-                maskImage: 'linear-gradient(to right, transparent 0%, black 40px, black 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40px, black 100%)'
-            };
-        }
-        return {};
     };
 
     if (!videos || videos.length === 0) {
@@ -120,27 +103,12 @@ const VideoKaiwaCategoryRow = ({
                 </div>
             </div>
 
-            {/* Horizontal Movie Cards Carousel Container with Soft Edge Fading */}
+            {/* Horizontal Movie Cards Carousel Container (Without Edge Blur) */}
             <div className="relative group/carousel">
-                {/* Left Subtle Glow / Shadow Edge */}
-                <div
-                    className={`pointer-events-none absolute -left-1 top-0 bottom-3 w-8 sm:w-12 bg-gradient-to-r from-white/90 via-white/40 to-transparent dark:from-slate-950/90 dark:via-slate-950/40 dark:to-transparent z-10 transition-opacity duration-300 ${
-                        canScrollLeft ? 'opacity-100' : 'opacity-0'
-                    }`}
-                />
-
-                {/* Right Subtle Glow / Shadow Edge */}
-                <div
-                    className={`pointer-events-none absolute -right-1 top-0 bottom-3 w-12 sm:w-20 bg-gradient-to-l from-white/90 via-white/40 to-transparent dark:from-slate-950/90 dark:via-slate-950/40 dark:to-transparent z-10 transition-opacity duration-300 ${
-                        canScrollRight ? 'opacity-100' : 'opacity-0'
-                    }`}
-                />
-
                 <div
                     ref={rowRef}
                     onScroll={checkScrollButtons}
-                    style={getMaskStyle()}
-                    className="flex items-stretch gap-4 sm:gap-5 overflow-x-auto scrollbar-none scroll-smooth pb-3 pt-1 px-1 pr-4 sm:pr-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden transition-[mask-image] duration-300"
+                    className="flex items-stretch gap-4 overflow-x-auto scrollbar-none scroll-smooth pb-3 pt-1 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                 >
                     {videos.map(video => (
                         <VideoKaiwaMovieCard
@@ -151,7 +119,7 @@ const VideoKaiwaCategoryRow = ({
                             onEditVideo={onEditVideo}
                             onDeleteVideo={onDeleteVideo}
                             formatDuration={formatDuration}
-                            cardWidthClass="w-64 sm:w-72 md:w-80 shrink-0"
+                            cardWidthClass="w-[280px] sm:w-[calc((100%-1rem)/2)] md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)] shrink-0"
                         />
                     ))}
 
@@ -159,7 +127,7 @@ const VideoKaiwaCategoryRow = ({
                     {userIsAdmin && onAddNewVideo && (
                         <div
                             onClick={onAddNewVideo}
-                            className="w-56 sm:w-64 shrink-0 rounded-2xl sm:rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-800 hover:border-amber-500/80 bg-slate-50/50 dark:bg-slate-900/30 hover:bg-amber-50/30 dark:hover:bg-amber-950/20 flex flex-col items-center justify-center p-6 text-center space-y-2 transition-all cursor-pointer group"
+                            className="w-[280px] sm:w-[calc((100%-1rem)/2)] md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)] shrink-0 min-h-[160px] rounded-2xl sm:rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-800 hover:border-amber-500/80 bg-slate-50/50 dark:bg-slate-900/30 hover:bg-amber-50/30 dark:hover:bg-amber-950/20 flex flex-col items-center justify-center p-6 text-center space-y-2 transition-all cursor-pointer group"
                         >
                             <div className="w-10 h-10 rounded-2xl bg-amber-500/10 group-hover:bg-amber-500 text-amber-600 group-hover:text-slate-950 flex items-center justify-center transition-colors shadow-sm">
                                 <Plus className="w-5 h-5" />

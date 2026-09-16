@@ -41,7 +41,10 @@ import {
     GrammarPracticeScreen,
     GrammarReviewScreen,
     GrammarSavedScreen,
-    GrammarListScreen
+    GrammarListScreen,
+    KanaScreen,
+    HangulScreen,
+    IpaScreen
 } from './screens';
 
 // Helper for resilient lazy loading that handles network/re-deploy chunk errors smoothly
@@ -812,6 +815,36 @@ const AppRoutes = ({
                 <Route
                     path="/kanji"
                     element={<Navigate to={ROUTES.KANJI_REVIEW} replace />}
+                />
+
+                {/* Bảng chữ cái Hiragana & Katakana */}
+                <Route
+                    path={ROUTES.KANA}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <KanaScreen awardXP={awardXP} />
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* Bảng chữ cái tiếng Hàn (Hangul) */}
+                <Route
+                    path={ROUTES.HANGUL}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <HangulScreen awardXP={awardXP} />
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* Bảng phiên âm tiếng Anh (IPA) */}
+                <Route
+                    path={ROUTES.IPA}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <IpaScreen awardXP={awardXP} />
+                        </ProtectedRoute>
+                    }
                 />
 
                 {/* Học Kanji - Study roadmap screen */}

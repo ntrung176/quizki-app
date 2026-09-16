@@ -824,3 +824,20 @@ export const speakExampleSentence = (text, lang = 'ja') => {
         }
     });
 };
+
+/**
+ * Phát âm ký tự hoặc từ vựng tiếng Hàn chuẩn (ko)
+ */
+export const speakKorean = (text) => {
+    if (!text) return Promise.resolve();
+    return speakExampleSentence(text, 'ko');
+};
+
+/**
+ * Phát âm từ vựng hoặc ngữ âm tiếng Anh chuẩn (en)
+ */
+export const speakEnglish = (text) => {
+    if (!text) return Promise.resolve();
+    return speakExampleSentence(text, 'en');
+};
+

@@ -10,6 +10,7 @@ import FuriganaText from '../ui/FuriganaText';
 import { shuffleArray } from '../../utils/textProcessing';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { normalize, toHiragana, extractReadings } from '../../utils/ankiDiff';
+import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 

@@ -118,7 +118,7 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
 
     const targetOptions = SUPPORTED_TARGET_LANGUAGES.map(lang => ({
         code: lang.code,
-        name: lang.code === 'ja' ? 'Tiếng Nhật' : 'Tiếng Anh',
+        name: lang.name,
         flag: lang.flag,
         countryCode: lang.countryCode,
         disabled: lang.disabled
@@ -135,11 +135,12 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
         let hasTargetChanged = false;
 
         if (tempTargetLang !== targetLanguage) {
-            if (tempTargetLang === 'en' && !isAdmin) {
-                showToast('Tính năng học Tiếng Anh đang trong quá trình phát triển (BETA)!', 'info');
+            const selectedTarget = SUPPORTED_TARGET_LANGUAGES.find(l => l.code === tempTargetLang);
+            if (selectedTarget?.disabled && !isAdmin) {
+                showToast(`Tính năng học ${selectedTarget.name} đang trong quá trình phát triển (BETA)!`, 'info');
             } else {
                 setTargetLanguage(tempTargetLang, isAdmin);
-                showToast(`Đã chuyển sang ${tempTargetLang === 'en' ? 'Tiếng Anh (BETA)' : 'Tiếng Nhật'}!`, 'success');
+                showToast(`Đã chuyển sang ${selectedTarget?.name || tempTargetLang}${selectedTarget?.disabled ? ' (BETA)' : ''}!`, 'success');
                 hasTargetChanged = true;
             }
         }

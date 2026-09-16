@@ -17,7 +17,7 @@ const VideoKaiwaMovieCard = ({
     onEditVideo,
     onDeleteVideo,
     formatDuration,
-    cardWidthClass = 'w-64 sm:w-72 md:w-80 shrink-0'
+    cardWidthClass = 'w-[280px] sm:w-[calc((100%-1rem)/2)] md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)] shrink-0'
 }) => {
     if (!video) return null;
 

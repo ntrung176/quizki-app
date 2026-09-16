@@ -11,10 +11,10 @@ const IosLanguageWheelWidget = ({ isAdmin = false }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Target Language Options (Japanese, English)
+    // Target Language Options (Japanese, English, Korean)
     const targetOptions = SUPPORTED_TARGET_LANGUAGES.map(lang => ({
         code: lang.code,
-        name: lang.code === 'ja' ? 'Tiếng Nhật' : 'Tiếng Anh',
+        name: lang.name,
         flag: lang.flag,
         countryCode: lang.countryCode,
         disabled: lang.disabled
@@ -29,13 +29,14 @@ const IosLanguageWheelWidget = ({ isAdmin = false }) => {
     const handleTargetChange = (newCode) => {
         if (newCode === targetLanguage) return;
 
-        if (newCode === 'en' && !isAdmin) {
-            showToast('Tính năng học Tiếng Anh đang trong quá trình phát triển (BETA)!', 'info');
+        const selectedTarget = SUPPORTED_TARGET_LANGUAGES.find(l => l.code === newCode);
+        if (selectedTarget?.disabled && !isAdmin) {
+            showToast(`Tính năng học ${selectedTarget.name} đang trong quá trình phát triển (BETA)!`, 'info');
             return;
         }
 
         setTargetLanguage(newCode, isAdmin);
-        showToast(`Đã chuyển sang ${newCode === 'en' ? 'Tiếng Anh (BETA)' : 'Tiếng Nhật'}!`, 'success');
+        showToast(`Đã chuyển sang ${selectedTarget?.name || newCode}${selectedTarget?.disabled ? ' (BETA)' : ''}!`, 'success');
 
         const path = location.pathname.toLowerCase();
         if (path.includes('/set') || path.includes('/study') || path.includes('/flashcard') || path.includes('/review') || path.includes('/kanji') || path.includes('/grammar') || path.includes('/kaiwa')) {

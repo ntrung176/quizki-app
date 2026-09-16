@@ -26,6 +26,7 @@ export const useAppNavigation = () => {
             'SETTINGS': ROUTES.SETTINGS,
             'JLPT_KAIWA': ROUTES.JLPT_KAIWA,
             'VIDEO_KAIWA': ROUTES.VIDEO_KAIWA,
+            'KANA': ROUTES.KANA,
         };
         const route = routeMap[viewName] || ROUTES.HOME;
         if (location.pathname !== route) {
@@ -39,6 +40,7 @@ export const useAppNavigation = () => {
         if (path === ROUTES.LOGIN) return 'LOGIN';
         if (path === ROUTES.ACCOUNT) return 'ACCOUNT';
         if (path === ROUTES.HELP) return 'HELP';
+        if (path === ROUTES.KANA || path.startsWith('/kana')) return 'KANA';
         if (path === ROUTES.VOCAB_REVIEW) return 'VOCAB_REVIEW';
         if (path === ROUTES.VOCAB_LIST || path.startsWith('/vocab/list')) return 'VOCAB_LIST';
         if (path === ROUTES.VOCAB_ADD) return 'VOCAB_ADD';

@@ -4,8 +4,27 @@ import { collection, onSnapshot, query } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import {
     BookOpen, Languages, Target, Flame, Trophy, Clock,
-    ArrowRight, Sparkle, Zap, FolderPlus, ListPlus, X, Cpu, Radio, Activity, Repeat2, Lightbulb
+    ArrowRight, Zap, FolderPlus, ListPlus, X, Cpu, Radio, Activity, Repeat2, Lightbulb,
+    MessageSquare, Film, FileCheck
 } from 'lucide-react';
+
+const KanaHomeIcon = ({ className = 'w-6 h-6' }) => (
+    <span className={`${className} flex items-center justify-center font-japanese font-black text-xl leading-none select-none text-current shrink-0`}>
+        あ
+    </span>
+);
+
+const HangulHomeIcon = ({ className = 'w-6 h-6' }) => (
+    <span className={`${className} flex items-center justify-center font-sans font-black text-xl leading-none select-none text-current shrink-0`}>
+        가
+    </span>
+);
+
+const IpaHomeIcon = ({ className = 'w-6 h-6' }) => (
+    <span className={`${className} flex items-center justify-center font-serif font-black text-base leading-none select-none text-current shrink-0 tracking-tighter`}>
+        /ə/
+    </span>
+);
 import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
@@ -29,7 +48,7 @@ const HomeScreen = ({
     calculatedStreak = 0,
 }) => {
     const { t } = useLanguage();
-    const { isEnglishMode } = useTargetLanguage();
+    const { isJapaneseMode, isEnglishMode, isKoreanMode, targetLanguage } = useTargetLanguage();
     const navigate = useNavigate();
 
     // 1. Instant Summary Cache cho Kanji Stats
@@ -317,111 +336,220 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
     );
 };
 
-// Quick action cards adjusted for English vs Japanese mode
+    // Quick action cards adjusted for Japanese, Korean and English modes (Bento 6-card system)
     const quickActions = useMemo(() => {
-        const vocabDueSubtitle = stats.isInitialLoading && stats.dueCards === null 
-            ? 'Đang cập nhật...' 
-            : `${stats.dueCards ?? 0} ${t('home.cardsDueSubtitle', 'thẻ đang đến hạn ôn')}`;
-            
-        const kanjiDueSubtitle = kanjiSrsStats.isInitialLoading && kanjiSrsStats.dueCount === null
-            ? 'Đang cập nhật...'
-            : `${kanjiSrsStats.dueCount ?? 0} ${t('home.kanjiDueSubtitle', 'chữ kanji cần ôn tập')}`;
-
-        const grammarDueSubtitle = grammarSrsStats.isInitialLoading && grammarSrsStats.dueCount === null
-            ? 'Đang cập nhật...'
-            : `${grammarSrsStats.dueCount ?? 0} ${t('home.grammarDueSubtitle', 'mẫu ngữ pháp cần ôn tập')}`;
-
-        if (isEnglishMode) {
+        if (isKoreanMode) {
             return [
+                {
+                    id: 'hangul-study',
+                    title: 'Bảng Chữ Hangul',
+                    subtitle: 'Luyện 40 nguyên âm, phụ âm & ghép vần chuẩn Seoul',
+                    badge: '40 ký tự & Batchim',
+                    badgeClass: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20',
+                    icon: HangulHomeIcon,
+                    iconBg: 'bg-gradient-to-br from-cyan-500 to-sky-600 shadow-cyan-500/25',
+                    glowBg: 'bg-cyan-500',
+                    route: ROUTES.HANGUL,
+                },
                 {
                     id: 'add',
                     title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
-                    subtitle: 'Mở rộng bộ từ vựng Tiếng Anh mới',
+                    subtitle: 'Tạo học phần mới hoặc nhập nhanh danh sách từ vựng',
+                    badge: 'Kho từ tiếng Hàn',
+                    badgeClass: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20',
                     icon: FolderPlus,
-                    gradient: 'from-teal-600 via-teal-500 to-cyan-500',
-                    glow: 'shadow-teal-500/25 border border-teal-400/40',
+                    iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-600 shadow-teal-500/25',
+                    glowBg: 'bg-teal-500',
                     route: ROUTES.VOCAB_ADD,
                 },
                 {
-                    id: 'vocab-review',
-                    title: t('home.reviewVocabTitle', 'Ôn Tập Từ Vựng'),
-                    subtitle: vocabDueSubtitle,
-                    icon: Clock,
-                    gradient: 'from-indigo-600 via-indigo-500 to-violet-500',
-                    glow: 'shadow-indigo-500/25 border border-indigo-400/40',
-                    route: ROUTES.VOCAB_REVIEW,
+                    id: 'korean-kaiwa',
+                    title: 'Luyện Nói AI (말하기)',
+                    subtitle: 'Phản xạ giao tiếp tiếng Hàn với trợ lý giọng nói AI',
+                    badge: 'Voice AI 1-1',
+                    badgeClass: 'bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20',
+                    icon: MessageSquare,
+                    iconBg: 'bg-gradient-to-br from-violet-500 to-purple-600 shadow-violet-500/25',
+                    glowBg: 'bg-violet-500',
+                    route: ROUTES.JLPT_KAIWA,
                 },
                 {
-                    id: 'ielts-test',
-                    title: 'Luyện Thi IELTS / TOEIC',
-                    subtitle: 'Luyện tập bộ đề & kiểm tra trình độ',
+                    id: 'grammar-study',
+                    title: t('home.learnGrammarTitle', 'Học Ngữ Pháp'),
+                    subtitle: 'Mẫu câu tiếng Hàn, cấu trúc ngữ pháp & hội thoại',
+                    badge: 'Sơ cấp & Trung cấp',
+                    badgeClass: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20',
+                    icon: BookOpen,
+                    iconBg: 'bg-gradient-to-br from-sky-500 to-blue-600 shadow-sky-500/25',
+                    glowBg: 'bg-sky-500',
+                    route: ROUTES.GRAMMAR_REVIEW,
+                },
+                {
+                    id: 'kdrama-video',
+                    title: 'Video K-Drama',
+                    subtitle: 'Luyện nghe nói tự nhiên qua trích đoạn video phim ảnh',
+                    badge: 'Shadowing & Sub',
+                    badgeClass: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20',
+                    icon: Film,
+                    iconBg: 'bg-gradient-to-br from-rose-500 to-pink-600 shadow-rose-500/25',
+                    glowBg: 'bg-rose-500',
+                    route: ROUTES.VIDEO_KAIWA,
+                },
+                {
+                    id: 'topik-test',
+                    title: 'Luyện Thi TOPIK',
+                    subtitle: 'Luyện tập bộ đề & thi thử chuẩn format TOPIK I & II',
+                    badge: 'TOPIK I & II',
+                    badgeClass: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20',
                     icon: Trophy,
-                    gradient: 'from-amber-600 via-amber-500 to-orange-500',
-                    glow: 'shadow-amber-500/25 border border-amber-400/40',
+                    iconBg: 'bg-gradient-to-br from-amber-500 to-orange-600 shadow-amber-500/25',
+                    glowBg: 'bg-amber-500',
                     route: ROUTES.JLPT_TEST,
                 },
             ];
         }
 
+        if (isEnglishMode) {
+            return [
+                {
+                    id: 'ipa-study',
+                    title: 'Bảng Phiên Âm IPA',
+                    subtitle: 'Luyện 44 âm chuẩn Oxford & các cặp âm tối thiểu',
+                    badge: '44 âm Oxford',
+                    badgeClass: 'bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20',
+                    icon: IpaHomeIcon,
+                    iconBg: 'bg-gradient-to-br from-violet-500 to-indigo-600 shadow-violet-500/25',
+                    glowBg: 'bg-violet-500',
+                    route: ROUTES.IPA,
+                },
+                {
+                    id: 'add',
+                    title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
+                    subtitle: 'Tạo bộ từ vựng mới hoặc nhập nhanh danh sách',
+                    badge: 'Oxford & IELTS',
+                    badgeClass: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20',
+                    icon: FolderPlus,
+                    iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-600 shadow-teal-500/25',
+                    glowBg: 'bg-teal-500',
+                    route: ROUTES.VOCAB_ADD,
+                },
+                {
+                    id: 'speaking-ai',
+                    title: 'Phòng Speaking AI',
+                    subtitle: 'Luyện phát âm & hội thoại tiếng Anh tương tác thực tế',
+                    badge: 'Voice AI 1-1',
+                    badgeClass: 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20',
+                    icon: MessageSquare,
+                    iconBg: 'bg-gradient-to-br from-purple-500 to-fuchsia-600 shadow-purple-500/25',
+                    glowBg: 'bg-purple-500',
+                    route: ROUTES.JLPT_KAIWA,
+                },
+                {
+                    id: 'grammar-study',
+                    title: t('home.learnGrammarTitle', 'Học Ngữ Pháp'),
+                    subtitle: 'Ngữ pháp tiếng Anh thực hành, collocations & ví dụ',
+                    badge: 'Cấu trúc & Mẫu câu',
+                    badgeClass: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20',
+                    icon: BookOpen,
+                    iconBg: 'bg-gradient-to-br from-sky-500 to-blue-600 shadow-sky-500/25',
+                    glowBg: 'bg-sky-500',
+                    route: ROUTES.GRAMMAR_REVIEW,
+                },
+                {
+                    id: 'video-shadowing',
+                    title: 'Video Shadowing',
+                    subtitle: 'Luyện nghe nói qua video YouTube, TED & phim ảnh',
+                    badge: 'Shadowing & Sub',
+                    badgeClass: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20',
+                    icon: Film,
+                    iconBg: 'bg-gradient-to-br from-rose-500 to-pink-600 shadow-rose-500/25',
+                    glowBg: 'bg-rose-500',
+                    route: ROUTES.VIDEO_KAIWA,
+                },
+                {
+                    id: 'ielts-test',
+                    title: 'Luyện Thi IELTS / TOEIC',
+                    subtitle: 'Bộ đề thi trắc nghiệm bấm giờ & rèn phản xạ',
+                    badge: 'Mock Test',
+                    badgeClass: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20',
+                    icon: Trophy,
+                    iconBg: 'bg-gradient-to-br from-amber-500 to-orange-600 shadow-amber-500/25',
+                    glowBg: 'bg-amber-500',
+                    route: ROUTES.JLPT_TEST,
+                },
+            ];
+        }
+
+        // Japanese Mode (6 balanced cards)
         return [
-            // Row 1: Học & Thêm mới (Tiếng Nhật)
+            {
+                id: 'kana-study',
+                title: 'Bảng Chữ Kana',
+                subtitle: 'Luyện 46 chữ Hiragana, Katakana & tập viết nét',
+                badge: 'Hiragana & Katakana',
+                badgeClass: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20',
+                icon: KanaHomeIcon,
+                iconBg: 'bg-gradient-to-br from-rose-500 to-pink-600 shadow-rose-500/25',
+                glowBg: 'bg-rose-500',
+                route: ROUTES.KANA,
+            },
             {
                 id: 'add',
                 title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
-                subtitle: t('home.addVocabSub', 'Mở rộng bộ từ vựng mới'),
+                subtitle: 'Tạo học phần mới hoặc nhập nhanh danh sách từ vựng',
+                badge: 'Mở rộng kho từ',
+                badgeClass: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20',
                 icon: FolderPlus,
-                gradient: 'from-teal-600 via-teal-500 to-cyan-500',
-                glow: 'shadow-teal-500/25 border border-teal-400/40',
+                iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-600 shadow-teal-500/25',
+                glowBg: 'bg-teal-500',
                 route: ROUTES.VOCAB_ADD,
             },
             {
                 id: 'kanji-study',
-                title: t('home.learnKanjiTitle', 'Học Kanji'),
-                subtitle: t('home.learnKanjiSub', 'Chinh phục lộ trình chữ Hán'),
+                title: t('home.learnKanjiTitle', 'Thư viện Kanji'),
+                subtitle: 'Chinh phục 2136 chữ Hán theo lộ trình N5 đến N1',
+                badge: '2136 chữ Hán',
+                badgeClass: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20',
                 icon: Languages,
-                gradient: 'from-emerald-600 via-emerald-500 to-teal-500',
-                glow: 'shadow-emerald-500/25 border border-emerald-400/40',
-                route: ROUTES.KANJI_STUDY,
+                iconBg: 'bg-gradient-to-br from-emerald-500 to-teal-600 shadow-emerald-500/25',
+                glowBg: 'bg-emerald-500',
+                route: ROUTES.KANJI_REVIEW,
             },
             {
                 id: 'grammar-study',
                 title: t('home.learnGrammarTitle', 'Học Ngữ Pháp'),
-                subtitle: t('home.learnGrammarSub', 'Sách giáo trình & bài học'),
+                subtitle: 'Giáo trình Minna, Shinkanzen & mẫu câu ứng dụng',
+                badge: 'Giáo trình N5-N1',
+                badgeClass: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20',
                 icon: BookOpen,
-                gradient: 'from-sky-600 via-sky-500 to-blue-500',
-                glow: 'shadow-sky-500/25 border border-sky-400/40',
-                route: ROUTES.BOOKS || ROUTES.GRAMMAR_REVIEW,
-            },
-            // Row 2: Ôn tập (Tiếng Nhật)
-            {
-                id: 'vocab-review',
-                title: t('home.reviewVocabTitle', 'Ôn Tập Từ Vựng'),
-                subtitle: vocabDueSubtitle,
-                icon: Clock,
-                gradient: 'from-indigo-600 via-indigo-500 to-violet-500',
-                glow: 'shadow-indigo-500/25 border border-indigo-400/40',
-                route: ROUTES.VOCAB_REVIEW,
-            },
-            {
-                id: 'kanji-review',
-                title: t('home.reviewKanjiTitle', 'Ôn Tập Kanji'),
-                subtitle: kanjiDueSubtitle,
-                icon: Target,
-                gradient: 'from-amber-600 via-amber-500 to-orange-500',
-                glow: 'shadow-amber-500/25 border border-amber-400/40',
-                route: ROUTES.KANJI_REVIEW,
-            },
-            {
-                id: 'grammar-review',
-                title: t('home.reviewGrammarTitle', 'Ôn Tập Ngữ Pháp'),
-                subtitle: grammarDueSubtitle,
-                icon: Repeat2,
-                gradient: 'from-purple-600 via-purple-500 to-pink-500',
-                glow: 'shadow-purple-500/25 border border-purple-400/40',
+                iconBg: 'bg-gradient-to-br from-sky-500 to-blue-600 shadow-sky-500/25',
+                glowBg: 'bg-sky-500',
                 route: ROUTES.GRAMMAR_REVIEW,
             },
+            {
+                id: 'kaiwa-ai',
+                title: 'Phòng Kaiwa AI',
+                subtitle: 'Luyện đối thoại giọng nói 1-1 theo tình huống thực tế',
+                badge: 'Voice AI 1-1',
+                badgeClass: 'bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20',
+                icon: MessageSquare,
+                iconBg: 'bg-gradient-to-br from-violet-500 to-purple-600 shadow-violet-500/25',
+                glowBg: 'bg-violet-500',
+                route: ROUTES.JLPT_KAIWA,
+            },
+            {
+                id: 'jlpt-test',
+                title: 'Luyện Đề JLPT',
+                subtitle: 'Bộ đề thi trắc nghiệm chuẩn kỳ thi JLPT N5 đến N1',
+                badge: 'Thi thử bấm giờ',
+                badgeClass: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20',
+                icon: FileCheck,
+                iconBg: 'bg-gradient-to-br from-amber-500 to-orange-600 shadow-amber-500/25',
+                glowBg: 'bg-amber-500',
+                route: ROUTES.JLPT_TEST,
+            },
         ];
-    }, [t, stats.dueCards, stats.isInitialLoading, kanjiSrsStats.dueCount, kanjiSrsStats.isInitialLoading, grammarSrsStats.dueCount, grammarSrsStats.isInitialLoading, isEnglishMode]);
+    }, [t, isKoreanMode, isEnglishMode]);
 
     // Greeting based on time
     const getGreeting = () => {
@@ -545,7 +673,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
             </div>
 
             {/* SRS Telemetry Bento Counters */}
-            <div className={`grid grid-cols-2 ${isEnglishMode ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-3 sm:gap-4`}>
+            <div className={`grid grid-cols-2 ${!isJapaneseMode ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-3 sm:gap-4`}>
                 {/* Card 1: Vocab Review */}
                 <div 
                     onClick={() => handleTriggerReview('vocab')}
@@ -564,7 +692,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                 </div>
 
                 {/* Card 2: Kanji Review / New Cards */}
-                {!isEnglishMode ? (
+                {isJapaneseMode ? (
                     <div 
                         onClick={() => handleTriggerReview('kanji')}
                         className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-amber-500/40 hover:shadow-amber-500/10"
@@ -587,7 +715,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                     >
                         <div className="flex items-center gap-3 min-w-0">
                             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-amber-500/10 border border-amber-500/20 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-amber-500/20 transition-colors">
-                                <Sparkle className="w-5 h-5 text-amber-500" />
+                                <Zap className="w-5 h-5 text-amber-500" />
                             </div>
                             <div className="min-w-0">
                                 <StatNumber value={stats.newCards} isLoading={stats.isInitialLoading} />
@@ -616,7 +744,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                 </div>
 
                 {/* Card 4: Total Kanji */}
-                {!isEnglishMode && (
+                {isJapaneseMode && (
                     <div 
                         onClick={() => navigate(ROUTES.KANJI_REVIEW)}
                         className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-emerald-500/40 hover:shadow-emerald-500/10"
@@ -636,7 +764,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
             </div>
 
             {/* Quick Actions Hub */}
-            <div className="space-y-3 pt-2">
+            <div className="space-y-3.5 pt-2">
                 <div className="flex items-center justify-between">
                     <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 font-mono uppercase tracking-wider">
                         <Zap className="w-4 h-4 text-amber-500 animate-pulse" />
@@ -644,10 +772,11 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
                     {quickActions.map((action) => (
                         <button
                             key={action.id}
+                            type="button"
                             onClick={() => {
                                 if (action.id === 'add') {
                                     setShowAddOptions(true);
@@ -657,27 +786,41 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                                     handleTriggerReview('kanji');
                                 } else if (action.id === 'grammar-review') {
                                     handleTriggerReview('grammar');
-                                } else {
+                                } else if (action.route) {
                                     navigate(action.route);
                                 }
                             }}
-                            className={`relative group isolate bg-gradient-to-br ${action.gradient} text-white rounded-2xl p-5 text-left transition-all duration-300 hover:scale-[1.02] active:scale-98 overflow-hidden min-h-[110px] cursor-pointer shadow-lg select-none border border-white/10 ${action.glow}`}
+                            className="group relative flex flex-col justify-between p-4.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800/90 shadow-xs hover:shadow-xl hover:-translate-y-1 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 text-left overflow-hidden select-none cursor-pointer"
                         >
-                            <div className="relative z-10 flex flex-col justify-between h-full">
-                                <div className="flex items-center justify-between">
-                                    <div className="p-2.5 rounded-xl bg-white/20 group-hover:scale-110 transition-transform">
+                            {/* Ambient glow in background on hover */}
+                            <div className={`absolute -right-8 -top-8 w-32 h-32 rounded-full blur-2xl opacity-0 group-hover:opacity-20 dark:group-hover:opacity-30 transition-opacity duration-500 pointer-events-none ${action.glowBg || 'bg-indigo-500'}`} />
+                            
+                            {/* Top Row: Icon badge + Tag + Arrow */}
+                            <div className="relative z-10 flex items-center justify-between gap-2 w-full mb-3.5">
+                                <div className="flex items-center gap-2.5 min-w-0">
+                                    <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-white shrink-0 shadow-md ${action.iconBg} group-hover:scale-105 transition-transform duration-300`}>
                                         <action.icon className="w-5 h-5 text-white" />
                                     </div>
-                                    <ArrowRight className="w-5 h-5 text-white/70 group-hover:translate-x-1 group-hover:text-white transition-all" />
+                                    {action.badge && (
+                                        <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider truncate ${action.badgeClass || 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60'}`}>
+                                            {action.badge}
+                                        </span>
+                                    )}
                                 </div>
-                                <div className="mt-3">
-                                    <h3 className="font-black text-base text-white tracking-tight">
-                                        {action.title}
-                                    </h3>
-                                    <p className="text-xs text-white/85 font-medium mt-0.5 line-clamp-1">
-                                        {action.subtitle}
-                                    </p>
+
+                                <div className="w-8 h-8 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-center text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white group-hover:border-slate-300 dark:group-hover:border-slate-600 transition-all shrink-0">
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
                                 </div>
+                            </div>
+
+                            {/* Bottom: Title & Subtitle */}
+                            <div className="relative z-10 space-y-1">
+                                <h3 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                    {action.title}
+                                </h3>
+                                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed line-clamp-2">
+                                    {action.subtitle}
+                                </p>
                             </div>
                         </button>
                     ))}

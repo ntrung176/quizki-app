@@ -6,7 +6,7 @@ import { collection, query, onSnapshot, doc, orderBy, limit } from 'firebase/fir
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import {
-    Home, BookOpen, LogOut, Sun, Moon, Sparkle, ChevronRight, ChevronLeft, X,
+    Home, BookOpen, LogOut, Sun, Moon, ChevronRight, ChevronLeft, X,
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell,
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe, Film
 } from 'lucide-react'
@@ -51,6 +51,27 @@ const renderTextWithClickableLinks = (text) => {
 };
 
 // Sidebar Component - Restored Exact Original Menus with Chatbox & Help Buttons Integrated at Bottom
+// Custom Japanese Kana 'あ' icon for Sidebar navigation
+const KanaMenuIcon = ({ className = 'w-4.5 h-4.5' }) => (
+    <span className={`${className} flex items-center justify-center font-japanese font-black text-sm leading-none select-none text-current shrink-0`}>
+        あ
+    </span>
+);
+
+// Custom Korean Hangul '가' icon for Sidebar navigation
+const HangulMenuIcon = ({ className = 'w-4.5 h-4.5' }) => (
+    <span className={`${className} flex items-center justify-center font-sans font-black text-sm leading-none select-none text-current shrink-0`}>
+        가
+    </span>
+);
+
+// Custom English IPA '/ə/' icon for Sidebar navigation
+const IpaMenuIcon = ({ className = 'w-4.5 h-4.5' }) => (
+    <span className={`${className} flex items-center justify-center font-serif font-black text-xs leading-none select-none text-current shrink-0 tracking-tighter`}>
+        /ə/
+    </span>
+);
+
 const Sidebar = ({
     isDarkMode,
     setIsDarkMode,
@@ -66,7 +87,7 @@ const Sidebar = ({
     const navigate = useNavigate();
     const location = useLocation();
     const { t } = useLanguage();
-    const { targetLanguage, isEnglishMode } = useTargetLanguage();
+    const { targetLanguage, isJapaneseMode, isEnglishMode, isKoreanMode, activeTargetConfig } = useTargetLanguage();
     const {
         status: focusStatus,
         secondsLeft: focusSecondsLeft,
@@ -413,19 +434,50 @@ const Sidebar = ({
     const menuItems = React.useMemo(() => {
         const items = [
             { id: 'HOME', icon: Home, label: t('nav.home', 'Trang chủ'), route: ROUTES.HOME, group: 'Học tập' },
-            { id: 'VOCAB_LIST', icon: BookOpen, label: t('nav.vocab', 'Từ vựng'), route: ROUTES.VOCAB_REVIEW, group: 'Học tập' },
         ];
 
-        // Kanji / Phonetics menu is only relevant for Japanese learning
-        if (!isEnglishMode) {
+        // 1. Nhập môn bảng chữ cái theo từng ngôn ngữ
+        if (isJapaneseMode) {
+            items.push({ id: 'KANA_STUDY', icon: KanaMenuIcon, label: 'Bảng chữ Kana', route: ROUTES.KANA, group: 'Học tập' });
+        } else if (isKoreanMode) {
+            items.push({ id: 'HANGUL_STUDY', icon: HangulMenuIcon, label: 'Bảng chữ Hangul', route: ROUTES.HANGUL, group: 'Học tập' });
+        } else if (isEnglishMode) {
+            items.push({ id: 'IPA_STUDY', icon: IpaMenuIcon, label: 'Bảng phiên âm IPA', route: ROUTES.IPA, group: 'Học tập' });
+        }
+
+        // 2. Từ vựng theo ngôn ngữ
+        const vocabLabel = isEnglishMode 
+            ? 'Từ vựng' 
+            : isKoreanMode 
+                ? 'Từ vựng' 
+                : t('nav.vocab', 'Từ vựng');
+
+        items.push(
+            { id: 'VOCAB_LIST', icon: BookOpen, label: vocabLabel, route: ROUTES.VOCAB_REVIEW, group: 'Học tập' },
+        );
+
+        // 3. Kanji menu is only relevant for Japanese learning
+        if (isJapaneseMode) {
             items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, group: 'Học tập' });
         }
 
+        const kaiwaLabel = isEnglishMode 
+            ? 'Phòng Speaking AI' 
+            : isKoreanMode 
+                ? 'Luyện nói AI (말하기)' 
+                : t('nav.kaiwa', 'Phòng Kaiwa AI');
+
+        const testLabel = isEnglishMode 
+            ? 'Luyện thi IELTS / TOEIC' 
+            : isKoreanMode 
+                ? 'Luyện thi TOPIK' 
+                : t('nav.jlptTest', 'Luyện đề JLPT');
+
         items.push(
             { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, group: 'Học tập' },
-            { id: 'VIDEO_KAIWA', icon: Film, label: 'Video Kaiwa', route: ROUTES.VIDEO_KAIWA, group: 'Luyện tập & AI' },
-            { id: 'JLPT_KAIWA', icon: MessageSquare, label: t('nav.kaiwa', 'Phòng Kaiwa AI'), route: ROUTES.JLPT_KAIWA, group: 'Luyện tập & AI' },
-            { id: 'JLPT_TEST', icon: FileCheck, label: isEnglishMode ? 'Luyện thi IELTS/TOEIC' : t('nav.jlptTest', 'Luyện đề JLPT'), route: ROUTES.JLPT_TEST, group: 'Luyện tập & AI' },
+            { id: 'VIDEO_KAIWA', icon: Film, label: isEnglishMode ? 'Video Shadowing' : isKoreanMode ? 'Video K-Drama' : 'Video Kaiwa', route: ROUTES.VIDEO_KAIWA, group: 'Luyện tập & AI' },
+            { id: 'JLPT_KAIWA', icon: MessageSquare, label: kaiwaLabel, route: ROUTES.JLPT_KAIWA, group: 'Luyện tập & AI' },
+            { id: 'JLPT_TEST', icon: FileCheck, label: testLabel, route: ROUTES.JLPT_TEST, group: 'Luyện tập & AI' },
             { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB, group: 'Cộng đồng' },
         );
 
@@ -433,11 +485,14 @@ const Sidebar = ({
             items.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN, group: 'Cộng đồng' });
         }
         return items;
-    }, [t, dueVocabCount, kanjiDueCount, grammarDueCount, isAdmin, isEnglishMode]);
+    }, [t, dueVocabCount, kanjiDueCount, grammarDueCount, isAdmin, isJapaneseMode, isEnglishMode, isKoreanMode]);
 
     const isMenuActive = (item) => {
         const path = location.pathname;
         if (item.id === 'HOME') return path === '/' || path === '/home';
+        if (item.id === 'KANA_STUDY') return path.includes('/kana') || path === ROUTES.KANA;
+        if (item.id === 'HANGUL_STUDY') return path.includes('/hangul') || path === ROUTES.HANGUL;
+        if (item.id === 'IPA_STUDY') return path.includes('/ipa') || path === ROUTES.IPA;
         if (item.id === 'VOCAB_LIST') return path.includes('/vocab') || path.includes('/books');
         if (item.id === 'KANJI_STUDY') return path.includes('/kanji');
         if (item.id === 'GRAMMAR') return path.includes('/grammar');
@@ -928,7 +983,7 @@ const Sidebar = ({
                         >
                             <div className="flex items-center gap-1.5 min-w-0">
                                 <span className="text-[11px]">🎯</span>
-                                <span className="truncate">{targetLanguage === 'en' ? 'Tiếng Anh' : 'Tiếng Nhật'}</span>
+                                <span className="truncate">{activeTargetConfig?.name || (targetLanguage === 'en' ? 'Tiếng Anh' : targetLanguage === 'ko' ? 'Tiếng Hàn' : 'Tiếng Nhật')}</span>
                             </div>
                             <div className="h-4 w-px bg-slate-200 dark:bg-slate-800 shrink-0" />
                             <div className="flex items-center gap-1.5 min-w-0">
@@ -956,14 +1011,14 @@ const Sidebar = ({
                     {/* Upgrade Account Button */}
                     <Link
                         to={ROUTES.UPGRADE}
-                        className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 font-mono text-xs font-bold ${location.pathname === ROUTES.UPGRADE
+                        className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-2.5'} px-3 py-2 rounded-xl transition-all duration-200 text-xs font-bold ${location.pathname === ROUTES.UPGRADE
                                 ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
                                 : 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-300/60 dark:border-amber-700/50 hover:bg-amber-500/20'
                             }`}
                         title={isCollapsed ? t('common.upgrade', 'Nâng cấp tài khoản') : undefined}
                     >
                         <Crown className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
-                        {!isCollapsed && <span>{t('common.upgrade', 'Nâng cấp tài khoản')}</span>}
+                        {!isCollapsed && <span className="truncate">{t('common.upgrade', 'Nâng cấp tài khoản')}</span>}
                     </Link>
 
                     {/* Integrated Quick Control Icons Row */}
