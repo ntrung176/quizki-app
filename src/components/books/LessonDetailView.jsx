@@ -527,111 +527,185 @@ const LessonDetailView = ({
                                         </div>
                                     ) : (
                                         /* VIEW MODE */
-                                        <div className="flex cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors" onClick={() => {
+                                        <div className="flex flex-col md:flex-row cursor-pointer hover:bg-gray-50/80 dark:hover:bg-slate-800/50 transition-colors" onClick={() => {
                                             revealCard(i);
                                             if (v.audioBase64) { playAudio(v.audioBase64, word); }
                                             else { speakJapanese(word, null, null, null, v.reading || ''); }
                                         }}>
-                                            <div className="w-10 shrink-0 bg-gray-50 dark:bg-gray-700/50 flex flex-col items-center justify-center gap-1 border-r border-gray-100 dark:border-gray-700">
+                                            {/* Desktop Index Column (hidden on mobile, mobile index shown in header) */}
+                                            <div className="hidden md:flex w-10 shrink-0 bg-gray-50 dark:bg-gray-700/50 flex-col items-center justify-center gap-1 border-r border-gray-100 dark:border-gray-700">
                                                 <span className="text-xs font-bold text-gray-400 dark:text-gray-500">{i + 1}</span>
                                                 {persistedRevealed.has(i) && (
                                                     <div className="w-2 h-2 rounded-full bg-emerald-400" title="Đã lật" />
                                                 )}
                                             </div>
-                                            <div className="w-[30%] p-4 border-r border-gray-100 dark:border-gray-700 flex flex-col">
-                                                <div className="flex-1 flex flex-col justify-center">
-                                                    {(() => {
-                                                        const blurJP = blurMode === 'jp' && !isRevealed;
-                                                        const blurVN = blurMode === 'vn' && !isRevealed;
-                                                        const blurClass = 'blur-[4px] opacity-40 select-none';
-                                                        return (<>
-                                                            <div className="flex items-center gap-2">
-                                                                <p className={`text-xl font-bold text-gray-900 dark:text-white leading-tight transition-all duration-300 ${blurJP ? blurClass : ''}`}>{displayWord}</p>
-                                                                {v.specialReading && (
-                                                                    <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded font-bold" title="Cách đọc đặc biệt">特</span>
-                                                                )}
-                                                                {isAdmin && isMissingSino(v) && (
-                                                                    <span className="text-[10px] px-2 py-0.5 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 rounded-full font-bold border border-amber-300 dark:border-amber-700/60 flex items-center gap-1 shrink-0" title="Từ vựng chứa chữ Hán nhưng chưa nhập âm Hán Việt">
-                                                                        <AlertTriangle className="w-3 h-3 text-amber-500" /> Thiếu Hán Việt
-                                                                    </span>
-                                                                )}
-                                                                <button
-                                                                    onClick={(e) => {
-                                                                        e.stopPropagation();
-                                                                        if (v.audioBase64) { playAudio(v.audioBase64, word); }
-                                                                        else { speakJapanese(word, null, null, null, v.reading || ''); }
-                                                                    }}
-                                                                    className={`p-1 rounded-lg transition-all hover:scale-110 shrink-0 cursor-pointer ${v.audioBase64
-                                                                        ? 'text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 hover:text-sky-600'
-                                                                        : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-500'
-                                                                        }`}
-                                                                    title={v.audioBase64 ? 'Phát audio đã cắt' : 'Phát TTS'}
-                                                                >
-                                                                    <Volume2 className="w-4 h-4" />
-                                                                </button>
-                                                                {isAdmin && (
-                                                                    <button
-                                                                        onClick={(e) => { e.stopPropagation(); setFixAudioIndex(i); setFixAudioCustomReading(''); }}
-                                                                        className="p-1 rounded-lg transition-all hover:scale-110 shrink-0 text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-500 cursor-pointer"
-                                                                        title="Sửa audio"
-                                                                    >
-                                                                        <Wrench className="w-3.5 h-3.5" />
-                                                                    </button>
-                                                                )}
-                                                            </div>
-                                                            {v.reading && (() => {
-                                                                const pitchParts = (v.accent !== undefined && v.accent !== '' && v.accent !== null)
-                                                                    ? accentNumberToPitchParts(v.reading, v.accent)
-                                                                    : null;
-                                                                if (pitchParts && pitchParts.length > 0) {
-                                                                    const readingChars = [...v.reading];
-                                                                    const charPitchMap = [];
-                                                                    for (const pp of pitchParts) {
-                                                                        for (const c of [...pp.part]) {
-                                                                            charPitchMap.push({ char: c, high: pp.high });
-                                                                        }
-                                                                    }
-                                                                    return (
-                                                                        <span className={`inline-flex items-end gap-0 mt-0.5 transition-all duration-300 ${blurJP ? blurClass : ''}`}>
-                                                                            {readingChars.map((char, ci) => {
-                                                                                const pm = charPitchMap[ci];
-                                                                                const isHigh = pm ? pm.high : false;
-                                                                                const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
-                                                                                const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
-                                                                                const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
-                                                                                return (
-                                                                                    <span key={ci} className="relative inline-block text-xs text-gray-500 dark:text-gray-400">
-                                                                                        <span className="block" style={{
-                                                                                            borderTop: isHigh ? '1.5px solid rgba(249, 115, 22, 0.6)' : '1.5px solid transparent',
-                                                                                            paddingTop: '1px', paddingLeft: '1px', paddingRight: '1px',
-                                                                                        }}>
-                                                                                            {char}
-                                                                                        </span>
-                                                                                        {showDrop && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
-                                                                                        {showRise && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
-                                                                                    </span>
-                                                                                );
-                                                                            })}
-                                                                        </span>
-                                                                    );
-                                                                }
-                                                                return <p className={`text-xs text-gray-500 dark:text-gray-400 mt-0.5 transition-all duration-300 ${blurJP ? blurClass : ''}`}>{v.reading}</p>;
-                                                            })()}
-                                                            {v.sinoVietnamese && (
-                                                                <p className={`text-xs text-amber-600 dark:text-amber-400 font-medium mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.sinoVietnamese}</p>
-                                                            )}
-                                                            <p className={`text-sm text-sky-600 dark:text-sky-400 mt-2 font-medium transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.meaning || v.back || ''}</p>
-                                                            {v.synonym && (
-                                                                <p className={`text-xs text-sky-500 dark:text-sky-400 mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>🔄 {v.synonym}</p>
-                                                            )}
-                                                        </>);
-                                                    })()}
+
+                                            {/* Mobile Header Bar (shown only on mobile) */}
+                                            <div className="md:hidden flex items-center justify-between p-3 pb-2 border-b border-gray-100 dark:border-gray-700/60 bg-gray-50/50 dark:bg-gray-800/40">
+                                                <div className="flex items-center gap-2 flex-wrap">
+                                                    <span className="px-2 py-0.5 rounded-lg bg-gray-200/70 dark:bg-gray-700 text-[11px] font-mono font-bold text-gray-600 dark:text-gray-300">
+                                                        #{i + 1}
+                                                    </span>
+                                                    {persistedRevealed.has(i) && (
+                                                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                                                            <span className="w-2 h-2 rounded-full bg-emerald-400" /> Đã lật
+                                                        </span>
+                                                    )}
+                                                    {v.specialReading && (
+                                                        <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded font-bold" title="Cách đọc đặc biệt">特</span>
+                                                    )}
+                                                    {isAdmin && isMissingSino(v) && (
+                                                        <span className="text-[10px] px-2 py-0.5 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 rounded-full font-bold border border-amber-300 dark:border-amber-700/60 flex items-center gap-1">
+                                                            <AlertTriangle className="w-3 h-3 text-amber-500" /> Thiếu Hán Việt
+                                                        </span>
+                                                    )}
+                                                </div>
+
+                                                {/* Mobile Actions in Header */}
+                                                <div className="flex items-center gap-1">
+                                                    {(v.nuance || v.note) && (
+                                                        <button onClick={(e) => { e.stopPropagation(); setShowNuanceIndex(showNuanceIndex === i ? null : i); }}
+                                                            className={`p-1.5 transition-colors cursor-pointer rounded-lg ${showNuanceIndex === i ? 'text-amber-500 bg-amber-50 dark:bg-amber-950/40' : 'text-gray-400 hover:text-amber-500'}`}
+                                                            title="Xem sắc thái">
+                                                            <Lightbulb className="w-4 h-4" />
+                                                        </button>
+                                                    )}
+                                                    {isAdmin && (
+                                                        <button onClick={(e) => { e.stopPropagation(); handleEditVocab(i); }}
+                                                            className="p-1.5 text-gray-400 hover:text-sky-500 transition-colors cursor-pointer rounded-lg" title="Chỉnh sửa">
+                                                            <Edit className="w-4 h-4" />
+                                                        </button>
+                                                    )}
+                                                    {isAdmin && (
+                                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteVocab(i); }}
+                                                            className="p-1.5 text-gray-400 hover:text-red-500 transition-colors cursor-pointer rounded-lg" title="Xóa">
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    )}
                                                 </div>
                                             </div>
 
-                                            {/* RIGHT: Ví dụ */}
-                                            <div className="flex-1 p-4 flex items-stretch gap-3">
-                                                <div className="flex-1 flex flex-col justify-center">
+                                            {/* Left Column (Word, Reading, Sino, Meaning): Full width on mobile, 32% on desktop */}
+                                            <div className="w-full md:w-[32%] p-3.5 sm:p-4 md:border-r border-gray-100 dark:border-gray-700 flex flex-col justify-center">
+                                                {(() => {
+                                                    const blurJP = blurMode === 'jp' && !isRevealed;
+                                                    const blurVN = blurMode === 'vn' && !isRevealed;
+                                                    const blurClass = 'blur-[4px] opacity-40 select-none';
+                                                    return (
+                                                        <div className="flex items-start justify-between gap-3">
+                                                            {/* Word details */}
+                                                            <div className="flex-1 min-w-0">
+                                                                <div className="flex items-center justify-between md:justify-start gap-2">
+                                                                    <div className="flex items-center gap-2 flex-wrap">
+                                                                        <p className={`text-xl sm:text-2xl font-bold text-gray-900 dark:text-white leading-tight transition-all duration-300 ${blurJP ? blurClass : ''}`}>{displayWord}</p>
+                                                                        <span className="hidden md:inline-flex">
+                                                                            {v.specialReading && (
+                                                                                <span className="text-[10px] px-1.5 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded font-bold" title="Cách đọc đặc biệt">特</span>
+                                                                            )}
+                                                                        </span>
+                                                                    </div>
+
+                                                                    <div className="flex items-center gap-1 shrink-0">
+                                                                        <button
+                                                                            onClick={(e) => {
+                                                                                e.stopPropagation();
+                                                                                if (v.audioBase64) { playAudio(v.audioBase64, word); }
+                                                                                else { speakJapanese(word, null, null, null, v.reading || ''); }
+                                                                            }}
+                                                                            className={`p-1.5 rounded-lg transition-all hover:scale-110 shrink-0 cursor-pointer ${v.audioBase64
+                                                                                ? 'text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 hover:text-sky-600'
+                                                                                : 'text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-500'
+                                                                                }`}
+                                                                            title={v.audioBase64 ? 'Phát audio đã cắt' : 'Phát TTS'}
+                                                                        >
+                                                                            <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                                                                        </button>
+                                                                        {isAdmin && (
+                                                                            <button
+                                                                                onClick={(e) => { e.stopPropagation(); setFixAudioIndex(i); setFixAudioCustomReading(''); }}
+                                                                                className="p-1.5 rounded-lg transition-all hover:scale-110 shrink-0 text-gray-300 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-500 cursor-pointer"
+                                                                                title="Sửa audio"
+                                                                            >
+                                                                                <Wrench className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                                                            </button>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+
+                                                                {/* Reading */}
+                                                                {v.reading && (() => {
+                                                                    const pitchParts = (v.accent !== undefined && v.accent !== '' && v.accent !== null)
+                                                                        ? accentNumberToPitchParts(v.reading, v.accent)
+                                                                        : null;
+                                                                    if (pitchParts && pitchParts.length > 0) {
+                                                                        const readingChars = [...v.reading];
+                                                                        const charPitchMap = [];
+                                                                        for (const pp of pitchParts) {
+                                                                            for (const c of [...pp.part]) {
+                                                                                charPitchMap.push({ char: c, high: pp.high });
+                                                                            }
+                                                                        }
+                                                                        return (
+                                                                            <span className={`inline-flex items-end gap-0 mt-0.5 transition-all duration-300 ${blurJP ? blurClass : ''}`}>
+                                                                                {readingChars.map((char, ci) => {
+                                                                                    const pm = charPitchMap[ci];
+                                                                                    const isHigh = pm ? pm.high : false;
+                                                                                    const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
+                                                                                    const showDrop = isHigh && !nextHigh && ci < readingChars.length - 1;
+                                                                                    const showRise = !isHigh && nextHigh && ci < readingChars.length - 1;
+                                                                                    return (
+                                                                                        <span key={ci} className="relative inline-block text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                                                                                            <span className="block" style={{
+                                                                                                borderTop: isHigh ? '1.5px solid rgba(249, 115, 22, 0.6)' : '1.5px solid transparent',
+                                                                                                paddingTop: '1px', paddingLeft: '1px', paddingRight: '1px',
+                                                                                            }}>
+                                                                                                {char}
+                                                                                            </span>
+                                                                                            {showDrop && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
+                                                                                            {showRise && <span className="absolute -right-[1px] top-0 w-[1.5px] bg-orange-500/60" style={{ height: '100%' }}></span>}
+                                                                                        </span>
+                                                                                    );
+                                                                                })}
+                                                                            </span>
+                                                                        );
+                                                                    }
+                                                                    return <p className={`text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-0.5 transition-all duration-300 ${blurJP ? blurClass : ''}`}>{v.reading}</p>;
+                                                                })()}
+
+                                                                {/* Sino Vietnamese */}
+                                                                {v.sinoVietnamese && (
+                                                                    <p className={`text-xs sm:text-sm text-amber-600 dark:text-amber-400 font-semibold mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.sinoVietnamese}</p>
+                                                                )}
+
+                                                                {/* Meaning */}
+                                                                <p className={`text-sm sm:text-base text-sky-600 dark:text-sky-400 mt-1.5 font-medium transition-all duration-300 leading-snug ${blurVN ? blurClass : ''}`}>{v.meaning || v.back || ''}</p>
+
+                                                                {/* Synonym */}
+                                                                {v.synonym && (
+                                                                    <p className={`text-xs text-sky-500 dark:text-sky-400 mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>🔄 {v.synonym}</p>
+                                                                )}
+                                                            </div>
+
+                                                            {/* Mobile Image positioned right next to the Word/Meaning section */}
+                                                            {v.imageUrl && (
+                                                                <div className="md:hidden shrink-0 self-center sm:self-start">
+                                                                    <img
+                                                                        src={v.imageUrl}
+                                                                        alt={word}
+                                                                        className="w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 rounded-2xl object-contain bg-slate-50/60 dark:bg-slate-900/60 border border-gray-200/90 dark:border-gray-700/80 cursor-pointer hover:opacity-90 hover:scale-105 transition-all shadow-xs"
+                                                                        onClick={(e) => { e.stopPropagation(); window.open(v.imageUrl, '_blank', 'noopener,noreferrer'); }}
+                                                                        title="Click để phóng to"
+                                                                    />
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    );
+                                                })()}
+                                            </div>
+
+                                            {/* Right Column: Examples & Desktop Image */}
+                                            <div className="flex-1 p-3.5 sm:p-4 border-t md:border-t-0 border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 min-w-0">
+                                                <div className="flex-1 min-w-0 space-y-2 w-full">
                                                     {v.example ? (
                                                         <div className="space-y-2">
                                                             {v.example.split('\n').map((ex, ei) => {
@@ -640,11 +714,11 @@ const LessonDetailView = ({
                                                                 const blurClass = 'blur-[4px] opacity-40 select-none';
                                                                 return (
                                                                     <div key={ei} className="relative group/ex pr-7">
-                                                                        <p className={`text-sm text-gray-800 dark:text-gray-200 leading-relaxed transition-all duration-300 ${blurJP ? blurClass : ''}`}><FuriganaText text={ex.trim()} /></p>
+                                                                        <p className={`text-sm sm:text-base text-gray-800 dark:text-gray-200 leading-relaxed transition-all duration-300 break-words ${blurJP ? blurClass : ''}`}><FuriganaText text={ex.trim()} /></p>
                                                                         {v.exampleMeaning && (() => {
                                                                             const meanings = v.exampleMeaning.split('\n');
                                                                             return meanings[ei] ? (
-                                                                                <p className={`text-xs text-gray-500 dark:text-gray-400 mt-0.5 italic transition-all duration-300 ${blurVN ? blurClass : ''}`}>{meanings[ei].trim()}</p>
+                                                                                <p className={`text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-0.5 italic transition-all duration-300 break-words ${blurVN ? blurClass : ''}`}>{meanings[ei].trim()}</p>
                                                                             ) : null;
                                                                         })()}
                                                                         <button
@@ -665,19 +739,28 @@ const LessonDetailView = ({
                                                     ) : (
                                                         <p className="text-xs text-gray-300 dark:text-gray-600 italic">Chưa có ví dụ</p>
                                                     )}
+
                                                     {(v.nuance || v.note) && showNuanceIndex === i && (
                                                         <p className="text-xs text-orange-500 dark:text-orange-400 mt-2 italic animate-fadeIn">💡 {v.nuance || v.note}</p>
                                                     )}
                                                 </div>
+
+                                                {/* Desktop Image (hidden on mobile, shown on md screens) */}
                                                 {v.imageUrl && (
-                                                    <div className="shrink-0 flex items-center">
-                                                        <img src={v.imageUrl} alt={word} className="w-28 h-28 rounded-xl object-cover border border-gray-200 dark:border-gray-600 cursor-pointer hover:opacity-80 hover:scale-105 transition-all shadow-sm" onClick={(e) => { e.stopPropagation(); window.open(v.imageUrl, '_blank', 'noopener,noreferrer'); }} title="Click để phóng to" />
+                                                    <div className="hidden md:flex shrink-0 self-start">
+                                                        <img
+                                                            src={v.imageUrl}
+                                                            alt={word}
+                                                            className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl object-cover border border-gray-200 dark:border-gray-600 cursor-pointer hover:opacity-80 hover:scale-105 transition-all shadow-sm"
+                                                            onClick={(e) => { e.stopPropagation(); window.open(v.imageUrl, '_blank', 'noopener,noreferrer'); }}
+                                                            title="Click để phóng to"
+                                                        />
                                                     </div>
                                                 )}
                                             </div>
 
-                                            {/* ACTION buttons */}
-                                            <div className="shrink-0 flex flex-col items-center justify-center gap-0.5 px-2 border-l border-gray-100 dark:border-gray-700">
+                                            {/* Desktop Action buttons (right border column on desktop) */}
+                                            <div className="hidden md:flex shrink-0 flex-col items-center justify-center gap-0.5 px-2 border-l border-gray-100 dark:border-gray-700">
                                                 {(v.nuance || v.note) && (
                                                     <button onClick={(e) => { e.stopPropagation(); setShowNuanceIndex(showNuanceIndex === i ? null : i); }}
                                                         className={`p-1.5 transition-colors cursor-pointer ${showNuanceIndex === i ? 'text-amber-500' : 'text-gray-300 hover:text-amber-500'}`}
