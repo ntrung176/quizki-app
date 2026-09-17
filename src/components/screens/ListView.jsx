@@ -967,7 +967,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                 </div>
                                                 <div className="flex-1 min-w-0">
                                                     <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
-                                                        <FuriganaText text={card.frontWithFurigana || card.front} forceHide={true} />
+                                                        <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} forceHide={true} />
                                                     </div>
                                                     <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
                                                 </div>
@@ -1084,7 +1084,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                     <div className="flex-1 min-w-0">
                                                         <div className="flex items-center gap-1.5 flex-wrap">
                                                             <span className="font-bold text-gray-800 dark:text-gray-200 text-sm">
-                                                                <FuriganaText text={card.frontWithFurigana || card.front} forceHide={true} />
+                                                                <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} forceHide={true} />
                                                             </span>
                                                             {card.sinoVietnamese && (
                                                                 <span className="text-[10px] font-medium text-pink-500 dark:text-pink-400 bg-pink-50 dark:bg-pink-900/30 px-1.5 rounded">{card.sinoVietnamese}</span>

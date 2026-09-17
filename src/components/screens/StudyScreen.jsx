@@ -57,15 +57,26 @@ const checkJapaneseAnswer = (userInput, cardOrFront, pos) => {
     return isCorrect;
 };
 
+// Helper to format card with its authoritative reading so Furigana aligns accurately
+const formatCardForOption = (c) => {
+    if (!c) return '';
+    const rawFront = (c.front || c.vocabulary || c.word || '').split('（')[0].split('(')[0].split('[')[0].trim();
+    const reading = (c.reading || c.kana || c.reading_hiragana || '').trim();
+    if (rawFront && reading) {
+        return `${rawFront}（${reading}）`;
+    }
+    return c.frontWithFurigana || c.front || '';
+};
+
 // Build 4 MC options: 1 correct + 3 distractors from same language pool
 const buildOptions = (correctCard, allCards) => {
     const targetLang = correctCard.targetLanguage || 'ja';
-    const correct = correctCard.frontWithFurigana || correctCard.front;
+    const correct = formatCardForOption(correctCard);
     const sameLangCards = (allCards || []).filter(c => (c.targetLanguage || 'ja') === targetLang);
     const distractors = shuffleArray(
         sameLangCards
             .filter(c => c.id !== correctCard.id)
-            .map(c => c.frontWithFurigana || c.front)
+            .map(c => formatCardForOption(c))
             .filter((v, i, arr) => arr.indexOf(v) === i && normalize(v) !== normalize(correct))
     ).slice(0, 3);
     while (distractors.length < 3) distractors.push(`(lựa chọn ${distractors.length + 1})`);
@@ -78,7 +89,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
     const [options] = useState(() => buildOptions(card, allCards));
     const [selected, setSelected] = useState(null);
     const [answered, setAnswered] = useState(false);
-    const correct = card.frontWithFurigana || card.front;
+    const correct = formatCardForOption(card);
 
     const handleSelect = (opt) => {
         if (answered) return;
@@ -195,7 +206,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
                     <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-700 dark:text-red-300 space-y-1.5">
                         <p className="font-semibold text-red-800 dark:text-red-300">✗ Chưa đúng!</p>
                         <div className="space-y-1 text-sm border-t border-red-200 dark:border-red-800/40 pt-2 mt-1">
-                            <p>Từ vựng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} forceHide={!furiganaEnabled} /></span> {card.sinoVietnamese && <span className="text-yellow-600 dark:text-yellow-400">({card.sinoVietnamese})</span>}</p>
+                            <p>Từ vựng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} /></span> {card.sinoVietnamese && <span className="text-yellow-600 dark:text-yellow-400">({card.sinoVietnamese})</span>}</p>
                             <p>Ý nghĩa: <span className="font-semibold">{card.back}</span></p>
                         </div>
                     </div>
@@ -216,7 +227,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
     const [needsRetype, setNeedsRetype] = useState(false);
     const [lastWrongInput, setLastWrongInput] = useState('');
     const inputRef = useRef(null);
-    const correct = card.frontWithFurigana || card.front;
+    const correct = formatCardForOption(card);
     const correctFront = card.front;
 
     useEffect(() => {
@@ -327,7 +338,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
 
             {feedback === 'correct' && (
                 <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl text-emerald-700 dark:text-emerald-300 font-bold text-center animate-fade-in">
-                    ✅ Chính xác! <span className="font-japanese"><FuriganaText text={correct} forceHide={!furiganaEnabled} /></span>
+                    ✅ Chính xác! <span className="font-japanese"><FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} /></span>
                 </div>
             )}
 
@@ -337,7 +348,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                         <p className="text-sm text-red-500 font-medium mb-1">Bạn nhập sai: <span className="font-bold">{lastWrongInput}</span></p>
                         <div className="space-y-1 text-sm border-t border-red-200 dark:border-red-800/40 pt-2 mt-1">
                             <p className="text-red-800 dark:text-red-300">
-                                Đáp án đúng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} forceHide={!furiganaEnabled} /></span>
+                                Đáp án đúng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} /></span>
                             </p>
                             <p className="text-red-800 dark:text-red-300">
                                 Ý nghĩa: <span className="font-semibold">{card.back}</span>

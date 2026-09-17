@@ -202,7 +202,7 @@ const ReviewQuestionCard = ({
                             <>
                                 {/* Meaning mode: Show word only, user inputs meaning */}
                                 <div className={`font-black text-white font-japanese break-words ${frontWordSize}`}>
-                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!meaningFuriganaEnabled} />
+                                    <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} knownReading={currentCard.reading} forceHide={!meaningFuriganaEnabled} />
                                 </div>
                             </>
                         )}

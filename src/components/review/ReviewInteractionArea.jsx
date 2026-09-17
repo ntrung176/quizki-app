@@ -69,7 +69,7 @@ const ReviewInteractionArea = ({
                                     buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
                                 } else if (feedback && isSelected && feedback === 'incorrect') {
                                     buttonClass += "bg-red-500 text-white border-red-600 shadow-md";
-                                } else if (feedback && option === (currentCard.frontWithFurigana || currentCard.front)) {
+                                } else if (feedback && (option === (currentCard.frontWithFurigana || currentCard.front) || option === `${(currentCard.frontWithFurigana || currentCard.front || '').split('（')[0].trim()}（${(currentCard.reading || '').trim()}）`)) {
                                     buttonClass += "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-500";
                                 } else if (isSelected) {
                                     buttonClass += "bg-indigo-500 text-white border-indigo-600 shadow-md";
@@ -284,7 +284,7 @@ const ReviewInteractionArea = ({
                                         <p className="font-extrabold text-base md:text-lg text-red-800 dark:text-red-300">✗ Chưa đúng!</p>
                                         <div className="space-y-1 border-t border-red-200/50 dark:border-red-800/40 pt-1.5 mt-1">
                                             <p className="text-red-800 dark:text-red-300">
-                                                Từ vựng: <span className="font-japanese font-bold text-base md:text-lg"><FuriganaText text={currentCard.frontWithFurigana || currentCard.front} /></span>
+                                                Từ vựng: <span className="font-japanese font-bold text-base md:text-lg"><FuriganaText text={currentCard.frontWithFurigana || currentCard.front} knownReading={currentCard.reading} /></span>
                                                 {currentCard.sinoVietnamese && <span className="text-yellow-600 dark:text-yellow-400 font-medium ml-1">({currentCard.sinoVietnamese})</span>}
                                             </p>
                                             <p className="text-red-800 dark:text-red-300">

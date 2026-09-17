@@ -283,24 +283,34 @@ const FuriganaText = ({ text, knownReading = '', className = '', forceHide = fal
             return;
         }
 
-        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(text);
-        const hasFuriganaBrackets = /[（\(\[]([\u3040-\u309F\u30A0-\u30FF\s]+)[）\)\]]/.test(text);
+        const trimmedText = String(text).trim();
+
+        // If knownReading is provided, ALWAYS format the text with this knownReading
+        if (knownReading && String(knownReading).trim()) {
+            const rawWord = trimmedText.split('（')[0].split('(')[0].split('[')[0].trim();
+            const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(rawWord);
+            if (hasKanji) {
+                setProcessedText(`${rawWord}（${String(knownReading).trim()}）`);
+            } else {
+                setProcessedText(rawWord);
+            }
+            return;
+        }
+
+        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(trimmedText);
+        const hasFuriganaBrackets = /[（\(\[]([\u3040-\u309F\u30A0-\u30FF\s]+)[）\)\]]/.test(trimmedText);
         const needsFuriganaGeneration = (furiganaEnabled || showReadingOnly) && hasKanji && !hasFuriganaBrackets;
 
         if (needsFuriganaGeneration) {
-            if (knownReading && knownReading.trim()) {
-                setProcessedText(`${text.trim()}（${knownReading.trim()}）`);
-                return;
-            }
             let isMounted = true;
-            generateFuriganaText(text, knownReading).then((res) => {
+            generateFuriganaText(trimmedText, '').then((res) => {
                 if (isMounted) setProcessedText(res);
             }).catch(() => {
-                if (isMounted) setProcessedText(text);
+                if (isMounted) setProcessedText(trimmedText);
             });
             return () => { isMounted = false; };
         } else {
-            setProcessedText(text);
+            setProcessedText(trimmedText);
         }
     }, [text, knownReading, furiganaEnabled, showReadingOnly]);
 

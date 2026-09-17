@@ -381,7 +381,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                                 <div className="text-center py-4 sm:py-6">
                                     <p className="text-xs sm:text-sm text-gray-400 mb-1.5">Từ đồng nghĩa của</p>
                                     <h2 className={`text-gray-800 dark:text-white font-japanese break-words ${wordSize}`}>
-                                        <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!synonymFuriganaEnabled} />
+                                        <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} knownReading={currentCard.reading} forceHide={!synonymFuriganaEnabled} />
                                     </h2>
                                     {synonymVietnameseEnabled && <p className={`text-gray-500 dark:text-gray-400 mt-1.5 break-words ${meaningSize}`}>{currentCard.back}</p>}
                                 </div>
@@ -424,7 +424,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
                                 <p className="font-semibold text-red-650 dark:text-red-350">✗ Chưa đúng!</p>
                                 <div className="space-y-1.5 text-sm border-t border-red-200 dark:border-red-800/40 pt-2 mt-1">
                                     <p className="text-red-800 dark:text-red-300">
-                                        Từ vựng: <span className="font-japanese font-bold text-base"><FuriganaText text={currentCard.frontWithFurigana || currentCard.front} forceHide={!synonymFuriganaEnabled} /></span>
+                                        Từ vựng: <span className="font-japanese font-bold text-base"><FuriganaText text={currentCard.frontWithFurigana || currentCard.front} knownReading={currentCard.reading} forceHide={!synonymFuriganaEnabled} /></span>
                                     </p>
                                     {synonymVietnameseEnabled && (
                                         <p className="text-red-800 dark:text-red-300">

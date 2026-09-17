@@ -103,7 +103,7 @@ const IpaScreen = ({ awardXP }) => {
     const currentCategoryName = IPA_CATEGORIES.find(c => c.id === activeCategory)?.name || 'Bảng phiên âm IPA';
 
     return (
-        <div className={`min-h-screen bg-slate-50/50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-2.5 sm:p-5 md:p-8 max-w-7xl mx-auto space-y-3.5 sm:space-y-6 md:space-y-8 w-full max-w-full min-w-0 overflow-x-hidden ${fadeWholePage ? 'animate-fade-in' : ''}`}>
+        <div className={`space-y-3.5 sm:space-y-6 md:space-y-8 w-full min-w-0 font-sans ${fadeWholePage ? 'animate-fade-in' : ''}`}>
             {/* HERO BANNER */}
             <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-violet-800 via-purple-700 to-indigo-700 text-white p-3.5 sm:p-6 md:p-8 shadow-xl shadow-violet-700/20 w-full max-w-full min-w-0">
                 {/* Decorative IPA Watermark in background */}

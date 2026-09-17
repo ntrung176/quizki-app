@@ -103,7 +103,7 @@ const HangulScreen = ({ awardXP }) => {
     const currentCategoryName = HANGUL_CATEGORIES.find(c => c.id === activeCategory)?.name || 'Bảng chữ cái';
 
     return (
-        <div className={`min-h-screen bg-slate-50/50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 p-2.5 sm:p-5 md:p-8 max-w-7xl mx-auto space-y-3.5 sm:space-y-6 md:space-y-8 w-full max-w-full min-w-0 overflow-x-hidden ${fadeWholePage ? 'animate-fade-in' : ''}`}>
+        <div className={`space-y-3.5 sm:space-y-6 md:space-y-8 w-full min-w-0 font-sans ${fadeWholePage ? 'animate-fade-in' : ''}`}>
             {/* HERO BANNER */}
             <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-cyan-700 via-sky-600 to-blue-700 text-white p-3.5 sm:p-6 md:p-8 shadow-xl shadow-cyan-600/20 w-full max-w-full min-w-0">
                 {/* Decorative Korean Watermark in background */}

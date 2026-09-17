@@ -103,14 +103,18 @@ const furiganaCache = new Map();
  */
 export const generateFuriganaText = async (text, knownReading = '') => {
     if (!text) return text;
-    if (furiganaCache.has(text)) return furiganaCache.get(text);
 
     // If knownReading is provided, format immediately in 0ms without Kuroshiro
-    if (knownReading && knownReading.trim()) {
-        const formatted = `${text.trim()}（${knownReading.trim()}）`;
-        furiganaCache.set(text, formatted);
-        return formatted;
+    if (knownReading && String(knownReading).trim()) {
+        const raw = String(text).split('（')[0].split('(')[0].split('[')[0].trim();
+        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(raw);
+        if (hasKanji) {
+            return `${raw}（${String(knownReading).trim()}）`;
+        }
+        return raw;
     }
+
+    if (furiganaCache.has(text)) return furiganaCache.get(text);
 
     try {
         // Add a 400ms timeout so Kuroshiro dictionary loading never hangs mobile JS thread
@@ -212,6 +216,16 @@ export const ensureFuriganaFormat = async (word, knownReading = '') => {
     if (!word) return '';
     const trimmedWord = word.trim();
     
+    // If knownReading is provided, ALWAYS construct with knownReading!
+    if (knownReading && String(knownReading).trim()) {
+        const raw = trimmedWord.split('（')[0].split('(')[0].split('[')[0].trim();
+        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(raw);
+        if (hasKanji) {
+            return `${raw}（${String(knownReading).trim()}）`;
+        }
+        return raw;
+    }
+
     // Check if it already has full-width or half-width brackets
     if (trimmedWord.includes('（') || trimmedWord.includes('(')) {
         // Standardize and merge any misplaced parentheses
@@ -222,11 +236,6 @@ export const ensureFuriganaFormat = async (word, knownReading = '') => {
     const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(trimmedWord);
     if (!hasKanji) {
         return trimmedWord; // Pure Kana/Romaji doesn't need brackets
-    }
-
-    // If knownReading is provided, use it
-    if (knownReading && knownReading.trim()) {
-        return `${trimmedWord}（${knownReading.trim()}）`;
     }
 
     try {

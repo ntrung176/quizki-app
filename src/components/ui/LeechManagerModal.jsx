@@ -187,7 +187,7 @@ const LeechManagerModal = ({
                                                 </span>
                                             </div>
                                             <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-japanese">
-                                                <FuriganaText text={wordText} />
+                                                <FuriganaText text={wordText} knownReading={item.reading || item.kana || ''} />
                                             </div>
                                             {meaningText && (
                                                 <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">

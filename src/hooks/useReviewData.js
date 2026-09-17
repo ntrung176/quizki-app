@@ -545,7 +545,17 @@ export const useReviewData = ({
         }
 
         if (!optionsRef.current[currentCardId]) {
-            const correctAnswer = currentCard.frontWithFurigana || currentCard.front;
+            const formatCardOption = (c) => {
+                if (!c) return '';
+                const raw = c.frontWithFurigana || c.front || '';
+                if (c.reading && c.reading.trim()) {
+                    const base = raw.split('（')[0].trim();
+                    return `${base}（${c.reading.trim()}）`;
+                }
+                return raw;
+            };
+
+            const correctAnswer = formatCardOption(currentCard);
             const currentPos = currentCard.pos;
 
             const allValidCards = (allCards || cards)
@@ -588,7 +598,7 @@ export const useReviewData = ({
             const shuffledCandidates = shuffleArray(candidates);
             const wrongOptions = shuffledCandidates
                 .slice(0, 3)
-                .map(card => card.frontWithFurigana || card.front)
+                .map(card => formatCardOption(card))
                 .filter((front, index, self) =>
                     self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index
                     && normalizeAnswer(front) !== normalizeAnswer(correctAnswer)
@@ -1034,7 +1044,11 @@ export const useReviewData = ({
         if (isRevealed || isProcessing || feedback) return;
         setSelectedAnswer(option);
 
-        const isCorrect = option === (currentCard.frontWithFurigana || currentCard.front);
+        const correctFormatted = currentCard.reading && currentCard.reading.trim()
+            ? `${(currentCard.frontWithFurigana || currentCard.front || '').split('（')[0].trim()}（${currentCard.reading.trim()}）`
+            : (currentCard.frontWithFurigana || currentCard.front);
+
+        const isCorrect = option === correctFormatted || option === (currentCard.frontWithFurigana || currentCard.front);
         const cardKey = `${currentCard.id}-${cardReviewType}`;
         const hasFailedBefore = failedCards.has(cardKey);
 

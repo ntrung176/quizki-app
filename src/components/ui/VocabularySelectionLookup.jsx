@@ -479,7 +479,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
                 if (fetchedResult) {
                     // Standardize front and synonym with ensureFuriganaFormat
-                    fetchedResult.frontWithFurigana = await ensureFuriganaFormat(fetchedResult.frontWithFurigana);
+                    fetchedResult.frontWithFurigana = await ensureFuriganaFormat(fetchedResult.frontWithFurigana, fetchedResult.reading || '');
                     if (fetchedResult.synonym) {
                         fetchedResult.synonym = await ensureFuriganaFormat(fetchedResult.synonym);
                     }
@@ -544,7 +544,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         try {
             // Extract values to save
             const rawFront = aiResult?.frontWithFurigana || pendingWord;
-            const front = await ensureFuriganaFormat(rawFront);
+            const front = await ensureFuriganaFormat(rawFront, aiResult?.reading || localMatch?.reading || '');
             const back = aiResult?.meaning || localMatch?.back || '';
             const rawSynonym = aiResult?.synonym || localMatch?.synonym || '';
             const synonym = rawSynonym ? await ensureFuriganaFormat(rawSynonym) : '';

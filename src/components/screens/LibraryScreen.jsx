@@ -420,7 +420,7 @@ const LibraryScreen = ({
                                                     <div className="min-w-0 flex-1 space-y-0.5">
                                                         <div className="flex items-center gap-2 flex-wrap">
                                                             <span className="font-japanese font-bold text-sm text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                                                                <FuriganaText text={c.frontWithFurigana || c.front} />
+                                                                <FuriganaText text={c.frontWithFurigana || c.front} knownReading={c.reading} />
                                                             </span>
                                                             {c.sinoVietnamese && (
                                                                 <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.2 rounded border border-amber-200/50 dark:border-amber-800/40">
@@ -809,7 +809,7 @@ const LibraryScreen = ({
                                                             className="text-[11px] px-2 py-1 bg-white dark:bg-slate-900 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 text-emerald-900 dark:text-emerald-200 rounded-lg font-medium border border-emerald-200 dark:border-emerald-800 transition-all hover:scale-105 active:scale-95 flex items-center gap-1.5 shadow-xs cursor-pointer group/btn"
                                                             title="Bấm để chỉnh sửa trực tiếp từ vựng này"
                                                         >
-                                                            <span className="font-japanese font-bold"><FuriganaText text={c.frontWithFurigana || c.front} /></span>
+                                                            <span className="font-japanese font-bold"><FuriganaText text={c.frontWithFurigana || c.front} knownReading={c.reading} /></span>
                                                             <span className="text-slate-500 dark:text-slate-400 text-[10px]">({c.back})</span>
                                                             <Edit3 className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400 opacity-60 group-hover/btn:opacity-100 shrink-0" />
                                                         </button>
