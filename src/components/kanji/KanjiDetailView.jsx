@@ -8,9 +8,23 @@ import { renderMaziiStyleKanji, renderStrokeGuide } from '../../utils/kanjiStrok
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { playAudio } from '../../utils/audio';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
-import { KANJI_TREE } from '../../data/radicals214';
+import { KANJI_TREE, RADICALS_214 } from '../../data/radicals214';
 import kanjiComponents from '../../data/kanjiComponents.json' with { type: 'json' };
-import { computeSinoVietnameseForWord } from '../../utils/kanjiHVLookup';
+import { computeSinoVietnameseForWord, getSinoVietnamese } from '../../utils/kanjiHVLookup';
+
+const RADICAL_NAME_MAP = {};
+if (RADICALS_214) {
+    Object.entries(RADICALS_214).forEach(([char, info]) => {
+        if (info && info.name) {
+            RADICAL_NAME_MAP[char] = info.name;
+            if (info.variants && Array.isArray(info.variants)) {
+                info.variants.forEach(v => {
+                    RADICAL_NAME_MAP[v] = info.name;
+                });
+            }
+        }
+    });
+}
 
 const KanjiDetailView = ({
     selectedKanji,
@@ -51,6 +65,23 @@ const KanjiDetailView = ({
 }) => {
     const detail = selectedKanji ? getKanjiDetail(selectedKanji) : null;
     const vocab = selectedKanji ? getVocabForKanji(selectedKanji) : [];
+
+    const getComponentLabel = useCallback((char) => {
+        if (!char) return '';
+        const fromMap = kanjiMap?.get ? kanjiMap.get(char)?.sinoViet : null;
+        if (fromMap && String(fromMap).trim() && fromMap !== '-') return String(fromMap).trim().toUpperCase();
+
+        const fromJotoba = getJotobaKanjiData(char)?.sinoViet;
+        if (fromJotoba && String(fromJotoba).trim() && fromJotoba !== '-') return String(fromJotoba).trim().toUpperCase();
+
+        const fromHV = getSinoVietnamese(char);
+        if (fromHV && String(fromHV).trim() && fromHV !== '-') return String(fromHV).trim().toUpperCase();
+
+        const fromRad = RADICAL_NAME_MAP[char] || RADICALS_214?.[char]?.name;
+        if (fromRad && String(fromRad).trim()) return String(fromRad).trim().toUpperCase();
+
+        return '';
+    }, [kanjiMap]);
 
     // --- Pitch Accent state & fetching ---
     const [pitchAccentData, setPitchAccentData] = useState({});
@@ -309,16 +340,24 @@ const KanjiDetailView = ({
                                     return (
                                         <div>
                                             <span className="text-gray-500 dark:text-gray-400">Thành phần:</span>
-                                            <div className="flex flex-wrap gap-1.5 mt-1">
-                                                {partsArr.map((p, i) => (
-                                                    <button
-                                                        key={i}
-                                                        onClick={() => { setSelectedKanji(p); setDiagramPan({ x: 0, y: 0 }); setDiagramZoom(1); }}
-                                                        className="px-2 py-1 bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 rounded-lg text-base font-japanese hover:bg-sky-200 dark:hover:bg-sky-800/50 transition-colors cursor-pointer"
-                                                    >
-                                                        {p}
-                                                    </button>
-                                                ))}
+                                            <div className="flex flex-wrap gap-2 mt-1.5">
+                                                {partsArr.map((p, i) => {
+                                                    const label = getComponentLabel(p);
+                                                    return (
+                                                        <button
+                                                            key={i}
+                                                            onClick={() => { setSelectedKanji(p); setDiagramPan({ x: 0, y: 0 }); setDiagramZoom(1); }}
+                                                            className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-sky-100/80 dark:bg-sky-900/40 border border-sky-200 dark:border-sky-800/60 rounded-xl text-sky-700 dark:text-sky-300 hover:bg-sky-200 dark:hover:bg-sky-800/60 transition-all cursor-pointer shadow-xs hover:scale-105"
+                                                        >
+                                                            <span className="text-base font-japanese font-bold">{p}</span>
+                                                            {label && (
+                                                                <span className="text-[11px] font-extrabold text-sky-800 dark:text-sky-200 bg-white/70 dark:bg-slate-900/60 px-1.5 py-0.5 rounded-md shadow-xs">
+                                                                    {label}
+                                                                </span>
+                                                            )}
+                                                        </button>
+                                                    );
+                                                })}
                                             </div>
                                         </div>
                                     );
@@ -377,43 +416,64 @@ const KanjiDetailView = ({
                                 }
 
                                 return (
-                                    <div className="flex flex-col items-center gap-4">
+                                    <div className="flex flex-col items-center gap-5">
                                         {partsArr.length > 0 && (
                                             <>
                                                 <span className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold">Cấu tạo từ</span>
-                                                <div className="flex items-center justify-center gap-3 flex-wrap">
-                                                    {partsArr.map((p, i) => (
-                                                        <button key={i} onClick={() => { navigate(`/kanji/list/${p}`); setSelectedKanji(p); }} className="group relative cursor-pointer">
-                                                            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-100 to-indigo-100 dark:from-sky-900/40 dark:to-indigo-900/40 border-2 border-sky-200 dark:border-sky-700/50 flex items-center justify-center text-2xl font-japanese text-sky-700 dark:text-sky-300 hover:scale-110 transition-all">
-                                                                {p}
-                                                            </div>
-                                                            <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] text-sky-500 dark:text-sky-400 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                                                                {kanjiMap.get(p)?.sinoViet || getJotobaKanjiData(p)?.sinoViet || ''}
-                                                            </span>
-                                                        </button>
-                                                    ))}
+                                                <div className="flex items-center justify-center gap-4 flex-wrap pb-1">
+                                                    {partsArr.map((p, i) => {
+                                                        const label = getComponentLabel(p);
+                                                        return (
+                                                            <button
+                                                                key={i}
+                                                                onClick={() => { navigate(`/kanji/list/${p}`); setSelectedKanji(p); }}
+                                                                className="group relative cursor-pointer hover:scale-110 active:scale-95 transition-all"
+                                                            >
+                                                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-100 to-indigo-100 dark:from-sky-900/40 dark:to-indigo-900/40 border-2 border-sky-200 dark:border-sky-700/50 flex items-center justify-center text-3xl font-japanese text-sky-700 dark:text-sky-300 shadow-md group-hover:border-sky-400 group-hover:shadow-lg transition-all">
+                                                                    {p}
+                                                                </div>
+                                                                {label && (
+                                                                    <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-white dark:bg-slate-800 rounded-full text-[10px] font-extrabold text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-700 shadow-sm whitespace-nowrap z-10">
+                                                                        {label}
+                                                                    </div>
+                                                                )}
+                                                            </button>
+                                                        );
+                                                    })}
                                                 </div>
                                             </>
                                         )}
-                                        <div className="relative">
+                                        <div className="relative my-1">
                                             <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-cyan-500 to-indigo-600 shadow-2xl shadow-cyan-500/30 dark:shadow-cyan-900/50 flex items-center justify-center">
                                                 <span className="text-5xl font-japanese text-white font-bold drop-shadow-lg">{selectedKanji}</span>
                                             </div>
-                                            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-white dark:bg-slate-800 rounded-full text-xs font-bold text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800 shadow-sm whitespace-nowrap">
-                                                {det.sinoViet || ''}
+                                            <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-white dark:bg-slate-800 rounded-full text-xs font-extrabold text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-800 shadow-md whitespace-nowrap z-10">
+                                                {det.sinoViet || getComponentLabel(selectedKanji) || ''}
                                             </div>
                                         </div>
                                         {resultKanji.length > 0 && (
                                             <>
                                                 <span className="text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-bold mt-2">Tạo thành</span>
-                                                <div className="flex items-center justify-center gap-2 flex-wrap">
-                                                    {resultKanji.map((k, i) => (
-                                                        <button key={i} onClick={() => { navigate(`/kanji/list/${k}`); setSelectedKanji(k); }} className="group relative cursor-pointer">
-                                                            <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/40 dark:to-teal-900/40 border border-emerald-200 dark:border-emerald-700/50 flex items-center justify-center text-lg font-japanese text-emerald-700 dark:text-emerald-300 hover:scale-110 transition-all">
-                                                                {k}
-                                                            </div>
-                                                        </button>
-                                                    ))}
+                                                <div className="flex items-center justify-center gap-3.5 flex-wrap pb-1">
+                                                    {resultKanji.map((k, i) => {
+                                                        const label = getComponentLabel(k);
+                                                        return (
+                                                            <button
+                                                                key={i}
+                                                                onClick={() => { navigate(`/kanji/list/${k}`); setSelectedKanji(k); }}
+                                                                className="group relative cursor-pointer hover:scale-110 active:scale-95 transition-all"
+                                                            >
+                                                                <div className="w-13 h-13 rounded-xl bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/40 dark:to-teal-900/40 border-2 border-emerald-200 dark:border-emerald-700/50 flex items-center justify-center text-2xl font-japanese text-emerald-700 dark:text-emerald-300 shadow-sm group-hover:border-emerald-400 transition-all">
+                                                                    {k}
+                                                                </div>
+                                                                {label && (
+                                                                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-white dark:bg-slate-800 rounded-full text-[9px] font-extrabold text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 shadow-sm whitespace-nowrap z-10">
+                                                                        {label}
+                                                                    </div>
+                                                                )}
+                                                            </button>
+                                                        );
+                                                    })}
                                                 </div>
                                             </>
                                         )}
