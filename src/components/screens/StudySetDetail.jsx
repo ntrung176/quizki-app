@@ -101,7 +101,9 @@ const FlashcardPlayerSection = ({
     setCards,
     cardSettings,
     setShowSettingsMenu,
-    onSaveCardAudio
+    onSaveCardAudio,
+    onUpdateCard,
+    onSaveChanges
 }) => {
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [isCardFlipped, setIsCardFlipped] = useState(false);
@@ -260,6 +262,13 @@ const FlashcardPlayerSection = ({
                         }
                     }}
                     onSaveCardAudio={onSaveCardAudio}
+                    onSaveMnemonic={async (c, newText) => {
+                        if (onUpdateCard && c) {
+                            await onUpdateCard(c.id, { userMnemonic: newText, mnemonic: newText, customMnemonic: newText });
+                        } else if (onSaveChanges && c) {
+                            await onSaveChanges(c.id, { userMnemonic: newText, mnemonic: newText, customMnemonic: newText });
+                        }
+                    }}
                     transitionEnabled={isAnimatingFlip}
                 />
 
@@ -331,7 +340,7 @@ const StudySetDetail = ({
     folderId, folders, cardFolders, allCards,
     onBack, onEditSet, onStudySet, onFlashcardSet, onMeaningSet, onDictationSet, onExampleSet, onSynonymQuiz,
     onNavigateToAdd, onDeleteFolder, onSaveChanges, onSaveCardAudio,
-    onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist, canUserUseAI
+    onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist, canUserUseAI, onUpdateCard
 }) => {
     const { isEnglishMode } = useTargetLanguage();
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
@@ -1091,6 +1100,8 @@ const StudySetDetail = ({
                                 cardSettings={cardSettings}
                                 setShowSettingsMenu={setShowSettingsMenu}
                                 onSaveCardAudio={onSaveCardAudio}
+                                onUpdateCard={onUpdateCard}
+                                onSaveChanges={onSaveChanges}
                             />
                             {/* Bảng trạng thái ghi nhớ (Mastery Status) */}
                             <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-6">

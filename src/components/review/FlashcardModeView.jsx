@@ -17,7 +17,8 @@ const FlashcardModeView = ({
     showNuancePopup,
     setShowNuancePopup,
     setShowSettingsMenu,
-    onSaveCardAudio
+    onSaveCardAudio,
+    onSaveMnemonic
 }) => {
     if (!currentCard) return null;
 
@@ -47,6 +48,7 @@ const FlashcardModeView = ({
                             speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null);
                         }
                     }}
+                    onSaveMnemonic={onSaveMnemonic}
                     variant="review"
                     transitionEnabled={true}
                 />

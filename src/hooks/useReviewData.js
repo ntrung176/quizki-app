@@ -14,6 +14,7 @@ import { playCorrectSound, playIncorrectSound, playFlipSound } from '../utils/so
 import { saveStudyProgress } from '../utils/studyProgressService';
 import { useTargetLanguage } from '../context/TargetLanguageContext';
 import { normalize, toHiragana as toHira, extractReadings } from '../utils/ankiDiff';
+import { DEFAULT_CARD_SETTINGS, formatMultipleMeanings, splitIgnoringParentheses } from '../components/review/reviewHelpers';
 
 export const useReviewData = ({
     cards: initialCards,

@@ -130,6 +130,11 @@ const ReviewScreen = ({
                                 setShowNuancePopup={setShowNuancePopup}
                                 setShowSettingsMenu={setShowSettingsMenu}
                                 onSaveCardAudio={onSaveCardAudio}
+                                onSaveMnemonic={async (c, newText) => {
+                                    if (onUpdateCard && c) {
+                                        await onUpdateCard(c.id, { userMnemonic: newText, mnemonic: newText, customMnemonic: newText });
+                                    }
+                                }}
                             />
                         ) : (
                             <ReviewQuestionCard

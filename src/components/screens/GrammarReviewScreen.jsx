@@ -1239,10 +1239,32 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 onClose={() => setShowLeechManager(false)}
                 grammarItems={showLeechManager ? grammarList.map(g => ({
                     ...g,
+                    userMnemonic: srsData[g.id]?.userMnemonic || srsData[g.id]?.mnemonic || g.userMnemonic || g.mnemonic || '',
+                    mnemonic: srsData[g.id]?.mnemonic || srsData[g.id]?.userMnemonic || g.mnemonic || g.userMnemonic || '',
                     lapseCount: srsData[g.id]?.lapseCount || 0
                 })) : []}
                 scopeType="grammar"
                 onResetLeechCount={handleResetGrammarLeech}
+                onSaveMnemonic={async (item, newText) => {
+                    const targetId = item.id || item.grammarId || item.pattern;
+                    if (!targetId) return;
+                    setSrsData(prev => ({
+                        ...prev,
+                        [targetId]: {
+                            ...(prev[targetId] || {}),
+                            userMnemonic: newText,
+                            mnemonic: newText
+                        }
+                    }));
+                    setGrammarList(prev => prev.map(g => ((g.id === targetId || g.pattern === targetId) ? { ...g, userMnemonic: newText, mnemonic: newText } : g)));
+                    if (userId) {
+                        try {
+                            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, String(targetId)), { userMnemonic: newText, mnemonic: newText }, { merge: true });
+                        } catch (e) {
+                            console.warn('Error saving grammar mnemonic from leech manager:', e);
+                        }
+                    }
+                }}
             />
 
             {/* Grammar Flashcard Settings Modal */}

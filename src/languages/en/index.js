@@ -31,6 +31,9 @@ export const EnglishLanguageService = {
             example: (data.example || '').trim(),
             exampleMeaning: (data.exampleMeaning || '').trim(),
             nuance: (data.nuance || '').trim(),
+            userMnemonic: (data.userMnemonic || data.customMnemonic || data.mnemonic || '').trim(),
+            customMnemonic: (data.customMnemonic || data.userMnemonic || data.mnemonic || '').trim(),
+            mnemonic: (data.mnemonic || data.userMnemonic || data.customMnemonic || '').trim(),
             pos: data.pos || '',
             level: data.level || '',
             targetLanguage: 'en'

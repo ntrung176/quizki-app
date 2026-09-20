@@ -19,6 +19,8 @@ import { speakJapanese } from '../../utils/audio';
 import { POINTS } from '../../utils/scoring';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { doc, setDoc } from 'firebase/firestore';
+import { db, appId } from '../../config/firebase';
 
 // Helper to shuffle array
 const shuffleArray = (array) => {
@@ -99,14 +101,49 @@ const SRSVocabScreen = ({
     onDictationSet,
     awardXP,
     setIsReviewActive,
-    isAdmin = false
+    isAdmin = false,
+    onUpdateCard,
+    onSaveChanges,
+    vocabCollectionPath
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const fadeWholePage = useMenuTransition();
     const { t } = useLanguage();
-    const [editingMnemonicCard, setEditingMnemonicCard] = useState(null);
     const { targetLanguage } = useTargetLanguage();
+
+    const handleSaveCardMnemonic = async (cardOrId, newText) => {
+        const cardId = typeof cardOrId === 'object' ? (cardOrId?.id || cardOrId?.cardId) : cardOrId;
+        if (!cardId) return;
+        const mnemonicPayload = {
+            userMnemonic: newText,
+            mnemonic: newText,
+            customMnemonic: newText
+        };
+
+        // 1. Update in-memory review queue
+        setReviewQueue(prev => prev.map(c => {
+            if (String(c.id) === String(cardId) || String(c.cardId) === String(cardId) || (typeof cardOrId === 'object' && c.front === cardOrId.front)) {
+                return { ...c, ...mnemonicPayload };
+            }
+            return c;
+        }));
+
+        // 2. Persist via onUpdateCard / onSaveChanges if provided
+        if (onUpdateCard) {
+            await onUpdateCard(cardId, mnemonicPayload);
+        } else if (onSaveChanges) {
+            await onSaveChanges(cardId, mnemonicPayload);
+        } else if (userId) {
+            try {
+                const collectionPath = vocabCollectionPath || `artifacts/${appId}/users/${userId}/vocabulary`;
+                const cardRef = doc(db, collectionPath, String(cardId));
+                await setDoc(cardRef, { ...mnemonicPayload, updatedAt: Date.now() }, { merge: true });
+            } catch (err) {
+                console.warn('Failed to save mnemonic to Firestore directly:', err);
+            }
+        }
+    };
 
     const filteredCards = useMemo(() => {
         const existingFolderIds = new Set((folders || []).map(f => f.id));
@@ -164,6 +201,7 @@ const SRSVocabScreen = ({
     const [showMistakeModal, setShowMistakeModal] = useState(false);
     const [selectedMistakeMode, setSelectedMistakeMode] = useState('flashcard');
     const [showLeechManager, setShowLeechManager] = useState(false);
+    const [editingMnemonicCard, setEditingMnemonicCard] = useState(null);
 
     // Modal chọn chế độ ôn tập (Flashcard vs Typing)
     const [srsModeModalData, setSrsModeModalData] = useState({
@@ -1200,6 +1238,7 @@ const SRSVocabScreen = ({
                                         playFlipSound();
                                     }}
                                     onEditMnemonic={(card) => setEditingMnemonicCard(card)}
+                                    onSaveMnemonic={(card, newText) => handleSaveCardMnemonic(card, newText)}
                                     variant="default"
                                     transitionEnabled={isAnimatingFlip}
                                 />
@@ -1896,20 +1935,16 @@ const SRSVocabScreen = ({
                 scopeType="vocab"
                 onStartLeechReview={handleStartLeechReview}
                 onResetLeechCount={handleResetLeech}
+                onSaveMnemonic={(item, newText) => handleSaveCardMnemonic(item, newText)}
             />
             <PersonalMnemonicModal
                 isOpen={!!editingMnemonicCard}
                 onClose={() => setEditingMnemonicCard(null)}
                 card={editingMnemonicCard}
                 onSaveMnemonic={async (mnemonicText) => {
-                    if (!editingMnemonicCard) return;
-                    const cardId = editingMnemonicCard.id || editingMnemonicCard.cardId;
-                    setReviewQueue(prev => prev.map(c => {
-                        if (c.id === cardId || c.cardId === cardId || c.front === editingMnemonicCard.front) {
-                            return { ...c, userMnemonic: mnemonicText, mnemonic: mnemonicText, customMnemonic: mnemonicText };
-                        }
-                        return c;
-                    }));
+                    if (editingMnemonicCard) {
+                        await handleSaveCardMnemonic(editingMnemonicCard, mnemonicText);
+                    }
                 }}
             />
 

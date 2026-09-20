@@ -623,6 +623,11 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     isFlipped={isFlipped}
                                     onFlip={handleFlip}
                                     onSaveCardAudio={onSaveCardAudio}
+                                    onSaveMnemonic={async (c, newText) => {
+                                        if (onUpdateCard && c) {
+                                            await onUpdateCard(c.id, { userMnemonic: newText, mnemonic: newText, customMnemonic: newText });
+                                        }
+                                    }}
                                     transitionEnabled={isAnimatingFlip}
                                 />
                             </div>

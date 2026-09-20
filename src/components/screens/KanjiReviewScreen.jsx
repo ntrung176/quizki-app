@@ -380,6 +380,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                 const localSrs = srsData[item.id];
                                 cardsToInject.push({
                                     ...fullCard,
+                                    userMnemonic: localSrs?.userMnemonic || localSrs?.mnemonic || fullCard.userMnemonic || fullCard.mnemonic || '',
+                                    mnemonic: localSrs?.mnemonic || localSrs?.userMnemonic || fullCard.mnemonic || fullCard.userMnemonic || '',
                                     srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
                                     srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
                                     srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
@@ -414,10 +416,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         if (list.length === 0) return;
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
+        const mappedList = list.map(c => {
+            const srs = srsData[c.id || c.character];
+            return {
+                ...c,
+                userMnemonic: srs?.userMnemonic || srs?.mnemonic || c.userMnemonic || c.mnemonic || '',
+                mnemonic: srs?.mnemonic || srs?.userMnemonic || c.mnemonic || c.userMnemonic || '',
+                lapseCount: srs?.lapseCount || c.lapseCount || 0
+            };
+        });
         const uniqueDueKanji = Array.from(
-            new Map(list.map(c => [String(c.id), c])).values()
+            new Map(mappedList.map(c => [String(c.id || c.character), c])).values()
         );
-        activeReviewCardIds.current = new Set(uniqueDueKanji.map(c => String(c.id)));
+        activeReviewCardIds.current = new Set(uniqueDueKanji.map(c => String(c.id || c.character)));
         setReviewQueue(uniqueDueKanji);
         setCurrentReviewIndex(0);
         setIsFlipped(false);
@@ -947,6 +958,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                                     currentCard.mnemonic = newText;
                                                     setIsEditingInlineMnemonic(false);
                                                     const targetId = currentCard.id || currentCard.kanji || currentCard.character;
+                                                    setSrsData(prev => ({
+                                                        ...prev,
+                                                        [targetId]: {
+                                                            ...(prev[targetId] || {}),
+                                                            userMnemonic: newText,
+                                                            mnemonic: newText
+                                                        }
+                                                    }));
+                                                    setKanjiList(prev => prev.map(k => ((k.id === targetId || k.character === targetId) ? { ...k, userMnemonic: newText, mnemonic: newText } : k)));
                                                     setReviewQueue(prev => prev.map(c => {
                                                         if ((c.id && c.id === targetId) || c.kanji === targetId || c.character === targetId) {
                                                             return { ...c, userMnemonic: newText, mnemonic: newText };
@@ -1350,10 +1370,32 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 onClose={() => setShowLeechManager(false)}
                 kanjiItems={showLeechManager ? kanjiList.map(k => ({
                     ...k,
+                    userMnemonic: srsData[k.id]?.userMnemonic || srsData[k.id]?.mnemonic || k.userMnemonic || k.mnemonic || '',
+                    mnemonic: srsData[k.id]?.mnemonic || srsData[k.id]?.userMnemonic || k.mnemonic || k.userMnemonic || '',
                     lapseCount: srsData[k.id]?.lapseCount || 0
                 })) : []}
                 scopeType="kanji"
                 onResetLeechCount={handleResetKanjiLeech}
+                onSaveMnemonic={async (item, newText) => {
+                    const targetId = item.id || item.character || item.kanji;
+                    if (!targetId) return;
+                    setSrsData(prev => ({
+                        ...prev,
+                        [targetId]: {
+                            ...(prev[targetId] || {}),
+                            userMnemonic: newText,
+                            mnemonic: newText
+                        }
+                    }));
+                    setKanjiList(prev => prev.map(k => ((k.id === targetId || k.character === targetId) ? { ...k, userMnemonic: newText, mnemonic: newText } : k)));
+                    if (userId) {
+                        try {
+                            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, String(targetId)), { userMnemonic: newText, mnemonic: newText }, { merge: true });
+                        } catch (e) {
+                            console.warn('Error saving kanji mnemonic from leech manager:', e);
+                        }
+                    }
+                }}
             />
 
             {/* SRS Mode Selection Modal (Flashcard vs Anki Typing) */}

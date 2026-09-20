@@ -97,7 +97,7 @@ import {
 
 
 // Wrapper for StudySetDetail
-const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs, handleGeminiAssist, canUserUseAI, awardXP }) => {
+const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs, handleGeminiAssist, canUserUseAI, awardXP, onUpdateCard }) => {
     const { id } = useParams();
     
     React.useEffect(() => {
@@ -218,6 +218,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         onDeleteCard={handleDeleteCard}
         onDeleteCards={handleDeleteCards}
         onSaveChanges={handleSaveChanges}
+        onUpdateCard={onUpdateCard || handleSaveChanges}
         onSaveCardAudio={handleSaveCardAudio}
         onToggleSrs={onToggleSrs}
         onGeminiAssist={handleGeminiAssist}
@@ -676,6 +677,9 @@ const AppRoutes = ({
                                 onFlashcardSet={handleFlashcardSet}
                                 onMeaningSet={handleMeaningSet}
                                 onDictationSet={handleDictationSet}
+                                onUpdateCard={handleUpdateCard}
+                                onSaveChanges={handleSaveChanges}
+                                vocabCollectionPath={vocabCollectionPath}
                             />
                         </ProtectedRoute>
                     }
@@ -732,6 +736,7 @@ const AppRoutes = ({
                                 handleGeminiAssist={handleGeminiAssist}
                                 canUserUseAI={canUserUseAI}
                                 awardXP={awardXP}
+                                onUpdateCard={handleUpdateCard}
                             />
                         </ProtectedRoute>
                     }
