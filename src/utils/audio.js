@@ -59,8 +59,8 @@ const VOICE_STORAGE_KEY = 'quizki-tts-voice';
 
 // Available voices (Microsoft Azure & WebSpeech voices)
 export const TTS_VOICES = {
-    female: { id: 'female', label: 'Nữ', gender: 'Female' },
-    male: { id: 'male', label: 'Nam', gender: 'Male' },
+    female: { id: 'female', label: 'Nữ (Nanami - Chuẩn NHK)', gender: 'Female' },
+    male: { id: 'male', label: 'Nam (Keita - Chuẩn Tokyo)', gender: 'Male' },
 };
 
 // Get current voice preference
@@ -222,10 +222,86 @@ export const googleTTS = async (text, lang = null) => {
     }
 };
 
+const escapeXml = (unsafe) => {
+    return String(unsafe || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+};
+
 /**
- * Microsoft Azure Speech API cho từ vựng (chất lượng cao, chuẩn pitch accent)
+ * Tra cứu file âm thanh thu âm từ người Nhật bản xứ (Native Speaker Audio)
+ * Nguồn: Jotoba / Wadoku / Forvo (Chuẩn Tokyo Pitch Accent 100%)
  */
-export const azureTTS = async (text, reading = '') => {
+export const fetchNativeJapaneseAudio = async (text, reading = '') => {
+    if (!text && !reading) return null;
+    const rawWord = String(text || '').split('（')[0].split('(')[0].trim();
+    if (!rawWord || !/[\u3040-\u309F\u30A0-\u30FF\u4e00-\u9faf]/.test(rawWord)) return null;
+
+    try {
+        const { fetchJotobaWordData } = await import('./pitchAccent');
+        const data = await fetchJotobaWordData(rawWord);
+        if (data && data.audioUrl) {
+            const res = await fetch(data.audioUrl);
+            if (res.ok) {
+                const audioBlob = await res.blob();
+                const blobUrl = URL.createObjectURL(audioBlob);
+                const base64 = await new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        const result = reader.result;
+                        const base64Data = result.split(',')[1] || result;
+                        resolve(base64Data);
+                    };
+                    reader.readAsDataURL(audioBlob);
+                });
+                return {
+                    blobUrl,
+                    base64,
+                    voiceId: 'native',
+                    fromNative: true,
+                    pitch: data.pitch || []
+                };
+            }
+        }
+    } catch (e) {
+        console.warn('Native audio fetch failed, will fallback to Azure TTS:', e.message);
+    }
+    return null;
+};
+
+/**
+ * Bóc tách chữ viết (Word / Kanji) và phiên âm (Reading / Kana)
+ * Đảm bảo giữ nguyên chữ Hán để Azure Neural TTS nhận diện đúng ngữ nghĩa và quy tắc Pitch Accent Tokyo
+ */
+export const getWordAndReading = (text, reading = '') => {
+    if (!text && !reading) return { word: '', reading: '' };
+    const rawText = String(text || '').trim();
+    const rawReading = String(reading || '').trim();
+
+    // 1. Kiểm tra định dạng ngoặc: e.g. "募集（ぼしゅう）" hoặc "雨 (あめ)"
+    const bracketMatch = rawText.match(/[（(]([^）)]+)[）)]/);
+    const mainText = rawText.split('（')[0].split('(')[0].trim();
+
+    let candidateReading = rawReading;
+    if (bracketMatch && !candidateReading) {
+        candidateReading = bracketMatch[1].trim();
+    }
+
+    const cleanWord = mainText || rawText;
+    return {
+        word: cleanWord,
+        reading: candidateReading || ''
+    };
+};
+
+/**
+ * Microsoft Azure Speech API cho từ vựng (chất lượng cao, chuẩn pitch accent Tokyo)
+ * Sử dụng thẻ SSML <sub> để truyền cả chữ Hán (cho ngữ cảnh trọng âm) và Furigana (cho cách đọc chính xác)
+ */
+export const azureTTS = async (text, reading = '', forceVoice = null) => {
     const key = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const region = import.meta.env.VITE_AZURE_SPEECH_REGION || 'eastasia';
     const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
@@ -233,22 +309,24 @@ export const azureTTS = async (text, reading = '') => {
     if (!proxyUrl && !key) return null;
     if (!text && !reading) return null;
 
-    const voiceId = getTTSVoice();
-    const speed = 0.8;
+    const voiceId = forceVoice || getTTSVoice();
+    const speed = 1.0; // Tốc độ 1.0 giữ nguyên dải tần F0 tự nhiên của pitch accent
     const volume = 'default';
-    const textToSpeak = extractReadingText(text, reading);
+
+    const { word, reading: kanaReading } = getWordAndReading(text, reading);
+    const textToSpeak = word || kanaReading;
     if (!textToSpeak) return null;
 
     const isEng = isEnglishText(textToSpeak);
-    const cacheKey = `azure:${voiceId}:${isEng ? 'en' : 'ja'}:${speed}:${volume}:${textToSpeak}`;
+    const cacheKey = `azure:${voiceId}:${isEng ? 'en' : 'ja'}:${speed}:${volume}:${word}:${kanaReading}`;
     if (ttsCache.has(cacheKey)) {
         return ttsCache.get(cacheKey);
     }
 
     const voiceMap = {
         ja: {
-            female: 'ja-JP-MayuNeural',
-            male: 'ja-JP-KeitaNeural'
+            female: 'ja-JP-NanamiNeural', // Giọng Nữ chuẩn giáo dục NHK của Microsoft (Tokyo pitch accent)
+            male: 'ja-JP-KeitaNeural'     // Giọng Nam Tokyo chuẩn
         },
         en: {
             female: 'en-US-JennyNeural',
@@ -257,12 +335,12 @@ export const azureTTS = async (text, reading = '') => {
     };
 
     const langKey = isEng ? 'en' : 'ja';
-    const azureVoiceName = (voiceMap[langKey] && voiceMap[langKey][voiceId]) || (isEng ? 'en-US-JennyNeural' : 'ja-JP-MayuNeural');
+    const azureVoiceName = (voiceMap[langKey] && voiceMap[langKey][voiceId]) || (isEng ? 'en-US-JennyNeural' : 'ja-JP-NanamiNeural');
     const gender = voiceId === 'male' ? 'male' : 'female';
 
     let cachedAudio = null;
     if (volume === 'default') {
-        cachedAudio = await lookupSharedAudio(textToSpeak, gender);
+        cachedAudio = await lookupSharedAudio(word || kanaReading, gender);
     }
     if (cachedAudio) {
         const audioSrc = cachedAudio.startsWith('data:audio')
@@ -284,6 +362,28 @@ export const azureTTS = async (text, reading = '') => {
 
     try {
         let response;
+        const xmlLang = isEng ? 'en-US' : 'ja-JP';
+        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF\u3005]/.test(word);
+
+        // SSML: Nếu có Kanji và có Kana khác nhau, chỉ dùng <sub alias="Kana">Kanji</sub> khi Kana bao hàm toàn bộ từ/cụm từ
+        let ssmlBody = escapeXml(word);
+        if (hasKanji && kanaReading && kanaReading !== word) {
+            // Kiểm tra xem kanaReading có khớp với word không:
+            // 1. Nếu word có chứa Hiragana/Katakana ở đuôi (như 食べる hoặc 警告を与える), kanaReading phải chứa đuôi đó
+            const kanaTailMatch = word.match(/[\u3040-\u309F\u30A0-\u30FF]+$/);
+            const isTailValid = !kanaTailMatch || kanaReading.endsWith(kanaTailMatch[0]);
+            
+            // 2. Nếu word có các trợ từ hoặc khoảng trắng (cụm từ dài) mà kanaReading quá ngắn (chỉ là 1 từ đơn)
+            const hasMultipleWords = /[をにでがはとからまでより\s]/.test(word);
+            const isReadingPartial = hasMultipleWords && !/[をにでがはとからまでより\s]/.test(kanaReading);
+
+            if (isTailValid && !isReadingPartial) {
+                ssmlBody = `<sub alias="${escapeXml(kanaReading)}">${escapeXml(word)}</sub>`;
+            }
+        }
+
+        const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${azureVoiceName}"><prosody rate="1.0">${ssmlBody}</prosody></voice></speak>`;
+
         if (proxyUrl) {
             const baseProxy = proxyUrl.replace(/\/+$/, '');
             response = await fetch(baseProxy, {
@@ -292,15 +392,14 @@ export const azureTTS = async (text, reading = '') => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    text: textToSpeak,
-                    voiceName: azureVoiceName
+                    text: word,
+                    reading: kanaReading,
+                    voiceName: azureVoiceName,
+                    ssml: ssml
                 })
             });
         } else {
             const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
-            const xmlLang = isEng ? 'en-US' : 'ja-JP';
-            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${azureVoiceName}">${textToSpeak}</voice></speak>`;
-
             response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -342,7 +441,7 @@ export const azureTTS = async (text, reading = '') => {
         ttsCache.set(cacheKey, result);
 
         if (volume === 'default') {
-            saveSharedAudio(textToSpeak, base64, gender);
+            saveSharedAudio(word || kanaReading, base64, gender);
         }
 
         return result;
@@ -377,28 +476,8 @@ const JAP_HOMOGRAPHS = {
 
 export const extractReadingText = (text, reading = '') => {
     if (!text && !reading) return '';
-    const rawText = String(text || '').trim();
-    const rawReading = String(reading || '').trim();
-
-    // 1. If text has bracket format: e.g. "募集（ぼしゅう）" or "方（ほう）"
-    const bracketMatch = rawText.match(/[（(]([^）)]+)[）)]/);
-    const mainText = rawText.split('（')[0].split('(')[0].trim();
-    
-    let candidateReading = rawReading;
-    if (bracketMatch) {
-        candidateReading = bracketMatch[1].trim();
-    }
-
-    if (candidateReading) {
-        const hasJapanese = /[\u3040-\u309F\u30A0-\u30FF]/.test(candidateReading);
-        const hasLatin = /[a-zA-Z]/.test(candidateReading);
-
-        // For Japanese TTS, if valid Kana reading exists without Latin, pass Kana reading to ensure exact pronunciation in Azure TTS
-        if (hasJapanese && !hasLatin) {
-            return candidateReading;
-        }
-    }
-    return mainText || rawText;
+    const { word, reading: kanaReading } = getWordAndReading(text, reading);
+    return word || kanaReading || String(text || '').trim();
 };
 
 const loadWebVoice = (isEng, voiceId) => {
@@ -508,12 +587,9 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
 
         const safetyTimeout = setTimeout(() => {
             safeResolve();
-        }, 5000);
+        }, 6000);
 
         if (!text && !reading) return safeResolve();
-
-        const cleanText = extractReadingText(text, reading);
-        if (!cleanText) return safeResolve();
 
         if (currentAudioObj) {
             try {
@@ -524,16 +600,28 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
         }
         safeCancelSpeechSynthesis();
 
-        const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
-        const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
         let result = null;
 
-        // Từ vựng: Ưu tiên dùng Microsoft Azure TTS
-        if (azureKey || proxyUrl) {
+        // 1. Thử âm thanh người bản xứ Jotoba / Wadoku trước (nếu là từ vựng tiếng Nhật)
+        const isEng = isEnglishText(text || reading);
+        if (!isEng) {
             try {
-                result = await azureTTS(cleanText, reading);
+                result = await fetchNativeJapaneseAudio(text, reading);
             } catch (e) {
-                console.warn('Azure TTS error:', e);
+                console.warn('Native audio fetch in speakWithTTS error:', e);
+            }
+        }
+
+        // 2. Nếu không có âm thanh người thật, gọi Microsoft Azure Neural TTS (Nanami / Keita kèm SSML chữ Hán)
+        if (!result) {
+            const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
+            const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
+            if (azureKey || proxyUrl) {
+                try {
+                    result = await azureTTS(text, reading);
+                } catch (e) {
+                    console.warn('Azure TTS error:', e);
+                }
             }
         }
 
@@ -547,7 +635,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
             };
             currentAudioObj.onerror = async () => {
                 currentAudioObj = null;
-                await speakWithWebSpeech(cleanText, reading);
+                await speakWithWebSpeech(text, reading);
                 safeResolve();
             };
             try {
@@ -557,7 +645,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
                 }
                 await currentAudioObj.play();
             } catch (e) {
-                await speakWithWebSpeech(cleanText, reading);
+                await speakWithWebSpeech(text, reading);
                 safeResolve();
             }
 
@@ -568,7 +656,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
         }
 
         // Fallback: Web Speech API (khi không có mạng hoặc Azure proxy offline)
-        await speakWithWebSpeech(cleanText, reading);
+        await speakWithWebSpeech(text, reading);
         safeResolve();
     });
 };
@@ -674,15 +762,35 @@ export const speakJapanese = (cardOrText, audioBase64 = null, onAudioGenerated =
     return textToSpeak ? playAudio(null, textToSpeak, onAudioGenerated, cardVoiceId, reading) : Promise.resolve();
 };
 
-export const generateAudioSilent = async (text, reading = '') => {
+export const generateAudioSilent = async (text, reading = '', forceVoice = null) => {
     if (!text && !reading) return null;
-    const cleanText = extractReadingText(text, reading);
-    if (!cleanText) return null;
+
+    // 1. Thử lấy âm thanh từ người Nhật bản xứ (Jotoba / Wadoku - 100% chuẩn Pitch Accent)
+    const isEng = isEnglishText(text || reading);
+    if (!isEng) {
+        try {
+            const nativeResult = await fetchNativeJapaneseAudio(text, reading);
+            if (nativeResult && nativeResult.base64) {
+                const { word, reading: kanaReading } = getWordAndReading(text, reading);
+                const gender = (forceVoice || getTTSVoice()) === 'male' ? 'male' : 'female';
+                saveSharedAudio(word || kanaReading, nativeResult.base64, gender);
+                return {
+                    base64: nativeResult.base64,
+                    voiceId: 'native',
+                    fromNative: true
+                };
+            }
+        } catch (e) {
+            console.warn('Native audio lookup in generateAudioSilent failed, proceeding to Azure TTS:', e);
+        }
+    }
+
+    // 2. Gọi Microsoft Azure Neural TTS (Nanami/Keita kèm SSML chữ Hán Tokyo Pitch)
     const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
     try {
         if (azureKey || proxyUrl) {
-            const result = await azureTTS(cleanText, reading);
+            const result = await azureTTS(text, reading, forceVoice);
             if (result && result.base64) return { base64: result.base64, voiceId: result.voiceId };
         }
     } catch (e) {
@@ -692,7 +800,7 @@ export const generateAudioSilent = async (text, reading = '') => {
 };
 
 export const generateAudioSilentWithVoice = async (text, voiceId, reading = '') => {
-    return generateAudioSilent(text, reading);
+    return generateAudioSilent(text, reading, voiceId);
 };
 
 /**

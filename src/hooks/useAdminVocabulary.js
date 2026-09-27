@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { collection, query, onSnapshot, doc, deleteDoc, getDocs, setDoc, writeBatch, collectionGroup } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { aiRecreateVocabulary } from '../utils/aiProvider';
+import { generateAudioSilent } from '../utils/audio';
 import { showConfirm, showToast } from '../utils/toast';
 
 export const useAdminVocabulary = ({ activeSection, setNotification }) => {
@@ -21,6 +22,10 @@ export const useAdminVocabulary = ({ activeSection, setNotification }) => {
     const [isBulkRecreating, setIsBulkRecreating] = useState(false);
     const [bulkProgress, setBulkProgress] = useState({ current: 0, total: 0 });
     const bulkCancelRef = useRef(false);
+
+    const [isBulkAudioGenerating, setIsBulkAudioGenerating] = useState(false);
+    const [bulkAudioProgress, setBulkAudioProgress] = useState({ current: 0, total: 0 });
+    const bulkAudioCancelRef = useRef(false);
 
     const [editingDictItem, setEditingDictItem] = useState(null);
     const [deletingDictItem, setDeletingDictItem] = useState(null);
@@ -268,6 +273,67 @@ export const useAdminVocabulary = ({ activeSection, setNotification }) => {
         bulkCancelRef.current = true;
     };
 
+    const handleBulkRegenerateAudio = async () => {
+        const targets = filteredDictResults;
+        if (targets.length === 0) {
+            setNotification({ type: 'info', message: 'Không có từ vựng nào khớp với bộ lọc hiện tại để tạo âm thanh.' });
+            return;
+        }
+
+        const confirmed = await showConfirm(
+            `Bạn có chắc muốn tạo lại âm thanh cho ${targets.length} từ vựng đang lọc?\nQuá trình sẽ ưu tiên lấy âm thanh chuẩn người bản xứ (Tokyo) và Azure Neural TTS (Nanami/Keita).`,
+            { type: 'info', confirmText: 'Bắt đầu tạo âm thanh', cancelText: 'Hủy' }
+        );
+        if (!confirmed) return;
+
+        setIsBulkAudioGenerating(true);
+        bulkAudioCancelRef.current = false;
+        setBulkAudioProgress({ current: 0, total: targets.length });
+
+        let successCount = 0;
+        let failCount = 0;
+
+        for (let i = 0; i < targets.length; i++) {
+            if (bulkAudioCancelRef.current) {
+                setNotification({ type: 'info', message: `Đã dừng tạo âm thanh hàng loạt. Thành công ${successCount}, Thất bại ${failCount}.` });
+                break;
+            }
+
+            const item = targets[i];
+            setBulkAudioProgress({ current: i + 1, total: targets.length });
+            try {
+                const readingText = item.reading || item.front?.match(/[（(]([^）)]+)[）)]/)?.[1] || '';
+                const result = await generateAudioSilent(item.front, readingText);
+                if (result && result.base64) {
+                    const docRef = doc(db, dictLangTab === 'en' ? 'sharedVocabulary_en' : 'sharedVocabulary', item.id);
+                    await setDoc(docRef, {
+                        audioBase64: result.base64,
+                        reportedAudioError: false,
+                        updatedAt: Date.now()
+                    }, { merge: true });
+                    successCount++;
+                } else {
+                    failCount++;
+                }
+            } catch (err) {
+                console.error(`Error regenerating audio for vocab ${item.id}:`, err);
+                failCount++;
+            }
+        }
+
+        setIsBulkAudioGenerating(false);
+        if (!bulkAudioCancelRef.current) {
+            setNotification({
+                type: 'success',
+                message: `Hoàn thành tạo âm thanh hàng loạt: Thành công ${successCount}, Thất bại ${failCount}`
+            });
+        }
+    };
+
+    const handleCancelBulkAudio = () => {
+        bulkAudioCancelRef.current = true;
+    };
+
     const handleClearSharedVocabCollection = async (langTarget = dictLangTab) => {
         const isEng = langTarget === 'en';
         const collectionName = isEng ? 'sharedVocabulary_en' : 'sharedVocabulary';
@@ -333,6 +399,8 @@ export const useAdminVocabulary = ({ activeSection, setNotification }) => {
         isClearingDict,
         isBulkRecreating,
         bulkProgress,
+        isBulkAudioGenerating,
+        bulkAudioProgress,
         editingDictItem,
         setEditingDictItem,
         deletingDictItem,
@@ -346,6 +414,8 @@ export const useAdminVocabulary = ({ activeSection, setNotification }) => {
         handleAiRecreateVocabulary,
         handleBulkAiRecreate,
         handleCancelBulkRecreate,
+        handleBulkRegenerateAudio,
+        handleCancelBulkAudio,
         handleClearSharedVocabCollection
     };
 };

@@ -13,8 +13,9 @@ import {
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../config/firebase';
 import { aiCheckGrammarAnswer, aiGenerateGrammarPointsJson } from '../../utils/aiProvider';
+import { aiBatchStandardizeGrammarStructures } from '../../services/ai/grammarAiService';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
-import { showToast } from '../../utils/toast';
+import { showToast, showConfirm } from '../../utils/toast';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 
@@ -38,21 +39,22 @@ const AI_SYSTEM_PROMPT = `Bạn là một chuyên gia biên soạn giáo trình 
 Hãy giúp tôi tạo dữ liệu JSON cho các mẫu ngữ pháp tiếng Nhật tuân thủ STRICT các quy tắc sau:
 
 1. QUY CHUẨN KÝ HIỆU NGUYÊN TẮC:
-- Danh từ: N
-- Tính từ đuôi i: いA
-- Tính từ đuôi na: なA
+- Thể thông thường: 普通形
+- Danh từ: N, N-の, N-である
+- Tính từ đuôi i: いA, いA-く, いA-くて
+- Tính từ đuôi na: なA-な, なA-で, なA-である
 - Động từ thể từ điển: V-る
-- Động từ thể Masu: V-ます
+- Động từ thể Masu: V-stem / V-ます
 - Động từ thể Te: V-て
 - Động từ thể Ta: V-た
-- Động từ thể Nai: V-ない
+- Động từ thể Phủ định: V-ない
+- Động từ thể Đang làm: V-ている
 - Thể thông thường: Pl
-- Thể lịch sự: Po
 
-2. QUY TẮC CẤU TRÚC (structure):
-- Các thể kết hợp ĐƯỢC TÁCH NGHĨA HÀNG DỌC BẰNG DẤU GẠCH CHÉO '/'.
-- KHÔNG bao gồm lại mẫu ngữ pháp chính trong ô 'structureRaw' vì ứng dụng sẽ tự nối mẫu ngữ pháp vào sau.
-- Ví dụ đúng: "V-る / V-ない / V-ている / いA / なA な / N の"
+2. QUY TẮC CẤU TRÚC (structureRaw):
+- Sử dụng công thức đóng mở ngoặc vuông [ ... ] chuẩn giáo trình Shinkanzen Master / Soumatome.
+- Nếu các từ loại đều đi với thể thông thường: "[ 普通形 (Naだ→な / Nだ→である) ] + pattern"
+- Nếu chỉ đi với các thể cụ thể: "[ V-る / V-ない / V-ている / N-の ] + pattern"
 
 3. BÀI TẬP (BẮT BUỘC TẠO ĐỦ CẢ 2 PHẦN TRẮC NGHIỆM & ĐẶT CÂU):
 - "quizzes": Mảng câu hỏi Trắc nghiệm điền lỗ trống (4 đáp án, gồm question, options, answer, explanation).
@@ -168,6 +170,46 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             showToast(`Lỗi khi gắn ngữ pháp: ${e.message}`, 'error');
         } finally {
             setAssigningMasterPoints(false);
+        }
+    };
+
+    const [isStandardizingLesson, setIsStandardizingLesson] = useState(false);
+
+    const handleBatchStandardizeCurrentLesson = async () => {
+        if (!points || points.length === 0) {
+            showToast("Bài học này chưa có mẫu ngữ pháp nào để chuẩn hóa.", "info");
+            return;
+        }
+
+        const confirmed = await showConfirm(
+            `Bạn có chắc chắn muốn dùng AI để chuẩn hóa toàn bộ ${points.length} mẫu ngữ pháp trong bài "${lesson?.title || 'này'}"?\n\nAI sẽ chuẩn hóa lại:\n1. Công thức kết nối chuẩn ngoặc vuông [ ... ] (đúng vị trí từ).\n2. Nghĩa ngắn gọn súc tích.\n3. Phần giải thích ngắn gọn, dễ học theo giáo trình sách.`,
+            { type: 'info', confirmText: 'Chuẩn hóa toàn bộ bài', cancelText: 'Hủy' }
+        );
+        if (!confirmed) return;
+
+        setIsStandardizingLesson(true);
+        try {
+            const targets = points.map(p => ({
+                ...p,
+                textbookId,
+                lessonId
+            }));
+
+            const outcome = await aiBatchStandardizeGrammarStructures(targets, {
+                saveToFirestore: true,
+                concurrency: 2
+            });
+
+            if (outcome.succeeded > 0) {
+                showToast(`✨ Đã chuẩn hóa thành công ${outcome.succeeded}/${outcome.total} mẫu ngữ pháp!`, "success");
+            } else {
+                showToast("Không thể chuẩn hóa các mẫu ngữ pháp. Vui lòng thử lại sau.", "error");
+            }
+        } catch (e) {
+            console.error("Batch standardize error:", e);
+            showToast("Lỗi khi chuẩn hóa: " + e.message, "error");
+        } finally {
+            setIsStandardizingLesson(false);
         }
     };
 
@@ -1224,6 +1266,15 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
                     {isAdmin && (
                         <div className="flex flex-wrap gap-2 shrink-0 sm:self-center">
+                            <button
+                                onClick={handleBatchStandardizeCurrentLesson}
+                                disabled={isStandardizingLesson || points.length === 0}
+                                className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm cursor-pointer disabled:opacity-50"
+                                title="Dùng AI chuẩn hóa toàn bộ công thức và giải thích cho bài học này"
+                            >
+                                {isStandardizingLesson ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5 text-amber-300" />}
+                                <span>{isStandardizingLesson ? 'Đang chuẩn hóa...' : `AI Chuẩn hóa bài (${points.length})`}</span>
+                            </button>
                             <button onClick={openMasterBankModal}
                                 className="flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm cursor-pointer">
                                 <ListPlus className="w-3.5 h-3.5" /> Kho Ngữ Pháp

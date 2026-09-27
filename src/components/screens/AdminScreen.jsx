@@ -23,6 +23,7 @@ import AdminSupportChatSection from '../admin/AdminSupportChatSection';
 import AdminDeleteUserModal from '../admin/AdminDeleteUserModal';
 import AdminEditDictModal from '../admin/AdminEditDictModal';
 import AdminDeleteDictModal from '../admin/AdminDeleteDictModal';
+import AdminGrammarStandardizerModal from '../admin/AdminGrammarStandardizerModal';
 
 // Hooks
 import { useAdminData } from '../../hooks/useAdminData';
@@ -31,6 +32,7 @@ import { useAdminVocabulary } from '../../hooks/useAdminVocabulary';
 const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, adminConfig }) => {
     const [activeSection, setActiveSection] = useState('users');
     const [savingConfig, setSavingConfig] = useState(false);
+    const [showGrammarStandardizerModal, setShowGrammarStandardizerModal] = useState(false);
     const [selectedMonth, setSelectedMonth] = useState(new Date().toISOString().slice(0, 7));
     const [apiBalances, setApiBalances] = useState({ openRouter: null, speechGen: null, loading: false, error: '' });
 
@@ -60,10 +62,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         dictResults, isLoadingDict, dictLevelFilter, setDictLevelFilter, dictPosFilter, setDictPosFilter,
         dictErrorReportedFilter, setDictErrorReportedFilter, dictKanjiFilter, setDictKanjiFilter,
         dictSearchQuery, setDictSearchQuery, visibleLimit, setVisibleLimit, dictLangTab, setDictLangTab,
-        jaCount, enCount, isClearingDict, isBulkRecreating, bulkProgress, editingDictItem, setEditingDictItem,
-        deletingDictItem, setDeletingDictItem, recreatingVocabId, originalAudioBase64, filteredDictResults,
-        handleSaveDictItem, handleOpenEditModal, handleDeleteDictItem, handleAiRecreateVocabulary,
-        handleBulkAiRecreate, handleCancelBulkRecreate, handleClearSharedVocabCollection
+        jaCount, enCount, isClearingDict, isBulkRecreating, bulkProgress, isBulkAudioGenerating,
+        bulkAudioProgress, editingDictItem, setEditingDictItem, deletingDictItem, setDeletingDictItem,
+        recreatingVocabId, originalAudioBase64, filteredDictResults, handleSaveDictItem,
+        handleOpenEditModal, handleDeleteDictItem, handleAiRecreateVocabulary, handleBulkAiRecreate,
+        handleCancelBulkRecreate, handleBulkRegenerateAudio, handleCancelBulkAudio,
+        handleClearSharedVocabCollection
     } = useAdminVocabulary({ activeSection, setNotification });
 
     // Sync maintenance message from adminConfig props
@@ -459,7 +463,11 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             )}
 
             {activeSection === 'ai' && (
-                <AdminAiSection adminConfig={adminConfig} handleChangeFeatureModel={handleChangeFeatureModel} />
+                <AdminAiSection
+                    adminConfig={adminConfig}
+                    handleChangeFeatureModel={handleChangeFeatureModel}
+                    onOpenGrammarStandardizer={() => setShowGrammarStandardizerModal(true)}
+                />
             )}
 
             {activeSection === 'moderators' && (
@@ -493,7 +501,9 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     dictErrorReportedFilter={dictErrorReportedFilter} setDictErrorReportedFilter={setDictErrorReportedFilter}
                     dictKanjiFilter={dictKanjiFilter} setDictKanjiFilter={setDictKanjiFilter} filteredDictResults={filteredDictResults}
                     isBulkRecreating={isBulkRecreating} bulkProgress={bulkProgress} handleCancelBulkRecreate={handleCancelBulkRecreate}
-                    handleBulkAiRecreate={handleBulkAiRecreate} isLoadingDict={isLoadingDict} visibleLimit={visibleLimit}
+                    handleBulkAiRecreate={handleBulkAiRecreate} isBulkAudioGenerating={isBulkAudioGenerating}
+                    bulkAudioProgress={bulkAudioProgress} handleCancelBulkAudio={handleCancelBulkAudio}
+                    handleBulkRegenerateAudio={handleBulkRegenerateAudio} isLoadingDict={isLoadingDict} visibleLimit={visibleLimit}
                     setVisibleLimit={setVisibleLimit} playAudio={playAudio} recreatingVocabId={recreatingVocabId}
                     handleAiRecreateVocabulary={handleAiRecreateVocabulary} handleOpenEditModal={handleOpenEditModal}
                     setDeletingDictItem={setDeletingDictItem} handleClearSharedVocabCollection={handleClearSharedVocabCollection}
@@ -528,6 +538,13 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             <AdminDeleteDictModal
                 deletingDictItem={deletingDictItem} setDeletingDictItem={setDeletingDictItem}
                 handleDeleteDictItem={handleDeleteDictItem}
+            />
+
+            <AdminGrammarStandardizerModal
+                isOpen={showGrammarStandardizerModal}
+                onClose={() => setShowGrammarStandardizerModal(false)}
+                adminConfig={adminConfig}
+                onSyncCache={syncGrammar}
             />
 
             {/* Notification Toast */}

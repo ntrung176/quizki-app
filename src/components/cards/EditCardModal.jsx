@@ -63,14 +63,14 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         const trimmedReading = customHiragana.trim();
         setIsGeneratingAudio(true);
         try {
-            const result = await generateAudioSilent(trimmedReading, trimmedReading);
+            const result = await generateAudioSilent(front || trimmedReading, trimmedReading);
             if (result && result.base64) {
                 setCustomAudio(result.base64);
                 setAudioFixed(true);
                 if (!cardIsEnglish) {
                     setReading(trimmedReading);
                 }
-                showToast("Đã tạo audio mới thành công! (Mỗi từ chỉ được sửa 1 lần)", "success");
+                showToast("Đã tạo audio chuẩn Pitch Accent thành công!", "success");
                 playAudio(result.base64, front, null, null, trimmedReading);
             } else {
                 throw new Error("Không thể tạo audio từ máy chủ Microsoft Azure TTS. Vui lòng thử lại.");

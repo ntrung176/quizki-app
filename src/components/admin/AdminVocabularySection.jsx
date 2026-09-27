@@ -24,6 +24,10 @@ const AdminVocabularySection = ({
     bulkProgress,
     handleCancelBulkRecreate,
     handleBulkAiRecreate,
+    isBulkAudioGenerating,
+    bulkAudioProgress,
+    handleCancelBulkAudio,
+    handleBulkRegenerateAudio,
     isLoadingDict,
     visibleLimit,
     setVisibleLimit,
@@ -201,18 +205,23 @@ const AdminVocabularySection = ({
                     </div>
                 </div>
 
-                {/* Bulk AI Action Bar */}
+                {/* Bulk Action Bar */}
                 <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100/50 dark:border-indigo-900/30 rounded-xl">
                     <div className="text-xs text-gray-600 dark:text-gray-350">
                         <span>Bộ lọc hiện tại có <strong>{filteredDictResults.length}</strong> từ vựng.</span>
                         {isBulkRecreating && (
                             <span className="ml-2 text-indigo-600 dark:text-indigo-400 font-bold animate-pulse">
-                                (Đang xử lý: {bulkProgress.current}/{bulkProgress.total})
+                                (Đang xử lý nội dung: {bulkProgress.current}/{bulkProgress.total})
+                            </span>
+                        )}
+                        {isBulkAudioGenerating && (
+                            <span className="ml-2 text-emerald-600 dark:text-emerald-400 font-bold animate-pulse">
+                                (Đang tạo âm thanh Tokyo: {bulkAudioProgress.current}/{bulkAudioProgress.total})
                             </span>
                         )}
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-wrap">
                         {isBulkRecreating ? (
                             <>
                                 <div className="w-32 bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
@@ -232,11 +241,39 @@ const AdminVocabularySection = ({
                         ) : (
                             <button
                                 onClick={handleBulkAiRecreate}
-                                disabled={filteredDictResults.length === 0}
+                                disabled={filteredDictResults.length === 0 || isBulkAudioGenerating}
                                 className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold disabled:opacity-50 flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
                             >
                                 <Sparkle className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-pulse" />
                                 <span>AI tạo hàng loạt ({filteredDictResults.length})</span>
+                            </button>
+                        )}
+
+                        {isBulkAudioGenerating ? (
+                            <>
+                                <div className="w-32 bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+                                    <div
+                                        className="bg-emerald-600 h-full transition-all duration-300"
+                                        style={{ width: `${(bulkAudioProgress.current / bulkAudioProgress.total) * 100}%` }}
+                                    />
+                                </div>
+                                <button
+                                    onClick={handleCancelBulkAudio}
+                                    className="px-3 py-1.5 bg-red-500 hover:bg-red-650 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                                >
+                                    <XIcon className="w-3.5 h-3.5" />
+                                    Dừng âm thanh
+                                </button>
+                            </>
+                        ) : (
+                            <button
+                                onClick={handleBulkRegenerateAudio}
+                                disabled={filteredDictResults.length === 0 || isBulkRecreating}
+                                className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold disabled:opacity-50 flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                                title="Tạo lại âm thanh chuẩn Pitch Accent Tokyo cho toàn bộ danh sách đang lọc"
+                            >
+                                <Volume2 className="w-3.5 h-3.5 text-white" />
+                                <span>Tạo âm thanh Tokyo ({filteredDictResults.length})</span>
                             </button>
                         )}
                     </div>
@@ -592,7 +629,8 @@ const AdminVocabularySection = ({
                                             setIsGeneratingAudio(true);
                                             try {
                                                 const cleanText = editingDictItem.front.split('（')[0].split('(')[0].trim();
-                                                const result = await generateAudioSilent(cleanText);
+                                                const readingText = editingDictItem.reading || editingDictItem.front.match(/[（(]([^）)]+)[）)]/)?.[1] || '';
+                                                const result = await generateAudioSilent(editingDictItem.front, readingText);
                                                 if (result && result.base64) {
                                                     setEditingDictItem(prev => ({ ...prev, audioBase64: result.base64 }));
                                                     setNotification({ type: 'success', message: 'Đã tạo âm thanh bằng AI thành công!' });
@@ -671,7 +709,7 @@ const AdminVocabularySection = ({
                                                 }
                                                 setIsGeneratingAudio(true);
                                                 try {
-                                                    const result = await generateAudioSilent(customAudioText.trim());
+                                                    const result = await generateAudioSilent(editingDictItem.front, customAudioText.trim());
                                                     if (result && result.base64) {
                                                         setEditingDictItem(prev => ({ ...prev, audioBase64: result.base64 }));
                                                         setNotification({ type: 'success', message: 'Đã tạo âm thanh từ chữ đọc thành công!' });

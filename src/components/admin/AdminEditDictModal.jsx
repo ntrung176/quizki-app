@@ -263,7 +263,8 @@ const AdminEditDictModal = ({
                                             setIsGeneratingAudio(true);
                                             try {
                                                 const cleanText = editingDictItem.front.split('（')[0].split('(')[0].trim();
-                                                const result = await generateAudioSilent(cleanText);
+                                                const readingText = editingDictItem.reading || editingDictItem.front.match(/[（(]([^）)]+)[）)]/)?.[1] || '';
+                                                const result = await generateAudioSilent(editingDictItem.front, readingText);
                                                 if (result && result.base64) {
                                                     setEditingDictItem(prev => ({ ...prev, audioBase64: result.base64 }));
                                                     setNotification({ type: 'success', message: 'Đã tạo âm thanh bằng AI thành công!' });
@@ -342,7 +343,7 @@ const AdminEditDictModal = ({
                                                 }
                                                 setIsGeneratingAudio(true);
                                                 try {
-                                                    const result = await generateAudioSilent(customAudioText.trim());
+                                                    const result = await generateAudioSilent(editingDictItem.front, customAudioText.trim());
                                                     if (result && result.base64) {
                                                         setEditingDictItem(prev => ({ ...prev, audioBase64: result.base64 }));
                                                         setNotification({ type: 'success', message: 'Đã tạo âm thanh từ chữ đọc thành công!' });

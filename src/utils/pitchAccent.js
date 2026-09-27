@@ -253,16 +253,21 @@ export const fetchJotobaWordData = async (word) => {
             const data = await response.json();
 
             if (data.words && data.words.length > 0) {
-                // Find exact match first
+                // Find exact match first (kanji, kana, or headword)
                 const exactMatch = data.words.find(w =>
-                    w.reading?.kanji === cleanWord || w.reading?.kana === cleanWord
+                    w.reading?.kanji === cleanWord || w.reading?.kana === cleanWord || w.reading?.furigana === cleanWord
                 );
                 const wordData = exactMatch || data.words[0];
 
+                // CRITICAL FIX: Only attach native audio if this is an EXACT match to the query!
+                // For compound expressions like "警告を与える", Jotoba returns "警告" as words[0].
+                // Using words[0].audio would cause it to only speak "けいこく" instead of the full phrase!
+                const audioUrl = (exactMatch && exactMatch.audio) ? `${JOTOBA_BASE}${exactMatch.audio}` : null;
+
                 const result = {
-                    pitch: (wordData.pitch && wordData.pitch.length > 0) ? wordData.pitch : null,
-                    audioUrl: wordData.audio ? `${JOTOBA_BASE}${wordData.audio}` : null,
-                    reading: wordData.reading?.kana || null,
+                    pitch: (exactMatch && exactMatch.pitch && exactMatch.pitch.length > 0) ? exactMatch.pitch : null,
+                    audioUrl: audioUrl,
+                    reading: exactMatch ? (exactMatch.reading?.kana || null) : null,
                 };
 
                 // If Jotoba has no pitch accent data, call AI to generate it

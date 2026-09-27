@@ -1,21 +1,63 @@
 import React from 'react';
-import { Bot, Settings } from 'lucide-react';
+import { Bot, Settings, Layers, Sparkles } from 'lucide-react';
 import { AI_FEATURES, OPENROUTER_MODELS } from '../../utils/adminSettings';
 
-const AdminAiSection = ({ adminConfig, handleChangeFeatureModel }) => {
+const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarStandardizer }) => {
     return (
         <div className="space-y-4">
             {/* AI Provider Selection */}
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
-                        <Bot className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <div className="flex items-center justify-between flex-wrap gap-3">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
+                            <Bot className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                        </div>
+                        <div>
+                            <p className="font-bold text-gray-800 dark:text-white">AI Provider: OpenRouter / Gemini Direct</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">Sử dụng các mô hình AI chất lượng cao thông qua OpenRouter và Gemini</p>
+                        </div>
+                    </div>
+
+                    {onOpenGrammarStandardizer && (
+                        <button
+                            type="button"
+                            onClick={onOpenGrammarStandardizer}
+                            className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
+                        >
+                            <Sparkles className="w-4 h-4" />
+                            AI Chuẩn Hóa Cấu Trúc Ngữ Pháp
+                        </button>
+                    )}
+                </div>
+            </div>
+
+            {/* Special AI Tools Box */}
+            <div className="bg-gradient-to-r from-indigo-500/10 via-sky-500/10 to-purple-500/10 dark:from-indigo-950/40 dark:via-sky-950/40 dark:to-purple-950/40 rounded-2xl border border-indigo-200/80 dark:border-indigo-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-md">
+                        <Layers className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="font-bold text-gray-800 dark:text-white">AI Provider: OpenRouter</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Sử dụng các mô hình AI chất lượng cao thông qua OpenRouter</p>
+                        <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
+                            Chuẩn hóa Cấu trúc Ngữ pháp Hàng loạt (Batch Standardizer)
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-black">
+                                Mới
+                            </span>
+                        </h4>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
+                            Chuyển đổi toàn bộ cấu trúc Mazii rải rác sang công thức đóng mở ngoặc [ ] chuẩn giáo trình Shinkanzen Master / Soumatome theo từng cấp độ N5 - N1
+                        </p>
                     </div>
                 </div>
+
+                <button
+                    type="button"
+                    onClick={onOpenGrammarStandardizer}
+                    className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0"
+                >
+                    <Sparkles className="w-4 h-4" />
+                    Mở Bảng Điều Khiển
+                </button>
             </div>
 
             {/* Cấu hình Model theo tính năng */}
@@ -60,7 +102,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel }) => {
                                         className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-xs dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
                                     >
                                         {OPENROUTER_MODELS.map(model => (
-                                            <option key={model.value} value={model.value}>{model.label}</option>
+                                             <option key={model.value} value={model.value}>{model.label}</option>
                                         ))}
                                     </select>
                                 </div>

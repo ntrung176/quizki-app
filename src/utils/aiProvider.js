@@ -56,7 +56,7 @@ const MODEL_ALIASES = {
     'anthropic/claude-3.5-sonnet': 'anthropic/claude-sonnet-4.6'
 };
 
-const getEffectiveModel = (model) => {
+export const getEffectiveModel = (model) => {
     return MODEL_ALIASES[model] || model;
 };
 
@@ -1722,3 +1722,6 @@ QUY TẮC BẮT BUỘC:
         };
     });
 };
+
+// ============== GRAMMAR AI STANDARDIZER ==============
+export { aiStandardizeGrammarStructure, aiBatchStandardizeGrammarStructures } from '../services/ai/grammarAiService';

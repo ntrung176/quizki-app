@@ -147,22 +147,188 @@ function translateText(str) {
     return result;
 }
 
+// Render HTML strikethrough inside a token
+const renderWithStrikethrough = (str, keyPrefix = '') => {
+    if (!str) return null;
+    const subparts = str.split(/(<\/?(?:s|del|strike)>)/gi);
+    let inStrike = false;
+
+    return subparts.map((sub, idx) => {
+        if (/^<(?:s|del|strike)>$/i.test(sub)) {
+            inStrike = true;
+            return null;
+        }
+        if (/^<\/(?:s|del|strike)>$/i.test(sub)) {
+            inStrike = false;
+            return null;
+        }
+        if (!sub) return null;
+
+        if (inStrike) {
+            return (
+                <del key={`${keyPrefix}-${idx}`} className="line-through opacity-70 decoration-slate-400 dark:decoration-slate-500 font-medium px-0.5">
+                    {sub}
+                </del>
+            );
+        }
+        return <span key={`${keyPrefix}-${idx}`}>{sub}</span>;
+    }).filter(Boolean);
+};
+
+// Render an individual grammatical token / badge
+const renderToken = (token, idx) => {
+    const t = token.trim();
+    if (!t) return <span key={idx}> </span>;
+
+    // Operator +
+    if (t === '+') {
+        return (
+            <span key={idx} className="text-slate-400 dark:text-slate-500 font-black px-1 select-none text-xs">
+                +
+            </span>
+        );
+    }
+
+    // Operator /
+    if (t === '/' || t === '／') {
+        return (
+            <span key={idx} className="text-slate-300 dark:text-slate-600 font-bold px-1 select-none text-xs">
+                /
+            </span>
+        );
+    }
+
+    // Operator ➔
+    if (t === '➔') {
+        return (
+            <span key={idx} className="text-slate-400 dark:text-slate-500 font-bold px-1 select-none text-xs">
+                ➔
+            </span>
+        );
+    }
+
+    // Plain form (Futsuukei / 普通形)
+    if (/^普通形/i.test(t) || /^Pl/i.test(t)) {
+        return (
+            <span key={idx} className="inline-flex items-center px-2.5 py-0.5 rounded-lg text-xs md:text-sm font-bold bg-sky-500/10 text-sky-700 dark:text-sky-300 border border-sky-500/20 font-japanese tracking-normal">
+                {renderWithStrikethrough(t, `pl-${idx}`)}
+            </span>
+        );
+    }
+
+    // Verb token
+    if (/^V/i.test(t)) {
+        return (
+            <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-japanese tracking-normal">
+                {renderWithStrikethrough(t, `v-${idx}`)}
+            </span>
+        );
+    }
+
+    // Noun token
+    if (/^N\d*/i.test(t) || /^Danh từ/i.test(t)) {
+        return (
+            <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20 font-japanese tracking-normal">
+                {renderWithStrikethrough(t, `n-${idx}`)}
+            </span>
+        );
+    }
+
+    // Adjective token
+    if (/^(?:(?:な|い)?adj|A[いな\d\-(]|Na|Tính từ|いA|なA)/i.test(t) || t === 'A' || t === 'Na') {
+        return (
+            <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20 font-japanese tracking-normal">
+                {renderWithStrikethrough(t, `a-${idx}`)}
+            </span>
+        );
+    }
+
+    // Clause / Sentence token
+    if (/^(?:Mệnh đề|Câu)/i.test(t)) {
+        return (
+            <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/20 tracking-normal">
+                {renderWithStrikethrough(t, `c-${idx}`)}
+            </span>
+        );
+    }
+
+    // Standard Japanese text and particles
+    return (
+        <span key={idx} className="font-japanese text-slate-800 dark:text-slate-100 font-medium text-sm md:text-[15px] leading-relaxed">
+            {renderWithStrikethrough(token, `txt-${idx}`)}
+        </span>
+    );
+};
+
+// Render inner content of a bracket group [ ... ]
+const renderBracketGroup = (innerContent, groupKey) => {
+    // Extract parenthetical note if present, e.g. "(Naだ→な / Nだ→である)"
+    const parenMatch = innerContent.match(/\(([^)]+)\)/);
+    let mainText = innerContent;
+    let parenText = null;
+
+    if (parenMatch) {
+        parenText = parenMatch[1];
+        mainText = innerContent.replace(/\([^)]+\)/, '').trim();
+    }
+
+    // Split main items by / or ／
+    const items = mainText.split(/[\/／]/).map(s => s.trim()).filter(Boolean);
+
+    return (
+        <div key={groupKey} className="inline-flex items-center flex-wrap gap-1 px-2.5 py-1 rounded-xl bg-indigo-50/60 dark:bg-indigo-950/40 border border-indigo-200/70 dark:border-indigo-800/60 shadow-2xs">
+            <span className="text-indigo-400 dark:text-indigo-500 font-bold select-none text-xs mr-0.5">[</span>
+            {items.map((item, iIdx) => (
+                <React.Fragment key={iIdx}>
+                    {iIdx > 0 && <span className="text-slate-300 dark:text-slate-600 font-bold text-xs select-none">/</span>}
+                    {renderToken(item, `b-${groupKey}-${iIdx}`)}
+                </React.Fragment>
+            ))}
+            {parenText && (
+                <span className="ml-1 inline-flex items-center px-2 py-0.5 rounded-md bg-slate-200/80 dark:bg-slate-750 text-slate-700 dark:text-slate-300 text-[11px] md:text-xs font-medium border border-slate-300/60 dark:border-slate-650">
+                    ({parenText})
+                </span>
+            )}
+            <span className="text-indigo-400 dark:text-indigo-500 font-bold select-none text-xs ml-0.5">]</span>
+        </div>
+    );
+};
+
 /**
  * MaziiStructureCard
  * Renders structured grammar formulas with:
+ * - Textbook Bracket Notation [ ... ] + [ ... ]
  * - Color-coded badge chips for Verbs, Nouns, Adjectives, Clauses
- * - Elegant framed card row with subtle border & shadow
- * - Strikethrough <s>...</s> / <del>...</del> / <strike>...</strike> support
- * - Clean operators (+, /, ➔) and bold Japanese pattern segments
+ * - Elegant note / exception banners (* Chú ý: ...)
+ * - Strikethrough <s>...</s> / <del>...</del> support
  */
 const MaziiStructureCard = ({ formula, structure, pattern, isFirst = true, index }) => {
     const rawFormula = formula || (typeof structure === 'string' ? structure : structure?.text) || '';
     if (!rawFormula || typeof rawFormula !== 'string') return null;
 
-    let cleanFormula = rawFormula
-        .replace(/^[✦•\-\*🔹]\s*/, '')
-        .trim();
+    let cleanFormula = rawFormula.trim();
+    if (!cleanFormula) return null;
 
+    // 1. Note / Exception Line (* Chú ý: ...)
+    const isNoteLine = /^[\*💡]\s*/.test(cleanFormula) || /^(?:Chú ý|Lưu ý|Ghi chú|Note)[:：]/i.test(cleanFormula);
+    if (isNoteLine) {
+        const noteText = translateText(
+            cleanFormula
+                .replace(/^[\*💡✦🔹•\-\s]+/, '')
+                .replace(/^(?:Chú ý|Lưu ý|Ghi chú|Note)[:：]\s*/i, '')
+        );
+        return (
+            <div className="bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/20 dark:border-amber-500/30 rounded-2xl px-3.5 py-2.5 flex items-start gap-2.5 text-xs md:text-sm text-amber-900 dark:text-amber-200 w-full shadow-2xs my-1">
+                <span className="text-amber-500 dark:text-amber-400 font-bold shrink-0 mt-0.5 text-sm">💡</span>
+                <div className="leading-relaxed font-medium">
+                    <span className="font-bold text-amber-700 dark:text-amber-300 mr-1.5">Lưu ý:</span>
+                    {noteText}
+                </div>
+            </div>
+        );
+    }
+
+    cleanFormula = cleanFormula.replace(/^[✦•\-\*🔹]\s*/, '').trim();
     cleanFormula = translateText(cleanFormula);
     if (!cleanFormula) return null;
 
@@ -177,7 +343,65 @@ const MaziiStructureCard = ({ formula, structure, pattern, isFirst = true, index
         .replace(/✚/g, ' + ')
         .replace(/(?:➔|->)/g, ' ➔ ');
 
-    // Protect HTML tags (<s>...</s>, <del>...</del>, <strike>...</strike>) so that / does not split them
+    // 2. Bracket notation formula: contains '[' and ']'
+    const hasBrackets = normalizedText.includes('[') && normalizedText.includes(']');
+    if (hasBrackets) {
+        const segments = normalizedText.split(/(\[[^\]]+\]|\+|\/|／|➔)/g).filter(Boolean);
+
+        return (
+            <div className="group bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3 md:p-3.5 flex items-center gap-3 transition-all duration-150 shadow-2xs hover:border-blue-300 dark:hover:border-blue-600/60 w-full">
+                {isNumbered ? (
+                    <span className="w-5 h-5 rounded-full bg-[#1d70b8]/15 dark:bg-sky-400/20 text-[#1d70b8] dark:text-sky-300 text-xs font-black flex items-center justify-center shrink-0 select-none">
+                        {numberPrefix.replace('.', '')}
+                    </span>
+                ) : (
+                    <span className="w-5 h-5 rounded-full bg-blue-50 dark:bg-slate-700/50 text-[#1d70b8] dark:text-sky-400 text-xs font-black flex items-center justify-center shrink-0 select-none">
+                        ●
+                    </span>
+                )}
+
+                <div className="flex-1 flex items-center flex-wrap gap-2 font-japanese py-0.5">
+                    {segments.map((seg, sIdx) => {
+                        const trimmed = seg.trim();
+                        if (!trimmed) return null;
+
+                        if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+                            const inner = trimmed.slice(1, -1).trim();
+                            return renderBracketGroup(inner, `grp-${sIdx}`);
+                        }
+
+                        if (trimmed === '+') {
+                            return (
+                                <span key={sIdx} className="text-slate-400 dark:text-slate-500 font-black px-0.5 select-none text-xs">
+                                    +
+                                </span>
+                            );
+                        }
+
+                        if (trimmed === '➔') {
+                            return (
+                                <span key={sIdx} className="text-slate-400 dark:text-slate-500 font-bold px-1 select-none text-xs">
+                                    ➔
+                                </span>
+                            );
+                        }
+
+                        // Target pattern or standalone Japanese text
+                        return (
+                            <span
+                                key={sIdx}
+                                className="inline-flex items-center px-2.5 py-1 rounded-xl bg-blue-500/10 dark:bg-sky-500/15 text-[#1d70b8] dark:text-sky-300 border border-blue-500/20 font-bold font-japanese text-sm md:text-[15px]"
+                            >
+                                {trimmed}
+                            </span>
+                        );
+                    })}
+                </div>
+            </div>
+        );
+    }
+
+    // 3. Fallback Legacy / Tokenized formula (Token Regex)
     const tagPlaceholders = [];
     const protectedFormula = normalizedText.replace(/<(?:s|del|strike)>[\s\S]*?<\/(?:s|del|strike)>/gi, (match) => {
         const id = `__TAG_${tagPlaceholders.length}__`;
@@ -185,122 +409,15 @@ const MaziiStructureCard = ({ formula, structure, pattern, isFirst = true, index
         return id;
     });
 
-    // Tokenize: Grammatical labels (requiring unicode letter boundaries), operators (+, /, ➔), placeholders
-    const tokenRegex = /((?<![\p{L}\p{N}])V(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])V-(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|使役|使役受身|条件形|ば|命令形|普通形|辞書形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:な|い)?adj(?:__TAG_\d+__)?(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A-(?:い|な|く|stem|普通形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A[いな]?(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Na(?:__TAG_\d+__)?\d*(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])N(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Danh từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Tính từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:Mệnh đề|Câu)\s*\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|__TAG_\d+__|\+|\/|／|➔)/giu;
+    const tokenRegex = /((?<![\p{L}\p{N}])(?:普通形|Pl|Po)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])V(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])V-(?:る|ない|ている|てある|て|た|ます|stem|意向形|可能形|受身|使役|使役受身|条件形|ば|命令形|普通形|辞書形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:な|い)?adj(?:__TAG_\d+__)?(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:いA|なA|A)-(?:い|な|く|くて|で|である|stem|普通形)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])A[いな]?(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Na(?:__TAG_\d+__)?\d*(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])N(?:__TAG_\d+__)?\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Danh từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])Tính từ(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(?:Mệnh đề|Câu)\s*\d*(?:\s*\([^)]+\))?(?![\p{L}\p{N}])|__TAG_\d+__|\+|\/|／|➔)/giu;
 
     const rawParts = protectedFormula.split(tokenRegex).filter(p => p !== undefined && p !== '');
-
-    // Restore protected tags into parts
     const parts = rawParts.map(part => {
         return part.replace(/__TAG_(\d+)__/g, (_, idx) => tagPlaceholders[Number(idx)] || '');
     });
 
-    // Render HTML strikethrough inside a token
-    const renderWithStrikethrough = (str, keyPrefix = '') => {
-        if (!str) return null;
-        const subparts = str.split(/(<\/?(?:s|del|strike)>)/gi);
-        let inStrike = false;
-
-        return subparts.map((sub, idx) => {
-            if (/^<(?:s|del|strike)>$/i.test(sub)) {
-                inStrike = true;
-                return null;
-            }
-            if (/^<\/(?:s|del|strike)>$/i.test(sub)) {
-                inStrike = false;
-                return null;
-            }
-            if (!sub) return null;
-
-            if (inStrike) {
-                return (
-                    <del key={`${keyPrefix}-${idx}`} className="line-through opacity-70 decoration-slate-400 dark:decoration-slate-500 font-medium px-0.5">
-                        {sub}
-                    </del>
-                );
-            }
-            return <span key={`${keyPrefix}-${idx}`}>{sub}</span>;
-        }).filter(Boolean);
-    };
-
-    const renderToken = (token, idx) => {
-        const t = token.trim();
-        if (!t) return <span key={idx}> </span>;
-
-        // Operator +
-        if (t === '+') {
-            return (
-                <span key={idx} className="text-slate-400 dark:text-slate-500 font-bold px-1 select-none text-xs">
-                    +
-                </span>
-            );
-        }
-
-        // Operator /
-        if (t === '/' || t === '／') {
-            return (
-                <span key={idx} className="text-slate-300 dark:text-slate-600 font-bold px-1.5 select-none text-xs">
-                    /
-                </span>
-            );
-        }
-
-        // Operator ➔
-        if (t === '➔') {
-            return (
-                <span key={idx} className="text-slate-400 dark:text-slate-500 font-bold px-1 select-none text-xs">
-                    ➔
-                </span>
-            );
-        }
-
-        // Verb token
-        if (/^V/i.test(t)) {
-            return (
-                <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-japanese tracking-normal">
-                    {renderWithStrikethrough(t, `v-${idx}`)}
-                </span>
-            );
-        }
-
-        // Noun token
-        if (/^N\d*/i.test(t) || /^Danh từ/i.test(t)) {
-            return (
-                <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-500/20 font-japanese tracking-normal">
-                    {renderWithStrikethrough(t, `n-${idx}`)}
-                </span>
-            );
-        }
-
-        // Adjective token
-        if (/^(?:(?:な|い)?adj|A[いな\d\-(]|Na|Tính từ)/i.test(t) || t === 'A' || t === 'Na') {
-            return (
-                <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20 font-japanese tracking-normal">
-                    {renderWithStrikethrough(t, `a-${idx}`)}
-                </span>
-            );
-        }
-
-        // Clause / Sentence token
-        if (/^(?:Mệnh đề|Câu)/i.test(t)) {
-            return (
-                <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/20 tracking-normal">
-                    {renderWithStrikethrough(t, `c-${idx}`)}
-                </span>
-            );
-        }
-
-        // Standard Japanese text and particles
-        return (
-            <span key={idx} className="font-japanese text-slate-800 dark:text-slate-100 font-medium text-sm md:text-[15px] leading-relaxed">
-                {renderWithStrikethrough(token, `txt-${idx}`)}
-            </span>
-        );
-    };
-
     return (
         <div className="group bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3 md:p-3.5 flex items-center gap-3 transition-all duration-150 shadow-2xs hover:border-blue-300 dark:hover:border-blue-600/60 w-full">
-            {/* Index badge or blue bullet */}
             {isNumbered ? (
                 <span className="w-5 h-5 rounded-full bg-[#1d70b8]/15 dark:bg-sky-400/20 text-[#1d70b8] dark:text-sky-300 text-xs font-black flex items-center justify-center shrink-0 select-none">
                     {numberPrefix.replace('.', '')}
@@ -311,7 +428,6 @@ const MaziiStructureCard = ({ formula, structure, pattern, isFirst = true, index
                 </span>
             )}
 
-            {/* Formula tokens container */}
             <div className="flex-1 flex items-center flex-wrap gap-1.5 font-japanese py-0.5">
                 {parts.map((p, idx) => renderToken(p, idx))}
             </div>

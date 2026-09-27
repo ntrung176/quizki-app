@@ -16,6 +16,7 @@ import { GRAMMAR_TABS } from '../../config/tabs';
 import MaziiStructureCard from '../grammar/MaziiStructureCard';
 import MaziiExampleItem from '../grammar/MaziiExampleItem';
 import MaziiSectionRow from '../grammar/MaziiSectionRow';
+import { aiStandardizeGrammarStructure } from '../../services/ai/grammarAiService';
 
 // Fallback illustration data for ~あげく
 const FALLBACK_VISUAL = {
@@ -71,6 +72,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }
     });
     const [saving, setSaving] = useState(false);
+    const [isStandardizing, setIsStandardizing] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -340,6 +342,69 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         }));
     };
 
+    const handleSingleAiStandardize = async () => {
+        if (!gp) return;
+        setIsStandardizing(true);
+        try {
+            const result = await aiStandardizeGrammarStructure(gp);
+            if (result && result.structureRaw) {
+                const updatedData = {
+                    ...gp,
+                    structureRaw: result.structureRaw,
+                    connection: result.connection,
+                    structure: result.connection.map(c => ({ text: c, type: 'connector' })),
+                    meaningShort: result.meaningShort || gp.meaningShort || '',
+                    meaning: result.meaning || gp.meaning || '',
+                    meaningFull: result.meaningFull || gp.meaningFull || '',
+                    tips: (result.tips && result.tips.length > 0) ? result.tips : (gp.tips || [])
+                };
+                const targetTb = gp.textbookId || tb;
+                const targetLs = gp.lessonId || ls;
+                if (targetTb && targetLs) {
+                    await updateGrammarPoint(targetTb, targetLs, grammarId, updatedData);
+                }
+                setGp(updatedData);
+                showToast('Đã chuẩn hóa cấu trúc & giải thích theo sách giáo khoa!', 'success');
+            }
+        } catch (err) {
+            console.error('Error standardizing grammar point:', err);
+            showToast('Lỗi khi chuẩn hóa cấu trúc: ' + err.message, 'error');
+        } finally {
+            setIsStandardizing(false);
+        }
+    };
+
+    const handleEditAiStandardize = async () => {
+        setIsStandardizing(true);
+        try {
+            const tempGp = {
+                ...gp,
+                pattern: editForm.pattern || gp?.pattern,
+                meaning: editForm.meaning || gp?.meaning,
+                meaningShort: editForm.meaningShort || gp?.meaningShort,
+                meaningFull: editForm.meaningFull || gp?.meaningFull,
+                structureRaw: editForm.structureRaw || gp?.structureRaw,
+                examples: editForm.examples || gp?.examples
+            };
+            const result = await aiStandardizeGrammarStructure(tempGp);
+            if (result && result.structureRaw) {
+                setEditForm(f => ({
+                    ...f,
+                    structureRaw: result.structureRaw,
+                    meaningShort: result.meaningShort || f.meaningShort,
+                    meaning: result.meaning || f.meaning,
+                    meaningFull: result.meaningFull || f.meaningFull,
+                    tips: (result.tips && result.tips.length > 0) ? result.tips : f.tips
+                }));
+                showToast('Đã chuẩn hóa cấu trúc & giải thích vào khung soạn thảo!', 'success');
+            }
+        } catch (err) {
+            showToast('Lỗi: ' + err.message, 'error');
+        } finally {
+            setIsStandardizing(false);
+        }
+    };
+
     // Calculate progression details
     const currentIndex = points.findIndex(p => p.id === grammarId);
     const hasProgress = points.length > 0 && currentIndex !== -1;
@@ -521,10 +586,21 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                     </div>
 
                     <div>
-                        <label className="text-xs font-bold text-slate-500 mb-1 block">Cấu trúc công thức (Mỗi dòng 1 công thức)</label>
+                        <div className="flex items-center justify-between mb-1.5">
+                            <label className="text-xs font-bold text-slate-500 block">Cấu trúc công thức (Mỗi dòng 1 công thức)</label>
+                            <button
+                                type="button"
+                                onClick={handleEditAiStandardize}
+                                disabled={isStandardizing}
+                                className="text-xs text-indigo-600 dark:text-indigo-400 font-bold hover:underline flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                            >
+                                <Sparkles className={`w-3.5 h-3.5 ${isStandardizing ? 'animate-spin' : ''}`} />
+                                {isStandardizing ? 'Đang chuẩn hóa...' : '✨ AI Chuẩn hóa cấu trúc sách'}
+                            </button>
+                        </div>
                         <textarea value={editForm.structureRaw} onChange={e => setEditForm(f => ({ ...f, structureRaw: e.target.value }))} rows={3}
-                            placeholder={"V (root form) + のにひきかえ\nN + （である）のにひきかえ\nなadj + な/である + のにひきかえ"}
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-255 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-mono" />
+                            placeholder={"[ 普通形 (Naだ→な / Nだ→である) ] + わけではない\n* Chú ý: Dùng để..."}
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-mono font-bold text-indigo-900 dark:text-indigo-200" />
                     </div>
 
                     <div>
@@ -655,12 +731,24 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         {/* 1. CẤU TRÚC */}
                         {structureLines.length > 0 && (
                             <div className="space-y-3">
-                                <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
-                                    <span className="w-7 h-7 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/70 dark:border-indigo-800/70 flex items-center justify-center shrink-0 shadow-2xs">
-                                        <Layers className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-                                    </span>
-                                    <span>Cấu trúc</span>
-                                </h2>
+                                <div className="flex items-center justify-between">
+                                    <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                                        <span className="w-7 h-7 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/70 dark:border-indigo-800/70 flex items-center justify-center shrink-0 shadow-2xs">
+                                            <Layers className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                                        </span>
+                                        <span>Cấu trúc</span>
+                                    </h2>
+                                    <button
+                                        type="button"
+                                        onClick={handleSingleAiStandardize}
+                                        disabled={isStandardizing}
+                                        className="px-2.5 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+                                        title="Sử dụng AI để chuẩn hóa cấu trúc thành công thức sách giáo khoa [ ]"
+                                    >
+                                        <Sparkles className={`w-3.5 h-3.5 ${isStandardizing ? 'animate-spin' : ''}`} />
+                                        {isStandardizing ? 'Đang chuẩn hóa...' : '✨ AI Chuẩn hóa sách'}
+                                    </button>
+                                </div>
                                 <div className="space-y-1.5 pl-0.5">
                                     {structureLines.map((line, idx) => (
                                         <MaziiStructureCard key={idx} formula={line} pattern={gp.pattern} isFirst={idx === 0} />
