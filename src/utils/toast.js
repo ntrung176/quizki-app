@@ -176,3 +176,95 @@ export const showConfirm = (message, { confirmText = 'Xác nhận', cancelText =
         window.addEventListener('keydown', handleKey);
     });
 };
+
+/**
+ * Thay thế window.alert() bằng modal popup giao diện đẹp (không bị chữ "quizki says")
+ * Trả về Promise<void>
+ * 
+ * Sử dụng:
+ *   import { showAlert } from '../utils/toast';
+ *   await showAlert('Nội dung thông báo', { title: 'Thông báo', type: 'info' });
+ */
+export const showAlert = (message, { title = 'Thông báo', buttonText = 'Đã hiểu', type = 'info' } = {}) => {
+    return new Promise((resolve) => {
+        const isDark = document.documentElement.classList.contains('dark');
+
+        // Overlay
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+            position: fixed; inset: 0; z-index: 99999;
+            background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.2s ease;
+        `;
+
+        // Modal
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            background: ${isDark ? '#1e293b' : '#ffffff'};
+            border: 1px solid ${isDark ? '#334155' : '#e2e8f0'};
+            border-radius: 20px; padding: 28px 24px; max-width: 420px; width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35);
+            transform: scale(0.9); transition: transform 0.2s cubic-bezier(0.21, 1.02, 0.73, 1);
+            text-align: center;
+        `;
+
+        const ICONS_MAP = {
+            success: '🌸',
+            error: '❌',
+            warning: '⚠️',
+            info: '📢'
+        };
+
+        const BTN_GRADIENT = {
+            success: 'background: linear-gradient(135deg, #059669, #10b981);',
+            error: 'background: linear-gradient(135deg, #dc2626, #ef4444);',
+            warning: 'background: linear-gradient(135deg, #d97706, #f59e0b);',
+            info: 'background: linear-gradient(135deg, #4f46e5, #6366f1);'
+        };
+
+        const icon = ICONS_MAP[type] || ICONS_MAP.info;
+        const btnStyle = BTN_GRADIENT[type] || BTN_GRADIENT.info;
+
+        modal.innerHTML = `
+            <div style="font-size: 38px; margin-bottom: 12px; line-height: 1;">${icon}</div>
+            <h3 style="color: ${isDark ? '#f8fafc' : '#0f172a'}; font-size: 17px; font-weight: 700; margin: 0 0 10px 0;">${title}</h3>
+            <div style="color: ${isDark ? '#cbd5e1' : '#475569'}; font-size: 14px; font-weight: 400; line-height: 1.6; margin-bottom: 24px; word-break: break-word; white-space: pre-wrap; text-align: center;">${message}</div>
+            <div style="display: flex; justify-content: center;">
+                <button id="alert-ok" style="
+                    min-width: 140px; padding: 12px 28px; border-radius: 12px; font-size: 14px; font-weight: 700;
+                    border: none; cursor: pointer; color: white; ${btnStyle}
+                    transition: all 0.15s ease; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+                ">${buttonText}</button>
+            </div>
+        `;
+
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        // Animate in
+        requestAnimationFrame(() => {
+            overlay.style.opacity = '1';
+            modal.style.transform = 'scale(1)';
+        });
+
+        const handleKey = (e) => {
+            if (e.key === 'Escape' || e.key === 'Enter') { cleanup(); }
+        };
+
+        const cleanup = () => {
+            window.removeEventListener('keydown', handleKey);
+            overlay.style.opacity = '0';
+            modal.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+                resolve();
+            }, 200);
+        };
+
+        modal.querySelector('#alert-ok').onclick = cleanup;
+        overlay.onclick = (e) => { if (e.target === overlay) cleanup(); };
+
+        window.addEventListener('keydown', handleKey);
+    });
+};

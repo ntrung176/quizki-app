@@ -5,6 +5,7 @@ import {
     Layers, Calendar, ChevronRight, Info, Check, ListFilter
 } from 'lucide-react';
 import { buildBroadcastHtmlTemplate, sendCustomEmail } from '../../utils/email';
+import { showToast, showConfirm, showAlert } from '../../utils/toast';
 
 const STORAGE_KEY_LAST_BATCH = 'quizki_broadcast_last_batch';
 
@@ -249,12 +250,12 @@ export default function AdminBroadcastEmailModal({
     // Handle Send Action
     const handleStartBroadcast = async () => {
         if (!subject.trim()) {
-            alert('Vui lòng nhập Tiêu đề email!');
+            showToast('Vui lòng nhập Tiêu đề email!', 'warning');
             return;
         }
 
         if (targetRecipients.length === 0) {
-            alert('Không tìm thấy người nhận nào phù hợp!');
+            showToast('Không tìm thấy người nhận nào phù hợp!', 'warning');
             return;
         }
 
@@ -266,7 +267,13 @@ export default function AdminBroadcastEmailModal({
             ? `Gửi email thử nghiệm tới: ${testEmail}?`
             : `Bạn có chắc chắn muốn gửi email này tới ${targetRecipients.length} học viên${currentBatchInfo} không?`;
 
-        if (!window.confirm(confirmMsg)) return;
+        const confirmed = await showConfirm(confirmMsg, {
+            confirmText: 'Bắt đầu gửi',
+            cancelText: 'Hủy',
+            type: 'warning'
+        });
+
+        if (!confirmed) return;
 
         setSending(true);
         abortRef.current = false;
@@ -326,6 +333,13 @@ export default function AdminBroadcastEmailModal({
         }
 
         setSending(false);
+
+        if (!abortRef.current) {
+            showAlert(`Gửi email hoàn tất!\nĐã gửi thành công: ${successCount}/${targetRecipients.length} email.`, {
+                title: 'Chiến Dịch Hoàn Tất',
+                type: 'success'
+            });
+        }
     };
 
     if (!isOpen) return null;

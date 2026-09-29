@@ -45,7 +45,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [newNotificationText, setNewNotificationText] = useState({ title: '', message: '', link: '' });
     const [notificationError, setNotificationError] = useState('');
     const [sendingNotification, setSendingNotification] = useState(false);
-    const [notificationType, setNotificationType] = useState('normal');
+    const [notificationType, setNotificationType] = useState('popup');
     const [maintenanceMsg, setMaintenanceMsg] = useState(adminConfig?.maintenanceMessage || '');
 
     // Cache Sync States
