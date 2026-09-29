@@ -88,7 +88,7 @@ export const sendAIPurchaseSuccessEmail = async (userEmail, userName, packageNam
             </ul>
             
             <div style="text-align: center; margin: 36px 0 12px 0;">
-                <a href="https://quizki.id.vn" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); transition: all 0.2s;">Bắt đầu học ngay thôi</a>
+                <a href="https://quizki.space" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); transition: all 0.2s;">Bắt đầu học ngay thôi</a>
             </div>
         </div>
         
@@ -154,4 +154,63 @@ export const sendAIPendingConfirmationEmail = async (userEmail, userName, packag
     `;
 
     return await sendEmail(userEmail, subject, htmlContent);
+};
+
+/**
+ * Tạo giao diện HTML Email chuyên nghiệp chuẩn Responsive cho Broadcast
+ */
+export const buildBroadcastHtmlTemplate = ({
+    bannerTitle = 'Thông báo từ QuizKi',
+    bannerSubtitle = 'Nền tảng học tiếng Nhật thông minh',
+    bannerGradient = 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
+    greeting = 'Xin chào bạn,',
+    bodyText = '',
+    buttonText = 'Truy cập QuizKi.space',
+    buttonUrl = 'https://quizki.space',
+    footerText = 'Chúc bạn có những giờ học tiếng Nhật thật hiệu quả và tràn đầy niềm vui! 🌸'
+} = {}) => {
+    // Chuyển đổi các dòng bodyText thành các đoạn văn bản có khoảng cách
+    const paragraphsHtml = bodyText
+        ? bodyText
+            .split('\n\n')
+            .map(p => `<p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.6; color: #4b5563;">${p.replace(/\n/g, '<br/>')}</p>`)
+            .join('')
+        : '';
+
+    const buttonHtml = buttonText && buttonUrl ? `
+        <div style="text-align: center; margin: 32px 0 16px 0;">
+            <a href="${buttonUrl}" style="display: inline-block; background: ${bannerGradient}; color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35); transition: all 0.2s;">
+                ${buttonText}
+            </a>
+        </div>
+    ` : '';
+
+    return `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; background-color: #ffffff; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);">
+        <div style="background: ${bannerGradient}; padding: 36px 24px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">${bannerTitle}</h1>
+            ${bannerSubtitle ? `<p style="color: rgba(255, 255, 255, 0.9); margin: 8px 0 0 0; font-size: 15px;">${bannerSubtitle}</p>` : ''}
+        </div>
+        
+        <div style="padding: 32px 28px; color: #1f2937;">
+            ${greeting ? `<p style="font-size: 16px; font-weight: 600; color: #111827; margin-top: 0; margin-bottom: 16px;">${greeting}</p>` : ''}
+            
+            ${paragraphsHtml}
+            
+            ${buttonHtml}
+        </div>
+        
+        <div style="background-color: #f8fafc; padding: 20px 24px; text-align: center; border-top: 1px solid #e2e8f0; color: #6b7280; font-size: 13px; line-height: 1.5;">
+            ${footerText ? `<p style="margin: 0 0 8px 0;">${footerText}</p>` : ''}
+            <p style="margin: 0; font-weight: 600; color: #4f46e5;">Thân ái,<br/>Đội ngũ phát triển QuizKi</p>
+        </div>
+    </div>
+    `;
+};
+
+/**
+ * Gửi email tùy chỉnh bất kỳ (Custom Email / Broadcast)
+ */
+export const sendCustomEmail = async (toEmail, subject, htmlContent) => {
+    return await sendEmail(toEmail, subject, htmlContent);
 };

@@ -50,7 +50,7 @@ export default {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    from: 'Quizki <noreply@quizki.id.vn>', // Sửa email có chứa tên miền của bạn ở đây
+                    from: 'Quizki <noreply@quizki.space>', // Sửa email có chứa tên miền của bạn ở đây
                     to: [to],
                     subject: subject,
                     html: html,

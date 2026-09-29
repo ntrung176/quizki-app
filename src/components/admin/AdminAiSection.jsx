@@ -2,7 +2,7 @@ import React from 'react';
 import { Bot, Settings, Layers, Sparkles } from 'lucide-react';
 import { AI_FEATURES, OPENROUTER_MODELS } from '../../utils/adminSettings';
 
-const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarStandardizer }) => {
+const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarStandardizer, onOpenPdfIngestor }) => {
     return (
         <div className="space-y-4">
             {/* AI Provider Selection */}
@@ -18,20 +18,61 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                         </div>
                     </div>
 
-                    {onOpenGrammarStandardizer && (
-                        <button
-                            type="button"
-                            onClick={onOpenGrammarStandardizer}
-                            className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
-                        >
-                            <Sparkles className="w-4 h-4" />
-                            AI Chuẩn Hóa Cấu Trúc Ngữ Pháp
-                        </button>
-                    )}
+                    <div className="flex items-center gap-2 flex-wrap">
+                        {onOpenPdfIngestor && (
+                            <button
+                                type="button"
+                                onClick={() => onOpenPdfIngestor()}
+                                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                            >
+                                <Sparkles className="w-4 h-4" />
+                                🚀 AI PDF Ingestor (Nhập dữ liệu tự động)
+                            </button>
+                        )}
+                        {onOpenGrammarStandardizer && (
+                            <button
+                                type="button"
+                                onClick={onOpenGrammarStandardizer}
+                                className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                            >
+                                <Sparkles className="w-4 h-4" />
+                                AI Chuẩn Hóa Cấu Trúc Ngữ Pháp
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
 
-            {/* Special AI Tools Box */}
+            {/* Special AI Tools Box: PDF Ingestion Engine */}
+            <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-indigo-500/10 dark:from-emerald-950/40 dark:via-teal-950/40 dark:to-indigo-950/40 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center shadow-md">
+                        <Sparkles className="w-5 h-5" />
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
+                            AI PDF Ingestion Engine (Trích xuất & Soạn tự động từ PDF)
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-black uppercase">
+                                New Tool
+                            </span>
+                        </h4>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 max-w-2xl">
+                            Nạp trực tiếp file PDF giáo trình, sách từ vựng, đề thi JLPT hoặc ngữ pháp. AI sẽ tự động đọc, phân tích layout, trích xuất cấu trúc chuẩn và nhập thẳng vào hệ thống mà không cần làm thủ công.
+                        </p>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    onClick={() => onOpenPdfIngestor && onOpenPdfIngestor()}
+                    className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
+                >
+                    <Sparkles className="w-4 h-4" />
+                    Khởi Chạy AI Soạn Từ PDF
+                </button>
+            </div>
+
+            {/* Special AI Tools Box: Grammar Standardizer */}
             <div className="bg-gradient-to-r from-indigo-500/10 via-sky-500/10 to-purple-500/10 dark:from-indigo-950/40 dark:via-sky-950/40 dark:to-purple-950/40 rounded-2xl border border-indigo-200/80 dark:border-indigo-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-3.5">
                     <div className="w-11 h-11 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-md">
@@ -53,7 +94,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                 <button
                     type="button"
                     onClick={onOpenGrammarStandardizer}
-                    className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0"
+                    className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
                 >
                     <Sparkles className="w-4 h-4" />
                     Mở Bảng Điều Khiển

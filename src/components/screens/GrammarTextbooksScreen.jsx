@@ -9,6 +9,7 @@ import { GRAMMAR_CATEGORIES } from '../../data/grammarData';
 import { subscribeTextbooks, addTextbook, updateTextbook, deleteTextbook, importTextbooksFromJson } from '../../utils/grammarService';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
+import AdminPdfIngestorModal from '../admin/AdminPdfIngestorModal';
 
 const SAMPLE_TEXTBOOKS_JSON = `[
   {
@@ -150,6 +151,7 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [showAdd, setShowAdd] = useState(false);
     const [showJsonImport, setShowJsonImport] = useState(false);
+    const [showAiPdfModal, setShowAiPdfModal] = useState(false);
     const [jsonText, setJsonText] = useState('');
     const [importError, setImportError] = useState('');
     const [importSuccess, setImportSuccess] = useState('');
@@ -271,6 +273,10 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
                 {/* Admin Controls */}
                 {isAdmin && (
                     <div className="flex flex-wrap gap-2">
+                        <button onClick={() => setShowAiPdfModal(true)}
+                            className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-sm font-bold rounded-xl transition-all shadow-sm cursor-pointer">
+                            <Sparkles className="w-4 h-4" /> ✨ Soạn giáo trình từ PDF (AI)
+                        </button>
                         <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false, color: '#10b981' }); }}
                             className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors">
                             <Plus className="w-4 h-4" /> Thêm giáo trình
@@ -421,6 +427,13 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
                     ))}
                 </div>
             </div>
+
+            {/* AI PDF Ingestor Modal */}
+            <AdminPdfIngestorModal
+                isOpen={showAiPdfModal}
+                onClose={() => setShowAiPdfModal(false)}
+                initialCategory="GRAMMAR_BOOK"
+            />
         </div>
     );
 };

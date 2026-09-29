@@ -4,10 +4,11 @@ import {
     collection, query, onSnapshot, doc, setDoc, deleteDoc, serverTimestamp, orderBy
 } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
-import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown } from 'lucide-react'
+import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown, Sparkles } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { compressImage, fileToBase64 } from '../../utils/image';
+import AdminPdfIngestorModal from '../admin/AdminPdfIngestorModal';
 const SECTION_TYPES = [
     { value: 'vocabulary', label: 'Từ vựng (文字・語彙)', icon: Languages, color: 'blue' },
     { value: 'grammar', label: 'Ngữ pháp (文法)', icon: BookOpen, color: 'sky' },
@@ -384,6 +385,7 @@ const JLPTAdminScreen = ({ userId }) => {
     const [notification, setNotification] = useState(null);
     const [expandedSections, setExpandedSections] = useState({});
     const [showJsonImport, setShowJsonImport] = useState(false);
+    const [showAiPdfModal, setShowAiPdfModal] = useState(false);
     const [jsonInput, setJsonInput] = useState('');
     const [confirmDelete, setConfirmDelete] = useState(null);
     const [importType, setImportType] = useState('full');
@@ -873,7 +875,11 @@ const JLPTAdminScreen = ({ userId }) => {
                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Cấu hình đề thi thử đầy đủ hoặc bài luyện tập chuyên sâu cho từng kỹ năng</p>
                         </div>
                     </div>
-                    <div className="flex gap-2.5">
+                    <div className="flex gap-2.5 flex-wrap">
+                        <button onClick={() => setShowAiPdfModal(true)}
+                            className="px-4 py-2 text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl transition flex items-center gap-1.5 shadow-sm cursor-pointer">
+                            <Sparkles className="w-4 h-4" /> ✨ Tạo đề từ PDF (AI)
+                        </button>
                         <button onClick={() => setShowJsonImport(true)}
                             className="px-4 py-2 text-xs font-bold bg-[#2E5B70] text-white rounded-xl hover:bg-[#254A5C] transition flex items-center gap-1.5 shadow-sm cursor-pointer">
                             <Upload className="w-4 h-4" /> Nhập JSON
@@ -1760,6 +1766,14 @@ const JLPTAdminScreen = ({ userId }) => {
                     <span>{notification.message}</span>
                 </div>
             )}
+
+            {/* AI PDF Ingestor Modal */}
+            <AdminPdfIngestorModal
+                isOpen={showAiPdfModal}
+                onClose={() => setShowAiPdfModal(false)}
+                initialCategory="JLPT_TEST"
+                onSyncCache={() => {}}
+            />
         </div>
     );
 };

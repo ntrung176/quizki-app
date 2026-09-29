@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { Check, Edit, X } from 'lucide-react';
 import { TopTabBar, PremiumLockedModal } from '../ui';
@@ -11,6 +11,7 @@ import BookGroupList from '../books/BookGroupList';
 import BookView from '../books/BookView';
 import LessonDetailView from '../books/LessonDetailView';
 import BookFormModal from '../books/BookFormModal';
+import AdminPdfIngestorModal from '../admin/AdminPdfIngestorModal';
 
 // ==================== BOOK SCREEN ====================
 const BookScreen = ({ 
@@ -29,6 +30,7 @@ const BookScreen = ({
     awardXP = null
 }) => {
     const fadeWholePage = useMenuTransition();
+    const [showAiPdfModal, setShowAiPdfModal] = useState(false);
 
     const bookData = useBookData({
         isAdmin,
@@ -260,6 +262,7 @@ const BookScreen = ({
                         setShowAddChapter={setShowAddChapter}
                         setShowAddLesson={setShowAddLesson}
                         setShowJsonImport={setShowJsonImport}
+                        setShowAiPdfModal={setShowAiPdfModal}
                         setShowCreateStudySetModal={setShowCreateStudySetModal}
                         setShowLinkStudySetModal={setShowLinkStudySetModal}
                         setSelectedVocabIndices={setSelectedVocabIndices}
@@ -344,6 +347,13 @@ const BookScreen = ({
                         packageName={lockedPkgName}
                     />
                 )}
+
+                {/* AI PDF Ingestion Modal */}
+                <AdminPdfIngestorModal
+                    isOpen={showAiPdfModal}
+                    onClose={() => setShowAiPdfModal(false)}
+                    initialCategory="VOCABULARY_BOOK"
+                />
             </div>
         </div>
     );

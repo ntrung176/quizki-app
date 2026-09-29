@@ -78,7 +78,7 @@ const buildOpenRouterRequest = (prompt, model, apiKey) => ({
                 { role: 'user', content: prompt }
             ],
             temperature: 0.3,
-            max_tokens: 2048,
+            max_tokens: 8192,
             provider: {
                 sort: 'price',
                 allow_fallbacks: true
@@ -179,7 +179,7 @@ const callDirectGeminiApi = async (prompt, model = 'gemini-3.1-flash-lite') => {
         initialModel = 'gemini-3.1-flash-lite';
     }
 
-    const candidateModels = Array.from(new Set([initialModel, 'gemini-3.1-flash-lite', 'gemini-2.0-flash-lite', 'gemini-2.5-flash', 'gemini-2.0-flash']));
+    const candidateModels = Array.from(new Set([initialModel, 'gemini-2.5-flash', 'gemini-3.1-flash-lite', 'gemini-2.0-flash', 'gemini-2.0-flash-lite']));
 
     let lastError = null;
     for (const currentModel of candidateModels) {
@@ -194,7 +194,7 @@ const callDirectGeminiApi = async (prompt, model = 'gemini-3.1-flash-lite') => {
                 ],
                 generationConfig: {
                     temperature: 0.3,
-                    maxOutputTokens: 2048
+                    maxOutputTokens: 8192
                 }
             };
 
@@ -245,7 +245,7 @@ const callVertexAiApi = async (prompt, model = 'gemini-2.5-flash') => {
         ],
         generationConfig: {
             temperature: 0.3,
-            maxOutputTokens: 2048
+            maxOutputTokens: 8192
         }
     };
 
@@ -269,14 +269,32 @@ const callVertexAiApi = async (prompt, model = 'gemini-2.5-flash') => {
 // ============== UNIFIED AI CALL ==============
 
 export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = null) => {
+    const keys = getOpenRouterKeys();
+    const isNonGeminiModel = forcedOpenRouterModel && (
+        forcedOpenRouterModel.startsWith('openai/') ||
+        forcedOpenRouterModel.startsWith('anthropic/') ||
+        forcedOpenRouterModel.startsWith('deepseek/') ||
+        forcedOpenRouterModel.startsWith('meta-llama/')
+    );
+
+    // If user explicitly picked an OpenRouter non-gemini model (Claude, GPT-4o, DeepSeek) and OpenRouter key exists:
+    if (isNonGeminiModel && keys.length > 0) {
+        const activeModel = getEffectiveModel(forcedOpenRouterModel);
+        console.log(
+            `%c[AI Provider] 🔵 OPENROUTER DIRECT (${keys.length} keys) | Feature: ${featureId || 'default'} | Model: ${activeModel}`,
+            'color: #38bdf8; font-weight: bold; background: #0c4a6e; padding: 4px 8px; border-radius: 4px;'
+        );
+        return callWithRetry(prompt, 0, 0, activeModel);
+    }
+
     // 1. Try Direct Google Gemini API (Free Tier / Cloud API Key)
     const geminiKey = getGeminiApiKey();
     if (geminiKey) {
         try {
-            let normalizedModel = forcedOpenRouterModel || 'gemini-3.1-flash-lite';
+            let normalizedModel = forcedOpenRouterModel || 'gemini-2.5-flash';
             if (normalizedModel.includes('/')) normalizedModel = normalizedModel.split('/').pop();
-            if (!normalizedModel.startsWith('gemini-') || normalizedModel === 'gemini-2.5-flash') {
-                normalizedModel = 'gemini-3.1-flash-lite';
+            if (!normalizedModel.startsWith('gemini-')) {
+                normalizedModel = 'gemini-2.5-flash';
             }
 
             console.log(
@@ -291,7 +309,7 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
         } catch (geminiError) {
             console.warn(`%c[AI Provider] ⚠️ Direct Gemini API: ${geminiError.message}, thử Vertex AI...`, 'color: #fbbf24;');
             try {
-                const vertexResult = await callVertexAiApi(prompt, 'gemini-3.1-flash-lite');
+                const vertexResult = await callVertexAiApi(prompt, 'gemini-2.5-flash');
                 if (vertexResult) {
                     console.log(`%c[AI Provider] ✅ Vertex AI Phản hồi Thành Công!`, 'color: #10b981; font-weight: bold;');
                     return vertexResult;
@@ -306,7 +324,6 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
     }
 
     // 2. Fallback: OpenRouter API
-    const keys = getOpenRouterKeys();
     if (keys.length === 0) {
         throw new Error('Không có API key khả dụng (cả Gemini và OpenRouter). Vui lòng thêm VITE_GEMINI_API_KEY hoặc VITE_OPENROUTER_API_KEY vào .env');
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, ToggleRight, ToggleLeft, Loader2, Save, Bell, Send, Wifi, RefreshCw, Clock, Trash2 } from 'lucide-react';
+import { Settings, ToggleRight, ToggleLeft, Loader2, Save, Bell, Send, Wifi, RefreshCw, Clock, Trash2, Mail } from 'lucide-react';
 import { updateAdminConfig } from '../../utils/adminSettings';
 import { showConfirm } from '../../utils/toast';
 
@@ -27,7 +27,8 @@ const AdminSystemSection = ({
     syncJlpt,
     syncAllCache,
     globalNotifications,
-    handleDeleteNotification
+    handleDeleteNotification,
+    onOpenBroadcastEmailModal
 }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -167,6 +168,37 @@ const AdminSystemSection = ({
                     >
                         {sendingNotification ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                         Gửi thông báo
+                    </button>
+                </div>
+            </div>
+
+            {/* Email Broadcast Card */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-indigo-100 dark:border-indigo-900/40 p-6 md:col-span-2 shadow-sm bg-gradient-to-br from-white via-indigo-50/20 to-purple-50/20 dark:from-gray-800 dark:via-gray-800 dark:to-indigo-950/20">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div className="flex items-start gap-3.5">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-indigo-500/20">
+                            <Mail className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-gray-900 dark:text-white text-lg flex items-center gap-2">
+                                Gửi Email Hàng Loạt (Broadcast Mailer)
+                                <span className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-black uppercase tracking-wider">
+                                    Resend @quizki.space
+                                </span>
+                            </h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-2xl leading-relaxed">
+                                Soạn thảo và gửi email thông báo đổi tên miền mới, ra mắt tính năng, tặng voucher hoặc bảo trì trực tiếp tới hòm thư cá nhân của tất cả học viên trong hệ thống.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button
+                        type="button"
+                        onClick={onOpenBroadcastEmailModal}
+                        className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-indigo-500/25 transition-all cursor-pointer flex-shrink-0"
+                    >
+                        <Mail className="w-4 h-4" />
+                        Soạn & Gửi Email Ngay ✉️
                     </button>
                 </div>
             </div>
