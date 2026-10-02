@@ -923,8 +923,14 @@ const Sidebar = ({
                 </div>
             </header>
 
-            {/* Mobile Bottom Navigation Bar - Fixed at bottom with compact iOS safe area */}
-            <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] pt-1 pb-[max(0.2rem,calc(env(safe-area-inset-bottom)-10px))] transition-colors select-none">
+            {/* Mobile Bottom Navigation Bar - Fixed at bottom matching iOS native proportion */}
+            <nav 
+                className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-colors select-none"
+                style={{
+                    paddingTop: '6px',
+                    paddingBottom: 'max(6px, calc(env(safe-area-inset-bottom, 0px) - 14px))'
+                }}
+            >
                 <div className="grid grid-cols-5 items-center max-w-lg mx-auto px-1">
                     {bottomNavTabs.map((tab) => {
                         const TabIcon = tab.icon;
@@ -933,7 +939,7 @@ const Sidebar = ({
                                 key={tab.id}
                                 to={tab.route || '#'}
                                 onClick={tab.onClick}
-                                className="flex flex-col items-center justify-center pt-0.5 pb-0.5 group active:scale-95 transition-transform"
+                                className="flex flex-col items-center justify-center group active:scale-95 transition-transform"
                             >
                                 <div className={`relative w-12 sm:w-13 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
                                     tab.isActive
