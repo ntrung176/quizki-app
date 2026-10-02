@@ -923,8 +923,8 @@ const Sidebar = ({
                 </div>
             </header>
 
-            {/* Mobile Bottom Navigation Bar - Fixed at bottom matching screenshot */}
-            <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-4px_20px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] pt-1.5 pb-[max(0.375rem,env(safe-area-inset-bottom))] transition-colors select-none">
+            {/* Mobile Bottom Navigation Bar - Fixed at bottom with compact iOS safe area */}
+            <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] pt-1 pb-[max(0.2rem,calc(env(safe-area-inset-bottom)-10px))] transition-colors select-none">
                 <div className="grid grid-cols-5 items-center max-w-lg mx-auto px-1">
                     {bottomNavTabs.map((tab) => {
                         const TabIcon = tab.icon;
@@ -933,21 +933,21 @@ const Sidebar = ({
                                 key={tab.id}
                                 to={tab.route || '#'}
                                 onClick={tab.onClick}
-                                className="flex flex-col items-center justify-center py-1 group active:scale-95 transition-transform"
+                                className="flex flex-col items-center justify-center pt-0.5 pb-0.5 group active:scale-95 transition-transform"
                             >
-                                <div className={`relative w-13 sm:w-14 h-7.5 rounded-full flex items-center justify-center transition-all duration-200 ${
+                                <div className={`relative w-12 sm:w-13 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
                                     tab.isActive
                                         ? 'bg-[#e6f4ea] dark:bg-emerald-950/80 text-[#137333] dark:text-emerald-400 shadow-xs'
                                         : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-300'
                                 }`}>
-                                    <TabIcon className={`w-5 h-5 ${tab.isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />
+                                    <TabIcon className={`w-4.5 h-4.5 ${tab.isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />
                                     {tab.badge > 0 && (
-                                        <span className="absolute -top-1.5 -right-2.5 min-w-[17px] h-4 px-1 bg-rose-500 text-white text-[9.5px] font-mono font-black rounded-full flex items-center justify-center shadow-xs">
+                                        <span className="absolute -top-1.5 -right-2 min-w-[16px] h-3.5 px-1 bg-rose-500 text-white text-[9px] font-mono font-black rounded-full flex items-center justify-center shadow-xs">
                                             {tab.badge > 999 ? '999+' : tab.badge}
                                         </span>
                                     )}
                                 </div>
-                                <span className={`text-[11px] mt-1 leading-tight tracking-tight transition-colors ${
+                                <span className={`text-[10.5px] mt-0.5 leading-tight tracking-tight transition-colors ${
                                     tab.isActive
                                         ? 'font-bold text-slate-900 dark:text-white'
                                         : 'font-medium text-slate-600 dark:text-slate-400'
