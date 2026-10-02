@@ -271,26 +271,13 @@ video {
   }
 }
 
-/* Prevent viewport shift when keyboard appears on mobile */
+/* Mobile viewport and safe-area adjustments */
 @media screen and (max-width: 768px) {
-
-  /* Use visual viewport height instead of window height */
-  html {
-    height: 100vh;
-    height: 100dvh;
-    /* Dynamic viewport height */
-  }
-
-  body {
-    height: 100vh;
-    height: 100dvh;
-    position: relative;
-  }
-
-  #root {
-    height: 100vh;
-    height: 100dvh;
-    position: relative;
+  html, body, #root {
+    min-height: 100%;
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
+    height: auto;
   }
 
   /* Prevent input from causing viewport shift */
