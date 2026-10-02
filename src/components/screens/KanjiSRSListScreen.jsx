@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
-import LoadingIndicator from '../ui/LoadingIndicator';
-import { Search, Trash2, ChevronLeft, ChevronRight, ChevronDown, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, Edit, Plus, List, Bookmark, ArrowRight } from 'lucide-react'
+import { Search, Trash2, ChevronLeft, ChevronRight, ChevronDown, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, Edit, Plus, List, Heart, Bookmark, ArrowRight } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, getDoc, doc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -959,8 +958,8 @@ const KanjiSRSListScreen = () => {
                                     className="w-full text-left bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200/50 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-sm flex flex-col justify-between h-[230px] relative group cursor-pointer"
                                 >
                                     <div>
-                                        <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/40 flex items-center justify-center mb-4">
-                                            <Bookmark className="w-6 h-6 text-sky-600" />
+                                        <div className="w-12 h-12 rounded-2xl bg-pink-50 dark:bg-pink-950/40 flex items-center justify-center mb-4">
+                                            <Heart className="w-6 h-6 text-pink-500 fill-pink-500" />
                                         </div>
                                         <h3 className="text-xl font-bold text-slate-800 dark:text-white">Tất cả Kanji</h3>
                                         <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
@@ -1116,9 +1115,9 @@ const KanjiSRSListScreen = () => {
                                                     </div>
 
                                                     {kanji.isSaved ? (
-                                                        <Bookmark className="w-5 h-5 text-[#2E5B70] fill-[#2E5B70] flex-shrink-0" />
+                                                        <Heart className="w-5 h-5 text-pink-500 fill-pink-500 flex-shrink-0" />
                                                     ) : (
-                                                        <Bookmark className="w-5 h-5 text-slate-300 dark:text-slate-600 flex-shrink-0 hover:text-[#2E5B70] transition-colors" />
+                                                        <Heart className="w-5 h-5 text-slate-300 dark:text-slate-600 flex-shrink-0 hover:text-pink-500 transition-colors" />
                                                     )}
                                                 </div>
                                             );

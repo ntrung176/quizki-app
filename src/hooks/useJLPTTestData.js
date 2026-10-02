@@ -48,6 +48,13 @@ export const useJLPTTestData = ({ userId, profile }) => {
             return {};
         }
     });
+    const [wrongQuestions, setWrongQuestions] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('quizki_jlpt_wrong_questions') || '{}');
+        } catch (e) {
+            return {};
+        }
+    });
 
     useEffect(() => {
         if (profile?.jlptTargetLevel) {
@@ -101,12 +108,13 @@ export const useJLPTTestData = ({ userId, profile }) => {
         setCompletedTests({});
         setSavedProgresses({});
         setNotes({});
+        setWrongQuestions({});
         setRoadmapProgress({
             N2: Array.from({ length: 24 }, (_, i) => i + 1)
         });
     }, [userId]);
 
-    // Firestore synchronization for JLPT test progress and notes
+    // Firestore synchronization for JLPT test progress, notes, and wrong questions
     useEffect(() => {
         if (!userId || !db) return;
         const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'jlptProgress');
@@ -138,6 +146,13 @@ export const useJLPTTestData = ({ userId, profile }) => {
                     setNotes(prev => {
                         const merged = { ...prev, ...data.notes };
                         try { localStorage.setItem('quizki_jlpt_notes', JSON.stringify(merged)); } catch (e) {}
+                        return merged;
+                    });
+                }
+                if (data.wrongQuestions) {
+                    setWrongQuestions(prev => {
+                        const merged = { ...prev, ...data.wrongQuestions };
+                        try { localStorage.setItem('quizki_jlpt_wrong_questions', JSON.stringify(merged)); } catch (e) {}
                         return merged;
                     });
                 }
@@ -180,6 +195,41 @@ export const useJLPTTestData = ({ userId, profile }) => {
         } catch (e) {
             console.error('Error saving notes to Firestore:', e);
         }
+    };
+
+    const saveWrongQuestionsToFirestore = async (newWrongs) => {
+        if (!userId || !db) return;
+        try {
+            const progressDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'jlptProgress');
+            await setDoc(progressDocRef, { wrongQuestions: newWrongs }, { merge: true });
+        } catch (e) {
+            console.error('Error saving wrong questions to Firestore:', e);
+        }
+    };
+
+    const recordWrongQuestions = (newWrongs) => {
+        setWrongQuestions(prev => {
+            const updated = { ...prev, ...newWrongs };
+            try { localStorage.setItem('quizki_jlpt_wrong_questions', JSON.stringify(updated)); } catch (e) {}
+            saveWrongQuestionsToFirestore(updated);
+            return updated;
+        });
+    };
+
+    const removeWrongQuestion = (key) => {
+        setWrongQuestions(prev => {
+            const updated = { ...prev };
+            delete updated[key];
+            try { localStorage.setItem('quizki_jlpt_wrong_questions', JSON.stringify(updated)); } catch (e) {}
+            saveWrongQuestionsToFirestore(updated);
+            return updated;
+        });
+    };
+
+    const clearAllWrongQuestions = () => {
+        setWrongQuestions({});
+        try { localStorage.removeItem('quizki_jlpt_wrong_questions'); } catch (e) {}
+        saveWrongQuestionsToFirestore({});
     };
 
     const saveNotesMultiple = (updates) => {
@@ -233,6 +283,10 @@ export const useJLPTTestData = ({ userId, profile }) => {
         setSavedProgresses,
         notes,
         setNotes,
+        wrongQuestions,
+        recordWrongQuestions,
+        removeWrongQuestion,
+        clearAllWrongQuestions,
         saveCompletedTestsToFirestore,
         saveProgressesToFirestore,
         saveNotesToFirestore,

@@ -21,12 +21,17 @@ function cleanFuriganaText(text) {
     return text.replace(/\[([^\s\[\]]+)\]/g, '（$1）');
 }
 
-function convertJlptWorksheets() {
+function stripFuriganaBrackets(text) {
+    if (!text) return '';
+    return text.replace(/\[([^\s\[\]]+)\]/g, '');
+}
+
+// 1. Convert JLPT Worksheets (1 to 148)
+function convertJlptWorksheets(strategyMap = {}) {
     console.log('🔄 Converting JLPT Worksheets...');
     const jlptDir = path.join(DATA_DIR, 'jlpt_worksheets');
     const files = fs.readdirSync(jlptDir).filter(f => f.endsWith('.json') && !f.startsWith('all_'));
 
-    // Sort by worksheet number
     files.sort((a, b) => parseInt(a) - parseInt(b));
 
     const fullTests = [];
@@ -59,6 +64,7 @@ function convertJlptWorksheets() {
         const level = data.level || 'N5';
         const bai = data.bai || parseInt(file);
         const intro = data.intro || '';
+        const strategy = strategyMap[bai] || {};
 
         const vocabQuestions = [];
         const grammarQuestions = [];
@@ -92,9 +98,6 @@ function convertJlptWorksheets() {
                             stem = stem.replace(item.ul, `<u>${item.ul}</u>`);
                         }
                         qText = formatFuriganaRuby(stem);
-                        if (secInstr && !qText.includes('【')) {
-                            // Optionally prepend instruction if helpful
-                        }
                         choices = (item.choices || []).map(c => formatFuriganaRuby(c));
                         ans = typeof item.answer === 'number' ? item.answer : 0;
                     } else if (sec.type === 'star') {
@@ -122,7 +125,6 @@ function convertJlptWorksheets() {
                         ans = subQs[0]?.correctAnswer || 0;
                         exp = subQs[0]?.explanation || exp;
                     } else if (sec.type === 'input') {
-                        // Translation or short answer
                         qText = `Dịch câu sau sang tiếng Nhật: <b>${item.vi || ''}</b>`;
                         choices = [
                             item.target || item.model || '',
@@ -184,6 +186,7 @@ function convertJlptWorksheets() {
                 skillType: 'vocabulary',
                 isPremium: false,
                 sections: sections,
+                strategy: strategy,
                 description: intro ? cleanFuriganaText(intro) : `Đề luyện thi chuẩn JLPT ${level} bài số ${bai} gồm ${totalQ} câu hỏi có giải thích chi tiết.`,
                 createdAt: Date.now() - (150 - bai) * 3600000,
                 updatedAt: Date.now()
@@ -206,6 +209,7 @@ function convertJlptWorksheets() {
                     title: 'Từ vựng & Chữ Hán (文字・語彙)',
                     questions: vocabQuestions
                 }],
+                strategy: strategy,
                 description: `Luyện chuyên sâu từ vựng & chữ Hán JLPT ${level} Bài ${bai} (${vocabQuestions.length} câu).`,
                 createdAt: Date.now() - (150 - bai) * 3600000,
                 updatedAt: Date.now()
@@ -227,6 +231,7 @@ function convertJlptWorksheets() {
                     title: 'Ngữ pháp (文法)',
                     questions: grammarQuestions
                 }],
+                strategy: strategy,
                 description: `Luyện chuyên sâu ngữ pháp & câu sao JLPT ${level} Bài ${bai} (${grammarQuestions.length} câu).`,
                 createdAt: Date.now() - (150 - bai) * 3600000,
                 updatedAt: Date.now()
@@ -238,6 +243,7 @@ function convertJlptWorksheets() {
     return { fullTests, skillTests };
 }
 
+// 2. Convert Yomimono Reading Articles with Sentence Breakdown Data
 function convertYomimonoReading() {
     console.log('🔄 Converting Yomimono Reading Articles...');
     const yomimonoDir = path.join(DATA_DIR, 'yomimono');
@@ -247,6 +253,7 @@ function convertYomimonoReading() {
 
     const readingTests = [];
     const allReadingArticles = [];
+    const strategyMap = {};
 
     files.forEach(file => {
         const filePath = path.join(yomimonoDir, file);
@@ -263,7 +270,10 @@ function convertYomimonoReading() {
         const strategy = data.strategy || {};
         const passages = data.passages || [];
 
+        strategyMap[bai] = strategy;
+
         const readingQuestions = [];
+        const sectionPassages = [];
 
         passages.forEach((p, pIdx) => {
             const titleVi = p.titleVi || '';
@@ -271,15 +281,47 @@ function convertYomimonoReading() {
             const header = `【${titleJp}${titleVi ? ` - ${titleVi}` : ''}】<br/>`;
             const passageHtml = `<b>${header}</b>` + (p.japanese || '').replace(/\n/g, '<br/>');
 
+            // Format sentences for interactive analysis modal
+            const richSentences = (p.sentences || []).map(s => ({
+                jp: formatFuriganaRuby(s.jp || ''),
+                rawJp: stripFuriganaBrackets(s.jp || ''),
+                vi: s.vi || '',
+                vocab: (s.vocab || []).map(v => ({
+                    w: v.w || '',
+                    read: v.read || v.w || '',
+                    vi: v.vi || ''
+                })),
+                grammar: (s.grammar || []).map(g => ({
+                    point: g.point || '',
+                    vi: g.vi || ''
+                }))
+            }));
+
+            const passageData = {
+                title: p.title || `Đoạn văn ${pIdx + 1}`,
+                titleVi: p.titleVi || '',
+                kind: p.kind || 'short',
+                japanese: formatFuriganaRuby(p.japanese || ''),
+                rawJapanese: stripFuriganaBrackets(p.japanese || ''),
+                vietnamese: p.vietnamese || '',
+                sentences: richSentences,
+                highlights: p.highlights || []
+            };
+
+            const passageIndex = sectionPassages.length;
+            sectionPassages.push({
+                passage: passageHtml,
+                passageData: passageData
+            });
+
             (p.questions || []).forEach(q => {
                 let exp = q.explainVi || '';
                 if (q.tip) exp += `\n\n💡 Mẹo làm bài: ${q.tip}`;
                 if (q.qt?.q) exp += `\n\n📖 Dịch câu hỏi: ${q.qt.q}`;
-                if (p.vietnamese) exp += `\n\n📖 Bản dịch bài đọc:\n${p.vietnamese}`;
 
                 readingQuestions.push({
                     question: q.q,
-                    passage: passageHtml,
+                    passageIndex: passageIndex,
                     options: (q.options || []).map(opt => formatFuriganaRuby(opt)),
                     correctAnswer: typeof q.answer === 'number' ? q.answer : 0,
                     explanation: exp,
@@ -303,8 +345,10 @@ function convertYomimonoReading() {
                 sections: [{
                     type: 'reading',
                     title: 'Đọc hiểu (読解)',
+                    passages: sectionPassages,
                     questions: readingQuestions
                 }],
+                strategy: strategy,
                 description: strategy.intro || `Luyện đọc hiểu trình độ ${level} bài số ${bai} kèm bản dịch song ngữ và giải thích chi tiết.`,
                 createdAt: Date.now() - (150 - bai) * 3600000,
                 updatedAt: Date.now()
@@ -321,16 +365,51 @@ function convertYomimonoReading() {
     });
 
     console.log(`✅ Converted ${readingTests.length} Reading Tests and ${allReadingArticles.length} full reading articles.`);
-    return { readingTests, allReadingArticles };
+    return { readingTests, allReadingArticles, strategyMap };
+}
+
+// 3. Convert Drills (61 Drill Practice Sessions)
+function convertDrills() {
+    console.log('🔄 Converting Grammar & Reflex Drills...');
+    const drillsDir = path.join(DATA_DIR, 'drills');
+    if (!fs.existsSync(drillsDir)) return [];
+
+    const files = fs.readdirSync(drillsDir).filter(f => f.endsWith('.json') && !f.startsWith('_'));
+    files.sort((a, b) => parseInt(a) - parseInt(b));
+
+    const allDrills = [];
+    files.forEach(f => {
+        try {
+            const d = JSON.parse(fs.readFileSync(path.join(drillsDir, f), 'utf-8'));
+            const bai = d.bai || parseInt(f);
+            let level = 'N5';
+            if (bai >= 51) level = 'N3';
+            else if (bai >= 26) level = 'N4';
+
+            allDrills.push({
+                ...d,
+                bai,
+                level,
+                cardsCount: (d.cards || []).length,
+                knowCount: (d.know || []).length
+            });
+        } catch (e) {
+            console.error(`Error reading drill ${f}:`, e.message);
+        }
+    });
+
+    console.log(`✅ Converted ${allDrills.length} Drills.`);
+    return allDrills;
 }
 
 function main() {
     console.log('🚀 Converting all OpenJLPT data to Quizki format...');
 
-    const { fullTests, skillTests } = convertJlptWorksheets();
-    const { readingTests, allReadingArticles } = convertYomimonoReading();
+    const { readingTests, allReadingArticles, strategyMap } = convertYomimonoReading();
+    const { fullTests, skillTests } = convertJlptWorksheets(strategyMap);
+    const allDrills = convertDrills();
 
-    // Combined JLPT tests dataset for Quizki
+    // 1. Combined JLPT tests dataset for Quizki
     const allQuizkiJlptTests = [
         ...fullTests,
         ...skillTests,
@@ -338,13 +417,23 @@ function main() {
     ];
 
     const jlptOutputPath = path.join(PUBLIC_DATA_DIR, 'jlpt_data.json');
-    fs.writeFileSync(jlptOutputPath, JSON.stringify(allQuizkiJlptTests, null, 2), 'utf-8');
+    fs.writeFileSync(jlptOutputPath, JSON.stringify(allQuizkiJlptTests), 'utf-8');
     console.log(`\n🎉 Saved ${allQuizkiJlptTests.length} tests to ${jlptOutputPath} (${(fs.statSync(jlptOutputPath).size / (1024 * 1024)).toFixed(2)} MB)`);
 
-    // Yomimono dedicated reading dataset
+    // 2. Yomimono dedicated reading dataset
     const yomimonoOutputPath = path.join(PUBLIC_DATA_DIR, 'yomimono_data.json');
-    fs.writeFileSync(yomimonoOutputPath, JSON.stringify(allReadingArticles, null, 2), 'utf-8');
+    fs.writeFileSync(yomimonoOutputPath, JSON.stringify(allReadingArticles), 'utf-8');
     console.log(`🎉 Saved ${allReadingArticles.length} Yomimono reading articles to ${yomimonoOutputPath} (${(fs.statSync(yomimonoOutputPath).size / (1024 * 1024)).toFixed(2)} MB)`);
+
+    // 3. Strategies dataset (Đề cương 1 to 148)
+    const strategiesOutputPath = path.join(PUBLIC_DATA_DIR, 'strategies_data.json');
+    fs.writeFileSync(strategiesOutputPath, JSON.stringify(strategyMap), 'utf-8');
+    console.log(`🎉 Saved ${Object.keys(strategyMap).length} lesson strategies to ${strategiesOutputPath} (${(fs.statSync(strategiesOutputPath).size / 1024).toFixed(2)} KB)`);
+
+    // 4. Drills dataset (61 drills)
+    const drillsOutputPath = path.join(PUBLIC_DATA_DIR, 'drills_data.json');
+    fs.writeFileSync(drillsOutputPath, JSON.stringify(allDrills), 'utf-8');
+    console.log(`🎉 Saved ${allDrills.length} drills to ${drillsOutputPath} (${(fs.statSync(drillsOutputPath).size / (1024 * 1024)).toFixed(2)} MB)`);
 
     // Summary by level
     const countByLevel = {};

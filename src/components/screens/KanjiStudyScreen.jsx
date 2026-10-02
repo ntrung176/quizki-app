@@ -102,18 +102,20 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
         return map;
     }, [levelDaysMap, completedDays]);
 
-    // Get kanji for selected level, sorted from easy to hard (stroke count → frequency)
+    // Get kanji for selected level, sorted matching Tra cứu Kanji (OpenJLPT order → stroke count → frequency)
     const levelKanji = useMemo(() => {
         const filtered = kanjiList.filter(k => k.level === selectedLevel);
         const mapped = filtered.map(k => {
             const jData = getJotobaKanjiData(k.character);
             return {
                 item: k,
+                openJlptOrder: k.openJlptOrder || jData?.openJlptOrder || 9999,
                 stroke: jData?.stroke_count || parseInt(k.strokeCount) || 999,
                 freq: jData?.frequency || 9999
             };
         });
         mapped.sort((a, b) => {
+            if (a.openJlptOrder !== b.openJlptOrder) return a.openJlptOrder - b.openJlptOrder;
             if (a.stroke !== b.stroke) return a.stroke - b.stroke;
             return a.freq - b.freq;
         });

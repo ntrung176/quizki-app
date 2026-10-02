@@ -5,6 +5,7 @@ import {
     Sparkles, Search, Filter, Printer, Star, Eye, EyeOff
 } from 'lucide-react';
 import { LEVEL_GRADIENTS } from './jlptConstants';
+import JLPTStrategyModal from './JLPTStrategyModal';
 
 const SKILL_ICONS = {
     vocab: Languages,
@@ -41,6 +42,7 @@ const JLPTLessonRoadmapTab = ({
     const [expandedLessons, setExpandedLessons] = useState({});
     const [allExpanded, setAllExpanded] = useState(false);
     const [displayLimit, setDisplayLimit] = useState(30);
+    const [activeStrategyModal, setActiveStrategyModal] = useState(null);
 
     const toggleExpand = (lessonKey) => {
         setExpandedLessons(prev => ({
@@ -92,6 +94,7 @@ const JLPTLessonRoadmapTab = ({
                     bai,
                     title: `Bài ${bai}`,
                     description: t.description || '',
+                    strategy: t.strategy || null,
                     fullTest: null,
                     vocabTest: null,
                     grammarTest: null,
@@ -103,6 +106,9 @@ const JLPTLessonRoadmapTab = ({
             const item = lessonMap.get(key);
             if (t.description && !item.description) {
                 item.description = t.description;
+            }
+            if (t.strategy && !item.strategy) {
+                item.strategy = t.strategy;
             }
 
             if (!t.isSkillTest) {
@@ -348,6 +354,31 @@ const JLPTLessonRoadmapTab = ({
                             {/* Card Expanded Items (4 Skill Rows) */}
                             {isExpanded && (
                                 <div className="px-4 pb-4 sm:px-5 sm:pb-5 space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-3">
+                                    {lesson.strategy && (lesson.strategy.intro || (lesson.strategy.tips && lesson.strategy.tips.length > 0)) && (
+                                        <div className="mb-2.5 p-2.5 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 flex items-center justify-between gap-3">
+                                            <div className="flex items-center gap-2 min-w-0">
+                                                <BookOpen className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                                                <span className="text-xs font-bold text-indigo-900 dark:text-indigo-200 truncate">
+                                                    Đề cương ôn tập & Chiến lược bài #{lesson.bai}
+                                                </span>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setActiveStrategyModal({
+                                                        strategy: lesson.strategy,
+                                                        bai: lesson.bai,
+                                                        level: lesson.level,
+                                                        title: `${lesson.level} - Bài #${lesson.bai}: Đề cương & Chiến lược`
+                                                    });
+                                                }}
+                                                className="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-lg transition shadow-xs cursor-pointer shrink-0"
+                                            >
+                                                Xem đề cương
+                                            </button>
+                                        </div>
+                                    )}
                                     {renderSkillRow(lesson.vocabTest, 'Từ vựng & Chữ Hán', 'vocab', 'blue')}
                                     {renderSkillRow(lesson.grammarTest, 'Ngữ pháp & Câu Sao ★', 'grammar', 'sky')}
                                     {renderSkillRow(lesson.readingTest, 'Đọc hiểu Yomimono', 'reading', 'emerald')}
@@ -369,6 +400,18 @@ const JLPTLessonRoadmapTab = ({
                         Hiển thị thêm bài học (+30 bài) • Còn {filteredLessons.length - displayLimit} bài
                     </button>
                 </div>
+            )}
+
+            {/* JLPT Strategy & Syllabus Modal */}
+            {activeStrategyModal && (
+                <JLPTStrategyModal
+                    isOpen={!!activeStrategyModal}
+                    onClose={() => setActiveStrategyModal(null)}
+                    strategy={activeStrategyModal.strategy}
+                    bai={activeStrategyModal.bai}
+                    level={activeStrategyModal.level}
+                    title={activeStrategyModal.title}
+                />
             )}
         </div>
     );

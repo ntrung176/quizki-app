@@ -15,6 +15,7 @@ import {
 } from '../utils/kanjiService';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../data/jotobaKanjiData';
 import kanjiComponents from '../data/kanjiComponents.json' with { type: 'json' };
+import openjlptKanjiVocab from '../data/openjlptKanjiVocab.json' with { type: 'json' };
 import { computeSinoVietnameseForWord } from '../utils/kanjiHVLookup';
 import { generateVocabForKanjiWithAI } from '../utils/aiProvider';
 import { ROUTES } from '../router';
@@ -80,7 +81,20 @@ export const useKanjiData = ({
         const map = new Map();
         kanjiList.forEach(k => {
             const char = (k?.character || '').trim();
-            if (char && !map.has(char)) map.set(char, { ...k, character: char });
+            if (char && !map.has(char)) {
+                const jData = getJotobaKanjiData(char);
+                const item = { ...k, character: char };
+                if (jData && !k._userEdited) {
+                    item.sinoViet = jData.sinoViet || item.sinoViet;
+                    item.meaning = jData.meaningVi || item.meaning;
+                    item.meaningVi = jData.meaningVi || item.meaningVi;
+                    if (jData.onyomi?.length) item.onyomi = jData.onyomi.join('、');
+                    if (jData.kunyomi?.length) item.kunyomi = jData.kunyomi.join('、');
+                    if (jData.level) item.level = jData.level;
+                    if (jData.openJlptOrder) item.openJlptOrder = jData.openJlptOrder;
+                }
+                map.set(char, item);
+            }
         });
         return map;
     }, [kanjiList]);
@@ -479,11 +493,13 @@ export const useKanjiData = ({
                 const fData = kanjiMap.get(char);
                 return {
                     char,
+                    openJlptOrder: fData?.openJlptOrder || jData?.openJlptOrder || 9999,
                     stroke: jData?.stroke_count || parseInt(fData?.strokeCount) || 999,
                     freq: jData?.frequency || 9999
                 };
             });
             mapped.sort((a, b) => {
+                if (a.openJlptOrder !== b.openJlptOrder) return a.openJlptOrder - b.openJlptOrder;
                 if (a.stroke !== b.stroke) return a.stroke - b.stroke;
                 return a.freq - b.freq;
             });
@@ -652,18 +668,20 @@ export const useKanjiData = ({
         if (fbData) {
             const onyomiStr = Array.isArray(fbData.onyomi) ? fbData.onyomi.join('、') : (fbData.onyomi || '');
             const kunyomiStr = Array.isArray(fbData.kunyomi) ? fbData.kunyomi.join('、') : (fbData.kunyomi || '');
+            const jOnyomi = jData?.onyomi?.length ? jData.onyomi.join('、') : '';
+            const jKunyomi = jData?.kunyomi?.length ? jData.kunyomi.join('、') : '';
             return {
                 ...fbData,
-                sinoViet: fbData.sinoViet || jData?.sinoViet || '',
-                meaning: fbData.meaning || jData?.meaningVi || jData?.meanings?.join(', ') || '',
-                meaningVi: jData?.meaningVi || fbData.meaning || '',
-                onyomi: onyomiStr || jData?.onyomi?.join('、') || '',
-                kunyomi: kunyomiStr || jData?.kunyomi?.join('、') || '',
+                sinoViet: fbData._userEdited ? (fbData.sinoViet || jData?.sinoViet || '') : (jData?.sinoViet || fbData.sinoViet || ''),
+                meaning: fbData._userEdited ? (fbData.meaning || fbData.meaningVi || jData?.meaningVi || '') : (jData?.meaningVi || fbData.meaningVi || fbData.meaning || ''),
+                meaningVi: fbData._userEdited ? (fbData.meaningVi || fbData.meaning || jData?.meaningVi || '') : (jData?.meaningVi || fbData.meaningVi || fbData.meaning || ''),
+                onyomi: fbData._userEdited ? (onyomiStr || jOnyomi) : (jOnyomi || onyomiStr),
+                kunyomi: fbData._userEdited ? (kunyomiStr || jKunyomi) : (jKunyomi || kunyomiStr),
                 strokeCount: fbData.strokeCount || jData?.stroke_count || '',
                 parts: kanjiComponents[char] ? kanjiComponents[char].join('、') : (fbData.parts || jData?.parts?.join('、') || ''),
                 radical: fbData.radical || '',
                 mnemonic: fbData.mnemonic || '',
-                level: fbData.level || jData?.level || 'N5',
+                level: jData?.level || fbData.level || 'N5',
                 imageUrl: fbData.imageUrl || '',
             };
         }
@@ -691,10 +709,24 @@ export const useKanjiData = ({
 
     const getVocabForKanji = (char) => {
         const list = pureKanjiVocabList.filter(v => (v.word || '').includes(char));
-        // Deduplicate list by id or word
+        const openJlptWords = openjlptKanjiVocab[char] || [];
+        
+        const convertedOpenJlpt = openJlptWords.map(w => ({
+            id: `openjlpt_v_${w.word}`,
+            word: w.word,
+            reading: w.reading,
+            meaning: w.meaning,
+            level: w.level || 'N5',
+            sinoViet: computeSinoVietnameseForWord(w.word, kanjiMap),
+            source: 'OpenJLPT'
+        }));
+
+        const merged = [...list, ...convertedOpenJlpt];
+
+        // Deduplicate list by word
         const seen = new Set();
-        const uniqueList = list.filter(v => {
-            const key = v.id ? `id_${v.id}` : `word_${v.word}`;
+        const uniqueList = merged.filter(v => {
+            const key = (v.word || '').trim();
             if (!key || seen.has(key)) return false;
             seen.add(key);
             return true;

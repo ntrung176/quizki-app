@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bookmark, Check, Sparkle, Plus } from 'lucide-react';
+import { Heart, Check, Sparkle, Plus } from 'lucide-react';
 import { LEVEL_COLORS } from './kanjiConstants';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
@@ -25,17 +25,17 @@ const KanjiGridList = ({
                 <div className="flex flex-col md:flex-row md:items-center justify-between bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md gap-4">
                     <div>
                         <div className="flex items-center gap-2 mb-1">
-                            <Sparkle className="w-4 h-4 text-amber-500" />
+                            <Heart className="w-4 h-4 text-pink-500 fill-pink-500" />
                             <h3 className="font-extrabold text-slate-800 dark:text-white text-base">Tiến độ cấp độ {selectedLevel}</h3>
                         </div>
                         <p className="text-xs text-slate-400 dark:text-slate-500">
-                            Đã lưu <span className="font-bold text-sky-500">{completedCount}</span> / {currentKanjiList.length} chữ Kanji trong danh sách ôn tập.
+                            Đã lưu <span className="font-bold text-pink-500">{completedCount}</span> / {currentKanjiList.length} chữ Kanji trong danh sách ôn tập.
                         </p>
                     </div>
                     <div className="flex items-center gap-3 w-full md:w-64">
                         <div className="flex-1 h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-200/50 dark:border-slate-700/50">
                             <div
-                                className="h-full bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full transition-all duration-500 shadow-sm"
+                                className="h-full bg-gradient-to-r from-pink-400 to-rose-500 rounded-full transition-all duration-500 shadow-sm"
                                 style={{ width: `${Math.round((completedCount / (currentKanjiList.length || 1)) * 100)}%` }}
                             />
                         </div>
@@ -72,8 +72,10 @@ const KanjiGridList = ({
                             }}
                             className={`group relative bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border p-4 sm:p-5 flex flex-col justify-between items-center text-center cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
                                 isSelected
-                                    ? 'border-sky-500 ring-2 ring-sky-500/30 bg-sky-50/50 dark:bg-sky-950/20'
-                                    : 'border-slate-200 dark:border-slate-800 hover:border-sky-400 dark:hover:border-sky-500/50'
+                                    ? 'border-pink-500 ring-2 ring-pink-500/30 bg-pink-50/50 dark:bg-pink-950/20'
+                                    : isSRSAdded
+                                        ? 'border-pink-200/80 dark:border-pink-900/40 bg-pink-50/15 dark:bg-pink-950/10'
+                                        : 'border-slate-200 dark:border-slate-800 hover:border-pink-400 dark:hover:border-pink-500/50'
                             }`}
                         >
                             {/* Checkbox for bulk select */}
@@ -83,12 +85,12 @@ const KanjiGridList = ({
                                         type="checkbox"
                                         checked={isSelected}
                                         onChange={() => toggleKanjiSelection(kanjiDoc.id)}
-                                        className="w-4 h-4 rounded border-slate-300 text-sky-500 focus:ring-sky-500"
+                                        className="w-4 h-4 rounded border-slate-300 text-pink-500 focus:ring-pink-500"
                                     />
                                 </div>
                             )}
 
-                            {/* SRS Bookmark Button / Badge */}
+                            {/* SRS Heart Button / Badge */}
                             <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1">
                                 {Boolean(strokeCount) && (
                                     <span className="text-[9px] font-extrabold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 border border-slate-200/50 dark:border-slate-700/50">
@@ -98,14 +100,14 @@ const KanjiGridList = ({
                                 {kanjiDoc && (
                                     <button
                                         onClick={(e) => toggleKanjiSRS(e, char)}
-                                        className={`p-1 rounded-lg transition-all ${
+                                        className={`p-1.5 rounded-xl transition-all cursor-pointer active:scale-90 ${
                                             isSRSAdded
-                                                ? 'text-amber-500 bg-amber-50 dark:bg-amber-950/40'
-                                                : 'text-slate-300 hover:text-amber-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                                ? 'text-pink-500 bg-pink-50 dark:bg-pink-950/50 shadow-xs'
+                                                : 'text-slate-300 hover:text-pink-500 hover:bg-pink-50 dark:hover:bg-slate-800'
                                         }`}
-                                        title={isSRSAdded ? 'Đã thêm vào SRS' : 'Lưu Kanji vào SRS'}
+                                        title={isSRSAdded ? 'Đã lưu Kanji (Yêu thích)' : 'Lưu Kanji vào danh sách học'}
                                     >
-                                        <Bookmark className={`w-3.5 h-3.5 ${isSRSAdded ? 'fill-amber-500' : ''}`} />
+                                        <Heart className={`w-3.5 h-3.5 transition-transform ${isSRSAdded ? 'fill-pink-500 text-pink-500 scale-110' : ''}`} />
                                     </button>
                                 )}
                             </div>

@@ -21,20 +21,35 @@ const notifySubscribers = () => {
     });
 };
 
+const normalizeTest = (t) => {
+    if (!t || !t.sections) return t;
+    t.sections.forEach((sec) => {
+        if (sec.passages && Array.isArray(sec.passages)) {
+            (sec.questions || []).forEach((q) => {
+                if (typeof q.passageIndex === 'number' && sec.passages[q.passageIndex]) {
+                    if (!q.passage) q.passage = sec.passages[q.passageIndex].passage;
+                    if (!q.passageData) q.passageData = sec.passages[q.passageIndex].passageData;
+                }
+            });
+        }
+    });
+    return t;
+};
+
 const recomputeCombinedTests = () => {
     const combinedMap = new Map();
 
     // 1. Base tests (static JSON + CDN)
     baseTestsMap.forEach((test, id) => {
-        combinedMap.set(id, test);
+        combinedMap.set(id, normalizeTest(test));
     });
 
     // 2. Firestore overlay / custom docs
     firestoreDocsMap.forEach((docItem, id) => {
         if (combinedMap.has(id)) {
-            combinedMap.set(id, { ...combinedMap.get(id), ...docItem });
+            combinedMap.set(id, normalizeTest({ ...combinedMap.get(id), ...docItem }));
         } else {
-            combinedMap.set(id, docItem);
+            combinedMap.set(id, normalizeTest(docItem));
         }
     });
 

@@ -194,8 +194,8 @@ const JLPTTestResultView = ({
                                 </div>
                                 <div className="space-y-3.5">
                                     {questionNote && (
-                                        <p className="text-sm text-rose-800 dark:text-rose-300 font-serif italic whitespace-pre-line leading-relaxed pl-1 border-l-2 border-rose-300/40">
-                                            "{questionNote}"
+                                        <p className="text-sm text-rose-800 dark:text-rose-300 font-sans italic whitespace-pre-line leading-relaxed pl-1 border-l-2 border-rose-300/40">
+                                            "{questionNote.toString().normalize('NFC')}"
                                         </p>
                                     )}
                                     {questionDraw && (

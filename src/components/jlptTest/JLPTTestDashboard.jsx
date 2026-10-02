@@ -3,16 +3,20 @@ import { Link } from 'react-router-dom';
 import { 
     Award, BookOpen, Clock, Calendar, CheckCircle2, 
     FileText, Headphones, Languages, Search, Sparkles, 
-    TrendingUp, Zap, MapPin, Layers, Trophy, X
+    TrendingUp, Zap, MapPin, Layers, Trophy, X, AlertCircle
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import JLPTLessonRoadmapTab from './JLPTLessonRoadmapTab';
 import JLPTSkillArenaTab from './JLPTSkillArenaTab';
 import JLPTMockExamsTab from './JLPTMockExamsTab';
+import JLPTDrillsTab from './JLPTDrillsTab';
+import JLPTWrongQuestionsTab from './JLPTWrongQuestionsTab';
 
 const MAIN_TABS = [
     { id: 'roadmap', label: 'Lộ Trình Theo Bài', icon: MapPin, desc: 'Bài học 1 ➔ 148 trọn gói 4 kỹ năng' },
     { id: 'skills', label: 'Luyện Kỹ Năng', icon: Zap, desc: 'Chữ Hán • Ngữ pháp • Đọc hiểu' },
+    { id: 'drills', label: 'Ôn Tập Phản Xạ', icon: Sparkles, desc: '61 bài drills phản xạ ngữ pháp' },
+    { id: 'wrong', label: 'Sổ Tay Câu Sai', icon: AlertCircle, desc: 'Ôn luyện lại các câu làm sai' },
     { id: 'mock', label: 'Phòng Thi Tổng Hợp', icon: Trophy, desc: 'Đề thi mô phỏng JLPT tính giờ' },
 ];
 
@@ -34,7 +38,12 @@ const JLPTTestDashboard = ({
     handleToggleTestFixed,
     setShowPremiumModal,
     setLockedPkgName,
-    notification
+    notification,
+    wrongQuestions = {},
+    onRemoveWrongQuestion,
+    onClearAllWrongQuestions,
+    onStartPracticeWrong,
+    onAddFlashcard
 }) => {
     const [activeMainTab, setActiveMainTab] = useState('roadmap');
     const [selectedLevel, setSelectedLevel] = useState(targetLevel || 'N5');
@@ -201,24 +210,30 @@ const JLPTTestDashboard = ({
                     </div>
                 </div>
 
-                {/* 3. Main Navigation Switcher (3 Core Pillars) */}
-                <div className="flex items-center gap-2 p-1.5 bg-slate-200/70 dark:bg-slate-900 rounded-3xl border border-slate-200/60 dark:border-slate-800 shadow-2xs">
+                {/* 3. Main Navigation Switcher (5 Pillars) */}
+                <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 bg-slate-200/70 dark:bg-slate-900 rounded-3xl border border-slate-200/60 dark:border-slate-800 shadow-2xs overflow-x-auto no-scrollbar">
                     {MAIN_TABS.map(tab => {
                         const Icon = tab.icon;
                         const isSelected = activeMainTab === tab.id;
+                        const wrongCount = tab.id === 'wrong' ? Object.keys(wrongQuestions || {}).length : 0;
 
                         return (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveMainTab(tab.id)}
-                                className={`flex-1 py-3 px-3 sm:px-4 rounded-2xl text-center transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 ${
+                                className={`flex-1 py-3 px-2 sm:px-4 rounded-2xl text-center transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 ${
                                     isSelected
                                         ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm font-black text-xs sm:text-sm'
                                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 font-bold text-xs sm:text-sm'
                                 }`}
                             >
-                                <Icon className={`w-4 h-4 ${isSelected ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400'}`} />
-                                <span>{tab.label}</span>
+                                <Icon className={`w-4 h-4 shrink-0 ${isSelected ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400'}`} />
+                                <span className="whitespace-nowrap">{tab.label}</span>
+                                {wrongCount > 0 && (
+                                    <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-rose-500 text-white shrink-0">
+                                        {wrongCount}
+                                    </span>
+                                )}
                             </button>
                         );
                     })}
@@ -260,6 +275,25 @@ const JLPTTestDashboard = ({
                         handleToggleTestPremium={handleToggleTestPremium}
                         setShowPremiumModal={setShowPremiumModal}
                         setLockedPkgName={setLockedPkgName}
+                    />
+                )}
+
+                {activeMainTab === 'drills' && (
+                    <JLPTDrillsTab
+                        selectedLevel={selectedLevel}
+                        searchQuery={searchQuery}
+                    />
+                )}
+
+                {activeMainTab === 'wrong' && (
+                    <JLPTWrongQuestionsTab
+                        selectedLevel={selectedLevel}
+                        searchQuery={searchQuery}
+                        wrongQuestions={wrongQuestions}
+                        onRemoveWrongQuestion={onRemoveWrongQuestion}
+                        onClearAllWrongQuestions={onClearAllWrongQuestions}
+                        onStartPracticeWrong={onStartPracticeWrong}
+                        onAddFlashcard={onAddFlashcard}
                     />
                 )}
 

@@ -9,6 +9,7 @@ import {
 import QuestionEditModal from './QuestionEditModal';
 import HandwritingCanvas from '../ui/HandwritingCanvas';
 import ExamAnnotationOverlay from '../screens/ExamAnnotationOverlay';
+import InteractiveReadingPassage from './InteractiveReadingPassage';
 import { SECTION_ICONS, SECTION_COLORS } from './jlptConstants';
 
 export const hasHtmlTags = (str) => {
@@ -702,12 +703,12 @@ const JLPTTestTakeView = ({
                                             </div>
                                         )}
 
-                                        {/* Reading Passage */}
-                                        {activeSection?.type === 'reading' && question?.passage && (
-                                            <div className="mb-4 p-4 sm:p-5 bg-slate-50/80 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 rounded-2xl">
-                                                <div 
-                                                    className={getCleanClassName("text-slate-800 dark:text-slate-200 text-[15px] sm:text-[17px] leading-relaxed font-japanese", question.passage)} 
-                                                    dangerouslySetInnerHTML={{ __html: question.passage }} 
+                                        {/* Reading Passage (Interactive Sentence Analysis & Audio) */}
+                                        {activeSection?.type === 'reading' && (question?.passageData || question?.passage || (activeSection?.passages && typeof question?.passageIndex === 'number')) && (
+                                            <div className="mb-4">
+                                                <InteractiveReadingPassage 
+                                                    passageHtml={question.passage || (activeSection?.passages && typeof question.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passage : '')} 
+                                                    passageData={question.passageData || (activeSection?.passages && typeof question.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passageData : null)} 
                                                 />
                                             </div>
                                         )}

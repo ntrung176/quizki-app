@@ -1,5 +1,6 @@
 import React from 'react';
 import { Edit3, Volume2, Check, X } from 'lucide-react';
+import InteractiveReadingPassage from './InteractiveReadingPassage';
 
 export const hasHtmlTags = (str) => {
     if (!str) return false;
@@ -56,9 +57,12 @@ const QuestionContent = React.memo(({
                 </div>
             )}
             {/* Reading passage */}
-            {section.type === 'reading' && question?.passage && (
-                <div className="mb-6 p-5 bg-green-50 dark:bg-green-900/15 border border-green-200 dark:border-green-800 rounded-xl">
-                    <div className={getCleanClassName("text-gray-800 dark:text-gray-200 text-[17px] md:text-[19px] leading-relaxed font-japanese", question.passage)} dangerouslySetInnerHTML={{ __html: question.passage }} />
+            {section.type === 'reading' && (question?.passageData || question?.passage || (section?.passages && typeof question?.passageIndex === 'number')) && (
+                <div className="mb-6">
+                    <InteractiveReadingPassage 
+                        passageHtml={question.passage || (section?.passages && typeof question.passageIndex === 'number' ? section.passages[question.passageIndex]?.passage : '')} 
+                        passageData={question.passageData || (section?.passages && typeof question.passageIndex === 'number' ? section.passages[question.passageIndex]?.passageData : null)} 
+                    />
                 </div>
             )}
             {/* Question Image */}

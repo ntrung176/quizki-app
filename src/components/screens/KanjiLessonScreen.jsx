@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import HanziWriter from 'hanzi-writer';
-import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkle, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Bookmark } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkle, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Heart, Bookmark } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, getDoc, deleteDoc, increment, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -144,7 +144,11 @@ const KanjiLessonScreen = ({ awardXP }) => {
                 filtered.sort((a, b) => {
                     const jA = getJotobaKanjiData(a.character);
                     const jB = getJotobaKanjiData(b.character);
-                    const sA = jA?.stroke_count || 999; const sB = jB?.stroke_count || 999;
+                    const orderA = a.openJlptOrder || jA?.openJlptOrder || 9999;
+                    const orderB = b.openJlptOrder || jB?.openJlptOrder || 9999;
+                    if (orderA !== orderB) return orderA - orderB;
+                    const sA = jA?.stroke_count || parseInt(a.strokeCount) || 999;
+                    const sB = jB?.stroke_count || parseInt(b.strokeCount) || 999;
                     if (sA !== sB) return sA - sB;
                     return (jA?.frequency || 9999) - (jB?.frequency || 9999);
                 });
@@ -248,10 +252,13 @@ const KanjiLessonScreen = ({ awardXP }) => {
     // Today's 10 kanji — MUST use same sorting as KanjiStudyScreen
     const todayKanji = useMemo(() => {
         const filtered = kanjiList.filter(k => k.level === level);
-        // Sort by stroke count (fewer = easier), then frequency (lower = more common)
+        // Sort matching Tra cứu Kanji (OpenJLPT order → stroke count → frequency)
         filtered.sort((a, b) => {
             const jA = getJotobaKanjiData(a.character);
             const jB = getJotobaKanjiData(b.character);
+            const orderA = a.openJlptOrder || jA?.openJlptOrder || 9999;
+            const orderB = b.openJlptOrder || jB?.openJlptOrder || 9999;
+            if (orderA !== orderB) return orderA - orderB;
             const strokeA = jA?.stroke_count || parseInt(a.strokeCount) || 999;
             const strokeB = jB?.stroke_count || parseInt(b.strokeCount) || 999;
             if (strokeA !== strokeB) return strokeA - strokeB;
@@ -1298,15 +1305,15 @@ const KanjiFlashcard = ({
                             onClick={(e) => !isBookmarked && handleBookmarkToggle()}
                             disabled={isBookmarked}
                             className={`p-2 rounded-xl transition-all ${isBookmarked
-                                    ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-500 cursor-default shadow-sm'
-                                    : 'text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 active:scale-95 hover:scale-110'
+                                    ? 'bg-pink-50 dark:bg-pink-950/40 text-pink-500 cursor-default shadow-xs'
+                                    : 'text-gray-400 hover:text-pink-500 dark:hover:text-pink-400 active:scale-95 hover:scale-110'
                                 }`}
-                            title={isBookmarked ? "Đã lưu vào ôn tập" : "Thêm vào ôn tập"}
+                            title={isBookmarked ? "Đã lưu vào danh sách học" : "Lưu Kanji (Yêu thích)"}
                         >
                             {isBookmarked ? (
-                                <Check className="w-5 h-5 stroke-[3]" />
+                                <Heart className="w-5 h-5 fill-pink-500 text-pink-500" />
                             ) : (
-                                <Bookmark className="w-5 h-5" />
+                                <Heart className="w-5 h-5" />
                             )}
                         </button>
                     </div>

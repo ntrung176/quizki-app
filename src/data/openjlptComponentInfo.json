@@ -1,0 +1,1797 @@
+{
+  "一": {
+    "hv": "NHẤT",
+    "vn": "một, ngang"
+  },
+  "丨": {
+    "hv": "CỔN",
+    "vn": "sổ dọc"
+  },
+  "丶": {
+    "hv": "CHỦ",
+    "vn": "chấm"
+  },
+  "丿": {
+    "hv": "PHIỆT",
+    "vn": "phẩy"
+  },
+  "乙": {
+    "hv": "ẤT",
+    "vn": "thứ hai (uốn)"
+  },
+  "亅": {
+    "hv": "QUYẾT",
+    "vn": "móc"
+  },
+  "二": {
+    "hv": "NHỊ",
+    "vn": "hai"
+  },
+  "亠": {
+    "hv": "ĐẦU",
+    "vn": "nắp đậy"
+  },
+  "人": {
+    "hv": "NHÂN",
+    "vn": "người"
+  },
+  "亻": {
+    "hv": "NHÂN",
+    "vn": "người (đứng)",
+    "variantOf": "人"
+  },
+  "儿": {
+    "hv": "NHI",
+    "vn": "chân người"
+  },
+  "入": {
+    "hv": "NHẬP",
+    "vn": "vào"
+  },
+  "八": {
+    "hv": "BÁT",
+    "vn": "tám"
+  },
+  "冂": {
+    "hv": "QUYNH",
+    "vn": "bao vây"
+  },
+  "冖": {
+    "hv": "MỊCH",
+    "vn": "tấm phủ"
+  },
+  "冫": {
+    "hv": "BĂNG",
+    "vn": "băng"
+  },
+  "几": {
+    "hv": "KỶ",
+    "vn": "bàn nhỏ"
+  },
+  "凵": {
+    "hv": "KHẢM",
+    "vn": "hộp mở"
+  },
+  "刀": {
+    "hv": "ĐAO",
+    "vn": "dao"
+  },
+  "刂": {
+    "hv": "ĐAO",
+    "vn": "dao (đứng)",
+    "variantOf": "刀"
+  },
+  "力": {
+    "hv": "LỰC",
+    "vn": "sức lực"
+  },
+  "勹": {
+    "hv": "BAO",
+    "vn": "bao bọc"
+  },
+  "匕": {
+    "hv": "CHỦY",
+    "vn": "thìa"
+  },
+  "匚": {
+    "hv": "PHƯƠNG",
+    "vn": "hộp vuông"
+  },
+  "匸": {
+    "hv": "HỆ",
+    "vn": "che giấu"
+  },
+  "十": {
+    "hv": "THẬP",
+    "vn": "mười"
+  },
+  "卜": {
+    "hv": "BỐC",
+    "vn": "bói"
+  },
+  "卩": {
+    "hv": "TIẾT",
+    "vn": "dấu, ấn"
+  },
+  "厂": {
+    "hv": "HÁN",
+    "vn": "sườn núi"
+  },
+  "厶": {
+    "hv": "TƯ",
+    "vn": "riêng"
+  },
+  "又": {
+    "hv": "HỰU",
+    "vn": "lại, tay phải"
+  },
+  "口": {
+    "hv": "KHẨU",
+    "vn": "miệng"
+  },
+  "囗": {
+    "hv": "VI",
+    "vn": "vây quanh"
+  },
+  "土": {
+    "hv": "THỔ",
+    "vn": "đất"
+  },
+  "士": {
+    "hv": "SĨ",
+    "vn": "sĩ tử"
+  },
+  "夂": {
+    "hv": "TRỊ",
+    "vn": "theo sau"
+  },
+  "夊": {
+    "hv": "TUY",
+    "vn": "chậm chạp"
+  },
+  "夕": {
+    "hv": "TỊCH",
+    "vn": "buổi tối"
+  },
+  "大": {
+    "hv": "ĐẠI",
+    "vn": "lớn"
+  },
+  "女": {
+    "hv": "NỮ",
+    "vn": "phụ nữ"
+  },
+  "子": {
+    "hv": "TỬ",
+    "vn": "con"
+  },
+  "宀": {
+    "hv": "MIÊN",
+    "vn": "mái nhà"
+  },
+  "寸": {
+    "hv": "THỐN",
+    "vn": "tấc, tay"
+  },
+  "小": {
+    "hv": "TIỂU",
+    "vn": "nhỏ"
+  },
+  "尢": {
+    "hv": "UÔNG",
+    "vn": "thọt, què"
+  },
+  "尸": {
+    "hv": "THI",
+    "vn": "thi thể"
+  },
+  "屮": {
+    "hv": "TRIỆT",
+    "vn": "cỏ mới mọc"
+  },
+  "山": {
+    "hv": "SƠN",
+    "vn": "núi"
+  },
+  "巛": {
+    "hv": "XUYÊN",
+    "vn": "sông (biến thể)",
+    "variantOf": "川"
+  },
+  "川": {
+    "hv": "XUYÊN",
+    "vn": "sông"
+  },
+  "工": {
+    "hv": "CÔNG",
+    "vn": "thợ, công"
+  },
+  "己": {
+    "hv": "KỶ",
+    "vn": "mình"
+  },
+  "巾": {
+    "hv": "CÂN",
+    "vn": "khăn"
+  },
+  "干": {
+    "hv": "CAN",
+    "vn": "phơi khô"
+  },
+  "幺": {
+    "hv": "YÊU",
+    "vn": "nhỏ bé"
+  },
+  "广": {
+    "hv": "NGHIỄM",
+    "vn": "nhà"
+  },
+  "廴": {
+    "hv": "DẪN",
+    "vn": "kéo dài"
+  },
+  "廾": {
+    "hv": "CỦNG",
+    "vn": "chắp tay"
+  },
+  "弋": {
+    "hv": "DẶC",
+    "vn": "cọc"
+  },
+  "弓": {
+    "hv": "CUNG",
+    "vn": "cung tên"
+  },
+  "彐": {
+    "hv": "KÝ",
+    "vn": "đầu lợn (biến thể)",
+    "variantOf": "彑"
+  },
+  "彑": {
+    "hv": "KÝ",
+    "vn": "đầu lợn"
+  },
+  "彡": {
+    "hv": "SAM",
+    "vn": "lông tóc"
+  },
+  "彳": {
+    "hv": "XÍCH",
+    "vn": "bước chân"
+  },
+  "心": {
+    "hv": "TÂM",
+    "vn": "tim, lòng"
+  },
+  "忄": {
+    "hv": "TÂM",
+    "vn": "tim (đứng)",
+    "variantOf": "心"
+  },
+  "戈": {
+    "hv": "QUA",
+    "vn": "kích"
+  },
+  "戸": {
+    "hv": "HỘ",
+    "vn": "cửa"
+  },
+  "戶": {
+    "hv": "HỘ",
+    "vn": "cửa (truyền thống)",
+    "variantOf": "戸"
+  },
+  "手": {
+    "hv": "THỦ",
+    "vn": "tay"
+  },
+  "扌": {
+    "hv": "THỦ",
+    "vn": "tay (đứng)",
+    "variantOf": "手"
+  },
+  "支": {
+    "hv": "CHI",
+    "vn": "chống đỡ"
+  },
+  "攵": {
+    "hv": "PHỘC",
+    "vn": "đánh khẽ"
+  },
+  "攴": {
+    "hv": "PHỘC",
+    "vn": "đánh khẽ (truyền thống)",
+    "variantOf": "攵"
+  },
+  "文": {
+    "hv": "VĂN",
+    "vn": "văn"
+  },
+  "斗": {
+    "hv": "ĐẨU",
+    "vn": "đấu (đo lường)"
+  },
+  "斤": {
+    "hv": "CÂN",
+    "vn": "cái rìu"
+  },
+  "方": {
+    "hv": "PHƯƠNG",
+    "vn": "phương hướng"
+  },
+  "无": {
+    "hv": "VÔ",
+    "vn": "không có"
+  },
+  "旡": {
+    "hv": "KÝ",
+    "vn": "nghẹn"
+  },
+  "日": {
+    "hv": "NHẬT",
+    "vn": "mặt trời, ngày"
+  },
+  "曰": {
+    "hv": "VIẾT",
+    "vn": "nói rằng"
+  },
+  "月": {
+    "hv": "NGUYỆT",
+    "vn": "mặt trăng, tháng"
+  },
+  "木": {
+    "hv": "MỘC",
+    "vn": "cây, gỗ"
+  },
+  "欠": {
+    "hv": "KHIẾM",
+    "vn": "thiếu, há miệng"
+  },
+  "止": {
+    "hv": "CHỈ",
+    "vn": "dừng"
+  },
+  "歹": {
+    "hv": "ĐÃI",
+    "vn": "xương tàn, chết"
+  },
+  "殳": {
+    "hv": "THÙ",
+    "vn": "gậy đánh"
+  },
+  "毋": {
+    "hv": "VÔ",
+    "vn": "chớ, đừng"
+  },
+  "比": {
+    "hv": "TỶ",
+    "vn": "so sánh"
+  },
+  "毛": {
+    "hv": "MAO",
+    "vn": "lông"
+  },
+  "氏": {
+    "hv": "THỊ",
+    "vn": "họ"
+  },
+  "气": {
+    "hv": "KHÍ",
+    "vn": "hơi, khí"
+  },
+  "水": {
+    "hv": "THỦY",
+    "vn": "nước"
+  },
+  "氵": {
+    "hv": "THỦY",
+    "vn": "nước (3 chấm)",
+    "variantOf": "水"
+  },
+  "氺": {
+    "hv": "THỦY",
+    "vn": "nước (đáy)",
+    "variantOf": "水"
+  },
+  "火": {
+    "hv": "HỎA",
+    "vn": "lửa"
+  },
+  "灬": {
+    "hv": "HỎA",
+    "vn": "lửa (4 chấm)",
+    "variantOf": "火"
+  },
+  "爪": {
+    "hv": "TRẢO",
+    "vn": "móng vuốt"
+  },
+  "爫": {
+    "hv": "TRẢO",
+    "vn": "móng vuốt (trên)",
+    "variantOf": "爪"
+  },
+  "父": {
+    "hv": "PHỤ",
+    "vn": "cha"
+  },
+  "爻": {
+    "hv": "HÀO",
+    "vn": "hào (kinh dịch)"
+  },
+  "爿": {
+    "hv": "TƯỜNG",
+    "vn": "mảnh gỗ (trái)"
+  },
+  "片": {
+    "hv": "PHIẾN",
+    "vn": "mảnh"
+  },
+  "牙": {
+    "hv": "NHA",
+    "vn": "răng nanh"
+  },
+  "牛": {
+    "hv": "NGƯU",
+    "vn": "trâu bò"
+  },
+  "犬": {
+    "hv": "KHUYỂN",
+    "vn": "chó"
+  },
+  "犭": {
+    "hv": "KHUYỂN",
+    "vn": "chó (đứng)",
+    "variantOf": "犬"
+  },
+  "玄": {
+    "hv": "HUYỀN",
+    "vn": "huyền bí, đen"
+  },
+  "玉": {
+    "hv": "NGỌC",
+    "vn": "ngọc"
+  },
+  "王": {
+    "hv": "VƯƠNG",
+    "vn": "vua / ngọc (rút gọn)"
+  },
+  "瓜": {
+    "hv": "QUA",
+    "vn": "dưa"
+  },
+  "瓦": {
+    "hv": "NGÕA",
+    "vn": "ngói"
+  },
+  "甘": {
+    "hv": "CAM",
+    "vn": "ngọt"
+  },
+  "生": {
+    "hv": "SINH",
+    "vn": "sinh, sống"
+  },
+  "用": {
+    "hv": "DỤNG",
+    "vn": "dùng"
+  },
+  "田": {
+    "hv": "ĐIỀN",
+    "vn": "ruộng"
+  },
+  "疋": {
+    "hv": "THẤT",
+    "vn": "tấm vải"
+  },
+  "疒": {
+    "hv": "NẠCH",
+    "vn": "bệnh"
+  },
+  "癶": {
+    "hv": "BÁT",
+    "vn": "gạt chân"
+  },
+  "白": {
+    "hv": "BẠCH",
+    "vn": "trắng"
+  },
+  "皮": {
+    "hv": "BÌ",
+    "vn": "da"
+  },
+  "皿": {
+    "hv": "MÃNH",
+    "vn": "bát đĩa"
+  },
+  "目": {
+    "hv": "MỤC",
+    "vn": "mắt"
+  },
+  "矛": {
+    "hv": "MÂU",
+    "vn": "cây giáo"
+  },
+  "矢": {
+    "hv": "THỈ",
+    "vn": "mũi tên"
+  },
+  "石": {
+    "hv": "THẠCH",
+    "vn": "đá"
+  },
+  "示": {
+    "hv": "THỊ",
+    "vn": "biểu thị, thần"
+  },
+  "礻": {
+    "hv": "THỊ",
+    "vn": "thần (đứng)",
+    "variantOf": "示"
+  },
+  "禸": {
+    "hv": "NHỮU",
+    "vn": "vết chân thú"
+  },
+  "禾": {
+    "hv": "HÒA",
+    "vn": "cây lúa"
+  },
+  "穴": {
+    "hv": "HUYỆT",
+    "vn": "hang lỗ"
+  },
+  "立": {
+    "hv": "LẬP",
+    "vn": "đứng"
+  },
+  "竹": {
+    "hv": "TRÚC",
+    "vn": "tre"
+  },
+  "米": {
+    "hv": "MỄ",
+    "vn": "gạo"
+  },
+  "糸": {
+    "hv": "MỊCH",
+    "vn": "tơ chỉ"
+  },
+  "糹": {
+    "hv": "MỊCH",
+    "vn": "tơ chỉ",
+    "variantOf": "糸"
+  },
+  "缶": {
+    "hv": "PHẪU",
+    "vn": "lọ sành"
+  },
+  "网": {
+    "hv": "VÕNG",
+    "vn": "lưới"
+  },
+  "罒": {
+    "hv": "VÕNG",
+    "vn": "lưới (đầu)",
+    "variantOf": "网"
+  },
+  "羊": {
+    "hv": "DƯƠNG",
+    "vn": "dê cừu"
+  },
+  "羽": {
+    "hv": "VŨ",
+    "vn": "lông cánh"
+  },
+  "老": {
+    "hv": "LÃO",
+    "vn": "già"
+  },
+  "耂": {
+    "hv": "LÃO",
+    "vn": "già (đầu)",
+    "variantOf": "老"
+  },
+  "而": {
+    "hv": "NHI",
+    "vn": "mà, và"
+  },
+  "耒": {
+    "hv": "LỖI",
+    "vn": "cày bừa"
+  },
+  "耳": {
+    "hv": "NHĨ",
+    "vn": "tai"
+  },
+  "聿": {
+    "hv": "DUẬT",
+    "vn": "bút lông"
+  },
+  "肉": {
+    "hv": "NHỤC",
+    "vn": "thịt"
+  },
+  "臣": {
+    "hv": "THẦN",
+    "vn": "bề tôi"
+  },
+  "自": {
+    "hv": "TỰ",
+    "vn": "tự mình, mũi"
+  },
+  "至": {
+    "hv": "CHÍ",
+    "vn": "đến"
+  },
+  "臼": {
+    "hv": "CỬU",
+    "vn": "cối"
+  },
+  "舌": {
+    "hv": "THIỆT",
+    "vn": "lưỡi"
+  },
+  "舛": {
+    "hv": "SUYỄN",
+    "vn": "trái ngược"
+  },
+  "舟": {
+    "hv": "CHU",
+    "vn": "thuyền"
+  },
+  "艮": {
+    "hv": "CẤN",
+    "vn": "cấn (kinh dịch), đậu lại"
+  },
+  "色": {
+    "hv": "SẮC",
+    "vn": "màu sắc"
+  },
+  "艸": {
+    "hv": "THẢO",
+    "vn": "cỏ"
+  },
+  "艹": {
+    "hv": "THẢO",
+    "vn": "cỏ (rút gọn)",
+    "variantOf": "艸"
+  },
+  "虍": {
+    "hv": "HÔ",
+    "vn": "đầu hổ"
+  },
+  "虫": {
+    "hv": "TRÙNG",
+    "vn": "sâu, côn trùng"
+  },
+  "血": {
+    "hv": "HUYẾT",
+    "vn": "máu"
+  },
+  "行": {
+    "hv": "HÀNH",
+    "vn": "đi, hàng"
+  },
+  "衣": {
+    "hv": "Y",
+    "vn": "quần áo"
+  },
+  "衤": {
+    "hv": "Y",
+    "vn": "áo (đứng)",
+    "variantOf": "衣"
+  },
+  "襾": {
+    "hv": "Á",
+    "vn": "che, đậy"
+  },
+  "覀": {
+    "hv": "Á",
+    "vn": "che, đậy",
+    "variantOf": "襾"
+  },
+  "西": {
+    "hv": "TÂY",
+    "vn": "phía Tây"
+  },
+  "見": {
+    "hv": "KIẾN",
+    "vn": "thấy"
+  },
+  "角": {
+    "hv": "GIÁC",
+    "vn": "góc, sừng"
+  },
+  "言": {
+    "hv": "NGÔN",
+    "vn": "lời nói"
+  },
+  "谷": {
+    "hv": "CỐC",
+    "vn": "thung lũng"
+  },
+  "豆": {
+    "hv": "ĐẬU",
+    "vn": "đậu"
+  },
+  "豕": {
+    "hv": "THỈ",
+    "vn": "lợn"
+  },
+  "豸": {
+    "hv": "TRỪ",
+    "vn": "sâu bọ chân dài"
+  },
+  "貝": {
+    "hv": "BỐI",
+    "vn": "sò, vỏ ốc (tiền)"
+  },
+  "赤": {
+    "hv": "XÍCH",
+    "vn": "đỏ"
+  },
+  "走": {
+    "hv": "TẨU",
+    "vn": "chạy"
+  },
+  "足": {
+    "hv": "TÚC",
+    "vn": "chân"
+  },
+  "身": {
+    "hv": "THÂN",
+    "vn": "thân thể"
+  },
+  "車": {
+    "hv": "XA",
+    "vn": "xe"
+  },
+  "辛": {
+    "hv": "TÂN",
+    "vn": "cay đắng"
+  },
+  "辰": {
+    "hv": "THẦN",
+    "vn": "thìn, thời"
+  },
+  "辵": {
+    "hv": "SƯỚC",
+    "vn": "chuyển động"
+  },
+  "辶": {
+    "hv": "SƯỚC",
+    "vn": "chuyển động",
+    "variantOf": "辵"
+  },
+  "邑": {
+    "hv": "ẤP",
+    "vn": "làng ấp"
+  },
+  "阝": {
+    "hv": "PHỤ/ẤP",
+    "vn": "gò đất / ấp",
+    "variantOf": "阜"
+  },
+  "酉": {
+    "hv": "DẬU",
+    "vn": "rượu, dậu"
+  },
+  "釆": {
+    "hv": "BIỆN",
+    "vn": "phân biệt"
+  },
+  "里": {
+    "hv": "LÝ",
+    "vn": "làng, dặm"
+  },
+  "金": {
+    "hv": "KIM",
+    "vn": "kim loại, vàng"
+  },
+  "長": {
+    "hv": "TRƯỜNG",
+    "vn": "dài, lớn"
+  },
+  "門": {
+    "hv": "MÔN",
+    "vn": "cửa"
+  },
+  "阜": {
+    "hv": "PHỤ",
+    "vn": "gò đất"
+  },
+  "隶": {
+    "hv": "ĐÃI",
+    "vn": "bắt được"
+  },
+  "隹": {
+    "hv": "CHUY",
+    "vn": "chim đuôi ngắn"
+  },
+  "雨": {
+    "hv": "VŨ",
+    "vn": "mưa"
+  },
+  "青": {
+    "hv": "THANH",
+    "vn": "xanh"
+  },
+  "非": {
+    "hv": "PHI",
+    "vn": "không, sai"
+  },
+  "面": {
+    "hv": "DIỆN",
+    "vn": "mặt"
+  },
+  "革": {
+    "hv": "CÁCH",
+    "vn": "da thuộc"
+  },
+  "韋": {
+    "hv": "VI",
+    "vn": "da thuộc (cổ)"
+  },
+  "韭": {
+    "hv": "CỬU",
+    "vn": "hẹ"
+  },
+  "音": {
+    "hv": "ÂM",
+    "vn": "âm thanh"
+  },
+  "頁": {
+    "hv": "HIỆT",
+    "vn": "trang, đầu"
+  },
+  "風": {
+    "hv": "PHONG",
+    "vn": "gió"
+  },
+  "飛": {
+    "hv": "PHI",
+    "vn": "bay"
+  },
+  "食": {
+    "hv": "THỰC",
+    "vn": "ăn, thức ăn"
+  },
+  "飠": {
+    "hv": "THỰC",
+    "vn": "ăn (đứng)",
+    "variantOf": "食"
+  },
+  "𩙿": {
+    "hv": "THỰC",
+    "vn": "ăn (biến thể)",
+    "variantOf": "食"
+  },
+  "首": {
+    "hv": "THỦ",
+    "vn": "đầu"
+  },
+  "香": {
+    "hv": "HƯƠNG",
+    "vn": "thơm"
+  },
+  "馬": {
+    "hv": "MÃ",
+    "vn": "ngựa"
+  },
+  "骨": {
+    "hv": "CỐT",
+    "vn": "xương"
+  },
+  "高": {
+    "hv": "CAO",
+    "vn": "cao"
+  },
+  "髟": {
+    "hv": "TIÊU",
+    "vn": "tóc dài"
+  },
+  "鬥": {
+    "hv": "ĐẤU",
+    "vn": "đấu"
+  },
+  "鬯": {
+    "hv": "SƯỞNG",
+    "vn": "rượu nếp"
+  },
+  "鬲": {
+    "hv": "CÁCH",
+    "vn": "cái vạc"
+  },
+  "鬼": {
+    "hv": "QUỶ",
+    "vn": "ma quỷ"
+  },
+  "魚": {
+    "hv": "NGƯ",
+    "vn": "cá"
+  },
+  "鳥": {
+    "hv": "ĐIỂU",
+    "vn": "chim"
+  },
+  "鹵": {
+    "hv": "LỖ",
+    "vn": "muối"
+  },
+  "鹿": {
+    "hv": "LỘC",
+    "vn": "hươu"
+  },
+  "麥": {
+    "hv": "MẠCH",
+    "vn": "lúa mì"
+  },
+  "麻": {
+    "hv": "MA",
+    "vn": "gai, đay"
+  },
+  "黃": {
+    "hv": "HOÀNG",
+    "vn": "vàng (màu)"
+  },
+  "黍": {
+    "hv": "THỬ",
+    "vn": "lúa nếp"
+  },
+  "黑": {
+    "hv": "HẮC",
+    "vn": "đen"
+  },
+  "黹": {
+    "hv": "TRỈ",
+    "vn": "thêu thùa"
+  },
+  "黽": {
+    "hv": "MÃNH",
+    "vn": "cóc, ngoan cố"
+  },
+  "鼎": {
+    "hv": "ĐỈNH",
+    "vn": "cái đỉnh"
+  },
+  "鼓": {
+    "hv": "CỔ",
+    "vn": "trống"
+  },
+  "鼠": {
+    "hv": "THỬ",
+    "vn": "chuột"
+  },
+  "鼻": {
+    "hv": "TỴ",
+    "vn": "mũi"
+  },
+  "齊": {
+    "hv": "TỀ",
+    "vn": "đều, ngang"
+  },
+  "齒": {
+    "hv": "XỈ",
+    "vn": "răng"
+  },
+  "龍": {
+    "hv": "LONG",
+    "vn": "rồng"
+  },
+  "龜": {
+    "hv": "QUY",
+    "vn": "rùa"
+  },
+  "龠": {
+    "hv": "DƯỢC",
+    "vn": "sáo cổ"
+  },
+  "云": {
+    "hv": "VÂN",
+    "vn": "mây, nói"
+  },
+  "亼": {
+    "hv": "TẬP",
+    "vn": "tụ họp"
+  },
+  "毎": {
+    "hv": "MỖI",
+    "vn": "mỗi"
+  },
+  "寺": {
+    "hv": "TỰ",
+    "vn": "chùa"
+  },
+  "吾": {
+    "hv": "NGÔ",
+    "vn": "ta, tôi"
+  },
+  "主": {
+    "hv": "CHỦ",
+    "vn": "chủ"
+  },
+  "先": {
+    "hv": "TIÊN",
+    "vn": "trước"
+  },
+  "永": {
+    "hv": "VĨNH",
+    "vn": "mãi mãi"
+  },
+  "也": {
+    "hv": "DÃ",
+    "vn": "cũng"
+  },
+  "同": {
+    "hv": "ĐỒNG",
+    "vn": "cùng"
+  },
+  "相": {
+    "hv": "TƯƠNG",
+    "vn": "lẫn nhau"
+  },
+  "袁": {
+    "hv": "VIÊN",
+    "vn": "áo dài"
+  },
+  "束": {
+    "hv": "THÚC",
+    "vn": "bó"
+  },
+  "重": {
+    "hv": "TRỌNG",
+    "vn": "nặng"
+  },
+  "甬": {
+    "hv": "DŨNG",
+    "vn": "lối nhỏ"
+  },
+  "且": {
+    "hv": "THẢ",
+    "vn": "vả lại, hơn nữa"
+  },
+  "包": {
+    "hv": "BAO",
+    "vn": "bao bọc"
+  },
+  "圭": {
+    "hv": "KHUÊ",
+    "vn": "ngọc khuê"
+  },
+  "者": {
+    "hv": "GIẢ",
+    "vn": "người, kẻ"
+  },
+  "吉": {
+    "hv": "CÁT",
+    "vn": "tốt lành"
+  },
+  "甫": {
+    "hv": "PHỦ",
+    "vn": "mới, bắt đầu"
+  },
+  "肖": {
+    "hv": "TIÊU",
+    "vn": "giống, hao hao"
+  },
+  "旦": {
+    "hv": "ĐÁN",
+    "vn": "sáng sớm"
+  },
+  "夫": {
+    "hv": "PHU",
+    "vn": "người đàn ông"
+  },
+  "兪": {
+    "hv": "DU",
+    "vn": "thuyền nhỏ; vâng"
+  },
+  "辟": {
+    "hv": "TÍCH",
+    "vn": "tránh; mở"
+  },
+  "莫": {
+    "hv": "MẠC",
+    "vn": "không, chớ"
+  },
+  "堯": {
+    "hv": "NGHIÊU",
+    "vn": "vua Nghiêu, cao"
+  },
+  "其": {
+    "hv": "KỲ",
+    "vn": "ấy, đó"
+  },
+  "占": {
+    "hv": "CHIẾM",
+    "vn": "bói, chiếm"
+  },
+  "令": {
+    "hv": "LỆNH",
+    "vn": "mệnh lệnh"
+  },
+  "亡": {
+    "hv": "VONG",
+    "vn": "mất, chết"
+  },
+  "曷": {
+    "hv": "HẠT",
+    "vn": "sao, gì"
+  },
+  "僉": {
+    "hv": "THIÊM",
+    "vn": "tất cả, cùng nhau"
+  },
+  "乍": {
+    "hv": "TRÁ",
+    "vn": "chợt, bỗng"
+  },
+  "夾": {
+    "hv": "GIÁP",
+    "vn": "kẹp"
+  },
+  "我": {
+    "hv": "NGÃ",
+    "vn": "ta, tôi"
+  },
+  "區": {
+    "hv": "KHU",
+    "vn": "khu vực"
+  },
+  "昜": {
+    "hv": "DƯƠNG",
+    "vn": "sáng, dương"
+  },
+  "翏": {
+    "hv": "LIỄU",
+    "vn": "lông chim bay"
+  },
+  "盧": {
+    "hv": "LƯ",
+    "vn": "cái lò"
+  },
+  "戔": {
+    "hv": "TIÊN",
+    "vn": "tổn thương; ít"
+  },
+  "可": {
+    "hv": "KHẢ",
+    "vn": "có thể"
+  },
+  "軍": {
+    "hv": "QUÂN",
+    "vn": "quân đội"
+  },
+  "此": {
+    "hv": "THỬ",
+    "vn": "này, đây"
+  },
+  "并": {
+    "hv": "TÍNH",
+    "vn": "cùng, gộp lại"
+  },
+  "兆": {
+    "hv": "TRIỆU",
+    "vn": "điềm; một triệu"
+  },
+  "夋": {
+    "hv": "TUẤN",
+    "vn": "thông minh; chậm rãi"
+  },
+  "婁": {
+    "hv": "LÂU",
+    "vn": "chòm sao; trống rỗng"
+  },
+  "尞": {
+    "hv": "LIỄU",
+    "vn": "đốt sáng"
+  },
+  "京": {
+    "hv": "KINH",
+    "vn": "kinh đô"
+  },
+  "單": {
+    "hv": "ĐƠN",
+    "vn": "đơn lẻ"
+  },
+  "业": {
+    "hv": "NGHIỆP",
+    "vn": "nghề, công việc (rút gọn)",
+    "variantOf": "業"
+  },
+  "兄": {
+    "hv": "HUYNH",
+    "vn": "anh trai"
+  },
+  "它": {
+    "hv": "THA",
+    "vn": "nó, khác"
+  },
+  "尺": {
+    "hv": "XÍCH",
+    "vn": "thước"
+  },
+  "咅": {
+    "hv": "PHẪU",
+    "vn": "nhổ, vứt bỏ"
+  },
+  "周": {
+    "hv": "CHU",
+    "vn": "vòng, chu vi"
+  },
+  "巠": {
+    "hv": "KINH",
+    "vn": "mạch nước ngầm"
+  },
+  "倉": {
+    "hv": "THƯƠNG",
+    "vn": "kho"
+  },
+  "甚": {
+    "hv": "THẬM",
+    "vn": "rất, lắm"
+  },
+  "良": {
+    "hv": "LƯƠNG",
+    "vn": "tốt"
+  },
+  "巴": {
+    "hv": "BA",
+    "vn": "cõng, trông mong"
+  },
+  "曼": {
+    "hv": "MAN",
+    "vn": "dài, rộng"
+  },
+  "咢": {
+    "hv": "NGẠC",
+    "vn": "kinh ngạc"
+  },
+  "告": {
+    "hv": "CÁO",
+    "vn": "bảo, báo"
+  },
+  "詹": {
+    "hv": "CHIÊM",
+    "vn": "lan man, nhìn"
+  },
+  "翟": {
+    "hv": "ĐỊCH",
+    "vn": "chim trĩ"
+  },
+  "孚": {
+    "hv": "PHU",
+    "vn": "tin tưởng, ấp trứng"
+  },
+  "从": {
+    "hv": "TÒNG",
+    "vn": "theo (cổ)",
+    "variantOf": "從"
+  },
+  "呂": {
+    "hv": "LỮ",
+    "vn": "âm luật"
+  },
+  "叚": {
+    "hv": "GIÁ",
+    "vn": "mượn"
+  },
+  "扁": {
+    "hv": "BIỂN",
+    "vn": "dẹt"
+  },
+  "尃": {
+    "hv": "PHÚ",
+    "vn": "phổ biến"
+  },
+  "專": {
+    "hv": "CHUYÊN",
+    "vn": "chuyên"
+  },
+  "童": {
+    "hv": "ĐỒNG",
+    "vn": "trẻ con"
+  },
+  "壽": {
+    "hv": "THỌ",
+    "vn": "sống lâu"
+  },
+  "監": {
+    "hv": "GIÁM",
+    "vn": "giám sát"
+  },
+  "元": {
+    "hv": "NGUYÊN",
+    "vn": "đầu, gốc"
+  },
+  "畐": {
+    "hv": "BÌ",
+    "vn": "đầy đủ"
+  },
+  "夬": {
+    "hv": "QUYẾT",
+    "vn": "quyết đoán"
+  },
+  "枼": {
+    "hv": "DIỆP",
+    "vn": "tấm, lá mỏng"
+  },
+  "眞": {
+    "hv": "CHÂN",
+    "vn": "thật (cổ)",
+    "variantOf": "真"
+  },
+  "差": {
+    "hv": "SAI",
+    "vn": "khác biệt, sai"
+  },
+  "喿": {
+    "hv": "TAO",
+    "vn": "tiếng chim kêu"
+  },
+  "丰": {
+    "hv": "PHONG",
+    "vn": "mỹ miều, tốt tươi"
+  },
+  "享": {
+    "hv": "HƯỞNG",
+    "vn": "hưởng thụ"
+  },
+  "襄": {
+    "hv": "TƯƠNG",
+    "vn": "giúp đỡ"
+  },
+  "勺": {
+    "hv": "THƯỢC",
+    "vn": "cái thìa"
+  },
+  "冓": {
+    "hv": "CẤU",
+    "vn": "gặp gỡ; bộ phận"
+  },
+  "刄": {
+    "hv": "NHẪN",
+    "vn": "lưỡi dao (cổ)",
+    "variantOf": "刃"
+  },
+  "弗": {
+    "hv": "PHẤT",
+    "vn": "chẳng"
+  },
+  "未": {
+    "hv": "VỊ",
+    "vn": "chưa"
+  },
+  "兒": {
+    "hv": "NHI",
+    "vn": "trẻ em"
+  },
+  "侖": {
+    "hv": "LUÂN",
+    "vn": "mạch lạc"
+  },
+  "勿": {
+    "hv": "VẬT",
+    "vn": "đừng"
+  },
+  "禺": {
+    "hv": "NGUNG",
+    "vn": "khỉ, cõi"
+  },
+  "敖": {
+    "hv": "NGAO",
+    "vn": "rong chơi, kiêu ngạo"
+  },
+  "夭": {
+    "hv": "YÊU",
+    "vn": "chết non; trẻ đẹp"
+  },
+  "夸": {
+    "hv": "KHOA",
+    "vn": "khoe khoang"
+  },
+  "奴": {
+    "hv": "NÔ",
+    "vn": "tôi tớ"
+  },
+  "次": {
+    "hv": "THỨ",
+    "vn": "thứ, lần"
+  },
+  "咸": {
+    "hv": "HÀM",
+    "vn": "đều, tất cả"
+  },
+  "咼": {
+    "hv": "OA",
+    "vn": "miệng méo"
+  },
+  "复": {
+    "hv": "PHỤC",
+    "vn": "trở lại"
+  },
+  "旬": {
+    "hv": "TUẦN",
+    "vn": "tuần (10 ngày)"
+  },
+  "央": {
+    "hv": "ƯƠNG",
+    "vn": "giữa"
+  },
+  "睪": {
+    "hv": "DỊCH",
+    "vn": "rình xét"
+  },
+  "巨": {
+    "hv": "CỰ",
+    "vn": "lớn, khổng lồ"
+  },
+  "胡": {
+    "hv": "HỒ",
+    "vn": "cằm; tên dân tộc"
+  },
+  "留": {
+    "hv": "LƯU",
+    "vn": "giữ lại"
+  },
+  "マ": {
+    "hv": "MA",
+    "vn": "biến thể (katakana ma)"
+  },
+  "亢": {
+    "hv": "KHÁNG",
+    "vn": "cao, kháng cự"
+  },
+  "卆": {
+    "hv": "TỐT",
+    "vn": "chết, kết thúc (cổ)",
+    "variantOf": "卒"
+  },
+  "司": {
+    "hv": "TI",
+    "vn": "cai quản"
+  },
+  "冊": {
+    "hv": "SÁCH",
+    "vn": "sách, cuốn"
+  },
+  "更": {
+    "hv": "CANH",
+    "vn": "thay đổi; canh giờ"
+  },
+  "弟": {
+    "hv": "ĐỆ",
+    "vn": "em trai"
+  },
+  "攸": {
+    "hv": "DU",
+    "vn": "nơi, chỗ"
+  },
+  "奄": {
+    "hv": "YỂM",
+    "vn": "che, bao"
+  },
+  "幸": {
+    "hv": "HẠNH",
+    "vn": "may mắn"
+  },
+  "卓": {
+    "hv": "TRÁC",
+    "vn": "cao, nổi bật"
+  },
+  "㑒": {
+    "hv": "KIỂM",
+    "vn": "cùng nhau (cổ)",
+    "variantOf": "僉"
+  },
+  "旁": {
+    "hv": "BÀNG",
+    "vn": "cạnh, bên"
+  },
+  "喬": {
+    "hv": "KIỀU",
+    "vn": "cao"
+  },
+  "曽": {
+    "hv": "TĂNG",
+    "vn": "từng, đã (giản thể)",
+    "variantOf": "曾"
+  },
+  "義": {
+    "hv": "NGHĨA",
+    "vn": "nghĩa"
+  },
+  "豈": {
+    "hv": "KHỞI",
+    "vn": "há, chẳng"
+  },
+  "开": {
+    "hv": "KHAI",
+    "vn": "mở (giản thể)",
+    "variantOf": "開"
+  },
+  "垂": {
+    "hv": "THÙY",
+    "vn": "rủ xuống"
+  },
+  "帝": {
+    "hv": "ĐẾ",
+    "vn": "vua, đế"
+  },
+  "耑": {
+    "hv": "ĐOAN",
+    "vn": "đầu mối"
+  },
+  "酋": {
+    "hv": "TỬU",
+    "vn": "rượu cũ; thủ lĩnh"
+  },
+  "屯": {
+    "hv": "TRUÂN",
+    "vn": "tích chứa; đồn"
+  },
+  "蜀": {
+    "hv": "THỤC",
+    "vn": "Thục (nước cổ)"
+  },
+  "朋": {
+    "hv": "BẰNG",
+    "vn": "bè bạn"
+  },
+  "亦": {
+    "hv": "DIỆC",
+    "vn": "cũng"
+  },
+  "肙": {
+    "hv": "QUYỀN",
+    "vn": "bọ nhỏ"
+  },
+  "弱": {
+    "hv": "NHƯỢC",
+    "vn": "yếu"
+  },
+  "啇": {
+    "hv": "ĐÍCH",
+    "vn": "gốc"
+  },
+  "頼": {
+    "hv": "LẠI",
+    "vn": "cậy, dựa"
+  },
+  "尓": {
+    "hv": "NHĨ",
+    "vn": "ngươi (cổ)",
+    "variantOf": "爾"
+  },
+  "昆": {
+    "hv": "CÔN",
+    "vn": "anh, sau"
+  },
+  "爭": {
+    "hv": "TRANH",
+    "vn": "tranh giành"
+  },
+  "登": {
+    "hv": "ĐĂNG",
+    "vn": "lên"
+  },
+  "敝": {
+    "hv": "TỆ",
+    "vn": "rách, kém"
+  },
+  "冘": {
+    "hv": "DÂM",
+    "vn": "trì hoãn"
+  },
+  "兌": {
+    "hv": "ĐOÁI",
+    "vn": "đổi"
+  },
+  "犮": {
+    "hv": "BẠT",
+    "vn": "chó chạy"
+  },
+  "定": {
+    "hv": "ĐỊNH",
+    "vn": "định, an"
+  },
+  "樂": {
+    "hv": "NHẠC",
+    "vn": "nhạc, vui"
+  },
+  "賣": {
+    "hv": "MẠI",
+    "vn": "bán"
+  },
+  "乃": {
+    "hv": "NÃI",
+    "vn": "bèn, là"
+  },
+  "具": {
+    "hv": "CỤ",
+    "vn": "đủ, đồ dùng"
+  },
+  "匂": {
+    "hv": "CHỈ",
+    "vn": "mùi, hương"
+  },
+  "中": {
+    "hv": "TRUNG",
+    "vn": "giữa"
+  },
+  "七": {
+    "hv": "THẤT",
+    "vn": "bảy"
+  },
+  "九": {
+    "hv": "CỬU",
+    "vn": "chín"
+  },
+  "三": {
+    "hv": "TAM",
+    "vn": "ba"
+  },
+  "不": {
+    "hv": "BẤT",
+    "vn": "không"
+  },
+  "下": {
+    "hv": "HẠ",
+    "vn": "dưới"
+  },
+  "丁": {
+    "hv": "ĐINH",
+    "vn": "đinh, đứa"
+  },
+  "正": {
+    "hv": "CHÍNH",
+    "vn": "đúng, chính"
+  },
+  "廿": {
+    "hv": "NHẬP",
+    "vn": "hai mươi"
+  },
+  "千": {
+    "hv": "THIÊN",
+    "vn": "nghìn"
+  },
+  "北": {
+    "hv": "BẮC",
+    "vn": "phía Bắc"
+  },
+  "回": {
+    "hv": "HỒI",
+    "vn": "quay về"
+  },
+  "内": {
+    "hv": "NỘI",
+    "vn": "trong"
+  },
+  "了": {
+    "hv": "LIỄU",
+    "vn": "xong"
+  },
+  "井": {
+    "hv": "TỈNH",
+    "vn": "giếng"
+  },
+  "之": {
+    "hv": "CHI",
+    "vn": "của (cổ)"
+  },
+  "反": {
+    "hv": "PHẢN",
+    "vn": "ngược lại"
+  },
+  "介": {
+    "hv": "GIỚI",
+    "vn": "giữa, trung gian"
+  },
+  "壬": {
+    "hv": "NHÂM",
+    "vn": "nhâm (can chi)"
+  },
+  "丈": {
+    "hv": "TRƯỢNG",
+    "vn": "trượng, lớn"
+  },
+  "卬": {
+    "hv": "NGẨNG",
+    "vn": "ngẩng, cao"
+  },
+  "丱": {
+    "hv": "QUÁN",
+    "vn": "tóc bím"
+  },
+  "早": {
+    "hv": "TẢO",
+    "vn": "sớm"
+  },
+  "乞": {
+    "hv": "KHẤT",
+    "vn": "xin"
+  },
+  "互": {
+    "hv": "HỖ",
+    "vn": "lẫn nhau"
+  },
+  "兩": {
+    "hv": "LƯỠNG",
+    "vn": "hai, cặp"
+  },
+  "𠂉": {
+    "hv": "NHÂN",
+    "vn": "người (biến thể)",
+    "variantOf": "人"
+  },
+  "𠂊": {
+    "hv": "TRẢO",
+    "vn": "móng vuốt (biến thể)",
+    "variantOf": "爪"
+  },
+  "𠦝": {
+    "hv": "TẢO",
+    "vn": "sớm (biến thể)",
+    "variantOf": "早"
+  },
+  "𡗗": {
+    "hv": "XUÂN",
+    "vn": "biến thể của 春 ở trên"
+  },
+  "𥁕": {
+    "hv": "ÔN",
+    "vn": "ấm (biến thể)",
+    "variantOf": "温"
+  },
+  "𤇾": {
+    "hv": "VINH",
+    "vn": "sáng (biến thể)",
+    "variantOf": "榮"
+  },
+  "𦥑": {
+    "hv": "CÚC",
+    "vn": "hai bàn tay nâng (cổ)"
+  },
+  "䜌": {
+    "hv": "LUÂN",
+    "vn": "rối tung"
+  },
+  "䍃": {
+    "hv": "DAO",
+    "vn": "bình gốm"
+  },
+  "㐬": {
+    "hv": "LƯU",
+    "vn": "trôi (biến thể)",
+    "variantOf": "流"
+  },
+  "乂": {
+    "hv": "NGHỆ",
+    "vn": "gặt"
+  },
+  "再": {
+    "hv": "TÁI",
+    "vn": "lại, lần nữa"
+  },
+  "尚": {
+    "hv": "THƯỢNG",
+    "vn": "còn, vẫn"
+  },
+  "尤": {
+    "hv": "VƯU",
+    "vn": "càng"
+  },
+  "崇": {
+    "hv": "SÙNG",
+    "vn": "cao quý"
+  },
+  "丯": {
+    "hv": "PHONG",
+    "vn": "tươi tốt"
+  },
+  "巳": {
+    "hv": "TỴ",
+    "vn": "tỵ (can chi); thai"
+  }
+}

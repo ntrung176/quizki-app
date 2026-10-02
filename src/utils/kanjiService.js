@@ -2,6 +2,7 @@ import { db, storage, appId } from '../config/firebase';
 import { collection, getDocs, query, where, doc, setDoc, onSnapshot, limit, startAfter } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getCacheConfig } from './cacheConfigService';
+import { getJotobaKanjiData } from '../data/jotobaKanjiData';
 
 // In-memory module cache
 let cachedKanjiList = null;
@@ -166,10 +167,29 @@ export const getSharedKanjiList = async () => {
                 throw new Error('Response is not JSON (got: ' + contentType + ')');
             }
 
-            cachedKanjiList = await dataRes.json();
+            const rawKanjiList = await dataRes.json();
             lastLoadedExportedAt = currentExport || null;
 
-            // Merge local edited kanji map over CDN list
+            // Normalize with OpenJLPT authoritative data
+            cachedKanjiList = rawKanjiList.map(k => {
+                const char = (k.character || k.literal || '').trim();
+                const jData = getJotobaKanjiData(char);
+                if (jData && !k._userEdited) {
+                    return {
+                        ...k,
+                        sinoViet: jData.sinoViet || k.sinoViet,
+                        meaning: jData.meaningVi || k.meaning,
+                        meaningVi: jData.meaningVi || k.meaningVi,
+                        onyomi: (jData.onyomi?.length ? jData.onyomi.join('、') : '') || k.onyomi,
+                        kunyomi: (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || k.kunyomi,
+                        level: jData.level || k.level,
+                        openJlptOrder: jData.openJlptOrder || k.openJlptOrder
+                    };
+                }
+                return k;
+            });
+
+            // Merge local edited kanji map over list
             const localEditedMap = getCachedKanjiMap();
             if (localEditedMap && Object.keys(localEditedMap).length > 0) {
                 const listMap = new Map(cachedKanjiList.map(k => [k.id || k.character, k]));
@@ -188,7 +208,24 @@ export const getSharedKanjiList = async () => {
             console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
             try {
                 const snap = await getDocs(collection(db, 'kanji'));
-                cachedKanjiList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                cachedKanjiList = snap.docs.map(d => {
+                    const data = { id: d.id, ...d.data() };
+                    const char = (data.character || data.literal || '').trim();
+                    const jData = getJotobaKanjiData(char);
+                    if (jData && !data._userEdited) {
+                        return {
+                            ...data,
+                            sinoViet: jData.sinoViet || data.sinoViet,
+                            meaning: jData.meaningVi || data.meaning,
+                            meaningVi: jData.meaningVi || data.meaningVi,
+                            onyomi: (jData.onyomi?.length ? jData.onyomi.join('、') : '') || data.onyomi,
+                            kunyomi: (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || data.kunyomi,
+                            level: jData.level || data.level,
+                            openJlptOrder: jData.openJlptOrder || data.openJlptOrder
+                        };
+                    }
+                    return data;
+                });
                 return cachedKanjiList;
             } catch (fsErr) {
                 console.error('Error loading shared kanji list from Firestore fallback:', fsErr);

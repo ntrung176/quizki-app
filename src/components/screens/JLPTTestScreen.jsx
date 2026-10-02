@@ -31,6 +31,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         savedProgresses,
         setSavedProgresses,
         notes,
+        wrongQuestions,
+        recordWrongQuestions,
+        removeWrongQuestion,
+        clearAllWrongQuestions,
         saveCompletedTestsToFirestore,
         saveProgressesToFirestore,
         saveNotesMultiple,
@@ -418,6 +422,61 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
         saveProgressesToFirestore(newProgresses);
 
+        // Record wrong questions automatically to Wrong Notebook
+        const wrongItems = {};
+        if (activeTest?.sections) {
+            activeTest.sections.forEach((sec, si) => {
+                (sec.questions || []).forEach((q, qi) => {
+                    if (q.subQuestions && q.subQuestions.length > 0) {
+                        q.subQuestions.forEach((sq, sqi) => {
+                            const userAns = answers[subAnswerKey(si, qi, sqi)];
+                            if (userAns !== undefined && userAns !== sq.correctAnswer) {
+                                const qKey = `${activeTest.id}_s${si}_q${qi}_sq${sqi}`;
+                                wrongItems[qKey] = {
+                                    testId: activeTest.id,
+                                    testTitle: activeTest.title || 'Đề thi JLPT',
+                                    level: activeTest.level || 'N2',
+                                    sectionTitle: sec.title || '',
+                                    sectionType: sec.type || '',
+                                    skillType: sec.type || activeTest.skill || 'grammar',
+                                    question: sq.question || q.question || '',
+                                    options: sq.options || q.options || [],
+                                    correctAnswer: sq.correctAnswer,
+                                    userAnswer: userAns,
+                                    explanation: sq.explanation || q.explanation || '',
+                                    passage: q.passage || '',
+                                    date: new Date().toISOString()
+                                };
+                            }
+                        });
+                    } else {
+                        const userAns = answers[answerKey(si, qi)];
+                        if (userAns !== undefined && userAns !== q.correctAnswer) {
+                            const qKey = `${activeTest.id}_s${si}_q${qi}`;
+                            wrongItems[qKey] = {
+                                testId: activeTest.id,
+                                testTitle: activeTest.title || 'Đề thi JLPT',
+                                level: activeTest.level || 'N2',
+                                sectionTitle: sec.title || '',
+                                sectionType: sec.type || '',
+                                skillType: sec.type || activeTest.skill || 'grammar',
+                                question: q.question || '',
+                                options: q.options || [],
+                                correctAnswer: q.correctAnswer,
+                                userAnswer: userAns,
+                                explanation: q.explanation || '',
+                                passage: q.passage || '',
+                                date: new Date().toISOString()
+                            };
+                        }
+                    }
+                });
+            });
+        }
+        if (Object.keys(wrongItems).length > 0) {
+            recordWrongQuestions(wrongItems);
+        }
+
         setShowResult(true);
         setShowDetailedReview(false);
         playCompletionFanfare();
@@ -426,6 +485,36 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const testXp = ((results.correct || 0) * 10) + 100;
             if (testXp > 0) awardXP(testXp);
         }
+    };
+
+    const handleStartPracticeWrong = (wrongList) => {
+        if (!wrongList || wrongList.length === 0) return;
+        
+        const questions = wrongList.map((item, idx) => ({
+            id: `wrong_q_${idx}`,
+            question: item.question,
+            options: item.options,
+            correctAnswer: item.correctAnswer,
+            explanation: item.explanation,
+            passage: item.passage
+        }));
+
+        const practiceTest = {
+            id: `practice_wrong_${Date.now()}`,
+            title: `Luyện tập câu sai (${wrongList.length} câu)`,
+            level: wrongList[0]?.level || 'JLPT',
+            timeLimit: Math.max(10, Math.ceil(wrongList.length * 1.5)),
+            sections: [
+                {
+                    id: 'sec_wrong',
+                    title: 'Các câu hỏi cần ôn luyện lại',
+                    type: 'mixed',
+                    questions: questions
+                }
+            ]
+        };
+
+        initTest(practiceTest, 'practice');
     };
 
     const exitTest = () => {
@@ -962,6 +1051,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 setShowPremiumModal={setShowPremiumModal}
                 setLockedPkgName={setLockedPkgName}
                 notification={notification}
+                wrongQuestions={wrongQuestions}
+                onRemoveWrongQuestion={removeWrongQuestion}
+                onClearAllWrongQuestions={clearAllWrongQuestions}
+                onStartPracticeWrong={handleStartPracticeWrong}
             />
             {renderModeSelectionModal()}
             <PremiumLockedModal 
